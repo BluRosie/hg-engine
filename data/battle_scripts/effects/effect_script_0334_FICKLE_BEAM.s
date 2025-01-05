@@ -11,7 +11,7 @@ _000:
 _020:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_POWER_MULTI, 20
     // {STRVAR_1 1, 0, 0} is going all out for this attack!
-    PrintMessage 1487, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
+    PrintMessage 1492, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
 

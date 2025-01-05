@@ -4,5 +4,5 @@
 
 _000:
     // {0} became cloaked in freezing light!
-    BufferMessage 1491, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
+    BufferMessage 1496, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     GoToEffectScript 

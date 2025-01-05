@@ -132,9 +132,12 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_TryWish 02242B58 3
 0012 BtlCmd_TryFutureSight 02242570 3
 0012 BtlCmd_SetMultiHit 0223EC10 3
+0012 BtlCmd_GenerateEndOfBattleItem 022440A0 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
+arm9 TT_TrainerTypeSexGet 020735F8 1 
+
 #fix money calculation -
 0012 fix_money_calc 0800829E 0
 
@@ -487,3 +490,8 @@ arm9 form_evo_hook_2 0207641C 0
 0002 PlayerStepEvent_RepelCounterDecrement 0224BAE4 2
 0015 BagApp_GetRepelStepCountAddr 021F993C 3
 #endif
+
+0012 BattleContext_Main 022486B0 2
+
+arm9 sub_0207B0B0 0207B0B0 2
+arm9 sub_0207AFC4 0207AFC4 1

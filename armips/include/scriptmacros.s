@@ -1070,6 +1070,7 @@ MovementEnd equ 0x00FE
 .halfword arg0
 .endmacro
 
+// Pokegear Contacts
 PHONE_CONTACT_NONE                equ 0xff
 PHONE_CONTACT_MOTHER              equ    0
 PHONE_CONTACT_PROF__ELM           equ    1
@@ -1146,7 +1147,7 @@ PHONE_CONTACT_KAY_AND_TIA         equ   71
 PHONE_CONTACT_REESE               equ   72
 PHONE_CONTACT_AIDEN               equ   73
 PHONE_CONTACT_ERNEST              equ   74
-NUM_PHONE_CONTACTS                equ   75
+NUM_PHONE_CONTACTS                equ   75 
 
 .macro check_registered_phone_number,arg0,arg1
 .halfword 147
@@ -2994,12 +2995,12 @@ BADGE_EARTH    equ 15
 .halfword 465
 .halfword arg0
 .if arg0 <= 3
-	.halfword arg1
-	.halfword arg2
+    .halfword arg1
+    .halfword arg2
 .else
-	.if arg0 != 6
-		.halfword arg1
-	.endif
+    .if arg0 != 6
+        .halfword arg1
+    .endif
 .endif
 .endmacro
 
@@ -5214,11 +5215,11 @@ RIBBON_MAX                    equ 80
 // Generic compare macro which attempts to deduce argument types based on their values
 // Any values between 0x4000 to 0x40FF and 0x8000 to 0x8015 are considered event variable identifiers
 .macro compare,var,arg
-	.if ((arg >= VARS_START && arg <= VARS_END) || (arg >= SPECIAL_VARS_START && arg <= SPECIAL_VARS_END))
-		compare_var_to_var var,arg
-	.else
-		compare_var_to_value var,arg
-	.endif
+    .if ((arg >= VARS_START && arg <= VARS_END) || (arg >= SPECIAL_VARS_START && arg <= SPECIAL_VARS_END))
+        compare_var_to_var var,arg
+    .else
+        compare_var_to_value var,arg
+    .endif
 .endmacro
 
 .macro goto_if_unset,flag,dest
@@ -5401,9 +5402,9 @@ TRIGGER_LOAD_GAME equ 4
 .macro level_script,type,script
 .byte type
 .if (type == TRIGGER_VARIABLE_VALUE)
-	.word script-.-4
+    .word script-.-4
 .else
-	.word script+1
+    .word script+1
 .endif
 .endmacro
 
@@ -6094,6 +6095,79 @@ TRIGGER_LOAD_GAME equ 4
 .halfword arg1
 .endmacro
 
+MOVE_0_None                                                     equ 0
+MOVE_1_None                                                     equ 1
+MOVE_2_Looking_In_All_Directions                                equ 2
+MOVE_3_Walking_In_All_Directions                                equ 3
+MOVE_4_Walking_Up_and_Down                                      equ 4
+MOVE_5_Walking_Left_and_Right                                   equ 5
+MOVE_6_Looking_Up_and_Left                                      equ 6
+MOVE_7_Looking_Up_and_Right                                     equ 7
+MOVE_8_Looking_Down_and_Left                                    equ 8
+MOVE_9_Looking_Down_and_Right                                   equ 9
+MOVE_10_Looking_Up_Down_and_Left                                equ 10
+MOVE_11_Looking_Up_Right_and_Down                               equ 11
+MOVE_12_Looking_Right_Left_and_Up                               equ 12
+MOVE_13_Looking_Right_Left_and_Down                             equ 13
+MOVE_14_Facing_Up                                               equ 14
+MOVE_15_Facing_Down                                             equ 15
+MOVE_16_Facing_Left                                             equ 16
+MOVE_17_Facing_Right                                            equ 17
+MOVE_18_Counterclockwise_Spinning                               equ 18
+MOVE_19_Clockwise_Spinning                                      equ 19
+MOVE_20_Running_Side_To_Side                                    equ 20 // can be either horizontally or vertically depending on the overworld's movement ranges
+MOVE_21_L_Run_Up_and_Right                                      equ 21
+MOVE_22_Patrols_Then_Stops_CRASH                                equ 22
+MOVE_23_Patrols_Then_Stops_CRASH                                equ 23
+MOVE_24_L_Run_Up_and_Right                                      equ 24
+MOVE_25_Patrols_Then_Stops_CRASH                                equ 25
+MOVE_26_Patrols_Then_Stops_CRASH                                equ 26
+MOVE_27_Patrols_Then_Stops                                      equ 27
+MOVE_28_L_Run_Right_and_Down                                    equ 28
+MOVE_29_L_Run_Left_and_Up                                       equ 29
+MOVE_30_Continuous_Patrolling_CRASH                             equ 30
+MOVE_31_Continuous_Patrolling_CRASH                             equ 31
+MOVE_32_L_Run_Down_and_Right                                    equ 32
+MOVE_33_L_Run_Right_and_Up                                      equ 33
+MOVE_34_Patrols_Then_Stops                                      equ 34
+MOVE_35_Patrols_Then_Stops                                      equ 35
+MOVE_36_L_Run_Down_and_Left                                     equ 36
+MOVE_37_Running_Up_Left_Down_Right                              equ 37
+MOVE_38_Running_Down_Right_Up_Left                              equ 38
+MOVE_39_Running_Left_Down_Right_Up                              equ 39
+MOVE_40_Runing_Right_Up_Left_Down                               equ 40
+MOVE_41_Running_Up_Right_Down_Left                              equ 41
+MOVE_42_Running_Down_Left_Up_Right                              equ 42
+MOVE_43_Running_Left_Up_Right_Down                              equ 43
+MOVE_44_Running_Right_Down_Left_Up                              equ 44
+MOVE_45_Looking_Up_and_Down                                     equ 45
+MOVE_46Looking_Right_and_Left                                   equ 46
+MOVE_47_CRASH                                                   equ 47
+MOVE_48_Follow_Hero                                             equ 48
+MOVE_49_Spin_Down_Right_and_Up                                  equ 49
+MOVE_50_Looking_Down                                            equ 50
+MOVE_51_Hidden_Under_Snow                                       equ 51
+MOVE_52_Hidden_Under_Snow                                       equ 52
+MOVE_53_Hidden_Underground                                      equ 53
+MOVE_54_Hidden_Under_Grass                                      equ 54
+MOVE_55_Follow_Hero                                             equ 55
+MOVE_56_Disappears                                              equ 56
+MOVE_57_Looking_Left                                            equ 57
+MOVE_58_Looking_Right                                           equ 58
+MOVE_59_Mimick_Player_Direction                                 equ 59
+MOVE_60_Mimick_Player_Direction                                 equ 60
+MOVE_61_Mimick_Player_Direction                                 equ 61
+MOVE_62_Mimick_Player_Direction                                 equ 62
+MOVE_63_NOTHING                                                 equ 63
+MOVE_64_NOTHING                                                 equ 64
+MOVE_65_NOTHING                                                 equ 65
+MOVE_66_NOTHING                                                 equ 66
+MOVE_67_Walking_Right_Left_CRASH                                equ 67
+MOVE_68_Looking_Right                                           equ 68
+MOVE_69_NOTHING                                                 equ 69
+MOVE_70_NOTHING                                                 equ 70
+MOVE_71_Looking_Left                                            equ 71
+
 .macro GiveMoney,arg0
 .halfword 110
 .word arg0
@@ -6451,6 +6525,11 @@ TRIGGER_LOAD_GAME equ 4
 .halfword color
 .endmacro
 
+FADE_OUT                                equ 0
+FADE_IN                                 equ 1
+FADE_RGB_BLACK                          equ 0
+FADE_RGB_WHITE                          equ 32767       // 0x7FFF
+
 .macro WaitFadeScreen
 .halfword 175
 .endmacro
@@ -6528,6 +6607,8 @@ TRIGGER_LOAD_GAME equ 4
 .halfword 188
 .halfword arg0
 .endmacro
+
+FORM_ROCKET_DISGUISE                    equ 1024
 
 .macro UpdatePlayerForm
 .halfword 189
@@ -7576,6 +7657,12 @@ RunNewCommand NEW_COMMAND_QUEUE_NEW_REPEL, 0x800C
 .halfword arg0
 .endmacro
 
+TIME_MORNING                    equ 0           // 4:00-9:59
+TIME_AFTERNOON                  equ 1           // 10:00-16:59
+TIME_EVENING                    equ 2           // 17:00-19:59
+TIME_NIGHT                      equ 3           // 20:00-23:59
+TIME_MIDNIGHT                   equ 4           // 24:00-3:59
+
 .macro GetRandom,arg0,arg1
 .halfword 380
 .halfword arg0
@@ -8080,12 +8167,12 @@ RunNewCommand NEW_COMMAND_QUEUE_NEW_REPEL, 0x800C
 .halfword 465
 .halfword arg0
 .if arg0 <= 3
-	.halfword arg1
-	.halfword arg2
+    .halfword arg1
+    .halfword arg2
 .else
-	.if arg0 != 6
-		.halfword arg1
-	.endif
+    .if arg0 != 6
+        .halfword arg1
+    .endif
 .endif
 .endmacro
 
@@ -8189,6 +8276,14 @@ RunNewCommand NEW_COMMAND_QUEUE_NEW_REPEL, 0x800C
 .halfword 484
 .halfword arg0
 .endmacro
+
+DAY_SUNDAY                                  equ 0
+DAY_MONDAY                                  equ 1
+DAY_TUESDAY                                 equ 2
+DAY_WEDNESDAY                               equ 3
+DAY_THURSDAY                                equ 4
+DAY_FRIDAY                                  equ 5
+DAY_SATURDAY                                equ 6
 
 .macro ShowRulesList,arg0
 .halfword 485
@@ -8905,6 +9000,99 @@ RunNewCommand NEW_COMMAND_QUEUE_NEW_REPEL, 0x800C
 .halfword 615
 .halfword arg0
 .endmacro
+
+.macro TakePhoto,arg0
+.halfword 615
+.halfword arg0
+.endmacro
+
+// Photo IDs
+PHOTO_NEW_BARK_TOWN                         equ 0
+PHOTO_CHERRYGROVE_CITY                      equ 1
+PHOTO_FALKNER                               equ 2
+PHOTO_RUINS_OF_ALPH_EX                      equ 3
+PHOTO_RUINS_OF_ALPH_IN                      equ 4
+PHOTO_ROUTE_32                              equ 5
+PHOTO_SLOWPOKE_WELL                         equ 6
+PHOTO_BUGSY                                 equ 7
+PHOTO_ILEX_FOREST                           equ 8
+PHOTO_ROUTE_34_WITH_DAYCARE_MAN             equ 9
+PHOTO_GOLDENROD_TUNNEL_TEAM_ROCKET          equ 10
+PHOTO_ROUTE_35                              equ 11
+PHOTO_NATIONAL_PARK_GATE                    equ 12
+PHOTO_POKEATHLON_DOME_APRIJUICE             equ 13
+PHOTO_POKEATHLON_DOME                       equ 14
+PHOTO_WHITNEY                               equ 15
+PHOTO_NATIONAL_PARK_FOUNTAIN                equ 16
+PHOTO_NATIONAL_PARK                         equ 17
+PHOTO_ECRUTEAK_CITY                         equ 19
+PHOTO_MORTY                                 equ 20
+
+PHOTO_OLIVINE_CITY                          equ 23
+
+PHOTO_OLIVINE_CAFE                          equ 25
+
+PHOTO_GLITTER_LIGHTHOUSE                    equ 27
+PHOTO_ROUTE_39                              equ 28
+PHOTO_JOHTO_FRONTIER_ACCESS                 equ 29
+
+PHOTO_JOHTO_BATTLE_FRONTIER                 equ 31
+
+PHOTO_CIANWOOD_CITY                         equ 35
+
+PHOTO_ROUTE_48                              equ 37
+PHOTO_SAFARI_ZONE_GATE                      equ 38
+
+PHOTO_PRYCE                                 equ 40
+
+PHOTO_ICE_PATH                              equ 43
+PHOTO_BLACKTHORN_CITY                       equ 44
+
+PHOTO_DRAGON_MASTER                         equ 46
+PHOTO_ROUTE_45                              equ 47
+PHOTO_ROUTE_26                              equ 48
+
+PHOTO_VERMILION_CITY                        equ 50
+
+PHOTO_SAFFRON_CITY_TRAIN_STATION            equ 52
+PHOTO_SILPH_CO_EX                           equ 53
+
+PHOTO_CERULEAN_CITY                         equ 55
+
+PHOTO_CELADON_CITY                          equ 57
+PHOTO_CELADON_CITY_DEPARTMENT_STORE         equ 58
+PHOTO_ROUTE_12                              equ 59
+PHOTO_ROUTE_14                              equ 60
+
+PHOTO_FUCHSIA_CITY                          equ 62
+
+PHOTO_PEWTER_CITY_MUSEUM                    equ 65
+PHOTO_PEWTER_CITY                           equ 66
+
+PHOTO_VIRIDIAN_CITY                         equ 69
+PHOTO_JANINE                                equ 70
+PHOTO_ROUTE_22                              equ 71
+PHOTO_ROUTE_1                               equ 72
+PHOTO_PALLET_TOWN                           equ 73
+PHOTO_ROUTE_21                              equ 74
+PHOTO_SEAFOAM_ISLANDS                       equ 75
+
+PHOTO_MT_SILVER                             equ 77
+PHOTO_MT_SILVER_CAVE                        equ 78
+
+PHOTO_LT_SURGE                              equ 80
+PHOTO_ERIKA                                 equ 81
+
+PHOTO_CLAIR                                 equ 83
+PHOTO_MISTY                                 equ 84
+PHOTO_BLAINE                                equ 85
+PHOTO_BROCK                                 equ 86
+
+PHOTO_SABRINA                               equ 88
+PHOTO_JASMINE                               equ 89
+PHOTO_PROFESSOR_OAK                         equ 90
+PHOTO_CHUCK                                 equ 91
+PHOTO_BLUE                                  equ 92
 
 .macro CMD_616,arg0
 .halfword 616
@@ -10194,11 +10382,11 @@ RunNewCommand NEW_COMMAND_QUEUE_NEW_REPEL, 0x800C
 // Generic compare macro which attempts to deduce argument types based on their values
 // Any values between 0x4000 to 0x40FF and 0x8000 to 0x8015 are considered event variable identifiers
 //.macro Compare,var,arg
-//	.if ((arg >= VARS_START && arg <= VARS_END) || (arg >= SPECIAL_VARS_START && arg <= SPECIAL_VARS_END))
-//		compare_var_to_var var,arg
-//	.else
-//		compare_var_to_value var,arg
-//	.endif
+//  .if ((arg >= VARS_START && arg <= VARS_END) || (arg >= SPECIAL_VARS_START && arg <= SPECIAL_VARS_END))
+//      compare_var_to_var var,arg
+//  .else
+//      compare_var_to_value var,arg
+//  .endif
 //.endmacro
 
 .macro JumpIfUnset,flag,dest
@@ -10344,3 +10532,21 @@ wait_button_or_walk_away
 closemsg
 releaseall
 .endmacro
+
+// Adapted DSPRE Nomenclature
+LESS                equ 0
+EQUAL               equ 1
+GREATER             equ 2
+LESS_EQUAL          equ 3
+GREATER_EQUAL       equ 4
+DIFFERENT           equ 5
+
+Camera              equ 241
+Apricorn            equ 252
+Following           equ 253
+Player              equ 255
+
+Up                  equ 0
+Down                equ 1
+Left                equ 2
+Right               equ 3
