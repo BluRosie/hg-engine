@@ -27,19 +27,19 @@ int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 
 const AccuracyStatChangeRatio sAccStatChanges[] =
 {
-	{3, 9},
-	{3, 8},
-	{3, 7},
-	{3, 6},
-	{3, 5},
-	{3, 4},
-	{3, 3},
-	{4, 3},
-	{5, 3},
-	{6, 3},
-	{7, 3},
-	{8, 3},
-	{9, 3},
+    {  33, 100 },
+    {  36, 100 },
+    {  43, 100 },
+    {  50, 100 },
+    {  60, 100 },
+    {  75, 100 },
+    {   1,   1 },
+    { 133, 100 },
+    { 166, 100 },
+    {   2,   1 },
+    { 233, 100 },
+    { 133,  50 },
+    {   3,   1 },
 };
 
 const u16 PowderMovesList[] = {
@@ -509,13 +509,13 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     if (atk_ability == ABILITY_COMPOUND_EYES)
     {
-        accuracy = accuracy * 13 / 10;
+        accuracy = accuracy * 130 / 100;
     }
 
     // handle wonder skin
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (GetMoveSplit(sp, move_no) == SPLIT_STATUS))
     {
-        accuracy /= 2;
+        accuracy = accuracy * 50 / 100;
     }
 
     // handle victory star
@@ -528,7 +528,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TANGLED_FEET) == TRUE)
      && (sp->battlemon[defender].condition2 & STATUS2_CONFUSION))
     {
-        accuracy /= 2;
+        accuracy = accuracy * 50 / 100;
     }
 
     hold_effect = HeldItemHoldEffectGet(sp, defender);
@@ -554,7 +554,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     if (sp->boostedAccuracy)
     {
-        accuracy = accuracy * 12 / 10;
+        accuracy = accuracy * 120 / 100;
     }
 
     if (sp->field_condition & FIELD_STATUS_GRAVITY)
@@ -1117,11 +1117,11 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
 
 const u8 CriticalRateTable[] =
 {
-	2,
-	4,
-	6,
-	8,
-	10
+     8,
+     4,
+     2,
+     1,
+     1
 };
 
 // calculates the critical hit multiplier
@@ -1159,7 +1159,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 
     if
     (
-        BattleRand(bw) % 10 <= CriticalRateTable[temp]
+        BattleRand(bw) % CriticalRateTable[temp] == 0
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ALL))
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
     )

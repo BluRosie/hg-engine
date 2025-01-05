@@ -6,6 +6,7 @@
 .include "armips/include/config.s"
 .include "armips/include/movemacros.s"
 
+.include "asm/include/debug.inc"
 .include "asm/include/moves.inc"
 .include "asm/include/move_effects.inc"
 
@@ -138,7 +139,7 @@ movedata MOVE_FIRE_PUNCH, "Fire Punch"
     movedescription MOVE_FIRE_PUNCH, "The foe is punched\nwith a fiery fist.\nIt may leave the\ntarget with a burn."
 
 movedata MOVE_ICE_PUNCH, "Ice Punch"
-    battleeffect MOVE_EFFECT_FROSTBITE_HIT
+    battleeffect MOVE_EFFECT_FREEZE_HIT
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_ICE
@@ -938,7 +939,7 @@ movedata MOVE_SURF, "Surf"
     movedescription MOVE_SURF, "It swamps the entire\nbattlefield with a\ngiant wave.\nIt can also be used\nfor crossing water."
 
 movedata MOVE_ICE_BEAM, "Ice Beam"
-    battleeffect MOVE_EFFECT_FROSTBITE_HIT
+    battleeffect MOVE_EFFECT_FREEZE_HIT
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_ICE
@@ -954,7 +955,7 @@ movedata MOVE_ICE_BEAM, "Ice Beam"
     movedescription MOVE_ICE_BEAM, "The foe is struck\nwith an icy cold\nbeam of energy.\nIt may also freeze\nthe target solid."
 
 movedata MOVE_BLIZZARD, "Blizzard"
-    battleeffect MOVE_EFFECT_FROSTBITE_BLIZZARD
+    battleeffect MOVE_EFFECT_BLIZZARD
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_ICE
@@ -2906,7 +2907,7 @@ movedata MOVE_SPITE, "Spite"
     movedescription MOVE_SPITE, "The user looses its\ngrudge on the move\nlast used by the foe\nby cutting 4 PP from\nit."
 
 movedata MOVE_POWDER_SNOW, "Powder Snow"
-    battleeffect MOVE_EFFECT_FROSTBITE_HIT
+    battleeffect MOVE_EFFECT_FREEZE_HIT
     pss SPLIT_SPECIAL
     basepower 40
     type TYPE_ICE
@@ -5274,7 +5275,7 @@ movedata MOVE_SAND_TOMB, "Sand Tomb"
     movedescription MOVE_SAND_TOMB, "The user traps the\nfoe inside a harshly\nraging sandstorm for\nup to five turns."
 
 movedata MOVE_SHEER_COLD, "Sheer Cold"
-    battleeffect MOVE_EFFECT_FROSTBITE_HIT
+    battleeffect MOVE_EFFECT_FREEZE_HIT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ICE
@@ -8842,7 +8843,7 @@ movedata MOVE_SECRET_SWORD, "Secret Sword"
     movedescription MOVE_SECRET_SWORD, "The user cuts with\nits long horn. The\nodd power in the\nhorn does physical\ndamage to the foe."
 
 movedata MOVE_GLACIATE, "Glaciate"
-    battleeffect MOVE_EFFECT_FROSTBITE_HIT
+    battleeffect MOVE_EFFECT_FREEZE_HIT
     pss SPLIT_SPECIAL
     basepower 125
     type TYPE_ICE
@@ -9226,7 +9227,7 @@ movedata MOVE_PETAL_BLIZZARD, "Petal Blizzard"
     movedescription MOVE_PETAL_BLIZZARD, "The user stirs up a\nviolent petal blizzard\nand attacks everything\naround it."
 
 movedata MOVE_FREEZE_DRY, "Freeze Dry"
-    battleeffect MOVE_EFFECT_FROSTBITE_HIT
+    battleeffect MOVE_EFFECT_FREEZE_HIT
     pss SPLIT_SPECIAL
     basepower 70
     type TYPE_ICE
@@ -13194,7 +13195,7 @@ movedata MOVE_DRAGON_ENERGY, "Dragon Energy"
     movedescription MOVE_DRAGON_ENERGY, "---"
 
 movedata MOVE_FREEZING_GLARE, "Freezing Glare"
-    battleeffect MOVE_EFFECT_FROSTBITE_HIT
+    battleeffect MOVE_EFFECT_FREEZE_HIT
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_PSYCHIC

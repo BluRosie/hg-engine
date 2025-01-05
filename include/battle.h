@@ -3642,4 +3642,6 @@ BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct
 
 BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
 
+BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx);
+
 #endif // BATTLE_H

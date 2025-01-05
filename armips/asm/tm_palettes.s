@@ -377,7 +377,7 @@ PALETTE_FAIRY equ 401
 
 // TM070 FLASH
 .skip 2
-.halfword PALETTE_FAIRY
+.halfword PALETTE_NORMAL
 .skip 4
 
 // TM071 STONE_EDGE

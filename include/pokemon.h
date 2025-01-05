@@ -1824,15 +1824,20 @@ void LONG_CALL Daycare_GetBothBoxMonsPtr(Daycare *dayCare, struct BoxPokemon **b
 
 BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 moveIdx, u32 heapID);
 
-int LONG_CALL LowestFlagNo(u32 mask);
+/**
+ *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
+ *
+ *  @return level cap from LEVEL_CAP_VARIABLE script variable
+ */
+u32 LONG_CALL GetLevelCap(void);
 
-void LONG_CALL ov12_02263D14(void *bsys, int battlerId, u32 a2, int slot);
-
-void LONG_CALL *SelectPartyMonAndLearnMove(void *taskman, u32 heapId);
-
-u32 LONG_CALL CalcMonExpToNextLevel(struct PartyPokemon *mon);
-
-s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor);
+/**
+ *  @brief check if the level is at or above the level cap defined in LEVEL_CAP_VARIABLE
+ *
+ *  @param level level to check
+ *  @return TRUE if level >= level cap; FALSE otherwise
+ */
+u32 LONG_CALL IsLevelAtLevelCap(u32 level);
 
 void LONG_CALL CalcMonStats(struct PartyPokemon *mon);
 
@@ -1876,20 +1881,5 @@ BOOL LONG_CALL AcquireMonLock(struct PartyPokemon *mon);
 BOOL LONG_CALL ReleaseMonLock(struct PartyPokemon *mon, BOOL decrypt_result);
 
 void LONG_CALL LoadMonBaseStats_HandleAlternateForm(int species, int form, BASE_STATS *personal);
-
-/**
- *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
- *
- *  @return level cap from LEVEL_CAP_VARIABLE script variable
- */
-u32 LONG_CALL GetLevelCap(void);
-
-/**
- *  @brief check if the level is at or above the level cap defined in LEVEL_CAP_VARIABLE
- *
- *  @param level level to check
- *  @return TRUE if level >= level cap; FALSE otherwise
- */
-u32 LONG_CALL IsLevelAtLevelCap(u32 level);
 
 #endif

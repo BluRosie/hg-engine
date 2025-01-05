@@ -3914,42 +3914,6 @@ u32 LoadCaptureSuccessSPANumEmitters(u32 id)
         return BallToSpaIDs[id][2];
 }
 
-BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
-    IncrementBattleScriptPtr(ctx, 1);
-
-    int adrs = read_battle_script_param(ctx);
-
-    if (ctx->waza_no_mamoru[ctx->attack_client] != MOVE_PROTECT &&
-			ctx->waza_no_mamoru[ctx->attack_client] != MOVE_DETECT &&
-			ctx->waza_no_mamoru[ctx->attack_client] != MOVE_ENDURE) {
-        ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
-    }
-
-    if ((ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns == 0) && (ctx->client_working_count != 1)) {
-        if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT) {
-            ctx->oneTurnFlag[ctx->attack_client].mamoru_flag = TRUE;
-            ctx->mp.msg_id = 282;
-        }
-        if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
-            ctx->oneTurnFlag[ctx->attack_client].prevent_one_hit_ko_ability = TRUE;
-            ctx->mp.msg_id = 442;
-        }
-        ctx->mp.msg_tag = 2;
-        ctx->mp.msg_para[0] = CreateNicknameTag(ctx, ctx->attack_client);
-
-        if (ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns == 0) {
-            ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 1;
-        }
-
-    } else {
-        ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
-        IncrementBattleScriptPtr(ctx, adrs);
-	}
-	
-	return FALSE;
-}
-
-
 extern const u16 sPickupTable1[18];
 extern const u16 sPickupTable2[11];
 extern const u8 sPickupWeightTable[9];
@@ -4012,4 +3976,39 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
     }
 
     return FALSE;
+}
+
+BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int adrs = read_battle_script_param(ctx);
+
+    if (ctx->waza_no_mamoru[ctx->attack_client] != MOVE_PROTECT &&
+			ctx->waza_no_mamoru[ctx->attack_client] != MOVE_DETECT &&
+			ctx->waza_no_mamoru[ctx->attack_client] != MOVE_ENDURE) {
+        ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
+    }
+
+    if ((ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns == 0) && (ctx->client_working_count != 1)) {
+        if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT) {
+            ctx->oneTurnFlag[ctx->attack_client].mamoru_flag = TRUE;
+            ctx->mp.msg_id = 282;
+        }
+        if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
+            ctx->oneTurnFlag[ctx->attack_client].prevent_one_hit_ko_ability = TRUE;
+            ctx->mp.msg_id = 442;
+        }
+        ctx->mp.msg_tag = 2;
+        ctx->mp.msg_para[0] = CreateNicknameTag(ctx, ctx->attack_client);
+
+        if (ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns == 0) {
+            ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 1;
+        }
+
+    } else {
+        ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
+        IncrementBattleScriptPtr(ctx, adrs);
+	}
+	
+	return FALSE;
 }

@@ -26,20 +26,20 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
 
 const u8 StatBoostModifiers[][2] = {
-	// numerator, denominator
-	{3, 9},
-	{3, 8},
-	{3, 7},
-	{3, 6},
-	{3, 5},
-	{3, 4},
-	{3, 3},
-	{4, 3},
-	{5, 3},
-	{6, 3},
-	{7, 3},
-	{8, 3},
-	{9, 3},
+         // numerator, denominator
+        {          10,          40 },
+        {          10,          35 },
+        {          10,          30 },
+        {          10,          25 },
+        {          10,          20 },
+        {          10,          15 },
+        {          10,          10 },
+        {          15,          10 },
+        {          20,          10 },
+        {          25,          10 },
+        {          30,          10 },
+        {          35,          10 },
+        {          40,          10 },
 };
 
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,

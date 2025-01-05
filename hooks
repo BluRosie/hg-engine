@@ -497,6 +497,6 @@ arm9 form_evo_hook_2 0207641C 0
 arm9 sub_0207B0B0 0207B0B0 2
 arm9 sub_0207AFC4 0207AFC4 1
 
-arm9 CalcMonStats 0206E27C 1
+arm9 CalcMonStats 0206E27C 2
 
 0012 BtlCmd_TryProtection 022413B4 3
