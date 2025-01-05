@@ -325,7 +325,7 @@ static BOOL MegaEvolution(void *bw, struct BattleStruct *sp)
  *  @param bw battle work structure
  *  @param sp global battle structure
  */
-void ServerWazaBefore(void *bw, struct BattleStruct *sp)
+void ServerWazaBefore(struct BattleSystem *bw, struct BattleStruct *sp)
 {
     u32 runMyScriptInstead = 0;
     switch (sp->wb_seq_no)
@@ -342,14 +342,10 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp)
             sp->wb_seq_no++;
             return;
         case SEQ_STATUS_CHECK:
-            if ((sp->waza_out_check_on_off & 0x4) == 0)
-            {
-                //异常状态检查
-                if (ServerStatusCheck(bw, sp) == TRUE)//8013C68h
-                {
-                    return;
-                }
-            }
+            if (!(sp->waza_out_check_on_off & 4) && ServerStatusCheck(bw, sp) == TRUE)
+			{
+				return;
+			}
             sp->wb_seq_no++;
             FALLTHROUGH;
         case SEQ_BADGE_CHECK:

@@ -330,11 +330,11 @@
 #define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP					324
 #define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS        325
 #define MOVE_EFFECT_STICKY_WEB                              326
+#define MOVE_EFFECT_FROSTBITE_HIT                           327
+#define MOVE_EFFECT_FROSTBITE_BLIZZARD                      328
+#define MOVE_EFFECT_FLINCH_FROSTBITE_HIT                    329
 
 //unused move effects
-#define MOVE_EFFECT_UNUSED_327                              327
-#define MOVE_EFFECT_UNUSED_328                              328
-#define MOVE_EFFECT_UNUSED_329                              329
 #define MOVE_EFFECT_UNUSED_330                              330
 #define MOVE_EFFECT_UNUSED_331                              331
 #define MOVE_EFFECT_UNUSED_332                              332

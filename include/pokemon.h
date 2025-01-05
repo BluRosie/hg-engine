@@ -1820,4 +1820,6 @@ BOOL LONG_CALL ReleaseMonLock(struct PartyPokemon *mon, BOOL decrypt_result);
 
 void LONG_CALL LoadMonBaseStats_HandleAlternateForm(int species, int form, BASE_STATS *personal);
 
+int LowestFlagNo(u32 mask);
+
 #endif

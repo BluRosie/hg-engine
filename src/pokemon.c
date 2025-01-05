@@ -33,12 +33,6 @@ void LONG_CALL CalcMonStats(struct PartyPokemon *mon) {
 	int newSpeed;
 	int newSpatk;
 	int newSpdef;
-    int hpIv;
-    int atkIv;
-    int defIv;
-    int speedIv;
-    int spatkIv;
-    int spdefIv;
 
 	BOOL decry = AcquireMonLock(mon);
 	level = (int)GetMonData(mon, MON_DATA_LEVEL, NULL);
@@ -46,37 +40,31 @@ void LONG_CALL CalcMonStats(struct PartyPokemon *mon) {
 	hp = (int)GetMonData(mon, MON_DATA_HP, NULL);
 	form = (int)GetMonData(mon, MON_DATA_FORM, NULL);
 	species = (int)GetMonData(mon, MON_DATA_SPECIES, NULL);
-    hpIv       = (int)GetMonData(mon, MON_DATA_HP_IV, NULL);
-    atkIv      = (int)GetMonData(mon, MON_DATA_ATK_IV, NULL);
-    defIv      = (int)GetMonData(mon, MON_DATA_DEF_IV, NULL);
-    speedIv    = (int)GetMonData(mon, MON_DATA_SPEED_IV, NULL);
-    spatkIv    = (int)GetMonData(mon, MON_DATA_SPATK_IV, NULL);
-    spdefIv    = (int)GetMonData(mon, MON_DATA_SPDEF_IV, NULL);
 
 	baseStats = (BASE_STATS *)sys_AllocMemory(0, sizeof(BASE_STATS));
 	LoadMonBaseStats_HandleAlternateForm(species, form, baseStats);
 
-	newMaxHp = baseStats->hp * level / 50;
+	newMaxHp = baseStats->hp * 3 / 20 + baseStats->hp * level / 100;
 	if (newMaxHp < 1) newMaxHp = 1;
 	SetMonData(mon, MON_DATA_MAXHP, &newMaxHp);
 
-	newAtk = baseStats->atk * level / 50;
+	newAtk = baseStats->atk * 3 / 20 + baseStats->atk * level / 100;
 	if (newAtk < 1) newAtk = 1;
 	SetMonData(mon, MON_DATA_ATTACK, &newAtk);
 
-	newDef = baseStats->def * level / 50;
+	newDef = baseStats->def * 3 / 20 + baseStats->def * level / 100;
 	if (newDef < 1) newDef = 1;
 	SetMonData(mon, MON_DATA_DEFENSE, &newDef);
 
-	newSpeed = baseStats->speed * level / 50;
+	newSpeed = baseStats->speed * 3 / 20 + baseStats->speed * level / 100;
 	if (newSpeed < 1) newSpeed = 1;
 	SetMonData(mon, MON_DATA_SPEED, &newSpeed);
 
-	newSpatk = baseStats->spatk * level / 50;
+	newSpatk = baseStats->spatk * 3 / 20 + baseStats->spatk * level / 100;
 	if (newSpatk < 1) newSpatk = 1;
 	SetMonData(mon, MON_DATA_SPECIAL_ATTACK, &newSpatk);
 
-	newSpdef = baseStats->spdef * level / 50;
+	newSpdef = baseStats->spdef * 3 / 20 + baseStats->spdef * level / 100;
 	if (newSpdef < 1) newSpdef = 1;
 	SetMonData(mon, MON_DATA_SPECIAL_DEFENSE, &newSpdef);
 

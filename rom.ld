@@ -25,7 +25,7 @@ ServerIkariCheck = 0x1672C + 0x022378C1;
 ST_ServerWazaHitTokuseiCheck_Old = 0x1C544 + 0x022378C1;
 ST_ServerWaruagakiCheck = 0x19F2C + 0x022378C1;
 ServerSenseiCheck = 0x143E4 + 0x022378C1;
-ServerStatusCheck = 0x13C68 + 0x022378C1;
+
 ServerBadgeCheck = 0x13610 + 0x022378C1;
 ServerPPCheck = 0x1393C + 0x022378C1;
 ServerDefenceCheck = 0x13AD8 + 0x022378C1;
@@ -192,7 +192,7 @@ BattleWorkWeatherGet = 0x0223BAF8 | 1;
 BattleWorkEnemyClientGet = 0x32F8 + 0x022378C1;
 TraceClientGet = 0x022585B8 | 1;
 IsClientEnemy = 0x0223AB1C | 1;
-TypeCalc = 0x02251D28 | 1;
+/*TypeCalc = 0x02251D28 | 1;*/
 AnticipateMoveEffectListCheck = 0x0225865C | 1;
 BattleRand = 0x0223BD98 | 1;
 ChooseRandomTarget = 0x02253DA0 | 1;
@@ -677,3 +677,7 @@ sHoneyGatherChanceTable = 0x0226CA58;
 AcquireMonLock = 0x0206DD40 | 1;
 LoadMonBaseStats_HandleAlternateForm = 0x020725B4 | 1;
 ReleaseMonLock = 0x0206DD8C | 1;
+
+CopyBattleMonToPartyMon = 0x02250C40 | 1;
+CheckTruant = 0x02252C40 | 1;
+LowestFlagNo = 0x020726E0 | 1;

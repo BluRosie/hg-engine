@@ -493,4 +493,6 @@ arm9 form_evo_hook_2 0207641C 0
 
 arm9 CalcMonStats 0206E27C 1
 
-0012 BtlCmd_TryProtection 022413B4 2
+0012 BtlCmd_TryProtection 022413B4 3
+
+0012 ServerStatusCheck 0224B528 3

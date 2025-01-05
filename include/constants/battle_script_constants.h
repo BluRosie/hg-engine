@@ -389,7 +389,9 @@
 #define SUB_SEQ_CANNOT_USE_MOVE                       (379)
 #define SUB_SEQ_POWER_HERB_METEOR_BEAM                (380)
 #define SUB_SEQ_SP_ATK_UP_RAIN_SKIP                   (381)
-
+#define SUB_SEQ_APPLY_FROSTBITE                       (382)
+#define SUB_SEQ_FROSTBITE_DAMAGE                      (383)
+#define SUB_SEQ_FROSTBITE_OR_FLINCH                   (384)
 
 
 // add status effect constants--used in battle effect scripts to queue up a subscript through the table in src/moves.c
@@ -558,7 +560,8 @@
 #define ADD_STATUS_EFF_QUASH                           (161)
 #define ADD_STATUS_EFF_DRAIN_FULL                      (162)
 #define ADD_STATUS_EFF_SIMPLE_BEAM                     (163)
-
+#define ADD_STATUS_EFF_APPLY_FROSTBITE                 (164)
+#define ADD_STATUS_EFF_FROSTBITE_OR_FLINCH             (165)
 
 
 // additional effect constants

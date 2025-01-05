@@ -76,7 +76,7 @@ Switch
 Exit
 Exit
 Change\nBox
-Change\Wallpaper
+Change\nWallpaper
 Deposit\nPokémon
 Bag
 Give

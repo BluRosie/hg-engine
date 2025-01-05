@@ -184,11 +184,11 @@ _reset_loop:
 .org 0x0224B51C
     .word 0x3186
 
-.org 0x0224B858
-    .word 0x317E
+//.org 0x0224B858
+//    .word 0x317E
 
-.org 0x0224B878
-    .word 0x3181
+//.org 0x0224B878
+//    .word 0x3181
 
 .org 0x0224BCF4
     mov r0, #0x3180 >> 7

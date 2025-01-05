@@ -1734,7 +1734,7 @@ mondata SPECIES_DODRIO, "Dodrio"
 
 mondata SPECIES_SEEL, "Seel"
     basestats 80, 60, 60, 60, 60, 80
-    types TYPE_WATER, TYPE_WATER
+    types TYPE_WATER, TYPE_ICE
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -1754,7 +1754,7 @@ mondata SPECIES_SEEL, "Seel"
 
 mondata SPECIES_DEWGONG, "Dewgong"
     basestats 110, 70, 70, 70, 70, 110
-    types TYPE_WATER, TYPE_WATER
+    types TYPE_WATER, TYPE_ICE
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -1913,7 +1913,7 @@ mondata SPECIES_GENGAR, "Gengar"
     mondexweight SPECIES_GENGAR, "89.3 lbs."
 
 mondata SPECIES_ONIX, "Onix"
-    basestats 180, 50, 50, 60, 30, 30
+    basestats 170, 60, 60, 30, 30, 50
     types TYPE_ROCK, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -4173,7 +4173,7 @@ mondata SPECIES_GLIGAR, "Gligar"
     mondexweight SPECIES_GLIGAR, "142.9 lbs."
 
 mondata SPECIES_STEELIX, "Steelix"
-    basestats 200, 80, 80, 60, 40, 40
+    basestats 200, 80, 80, 30, 50, 60
     types TYPE_STEEL, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -4993,8 +4993,8 @@ mondata SPECIES_TYRANITAR, "Tyranitar"
     mondexweight SPECIES_TYRANITAR, "445.3 lbs."
 
 mondata SPECIES_LUGIA, "Lugia"
-    basestats 90, 80, 100, 100, 80, 150
-    types TYPE_PSYCHIC, TYPE_FLYING
+    basestats 110, 90, 130, 30, 150, 90
+    types TYPE_WATER, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -5012,13 +5012,13 @@ mondata SPECIES_LUGIA, "Lugia"
     mondexheight SPECIES_LUGIA, "17’01”"
     mondexweight SPECIES_LUGIA, "476.2 lbs."
 
-mondata SPECIES_HO_OH, "Ho-oh"
-    basestats 90, 100, 80, 80, 100, 150
+mondata SPECIES_HO_OH, "Ho Oh"
+    basestats 110, 150, 90, 30, 90, 130
     types TYPE_FIRE, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_SACRED_ASH, ITEM_NONE
+    items ITEM_SACRED_ASH, ITEM_SACRED_ASH
     genderratio 255
     eggcycles 0
     basefriendship 0

@@ -227,9 +227,10 @@
 #define STATUS_FLAG_PARALYZED (0x40)
 #define STATUS_FLAG_BADLY_POISONED (0x80)
 #define STATUS_FLAG_TOXIC_COUNT (0xf00)
+#define STATUS_FLAG_FROSTBITTEN (0x1000) 
 
 #define STATUS_POISON_ANY (STATUS_FLAG_POISONED | STATUS_FLAG_BADLY_POISONED | STATUS_FLAG_TOXIC_COUNT)
-#define STATUS_ANY_PERSISTENT (STATUS_FLAG_ASLEEP | STATUS_POISON_ANY | STATUS_FLAG_BURNED | STATUS_FLAG_FROZEN | STATUS_FLAG_PARALYZED)
+#define STATUS_ANY_PERSISTENT (STATUS_FLAG_ASLEEP | STATUS_POISON_ANY | STATUS_FLAG_BURNED | STATUS_FLAG_FROZEN | STATUS_FLAG_PARALYZED | STATUS_FLAG_FROSTBITTEN)
 
 /**
  *  @brief server status flags (for BattleStruct's server_status_flag)
@@ -258,9 +259,13 @@
  *  @brief volatile status condition flags
  *  accessible in BattleStruct's battlemon[battler].condition2
  */
+#define STATUS2_NONE (0x00000000)
 #define STATUS2_CONFUSED (0x00000007)
 #define STATUS2_FLINCH (0x00000008)
 #define STATUS2_UPROAR (0x00000070)
+#define STATUS2_UNUSED_7 (0x00000080)
+#define STATUS2_BIDE (0x00000300)
+#define STATUS2_BIDE_0 (0x00000100)
 #define STATUS2_RAMPAGE_TURNS (0x00000C00)
 #define STATUS2_LOCKED_INTO_MOVE (0x00001000)
 #define STATUS2_BINDING_TURNS (0x0000E000) // no longer used, see sp->binding_turns
@@ -270,6 +275,7 @@
 #define STATUS2_RECHARGE (0x00400000)
 #define STATUS2_RAGE (0x00800000)
 #define STATUS2_SUBSTITUTE (0x01000000)
+#define STATUS2_DESTINY_BOND (0x02000000)
 #define STATUS2_MEAN_LOOK (0x04000000)
 #define STATUS2_NIGHTMARE (0x08000000)
 #define STATUS2_CURSE (0x10000000)
@@ -1653,7 +1659,7 @@ void LONG_CALL SCIO_BlankMessage(void*);
 BOOL LONG_CALL ServerSenseiCheck(void *bw, struct BattleStruct *sp);
 BOOL LONG_CALL ServerPPCheck(void *bw, struct BattleStruct *sp);
 BOOL LONG_CALL ServerDefenceCheck(void *bw, struct BattleStruct *sp);
-BOOL LONG_CALL ServerStatusCheck(void *bw, struct BattleStruct *sp);
+BOOL LONG_CALL ServerStatusCheck(struct BattleSystem *bsys, struct BattleStruct *ctx);
 int LONG_CALL ServerBadgeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 void LONG_CALL ST_ServerDefenceClientTokuseiCheck(void *bw, struct BattleStruct *sp, int attack, u16 waza_no);
 void LONG_CALL ST_ServerTotteokiCountCalc(void *bw,struct BattleStruct *sp);
@@ -2987,5 +2993,8 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 int LONG_CALL ov12_022506D4(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 move, int a4, int a5);
 
 void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
+
+void CopyBattleMonToPartyMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+BOOL CheckTruant(struct BattleStruct *ctx, int battlerId);
 
 #endif // BATTLE_H

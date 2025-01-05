@@ -11,9 +11,6 @@
 .create "build/move/move_anim/0_013", 0
 
 a010_013:
-    checkturn _0010, _0104
-    end
-_0010:
     initspriteresource
     loadspriteresource 0
     loadspriteresource 1
@@ -37,8 +34,6 @@ _0010:
     wait 10
     waitparticle
     unloadparticle 0
-    end
-_0104:
     initspriteresource
     loadspriteresource 0
     loadspriteresource 1

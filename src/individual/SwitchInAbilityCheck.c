@@ -276,7 +276,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                             movenum = sp->battlemon[num].move[pos];
                                             if (movenum) {
                                                 flag = 0;
-                                                sp->damage = TypeCalc(bw, sp, movenum, 0, num, client_no, sp->damage, &flag);
+                                                sp->damage = ServerDoTypeCalcMod(bw, sp, movenum, 0, num, client_no, sp->damage, &flag);
                                                 if (((flag & MOVE_STATUS_FLAG_NOT_EFFECTIVE) == 0) && (AnticipateMoveEffectListCheck(sp, movenum) == FALSE)    // move effects that deal fixed damage don't activate anticipation--see psywave, dragon rage, etc.
                                                     && ((flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE) || ((sp->moveTbl[movenum].effect == MOVE_EFFECT_ONE_HIT_KO)  // one-hit ko
                                                                                                       && (sp->battlemon[client_no].level <= sp->battlemon[num].level)))) {

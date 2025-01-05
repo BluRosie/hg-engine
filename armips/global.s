@@ -28,7 +28,6 @@
 .include "armips/asm/forget_hm.s" // allows hm to be forgotten
 
 .include "armips/asm/custom/skipinfo.s" // info tutorial skip
-.include "armips/asm/custom/mart_items.s" // edit mart items
 .include "armips/asm/custom/tutorial.s" // edit tutorial rattata level
 
 .if FAIRY_TYPE_IMPLEMENTED == 1

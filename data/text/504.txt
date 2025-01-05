@@ -1,0 +1,2 @@
+High places--I do love them so!\rI’d say the only thing that loves\nheights as much as me is smoke!
+There’s graffiti on the wall...\r{STRVAR_1 3, 0, 0} added a moustache!
