@@ -502,9 +502,11 @@ BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, s
     WildMonSetRandomHeldItem(encounterPartyPokemon, encounterBattleParam->fight_type, range);
 
     // In the wild, Super Size Pumpkaboo will always hold a Miracle Seed, whereas other sizes will never hold an item in the wild.
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
     if ((species == SPECIES_PUMPKABOO || species == SPECIES_GOURGEIST) && GetMonData(encounterPartyPokemon, MON_DATA_FORM, NULL) == 3) {
         SetMonData(encounterPartyPokemon, MON_DATA_HELD_ITEM, &miracleSeedItemNo);
     }
+#endif
 
     if (species == SPECIES_UNOWN)
     {
