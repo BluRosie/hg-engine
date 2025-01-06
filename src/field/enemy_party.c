@@ -483,7 +483,9 @@ BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, s
     u8 form_no;
     u16 species;
 
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
     u32 miracleSeedItemNo = ITEM_MIRACLE_SEED;
+#endif
 
     if (encounterInfo->isEgg == 0 && encounterInfo->ability == ABILITY_COMPOUND_EYES)
     {
