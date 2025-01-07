@@ -222,7 +222,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
 
                 if ((movetype == TYPE_DARK) || (movetype == TYPE_GHOST) || (movetype == TYPE_BUG))
                 {
-                    sp->addeffect_param = ADD_STATE_SPEED_UP;
+                    sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_UP;
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
                     sp->state_client = sp->defence_client;
                     sp->battlerIdTemp = sp->defence_client;
@@ -254,7 +254,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                    )
             )
             {
-                sp->addeffect_param = ADD_STATE_SP_ATK_UP;
+                sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->state_client = sp->defence_client;
                 sp->battlerIdTemp = sp->defence_client;
@@ -271,7 +271,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage)))
             {
-                sp->addeffect_param = ADD_STATE_DEFENSE_UP;
+                sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->state_client = sp->defence_client;
                 sp->battlerIdTemp = sp->defence_client;
@@ -289,7 +289,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage)))
             {
-                sp->addeffect_param = ADD_STATE_SPEED_DOWN;
+                sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
                 sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
                 sp->state_client = sp->attack_client;
                 sp->battlerIdTemp = sp->defence_client;
@@ -331,7 +331,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 {
                     if(sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 11)
                     {
-                        sp->addeffect_param = ADD_STATE_DEFENSE_UP_2;
+                        sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_2;
                         sp->addeffect_type = ADD_EFFECT_ABILITY;
                         sp->state_client = sp->defence_client;
                         sp->battlerIdTemp = sp->defence_client;
@@ -340,7 +340,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     }
                     else
                     {
-                        sp->addeffect_param = ADD_STATE_DEFENSE_UP;
+                        sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP;
                         sp->addeffect_type = ADD_EFFECT_ABILITY;
                         sp->state_client = sp->defence_client;
                         sp->battlerIdTemp = sp->defence_client;
@@ -365,7 +365,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
 
                 if (movetype == TYPE_DARK)
                 {
-                    sp->addeffect_param = ADD_STATE_ATTACK_UP;
+                    sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
                     sp->state_client = sp->defence_client;
                     sp->battlerIdTemp = sp->defence_client;
@@ -502,7 +502,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 {
                     if(sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
                     {
-                        sp->addeffect_param = ADD_STATE_ATTACK_UP;
+                        sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
                         sp->addeffect_type = ADD_EFFECT_ABILITY;
                         sp->state_client = sp->defence_client;
                         sp->battlerIdTemp = sp->defence_client;

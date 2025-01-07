@@ -635,20 +635,20 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 {
     u8 ret = 0;
     u32 speed1, speed2;
-    u16 move1 = 0, move2 = 0;
+    //u16 move1 = 0, move2 = 0;
     u8 hold_effect1;
-    u8 hold_atk1;
+    //u8 hold_atk1;
     u8 hold_effect2;
-    u8 hold_atk2;
+    //u8 hold_atk2;
     s8 priority1 = sp->clientPriority[client1];
     s8 priority2 = sp->clientPriority[client2];
     u8 quick_claw1 = sp->battlemon[client1].moveeffect.quickClawFlag || sp->battlemon[client1].moveeffect.custapBerryFlag;
     u8 quick_claw2 = sp->battlemon[client2].moveeffect.quickClawFlag || sp->battlemon[client2].moveeffect.custapBerryFlag;
     u8 move_last1 = 0, move_last2 = 0;
-    int command1;
-    int command2;
-    int move_pos1;
-    int move_pos2;
+    //int command1;
+    //int command2;
+    //int move_pos1;
+    //int move_pos2;
     int ability1;
     int ability2;
     int stat_stage_spd1;
@@ -693,9 +693,9 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     ability2 = GetBattlerAbility(sp, client2);
 
     hold_effect1 = HeldItemHoldEffectGet(sp, client1);
-    hold_atk1 = HeldItemAtkGet(sp, client1, 0);
+    //hold_atk1 = HeldItemAtkGet(sp, client1, 0);
     hold_effect2 = HeldItemHoldEffectGet(sp, client2);
-    hold_atk2 = HeldItemAtkGet(sp, client2, 0);
+    //hold_atk2 = HeldItemAtkGet(sp, client2, 0);
 
     stat_stage_spd1 = sp->battlemon[client1].states[STAT_SPEED];
     stat_stage_spd2 = sp->battlemon[client2].states[STAT_SPEED];
@@ -870,36 +870,36 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     sp->effectiveSpeed[client1]=speed1;
     sp->effectiveSpeed[client2]=speed2;
 
-    if (flag == 0)
-    {
-        command1 = sp->playerActions[client1][3];
-        command2 = sp->playerActions[client2][3];
-        move_pos1 = sp->waza_no_pos[client1];
-        move_pos2 = sp->waza_no_pos[client2];
-
-        if(command1 == SELECT_FIGHT_COMMAND)
-        {
-            if(sp->oneTurnFlag[client1].struggle_flag)
-            {
-                move1 = MOVE_STRUGGLE;
-            }
-            else
-            {
-                move1 = BattlePokemonParamGet(sp, client1, BATTLE_MON_DATA_MOVE_1 + move_pos1, NULL);
-            }
-        }
-        if (command2 == SELECT_FIGHT_COMMAND)
-        {
-            if (sp->oneTurnFlag[client2].struggle_flag)
-            {
-                move2 = MOVE_STRUGGLE;
-            }
-            else
-            {
-                move2 = BattlePokemonParamGet(sp, client2, BATTLE_MON_DATA_MOVE_1 + move_pos2, NULL);
-            }
-        }
-    }
+    // if (flag == 0)
+    // {
+    //     command1 = sp->playerActions[client1][3];
+    //     command2 = sp->playerActions[client2][3];
+    //     move_pos1 = sp->waza_no_pos[client1];
+    //     move_pos2 = sp->waza_no_pos[client2];
+    // 
+    //     if(command1 == SELECT_FIGHT_COMMAND)
+    //     {
+    //         if(sp->oneTurnFlag[client1].struggle_flag)
+    //         {
+    //             move1 = MOVE_STRUGGLE;
+    //         }
+    //         else
+    //         {
+    //             move1 = BattlePokemonParamGet(sp, client1, BATTLE_MON_DATA_MOVE_1 + move_pos1, NULL);
+    //         }
+    //     }
+    //     if (command2 == SELECT_FIGHT_COMMAND)
+    //     {
+    //         if (sp->oneTurnFlag[client2].struggle_flag)
+    //         {
+    //             move2 = MOVE_STRUGGLE;
+    //         }
+    //         else
+    //         {
+    //             move2 = BattlePokemonParamGet(sp, client2, BATTLE_MON_DATA_MOVE_1 + move_pos2, NULL);
+    //         }
+    //     }
+    // }
 
     if (sp->field_condition & FIELD_STATUS_TRICK_ROOM) {
         speed1 = (10000 - speed1) % 8192;
@@ -1092,7 +1092,7 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
     int priority = 0;
     int command;
     int move_pos;
-    int i;
+    u32 i;
     int hold_effect;
     int hold_atk;
 
@@ -2379,13 +2379,13 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((ctx->battlemon[ctx->attack_client].states[STAT_ATTACK + stat] < 12) && (ctx->battlemon[ctx->attack_client].moveeffect.fakeOutCount != (ctx->total_turn + 1))) {
                         switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
                         case 1:
-                            ctx->addeffect_param = ADD_STATE_ATTACK_UP + stat;
+                            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP + stat;
                             break;
                         case 2:
-                            ctx->addeffect_param = ADD_STATE_ATTACK_UP_2 + stat;
+                            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2 + stat;
                             break;
                         case 3:
-                            ctx->addeffect_param = ADD_STATE_ATTACK_UP_3 + stat;
+                            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3 + stat;
                             break;
 
                         default:
@@ -2408,13 +2408,13 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12) {
                         switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
                             case 1:
-                                ctx->addeffect_param = ADD_STATE_ATTACK_UP;
+                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
                                 break;
                             case 2:
-                                ctx->addeffect_param = ADD_STATE_ATTACK_UP_2;
+                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2;
                                 break;
                             case 3:
-                                ctx->addeffect_param = ADD_STATE_ATTACK_UP_3;
+                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
                                 break;
 
                             default:
@@ -2436,19 +2436,18 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if (ctx->battlemon[ctx->attack_client].states[STAT_SPATK] < 12) {
                         switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
                             case 1:
-                                ctx->addeffect_param = ADD_STATE_SP_ATK_UP;
+                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
                                 break;
                             case 2:
-                                ctx->addeffect_param = ADD_STATE_SP_ATK_UP_2;
+                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP_2;
                                 break;
                             case 3:
-                                ctx->addeffect_param = ADD_STATE_SP_ATK_UP_3;
+                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP_3;
                                 break;
 
                             default:
                                 break;
                         }
-                        ctx->addeffect_param = ADD_STATE_SP_ATK_UP;
                         ctx->addeffect_type = ADD_EFFECT_ABILITY;
                         ctx->state_client = ctx->attack_client;
                         LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
@@ -3332,7 +3331,7 @@ const int typeToBerryMapping[] = {
     [TYPE_DARK]     = ITEM_COLBUR_BERRY,
 };
 
-BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
+BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     if ((ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
     && !(ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_OHKO_HIT)) {
         return typeToBerryMapping[ctx->move_type] == GetBattleMonItem(ctx, defender);

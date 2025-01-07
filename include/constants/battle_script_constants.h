@@ -609,7 +609,6 @@
 #define ADD_STATUS_EFF_QUASH                           (161)
 #define ADD_STATUS_EFF_DRAIN_FULL                      (162)
 #define ADD_STATUS_EFF_SIMPLE_BEAM                     (163)
-
 #define ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3         (164)
 #define ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP_3        (165)
 #define ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_3          (166)

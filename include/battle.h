@@ -72,56 +72,6 @@
 #define ADD_EFFECT_PRINT_WORK_ABILITY 8
 
 /**
- *  @brief indices used for move_effect_to_subscripts in src/moves.c
- *  used specifically by battle effect scripts to queue up subscripts
- *  sadly these are in armips at the moment and do not use these constants verbatim
- */
-#define ADD_STATE_ATTACK_UP 0xF
-#define ADD_STATE_DEFENSE_UP 0x10
-#define ADD_STATE_SPEED_UP 0x11
-#define ADD_STATE_SP_ATK_UP 0x12
-#define ADD_STATE_SP_DEF_UP 0x13
-#define ADD_STATE_ACCURACY_UP 0x14
-#define ADD_STATE_EVASION_UP 0x15
-#define ADD_STATE_ATTACK_DOWN 0x16
-#define ADD_STATE_DEFENSE_DOWN 0x17
-#define ADD_STATE_SPEED_DOWN 0x18
-#define ADD_STATE_SP_ATK_DOWN 0x19
-#define ADD_STATE_SP_DEF_DOWN 0x1A
-#define ADD_STATE_ACCURACY_DOWN 0x1B
-#define ADD_STATE_EVASION_DOWN 0x1C
-
-#define ADD_STATE_ATTACK_UP_2 0x27
-#define ADD_STATE_DEFENSE_UP_2 0x28
-#define ADD_STATE_SPEED_UP_2 0x29
-#define ADD_STATE_SP_ATK_UP_2 0x2A
-#define ADD_STATE_SP_DEF_UP_2 0x2B
-#define ADD_STATE_ACCURACY_UP_2 0x2C
-#define ADD_STATE_EVASION_UP_2 0x2D
-#define ADD_STATE_ATTACK_DOWN_2  0x2E
-#define ADD_STATE_DEFENSE_DOWN_2 0x2F
-#define ADD_STATE_SPEED_DOWN_2 0x30
-#define ADD_STATE_SP_ATK_DOWN_2 0x31
-#define ADD_STATE_SP_DEF_DOWN_2 0x32
-#define ADD_STATE_ACCURACY_DOWN_2 0x33
-#define ADD_STATE_EVASION_DOWN_2 0x34
-
-#define ADD_STATE_ATTACK_UP_3       164
-#define ADD_STATE_DEFENSE_UP_3      165
-#define ADD_STATE_SPEED_UP_3        166
-#define ADD_STATE_SP_ATK_UP_3       167
-#define ADD_STATE_SP_DEF_UP_3       168
-#define ADD_STATE_ACCURACY_UP_3     169
-#define ADD_STATE_EVASION_UP_3      170
-#define ADD_STATE_ATTACK_DOWN_3     171
-#define ADD_STATE_DEFENSE_DOWN_3    172
-#define ADD_STATE_SPEED_DOWN_3      173
-#define ADD_STATE_SP_ATK_DOWN_3     174
-#define ADD_STATE_SP_DEF_DOWN_3     175
-#define ADD_STATE_ACCURACY_DOWN_3   176
-#define ADD_STATE_EVASION_DOWN_3    177
-
-/**
  *  @brief move status flag defines for the BattleStruct's waza_status_flag field.
  *  name is left as source define if not sure what it defines
  */

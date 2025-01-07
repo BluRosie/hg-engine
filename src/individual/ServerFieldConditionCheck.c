@@ -1621,7 +1621,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             switch (GetBattlerAbility(sp, battlerId)) {
                                 case ABILITY_SPEED_BOOST: {
                                     if ((sp->battlemon[battlerId].hp) && (sp->battlemon[battlerId].states[STAT_SPEED] < 12) && (sp->battlemon[battlerId].moveeffect.fakeOutCount != (sp->total_turn + 1))) {
-                                        sp->addeffect_param = ADD_STATE_SPEED_UP;
+                                        sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_UP;
                                         sp->addeffect_type = ADD_EFFECT_ABILITY;
                                         sp->state_client = battlerId;
                                         seq_no = SUB_SEQ_BOOST_STATS;
