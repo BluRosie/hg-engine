@@ -331,7 +331,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 {
                     if(sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 11)
                     {
-                        sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_2;
+                        sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP_2;
                         sp->addeffect_type = ADD_EFFECT_ABILITY;
                         sp->state_client = sp->defence_client;
                         sp->battlerIdTemp = sp->defence_client;

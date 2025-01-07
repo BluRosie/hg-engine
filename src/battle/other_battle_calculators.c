@@ -1412,8 +1412,8 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
     u32 type1Effectiveness = 0;
     u32 type2Effectiveness = 0;
 
-    while (TypeEffectivenessTable[i][0] != 0xff) {
-        if (TypeEffectivenessTable[i][0] == 0xfe)  // handle foresight
+    while (TypeEffectivenessTable[i][0] != TYPE_ENDTABLE) {
+        if (TypeEffectivenessTable[i][0] == TYPE_FORESIGHT)  // handle foresight
         {
             if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY) || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE)) {
                 break;
@@ -1543,9 +1543,9 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
     // else
     {
         i = 0;
-        while (TypeEffectivenessTable[i][0] != 0xff)
+        while (TypeEffectivenessTable[i][0] != TYPE_ENDTABLE)
         {
-            if (TypeEffectivenessTable[i][0] == 0xfe) // handle foresight
+            if (TypeEffectivenessTable[i][0] == TYPE_FORESIGHT) // handle foresight
             {
                 if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY) || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE))
                 {
