@@ -25,21 +25,22 @@ typedef struct
 
 int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 
+// https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8684263
 const AccuracyStatChangeRatio sAccStatChanges[] =
 {
-    {  33, 100 },
-    {  36, 100 },
-    {  43, 100 },
-    {  50, 100 },
-    {  60, 100 },
-    {  75, 100 },
-    {   1,   1 },
-    { 133, 100 },
-    { 166, 100 },
-    {   2,   1 },
-    { 233, 100 },
-    { 133,  50 },
-    {   3,   1 },
+    {  6, 18 },
+    {  6, 16 },
+    {  6, 14 },
+    {  6, 12 },
+    {  6, 10 },
+    {  6,  8 },
+    {  6,  6 },
+    {  8,  6 },
+    { 10,  6 },
+    { 12,  6 },
+    { 14,  6 },
+    { 16,  6 },
+    { 18,  6 },
 };
 
 const u16 PowderMovesList[] = {
