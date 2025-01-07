@@ -1848,23 +1848,23 @@ BOOL LONG_CALL CurrentMoveShouldNotBeExemptedFromPriorityBlocking(struct BattleS
 
     switch (target) {
     // Psychic Terrain doesn't block priority moves that target the user
-    case MOVE_TARGET_USER:
+    case RANGE_USER:
         return FALSE;
         break;
 
     // Psychic Terrain doesn't block priority moves that target all battlers
     // Psychic Terrain doesn't block priority field moves
-    case MOVE_TARGET_ACTIVE_FIELD:
+    case RANGE_FIELD:
         return FALSE;
         break;
 
     // Psychic Terrain doesn't block priority moves that target all opponents
-    case MOVE_TARGET_OPPONENTS_FIELD:
+    case RANGE_OPPONENT_SIDE:
         return FALSE;
         break;
 
     // Psychic Terrain should not block Light Screen, Tailwind, etc.
-    case MOVE_TARGET_USER_SIDE:
+    case RANGE_USER_SIDE:
         return FALSE;
         break;
 
@@ -1965,12 +1965,12 @@ BOOL LONG_CALL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *
     struct BattlePokemon across = sp->battlemon[BATTLER_ACROSS(sp->attack_client)];
 
     switch (currentMove.target) {
-        case MOVE_TARGET_BOTH:
+        case RANGE_ADJACENT_OPPONENTS:
             if (opponent.hp != 0 || across.hp != 0) {
                 return TRUE;
             }
             break;
-        case MOVE_TARGET_FOES_AND_ALLY:
+        case RANGE_ALL_ADJACENT:
             if (ally.hp != 0 || opponent.hp != 0 || across.hp != 0) {
                 return TRUE;
             }
@@ -2248,7 +2248,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     }
 
     if (!(sp->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
-        && sp->moveTbl[sp->current_move_index].target != MOVE_TARGET_OPPONENTS_FIELD
+        && sp->moveTbl[sp->current_move_index].target != RANGE_OPPONENT_SIDE
         && ((!(sp->server_status_flag & BATTLE_STATUS_HIT_FLY) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR)
             || (!(sp->server_status_flag & BATTLE_STATUS_SHADOW_FORCE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_SHADOW_FORCE)
             || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIG) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
@@ -2640,7 +2640,7 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
 
     ov12_0224DD74(bsys, ctx);
 
-    if (ctx->moveTbl[ctx->current_move_index].target == MOVE_TARGET_BOTH && !(ctx->server_status_flag & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->client_loop < BattleWorkClientSetMaxGet(bsys)) {
+    if (ctx->moveTbl[ctx->current_move_index].target == RANGE_ADJACENT_OPPONENTS && !(ctx->server_status_flag & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->client_loop < BattleWorkClientSetMaxGet(bsys)) {
         ctx->waza_out_check_on_off = 13;
         int battlerId;
         int maxBattlers UNUSED        = BattleWorkClientSetMaxGet(bsys);
@@ -2664,7 +2664,7 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
         } while (ctx->client_loop < BattleWorkClientSetMaxGet(bsys));
 
         SCIO_BlankMessage(bsys);
-    } else if (ctx->moveTbl[ctx->current_move_index].target == MOVE_TARGET_FOES_AND_ALLY && !(ctx->server_status_flag & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->client_loop < BattleWorkClientSetMaxGet(bsys)) {
+    } else if (ctx->moveTbl[ctx->current_move_index].target == RANGE_ALL_ADJACENT && !(ctx->server_status_flag & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->client_loop < BattleWorkClientSetMaxGet(bsys)) {
         ctx->waza_out_check_on_off = 13;
 
         int battlerId;

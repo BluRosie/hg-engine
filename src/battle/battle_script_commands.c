@@ -3292,13 +3292,13 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
                 cnt = 5;
             } else {
                 cnt = (BattleRand(bsys) % 100); // 0 - 99, 100 numbers
-                if (cnt >= 0 && cnt <= 35) {
+                if (cnt < 35) {
                     cnt = 2;
-                } else if (cnt > 35 && cnt <= 70) {
+                } else if (cnt < 70) {
                     cnt = 3;
-                } else if (cnt > 70 && cnt <= 85) {
+                } else if (cnt < 85) {
                     cnt = 4;
-                } else {
+                } else { // >= 85
                     cnt = 5;
                 }
 
