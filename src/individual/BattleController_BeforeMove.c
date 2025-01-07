@@ -1517,7 +1517,13 @@ BOOL BattlerController_DecrementPP(struct BattleSystem *bsys, struct BattleStruc
     BOOL needToDecrementPP = TRUE;
 
     if (!ctx->oneSelfFlag[ctx->attack_client].no_pressure_flag && ctx->defence_client != BATTLER_NONE) {
-        if (ctx->moveNoTemp == MOVE_IMPRISON) {
+        // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-22#post-9427994
+        if ((ctx->moveNoTemp == MOVE_IMPRISON)
+        || (ctx->moveNoTemp == MOVE_SNATCH)
+        || (ctx->moveNoTemp == MOVE_SPIKES)
+        || (ctx->moveNoTemp == MOVE_TOXIC_SPIKES)
+        || (ctx->moveNoTemp == MOVE_STEALTH_ROCK)
+        || (ctx->moveNoTemp == MOVE_TERA_BLAST)) {
             decreasePP += CheckSideAbility(bsys, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, ctx->attack_client, ABILITY_PRESSURE);
         } else {
             switch (ctx->moveTbl[ctx->moveNoTemp].target) {
