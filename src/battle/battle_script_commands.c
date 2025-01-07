@@ -3291,7 +3291,7 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SKILL_LINK) {
                 cnt = 5;
             } else {
-                cnt = (BattleRand(bsys) % 101); // 0 - 100
+                cnt = (BattleRand(bsys) % 100); // 0 - 99, 100 numbers
                 if (cnt >= 0 && cnt <= 35) {
                     cnt = 2;
                 } else if (cnt > 35 && cnt <= 70) {
