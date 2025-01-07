@@ -401,6 +401,7 @@
 #define SUB_SEQ_ATK_SP_ATK_DOWN                       (391)
 #define SUB_SEQ_TAKE_HEART                            (392)
 #define SUB_SEQ_MORTAL_SPIN                           (393)
+#define SUB_SEQ_TIDY_UP                               (394)
 
 
 
@@ -582,6 +583,7 @@
 #define ADD_STATUS_EFF_ATK_SP_ATK_DOWN                 (173)
 #define ADD_STATUS_EFF_TAKE_HEART                      (174)
 #define ADD_STATUS_EFF_MORTAL_SPIN                     (175)
+#define ADD_STATUS_EFF_TIDY_UP                         (176)
 
 
 // additional effect constants

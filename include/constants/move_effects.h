@@ -359,6 +359,7 @@
 #define MOVE_EFFECT_TAKE_HEART                              353
 #define MOVE_EFFECT_HIGH_CRITICAL_RAISE_SPEED_HIT           354
 #define MOVE_EFFECT_MORTAL_SPIN                             355
+#define MOVE_EFFECT_TIDY_UP                                 356
 
 #define MOVE_TARGET_SELECTED             0x0000
 #define MOVE_TARGET_DEPENDS              0x0001

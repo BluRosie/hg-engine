@@ -14172,7 +14172,7 @@ movedatalongname MOVE_CHILLY_RECEPTION, "ChillyReception", "Chilly Reception"
     movedescription MOVE_CHILLY_RECEPTION, "---"
 
 movedata MOVE_TIDY_UP, "Tidy Up"
-    battleeffect MOVE_EFFECT_ATK_SPEED_UP
+    battleeffect MOVE_EFFECT_TIDY_UP
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
