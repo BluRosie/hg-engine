@@ -3278,6 +3278,7 @@ BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx) 
     return FALSE;
 }
 
+// https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-9#post-9400247
 BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
@@ -3289,10 +3290,8 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
         if (cnt == 0) {
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SKILL_LINK) {
                 cnt = 5;
-            } else if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) { // Loaded Dice
-                cnt = (BattleRand(bsys) & 1) + 4; // 0-1 + 4 -> 4-5 hits
             } else {
-                cnt = (BattleRand(bsys) & 100);
+                cnt = (BattleRand(bsys) % 101); // 0 - 100
                 if (cnt >= 0 && cnt <= 35) {
                     cnt = 2;
                 } else if (cnt > 35 && cnt <= 70) {
@@ -3302,12 +3301,21 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
                 } else {
                     cnt = 5;
                 }
+
+                // If it rolled 4 or 5 Loaded Dice doesn't do anything,
+                // otherwise it rolls the number of hits as 5 minus a random integer from 0 to 1 inclusive.
+                if (GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
+                    if (cnt != 4 && cnt != 5) {
+                        cnt = 5 - (BattleRand(bsys) % 2);  // 5 - (0 or 1)
+                    }
+                }
             }
         }
 
-        // Population Bomb
-        if (cnt == 10 && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
-            cnt = BattleRand(bsys) % 7 + 4; // 0-6 + 4 -> 4-10 hits
+        // Population Bomb checks accuracy for each hit, like Triple Kick and Triple Axel.
+        // Loaded Dice causes it to only run the first accuracy check, and rolls the number of hits as 10 minus a random integer from 0 to 6 inclusive.
+        if (cnt == 10 && GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
+            cnt = 10 - (BattleRand(bsys) % 7); // 10 - (0 to 6)
         }
 
         ctx->multi_hit_count = cnt;
