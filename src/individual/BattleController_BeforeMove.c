@@ -1527,18 +1527,18 @@ BOOL BattlerController_DecrementPP(struct BattleSystem *bsys, struct BattleStruc
             decreasePP += CheckSideAbility(bsys, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, ctx->attack_client, ABILITY_PRESSURE);
         } else {
             switch (ctx->moveTbl[ctx->moveNoTemp].target) {
-            case RANGE_ALL_ADJACENT:
-            case RANGE_FIELD:
+            case MOVE_TARGET_FOES_AND_ALLY:
+            case MOVE_TARGET_ACTIVE_FIELD:
                 decreasePP += CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP_NOT_USER, ctx->attack_client, ABILITY_PRESSURE);
                 break;
-            case RANGE_ADJACENT_OPPONENTS:
-            case RANGE_OPPONENT_SIDE:
+            case MOVE_TARGET_BOTH:
+            case MOVE_TARGET_OPPONENTS_FIELD:
                 decreasePP += CheckSideAbility(bsys, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, ctx->attack_client, ABILITY_PRESSURE);
                 break;
-            case RANGE_USER_SIDE:
-            case RANGE_USER:
-            case RANGE_SINGLE_TARGET_USER_SIDE:
-            case RANGE_ALLY:
+            case MOVE_TARGET_USER_SIDE:
+            case MOVE_TARGET_USER:
+            case MOVE_TARGET_ACUPRESSURE:
+            case MOVE_TARGET_ALLY:
                 break;
             default:
                 if (ctx->attack_client != ctx->defence_client && GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_PRESSURE) {
