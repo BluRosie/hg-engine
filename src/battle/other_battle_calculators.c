@@ -2656,7 +2656,7 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
                 if (((flag & 1) && !(ov12_02261258(opponent) & 1)) || (!(flag & 1) && ov12_02261258(opponent) & 1)) {
                     ov12_02252D14(bsys, ctx);
                     ctx->defence_client = battlerId;
-                    ctx->server_seq_no         = CONTROLLER_COMMAND_23;
+                    ctx->server_seq_no         = CONTROLLER_COMMAND_24;
                     break;
                 }
             }
@@ -2678,7 +2678,7 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
                 if (battlerId != ctx->attack_client) {
                     ov12_02252D14(bsys, ctx);
                     ctx->defence_client = battlerId;
-                    ctx->server_seq_no         = CONTROLLER_COMMAND_23;
+                    ctx->server_seq_no         = CONTROLLER_COMMAND_24;
                     break;
                 }
             }
