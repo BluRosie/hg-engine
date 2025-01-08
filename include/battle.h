@@ -3592,8 +3592,6 @@ void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleS
 
 BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
 
-#define GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, client) (GetBattlerAbility(ctx, client) != ABILITY_KLUTZ ? HeldItemHoldEffectGet(ctx, client) : 0)
-
 BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
 
 #endif // BATTLE_H

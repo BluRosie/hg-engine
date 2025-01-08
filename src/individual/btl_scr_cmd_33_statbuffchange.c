@@ -75,9 +75,9 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         sp->temp_work = STATUS_EFF_UP;
     }
         //1 step down
-    else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP)
+    else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN)
     {
-        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
+        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN;
         statchange = -1;
         sp->temp_work = STATUS_EFF_DOWN;
     }

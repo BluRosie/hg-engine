@@ -3304,7 +3304,7 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 
                 // If it rolled 4 or 5 Loaded Dice doesn't do anything,
                 // otherwise it rolls the number of hits as 5 minus a random integer from 0 to 1 inclusive.
-                if (GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
+                if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
                     if (cnt != 4 && cnt != 5) {
                         cnt = 5 - (BattleRand(bsys) % 2);  // 5 - (0 or 1)
                     }
@@ -3314,7 +3314,7 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 
         // Population Bomb checks accuracy for each hit, like Triple Kick and Triple Axel.
         // Loaded Dice causes it to only run the first accuracy check, and rolls the number of hits as 10 minus a random integer from 0 to 6 inclusive.
-        if (cnt == 10 && GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
+        if (cnt == 10 && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
             cnt = 10 - (BattleRand(bsys) % 7); // 10 - (0 to 6)
         }
 

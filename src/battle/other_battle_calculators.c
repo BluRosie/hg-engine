@@ -1138,7 +1138,7 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
             }
         }
 
-        hold_effect = GET_HELD_ITEM_HOLD_EFFECT_ACCOUNTING_KLUTZ(ctx, client);
+        hold_effect = HeldItemHoldEffectGet(ctx, client);
         hold_atk = HeldItemAtkGet(ctx, client, 0);
 
         if (hold_effect == HOLD_EFFECT_SOMETIMES_PRIORITY) {
@@ -2629,8 +2629,6 @@ void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx
  * https://github.com/pret/pokeplatinum/blob/04d9ea4cfad3963feafecf3eb0f4adcbc7aa5063/src/battle/battle_controller.c#L3832
  */
 void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    debug_printf("In BattleController_LoopSpreadMoves\n");
-
     if (ctx->server_status_flag2 & BATTLE_STATUS2_MAGIC_COAT) {
         ctx->server_status_flag2 &= ~BATTLE_STATUS2_MAGIC_COAT;
         ctx->defence_client   = ctx->attack_client;
