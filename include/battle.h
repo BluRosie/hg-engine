@@ -3588,6 +3588,8 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
 
 #define CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, client_no) (GetBattlerAbility(ctx, client_no) != ABILITY_MOLD_BREAKER && GetBattlerAbility(ctx, client_no) != ABILITY_TERAVOLT && GetBattlerAbility(ctx, client_no) != ABILITY_TURBOBLAZE)
 
+#define CLIENT_HAS_MOLD_BREAKER_VARIATION(ctx, client_no) (!(CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, client_no)))
+
 void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);

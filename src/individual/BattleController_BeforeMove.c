@@ -1441,7 +1441,7 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
         return FALSE;
     }
 
-    if (GetBattlerAbility(ctx, battlerIdAttacker) == ABILITY_NORMALIZE || GetBattlerAbility(ctx, battlerIdAttacker) == ABILITY_MOLD_BREAKER) {
+    if (GetBattlerAbility(ctx, battlerIdAttacker) == ABILITY_NORMALIZE || CLIENT_HAS_MOLD_BREAKER_VARIATION(ctx, battlerIdAttacker)) {
         return FALSE;
     }
 
