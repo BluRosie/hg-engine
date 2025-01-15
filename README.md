@@ -38,7 +38,6 @@
 ## Setup Instructions (Linux with apt)
 1. In a Terminal window, run the following commands:
     * ```sudo apt-get install libpng-dev build-essential cmake python3-pip git automake autoconf gcc-arm-none-eabi```
-    * ```pip3 install ndspy```
 2. On distros where `mono` is not preinstalled (Ubuntu-based ones come to mind), install it with `sudo apt-get install mono-devel`
 3. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
@@ -46,9 +45,8 @@
 1. If you don't have it already, install `brew` by running the following in Terminal: ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
 2. In a Terminal window, run the following commands:
     * ```xcode-select --install```
-    * ```brew install python3 libpng automake autoconf cmake zlib pkg-config```
+    * ```brew install python3 libpng automake autoconf cmake zlib pkg-config zstd```
     * ```brew install --cask gcc-arm-embedded```
-    * ```python3 -m pip install ndspy```
     * ```export PKG_CONFIG_PATH=$(brew --prefix zlib)/lib/pkgconfig```
 3. Download and install Mono using the download and instructions [**here**](https://www.mono-project.com/docs/getting-started/install/mac/).
 4. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
@@ -68,7 +66,6 @@
 5. In WSL, run the following commands:
     * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip cmake automake autoconf mono-devel gcc-arm-none-eabi```
         * You will be asked to confirm the installation, so press "y" followed by Enter to do so.
-    * ```pip3 install ndspy```
 6. Once the last process has finished, continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
@@ -81,7 +78,6 @@
     * ```export PATH=$PATH:/mingw64/bin```
     * ```echo export PATH='$'PATH:/mingw64/bin >> ~/.bashrc```
     * ```python3 -m ensurepip --upgrade```
-    * ```python3 -m pip install ndspy```
 4. Download [libpng](https://sourceforge.net/projects/libpng/files/latest/download) and install it.  Decompress it to a folder, and then open MSYS2 in that source folder and run:
     * ```./configure --prefix=/usr```
     * ```make check```

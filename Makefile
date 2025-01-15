@@ -50,7 +50,11 @@ CC = $(DEVKITARM)/$(PREFIX)gcc
 LD = $(DEVKITARM)/$(PREFIX)ld
 OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
 endif
-PYTHON = python3
+VENV = .venv
+VENV_ACTIVATE = $(VENV)/bin/activate
+PYTHON_NO_VENV = python3
+PYTHON = source $(VENV_ACTIVATE); $(PYTHON_NO_VENV)
+REQUIREMENTS = requirements.txt
 
 .PHONY: clean all
 
@@ -61,6 +65,14 @@ CSC := mcs -pkg:dotnet
 endif
 
 default: all
+
+# venv things
+venv: $(VENV_ACTIVATE)
+
+# divorce this python3 from venv so that it works
+$(VENV_ACTIVATE):
+	$(PYTHON_NO_VENV) -m venv $(VENV)
+	. $(VENV_ACTIVATE); $(PYTHON) -m pip install -r $(REQUIREMENTS)
 
 ####################### Tools #######################
 ADPCMXQ := tools/adpcm-xq
@@ -103,6 +115,8 @@ C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(C_SRCS))
 ASM_SRCS := $(wildcard $(ASM_SUBDIR)/*.s)
 ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(ASM_SRCS))
 OBJS     := $(C_OBJS) $(ASM_OBJS)
+
+REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
 ## includes
 include data/graphics/pokegra.mk
@@ -193,7 +207,7 @@ $(ENCODEPWIMG):
 TOOLS += $(ENCODEPWIMG)
 
 ####################### Build #######################
-rom_gen.ld:$(LINK) $(OUTPUT) rom.ld
+rom_gen.ld:$(LINK) $(OUTPUT) rom.ld $(VENV_ACTIVATE)
 	cp rom.ld rom_gen.ld
 	$(PYTHON) scripts/generate_ld.py
 
@@ -201,6 +215,7 @@ $(BUILD)/%.d:asm/%.s
 	$(AS) $(ASFLAGS) -c $< -o $@
 
 $(BUILD)/%.o:src/%.c
+	@# sadly this line is still needed as it stands
 	@mkdir -p $(BUILD) $(BUILD)/field $(BUILD)/battle $(BUILD)/pokedex $(BUILD)/individual
 	@echo -e "Compiling"
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -213,9 +228,7 @@ $(OUTPUT):$(LINK)
 
 all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	rm -rf $(BASE)
-	@mkdir -p $(BASE) $(BUILD) $(BUILD)/move $(BUILD)/objects $(MOVE_SEQ_DIR) $(MOVE_SEQ_OBJ_DIR) $(BATTLE_EFF_DIR) $(BATTLE_EFF_OBJ_DIR) $(BATTLE_SUB_DIR) $(BATTLE_SUB_OBJ_DIR)
-	mkdir -p $(BUILD)/pokemonow $(BUILD)/pokemonicon $(BUILD)/pokemonpic $(BUILD)/a018 $(BUILD)/narc $(BUILD)/text $(BUILD)/move $(BUILD)/a011  $(BUILD)/rawtext
-	mkdir -p $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim $(BUILD)/move/move_anim $(BUILD)/pw_pokegra $(BUILD)/pw_pokeicon $(BUILD)/pw_pokegra_int $(BUILD)/pw_pokeicon_int
+	@mkdir -p $(REQUIRED_DIRECTORIES)
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
@@ -242,12 +255,10 @@ restore_build: | restore all
 
 ####################### Clean #######################
 clean:
-	rm -rf $(BUILD)
-	rm -rf $(BASE)
-	rm -rf rom_gen.ld rom_gen_battle.ld
+	rm -rf $(BUILD) $(BASE) rom_gen.ld rom_gen_battle.ld
 
 clean_tools:
-	rm -f $(TOOLS)
+	rm -rf $(TOOLS) $(VENV)
 
 clean_code:
 	rm -f $(OBJS) $(OVERLAY_OBJS) $(LINKED_OUTPUTS) $(OUTPUT) $(OVERLAY_OUTPUTS) rom_gen.ld rom_gen_battle.ld
