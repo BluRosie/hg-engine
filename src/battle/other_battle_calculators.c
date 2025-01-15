@@ -3229,32 +3229,6 @@ BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type) {
     return (client.type1 == type || client.type2 == type || client.type3 == type || client.is_currently_terastallized ? client.tera_type == type : FALSE);
 }
 
-// TODO: Check if there is a more accurate list
-BOOL LONG_CALL IfAbilityCanBeReplacedByWorrySeed(struct BattleStruct *ctx, int battlerId) {
-    switch(GetBattlerAbility(ctx, battlerId)) {
-        case ABILITY_TRUANT:
-        case ABILITY_MULTITYPE:
-        // case ABILITY_MUMMY:
-        // case ABILITY_ZEN_MODE:
-        case ABILITY_STANCE_CHANGE:
-        case ABILITY_SHIELDS_DOWN:
-        case ABILITY_SCHOOLING:
-        case ABILITY_DISGUISE:
-        case ABILITY_BATTLE_BOND:
-        case ABILITY_POWER_CONSTRUCT:
-        case ABILITY_COMATOSE:
-        case ABILITY_RKS_SYSTEM:
-        case ABILITY_GULP_MISSILE:
-        case ABILITY_ICE_FACE:
-        // case ABILITY_AS_ONE_GLASTRIER:
-        // case ABILITY_AS_ONE_SPECTRIER:
-        // case ABILITY_ZERO_TO_HERO:
-        case ABILITY_COMMANDER:
-            return FALSE;
-        default:
-            return TRUE;
-    }
-}
 
 void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     int client_set_max;
