@@ -24,22 +24,22 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
 
 
-
+// https://m.bulbapedia.bulbagarden.net/wiki/Stat_modifier#Stage_multipliers
 const u8 StatBoostModifiers[][2] = {
-         // numerator, denominator
-        {          10,          40 },
-        {          10,          35 },
-        {          10,          30 },
-        {          10,          25 },
-        {          10,          20 },
-        {          10,          15 },
-        {          10,          10 },
-        {          15,          10 },
-        {          20,          10 },
-        {          25,          10 },
-        {          30,          10 },
-        {          35,          10 },
-        {          40,          10 },
+	// numerator, denominator
+	{2, 8},
+	{2, 7},
+	{2, 6},
+	{2, 5},
+	{2, 4},
+	{2, 3},
+	{2, 2},
+	{3, 3},
+	{4, 2},
+	{5, 2},
+	{6, 2},
+	{7, 2},
+	{8, 2}
 };
 
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
@@ -138,12 +138,8 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
             sp->battlemon[sp->attack_client].moveeffect.meFirstCount--;
         }
 
-        if ((sp->me_first_total_turns - sp->battlemon[sp->attack_client].moveeffect.meFirstCount) < 2)
-        {
-            sp->damage = sp->damage;
-        }
-        else
-        {
+        if ((sp->me_first_total_turns - sp->battlemon[sp->attack_client].moveeffect.meFirstCount) >= 2)
+		{
             sp->battlemon[sp->attack_client].moveeffect.meFirstFlag = 0;
         }
     }
@@ -164,8 +160,14 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp UNUSED, int damage)
     u8 buf[128];
     s32 predamage = damage;
 #endif // DEBUG_ADJUSTED_DAMAGE
-	if (damage == 0)
-		damage = 1;
+	if (damage)
+    {
+		//damage *= (100 - (BattleRand(bw) % 16)); // 85-100% damage roll
+		//damage /= 100;
+		if (damage < 1)
+			damage = 1;
+	}
+
 #ifdef DEBUG_ADJUSTED_DAMAGE
     sprintf(buf, "Unrolled damage: %d -- Battler %d hit battler %d for %d damage.\n", predamage, sp->attack_client, sp->defence_client, damage+1);
     debugsyscall(buf);

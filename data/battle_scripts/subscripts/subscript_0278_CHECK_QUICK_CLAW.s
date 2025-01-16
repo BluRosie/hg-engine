@@ -2,12 +2,6 @@
 
 .data
 
-// TODO Loop over battlers here
-
-.include "asm/include/battle_commands.inc"
-
-.data
-
 _000:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SPEED_TEMP, 0
 

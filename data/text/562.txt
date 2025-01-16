@@ -1,0 +1,6 @@
+A Pokémon you get in a trade\ngrows quickly.\rBut if you don’t have the right Gym\nBadge, they may disobey you.
+I found this Pichu.\nHe seems to be lost.\rBut my dad says I can’t keep him...\rDo you want to keep him? {YESNO}
+{STRVAR_1 3, 0, 0} received\na Pokémon!\rTake good care of him!
+Huh? That’s not BELLSPROUT.\fWhat a letdown...
+You can’t keep him too? Aww...
+Hi, how’s the Pichu doing?

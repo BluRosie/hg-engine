@@ -77,3 +77,6 @@ arm9 PokemonBattleMusic 080518D4
 
 # camouflage type table
 0012 sCamouflageTypeTable 0800CB60
+
+# nature power move table
+0012 sNaturePowerMoveTable 0800CB94

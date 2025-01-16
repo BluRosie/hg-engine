@@ -627,34 +627,34 @@ trainerdata 20, "Falkner"
         // mon 0
         ivs 0
         abilityslot 0
-        level 9
+        level 11
         pokemon SPECIES_NATU
-        move MOVE_PECK
-        move MOVE_LEER
-        move MOVE_TELEPORT
         move MOVE_SOMERSAULT
+        move MOVE_LEER
+        move MOVE_NIGHT_SHADE
+        move MOVE_TELEPORT
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 9
+        level 12
         pokemon SPECIES_MURKROW
-        move MOVE_PECK
-        move MOVE_ASTONISH
-        move MOVE_PURSUIT
         move MOVE_SOMERSAULT
+        move MOVE_PURSUIT
+        move MOVE_ASTONISH
+        move MOVE_HAZE
         ballseal 0
 		
         // mon 2
         ivs 0
         abilityslot 0
-        level 11
+        level 13
         pokemon SPECIES_HOOTHOOT
-        move MOVE_PECK
-        move MOVE_TACKLE
-        move MOVE_LEER
         move MOVE_SOMERSAULT
+        move MOVE_GROWL
+        move MOVE_TACKLE
+        move MOVE_HYPNOSIS
         ballseal 0
     endparty
 

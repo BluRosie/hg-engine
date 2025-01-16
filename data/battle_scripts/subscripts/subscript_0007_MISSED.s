@@ -34,9 +34,11 @@ _063:
 
 _069:
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_LEVITATE_IMMUNE, _081
+    // {0} makes Ground moves miss by using {1}!
+    PrintMessage 21, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER
     //TODO: Add ability popup
     // It doesn’t affect {0}...
-    PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
+    // PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     GoTo _179
 
 _081:

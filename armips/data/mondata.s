@@ -21,7 +21,7 @@ mondata SPECIES_NONE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -41,7 +41,7 @@ mondata SPECIES_BULBASAUR, "Bulbasaur"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -61,7 +61,7 @@ mondata SPECIES_IVYSAUR, "Ivysaur"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -81,7 +81,7 @@ mondata SPECIES_VENUSAUR, "Venusaur"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -101,7 +101,7 @@ mondata SPECIES_CHARMANDER, "Charmander"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -121,7 +121,7 @@ mondata SPECIES_CHARMELEON, "Charmeleon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -141,7 +141,7 @@ mondata SPECIES_CHARIZARD, "Charizard"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -161,7 +161,7 @@ mondata SPECIES_SQUIRTLE, "Squirtle"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -181,7 +181,7 @@ mondata SPECIES_WARTORTLE, "Wartortle"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -201,7 +201,7 @@ mondata SPECIES_BLASTOISE, "Blastoise"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -221,7 +221,7 @@ mondata SPECIES_CATERPIE, "Caterpie"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
@@ -241,7 +241,7 @@ mondata SPECIES_METAPOD, "Metapod"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
@@ -261,7 +261,7 @@ mondata SPECIES_BUTTERFREE, "Butterfree"
     items ITEM_NONE, ITEM_SILVER_POWDER
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_COMPOUND_EYES, ABILITY_NONE
@@ -281,7 +281,7 @@ mondata SPECIES_WEEDLE, "Weedle"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
@@ -301,7 +301,7 @@ mondata SPECIES_KAKUNA, "Kakuna"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
@@ -321,7 +321,7 @@ mondata SPECIES_BEEDRILL, "Beedrill"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_TINTED_LENS, ABILITY_NONE
@@ -341,7 +341,7 @@ mondata SPECIES_PIDGEY, "Pidgey"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_GALE_WINGS, ABILITY_NONE
@@ -361,7 +361,7 @@ mondata SPECIES_PIDGEOTTO, "Pidgeotto"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_GALE_WINGS, ABILITY_NONE
@@ -381,7 +381,7 @@ mondata SPECIES_PIDGEOT, "Pidgeot"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_GALE_WINGS, ABILITY_NONE
@@ -401,7 +401,7 @@ mondata SPECIES_RATTATA, "Rattata"
     items ITEM_NONE, ITEM_CHILAN_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_HUSTLE, ABILITY_NONE
@@ -421,7 +421,7 @@ mondata SPECIES_RATICATE, "Raticate"
     items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_HUSTLE, ABILITY_NONE
@@ -441,7 +441,7 @@ mondata SPECIES_SPEAROW, "Spearow"
     items ITEM_NONE, ITEM_SHARP_BEAK
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_NONE
@@ -461,7 +461,7 @@ mondata SPECIES_FEAROW, "Fearow"
     items ITEM_NONE, ITEM_SHARP_BEAK
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_NONE
@@ -481,7 +481,7 @@ mondata SPECIES_EKANS, "Ekans"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
@@ -501,7 +501,7 @@ mondata SPECIES_ARBOK, "Arbok"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
@@ -513,7 +513,7 @@ mondata SPECIES_ARBOK, "Arbok"
     mondexweight SPECIES_ARBOK, "143.3 lbs."
 
 mondata SPECIES_PIKACHU, "Pikachu"
-    basestats 40, 50, 40, 80, 50, 40
+    basestats 30, 50, 40, 90, 50, 40
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -521,7 +521,7 @@ mondata SPECIES_PIKACHU, "Pikachu"
     items ITEM_ORAN_BERRY, ITEM_LIGHT_BALL
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_LIGHTNING_ROD, ABILITY_NONE
@@ -541,7 +541,7 @@ mondata SPECIES_RAICHU, "Raichu"
     items ITEM_NONE, ITEM_ORAN_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_LIGHTNING_ROD, ABILITY_NONE
@@ -561,7 +561,7 @@ mondata SPECIES_SANDSHREW, "Sandshrew"
     items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_ROUGH_SKIN, ABILITY_NONE
@@ -581,7 +581,7 @@ mondata SPECIES_SANDSLASH, "Sandslash"
     items ITEM_SOFT_SAND, ITEM_QUICK_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_ROUGH_SKIN, ABILITY_NONE
@@ -601,7 +601,7 @@ mondata SPECIES_NIDORAN_F, "Nidoran"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_RIVALRY, ABILITY_NONE
@@ -621,7 +621,7 @@ mondata SPECIES_NIDORINA, "Nidorina"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_RIVALRY, ABILITY_NONE
@@ -641,7 +641,7 @@ mondata SPECIES_NIDOQUEEN, "Nidoqueen"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_RIVALRY, ABILITY_NONE
@@ -661,7 +661,7 @@ mondata SPECIES_NIDORAN_M, "Nidoran"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_SHEER_FORCE, ABILITY_NONE
@@ -681,7 +681,7 @@ mondata SPECIES_NIDORINO, "Nidorino"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_SHEER_FORCE, ABILITY_NONE
@@ -701,7 +701,7 @@ mondata SPECIES_NIDOKING, "Nidoking"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_SHEER_FORCE, ABILITY_NONE
@@ -721,7 +721,7 @@ mondata SPECIES_CLEFAIRY, "Clefairy"
     items ITEM_LEPPA_BERRY, ITEM_MOON_STONE
     genderratio 190
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_MAGIC_GUARD, ABILITY_NONE
@@ -741,7 +741,7 @@ mondata SPECIES_CLEFABLE, "Clefable"
     items ITEM_LEPPA_BERRY, ITEM_MOON_STONE
     genderratio 190
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_MAGIC_GUARD, ABILITY_NONE
@@ -761,7 +761,7 @@ mondata SPECIES_VULPIX, "Vulpix"
     items ITEM_RAWST_BERRY, ITEM_CHARCOAL
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_DROUGHT, ABILITY_NONE
@@ -781,7 +781,7 @@ mondata SPECIES_NINETALES, "Ninetales"
     items ITEM_RAWST_BERRY, ITEM_CHARCOAL
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_DROUGHT, ABILITY_NONE
@@ -801,7 +801,7 @@ mondata SPECIES_JIGGLYPUFF, "Jigglypuff"
     items ITEM_ORAN_BERRY, ITEM_MOON_STONE
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_STAMINA, ABILITY_NONE
@@ -821,7 +821,7 @@ mondata SPECIES_WIGGLYTUFF, "Wigglytuff"
     items ITEM_ORAN_BERRY, ITEM_MOON_STONE
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_STAMINA, ABILITY_NONE
@@ -841,7 +841,7 @@ mondata SPECIES_ZUBAT, "Zubat"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
@@ -861,7 +861,7 @@ mondata SPECIES_GOLBAT, "Golbat"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
@@ -881,7 +881,7 @@ mondata SPECIES_ODDISH, "Oddish"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_RAIN_DISH, ABILITY_NONE
@@ -901,7 +901,7 @@ mondata SPECIES_GLOOM, "Gloom"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_RAIN_DISH, ABILITY_NONE
@@ -921,7 +921,7 @@ mondata SPECIES_VILEPLUME, "Vileplume"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_RAIN_DISH, ABILITY_NONE
@@ -941,7 +941,7 @@ mondata SPECIES_PARAS, "Paras"
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_GRASS
     abilities ABILITY_DRY_SKIN, ABILITY_NONE
@@ -961,7 +961,7 @@ mondata SPECIES_PARASECT, "Parasect"
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_GRASS
     abilities ABILITY_DRY_SKIN, ABILITY_NONE
@@ -981,7 +981,7 @@ mondata SPECIES_VENONAT, "Venonat"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
@@ -1001,7 +1001,7 @@ mondata SPECIES_VENOMOTH, "Venomoth"
     items ITEM_SHED_SHELL, ITEM_SILVER_POWDER
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
@@ -1021,7 +1021,7 @@ mondata SPECIES_DIGLETT, "Diglett"
     items ITEM_NONE, ITEM_SOFT_SAND
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_ARENA_TRAP, ABILITY_NONE
@@ -1041,7 +1041,7 @@ mondata SPECIES_DUGTRIO, "Dugtrio"
     items ITEM_NONE, ITEM_SOFT_SAND
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_ARENA_TRAP, ABILITY_NONE
@@ -1061,7 +1061,7 @@ mondata SPECIES_MEOWTH, "Meowth"
     items ITEM_QUICK_CLAW, ITEM_NUGGET
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_TECHNICIAN, ABILITY_NONE
@@ -1081,7 +1081,7 @@ mondata SPECIES_PERSIAN, "Persian"
     items ITEM_NONE, ITEM_QUICK_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_TECHNICIAN, ABILITY_NONE
@@ -1101,7 +1101,7 @@ mondata SPECIES_PSYDUCK, "Psyduck"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_POISON_TOUCH, ABILITY_NONE
@@ -1121,7 +1121,7 @@ mondata SPECIES_GOLDUCK, "Golduck"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_POISON_TOUCH, ABILITY_NONE
@@ -1141,7 +1141,7 @@ mondata SPECIES_MANKEY, "Mankey"
     items ITEM_NONE, ITEM_PAYAPA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_VITAL_SPIRIT, ABILITY_NONE
@@ -1161,7 +1161,7 @@ mondata SPECIES_PRIMEAPE, "Primeape"
     items ITEM_NONE, ITEM_PAYAPA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_VITAL_SPIRIT, ABILITY_NONE
@@ -1181,7 +1181,7 @@ mondata SPECIES_GROWLITHE, "Growlithe"
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
@@ -1201,7 +1201,7 @@ mondata SPECIES_ARCANINE, "Arcanine"
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
@@ -1221,7 +1221,7 @@ mondata SPECIES_POLIWAG, "Poliwag"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_RAIN_DISH, ABILITY_NONE
@@ -1241,7 +1241,7 @@ mondata SPECIES_POLIWHIRL, "Poliwhirl"
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_RAIN_DISH, ABILITY_NONE
@@ -1261,7 +1261,7 @@ mondata SPECIES_POLIWRATH, "Poliwrath"
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_RAIN_DISH, ABILITY_NONE
@@ -1281,7 +1281,7 @@ mondata SPECIES_ABRA, "Abra"
     items ITEM_NONE, ITEM_TWISTED_SPOON
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_MAGIC_GUARD, ABILITY_NONE
@@ -1301,7 +1301,7 @@ mondata SPECIES_KADABRA, "Kadabra"
     items ITEM_NONE, ITEM_TWISTED_SPOON
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_MAGIC_GUARD, ABILITY_NONE
@@ -1321,7 +1321,7 @@ mondata SPECIES_ALAKAZAM, "Alakazam"
     items ITEM_NONE, ITEM_TWISTED_SPOON
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_MAGIC_GUARD, ABILITY_NONE
@@ -1341,7 +1341,7 @@ mondata SPECIES_MACHOP, "Machop"
     items ITEM_NONE, ITEM_FOCUS_BAND
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_NO_GUARD, ABILITY_NONE
@@ -1361,7 +1361,7 @@ mondata SPECIES_MACHOKE, "Machoke"
     items ITEM_NONE, ITEM_FOCUS_BAND
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_NO_GUARD, ABILITY_NONE
@@ -1381,7 +1381,7 @@ mondata SPECIES_MACHAMP, "Machamp"
     items ITEM_NONE, ITEM_FOCUS_BAND
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_NO_GUARD, ABILITY_NONE
@@ -1401,7 +1401,7 @@ mondata SPECIES_BELLSPROUT, "Bellsprout"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_LIMBER, ABILITY_NONE
@@ -1421,7 +1421,7 @@ mondata SPECIES_WEEPINBELL, "Weepinbell"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_LIMBER, ABILITY_NONE
@@ -1441,7 +1441,7 @@ mondata SPECIES_VICTREEBEL, "Victreebel"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_LIMBER, ABILITY_NONE
@@ -1461,7 +1461,7 @@ mondata SPECIES_TENTACOOL, "Tentacool"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_LIQUID_OOZE, ABILITY_NONE
@@ -1481,7 +1481,7 @@ mondata SPECIES_TENTACRUEL, "Tentacruel"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_LIQUID_OOZE, ABILITY_NONE
@@ -1501,7 +1501,7 @@ mondata SPECIES_GEODUDE, "Geodude"
     items ITEM_NONE, ITEM_EVERSTONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
@@ -1521,7 +1521,7 @@ mondata SPECIES_GRAVELER, "Graveler"
     items ITEM_HARD_STONE, ITEM_EVERSTONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
@@ -1541,7 +1541,7 @@ mondata SPECIES_GOLEM, "Golem"
     items ITEM_HARD_STONE, ITEM_EVERSTONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
@@ -1561,7 +1561,7 @@ mondata SPECIES_PONYTA, "Ponyta"
     items ITEM_NONE, ITEM_SHUCA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_QUICK_FEET, ABILITY_NONE
@@ -1581,7 +1581,7 @@ mondata SPECIES_RAPIDASH, "Rapidash"
     items ITEM_NONE, ITEM_SHUCA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_QUICK_FEET, ABILITY_NONE
@@ -1601,7 +1601,7 @@ mondata SPECIES_SLOWPOKE, "Slowpoke"
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_REGENERATOR, ABILITY_NONE
@@ -1621,7 +1621,7 @@ mondata SPECIES_SLOWBRO, "Slowbro"
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_REGENERATOR, ABILITY_NONE
@@ -1641,7 +1641,7 @@ mondata SPECIES_MAGNEMITE, "Magnemite"
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_MAGNET_PULL, ABILITY_NONE
@@ -1661,7 +1661,7 @@ mondata SPECIES_MAGNETON, "Magneton"
     items ITEM_MAGNET, ITEM_METAL_COAT
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_MAGNET_PULL, ABILITY_NONE
@@ -1681,7 +1681,7 @@ mondata SPECIES_FARFETCHD, "Farfetch’d"
     items ITEM_LEEK, ITEM_LEEK
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FIELD
     abilities ABILITY_SHARPNESS, ABILITY_NONE
@@ -1701,7 +1701,7 @@ mondata SPECIES_DODUO, "Doduo"
     items ITEM_NONE, ITEM_SHARP_BEAK
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_RECKLESS, ABILITY_NONE
@@ -1721,7 +1721,7 @@ mondata SPECIES_DODRIO, "Dodrio"
     items ITEM_NONE, ITEM_SHARP_BEAK
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_RECKLESS, ABILITY_NONE
@@ -1741,7 +1741,7 @@ mondata SPECIES_SEEL, "Seel"
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_THICK_FAT, ABILITY_NONE
@@ -1761,7 +1761,7 @@ mondata SPECIES_DEWGONG, "Dewgong"
     items ITEM_ASPEAR_BERRY, ITEM_NEVER_MELT_ICE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_THICK_FAT, ABILITY_NONE
@@ -1781,7 +1781,7 @@ mondata SPECIES_GRIMER, "Grimer"
     items ITEM_BLACK_SLUDGE, ITEM_NUGGET
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_POISON_TOUCH, ABILITY_NONE
@@ -1801,7 +1801,7 @@ mondata SPECIES_MUK, "Muk"
     items ITEM_TOXIC_ORB, ITEM_NUGGET
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_POISON_TOUCH, ABILITY_NONE
@@ -1821,7 +1821,7 @@ mondata SPECIES_SHELLDER, "Shellder"
     items ITEM_PEARL, ITEM_BIG_PEARL
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_SKILL_LINK, ABILITY_NONE
@@ -1841,7 +1841,7 @@ mondata SPECIES_CLOYSTER, "Cloyster"
     items ITEM_PEARL, ITEM_BIG_PEARL
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_SKILL_LINK, ABILITY_NONE
@@ -1861,7 +1861,7 @@ mondata SPECIES_GASTLY, "Gastly"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -1881,7 +1881,7 @@ mondata SPECIES_HAUNTER, "Haunter"
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -1901,7 +1901,7 @@ mondata SPECIES_GENGAR, "Gengar"
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -1921,7 +1921,7 @@ mondata SPECIES_ONIX, "Onix"
     items ITEM_LAGGING_TAIL, ITEM_HARD_STONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SAND_FORCE, ABILITY_NONE
@@ -1941,7 +1941,7 @@ mondata SPECIES_DROWZEE, "Drowzee"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_BAD_DREAMS, ABILITY_NONE
@@ -1961,7 +1961,7 @@ mondata SPECIES_HYPNO, "Hypno"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_BAD_DREAMS, ABILITY_NONE
@@ -1981,7 +1981,7 @@ mondata SPECIES_KRABBY, "Krabby"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_HYPER_CUTTER, ABILITY_NONE
@@ -2001,7 +2001,7 @@ mondata SPECIES_KINGLER, "Kingler"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_HYPER_CUTTER, ABILITY_NONE
@@ -2021,7 +2021,7 @@ mondata SPECIES_VOLTORB, "Voltorb"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_AFTERMATH, ABILITY_NONE
@@ -2041,7 +2041,7 @@ mondata SPECIES_ELECTRODE, "Electrode"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_AFTERMATH, ABILITY_NONE
@@ -2061,7 +2061,7 @@ mondata SPECIES_EXEGGCUTE, "Exeggcute"
     items ITEM_NONE, ITEM_PSYCHIC_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
@@ -2081,7 +2081,7 @@ mondata SPECIES_EXEGGUTOR, "Exeggutor"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
@@ -2101,7 +2101,7 @@ mondata SPECIES_CUBONE, "Cubone"
     items ITEM_NONE, ITEM_THICK_CLUB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_ROCK_HEAD, ABILITY_NONE
@@ -2121,7 +2121,7 @@ mondata SPECIES_MAROWAK, "Marowak"
     items ITEM_NONE, ITEM_THICK_CLUB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_ROCK_HEAD, ABILITY_NONE
@@ -2141,7 +2141,7 @@ mondata SPECIES_HITMONLEE, "Hitmonlee"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_RECKLESS, ABILITY_NONE
@@ -2161,7 +2161,7 @@ mondata SPECIES_HITMONCHAN, "Hitmonchan"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_IRON_FIST, ABILITY_NONE
@@ -2181,7 +2181,7 @@ mondata SPECIES_LICKITUNG, "Lickitung"
     items ITEM_NONE, ITEM_LAGGING_TAIL
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_POISON_TOUCH, ABILITY_NONE
@@ -2201,7 +2201,7 @@ mondata SPECIES_KOFFING, "Koffing"
     items ITEM_NONE, ITEM_SMOKE_BALL
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -2221,7 +2221,7 @@ mondata SPECIES_WEEZING, "Weezing"
     items ITEM_NONE, ITEM_SMOKE_BALL
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -2241,7 +2241,7 @@ mondata SPECIES_RHYHORN, "Rhyhorn"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_SOLID_ROCK, ABILITY_NONE
@@ -2261,7 +2261,7 @@ mondata SPECIES_RHYDON, "Rhydon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_SOLID_ROCK, ABILITY_NONE
@@ -2281,7 +2281,7 @@ mondata SPECIES_CHANSEY, "Chansey"
     items ITEM_OVAL_STONE, ITEM_LUCKY_EGG
     genderratio 254
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
@@ -2301,7 +2301,7 @@ mondata SPECIES_TANGELA, "Tangela"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
@@ -2321,7 +2321,7 @@ mondata SPECIES_KANGASKHAN, "Kangaskhan"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
@@ -2338,10 +2338,10 @@ mondata SPECIES_HORSEA, "Horsea"
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_DRAGON_SCALE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
     abilities ABILITY_SNIPER, ABILITY_NONE
@@ -2358,10 +2358,10 @@ mondata SPECIES_SEADRA, "Seadra"
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_DRAGON_SCALE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
     abilities ABILITY_SNIPER, ABILITY_NONE
@@ -2373,15 +2373,15 @@ mondata SPECIES_SEADRA, "Seadra"
     mondexweight SPECIES_SEADRA, "55.1 lbs."
 
 mondata SPECIES_GOLDEEN, "Goldeen"
-    basestats 30, 70, 40, 80, 40, 40
-    types TYPE_NORMAL, TYPE_WATER
+    basestats 60, 60, 30, 60, 60, 30
+    types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_MYSTIC_WATER
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_MARVEL_SCALE, ABILITY_NONE
@@ -2393,15 +2393,15 @@ mondata SPECIES_GOLDEEN, "Goldeen"
     mondexweight SPECIES_GOLDEEN, "33.1 lbs."
 
 mondata SPECIES_SEAKING, "Seaking"
-    basestats 60, 100, 70, 120, 80, 70
-    types TYPE_NORMAL, TYPE_WATER
+    basestats 80, 80, 40, 80, 80, 40
+    types TYPE_WATER, TYPE_STEEL
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_MYSTIC_WATER
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_MARVEL_SCALE, ABILITY_NONE
@@ -2421,7 +2421,7 @@ mondata SPECIES_STARYU, "Staryu"
     items ITEM_STARDUST, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
@@ -2441,7 +2441,7 @@ mondata SPECIES_STARMIE, "Starmie"
     items ITEM_STARDUST, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
@@ -2453,7 +2453,7 @@ mondata SPECIES_STARMIE, "Starmie"
     mondexweight SPECIES_STARMIE, "176.4 lbs."
 
 mondata SPECIES_MR_MIME, "Mr Mime"
-    basestats 50, 50, 150, 50, 100, 100
+    basestats 40, 40, 120, 40, 120, 40
     types TYPE_PSYCHIC, TYPE_FAIRY
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -2461,7 +2461,7 @@ mondata SPECIES_MR_MIME, "Mr Mime"
     items ITEM_NONE, ITEM_LEPPA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_FILTER, ABILITY_NONE
@@ -2481,7 +2481,7 @@ mondata SPECIES_SCYTHER, "Scyther"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_NONE
@@ -2493,7 +2493,7 @@ mondata SPECIES_SCYTHER, "Scyther"
     mondexweight SPECIES_SCYTHER, "123.5 lbs."
 
 mondata SPECIES_JYNX, "Jynx"
-    basestats 50, 50, 100, 50, 100, 150
+    basestats 40, 40, 40, 40, 120, 120
     types TYPE_ICE, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -2501,7 +2501,7 @@ mondata SPECIES_JYNX, "Jynx"
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -2521,7 +2521,7 @@ mondata SPECIES_ELECTABUZZ, "Electabuzz"
     items ITEM_ELECTIRIZER, ITEM_NONE
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_STATIC, ABILITY_NONE
@@ -2541,7 +2541,7 @@ mondata SPECIES_MAGMAR, "Magmar"
     items ITEM_RAWST_BERRY, ITEM_MAGMARIZER
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
@@ -2561,7 +2561,7 @@ mondata SPECIES_PINSIR, "Pinsir"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_RIVALRY, ABILITY_NONE
@@ -2581,7 +2581,7 @@ mondata SPECIES_TAUROS, "Tauros"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_ANGER_POINT, ABILITY_NONE
@@ -2601,7 +2601,7 @@ mondata SPECIES_MAGIKARP, "Magikarp"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_DRAGON
     abilities ABILITY_DEFIANT, ABILITY_NONE
@@ -2621,7 +2621,7 @@ mondata SPECIES_GYARADOS, "Gyarados"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_DRAGON
     abilities ABILITY_DEFIANT, ABILITY_NONE
@@ -2641,7 +2641,7 @@ mondata SPECIES_LAPRAS, "Lapras"
     items ITEM_MYSTIC_WATER, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
@@ -2661,7 +2661,7 @@ mondata SPECIES_DITTO, "Ditto"
     items ITEM_QUICK_POWDER, ITEM_METAL_POWDER
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_DITTO, EGG_GROUP_DITTO
     abilities ABILITY_IMPOSTER, ABILITY_NONE
@@ -2681,7 +2681,7 @@ mondata SPECIES_EEVEE, "Eevee"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_ADAPTABILITY, ABILITY_NONE
@@ -2701,7 +2701,7 @@ mondata SPECIES_VAPOREON, "Vaporeon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_WATER_ABSORB, ABILITY_NONE
@@ -2721,7 +2721,7 @@ mondata SPECIES_JOLTEON, "Jolteon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_LIGHTNING_ROD, ABILITY_NONE
@@ -2741,7 +2741,7 @@ mondata SPECIES_FLAREON, "Flareon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
@@ -2761,7 +2761,7 @@ mondata SPECIES_PORYGON, "Porygon"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
@@ -2781,7 +2781,7 @@ mondata SPECIES_OMANYTE, "Omanyte"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_STAMINA, ABILITY_NONE
@@ -2801,7 +2801,7 @@ mondata SPECIES_OMASTAR, "Omastar"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_STAMINA, ABILITY_NONE
@@ -2821,7 +2821,7 @@ mondata SPECIES_KABUTO, "Kabuto"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_WEAK_ARMOR, ABILITY_NONE
@@ -2841,7 +2841,7 @@ mondata SPECIES_KABUTOPS, "Kabutops"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_WEAK_ARMOR, ABILITY_NONE
@@ -2861,7 +2861,7 @@ mondata SPECIES_AERODACTYL, "Aerodactyl"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_ROCK_HEAD, ABILITY_NONE
@@ -2881,7 +2881,7 @@ mondata SPECIES_SNORLAX, "Snorlax"
     items ITEM_CHESTO_BERRY, ITEM_LEFTOVERS
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_IMMUNITY, ABILITY_NONE
@@ -2901,7 +2901,7 @@ mondata SPECIES_ARTICUNO, "Articuno"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BERSERK, ABILITY_NONE
@@ -2921,7 +2921,7 @@ mondata SPECIES_ZAPDOS, "Zapdos"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BERSERK, ABILITY_NONE
@@ -2941,7 +2941,7 @@ mondata SPECIES_MOLTRES, "Moltres"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BERSERK, ABILITY_NONE
@@ -2958,10 +2958,10 @@ mondata SPECIES_DRATINI, "Dratini"
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_DRAGON_SCALE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
@@ -2978,10 +2978,10 @@ mondata SPECIES_DRAGONAIR, "Dragonair"
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
@@ -2998,10 +2998,10 @@ mondata SPECIES_DRAGONITE, "Dragonite"
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    items ITEM_DRAGON_SCALE, ITEM_DRAGON_SCALE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
     abilities ABILITY_MULTISCALE, ABILITY_NONE
@@ -3021,7 +3021,7 @@ mondata SPECIES_MEWTWO, "Mewtwo"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_FOREWARN, ABILITY_NONE
@@ -3041,7 +3041,7 @@ mondata SPECIES_MEW, "Mew"
     items ITEM_LUM_BERRY, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SYNCHRONIZE, ABILITY_NONE
@@ -3061,7 +3061,7 @@ mondata SPECIES_CHIKORITA, "Chikorita"
     items ITEM_LUM_BERRY, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_UNAWARE, ABILITY_NONE
@@ -3081,7 +3081,7 @@ mondata SPECIES_BAYLEEF, "Bayleef"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_UNAWARE, ABILITY_NONE
@@ -3101,7 +3101,7 @@ mondata SPECIES_MEGANIUM, "Meganium"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_UNAWARE, ABILITY_NONE
@@ -3121,7 +3121,7 @@ mondata SPECIES_CYNDAQUIL, "Cyndaquil"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_WHITE_SMOKE, ABILITY_NONE
@@ -3141,7 +3141,7 @@ mondata SPECIES_QUILAVA, "Quilava"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_WHITE_SMOKE, ABILITY_NONE
@@ -3161,7 +3161,7 @@ mondata SPECIES_TYPHLOSION, "Typhlosion"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_WHITE_SMOKE, ABILITY_NONE
@@ -3181,7 +3181,7 @@ mondata SPECIES_TOTODILE, "Totodile"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_SIMPLE, ABILITY_NONE
@@ -3201,7 +3201,7 @@ mondata SPECIES_CROCONAW, "Croconaw"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_SIMPLE, ABILITY_NONE
@@ -3221,7 +3221,7 @@ mondata SPECIES_FERALIGATR, "Feraligatr"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_SIMPLE, ABILITY_NONE
@@ -3233,7 +3233,7 @@ mondata SPECIES_FERALIGATR, "Feraligatr"
     mondexweight SPECIES_FERALIGATR, "195.8 lbs."
 
 mondata SPECIES_SENTRET, "Sentret"
-    basestats 30, 40, 30, 40, 30, 30
+    basestats 50, 60, 50, 30, 50, 60
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3241,7 +3241,7 @@ mondata SPECIES_SENTRET, "Sentret"
     items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_LIMBER, ABILITY_NONE
@@ -3253,7 +3253,7 @@ mondata SPECIES_SENTRET, "Sentret"
     mondexweight SPECIES_SENTRET, "13.2 lbs."
 
 mondata SPECIES_FURRET, "Furret"
-    basestats 60, 100, 60, 90, 30, 60
+    basestats 80, 80, 60, 90, 30, 60
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3261,7 +3261,7 @@ mondata SPECIES_FURRET, "Furret"
     items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_LIMBER, ABILITY_NONE
@@ -3273,7 +3273,7 @@ mondata SPECIES_FURRET, "Furret"
     mondexweight SPECIES_FURRET, "71.7 lbs."
 
 mondata SPECIES_HOOTHOOT, "Hoothoot"
-    basestats 70, 30, 30, 60, 50, 60
+    basestats 60, 40, 40, 50, 50, 60
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3281,7 +3281,7 @@ mondata SPECIES_HOOTHOOT, "Hoothoot"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_INSOMNIA, ABILITY_NONE
@@ -3293,7 +3293,7 @@ mondata SPECIES_HOOTHOOT, "Hoothoot"
     mondexweight SPECIES_HOOTHOOT, "46.7 lbs."
 
 mondata SPECIES_NOCTOWL, "Noctowl"
-    basestats 100, 30, 30, 70, 80, 90
+    basestats 90, 40, 40, 70, 70, 90
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3301,7 +3301,7 @@ mondata SPECIES_NOCTOWL, "Noctowl"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_INSOMNIA, ABILITY_NONE
@@ -3321,7 +3321,7 @@ mondata SPECIES_LEDYBA, "Ledyba"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_NONE
@@ -3341,7 +3341,7 @@ mondata SPECIES_LEDIAN, "Ledian"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_JUSTIFIED, ABILITY_NONE
@@ -3361,7 +3361,7 @@ mondata SPECIES_SPINARAK, "Spinarak"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_NONE
@@ -3381,7 +3381,7 @@ mondata SPECIES_ARIADOS, "Ariados"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_RATTLED, ABILITY_NONE
@@ -3401,7 +3401,7 @@ mondata SPECIES_CROBAT, "Crobat"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
@@ -3421,7 +3421,7 @@ mondata SPECIES_CHINCHOU, "Chinchou"
     items ITEM_DEEP_SEA_SCALE, ITEM_YELLOW_SHARD
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_TRANSISTOR, ABILITY_NONE
@@ -3441,7 +3441,7 @@ mondata SPECIES_LANTURN, "Lanturn"
     items ITEM_DEEP_SEA_SCALE, ITEM_YELLOW_SHARD
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_TRANSISTOR, ABILITY_NONE
@@ -3453,7 +3453,7 @@ mondata SPECIES_LANTURN, "Lanturn"
     mondexweight SPECIES_LANTURN, "49.6 lbs."
 
 mondata SPECIES_PICHU, "Pichu"
-    basestats 30, 40, 30, 40, 30, 30
+    basestats 20, 40, 20, 60, 30, 30
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3461,7 +3461,7 @@ mondata SPECIES_PICHU, "Pichu"
     items ITEM_NONE, ITEM_ORAN_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LIGHTNING_ROD, ABILITY_NONE
@@ -3473,7 +3473,7 @@ mondata SPECIES_PICHU, "Pichu"
     mondexweight SPECIES_PICHU, "4.4 lbs."
 
 mondata SPECIES_CLEFFA, "Cleffa"
-    basestats 40, 30, 40, 30, 30, 30
+    basestats 50, 20, 30, 10, 40, 50
     types TYPE_NORMAL, TYPE_FAIRY
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3481,7 +3481,7 @@ mondata SPECIES_CLEFFA, "Cleffa"
     items ITEM_LEPPA_BERRY, ITEM_MOON_STONE
     genderratio 190
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MAGIC_GUARD, ABILITY_NONE
@@ -3501,7 +3501,7 @@ mondata SPECIES_IGGLYBUFF, "Igglybuff"
     items ITEM_ORAN_BERRY, ITEM_NONE
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STAMINA, ABILITY_NONE
@@ -3513,7 +3513,7 @@ mondata SPECIES_IGGLYBUFF, "Igglybuff"
     mondexweight SPECIES_IGGLYBUFF, "2.2 lbs."
 
 mondata SPECIES_TOGEPI, "Togepi"
-    basestats 30, 40, 30, 30, 40, 30
+    basestats 30, 20, 50, 20, 30, 50
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3521,7 +3521,7 @@ mondata SPECIES_TOGEPI, "Togepi"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
@@ -3533,7 +3533,7 @@ mondata SPECIES_TOGEPI, "Togepi"
     mondexweight SPECIES_TOGEPI, "3.3 lbs."
 
 mondata SPECIES_TOGETIC, "Togetic"
-    basestats 70, 110, 70, 70, 110, 70
+    basestats 40, 30, 60, 30, 60, 80
     types TYPE_FAIRY, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3541,7 +3541,7 @@ mondata SPECIES_TOGETIC, "Togetic"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FAIRY
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
@@ -3561,7 +3561,7 @@ mondata SPECIES_NATU, "Natu"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_MAGIC_BOUNCE, ABILITY_NONE
@@ -3581,7 +3581,7 @@ mondata SPECIES_XATU, "Xatu"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_MAGIC_BOUNCE, ABILITY_NONE
@@ -3601,7 +3601,7 @@ mondata SPECIES_MAREEP, "Mareep"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_FLUFFY, ABILITY_NONE
@@ -3621,7 +3621,7 @@ mondata SPECIES_FLAAFFY, "Flaaffy"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_FLUFFY, ABILITY_NONE
@@ -3641,7 +3641,7 @@ mondata SPECIES_AMPHAROS, "Ampharos"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_FLUFFY, ABILITY_NONE
@@ -3661,7 +3661,7 @@ mondata SPECIES_BELLOSSOM, "Bellossom"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
@@ -3681,7 +3681,7 @@ mondata SPECIES_MARILL, "Marill"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FAIRY
     abilities ABILITY_SAP_SIPPER, ABILITY_NONE
@@ -3701,7 +3701,7 @@ mondata SPECIES_AZUMARILL, "Azumarill"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FAIRY
     abilities ABILITY_SAP_SIPPER, ABILITY_NONE
@@ -3721,7 +3721,7 @@ mondata SPECIES_SUDOWOODO, "Sudowoodo"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_COLOR_CHANGE, ABILITY_NONE
@@ -3741,7 +3741,7 @@ mondata SPECIES_POLITOED, "Politoed"
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_DRIZZLE, ABILITY_NONE
@@ -3761,7 +3761,7 @@ mondata SPECIES_HOPPIP, "Hoppip"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
     abilities ABILITY_WIND_RIDER, ABILITY_NONE
@@ -3781,7 +3781,7 @@ mondata SPECIES_SKIPLOOM, "Skiploom"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
     abilities ABILITY_WIND_RIDER, ABILITY_NONE
@@ -3801,7 +3801,7 @@ mondata SPECIES_JUMPLUFF, "Jumpluff"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
     abilities ABILITY_WIND_RIDER, ABILITY_NONE
@@ -3821,7 +3821,7 @@ mondata SPECIES_AIPOM, "Aipom"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PRANKSTER, ABILITY_NONE
@@ -3841,7 +3841,7 @@ mondata SPECIES_SUNKERN, "Sunkern"
     items ITEM_NONE, ITEM_COBA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
@@ -3861,7 +3861,7 @@ mondata SPECIES_SUNFLORA, "Sunflora"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_SOLAR_POWER, ABILITY_NONE
@@ -3881,7 +3881,7 @@ mondata SPECIES_YANMA, "Yanma"
     items ITEM_NONE, ITEM_WIDE_LENS
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE
@@ -3901,7 +3901,7 @@ mondata SPECIES_WOOPER, "Wooper"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_UNAWARE, ABILITY_NONE
@@ -3921,7 +3921,7 @@ mondata SPECIES_QUAGSIRE, "Quagsire"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_UNAWARE, ABILITY_NONE
@@ -3941,7 +3941,7 @@ mondata SPECIES_ESPEON, "Espeon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_MAGIC_BOUNCE, ABILITY_NONE
@@ -3961,7 +3961,7 @@ mondata SPECIES_UMBREON, "Umbreon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PRESSURE, ABILITY_NONE
@@ -3973,7 +3973,7 @@ mondata SPECIES_UMBREON, "Umbreon"
     mondexweight SPECIES_UMBREON, "59.5 lbs."
 
 mondata SPECIES_MURKROW, "Murkrow"
-    basestats 50, 80, 50, 90, 80, 50
+    basestats 30, 70, 30, 70, 70, 30
     types TYPE_DARK, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3981,7 +3981,7 @@ mondata SPECIES_MURKROW, "Murkrow"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_PRANKSTER, ABILITY_NONE
@@ -4001,7 +4001,7 @@ mondata SPECIES_SLOWKING, "Slowking"
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_REGENERATOR, ABILITY_NONE
@@ -4021,7 +4021,7 @@ mondata SPECIES_MISDREAVUS, "Misdreavus"
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -4041,7 +4041,7 @@ mondata SPECIES_UNOWN, "Unown"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PROTEAN, ABILITY_NONE
@@ -4061,7 +4061,7 @@ mondata SPECIES_WOBBUFFET, "Wobbuffet"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_NO_GUARD, ABILITY_NONE
@@ -4081,7 +4081,7 @@ mondata SPECIES_GIRAFARIG, "Girafarig"
     items ITEM_NONE, ITEM_PERSIM_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FOREWARN, ABILITY_NONE
@@ -4101,7 +4101,7 @@ mondata SPECIES_PINECO, "Pineco"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -4121,7 +4121,7 @@ mondata SPECIES_FORRETRESS, "Forretress"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -4141,7 +4141,7 @@ mondata SPECIES_DUNSPARCE, "Dunsparce"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
@@ -4161,7 +4161,7 @@ mondata SPECIES_GLIGAR, "Gligar"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_IMMUNITY, ABILITY_NONE
@@ -4181,7 +4181,7 @@ mondata SPECIES_STEELIX, "Steelix"
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SAND_FORCE, ABILITY_NONE
@@ -4201,7 +4201,7 @@ mondata SPECIES_SNUBBULL, "Snubbull"
     items ITEM_NONE, ITEM_NONE
     genderratio 190
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_STRONG_JAW, ABILITY_NONE
@@ -4221,7 +4221,7 @@ mondata SPECIES_GRANBULL, "Granbull"
     items ITEM_NONE, ITEM_NONE
     genderratio 190
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_STRONG_JAW, ABILITY_NONE
@@ -4241,7 +4241,7 @@ mondata SPECIES_QWILFISH, "Qwilfish"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_ROUGH_SKIN, ABILITY_NONE
@@ -4261,7 +4261,7 @@ mondata SPECIES_SCIZOR, "Scizor"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_TECHNICIAN, ABILITY_NONE
@@ -4281,7 +4281,7 @@ mondata SPECIES_SHUCKLE, "Shuckle"
     items ITEM_BERRY_JUICE, ITEM_ORAN_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_INNARDS_OUT, ABILITY_NONE
@@ -4301,7 +4301,7 @@ mondata SPECIES_HERACROSS, "Heracross"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_GUTS, ABILITY_NONE
@@ -4321,7 +4321,7 @@ mondata SPECIES_SNEASEL, "Sneasel"
     items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PICKPOCKET, ABILITY_NONE
@@ -4341,7 +4341,7 @@ mondata SPECIES_TEDDIURSA, "Teddiursa"
     items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GUTS, ABILITY_NONE
@@ -4361,7 +4361,7 @@ mondata SPECIES_URSARING, "Ursaring"
     items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GUTS, ABILITY_NONE
@@ -4381,7 +4381,7 @@ mondata SPECIES_SLUGMA, "Slugma"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_DRY_SKIN, ABILITY_NONE
@@ -4401,7 +4401,7 @@ mondata SPECIES_MAGCARGO, "Magcargo"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_DRY_SKIN, ABILITY_NONE
@@ -4421,7 +4421,7 @@ mondata SPECIES_SWINUB, "Swinub"
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SNOW_CLOAK, ABILITY_NONE
@@ -4441,7 +4441,7 @@ mondata SPECIES_PILOSWINE, "Piloswine"
     items ITEM_ASPEAR_BERRY, ITEM_NEVER_MELT_ICE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SNOW_CLOAK, ABILITY_NONE
@@ -4461,7 +4461,7 @@ mondata SPECIES_CORSOLA, "Corsola"
     items ITEM_HARD_STONE, ITEM_RED_SHARD
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_REGENERATOR, ABILITY_NONE
@@ -4481,7 +4481,7 @@ mondata SPECIES_REMORAID, "Remoraid"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
     abilities ABILITY_MEGA_LAUNCHER, ABILITY_NONE
@@ -4501,7 +4501,7 @@ mondata SPECIES_OCTILLERY, "Octillery"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
     abilities ABILITY_MEGA_LAUNCHER, ABILITY_NONE
@@ -4521,7 +4521,7 @@ mondata SPECIES_DELIBIRD, "Delibird"
     items ITEM_SITRUS_BERRY, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_UNBURDEN, ABILITY_NONE
@@ -4541,7 +4541,7 @@ mondata SPECIES_MANTINE, "Mantine"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
@@ -4561,7 +4561,7 @@ mondata SPECIES_SKARMORY, "Skarmory"
     items ITEM_SHARP_BEAK, ITEM_METAL_COAT
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_NONE
@@ -4581,7 +4581,7 @@ mondata SPECIES_HOUNDOUR, "Houndour"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_UNNERVE, ABILITY_NONE
@@ -4601,7 +4601,7 @@ mondata SPECIES_HOUNDOOM, "Houndoom"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_UNNERVE, ABILITY_NONE
@@ -4618,10 +4618,10 @@ mondata SPECIES_KINGDRA, "Kingdra"
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_DRAGON_SCALE
+    items ITEM_DRAGON_SCALE, ITEM_DRAGON_SCALE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
     abilities ABILITY_SNIPER, ABILITY_NONE
@@ -4641,7 +4641,7 @@ mondata SPECIES_PHANPY, "Phanpy"
     items ITEM_NONE, ITEM_PASSHO_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SAP_SIPPER, ABILITY_NONE
@@ -4661,7 +4661,7 @@ mondata SPECIES_DONPHAN, "Donphan"
     items ITEM_NONE, ITEM_PASSHO_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SAP_SIPPER, ABILITY_NONE
@@ -4681,7 +4681,7 @@ mondata SPECIES_PORYGON2, "Porygon2"
     items ITEM_UP_GRADE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
@@ -4701,7 +4701,7 @@ mondata SPECIES_STANTLER, "Stantler"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
@@ -4721,7 +4721,7 @@ mondata SPECIES_SMEARGLE, "Smeargle"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PROTEAN, ABILITY_NONE
@@ -4741,7 +4741,7 @@ mondata SPECIES_TYROGUE, "Tyrogue"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STEADFAST, ABILITY_NONE
@@ -4761,7 +4761,7 @@ mondata SPECIES_HITMONTOP, "Hitmontop"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
@@ -4781,7 +4781,7 @@ mondata SPECIES_SMOOCHUM, "Smoochum"
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_ICE_BODY, ABILITY_NONE
@@ -4801,7 +4801,7 @@ mondata SPECIES_ELEKID, "Elekid"
     items ITEM_ELECTIRIZER, ITEM_NONE
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC, ABILITY_NONE
@@ -4821,7 +4821,7 @@ mondata SPECIES_MAGBY, "Magby"
     items ITEM_RAWST_BERRY, ITEM_MAGMARIZER
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
@@ -4841,7 +4841,7 @@ mondata SPECIES_MILTANK, "Miltank"
     items ITEM_MOOMOO_MILK, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SCRAPPY, ABILITY_NONE
@@ -4861,7 +4861,7 @@ mondata SPECIES_BLISSEY, "Blissey"
     items ITEM_OVAL_STONE, ITEM_LUCKY_EGG
     genderratio 254
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
@@ -4881,7 +4881,7 @@ mondata SPECIES_RAIKOU, "Raikou"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -4901,7 +4901,7 @@ mondata SPECIES_ENTEI, "Entei"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -4921,7 +4921,7 @@ mondata SPECIES_SUICUNE, "Suicune"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -4941,7 +4941,7 @@ mondata SPECIES_LARVITAR, "Larvitar"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_SAND_VEIL, ABILITY_NONE
@@ -4961,7 +4961,7 @@ mondata SPECIES_PUPITAR, "Pupitar"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_SAND_VEIL, ABILITY_NONE
@@ -4981,7 +4981,7 @@ mondata SPECIES_TYRANITAR, "Tyranitar"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_SAND_STREAM, ABILITY_NONE
@@ -5001,7 +5001,7 @@ mondata SPECIES_LUGIA, "Lugia"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MULTISCALE, ABILITY_NONE
@@ -5021,7 +5021,7 @@ mondata SPECIES_HO_OH, "Ho Oh"
     items ITEM_SACRED_ASH, ITEM_SACRED_ASH
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_REGENERATOR, ABILITY_NONE
@@ -5041,7 +5041,7 @@ mondata SPECIES_CELEBI, "Celebi"
     items ITEM_LUM_BERRY, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TRIAGE, ABILITY_NONE
@@ -5061,7 +5061,7 @@ mondata SPECIES_TREECKO, "Treecko"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
@@ -5081,7 +5081,7 @@ mondata SPECIES_GROVYLE, "Grovyle"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
@@ -5101,7 +5101,7 @@ mondata SPECIES_SCEPTILE, "Sceptile"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
@@ -5121,7 +5121,7 @@ mondata SPECIES_TORCHIC, "Torchic"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_QUICK_FEET, ABILITY_NONE
@@ -5141,7 +5141,7 @@ mondata SPECIES_COMBUSKEN, "Combusken"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_QUICK_FEET, ABILITY_NONE
@@ -5161,7 +5161,7 @@ mondata SPECIES_BLAZIKEN, "Blaziken"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_QUICK_FEET, ABILITY_NONE
@@ -5181,7 +5181,7 @@ mondata SPECIES_MUDKIP, "Mudkip"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_WATER_VEIL, ABILITY_NONE
@@ -5201,7 +5201,7 @@ mondata SPECIES_MARSHTOMP, "Marshtomp"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_WATER_VEIL, ABILITY_NONE
@@ -5221,7 +5221,7 @@ mondata SPECIES_SWAMPERT, "Swampert"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_WATER_VEIL, ABILITY_NONE
@@ -5241,7 +5241,7 @@ mondata SPECIES_POOCHYENA, "Poochyena"
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
@@ -5261,7 +5261,7 @@ mondata SPECIES_MIGHTYENA, "Mightyena"
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
@@ -5281,7 +5281,7 @@ mondata SPECIES_ZIGZAGOON, "Zigzagoon"
     items ITEM_POTION, ITEM_REVIVE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SCRAPPY, ABILITY_NONE
@@ -5301,7 +5301,7 @@ mondata SPECIES_LINOONE, "Linoone"
     items ITEM_POTION, ITEM_MAX_REVIVE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SCRAPPY, ABILITY_NONE
@@ -5321,7 +5321,7 @@ mondata SPECIES_WURMPLE, "Wurmple"
     items ITEM_PECHA_BERRY, ITEM_BRIGHT_POWDER
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
@@ -5341,7 +5341,7 @@ mondata SPECIES_SILCOON, "Silcoon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
@@ -5361,7 +5361,7 @@ mondata SPECIES_BEAUTIFLY, "Beautifly"
     items ITEM_SHED_SHELL, ITEM_SILVER_POWDER
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
@@ -5381,7 +5381,7 @@ mondata SPECIES_CASCOON, "Cascoon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_TANGLING_HAIR, ABILITY_NONE
@@ -5401,7 +5401,7 @@ mondata SPECIES_DUSTOX, "Dustox"
     items ITEM_SHED_SHELL, ITEM_SILVER_POWDER
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_TANGLING_HAIR, ABILITY_NONE
@@ -5421,7 +5421,7 @@ mondata SPECIES_LOTAD, "Lotad"
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_GRASS
     abilities ABILITY_RAIN_DISH, ABILITY_NONE
@@ -5441,7 +5441,7 @@ mondata SPECIES_LOMBRE, "Lombre"
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_GRASS
     abilities ABILITY_RAIN_DISH, ABILITY_NONE
@@ -5461,7 +5461,7 @@ mondata SPECIES_LUDICOLO, "Ludicolo"
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_GRASS
     abilities ABILITY_RAIN_DISH, ABILITY_NONE
@@ -5481,7 +5481,7 @@ mondata SPECIES_SEEDOT, "Seedot"
     items ITEM_NONE, ITEM_POWER_HERB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_WIND_RIDER, ABILITY_NONE
@@ -5501,7 +5501,7 @@ mondata SPECIES_NUZLEAF, "Nuzleaf"
     items ITEM_NONE, ITEM_POWER_HERB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_WIND_RIDER, ABILITY_NONE
@@ -5521,7 +5521,7 @@ mondata SPECIES_SHIFTRY, "Shiftry"
     items ITEM_NONE, ITEM_POWER_HERB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_WIND_RIDER, ABILITY_NONE
@@ -5541,7 +5541,7 @@ mondata SPECIES_TAILLOW, "Taillow"
     items ITEM_NONE, ITEM_CHARTI_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_GUTS, ABILITY_NONE
@@ -5561,7 +5561,7 @@ mondata SPECIES_SWELLOW, "Swellow"
     items ITEM_NONE, ITEM_CHARTI_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_GUTS, ABILITY_NONE
@@ -5581,7 +5581,7 @@ mondata SPECIES_WINGULL, "Wingull"
     items ITEM_PRETTY_FEATHER, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
     abilities ABILITY_DRIZZLE, ABILITY_NONE
@@ -5601,7 +5601,7 @@ mondata SPECIES_PELIPPER, "Pelipper"
     items ITEM_PRETTY_FEATHER, ITEM_LUCKY_EGG
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
     abilities ABILITY_DRIZZLE, ABILITY_NONE
@@ -5621,7 +5621,7 @@ mondata SPECIES_RALTS, "Ralts"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_AMORPHOUS
     abilities ABILITY_TRACE, ABILITY_NONE
@@ -5641,7 +5641,7 @@ mondata SPECIES_KIRLIA, "Kirlia"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_AMORPHOUS
     abilities ABILITY_TRACE, ABILITY_NONE
@@ -5661,7 +5661,7 @@ mondata SPECIES_GARDEVOIR, "Gardevoir"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_AMORPHOUS
     abilities ABILITY_TRACE, ABILITY_NONE
@@ -5681,7 +5681,7 @@ mondata SPECIES_SURSKIT, "Surskit"
     items ITEM_HONEY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_BUG
     abilities ABILITY_RAIN_DISH, ABILITY_NONE
@@ -5701,7 +5701,7 @@ mondata SPECIES_MASQUERAIN, "Masquerain"
     items ITEM_NONE, ITEM_SILVER_POWDER
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_BUG
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -5721,7 +5721,7 @@ mondata SPECIES_SHROOMISH, "Shroomish"
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
     abilities ABILITY_EFFECT_SPORE, ABILITY_NONE
@@ -5741,7 +5741,7 @@ mondata SPECIES_BRELOOM, "Breloom"
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
     abilities ABILITY_EFFECT_SPORE, ABILITY_NONE
@@ -5761,7 +5761,7 @@ mondata SPECIES_SLAKOTH, "Slakoth"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SLOW_START, ABILITY_NONE
@@ -5781,7 +5781,7 @@ mondata SPECIES_VIGOROTH, "Vigoroth"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_VITAL_SPIRIT, ABILITY_NONE
@@ -5801,7 +5801,7 @@ mondata SPECIES_SLAKING, "Slaking"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_TRUANT, ABILITY_NONE
@@ -5813,7 +5813,7 @@ mondata SPECIES_SLAKING, "Slaking"
     mondexweight SPECIES_SLAKING, "287.7 lbs."
 
 mondata SPECIES_NINCADA, "Nincada"
-    basestats 40, 50, 30, 90, 30, 30
+    basestats 40, 60, 90, 40, 30, 40
     types TYPE_BUG, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -5821,7 +5821,7 @@ mondata SPECIES_NINCADA, "Nincada"
     items ITEM_NONE, ITEM_SOFT_SAND
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
@@ -5833,7 +5833,7 @@ mondata SPECIES_NINCADA, "Nincada"
     mondexweight SPECIES_NINCADA, "12.1 lbs."
 
 mondata SPECIES_NINJASK, "Ninjask"
-    basestats 60, 90, 50, 150, 50, 50
+    basestats 40, 60, 90, 150, 30, 40
     types TYPE_BUG, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -5841,7 +5841,7 @@ mondata SPECIES_NINJASK, "Ninjask"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE
@@ -5853,7 +5853,7 @@ mondata SPECIES_NINJASK, "Ninjask"
     mondexweight SPECIES_NINJASK, "26.5 lbs."
 
 mondata SPECIES_SHEDINJA, "Shedinja"
-    basestats 40, 150, 60, 50, 90, 50
+    basestats 40, 150, 90, 60, 30, 40
     types TYPE_BUG, TYPE_GHOST
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -5861,7 +5861,7 @@ mondata SPECIES_SHEDINJA, "Shedinja"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_WONDER_GUARD, ABILITY_NONE
@@ -5881,7 +5881,7 @@ mondata SPECIES_WHISMUR, "Whismur"
     items ITEM_NONE, ITEM_CHESTO_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_SOUNDPROOF, ABILITY_NONE
@@ -5901,7 +5901,7 @@ mondata SPECIES_LOUDRED, "Loudred"
     items ITEM_NONE, ITEM_CHESTO_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_SOUNDPROOF, ABILITY_NONE
@@ -5921,7 +5921,7 @@ mondata SPECIES_EXPLOUD, "Exploud"
     items ITEM_NONE, ITEM_CHESTO_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_SOUNDPROOF, ABILITY_NONE
@@ -5941,7 +5941,7 @@ mondata SPECIES_MAKUHITA, "Makuhita"
     items ITEM_NONE, ITEM_BLACK_BELT
     genderratio 63
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_STENCH, ABILITY_NONE
@@ -5961,7 +5961,7 @@ mondata SPECIES_HARIYAMA, "Hariyama"
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 63
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_STENCH, ABILITY_NONE
@@ -5981,7 +5981,7 @@ mondata SPECIES_AZURILL, "Azurill"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SAP_SIPPER, ABILITY_NONE
@@ -6001,7 +6001,7 @@ mondata SPECIES_NOSEPASS, "Nosepass"
     items ITEM_MAGNET, ITEM_HARD_STONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_MAGNET_PULL, ABILITY_NONE
@@ -6021,7 +6021,7 @@ mondata SPECIES_SKITTY, "Skitty"
     items ITEM_PECHA_BERRY, ITEM_LEPPA_BERRY
     genderratio 190
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_PIXILATE, ABILITY_NONE
@@ -6041,7 +6041,7 @@ mondata SPECIES_DELCATTY, "Delcatty"
     items ITEM_PECHA_BERRY, ITEM_LEPPA_BERRY
     genderratio 190
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_PIXILATE, ABILITY_NONE
@@ -6061,7 +6061,7 @@ mondata SPECIES_SABLEYE, "Sableye"
     items ITEM_NONE, ITEM_WIDE_LENS
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_PRANKSTER, ABILITY_NONE
@@ -6081,7 +6081,7 @@ mondata SPECIES_MAWILE, "Mawile"
     items ITEM_IRON_BALL, ITEM_OCCA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_STRONG_JAW, ABILITY_NONE
@@ -6101,7 +6101,7 @@ mondata SPECIES_ARON, "Aron"
     items ITEM_NONE, ITEM_HARD_STONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_STEELWORKER, ABILITY_NONE
@@ -6121,7 +6121,7 @@ mondata SPECIES_LAIRON, "Lairon"
     items ITEM_NONE, ITEM_HARD_STONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_STEELWORKER, ABILITY_NONE
@@ -6141,7 +6141,7 @@ mondata SPECIES_AGGRON, "Aggron"
     items ITEM_NONE, ITEM_HARD_STONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_STEELWORKER, ABILITY_NONE
@@ -6161,7 +6161,7 @@ mondata SPECIES_MEDITITE, "Meditite"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_PURE_POWER, ABILITY_NONE
@@ -6181,7 +6181,7 @@ mondata SPECIES_MEDICHAM, "Medicham"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_PURE_POWER, ABILITY_NONE
@@ -6201,7 +6201,7 @@ mondata SPECIES_ELECTRIKE, "Electrike"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE
@@ -6221,7 +6221,7 @@ mondata SPECIES_MANECTRIC, "Manectric"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE
@@ -6241,7 +6241,7 @@ mondata SPECIES_PLUSLE, "Plusle"
     items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_PLUS, ABILITY_NONE
@@ -6261,7 +6261,7 @@ mondata SPECIES_MINUN, "Minun"
     items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_MINUS, ABILITY_NONE
@@ -6281,7 +6281,7 @@ mondata SPECIES_VOLBEAT, "Volbeat"
     items ITEM_NONE, ITEM_BRIGHT_POWDER
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_BUG, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -6301,7 +6301,7 @@ mondata SPECIES_ILLUMISE, "Illumise"
     items ITEM_NONE, ITEM_BRIGHT_POWDER
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_BUG, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -6321,7 +6321,7 @@ mondata SPECIES_ROSELIA, "Roselia"
     items ITEM_MIRACLE_SEED, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
     abilities ABILITY_FLOWER_VEIL, ABILITY_NONE
@@ -6341,7 +6341,7 @@ mondata SPECIES_GULPIN, "Gulpin"
     items ITEM_ORAN_BERRY, ITEM_BIG_PEARL
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -6361,7 +6361,7 @@ mondata SPECIES_SWALOT, "Swalot"
     items ITEM_ORAN_BERRY, ITEM_BIG_PEARL
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -6381,7 +6381,7 @@ mondata SPECIES_CARVANHA, "Carvanha"
     items ITEM_NONE, ITEM_DEEP_SEA_TOOTH
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE
@@ -6401,7 +6401,7 @@ mondata SPECIES_SHARPEDO, "Sharpedo"
     items ITEM_NONE, ITEM_DEEP_SEA_TOOTH
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE
@@ -6421,7 +6421,7 @@ mondata SPECIES_WAILMER, "Wailmer"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_FIELD, EGG_GROUP_WATER_2
     abilities ABILITY_REGENERATOR, ABILITY_NONE
@@ -6441,7 +6441,7 @@ mondata SPECIES_WAILORD, "Wailord"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_FIELD, EGG_GROUP_WATER_2
     abilities ABILITY_REGENERATOR, ABILITY_NONE
@@ -6461,7 +6461,7 @@ mondata SPECIES_NUMEL, "Numel"
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SIMPLE, ABILITY_NONE
@@ -6481,7 +6481,7 @@ mondata SPECIES_CAMERUPT, "Camerupt"
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SIMPLE, ABILITY_NONE
@@ -6501,7 +6501,7 @@ mondata SPECIES_TORKOAL, "Torkoal"
     items ITEM_NONE, ITEM_CHARCOAL
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_DROUGHT, ABILITY_NONE
@@ -6521,7 +6521,7 @@ mondata SPECIES_SPOINK, "Spoink"
     items ITEM_PERSIM_BERRY, ITEM_TANGA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_MAGIC_BOUNCE, ABILITY_NONE
@@ -6541,7 +6541,7 @@ mondata SPECIES_GRUMPIG, "Grumpig"
     items ITEM_PERSIM_BERRY, ITEM_TANGA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_MAGIC_BOUNCE, ABILITY_NONE
@@ -6561,7 +6561,7 @@ mondata SPECIES_SPINDA, "Spinda"
     items ITEM_NONE, ITEM_CHESTO_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_TANGLED_FEET, ABILITY_NONE
@@ -6581,7 +6581,7 @@ mondata SPECIES_TRAPINCH, "Trapinch"
     items ITEM_NONE, ITEM_SOFT_SAND
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_DRAGON
     abilities ABILITY_ARENA_TRAP, ABILITY_NONE
@@ -6601,7 +6601,7 @@ mondata SPECIES_VIBRAVA, "Vibrava"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_DRAGON
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -6621,7 +6621,7 @@ mondata SPECIES_FLYGON, "Flygon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_DRAGON
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -6641,7 +6641,7 @@ mondata SPECIES_CACNEA, "Cacnea"
     items ITEM_STICKY_BARB, ITEM_STICKY_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -6661,7 +6661,7 @@ mondata SPECIES_CACTURNE, "Cacturne"
     items ITEM_STICKY_BARB, ITEM_STICKY_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -6674,14 +6674,14 @@ mondata SPECIES_CACTURNE, "Cacturne"
 
 mondata SPECIES_SWABLU, "Swablu"
     basestats 40, 40, 60, 70, 40, 60
-    types TYPE_NORMAL, TYPE_FLYING
+    types TYPE_FLYING, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
     abilities ABILITY_CLOUD_NINE, ABILITY_NONE
@@ -6701,7 +6701,7 @@ mondata SPECIES_ALTARIA, "Altaria"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
     abilities ABILITY_CLOUD_NINE, ABILITY_NONE
@@ -6721,7 +6721,7 @@ mondata SPECIES_ZANGOOSE, "Zangoose"
     items ITEM_NONE, ITEM_QUICK_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_TOXIC_BOOST, ABILITY_NONE
@@ -6741,7 +6741,7 @@ mondata SPECIES_SEVIPER, "Seviper"
     items ITEM_PERSIM_BERRY, ITEM_SHED_SHELL
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
     abilities ABILITY_MERCILESS, ABILITY_NONE
@@ -6761,7 +6761,7 @@ mondata SPECIES_LUNATONE, "Lunatone"
     items ITEM_STARDUST, ITEM_MOON_STONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -6781,7 +6781,7 @@ mondata SPECIES_SOLROCK, "Solrock"
     items ITEM_STARDUST, ITEM_SUN_STONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -6801,7 +6801,7 @@ mondata SPECIES_BARBOACH, "Barboach"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_WATER_COMPACTION, ABILITY_NONE
@@ -6821,7 +6821,7 @@ mondata SPECIES_WHISCASH, "Whiscash"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_WATER_COMPACTION, ABILITY_NONE
@@ -6841,7 +6841,7 @@ mondata SPECIES_CORPHISH, "Corphish"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_KEEN_EYE, ABILITY_NONE
@@ -6861,7 +6861,7 @@ mondata SPECIES_CRAWDAUNT, "Crawdaunt"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_VICTORY_STAR, ABILITY_NONE
@@ -6881,7 +6881,7 @@ mondata SPECIES_BALTOY, "Baltoy"
     items ITEM_NONE, ITEM_LIGHT_CLAY
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -6901,7 +6901,7 @@ mondata SPECIES_CLAYDOL, "Claydol"
     items ITEM_NONE, ITEM_LIGHT_CLAY
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -6921,7 +6921,7 @@ mondata SPECIES_LILEEP, "Lileep"
     items ITEM_NONE, ITEM_BIG_ROOT
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_BATTLE_ARMOR, ABILITY_NONE
@@ -6941,7 +6941,7 @@ mondata SPECIES_CRADILY, "Cradily"
     items ITEM_NONE, ITEM_BIG_ROOT
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_BATTLE_ARMOR, ABILITY_NONE
@@ -6961,7 +6961,7 @@ mondata SPECIES_ANORITH, "Anorith"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_ANGER_POINT, ABILITY_NONE
@@ -6981,7 +6981,7 @@ mondata SPECIES_ARMALDO, "Armaldo"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_ANGER_POINT, ABILITY_NONE
@@ -7001,7 +7001,7 @@ mondata SPECIES_FEEBAS, "Feebas"
     items ITEM_NONE, ITEM_PRISM_SCALE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
     abilities ABILITY_COMPETITIVE, ABILITY_NONE
@@ -7021,7 +7021,7 @@ mondata SPECIES_MILOTIC, "Milotic"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
     abilities ABILITY_COMPETITIVE, ABILITY_NONE
@@ -7041,7 +7041,7 @@ mondata SPECIES_CASTFORM, "Castform"
     items ITEM_MYSTIC_WATER, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_FORECAST, ABILITY_NONE
@@ -7061,7 +7061,7 @@ mondata SPECIES_KECLEON, "Kecleon"
     items ITEM_NONE, ITEM_PERSIM_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PROTEAN, ABILITY_NONE
@@ -7074,17 +7074,17 @@ mondata SPECIES_KECLEON, "Kecleon"
 
 mondata SPECIES_SHUPPET, "Shuppet"
     basestats 40, 70, 40, 40, 70, 40
-    types TYPE_GHOST, TYPE_GHOST
+    types TYPE_GHOST, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
-    abilities ABILITY_STAKEOUT, ABILITY_NONE
+    abilities ABILITY_SCRAPPY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     mondexentry SPECIES_SHUPPET, "It uses its horn to feed on envy\nand malice, or so it’s said.\nIt’s very active at night."
@@ -7093,18 +7093,18 @@ mondata SPECIES_SHUPPET, "Shuppet"
     mondexweight SPECIES_SHUPPET, "5.1 lbs."
 
 mondata SPECIES_BANETTE, "Banette"
-    basestats 60, 110, 60, 60, 110, 60
-    types TYPE_GHOST, TYPE_GHOST
+    basestats 50, 120, 50, 50, 80, 60
+    types TYPE_GHOST, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
-    abilities ABILITY_STAKEOUT, ABILITY_NONE
+    abilities ABILITY_SCRAPPY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     mondexentry SPECIES_BANETTE, "This Pokémon developed from an\nabandoned doll that amassed a\ngrudge. It is seen in dark alleys."
@@ -7113,15 +7113,15 @@ mondata SPECIES_BANETTE, "Banette"
     mondexweight SPECIES_BANETTE, "27.6 lbs."
 
 mondata SPECIES_DUSKULL, "Duskull"
-    basestats 40, 40, 70, 40, 40, 70
+    basestats 30, 30, 90, 30, 30, 90
     types TYPE_GHOST, TYPE_GHOST
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_SPELL_TAG, ITEM_KASIB_BERRY
+    items ITEM_SPELL_TAG, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_PRESSURE, ABILITY_NONE
@@ -7133,15 +7133,15 @@ mondata SPECIES_DUSKULL, "Duskull"
     mondexweight SPECIES_DUSKULL, "33.1 lbs."
 
 mondata SPECIES_DUSCLOPS, "Dusclops"
-    basestats 60, 60, 110, 60, 60, 110
+    basestats 30, 50, 130, 30, 30, 130
     types TYPE_GHOST, TYPE_GHOST
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_SPELL_TAG, ITEM_KASIB_BERRY
+    items ITEM_SPELL_TAG, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_PRESSURE, ABILITY_NONE
@@ -7161,7 +7161,7 @@ mondata SPECIES_TROPIUS, "Tropius"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_HARVEST, ABILITY_NONE
@@ -7181,7 +7181,7 @@ mondata SPECIES_CHIMECHO, "Chimecho"
     items ITEM_CLEANSE_TAG, ITEM_COLBUR_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_MOODY, ABILITY_NONE
@@ -7201,7 +7201,7 @@ mondata SPECIES_ABSOL, "Absol"
     items ITEM_NONE, ITEM_LIFE_ORB
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SHARPNESS, ABILITY_NONE
@@ -7221,7 +7221,7 @@ mondata SPECIES_WYNAUT, "Wynaut"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_NO_GUARD, ABILITY_NONE
@@ -7233,18 +7233,18 @@ mondata SPECIES_WYNAUT, "Wynaut"
     mondexweight SPECIES_WYNAUT, "30.9 lbs."
 
 mondata SPECIES_SNORUNT, "Snorunt"
-    basestats 50, 50, 50, 50, 50, 50
+    basestats 70, 60, 70, 70, 60, 70
     types TYPE_ICE, TYPE_ICE
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_SNOWBALL, ITEM_BABIRI_BERRY
+    items ITEM_SNOWBALL, ITEM_SNOWBALL
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
-    abilities ABILITY_BULLETPROOF, ABILITY_NONE
+    abilities ABILITY_ICE_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     mondexentry SPECIES_SNORUNT, "It’s said that if they are seen at\nmidnight, they’ll cause heavy snow.\nThey eat snow and ice to survive."
@@ -7253,18 +7253,18 @@ mondata SPECIES_SNORUNT, "Snorunt"
     mondexweight SPECIES_SNORUNT, "37.0 lbs."
 
 mondata SPECIES_GLALIE, "Glalie"
-    basestats 110, 70, 80, 70, 70, 80
+    basestats 130, 70, 80, 70, 70, 80
     types TYPE_ICE, TYPE_ICE
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NEVER_MELT_ICE, ITEM_BABIRI_BERRY
-    genderratio 127
+    genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
-    abilities ABILITY_BULLETPROOF, ABILITY_NONE
+    abilities ABILITY_ICE_BODY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     mondexentry SPECIES_GLALIE, "It can instantly freeze moisture in\nthe atmosphere. It uses this power\nto freeze its foes."
@@ -7281,7 +7281,7 @@ mondata SPECIES_SPHEAL, "Spheal"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_ICE_BODY, ABILITY_NONE
@@ -7301,7 +7301,7 @@ mondata SPECIES_SEALEO, "Sealeo"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_ICE_BODY, ABILITY_NONE
@@ -7321,7 +7321,7 @@ mondata SPECIES_WALREIN, "Walrein"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_ICE_BODY, ABILITY_NONE
@@ -7341,7 +7341,7 @@ mondata SPECIES_CLAMPERL, "Clamperl"
     items ITEM_PEARL, ITEM_BLUE_SHARD
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_SHELL_ARMOR, ABILITY_NONE
@@ -7361,7 +7361,7 @@ mondata SPECIES_HUNTAIL, "Huntail"
     items ITEM_NONE, ITEM_DEEP_SEA_TOOTH
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_TOXIC_BOOST, ABILITY_NONE
@@ -7381,7 +7381,7 @@ mondata SPECIES_GOREBYSS, "Gorebyss"
     items ITEM_NONE, ITEM_DEEP_SEA_SCALE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_FLARE_BOOST, ABILITY_NONE
@@ -7401,7 +7401,7 @@ mondata SPECIES_RELICANTH, "Relicanth"
     items ITEM_DEEP_SEA_SCALE, ITEM_GREEN_SHARD
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
@@ -7421,7 +7421,7 @@ mondata SPECIES_LUVDISC, "Luvdisc"
     items ITEM_HEART_SCALE, ITEM_HEART_SCALE
     genderratio 190
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_UNBURDEN, ABILITY_NONE
@@ -7441,7 +7441,7 @@ mondata SPECIES_BAGON, "Bagon"
     items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_SHEER_FORCE, ABILITY_NONE
@@ -7461,7 +7461,7 @@ mondata SPECIES_SHELGON, "Shelgon"
     items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -7481,7 +7481,7 @@ mondata SPECIES_SALAMENCE, "Salamence"
     items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_MOXIE, ABILITY_NONE
@@ -7501,7 +7501,7 @@ mondata SPECIES_BELDUM, "Beldum"
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -7521,7 +7521,7 @@ mondata SPECIES_METANG, "Metang"
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -7541,7 +7541,7 @@ mondata SPECIES_METAGROSS, "Metagross"
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_TOUGH_CLAWS, ABILITY_NONE
@@ -7561,7 +7561,7 @@ mondata SPECIES_REGIROCK, "Regirock"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SLOW_START, ABILITY_NONE
@@ -7581,7 +7581,7 @@ mondata SPECIES_REGICE, "Regice"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SLOW_START, ABILITY_NONE
@@ -7601,7 +7601,7 @@ mondata SPECIES_REGISTEEL, "Registeel"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SLOW_START, ABILITY_NONE
@@ -7621,7 +7621,7 @@ mondata SPECIES_LATIAS, "Latias"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 90
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -7641,7 +7641,7 @@ mondata SPECIES_LATIOS, "Latios"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 90
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -7661,7 +7661,7 @@ mondata SPECIES_KYOGRE, "Kyogre"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DRIZZLE, ABILITY_NONE
@@ -7681,7 +7681,7 @@ mondata SPECIES_GROUDON, "Groudon"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DROUGHT, ABILITY_NONE
@@ -7701,7 +7701,7 @@ mondata SPECIES_RAYQUAZA, "Rayquaza"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_AIR_LOCK, ABILITY_NONE
@@ -7721,7 +7721,7 @@ mondata SPECIES_JIRACHI, "Jirachi"
     items ITEM_STAR_PIECE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_VICTORY_STAR, ABILITY_NONE
@@ -7741,7 +7741,7 @@ mondata SPECIES_DEOXYS, "Deoxys"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_RIVALRY, ABILITY_NONE
@@ -7761,7 +7761,7 @@ mondata SPECIES_TURTWIG, "Turtwig"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_HARVEST, ABILITY_NONE
@@ -7781,7 +7781,7 @@ mondata SPECIES_GROTLE, "Grotle"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_HARVEST, ABILITY_NONE
@@ -7801,7 +7801,7 @@ mondata SPECIES_TORTERRA, "Torterra"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_HARVEST, ABILITY_NONE
@@ -7821,7 +7821,7 @@ mondata SPECIES_CHIMCHAR, "Chimchar"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -7841,7 +7841,7 @@ mondata SPECIES_MONFERNO, "Monferno"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -7861,7 +7861,7 @@ mondata SPECIES_INFERNAPE, "Infernape"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -7881,7 +7881,7 @@ mondata SPECIES_PIPLUP, "Piplup"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_UNNERVE, ABILITY_NONE
@@ -7901,7 +7901,7 @@ mondata SPECIES_PRINPLUP, "Prinplup"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_UNNERVE, ABILITY_NONE
@@ -7921,7 +7921,7 @@ mondata SPECIES_EMPOLEON, "Empoleon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_UNNERVE, ABILITY_NONE
@@ -7941,7 +7941,7 @@ mondata SPECIES_STARLY, "Starly"
     items ITEM_NONE, ITEM_YACHE_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_RECKLESS, ABILITY_NONE
@@ -7961,7 +7961,7 @@ mondata SPECIES_STARAVIA, "Staravia"
     items ITEM_NONE, ITEM_YACHE_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_RECKLESS, ABILITY_NONE
@@ -7981,7 +7981,7 @@ mondata SPECIES_STARAPTOR, "Staraptor"
     items ITEM_NONE, ITEM_YACHE_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_RECKLESS, ABILITY_NONE
@@ -8001,7 +8001,7 @@ mondata SPECIES_BIDOOF, "Bidoof"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_FLUFFY, ABILITY_NONE
@@ -8021,7 +8021,7 @@ mondata SPECIES_BIBAREL, "Bibarel"
     items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_FLUFFY, ABILITY_NONE
@@ -8041,7 +8041,7 @@ mondata SPECIES_KRICKETOT, "Kricketot"
     items ITEM_METRONOME, ITEM_METRONOME
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_COMPOUND_EYES, ABILITY_NONE
@@ -8061,7 +8061,7 @@ mondata SPECIES_KRICKETUNE, "Kricketune"
     items ITEM_METRONOME, ITEM_METRONOME
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_COMPOUND_EYES, ABILITY_NONE
@@ -8081,7 +8081,7 @@ mondata SPECIES_SHINX, "Shinx"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GALVANIZE, ABILITY_NONE
@@ -8101,7 +8101,7 @@ mondata SPECIES_LUXIO, "Luxio"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GALVANIZE, ABILITY_NONE
@@ -8121,7 +8121,7 @@ mondata SPECIES_LUXRAY, "Luxray"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GALVANIZE, ABILITY_NONE
@@ -8141,7 +8141,7 @@ mondata SPECIES_BUDEW, "Budew"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_FLOWER_VEIL, ABILITY_NONE
@@ -8161,7 +8161,7 @@ mondata SPECIES_ROSERADE, "Roserade"
     items ITEM_MIRACLE_SEED, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
     abilities ABILITY_FLOWER_VEIL, ABILITY_NONE
@@ -8181,7 +8181,7 @@ mondata SPECIES_CRANIDOS, "Cranidos"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_RECKLESS, ABILITY_NONE
@@ -8201,7 +8201,7 @@ mondata SPECIES_RAMPARDOS, "Rampardos"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_RECKLESS, ABILITY_NONE
@@ -8221,7 +8221,7 @@ mondata SPECIES_SHIELDON, "Shieldon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_IRON_BARBS, ABILITY_NONE
@@ -8241,7 +8241,7 @@ mondata SPECIES_BASTIODON, "Bastiodon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_IRON_BARBS, ABILITY_NONE
@@ -8261,7 +8261,7 @@ mondata SPECIES_BURMY, "Burmy"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_MULTISCALE, ABILITY_NONE
@@ -8281,7 +8281,7 @@ mondata SPECIES_WORMADAM, "Wormadam"
     items ITEM_NONE, ITEM_SILVER_POWDER
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_MULTISCALE, ABILITY_NONE
@@ -8301,7 +8301,7 @@ mondata SPECIES_MOTHIM, "Mothim"
     items ITEM_NONE, ITEM_SILVER_POWDER
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_UNAWARE, ABILITY_NONE
@@ -8321,7 +8321,7 @@ mondata SPECIES_COMBEE, "Combee"
     items ITEM_HONEY, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_HARVEST, ABILITY_NONE
@@ -8341,7 +8341,7 @@ mondata SPECIES_VESPIQUEN, "Vespiquen"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SUPREME_OVERLORD, ABILITY_NONE
@@ -8361,7 +8361,7 @@ mondata SPECIES_PACHIRISU, "Pachirisu"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -8381,7 +8381,7 @@ mondata SPECIES_BUIZEL, "Buizel"
     items ITEM_NONE, ITEM_WACAN_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
@@ -8401,7 +8401,7 @@ mondata SPECIES_FLOATZEL, "Floatzel"
     items ITEM_NONE, ITEM_WACAN_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
@@ -8421,7 +8421,7 @@ mondata SPECIES_CHERUBI, "Cherubi"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
@@ -8441,7 +8441,7 @@ mondata SPECIES_CHERRIM, "Cherrim"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
     abilities ABILITY_FLOWER_GIFT, ABILITY_NONE
@@ -8461,7 +8461,7 @@ mondata SPECIES_SHELLOS, "Shellos"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
     abilities ABILITY_STORM_DRAIN, ABILITY_NONE
@@ -8481,7 +8481,7 @@ mondata SPECIES_GASTRODON, "Gastrodon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
     abilities ABILITY_STORM_DRAIN, ABILITY_NONE
@@ -8501,7 +8501,7 @@ mondata SPECIES_AMBIPOM, "Ambipom"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PRANKSTER, ABILITY_NONE
@@ -8521,7 +8521,7 @@ mondata SPECIES_DRIFLOON, "Drifloon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_FLARE_BOOST, ABILITY_NONE
@@ -8541,7 +8541,7 @@ mondata SPECIES_DRIFBLIM, "Drifblim"
     items ITEM_NONE, ITEM_AIR_BALLOON
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_FLARE_BOOST, ABILITY_NONE
@@ -8561,7 +8561,7 @@ mondata SPECIES_BUNEARY, "Buneary"
     items ITEM_PECHA_BERRY, ITEM_CHOPLE_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -8581,7 +8581,7 @@ mondata SPECIES_LOPUNNY, "Lopunny"
     items ITEM_PECHA_BERRY, ITEM_CHOPLE_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -8601,7 +8601,7 @@ mondata SPECIES_MISMAGIUS, "Mismagius"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -8621,13 +8621,13 @@ mondata SPECIES_HONCHKROW, "Honchkrow"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_PRANKSTER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
-    mondexentry SPECIES_HONCHKROW, "It is merciless by nature. It is said\nthat it never forgives the mistakes\nof its MURKROW followers."
+    mondexentry SPECIES_HONCHKROW, "It is merciless by nature. It is said\nthat it never forgives the mistakes\nof its Murkrow followers."
     mondexclassification SPECIES_HONCHKROW, "Big Boss Pokémon"
     mondexheight SPECIES_HONCHKROW, "2’11”"
     mondexweight SPECIES_HONCHKROW, "60.2 lbs."
@@ -8641,7 +8641,7 @@ mondata SPECIES_GLAMEOW, "Glameow"
     items ITEM_NONE, ITEM_CHERI_BERRY
     genderratio 190
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PICKPOCKET, ABILITY_NONE
@@ -8661,7 +8661,7 @@ mondata SPECIES_PURUGLY, "Purugly"
     items ITEM_NONE, ITEM_CHERI_BERRY
     genderratio 190
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PICKPOCKET, ABILITY_NONE
@@ -8681,7 +8681,7 @@ mondata SPECIES_CHINGLING, "Chingling"
     items ITEM_CLEANSE_TAG, ITEM_COLBUR_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MOODY, ABILITY_NONE
@@ -8701,7 +8701,7 @@ mondata SPECIES_STUNKY, "Stunky"
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -8721,7 +8721,7 @@ mondata SPECIES_SKUNTANK, "Skuntank"
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -8741,7 +8741,7 @@ mondata SPECIES_BRONZOR, "Bronzor"
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_HEATPROOF, ABILITY_NONE
@@ -8761,7 +8761,7 @@ mondata SPECIES_BRONZONG, "Bronzong"
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_HEATPROOF, ABILITY_NONE
@@ -8781,7 +8781,7 @@ mondata SPECIES_BONSLY, "Bonsly"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_COLOR_CHANGE, ABILITY_NONE
@@ -8801,7 +8801,7 @@ mondata SPECIES_MIMEJR, "Mime Jr."
     items ITEM_NONE, ITEM_LEPPA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_FILTER, ABILITY_NONE
@@ -8821,7 +8821,7 @@ mondata SPECIES_HAPPINY, "Happiny"
     items ITEM_OVAL_STONE, ITEM_LUCKY_EGG
     genderratio 254
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_NATURAL_CURE, ABILITY_NONE
@@ -8841,7 +8841,7 @@ mondata SPECIES_CHATOT, "Chatot"
     items ITEM_NONE, ITEM_METRONOME
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_OWN_TEMPO, ABILITY_NONE
@@ -8861,7 +8861,7 @@ mondata SPECIES_SPIRITOMB, "Spiritomb"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_TRUANT, ABILITY_NONE
@@ -8881,7 +8881,7 @@ mondata SPECIES_GIBLE, "Gible"
     items ITEM_NONE, ITEM_HABAN_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_SAND_RUSH, ABILITY_NONE
@@ -8901,7 +8901,7 @@ mondata SPECIES_GABITE, "Gabite"
     items ITEM_NONE, ITEM_HABAN_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_SAND_RUSH, ABILITY_NONE
@@ -8921,7 +8921,7 @@ mondata SPECIES_GARCHOMP, "Garchomp"
     items ITEM_NONE, ITEM_HABAN_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_SAND_RUSH, ABILITY_NONE
@@ -8941,7 +8941,7 @@ mondata SPECIES_MUNCHLAX, "Munchlax"
     items ITEM_LEFTOVERS, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_IMMUNITY, ABILITY_NONE
@@ -8961,7 +8961,7 @@ mondata SPECIES_RIOLU, "Riolu"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STEELWORKER, ABILITY_NONE
@@ -8981,7 +8981,7 @@ mondata SPECIES_LUCARIO, "Lucario"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_STEELWORKER, ABILITY_NONE
@@ -9001,7 +9001,7 @@ mondata SPECIES_HIPPOPOTAS, "Hippopotas"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SAND_STREAM, ABILITY_NONE
@@ -9021,7 +9021,7 @@ mondata SPECIES_HIPPOWDON, "Hippowdon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SAND_STREAM, ABILITY_NONE
@@ -9041,7 +9041,7 @@ mondata SPECIES_SKORUPI, "Skorupi"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_WATER_3
     abilities ABILITY_SAND_VEIL, ABILITY_NONE
@@ -9061,7 +9061,7 @@ mondata SPECIES_DRAPION, "Drapion"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_WATER_3
     abilities ABILITY_SAND_VEIL, ABILITY_NONE
@@ -9081,7 +9081,7 @@ mondata SPECIES_CROAGUNK, "Croagunk"
     items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_DRY_SKIN, ABILITY_NONE
@@ -9101,7 +9101,7 @@ mondata SPECIES_TOXICROAK, "Toxicroak"
     items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_DRY_SKIN, ABILITY_NONE
@@ -9121,7 +9121,7 @@ mondata SPECIES_CARNIVINE, "Carnivine"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_STRONG_JAW, ABILITY_NONE
@@ -9141,7 +9141,7 @@ mondata SPECIES_FINNEON, "Finneon"
     items ITEM_NONE, ITEM_RINDO_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_DAZZLING, ABILITY_NONE
@@ -9161,7 +9161,7 @@ mondata SPECIES_LUMINEON, "Lumineon"
     items ITEM_NONE, ITEM_RINDO_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_DAZZLING, ABILITY_NONE
@@ -9181,7 +9181,7 @@ mondata SPECIES_MANTYKE, "Mantyke"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_FRIEND_GUARD, ABILITY_NONE
@@ -9201,7 +9201,7 @@ mondata SPECIES_SNOVER, "Snover"
     items ITEM_NONE, ITEM_NEVER_MELT_ICE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_SNOW_WARNING, ABILITY_NONE
@@ -9221,7 +9221,7 @@ mondata SPECIES_ABOMASNOW, "Abomasnow"
     items ITEM_NONE, ITEM_NEVER_MELT_ICE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_SNOW_WARNING, ABILITY_NONE
@@ -9241,7 +9241,7 @@ mondata SPECIES_WEAVILE, "Weavile"
     items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PICKPOCKET, ABILITY_NONE
@@ -9261,7 +9261,7 @@ mondata SPECIES_MAGNEZONE, "Magnezone"
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_MAGNET_PULL, ABILITY_NONE
@@ -9281,7 +9281,7 @@ mondata SPECIES_LICKILICKY, "Lickilicky"
     items ITEM_NONE, ITEM_LAGGING_TAIL
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_POISON_TOUCH, ABILITY_NONE
@@ -9301,7 +9301,7 @@ mondata SPECIES_RHYPERIOR, "Rhyperior"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_SOLID_ROCK, ABILITY_NONE
@@ -9321,7 +9321,7 @@ mondata SPECIES_TANGROWTH, "Tangrowth"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
@@ -9341,7 +9341,7 @@ mondata SPECIES_ELECTIVIRE, "Electivire"
     items ITEM_ELECTIRIZER, ITEM_NONE
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
@@ -9361,7 +9361,7 @@ mondata SPECIES_MAGMORTAR, "Magmortar"
     items ITEM_NONE, ITEM_MAGMARIZER
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_MEGA_LAUNCHER, ABILITY_NONE
@@ -9373,7 +9373,7 @@ mondata SPECIES_MAGMORTAR, "Magmortar"
     mondexweight SPECIES_MAGMORTAR, "149.9 lbs."
 
 mondata SPECIES_TOGEKISS, "Togekiss"
-    basestats 90, 120, 90, 90, 120, 90
+    basestats 80, 50, 80, 80, 120, 90
     types TYPE_FAIRY, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -9381,7 +9381,7 @@ mondata SPECIES_TOGEKISS, "Togekiss"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FAIRY
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
@@ -9401,7 +9401,7 @@ mondata SPECIES_YANMEGA, "Yanmega"
     items ITEM_NONE, ITEM_WIDE_LENS
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE
@@ -9421,7 +9421,7 @@ mondata SPECIES_LEAFEON, "Leafeon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
@@ -9441,7 +9441,7 @@ mondata SPECIES_GLACEON, "Glaceon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SLUSH_RUSH, ABILITY_NONE
@@ -9461,7 +9461,7 @@ mondata SPECIES_GLISCOR, "Gliscor"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_POISON_HEAL, ABILITY_NONE
@@ -9481,7 +9481,7 @@ mondata SPECIES_MAMOSWINE, "Mamoswine"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SNOW_CLOAK, ABILITY_NONE
@@ -9501,7 +9501,7 @@ mondata SPECIES_PORYGON_Z, "Porygon-Z"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
@@ -9521,7 +9521,7 @@ mondata SPECIES_GALLADE, "Gallade"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SHARPNESS, ABILITY_NONE
@@ -9541,7 +9541,7 @@ mondata SPECIES_PROBOPASS, "Probopass"
     items ITEM_MAGNET, ITEM_HARD_STONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_MAGNET_PULL, ABILITY_NONE
@@ -9553,18 +9553,18 @@ mondata SPECIES_PROBOPASS, "Probopass"
     mondexweight SPECIES_PROBOPASS, "749.6 lbs."
 
 mondata SPECIES_DUSKNOIR, "Dusknoir"
-    basestats 40, 100, 130, 40, 100, 130
+    basestats 30, 130, 130, 30, 50, 130
     types TYPE_GHOST, TYPE_GHOST
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_SPELL_TAG, ITEM_KASIB_BERRY
+    items ITEM_SPELL_TAG, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
-    abilities ABILITY_PRESSURE, ABILITY_NONE
+    abilities ABILITY_SHADOW_TAG, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLACK, 0
     mondexentry SPECIES_DUSKNOIR, "This feared Pokémon is said to travel to\nworlds unknown. Some even believe that\nit takes lost spirits along with it."
@@ -9573,7 +9573,7 @@ mondata SPECIES_DUSKNOIR, "Dusknoir"
     mondexweight SPECIES_DUSKNOIR, "235.0 lbs."
 
 mondata SPECIES_FROSLASS, "Froslass"
-    basestats 70, 80, 70, 110, 80, 70
+    basestats 70, 80, 70, 130, 80, 70
     types TYPE_ICE, TYPE_GHOST
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -9581,7 +9581,7 @@ mondata SPECIES_FROSLASS, "Froslass"
     items ITEM_NONE, ITEM_BABIRI_BERRY
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
     abilities ABILITY_SNOW_CLOAK, ABILITY_NONE
@@ -9601,7 +9601,7 @@ mondata SPECIES_ROTOM, "Rotom"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -9621,7 +9621,7 @@ mondata SPECIES_UXIE, "Uxie"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -9641,7 +9641,7 @@ mondata SPECIES_MESPRIT, "Mesprit"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -9661,7 +9661,7 @@ mondata SPECIES_AZELF, "Azelf"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -9681,7 +9681,7 @@ mondata SPECIES_DIALGA, "Dialga"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
@@ -9701,7 +9701,7 @@ mondata SPECIES_PALKIA, "Palkia"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
@@ -9721,7 +9721,7 @@ mondata SPECIES_HEATRAN, "Heatran"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
@@ -9741,7 +9741,7 @@ mondata SPECIES_REGIGIGAS, "Regigigas"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SLOW_START, ABILITY_NONE
@@ -9761,7 +9761,7 @@ mondata SPECIES_GIRATINA, "Giratina"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
@@ -9781,7 +9781,7 @@ mondata SPECIES_CRESSELIA, "Cresselia"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -9801,7 +9801,7 @@ mondata SPECIES_PHIONE, "Phione"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FAIRY
     abilities ABILITY_HYDRATION, ABILITY_NONE
@@ -9821,7 +9821,7 @@ mondata SPECIES_MANAPHY, "Manaphy"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FAIRY
     abilities ABILITY_HYDRATION, ABILITY_NONE
@@ -9841,7 +9841,7 @@ mondata SPECIES_DARKRAI, "Darkrai"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BAD_DREAMS, ABILITY_NONE
@@ -9861,7 +9861,7 @@ mondata SPECIES_SHAYMIN, "Shaymin"
     items ITEM_LUM_BERRY, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -9881,7 +9881,7 @@ mondata SPECIES_ARCEUS, "Arceus"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MULTITYPE, ABILITY_NONE
@@ -9901,7 +9901,7 @@ mondata SPECIES_EGG, "Egg"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_NONE, ABILITY_NONE
@@ -9921,7 +9921,7 @@ mondata SPECIES_BAD_EGG, "Bad Egg"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_NONE, ABILITY_NONE
@@ -9941,7 +9941,7 @@ mondata SPECIES_DEOXYS_ATTACK, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_RIVALRY, ABILITY_NONE
@@ -9961,7 +9961,7 @@ mondata SPECIES_DEOXYS_DEFENSE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_RIVALRY, ABILITY_NONE
@@ -9981,7 +9981,7 @@ mondata SPECIES_DEOXYS_SPEED, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_RIVALRY, ABILITY_NONE
@@ -10001,7 +10001,7 @@ mondata SPECIES_WORMADAM_SANDY, "-----"
     items ITEM_NONE, ITEM_SILVER_POWDER
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_MULTISCALE, ABILITY_NONE
@@ -10021,7 +10021,7 @@ mondata SPECIES_WORMADAM_TRASHY, "-----"
     items ITEM_NONE, ITEM_SILVER_POWDER
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_MULTISCALE, ABILITY_NONE
@@ -10041,7 +10041,7 @@ mondata SPECIES_GIRATINA_ORIGIN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -10061,7 +10061,7 @@ mondata SPECIES_SHAYMIN_SKY, "-----"
     items ITEM_LUM_BERRY, ITEM_LUM_BERRY
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
@@ -10081,7 +10081,7 @@ mondata SPECIES_ROTOM_HEAT, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
@@ -10101,7 +10101,7 @@ mondata SPECIES_ROTOM_WASH, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_STORM_DRAIN, ABILITY_NONE
@@ -10121,7 +10121,7 @@ mondata SPECIES_ROTOM_FROST, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_HEATPROOF, ABILITY_NONE
@@ -10141,7 +10141,7 @@ mondata SPECIES_ROTOM_FAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WIND_RIDER, ABILITY_NONE
@@ -10161,7 +10161,7 @@ mondata SPECIES_ROTOM_MOW, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SAP_SIPPER, ABILITY_NONE
@@ -10181,7 +10181,7 @@ mondata SPECIES_508, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10201,7 +10201,7 @@ mondata SPECIES_509, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10221,7 +10221,7 @@ mondata SPECIES_510, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10241,7 +10241,7 @@ mondata SPECIES_511, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10261,7 +10261,7 @@ mondata SPECIES_512, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10281,7 +10281,7 @@ mondata SPECIES_513, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10301,7 +10301,7 @@ mondata SPECIES_514, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10321,7 +10321,7 @@ mondata SPECIES_515, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10341,7 +10341,7 @@ mondata SPECIES_516, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10361,7 +10361,7 @@ mondata SPECIES_517, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10381,7 +10381,7 @@ mondata SPECIES_518, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10401,7 +10401,7 @@ mondata SPECIES_519, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10421,7 +10421,7 @@ mondata SPECIES_520, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10441,7 +10441,7 @@ mondata SPECIES_521, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10461,7 +10461,7 @@ mondata SPECIES_522, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10481,7 +10481,7 @@ mondata SPECIES_523, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10501,7 +10501,7 @@ mondata SPECIES_524, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10521,7 +10521,7 @@ mondata SPECIES_525, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10541,7 +10541,7 @@ mondata SPECIES_526, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10561,7 +10561,7 @@ mondata SPECIES_527, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10581,7 +10581,7 @@ mondata SPECIES_528, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10601,7 +10601,7 @@ mondata SPECIES_529, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10621,7 +10621,7 @@ mondata SPECIES_530, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10641,7 +10641,7 @@ mondata SPECIES_531, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10661,7 +10661,7 @@ mondata SPECIES_532, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10681,7 +10681,7 @@ mondata SPECIES_533, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10701,7 +10701,7 @@ mondata SPECIES_534, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10721,7 +10721,7 @@ mondata SPECIES_535, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10741,7 +10741,7 @@ mondata SPECIES_536, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10761,7 +10761,7 @@ mondata SPECIES_537, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10781,7 +10781,7 @@ mondata SPECIES_538, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10801,7 +10801,7 @@ mondata SPECIES_539, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10821,7 +10821,7 @@ mondata SPECIES_540, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10841,7 +10841,7 @@ mondata SPECIES_541, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10861,7 +10861,7 @@ mondata SPECIES_542, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10881,7 +10881,7 @@ mondata SPECIES_543, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_NONE, ABILITY_NONE
@@ -10901,7 +10901,7 @@ mondata SPECIES_VICTINI, "Victini"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_VICTORY_STAR, ABILITY_NONE
@@ -10921,7 +10921,7 @@ mondata SPECIES_SNIVY, "Snivy"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -10941,7 +10941,7 @@ mondata SPECIES_SERVINE, "Servine"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -10961,7 +10961,7 @@ mondata SPECIES_SERPERIOR, "Serperior"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -10981,7 +10981,7 @@ mondata SPECIES_TEPIG, "Tepig"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -11001,7 +11001,7 @@ mondata SPECIES_PIGNITE, "Pignite"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -11021,7 +11021,7 @@ mondata SPECIES_EMBOAR, "Emboar"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -11041,7 +11041,7 @@ mondata SPECIES_OSHAWOTT, "Oshawott"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -11061,7 +11061,7 @@ mondata SPECIES_DEWOTT, "Dewott"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -11081,7 +11081,7 @@ mondata SPECIES_SAMUROTT, "Samurott"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -11101,7 +11101,7 @@ mondata SPECIES_PATRAT, "Patrat"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
@@ -11121,7 +11121,7 @@ mondata SPECIES_WATCHOG, "Watchog"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_ILLUMINATE, ABILITY_KEEN_EYE
@@ -11141,7 +11141,7 @@ mondata SPECIES_LILLIPUP, "Lillipup"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_VITAL_SPIRIT, ABILITY_PICKUP
@@ -11161,7 +11161,7 @@ mondata SPECIES_HERDIER, "Herdier"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_SAND_RUSH
@@ -11181,7 +11181,7 @@ mondata SPECIES_STOUTLAND, "Stoutland"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_SAND_RUSH
@@ -11201,7 +11201,7 @@ mondata SPECIES_PURRLOIN, "Purrloin"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_LIMBER, ABILITY_UNBURDEN
@@ -11221,7 +11221,7 @@ mondata SPECIES_LIEPARD, "Liepard"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_LIMBER, ABILITY_UNBURDEN
@@ -11241,7 +11241,7 @@ mondata SPECIES_PANSAGE, "Pansage"
     items ITEM_ORAN_BERRY, ITEM_OCCA_BERRY
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -11261,7 +11261,7 @@ mondata SPECIES_SIMISAGE, "Simisage"
     items ITEM_ORAN_BERRY, ITEM_OCCA_BERRY
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -11281,7 +11281,7 @@ mondata SPECIES_PANSEAR, "Pansear"
     items ITEM_ORAN_BERRY, ITEM_PASSHO_BERRY
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -11301,7 +11301,7 @@ mondata SPECIES_SIMISEAR, "Simisear"
     items ITEM_ORAN_BERRY, ITEM_PASSHO_BERRY
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -11321,7 +11321,7 @@ mondata SPECIES_PANPOUR, "Panpour"
     items ITEM_ORAN_BERRY, ITEM_RINDO_BERRY
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -11341,7 +11341,7 @@ mondata SPECIES_SIMIPOUR, "Simipour"
     items ITEM_ORAN_BERRY, ITEM_RINDO_BERRY
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GLUTTONY, ABILITY_NONE
@@ -11361,7 +11361,7 @@ mondata SPECIES_MUNNA, "Munna"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FOREWARN, ABILITY_SYNCHRONIZE
@@ -11381,7 +11381,7 @@ mondata SPECIES_MUSHARNA, "Musharna"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FOREWARN, ABILITY_SYNCHRONIZE
@@ -11401,7 +11401,7 @@ mondata SPECIES_PIDOVE, "Pidove"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_BIG_PECKS, ABILITY_SUPER_LUCK
@@ -11421,7 +11421,7 @@ mondata SPECIES_TRANQUILL, "Tranquill"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_BIG_PECKS, ABILITY_SUPER_LUCK
@@ -11441,7 +11441,7 @@ mondata SPECIES_UNFEZANT, "Unfezant"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_BIG_PECKS, ABILITY_SUPER_LUCK
@@ -11461,7 +11461,7 @@ mondata SPECIES_BLITZLE, "Blitzle"
     items ITEM_CHERI_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_LIGHTNING_ROD, ABILITY_MOTOR_DRIVE
@@ -11481,7 +11481,7 @@ mondata SPECIES_ZEBSTRIKA, "Zebstrika"
     items ITEM_CHERI_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_LIGHTNING_ROD, ABILITY_MOTOR_DRIVE
@@ -11501,7 +11501,7 @@ mondata SPECIES_ROGGENROLA, "Roggenrola"
     items ITEM_EVERSTONE, ITEM_HARD_STONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_STURDY, ABILITY_WEAK_ARMOR
@@ -11521,7 +11521,7 @@ mondata SPECIES_BOLDORE, "Boldore"
     items ITEM_EVERSTONE, ITEM_HARD_STONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_STURDY, ABILITY_WEAK_ARMOR
@@ -11541,7 +11541,7 @@ mondata SPECIES_GIGALITH, "Gigalith"
     items ITEM_EVERSTONE, ITEM_HARD_STONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_STURDY, ABILITY_SAND_STREAM
@@ -11561,7 +11561,7 @@ mondata SPECIES_WOOBAT, "Woobat"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FLYING
     abilities ABILITY_UNAWARE, ABILITY_KLUTZ
@@ -11581,7 +11581,7 @@ mondata SPECIES_SWOOBAT, "Swoobat"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FLYING
     abilities ABILITY_UNAWARE, ABILITY_KLUTZ
@@ -11601,7 +11601,7 @@ mondata SPECIES_DRILBUR, "Drilbur"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SAND_RUSH, ABILITY_SAND_FORCE
@@ -11621,7 +11621,7 @@ mondata SPECIES_EXCADRILL, "Excadrill"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SAND_RUSH, ABILITY_SAND_FORCE
@@ -11641,7 +11641,7 @@ mondata SPECIES_AUDINO, "Audino"
     items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_HEALER, ABILITY_REGENERATOR
@@ -11661,7 +11661,7 @@ mondata SPECIES_TIMBURR, "Timburr"
     items ITEM_NONE, ITEM_NONE
     genderratio 63
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_GUTS, ABILITY_SHEER_FORCE
@@ -11681,7 +11681,7 @@ mondata SPECIES_GURDURR, "Gurdurr"
     items ITEM_NONE, ITEM_NONE
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_GUTS, ABILITY_SHEER_FORCE
@@ -11701,7 +11701,7 @@ mondata SPECIES_CONKELDURR, "Conkeldurr"
     items ITEM_NONE, ITEM_NONE
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_GUTS, ABILITY_SHEER_FORCE
@@ -11721,7 +11721,7 @@ mondata SPECIES_TYMPOLE, "Tympole"
     items ITEM_PECHA_BERRY, ITEM_PERSIM_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_SWIFT_SWIM, ABILITY_HYDRATION
@@ -11741,7 +11741,7 @@ mondata SPECIES_PALPITOAD, "Palpitoad"
     items ITEM_PECHA_BERRY, ITEM_PERSIM_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_SWIFT_SWIM, ABILITY_HYDRATION
@@ -11761,7 +11761,7 @@ mondata SPECIES_SEISMITOAD, "Seismitoad"
     items ITEM_PECHA_BERRY, ITEM_PERSIM_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_SWIFT_SWIM, ABILITY_POISON_TOUCH
@@ -11781,7 +11781,7 @@ mondata SPECIES_THROH, "Throh"
     items ITEM_EXPERT_BELT, ITEM_BLACK_BELT
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_GUTS, ABILITY_INNER_FOCUS
@@ -11801,7 +11801,7 @@ mondata SPECIES_SAWK, "Sawk"
     items ITEM_EXPERT_BELT, ITEM_BLACK_BELT
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_STURDY, ABILITY_INNER_FOCUS
@@ -11821,7 +11821,7 @@ mondata SPECIES_SEWADDLE, "Sewaddle"
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_CHLOROPHYLL
@@ -11841,7 +11841,7 @@ mondata SPECIES_SWADLOON, "Swadloon"
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_LEAF_GUARD, ABILITY_CHLOROPHYLL
@@ -11861,7 +11861,7 @@ mondata SPECIES_LEAVANNY, "Leavanny"
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_CHLOROPHYLL
@@ -11881,7 +11881,7 @@ mondata SPECIES_VENIPEDE, "Venipede"
     items ITEM_PECHA_BERRY, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_POISON_POINT, ABILITY_SWARM
@@ -11901,7 +11901,7 @@ mondata SPECIES_WHIRLIPEDE, "Whirlipede"
     items ITEM_PECHA_BERRY, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_POISON_POINT, ABILITY_SWARM
@@ -11921,7 +11921,7 @@ mondata SPECIES_SCOLIPEDE, "Scolipede"
     items ITEM_PECHA_BERRY, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_POISON_POINT, ABILITY_SWARM
@@ -11941,7 +11941,7 @@ mondata SPECIES_COTTONEE, "Cottonee"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_FAIRY
     abilities ABILITY_PRANKSTER, ABILITY_INFILTRATOR
@@ -11961,7 +11961,7 @@ mondata SPECIES_WHIMSICOTT, "Whimsicott"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_FAIRY
     abilities ABILITY_PRANKSTER, ABILITY_INFILTRATOR
@@ -11981,7 +11981,7 @@ mondata SPECIES_PETILIL, "Petilil"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_CHLOROPHYLL, ABILITY_OWN_TEMPO
@@ -12001,7 +12001,7 @@ mondata SPECIES_LILLIGANT, "Lilligant"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_CHLOROPHYLL, ABILITY_OWN_TEMPO
@@ -12021,7 +12021,7 @@ mondata SPECIES_BASCULIN, "Basculin"
     items ITEM_NONE, ITEM_DEEP_SEA_TOOTH
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_RECKLESS, ABILITY_ADAPTABILITY
@@ -12041,7 +12041,7 @@ mondata SPECIES_SANDILE, "Sandile"
     items ITEM_NONE, ITEM_BLACK_GLASSES
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_MOXIE
@@ -12061,7 +12061,7 @@ mondata SPECIES_KROKOROK, "Krokorok"
     items ITEM_NONE, ITEM_BLACK_GLASSES
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_MOXIE
@@ -12081,7 +12081,7 @@ mondata SPECIES_KROOKODILE, "Krookodile"
     items ITEM_BLACK_GLASSES, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_MOXIE
@@ -12101,7 +12101,7 @@ mondata SPECIES_DARUMAKA, "Darumaka"
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_HUSTLE, ABILITY_NONE
@@ -12121,7 +12121,7 @@ mondata SPECIES_DARMANITAN, "Darmanitan"
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SHEER_FORCE, ABILITY_NONE
@@ -12141,7 +12141,7 @@ mondata SPECIES_MARACTUS, "Maractus"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_WATER_ABSORB, ABILITY_CHLOROPHYLL
@@ -12161,7 +12161,7 @@ mondata SPECIES_DWEBBLE, "Dwebble"
     items ITEM_HARD_STONE, ITEM_RARE_BONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_MINERAL
     abilities ABILITY_STURDY, ABILITY_SHELL_ARMOR
@@ -12181,7 +12181,7 @@ mondata SPECIES_CRUSTLE, "Crustle"
     items ITEM_HARD_STONE, ITEM_RARE_BONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_MINERAL
     abilities ABILITY_STURDY, ABILITY_SHELL_ARMOR
@@ -12201,7 +12201,7 @@ mondata SPECIES_SCRAGGY, "Scraggy"
     items ITEM_NONE, ITEM_SHED_SHELL
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
     abilities ABILITY_SHED_SKIN, ABILITY_MOXIE
@@ -12221,7 +12221,7 @@ mondata SPECIES_SCRAFTY, "Scrafty"
     items ITEM_NONE, ITEM_SHED_SHELL
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
     abilities ABILITY_SHED_SKIN, ABILITY_MOXIE
@@ -12241,7 +12241,7 @@ mondata SPECIES_SIGILYPH, "Sigilyph"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_WONDER_SKIN, ABILITY_MAGIC_GUARD
@@ -12261,7 +12261,7 @@ mondata SPECIES_YAMASK, "Yamask"
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_MUMMY, ABILITY_NONE
@@ -12281,7 +12281,7 @@ mondata SPECIES_COFAGRIGUS, "Cofagrigus"
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_MUMMY, ABILITY_NONE
@@ -12301,7 +12301,7 @@ mondata SPECIES_TIRTOUGA, "Tirtouga"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_SOLID_ROCK, ABILITY_STURDY
@@ -12321,7 +12321,7 @@ mondata SPECIES_CARRACOSTA, "Carracosta"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_SOLID_ROCK, ABILITY_STURDY
@@ -12341,7 +12341,7 @@ mondata SPECIES_ARCHEN, "Archen"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_WATER_3
     abilities ABILITY_DEFEATIST, ABILITY_NONE
@@ -12361,7 +12361,7 @@ mondata SPECIES_ARCHEOPS, "Archeops"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_WATER_3
     abilities ABILITY_DEFEATIST, ABILITY_NONE
@@ -12381,7 +12381,7 @@ mondata SPECIES_TRUBBISH, "Trubbish"
     items ITEM_SILK_SCARF, ITEM_NUGGET
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_STENCH, ABILITY_STICKY_HOLD
@@ -12401,7 +12401,7 @@ mondata SPECIES_GARBODOR, "Garbodor"
     items ITEM_SILK_SCARF, ITEM_NUGGET
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_STENCH, ABILITY_WEAK_ARMOR
@@ -12421,7 +12421,7 @@ mondata SPECIES_ZORUA, "Zorua"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_ILLUSION, ABILITY_NONE
@@ -12441,7 +12441,7 @@ mondata SPECIES_ZOROARK, "Zoroark"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_ILLUSION, ABILITY_NONE
@@ -12461,7 +12461,7 @@ mondata SPECIES_MINCCINO, "Minccino"
     items ITEM_CHESTO_BERRY, ITEM_NONE
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CUTE_CHARM, ABILITY_TECHNICIAN
@@ -12481,7 +12481,7 @@ mondata SPECIES_CINCCINO, "Cinccino"
     items ITEM_CHESTO_BERRY, ITEM_NONE
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CUTE_CHARM, ABILITY_TECHNICIAN
@@ -12501,7 +12501,7 @@ mondata SPECIES_GOTHITA, "Gothita"
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_FRISK, ABILITY_COMPETITIVE
@@ -12521,7 +12521,7 @@ mondata SPECIES_GOTHORITA, "Gothorita"
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_FRISK, ABILITY_COMPETITIVE
@@ -12541,7 +12541,7 @@ mondata SPECIES_GOTHITELLE, "Gothitelle"
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_FRISK, ABILITY_COMPETITIVE
@@ -12561,7 +12561,7 @@ mondata SPECIES_SOLOSIS, "Solosis"
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_OVERCOAT, ABILITY_MAGIC_GUARD
@@ -12581,7 +12581,7 @@ mondata SPECIES_DUOSION, "Duosion"
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_OVERCOAT, ABILITY_MAGIC_GUARD
@@ -12601,7 +12601,7 @@ mondata SPECIES_REUNICLUS, "Reuniclus"
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_OVERCOAT, ABILITY_MAGIC_GUARD
@@ -12621,7 +12621,7 @@ mondata SPECIES_DUCKLETT, "Ducklett"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_BIG_PECKS
@@ -12641,7 +12641,7 @@ mondata SPECIES_SWANNA, "Swanna"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_BIG_PECKS
@@ -12661,7 +12661,7 @@ mondata SPECIES_VANILLITE, "Vanillite"
     items ITEM_NONE, ITEM_NEVER_MELT_ICE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_ICE_BODY, ABILITY_SNOW_CLOAK
@@ -12681,7 +12681,7 @@ mondata SPECIES_VANILLISH, "Vanillish"
     items ITEM_NONE, ITEM_NEVER_MELT_ICE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_ICE_BODY, ABILITY_SNOW_CLOAK
@@ -12701,7 +12701,7 @@ mondata SPECIES_VANILLUXE, "Vanilluxe"
     items ITEM_NEVER_MELT_ICE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_ICE_BODY, ABILITY_SNOW_WARNING
@@ -12721,7 +12721,7 @@ mondata SPECIES_DEERLING, "Deerling"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CHLOROPHYLL, ABILITY_SAP_SIPPER
@@ -12741,7 +12741,7 @@ mondata SPECIES_SAWSBUCK, "Sawsbuck"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CHLOROPHYLL, ABILITY_SAP_SIPPER
@@ -12761,7 +12761,7 @@ mondata SPECIES_EMOLGA, "Emolga"
     items ITEM_CHERI_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_STATIC, ABILITY_NONE
@@ -12781,7 +12781,7 @@ mondata SPECIES_KARRABLAST, "Karrablast"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_SHED_SKIN
@@ -12801,7 +12801,7 @@ mondata SPECIES_ESCAVALIER, "Escavalier"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_SHELL_ARMOR
@@ -12821,7 +12821,7 @@ mondata SPECIES_FOONGUS, "Foongus"
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_EFFECT_SPORE, ABILITY_NONE
@@ -12841,7 +12841,7 @@ mondata SPECIES_AMOONGUSS, "Amoonguss"
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_EFFECT_SPORE, ABILITY_NONE
@@ -12861,7 +12861,7 @@ mondata SPECIES_FRILLISH, "Frillish"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WATER_ABSORB, ABILITY_CURSED_BODY
@@ -12881,7 +12881,7 @@ mondata SPECIES_JELLICENT, "Jellicent"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WATER_ABSORB, ABILITY_CURSED_BODY
@@ -12901,7 +12901,7 @@ mondata SPECIES_ALOMOMOLA, "Alomomola"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
     abilities ABILITY_REGENERATOR, ABILITY_NONE
@@ -12921,7 +12921,7 @@ mondata SPECIES_JOLTIK, "Joltik"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_COMPOUND_EYES, ABILITY_UNNERVE
@@ -12941,7 +12941,7 @@ mondata SPECIES_GALVANTULA, "Galvantula"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_COMPOUND_EYES, ABILITY_UNNERVE
@@ -12961,7 +12961,7 @@ mondata SPECIES_FERROSEED, "Ferroseed"
     items ITEM_NONE, ITEM_STICKY_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_MINERAL
     abilities ABILITY_IRON_BARBS, ABILITY_NONE
@@ -12981,7 +12981,7 @@ mondata SPECIES_FERROTHORN, "Ferrothorn"
     items ITEM_NONE, ITEM_STICKY_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_MINERAL
     abilities ABILITY_IRON_BARBS, ABILITY_NONE
@@ -13001,7 +13001,7 @@ mondata SPECIES_KLINK, "Klink"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_PLUS, ABILITY_MINUS
@@ -13021,7 +13021,7 @@ mondata SPECIES_KLANG, "Klang"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_PLUS, ABILITY_MINUS
@@ -13041,7 +13041,7 @@ mondata SPECIES_KLINKLANG, "Klinklang"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_PLUS, ABILITY_MINUS
@@ -13061,7 +13061,7 @@ mondata SPECIES_TYNAMO, "Tynamo"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -13081,7 +13081,7 @@ mondata SPECIES_EELEKTRIK, "Eelektrik"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -13101,7 +13101,7 @@ mondata SPECIES_EELEKTROSS, "Eelektross"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -13121,7 +13121,7 @@ mondata SPECIES_ELGYEM, "Elgyem"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_TELEPATHY, ABILITY_SYNCHRONIZE
@@ -13141,7 +13141,7 @@ mondata SPECIES_BEHEEYEM, "Beheeyem"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_TELEPATHY, ABILITY_SYNCHRONIZE
@@ -13161,7 +13161,7 @@ mondata SPECIES_LITWICK, "Litwick"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY
@@ -13181,7 +13181,7 @@ mondata SPECIES_LAMPENT, "Lampent"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY
@@ -13201,7 +13201,7 @@ mondata SPECIES_CHANDELURE, "Chandelure"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY
@@ -13221,7 +13221,7 @@ mondata SPECIES_AXEW, "Axew"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_RIVALRY, ABILITY_MOLD_BREAKER
@@ -13241,7 +13241,7 @@ mondata SPECIES_FRAXURE, "Fraxure"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_RIVALRY, ABILITY_MOLD_BREAKER
@@ -13261,7 +13261,7 @@ mondata SPECIES_HAXORUS, "Haxorus"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_RIVALRY, ABILITY_MOLD_BREAKER
@@ -13281,7 +13281,7 @@ mondata SPECIES_CUBCHOO, "Cubchoo"
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SNOW_CLOAK, ABILITY_SLUSH_RUSH
@@ -13301,7 +13301,7 @@ mondata SPECIES_BEARTIC, "Beartic"
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SNOW_CLOAK, ABILITY_SLUSH_RUSH
@@ -13321,7 +13321,7 @@ mondata SPECIES_CRYOGONAL, "Cryogonal"
     items ITEM_NONE, ITEM_NEVER_MELT_ICE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -13341,7 +13341,7 @@ mondata SPECIES_SHELMET, "Shelmet"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_HYDRATION, ABILITY_SHELL_ARMOR
@@ -13361,7 +13361,7 @@ mondata SPECIES_ACCELGOR, "Accelgor"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_HYDRATION, ABILITY_STICKY_HOLD
@@ -13381,7 +13381,7 @@ mondata SPECIES_STUNFISK, "Stunfisk"
     items ITEM_NONE, ITEM_SOFT_SAND
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
     abilities ABILITY_STATIC, ABILITY_LIMBER
@@ -13401,7 +13401,7 @@ mondata SPECIES_MIENFOO, "Mienfoo"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_INNER_FOCUS, ABILITY_REGENERATOR
@@ -13421,7 +13421,7 @@ mondata SPECIES_MIENSHAO, "Mienshao"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_INNER_FOCUS, ABILITY_REGENERATOR
@@ -13441,7 +13441,7 @@ mondata SPECIES_DRUDDIGON, "Druddigon"
     items ITEM_NONE, ITEM_DRAGON_FANG
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_MONSTER
     abilities ABILITY_ROUGH_SKIN, ABILITY_SHEER_FORCE
@@ -13461,7 +13461,7 @@ mondata SPECIES_GOLETT, "Golett"
     items ITEM_NONE, ITEM_LIGHT_CLAY
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_IRON_FIST, ABILITY_KLUTZ
@@ -13481,7 +13481,7 @@ mondata SPECIES_GOLURK, "Golurk"
     items ITEM_NONE, ITEM_LIGHT_CLAY
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_IRON_FIST, ABILITY_KLUTZ
@@ -13501,7 +13501,7 @@ mondata SPECIES_PAWNIARD, "Pawniard"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_DEFIANT, ABILITY_INNER_FOCUS
@@ -13521,7 +13521,7 @@ mondata SPECIES_BISHARP, "Bisharp"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_DEFIANT, ABILITY_INNER_FOCUS
@@ -13541,7 +13541,7 @@ mondata SPECIES_BOUFFALANT, "Bouffalant"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_RECKLESS, ABILITY_SAP_SIPPER
@@ -13561,7 +13561,7 @@ mondata SPECIES_RUFFLET, "Rufflet"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_SHEER_FORCE
@@ -13581,7 +13581,7 @@ mondata SPECIES_BRAVIARY, "Braviary"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_SHEER_FORCE
@@ -13601,7 +13601,7 @@ mondata SPECIES_VULLABY, "Vullaby"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_BIG_PECKS, ABILITY_OVERCOAT
@@ -13621,7 +13621,7 @@ mondata SPECIES_MANDIBUZZ, "Mandibuzz"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_BIG_PECKS, ABILITY_OVERCOAT
@@ -13641,7 +13641,7 @@ mondata SPECIES_HEATMOR, "Heatmor"
     items ITEM_NONE, ITEM_FLAME_ORB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GLUTTONY, ABILITY_FLASH_FIRE
@@ -13661,7 +13661,7 @@ mondata SPECIES_DURANT, "Durant"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_HUSTLE
@@ -13681,7 +13681,7 @@ mondata SPECIES_DEINO, "Deino"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_HUSTLE, ABILITY_NONE
@@ -13701,7 +13701,7 @@ mondata SPECIES_ZWEILOUS, "Zweilous"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_HUSTLE, ABILITY_NONE
@@ -13721,7 +13721,7 @@ mondata SPECIES_HYDREIGON, "Hydreigon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -13741,7 +13741,7 @@ mondata SPECIES_LARVESTA, "Larvesta"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
@@ -13761,7 +13761,7 @@ mondata SPECIES_VOLCARONA, "Volcarona"
     items ITEM_SILVER_POWDER, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
@@ -13781,7 +13781,7 @@ mondata SPECIES_COBALION, "Cobalion"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_JUSTIFIED, ABILITY_NONE
@@ -13801,7 +13801,7 @@ mondata SPECIES_TERRAKION, "Terrakion"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_JUSTIFIED, ABILITY_NONE
@@ -13821,7 +13821,7 @@ mondata SPECIES_VIRIZION, "Virizion"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_JUSTIFIED, ABILITY_NONE
@@ -13841,7 +13841,7 @@ mondata SPECIES_TORNADUS, "Tornadus"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 90
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRANKSTER, ABILITY_NONE
@@ -13861,7 +13861,7 @@ mondata SPECIES_THUNDURUS, "Thundurus"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 90
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRANKSTER, ABILITY_NONE
@@ -13881,7 +13881,7 @@ mondata SPECIES_RESHIRAM, "Reshiram"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TURBOBLAZE, ABILITY_NONE
@@ -13901,7 +13901,7 @@ mondata SPECIES_ZEKROM, "Zekrom"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TERAVOLT, ABILITY_NONE
@@ -13921,7 +13921,7 @@ mondata SPECIES_LANDORUS, "Landorus"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 90
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SAND_FORCE, ABILITY_NONE
@@ -13941,7 +13941,7 @@ mondata SPECIES_KYUREM, "Kyurem"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRESSURE, ABILITY_NONE
@@ -13961,7 +13961,7 @@ mondata SPECIES_KELDEO, "Keldeo"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_JUSTIFIED, ABILITY_NONE
@@ -13981,7 +13981,7 @@ mondata SPECIES_MELOETTA, "Meloetta"
     items ITEM_STAR_PIECE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
@@ -14001,7 +14001,7 @@ mondata SPECIES_GENESECT, "Genesect"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
@@ -14021,7 +14021,7 @@ mondata SPECIES_CHESPIN, "Chespin"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -14041,7 +14041,7 @@ mondata SPECIES_QUILLADIN, "Quilladin"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -14061,7 +14061,7 @@ mondata SPECIES_CHESNAUGHT, "Chesnaught"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -14081,7 +14081,7 @@ mondata SPECIES_FENNEKIN, "Fennekin"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -14101,7 +14101,7 @@ mondata SPECIES_BRAIXEN, "Braixen"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -14121,7 +14121,7 @@ mondata SPECIES_DELPHOX, "Delphox"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -14141,7 +14141,7 @@ mondata SPECIES_FROAKIE, "Froakie"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -14161,7 +14161,7 @@ mondata SPECIES_FROGADIER, "Frogadier"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -14181,7 +14181,7 @@ mondata SPECIES_GRENINJA, "Greninja"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -14201,7 +14201,7 @@ mondata SPECIES_BUNNELBY, "Bunnelby"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PICKUP, ABILITY_CHEEK_POUCH
@@ -14221,7 +14221,7 @@ mondata SPECIES_DIGGERSBY, "Diggersby"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PICKUP, ABILITY_CHEEK_POUCH
@@ -14241,7 +14241,7 @@ mondata SPECIES_FLETCHLING, "Fletchling"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_BIG_PECKS, ABILITY_NONE
@@ -14261,7 +14261,7 @@ mondata SPECIES_FLETCHINDER, "Flechinder"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
@@ -14281,7 +14281,7 @@ mondata SPECIES_TALONFLAME, "Talonflame"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_FLAME_BODY, ABILITY_NONE
@@ -14301,7 +14301,7 @@ mondata SPECIES_SCATTERBUG, "Scatterbug"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST, ABILITY_COMPOUND_EYES
@@ -14321,7 +14321,7 @@ mondata SPECIES_SPEWPA, "Spewpa"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
@@ -14341,7 +14341,7 @@ mondata SPECIES_VIVILLON, "Vivillon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST, ABILITY_COMPOUND_EYES
@@ -14361,7 +14361,7 @@ mondata SPECIES_LITLEO, "Litleo"
     items ITEM_NONE, ITEM_NONE
     genderratio 222
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_RIVALRY, ABILITY_UNNERVE
@@ -14381,7 +14381,7 @@ mondata SPECIES_PYROAR, "Pyroar"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_RIVALRY, ABILITY_UNNERVE
@@ -14401,7 +14401,7 @@ mondata SPECIES_FLABEBE, "Flabébé"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL, ABILITY_NONE
@@ -14421,7 +14421,7 @@ mondata SPECIES_FLOETTE, "Floette"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL, ABILITY_NONE
@@ -14441,7 +14441,7 @@ mondata SPECIES_FLORGES, "Florges"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL, ABILITY_NONE
@@ -14461,7 +14461,7 @@ mondata SPECIES_SKIDDO, "Skiddo"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SAP_SIPPER, ABILITY_NONE
@@ -14481,7 +14481,7 @@ mondata SPECIES_GOGOAT, "Gogoat"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SAP_SIPPER, ABILITY_NONE
@@ -14501,7 +14501,7 @@ mondata SPECIES_PANCHAM, "Pancham"
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_IRON_FIST, ABILITY_MOLD_BREAKER
@@ -14521,7 +14521,7 @@ mondata SPECIES_PANGORO, "Pangoro"
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_IRON_FIST, ABILITY_MOLD_BREAKER
@@ -14541,7 +14541,7 @@ mondata SPECIES_FURFROU, "Furfrou"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -14561,7 +14561,7 @@ mondata SPECIES_ESPURR, "Espurr"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_KEEN_EYE, ABILITY_INFILTRATOR
@@ -14581,7 +14581,7 @@ mondata SPECIES_MEOWSTIC, "Meowstic"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_KEEN_EYE, ABILITY_INFILTRATOR
@@ -14601,7 +14601,7 @@ mondata SPECIES_HONEDGE, "Honedge"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_NO_GUARD, ABILITY_NONE
@@ -14621,7 +14621,7 @@ mondata SPECIES_DOUBLADE, "Doublade"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_NO_GUARD, ABILITY_NONE
@@ -14641,7 +14641,7 @@ mondata SPECIES_AEGISLASH, "Aegislash"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_STANCE_CHANGE, ABILITY_NONE
@@ -14661,7 +14661,7 @@ mondata SPECIES_SPRITZEE, "Spritzee"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_HEALER, ABILITY_NONE
@@ -14681,7 +14681,7 @@ mondata SPECIES_AROMATISSE, "Aromatisse"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_HEALER, ABILITY_NONE
@@ -14701,7 +14701,7 @@ mondata SPECIES_SWIRLIX, "Swirlix"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_SWEET_VEIL, ABILITY_NONE
@@ -14721,7 +14721,7 @@ mondata SPECIES_SLURPUFF, "Slurpuff"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_SWEET_VEIL, ABILITY_NONE
@@ -14741,7 +14741,7 @@ mondata SPECIES_INKAY, "Inkay"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
     abilities ABILITY_CONTRARY, ABILITY_SUCTION_CUPS
@@ -14761,7 +14761,7 @@ mondata SPECIES_MALAMAR, "Malamar"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
     abilities ABILITY_CONTRARY, ABILITY_SUCTION_CUPS
@@ -14781,7 +14781,7 @@ mondata SPECIES_BINACLE, "Binacle"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_TOUGH_CLAWS, ABILITY_SNIPER
@@ -14801,7 +14801,7 @@ mondata SPECIES_BARBARACLE, "Barbaracle"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_TOUGH_CLAWS, ABILITY_SNIPER
@@ -14821,7 +14821,7 @@ mondata SPECIES_SKRELP, "Skrelp"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
     abilities ABILITY_POISON_POINT, ABILITY_POISON_TOUCH
@@ -14841,7 +14841,7 @@ mondata SPECIES_DRAGALGE, "Dragalge"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
     abilities ABILITY_POISON_POINT, ABILITY_POISON_TOUCH
@@ -14861,7 +14861,7 @@ mondata SPECIES_CLAUNCHER, "Clauncher"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_MEGA_LAUNCHER, ABILITY_NONE
@@ -14881,7 +14881,7 @@ mondata SPECIES_CLAWITZER, "Clawitzer"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_MEGA_LAUNCHER, ABILITY_NONE
@@ -14901,7 +14901,7 @@ mondata SPECIES_HELIOPTILE, "Helioptile"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_DRY_SKIN, ABILITY_SAND_VEIL
@@ -14921,7 +14921,7 @@ mondata SPECIES_HELIOLISK, "Heliolisk"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_DRY_SKIN, ABILITY_SAND_VEIL
@@ -14941,7 +14941,7 @@ mondata SPECIES_TYRUNT, "Tyrunt"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_STRONG_JAW, ABILITY_NONE
@@ -14961,7 +14961,7 @@ mondata SPECIES_TYRANTRUM, "Tyrantrum"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_STRONG_JAW, ABILITY_NONE
@@ -14981,7 +14981,7 @@ mondata SPECIES_AMAURA, "Amaura"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_REFRIGERATE, ABILITY_NONE
@@ -15001,7 +15001,7 @@ mondata SPECIES_AURORUS, "Aurorus"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_REFRIGERATE, ABILITY_NONE
@@ -15021,7 +15021,7 @@ mondata SPECIES_SYLVEON, "Sylveon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PIXILATE, ABILITY_NONE
@@ -15041,7 +15041,7 @@ mondata SPECIES_HAWLUCHA, "Hawlucha"
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_LIMBER, ABILITY_UNBURDEN
@@ -15061,7 +15061,7 @@ mondata SPECIES_DEDENNE, "Dedenne"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_CHEEK_POUCH, ABILITY_PICKUP
@@ -15081,7 +15081,7 @@ mondata SPECIES_CARBINK, "Carbink"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
     abilities ABILITY_CLEAR_BODY, ABILITY_NONE
@@ -15101,7 +15101,7 @@ mondata SPECIES_GOOMY, "Goomy"
     items ITEM_NONE, ITEM_SHED_SHELL
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_SAP_SIPPER, ABILITY_HYDRATION
@@ -15121,7 +15121,7 @@ mondata SPECIES_SLIGGOO, "Sliggoo"
     items ITEM_NONE, ITEM_SHED_SHELL
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_SAP_SIPPER, ABILITY_HYDRATION
@@ -15141,7 +15141,7 @@ mondata SPECIES_GOODRA, "Goodra"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_SAP_SIPPER, ABILITY_HYDRATION
@@ -15161,7 +15161,7 @@ mondata SPECIES_KLEFKI, "Klefki"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_PRANKSTER, ABILITY_NONE
@@ -15181,7 +15181,7 @@ mondata SPECIES_PHANTUMP, "Phantump"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_NATURAL_CURE, ABILITY_FRISK
@@ -15201,7 +15201,7 @@ mondata SPECIES_TREVENANT, "Trevenant"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_NATURAL_CURE, ABILITY_FRISK
@@ -15221,7 +15221,7 @@ mondata SPECIES_PUMPKABOO, "Pumpkaboo"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_PICKUP, ABILITY_FRISK
@@ -15241,7 +15241,7 @@ mondata SPECIES_GOURGEIST, "Gourgeist"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_PICKUP, ABILITY_FRISK
@@ -15261,7 +15261,7 @@ mondata SPECIES_BERGMITE, "Bergmite"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MINERAL
     abilities ABILITY_OWN_TEMPO, ABILITY_ICE_BODY
@@ -15281,7 +15281,7 @@ mondata SPECIES_AVALUGG, "Avalugg"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MINERAL
     abilities ABILITY_OWN_TEMPO, ABILITY_ICE_BODY
@@ -15301,7 +15301,7 @@ mondata SPECIES_NOIBAT, "Noibat"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
     abilities ABILITY_FRISK, ABILITY_INFILTRATOR
@@ -15321,7 +15321,7 @@ mondata SPECIES_NOIVERN, "Noivern"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
     abilities ABILITY_FRISK, ABILITY_INFILTRATOR
@@ -15341,7 +15341,7 @@ mondata SPECIES_XERNEAS, "Xerneas"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_FAIRY_AURA, ABILITY_NONE
@@ -15361,7 +15361,7 @@ mondata SPECIES_YVELTAL, "Yveltal"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DARK_AURA, ABILITY_NONE
@@ -15381,7 +15381,7 @@ mondata SPECIES_ZYGARDE, "Zygarde"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_AURA_BREAK, ABILITY_NONE
@@ -15401,7 +15401,7 @@ mondata SPECIES_DIANCIE, "Diancie"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_CLEAR_BODY, ABILITY_NONE
@@ -15421,7 +15421,7 @@ mondata SPECIES_HOOPA, "Hoopa"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MAGICIAN, ABILITY_NONE
@@ -15441,7 +15441,7 @@ mondata SPECIES_VOLCANION, "Volcanion"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_WATER_ABSORB, ABILITY_NONE
@@ -15461,7 +15461,7 @@ mondata SPECIES_ROWLET, "Rowlet"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -15481,7 +15481,7 @@ mondata SPECIES_DARTRIX, "Dartrix"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -15501,7 +15501,7 @@ mondata SPECIES_DECIDUEYE, "Decidueye"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -15521,7 +15521,7 @@ mondata SPECIES_LITTEN, "Litten"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -15541,7 +15541,7 @@ mondata SPECIES_TORRACAT, "Torracat"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -15561,7 +15561,7 @@ mondata SPECIES_INCINEROAR, "Incineroar"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -15581,7 +15581,7 @@ mondata SPECIES_POPPLIO, "Popplio"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -15601,7 +15601,7 @@ mondata SPECIES_BRIONNE, "Brionne"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -15621,7 +15621,7 @@ mondata SPECIES_PRIMARINA, "Primarina"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -15641,7 +15641,7 @@ mondata SPECIES_PIKIPEK, "Pikipek"
     items ITEM_NONE, ITEM_ORAN_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_SKILL_LINK
@@ -15661,7 +15661,7 @@ mondata SPECIES_TRUMBEAK, "Trumbeak"
     items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_SKILL_LINK
@@ -15681,7 +15681,7 @@ mondata SPECIES_TOUCANNON, "Toucannon"
     items ITEM_NONE, ITEM_RAWST_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_SKILL_LINK
@@ -15701,7 +15701,7 @@ mondata SPECIES_YUNGOOS, "Yungoos"
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_STAKEOUT, ABILITY_STRONG_JAW
@@ -15721,7 +15721,7 @@ mondata SPECIES_GUMSHOOS, "Gumshoos"
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_STAKEOUT, ABILITY_STRONG_JAW
@@ -15741,7 +15741,7 @@ mondata SPECIES_GRUBBIN, "Grubbin"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_NONE
@@ -15761,7 +15761,7 @@ mondata SPECIES_CHARJABUG, "Charjabug"
     items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_BATTERY, ABILITY_NONE
@@ -15781,7 +15781,7 @@ mondata SPECIES_VIKAVOLT, "Vikavolt"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -15801,7 +15801,7 @@ mondata SPECIES_CRABRAWLER, "Crabrawler"
     items ITEM_NONE, ITEM_ASPEAR_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_HYPER_CUTTER, ABILITY_IRON_FIST
@@ -15821,7 +15821,7 @@ mondata SPECIES_CRABOMINABLE, "Crabomnabl"
     items ITEM_NONE, ITEM_CHERI_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_HYPER_CUTTER, ABILITY_IRON_FIST
@@ -15841,7 +15841,7 @@ mondata SPECIES_ORICORIO, "Oricorio"
     items ITEM_NONE, ITEM_HONEY
     genderratio 190
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_DANCER, ABILITY_NONE
@@ -15861,7 +15861,7 @@ mondata SPECIES_CUTIEFLY, "Cutiefly"
     items ITEM_NONE, ITEM_HONEY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_FAIRY
     abilities ABILITY_HONEY_GATHER, ABILITY_SHIELD_DUST
@@ -15881,7 +15881,7 @@ mondata SPECIES_RIBOMBEE, "Ribombee"
     items ITEM_NONE, ITEM_HONEY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_FAIRY
     abilities ABILITY_HONEY_GATHER, ABILITY_SHIELD_DUST
@@ -15901,7 +15901,7 @@ mondata SPECIES_ROCKRUFF, "Rockruff"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_KEEN_EYE, ABILITY_VITAL_SPIRIT
@@ -15921,7 +15921,7 @@ mondata SPECIES_LYCANROC, "Lycanroc"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_KEEN_EYE, ABILITY_SAND_RUSH
@@ -15941,7 +15941,7 @@ mondata SPECIES_WISHIWASHI, "Wishiwashi"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_SCHOOLING, ABILITY_NONE
@@ -15961,7 +15961,7 @@ mondata SPECIES_MAREANIE, "Mareanie"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_MERCILESS, ABILITY_LIMBER
@@ -15981,7 +15981,7 @@ mondata SPECIES_TOXAPEX, "Toxapex"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_MERCILESS, ABILITY_LIMBER
@@ -16001,7 +16001,7 @@ mondata SPECIES_MUDBRAY, "Mudbray"
     items ITEM_NONE, ITEM_LIGHT_CLAY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_OWN_TEMPO, ABILITY_STAMINA
@@ -16021,7 +16021,7 @@ mondata SPECIES_MUDSDALE, "Mudsdale"
     items ITEM_NONE, ITEM_LIGHT_CLAY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_OWN_TEMPO, ABILITY_STAMINA
@@ -16041,7 +16041,7 @@ mondata SPECIES_DEWPIDER, "Dewpider"
     items ITEM_NONE, ITEM_MYSTIC_WATER
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_BUG
     abilities ABILITY_WATER_BUBBLE, ABILITY_NONE
@@ -16061,7 +16061,7 @@ mondata SPECIES_ARAQUANID, "Araquanid"
     items ITEM_NONE, ITEM_MYSTIC_WATER
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_BUG
     abilities ABILITY_WATER_BUBBLE, ABILITY_NONE
@@ -16081,7 +16081,7 @@ mondata SPECIES_FOMANTIS, "Fomantis"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
@@ -16101,7 +16101,7 @@ mondata SPECIES_LURANTIS, "Lurantis"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
@@ -16121,7 +16121,7 @@ mondata SPECIES_MORELULL, "Morelull"
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_ILLUMINATE, ABILITY_EFFECT_SPORE
@@ -16141,7 +16141,7 @@ mondata SPECIES_SHIINOTIC, "Shiinotic"
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_ILLUMINATE, ABILITY_EFFECT_SPORE
@@ -16161,7 +16161,7 @@ mondata SPECIES_SALANDIT, "Salandit"
     items ITEM_NONE, ITEM_SMOKE_BALL
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_CORROSION, ABILITY_NONE
@@ -16181,7 +16181,7 @@ mondata SPECIES_SALAZZLE, "Salazzle"
     items ITEM_NONE, ITEM_SMOKE_BALL
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_CORROSION, ABILITY_NONE
@@ -16201,7 +16201,7 @@ mondata SPECIES_STUFFUL, "Stufful"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FLUFFY, ABILITY_KLUTZ
@@ -16221,7 +16221,7 @@ mondata SPECIES_BEWEAR, "Bewear"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FLUFFY, ABILITY_KLUTZ
@@ -16241,7 +16241,7 @@ mondata SPECIES_BOUNSWEET, "Bounsweet"
     items ITEM_NONE, ITEM_GRASSY_SEED
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_LEAF_GUARD, ABILITY_OBLIVIOUS
@@ -16261,7 +16261,7 @@ mondata SPECIES_STEENEE, "Steenee"
     items ITEM_NONE, ITEM_GRASSY_SEED
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_LEAF_GUARD, ABILITY_OBLIVIOUS
@@ -16281,7 +16281,7 @@ mondata SPECIES_TSAREENA, "Tsareena"
     items ITEM_GRASSY_SEED, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_LEAF_GUARD, ABILITY_QUEENLY_MAJESTY
@@ -16301,7 +16301,7 @@ mondata SPECIES_COMFEY, "Comfey"
     items ITEM_NONE, ITEM_MISTY_SEED
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_FLOWER_VEIL, ABILITY_TRIAGE
@@ -16321,7 +16321,7 @@ mondata SPECIES_ORANGURU, "Oranguru"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INNER_FOCUS, ABILITY_TELEPATHY
@@ -16341,7 +16341,7 @@ mondata SPECIES_PASSIMIAN, "Passimian"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_RECEIVER, ABILITY_NONE
@@ -16361,7 +16361,7 @@ mondata SPECIES_WIMPOD, "Wimpod"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_WATER_3
     abilities ABILITY_WIMP_OUT, ABILITY_NONE
@@ -16381,7 +16381,7 @@ mondata SPECIES_GOLISOPOD, "Golisopod"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_WATER_3
     abilities ABILITY_EMERGENCY_EXIT, ABILITY_NONE
@@ -16401,7 +16401,7 @@ mondata SPECIES_SANDYGAST, "Sandygast"
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WATER_COMPACTION, ABILITY_NONE
@@ -16421,7 +16421,7 @@ mondata SPECIES_PALOSSAND, "Palossand"
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WATER_COMPACTION, ABILITY_NONE
@@ -16441,7 +16441,7 @@ mondata SPECIES_PYUKUMUKU, "Pyukumuku"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_INNARDS_OUT, ABILITY_NONE
@@ -16461,7 +16461,7 @@ mondata SPECIES_TYPE_NULL, "Type: Null"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BATTLE_ARMOR, ABILITY_NONE
@@ -16481,7 +16481,7 @@ mondata SPECIES_SILVALLY, "Silvally"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_RKS_SYSTEM, ABILITY_NONE
@@ -16501,7 +16501,7 @@ mondata SPECIES_MINIOR, "Minior"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -16521,7 +16521,7 @@ mondata SPECIES_KOMALA, "Komala"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_COMATOSE, ABILITY_NONE
@@ -16541,7 +16541,7 @@ mondata SPECIES_TURTONATOR, "Turtonator"
     items ITEM_NONE, ITEM_CHARCOAL
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_SHELL_ARMOR, ABILITY_NONE
@@ -16561,7 +16561,7 @@ mondata SPECIES_TOGEDEMARU, "Togedemaru"
     items ITEM_NONE, ITEM_ELECTRIC_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_IRON_BARBS, ABILITY_LIGHTNING_ROD
@@ -16581,7 +16581,7 @@ mondata SPECIES_MIMIKYU, "Mimikyu"
     items ITEM_NONE, ITEM_CHESTO_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_DISGUISE, ABILITY_NONE
@@ -16601,7 +16601,7 @@ mondata SPECIES_BRUXISH, "Bruxish"
     items ITEM_NONE, ITEM_RAZOR_FANG
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_DAZZLING, ABILITY_STRONG_JAW
@@ -16621,7 +16621,7 @@ mondata SPECIES_DRAMPA, "Drampa"
     items ITEM_NONE, ITEM_PERSIM_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_BERSERK, ABILITY_SAP_SIPPER
@@ -16641,7 +16641,7 @@ mondata SPECIES_DHELMISE, "Dhelmise"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_STEELWORKER, ABILITY_NONE
@@ -16661,7 +16661,7 @@ mondata SPECIES_JANGMO_O, "Jangmo-o"
     items ITEM_NONE, ITEM_RAZOR_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_BULLETPROOF, ABILITY_SOUNDPROOF
@@ -16681,7 +16681,7 @@ mondata SPECIES_HAKAMO_O, "Hakamo-o"
     items ITEM_NONE, ITEM_RAZOR_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_BULLETPROOF, ABILITY_SOUNDPROOF
@@ -16701,7 +16701,7 @@ mondata SPECIES_KOMMO_O, "Kommo-o"
     items ITEM_RAZOR_CLAW, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_BULLETPROOF, ABILITY_SOUNDPROOF
@@ -16721,7 +16721,7 @@ mondata SPECIES_TAPU_KOKO, "Tapu Koko"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_ELECTRIC_SURGE, ABILITY_NONE
@@ -16741,7 +16741,7 @@ mondata SPECIES_TAPU_LELE, "Tapu Lele"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PSYCHIC_SURGE, ABILITY_NONE
@@ -16761,7 +16761,7 @@ mondata SPECIES_TAPU_BULU, "Tapu Bulu"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_GRASSY_SURGE, ABILITY_NONE
@@ -16781,7 +16781,7 @@ mondata SPECIES_TAPU_FINI, "Tapu Fini"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MISTY_SURGE, ABILITY_NONE
@@ -16801,7 +16801,7 @@ mondata SPECIES_COSMOG, "Cosmog"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_UNAWARE, ABILITY_NONE
@@ -16821,7 +16821,7 @@ mondata SPECIES_COSMOEM, "Cosmoem"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STURDY, ABILITY_NONE
@@ -16841,7 +16841,7 @@ mondata SPECIES_SOLGALEO, "Solgaleo"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_FULL_METAL_BODY, ABILITY_NONE
@@ -16861,7 +16861,7 @@ mondata SPECIES_LUNALA, "Lunala"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SHADOW_SHIELD, ABILITY_NONE
@@ -16881,7 +16881,7 @@ mondata SPECIES_NIHILEGO, "Nihilego"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -16901,7 +16901,7 @@ mondata SPECIES_BUZZWOLE, "Buzzwole"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -16921,7 +16921,7 @@ mondata SPECIES_PHEROMOSA, "Pheromosa"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -16941,7 +16941,7 @@ mondata SPECIES_XURKITREE, "Xurkitree"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -16961,7 +16961,7 @@ mondata SPECIES_CELESTEELA, "Celesteela"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -16981,7 +16981,7 @@ mondata SPECIES_KARTANA, "Kartana"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -17001,7 +17001,7 @@ mondata SPECIES_GUZZLORD, "Guzzlord"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -17021,7 +17021,7 @@ mondata SPECIES_NECROZMA, "Necrozma"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRISM_ARMOR, ABILITY_NONE
@@ -17041,7 +17041,7 @@ mondata SPECIES_MAGEARNA, "Magearna"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SOUL_HEART, ABILITY_NONE
@@ -17061,7 +17061,7 @@ mondata SPECIES_MARSHADOW, "Marshadow"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TECHNICIAN, ABILITY_NONE
@@ -17081,7 +17081,7 @@ mondata SPECIES_POIPOLE, "Poipole"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -17101,7 +17101,7 @@ mondata SPECIES_NAGANADEL, "Naganadel"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -17121,7 +17121,7 @@ mondata SPECIES_STAKATAKA, "Stakataka"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -17141,7 +17141,7 @@ mondata SPECIES_BLACEPHALON, "Blacefalon"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEAST_BOOST, ABILITY_NONE
@@ -17161,7 +17161,7 @@ mondata SPECIES_ZERAORA, "Zeraora"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_VOLT_ABSORB, ABILITY_NONE
@@ -17181,7 +17181,7 @@ mondata SPECIES_MELTAN, "Meltan"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MAGNET_PULL, ABILITY_NONE
@@ -17201,7 +17201,7 @@ mondata SPECIES_MELMETAL, "Melmetal"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_IRON_FIST, ABILITY_NONE
@@ -17221,7 +17221,7 @@ mondata SPECIES_GROOKEY, "Grookey"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -17241,7 +17241,7 @@ mondata SPECIES_THWACKEY, "Thwackey"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -17261,7 +17261,7 @@ mondata SPECIES_RILLABOOM, "Rillaboom"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -17281,7 +17281,7 @@ mondata SPECIES_SCORBUNNY, "Scorbunny"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -17301,7 +17301,7 @@ mondata SPECIES_RABOOT, "Raboot"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -17321,7 +17321,7 @@ mondata SPECIES_CINDERACE, "Cinderace"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -17341,7 +17341,7 @@ mondata SPECIES_SOBBLE, "Sobble"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -17361,7 +17361,7 @@ mondata SPECIES_DRIZZILE, "Drizzile"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -17381,7 +17381,7 @@ mondata SPECIES_INTELEON, "Inteleon"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -17401,7 +17401,7 @@ mondata SPECIES_SKWOVET, "Skwovet"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CHEEK_POUCH, ABILITY_NONE
@@ -17421,7 +17421,7 @@ mondata SPECIES_GREEDENT, "Greedent"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CHEEK_POUCH, ABILITY_NONE
@@ -17441,7 +17441,7 @@ mondata SPECIES_ROOKIDEE, "Rookidee"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_UNNERVE
@@ -17461,7 +17461,7 @@ mondata SPECIES_CORVISQUIRE, "Corvsquire"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_UNNERVE
@@ -17481,7 +17481,7 @@ mondata SPECIES_CORVIKNIGHT, "Corviknite"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_PRESSURE, ABILITY_UNNERVE
@@ -17501,7 +17501,7 @@ mondata SPECIES_BLIPBUG, "Blipbug"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_COMPOUND_EYES
@@ -17521,7 +17521,7 @@ mondata SPECIES_DOTTLER, "Dottler"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_COMPOUND_EYES
@@ -17541,7 +17541,7 @@ mondata SPECIES_ORBEETLE, "Orbeetle"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_FRISK
@@ -17561,7 +17561,7 @@ mondata SPECIES_NICKIT, "Nickit"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_RUN_AWAY, ABILITY_UNBURDEN
@@ -17581,7 +17581,7 @@ mondata SPECIES_THIEVUL, "Thievul"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_RUN_AWAY, ABILITY_UNBURDEN
@@ -17601,7 +17601,7 @@ mondata SPECIES_GOSSIFLEUR, "Gossifleur"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_COTTON_DOWN, ABILITY_REGENERATOR
@@ -17621,7 +17621,7 @@ mondata SPECIES_ELDEGOSS, "Eldegoss"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_COTTON_DOWN, ABILITY_REGENERATOR
@@ -17641,7 +17641,7 @@ mondata SPECIES_WOOLOO, "Wooloo"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FLUFFY, ABILITY_RUN_AWAY
@@ -17661,7 +17661,7 @@ mondata SPECIES_DUBWOOL, "Dubwool"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FLUFFY, ABILITY_STEADFAST
@@ -17681,7 +17681,7 @@ mondata SPECIES_CHEWTLE, "Chewtle"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_STRONG_JAW, ABILITY_SHELL_ARMOR
@@ -17701,7 +17701,7 @@ mondata SPECIES_DREDNAW, "Drednaw"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_STRONG_JAW, ABILITY_SHELL_ARMOR
@@ -17721,7 +17721,7 @@ mondata SPECIES_YAMPER, "Yamper"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BALL_FETCH, ABILITY_NONE
@@ -17741,7 +17741,7 @@ mondata SPECIES_BOLTUND, "Boltund"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_STRONG_JAW, ABILITY_NONE
@@ -17761,7 +17761,7 @@ mondata SPECIES_ROLYCOLY, "Rolycoly"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_STEAM_ENGINE, ABILITY_HEATPROOF
@@ -17781,7 +17781,7 @@ mondata SPECIES_CARKOL, "Carkol"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_STEAM_ENGINE, ABILITY_FLAME_BODY
@@ -17801,7 +17801,7 @@ mondata SPECIES_COALOSSAL, "Coalossal"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_STEAM_ENGINE, ABILITY_FLAME_BODY
@@ -17821,7 +17821,7 @@ mondata SPECIES_APPLIN, "Applin"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_GRASS, EGG_GROUP_DRAGON
     abilities ABILITY_RIPEN, ABILITY_GLUTTONY
@@ -17841,7 +17841,7 @@ mondata SPECIES_FLAPPLE, "Flapple"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_GRASS, EGG_GROUP_DRAGON
     abilities ABILITY_RIPEN, ABILITY_GLUTTONY
@@ -17861,7 +17861,7 @@ mondata SPECIES_APPLETUN, "Appletun"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_GRASS, EGG_GROUP_DRAGON
     abilities ABILITY_RIPEN, ABILITY_GLUTTONY
@@ -17881,7 +17881,7 @@ mondata SPECIES_SILICOBRA, "Silicobra"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
     abilities ABILITY_SAND_SPIT, ABILITY_SHED_SKIN
@@ -17901,7 +17901,7 @@ mondata SPECIES_SANDACONDA, "Sandaconda"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
     abilities ABILITY_SAND_SPIT, ABILITY_SHED_SKIN
@@ -17921,7 +17921,7 @@ mondata SPECIES_CRAMORANT, "Cramorant"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
     abilities ABILITY_GULP_MISSILE, ABILITY_NONE
@@ -17941,7 +17941,7 @@ mondata SPECIES_ARROKUDA, "Arrokuda"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
@@ -17961,7 +17961,7 @@ mondata SPECIES_BARRASKEWDA, "Baraskewda"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
@@ -17981,7 +17981,7 @@ mondata SPECIES_TOXEL, "Toxel"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_RATTLED, ABILITY_STATIC
@@ -18001,7 +18001,7 @@ mondata SPECIES_TOXTRICITY, "Toxtricity"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_SOUNDPROOF, ABILITY_PLUS
@@ -18021,7 +18021,7 @@ mondata SPECIES_SIZZLIPEDE, "Sizzlipede"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_FLASH_FIRE, ABILITY_WHITE_SMOKE
@@ -18041,7 +18041,7 @@ mondata SPECIES_CENTISKORCH, "Centskorch"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_FLASH_FIRE, ABILITY_WHITE_SMOKE
@@ -18061,7 +18061,7 @@ mondata SPECIES_CLOBBOPUS, "Clobbopus"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_LIMBER, ABILITY_NONE
@@ -18081,7 +18081,7 @@ mondata SPECIES_GRAPPLOCT, "Grapploct"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_LIMBER, ABILITY_NONE
@@ -18101,7 +18101,7 @@ mondata SPECIES_SINISTEA, "Sinistea"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WEAK_ARMOR, ABILITY_NONE
@@ -18121,7 +18121,7 @@ mondata SPECIES_POLTEAGEIST, "Poltegeist"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WEAK_ARMOR, ABILITY_NONE
@@ -18141,7 +18141,7 @@ mondata SPECIES_HATENNA, "Hatenna"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_HEALER, ABILITY_ANTICIPATION
@@ -18161,7 +18161,7 @@ mondata SPECIES_HATTREM, "Hattrem"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_HEALER, ABILITY_ANTICIPATION
@@ -18181,7 +18181,7 @@ mondata SPECIES_HATTERENE, "Hatterene"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_HEALER, ABILITY_ANTICIPATION
@@ -18201,7 +18201,7 @@ mondata SPECIES_IMPIDIMP, "Impidimp"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_PRANKSTER, ABILITY_FRISK
@@ -18221,7 +18221,7 @@ mondata SPECIES_MORGREM, "Morgrem"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_PRANKSTER, ABILITY_FRISK
@@ -18241,7 +18241,7 @@ mondata SPECIES_GRIMMSNARL, "Grimmsnarl"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_PRANKSTER, ABILITY_FRISK
@@ -18261,7 +18261,7 @@ mondata SPECIES_OBSTAGOON, "Obstagoon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_RECKLESS, ABILITY_GUTS
@@ -18281,7 +18281,7 @@ mondata SPECIES_PERRSERKER, "Perrserker"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BATTLE_ARMOR, ABILITY_TOUGH_CLAWS
@@ -18301,7 +18301,7 @@ mondata SPECIES_CURSOLA, "Cursola"
     items ITEM_NONE, ITEM_NONE
     genderratio 190
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_WEAK_ARMOR, ABILITY_NONE
@@ -18321,7 +18321,7 @@ mondata SPECIES_SIRFETCHD, "Sirfetch’d"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FIELD
     abilities ABILITY_STEADFAST, ABILITY_NONE
@@ -18341,7 +18341,7 @@ mondata SPECIES_MR_RIME, "Mr. Rime"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_TANGLED_FEET, ABILITY_SCREEN_CLEANER
@@ -18361,7 +18361,7 @@ mondata SPECIES_RUNERIGUS, "Runerigus"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WANDERING_SPIRIT, ABILITY_NONE
@@ -18381,7 +18381,7 @@ mondata SPECIES_MILCERY, "Milcery"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SWEET_VEIL, ABILITY_NONE
@@ -18401,7 +18401,7 @@ mondata SPECIES_ALCREMIE, "Alcremie"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SWEET_VEIL, ABILITY_NONE
@@ -18421,7 +18421,7 @@ mondata SPECIES_FALINKS, "Falinks"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
     abilities ABILITY_BATTLE_ARMOR, ABILITY_NONE
@@ -18441,7 +18441,7 @@ mondata SPECIES_PINCURCHIN, "Pincurchin"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LIGHTNING_ROD, ABILITY_NONE
@@ -18461,7 +18461,7 @@ mondata SPECIES_SNOM, "Snom"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
@@ -18481,7 +18481,7 @@ mondata SPECIES_FROSMOTH, "Frosmoth"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST, ABILITY_NONE
@@ -18501,7 +18501,7 @@ mondata SPECIES_STONJOURNER, "Stonjorner"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_POWER_SPOT, ABILITY_NONE
@@ -18521,7 +18521,7 @@ mondata SPECIES_EISCUE, "Eiscue"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_ICE_FACE, ABILITY_NONE
@@ -18541,7 +18541,7 @@ mondata SPECIES_INDEEDEE, "Indeedee"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_INNER_FOCUS, ABILITY_SYNCHRONIZE
@@ -18561,7 +18561,7 @@ mondata SPECIES_MORPEKO, "Morpeko"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_HUNGER_SWITCH, ABILITY_NONE
@@ -18581,7 +18581,7 @@ mondata SPECIES_CUFANT, "Cufant"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_MINERAL
     abilities ABILITY_SHEER_FORCE, ABILITY_NONE
@@ -18601,7 +18601,7 @@ mondata SPECIES_COPPERAJAH, "Copperajah"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_MINERAL
     abilities ABILITY_SHEER_FORCE, ABILITY_NONE
@@ -18621,7 +18621,7 @@ mondata SPECIES_DRACOZOLT, "Dracozolt"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_VOLT_ABSORB, ABILITY_HUSTLE
@@ -18641,7 +18641,7 @@ mondata SPECIES_ARCTOZOLT, "Arctozolt"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_VOLT_ABSORB, ABILITY_STATIC
@@ -18661,7 +18661,7 @@ mondata SPECIES_DRACOVISH, "Dracovish"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_WATER_ABSORB, ABILITY_STRONG_JAW
@@ -18681,7 +18681,7 @@ mondata SPECIES_ARCTOVISH, "Arctovish"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_WATER_ABSORB, ABILITY_ICE_BODY
@@ -18701,7 +18701,7 @@ mondata SPECIES_DURALUDON, "Duraludon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_DRAGON
     abilities ABILITY_LIGHT_METAL, ABILITY_HEAVY_METAL
@@ -18721,7 +18721,7 @@ mondata SPECIES_DREEPY, "Dreepy"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_DRAGON
     abilities ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR
@@ -18741,7 +18741,7 @@ mondata SPECIES_DRAKLOAK, "Drakloak"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_DRAGON
     abilities ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR
@@ -18761,7 +18761,7 @@ mondata SPECIES_DRAGAPULT, "Dragapult"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_DRAGON
     abilities ABILITY_CLEAR_BODY, ABILITY_INFILTRATOR
@@ -18781,7 +18781,7 @@ mondata SPECIES_ZACIAN, "Zacian"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_INTREPID_SWORD, ABILITY_NONE
@@ -18801,7 +18801,7 @@ mondata SPECIES_ZAMAZENTA, "Zamazenta"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DAUNTLESS_SHIELD, ABILITY_NONE
@@ -18821,7 +18821,7 @@ mondata SPECIES_ETERNATUS, "Eternatus"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRESSURE, ABILITY_NONE
@@ -18841,7 +18841,7 @@ mondata SPECIES_KUBFU, "Kubfu"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
@@ -18861,7 +18861,7 @@ mondata SPECIES_URSHIFU, "Urshifu"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_UNSEEN_FIST, ABILITY_NONE
@@ -18881,7 +18881,7 @@ mondata SPECIES_ZARUDE, "Zarude"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
@@ -18901,7 +18901,7 @@ mondata SPECIES_REGIELEKI, "Regieleki"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TRANSISTOR, ABILITY_NONE
@@ -18921,7 +18921,7 @@ mondata SPECIES_REGIDRAGO, "Regidrago"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DRAGONS_MAW, ABILITY_NONE
@@ -18941,7 +18941,7 @@ mondata SPECIES_GLASTRIER, "Glastrier"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_CHILLING_NEIGH, ABILITY_NONE
@@ -18961,7 +18961,7 @@ mondata SPECIES_SPECTRIER, "Spectrier"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_GRIM_NEIGH, ABILITY_NONE
@@ -18981,7 +18981,7 @@ mondata SPECIES_CALYREX, "Calyrex"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_UNNERVE, ABILITY_NONE
@@ -19001,7 +19001,7 @@ mondata SPECIES_WYRDEER, "Wyrdeer"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
@@ -19021,7 +19021,7 @@ mondata SPECIES_KLEAVOR, "Kleavor"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHARPNESS, ABILITY_NONE
@@ -19041,7 +19041,7 @@ mondata SPECIES_URSALUNA, "Ursaluna"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GUTS, ABILITY_BULLETPROOF
@@ -19061,7 +19061,7 @@ mondata SPECIES_BASCULEGION, "Basclegion"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_SWIFT_SWIM, ABILITY_ADAPTABILITY
@@ -19081,7 +19081,7 @@ mondata SPECIES_SNEASLER, "Sneasler"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PRESSURE, ABILITY_UNBURDEN
@@ -19101,7 +19101,7 @@ mondata SPECIES_OVERQWIL, "Overqwil"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_POISON_POINT, ABILITY_SWIFT_SWIM
@@ -19121,7 +19121,7 @@ mondata SPECIES_ENAMORUS, "Enamorus"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_CUTE_CHARM, ABILITY_NONE
@@ -19141,7 +19141,7 @@ mondata SPECIES_SPRIGATITO, "Sprigatito"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -19161,7 +19161,7 @@ mondata SPECIES_FLORAGATO, "Floragato"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -19181,7 +19181,7 @@ mondata SPECIES_MEOWSCARADA, "Mewscarada"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
     abilities ABILITY_OVERGROW, ABILITY_NONE
@@ -19201,7 +19201,7 @@ mondata SPECIES_FUECOCO, "Fuecoco"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -19221,7 +19221,7 @@ mondata SPECIES_CROCALOR, "Crocalor"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -19241,7 +19241,7 @@ mondata SPECIES_SKELEDIRGE, "Skeledirge"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -19261,7 +19261,7 @@ mondata SPECIES_QUAXLY, "Quaxly"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_WATER_1
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -19281,7 +19281,7 @@ mondata SPECIES_QUAXWELL, "Quaxwell"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_WATER_1
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -19301,7 +19301,7 @@ mondata SPECIES_QUAQUAVAL, "Quaquaval"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_WATER_1
     abilities ABILITY_TORRENT, ABILITY_NONE
@@ -19321,7 +19321,7 @@ mondata SPECIES_LECHONK, "Lechonk"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_AROMA_VEIL, ABILITY_GLUTTONY
@@ -19341,7 +19341,7 @@ mondata SPECIES_OINKOLOGNE, "Oinkologne"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_LINGERING_AROMA, ABILITY_GLUTTONY
@@ -19361,7 +19361,7 @@ mondata SPECIES_TAROUNTULA, "Tarountula"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_INSOMNIA, ABILITY_NONE
@@ -19381,7 +19381,7 @@ mondata SPECIES_SPIDOPS, "Spidops"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_INSOMNIA, ABILITY_NONE
@@ -19401,7 +19401,7 @@ mondata SPECIES_NYMBLE, "Nymble"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 20
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_NONE
@@ -19421,7 +19421,7 @@ mondata SPECIES_LOKIX, "Lokix"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SWARM, ABILITY_NONE
@@ -19441,7 +19441,7 @@ mondata SPECIES_PAWMI, "Pawmi"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_STATIC, ABILITY_NATURAL_CURE
@@ -19461,7 +19461,7 @@ mondata SPECIES_PAWMO, "Pawmo"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_VOLT_ABSORB, ABILITY_NATURAL_CURE
@@ -19481,7 +19481,7 @@ mondata SPECIES_PAWMOT, "Pawmot"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_VOLT_ABSORB, ABILITY_NATURAL_CURE
@@ -19501,7 +19501,7 @@ mondata SPECIES_TANDEMAUS, "Tandemaus"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_RUN_AWAY, ABILITY_PICKUP
@@ -19521,7 +19521,7 @@ mondata SPECIES_MAUSHOLD, "Maushold"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_FRIEND_GUARD, ABILITY_CHEEK_POUCH
@@ -19541,7 +19541,7 @@ mondata SPECIES_FIDOUGH, "Fidough"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_MINERAL
     abilities ABILITY_OWN_TEMPO, ABILITY_NONE
@@ -19561,7 +19561,7 @@ mondata SPECIES_DACHSBUN, "Dachsbun"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_MINERAL
     abilities ABILITY_WELL_BAKED_BODY, ABILITY_NONE
@@ -19581,7 +19581,7 @@ mondata SPECIES_SMOLIV, "Smoliv"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_EARLY_BIRD, ABILITY_NONE
@@ -19601,7 +19601,7 @@ mondata SPECIES_DOLLIV, "Dolliv"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_EARLY_BIRD, ABILITY_NONE
@@ -19621,7 +19621,7 @@ mondata SPECIES_ARBOLIVA, "Arboliva"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_SEED_SOWER, ABILITY_NONE
@@ -19641,7 +19641,7 @@ mondata SPECIES_SQUAWKABILLY, "Squawkbily"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_INTIMIDATE, ABILITY_HUSTLE
@@ -19661,7 +19661,7 @@ mondata SPECIES_NACLI, "Nacli"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_PURIFYING_SALT, ABILITY_STURDY
@@ -19681,7 +19681,7 @@ mondata SPECIES_NACLSTACK, "Naclstack"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_PURIFYING_SALT, ABILITY_STURDY
@@ -19701,7 +19701,7 @@ mondata SPECIES_GARGANACL, "Garganacl"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_PURIFYING_SALT, ABILITY_STURDY
@@ -19721,7 +19721,7 @@ mondata SPECIES_CHARCADET, "Charcadet"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
@@ -19741,7 +19741,7 @@ mondata SPECIES_ARMAROUGE, "Armarouge"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 20
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
@@ -19761,7 +19761,7 @@ mondata SPECIES_CERULEDGE, "Ceruledge"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 20
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_FLASH_FIRE, ABILITY_NONE
@@ -19781,7 +19781,7 @@ mondata SPECIES_TADBULB, "Tadbulb"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_OWN_TEMPO, ABILITY_STATIC
@@ -19801,7 +19801,7 @@ mondata SPECIES_BELLIBOLT, "Bellibolt"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_ELECTROMORPHOSIS, ABILITY_STATIC
@@ -19821,7 +19821,7 @@ mondata SPECIES_WATTREL, "Wattrel"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
     abilities ABILITY_WIND_POWER, ABILITY_VOLT_ABSORB
@@ -19841,7 +19841,7 @@ mondata SPECIES_KILOWATTREL, "Kilowatrel"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
     abilities ABILITY_WIND_POWER, ABILITY_VOLT_ABSORB
@@ -19861,7 +19861,7 @@ mondata SPECIES_MASCHIFF, "Maschiff"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_RUN_AWAY
@@ -19881,7 +19881,7 @@ mondata SPECIES_MABOSSTIFF, "Mabosstiff"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_GUARD_DOG
@@ -19901,7 +19901,7 @@ mondata SPECIES_SHROODLE, "Shroodle"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_UNBURDEN, ABILITY_PICKPOCKET
@@ -19921,7 +19921,7 @@ mondata SPECIES_GRAFAIAI, "Grafaiai"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_UNBURDEN, ABILITY_POISON_TOUCH
@@ -19941,7 +19941,7 @@ mondata SPECIES_BRAMBLIN, "Bramblin"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_WIND_RIDER, ABILITY_NONE
@@ -19961,7 +19961,7 @@ mondata SPECIES_BRAMBLEGHAST, "Bramblgast"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_WIND_RIDER, ABILITY_NONE
@@ -19981,7 +19981,7 @@ mondata SPECIES_TOEDSCOOL, "Toedscool"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_MYCELIUM_MIGHT, ABILITY_NONE
@@ -20001,7 +20001,7 @@ mondata SPECIES_TOEDSCRUEL, "Toedscruel"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_MYCELIUM_MIGHT, ABILITY_NONE
@@ -20021,7 +20021,7 @@ mondata SPECIES_KLAWF, "Klawf"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_ANGER_SHELL, ABILITY_SHELL_ARMOR
@@ -20041,7 +20041,7 @@ mondata SPECIES_CAPSAKID, "Capsakid"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_CHLOROPHYLL, ABILITY_INSOMNIA
@@ -20061,7 +20061,7 @@ mondata SPECIES_SCOVILLAIN, "Scovillain"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_CHLOROPHYLL, ABILITY_INSOMNIA
@@ -20081,7 +20081,7 @@ mondata SPECIES_RELLOR, "Rellor"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_COMPOUND_EYES, ABILITY_NONE
@@ -20101,7 +20101,7 @@ mondata SPECIES_RABSCA, "Rabsca"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SYNCHRONIZE, ABILITY_NONE
@@ -20121,7 +20121,7 @@ mondata SPECIES_FLITTLE, "Flittle"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_ANTICIPATION, ABILITY_FRISK
@@ -20141,7 +20141,7 @@ mondata SPECIES_ESPATHRA, "Espathra"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_OPPORTUNIST, ABILITY_FRISK
@@ -20161,7 +20161,7 @@ mondata SPECIES_TINKATINK, "Tinkatink"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_MOLD_BREAKER, ABILITY_OWN_TEMPO
@@ -20181,7 +20181,7 @@ mondata SPECIES_TINKATUFF, "Tinkatuff"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_MOLD_BREAKER, ABILITY_OWN_TEMPO
@@ -20201,7 +20201,7 @@ mondata SPECIES_TINKATON, "Tinkaton"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_MOLD_BREAKER, ABILITY_OWN_TEMPO
@@ -20221,7 +20221,7 @@ mondata SPECIES_WIGLETT, "Wiglett"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_GOOEY, ABILITY_RATTLED
@@ -20241,7 +20241,7 @@ mondata SPECIES_WUGTRIO, "Wugtrio"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
     abilities ABILITY_GOOEY, ABILITY_RATTLED
@@ -20261,7 +20261,7 @@ mondata SPECIES_BOMBIRDIER, "Bombirdier"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_BIG_PECKS, ABILITY_KEEN_EYE
@@ -20281,7 +20281,7 @@ mondata SPECIES_FINIZEN, "Finizen"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_WATER_2
     abilities ABILITY_WATER_VEIL, ABILITY_NONE
@@ -20301,7 +20301,7 @@ mondata SPECIES_PALAFIN, "Palafin"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_WATER_2
     abilities ABILITY_ZERO_TO_HERO, ABILITY_NONE
@@ -20321,7 +20321,7 @@ mondata SPECIES_VAROOM, "Varoom"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -20341,7 +20341,7 @@ mondata SPECIES_REVAVROOM, "Revavroom"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -20361,7 +20361,7 @@ mondata SPECIES_CYCLIZAR, "Cyclizar"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SHED_SKIN, ABILITY_NONE
@@ -20381,7 +20381,7 @@ mondata SPECIES_ORTHWORM, "Orthworm"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_EARTH_EATER, ABILITY_NONE
@@ -20401,7 +20401,7 @@ mondata SPECIES_GLIMMET, "Glimmet"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_TOXIC_DEBRIS, ABILITY_NONE
@@ -20421,7 +20421,7 @@ mondata SPECIES_GLIMMORA, "Glimmora"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_TOXIC_DEBRIS, ABILITY_NONE
@@ -20441,7 +20441,7 @@ mondata SPECIES_GREAVARD, "Greavard"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PICKUP, ABILITY_NONE
@@ -20461,7 +20461,7 @@ mondata SPECIES_HOUNDSTONE, "Houndstone"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SAND_RUSH, ABILITY_NONE
@@ -20481,7 +20481,7 @@ mondata SPECIES_FLAMIGO, "Flamigo"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_SCRAPPY, ABILITY_TANGLED_FEET
@@ -20501,7 +20501,7 @@ mondata SPECIES_CETODDLE, "Cetoddle"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_THICK_FAT, ABILITY_SNOW_CLOAK
@@ -20521,7 +20521,7 @@ mondata SPECIES_CETITAN, "Cetitan"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_THICK_FAT, ABILITY_SLUSH_RUSH
@@ -20541,7 +20541,7 @@ mondata SPECIES_VELUZA, "Veluza"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
@@ -20561,7 +20561,7 @@ mondata SPECIES_DONDOZO, "Dondozo"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_UNAWARE, ABILITY_OBLIVIOUS
@@ -20581,7 +20581,7 @@ mondata SPECIES_TATSUGIRI, "Tatsugiri"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_COMMANDER, ABILITY_NONE
@@ -20601,7 +20601,7 @@ mondata SPECIES_ANNIHILAPE, "Annihilape"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_VITAL_SPIRIT, ABILITY_NONE
@@ -20621,7 +20621,7 @@ mondata SPECIES_CLODSIRE, "Clodsire"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_POISON_POINT, ABILITY_WATER_ABSORB
@@ -20641,7 +20641,7 @@ mondata SPECIES_FARIGIRAF, "Farigiraf"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CUD_CHEW, ABILITY_NONE
@@ -20661,7 +20661,7 @@ mondata SPECIES_DUDUNSPARCE, "Dudunspars"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
@@ -20681,7 +20681,7 @@ mondata SPECIES_KINGAMBIT, "Kingambit"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_SUPREME_OVERLORD, ABILITY_NONE
@@ -20701,7 +20701,7 @@ mondata SPECIES_GREAT_TUSK, "Great Tusk"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
@@ -20721,7 +20721,7 @@ mondata SPECIES_SCREAM_TAIL, "ScreamTail"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
@@ -20741,7 +20741,7 @@ mondata SPECIES_BRUTE_BONNET, "BruteBonet"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
@@ -20761,7 +20761,7 @@ mondata SPECIES_FLUTTER_MANE, "FluttrMane"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
@@ -20781,7 +20781,7 @@ mondata SPECIES_SLITHER_WING, "SlithrWing"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
@@ -20801,7 +20801,7 @@ mondata SPECIES_SANDY_SHOCKS, "SandyShock"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
@@ -20821,7 +20821,7 @@ mondata SPECIES_IRON_TREADS, "IronTreads"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
@@ -20841,7 +20841,7 @@ mondata SPECIES_IRON_BUNDLE, "IronBundle"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
@@ -20861,7 +20861,7 @@ mondata SPECIES_IRON_HANDS, "Iron Hands"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
@@ -20881,7 +20881,7 @@ mondata SPECIES_IRON_JUGULIS, "Iron Neck"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
@@ -20901,7 +20901,7 @@ mondata SPECIES_IRON_MOTH, "Iron Moth"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
@@ -20921,7 +20921,7 @@ mondata SPECIES_IRON_THORNS, "Iron Thorn"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
@@ -20941,7 +20941,7 @@ mondata SPECIES_FRIGIBAX, "Frigibax"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_MINERAL
     abilities ABILITY_THERMAL_EXCHANGE, ABILITY_NONE
@@ -20961,7 +20961,7 @@ mondata SPECIES_ARCTIBAX, "Arctibax"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_MINERAL
     abilities ABILITY_THERMAL_EXCHANGE, ABILITY_NONE
@@ -20981,7 +20981,7 @@ mondata SPECIES_BAXCALIBUR, "Baxcalibur"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_MINERAL
     abilities ABILITY_THERMAL_EXCHANGE, ABILITY_NONE
@@ -21001,7 +21001,7 @@ mondata SPECIES_GIMMIGHOUL, "Gimmighoul"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_RATTLED, ABILITY_NONE
@@ -21021,7 +21021,7 @@ mondata SPECIES_GHOLDENGO, "Gholdengo"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_GOOD_AS_GOLD, ABILITY_NONE
@@ -21041,7 +21041,7 @@ mondata SPECIES_WO_CHIEN, "Wo-Chien"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TABLETS_OF_RUIN, ABILITY_NONE
@@ -21061,7 +21061,7 @@ mondata SPECIES_CHIEN_PAO, "Chien-Pao"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SWORD_OF_RUIN, ABILITY_NONE
@@ -21081,7 +21081,7 @@ mondata SPECIES_TING_LU, "Ting-Lu"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_VESSEL_OF_RUIN, ABILITY_NONE
@@ -21101,7 +21101,7 @@ mondata SPECIES_CHI_YU, "Chi-Yu"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BEADS_OF_RUIN, ABILITY_NONE
@@ -21121,7 +21121,7 @@ mondata SPECIES_ROARING_MOON, "Roar Moon"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
@@ -21141,7 +21141,7 @@ mondata SPECIES_IRON_VALIANT, "Iron Valor"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
@@ -21161,7 +21161,7 @@ mondata SPECIES_KORAIDON, "Koraidon"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_ORICHALCUM_PULSE, ABILITY_NONE
@@ -21181,7 +21181,7 @@ mondata SPECIES_MIRAIDON, "Miraidon"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_HADRON_ENGINE, ABILITY_NONE
@@ -21201,7 +21201,7 @@ mondata SPECIES_WALKING_WAKE, "Walk Wake"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
@@ -21221,7 +21221,7 @@ mondata SPECIES_IRON_LEAVES, "Iron Leaf"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
@@ -21241,7 +21241,7 @@ mondata SPECIES_DIPPLIN, "Dipplin"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_GRASS, EGG_GROUP_DRAGON
     abilities ABILITY_SUPERSWEET_SYRUP, ABILITY_GLUTTONY
@@ -21261,7 +21261,7 @@ mondata SPECIES_POLTCHAGEIST, "Polchgeist"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_HOSPITALITY, ABILITY_NONE
@@ -21281,7 +21281,7 @@ mondata SPECIES_SINISTCHA, "Sinistcha"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_HOSPITALITY, ABILITY_NONE
@@ -21301,7 +21301,7 @@ mondata SPECIES_OKIDOGI, "Okidogi"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TOXIC_CHAIN, ABILITY_NONE
@@ -21321,7 +21321,7 @@ mondata SPECIES_MUNKIDORI, "Munkidori"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TOXIC_CHAIN, ABILITY_NONE
@@ -21341,7 +21341,7 @@ mondata SPECIES_FEZANDIPITI, "Fezanditi"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TOXIC_CHAIN, ABILITY_NONE
@@ -21361,7 +21361,7 @@ mondata SPECIES_OGERPON, "Ogerpon"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DEFIANT, ABILITY_NONE
@@ -21381,7 +21381,7 @@ mondata SPECIES_ARCHALUDON, "Archaludon"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_DRAGON
     abilities ABILITY_STAMINA, ABILITY_STURDY
@@ -21401,7 +21401,7 @@ mondata SPECIES_HYDRAPPLE, "Hydrapple"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_GRASS, EGG_GROUP_DRAGON
     abilities ABILITY_SUPERSWEET_SYRUP, ABILITY_REGENERATOR
@@ -21421,7 +21421,7 @@ mondata SPECIES_GOUGING_FIRE, "GougedFire"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     runchance 0
@@ -21441,7 +21441,7 @@ mondata SPECIES_RAGING_BOLT, "RagingBolt"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
@@ -21461,7 +21461,7 @@ mondata SPECIES_IRON_BOULDER, "IronBolder"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
@@ -21481,7 +21481,7 @@ mondata SPECIES_IRON_CROWN, "Iron Crown"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_QUARK_DRIVE, ABILITY_NONE
@@ -21501,7 +21501,7 @@ mondata SPECIES_TERAPAGOS, "Terapagos"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TERA_SHIFT, ABILITY_NONE
@@ -21521,7 +21521,7 @@ mondata SPECIES_PECHARUNT, "Pecharunt"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_POISON_PUPPETEER, ABILITY_NONE
@@ -21541,7 +21541,7 @@ mondata SPECIES_MEGA_VENUSAUR, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_THICK_FAT, ABILITY_NONE
@@ -21556,7 +21556,7 @@ mondata SPECIES_MEGA_CHARIZARD_X, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_PRESSURE, ABILITY_NONE
@@ -21571,7 +21571,7 @@ mondata SPECIES_MEGA_CHARIZARD_Y, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_DROUGHT, ABILITY_NONE
@@ -21586,7 +21586,7 @@ mondata SPECIES_MEGA_BLASTOISE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_MEGA_LAUNCHER, ABILITY_NONE
@@ -21601,7 +21601,7 @@ mondata SPECIES_MEGA_BEEDRILL, "-----"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_ADAPTABILITY, ABILITY_NONE
@@ -21616,7 +21616,7 @@ mondata SPECIES_MEGA_PIDGEOT, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_NO_GUARD, ABILITY_NO_GUARD
@@ -21631,7 +21631,7 @@ mondata SPECIES_MEGA_ALAKAZAM, "-----"
     items ITEM_NONE, ITEM_TWISTED_SPOON
     genderratio 63
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_TRACE, ABILITY_TRACE
@@ -21646,7 +21646,7 @@ mondata SPECIES_MEGA_SLOWBRO, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR
@@ -21661,7 +21661,7 @@ mondata SPECIES_MEGA_GENGAR, "-----"
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SHADOW_TAG, ABILITY_NONE
@@ -21676,7 +21676,7 @@ mondata SPECIES_MEGA_KANGASKHAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_PARENTAL_BOND, ABILITY_PARENTAL_BOND
@@ -21691,7 +21691,7 @@ mondata SPECIES_MEGA_PINSIR, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_AERILATE, ABILITY_AERILATE
@@ -21706,7 +21706,7 @@ mondata SPECIES_MEGA_GYARADOS, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_DRAGON
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
@@ -21721,7 +21721,7 @@ mondata SPECIES_MEGA_AERODACTYL, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_PRESSURE, ABILITY_PRESSURE
@@ -21736,7 +21736,7 @@ mondata SPECIES_MEGA_MEWTWO_X, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STEADFAST, ABILITY_NONE
@@ -21751,7 +21751,7 @@ mondata SPECIES_MEGA_MEWTWO_Y, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_INSOMNIA, ABILITY_NONE
@@ -21766,7 +21766,7 @@ mondata SPECIES_MEGA_AMPHAROS, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
@@ -21781,7 +21781,7 @@ mondata SPECIES_MEGA_STEELIX, "-----"
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_PRESSURE, ABILITY_PRESSURE
@@ -21796,7 +21796,7 @@ mondata SPECIES_MEGA_SCIZOR, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_TECHNICIAN, ABILITY_TECHNICIAN
@@ -21811,7 +21811,7 @@ mondata SPECIES_MEGA_HERACROSS, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SKILL_LINK, ABILITY_SKILL_LINK
@@ -21826,7 +21826,7 @@ mondata SPECIES_MEGA_HOUNDOOM, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SOLAR_POWER, ABILITY_SOLAR_POWER
@@ -21841,7 +21841,7 @@ mondata SPECIES_MEGA_TYRANITAR, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_SAND_STREAM, ABILITY_NONE
@@ -21856,7 +21856,7 @@ mondata SPECIES_MEGA_SCEPTILE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
     abilities ABILITY_LIGHTNING_ROD, ABILITY_NONE
@@ -21871,7 +21871,7 @@ mondata SPECIES_MEGA_BLAZIKEN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE
@@ -21886,7 +21886,7 @@ mondata SPECIES_MEGA_SWAMPERT, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
@@ -21901,7 +21901,7 @@ mondata SPECIES_MEGA_GARDEVOIR, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_PIXILATE, ABILITY_PIXILATE
@@ -21916,7 +21916,7 @@ mondata SPECIES_MEGA_SABLEYE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_PRESSURE, ABILITY_FRISK //ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE
@@ -21931,7 +21931,7 @@ mondata SPECIES_MEGA_MAWILE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_HUGE_POWER, ABILITY_HUGE_POWER
@@ -21946,7 +21946,7 @@ mondata SPECIES_MEGA_AGGRON, "-----"
     items ITEM_NONE, ITEM_HARD_STONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_FILTER, ABILITY_FILTER
@@ -21961,7 +21961,7 @@ mondata SPECIES_MEGA_MEDICHAM, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_PURE_POWER, ABILITY_NONE
@@ -21976,7 +21976,7 @@ mondata SPECIES_MEGA_MANECTRIC, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_INTIMIDATE
@@ -21991,7 +21991,7 @@ mondata SPECIES_MEGA_SHARPEDO, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_SPEED_BOOST, ABILITY_NONE //ABILITY_STRONG_JAW, ABILITY_NONE
@@ -22006,7 +22006,7 @@ mondata SPECIES_MEGA_CAMERUPT, "-----"
     items ITEM_RAWST_BERRY, ITEM_RAWST_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_MAGMA_ARMOR, ABILITY_SOLID_ROCK //ABILITY_SHEER_FORCE, ABILITY_SHEER_FORCE
@@ -22021,7 +22021,7 @@ mondata SPECIES_MEGA_ALTARIA, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
     abilities ABILITY_PIXILATE, ABILITY_NONE
@@ -22036,7 +22036,7 @@ mondata SPECIES_MEGA_BANETTE, "-----"
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_FRISK, ABILITY_FRISK //ABILITY_PRANKSTER, ABILITY_PRANKSTER
@@ -22051,7 +22051,7 @@ mondata SPECIES_MEGA_ABSOL, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PRESSURE, ABILITY_PRESSURE //ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE
@@ -22066,7 +22066,7 @@ mondata SPECIES_MEGA_GLALIE, "-----"
     items ITEM_NONE, ITEM_NEVER_MELT_ICE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
     abilities ABILITY_REFRIGERATE, ABILITY_REFRIGERATE
@@ -22081,7 +22081,7 @@ mondata SPECIES_MEGA_SALAMENCE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_AERILATE, ABILITY_NONE
@@ -22096,7 +22096,7 @@ mondata SPECIES_MEGA_METAGROSS, "-----"
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_PRESSURE, ABILITY_NONE
@@ -22111,7 +22111,7 @@ mondata SPECIES_MEGA_LATIAS, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 90
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -22126,7 +22126,7 @@ mondata SPECIES_MEGA_LATIOS, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 90
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LEVITATE, ABILITY_NONE
@@ -22141,7 +22141,7 @@ mondata SPECIES_MEGA_RAYQUAZA, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_CLOUD_NINE /*ABILITY_DELTA_STREAM*/, ABILITY_NONE
@@ -22156,7 +22156,7 @@ mondata SPECIES_MEGA_LOPUNNY, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_SCRAPPY, ABILITY_SCRAPPY
@@ -22171,7 +22171,7 @@ mondata SPECIES_MEGA_GARCHOMP, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_MONSTER
     abilities ABILITY_PRESSURE, ABILITY_NONE
@@ -22186,7 +22186,7 @@ mondata SPECIES_MEGA_LUCARIO, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_ADAPTABILITY, ABILITY_ADAPTABILITY
@@ -22201,7 +22201,7 @@ mondata SPECIES_MEGA_ABOMASNOW, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
     abilities ABILITY_SNOW_WARNING, ABILITY_NONE
@@ -22216,7 +22216,7 @@ mondata SPECIES_MEGA_GALLADE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
     abilities ABILITY_INNER_FOCUS, ABILITY_NONE
@@ -22231,7 +22231,7 @@ mondata SPECIES_MEGA_AUDINO, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_HEALER, ABILITY_HEALER
@@ -22246,7 +22246,7 @@ mondata SPECIES_MEGA_DIANCIE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MAGIC_BOUNCE, ABILITY_NONE
@@ -22261,7 +22261,7 @@ mondata SPECIES_GROUDON_PRIMAL, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DESOLATE_LAND, ABILITY_NONE
@@ -22276,7 +22276,7 @@ mondata SPECIES_KYOGRE_PRIMAL, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRIMORDIAL_SEA, ABILITY_NONE
@@ -22291,7 +22291,7 @@ mondata SPECIES_RATTATA_ALOLAN, "-----"
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GLUTTONY,  ABILITY_HUSTLE
@@ -22307,7 +22307,7 @@ mondata SPECIES_RATICATE_ALOLAN, "-----"
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GLUTTONY,  ABILITY_HUSTLE
@@ -22323,7 +22323,7 @@ mondata SPECIES_RAICHU_ALOLAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_SURGE_SURFER, ABILITY_NONE
@@ -22339,7 +22339,7 @@ mondata SPECIES_SANDSHREW_ALOLAN, "-----"
     items ITEM_NONE, ITEM_GRIP_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SNOW_CLOAK,  ABILITY_NONE
@@ -22355,7 +22355,7 @@ mondata SPECIES_SANDSLASH_ALOLAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SNOW_CLOAK,  ABILITY_NONE
@@ -22371,7 +22371,7 @@ mondata SPECIES_VULPIX_ALOLAN, "-----"
     items ITEM_NONE, ITEM_SNOWBALL
     genderratio 191
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SNOW_CLOAK,  ABILITY_NONE
@@ -22387,7 +22387,7 @@ mondata SPECIES_NINETALES_ALOLAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 191
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SNOW_CLOAK,  ABILITY_NONE
@@ -22403,7 +22403,7 @@ mondata SPECIES_DIGLETT_ALOLAN, "-----"
     items ITEM_NONE, ITEM_SOFT_SAND
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SAND_VEIL,  ABILITY_TANGLING_HAIR
@@ -22419,7 +22419,7 @@ mondata SPECIES_DUGTRIO_ALOLAN, "-----"
     items ITEM_NONE, ITEM_SOFT_SAND
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SAND_VEIL,  ABILITY_TANGLING_HAIR
@@ -22435,7 +22435,7 @@ mondata SPECIES_MEOWTH_ALOLAN, "-----"
     items ITEM_NONE, ITEM_QUICK_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PICKUP,  ABILITY_TECHNICIAN
@@ -22451,7 +22451,7 @@ mondata SPECIES_PERSIAN_ALOLAN, "-----"
     items ITEM_NONE, ITEM_QUICK_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FUR_COAT,  ABILITY_TECHNICIAN
@@ -22467,7 +22467,7 @@ mondata SPECIES_GEODUDE_ALOLAN, "-----"
     items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_MAGNET_PULL,  ABILITY_STURDY
@@ -22483,7 +22483,7 @@ mondata SPECIES_GRAVELER_ALOLAN, "-----"
     items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_MAGNET_PULL,  ABILITY_STURDY
@@ -22499,7 +22499,7 @@ mondata SPECIES_GOLEM_ALOLAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_MAGNET_PULL,  ABILITY_STURDY
@@ -22515,7 +22515,7 @@ mondata SPECIES_GRIMER_ALOLAN, "-----"
     items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_POISON_TOUCH,  ABILITY_GLUTTONY
@@ -22531,7 +22531,7 @@ mondata SPECIES_MUK_ALOLAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_POISON_TOUCH,  ABILITY_GLUTTONY
@@ -22547,7 +22547,7 @@ mondata SPECIES_EXEGGUTOR_ALOLAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_FRISK,  ABILITY_NONE
@@ -22563,7 +22563,7 @@ mondata SPECIES_MAROWAK_ALOLAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
     abilities ABILITY_CURSED_BODY,  ABILITY_LIGHTNING_ROD
@@ -22579,7 +22579,7 @@ mondata SPECIES_MEOWTH_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PICKUP,  ABILITY_TOUGH_CLAWS
@@ -22595,7 +22595,7 @@ mondata SPECIES_PONYTA_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_RUN_AWAY,  ABILITY_PASTEL_VEIL
@@ -22611,7 +22611,7 @@ mondata SPECIES_RAPIDASH_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_RUN_AWAY,  ABILITY_PASTEL_VEIL
@@ -22627,7 +22627,7 @@ mondata SPECIES_SLOWPOKE_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_GLUTTONY,  ABILITY_OWN_TEMPO
@@ -22643,7 +22643,7 @@ mondata SPECIES_SLOWBRO_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_QUICK_DRAW,  ABILITY_OWN_TEMPO
@@ -22659,7 +22659,7 @@ mondata SPECIES_FARFETCHD_GALARIAN, "-----"
     items ITEM_NONE, ITEM_LEEK
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FIELD
     abilities ABILITY_STEADFAST,  ABILITY_NONE
@@ -22675,7 +22675,7 @@ mondata SPECIES_WEEZING_GALARIAN, "-----"
     items ITEM_NONE, ITEM_MISTY_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_LEVITATE,  ABILITY_NEUTRALIZING_GAS
@@ -22691,7 +22691,7 @@ mondata SPECIES_MR_MIME_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_VITAL_SPIRIT,  ABILITY_SCREEN_CLEANER
@@ -22707,7 +22707,7 @@ mondata SPECIES_ARTICUNO_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_COMPETITIVE, ABILITY_NONE
@@ -22723,7 +22723,7 @@ mondata SPECIES_ZAPDOS_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DEFIANT, ABILITY_NONE
@@ -22739,7 +22739,7 @@ mondata SPECIES_MOLTRES_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BERSERK, ABILITY_NONE
@@ -22755,7 +22755,7 @@ mondata SPECIES_SLOWKING_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
     abilities ABILITY_CURIOUS_MEDICINE,  ABILITY_OWN_TEMPO
@@ -22771,7 +22771,7 @@ mondata SPECIES_CORSOLA_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 191
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
     abilities ABILITY_WEAK_ARMOR,  ABILITY_NONE
@@ -22787,7 +22787,7 @@ mondata SPECIES_ZIGZAGOON_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PICKUP,  ABILITY_GLUTTONY
@@ -22803,7 +22803,7 @@ mondata SPECIES_LINOONE_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_PICKUP,  ABILITY_GLUTTONY
@@ -22819,7 +22819,7 @@ mondata SPECIES_DARUMAKA_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_HUSTLE,  ABILITY_NONE
@@ -22835,7 +22835,7 @@ mondata SPECIES_DARMANITAN_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GORILLA_TACTICS,  ABILITY_NONE
@@ -22851,7 +22851,7 @@ mondata SPECIES_YAMASK_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WANDERING_SPIRIT, ABILITY_NONE
@@ -22867,7 +22867,7 @@ mondata SPECIES_STUNFISK_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
     abilities ABILITY_MIMICRY, ABILITY_NONE
@@ -22883,7 +22883,7 @@ mondata SPECIES_PIKACHU_COSPLAY, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -22899,7 +22899,7 @@ mondata SPECIES_PIKACHU_ROCK_STAR, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -22915,7 +22915,7 @@ mondata SPECIES_PIKACHU_BELLE, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -22931,7 +22931,7 @@ mondata SPECIES_PIKACHU_POP_STAR, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -22947,7 +22947,7 @@ mondata SPECIES_PIKACHU_PH_D, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -22963,7 +22963,7 @@ mondata SPECIES_PIKACHU_LIBRE, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -22979,7 +22979,7 @@ mondata SPECIES_PIKACHU_ORIGINAL_CAP, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -22995,7 +22995,7 @@ mondata SPECIES_PIKACHU_HOENN_CAP, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -23011,7 +23011,7 @@ mondata SPECIES_PIKACHU_SINNOH_CAP, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -23027,7 +23027,7 @@ mondata SPECIES_PIKACHU_UNOVA_CAP, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -23043,7 +23043,7 @@ mondata SPECIES_PIKACHU_KALOS_CAP, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -23059,7 +23059,7 @@ mondata SPECIES_PIKACHU_ALOLA_CAP, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -23075,7 +23075,7 @@ mondata SPECIES_PIKACHU_PARTNER_CAP, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -23091,7 +23091,7 @@ mondata SPECIES_PIKACHU_WORLD_CAP, "-----"
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STATIC,  ABILITY_NONE
@@ -23107,7 +23107,7 @@ mondata SPECIES_CASTFORM_SUNNY, "-----"
     items ITEM_MYSTIC_WATER, ITEM_MYSTIC_WATER
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_FORECAST, ABILITY_NONE
@@ -23123,7 +23123,7 @@ mondata SPECIES_CASTFORM_RAINY, "-----"
     items ITEM_MYSTIC_WATER, ITEM_MYSTIC_WATER
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_FORECAST, ABILITY_NONE
@@ -23139,7 +23139,7 @@ mondata SPECIES_CASTFORM_SNOWY, "-----"
     items ITEM_MYSTIC_WATER, ITEM_MYSTIC_WATER
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_FORECAST, ABILITY_NONE
@@ -23155,7 +23155,7 @@ mondata SPECIES_CHERRIM_SUNSHINE, "-----"
     items ITEM_NONE, ITEM_MIRACLE_SEED
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
     abilities ABILITY_FLOWER_GIFT, ABILITY_NONE
@@ -23171,7 +23171,7 @@ mondata SPECIES_SHELLOS_EAST_SEA, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
     abilities ABILITY_STICKY_HOLD,  ABILITY_STORM_DRAIN
@@ -23187,7 +23187,7 @@ mondata SPECIES_GASTRODON_EAST_SEA, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
     abilities ABILITY_STICKY_HOLD,  ABILITY_STORM_DRAIN
@@ -23203,7 +23203,7 @@ mondata SPECIES_DIALGA_ORIGIN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRESSURE, ABILITY_NONE
@@ -23219,7 +23219,7 @@ mondata SPECIES_PALKIA_ORIGIN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRESSURE, ABILITY_NONE
@@ -23235,7 +23235,7 @@ mondata SPECIES_BASCULIN_BLUE_STRIPED, "-----"
     items ITEM_NONE, ITEM_DEEP_SEA_SCALE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_ROCK_HEAD,  ABILITY_ADAPTABILITY
@@ -23251,7 +23251,7 @@ mondata SPECIES_BASCULIN_WHITE_STRIPED, "-----"
     items ITEM_NONE, ITEM_DEEP_SEA_SCALE
     genderratio 127
     eggcycles 40
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_RATTLED,  ABILITY_ADAPTABILITY
@@ -23267,7 +23267,7 @@ mondata SPECIES_DARMANITAN_ZEN_MODE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SHEER_FORCE,  ABILITY_NONE
@@ -23283,7 +23283,7 @@ mondata SPECIES_DARMANITAN_ZEN_MODE_GALARIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_GORILLA_TACTICS,  ABILITY_NONE
@@ -23299,7 +23299,7 @@ mondata SPECIES_DEERLING_SUMMER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
@@ -23315,7 +23315,7 @@ mondata SPECIES_DEERLING_AUTUMN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
@@ -23331,7 +23331,7 @@ mondata SPECIES_DEERLING_WINTER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
@@ -23347,7 +23347,7 @@ mondata SPECIES_SAWSBUCK_SUMMER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
@@ -23363,7 +23363,7 @@ mondata SPECIES_SAWSBUCK_AUTUMN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
@@ -23379,7 +23379,7 @@ mondata SPECIES_SAWSBUCK_WINTER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_CHLOROPHYLL,  ABILITY_SAP_SIPPER
@@ -23395,7 +23395,7 @@ mondata SPECIES_TORNADUS_THERIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 90
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_REGENERATOR, ABILITY_NONE
@@ -23411,7 +23411,7 @@ mondata SPECIES_THUNDURUS_THERIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 90
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_VOLT_ABSORB, ABILITY_NONE
@@ -23427,7 +23427,7 @@ mondata SPECIES_LANDORUS_THERIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 90
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_INTIMIDATE, ABILITY_NONE
@@ -23443,7 +23443,7 @@ mondata SPECIES_KYUREM_WHITE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TURBOBLAZE, ABILITY_NONE
@@ -23459,7 +23459,7 @@ mondata SPECIES_KYUREM_BLACK, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TERAVOLT, ABILITY_NONE
@@ -23475,7 +23475,7 @@ mondata SPECIES_KELDEO_RESOLUTE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_JUSTIFIED, ABILITY_NONE
@@ -23491,7 +23491,7 @@ mondata SPECIES_MELOETTA_PIROUETTE, "-----"
     items ITEM_STAR_PIECE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SERENE_GRACE, ABILITY_NONE
@@ -23507,7 +23507,7 @@ mondata SPECIES_GENESECT_DOUSE_DRIVE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
@@ -23523,7 +23523,7 @@ mondata SPECIES_GENESECT_SHOCK_DRIVE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
@@ -23539,7 +23539,7 @@ mondata SPECIES_GENESECT_BURN_DRIVE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
@@ -23555,7 +23555,7 @@ mondata SPECIES_GENESECT_CHILL_DRIVE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DOWNLOAD, ABILITY_NONE
@@ -23571,7 +23571,7 @@ mondata SPECIES_GRENINJA_BATTLE_BOND, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BATTLE_BOND, ABILITY_NONE
@@ -23587,7 +23587,7 @@ mondata SPECIES_GRENINJA_ASH, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_BATTLE_BOND, ABILITY_NONE
@@ -23603,7 +23603,7 @@ mondata SPECIES_VIVILLON_POLAR, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23619,7 +23619,7 @@ mondata SPECIES_VIVILLON_TUNDRA, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23635,7 +23635,7 @@ mondata SPECIES_VIVILLON_CONTINENTAL, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23651,7 +23651,7 @@ mondata SPECIES_VIVILLON_GARDEN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23667,7 +23667,7 @@ mondata SPECIES_VIVILLON_ELEGANT, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23683,7 +23683,7 @@ mondata SPECIES_VIVILLON_MEADOW, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23699,7 +23699,7 @@ mondata SPECIES_VIVILLON_MODERN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23715,7 +23715,7 @@ mondata SPECIES_VIVILLON_MARINE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23731,7 +23731,7 @@ mondata SPECIES_VIVILLON_ARCHIPELAGO, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23747,7 +23747,7 @@ mondata SPECIES_VIVILLON_HIGH_PLAINS, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23763,7 +23763,7 @@ mondata SPECIES_VIVILLON_SANDSTORM, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23779,7 +23779,7 @@ mondata SPECIES_VIVILLON_RIVER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23795,7 +23795,7 @@ mondata SPECIES_VIVILLON_MONSOON, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23811,7 +23811,7 @@ mondata SPECIES_VIVILLON_SAVANNA, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23827,7 +23827,7 @@ mondata SPECIES_VIVILLON_SUN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23843,7 +23843,7 @@ mondata SPECIES_VIVILLON_OCEAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23859,7 +23859,7 @@ mondata SPECIES_VIVILLON_JUNGLE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23875,7 +23875,7 @@ mondata SPECIES_VIVILLON_FANCY, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23891,7 +23891,7 @@ mondata SPECIES_VIVILLON_POKE_BALL, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
     abilities ABILITY_SHIELD_DUST,  ABILITY_COMPOUND_EYES
@@ -23907,7 +23907,7 @@ mondata SPECIES_FLABEBE_YELLOW_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -23923,7 +23923,7 @@ mondata SPECIES_FLABEBE_ORANGE_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -23939,7 +23939,7 @@ mondata SPECIES_FLABEBE_BLUE_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -23955,7 +23955,7 @@ mondata SPECIES_FLABEBE_WHITE_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -23971,7 +23971,7 @@ mondata SPECIES_FLOETTE_YELLOW_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -23987,7 +23987,7 @@ mondata SPECIES_FLOETTE_ORANGE_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -24003,7 +24003,7 @@ mondata SPECIES_FLOETTE_BLUE_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -24019,7 +24019,7 @@ mondata SPECIES_FLOETTE_WHITE_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -24035,7 +24035,7 @@ mondata SPECIES_FLOETTE_ETERNAL_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -24051,7 +24051,7 @@ mondata SPECIES_FLORGES_YELLOW_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -24067,7 +24067,7 @@ mondata SPECIES_FLORGES_ORANGE_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -24083,7 +24083,7 @@ mondata SPECIES_FLORGES_BLUE_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -24099,7 +24099,7 @@ mondata SPECIES_FLORGES_WHITE_FLOWER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_FLOWER_VEIL,  ABILITY_NONE
@@ -24115,7 +24115,7 @@ mondata SPECIES_FURFROU_HEART, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -24131,7 +24131,7 @@ mondata SPECIES_FURFROU_STAR, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -24147,7 +24147,7 @@ mondata SPECIES_FURFROU_DIAMOND, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -24163,7 +24163,7 @@ mondata SPECIES_FURFROU_DEBUTANTE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -24179,7 +24179,7 @@ mondata SPECIES_FURFROU_MATRON, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -24195,7 +24195,7 @@ mondata SPECIES_FURFROU_DANDY, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -24211,7 +24211,7 @@ mondata SPECIES_FURFROU_LA_REINE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -24227,7 +24227,7 @@ mondata SPECIES_FURFROU_KABUKI, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -24243,7 +24243,7 @@ mondata SPECIES_FURFROU_PHARAOH, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_FUR_COAT, ABILITY_NONE
@@ -24259,7 +24259,7 @@ mondata SPECIES_AEGISLASH_BLADE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_STANCE_CHANGE, ABILITY_NONE
@@ -24275,7 +24275,7 @@ mondata SPECIES_PUMPKABOO_SMALL, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_PICKUP,  ABILITY_FRISK
@@ -24291,7 +24291,7 @@ mondata SPECIES_PUMPKABOO_LARGE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_PICKUP,  ABILITY_FRISK
@@ -24307,7 +24307,7 @@ mondata SPECIES_PUMPKABOO_SUPER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_PICKUP,  ABILITY_FRISK
@@ -24323,7 +24323,7 @@ mondata SPECIES_GOURGEIST_SMALL, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_PICKUP,  ABILITY_FRISK
@@ -24339,7 +24339,7 @@ mondata SPECIES_GOURGEIST_LARGE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_PICKUP,  ABILITY_FRISK
@@ -24355,7 +24355,7 @@ mondata SPECIES_GOURGEIST_SUPER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_PICKUP,  ABILITY_FRISK
@@ -24371,7 +24371,7 @@ mondata SPECIES_XERNEAS_ACTIVE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_FAIRY_AURA, ABILITY_NONE
@@ -24387,7 +24387,7 @@ mondata SPECIES_ZYGARDE_10, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_AURA_BREAK, ABILITY_NONE
@@ -24403,7 +24403,7 @@ mondata SPECIES_ZYGARDE_10_POWER_CONSTRUCT, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_POWER_CONSTRUCT, ABILITY_NONE
@@ -24419,7 +24419,7 @@ mondata SPECIES_ZYGARDE_50_POWER_CONSTRUCT, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_POWER_CONSTRUCT, ABILITY_NONE
@@ -24435,7 +24435,7 @@ mondata SPECIES_ZYGARDE_10_COMPLETE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_POWER_CONSTRUCT, ABILITY_NONE
@@ -24451,7 +24451,7 @@ mondata SPECIES_ZYGARDE_50_COMPLETE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_POWER_CONSTRUCT, ABILITY_NONE
@@ -24467,7 +24467,7 @@ mondata SPECIES_HOOPA_UNBOUND, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MAGICIAN, ABILITY_NONE
@@ -24483,7 +24483,7 @@ mondata SPECIES_ORICORIO_POM_POM, "-----"
     items ITEM_NONE, ITEM_HONEY
     genderratio 191
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_DANCER, ABILITY_NONE
@@ -24499,7 +24499,7 @@ mondata SPECIES_ORICORIO_PAU, "-----"
     items ITEM_NONE, ITEM_HONEY
     genderratio 191
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_DANCER, ABILITY_NONE
@@ -24515,7 +24515,7 @@ mondata SPECIES_ORICORIO_SENSU, "-----"
     items ITEM_NONE, ITEM_HONEY
     genderratio 191
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_DANCER, ABILITY_NONE
@@ -24531,7 +24531,7 @@ mondata SPECIES_ROCKRUFF_OWN_TEMPO, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_OWN_TEMPO, ABILITY_NONE
@@ -24547,7 +24547,7 @@ mondata SPECIES_LYCANROC_MIDNIGHT, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_KEEN_EYE,  ABILITY_VITAL_SPIRIT
@@ -24563,7 +24563,7 @@ mondata SPECIES_LYCANROC_DUSK, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_TOUGH_CLAWS, ABILITY_NONE
@@ -24579,7 +24579,7 @@ mondata SPECIES_WISHIWASHI_SCHOOL, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_SCHOOLING, ABILITY_NONE
@@ -24595,7 +24595,7 @@ mondata SPECIES_MINIOR_METEOR_ORANGE, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24611,7 +24611,7 @@ mondata SPECIES_MINIOR_METEOR_YELLOW, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24627,7 +24627,7 @@ mondata SPECIES_MINIOR_METEOR_GREEN, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24643,7 +24643,7 @@ mondata SPECIES_MINIOR_METEOR_BLUE, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24659,7 +24659,7 @@ mondata SPECIES_MINIOR_METEOR_INDIGO, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24675,7 +24675,7 @@ mondata SPECIES_MINIOR_METEOR_VIOLET, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24691,7 +24691,7 @@ mondata SPECIES_MINIOR_CORE_RED, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24707,7 +24707,7 @@ mondata SPECIES_MINIOR_CORE_ORANGE, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24723,7 +24723,7 @@ mondata SPECIES_MINIOR_CORE_YELLOW, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24739,7 +24739,7 @@ mondata SPECIES_MINIOR_CORE_GREEN, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24755,7 +24755,7 @@ mondata SPECIES_MINIOR_CORE_BLUE, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24771,7 +24771,7 @@ mondata SPECIES_MINIOR_CORE_INDIGO, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24787,7 +24787,7 @@ mondata SPECIES_MINIOR_CORE_VIOLET, "-----"
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SHIELDS_DOWN, ABILITY_NONE
@@ -24803,7 +24803,7 @@ mondata SPECIES_MIMIKYU_BUSTED, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_DISGUISE, ABILITY_NONE
@@ -24819,7 +24819,7 @@ mondata SPECIES_NECROZMA_DUSK_MANE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRISM_ARMOR, ABILITY_NONE
@@ -24835,7 +24835,7 @@ mondata SPECIES_NECROZMA_DAWN_WINGS, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRISM_ARMOR, ABILITY_NONE
@@ -24851,7 +24851,7 @@ mondata SPECIES_NECROZMA_ULTRA_DUSK_MANE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_NEUROFORCE, ABILITY_NONE
@@ -24867,7 +24867,7 @@ mondata SPECIES_NECROZMA_ULTRA_DAWN_WINGS, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_NEUROFORCE, ABILITY_NONE
@@ -24883,7 +24883,7 @@ mondata SPECIES_MAGEARNA_ORIGINAL, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_SOUL_HEART, ABILITY_NONE
@@ -24899,7 +24899,7 @@ mondata SPECIES_PIKACHU_PARTNER, "-----"
     items ITEM_ORAN_BERRY, ITEM_LIGHT_BALL
     genderratio 127
     eggcycles 10
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_STATIC, ABILITY_NONE
@@ -24915,7 +24915,7 @@ mondata SPECIES_EEVEE_PARTNER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 35
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_RUN_AWAY, ABILITY_ADAPTABILITY
@@ -24931,7 +24931,7 @@ mondata SPECIES_CRAMORANT_GULPING, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
     abilities ABILITY_GULP_MISSILE, ABILITY_NONE
@@ -24947,7 +24947,7 @@ mondata SPECIES_CRAMORANT_GORGING, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
     abilities ABILITY_GULP_MISSILE, ABILITY_NONE
@@ -24963,7 +24963,7 @@ mondata SPECIES_TOXTRICITY_LOW_KEY, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
     abilities ABILITY_SOUNDPROOF,  ABILITY_MINUS
@@ -24979,7 +24979,7 @@ mondata SPECIES_SINISTEA_ANTIQUE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WEAK_ARMOR,  ABILITY_NONE
@@ -24995,7 +24995,7 @@ mondata SPECIES_POLTEAGEIST_ANTIQUE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WEAK_ARMOR,  ABILITY_NONE
@@ -25011,7 +25011,7 @@ mondata SPECIES_ALCREMIE_BERRY_SWEET, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
@@ -25027,7 +25027,7 @@ mondata SPECIES_ALCREMIE_LOVE_SWEET, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
@@ -25043,7 +25043,7 @@ mondata SPECIES_ALCREMIE_STAR_SWEET, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
@@ -25059,7 +25059,7 @@ mondata SPECIES_ALCREMIE_CLOVER_SWEET, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
@@ -25075,7 +25075,7 @@ mondata SPECIES_ALCREMIE_FLOWER_SWEET, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
@@ -25091,7 +25091,7 @@ mondata SPECIES_ALCREMIE_RIBBON_SWEET, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
@@ -25107,7 +25107,7 @@ mondata SPECIES_ALCREMIE_FILLER_1, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
@@ -25123,7 +25123,7 @@ mondata SPECIES_ALCREMIE_FILLER_2, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 244
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
     abilities ABILITY_SWEET_VEIL,  ABILITY_NONE
@@ -25139,7 +25139,7 @@ mondata SPECIES_EISCUE_NOICE_FACE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_ICE_FACE, ABILITY_NONE
@@ -25155,7 +25155,7 @@ mondata SPECIES_MORPEKO_HANGRY, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_HUNGER_SWITCH, ABILITY_NONE
@@ -25171,7 +25171,7 @@ mondata SPECIES_ZACIAN_CROWNED, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_INTREPID_SWORD, ABILITY_NONE
@@ -25187,7 +25187,7 @@ mondata SPECIES_ZAMAZENTA_CROWNED, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_DAUNTLESS_SHIELD, ABILITY_NONE
@@ -25203,7 +25203,7 @@ mondata SPECIES_ETERNATUS_ETERNAMAX, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRESSURE, ABILITY_NONE
@@ -25219,7 +25219,7 @@ mondata SPECIES_URSHIFU_RAPID_STRIKE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_UNSEEN_FIST, ABILITY_NONE
@@ -25235,7 +25235,7 @@ mondata SPECIES_ZARUDE_DADA, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_LEAF_GUARD, ABILITY_NONE
@@ -25251,7 +25251,7 @@ mondata SPECIES_CALYREX_ICE_RIDER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_AS_ONE_GLASTRIER, ABILITY_NONE
@@ -25267,7 +25267,7 @@ mondata SPECIES_CALYREX_SHADOW_RIDER, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 100
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_AS_ONE_SPECTRIER, ABILITY_NONE
@@ -25283,7 +25283,7 @@ mondata SPECIES_ENAMORUS_THERIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_OVERCOAT, ABILITY_OVERCOAT
@@ -25299,7 +25299,7 @@ mondata SPECIES_GROWLITHE_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 63
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_FLASH_FIRE
@@ -25315,7 +25315,7 @@ mondata SPECIES_ARCANINE_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 63
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_NONE, EGG_GROUP_NONE
     abilities ABILITY_INTIMIDATE, ABILITY_FLASH_FIRE
@@ -25331,7 +25331,7 @@ mondata SPECIES_VOLTORB_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SOUNDPROOF, ABILITY_STATIC
@@ -25347,7 +25347,7 @@ mondata SPECIES_ELECTRODE_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_SOUNDPROOF, ABILITY_STATIC
@@ -25363,7 +25363,7 @@ mondata SPECIES_TYPHLOSION_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_BLAZE, ABILITY_NONE
@@ -25379,7 +25379,7 @@ mondata SPECIES_QWILFISH_HISUIAN, "-----"
     items ITEM_NONE, ITEM_POISON_BARB
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_POISON_POINT, ABILITY_SWIFT_SWIM
@@ -25395,7 +25395,7 @@ mondata SPECIES_SNEASEL_HISUIAN, "-----"
     items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INNER_FOCUS, ABILITY_KEEN_EYE
@@ -25411,7 +25411,7 @@ mondata SPECIES_SAMUROTT_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_TORRENT, ABILITY_TORRENT
@@ -25427,7 +25427,7 @@ mondata SPECIES_LILLIGANT_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
     abilities ABILITY_CHLOROPHYLL, ABILITY_HUSTLE
@@ -25443,7 +25443,7 @@ mondata SPECIES_ZORUA_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_ILLUSION, ABILITY_NONE
@@ -25459,7 +25459,7 @@ mondata SPECIES_ZOROARK_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_ILLUSION, ABILITY_NONE
@@ -25475,7 +25475,7 @@ mondata SPECIES_BRAVIARY_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_KEEN_EYE, ABILITY_SHEER_FORCE
@@ -25491,7 +25491,7 @@ mondata SPECIES_SLIGGOO_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_SAP_SIPPER,  ABILITY_OVERCOAT
@@ -25507,7 +25507,7 @@ mondata SPECIES_GOODRA_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 35
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
     abilities ABILITY_SAP_SIPPER,  ABILITY_OVERCOAT
@@ -25523,7 +25523,7 @@ mondata SPECIES_AVALUGG_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MINERAL
     abilities ABILITY_STRONG_JAW,  ABILITY_ICE_BODY
@@ -25539,7 +25539,7 @@ mondata SPECIES_DECIDUEYE_HISUIAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_OVERGROW,  ABILITY_NONE
@@ -25555,7 +25555,7 @@ mondata SPECIES_UNFEZANT_FEMALE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_BIG_PECKS, ABILITY_SUPER_LUCK
@@ -25571,7 +25571,7 @@ mondata SPECIES_FRILLISH_FEMALE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WATER_ABSORB, ABILITY_CURSED_BODY
@@ -25587,7 +25587,7 @@ mondata SPECIES_JELLICENT_FEMALE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
     abilities ABILITY_WATER_ABSORB, ABILITY_CURSED_BODY
@@ -25603,7 +25603,7 @@ mondata SPECIES_PYROAR_FEMALE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_RIVALRY,  ABILITY_UNNERVE
@@ -25619,7 +25619,7 @@ mondata SPECIES_MEOWSTIC_FEMALE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_KEEN_EYE,  ABILITY_INFILTRATOR
@@ -25635,7 +25635,7 @@ mondata SPECIES_INDEEDEE_FEMALE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 140
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
     abilities ABILITY_INNER_FOCUS,  ABILITY_SYNCHRONIZE
@@ -25651,7 +25651,7 @@ mondata SPECIES_BASCULEGION_FEMALE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 70
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_RATTLED, ABILITY_ADAPTABILITY
@@ -25667,7 +25667,7 @@ mondata SPECIES_MAUSHOLD_FAMILY_OF_THREE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
     abilities ABILITY_FRIEND_GUARD, ABILITY_CHEEK_POUCH
@@ -25683,7 +25683,7 @@ mondata SPECIES_SQUAWKABILLY_BLUE_PLUMAGE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_INTIMIDATE, ABILITY_HUSTLE
@@ -25699,7 +25699,7 @@ mondata SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_INTIMIDATE, ABILITY_HUSTLE
@@ -25715,7 +25715,7 @@ mondata SPECIES_SQUAWKABILLY_WHITE_PLUMAGE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
     abilities ABILITY_INTIMIDATE, ABILITY_HUSTLE
@@ -25731,7 +25731,7 @@ mondata SPECIES_PALAFIN_HERO, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_WATER_2
     abilities ABILITY_ZERO_TO_HERO, ABILITY_NONE
@@ -25747,7 +25747,7 @@ mondata SPECIES_TATSUGIRI_DROOPY, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_COMMANDER, ABILITY_NONE
@@ -25763,7 +25763,7 @@ mondata SPECIES_TATSUGIRI_STRETCHY, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_COMMANDER, ABILITY_NONE
@@ -25779,7 +25779,7 @@ mondata SPECIES_DUDUNSPARCE_THREE_SEGMENT, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_SERENE_GRACE, ABILITY_RUN_AWAY
@@ -25795,7 +25795,7 @@ mondata SPECIES_GIMMIGHOUL_ROAMING, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_RATTLED, ABILITY_NONE
@@ -25811,7 +25811,7 @@ mondata SPECIES_TERAPAGOS_TERASTAL, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TERA_SHELL, ABILITY_NONE
@@ -25827,7 +25827,7 @@ mondata SPECIES_WOOPER_PALDEAN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
     abilities ABILITY_DAMP, ABILITY_WATER_ABSORB
@@ -25843,7 +25843,7 @@ mondata SPECIES_TAUROS_COMBAT, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_ANGER_POINT
@@ -25859,7 +25859,7 @@ mondata SPECIES_TAUROS_BLAZE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_ANGER_POINT
@@ -25875,7 +25875,7 @@ mondata SPECIES_TAUROS_AQUA, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_INTIMIDATE, ABILITY_ANGER_POINT
@@ -25891,7 +25891,7 @@ mondata SPECIES_OINKOLOGNE_FEMALE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
     abilities ABILITY_LINGERING_AROMA, ABILITY_GLUTTONY
@@ -25907,7 +25907,7 @@ mondata SPECIES_REVAVROOM_SEGIN, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -25923,7 +25923,7 @@ mondata SPECIES_REVAVROOM_SCHEDAR, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -25939,7 +25939,7 @@ mondata SPECIES_REVAVROOM_NAVI, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -25955,7 +25955,7 @@ mondata SPECIES_REVAVROOM_RUCHBAH, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -25971,7 +25971,7 @@ mondata SPECIES_REVAVROOM_CAPH , "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
     abilities ABILITY_OVERCOAT, ABILITY_NONE
@@ -25987,7 +25987,7 @@ mondata SPECIES_POLTCHAGEIST_MASTERPIECE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_HOSPITALITY, ABILITY_NONE
@@ -26003,7 +26003,7 @@ mondata SPECIES_SINISTCHA_MASTERPIECE, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles 0
-    basefriendship 0
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
     abilities ABILITY_HOSPITALITY, ABILITY_NONE
@@ -26019,7 +26019,7 @@ mondata SPECIES_OGERPON_WELLSPRING_MASK, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_WATER_ABSORB, ABILITY_NONE
@@ -26035,7 +26035,7 @@ mondata SPECIES_OGERPON_HEARTHFLAME_MASK, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MOLD_BREAKER, ABILITY_NONE
@@ -26051,7 +26051,7 @@ mondata SPECIES_OGERPON_CORNERSTONE_MASK, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_STURDY, ABILITY_NONE
@@ -26067,7 +26067,7 @@ mondata SPECIES_TERAPAGOS_STELLAR, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_TERAFORM_ZERO, ABILITY_NONE
@@ -26083,7 +26083,7 @@ mondata SPECIES_URSALUNA_BLOODMOON, "-----"
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
-    basefriendship 50
+    basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_MINDS_EYE, ABILITY_NONE

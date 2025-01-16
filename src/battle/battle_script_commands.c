@@ -1394,7 +1394,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
 
             u32 base = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
-            totalexp = (base * level) / 5;
+            totalexp = (base * (level + Lp) / 10);
 
             u32 top = (2*level + 10) * (2*level + 10) * sqrt(2*level + 10);
             u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
@@ -1417,6 +1417,9 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                 totalexp *= top;
                 totalexp /= bottom;
             }
+			
+			if (totalexp < base)
+				totalexp = base;
 
             //debug_printf("[Task_DistributeExp_Extend] L = %d, Lp = %d, b = %d, top = %d, bottom = %d, exp = %d\n", level, Lp, base, top, bottom, totalexp);
 
@@ -3278,6 +3281,7 @@ BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx) 
     return FALSE;
 }
 
+// https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-9#post-9400247
 BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
@@ -3289,25 +3293,32 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
         if (cnt == 0) {
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SKILL_LINK) {
                 cnt = 5;
-            } else if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) { // Loaded Dice
-                cnt = (BattleRand(bsys) & 1) + 4; // 0-1 + 4 -> 4-5 hits
             } else {
-                cnt = (BattleRand(bsys) & 100);
-                if (cnt >= 0 && cnt <= 35) {
+                cnt = (BattleRand(bsys) % 100); // 0 - 99, 100 numbers
+                if (cnt < 35) {
                     cnt = 2;
-                } else if (cnt > 35 && cnt <= 70) {
+                } else if (cnt < 70) {
                     cnt = 3;
-                } else if (cnt > 70 && cnt <= 85) {
+                } else if (cnt < 85) {
                     cnt = 4;
-                } else {
+                } else { // >= 85
                     cnt = 5;
+                }
+
+                // If it rolled 4 or 5 Loaded Dice doesn't do anything,
+                // otherwise it rolls the number of hits as 5 minus a random integer from 0 to 1 inclusive.
+                if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
+                    if (cnt != 4 && cnt != 5) {
+                        cnt = 5 - (BattleRand(bsys) % 2);  // 5 - (0 or 1)
+                    }
                 }
             }
         }
 
-        // Population Bomb
+        // Population Bomb checks accuracy for each hit, like Triple Kick and Triple Axel.
+        // Loaded Dice causes it to only run the first accuracy check, and rolls the number of hits as 10 minus a random integer from 0 to 6 inclusive.
         if (cnt == 10 && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
-            cnt = BattleRand(bsys) % 7 + 4; // 0-6 + 4 -> 4-10 hits
+            cnt = 10 - (BattleRand(bsys) % 7); // 10 - (0 to 6)
         }
 
         ctx->multi_hit_count = cnt;
@@ -4011,4 +4022,80 @@ BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
 	}
 	
 	return FALSE;
+}
+
+BOOL BtlCmd_CalcFuryCutterPower(void *bsys UNUSED, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->attack_client].moveeffect.furyCutterCount < 3) {
+        ctx->battlemon[ctx->attack_client].moveeffect.furyCutterCount++;
+    }
+
+    ctx->damage_power = ctx->moveTbl[ctx->current_move_index].power << ctx->battlemon[ctx->attack_client].moveeffect.furyCutterCount;
+
+    return FALSE;
+}
+
+BOOL BtlCmd_CalcPunishmentPower(void *bsys UNUSED, struct BattleStruct *ctx) {
+    int stat, cnt;
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    cnt = 3;
+    for (stat = 0; stat < 8; stat++) {
+        if (ctx->battlemon[ctx->battlerIdTemp].states[stat] > 6) {
+            cnt += ctx->battlemon[ctx->battlerIdTemp].states[stat] - 6;
+        }
+    }
+
+    ctx->damage_power += 20 * cnt;
+
+    return FALSE;
+}
+
+u16 sNaturePowerMoveTable[] =
+{
+	MOVE_EARTH_POWER, //TERRAIN_PLAIN
+	MOVE_EARTH_POWER, //TERRAIN_SAND
+	MOVE_ENERGY_BALL, //TERRAIN_GRASS
+	MOVE_ENERGY_BALL, //TERRAIN_PUDDLE
+	MOVE_POWER_GEM,  //TERRAIN_MOUNTAIN
+	MOVE_POWER_GEM, //TERRAIN_CAVE
+	MOVE_BLIZZARD, //TERRAIN_SNOW
+	MOVE_HYDRO_PUMP, //TERRAIN_WATER
+	MOVE_ICE_BEAM, //TERRAIN_ICE
+	MOVE_TRI_ATTACK, //TERRAIN_BUILDING
+	MOVE_MUD_BOMB, //TERRAIN_GREAT_MARSH unused
+	MOVE_AIR_SLASH, //TERRAIN_UNKNOWN unused
+	MOVE_TRI_ATTACK, //TERRAIN_OTHERS and beyond
+};
+
+BOOL BtlCmd_GetTerrainMove(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+	switch (ctx->terrainOverlay.type)
+	{
+		case GRASSY_TERRAIN:
+			ctx->waza_work = MOVE_ENERGY_BALL;
+			break;
+		case ELECTRIC_TERRAIN:
+			ctx->waza_work = MOVE_THUNDERBOLT;
+			break;
+		case MISTY_TERRAIN:
+			ctx->waza_work = MOVE_MOONBLAST;
+			break;
+		case PSYCHIC_TERRAIN:
+			ctx->waza_work = MOVE_PSYCHIC;
+			break;
+		case TERRAIN_NONE:
+		default:
+			int terrain = bsys->terrain;
+			if (terrain > 12) {
+				terrain = 12;
+			}
+			ctx->waza_work = sNaturePowerMoveTable[terrain];
+			break;
+	}
+
+    return FALSE;
 }

@@ -16,7 +16,7 @@ SNOW_WARNING_GENERATION equ 9
 
 // ALLOW_SAVE_CHANGES tells the assembler that it can build the code that pertains to expanding the save data for extra fields for our usage.
 // this is required for dex expansion and will break PKHeX compatibility!  comment this line out to prevent save changes from being made.
-.definelabel ALLOW_SAVE_CHANGES, 0
+//.definelabel ALLOW_SAVE_CHANGES, 0
 
 // CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
 CRY_PSEUDOBANK_START equ 778
@@ -47,4 +47,4 @@ DELETABLE_HMS equ 1
 
 // APPLY_ANTIPIRACY will apply the typical anti-piracy code changes to your ROM automatically so that the game runs well on hardware (TWLmenu and R4 are both tested)
 // comment out the lines if you do not want anti-piracy to be applied to your ROM
-.definelabel APPLY_ANTIPIRACY, 0
+//.definelabel APPLY_ANTIPIRACY, 0

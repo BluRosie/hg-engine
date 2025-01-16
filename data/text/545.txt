@@ -9,9 +9,9 @@ Oh! {STRVAR_1 3, 0, 0}!\nThat’s a cute Pokémon you have.\rProfessor Elm must 
 {STRVAR_1 3, 0, 0} received\nthe Pokégear!\r
 The Pokémon Gear...\nor Pokégear, as it’s often called,\fis what every Trainer should have.\r
 Guess what?\nYou can use the Pokégear to make a\fphone call, too.\fDo you remember how? {YESNO 0}
-Just power on the Pokégear and\ntouch the telephone button, Ok?\r
+Alright, just call often dear.\nOk?
 Select the PokéGear button on the\nTouch Screen. Then select the\ftelephone button.\r
-The names of the people you can call\nare automatically registered.\rJust select one to give him or her\na call.\rWow, I can’t believe it’s so easy\nto make a phone call!
+The names of the people you can call\nare automatically registered.\rJust select one to make a call.\rWow, I can’t believe it’s so easy\nto use!
 What’s wrong?\rDid you forget how to get to\nMr. Pokémon’s house?\rGo north on Route 30.\nTake care, dear.
 ...\nSo, you’re leaving on an adventure...\rOk! I’ll help, too.\nBut what can I do for you?\rI know!\nEvery time you receive prize money,\fI’ll save some of it for you.\rOn a long journey, money’s important.\rDo you want me to save\nyour money for you? {YESNO 0}
 I want to support you on your\nadventure, {STRVAR_1 3, 0, 0}.\fOk! I’ll help, too.\fBut what can I do for you?\rI know!\rEvery time you receive prize money,\nI’ll save some of it for you.\rOn a long journey, money’s important.\nDo you want me to save\fyour money for you? {YESNO 0}
@@ -33,7 +33,7 @@ Change
 Exit
 Hi, {STRVAR_1 3, 0, 0}!\nProfessor Elm told me that\fhe has something to give you!\r
 Professor Elm told me that\nhe has something to give you.\fWhy don’t you visit his lab?
-The Tv is playing a movie!\rTwo boys are in a cave searching\nfor treasure!\rI better get going...
+The TV is playing a movie!\rTwo boys are in a cave searching\nfor treasure!\rI better get going...
 Cinnabar Volcano Burger!\nMom’s specialty!
 A squeaky-clean sink!\nMom loves having it clean.
 What’s in the fridge...?\rLots of drinking water and\nsweeeet lemonade!

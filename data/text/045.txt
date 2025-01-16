@@ -1,0 +1,60 @@
+Options
+Text Speed
+Battle Scene
+Battle Style
+Sound
+Button Mode
+Frame
+{ALN_CENTER}Confirm
+{ALN_CENTER}Quit
+Slow
+Mid
+Fast
+On
+Off
+Shift
+Set
+Stereo
+Mono
+Normal
+L=A
+Type 1
+Type 2
+Type 3
+Type 4
+Type 5
+Type 6
+Type 7
+Type 8
+Type 9
+Type 10
+Type 11
+Type 12
+Type 13
+Type 14
+Type 15
+Type 16
+Type 17
+Type 18
+Type 19
+Type 20
+Window Type 1
+Window Type 2
+Window Type 3
+Window Type 4
+Window Type 5
+Window Type 6
+Window Type 7
+Window Type 8
+Window Type 9
+Window Type 10
+Window Type 11
+Window Type 12
+Window Type 13
+Window Type 14
+Window Type 15
+Window Type 16
+Window Type 17
+Window Type 18
+Window Type 19
+Window Type 20

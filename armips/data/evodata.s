@@ -696,8 +696,8 @@ evodata SPECIES_MANKEY
     terminateevodata
 
 evodata SPECIES_PRIMEAPE
-    evolution EVO_NONE, 20, SPECIES_ANNIHILAPE // TODO: program rage fist counter in battle
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 20, SPECIES_ANNIHILAPE // TODO: program rage fist counter in battle
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -745,7 +745,7 @@ evodata SPECIES_POLIWAG
 
 evodata SPECIES_POLIWHIRL
     evolution EVO_STONE, ITEM_WATER_STONE, SPECIES_POLIWRATH
-    evolution EVO_TRADE_ITEM, ITEM_KINGS_ROCK, SPECIES_POLITOED
+    evolution EVO_STONE, ITEM_KINGS_ROCK, SPECIES_POLITOED
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -961,7 +961,7 @@ evodata SPECIES_RAPIDASH
 
 evodata SPECIES_SLOWPOKE
     evolution EVO_LEVEL, 37, SPECIES_SLOWBRO
-    evolution EVO_TRADE_ITEM, ITEM_KINGS_ROCK, SPECIES_SLOWKING
+    evolution EVO_STONE, ITEM_KINGS_ROCK, SPECIES_SLOWKING
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1152,7 +1152,7 @@ evodata SPECIES_GENGAR
     terminateevodata
 
 evodata SPECIES_ONIX
-    evolution EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_STEELIX
+    evolution EVO_STONE, ITEM_METAL_COAT, SPECIES_STEELIX
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1356,7 +1356,7 @@ evodata SPECIES_RHYHORN
     terminateevodata
 
 evodata SPECIES_RHYDON
-    evolution EVO_TRADE_ITEM, ITEM_PROTECTOR, SPECIES_RHYPERIOR
+    evolution EVO_STONE, ITEM_PROTECTOR, SPECIES_RHYPERIOR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1416,7 +1416,7 @@ evodata SPECIES_HORSEA
     terminateevodata
 
 evodata SPECIES_SEADRA
-    evolution EVO_TRADE_ITEM, ITEM_DRAGON_SCALE, SPECIES_KINGDRA
+    evolution EVO_STONE, ITEM_DRAGON_SCALE, SPECIES_KINGDRA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1488,7 +1488,7 @@ evodata SPECIES_MR_MIME
     terminateevodata
 
 evodata SPECIES_SCYTHER
-    evolution EVO_TRADE_ITEM, ITEM_METAL_COAT, SPECIES_SCIZOR
+    evolution EVO_STONE, ITEM_METAL_COAT, SPECIES_SCIZOR
     evolution EVO_STONE, ITEM_BLACK_AUGURITE, SPECIES_KLEAVOR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1512,7 +1512,7 @@ evodata SPECIES_JYNX
     terminateevodata
 
 evodata SPECIES_ELECTABUZZ
-    evolution EVO_TRADE_ITEM, ITEM_ELECTIRIZER, SPECIES_ELECTIVIRE
+    evolution EVO_STONE, ITEM_ELECTIRIZER, SPECIES_ELECTIVIRE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1524,7 +1524,7 @@ evodata SPECIES_ELECTABUZZ
     terminateevodata
 
 evodata SPECIES_MAGMAR
-    evolution EVO_TRADE_ITEM, ITEM_MAGMARIZER, SPECIES_MAGMORTAR
+    evolution EVO_STONE, ITEM_MAGMARIZER, SPECIES_MAGMORTAR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1613,9 +1613,9 @@ evodata SPECIES_EEVEE
     evolution EVO_STONE, ITEM_THUNDER_STONE, SPECIES_JOLTEON
     evolution EVO_STONE, ITEM_WATER_STONE, SPECIES_VAPOREON
     evolution EVO_STONE, ITEM_FIRE_STONE, SPECIES_FLAREON
-    evolution EVO_FRIENDSHIP_DAY, 0, SPECIES_ESPEON
-    evolution EVO_FRIENDSHIP_NIGHT, 0, SPECIES_UMBREON
-    evolution EVO_HAS_MOVE_TYPE, TYPE_FAIRY, SPECIES_SYLVEON
+    evolution EVO_STONE, ITEM_SUN_STONE, SPECIES_ESPEON
+    evolution EVO_STONE, ITEM_MOON_STONE, SPECIES_UMBREON
+    evolution EVO_STONE, ITEM_SHINY_STONE, SPECIES_SYLVEON
     evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
@@ -1656,7 +1656,7 @@ evodata SPECIES_FLAREON
     terminateevodata
 
 evodata SPECIES_PORYGON
-    evolution EVO_TRADE_ITEM, ITEM_UP_GRADE, SPECIES_PORYGON2
+    evolution EVO_STONE, ITEM_UP_GRADE, SPECIES_PORYGON2
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2448,8 +2448,8 @@ evodata SPECIES_WOBBUFFET
     terminateevodata
 
 evodata SPECIES_GIRAFARIG
-    evolution EVO_HAS_MOVE, MOVE_TWIN_BEAM, SPECIES_FARIGIRAF
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_HAS_MOVE, MOVE_TWIN_BEAM, SPECIES_FARIGIRAF
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2484,8 +2484,8 @@ evodata SPECIES_FORRETRESS
     terminateevodata
 
 evodata SPECIES_DUNSPARCE
-    evolution EVO_HAS_MOVE, MOVE_HYPER_DRILL, SPECIES_DUDUNSPARCE
     evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_HAS_MOVE, MOVE_HYPER_DRILL, SPECIES_DUDUNSPARCE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2496,7 +2496,7 @@ evodata SPECIES_DUNSPARCE
     terminateevodata
 
 evodata SPECIES_GLIGAR
-    evolution EVO_ITEM_NIGHT, ITEM_RAZOR_FANG, SPECIES_GLISCOR
+    evolution EVO_STONE, ITEM_RAZOR_FANG, SPECIES_GLISCOR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2592,7 +2592,7 @@ evodata SPECIES_HERACROSS
     terminateevodata
 
 evodata SPECIES_SNEASEL
-    evolution EVO_ITEM_NIGHT, ITEM_RAZOR_CLAW, SPECIES_WEAVILE
+    evolution EVO_STONE, ITEM_RAZOR_CLAW, SPECIES_WEAVILE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2616,7 +2616,7 @@ evodata SPECIES_TEDDIURSA
     terminateevodata
 
 evodata SPECIES_URSARING
-    evolution EVO_ITEM_NIGHT, ITEM_PEAT_BLOCK, SPECIES_URSALUNA
+    evolution EVO_STONE, ITEM_PEAT_BLOCK, SPECIES_URSALUNA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2808,7 +2808,7 @@ evodata SPECIES_DONPHAN
     terminateevodata
 
 evodata SPECIES_PORYGON2
-    evolution EVO_TRADE_ITEM, ITEM_DUBIOUS_DISC, SPECIES_PORYGON_Z
+    evolution EVO_STONE, ITEM_DUBIOUS_DISC, SPECIES_PORYGON_Z
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3384,8 +3384,8 @@ evodata SPECIES_RALTS
     terminateevodata
 
 evodata SPECIES_KIRLIA
-    evolution EVO_LEVEL, 30, SPECIES_GARDEVOIR
-    evolution EVO_STONE_MALE, ITEM_DAWN_STONE, SPECIES_GALLADE
+    evolution EVO_LEVEL_FEMALE, 30, SPECIES_GARDEVOIR
+    evolution EVO_LEVEL_MALE, 30, SPECIES_GALLADE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4201,7 +4201,7 @@ evodata SPECIES_ARMALDO
 
 evodata SPECIES_FEEBAS
     evolution EVO_BEAUTY, 170, SPECIES_MILOTIC
-    evolution EVO_TRADE_ITEM, ITEM_PRISM_SCALE, SPECIES_MILOTIC
+    evolution EVO_STONE, ITEM_PRISM_SCALE, SPECIES_MILOTIC
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4284,7 +4284,7 @@ evodata SPECIES_DUSKULL
     terminateevodata
 
 evodata SPECIES_DUSCLOPS
-    evolution EVO_TRADE_ITEM, ITEM_REAPER_CLOTH, SPECIES_DUSKNOIR
+    evolution EVO_STONE, ITEM_REAPER_CLOTH, SPECIES_DUSKNOIR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4344,8 +4344,8 @@ evodata SPECIES_WYNAUT
     terminateevodata
 
 evodata SPECIES_SNORUNT
-    evolution EVO_LEVEL, 42, SPECIES_GLALIE
-    evolution EVO_STONE_FEMALE, ITEM_DAWN_STONE, SPECIES_FROSLASS
+    evolution EVO_LEVEL_MALE, 42, SPECIES_GLALIE
+    evolution EVO_LEVEL_FEMALE, ITEM_DAWN_STONE, SPECIES_FROSLASS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4404,8 +4404,8 @@ evodata SPECIES_WALREIN
     terminateevodata
 
 evodata SPECIES_CLAMPERL
-    evolution EVO_TRADE_ITEM, ITEM_DEEP_SEA_TOOTH, SPECIES_HUNTAIL
-    evolution EVO_TRADE_ITEM, ITEM_DEEP_SEA_SCALE, SPECIES_GOREBYSS
+    evolution EVO_STONE, ITEM_DEEP_SEA_TOOTH, SPECIES_HUNTAIL
+    evolution EVO_STONE, ITEM_DEEP_SEA_SCALE, SPECIES_GOREBYSS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5292,7 +5292,7 @@ evodata SPECIES_MIMEJR
     terminateevodata
 
 evodata SPECIES_HAPPINY
-    evolution EVO_ITEM_DAY, ITEM_OVAL_STONE, SPECIES_CHANSEY
+    evolution EVO_STONE, ITEM_OVAL_STONE, SPECIES_CHANSEY
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -8116,7 +8116,7 @@ evodata SPECIES_PAWNIARD
     terminateevodata
 
 evodata SPECIES_BISHARP
-    evolution EVO_ITEM_NIGHT, ITEM_DUSK_STONE, SPECIES_KINGAMBIT // TODO: properly implement evolution with leaders crest
+    evolution EVO_STONE, ITEM_DUSK_STONE, SPECIES_KINGAMBIT // TODO: properly implement evolution with leaders crest
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -12607,7 +12607,7 @@ evodata SPECIES_BAXCALIBUR
 terminateevodata
 
 evodata SPECIES_GIMMIGHOUL
-    evolution EVO_ITEM_DAY, ITEM_AMULET_COIN, SPECIES_GHOLDENGO // TODO:  proper gimmighoul coins implementation
+    evolution EVO_STONE, ITEM_AMULET_COIN, SPECIES_GHOLDENGO // TODO:  proper gimmighoul coins implementation
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -15861,7 +15861,7 @@ evodata SPECIES_QWILFISH_HISUIAN
 terminateevodata
 
 evodata SPECIES_SNEASEL_HISUIAN
-    evolution EVO_ITEM_DAY, ITEM_RAZOR_CLAW, SPECIES_SNEASLER
+    evolution EVO_STONE, ITEM_RAZOR_CLAW, SPECIES_SNEASLER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

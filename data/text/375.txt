@@ -5,7 +5,7 @@ A Pokémon can use its moves as long\nas the moves still have PP.\rWhen a move h
 I’m not a Trainer.\rBut if you look one in the eyes,\nprepare to battle.
 Hey, kiddo!\rHow in the world can you be so\noblivious to my eye-catching house?\fHold it right there!\r
 When you follow that path up north,\nyou will see Mr. Pokémon’s house.\rBut before you go, let me finish what\nI have to say.\rDo you...have any Apricorns?\fApricorn trees bear fruit once a day.\fI have one of those trees, too!\rApricorns are really something.\nYou can make Poké Balls and\fother things.\rThey are quite useful.\rI have a feeling this is meant to be,\nbecause I have something for you!\r
-Go, Strawberry!\rTackle!\r
+Go, Strawberry!\rPeck!\r
 With that Apricorn Box, you can carry\nso many Apricorns.\rYou’ll be a decent Apricorn collector!\r
 Rt. 30\nSouth to Cherrygrove City
 Mr. Pokémon’s House\nStraight Ahead!

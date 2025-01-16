@@ -158,9 +158,9 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
         switch(sp->swhac_seq_no)
         {
         case SWHAC_RAGE_ATTACK_CHECK:
-            if ((sp->battlemon[sp->attack_client].condition2 & STATUS2_RAGE) && (sp->current_move_index != MOVE_RAGE))
+            //if ((sp->battlemon[sp->attack_client].condition2 & STATUS2_RAGE) && (sp->current_move_index != MOVE_RAGE))
             {
-                sp->battlemon[sp->attack_client].condition2 &= ~(STATUS2_RAGE);
+                //sp->battlemon[sp->attack_client].condition2 &= ~(STATUS2_RAGE);
             }
             sp->swhac_seq_no++;
 

@@ -1084,3 +1084,29 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
     sp->swoak_work = 0;
     sp->server_seq_no = 32;
 }
+
+BOOL LONG_CALL ServerIkariCheck(void*, struct BattleStruct *ctx) {
+    BOOL ret = FALSE;
+
+    if (ctx->defence_client == BATTLER_NONE) {
+        return ret;
+    }
+
+    if ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_RAGE)
+        && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)
+        && ctx->defence_client != ctx->attack_client
+        && ctx->battlemon[ctx->defence_client].hp != 0
+        && (ctx->oneSelfFlag[ctx->defence_client].physical_damage != 0 || ctx->oneSelfFlag[ctx->defence_client].special_damage != 0)
+        && ctx->battlemon[ctx->defence_client].states[STAT_ATTACK] < 12) {
+		ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
+		ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+		ctx->state_client = ctx->defence_client;
+		ctx->battlerIdTemp = ctx->defence_client;
+		LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
+		ctx->next_server_seq_no = ctx->server_seq_no;
+		ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+		ret = TRUE;
+    }
+
+    return ret;
+}

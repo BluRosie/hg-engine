@@ -1,0 +1,36 @@
+Pokédex
+Pokémon
+Bag
+{STRVAR_1 3, 0, 0}
+Save
+Options
+Exit
+
+Retire
+
+
+
+Menu
+
+Pokégear
+
+
+Talk
+Check
+Confirm
+
+Exit
+Fishing
+Next
+Back
+Confirm
+Quit
+{STRVAR_1 50, 0, 0}
+/
+Quit
+{STRVAR_13, 0, 0}
+{ALN_CENTER}x{STRVAR_1 51, 0, 0}
+Ball
+{ALN_CENTER}Lvl {STRVAR_1 52, 0, 0}
+Chat
+Log

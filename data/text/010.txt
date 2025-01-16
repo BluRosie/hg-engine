@@ -1,12 +1,12 @@
-USE
-TRASH
-REGISTER
-GIVE
+Use
+Trash
+Register
+Give
      
-CONFIRM
-WALK
+Confirm
+Walk
    
-CANCEL
+Cancel
    
    
      
@@ -14,9 +14,9 @@ CANCEL
    
     
     
-CHECK
+Check
   
-DESELECT
+Deselect
    
      
  
@@ -73,7 +73,7 @@ You used the\n{STRVAR_1 8, 1, 0}.\rWild Pokémon will be repelled.
                               
              
                        
-MOVE
+Move
 {STRVAR_1 8, 0, 0}? Oh, no.\nI can’t buy that.
 {STRVAR_1 8, 0, 0}? \nHow many will you sell?
 I can pay ${STRVAR_1 55, 0, 0}.\nWould that be OK?
@@ -84,13 +84,13 @@ ${STRVAR_1 55, 0, 0}
 +${STRVAR_1 55, 0, 0}
   
    
-SELL
+Sell
 x{STRVAR_1 52, 0, 0}
     
 PP
-POWER
-ACCURACY
-CATEGORY
+Power
+Accuracy
+Category
 {STRVAR_1 51, 0, 0}
 {STRVAR_1 52, 0, 0}
 Seals: {STRVAR_1 53, 0, 0}
@@ -99,7 +99,7 @@ Accessories: {STRVAR_1 52, 0, 0}\nBackdrops: {STRVAR_1 51, 1, 0}
    
    
 Saved Battle Points:\n{STRVAR_1 53, 0, 0} BP
-TYPE
+Type
 A Key Item in the Bag can be assigned\nto this button for instant use.
 You can only register up to two items\nto buttons!
 Turned on the power for\nGB Sounds!
@@ -126,4 +126,4 @@ Berry Pocket\nFor sorting and storing different\nBerries.
 Mail Pocket\nFor sorting and storing vibrant\nstationery.
 Battle Items Pocket\nFor items that are useful during battle.
 Key Items Pocket\nFor items that are indispensable for\nyour adventure.
-STOP
+Stop

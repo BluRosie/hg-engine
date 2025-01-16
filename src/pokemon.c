@@ -8,6 +8,7 @@
 #include "../include/rtc.h"
 #include "../include/save.h"
 #include "../include/script.h"
+#include "../include/msgdata.h"
 #include "../include/constants/ability.h"
 #include "../include/constants/file.h"
 #include "../include/constants/game.h"
@@ -44,27 +45,27 @@ void LONG_CALL CalcMonStats(struct PartyPokemon *mon) {
 	baseStats = (BASE_STATS *)sys_AllocMemory(0, sizeof(BASE_STATS));
 	LoadMonBaseStats_HandleAlternateForm(species, form, baseStats);
 
-	newMaxHp = (baseStats->hp * 15 + baseStats->hp * level) / 100;
+	newMaxHp = (baseStats->hp * 5 + baseStats->hp * level) / 50;
 	if (newMaxHp < 1) newMaxHp = 1;
 	SetMonData(mon, MON_DATA_MAXHP, &newMaxHp);
 
-	newAtk = (baseStats->atk * 15 + baseStats->atk * level) / 100;
+	newAtk = (baseStats->atk * 5 + baseStats->atk * level) / 50;
 	if (newAtk < 1) newAtk = 1;
 	SetMonData(mon, MON_DATA_ATTACK, &newAtk);
 
-	newDef = (baseStats->def * 15 + baseStats->def * level) / 100;
+	newDef = (baseStats->def * 5 + baseStats->def * level) / 50;
 	if (newDef < 1) newDef = 1;
 	SetMonData(mon, MON_DATA_DEFENSE, &newDef);
 
-	newSpeed = (baseStats->speed * 15 + baseStats->speed * level) / 100;
+	newSpeed = (baseStats->speed * 5 + baseStats->speed * level) / 50;
 	if (newSpeed < 1) newSpeed = 1;
 	SetMonData(mon, MON_DATA_SPEED, &newSpeed);
 
-	newSpatk = (baseStats->spatk * 15 + baseStats->spatk * level) / 100;
+	newSpatk = (baseStats->spatk * 5 + baseStats->spatk * level) / 50;
 	if (newSpatk < 1) newSpatk = 1;
 	SetMonData(mon, MON_DATA_SPECIAL_ATTACK, &newSpatk);
 
-	newSpdef = (baseStats->spdef * 15 + baseStats->spdef * level) / 100;
+	newSpdef = (baseStats->spdef * 5 + baseStats->spdef * level) / 50;
 	if (newSpdef < 1) newSpdef = 1;
 	SetMonData(mon, MON_DATA_SPECIAL_DEFENSE, &newSpdef);
 
@@ -2410,4 +2411,53 @@ const u8 sTrainerGenders[] = {
 
 TrainerGender LONG_CALL TT_TrainerTypeSexGet(int tr_type) {
     return (TrainerGender)sTrainerGenders[tr_type];
+}
+
+#define EVENT_SPIKY_EARED_PICHU     0
+#define EVENT_ARCEUS_HALL_OF_ORIGIN 1
+#define EVENT_ARCEUS_MOVIE_GIFT     2
+#define EVENT_CELEBI                3
+#define NUM_EVENTS 4
+
+BOOL ScrCmd_FollowerPokeIsEventTrigger(struct SCRIPTCONTEXT *ctx) {
+    u8 event = ScriptReadByte(ctx);
+    u16 r7 = ScriptGetVar(ctx);
+    u16 *r6 = ScriptGetVarPointer(ctx);
+    struct PartyPokemon *mon;
+    int species;
+
+    *r6 = 0;
+    mon = Party_GetMonByIndex(SaveData_GetPlayerPartyPtr(ctx->fsys->savedata), r7);
+
+    if (event >= NUM_EVENTS) {
+        return FALSE;
+    }
+    if (GetMonData(mon, MON_DATA_IS_EGG, NULL) || GetMonData(mon, MON_DATA_CHECKSUM_FAILED, NULL)) {
+        return FALSE;
+    }
+    /*if (!MonMetadataMatchesEvent(event, mon, GetMonData(mon, MON_DATA_OTID, NULL) == PlayerProfile_GetTrainerID(Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData)))) {
+        return FALSE;
+    }*/
+
+    species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    switch (event) {
+    case EVENT_SPIKY_EARED_PICHU:
+        if ((species == SPECIES_PICHU || species == SPECIES_PIKACHU || species == SPECIES_RAICHU) && MonIsShiny(mon)) {
+            *r6 = 1;
+        }
+        break;
+    case EVENT_ARCEUS_HALL_OF_ORIGIN:
+    case EVENT_ARCEUS_MOVIE_GIFT:
+        if (species == SPECIES_ARCEUS) {
+            *r6 = 1;
+        }
+        break;
+    case EVENT_CELEBI:
+        if (species == SPECIES_CELEBI) {
+            *r6 = 1;
+        }
+        break;
+    }
+
+    return FALSE;
 }

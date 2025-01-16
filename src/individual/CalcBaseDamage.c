@@ -145,6 +145,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     s8 spatkstate;
     s8 spdefstate;
     u8 level;
+	u8 levelDefender;
     u16 movepower;
     u16 item;
     u32 battle_type;
@@ -175,6 +176,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     spdefstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
 
     level = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_LEVEL, NULL);
+	levelDefender = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_LEVEL, NULL);
 
     AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
     DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
@@ -209,10 +211,10 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     if (((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE) && GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL) && sp->battlemon[defender].form_no == 0)
         return 0;
 
-    if (pow == 0)
-        movepower = sp->moveTbl[moveno].power;
+    if (pow)
+		movepower = 0;
     else
-        movepower = pow;
+		movepower = sp->moveTbl[moveno].power;
 
     // get the type
     movetype = GetAdjustedMoveType(sp, attacker, moveno);
@@ -236,11 +238,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     if ((AttackingMon.ability == ABILITY_HUGE_POWER) || (AttackingMon.ability == ABILITY_PURE_POWER))
         attack = attack * 2;
 
-    // handle slow start
-    if ((AttackingMon.ability == ABILITY_SLOW_START)
-     && ((BattleWorkMonDataGet(bw, sp, 3, 0) - BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SLOW_START_COUNTER, NULL)) < 5))
-        attack /= 2;
-
     // handle defeatist
     if ((AttackingMon.ability == ABILITY_DEFEATIST) && (AttackingMon.hp <= AttackingMon.maxhp / 2))
     {
@@ -260,21 +257,20 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         }
         if (i == 4)
         {
-            movepower = movepower * 130 / 100;
+            movepower = movepower * 13 / 10;
         }
-
     }
 
     // handle sheer force
     if (AttackingMon.ability == ABILITY_SHEER_FORCE && sp->battlemon[attacker].sheer_force_flag == 1)
     {
-        movepower = movepower * 130 / 100;
+        movepower = movepower * 13 / 10;
     }
 
 //    // handle punk rock TODO uncomment
 //    if (AttackingMon.ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(sp->current_move_index))
 //    {
-//        movepower = movepower * 130 / 100;
+//        movepower = movepower * 13 / 10;
 //        break;
 //    }
 
@@ -289,18 +285,18 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
     // handle choice band
     if (AttackingMon.item_held_effect == HOLD_EFFECT_CHOICE_ATK)
-        attack = attack * 150 / 100;
+        attack = attack * 15 / 10;
 
     // handle choice specs
     if (AttackingMon.item_held_effect == HOLD_EFFECT_CHOICE_SPATK)
-        sp_attack = sp_attack * 150 / 100;
+        sp_attack = sp_attack * 15 / 10;
 
     // handle soul dew - gen 7 changes it to just boost movepower if the type is dragon or psychic, no more defense boost
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_LATI_SPECIAL)
-     && ((AttackingMon.species == SPECIES_LATIOS) || (AttackingMon.species == SPECIES_LATIAS))
-     && (movetype == TYPE_DRAGON || movetype == TYPE_PSYCHIC))
+		&& ((AttackingMon.species == SPECIES_LATIOS) || (AttackingMon.species == SPECIES_LATIAS))
+		&& (movetype == TYPE_DRAGON || movetype == TYPE_PSYCHIC))
     {
-        movepower = movepower * 120 / 100; // 4915/4096
+        movepower = movepower * 12 / 10; // 4915/4096
     }
 
     // handle deep sea tooth
@@ -312,8 +308,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         sp_defense *= 2;
 
     // handle light ball
-    if ((AttackingMon.item_held_effect == HOLD_EFFECT_PIKA_SPATK_UP) && (AttackingMon.species == SPECIES_PIKACHU))
-        movepower *= 2;
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_PIKA_SPATK_UP) && (AttackingMon.species == SPECIES_PICHU || AttackingMon.species == SPECIES_PIKACHU || AttackingMon.species == SPECIES_RAICHU))
+        movepower = movepower * 15 / 10;
 
     // handle metal powder
     if ((DefendingMon.item_held_effect == HOLD_EFFECT_DITTO_DEF_UP) && (DefendingMon.species == SPECIES_DITTO))
@@ -321,18 +317,36 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     // handle gorilla tactics
     if (AttackingMon.ability == ABILITY_GORILLA_TACTICS) {
-        attack = attack * 150 / 100;
+        attack = attack * 15 / 10;
     }
 
     // handle assault vest
     if ((DefendingMon.item_held_effect == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES)) {
-        sp_defense = sp_defense * 150 / 100;
+        sp_defense = sp_defense * 15 / 10;
     }
 
     // handle eviolite
-    //if ((DefendingMon.item_held_effect == HOLD_EFFECT_EVIOLITE)
-    //    defense *= 2;
-    //    sp_defense *= 2;
+    if (DefendingMon.item_held_effect == HOLD_EFFECT_EVIOLITE) {
+		u16 speciesWithForm;
+		struct Evolution *evoTable;
+		
+		speciesWithForm = PokeOtherFormMonsNoGet(DefendingMon.species, sp->battlemon[defender].form_no);
+		evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
+
+        ArchiveDataLoad(evoTable, 34, speciesWithForm); // 34 is evo narc
+
+        // If a Pokémon has any evolutions, there should be a non EVO_NONE entry at the top
+        // A more thorough check would be to check all methods, but would take longer
+        // This should yield the same result if things are written correctly
+        if (evoTable[0].method != EVO_NONE) {
+			defense = defense * 15 / 10;
+			sp_defense = sp_defense * 15 / 10;
+		}
+	}
+	
+    // handle leek
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && ((AttackingMon.species == SPECIES_FARFETCHD) || (AttackingMon.species == SPECIES_SIRFETCHD)))
+        attack *= 2;
 
     // handle thick club
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_CUBONE_ATK_UP)
@@ -423,54 +437,54 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle hustle
     if (AttackingMon.ability == ABILITY_HUSTLE)
     {
-        attack = attack * 150 / 100;
+        attack = attack * 13 / 10;
     }
 
     // handle guts
     if ((AttackingMon.ability == ABILITY_GUTS) && (AttackingMon.condition))
     {
-        attack = attack * 150 / 100;
+        attack = attack * 15 / 10;
     }
 
     // handle toxic boost
     if ((AttackingMon.ability == ABILITY_TOXIC_BOOST) && ((AttackingMon.condition & STATUS_BAD_POISON) || (AttackingMon.condition & STATUS_POISON)))
     {
-        attack = attack * 150 / 100;
+        attack = attack * 15 / 10;
     }
 
     // handle flare boost
     if ((AttackingMon.ability == ABILITY_FLARE_BOOST) && ((AttackingMon.condition & STATUS_BURN)))
     {
-        sp_attack = sp_attack * 150 / 100;
+        sp_attack = sp_attack * 15 / 10;
     }
 
     // handle tough claws
     if ((AttackingMon.ability == ABILITY_TOUGH_CLAWS) && (IsContactBeingMade(bw, sp)))
     {
-        movepower = movepower * 130 / 100;
+        movepower = movepower * 13 / 10;
     }
 
     // handle fluffy
     if (DefendingMon.ability == ABILITY_FLUFFY) {
         if (IsContactBeingMade(bw, sp)) {
-            movepower = movepower * 50 / 100;
+            movepower /= 2;
         }
 
         if (movetype == TYPE_FIRE) {
-            movepower = movepower * 200 / 100;
+            movepower *= 2;
         }
     }
 
     // handle marvel scale
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MARVEL_SCALE) == TRUE) && (AttackingMon.condition))
     {
-        defense = defense * 150 / 100;
+        defense = defense * 15 / 10;
     }
 
     // handle grass pelt
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GRASS_PELT) == TRUE) && (sp->terrainOverlay.type == GRASSY_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0))
     {
-        defense = defense * 150 / 100;
+        defense = defense * 15 / 10;
     }
 
     // handle plus/minus
@@ -478,7 +492,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         (CheckSideAbility(bw, sp, CHECK_ABILITY_SAME_SIDE_HP, attacker, ABILITY_MINUS) ||
         CheckSideAbility(bw, sp, CHECK_ABILITY_SAME_SIDE_HP, attacker, ABILITY_PLUS)))
     {
-        sp_attack = sp_attack * 150 / 100;
+        sp_attack = sp_attack * 15 / 10;
     }
 
     // handle fur coat - double defense
@@ -501,22 +515,22 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle "in a pinch" type boosters
     if ((movetype == TYPE_GRASS) && (AttackingMon.ability == ABILITY_OVERGROW) && (AttackingMon.hp <= AttackingMon.maxhp * 10 / 30))
     {
-        movepower = movepower * 150 / 100;
+        movepower = movepower * 15 / 10;
     }
 
     if ((movetype == TYPE_FIRE) && (AttackingMon.ability == ABILITY_BLAZE) && (AttackingMon.hp <= AttackingMon.maxhp * 10 / 30))
     {
-        movepower = movepower * 150 / 100;
+        movepower = movepower * 15 / 10;
     }
 
     if ((movetype == TYPE_WATER) && (AttackingMon.ability == ABILITY_TORRENT) && (AttackingMon.hp <= AttackingMon.maxhp * 10 / 30))
     {
-        movepower = movepower * 150 / 100;
+        movepower = movepower * 15 / 10;
     }
 
     if ((movetype == TYPE_BUG) && (AttackingMon.ability == ABILITY_SWARM) && (AttackingMon.hp <= AttackingMon.maxhp * 10 / 30))
     {
-        movepower = movepower * 150 / 100;
+        movepower = movepower * 15 / 10;
     }
 
     // handle ice scales - halve damage if move is special, regardless of if it uses defense stat
@@ -528,103 +542,103 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle steelworker
     if (AttackingMon.ability == ABILITY_STEELWORKER && (movetype == TYPE_STEEL))
     {
-        movepower = movepower * 150 / 100;
+        movepower = movepower * 15 / 10;
     }
 
     // handle dragon's maw
     if (AttackingMon.ability == ABILITY_DRAGONS_MAW && (movetype == TYPE_DRAGON))
     {
-        movepower = movepower * 150 / 100;
+        movepower = movepower * 15 / 10;
     }
 
     // handle transistor
     if (AttackingMon.ability == ABILITY_TRANSISTOR && (movetype == TYPE_ELECTRIC))
     {
-        movepower = movepower * 130 / 100;
+        movepower = movepower * 15 / 10;
     }
 
     // handle rocky payload
     if (AttackingMon.ability == ABILITY_ROCKY_PAYLOAD && (movetype == TYPE_ROCK))
     {
-        movepower = movepower * 150 / 100;
+        movepower = movepower * 15 / 10;
     }
 
     // if dark aura is present but not aura break
     if ((movetype == TYPE_DARK) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DARK_AURA) != 0)
       && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AURA_BREAK) == 0))
-        movepower = movepower * 133 / 100;
+        movepower = movepower * 4 / 3;
 
     // if dark aura is present AND aura break
     else if ((movetype == TYPE_DARK) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DARK_AURA) != 0)
       && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AURA_BREAK) != 0))
-        movepower = movepower * 100 / 133;
+        movepower = movepower * 3 / 4;
 
 #if FAIRY_TYPE_IMPLEMENTED == 1
     // if FAIRY aura is present but not aura break
     if ((movetype == TYPE_FAIRY) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_FAIRY_AURA) != 0)
       && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AURA_BREAK) == 0))
-        movepower = movepower * 133 / 100;
+        movepower = movepower * 4 / 3;
 
     // if FAIRY aura is present AND aura break
     else if ((movetype == TYPE_FAIRY) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_FAIRY_AURA) != 0)
       && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AURA_BREAK) != 0))
-        movepower = movepower * 100 / 133;
+        movepower = movepower * 3 / 4;
 #endif
 
     // handle steely spirit for the ally
     if (movetype == TYPE_STEEL && GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_STEELY_SPIRIT)
     {
-        movepower = movepower * 150 / 100;
+        movepower = movepower * 15 / 10;
     }
 
     // handle steely spirit for the attacker--can stack
     if (movetype == TYPE_STEEL && AttackingMon.ability == ABILITY_STEELY_SPIRIT)
     {
-        movepower = movepower * 150 / 100;
+        movepower = movepower * 15 / 10;
     }
 
     // handle battery
     if (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_BATTERY)
     {
-        sp_attack = sp_attack * 130 / 100;
+        sp_attack = sp_attack * 13 / 10;
     }
 
     // handle power spot
     if (GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_POWER_SPOT)
     {
-        movepower = movepower * 130 / 100;
+        movepower = movepower * 13 / 10;
     }
 
     // handle friend guard
     if (GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_FRIEND_GUARD)
     {
-        movepower = movepower * 75 / 100;
+        movepower = movepower * 3 / 4;
     }
 
     if (MoveIsAffectedByNormalizeVariants(moveno)) {
         // handle aerilate - 20% boost if a normal type move was changed to a flying type move.  does not boost flying type moves themselves
         if (AttackingMon.ability == ABILITY_AERILATE && movetype == TYPE_FLYING && sp->moveTbl[moveno].type == TYPE_NORMAL) {
-            movepower = movepower * 120 / 100;
+            movepower = movepower * 12 / 10;
         }
 
         // handle pixilate - 20% boost if a normal type move was changed to a fairy type move.  does not boost fairy type moves themselves
         if (AttackingMon.ability == ABILITY_PIXILATE && movetype == TYPE_FAIRY && sp->moveTbl[moveno].type == TYPE_NORMAL) {
-            movepower = movepower * 120 / 100;
+            movepower = movepower * 12 / 10;
         }
 
         // handle galvanize - 20% boost if a normal type move was changed to an electric type move.  does not boost electric type moves themselves
         if (AttackingMon.ability == ABILITY_GALVANIZE && movetype == TYPE_ELECTRIC && sp->moveTbl[moveno].type == TYPE_NORMAL) {
-            movepower = movepower * 120 / 100;
+            movepower = movepower * 12 / 10;
         }
 
         // handle refrigerate - 20% boost if a normal type move was changed to an ice type move.  does not boost ice type moves themselves
         if (AttackingMon.ability == ABILITY_REFRIGERATE && movetype == TYPE_ICE && sp->moveTbl[moveno].type == TYPE_NORMAL) {
-            movepower = movepower * 120 / 100;
+            movepower = movepower * 12 / 10;
         }
 
         // handle normalize - 20% boost if a normal type move is used (and it changes types to normal too)
         if (AttackingMon.ability == ABILITY_NORMALIZE && movetype == TYPE_NORMAL) {
-            movepower = movepower * 120 / 100;
+            movepower = movepower * 12 / 10;
         }
     }
 
@@ -636,7 +650,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     if ((movetype == TYPE_FIRE) && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE))
     {
-        movepower = movepower * 125 / 100;
+        movepower *= 2;
     }
 
     // handle simple
@@ -705,21 +719,18 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     // handle rivalry
     if ((AttackingMon.ability == ABILITY_RIVALRY) &&
-        (AttackingMon.sex == DefendingMon.sex) && (AttackingMon.sex != POKEMON_GENDER_UNKNOWN) && (DefendingMon.sex != POKEMON_GENDER_UNKNOWN))
+        (AttackingMon.type1 == DefendingMon.type1 ||
+		AttackingMon.type1 == DefendingMon.type2 ||
+		AttackingMon.type2 == DefendingMon.type1 ||
+		AttackingMon.type2 == DefendingMon.type2))
     {
-        movepower = movepower * 125 / 100;
-    }
-
-    if ((AttackingMon.ability == ABILITY_RIVALRY) &&
-        (AttackingMon.sex != DefendingMon.sex) && (AttackingMon.sex != POKEMON_GENDER_UNKNOWN) && (DefendingMon.sex != POKEMON_GENDER_UNKNOWN))
-    {
-        movepower = movepower * 75 / 100;
+        movepower = movepower * 15 / 10;
     }
 
     // handle iron fist
     if ((AttackingMon.ability == ABILITY_IRON_FIST) && IsElementInArray(PunchingMovesTable, (u16 *)&moveno, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0])))
     {
-        movepower = movepower * 12 / 10;
+        movepower = movepower * 15 / 10;
     }
 
     // handle strong jaw
@@ -743,25 +754,25 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle water bubble
     if ((AttackingMon.ability == ABILITY_WATER_BUBBLE) && (movetype == TYPE_WATER))
     {
-        movepower = movepower * 2;
+        movepower = movepower * 15 / 10;
     }
 
     // handle ruin abilities
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_VESSEL_OF_RUIN))
       && (DefendingMon.ability != ABILITY_VESSEL_OF_RUIN))
-        sp_attack = sp_attack * 75 / 100;
+        sp_attack = sp_attack * 3 / 4;
 
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_SWORD_OF_RUIN))
       && (DefendingMon.ability != ABILITY_SWORD_OF_RUIN))
-        defense = defense * 75 / 100;
+        defense = defense * 3 / 4;
 
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_TABLETS_OF_RUIN))
       && (DefendingMon.ability != ABILITY_TABLETS_OF_RUIN))
-        attack = attack * 75 / 100;
+        attack = attack * 3 / 4;
 
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_BEADS_OF_RUIN))
       && (DefendingMon.ability != ABILITY_BEADS_OF_RUIN))
-        sp_defense = sp_defense * 75 / 100;
+        sp_defense = sp_defense * 3 / 4;
 
     // handle field effects interacting with their moves
     if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
@@ -769,7 +780,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         {
         case ELECTRIC_TERRAIN:
             if (IsClientGrounded(sp, defender) && moveno == MOVE_RISING_VOLTAGE) {
-                movepower = movepower * 2;
+                movepower = movepower * 15 / 10;
             }
             break;
         case MISTY_TERRAIN:
@@ -815,12 +826,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             (CheckSideAbility(bw, sp, CHECK_ABILITY_SAME_SIDE_HP, attacker, ABILITY_FLOWER_GIFT)))
         {
             attack = attack * 15 / 10;
-        }
-        if ((field_cond & WEATHER_SUNNY_ANY) &&
-            (AttackingMon.ability != ABILITY_MOLD_BREAKER) &&
-            (CheckSideAbility(bw, sp, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_FLOWER_GIFT)))
-        {
-            sp_defense = sp_defense * 15 / 10;
+			sp_attack = sp_attack * 15 / 10;
         }
     }
 
@@ -832,11 +838,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     //if (sp->moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
     //    defense = defense / 2;
 
-    damage = equivalentAttack * movepower;
-    damage *= (level * 2 / 5 + 2);
-
-    damage = damage / equivalentDefense;
-    damage /= 50;
+    damage = equivalentAttack * movepower * (level + levelDefender);
+    damage = damage / (equivalentDefense * 250);
 
     // handle parental bond
     if (sp->oneTurnFlag[attacker].parental_bond_flag == 2) {
@@ -954,7 +957,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
          && field_cond & WEATHER_SANDSTORM_ANY
          && (movetype == TYPE_GROUND || movetype == TYPE_ROCK || movetype == TYPE_STEEL))
         {
-            damage = damage * 130 / 100;
+            damage = damage * 13 / 10;
         }
     }
 
@@ -1000,31 +1003,31 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         {
         case GRASSY_TERRAIN:
             if (IsClientGrounded(sp, attacker) && movetype == TYPE_GRASS) {
-                damage = damage * 130 / 100;
-            }
-            if (moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE || moveno == MOVE_BULLDOZE) {
-                damage /= 2;
+                damage = damage * 13 / 10;
             }
             break;
         case ELECTRIC_TERRAIN:
             if (IsClientGrounded(sp, attacker) && movetype == TYPE_ELECTRIC) {
-                damage = damage * 130 / 100;
+                damage = damage * 13 / 10;
             }
             break;
         case MISTY_TERRAIN:
-            if (IsClientGrounded(sp, defender) && movetype == TYPE_DRAGON) {
-                damage /= 2;
+            if (IsClientGrounded(sp, attacker) && movetype == TYPE_FAIRY) {
+                damage = damage * 13 / 10;
             }
             break;
         case PSYCHIC_TERRAIN:
             if (IsClientGrounded(sp, attacker) && movetype == TYPE_PSYCHIC) {
-                damage = damage * 130 / 100;
+                damage = damage * 13 / 10;
             }
             break;
         default:
             break;
         }
     }
+	
+	if (!damage)
+		return 1;
 
-    return damage + 2;
+    return damage;
 }
