@@ -50,11 +50,20 @@ CC = $(DEVKITARM)/$(PREFIX)gcc
 LD = $(DEVKITARM)/$(PREFIX)ld
 OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
 endif
-VENV = .venv
-VENV_ACTIVATE = $(VENV)/bin/activate
 PYTHON_NO_VENV = python3
-PYTHON = source $(VENV_ACTIVATE); $(PYTHON_NO_VENV)
+VENV = .venv
+PYTHON_VENV_VERSION := $(shell $(PYTHON_NO_VENV) -m ensurepip 2>&1 | grep -i -q 'No module named'; echo $$?)
+
+ifneq ($(PYTHON_VENV_VERSION), 0)
+# we can use a virtual environment because ensurepip is packaged with the python install
+VENV_ACTIVATE = $(VENV)/bin/activate
+PYTHON = . $(VENV_ACTIVATE); $(PYTHON_NO_VENV)
 REQUIREMENTS = requirements.txt
+else
+# there is no need to use a virtual environment because python does not have the requirements installed
+PYTHON = $(PYTHON_NO_VENV)
+VENV_ACTIVATE = 
+endif
 
 .PHONY: clean all
 
@@ -66,13 +75,16 @@ endif
 
 default: all
 
-# venv things
+ifneq ($(PYTHON_VENV_VERSION), 0)
+# only set up venv if we need to
 venv: $(VENV_ACTIVATE)
 
 # divorce this python3 from venv so that it works
 $(VENV_ACTIVATE):
 	$(PYTHON_NO_VENV) -m venv $(VENV)
-	. $(VENV_ACTIVATE); $(PYTHON) -m pip install -r $(REQUIREMENTS)
+	$(PYTHON) -m pip install -r $(REQUIREMENTS)
+
+endif
 
 ####################### Tools #######################
 ADPCMXQ := tools/adpcm-xq

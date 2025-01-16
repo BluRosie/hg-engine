@@ -37,7 +37,7 @@
 
 ## Setup Instructions (Linux with apt)
 1. In a Terminal window, run the following commands:
-    * ```sudo apt-get install libpng-dev build-essential cmake python3-pip git automake autoconf gcc-arm-none-eabi```
+    * ```sudo apt-get install libpng-dev build-essential cmake python3-pip python3-venv git automake autoconf gcc-arm-none-eabi```
 2. On distros where `mono` is not preinstalled (Ubuntu-based ones come to mind), install it with `sudo apt-get install mono-devel`
 3. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
@@ -64,7 +64,7 @@
 4. In WSL, type in ```sudo apt update```, and after it finishes processing, type in ```sudo apt upgrade```. This will take quite a while, so find something else to do in the meantime. These two commands together will update all of the packages that came pre-installed with Ubuntu.
     * At some point during the process, you'll be asked to confirm whether you want WSL to restart automatically during package updates. We'll select "Yes" and press Enter. The process will then proceed.
 5. In WSL, run the following commands:
-    * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip cmake automake autoconf mono-devel gcc-arm-none-eabi```
+    * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip python3-venv cmake automake autoconf mono-devel gcc-arm-none-eabi```
         * You will be asked to confirm the installation, so press "y" followed by Enter to do so.
 6. Once the last process has finished, continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
