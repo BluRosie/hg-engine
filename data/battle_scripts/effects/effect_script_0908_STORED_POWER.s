@@ -3,8 +3,7 @@
 .data
 
 _000:
-	UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_ATTACKER
-    CalcPunishmentPower 
+	CalcStoredPowerPower
     CalcCrit 
     CalcDamage 
     End 

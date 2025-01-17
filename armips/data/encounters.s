@@ -10,8 +10,8 @@
 
 encounterdata   0   // New Bark Town
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -114,7 +114,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata   1   // Route 29
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -216,8 +216,8 @@ pokemon SPECIES_NONE
 
 encounterdata   2   // Cherrygrove City
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -320,7 +320,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata   3   // Route 30
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -423,7 +423,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata   4   // Route 31
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -525,8 +525,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata   5   // Violet City
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -629,7 +629,7 @@ pokemon SPECIES_WHISCASH
 encounterdata   6   // Sprout Tower 2F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -732,7 +732,7 @@ pokemon SPECIES_NONE
 encounterdata   7   // Sprout Tower 3F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -835,7 +835,7 @@ pokemon SPECIES_NONE
 encounterdata   8   // Route 32
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -938,7 +938,7 @@ pokemon SPECIES_QWILFISH
 encounterdata   9   // Ruins of Alph (Outside)
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 20
 oldrodrate 25
 goodrodrate 50
@@ -1041,7 +1041,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  10   // Ruins of Alph (Inside, Main Room)
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -1144,7 +1144,7 @@ pokemon SPECIES_NONE
 encounterdata  11   // Ruins of Alph (Inside, Main Room - Not sure when used?)
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -1247,7 +1247,7 @@ pokemon SPECIES_NONE
 encounterdata  12   // Ruins of Alph (Inside, Main Room - Not sure when used?)
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -1350,7 +1350,7 @@ pokemon SPECIES_NONE
 encounterdata  13   // Ruins of Alph (Inside, Ladder Room - This has no encounter tile permissions though)
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -1453,7 +1453,7 @@ pokemon SPECIES_NONE
 encounterdata  14   // Union Cave 1F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -1556,7 +1556,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  15   // Union Cave B1F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -1659,7 +1659,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  16   // Union Cave B2F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -1762,7 +1762,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  17   // Route 33
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -1865,7 +1865,7 @@ pokemon SPECIES_NONE
 encounterdata  18   // Slowpoke Well 1F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -1968,7 +1968,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  19   // Slowpoke Well B2F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -2071,7 +2071,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  20   // Ilex Forest
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -2174,7 +2174,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  21   // Route 34
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -2277,7 +2277,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  22   // Route 35
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -2380,7 +2380,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  23   // National Park
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -2483,7 +2483,7 @@ pokemon SPECIES_NONE
 encounterdata  24   // National Park (Bug Catching Contest - Not Normally Used)
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -2586,7 +2586,7 @@ pokemon SPECIES_NONE
 encounterdata  25   // Route 36
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -2689,7 +2689,7 @@ pokemon SPECIES_NONE
 encounterdata  26   // Route 37
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -2791,8 +2791,8 @@ pokemon SPECIES_NONE
 
 encounterdata  27   // Ecruteak City
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -2895,7 +2895,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  28   // Burned Tower 1F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -2998,7 +2998,7 @@ pokemon SPECIES_NONE
 encounterdata  29   // Burned Tower B1F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -3101,7 +3101,7 @@ pokemon SPECIES_NONE
 encounterdata  30   // Bell Tower 2F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -3204,7 +3204,7 @@ pokemon SPECIES_NONE
 encounterdata  31   // Bell Tower 3F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -3307,7 +3307,7 @@ pokemon SPECIES_NONE
 encounterdata  32   // Bell Tower 4F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -3410,7 +3410,7 @@ pokemon SPECIES_NONE
 encounterdata  33   // Bell Tower 5F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -3513,7 +3513,7 @@ pokemon SPECIES_NONE
 encounterdata  34   // Bell Tower 6F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -3616,7 +3616,7 @@ pokemon SPECIES_NONE
 encounterdata  35   // Bell Tower 7F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -3719,7 +3719,7 @@ pokemon SPECIES_NONE
 encounterdata  36   // Bell Tower 8F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -3822,7 +3822,7 @@ pokemon SPECIES_NONE
 encounterdata  37   // Bell Tower 9F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -3925,7 +3925,7 @@ pokemon SPECIES_NONE
 encounterdata  38   // Route 38
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -4028,7 +4028,7 @@ pokemon SPECIES_NONE
 encounterdata  39   // Route 39
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -4130,8 +4130,8 @@ pokemon SPECIES_NONE
 
 encounterdata  40   // Olivine City
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -4233,8 +4233,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  41   // Route 40
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -4336,8 +4336,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  42   // Route 41
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -4440,7 +4440,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  43   // Whirl Islands 1F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -4543,7 +4543,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  44   // Whirl Islands B1F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -4645,8 +4645,8 @@ pokemon SPECIES_NONE
 
 encounterdata  45   // ???
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -4749,7 +4749,7 @@ pokemon SPECIES_NONE
 encounterdata  46   // Whirl Islands B2F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -4851,8 +4851,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  47   // ???
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -4955,7 +4955,7 @@ pokemon SPECIES_NONE
 encounterdata  48   // Whirl Islands B3F (Ledge overlooking Lugia room)
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -5057,8 +5057,8 @@ pokemon SPECIES_NONE
 
 encounterdata  49   // ???
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -5160,8 +5160,8 @@ pokemon SPECIES_NONE
 
 encounterdata  50   // ???
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -5263,8 +5263,8 @@ pokemon SPECIES_NONE
 
 encounterdata  51   // Cianwood City
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 30
 oldrodrate 25
 goodrodrate 50
@@ -5367,7 +5367,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  52   // Route 42
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -5470,7 +5470,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  53   // Mt. Mortar (Waterfall room)
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -5573,7 +5573,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  54   // Mt. Mortar (Central room)
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -5676,7 +5676,7 @@ pokemon SPECIES_NONE
 encounterdata  55   // Mt. Mortar (Room above waterfall)
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -5779,7 +5779,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  56   // Mt. Mortar B1F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -5882,7 +5882,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  57   // Route 43
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -5984,8 +5984,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  58   // Lake of Rage
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -6088,7 +6088,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  59   // Route 44
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -6191,7 +6191,7 @@ pokemon SPECIES_REMORAID
 encounterdata  60   // Ice Path 1F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -6200,45 +6200,45 @@ walklevels 21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22
 
 // morning encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // day encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // night encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // hoenn encounter slots
 pokemon SPECIES_SNORUNT
@@ -6294,7 +6294,7 @@ pokemon SPECIES_NONE
 encounterdata  61   // Ice Path B1F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -6303,45 +6303,45 @@ walklevels 21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22
 
 // morning encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // day encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // night encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // hoenn encounter slots
 pokemon SPECIES_SNORUNT
@@ -6397,7 +6397,7 @@ pokemon SPECIES_NONE
 encounterdata  62   // Ice Path B2F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -6406,45 +6406,45 @@ walklevels 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
 
 // morning encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // day encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // night encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // hoenn encounter slots
 pokemon SPECIES_SNORUNT
@@ -6500,7 +6500,7 @@ pokemon SPECIES_NONE
 encounterdata  63   // Ice Path B3F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -6509,45 +6509,45 @@ walklevels 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
 
 // morning encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // day encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // night encounter slots
 pokemon SPECIES_SWINUB
-pokemon SPECIES_SNORUNT
+pokemon SPECIES_GOLBAT
+pokemon SPECIES_SWINUB
+pokemon SPECIES_GOLBAT
 pokemon SPECIES_DELIBIRD
 pokemon SPECIES_DELIBIRD
+pokemon SPECIES_SWINUB
+pokemon SPECIES_SWINUB
 pokemon SPECIES_JYNX
 pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_JYNX
+pokemon SPECIES_JYNX
 
 // hoenn encounter slots
 pokemon SPECIES_SNORUNT
@@ -6602,8 +6602,8 @@ pokemon SPECIES_NONE
 
 encounterdata  64   // ???
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -6705,8 +6705,8 @@ pokemon SPECIES_NONE
 
 encounterdata  65   // Blackthorn City
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -6789,11 +6789,11 @@ encounter SPECIES_DRATINI, 20, 20
 encounter SPECIES_DRATINI, 20, 20
 
 // super rod encounters
-encounter SPECIES_DRAGONAIR, 40, 40
-encounter SPECIES_DRAGONAIR, 40, 40
-encounter SPECIES_DRAGONAIR, 40, 40
-encounter SPECIES_DRAGONAIR, 40, 40
-encounter SPECIES_DRAGONAIR, 40, 40
+encounter SPECIES_DRATINI, 40, 40
+encounter SPECIES_DRATINI, 40, 40
+encounter SPECIES_DRATINI, 40, 40
+encounter SPECIES_DRATINI, 40, 40
+encounter SPECIES_DRATINI, 40, 40
 
 // swarm grass
 pokemon SPECIES_NONE
@@ -6808,31 +6808,31 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  66   // Dragons Den
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 15, 23, 23, 23, 24, 24, 20, 20, 25, 27, 25, 27
+walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
-pokemon SPECIES_CHARMANDER
-pokemon SPECIES_TRAPINCH
-pokemon SPECIES_GIBLE
-pokemon SPECIES_GIBLE
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
-pokemon SPECIES_BAGON
-pokemon SPECIES_BAGON
-pokemon SPECIES_BAGON
-pokemon SPECIES_BAGON
-pokemon SPECIES_BAGON
-pokemon SPECIES_BAGON
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // day encounter slots
-pokemon SPECIES_CHARMANDER
-pokemon SPECIES_TRAPINCH
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -6845,8 +6845,8 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 // night encounter slots
-pokemon SPECIES_CHARMANDER
-pokemon SPECIES_TRAPINCH
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
@@ -6867,11 +6867,11 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 // surf encounters
-encounter SPECIES_DRATINI, 20, 29
-encounter SPECIES_DRAGONAIR, 30, 39
-encounter SPECIES_HORSEA, 20, 31
-encounter SPECIES_SEADRA, 32, 39
-encounter SPECIES_KINGDRA, 40, 40
+encounter SPECIES_DRATINI, 20, 20
+encounter SPECIES_DRATINI, 20, 20
+encounter SPECIES_DRATINI, 20, 20
+encounter SPECIES_DRATINI, 20, 20
+encounter SPECIES_DRATINI, 20, 20
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
@@ -6880,23 +6880,23 @@ encounter SPECIES_NONE, 0, 0
 // old rod encounters
 encounter SPECIES_DRATINI, 10, 10
 encounter SPECIES_DRATINI, 10, 10
-encounter SPECIES_HORSEA, 10, 10
-encounter SPECIES_HORSEA, 10, 10
-encounter SPECIES_HORSEA, 10, 10
+encounter SPECIES_DRATINI, 10, 10
+encounter SPECIES_DRATINI, 10, 10
+encounter SPECIES_DRATINI, 10, 10
 
 // good rod encounters
 encounter SPECIES_DRATINI, 20, 20
 encounter SPECIES_DRATINI, 20, 20
-encounter SPECIES_HORSEA, 20, 20
-encounter SPECIES_HORSEA, 20, 20
-encounter SPECIES_HORSEA, 20, 20
+encounter SPECIES_DRATINI, 20, 20
+encounter SPECIES_DRATINI, 20, 20
+encounter SPECIES_DRATINI, 20, 20
 
 // super rod encounters
-encounter SPECIES_DRAGONAIR, 40, 40
-encounter SPECIES_DRAGONAIR, 40, 40
-encounter SPECIES_KINGDRA, 40, 40
-encounter SPECIES_KINGDRA, 40, 40
-encounter SPECIES_KINGDRA, 40, 40
+encounter SPECIES_DRATINI, 40, 40
+encounter SPECIES_DRATINI, 40, 40
+encounter SPECIES_DRATINI, 40, 40
+encounter SPECIES_DRATINI, 40, 40
+encounter SPECIES_DRATINI, 40, 40
 
 // swarm grass
 pokemon SPECIES_NONE
@@ -6912,7 +6912,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  67   // Route 45
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -7015,7 +7015,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  68   // Route 46
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -7118,7 +7118,7 @@ pokemon SPECIES_NONE
 encounterdata  69   // Dark Cave (Route 31 entrance)
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 50
 oldrodrate 25
 goodrodrate 50
@@ -7221,7 +7221,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  70   // Dark Cave (Route 45 entrance)
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -7324,7 +7324,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  71   // Route 47
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -7426,8 +7426,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  72   // Mt. Moon (Outside area)
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -7529,8 +7529,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  73   // Mt. Moon (Outside area when Clefairy are active)
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -7633,7 +7633,7 @@ pokemon SPECIES_POLIWAG
 encounterdata  74   // Seafoam Islands 1F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -7736,7 +7736,7 @@ pokemon SPECIES_NONE
 encounterdata  75   // Seafoam Islands B1F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -7839,7 +7839,7 @@ pokemon SPECIES_NONE
 encounterdata  76   // Seafoam Islands B2F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -7942,7 +7942,7 @@ pokemon SPECIES_NONE
 encounterdata  77   // Seafoam Islands B3F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -8045,7 +8045,7 @@ pokemon SPECIES_NONE
 encounterdata  78   // Seafoam Islands B4F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -8148,7 +8148,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  79   // Mt. Silver (Moltres room)
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -8251,7 +8251,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  80   // Mt. Silver 3F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -8354,7 +8354,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  81   // Mt. Silver 4F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -8456,8 +8456,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  82   // Cliff Edge Gate
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -8560,7 +8560,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  83   // Cliff Cave
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 30
 oldrodrate 0
 goodrodrate 0
@@ -8663,7 +8663,7 @@ pokemon SPECIES_NONE
 encounterdata  84   // Bell Tower 10F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -8766,7 +8766,7 @@ pokemon SPECIES_NONE
 encounterdata  85   // Mt. Silver (Outside area with Pokemon Center)
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -8869,7 +8869,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  86   // Mt. Silver 1F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -8972,7 +8972,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata  87   // Mt. Silver (Mountainside)
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -9075,7 +9075,7 @@ pokemon SPECIES_NONE
 encounterdata  88   // Mt. Silver (Expert Belt room)
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -9178,7 +9178,7 @@ pokemon SPECIES_NONE
 encounterdata  89   // Mt. Silver (Top, snowy area)
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -9280,8 +9280,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  90   // ???
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -9384,7 +9384,7 @@ pokemon SPECIES_NONE
 encounterdata  91   // Safari Zone (Placeholder, not used)
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 100
 goodrodrate 100
@@ -9486,8 +9486,8 @@ pokemon SPECIES_GOLDEEN
 
 encounterdata  92   // Route 12
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -9589,8 +9589,8 @@ pokemon SPECIES_RELICANTH
 
 encounterdata  93   // Route 19
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 30
 oldrodrate 25
 goodrodrate 50
@@ -9692,8 +9692,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  94   // Route 20
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -9795,8 +9795,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  95   // Pallet Town
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -9898,8 +9898,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  96   // Viridian City
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -10001,8 +10001,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  97   // Cerulean City
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -10104,8 +10104,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  98   // Vermilion City
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 40
 oldrodrate 25
 goodrodrate 50
@@ -10207,8 +10207,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  99   // Celadon City
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -10310,8 +10310,8 @@ pokemon SPECIES_NONE
 
 encounterdata 100   // Fuchsia City
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -10413,8 +10413,8 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata 101   // Cinnabar Island
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -10517,7 +10517,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 102   // Route 48
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -10620,7 +10620,7 @@ pokemon SPECIES_NONE
 encounterdata 103   // Route 26
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -10723,7 +10723,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 104   // Route 27
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -10826,7 +10826,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 105   // Route 28
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -10929,7 +10929,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 106   // Mt. Moon 1F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -11032,7 +11032,7 @@ pokemon SPECIES_NONE
 encounterdata 107   // Mt. Moon 2F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -11135,7 +11135,7 @@ pokemon SPECIES_NONE
 encounterdata 108   // Rock Tunnel 1F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -11238,7 +11238,7 @@ pokemon SPECIES_NONE
 encounterdata 109   // Rock Tunnel B1F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 20
 oldrodrate 0
 goodrodrate 0
@@ -11341,7 +11341,7 @@ pokemon SPECIES_NONE
 encounterdata 110   // Victory Road 1F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -11444,7 +11444,7 @@ pokemon SPECIES_NONE
 encounterdata 111   // Route 1
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -11547,7 +11547,7 @@ pokemon SPECIES_NONE
 encounterdata 112   // Route 2 (South, below Viridian Forest)
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -11650,7 +11650,7 @@ pokemon SPECIES_NONE
 encounterdata 113   // Route 3
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -11753,7 +11753,7 @@ pokemon SPECIES_NONE
 encounterdata 114   // Route 4
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -11856,7 +11856,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 115   // Route 5
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -11959,7 +11959,7 @@ pokemon SPECIES_NONE
 encounterdata 116   // Route 6
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -12062,7 +12062,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 117   // Route 7
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -12165,7 +12165,7 @@ pokemon SPECIES_NONE
 encounterdata 118   // Route 8
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -12268,7 +12268,7 @@ pokemon SPECIES_NONE
 encounterdata 119   // Route 9
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -12371,7 +12371,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 120   // Route 10
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -12474,7 +12474,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 121   // Route 11
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -12577,7 +12577,7 @@ pokemon SPECIES_NONE
 encounterdata 122   // Route 13
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -12680,7 +12680,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 123   // Route 14
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -12783,7 +12783,7 @@ pokemon SPECIES_NONE
 encounterdata 124   // Route 15
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -12886,7 +12886,7 @@ pokemon SPECIES_NONE
 encounterdata 125   // Route 16
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -12989,7 +12989,7 @@ pokemon SPECIES_NONE
 encounterdata 126   // Route 17
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -13092,7 +13092,7 @@ pokemon SPECIES_NONE
 encounterdata 127   // Route 18
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -13195,7 +13195,7 @@ pokemon SPECIES_NONE
 encounterdata 128   // Route 21
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -13298,7 +13298,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 129   // Route 22
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -13401,7 +13401,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 130   // Route 24
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -13504,7 +13504,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 131   // Route 25
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -13607,7 +13607,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 132   // Tohjo Falls
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -13710,7 +13710,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 133   // Digletts Cave
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -13813,7 +13813,7 @@ pokemon SPECIES_NONE
 encounterdata 134   // Victory Road 2F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -13916,7 +13916,7 @@ pokemon SPECIES_NONE
 encounterdata 135   // Victory Road 3F
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 40
 oldrodrate 0
 goodrodrate 0
@@ -14019,7 +14019,7 @@ pokemon SPECIES_NONE
 encounterdata 136   // Route 2 (North, above Viridian Forest)
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -14122,7 +14122,7 @@ pokemon SPECIES_NONE
 encounterdata 137   // Viridian Forest
 
 walkrate 5
-walkrate 5
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -14224,8 +14224,8 @@ pokemon SPECIES_NONE
 
 encounterdata 138   // ???
 
-walkrate 5
-walkrate 5
+walkrate 0
+surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
@@ -14328,7 +14328,7 @@ pokemon SPECIES_NONE
 encounterdata 139   // Cerulean Cave 1F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 5
 oldrodrate 25
 goodrodrate 50
@@ -14431,7 +14431,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 140   // Cerulean Cave B1F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
@@ -14534,7 +14534,7 @@ pokemon SPECIES_MAGIKARP
 encounterdata 141   // Cerulean Cave B2F
 
 walkrate 5
-walkrate 5
+surfrate 5
 rocksmashrate 5
 oldrodrate 25
 goodrodrate 50

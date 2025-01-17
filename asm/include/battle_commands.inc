@@ -1398,5 +1398,9 @@
     .long (((\arg_1 - .) / 4) - 2)
     .long (((\arg_2 - .) / 4) - 1)
     .endm
+	
+    .macro CalcStoredPowerPower
+    .long 256
+    .endm
 
 .endif

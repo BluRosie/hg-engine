@@ -10968,7 +10968,7 @@ movedata MOVE_POWER_TRIP, "Power Trip"
     appeal 0x00
     contesttype 0x00
     terminatedata
-    movedescription MOVE_POWER_TRIP, "The user attacks\nwith an exaggerated swagger\nthat grows with\neach raised stat."
+    movedescription MOVE_POWER_TRIP, "The user attacks with\nan exaggerated\nswagger that grows\nwith each raised stat."
 
 movedata MOVE_BURN_UP, "Burn Up" //Unimplemented
     battleeffect MOVE_EFFECT_HIT

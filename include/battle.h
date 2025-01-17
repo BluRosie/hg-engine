@@ -11,27 +11,27 @@
 
 #define CLIENT_MAX 4
 
-#define TYPE_NORMAL   0x00
-#define TYPE_FIGHTING 0x01
-#define TYPE_FLYING   0x02
-#define TYPE_POISON   0x03
-#define TYPE_GROUND   0x04
-#define TYPE_ROCK     0x05
-#define TYPE_BUG      0x06
-#define TYPE_GHOST    0x07
-#define TYPE_STEEL    0x08
-#define TYPE_MYSTERY  0x09
-#define TYPE_FAIRY    0x09
-#define TYPE_FIRE     0x0a
-#define TYPE_WATER    0x0b
-#define TYPE_GRASS    0x0c
-#define TYPE_ELECTRIC 0x0d
-#define TYPE_PSYCHIC  0x0e
-#define TYPE_ICE      0x0f
-#define TYPE_DRAGON   0x10
-#define TYPE_DARK     0x11
-#define TYPE_TYPELESS 0x12
-#define TYPE_STELLAR  0x13
+#define TYPE_NORMAL    0
+#define TYPE_FIGHTING  1
+#define TYPE_FLYING    2
+#define TYPE_POISON    3
+#define TYPE_GROUND    4
+#define TYPE_ROCK      5
+#define TYPE_BUG       6
+#define TYPE_GHOST     7
+#define TYPE_STEEL     8
+#define TYPE_MYSTERY   9
+#define TYPE_FAIRY     9 // TODO: 17
+#define TYPE_FIRE     10
+#define TYPE_WATER    11
+#define TYPE_GRASS    12
+#define TYPE_ELECTRIC 13
+#define TYPE_PSYCHIC  14
+#define TYPE_ICE      15
+#define TYPE_DRAGON   16
+#define TYPE_DARK     17
+#define TYPE_TYPELESS 18
+#define TYPE_STELLAR  19 // TODO: 99
 
 #define NUMBER_OF_MON_TYPES 20
 
@@ -3587,6 +3587,8 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
 }
 
 #define CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, client_no) (GetBattlerAbility(ctx, client_no) != ABILITY_MOLD_BREAKER && GetBattlerAbility(ctx, client_no) != ABILITY_TERAVOLT && GetBattlerAbility(ctx, client_no) != ABILITY_TURBOBLAZE)
+
+#define CLIENT_HAS_MOLD_BREAKER_VARIATION(ctx, client_no) (!(CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, client_no)))
 
 void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleStruct *ctx);
 

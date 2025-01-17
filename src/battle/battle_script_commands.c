@@ -86,6 +86,7 @@ BOOL btl_scr_cmd_FC_trystickyweb(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_100_storedpowerdamagecalc(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -401,6 +402,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xFD - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FD_trymegaorultraburstduringpursuit,
     [0xFE - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FE_calcconfusiondamage,
     [0xFF - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive,
+	[0x100 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_100_storedpowerdamagecalc,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -4041,14 +4043,14 @@ BOOL BtlCmd_CalcPunishmentPower(void *bsys UNUSED, struct BattleStruct *ctx) {
 
     IncrementBattleScriptPtr(ctx, 1);
 
-    cnt = 3;
+    cnt = 0;
     for (stat = 0; stat < 8; stat++) {
-        if (ctx->battlemon[ctx->battlerIdTemp].states[stat] > 6) {
-            cnt += ctx->battlemon[ctx->battlerIdTemp].states[stat] - 6;
+        if (ctx->battlemon[ctx->defence_client].states[stat] > 6) {
+            cnt += ctx->battlemon[ctx->defence_client].states[stat] - 6;
         }
     }
 
-    ctx->damage_power += 20 * cnt;
+    ctx->damage_power = 60 + 20 * cnt;
 
     return FALSE;
 }
@@ -4096,6 +4098,23 @@ BOOL BtlCmd_GetTerrainMove(struct BattleSystem *bsys, struct BattleStruct *ctx) 
 			ctx->waza_work = sNaturePowerMoveTable[terrain];
 			break;
 	}
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_100_storedpowerdamagecalc(void *bsys, struct BattleStruct *ctx) {
+    int stat, cnt;
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    cnt = 0;
+    for (stat = 0; stat < 8; stat++) {
+        if (ctx->battlemon[ctx->attack_client].states[stat] > 6) {
+            cnt += ctx->battlemon[ctx->attack_client].states[stat] - 6;
+        }
+    }
+
+    ctx->damage_power = 60 + 20 * cnt;
 
     return FALSE;
 }
