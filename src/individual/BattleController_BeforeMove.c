@@ -1518,6 +1518,7 @@ BOOL BattlerController_DecrementPP(struct BattleSystem *bsys, struct BattleStruc
 
     if (!ctx->oneSelfFlag[ctx->attack_client].no_pressure_flag && ctx->defence_client != BATTLER_NONE) {
         // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-22#post-9427994
+        // Pressure now only affects opponents' moves. 
         if ((ctx->moveNoTemp == MOVE_IMPRISON)
         || (ctx->moveNoTemp == MOVE_SNATCH)
         || (ctx->moveNoTemp == MOVE_SPIKES)
@@ -1529,7 +1530,7 @@ BOOL BattlerController_DecrementPP(struct BattleSystem *bsys, struct BattleStruc
             switch (ctx->moveTbl[ctx->moveNoTemp].target) {
             case RANGE_ALL_ADJACENT:
             case RANGE_FIELD:
-                decreasePP += CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP_NOT_USER, ctx->attack_client, ABILITY_PRESSURE);
+                decreasePP += CheckSideAbility(bsys, ctx, CHECK_ABILITY_OPPOSING_SIDE_HP, ctx->attack_client, ABILITY_PRESSURE);
                 break;
             case RANGE_ADJACENT_OPPONENTS:
             case RANGE_OPPONENT_SIDE:
@@ -1541,7 +1542,9 @@ BOOL BattlerController_DecrementPP(struct BattleSystem *bsys, struct BattleStruc
             case RANGE_ALLY:
                 break;
             default:
-                if (ctx->attack_client != ctx->defence_client && GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_PRESSURE) {
+                if (ctx->attack_client != ctx->defence_client
+                && ctx->defence_client != BATTLER_ALLY(ctx->attack_client)
+                && GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_PRESSURE) {
                     decreasePP++;
                 }
                 break;
@@ -3195,19 +3198,27 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_SPIKES: {
-            // TODO
+            if (ctx->scw[IsClientEnemy(ctx, ctx->attack_client)].spikesLayers >= 3) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_STEALTH_ROCK: {
-            // TODO
+            if (ctx->side_condition[IsClientEnemy(ctx, ctx->attack_client)] & SIDE_STATUS_STEALTH_ROCK) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_TOXIC_SPIKES: {
-            // TODO
+            if (ctx->scw[IsClientEnemy(ctx, ctx->attack_client)].toxicSpikesLayers >= 2) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_STICKY_WEB: {
-            // TODO
+            if (ctx->side_condition[IsClientEnemy(ctx, ctx->attack_client)] & SIDE_STATUS_STICKY_WEB) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_FOCUS_ENERGY:
@@ -3318,7 +3329,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             // TODO
             break;
         }
-        case MOVE_RAIN_DANCE:
+        case MOVE_RAIN_DANCE: {
             if ((ctx->field_condition & WEATHER_RAIN_ANY)
             || (ctx->field_condition & WEATHER_SUNNY_PERMANENT)
             || (ctx->field_condition & WEATHER_SANDSTORM_PERMANENT)
@@ -3335,7 +3346,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 return TRUE;
             }
             break;
-        case MOVE_SUNNY_DAY:
+        }
+        case MOVE_SUNNY_DAY: {
             if ((ctx->field_condition & WEATHER_RAIN_PERMANENT)
             || (ctx->field_condition & WEATHER_SUNNY_ANY)
             || (ctx->field_condition & WEATHER_SANDSTORM_PERMANENT)
@@ -3352,7 +3364,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 return TRUE;
             }
             break;
-        case MOVE_SANDSTORM:
+        }
+        case MOVE_SANDSTORM: {
             if ((ctx->field_condition & WEATHER_RAIN_PERMANENT)
             || (ctx->field_condition & WEATHER_SUNNY_PERMANENT)
             || (ctx->field_condition & WEATHER_SANDSTORM_ANY)
@@ -3369,7 +3382,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 return TRUE;
             }
             break;
-        case MOVE_HAIL:
+        }
+        case MOVE_HAIL: {
             if ((ctx->field_condition & WEATHER_RAIN_PERMANENT)
             || (ctx->field_condition & WEATHER_SUNNY_PERMANENT)
             || (ctx->field_condition & WEATHER_SANDSTORM_PERMANENT)
@@ -3386,12 +3400,18 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 return TRUE;
             }
             break;
+        }
         case MOVE_SNOWSCAPE: {
             if ((ctx->field_condition & WEATHER_RAIN_PERMANENT)
             || (ctx->field_condition & WEATHER_SUNNY_PERMANENT)
             || (ctx->field_condition & WEATHER_SANDSTORM_PERMANENT)
             || (ctx->field_condition & WEATHER_HAIL_PERMANENT)
-            || (ctx->field_condition & WEATHER_SNOW_ANY)) {
+#if SNOW_WARNING_GENERATION >= 9
+            || (ctx->field_condition & WEATHER_SNOW_ANY)
+#else
+            || (ctx->field_condition & WEATHER_HAIL_ANY)
+#endif
+            ) {
                 butItFailedFlag = TRUE;
             }
             if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
@@ -3401,6 +3421,42 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
                 ctx->wb_seq_no = BEFORE_MOVE_START;
                 return TRUE;
+            }
+            break;
+        }
+        case MOVE_GRAVITY: {
+            if (ctx->field_condition & FIELD_STATUS_GRAVITY) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_TAILWIND: {
+            if (ctx->tailwindCount[IsClientEnemy(bsys, ctx->attack_client)]) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_GRASSY_TERRAIN: {
+            if (ctx->terrainOverlay.type == GRASSY_TERRAIN) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_MISTY_TERRAIN: {
+            if (ctx->terrainOverlay.type == MISTY_TERRAIN) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_ELECTRIC_TERRAIN: {
+            if (ctx->terrainOverlay.type == ELECTRIC_TERRAIN) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_PSYCHIC_TERRAIN: {
+            if (ctx->terrainOverlay.type == PSYCHIC_TERRAIN) {
+                butItFailedFlag = TRUE;
             }
             break;
         }
