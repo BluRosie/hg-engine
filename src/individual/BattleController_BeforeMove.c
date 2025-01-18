@@ -365,7 +365,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             return;
         }
-        // TODO: implement new mechanics (Magic Room/Dance before coming back to this)
+        // TODO: implement new mechanics (Magic Room/Dancer before coming back to this)
         case BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK\n");
@@ -1015,7 +1015,6 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             BattleController_CheckWhirlwindFailures(bsys, ctx);
             FALLTHROUGH;
         }
-        // TODO
         case BEFORE_MOVE_STATE_MOVE_FAILURES_4_SINGLE_TARGET: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_MOVE_FAILURES_4_SINGLE_TARGET\n");
@@ -2520,7 +2519,7 @@ BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct
     return FALSE;
 }
 
-// TODO: Implement mew mechanics
+// TODO: Implement new mechanics
 int BattlerController_CheckSubstituteBlockingStatDropsOrDecorate(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     if (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_INFILTRATOR && ctx->battlemon[defender].condition2 & STATUS2_SUBSTITUTE) {
@@ -3013,7 +3012,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         case MOVE_SHORE_UP:
         case MOVE_SYNTHESIS:
         case MOVE_HEAL_PULSE:
-        case MOVE_FLORAL_HEALING:
+        case MOVE_FLORAL_HEALING: {
             if (ctx->battlemon[ctx->defence_client].hp == (s32)ctx->battlemon[ctx->defence_client].maxhp) {
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
@@ -3026,6 +3025,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 return TRUE;
             }
             break;
+        }
         case MOVE_JUNGLE_HEALING: {
             if (ctx->battlemon[ctx->attack_client].hp < (s32)ctx->battlemon[ctx->attack_client].maxhp) {
                 jungleHealingSelfSuccess = TRUE;
@@ -3194,7 +3194,10 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_CURSE:{
-            // TODO
+            if (CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client)
+            && ctx->battlemon[ctx->defence_client].condition2 & STATUS2_CURSE) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_SPIKES: {
@@ -3248,7 +3251,9 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_TAUNT: {
-            // TODO
+            if (ctx->battlemon[ctx->defence_client].moveeffect.tauntTurns) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_BLOCK:
@@ -3260,7 +3265,9 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_WISH: {
-            // TODO
+            if (ctx->fcc.wish_count[ctx->defence_client]) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_AFTER_YOU:
@@ -3436,6 +3443,22 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             }
             break;
         }
+        case MOVE_REFLECT: {
+            if (ctx->side_condition[IsClientEnemy(ctx, ctx->attack_client)] & SIDE_STATUS_REFLECT) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_LIGHT_SCREEN: {
+            if (ctx->side_condition[IsClientEnemy(ctx, ctx->attack_client)] & SIDE_STATUS_LIGHT_SCREEN) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_AURORA_VEIL: {
+            // TODO
+            break;
+        }
         case MOVE_GRASSY_TERRAIN: {
             if (ctx->terrainOverlay.type == GRASSY_TERRAIN) {
                 butItFailedFlag = TRUE;
@@ -3481,7 +3504,9 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         case MOVE_TRANSFORM: {
             if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_TRANSFORMED)
-            || (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_TRANSFORMED)) {
+            || (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_TRANSFORMED)
+            // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-10403578
+            || ((!(BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER))) ? (ctx->battlemon[ctx->attack_client].species != SPECIES_DITTO && ctx->battlemon[ctx->attack_client].species != SPECIES_MEW) : FALSE) {
                 butItFailedFlag = TRUE;
             }
             break;
@@ -3553,6 +3578,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
 }
 
 // TODO: implement new mechanics
+// Edit: should be done? Need to double check
 BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     switch (ctx->current_move_index) {
         case MOVE_LIFE_DEW: {
@@ -3604,7 +3630,7 @@ BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED, struc
 
     switch (moveEffect) {
         // Psycho Shift
-        case MOVE_EFFECT_TRANSFER_STATUS:
+        case MOVE_EFFECT_TRANSFER_STATUS: {
             // Electric-type paralysis immunity
             if ((attackerCondition & STATUS_PARALYSIS && HasType(ctx, defender, TYPE_ELECTRIC))
                 // Fire-type burn immunity
@@ -3623,8 +3649,9 @@ BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED, struc
                 return TRUE;
             }
             break;
+        }
         // Substitute
-        case MOVE_EFFECT_SET_SUBSTITUTE:
+        case MOVE_EFFECT_SET_SUBSTITUTE: {
             if (ctx->battlemon[ctx->attack_client].hp <= BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, 4)) {
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
@@ -3637,6 +3664,7 @@ BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED, struc
                 return TRUE;
             }
             break;
+        }
         default:
             break;
     }
@@ -3770,7 +3798,7 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_ATK_UP:
         case MOVE_EFFECT_ATK_UP_2:
         case MOVE_EFFECT_ATK_UP_3:
-        // case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION:
+        // case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION: //handled below
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12) {
                 result = TRUE;
             }
@@ -3794,7 +3822,7 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_SP_ATK_UP:
         case MOVE_EFFECT_SP_ATK_UP_2:
         case MOVE_EFFECT_SP_ATK_UP_3:
-        // case MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION:
+        // case MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION: // handled below
             if (ctx->battlemon[defender].states[STAT_SPATK] == 12) {
                 result = TRUE;
             }
@@ -3802,7 +3830,7 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_SP_DEF_UP:
         case MOVE_EFFECT_SP_DEF_UP_2:
         case MOVE_EFFECT_SP_DEF_UP_3:
-        // case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER:
+        // case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER: // charge would work even if stats are maxed
             if (ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
                 result = TRUE;
             }
@@ -3943,10 +3971,18 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
             }
             break;
         case MOVE_EFFECT_ATK_DEF_DOWN:
-            if (ctx->battlemon[defender].states[STAT_ATTACK] == 0 && ctx->battlemon[defender].states[STAT_DEFENSE] == 0) {
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 0
+            && ctx->battlemon[defender].states[STAT_DEFENSE] == 0) {
                 result = TRUE;
             }
             break;
+        case MOVE_EFFECT_CURSE:
+            if (CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client)
+            && ctx->battlemon[defender].states[STAT_ATTACK] == 12
+            && ctx->battlemon[defender].states[STAT_DEFENSE] == 12
+            && ctx->battlemon[defender].states[STAT_SPEED] == 0) {
+                result = TRUE;
+            }
         default:
             break;
     }
