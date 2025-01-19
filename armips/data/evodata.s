@@ -16181,19 +16181,6 @@ evodata SPECIES_GIMMIGHOUL_ROAMING
 terminateevodata
 
 
-evodata SPECIES_TERAPAGOS_TERASTAL
-    evolution EVO_NONE, 0, SPECIES_NONE
-    evolution EVO_NONE, 0, SPECIES_NONE
-    evolution EVO_NONE, 0, SPECIES_NONE
-    evolution EVO_NONE, 0, SPECIES_NONE
-    evolution EVO_NONE, 0, SPECIES_NONE
-    evolution EVO_NONE, 0, SPECIES_NONE
-    evolution EVO_NONE, 0, SPECIES_NONE
-    evolution EVO_NONE, 0, SPECIES_NONE
-    evolution EVO_NONE, 0, SPECIES_NONE
-terminateevodata
-
-
 evodata SPECIES_WOOPER_PALDEAN
     evolution EVO_LEVEL, 20, SPECIES_CLODSIRE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -16389,7 +16376,7 @@ evodata SPECIES_OGERPON_CORNERSTONE_MASK
 terminateevodata
 
 
-evodata SPECIES_TERAPAGOS_STELLAR
+evodata SPECIES_URSALUNA_BLOODMOON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -16402,7 +16389,20 @@ evodata SPECIES_TERAPAGOS_STELLAR
 terminateevodata
 
 
-evodata SPECIES_URSALUNA_BLOODMOON
+evodata SPECIES_TERAPAGOS_TERASTAL
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+    evolution EVO_NONE, 0, SPECIES_NONE
+terminateevodata
+
+
+evodata SPECIES_TERAPAGOS_STELLAR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
