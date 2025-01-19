@@ -396,9 +396,9 @@ The wild {STRVAR_1 1, 0, 0} took\nits attacker down with it!
 The wild {STRVAR_1 1, 0, 0} took\nits attacker down with it!
 The opposing {STRVAR_1 1, 0, 0} took\nits attacker down with it!
 The opposing {STRVAR_1 1, 0, 0} took\nits attacker down with it!
-{STRVAR_1 1, 0, 0}’s\n PP was reduced!
-The wild\n{STRVAR_1 1, 0, 0}’s\n PP was reduced!
-The opposing\n{STRVAR_1 1, 0, 0}’s\n PP was reduced!
+{STRVAR_1 1, 0, 0} lost\n{STRVAR_1 50, 2, 0} PP from {STRVAR_1 6, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} lost\n{STRVAR_1 50, 2, 0} PP from {STRVAR_1 6, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} lost\n{STRVAR_1 50, 2, 0} PP from {STRVAR_1 6, 1, 0}!
 {STRVAR_1 1, 0, 0} stole\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
 {STRVAR_1 1, 0, 0} stole the wild\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
 {STRVAR_1 1, 0, 0} stole the opposing\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
@@ -511,16 +511,16 @@ The opposing {STRVAR_1 1, 0, 0} is ready to\nhelp the opposing {STRVAR_1 1, 1, 0
 {STRVAR_1 1, 0, 0} switched\nitems with its target!
 The wild {STRVAR_1 1, 0, 0} switched\nitems with its target!
 The opposing {STRVAR_1 1, 0, 0} switched\nitems with its target!
-{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
-The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
-The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
-{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.
-{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
-{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
-The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
-The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
-The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
-The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.
+The wild {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.
+The opposing {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.
+{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.
+{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
+{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
+The wild {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
+The wild {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
+The opposing {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
+The opposing {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
 {STRVAR_1 1, 0, 0} copied\n{STRVAR_1 1, 1, 0}’s Ability!
 {STRVAR_1 1, 0, 0} copied the wild\n{STRVAR_1 1, 1, 0}’s Ability!
 {STRVAR_1 1, 0, 0} copied the opposing\n{STRVAR_1 1, 1, 0}’s Ability!

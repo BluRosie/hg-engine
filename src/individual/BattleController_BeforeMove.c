@@ -3555,7 +3555,10 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             }
             break;
         }
-
+        case MOVE_SPITE: {
+            // TODO
+            break;
+        }
         default:
             break;
     }
