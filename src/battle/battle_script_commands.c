@@ -1911,9 +1911,9 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
 
     int partyCount = Battle_GetClientPartySize(bw, sp->attack_client);
 
-    if (sp->multi_hit_count_temp == 0) {
+    if (sp->multiHitCountTemp == 0) {
 
-        sp->multi_hit_count_temp = 2;
+        sp->multiHitCountTemp = 2;
         sp->loop_hit_check = 0xFD;
         sp->beat_up_count = 0;
         mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
@@ -1941,7 +1941,7 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
     sp->damage_power += newBaseDamage;
 
     sp->beat_up_count++;
-    sp->multi_hit_count = 2;
+    sp->multiHitCount = 2;
     number_of_hits = sp->beat_up_count;
 
     if (sp->beat_up_count < partyCount) {
@@ -1959,15 +1959,15 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
             mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
 
             if (sp->beat_up_count >= partyCount) {
-                sp->multi_hit_count = 1;
-                sp->multi_hit_count_temp = number_of_hits;
+                sp->multiHitCount = 1;
+                sp->multiHitCountTemp = number_of_hits;
                 break;
             }
 
         }
     } else {
-        sp->multi_hit_count = 1;
-        sp->multi_hit_count_temp = number_of_hits;
+        sp->multiHitCount = 1;
+        sp->multiHitCountTemp = number_of_hits;
     }
 
     return FALSE;
@@ -3285,7 +3285,7 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     int cnt = read_battle_script_param(ctx);
     int checkMultiHit = read_battle_script_param(ctx);
 
-    if (ctx->multi_hit_count_temp == 0) {
+    if (ctx->multiHitCountTemp == 0) {
         // Handle 2-5 hits
         if (cnt == 0) {
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SKILL_LINK) {
@@ -3318,8 +3318,8 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
             cnt = 10 - (BattleRand(bsys) % 7); // 10 - (0 to 6)
         }
 
-        ctx->multi_hit_count = cnt;
-        ctx->multi_hit_count_temp = cnt;
+        ctx->multiHitCount = cnt;
+        ctx->multiHitCountTemp = cnt;
 
         // MULTIHIT_TRIPLE_KICK, 0xDD
         // MULTIHIT_MULTI_HIT_MOVE, 0xFD

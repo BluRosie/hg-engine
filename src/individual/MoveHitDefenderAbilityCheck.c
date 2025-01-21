@@ -75,7 +75,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) != movetype)
                     && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) != movetype)
                     && (sp->battlemon[sp->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0
-                    && (sp->multi_hit_count <= 1)) // don't activate until the last hit of a multi-hit move
+                    && (sp->multiHitCount <= 1)) // don't activate until the last hit of a multi-hit move
                 {
                     seq_no[0] = SUB_SEQ_COLOR_CHANGE;
                     sp->msg_work = movetype;
@@ -244,7 +244,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 // berserk doesn't activate if the Pokémon gets attacked by a sheer force boosted move
                 && !((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) && (sp->battlemon[sp->attack_client].sheer_force_flag == 1))
                 // berserk doesn't activate until the last hit of a multi-hit move
-                && (sp->multi_hit_count <= 1)
+                && (sp->multiHitCount <= 1)
                 && (sp->battlemon[sp->defence_client].hp <= (s32)(sp->battlemon[sp->defence_client].maxhp / 2))
                 && (
                     // checks if the pokémon has gone below half HP from the current damage instance

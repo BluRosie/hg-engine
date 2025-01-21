@@ -2581,6 +2581,13 @@ BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleS
     return FALSE;
 }
 
+void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    ctx->waza_status_flag = 0;
+    ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = 0;
+    ctx->critical = 1;
+    ctx->server_status_flag &= (0x100000 ^ 0xFFFFFFFF);
+}
+
 enum {
     TRY_MOVE_START = 0,
 
@@ -2685,6 +2692,43 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
         SCIO_BlankMessage(bsys);
     } else {
         ctx->server_seq_no = CONTROLLER_COMMAND_36;
+    }
+}
+
+/**
+ * ov12_0224CF14 in pokeheartgold
+ */
+void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    // debug_printf("In BattleController_LoopMultiHit\n");
+    if (ctx->multiHitCountTemp != 0) {
+        if (ctx->fainting_client == BATTLER_NONE && !(ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)) {
+            if (--ctx->multiHitCount) {
+                ctx->loop_flag = 1;
+                ov12_02252D14(bsys, ctx);
+                ctx->server_status_flag &= ~BATTLE_STATUS_MOVE_ANIMATIONS_OFF;
+                ctx->waza_out_check_on_off = ctx->loop_hit_check;
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_23; // go back to our custom check
+            } else {
+                ctx->msg_work = ctx->multiHitCountTemp;
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MULTI_HIT);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
+            }
+        } else {
+            if (ctx->fainting_client != BATTLER_NONE || ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
+                ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount + 1;
+            } else {
+                ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount;
+            }
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MULTI_HIT);
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
+        }
+        SCIO_BlankMessage(bsys);
+    } else {
+        ctx->server_seq_no = CONTROLLER_COMMAND_34;
     }
 }
 

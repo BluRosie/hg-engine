@@ -1092,8 +1092,8 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             // Edit: Should be fine after the function merges by Blu
             if (IsValidParentalBondMove(bsys, ctx, FALSE) &&
                 ctx->loop_hit_check != 0xFD) {
-                ctx->multi_hit_count = 2;
-                ctx->multi_hit_count_temp = 2;
+                ctx->multiHitCount = 2;
+                ctx->multiHitCountTemp = 2;
                 ctx->loop_hit_check = 0xFD;
                 ctx->oneTurnFlag[ctx->battlerIdTemp].parental_bond_is_active = TRUE;
             } else {
@@ -2878,6 +2878,14 @@ BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct Battle
     }
     if (!(ctx->waza_out_check_on_off & 0x40) && defender != BATTLER_NONE && BattleSystem_CheckMoveEffect(bsys, ctx, ctx->attack_client, defender, ctx->current_move_index) == TRUE) {
         return FALSE;
+    }
+
+    // a multi-hit move is always single target
+    if (ctx->loop_flag && (ctx->waza_status_flag & MOVE_STATUS_FLAG_MISS)) {
+        ctx->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        ctx->waza_status_flag |= MOVE_STATUS_FLAG_FURY_CUTTER_MISS;
+        ctx->server_seq_no = CONTROLLER_COMMAND_29;
+        return TRUE;
     }
 
     if (ctx->waza_status_flag & MOVE_STATUS_FLAG_MISS) {

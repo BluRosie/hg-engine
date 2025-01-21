@@ -1188,8 +1188,8 @@ struct PACKED BattleStruct
     /*0x68*/ int attack_client_temp;
     /*0x6C*/ int defence_client;
     /*0x70*/ int defence_client_temp;
-    /*0x74*/ int fainting_client;
-    /*0x78*/ int reshuffle_client;
+    /*0x74*/ int fainting_client;       // battlerIdFainted
+    /*0x78*/ int reshuffle_client;      // battlerIdSwitch
     /*0x7C*/ int reshuffle_client_temp;
     /*0x80*/ int ability_client;
     /*0x84*/ int magic_cort_client;     // battlerIdMagicCoat
@@ -1246,8 +1246,8 @@ struct PACKED BattleStruct
     /*0x2140*/ u32 server_status_flag2;                             // battleStatus2
     /*0x2144*/ int damage;
     /*0x2148*/ int hit_damage;
-    /*0x214C*/ int critical_count;
-    /*0x2150*/ int critical;
+    /*0x214C*/ int critical_count;                                  // criticalCnt
+    /*0x2150*/ int critical;                                        // criticalMultiplier
     /*0x2154*/ int damage_power;
     /*0x2158*/ int damage_value;
     /*0x215C*/ int hp_calc_work;                                    // hpCalc
@@ -1259,8 +1259,8 @@ struct PACKED BattleStruct
     /*0x2170*/ u32 add_status_flag_direct;
     /*0x2174*/ u32 add_status_flag_indirect;
     /*0x2178*/ u32 add_status_flag_tokusei;
-    /*0x217C*/ u8 multi_hit_count;  // multiHitCount
-    /*0x217D*/ u8 multi_hit_count_temp; // multiHitCountTemp
+    /*0x217C*/ u8 multiHitCount;
+    /*0x217D*/ u8 multiHitCountTemp;
     /*0x217E*/ u8 client_loop;
     /*0x217F*/ u8 beat_up_count;
 
