@@ -423,6 +423,80 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .file = SPECIES_MAROWAK_ALOLAN,
     },
 
+    /**totems**/
+    {
+        .species = SPECIES_RATICATE,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_RATICATE_ALOLAN_LARGE,
+    },
+    {
+        .species = SPECIES_MAROWAK,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_MAROWAK_ALOLAN_LARGE,
+    },
+    {
+        .species = SPECIES_GUMSHOOS,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_GUMSHOOS_LARGE,
+    },
+    {
+        .species = SPECIES_VIKAVOLT,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_VIKAVOLT_LARGE,
+    },
+    {
+        .species = SPECIES_RIBOMBEE,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_RIBOMBEE_LARGE,
+    },
+    {
+        .species = SPECIES_ARAQUANID,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_RATICATE_ALOLAN_LARGE,
+    },
+    {
+        .species = SPECIES_LURANTIS,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_LURANTIS_LARGE,
+    },
+    {
+        .species = SPECIES_SALAZZLE,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_SALAZZLE_LARGE,
+    },
+    {
+        .species = SPECIES_TOGEDEMARU,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_TOGEDEMARU_LARGE,
+    },
+    {
+        .species = SPECIES_MIMIKYU,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_MIMIKYU_LARGE,
+    },
+    {
+        .species = SPECIES_MIMIKYU,
+        .form_no = 3,
+        .need_rev = 0,
+        .file = SPECIES_MIMIKYU_BUSTED_LARGE,
+    },
+    {
+        .species = SPECIES_KOMMO_O,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_KOMMO_O_LARGE,
+    },
+
     /**galarian forms**/
     {
         .species = SPECIES_MEOWTH,
@@ -1539,6 +1613,38 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .form_no = 1,
         .need_rev = 0,
         .file = SPECIES_DECIDUEYE_HISUIAN,
+    },
+
+    /**noble pokémon**/
+    {
+        .species = SPECIES_KLEAVOR,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_KLEAVOR_LORD,
+    },
+    {
+        .species = SPECIES_LILLIGANT,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_LILLIGANT_LADY,
+    },
+    {
+        .species = SPECIES_ARCANINE,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_ARCANINE_LORD,
+    },
+    {
+        .species = SPECIES_ELECTRODE,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_ELECTRODE_LORD,
+    },
+    {
+        .species = SPECIES_AVALUGG,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_AVALUGG_LORD,
     },
 
     /**significant gender differences**/
