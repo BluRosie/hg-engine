@@ -1160,6 +1160,20 @@ heightentry SPECIES_GRIMER_ALOLAN, 16, 16, 0, 0
 heightentry SPECIES_MUK_ALOLAN, 7, 7, 0, 0
 heightentry SPECIES_EXEGGUTOR_ALOLAN, 0, 0, 0, 0
 heightentry SPECIES_MAROWAK_ALOLAN, 9, 9, 0, 0
+
+heightentry SPECIES_RATICATE_ALOLAN_LARGE, 7, 7, 0, 0
+heightentry SPECIES_MAROWAK_ALOLAN_LARGE, 9, 9, 0, 0
+heightentry SPECIES_GUMSHOOS_LARGE, 0, 0, 0, 0
+heightentry SPECIES_VIKAVOLT_LARGE, 0, 0, 0, 0
+heightentry SPECIES_RIBOMBEE_LARGE, 0, 0, 0, 0
+heightentry SPECIES_ARAQUANID_LARGE, 0, 0, 0, 0
+heightentry SPECIES_LURANTIS_LARGE, 0, 0, 0, 0
+heightentry SPECIES_SALAZZLE_LARGE, 0, "null", 0, "null"
+heightentry SPECIES_TOGEDEMARU_LARGE, 0, 0, 0, 0
+heightentry SPECIES_MIMIKYU_LARGE, 0, 0, 0, 0
+heightentry SPECIES_MIMIKYU_BUSTED_LARGE, 0, 0, 14, 14
+heightentry SPECIES_KOMMO_O_LARGE, 0, 0, 0, 0
+
 heightentry SPECIES_MEOWTH_GALARIAN, 7, 7, 0, 0
 heightentry SPECIES_PONYTA_GALARIAN, 0, 0, 0, 0
 heightentry SPECIES_RAPIDASH_GALARIAN, 0, 0, 0, 0
@@ -1329,6 +1343,7 @@ heightentry SPECIES_URSHIFU_RAPID_STRIKE, 0, 0, 0, 0
 heightentry SPECIES_ZARUDE_DADA, 0, 0, 0, 0
 heightentry SPECIES_CALYREX_ICE_RIDER, 0, 0, 0, 0
 heightentry SPECIES_CALYREX_SHADOW_RIDER, 0, 0, 0, 0
+
 heightentry SPECIES_ENAMORUS_THERIAN, 0, "null", 0, "null"
 heightentry SPECIES_GROWLITHE_HISUIAN, 10, 10, 0, 0
 heightentry SPECIES_ARCANINE_HISUIAN, 0, 0, 0, 0
@@ -1346,6 +1361,13 @@ heightentry SPECIES_SLIGGOO_HISUIAN, 7, 7, 0, 0
 heightentry SPECIES_GOODRA_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_AVALUGG_HISUIAN, 0, 0, 0, 0
 heightentry SPECIES_DECIDUEYE_HISUIAN, 0, 0, 0, 0
+
+heightentry SPECIES_KLEAVOR_LORD, 0, 0, 0, 0
+heightentry SPECIES_LILLIGANT_LADY, 0, 0, 0, 0
+heightentry SPECIES_ARCANINE_LORD, 0, 0, 0, 0
+heightentry SPECIES_ELECTRODE_LORD, 0, 0, 0, 0
+heightentry SPECIES_AVALUGG_LORD, 0, 0, 0, 0
+
 heightentry SPECIES_UNFEZANT_FEMALE, 0, 0, 0, 0
 heightentry SPECIES_FRILLISH_FEMALE, 0, 0, 0, 0
 heightentry SPECIES_JELLICENT_FEMALE, 0, 0, 0, 0
