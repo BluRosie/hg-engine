@@ -187,7 +187,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
                 break;
             case SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON: {
-                for (i = 0; i < client_set_max; i++) {
+                for (i = 0; i < client_set_max; i++) {      
                     client_no = sp->turnOrder[i];
 
                     // Abilities with entry effects can announce, except Neutralizing Gas/Unnerve (earlier) and form-changing abilities (later)
@@ -655,6 +655,37 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             }
                         }
                     }
+
+                    // Intrepid Sword
+                    {
+                        if ((sp->battlemon[client_no].intrepid_sword_flag == 0)
+                        && (sp->battlemon[client_no].hp)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_INTREPID_SWORD)) {
+                            sp->battlemon[client_no].intrepid_sword_flag = 1;
+                            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;                        
+                            sp->addeffect_type = ADD_STATUS_ABILITY;
+                            sp->state_client = client_no;
+                            scriptnum = SUB_SEQ_BOOST_STATS;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                            }
+                    }
+
+                    // Dauntless Shield
+                    {
+                        if ((sp->battlemon[client_no].dauntless_shield_flag == 0)
+                        && (sp->battlemon[client_no].hp)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_DAUNTLESS_SHIELD)) {
+                            sp->battlemon[client_no].dauntless_shield_flag = 1;
+                            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP;                        
+                            sp->addeffect_type = ADD_STATUS_ABILITY;
+                            sp->state_client = client_no;
+                            scriptnum = SUB_SEQ_BOOST_STATS;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                            }
+                    }
+
 
                     // Air Balloon is announced
                     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-9227933

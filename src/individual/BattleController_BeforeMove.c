@@ -3790,7 +3790,7 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
 
 BOOL BattleController_CheckMoveFailures3_PerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     if (IfAllClientsHavePerishSong(bsys, ctx) && ctx->current_move_index == MOVE_PERISH_SONG) {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_USE_MOVE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
