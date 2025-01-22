@@ -810,21 +810,17 @@ struct __attribute__((packed)) BattlePokemon
 
                /** switch in flags to mark it as having been done */
     /* 0x28 */ u32 appear_check_flag : 1;    /**< has appeared */
-               u32 intimidate_flag : 1;      /**< intimidate has activated */
-               u32 trace_flag : 1;           /**< trace has activated */
-               u32 download_flag : 1;        /**< download has activated */
-               u32 anticipation_flag : 1;    /**< anticipation has printed its message */
-               u32 forewarn_flag : 1;        /**< forewarn has printed its message */
+               u32 paddingForNow1 : 5;
                u32 slow_start_flag : 1;      /**< slow start has printed its message */
                u32 slow_start_end_flag : 1;  /**< slow start should end */
-               u32 frisk_flag : 1;           /**< frisk has printed its message */
-               u32 mold_breaker_flag : 1;    /**< mold breaker has printed its message */
-               u32 pressure_flag : 1;        /**< pressure has printed its message */
+               u32 intrepid_sword_flag : 1;  /**< Intrepid Sword has activated */
+               u32 dauntless_shield_flag : 1;  /**< Dauntless Shield has activated */
+               u32 battle_bond_flag : 1;     /**< Battle Bond has activated */
                u32 canMega : 1;              /**< the BattlePokemon can mega */
                u32 sheer_force_flag : 1;     /**< keep track of sheer force activation */
                u32 imposter_flag : 1;        /**< imposter has activated */
                u32 critical_hits : 2;        /**< tracks the amount of critical hits the pokémon has landed while in battle so far */
-               u32 air_ballon_flag : 1;      /**< the held air balloon has printed its message */
+               u32 air_balloon_flag : 1;      /**< the held air balloon has printed its message */
                u32 potentially_affected_by_psychic_terrain_move_used_flag : 1;
                u32 ability_activated_flag : 1;
                u32 tera_type : 5;
