@@ -1662,10 +1662,10 @@ trainerdata 51, "Nico"
         ballseal 0
     endparty
 
-trainerdata 52, "Edmond"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 52, "Pinsir"
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_SAGE
-    nummons 3
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -1678,29 +1678,20 @@ trainerdata 52, "Edmond"
         // mon 0
         ivs 0
         abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
-        ballseal 0
-
-        // mon 2
-        ivs 0
-        abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
+        level 18
+        pokemon SPECIES_PINSIR
+        item ITEM_GRIP_CLAW
+        move MOVE_BIND
+        move MOVE_X_SCISSOR
+        move MOVE_BULK_UP
+        move MOVE_NONE
         ballseal 0
     endparty
 
-trainerdata 53, "Jin"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 53, "Support"
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_SAGE
-    nummons 1
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -1713,14 +1704,31 @@ trainerdata 53, "Jin"
         // mon 0
         ivs 0
         abilityslot 0
-        level 6
-        pokemon SPECIES_BELLSPROUT
+        level 18
+        pokemon SPECIES_METAPOD
+        item ITEM_ORAN_BERRY
+        move MOVE_STRING_SHOT
+        move MOVE_TACKLE
+        move MOVE_HARDEN
+        move MOVE_NONE
+        ballseal 0
+
+        // mon 1
+        ivs 0
+        abilityslot 0
+        level 18
+        pokemon SPECIES_KAKUNA
+        item ITEM_ORAN_BERRY
+        move MOVE_STRING_SHOT
+        move MOVE_POISON_STING
+        move MOVE_HARDEN
+        move MOVE_NONE
         ballseal 0
     endparty
 
-trainerdata 54, "Troy"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_SAGE
+trainerdata 54, "Leaf"
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainerclass TRAINERCLASS_RIVAL
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
@@ -1734,22 +1742,32 @@ trainerdata 54, "Troy"
         // mon 0
         ivs 0
         abilityslot 0
-        level 7
-        pokemon SPECIES_BELLSPROUT
+        level 12
+        pokemon SPECIES_CLEFAIRY
+        item ITEM_EVIOLITE
+        move MOVE_DOUBLE_SLAP
+        move MOVE_SING
+        move MOVE_GROWL
+        move MOVE_NONE
         ballseal 0
 
         // mon 1
         ivs 0
-        abilityslot 32
-        level 7
-        pokemon SPECIES_HOOTHOOT
+        abilityslot 0
+        level 10
+        pokemon SPECIES_BUTTERFREE
+        item ITEM_NONE
+        move MOVE_STRING_SHOT
+        move MOVE_POISON_POWDER
+        move MOVE_CONFUSION
+        move MOVE_NONE
         ballseal 0
     endparty
 
-trainerdata 55, "Neal"
+trainerdata 55, "Red"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_SAGE
-    nummons 1
+    trainerclass TRAINERCLASS_RIVAL
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -1762,8 +1780,25 @@ trainerdata 55, "Neal"
         // mon 0
         ivs 0
         abilityslot 0
-        level 6
-        pokemon SPECIES_BELLSPROUT
+        level 12
+        pokemon SPECIES_PIKACHU
+        item ITEM_LIGHT_BALL
+        move MOVE_THUNDER_SHOCK
+        move MOVE_FAKE_OUT
+        move MOVE_GROWL
+        move MOVE_NONE
+        ballseal 0
+
+        // mon 1
+        ivs 0
+        abilityslot 0
+        level 10
+        pokemon SPECIES_BEEDRILL
+        item ITEM_NONE
+        move MOVE_STRING_SHOT
+        move MOVE_POISON_STING
+        move MOVE_FURY_ATTACK
+        move MOVE_NONE
         ballseal 0
     endparty
 

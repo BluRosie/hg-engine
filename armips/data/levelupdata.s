@@ -17,8 +17,8 @@ levelup SPECIES_BULBASAUR
     learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
     learnset MOVE_GROWL, 3
-    learnset MOVE_VINE_WHIP, 5
-    learnset MOVE_LEECH_SEED, 8
+    learnset MOVE_VINE_WHIP, 7
+    learnset MOVE_LEECH_SEED, 10
     learnset MOVE_GROWTH, 14
     learnset MOVE_POISON_POWDER, 14
     learnset MOVE_SLEEP_POWDER, 14
@@ -87,10 +87,10 @@ levelup SPECIES_VENUSAUR
 levelup SPECIES_CHARMANDER
     learnset MOVE_SCRATCH, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_EMBER, 5
-    learnset MOVE_SMOKESCREEN, 8
-    learnset MOVE_DRAGON_BREATH, 12
-    learnset MOVE_DRAGON_RAGE, 16
+    learnset MOVE_EMBER, 7
+    learnset MOVE_SMOKESCREEN, 10
+    learnset MOVE_METAL_CLAW, 13
+    learnset MOVE_DRAGON_BREATH, 16
     learnset MOVE_FIRE_FANG, 20
     learnset MOVE_SCARY_FACE, 23
     learnset MOVE_SLASH, 26
@@ -109,8 +109,8 @@ levelup SPECIES_CHARMELEON
     learnset MOVE_SMOKESCREEN, 1
     learnset MOVE_EMBER, 7
     learnset MOVE_SMOKESCREEN, 10
-    learnset MOVE_DRAGON_BREATH, 12
-    learnset MOVE_DRAGON_RAGE, 17
+    learnset MOVE_METAL_CLAW, 12
+    learnset MOVE_DRAGON_BREATH, 17
     learnset MOVE_FIRE_FANG, 23
     learnset MOVE_SCARY_FACE, 29
     learnset MOVE_SLASH, 31
@@ -154,13 +154,11 @@ levelup SPECIES_CHARIZARD
 levelup SPECIES_SQUIRTLE
     learnset MOVE_TACKLE, 1
     learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_WATER_GUN, 4
+    learnset MOVE_WATER_GUN, 7
     learnset MOVE_TAIL_WHIP, 4
-    learnset MOVE_WITHDRAW, 7
-    learnset MOVE_RAPID_SPIN, 13
+    learnset MOVE_WITHDRAW, 10
     learnset MOVE_BITE, 13
-    learnset MOVE_BUBBLE, 13
-    learnset MOVE_WATER_PULSE, 19
+    learnset MOVE_BUBBLE_BEAM, 16
     learnset MOVE_PROTECT, 19
     learnset MOVE_AQUA_TAIL, 25
     learnset MOVE_SHELL_SMASH, 27
@@ -184,6 +182,7 @@ levelup SPECIES_WARTORTLE
     learnset MOVE_BITE, 14
     learnset MOVE_WATER_PULSE, 21
     learnset MOVE_PROTECT, 22
+    learnset MOVE_RAPID_SPIN, 26
     learnset MOVE_AQUA_TAIL, 31
     learnset MOVE_RAIN_DANCE, 34
     learnset MOVE_SHELL_SMASH, 35
