@@ -98,6 +98,10 @@ static BOOL MegaEvolutionOrUltraBurst(void *bw, struct BattleStruct *sp) {
             }
 
             sp->battlemon[client_no].form_no = GrabMegaTargetForm(sp->battlemon[client_no].species, sp->battlemon[client_no].item);
+
+            // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9458017
+            sp->battlemon[client_no].condition2 &= ~STATUS2_DESTINY_BOND;
+            
             BattleFormChange(client_no, sp->battlemon[client_no].form_no, bw, sp, TRUE);
 
             newBS.needMega[client_no] = MEGA_CHECK_APPER;

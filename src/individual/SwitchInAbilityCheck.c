@@ -699,6 +699,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            sp->switch_in_check_seq_no = SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON;
                             break;
                         }
 #endif  // PRIMAL_REVERSION

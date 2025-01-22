@@ -2581,7 +2581,7 @@ BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleS
     return FALSE;
 }
 
-void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+void LONG_CALL ov12_02252D14(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     ctx->waza_status_flag = 0;
     ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = 0;
     ctx->critical = 1;
