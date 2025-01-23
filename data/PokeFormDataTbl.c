@@ -458,7 +458,7 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .species = SPECIES_ARAQUANID,
         .form_no = 1,
         .need_rev = 0,
-        .file = SPECIES_RATICATE_ALOLAN_LARGE,
+        .file = SPECIES_ARAQUANID_LARGE,
     },
     {
         .species = SPECIES_LURANTIS,
