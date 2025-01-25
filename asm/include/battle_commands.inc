@@ -1399,4 +1399,11 @@
     .long (((\arg_2 - .) / 4) - 1)
     .endm
 
+    .macro CheckShouldNotTurnOffMultiStatAnim battlerCategory, label
+    // need to skip the stat animation turning off in case of defiant and competitive so the animation shows properly
+    CheckAbility CHECK_OPCODE_HAVE, \battlerCategory, ABILITY_DEFIANT, \label
+    CheckAbility CHECK_OPCODE_HAVE, \battlerCategory, ABILITY_COMPETITIVE, \label
+    .endm
+
+
 .endif

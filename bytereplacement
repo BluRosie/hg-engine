@@ -121,6 +121,9 @@ arm9 0203DFF4 8A 02
 
 #endif
 
+# restore the original code to the initial hook for ClearBattleMonFlags_hook
+# since we moved it
+0012 0224E998 B9 19 0A 54 40 1C 0A 54
 
 #ifndef IMPLEMENT_CAPTURE_EXPERIENCE
 

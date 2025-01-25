@@ -165,7 +165,7 @@ arm9 TT_TrainerTypeSexGet 020735F8 1
 
 #reset battlemon switch in flags (now really really do it)
 # smack in the middle of BattleSystem_GetBattleMon
-0012 ClearBattleMonFlags_hook 0224E998 3
+0012 ClearBattleMonFlags_hook 0224E6B2 0
 # need to do it in the middle of InitFaintedWork too
 0012 ClearBattleMonFlags_hook2 0225155C 0
 

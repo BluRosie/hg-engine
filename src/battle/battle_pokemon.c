@@ -1017,11 +1017,22 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
 void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 {
     int i;
+    // code from aero's pr
+    sp->battlemon[client].appear_check_flag = 0;
+    sp->battlemon[client].slow_start_flag = 0;
+    sp->battlemon[client].slow_start_end_flag = 0;
+
     sp->battlemon[client].sheer_force_flag = 0;
     sp->battlemon[client].imposter_flag = 0;
     sp->battlemon[client].critical_hits = 0;
     sp->battlemon[client].air_balloon_flag = 0;
+    sp->battlemon[client].potentially_affected_by_psychic_terrain_move_used_flag = 0;
     sp->battlemon[client].ability_activated_flag = 0;
+    sp->battlemon[client].tera_type = 0;
+    sp->battlemon[client].is_currently_terastallized = 0;
+    sp->battlemon[client].is_currently_dynamaxed = 0;
+    sp->battlemon[client].has_dynamaxed_before = 0;
+    sp->battlemon[client].type3 = 0;
     sp->oneTurnFlag[client].parental_bond_flag = 0;
     sp->oneTurnFlag[client].parental_bond_is_active = 0;
 
