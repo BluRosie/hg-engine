@@ -4299,7 +4299,7 @@ BOOL LONG_CALL AbilityFailSkillSwap(int ability) {
     return FALSE;
 }
 
-/// @brief Check if ability can't be suppressed by Gastro Acid. See notes for DisabledByNeutralizingGas.
+/// @brief Check if ability can't be suppressed by Gastro Acid or affected by Mummy. See notes for DisabledByNeutralizingGas.
 /// @param ability 
 /// @ref AbilityDisabledByNeutralizingGas
 /// @return `TRUE` or `FALSE`
