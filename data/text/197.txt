@@ -1129,7 +1129,7 @@ The opposing {STRVAR_1 1, 2, 0} is tormented\nby the opposing {STRVAR_1 1, 0, 0}
 {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
-(Unused)
+Its disguise served it as a decoy!
 {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}\nis hurt by its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\nis hurt by its {STRVAR_1 8, 1, 0}!
@@ -1352,12 +1352,12 @@ The opposing {STRVAR_1 1, 0, 0}’s\nillusion wore off!
 {STRVAR_1 1, 0, 0}’s disguise was busted!
 The wild {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
 The opposing {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
-{STRVAR_1 1, 0, 0}’s ice face shattered!
-The wild {STRVAR_1 1, 0, 0}’s ice face\nshattered!
-The opposing {STRVAR_1 1, 0, 0}’s ice face\nshattered!
-{STRVAR_1 1, 0, 0}’s ice face was restored!
-The wild {STRVAR_1 1, 0, 0}’s ice face was\nrestored!
-The opposing {STRVAR_1 1, 0, 0}’s ice face was\nrestored!
+(Unused)
+(Unused)
+(Unused)
+(Unused)
+(Unused)
+(Unused)
 You sense the presence of many!
 {STRVAR_1 1, 0, 0} transformed into its Complete\nForme!
 The wild {STRVAR_1 1, 0, 0} transformed\ninto its Complete Forme!
