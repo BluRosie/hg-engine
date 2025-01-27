@@ -2462,8 +2462,8 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                 if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
                     if (ctx->battlemon[ctx->attack_client].species == SPECIES_GRENINJA
                     && ctx->battlemon[ctx->attack_client].form_no == 1
-                    && ctx->battlemon[ctx->attack_client].battle_bond_flag == 0) {
-                        ctx->battlemon[ctx->attack_client].battle_bond_flag = 1;
+                    && ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag == FALSE) {
+                        ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag = TRUE;
                         ctx->state_client = ctx->attack_client;
                         ctx->battlerIdTemp = ctx->attack_client;
                         ctx->battlemon[ctx->attack_client].form_no = 2;

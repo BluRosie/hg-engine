@@ -813,9 +813,7 @@ struct __attribute__((packed)) BattlePokemon
                u32 paddingForNow1 : 5;
                u32 slow_start_flag : 1;      /**< slow start has printed its message */
                u32 slow_start_end_flag : 1;  /**< slow start should end */
-               u32 intrepid_sword_flag : 1;  /**< Intrepid Sword has activated */
-               u32 dauntless_shield_flag : 1;  /**< Dauntless Shield has activated */
-               u32 battle_bond_flag : 1;     /**< Battle Bond has activated */
+               u32 paddingForNow2 : 3;
                u32 canMega : 1;              /**< the BattlePokemon can mega */
                u32 sheer_force_flag : 1;     /**< keep track of sheer force activation */
                u32 imposter_flag : 1;        /**< imposter has activated */
@@ -1147,13 +1145,19 @@ typedef struct FutureCondition {
     u8 affectedClient;
 } FutureCondition;
 
+typedef struct OnceOnlyAbilityFlags {
+    BOOL battleBondFlag;
+    BOOL intrepidSwordFlag;
+    BOOL dauntlessShieldFlag;
+    BOOL superSweetSyrupFlag;
+} OnceOnlyAbilityFlags;
+
 /**
  *  @brief the entire battle structure that we are interested in (for the most part)
  *
  *  tracks everything about battle state.  consider it a "battle global" structure
  */
-struct PACKED BattleStruct
-{
+struct PACKED BattleStruct {
     /*0x0*/ u8 com_seq_no[CLIENT_MAX];
     /*0x4*/ u8 ret_seq_no[CLIENT_MAX];
     /*0x8*/ int server_seq_no;
@@ -1351,16 +1355,15 @@ struct PACKED BattleStruct
                u8 original_bgId:7;
                u8 hasLoadedBgIdOver:1;
                u32 moveStatusFlagForSpreadMoves[CLIENT_MAX];
-               // u32 or int?
-               u32 damageForSpreadMoves[CLIENT_MAX];
+               u32 damageForSpreadMoves[CLIENT_MAX]; // u32 or int?
                u8 clientLoopForSpreadMoves;
                BOOL boostedAccuracy;
                BOOL moveStolen;
                BOOL moveBounced;
                u8 rawSpeedNonRNGClientOrder[CLIENT_MAX];
-               // idk it's probably not u8?
-               int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX];
+               int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
+               OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
 };
 
 enum {

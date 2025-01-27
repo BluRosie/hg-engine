@@ -658,10 +658,10 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Intrepid Sword
                     {
-                        if ((sp->battlemon[client_no].intrepid_sword_flag == 0)
+                        if ((sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].intrepidSwordFlag == FALSE)
                         && (sp->battlemon[client_no].hp)
                         && (GetBattlerAbility(sp, client_no) == ABILITY_INTREPID_SWORD)) {
-                            sp->battlemon[client_no].intrepid_sword_flag = 1;
+                            sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].intrepidSwordFlag = TRUE;
                             sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;                        
                             sp->addeffect_type = ADD_STATUS_ABILITY;
                             sp->state_client = client_no;
@@ -673,10 +673,10 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Dauntless Shield
                     {
-                        if ((sp->battlemon[client_no].dauntless_shield_flag == 0)
+                        if ((sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].dauntlessShieldFlag == FALSE)
                         && (sp->battlemon[client_no].hp)
                         && (GetBattlerAbility(sp, client_no) == ABILITY_DAUNTLESS_SHIELD)) {
-                            sp->battlemon[client_no].dauntless_shield_flag = 1;
+                            sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].dauntlessShieldFlag = TRUE;
                             sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP;                        
                             sp->addeffect_type = ADD_STATUS_ABILITY;
                             sp->state_client = client_no;
