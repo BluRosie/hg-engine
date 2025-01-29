@@ -815,11 +815,11 @@ heightentry SPECIES_MUDBRAY, 0, 0, 0, 0
 heightentry SPECIES_MUDSDALE, 0, 0, 0, 0
 heightentry SPECIES_DEWPIDER, 0, 0, 0, 0
 heightentry SPECIES_ARAQUANID, 0, 0, 0, 0
-heightentry SPECIES_FOMANTIS, 0, 0, 0, 0
-heightentry SPECIES_LURANTIS, 0, 0, 0, 0
+heightentry SPECIES_FOMANTIS, 15, 15, 22, 22
+heightentry SPECIES_LURANTIS, 0, 0, 8, 8
 heightentry SPECIES_MORELULL, 0, 0, 0, 0
 heightentry SPECIES_SHIINOTIC, 10, 10, 0, 0
-heightentry SPECIES_SALANDIT, 0, 0, 0, 0
+heightentry SPECIES_SALANDIT, 0, 0, 1, 1
 heightentry SPECIES_SALAZZLE, 0, "null", 0, "null"
 heightentry SPECIES_STUFFUL, 0, 0, 0, 0
 heightentry SPECIES_BEWEAR, 0, 0, 0, 0
@@ -880,7 +880,7 @@ heightentry SPECIES_RABOOT, 0, 0, 0, 0
 heightentry SPECIES_CINDERACE, 0, 0, 0, 0
 heightentry SPECIES_SOBBLE, 0, 0, 0, 0
 heightentry SPECIES_DRIZZILE, 0, 0, 0, 0
-heightentry SPECIES_INTELEON, 0, 0, 0, 0
+heightentry SPECIES_INTELEON, 0, 0, 6, 6
 heightentry SPECIES_SKWOVET, 0, 0, 0, 0
 heightentry SPECIES_GREEDENT, 0, 0, 0, 0
 heightentry SPECIES_ROOKIDEE, 0, 0, 0, 0
@@ -904,10 +904,10 @@ heightentry SPECIES_CARKOL, 0, 0, 0, 0
 heightentry SPECIES_COALOSSAL, 0, 0, 0, 0
 heightentry SPECIES_APPLIN, 0, 0, 0, 0
 heightentry SPECIES_FLAPPLE, 0, 0, 0, 0
-heightentry SPECIES_APPLETUN, 0, 0, 0, 0
+heightentry SPECIES_APPLETUN, 0, 0, 11, 11
 heightentry SPECIES_SILICOBRA, 0, 0, 0, 0
 heightentry SPECIES_SANDACONDA, 0, 0, 0, 0
-heightentry SPECIES_CRAMORANT, 0, 0, 0, 0
+heightentry SPECIES_CRAMORANT, 0, 0, 6, 6
 heightentry SPECIES_ARROKUDA, 0, 0, 0, 0
 heightentry SPECIES_BARRASKEWDA, 0, 0, 0, 0
 heightentry SPECIES_TOXEL, 0, 0, 0, 0
@@ -944,7 +944,7 @@ heightentry SPECIES_CUFANT, 0, 0, 0, 0
 heightentry SPECIES_COPPERAJAH, 0, 0, 0, 0
 heightentry SPECIES_DRACOZOLT, "null", 0, "null", 0
 heightentry SPECIES_ARCTOZOLT, "null", 5, "null", 0
-heightentry SPECIES_DRACOVISH, "null", 0, "null", 0
+heightentry SPECIES_DRACOVISH, 0, 0, 4, 4
 heightentry SPECIES_ARCTOVISH, "null", 0, "null", 0
 heightentry SPECIES_DURALUDON, 0, 0, 0, 0
 heightentry SPECIES_DREEPY, 0, 0, 0, 0
@@ -970,7 +970,7 @@ heightentry SPECIES_SNEASLER, 0, 0, 0, 0
 heightentry SPECIES_OVERQWIL, 0, 0, 0, 0
 heightentry SPECIES_ENAMORUS, 0, "null", 0, "null"
 
-heightentry SPECIES_SPRIGATITO, 0, 0, 0, 0
+heightentry SPECIES_SPRIGATITO, 12, 12, 3, 3
 heightentry SPECIES_FLORAGATO, 0, 0, 0, 0
 heightentry SPECIES_MEOWSCARADA, 0, 0, 0, 0
 heightentry SPECIES_FUECOCO, 0, 0, 0, 0
@@ -983,7 +983,7 @@ heightentry SPECIES_LECHONK, 0, 0, 0, 0
 heightentry SPECIES_OINKOLOGNE, 0, 0, 0, 0
 heightentry SPECIES_TAROUNTULA, 0, 0, 0, 0
 heightentry SPECIES_SPIDOPS, 0, 0, 0, 0
-heightentry SPECIES_NYMBLE, 0, 0, 0, 0
+heightentry SPECIES_NYMBLE, 0, 0, 17, 17
 heightentry SPECIES_LOKIX, 0, 0, 0, 0
 heightentry SPECIES_PAWMI, 0, 0, 0, 0
 heightentry SPECIES_PAWMO, 0, 0, 0, 0
@@ -991,7 +991,7 @@ heightentry SPECIES_PAWMOT, 0, 0, 0, 0
 heightentry SPECIES_TANDEMAUS, "null", 5, "null", 0
 heightentry SPECIES_MAUSHOLD, "null", 5, "null", 0
 heightentry SPECIES_FIDOUGH, 0, 0, 0, 0
-heightentry SPECIES_DACHSBUN, 0, 0, 0, 0
+heightentry SPECIES_DACHSBUN, 0, 0, 18, 18
 heightentry SPECIES_SMOLIV, 8, 8, 0, 0
 heightentry SPECIES_DOLLIV, 0, 0, 0, 0
 heightentry SPECIES_ARBOLIVA, 0, 0, 0, 0
@@ -1020,9 +1020,9 @@ heightentry SPECIES_SCOVILLAIN, 0, 0, 0, 0
 heightentry SPECIES_RELLOR, 0, 0, 0, 0
 heightentry SPECIES_RABSCA, 0, 0, 0, 0
 heightentry SPECIES_FLITTLE, 0, 0, 0, 0
-heightentry SPECIES_ESPATHRA, 0, 0, 0, 0
-heightentry SPECIES_TINKATINK, 0, 0, 0, 0
-heightentry SPECIES_TINKATUFF, 0, 0, 0, 0
+heightentry SPECIES_ESPATHRA, 0, 0, 6, 6
+heightentry SPECIES_TINKATINK, 8, 8, 16, 16
+heightentry SPECIES_TINKATUFF, 7, 7, 5, 5
 heightentry SPECIES_TINKATON, 0, 0, 0, 0
 heightentry SPECIES_WIGLETT, 0, 0, 0, 0
 heightentry SPECIES_WUGTRIO, 0, 0, 0, 0
@@ -1035,12 +1035,12 @@ heightentry SPECIES_CYCLIZAR, 0, 0, 0, 0
 heightentry SPECIES_ORTHWORM, 0, 0, 0, 0
 heightentry SPECIES_GLIMMET, 0, 0, 0, 0
 heightentry SPECIES_GLIMMORA, 0, 0, 0, 0
-heightentry SPECIES_GREAVARD, 0, 0, 0, 0
-heightentry SPECIES_HOUNDSTONE, 0, 0, 0, 0
+heightentry SPECIES_GREAVARD, 2, 2, 16, 16
+heightentry SPECIES_HOUNDSTONE, 0, 0, 12, 12
 heightentry SPECIES_FLAMIGO, 0, 0, 0, 0
 heightentry SPECIES_CETODDLE, 0, 0, 0, 0
 heightentry SPECIES_CETITAN, 0, 0, 0, 0
-heightentry SPECIES_VELUZA, 0, 0, 0, 0
+heightentry SPECIES_VELUZA, 13, 13, 0, 0
 heightentry SPECIES_DONDOZO, 0, 0, 0, 0
 heightentry SPECIES_TATSUGIRI, 0, 0, 0, 0
 heightentry SPECIES_ANNIHILAPE, 0, 0, 0, 0
@@ -1078,7 +1078,7 @@ heightentry SPECIES_IRON_LEAVES, "null", 0, "null", 0
 heightentry SPECIES_DIPPLIN, 0, 0, 0, 0
 heightentry SPECIES_POLTCHAGEIST, "null", 0, "null", 0
 heightentry SPECIES_SINISTCHA, "null", 0, "null", 0
-heightentry SPECIES_OKIDOGI, "null", 0, "null", 0
+heightentry SPECIES_OKIDOGI, "null", 0, "null", 4
 heightentry SPECIES_MUNKIDORI, "null", 0, "null", 0
 heightentry SPECIES_FEZANDIPITI, "null", 0, "null", 0
 heightentry SPECIES_OGERPON, 0, "null", 0, "null" 
