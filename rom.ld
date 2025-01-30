@@ -307,7 +307,7 @@ GF_RTC_CopyTime = 0x0201474C | 1;
 GF_RTC_CopyDate = 0x02014780 | 1;
 IsNighttime = 0x02014804 | 1;
 GF_RTC_GetTimeOfDay = 0x0201481C | 1;
-GF_RTC_GetTimeOfDayWildParam = 0x02014844 | 1;
+GF_RTC_GetTimeOfDayWildParam = 0x02014830 | 1;
 GF_RTC_GetTimeOfDayWildParamByHour = 0x0201485C | 1;
 
 
