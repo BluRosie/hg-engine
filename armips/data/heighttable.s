@@ -674,8 +674,8 @@ heightentry SPECIES_CHANDELURE, 0, 0, 0, 0
 heightentry SPECIES_AXEW, 0, 0, 0, 0
 heightentry SPECIES_FRAXURE, 0, 0, 0, 0
 heightentry SPECIES_HAXORUS, 0, 0, 0, 0
-heightentry SPECIES_CUBCHOO, 0, 0, 0, 0
-heightentry SPECIES_BEARTIC, 0, 0, 0, 0
+heightentry SPECIES_CUBCHOO, 11, 11, 0, 0
+heightentry SPECIES_BEARTIC, 3, 3, 0, 0
 heightentry SPECIES_CRYOGONAL, "null", 0, "null", 0
 heightentry SPECIES_SHELMET, 0, 0, 0, 0
 heightentry SPECIES_ACCELGOR, 0, 0, 0, 0
@@ -1015,7 +1015,7 @@ heightentry SPECIES_BRAMBLEGHAST, 0, 0, 0, 0
 heightentry SPECIES_TOEDSCOOL, 0, 0, 0, 0
 heightentry SPECIES_TOEDSCRUEL, 0, 0, 0, 0
 heightentry SPECIES_KLAWF, 0, 0, 0, 0
-heightentry SPECIES_CAPSAKID, 0, 0, 0, 0
+heightentry SPECIES_CAPSAKID, 15, 15, 28, 28
 heightentry SPECIES_SCOVILLAIN, 0, 0, 0, 0
 heightentry SPECIES_RELLOR, 0, 0, 0, 0
 heightentry SPECIES_RABSCA, 0, 0, 0, 0
