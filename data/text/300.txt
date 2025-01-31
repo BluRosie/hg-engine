@@ -59,7 +59,7 @@ Stop trying to teach\n{STRVAR_1 6, 1, 0}?
 
 {STRVAR_1 1, 0, 0} did not learn\n{STRVAR_1 6, 1, 0}.\r
 Please choose a move that will be\nreplaced with {STRVAR_1 6, 1, 0}.\r
-One...{PAUSE 20}two...{PAUSE 20}and...{PAUSE 20}ta-da!{WAIT 3}{WAIT 5}\r{STRVAR_1 1, 0, 0} forgot\n{STRVAR_1 6, 1, 0}\r
+One...{PAUSE 20}two...{PAUSE 20}and...{PAUSE 20}ta-da!{WAIT 3}{WAIT 5}\n{STRVAR_1 1, 0, 0} forgot {STRVAR_1 6, 1, 0}\r
 and it learned {STRVAR_1 6, 1, 0} instead!{WAIT 4}{WAIT 2}\r
 {STRVAR_1 1, 0, 0} can’t learn\n{STRVAR_1 6, 1, 0}!\rThe two are incompatible!\r
 {STRVAR_1 1, 0, 0} already knows\n{STRVAR_1 6, 1, 0}.\r

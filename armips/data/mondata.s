@@ -873,7 +873,7 @@ mondata SPECIES_GOLBAT, "Golbat"
     mondexweight SPECIES_GOLBAT, "121.3 lbs."
 
 mondata SPECIES_ODDISH, "Oddish"
-    basestats 50, 40, 40, 30, 80, 60
+    basestats 40, 50, 50, 30, 70, 60
     types TYPE_GRASS, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -913,7 +913,7 @@ mondata SPECIES_GLOOM, "Gloom"
     mondexweight SPECIES_GLOOM, "19.0 lbs."
 
 mondata SPECIES_VILEPLUME, "Vileplume"
-    basestats 80, 70, 90, 50, 100, 100
+    basestats 80, 80, 90, 50, 110, 90
     types TYPE_GRASS, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -933,12 +933,12 @@ mondata SPECIES_VILEPLUME, "Vileplume"
     mondexweight SPECIES_VILEPLUME, "41.0 lbs."
 
 mondata SPECIES_PARAS, "Paras"
-    basestats 40, 70, 50, 40, 50, 50
+    basestats 40, 70, 60, 20, 50, 60
     types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
+    items ITEM_TINY_MUSHROOM, ITEM_TINY_MUSHROOM
     genderratio 127
     eggcycles 0
     basefriendship 255
@@ -958,7 +958,7 @@ mondata SPECIES_PARASECT, "Parasect"
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
+    items ITEM_BIG_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
     eggcycles 0
     basefriendship 255
@@ -974,7 +974,7 @@ mondata SPECIES_PARASECT, "Parasect"
 
 mondata SPECIES_VENONAT, "Venonat"
     basestats 60, 50, 50, 40, 50, 50
-    types TYPE_BUG, TYPE_POISON
+    types TYPE_BUG, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -993,8 +993,8 @@ mondata SPECIES_VENONAT, "Venonat"
     mondexweight SPECIES_VENONAT, "66.1 lbs."
 
 mondata SPECIES_VENOMOTH, "Venomoth"
-    basestats 70, 70, 80, 100, 100, 80
-    types TYPE_PSYCHIC, TYPE_POISON
+    basestats 60, 50, 50, 90, 90, 60
+    types TYPE_BUG, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -1173,7 +1173,7 @@ mondata SPECIES_PRIMEAPE, "Primeape"
     mondexweight SPECIES_PRIMEAPE, "70.5 lbs."
 
 mondata SPECIES_GROWLITHE, "Growlithe"
-    basestats 40, 70, 40, 40, 70, 40
+    basestats 60, 80, 50, 70, 80, 60 // 400
     types TYPE_FIRE, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1193,7 +1193,7 @@ mondata SPECIES_GROWLITHE, "Growlithe"
     mondexweight SPECIES_GROWLITHE, "41.9 lbs."
 
 mondata SPECIES_ARCANINE, "Arcanine"
-    basestats 80, 90, 80, 80, 90, 80
+    basestats 80, 100, 70, 90, 90, 70 // 500
     types TYPE_FIRE, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1453,7 +1453,7 @@ mondata SPECIES_VICTREEBEL, "Victreebel"
     mondexweight SPECIES_VICTREEBEL, "34.2 lbs."
 
 mondata SPECIES_TENTACOOL, "Tentacool"
-    basestats 50, 50, 50, 80, 50, 120
+    basestats 50, 50, 50, 80, 50, 120 // 400
     types TYPE_WATER, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1473,7 +1473,7 @@ mondata SPECIES_TENTACOOL, "Tentacool"
     mondexweight SPECIES_TENTACOOL, "100.3 lbs."
 
 mondata SPECIES_TENTACRUEL, "Tentacruel"
-    basestats 70, 70, 70, 100, 70, 120
+    basestats 70, 70, 70, 100, 70, 120 // 500
     types TYPE_WATER, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1553,7 +1553,7 @@ mondata SPECIES_GOLEM, "Golem"
     mondexweight SPECIES_GOLEM, "661.4 lbs."
 
 mondata SPECIES_PONYTA, "Ponyta"
-    basestats 50, 80, 60, 80, 60, 70
+    basestats 50, 80, 60, 80, 60, 70 // 400
     types TYPE_FIRE, TYPE_FIRE
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1593,7 +1593,7 @@ mondata SPECIES_RAPIDASH, "Rapidash"
     mondexweight SPECIES_RAPIDASH, "209.4 lbs."
 
 mondata SPECIES_SLOWPOKE, "Slowpoke"
-    basestats 90, 50, 50, 30, 40, 40
+    basestats 120, 70, 70, 20, 60, 60 // 400
     types TYPE_WATER, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1613,7 +1613,7 @@ mondata SPECIES_SLOWPOKE, "Slowpoke"
     mondexweight SPECIES_SLOWPOKE, "79.4 lbs."
 
 mondata SPECIES_SLOWBRO, "Slowbro"
-    basestats 100, 80, 110, 30, 100, 80
+    basestats 120, 70, 110, 20, 100, 80 // 500
     types TYPE_WATER, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1627,7 +1627,7 @@ mondata SPECIES_SLOWBRO, "Slowbro"
     abilities ABILITY_REGENERATOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    mondexentry SPECIES_SLOWBRO, "If the tail-biting SHELLDER is thrown\noff in a harsh battle, it reverts to\nbeing an ordinary SLOWPOKE."
+    mondexentry SPECIES_SLOWBRO, "If the tail-biting Shellder is thrown\noff in a harsh battle, it reverts to\nbeing an ordinary Slowpoke."
     mondexclassification SPECIES_SLOWBRO, "Hermit Crab Pokémon"
     mondexheight SPECIES_SLOWBRO, "5’03”"
     mondexweight SPECIES_SLOWBRO, "173.1 lbs."
@@ -1693,7 +1693,7 @@ mondata SPECIES_FARFETCHD, "Farfetch’d"
     mondexweight SPECIES_FARFETCHD, "33.1 lbs."
 
 mondata SPECIES_DODUO, "Doduo"
-    basestats 40, 70, 40, 70, 40, 40
+    basestats 50, 100, 60, 90, 50, 50 // 400
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1713,7 +1713,7 @@ mondata SPECIES_DODUO, "Doduo"
     mondexweight SPECIES_DODUO, "86.4 lbs."
 
 mondata SPECIES_DODRIO, "Dodrio"
-    basestats 70, 110, 70, 110, 70, 70
+    basestats 70, 110, 70, 110, 70, 70 // 500
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1733,7 +1733,7 @@ mondata SPECIES_DODRIO, "Dodrio"
     mondexweight SPECIES_DODRIO, "187.8 lbs."
 
 mondata SPECIES_SEEL, "Seel"
-    basestats 80, 60, 60, 60, 60, 80
+    basestats 80, 60, 60, 60, 60, 80 // 400
     types TYPE_WATER, TYPE_ICE
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1753,7 +1753,7 @@ mondata SPECIES_SEEL, "Seel"
     mondexweight SPECIES_SEEL, "198.4 lbs."
 
 mondata SPECIES_DEWGONG, "Dewgong"
-    basestats 110, 70, 70, 70, 70, 110
+    basestats 110, 70, 70, 70, 70, 110 // 500
     types TYPE_WATER, TYPE_ICE
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1773,7 +1773,7 @@ mondata SPECIES_DEWGONG, "Dewgong"
     mondexweight SPECIES_DEWGONG, "264.6 lbs."
 
 mondata SPECIES_GRIMER, "Grimer"
-    basestats 80, 80, 40, 30, 30, 40
+    basestats 100, 100, 60, 30, 50, 60 // 400
     types TYPE_POISON, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1793,7 +1793,7 @@ mondata SPECIES_GRIMER, "Grimer"
     mondexweight SPECIES_GRIMER, "66.1 lbs."
 
 mondata SPECIES_MUK, "Muk"
-    basestats 100, 100, 80, 50, 70, 100
+    basestats 100, 100, 80, 50, 70, 100 // 500
     types TYPE_POISON, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -1813,12 +1813,12 @@ mondata SPECIES_MUK, "Muk"
     mondexweight SPECIES_MUK, "66.1 lbs."
 
 mondata SPECIES_SHELLDER, "Shellder"
-    basestats 30, 50, 100, 40, 50, 30
+    basestats 50, 80, 130, 50, 60, 30
     types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_PEARL, ITEM_BIG_PEARL
+    items ITEM_PEARL, ITEM_PEARL
     genderratio 127
     eggcycles 0
     basefriendship 255
@@ -1833,12 +1833,12 @@ mondata SPECIES_SHELLDER, "Shellder"
     mondexweight SPECIES_SHELLDER, "8.8 lbs."
 
 mondata SPECIES_CLOYSTER, "Cloyster"
-    basestats 40, 90, 180, 60, 90, 40
+    basestats 60, 90, 150, 70, 90, 40
     types TYPE_WATER, TYPE_ICE
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_PEARL, ITEM_BIG_PEARL
+    items ITEM_BIG_PEARL, ITEM_BIG_PEARL
     genderratio 127
     eggcycles 0
     basefriendship 255
@@ -2193,7 +2193,7 @@ mondata SPECIES_LICKITUNG, "Lickitung"
     mondexweight SPECIES_LICKITUNG, "144.4 lbs."
 
 mondata SPECIES_KOFFING, "Koffing"
-    basestats 40, 40, 100, 40, 40, 40
+    basestats 50, 70, 110, 50, 70, 50
     types TYPE_POISON, TYPE_FIRE
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -2213,7 +2213,7 @@ mondata SPECIES_KOFFING, "Koffing"
     mondexweight SPECIES_KOFFING, "2.2 lbs."
 
 mondata SPECIES_WEEZING, "Weezing"
-    basestats 60, 90, 140, 60, 90, 60
+    basestats 70, 90, 120, 60, 90, 70
     types TYPE_POISON, TYPE_FIRE
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -2227,7 +2227,7 @@ mondata SPECIES_WEEZING, "Weezing"
     abilities ABILITY_LEVITATE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    mondexentry SPECIES_WEEZING, "If one of the twin KOFFING inflates,\nthe other one deflates. It constantly\nmixes its poisonous gases."
+    mondexentry SPECIES_WEEZING, "If one of the twin Koffing inflates,\nthe other one deflates. It constantly\nmixes its poisonous gases."
     mondexclassification SPECIES_WEEZING, "Poison Gas Pokémon"
     mondexheight SPECIES_WEEZING, "3’11”"
     mondexweight SPECIES_WEEZING, "20.9 lbs."
@@ -2334,7 +2334,7 @@ mondata SPECIES_KANGASKHAN, "Kangaskhan"
 
 mondata SPECIES_HORSEA, "Horsea"
     basestats 30, 40, 70, 60, 70, 30
-    types TYPE_WATER, TYPE_WATER
+    types TYPE_WATER, TYPE_DRAGON
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -2353,7 +2353,7 @@ mondata SPECIES_HORSEA, "Horsea"
     mondexweight SPECIES_HORSEA, "17.6 lbs."
 
 mondata SPECIES_SEADRA, "Seadra"
-    basestats 40, 40, 100, 80, 100, 40
+    basestats 40, 60, 90, 80, 90, 40
     types TYPE_WATER, TYPE_DRAGON
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -2484,7 +2484,7 @@ mondata SPECIES_SCYTHER, "Scyther"
     basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
-    abilities ABILITY_SWARM, ABILITY_NONE
+    abilities ABILITY_TECHNICIAN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     mondexentry SPECIES_SCYTHER, "It slashes through grass with its\nsharp scythes, moving too fast\nfor the human eye to track."
@@ -2733,7 +2733,7 @@ mondata SPECIES_JOLTEON, "Jolteon"
     mondexweight SPECIES_JOLTEON, "54.0 lbs."
 
 mondata SPECIES_FLAREON, "Flareon"
-    basestats 60, 100, 70, 100, 100, 70
+    basestats 100, 100, 70, 100, 60, 70
     types TYPE_FIRE, TYPE_FIRE
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -2807,7 +2807,7 @@ mondata SPECIES_OMASTAR, "Omastar"
     abilities ABILITY_STAMINA, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
-    mondexentry SPECIES_OMASTAR, "Apparently, it cracked SHELLDER’s\nshell with its sharp fangs and\nsucked out the insides."
+    mondexentry SPECIES_OMASTAR, "Apparently, it cracked Shellder’s\nshell with its sharp fangs and\nsucked out the insides."
     mondexclassification SPECIES_OMASTAR, "Spiral Pokémon"
     mondexheight SPECIES_OMASTAR, "3’03”"
     mondexweight SPECIES_OMASTAR, "77.2 lbs."
@@ -2953,7 +2953,7 @@ mondata SPECIES_MOLTRES, "Moltres"
     mondexweight SPECIES_MOLTRES, "132.3 lbs."
 
 mondata SPECIES_DRATINI, "Dratini"
-    basestats 50, 50, 50, 50, 50, 50
+    basestats 40, 60, 50, 50, 50, 50
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -2973,7 +2973,7 @@ mondata SPECIES_DRATINI, "Dratini"
     mondexweight SPECIES_DRATINI, "7.3 lbs."
 
 mondata SPECIES_DRAGONAIR, "Dragonair"
-    basestats 90, 70, 50, 70, 70, 50
+    basestats 70, 80, 50, 70, 70, 60
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -2993,7 +2993,7 @@ mondata SPECIES_DRAGONAIR, "Dragonair"
     mondexweight SPECIES_DRAGONAIR, "36.4 lbs."
 
 mondata SPECIES_DRAGONITE, "Dragonite"
-    basestats 130, 90, 50, 90, 90, 50
+    basestats 100, 100, 50, 90, 90, 70
     types TYPE_DRAGON, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3374,7 +3374,7 @@ mondata SPECIES_SPINARAK, "Spinarak"
 
 mondata SPECIES_ARIADOS, "Ariados"
     basestats 30, 60, 30, 100, 50, 30
-    types TYPE_BUG, TYPE_POISON
+    types TYPE_BUG, TYPE_DARK
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -3653,7 +3653,7 @@ mondata SPECIES_AMPHAROS, "Ampharos"
     mondexweight SPECIES_AMPHAROS, "135.6 lbs."
 
 mondata SPECIES_BELLOSSOM, "Bellossom"
-    basestats 90, 90, 90, 50, 90, 90 
+    basestats 80, 80, 100, 50, 90, 100
     types TYPE_GRASS, TYPE_FAIRY
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3673,7 +3673,7 @@ mondata SPECIES_BELLOSSOM, "Bellossom"
     mondexweight SPECIES_BELLOSSOM, "12.8 lbs."
 
 mondata SPECIES_MARILL, "Marill"
-    basestats 80, 50, 40, 40, 50, 40
+    basestats 80, 40, 50, 40, 40, 50
     types TYPE_WATER, TYPE_FAIRY
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3693,7 +3693,7 @@ mondata SPECIES_MARILL, "Marill"
     mondexweight SPECIES_MARILL, "18.7 lbs."
 
 mondata SPECIES_AZUMARILL, "Azumarill"
-    basestats 100, 70, 100, 60, 70, 100
+    basestats 100, 50, 80, 40, 50, 80
     types TYPE_WATER, TYPE_FAIRY
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3873,7 +3873,7 @@ mondata SPECIES_SUNFLORA, "Sunflora"
     mondexweight SPECIES_SUNFLORA, "18.7 lbs."
 
 mondata SPECIES_YANMA, "Yanma"
-    basestats 50, 70, 70, 70, 70, 70
+    basestats 70, 70, 50, 90, 70, 50
     types TYPE_BUG, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3973,7 +3973,7 @@ mondata SPECIES_UMBREON, "Umbreon"
     mondexweight SPECIES_UMBREON, "59.5 lbs."
 
 mondata SPECIES_MURKROW, "Murkrow"
-    basestats 30, 70, 30, 70, 70, 30
+    basestats 40, 60, 40, 60, 60, 40
     types TYPE_DARK, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -4093,7 +4093,7 @@ mondata SPECIES_GIRAFARIG, "Girafarig"
     mondexweight SPECIES_GIRAFARIG, "91.5 lbs."
 
 mondata SPECIES_PINECO, "Pineco"
-    basestats 90, 70, 50, 30, 30, 30
+    basestats 50, 50, 100, 20, 20, 50
     types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -4113,7 +4113,7 @@ mondata SPECIES_PINECO, "Pineco"
     mondexweight SPECIES_PINECO, "15.9 lbs."
 
 mondata SPECIES_FORRETRESS, "Forretress"
-    basestats 120, 90, 70, 30, 30, 60
+    basestats 70, 90, 130, 20, 20, 70
     types TYPE_BUG, TYPE_STEEL
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -4273,18 +4273,18 @@ mondata SPECIES_SCIZOR, "Scizor"
     mondexweight SPECIES_SCIZOR, "260.1 lbs."
 
 mondata SPECIES_SHUCKLE, "Shuckle"
-    basestats 50, 50, 150, 50, 50, 150
-    types TYPE_BUG, TYPE_ROCK
+    basestats 30, 70, 150, 30, 70, 150
+    types TYPE_ROCK, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_BERRY_JUICE, ITEM_ORAN_BERRY
+    items ITEM_ORAN_BERRY, ITEM_ORAN_BERRY
     genderratio 127
     eggcycles 0
     basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
-    abilities ABILITY_INNARDS_OUT, ABILITY_NONE
+    abilities ABILITY_RIPEN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     mondexentry SPECIES_SHUCKLE, "The berries it stores in its\nvase-like shell decompose and\nbecome a gooey liquid."
@@ -4313,12 +4313,12 @@ mondata SPECIES_HERACROSS, "Heracross"
     mondexweight SPECIES_HERACROSS, "119.0 lbs."
 
 mondata SPECIES_SNEASEL, "Sneasel"
-    basestats 40, 100, 40, 120, 30, 70
+    basestats 50, 90, 50, 110, 30, 70
     types TYPE_DARK, TYPE_ICE
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
-    items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
+    items ITEM_QUICK_CLAW, ITEM_QUICK_CLAW
     genderratio 127
     eggcycles 0
     basefriendship 255
@@ -4613,7 +4613,7 @@ mondata SPECIES_HOUNDOOM, "Houndoom"
     mondexweight SPECIES_HOUNDOOM, "77.2 lbs."
 
 mondata SPECIES_KINGDRA, "Kingdra"
-    basestats 40, 100, 100, 80, 100, 80
+    basestats 60, 90, 90, 80, 90, 90
     types TYPE_WATER, TYPE_DRAGON
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -4693,7 +4693,7 @@ mondata SPECIES_PORYGON2, "Porygon2"
     mondexweight SPECIES_PORYGON2, "71.7 lbs."
 
 mondata SPECIES_STANTLER, "Stantler"
-    basestats 70, 90, 70, 90, 80, 70
+    basestats 70, 70, 60, 70, 70, 60
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -8613,7 +8613,7 @@ mondata SPECIES_MISMAGIUS, "Mismagius"
     mondexweight SPECIES_MISMAGIUS, "9.7 lbs."
 
 mondata SPECIES_HONCHKROW, "Honchkrow"
-    basestats 100, 110, 50, 80, 110, 50
+    basestats 80, 100, 40, 60, 80, 40
     types TYPE_DARK, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -9393,7 +9393,7 @@ mondata SPECIES_TOGEKISS, "Togekiss"
     mondexweight SPECIES_TOGEKISS, "83.8 lbs."
 
 mondata SPECIES_YANMEGA, "Yanmega"
-    basestats 50, 90, 90, 90, 90, 90
+    basestats 80, 70, 80, 90, 120, 60
     types TYPE_BUG, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s

@@ -407,7 +407,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     // should take precedent over a move using an alternate accuracy calc, as this will still be called for those.
     if (GetBattlerAbility(sp, defender) == ABILITY_TELEPATHY // defender has telepathy ability
      && (attacker & 1) == (defender & 1) // attacker and defender are on the same side
-     && GetMoveSplit(sp, move_no) != SPLIT_STATUS) // move actually damages
+     && GetMoveSplit(sp, move_no) != SPLIT_STATUS // move actually damages
+	 && !((move_no == MOVE_POLLEN_PUFF) || (move_no == MOVE_PRESENT))) // move isnt Pollen Puff or Present
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
         sp->oneTurnFlag[attacker].parental_bond_flag = 0;
@@ -434,6 +435,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
             (
                 (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_GRASS) ||
                 (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_GRASS) ||
+				(MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_OVERCOAT)) ||
                 (hold_effect == HOLD_EFFECT_SPORE_POWDER_IMMUNITY)
             )
             {
@@ -1120,11 +1122,11 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
 
 const u8 CriticalRateTable[] =
 {
-     8,
-     4,
-     2,
-     1,
-     1
+	0,
+	25,
+	50,
+	100,
+	100
 };
 
 // calculates the critical hit multiplier
@@ -1149,8 +1151,11 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     move_effect = sp->battlemon[defender].effect_of_moves;
     ability = sp->battlemon[attacker].ability;
 
-    temp = (((condition2 & STATUS2_FOCUS_ENERGY) != 0) * 2) + (hold_effect == HOLD_EFFECT_CRITRATE_UP) + critical_count + (ability == ABILITY_SUPER_LUCK)
-         + (2 * ((hold_effect == HOLD_EFFECT_CHANSEY_CRITRATE_UP) && (species == SPECIES_CHANSEY)));
+    temp = (((condition2 & STATUS2_FOCUS_ENERGY) != 0) * 2)
+			+ (hold_effect == HOLD_EFFECT_CRITRATE_UP)
+			+ critical_count
+			+ (ability == ABILITY_SUPER_LUCK)
+			+ (2 * ((hold_effect == HOLD_EFFECT_CHANSEY_CRITRATE_UP) && (species == SPECIES_CHANSEY)));
 
     if (temp > 4)
     {
@@ -1159,16 +1164,16 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 
     if
     (
-        BattleRand(bw) % CriticalRateTable[temp] == 0
+        BattleRand(bw) % 100 < CriticalRateTable[temp]
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ALL))
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
     )
     {
         if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)
-         && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SHELL_ARMOR) == FALSE)
-         && ((side_condition & SIDE_STATUS_LUCKY_CHANT) == 0)
-         && ((move_effect & MOVE_EFFECT_NO_CRITICAL_HITS) == 0)
-		 && ((ability & ABILITY_HUSTLE) == 0))
+		&& (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SHELL_ARMOR) == FALSE)
+		&& ((side_condition & SIDE_STATUS_LUCKY_CHANT) == 0)
+		&& ((move_effect & MOVE_EFFECT_NO_CRITICAL_HITS) == 0)
+		&& ((ability & ABILITY_HUSTLE) == 0))
         {
             multiplier = 2;
         }
@@ -2080,13 +2085,26 @@ void LONG_CALL getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attack
     }
 
     switch (moveno) {
+		case MOVE_FOUL_PLAY:
+            *equivalentAttack = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_ATK, NULL) 
+                              * StatBoostModifiers[sp->battlemon[defender].states[STAT_ATTACK]][0]
+                              / StatBoostModifiers[sp->battlemon[defender].states[STAT_ATTACK]][1];
+            break;
+		case MOVE_NIGHT_DAZE:
+            *equivalentAttack = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPATK, NULL) 
+                              * StatBoostModifiers[sp->battlemon[defender].states[STAT_SPATK]][0]
+                              / StatBoostModifiers[sp->battlemon[defender].states[STAT_SPATK]][1];
+            break;
+		case MOVE_CHIP_AWAY:
+        case MOVE_SACRED_SWORD:
+            *equivalentDefense = defenderDefense;
+            break;
         case MOVE_PSYSHOCK:
         case MOVE_PSYSTRIKE:
         case MOVE_SECRET_SWORD:
             *equivalentDefense = rawPhysicalDefense;
             break;
         case MOVE_PHOTON_GEYSER:
-        case MOVE_PRISMATIC_LASER:
             if (tempPhysicalAttack > tempSpecialAttack) {
                 *movesplit = SPLIT_PHYSICAL;
                 *equivalentAttack = rawPhysicalAttack;
@@ -2301,21 +2319,48 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                 }
             }
         }
+		
+		// Handle Fell Stinger
+		// +3 Attack 
+		if ((ctx->current_move_index == MOVE_FELL_STINGER && ctx->battlemon[ctx->attack_client].sheer_force_flag == 0)
+		&& (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs)
+		&& (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12)
+		&& (ctx->battlemon[ctx->attack_client].moveeffect.fakeOutCount != (ctx->total_turn + 1))) {
+			ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
+			ctx->addeffect_type = ADD_EFFECT_DIRECT;
+			ctx->state_client = ctx->attack_client;
+			LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
+			ctx->next_server_seq_no = ctx->server_seq_no;
+			ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+			ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
+			return;
+        }
+		
+		// Handle Dragon Tail/Circle Throw
+		if ((ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_FORCE_SWITCH_HIT)
+		&& (ctx->battlemon[ctx->defence_client].hp > 0)
+		&& !(ctx->oneTurnFlag[ctx->attack_client].numberOfKOs)
+		&& (ctx->battlemon[ctx->attack_client].moveeffect.fakeOutCount != (ctx->total_turn + 1))) {
+			LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FORCE_OUT);
+			ctx->next_server_seq_no = ctx->server_seq_no;
+			ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+			return;
+        }
 
         // TODO: A rampage move that fails (Thrash, Outrage etc) will cancel except on the last turn
         if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS && !ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag) {
-                ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 1;
-                ctx->battlemon[ctx->attack_client].condition2 -= 1 << 10;
-                if (ov12_02252218(ctx, ctx->attack_client)) { // come back to this
-                    ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RAMPAGE_TURNS;
-                } else if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS) && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
-                    ctx->state_client = ctx->attack_client;
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THRASH_END);
-                    ctx->next_server_seq_no = ctx->server_seq_no;
-                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                    return;
-                }
-            }
+			ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 1;
+			ctx->battlemon[ctx->attack_client].condition2 -= 1 << 10;
+			if (ov12_02252218(ctx, ctx->attack_client)) { // come back to this
+				ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RAMPAGE_TURNS;
+			} else if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS) && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
+				ctx->state_client = ctx->attack_client;
+				LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THRASH_END);
+				ctx->next_server_seq_no = ctx->server_seq_no;
+				ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+				return;
+			}
+		}
 
         // If the user's next move is not Electric-type, Charge no longer wears off, and instead remains active for the next move that is.
         // However, if the user attempted to use an Electric-type move,
@@ -2458,9 +2503,9 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
     // debug_printf("BATTLE_STATUS_CHARGE_MOVE_HIT %d\n", ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT);
 
     // Handle Razor Wind. Why? Beats me
-    if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT || (ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] & MOVE_STATUS_FLAG_FAILURE_ANY)) {
+    /*if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT || (ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] & MOVE_STATUS_FLAG_FAILURE_ANY)) {
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_LOCKED_INTO_MOVE;
-    }
+    }*/
 
     int client_set_max = BattleWorkClientSetMaxGet(bsys);
 
@@ -2537,6 +2582,13 @@ BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleS
     }
 
     return FALSE;
+}
+
+void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    ctx->waza_status_flag = 0;
+    ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = 0;
+    ctx->critical = 1;
+    ctx->server_status_flag &= (0x100000 ^ 0xFFFFFFFF);
 }
 
 enum {
@@ -2643,6 +2695,43 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
         SCIO_BlankMessage(bsys);
     } else {
         ctx->server_seq_no = CONTROLLER_COMMAND_36;
+    }
+}
+
+/**
+ * ov12_0224CF14 in pokeheartgold
+ */
+void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    // debug_printf("In BattleController_LoopMultiHit\n");
+    if (ctx->multiHitCountTemp != 0) {
+        if (ctx->fainting_client == BATTLER_NONE && !(ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)) {
+            if (--ctx->multiHitCount) {
+                ctx->loop_flag = 1;
+                ov12_02252D14(bsys, ctx);
+                ctx->server_status_flag &= ~BATTLE_STATUS_MOVE_ANIMATIONS_OFF;
+                ctx->waza_out_check_on_off = ctx->loop_hit_check;
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_23; // go back to our custom check
+            } else {
+                ctx->msg_work = ctx->multiHitCountTemp;
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MULTI_HIT);
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
+            }
+        } else {
+            if (ctx->fainting_client != BATTLER_NONE || ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
+                ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount + 1;
+            } else {
+                ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount;
+            }
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MULTI_HIT);
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
+        }
+        SCIO_BlankMessage(bsys);
+    } else {
+        ctx->server_seq_no = CONTROLLER_COMMAND_34;
     }
 }
 
@@ -3275,4 +3364,26 @@ BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type) {
     GF_ASSERT(TYPE_NORMAL < type && type < TYPE_STELLAR);
     struct BattlePokemon client = ctx->battlemon[battlerId];
     return ((client.type1 == type && client.type2 == type && client.type3 == type) || (client.is_currently_terastallized ? client.tera_type == type : FALSE));
+}
+
+void InitializeTurn(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    int battlerId;
+
+    for (battlerId = 0; battlerId < 4; battlerId++) {
+        MIi_CpuClearFast(0, (u32 *)&ctx->oneTurnFlag[battlerId], sizeof(struct OneTurnEffect));
+        MIi_CpuClearFast(0, (u32 *)&ctx->moveOutCheck[battlerId], sizeof(struct MoveOutCheck));
+        //ctx->battlemon[battlerId].condition2 &= ~STATUS2_FLINCH;
+        if (ctx->battlemon[battlerId].moveeffect.rechargeCount + 1 < ctx->total_turn) {
+            ctx->battlemon[battlerId].condition2 &= ~STATUS2_RECHARGE;
+        }
+        /*if ((ctx->battlemon[battlerId].condition & STATUS_SLEEP) && (ctx->battlemon[battlerId].condition2 & STATUS2_LOCKED_INTO_MOVE)) {
+            UnlockBattlerOutOfCurrentMove(bsys, ctx, battlerId);
+        }
+        if ((ctx->battlemon[battlerId].condition & STATUS_SLEEP) && (ctx->battlemon[battlerId].condition2 & STATUS2_RAMPAGE)) {
+            ctx->battlemon[battlerId].condition2 &= ~STATUS2_RAMPAGE;
+        }*/
+    }
+
+    ctx->scw[0].followMeFlag = 0;
+    ctx->scw[1].followMeFlag = 0;
 }

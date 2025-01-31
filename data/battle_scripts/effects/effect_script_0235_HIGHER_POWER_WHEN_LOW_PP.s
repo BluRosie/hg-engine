@@ -3,7 +3,7 @@
 .data
 
 _000:
-    CalcTrumpCardPower 
+    UpdateVarFromVar OPCODE_ADD, BSCRIPT_VAR_MOVE_POWER, BSCRIPT_VAR_CALC_TEMP
     CalcCrit 
     CalcDamage 
     End 

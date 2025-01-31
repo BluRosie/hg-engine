@@ -828,6 +828,14 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         sp->server_seq_no = 22;
                         ret = 1;
                     }
+					
+					if ((sp->battlemon[battlerId].condition & STATUS_PARALYSIS) && (sp->battlemon[battlerId].hp != 0) && (BattleRand(bw) % 4 == 0)) {
+                        sp->battlerIdTemp = battlerId;
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FULLY_PARALYZED);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        ret = 1;
+                    }
 
                     sp->scc_work++;
                     break;

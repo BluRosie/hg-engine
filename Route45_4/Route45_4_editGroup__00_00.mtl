@@ -1,0 +1,104 @@
+newmtl pond_on
+map_Kd pond_on.png
+map_d pond_on.png
+
+newmtl pond_edge
+map_Kd pond_edge.png
+map_d pond_edge.png
+
+newmtl river
+map_Kd river.png
+map_d river.png
+
+newmtl river_r
+map_Kd river_r.png
+map_d river_r.png
+
+newmtl allpeak_p
+map_Kd allpeak_p.png
+map_d allpeak_p.png
+
+newmtl allpeak
+map_Kd allpeak.png
+map_d allpeak.png
+
+newmtl pond_line
+map_Kd pond_line.png
+map_d pond_line.png
+
+newmtl grass01
+map_Kd grass01.png
+map_d grass01.png
+
+newmtl road05
+map_Kd road05.png
+map_d road05.png
+
+newmtl tree01_un
+map_Kd tree01_un.png
+map_d tree01_un.png
+
+newmtl tree01
+map_Kd tree01.png
+map_d tree01.png
+
+newmtl tree01_re
+map_Kd tree01_re.png
+map_d tree01_re.png
+
+newmtl wall01_d
+map_Kd wall01_d.png
+map_d wall01_d.png
+
+newmtl wall01_g
+map_Kd wall01_g.png
+map_d wall01_g.png
+
+newmtl wall01_h
+map_Kd wall01_h.png
+map_d wall01_h.png
+
+newmtl cliff01
+map_Kd cliff01.png
+map_d cliff01.png
+
+newmtl egrass
+map_Kd egrass.png
+map_d egrass.png
+
+newmtl egrass_u
+map_Kd egrass_u.png
+map_d egrass_u.png
+
+newmtl egrass_v
+map_Kd egrass_v.png
+map_d egrass_v.png
+
+newmtl egrass_ro
+map_Kd egrass_ro.png
+map_d egrass_ro.png
+
+newmtl flower03
+map_Kd flower03.png
+map_d flower03.png
+
+newmtl grass01_a
+map_Kd grass01_a.png
+map_d grass01_a.png
+
+newmtl flower01
+map_Kd flower01.png
+map_d flower01.png
+
+newmtl flower02
+map_Kd flower02.png
+map_d flower02.png
+
+newmtl slope_slope
+map_Kd slope_slope.png
+map_d slope_slope.png
+
+newmtl bridge_a
+map_Kd bridge_a.png
+map_d bridge_a.png
+

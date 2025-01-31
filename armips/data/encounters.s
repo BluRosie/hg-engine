@@ -15,7 +15,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -119,7 +119,7 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 2, 3, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4
+walklevels 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4
 
 // morning encounter slots
 pokemon SPECIES_PIDGEY
@@ -221,7 +221,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -324,8 +324,8 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
-walklevels 2, 3, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4
+superrodrate 100
+walklevels 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4
 
 // morning encounter slots
 pokemon SPECIES_LEDYBA
@@ -427,7 +427,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 3, 4, 3, 4, 3, 3, 5, 5, 5, 5, 5, 5
 
 // morning encounter slots
@@ -530,7 +530,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -839,7 +839,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 6, 4, 6, 4, 6, 6, 6, 6, 6, 4, 6, 4
 
 // morning encounter slots
@@ -942,7 +942,7 @@ surfrate 5
 rocksmashrate 20
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 20, 22, 20, 22, 18, 18, 24, 24, 20, 22, 20, 22
 
 // morning encounter slots
@@ -1457,7 +1457,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 6, 6, 6, 6, 5, 5, 4, 4, 7, 6, 7, 6
 
 // morning encounter slots
@@ -1560,7 +1560,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 8, 8, 8, 8, 7, 7, 8, 8, 9, 6, 9, 6
 
 // morning encounter slots
@@ -1663,7 +1663,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 22, 22, 22, 22, 22, 22, 21, 21, 20, 23, 20, 23
 
 // morning encounter slots
@@ -1869,7 +1869,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 5, 6, 5, 6, 7, 7, 6, 6, 8, 8, 8, 8
 
 // morning encounter slots
@@ -1972,7 +1972,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 21, 23, 21, 23, 19, 19, 21, 21, 23, 23, 23, 23
 
 // morning encounter slots
@@ -2075,7 +2075,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 10, 12, 10, 12, 12, 12, 10, 10, 10, 12, 10, 12
 
 // morning encounter slots
@@ -2178,7 +2178,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 10, 11, 10, 11, 12, 12, 10, 10, 13, 10, 13, 10
 
 // morning encounter slots
@@ -2281,7 +2281,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 12, 12, 12, 12, 14, 14, 10, 10, 14, 10, 14, 12
 
 // morning encounter slots
@@ -2796,7 +2796,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -4135,7 +4135,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -4238,7 +4238,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -4341,7 +4341,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -4444,7 +4444,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24
 
 // morning encounter slots
@@ -4753,7 +4753,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24
 
 // morning encounter slots
@@ -5268,7 +5268,7 @@ surfrate 5
 rocksmashrate 30
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -5329,8 +5329,8 @@ encounter SPECIES_MANTINE, 20, 20
 encounter SPECIES_MANTINE, 20, 20
 
 // rock smash encounters
-encounter SPECIES_NONE, 0, 0
-encounter SPECIES_NONE, 0, 0
+encounter SPECIES_SHUCKLE, 15, 15
+encounter SPECIES_SHUCKLE, 15, 15
 
 // old rod encounters
 encounter SPECIES_CHINCHOU, 10, 10
@@ -5371,7 +5371,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 15, 13, 15, 13, 14, 14, 16, 16, 15, 17, 15, 17
 
 // morning encounter slots
@@ -5474,7 +5474,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 13, 15, 13, 15, 14, 14, 14, 14, 14, 16, 14, 15
 
 // morning encounter slots
@@ -5680,7 +5680,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 31, 32, 31, 32, 31, 31, 30, 30, 28, 30, 28, 30
 
 // morning encounter slots
@@ -5783,7 +5783,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 15, 17, 15, 17, 16, 16, 16, 16, 16, 16, 16, 16
 
 // morning encounter slots
@@ -5886,7 +5886,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 15, 15, 15, 15, 17, 17, 15, 15, 16, 17, 16, 17
 
 // morning encounter slots
@@ -5989,7 +5989,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -6092,7 +6092,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 23, 22, 23, 22, 22, 22, 24, 24, 24, 26, 24, 26
 
 // morning encounter slots
@@ -6710,7 +6710,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -6808,70 +6808,70 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  66   // Dragons Den
 
-walkrate 0
+walkrate 5
 surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
-walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+superrodrate 100
+walklevels 15, 17, 20, 21, 22, 23, 15, 17, 20, 21, 22, 23
 
 // morning encounter slots
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
+pokemon SPECIES_CHARMANDER
+pokemon SPECIES_TOTODILE
+pokemon SPECIES_ONIX
+pokemon SPECIES_ONIX
+pokemon SPECIES_LARVITAR
+pokemon SPECIES_LARVITAR
+pokemon SPECIES_CHARMANDER
+pokemon SPECIES_TOTODILE
+pokemon SPECIES_ONIX
+pokemon SPECIES_ONIX
+pokemon SPECIES_LARVITAR
+pokemon SPECIES_LARVITAR
 
 // day encounter slots
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
+pokemon SPECIES_CHARMANDER
+pokemon SPECIES_TOTODILE
+pokemon SPECIES_ONIX
+pokemon SPECIES_ONIX
+pokemon SPECIES_LARVITAR
+pokemon SPECIES_LARVITAR
+pokemon SPECIES_CHARMANDER
+pokemon SPECIES_TOTODILE
+pokemon SPECIES_ONIX
+pokemon SPECIES_ONIX
+pokemon SPECIES_LARVITAR
+pokemon SPECIES_LARVITAR
 
 // night encounter slots
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
+pokemon SPECIES_CHARMANDER
+pokemon SPECIES_TOTODILE
+pokemon SPECIES_ONIX
+pokemon SPECIES_ONIX
+pokemon SPECIES_LARVITAR
+pokemon SPECIES_LARVITAR
+pokemon SPECIES_CHARMANDER
+pokemon SPECIES_TOTODILE
+pokemon SPECIES_ONIX
+pokemon SPECIES_ONIX
+pokemon SPECIES_LARVITAR
+pokemon SPECIES_LARVITAR
 
 // hoenn encounter slots
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
+pokemon SPECIES_TREECKO
+pokemon SPECIES_BAGON
 
 // sinnoh encounter slots
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
+pokemon SPECIES_TURTWIG
+pokemon SPECIES_GIBLE
 
 // surf encounters
-encounter SPECIES_DRATINI, 20, 20
-encounter SPECIES_DRATINI, 20, 20
-encounter SPECIES_DRATINI, 20, 20
-encounter SPECIES_DRATINI, 20, 20
-encounter SPECIES_DRATINI, 20, 20
+encounter SPECIES_DRATINI, 20, 29
+encounter SPECIES_DRAGONAIR, 30, 39
+encounter SPECIES_HORSEA, 20, 31
+encounter SPECIES_SEADRA, 32, 39
+encounter SPECIES_KINGDRA, 40, 40
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
@@ -6880,32 +6880,32 @@ encounter SPECIES_NONE, 0, 0
 // old rod encounters
 encounter SPECIES_DRATINI, 10, 10
 encounter SPECIES_DRATINI, 10, 10
-encounter SPECIES_DRATINI, 10, 10
-encounter SPECIES_DRATINI, 10, 10
-encounter SPECIES_DRATINI, 10, 10
+encounter SPECIES_HORSEA, 10, 10
+encounter SPECIES_HORSEA, 10, 10
+encounter SPECIES_HORSEA, 10, 10
 
 // good rod encounters
 encounter SPECIES_DRATINI, 20, 20
 encounter SPECIES_DRATINI, 20, 20
-encounter SPECIES_DRATINI, 20, 20
-encounter SPECIES_DRATINI, 20, 20
-encounter SPECIES_DRATINI, 20, 20
+encounter SPECIES_HORSEA, 20, 20
+encounter SPECIES_HORSEA, 20, 20
+encounter SPECIES_HORSEA, 20, 20
 
 // super rod encounters
-encounter SPECIES_DRATINI, 40, 40
-encounter SPECIES_DRATINI, 40, 40
-encounter SPECIES_DRATINI, 40, 40
-encounter SPECIES_DRATINI, 40, 40
-encounter SPECIES_DRATINI, 40, 40
+encounter SPECIES_DRAGONAIR, 40, 40
+encounter SPECIES_DRAGONAIR, 40, 40
+encounter SPECIES_KINGDRA, 40, 40
+encounter SPECIES_KINGDRA, 40, 40
+encounter SPECIES_KINGDRA, 40, 40
 
 // swarm grass
-pokemon SPECIES_NONE
+pokemon SPECIES_CHARMANDER
 // swarm surf
-pokemon SPECIES_MAGIKARP
+pokemon SPECIES_HORSEA
 // swarm good rod
 pokemon SPECIES_DRATINI
 // swarm super rod
-pokemon SPECIES_MAGIKARP
+pokemon SPECIES_HORSEA
 
 .close
 
@@ -6916,49 +6916,49 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 23, 23, 23, 23, 24, 24, 20, 20, 25, 27, 25, 27
 
 // morning encounter slots
 pokemon SPECIES_GRAVELER
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GRAVELER
 pokemon SPECIES_TEDDIURSA
 pokemon SPECIES_GLIGAR
 pokemon SPECIES_GLIGAR
 pokemon SPECIES_PHANPY
 pokemon SPECIES_PHANPY
-pokemon SPECIES_GRAVELER
+pokemon SPECIES_PHANPY
+pokemon SPECIES_PHANPY
 pokemon SPECIES_SKARMORY
-pokemon SPECIES_GRAVELER
+pokemon SPECIES_SKARMORY
+pokemon SPECIES_SKARMORY
 pokemon SPECIES_SKARMORY
 
 // day encounter slots
 pokemon SPECIES_GRAVELER
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GRAVELER
 pokemon SPECIES_TEDDIURSA
 pokemon SPECIES_GLIGAR
 pokemon SPECIES_GLIGAR
 pokemon SPECIES_PHANPY
 pokemon SPECIES_PHANPY
-pokemon SPECIES_GRAVELER
+pokemon SPECIES_PHANPY
+pokemon SPECIES_PHANPY
 pokemon SPECIES_SKARMORY
-pokemon SPECIES_GRAVELER
+pokemon SPECIES_SKARMORY
+pokemon SPECIES_SKARMORY
 pokemon SPECIES_SKARMORY
 
 // night encounter slots
 pokemon SPECIES_GRAVELER
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GRAVELER
 pokemon SPECIES_TEDDIURSA
 pokemon SPECIES_GLIGAR
 pokemon SPECIES_GLIGAR
 pokemon SPECIES_PHANPY
 pokemon SPECIES_PHANPY
-pokemon SPECIES_GRAVELER
+pokemon SPECIES_PHANPY
+pokemon SPECIES_PHANPY
 pokemon SPECIES_SKARMORY
-pokemon SPECIES_GRAVELER
+pokemon SPECIES_SKARMORY
+pokemon SPECIES_SKARMORY
 pokemon SPECIES_SKARMORY
 
 // hoenn encounter slots
@@ -7122,7 +7122,7 @@ surfrate 5
 rocksmashrate 50
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 3, 2, 3, 2, 2, 2, 4, 4, 3, 4, 3, 4
 
 // morning encounter slots
@@ -7225,7 +7225,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 23, 23, 23, 23, 25, 25, 20, 20, 25, 23, 25, 23
 
 // morning encounter slots
@@ -7328,7 +7328,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 35, 35, 34, 33, 32, 31, 32, 31, 34, 31, 33, 40
 
 // morning encounter slots
@@ -7431,7 +7431,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -7534,7 +7534,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -8049,7 +8049,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 37, 40, 34, 34, 38, 38, 39, 38, 37, 38, 40, 40
 
 // morning encounter slots
@@ -8152,7 +8152,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 45, 48, 45, 48, 48, 47, 45, 45, 48, 20, 48, 15
 
 // morning encounter slots
@@ -8255,7 +8255,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 45, 48, 46, 48, 48, 50, 45, 45, 48, 20, 48, 15
 
 // morning encounter slots
@@ -8358,7 +8358,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 50, 48, 45, 48, 47, 47, 45, 45, 48, 20, 48, 15
 
 // morning encounter slots
@@ -8461,7 +8461,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -8770,7 +8770,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 41, 42, 41, 42, 42, 42, 44, 44, 41, 43, 41, 43
 
 // morning encounter slots
@@ -8873,7 +8873,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 42, 44, 42, 44, 43, 43, 42, 41, 45, 20, 45, 15
 
 // morning encounter slots
@@ -9182,7 +9182,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 45, 48, 45, 48, 47, 47, 30, 45, 48, 20, 48, 15
 
 // morning encounter slots
@@ -9491,7 +9491,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -9594,7 +9594,7 @@ surfrate 5
 rocksmashrate 30
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -9697,7 +9697,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -9800,7 +9800,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -9903,7 +9903,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -10006,7 +10006,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -10109,7 +10109,7 @@ surfrate 5
 rocksmashrate 40
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -10315,7 +10315,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -10418,7 +10418,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -10624,7 +10624,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 28, 28, 28, 28, 32, 32, 30, 30, 30, 30, 30, 30
 
 // morning encounter slots
@@ -10727,7 +10727,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 28, 28, 28, 28, 30, 30, 30, 30, 32, 30, 32, 30
 
 // morning encounter slots
@@ -10830,7 +10830,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 39, 40, 39, 40, 40, 40, 42, 42, 41, 43, 41, 43
 
 // morning encounter slots
@@ -11757,7 +11757,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 5, 5, 5, 5, 8, 8, 6, 6, 10, 8, 10, 8
 
 // morning encounter slots
@@ -11963,7 +11963,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 13, 13, 13, 13, 14, 14, 15, 15, 12, 14, 12, 14
 
 // morning encounter slots
@@ -12272,7 +12272,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 13, 15, 13, 15, 13, 13, 15, 15, 15, 15, 15, 15
 
 // morning encounter slots
@@ -12375,7 +12375,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 16, 17, 16, 17, 16, 16, 18, 18, 18, 15, 18, 15
 
 // morning encounter slots
@@ -12581,7 +12581,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 23, 23, 23, 23, 25, 25, 22, 22, 24, 24, 24, 25
 
 // morning encounter slots
@@ -13199,7 +13199,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 30, 25, 30, 25, 35, 35, 20, 20, 30, 28, 30, 28
 
 // morning encounter slots
@@ -13302,7 +13302,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 3, 3, 3, 3, 5, 5, 4, 4, 6, 7, 6, 7
 
 // morning encounter slots
@@ -13405,7 +13405,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 8, 10, 8, 10, 9, 9, 12, 12, 8, 14, 8, 14
 
 // morning encounter slots
@@ -13508,7 +13508,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 8, 10, 8, 10, 8, 8, 9, 9, 10, 14, 10, 14
 
 // morning encounter slots
@@ -13611,7 +13611,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 22, 22, 22, 22, 22, 22, 21, 21, 20, 23, 20, 23
 
 // morning encounter slots
@@ -14332,7 +14332,7 @@ surfrate 5
 rocksmashrate 5
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 39, 38, 38, 38, 40, 39, 40, 37, 39, 40, 39, 40
 
 // morning encounter slots
@@ -14435,7 +14435,7 @@ surfrate 5
 rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 42, 40, 41, 39, 41, 42, 41, 42, 41, 42, 41, 42
 
 // morning encounter slots
@@ -14538,7 +14538,7 @@ surfrate 5
 rocksmashrate 5
 oldrodrate 25
 goodrodrate 50
-superrodrate 75
+superrodrate 100
 walklevels 46, 45, 47, 45, 45, 45, 46, 47, 47, 49, 47, 49
 
 // morning encounter slots

@@ -1,0 +1,477 @@
+Poisoned
+Paralyzed
+Asleep
+Burned
+Frozen
+Exit
+Single Battle
+Double Battle
+Mix Battle
+Multi Battle
+Flat Battle
+Info
+Exit
+Exit
+Join Group
+Become Leader
+Current Floor
+{STRVAR_1 50, 0, 0}
+
+
+
+
+
+Trade
+Cancel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Confirm
+Rules
+Yes
+No
+Exit
+Cancel
+{ALN_CENTER}Yes
+{ALN_CENTER}No
+
+
+
+
+Battle
+{STRVAR_1 3, 0, 0}
+{STRVAR_1 3, 1, 0}
+{STRVAR_1 3, 2, 0}
+{STRVAR_1 3, 3, 0}
+
+ 
+Draw
+
+Someone’S PC
+Bill’S PC
+{STRVAR_1 3, 0, 0}’s PC
+Hall OF Fame
+Photo Album
+Switch Off
+Deposit\nPokémon
+Withdraw\nPokémon
+Move\nPokémon
+Move\nItems
+
+See ya!
+Mailbox
+Ball Capsules
+Log Out
+Pokémon in your party may be stored\nin the storage system’s Boxes.
+Pokémon stored in Boxes may be added\nto your party.
+You may sort the Pokémon in Boxes\nand in your party.
+You may sort the items held by your\nPokémon in Boxes and in your party.
+
+Log out of the Pokémon Storage\nSystem.
+Up to 20 pieces of Mail can be\nstored.
+You may set or edit Capsules for\ndecorating Poké Balls.
+Log out of your PC.
+You may look at pictures you\nhave taken on your adventure.
+
+
+
+
+ 
+
+
+
+Cancel
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+ 
+
+
+
+
+1F
+2F
+3F
+4F
+5F
+6F
+B1F
+
+
+Roof
+Exit
+50 Coins{CURSOR_X 60}$1,000
+500 Coins{CURSOR_X 60}$10,000
+No Thanks
+Info
+Trade
+Exit
+Offer Pokémon?
+Seek Pokémon?
+Understood!
+{STRVAR_1 0, 0, 0}{STRVAR_1 2, 2, 0}{CURSOR_X 90}Lv. {STRVAR_1 52, 1, 0}
+{STRVAR_1 0, 0, 0}{STRVAR_1 2, 2, 0}{CURSOR_X 90}Lv. {STRVAR_1 52, 1, 0}
+Cancel
+
+
+Spin
+Records
+Challenge
+Info
+Exit
+
+
+Keep Going
+Rest
+Retire
+
+
+Check Leaders
+Challenge\nEarlier Room
+Check Leaders
+Register a friend?
+Understood!
+Tell me again
+Old Amber
+Helix Fossil
+Dome Fossil
+Root Fossil
+Claw Fossil
+Armor Fossil
+Skull Fossil
+Battles for two
+Battles for four
+Greet
+Converse
+Chat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+{STRVAR_1 54, 0, 0} Coins
+Basic Rules
+Catching Show
+Stocking Pokémon
+
+Understood!
+Enter
+Info
+Exit
+
+
+
+Red Shard
+Blue Shard
+Yellow Shard
+Green Shard
+Fresh Water{CURSOR_X 80}$200
+Soda Pop{CURSOR_X 80}$300
+Lemonade{CURSOR_X 80}$350
+No thanks
+Growth Mulch{CURSOR_X 90}\n$200
+Damp Mulch{CURSOR_X 90}\n$200
+Stable Mulch{CURSOR_X 90}\n$200
+Gooey Mulch{CURSOR_X 90}\n$200
+Exit
+
+
+{STRVAR_1 53, 0, 0} BP
+
+ 
+{STRVAR_1 54, 0, 0}P
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Record
+
+
+
+ 
+
+
+
+Join
+Pokéathlon
+Speed Course
+Power Course
+Stamina Course
+Jump Course
+Skill Course
+About Supreme
+F. Master\nCourse
+Ally
+Junior
+Friend
+Strategy
+Training
+Cheating
+Weak
+Strong
+Anyone
+Love
+Violence
+Knowledge
+Strength
+Both
+Weakness
+
+About Events
+About Maximo
+Hurdle Dash
+Pennant Capture
+Circle Push
+Block Smash
+Disc Catch
+Lamp Jump
+Relay Run
+Ring Drop
+Snow Throw
+Goal Roll
+Speed Course
+Power Course
+Skill Course
+Stamina Course
+Jump Course
+
+
+
+
+
+
+ 
+
+Buy
+Sell
+See ya!
+Info
+Prize exchange
+What’s Aprijuice?
+Aprijuice Know-How!
+Buy
+View label
+{COLOR 3}Deposited money{COLOR 0}
+{COLOR 3}Held money{COLOR 0}
+{COLOR 3}${STRVAR_1 55, 0, 0}{COLOR 0}
+A Button: Join This Group
+B Button: Quit
+B Button: Remove From Members
+A Button: Start With Members
+Buy With Money
+Buy With Points
+Fresh Water {CURSOR_X 80}50 Points
+Soda Pop {CURSOR_X 80}80 Points
+Lemonade {CURSOR_X 80}100 Points
+A. Speed &\nJump Course
+B. Jump &\nSkill Course
+C. Skill &\nPower Course
+D. Power &\nStamina Course
+E. Stamina &\nSpeed Course
+Training\nItems #1
+Training\nItems #2
+Fighting\nItems #1
+Fighting\nItems #2
+Physical Attacks
+Special Attacks
+Changing Attacks
+Protein\n1 BP
+Calcium\n1 BP
+Iron\n1 BP
+Zinc\n1 BP
+Carbos\n1 BP
+HP UP\n1 BP
+Power Bracer\n16 BP
+Power Belt\n16 BP
+Power Lens\n16 BP
+Power Band\n16 BP
+Power Anklet\n16 BP
+Power Weight\n16 BP
+Toxic Orb\n16 BP
+Flame Orb\n16 BP
+White Herb\n32 BP
+Power Herb\n32 BP
+Brightpowder\n48 BP
+Choice Band\n48 BP
+Focus Band\n48 BP
+Scope Lens\n48 BP
+Muscle Band\n48 BP
+Focus Sash\n48 BP
+Choice Scarf\n48 BP
+Razor Claw\n48 BP
+Razor Fang\n48 BP
+Rare Candy\n48 BP
+Aerial Ace\n40 BP
+Brick Break\n40 BP
+U-Turn\n40 BP
+X-Scissor\n64 BP
+Stone Edge\n80 BP
+Earthquake\n80 BP
+Shadow Ball\n64 BP
+Energy Ball\n64 BP
+Sludge Bomb\n80 BP
+Dragon Pulse\n80 BP
+Toxic\n32 BP
+Thunder Wave\n32 BP
+Will-O-Wisp\n32 BP
+Attract\n32 BP
+Bulk UP\n48 BP
+Calm Mind\n48 BP
+It raises the base Attack stat of a\nsingle Pokémon.
+It raises the base Special Attack\nstat of a single Pokémon.
+It raises the base Defense stat of a\nsingle Pokémon.
+It raises the base Special Defense\nstat of a single Pokémon.
+It raises the base Speed stat of a\nsingle Pokémon.
+It raises the base HP of a single\nPokémon.
+It raises the level of a single Pokémon\nby one.
+Promotes Attack gain on leveling, but\nreduces the Speed stat.
+Promotes Defense gain on leveling, but\nreduces the Speed stat.
+Promotes Sp. Atk gain on leveling, but\nreduces the Speed stat.
+Promotes Sp. Def gain on leveling, but\nreduces the Speed stat.
+Promotes Speed gain on leveling, but\nreduces the Speed stat.
+Promotes HP gain on leveling, but\nreduces the Speed stat.
+It is a bizarre orb that badly poisons\nthe holder in battle.
+It is a bizarre orb that inflicts a\nburn on the holder in battle.
+It restores any lowered stat in\nbattle. It can be used only once.
+It allows the immediate use of a move\nthat charges on the first turn.
+The tricky aroma of this incense lowers\nthe foe’s accuracy.
+This headband ups Attack but allows\nthe use of only one kind of move.
+The holder may endure a potential KO\nattack, leaving it with just 1 HP.
+It is a lens that boosts the holder’s\ncritical-hit ratio.
+It is a headband that slightly boosts\nthe power of physical moves.
+With full HP, the holder will endure\none potential KO attack, leaving 1 HP.
+Boosts Speed, but allows the use of\nonly one kind of move.
+It ups the holder’s critical-hit ratio.
+It may cause the foe to flinch when\nthe holder inflicts damage.
+Attacks become so fast, they land\nwithout fail.
+It can break any barrier, such as Light\nScreen and Reflect.
+After attacking, the user rushes back\nto switch places with a party Pokémon.
+The user slashes at the foe by crossing\nits claws as if they were scissors.
+Stabs the foe with a sharpened stone.\nIt has a high critical-hit ratio.
+The user sets off an earthquake that\nhits all other Pokémon in the battle.
+Gathers all shadows and attacks. It\nmay also lower the foe’s Sp. Def stat.
+Gathers all energy and attacks. It may\nalso lower the foe’s Sp. Def stat.
+The foe is hit with sludge steeped with\npoison. It may also poison the foe.
+The foe is attacked with a shock wave\ngenerated by the user’s gaping mouth.
+Hits the foe with a powerful poison that\nleaves them badly poisoned.
+A weak electric charge is launched at\nthe foe. It causes paralysis if it hits.
+Shoots a sinister, bluish-white flame at\nthe foe to inflict a burn.
+If the opposite gender, the foe becomes\ninfatuated and less likely to attack.
+The user tenses up its body, boosting\nboth its Attack and Defense stats.
+The user focuses its mind and spirit\nto raise its Sp. Atk and Sp. Def stats.
+Return to the selection screen.
+Exit
+Cancel
+
+
+
+
+Nugget\n$4,500
+Pearl\n$650
+Big Pearl\n$3,500
+Stardust\n$900
+Star Piece\n$4,600
+Exit
+Battle\nFrontier
+Basic Rules
+Battle Points
+Exchange\nService Corner
+Performance\nMonitor
+Done
+Area\nCustomizer
+Using The Area\nCustomizer
+Swapping Areas
+Switching\nAreas
+Appearing\nPokémon
+Exit
+Objects
+Arranging\nObjects
+Removing\nObjects
+Object Types
+Appearing\nPokémon
+Clearing\nObjects
+Exit
+It speeds up the growth of Berries.\nHowever, it also dries the soil faster.
+It extends the time ripened Berries\nremain on their plants before falling.
+It slows the growth of Berries and\ncauses the soil to dry more slowly.
+It ups the number of times new plants\ngrow where mature plants withered.
+Don’t buy.
+Single Battle
+Double Battle

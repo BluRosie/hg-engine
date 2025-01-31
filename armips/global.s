@@ -29,6 +29,7 @@
 
 .include "armips/asm/custom/skipinfo.s" // info tutorial skip
 .include "armips/asm/custom/tutorial.s" // edit tutorial rattata level
+.include "armips/asm/custom/mart_items_edit.s" // edit mart items
 
 .if FAIRY_TYPE_IMPLEMENTED == 1
 

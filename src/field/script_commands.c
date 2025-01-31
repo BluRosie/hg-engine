@@ -317,3 +317,7 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
     }
     return FALSE;
 }
+
+BOOL IsPlayerInCave(u8 collision) {
+    return FALSE;
+}

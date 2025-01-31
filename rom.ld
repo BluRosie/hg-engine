@@ -664,6 +664,11 @@ CanUseItemOnPokemon = 0x0208FD9C | 1;
 
 BagApp_GetSaveRoamers = 0x021F992C | 1;
 
+CreateMon = 0x0206DE38 | 1;
+_GetNpcTradeName = 0x02259C1C | 1;
+MonSetTrainerMemo = 0x0208F260 | 1;
+MapHeader_GetMapSec = 0x0203B36C | 1;
+
 ov12_022506D4 = 0x022506D4 | 1;
 ov12_02250A18 = 0x02250A18 | 1;
 
@@ -708,7 +713,7 @@ CanSwitchMon = 0x02252890 | 1;
 
 ov12_0224DD74 = 0x0224DD74 | 1;
 ov12_02261258 = 0x02261258 | 1;
-ov12_02252D14 = 0x02252D14 | 1;
+//ov12_02252D14 = 0x02252D14 | 1;
 
 AcquireMonLock = 0x0206DD40 | 1;
 LoadMonBaseStats_HandleAlternateForm = 0x020725B4 | 1;

@@ -444,6 +444,9 @@ arm9 020902B8 60 B4 C0 46
 # BtlCmd_GetTerrainMove
 0012 0224443C FF
 
+# _CreateTradeMon_hook setup
+0023 02259C40 60 B4 C0 46
+
 #ifdef UPDATE_VITAMIN_EV_CAPS
 
 # vitamins are capped at 252 EVs instead of 100 EVs (thanks MeroMero)

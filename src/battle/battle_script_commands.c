@@ -87,6 +87,8 @@ BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
 BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_100_storedpowerdamagecalc(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_101_electroballdamagecalc(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_102_iflasthitofmultihit(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -403,6 +405,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xFE - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FE_calcconfusiondamage,
     [0xFF - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive,
 	[0x100 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_100_storedpowerdamagecalc,
+	[0x101 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_101_electroballdamagecalc,
+	[0x102 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_102_iflasthitofmultihit,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -1162,7 +1166,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
                 break;
 
             case MOVE_EFFECT_POISON_MULTI_HIT: // twineedle
-                effect = MOVE_EFFECT_MULTI_HIT;
+                effect = MOVE_EFFECT_HIT_TWICE;
                 sp->battlemon[sp->attack_client].sheer_force_flag = 1;
                 break;
 
@@ -1396,10 +1400,10 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
 
             u32 base = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
-            totalexp = (base * (level + Lp) / 10);
+            totalexp = (base * level) * 5;
 
             u32 top = (2*level + 10) * (2*level + 10) * sqrt(2*level + 10);
-            u32 bottom = (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
+            u32 bottom = (level + Lp + 10) * (level + Lp + 10) * (level + Lp + 10) * sqrt(level + Lp + 10);
 
             u32 result = top * totalexp;
             // top is at minimum 3 (beat a level 3 mon), don't need to worry about it being 0
@@ -1419,9 +1423,6 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                 totalexp *= top;
                 totalexp /= bottom;
             }
-			
-			if (totalexp < base)
-				totalexp = base;
 
             //debug_printf("[Task_DistributeExp_Extend] L = %d, Lp = %d, b = %d, top = %d, bottom = %d, exp = %d\n", level, Lp, base, top, bottom, totalexp);
 
@@ -1890,11 +1891,7 @@ BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw UNUSED, struct BattleStruct
         sp->battlemon[sp->attack_client].moveeffect.furyCutterCount++;
     }
 
-    sp->damage_power = sp->moveTbl[sp->current_move_index].power;
-
-    for (i = 1; i < sp->battlemon[sp->attack_client].moveeffect.furyCutterCount; i++) {
-        sp->damage_power *= 2;
-    }
+    sp->damage_power = sp->moveTbl[sp->current_move_index].power << (sp->battlemon[sp->attack_client].moveeffect.furyCutterCount - 1);
 
     return FALSE;
 }
@@ -1916,9 +1913,9 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
 
     int partyCount = Battle_GetClientPartySize(bw, sp->attack_client);
 
-    if (sp->multi_hit_count_temp == 0) {
+    if (sp->multiHitCountTemp == 0) {
 
-        sp->multi_hit_count_temp = 2;
+        sp->multiHitCountTemp = 2;
         sp->loop_hit_check = 0xFD;
         sp->beat_up_count = 0;
         mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
@@ -1946,7 +1943,7 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
     sp->damage_power += newBaseDamage;
 
     sp->beat_up_count++;
-    sp->multi_hit_count = 2;
+    sp->multiHitCount = 2;
     number_of_hits = sp->beat_up_count;
 
     if (sp->beat_up_count < partyCount) {
@@ -1964,15 +1961,15 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
             mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
 
             if (sp->beat_up_count >= partyCount) {
-                sp->multi_hit_count = 1;
-                sp->multi_hit_count_temp = number_of_hits;
+                sp->multiHitCount = 1;
+                sp->multiHitCountTemp = number_of_hits;
                 break;
             }
 
         }
     } else {
-        sp->multi_hit_count = 1;
-        sp->multi_hit_count_temp = number_of_hits;
+        sp->multiHitCount = 1;
+        sp->multiHitCountTemp = number_of_hits;
     }
 
     return FALSE;
@@ -2119,7 +2116,7 @@ BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp)
     {
         flag = 2;
     }
-    else if ((holdeffect == HOLD_EFFECT_MAYBE_ENDURE) && ((BattleRand(bw) % 100) < atk))
+	else if ((holdeffect == HOLD_EFFECT_MAYBE_ENDURE) && ((BattleRand(bw) % 100) < atk))
     {
         flag = 1;
     }
@@ -2127,15 +2124,20 @@ BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp)
     {
         flag = 1;
     }
+    else if (BattleTypeGet(bw) & BATTLE_TYPE_CATCHING_DEMO)
+    {
+        flag = 3;
+    }
     if (flag)
     {
         if ((sp->battlemon[client_no].hp + sp->hp_calc_work) <= 0)
         {
             sp->hp_calc_work = (sp->battlemon[client_no].hp - 1) * -1;
-            if (flag != 2)
+            if (flag < 2)
                 sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
-            else
+            else if (flag == 2)
                 sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
+			else {}
         }
     }
 
@@ -3019,11 +3021,13 @@ BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
 BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bsys, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
-    ctx->moveOutCheck[ctx->attack_client].stoppedFromConfusion = TRUE;
-    ctx->defence_client = ctx->attack_client;
-    ctx->battlerIdTemp = ctx->defence_client;
-    ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, 40, 0, ctx->attack_client, ctx->attack_client, 1);
-    ctx->hp_calc_work = AdjustDamageForRoll(bsys, ctx, ctx->hp_calc_work);
+    //ctx->defence_client = ctx->attack_client;
+    //ctx->battlerIdTemp = ctx->defence_client;
+	int power = ctx->moveTbl[ctx->current_move_index].power;
+	if (power < 20) {
+		power = 20;
+	}
+    ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, power, 0, ctx->attack_client, ctx->attack_client, 1);
     ctx->hp_calc_work *= -1;
 
     return FALSE;
@@ -3290,41 +3294,31 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     int cnt = read_battle_script_param(ctx);
     int checkMultiHit = read_battle_script_param(ctx);
 
-    if (ctx->multi_hit_count_temp == 0) {
+    if (ctx->multiHitCountTemp == 0) {
         // Handle 2-5 hits
         if (cnt == 0) {
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SKILL_LINK) {
                 cnt = 5;
             } else {
-                cnt = (BattleRand(bsys) % 100); // 0 - 99, 100 numbers
-                if (cnt < 35) {
-                    cnt = 2;
-                } else if (cnt < 70) {
-                    cnt = 3;
-                } else if (cnt < 85) {
-                    cnt = 4;
-                } else { // >= 85
-                    cnt = 5;
-                }
-
+                cnt = (BattleRand(bsys) % 5) + 1; // 0 - 4, 5 numbers
                 // If it rolled 4 or 5 Loaded Dice doesn't do anything,
                 // otherwise it rolls the number of hits as 5 minus a random integer from 0 to 1 inclusive.
                 if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
-                    if (cnt != 4 && cnt != 5) {
-                        cnt = 5 - (BattleRand(bsys) % 2);  // 5 - (0 or 1)
+                    if (cnt < 4) {
+                        cnt = (BattleRand(bsys) % 2) + 4;  // (0 or 1) + 4
                     }
                 }
             }
         }
 
         // Population Bomb checks accuracy for each hit, like Triple Kick and Triple Axel.
-        // Loaded Dice causes it to only run the first accuracy check, and rolls the number of hits as 10 minus a random integer from 0 to 6 inclusive.
+        // Loaded Dice causes it to only run the first accuracy check, and rolls the number of hits as 4 plus a random integer from 0 to 6 inclusive.
         if (cnt == 10 && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM) {
-            cnt = 10 - (BattleRand(bsys) % 7); // 10 - (0 to 6)
+            cnt = (BattleRand(bsys) % 7) + 4; // (0 to 6) + 4
         }
 
-        ctx->multi_hit_count = cnt;
-        ctx->multi_hit_count_temp = cnt;
+        ctx->multiHitCount = cnt;
+        ctx->multiHitCountTemp = cnt;
 
         // MULTIHIT_TRIPLE_KICK, 0xDD
         // MULTIHIT_MULTI_HIT_MOVE, 0xFD
@@ -4026,18 +4020,6 @@ BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
 	return FALSE;
 }
 
-BOOL BtlCmd_CalcFuryCutterPower(void *bsys UNUSED, struct BattleStruct *ctx) {
-    IncrementBattleScriptPtr(ctx, 1);
-
-    if (ctx->battlemon[ctx->attack_client].moveeffect.furyCutterCount < 3) {
-        ctx->battlemon[ctx->attack_client].moveeffect.furyCutterCount++;
-    }
-
-    ctx->damage_power = ctx->moveTbl[ctx->current_move_index].power << ctx->battlemon[ctx->attack_client].moveeffect.furyCutterCount;
-
-    return FALSE;
-}
-
 BOOL BtlCmd_CalcPunishmentPower(void *bsys UNUSED, struct BattleStruct *ctx) {
     int stat, cnt;
 
@@ -4050,7 +4032,7 @@ BOOL BtlCmd_CalcPunishmentPower(void *bsys UNUSED, struct BattleStruct *ctx) {
         }
     }
 
-    ctx->damage_power = 60 + 20 * cnt;
+    ctx->damage_power = 40 + 20 * cnt;
 
     return FALSE;
 }
@@ -4102,7 +4084,19 @@ BOOL BtlCmd_GetTerrainMove(struct BattleSystem *bsys, struct BattleStruct *ctx) 
     return FALSE;
 }
 
-BOOL btl_scr_cmd_100_storedpowerdamagecalc(void *bsys, struct BattleStruct *ctx) {
+BOOL BtlCmd_CalcGyroBallPower(void *bsys UNUSED, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    ctx->damage_power = 25 * ctx->effectiveSpeed[ctx->defence_client] / ctx->effectiveSpeed[ctx->attack_client];
+	
+	if (ctx->damage_power < 40) {
+        ctx->damage_power = 40;
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_100_storedpowerdamagecalc(void *bsys UNUSED, struct BattleStruct *ctx) {
     int stat, cnt;
 
     IncrementBattleScriptPtr(ctx, 1);
@@ -4114,7 +4108,39 @@ BOOL btl_scr_cmd_100_storedpowerdamagecalc(void *bsys, struct BattleStruct *ctx)
         }
     }
 
-    ctx->damage_power = 60 + 20 * cnt;
+    ctx->damage_power = 40 + 20 * cnt;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_101_electroballdamagecalc(void *bsys UNUSED, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    ctx->damage_power = 25 * ctx->effectiveSpeed[ctx->attack_client] / ctx->effectiveSpeed[ctx->defence_client];
+	
+	if (ctx->damage_power < 40) {
+        ctx->damage_power = 40;
+    }
+
+    return FALSE;
+}
+
+/**
+ *  credits to Drayano60
+ *  @brief script command to check if current multi-hit move is last hit (used for Scale Shot)
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_102_iflasthitofmultihit(void *bw UNUSED, struct BattleStruct *sp) {
+    IncrementBattleScriptPtr(sp, 1);
+	
+    int address = read_battle_script_param(sp);
+	
+    if (sp->multiHitCount <= 1 || sp->moveTbl[sp->current_move_index].effect != MOVE_EFFECT_MULTI_HIT) {
+		IncrementBattleScriptPtr(sp, address);
+    }
 
     return FALSE;
 }

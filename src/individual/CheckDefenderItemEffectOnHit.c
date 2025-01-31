@@ -159,7 +159,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && sp->multi_hit_count <= 1) {
+                && sp->multiHitCount <= 1) {
                 u32 temp = sp->attack_client;                   // swap attacker and defender so subseq handles it correctly
                 sp->battlerIdTemp = sp->defence_client;
                 sp->attack_client = sp->defence_client;
@@ -176,7 +176,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && sp->multi_hit_count <= 1) {
+                && sp->multiHitCount <= 1) {
                 u32 temp = sp->attack_client;                   // swap attacker and defender so subseq handles it correctly
                 sp->battlerIdTemp = sp->defence_client;
                 sp->attack_client = sp->defence_client;

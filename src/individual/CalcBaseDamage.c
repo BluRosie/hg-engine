@@ -145,7 +145,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     s8 spatkstate;
     s8 spdefstate;
     u8 level;
-	u8 levelDefender;
     u16 movepower;
     u16 item;
     u32 battle_type;
@@ -174,9 +173,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     defstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
     spatkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
     spdefstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
-
+	
     level = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_LEVEL, NULL);
-	levelDefender = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_LEVEL, NULL);
 
     AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
     DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
@@ -202,11 +200,13 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     DefendingMon.item_power = BattleItemDataGet(sp, item, 2);
 
     battle_type = BattleTypeGet(bw);
+	
+	movesplit = GetMoveSplit(sp, moveno);
 
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DISGUISE) == TRUE && sp->battlemon[defender].form_no == 0))
         return 0;
 
-    if (((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE) && GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL) && sp->battlemon[defender].form_no == 0)
+    if (((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE) && movesplit == SPLIT_PHYSICAL) && sp->battlemon[defender].form_no == 0)
         return 0;
 
     if (pow == 0)
@@ -229,8 +229,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // handle technician
     if ((AttackingMon.ability == ABILITY_TECHNICIAN) && (moveno != MOVE_STRUGGLE) && (movepower <= 60))
         movepower = movepower * 15 / 10;
-
-    movesplit = GetMoveSplit(sp, moveno);
 
     // handle huge power + pure power
     if ((AttackingMon.ability == ABILITY_HUGE_POWER) || (AttackingMon.ability == ABILITY_PURE_POWER))
@@ -716,13 +714,14 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     spdefstate += 6;
 
     // handle rivalry
-    if ((AttackingMon.ability == ABILITY_RIVALRY) &&
-        (AttackingMon.type1 == DefendingMon.type1 ||
-		AttackingMon.type1 == DefendingMon.type2 ||
-		AttackingMon.type2 == DefendingMon.type1 ||
-		AttackingMon.type2 == DefendingMon.type2))
+    if ((AttackingMon.ability == ABILITY_RIVALRY)
+	&& (attacker != defender)
+	&& (AttackingMon.type1 == DefendingMon.type1
+	|| AttackingMon.type1 == DefendingMon.type2
+	|| AttackingMon.type2 == DefendingMon.type1
+	|| AttackingMon.type2 == DefendingMon.type2))
     {
-        movepower = movepower * 15 / 10;
+        movepower = movepower * 13 / 10;
     }
 
     // handle iron fist
@@ -830,14 +829,26 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     u16 equivalentAttack;
     u16 equivalentDefense;
+	if (moveno == MOVE_STRUGGLE)
+		movesplit = GetMoveSplit(sp, sp->current_move_index);
+
     getEquivalentAttackAndDefense(sp, attack, defense, sp_attack, sp_defense, atkstate, defstate, spatkstate, spdefstate, &movesplit, attacker, defender, critical, moveno, &equivalentAttack, &equivalentDefense);
 
-    //// halve the defense if using selfdestruct/explosion
-    //if (sp->moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE)
-    //    defense = defense / 2;
+    // halve the defense if using selfdestruct/explosion
+    if (sp->moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE) {
+        movepower *= 2;
+	}
+	
+	level -= 5;
+	if (level < 1) {
+		level = 1;
+	}
 
-    damage = equivalentAttack * movepower * (level + levelDefender);
-    damage = damage / (equivalentDefense * 250);
+    damage = equivalentAttack * movepower;
+    damage *= (level / 5);
+
+    damage = damage / equivalentDefense;
+    damage /= 50;
 
     // handle parental bond
     if (sp->oneTurnFlag[attacker].parental_bond_flag == 2) {
@@ -852,6 +863,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             sp->oneTurnFlag[attacker].parental_bond_flag = 0;
             break;
     }
+	
+	movesplit = GetMoveSplit(sp, moveno);
 
     // handle physical moves
     if (movesplit == SPLIT_PHYSICAL)
@@ -878,7 +891,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             }
         }
     }
-    else// if (movesplit == SPLIT_SPECIAL) // same as above, handle special moves
+    else if (movesplit == SPLIT_SPECIAL) // same as above, handle special moves
     {
         // handle light screen
         if (((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0)
@@ -1024,7 +1037,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         }
     }
 	
-	if (!damage)
+	if (damage < 1)
 		return 1;
 
     return damage;

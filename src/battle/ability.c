@@ -32,6 +32,8 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp);
 //u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp);
 
+#define RANGE_SHOULDNT_BE_ABSORBED (RANGE_USER | RANGE_FIELD | RANGE_ALLY | RANGE_SINGLE_TARGET_USER_SIDE)
+
 /**
  *  @brief see if the attacker's move is completely negated by the defender's ability and queue up the appropriate subscript
  *
@@ -43,7 +45,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp);
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender)
 {
     int scriptnum = 0;
-    int movetype;
+    int movetype, moverange;
 
     // trigger meloetta's relic song form transformation if possible
     if ((sp->battlemon[attacker].species == SPECIES_MELOETTA)
@@ -55,37 +57,42 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
 
     movetype = GetAdjustedMoveType(sp, attacker, sp->current_move_index); // new normalize checks
+	moverange = sp->moveTbl[sp->current_move_index].target;
 
     // 02252EF4
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_VOLT_ABSORB) == TRUE)
-    {
-        if ((movetype == TYPE_ELECTRIC) && (attacker != defender))
-        {
-            sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
-            scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
-        }
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_VOLT_ABSORB) == TRUE)
+	&& ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
+    && (movetype == TYPE_ELECTRIC)) {
+		sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
+		scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
     }
 
     // 02252F24
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE)
-    {
-        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->moveTbl[sp->current_move_index].power))
-        {
-            sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
-            scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
-        }
+    if (((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE) || (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE))
+	&& ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
+    && (movetype == TYPE_WATER)) {
+		sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
+		scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
     }
 
     // 02252F6A
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLASH_FIRE) == TRUE)
-    {
-        if ((movetype == TYPE_FIRE)
-         //&& ((sp->battlemon[defender].condition & STATUS_FLAG_FROZEN) == 0) // gen 5 does not prevent flash fire from working
-         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-         && ((sp->moveTbl[sp->current_move_index].power) || (sp->current_move_index == MOVE_WILL_O_WISP)))
-        {
-            scriptnum = SUB_SEQ_FLASH_FIRE;
-        }
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLASH_FIRE) == TRUE)
+	&& ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
+    && (movetype == TYPE_FIRE)) {
+		sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
+		scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
+    }
+	
+    // Handle Sap Sipper
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAP_SIPPER) == TRUE)
+	&& ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
+    && (movetype == TYPE_GRASS)) {
+		sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
+		scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
     }
 
     // 02252FB0
@@ -98,72 +105,43 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
 
     // 02252FDC
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MOTOR_DRIVE) == TRUE)
-    {
-        if ((movetype == TYPE_ELECTRIC) && (attacker != defender))
-        {
-            scriptnum = SUB_SEQ_MOTOR_DRIVE;
-        }
-    }
-
-    // 02252FF8
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE)
-    {
-        if ((movetype == TYPE_WATER)
-         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-         && (sp->moveTbl[sp->current_move_index].power))
-        {
-            sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
-            scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
-        }
-    }
-
-    // Handle Sap Sipper
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAP_SIPPER) == TRUE)
-    {
-        if ((movetype == TYPE_GRASS) && (attacker != defender))
-        {
-            scriptnum = SUB_SEQ_HANDLE_SAP_SIPPER;
-        }
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MOTOR_DRIVE) == TRUE)
+	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
+    && (movetype == TYPE_ELECTRIC)) {
+		scriptnum = SUB_SEQ_MOTOR_DRIVE;
     }
 
     // Handle Lightning Rod
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE)
-    {
-        if ((movetype == TYPE_ELECTRIC) && (attacker != defender))
-        {
-            scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
-        }
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE)
+	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
+    && (movetype == TYPE_ELECTRIC)) {
+		scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
     }
 
     // Handle Storm Drain
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_STORM_DRAIN) == TRUE)
-    {
-        if ((movetype == TYPE_WATER) && (attacker != defender))
-        {
-            scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
-        }
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_STORM_DRAIN) == TRUE)
+	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
+    && (movetype == TYPE_WATER)) {
+		scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
     }
 
     // TODO: Confirm location in-game
     // Handle Well Baked Body
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE)
-    {
-        if ((movetype == TYPE_FIRE) && (attacker != defender))
-        {
-            scriptnum = SUB_SEQ_ABSORB_AND_DEF_UP_2_STAGE;
-        }
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE)
+	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
+    && (movetype == TYPE_FIRE)) {
+		scriptnum = SUB_SEQ_ABSORB_AND_DEF_UP_2_STAGE;
     }
 
     // TODO: Confirm location in-game
     // Handle Earth Eater
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE)
-    {
-        if ((movetype == TYPE_GROUND) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->moveTbl[sp->current_move_index].power))
-        {
-            sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
-            scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
-        }
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE)
+	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
+    && (movetype == TYPE_GROUND)
+	&& ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+	&& (sp->moveTbl[sp->current_move_index].power)) {
+		sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
+		scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
     }
 
     // TODO

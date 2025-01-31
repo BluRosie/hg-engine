@@ -1,0 +1,42 @@
+We exchange your coins for\nfabulous prizes! {YESNO 0}
+Please save your coins and\ncome again!
+Sorry! You need more coins. {YESNO 0}
+{STRVAR_1 8, 0, 0}.\nIs that right? {YESNO 0}
+Here you go!\r
+Sorry. You can’t carry any more.\r
+Your party’s full!\nPlease make some room before you\fcome back.
+Would you like {STRVAR_1 0, 1, 0}? {YESNO 0}
+{STRVAR_1 3, 0, 0} received\nthe {STRVAR_1 0, 1, 0}! {YESNO 0}
+Welcome!\rWe exchange your coins for\nfabulous prizes! {YESNO 0}
+You put away the {STRVAR_1 8, 0, 0}\nin the {STRVAR_1 18, 1, 0} Pocket. {YESNO 0}
+Cancel
+TMs
+Held Items
+Substitute\n2,000 coins
+Swords Dance\n4,000 coins
+Rest\n6,000 coins
+Flamethrower\n10,000 coins
+Ice Beam\n10,000 coins
+Thunderbolt\n10,000 coins
+Silk Scarf\n1,000 coins
+Wide Lens\n1,000 coins
+Zoom Lens\n1,000 coins
+Metronome\n1,000 coins
+Voltorb{CURSOR_X 103}199 coins
+Dratini{CURSOR_X 103}599 coins
+Porygon{CURSOR_X 103}999 coins
+
+My name is Mr. Game!\rMy heart pounds with excitement when\npeople enjoy my Coin game!\rIn fact, that’s what I live for!\nYou look like quite a challenger!\rWhy don’t you play my Coin game?\rYou can get fabulous prizes if\nyou manage to collect a lot\fof coins. {YESNO 0}
+  
+   
+All right!\nHere is your Coin Case!\r
+Show me how you play, and my heart\nwill pound with excitement!\r
+Playing my Coin game will make your\nheart and my heart both pound with\fexcitement, you know?
+My name is Mr. Game!\rMy heart pounds with excitement when\npeople enjoy my Coin game!\rIn fact, that’s what I live for!\nGo ahead and play it!\rMake my heart pound with excitement!
+Go ahead and play my Coin game!\fMake my heart pound with excitement!
+What a feeling!\rNothing beats Coin-game spectatorship!\nOh! I almost forgot!\rYou can exchange your coins for prizes\nwith the two gentlemen at the table\fover there.
+Did you come back to play\nmy Coin game?
+It seems you need a Coin Case\nto play...\r
+Mr. Game: Aha!\rYou must be here to play my Coin game!\nCome here and I’ll give you a Coin Case!
+Mr. Game: Show me how you play and\nmake my heart pound with excitement!\r
+Mr. Game: Huh?\rWhy don’t you sit across from me\nand show me how you play?

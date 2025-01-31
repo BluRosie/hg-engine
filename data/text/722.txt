@@ -77,7 +77,7 @@ The Pokémon is protected\nagainst critical hits.
 Eliminates the effects of\nweather.
 Raises evasion if the\nPokémon is confused.
 Raises Speed if hit by an\nElectric-type move.
-Raises Attack if the foe\nis of the same gender.
+Powers up moves against\nfoes that share a type.
 Raises Speed each time\nthe Pokémon flinches.
 Raises evasion in a\nhailstorm.
 Encourages the early use\nof a held Berry.

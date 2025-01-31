@@ -40,8 +40,8 @@ Policeman
 ₧₦ Ranger
 ₧₦ Ranger
 Scientist
-Swimmer♂
-Swimmer♀
+Swimmer
+Swimmer
 Tuber
 Tuber
 Sailor

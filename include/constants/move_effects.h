@@ -910,12 +910,18 @@
 #define MOVE_EFFECT_ELECTRO_BALL                            900
 #define MOVE_EFFECT_SKULK_OUT                               901
 #define MOVE_EFFECT_CACKLE                                  902
-#define MOVE_EFFECT_BITTER_MALICE                           903
+#define MOVE_EFFECT_FREEZE_HIT_DOUBLE_POWER_ON_STATUS       903
 #define MOVE_EFFECT_HURRICANE                               904
 #define MOVE_EFFECT_USER_SPEED_DOWN_2_HIT                   905
 #define MOVE_EFFECT_GROWTH                                  906
 #define MOVE_EFFECT_STATUS_FREEZE                           907
 #define MOVE_EFFECT_STORED_POWER                            908
+#define MOVE_EFFECT_ATK_DEF_SPEED_UP                        909
+#define MOVE_EFFECT_BURN_HIT_HEAL_STATUS                    910
+#define MOVE_EFFECT_HEAL_USER_AND_ALLY                      911
+#define MOVE_EFFECT_FORCE_SWITCH_HIT                        912
+#define MOVE_EFFECT_USER_ATK_DOWN_2                         913
+#define MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS_ATK_UP            914
 
 
 #define MOVE_TARGET_SELECTED             0x0000

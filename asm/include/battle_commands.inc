@@ -1402,5 +1402,14 @@
     .macro CalcStoredPowerPower
     .long 256
     .endm
+	
+    .macro CalcElectroBallPower
+    .long 257
+    .endm
+	
+    .macro IfLastHitOfMultiHit arg_0
+    .long 258
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
 
 .endif

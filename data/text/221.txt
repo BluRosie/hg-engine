@@ -334,7 +334,7 @@ The foe is scared off, to be replaced\nby another Pokémon in its party.\nIn the
 A move that leaves the foe badly\npoisoned. This poison damage\nworsens every turn.
 Summons a hailstorm that lasts for\nfive turns. The hailstorm damages\nall types except Ice.
 The user tenses its muscles to bulk up\nits body, boosting both its Attack and\nDefense stats.
-The user forcefully shoots seeds at\nthe foe. Two to five seeds are shot in\nrapid succession.
+A seed is planted on the foe. It steals\nsome HP from the foe to heal the user on\nevery turn.
 A variable move that changes type\nand power depending on the hidden\nability of the Pokémon using it.
 The user intensifies the sun for\nfive turns, powering up Fire-type\nmoves.
 The foe is taunted into a rage that\nallows it to use only attack moves for\ntwo to four turns.
@@ -376,7 +376,7 @@ The foe is hit with wings of steel.\nIt may also raise the user’s Defense\nsta
 The user employs its psychic power to\nexchange abilities with the foe.\n
 The user steals the effects of any\nhealing or status-changing move the\nfoe attempts to use.
 The user attacks the foe at full\npower using fiery energy. It also\nsharply reduces the user’s Sp. Atk.
-The user lands and rests its body.\nIt restores the user’s HP by up to\nhalf of its max HP.
+After making its attack, the user\nrushes back to switch places with a\nparty Pokémon in waiting.
 The user attacks at full power.\nIt may also lower the foe’s Sp. Def\nstat if it hits.
 The user draws power from nature and\nfires it at the foe. It may also lower\nthe target’s Sp. Def.
 A restrained attack that prevents the\nfoe from fainting. The target is left\nwith at least 1 HP.
@@ -395,7 +395,7 @@ The user stores power, then attacks.\nIf the user can use this attack after\nthe
 The user recycles a single-use item\nthat has been used in battle so it can\nbe used again.
 The user charges the foe using every\nbit of its power. It must rest on the\nnext turn to recover.
 The user polishes its body to reduce\ndrag. It sharply raises the Speed\nstat.
-The user flashes a light that cuts the\nfoe’s accuracy. It can also be used to\nilluminate caves.
+The user flashes a light to hurt the foe.\nIt may also make the target flinch.
 The user stabs the foe with a\nsharpened stone from below. It has\na high critical-hit ratio.
 An attack move that inflicts double\nthe damage if the user has been hurt\nby the foe in the same turn.
 A weak electric charge is launched\nat the foe. It causes paralysis if it\nhits.
@@ -414,7 +414,7 @@ An attack that works only on a\nsleeping foe. It absorbs half the\ndamage caused
 The user snares the foe with grass\nand trips it. The heavier the foe, the\ngreater the damage.
 The user enrages the foe into\nconfusion. However, it also sharply\nraises the foe’s Attack stat.
 The user pecks the foe. If the foe is\nholding a Berry, the user plucks it and\ngains its effect.
-After making its attack, the user\nrushes back to switch places with a\nparty Pokémon in waiting.
+The user weaves a web around the foe.\nIt lowers the foes Speed upon switching\nin.
 The user makes a copy of itself using\nsome of its HP. The copy serves as\nthe user’s decoy.
 The user gathers all its light energy\nand releases it in one shot. It may\nalso lower the foe’s Sp. Def stat.
 The user creates a bizarre space in\nwhich slower Pokémon get to move\nfirst for five turns.
@@ -423,7 +423,7 @@ The user soars, then strikes on the\nsecond turn. It can also be used to\nfly to
 It swamps the entire battlefield with\na giant wave. It can also be used\nto cross water.
 The foe is slugged with a punch thrown\nat maximum power. It can also be used\nto move boulders.
 Traps foes in a violent swirling\nwhirlpool. It can also be used to\ntraverse whirlpools.
-The user slugs the foe with a\nshattering punch. It can also smash\ncracked boulders.
+The user hits with a punch that may\nlower the target’s Defense. It can also\nsmash cracked boulders.
 The user charges the foe at an\nawesome speed. It can also be used\nto climb a waterfall.
 A charging attack that may also leave\nthe foe confused. It can also be used\nto scale rocky walls.
 -----

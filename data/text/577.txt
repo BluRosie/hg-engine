@@ -1,0 +1,8 @@
+Huh? You need medicine?\nYour Pokémon appear to be fine.\fIs something worrying you?\r...\rThe Lighthouse Pokémon is in trouble?\rI got it!\fThis ought to do the trick.
+
+My Secret Medicine isn’t easy to make.\rIt uses ash from the Burned Tower\nas an ingredient.\rI only offer it in an emergency.
+Hello.\nDo you need some medicine? {YESNO 0}
+
+
+
+

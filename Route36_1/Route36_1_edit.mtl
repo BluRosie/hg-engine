@@ -1,0 +1,52 @@
+newmtl road01_r
+map_Kd road01_r.png
+map_d road01_r.png
+
+newmtl grass01
+map_Kd grass01.png
+map_d grass01.png
+
+newmtl road01
+map_Kd road01.png
+map_d road01.png
+
+newmtl tree01_un
+map_Kd tree01_un.png
+map_d tree01_un.png
+
+newmtl tree01
+map_Kd tree01.png
+map_d tree01.png
+
+newmtl tree01_re
+map_Kd tree01_re.png
+map_d tree01_re.png
+
+newmtl egrass
+map_Kd egrass.png
+map_d egrass.png
+
+newmtl egrass_u
+map_Kd egrass_u.png
+map_d egrass_u.png
+
+newmtl egrass_v
+map_Kd egrass_v.png
+map_d egrass_v.png
+
+newmtl egrass_ro
+map_Kd egrass_ro.png
+map_d egrass_ro.png
+
+newmtl grass01_a
+map_Kd grass01_a.png
+map_d grass01_a.png
+
+newmtl flower01
+map_Kd flower01.png
+map_d flower01.png
+
+newmtl road01_sub
+map_Kd road01_sub.png
+map_d road01_sub.png
+
