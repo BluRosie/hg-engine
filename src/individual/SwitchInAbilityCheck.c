@@ -571,7 +571,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
                         if ((GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER) && (sp->battlemon[client_no].imposter_flag == 0)
                          && (sp->battlemon[client_no].hp)
-                         && IsValidImposterTarget(bw, sp, client_no)) {
+                         && IsValidImposterTarget(bw, sp, client_no)
+                         && (!(BattleTypeGet(bw) & BATTLE_TYPE_TRAINER)) ? (sp->battlemon[client_no].species == SPECIES_DITTO || sp->battlemon[client_no].species == SPECIES_MEW) : TRUE) {
                             u32 num;
                             sp->battlemon[client_no].imposter_flag = 1;
                             scriptnum = SUB_SEQ_HANDLE_IMPOSTER;
