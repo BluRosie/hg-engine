@@ -648,49 +648,49 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     // handle simple
-    if (AttackingMon.ability == ABILITY_SIMPLE)
-    {
-        atkstate *= 2;
-        if (atkstate < -6)
-        {
-            atkstate = -6;
-        }
-        if (atkstate > 6)
-        {
-            atkstate = 6;
-        }
-        spatkstate *= 2;
-        if (spatkstate < -6)
-        {
-            spatkstate = -6;
-        }
-        if (spatkstate > 6)
-        {
-            spatkstate = 6;
-        }
-    }
+    // if (AttackingMon.ability == ABILITY_SIMPLE)
+    // {
+    //     atkstate *= 2;
+    //     if (atkstate < -6)
+    //     {
+    //         atkstate = -6;
+    //     }
+    //     if (atkstate > 6)
+    //     {
+    //         atkstate = 6;
+    //     }
+    //     spatkstate *= 2;
+    //     if (spatkstate < -6)
+    //     {
+    //         spatkstate = -6;
+    //     }
+    //     if (spatkstate > 6)
+    //     {
+    //         spatkstate = 6;
+    //     }
+    // }
 
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SIMPLE) == TRUE)
-    {
-        defstate *= 2;
-        if (defstate < -6)
-        {
-            defstate = -6;
-        }
-        if (defstate > 6)
-        {
-            defstate = 6;
-        }
-        spdefstate *= 2;
-        if (spdefstate < -6)
-        {
-            spdefstate = -6;
-        }
-        if (spdefstate > 6)
-        {
-            spdefstate = 6;
-        }
-    }
+    // if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SIMPLE) == TRUE)
+    // {
+    //     defstate *= 2;
+    //     if (defstate < -6)
+    //     {
+    //         defstate = -6;
+    //     }
+    //     if (defstate > 6)
+    //     {
+    //         defstate = 6;
+    //     }
+    //     spdefstate *= 2;
+    //     if (spdefstate < -6)
+    //     {
+    //         spdefstate = -6;
+    //     }
+    //     if (spdefstate > 6)
+    //     {
+    //         spdefstate = 6;
+    //     }
+    // }
 
     // handle unaware
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_UNAWARE) == TRUE)

@@ -451,15 +451,15 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     stat_stage_acc = sp->battlemon[attacker].states[STAT_ACCURACY] - 6;
     stat_stage_evasion = 6 - sp->battlemon[defender].states[STAT_EVASION];
 
-    if (atk_ability == ABILITY_SIMPLE)
-    {
-        stat_stage_acc *= 2;
-    }
+    // if (atk_ability == ABILITY_SIMPLE)
+    // {
+    //     stat_stage_acc *= 2;
+    // }
 
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SIMPLE) == TRUE)
-    {
-        stat_stage_evasion *= 2;
-    }
+    // if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SIMPLE) == TRUE)
+    // {
+    //     stat_stage_evasion *= 2;
+    // }
 
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_UNAWARE) == TRUE)
     {
@@ -700,30 +700,30 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     stat_stage_spd1 = sp->battlemon[client1].states[STAT_SPEED];
     stat_stage_spd2 = sp->battlemon[client2].states[STAT_SPEED];
 
-    if (GetBattlerAbility(sp, client1) == ABILITY_SIMPLE)
-    {
-        stat_stage_spd1 = 6 + ((stat_stage_spd1 - 6) * 2);
-        if (stat_stage_spd1 > 12)
-        {
-            stat_stage_spd1 = 12;
-        }
-        if (stat_stage_spd1 < 0)
-        {
-            stat_stage_spd1 = 0;
-        }
-    }
-    if (GetBattlerAbility(sp, client2) == ABILITY_SIMPLE)
-    {
-        stat_stage_spd2 = 6 + ((stat_stage_spd2 - 6) * 2);
-        if (stat_stage_spd2 > 12)
-        {
-            stat_stage_spd2 = 12;
-        }
-        if (stat_stage_spd2 < 0)
-        {
-            stat_stage_spd2 = 0;
-        }
-    }
+    // if (GetBattlerAbility(sp, client1) == ABILITY_SIMPLE)
+    // {
+    //     stat_stage_spd1 = 6 + ((stat_stage_spd1 - 6) * 2);
+    //     if (stat_stage_spd1 > 12)
+    //     {
+    //         stat_stage_spd1 = 12;
+    //     }
+    //     if (stat_stage_spd1 < 0)
+    //     {
+    //         stat_stage_spd1 = 0;
+    //     }
+    // }
+    // if (GetBattlerAbility(sp, client2) == ABILITY_SIMPLE)
+    // {
+    //     stat_stage_spd2 = 6 + ((stat_stage_spd2 - 6) * 2);
+    //     if (stat_stage_spd2 > 12)
+    //     {
+    //         stat_stage_spd2 = 12;
+    //     }
+    //     if (stat_stage_spd2 < 0)
+    //     {
+    //         stat_stage_spd2 = 0;
+    //     }
+    // }
 
     speed1 = sp->battlemon[client1].speed * StatBoostModifiers[stat_stage_spd1][0] / StatBoostModifiers[stat_stage_spd1][1];
     speed2 = sp->battlemon[client2].speed * StatBoostModifiers[stat_stage_spd2][0] / StatBoostModifiers[stat_stage_spd2][1];

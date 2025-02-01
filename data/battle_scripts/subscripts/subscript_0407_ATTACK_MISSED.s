@@ -15,7 +15,7 @@ _000:
 
 Avoided:
     // {0} avoided the attack!
-    PrintMessage 24, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
+    PrintMessage 24, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
 
 Continue:
     Wait 
