@@ -129,5 +129,7 @@ _215:
     UpdateVarFromVar OPCODE_GET, BSCRIPT_VAR_MOVE_NO_TEMP, BSCRIPT_VAR_MOVE_NO_CUR
 
 _end:
+    // fix bug where pursuit on the rightside client was preventing the next attack message/move animation from playing
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_ATTACK_MESSAGE
+    UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF
     End 

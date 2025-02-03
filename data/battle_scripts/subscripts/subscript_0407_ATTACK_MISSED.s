@@ -20,4 +20,6 @@ Avoided:
 Continue:
     Wait 
     WaitButtonABTime 30
+    // now handle high jump kick
+    Call BATTLE_SUBSCRIPT_CRASH_ON_MISS
     End

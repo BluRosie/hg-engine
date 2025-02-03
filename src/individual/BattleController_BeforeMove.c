@@ -2110,11 +2110,11 @@ BOOL BattleController_CheckStolenBySnatch(struct BattleSystem *bw UNUSED, struct
         if (((sp->waza_status_flag & 0x801FDA49) == 0) && (sp->oneTurnFlag[client_no].snatchFlag) && (sp->moveTbl[sp->current_move_index].flag & FLAG_SNATCH)) {
             sp->battlerIdTemp = client_no;
             sp->oneTurnFlag[client_no].snatchFlag = 0;
-            if ((sp->server_status_flag & (0x00100000)) == 0) {
+            if ((sp->server_status_flag & (BATTLE_STATUS_NO_MOVE_SET)) == 0) {
                 sp->waza_no_mamoru[sp->attack_client] = 0;
                 sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
                 sp->waza_no_last = sp->moveNoTemp;
-                sp->server_status_flag |= (0x00100000);
+                sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
             }
             LoadBattleSubSeqScript(sp, 1, SUB_SEQ_SNATCH);
             sp->next_server_seq_no = sp->server_seq_no;
@@ -2152,9 +2152,14 @@ BOOL BattleController_CheckProtect(struct BattleSystem *bsys UNUSED, struct Batt
         && ctx->moveTbl[ctx->current_move_index].flag & (1 << 1)
         && (ctx->current_move_index != MOVE_CURSE || CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client) == TRUE)
         /*&& (!CheckMoveIsChargeMove(ctx, ctx->current_move_index) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)*/) {
+        u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
         UnlockBattlerOutOfCurrentMove(bsys, ctx, ctx->attack_client);
         ctx->battlerIdTemp = defender;
         ctx->moveStatusFlagForSpreadMoves[defender] = WAZA_STATUS_FLAG_MAMORU_NOHIT;
+        // TODO:  figure out what is setting this back to 0 somewhere else
+        // handle moves that can "keep going and crash"
+        if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)
+            ctx->server_status_flag |= BATTLE_STATUS_CRASH_DAMAGE;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2221,9 +2226,14 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
         return FALSE;
     }
     if (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_NOT_EFFECTIVE) {
+        u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
         ctx->battlerIdTemp = defender;
+        // TODO:  figure out what is setting this back to 0 somewhere else
+        // handle moves that can "keep going and crash"
+        if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)
+            ctx->server_status_flag |= BATTLE_STATUS_CRASH_DAMAGE;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2889,12 +2899,17 @@ BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct Battle
     }
 
     if (ctx->waza_status_flag & MOVE_STATUS_FLAG_MISS) {
+        u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
         ctx->waza_status_flag = 0;
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_MISS;
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_LOCKED_INTO_MOVE;
         ctx->msg_work = defender;
+        // TODO:  figure out what is setting this back to 0 somewhere else
+        // handle moves that can "keep going and crash"
+        if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)
+            ctx->server_status_flag |= BATTLE_STATUS_CRASH_DAMAGE;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ATTACK_MISSED);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;

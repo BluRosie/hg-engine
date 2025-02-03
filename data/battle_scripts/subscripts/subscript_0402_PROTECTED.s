@@ -10,4 +10,6 @@ _000:
     PrintMessage 15, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
+    // now handle high jump kick
+    Call BATTLE_SUBSCRIPT_CRASH_ON_MISS
     End
