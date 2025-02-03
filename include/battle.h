@@ -809,8 +809,7 @@ struct __attribute__((packed)) BattlePokemon
                u8 ability;                   /**< ability index */
 
                /** switch in flags to mark it as having been done */
-    /* 0x28 */ u32 appear_check_flag : 1;    /**< has appeared */
-               u32 paddingForNow1 : 5;
+    /* 0x28 */ u32 paddingForNow1 : 6;
                u32 slow_start_flag : 1;      /**< slow start has printed its message */
                u32 slow_start_end_flag : 1;  /**< slow start should end */
                u32 paddingForNow2 : 3;

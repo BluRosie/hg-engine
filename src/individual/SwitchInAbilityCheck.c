@@ -212,52 +212,52 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Weather Ability
                     {
-                        if (!(CanUndergoPrimalReversion(sp, client_no)) && (sp->battlemon[client_no].appear_check_flag == 0) && (sp->battlemon[client_no].hp)) {
+                        if (!(CanUndergoPrimalReversion(sp, client_no)) && (sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp)) {
                             switch (GetBattlerAbility(sp, client_no)) {
                                 case ABILITY_DRIZZLE:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_RAIN_ANY) == 0) {
                                         scriptnum = SUB_SEQ_DRIZZLE;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_SAND_STREAM:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_SANDSTORM_ANY) == 0) {
                                         scriptnum = SUB_SEQ_SAND_STREAM;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_DROUGHT:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_SUNNY_ANY) == 0) {
                                         scriptnum = SUB_SEQ_DROUGHT;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_SNOW_WARNING:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_HAIL_ANY) == 0) {
                                         scriptnum = SUB_SEQ_SNOW_WARNING;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_DESOLATE_LAND:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) == 0) {
                                         scriptnum = SUB_SEQ_DESOLATE_LAND;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_PRIMORDIAL_SEA:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_HEAVY_RAIN) == 0) {
                                         scriptnum = SUB_SEQ_PRIMORDIAL_SEA;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_DELTA_STREAM:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_STRONG_WINDS) == 0) {
                                         scriptnum = SUB_SEQ_DELTA_STREAM;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -598,7 +598,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 src[num] = dest[num];
                             }
 
-                            sp->battlemon[sp->attack_client].appear_check_flag = 0;
+                            sp->battlemon[sp->attack_client].ability_activated_flag = 0;
                             sp->battlemon[sp->attack_client].ability_activated_flag = 0;
                             sp->battlemon[sp->attack_client].moveeffect.truantFlag = sp->total_turn & 1;
                             sp->battlemon[sp->attack_client].moveeffect.slowStartTurns = sp->total_turn + 1;

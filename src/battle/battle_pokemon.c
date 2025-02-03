@@ -862,6 +862,7 @@ void LONG_CALL BattleFormChange(int client, int form_no, void* bw, struct Battle
 
     sp->battlemon[client].type1 = GetMonData(pp2, MON_DATA_TYPE_1, NULL);
     sp->battlemon[client].type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
+    sp->battlemon[client].ability_activated_flag = FALSE;
 }
 
 /**
@@ -1018,7 +1019,6 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 {
     int i;
     // code from aero's pr
-    sp->battlemon[client].appear_check_flag = 0;
     sp->battlemon[client].slow_start_flag = 0;
     sp->battlemon[client].slow_start_end_flag = 0;
 
@@ -1051,6 +1051,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
         }
     }
 
+    // TODO: set forms when loading them into the party instead when sending out
     // Xerneas should be in Active Mode when in battle
     if (sp->battlemon[client].species == SPECIES_XERNEAS) {
         sp->battlemon[client].form_no = 1;
