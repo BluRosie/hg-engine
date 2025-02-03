@@ -2696,6 +2696,7 @@ BOOL btl_scr_cmd_F4_isparentalbondactive(void *bw UNUSED, struct BattleStruct *s
  *  @return FALSE
  */
 BOOL btl_scr_cmd_F5_changepermanentbg(void *bw, struct BattleStruct *sp) {
+    struct BattleSystem *bsys = bw;
     IncrementBattleScriptPtr(sp, 1);
 
     int bg = read_battle_script_param(sp);
@@ -2703,13 +2704,13 @@ BOOL btl_scr_cmd_F5_changepermanentbg(void *bw, struct BattleStruct *sp) {
 
     if (bg == -1)
     {
-        bg = gBattleSystem->sp->original_bgId;
+        bg = bsys->sp->original_bgId;
     }
     if (terrain == -1)
     {
-        terrain = gBattleSystem->sp->original_terrain;
+        terrain = bsys->sp->original_terrain;
     }
-    LoadDifferentBattleBackground(bw, bg, terrain);
+    LoadDifferentBattleBackground(bsys, bg, terrain);
 
     return FALSE;
 }

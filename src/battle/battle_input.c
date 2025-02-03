@@ -847,6 +847,10 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
     {
         palette = TERRAIN_ELECTRIC_TERRAIN; // electric terrain does not use battle platforms, so we get rid of it here
     }
+    else
+    {
+        palette = terrain;
+    }
     Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette); // new terrains are just repointed below
     Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
 
