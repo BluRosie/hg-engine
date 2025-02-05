@@ -203,14 +203,24 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     battle_type = BattleTypeGet(bw);
 
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DISGUISE) == TRUE && sp->battlemon[defender].form_no == 0)) {
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DISGUISE) == TRUE)
+    && (sp->battlemon[defender].species == SPECIES_MIMIKYU)
+    // Mimikyu or Mimikyu-Large
+    && (sp->battlemon[defender].form_no == 0 || sp->battlemon[defender].form_no == 2)
+    // Not transformed
+    && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
         return 0;
     }
         
 
-    if (((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE) && GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL) && sp->battlemon[defender].form_no == 0) {
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE)
+    && (sp->battlemon[defender].species == SPECIES_EISCUE)
+    && (sp->battlemon[defender].form_no == 0)
+    // Not transformed
+    && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
+    && (GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
         return 0;

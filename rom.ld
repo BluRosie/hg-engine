@@ -186,7 +186,7 @@ Snd_SePlay = 0x0200604C | 1;
 
 
 /* new battle engine */
-GetBattlerAbility = 0x022527CC | 1;
+//GetBattlerAbility = 0x022527CC | 1;
 BattleDamageDivide = 0x02253178 | 1;
 BattleWorkWeatherGet = 0x0223BAF8 | 1;
 BattleWorkEnemyClientGet = 0x32F8 + 0x022378C1;

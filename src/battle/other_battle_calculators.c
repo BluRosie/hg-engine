@@ -3363,3 +3363,44 @@ BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type) {
     struct BattlePokemon client = ctx->battlemon[battlerId];
     return ((client.type1 == type && client.type2 == type && client.type3 == type) || (client.is_currently_terastallized ? client.tera_type == type : FALSE));
 }
+
+/// @brief Check if ability is disabled if user is Transformed
+/// @param ability 
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityNoTransform(int ability) {
+    switch (ability) {
+        case ABILITY_DISGUISE:
+        case ABILITY_GULP_MISSILE:
+        case ABILITY_ICE_FACE:
+        case ABILITY_NEUTRALIZING_GAS:
+        case ABILITY_HUNGER_SWITCH:
+        case ABILITY_ZERO_TO_HERO:
+        case ABILITY_PROTOSYNTHESIS:
+        case ABILITY_QUARK_DRIVE:
+        case ABILITY_EMBODY_ASPECT:
+        case ABILITY_EMBODY_ASPECT_2:
+        case ABILITY_EMBODY_ASPECT_3:
+        case ABILITY_EMBODY_ASPECT_4:
+        case ABILITY_TERA_SHIFT:
+            return TRUE;
+            break;
+
+    default:
+        break;
+    }
+    return FALSE;
+}
+
+u8 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId) {
+    if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_GASTRO_ACID) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
+        return ABILITY_NONE;
+    } else if ((ctx->field_condition & FIELD_STATUS_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
+        return ABILITY_NONE;
+    } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
+        return ABILITY_NONE;
+    } else if (AbilityNoTransform(ctx->battlemon[battlerId].ability) && (ctx->battlemon[battlerId].condition2 & STATUS2_TRANSFORMED)) {
+        return ABILITY_NONE;
+    } else {
+        return ctx->battlemon[battlerId].ability;
+    }
+}

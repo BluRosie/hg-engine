@@ -1942,11 +1942,11 @@ void LONG_CALL DistributeEffortValues(struct Party *party, u32 slot, u32 species
 /**
  *  @brief grab battler ability.  don't consider mold breaker in this
  *
- *  @param sp global battle structure
- *  @param client battler to check
+ *  @param ctx global battle structure
+ *  @param battlerId battler to check
  *  @return ability index that battler has
  */
-int LONG_CALL GetBattlerAbility(struct BattleStruct *sp, int client);
+u8 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId);
 
 /**
  *  @brief perform damage division, setting the variables that need to be set for damage in general

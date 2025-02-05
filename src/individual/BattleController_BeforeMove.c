@@ -4444,30 +4444,3 @@ BOOL LONG_CALL AbilityBreakable(int ability) {
     }
     return FALSE;
 }
-
-/// @brief Check if ability is disabled if user is Transformed
-/// @param ability 
-/// @return `TRUE` or `FALSE`
-BOOL LONG_CALL AbilityNoTransform(int ability) {
-    switch (ability) {
-        case ABILITY_DISGUISE:
-        case ABILITY_GULP_MISSILE:
-        case ABILITY_ICE_FACE:
-        case ABILITY_NEUTRALIZING_GAS:
-        case ABILITY_HUNGER_SWITCH:
-        case ABILITY_ZERO_TO_HERO:
-        case ABILITY_PROTOSYNTHESIS:
-        case ABILITY_QUARK_DRIVE:
-        case ABILITY_EMBODY_ASPECT:
-        case ABILITY_EMBODY_ASPECT_2:
-        case ABILITY_EMBODY_ASPECT_3:
-        case ABILITY_EMBODY_ASPECT_4:
-        case ABILITY_TERA_SHIFT:
-            return TRUE;
-            break;
-
-    default:
-        break;
-    }
-    return FALSE;
-}
