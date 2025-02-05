@@ -1013,7 +1013,7 @@ heightentry SPECIES_GRAFAIAI, 12, 12, 0, 0
 heightentry SPECIES_BRAMBLIN, 0, 0, 0, 0
 heightentry SPECIES_BRAMBLEGHAST, 0, 0, 0, 0
 heightentry SPECIES_TOEDSCOOL, 0, 0, 0, 0
-heightentry SPECIES_TOEDSCRUEL, 0, 0, 0, 0
+heightentry SPECIES_TOEDSCRUEL, 14, 14, 0, 0
 heightentry SPECIES_KLAWF, 0, 0, 0, 0
 heightentry SPECIES_CAPSAKID, 15, 15, 28, 28
 heightentry SPECIES_SCOVILLAIN, 0, 0, 0, 0
