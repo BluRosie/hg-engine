@@ -3404,3 +3404,22 @@ u8 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId) {
         return ctx->battlemon[battlerId].ability;
     }
 }
+
+void BattleSystem_BufferMessage(struct BattleSystem *bsys, MESSAGE_PARAM *msg) {
+    // debug_printf("In BattleSystem_BufferMessage\n");
+
+    u32 ovyId, offset;
+
+    void (*internalFunc)(struct BattleSystem *bsys, MESSAGE_PARAM *msg);
+
+    UnloadOverlayByID(6); // unload overlay 6 so this can be loaded
+
+    ovyId = OVERLAY_BATTLESYSTEM_BUFFERMESSAGE;
+    offset = 0x023C0400 | 1;
+    HandleLoadOverlay(ovyId, 2);
+    internalFunc = (void (*)(struct BattleSystem *bsys, MESSAGE_PARAM *msg))(offset);
+    internalFunc(bsys, msg);
+    UnloadOverlayByID(ovyId);
+
+    HandleLoadOverlay(6, 2); // reload 6 so things are okay
+}

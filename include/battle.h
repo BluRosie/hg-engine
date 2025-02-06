@@ -514,10 +514,10 @@
 #define TAG_TRTYPE_TRNAME_NICK_TRTYPE_TRNAME_NICK \
                                         (60)    //trainertitle  trainername     nickname        trainertitle  trainername     nickname
 
-
+// https://github.com/pret/pokeplatinum/blob/main/include/constants/battle/message_tags.h#L7
 #define TAG_NO_DIR                      (0x80)
 #define TAG_DIR                         (0x40)
-#define TAG_NO_DIR_OFF                  (0x3f)
+#define TAG_NO_DIR_OFF                  (0xFF ^ TAG_NO_DIR ^ TAG_DIR)
 
 
 /**
@@ -3591,5 +3591,21 @@ void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleS
 BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
 
 BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
+
+void LONG_CALL BattleMessage_BufferNickname(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferMove(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferItem(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferNumber(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferNumbers(struct BattleSystem *bsys, int bufferIndex, int param, int numDigits);
+void LONG_CALL BattleMessage_BufferType(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferAbility(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferStat(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferStatus(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferPokemon(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferPoffin(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferFlavorPreference(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferTrainerClass(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferTrainerName(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int bufferIndex, int param);
 
 #endif // BATTLE_H
