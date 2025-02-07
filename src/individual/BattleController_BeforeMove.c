@@ -186,6 +186,8 @@ BOOL LONG_CALL AbilityBreakable(int ability);
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoTransform(int ability);
 
+#define IS_GENERAL_GROUND_TYPE_ATTACK(ctx) (ctx->move_type == TYPE_GROUND && ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS && ctx->current_move_index != MOVE_THOUSAND_ARROWS)
+
 // 08014ACC
 
 /**
@@ -2220,7 +2222,7 @@ BOOL CalcDamageAndSetMoveStatusFlags(struct BattleSystem *bsys, struct BattleStr
     return FALSE;
 }
 
-// TODO: check message/subscript correctness, move damage out
+// TODO: check message/subscript correctness, move damage out, handle Thousand Arrows
 BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
     if (!(ctx->waza_out_check_on_off & 2) && ctx->defence_client != 0xFF && CalcDamageAndSetMoveStatusFlags(bsys, ctx, defender) == TRUE) {
         return FALSE;
@@ -2243,7 +2245,8 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
 }
 
 BOOL BattleController_CheckLevitate(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
-    if ((MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_LEVITATE) == TRUE) && (ctx->move_type == TYPE_GROUND)
+    if ((MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_LEVITATE) == TRUE)
+    && (IS_GENERAL_GROUND_TYPE_ATTACK(ctx))
         // iron ball halves speed and grounds
         && (HeldItemHoldEffectGet(ctx, defender) != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_LEVITATE_MISS;
@@ -2265,7 +2268,7 @@ BOOL BattleController_CheckAirBalloonTelekinesisMagnetRise(struct BattleSystem *
             (ctx->battlemon[defender].moveeffect.magnetRiseTurns)
             && ((ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
             && ((ctx->field_condition & FIELD_STATUS_GRAVITY) == 0)
-            && (ctx->move_type == TYPE_GROUND)
+            && (IS_GENERAL_GROUND_TYPE_ATTACK(ctx))
             && (HeldItemHoldEffectGet(ctx, defender) != HOLD_EFFECT_SPEED_DOWN_GROUNDED)
         )
         ||
@@ -2273,7 +2276,7 @@ BOOL BattleController_CheckAirBalloonTelekinesisMagnetRise(struct BattleSystem *
             (HeldItemHoldEffectGet(ctx, defender) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT) // has air balloon
             && ((ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
             && ((ctx->field_condition & FIELD_STATUS_GRAVITY) == 0)
-            && (ctx->move_type == TYPE_GROUND)
+            && (IS_GENERAL_GROUND_TYPE_ATTACK(ctx))
         )
        ) {
         // TODO: if in the future the AI somehow needs to read this flag, create a new flag for Air Balloon
