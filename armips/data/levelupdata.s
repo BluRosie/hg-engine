@@ -28821,7 +28821,7 @@ levelup SPECIES_ARCANINE_LORD
     learnset MOVE_ROAR, 1
     learnset MOVE_TAKE_DOWN, 1
     learnset MOVE_FLAMETHROWER, 5
-	learnset MOVE_RAGING_FURY, 64
+    learnset MOVE_RAGING_FURY, 64
     terminatelearnset
 
 

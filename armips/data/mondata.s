@@ -23874,7 +23874,7 @@ mondata SPECIES_MIMIKYU_BUSTED_LARGE, "-----"
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
 
-mondata SPECIES_KOMMO_O_LARGE, "Kommo-o"
+mondata SPECIES_KOMMO_O_LARGE, "-----"
     basestats 75, 110, 125, 85, 100, 105
     types TYPE_DRAGON, TYPE_FIGHTING
     catchrate 45
