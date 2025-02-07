@@ -725,3 +725,4 @@ BattleMessage_BufferFlavorPreference = 0x0223CEA8 | 1;
 BattleMessage_BufferTrainerClass = 0x0223CEB4 | 1;
 BattleMessage_BufferTrainerName = 0x0223CECC | 1;
 BattleMessage_BufferBoxName = 0x0223CEE4 | 1;
+BufferItemNameWithIndefArticle = 0x0200C100 | 1;

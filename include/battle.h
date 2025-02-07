@@ -1411,7 +1411,7 @@ struct BattleSystem {
     /* 0x08 */ void * /*Window **/ window;
     /* 0x0C */ u32 *unkC;
     /* 0x10 */ u32 *unk10;
-    /* 0x14 */ u32 *unk14;
+    /* 0x14 */ u32 *msgFormat;
     /* 0x18 */ void * /*String **/ msgBuffer;
     /* 0x1C */ u32 unk1C;
     /* 0x20 */ u32 unk20;
@@ -3607,5 +3607,7 @@ void LONG_CALL BattleMessage_BufferFlavorPreference(struct BattleSystem *bsys, i
 void LONG_CALL BattleMessage_BufferTrainerClass(struct BattleSystem *bsys, int bufferIndex, int param);
 void LONG_CALL BattleMessage_BufferTrainerName(struct BattleSystem *bsys, int bufferIndex, int param);
 void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int bufferIndex, int param);
+
+void LONG_CALL BufferItemNameWithIndefArticle(u32 *msgFmt, u32 fieldno, u32 itemId);
 
 #endif // BATTLE_H
