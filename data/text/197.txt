@@ -511,16 +511,16 @@ The opposing {STRVAR_1 1, 0, 0} is ready to\nhelp the opposing {STRVAR_1 1, 1, 0
 {STRVAR_1 1, 0, 0} switched\nitems with its target!
 The wild {STRVAR_1 1, 0, 0} switched\nitems with its target!
 The opposing {STRVAR_1 1, 0, 0} switched\nitems with its target!
-{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.
-The wild {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.
-The opposing {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.
-{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.
-{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
-{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
-The wild {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
-The wild {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
-The opposing {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
-The opposing {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
+The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
+The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
 {STRVAR_1 1, 0, 0} copied\n{STRVAR_1 1, 1, 0}’s Ability!
 {STRVAR_1 1, 0, 0} copied the wild\n{STRVAR_1 1, 1, 0}’s Ability!
 {STRVAR_1 1, 0, 0} copied the opposing\n{STRVAR_1 1, 1, 0}’s Ability!
