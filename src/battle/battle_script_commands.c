@@ -1993,7 +1993,7 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
     if (sp->battlemon[sp->defence_client].item && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
     {
         sp->mp.msg_id = BATTLE_MSG_ABILITY_MADE_MOVE_INEFFECTIVE;
-        sp->mp.msg_tag = TAG_NICK_ABILITY_MOVE;
+        sp->mp.msg_tag = TAG_NICKNAME_ABILITY_MOVE;
         sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
         sp->mp.msg_para[1] = sp->battlemon[sp->defence_client].ability;
         sp->mp.msg_para[2] = sp->current_move_index;
@@ -2001,7 +2001,7 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
     else if (CanKnockOffApply(bw, sp))
     {
         sp->mp.msg_id = BATTLE_MSG_MON_KNOCKED_OFF_ITEM;
-        sp->mp.msg_tag = TAG_NICK_NICK_ITEM;
+        sp->mp.msg_tag = TAG_NICKNAME_NICKNAME_ITEM;
         sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->attack_client);
         sp->mp.msg_para[1] = CreateNicknameTag(sp, sp->defence_client);
         sp->mp.msg_para[2] = item;

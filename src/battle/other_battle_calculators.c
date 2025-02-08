@@ -1680,7 +1680,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
         if (msg == NULL) {
             return TRUE;
         }
-        msg->msg_tag = TAG_NICK_ABILITY;
+        msg->msg_tag = TAG_NICKNAME_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
         msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
         msg->msg_para[1] = ABILITY_SHADOW_TAG;
@@ -1694,7 +1694,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
                if (msg == NULL) {
                     return TRUE;
                 }
-                msg->msg_tag = TAG_NICK_ABILITY;
+                msg->msg_tag = TAG_NICKNAME_ABILITY;
                 msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
                 msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
                 msg->msg_para[1] = ABILITY_ARENA_TRAP;
@@ -1704,7 +1704,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
             if (msg == NULL) {
                 return TRUE;
             }
-            msg->msg_tag = TAG_NICK_ABILITY;
+            msg->msg_tag = TAG_NICKNAME_ABILITY;
             msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
             msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
             msg->msg_para[1] = ABILITY_ARENA_TRAP;
@@ -1717,7 +1717,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
         if (msg == NULL) {
             return TRUE;
         }
-        msg->msg_tag = TAG_NICK_ABILITY;
+        msg->msg_tag = TAG_NICKNAME_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
         msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
         msg->msg_para[1] = ABILITY_MAGNET_PULL;
@@ -3146,41 +3146,41 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
     BOOL ret = TRUE;
 
     if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_DISABLED) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_DISABLED;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_TORMENT) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK;
+        msg->msg_tag = TAG_NICKNAME;
         // {STRVAR_1 1, 0, 0} can’t use the same move\ntwice in a row due to the torment!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_TORMENT;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_TAUNT) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_TAUNT;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_IMPRISON) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_IMPRISON;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GRAVITY) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} because of gravity!
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_GRAVITY;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_HEAL_BLOCK) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE_MOVE;
         // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 2, 0} because of\f{STRVAR_1 6, 1, 0}!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_HEAL_BLOCK;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
@@ -3195,7 +3195,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->msg_para[1] = ctx->battlemon[battlerId].moveeffect.moveNoChoice;
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GORILLA_TACTICS) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0} can only use {STRVAR_1 6, 1, 0}!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_GORILLA_TACTICS;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
@@ -3391,7 +3391,7 @@ BOOL LONG_CALL AbilityNoTransform(int ability) {
     return FALSE;
 }
 
-u8 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId) {
+u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId) {
     if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_GASTRO_ACID) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
         return ABILITY_NONE;
     } else if ((ctx->field_condition & FIELD_STATUS_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {

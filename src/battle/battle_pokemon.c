@@ -491,7 +491,7 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
         if ((BattleTypeGet(bw) & BATTLE_TYPE_WIRELESS) == 0)
         {
             mp->msg_id = BATTLE_MSG_SWITCH_IN_ENEMY_MSG;
-            mp->msg_tag = TAG_TRTYPE_TRNAME_NICK;
+            mp->msg_tag = TAG_TRCLASS_TRNAME_NICKNAME;
             mp->msg_para[0] = cp->client_no;
             mp->msg_para[1] = cp->client_no;
             mp->msg_para[2] = cp->client_no | (smp->sel_mons_no << 8);
@@ -499,7 +499,7 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
         else
         {
             mp->msg_id = BATTLE_MSG_SWITCH_IN_TITLELESS;
-            mp->msg_tag = TAG_TRNAME_NICK;
+            mp->msg_tag = TAG_TRNAME_NICKNAME;
             mp->msg_para[0] = cp->client_no;
             mp->msg_para[1] = cp->client_no | (smp->sel_mons_no << 8);
         }
@@ -549,7 +549,7 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
         {
             mp->msg_id = BATTLE_MSG_SEND_IN_MON_0;
         }
-        mp->msg_tag = TAG_NICK;
+        mp->msg_tag = TAG_NICKNAME;
         mp->msg_para[0] = cp->client_no | (smp->sel_mons_no << 8);
     }
 }
@@ -626,7 +626,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             if (fight_type & BATTLE_TYPE_BATTLE_TOWER)
             {
                 mp->msg_id = BATTLE_MSG_DOUBLE_TOWER_BATTLE_SEND_OUT;
-                mp->msg_tag = TAG_TRTYPE_TRNAME_NICK_TRTYPE_TRNAME_NICK;
+                mp->msg_tag = TAG_TRCLASS_TRNAME_NICKNAME_TRCLASS_TRNAME_NICKNAME;
                 mp->msg_para[0] = client1;
                 mp->msg_para[1] = client1;
                 mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
@@ -637,7 +637,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             else if (fight_type & BATTLE_TYPE_MULTI)
             {
                 mp->msg_id = BATTLE_MSG_MULTI_BATTLE_SEND_OUT_MESSAGE;
-                mp->msg_tag = TAG_TRNAME_NICK_TRNAME_NICK;
+                mp->msg_tag = TAG_TRNAME_NICKNAME_TRNAME_NICKNAME;
                 mp->msg_para[0] = client1;
                 mp->msg_para[1] = client1 | (esomp->sel_mons_no[client1] << 8);
                 mp->msg_para[2] = client2;
@@ -646,7 +646,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             else if (fight_type & BATTLE_TYPE_DOUBLE)
             {
                 mp->msg_id = BATTLE_MSG_DOUBLE_BATTLE_SEND_OUT_WIRELESS;
-                mp->msg_tag = TAG_TRNAME_NICK_NICK;
+                mp->msg_tag = TAG_TRNAME_NICKNAME_NICKNAME;
                 mp->msg_para[0] = client1;
                 mp->msg_para[1] = client1 | (esomp->sel_mons_no[client1] << 8);
                 mp->msg_para[2] = client2 | (esomp->sel_mons_no[client2] << 8);
@@ -654,7 +654,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             else
             {
                 mp->msg_id = BATTLE_MSG_SWITCH_IN_TITLELESS;
-                mp->msg_tag = TAG_TRNAME_NICK;
+                mp->msg_tag = TAG_TRNAME_NICKNAME;
                 mp->msg_para[0] = client1;
                 mp->msg_para[1] = client1 | (esomp->sel_mons_no[client1] << 8);
             }
@@ -665,7 +665,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
              || (fight_type & BATTLE_TYPE_MULTI))
             {
                 mp->msg_id = BATTLE_MSG_DOUBLE_TOWER_BATTLE_SEND_OUT;
-                mp->msg_tag = TAG_TRTYPE_TRNAME_NICK_TRTYPE_TRNAME_NICK;
+                mp->msg_tag = TAG_TRCLASS_TRNAME_NICKNAME_TRCLASS_TRNAME_NICKNAME;
                 mp->msg_para[0] = client1;
                 mp->msg_para[1] = client1;
                 mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
@@ -676,7 +676,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             else if (fight_type & BATTLE_TYPE_DOUBLE)
             {
                 mp->msg_id = BATTLE_MSG_ENEMY_SEND_OUT_DOUBLES;
-                mp->msg_tag = TAG_TRTYPE_TRNAME_NICK_NICK;
+                mp->msg_tag = TAG_TRCLASS_TRNAME_NICKNAME_NICKNAME;
                 mp->msg_para[0] = client1;
                 mp->msg_para[1] = client1;
                 mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
@@ -685,7 +685,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             else
             {
                 mp->msg_id = BATTLE_MSG_SWITCH_IN_ENEMY_MSG;
-                mp->msg_tag = TAG_TRTYPE_TRNAME_NICK;
+                mp->msg_tag = TAG_TRCLASS_TRNAME_NICKNAME;
                 mp->msg_para[0] = client1;
                 mp->msg_para[1] = client1;
                 mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
@@ -783,7 +783,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             if (fight_type & BATTLE_TYPE_MULTI)
             {
                 mp->msg_id = BATTLE_MSG_MULTI_BATTLE_PLAYER_SEND_OUT_MESSAGE;
-                mp->msg_tag = TAG_TRNAME_NICK_NICK;
+                mp->msg_tag = TAG_TRNAME_NICKNAME_NICKNAME;
                 mp->msg_para[0] = client1;
                 mp->msg_para[1] = client1 | (esomp->sel_mons_no[client1] << 8);
                 mp->msg_para[2] = client2 | (esomp->sel_mons_no[client2] << 8);
@@ -791,14 +791,14 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             else if (fight_type & BATTLE_TYPE_DOUBLE)
             {
                 mp->msg_id = BATTLE_MSG_SEND_OUT_DOUBLES;
-                mp->msg_tag = TAG_NICK_NICK;
+                mp->msg_tag = TAG_NICKNAME_NICKNAME;
                 mp->msg_para[0] = client1 | (esomp->sel_mons_no[client1] << 8);
                 mp->msg_para[1] = client2 | (esomp->sel_mons_no[client2] << 8);
             }
             else
             {
                 mp->msg_id = BATTLE_MSG_SEND_IN_MON_0;
-                mp->msg_tag = TAG_NICK;
+                mp->msg_tag = TAG_NICKNAME;
                 mp->msg_para[0] = client1 | (esomp->sel_mons_no[client1] << 8);
             }
         }
@@ -807,7 +807,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             if (fight_type & BATTLE_TYPE_MULTI)
             {
                 mp->msg_id = BATTLE_MSG_MULTI_BATTLE_PLAYER_SIDE_SEND_OUT;
-                mp->msg_tag = TAG_TRTYPE_TRNAME_NICK_NICK;
+                mp->msg_tag = TAG_TRCLASS_TRNAME_NICKNAME_NICKNAME;
                 mp->msg_para[0] = client1;
                 mp->msg_para[1] = client1;
                 mp->msg_para[2] = client1 | (esomp->sel_mons_no[client1] << 8);
@@ -816,14 +816,14 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             else if (fight_type & BATTLE_TYPE_DOUBLE)
             {
                 mp->msg_id = BATTLE_MSG_SEND_OUT_DOUBLES;
-                mp->msg_tag = TAG_NICK_NICK;
+                mp->msg_tag = TAG_NICKNAME_NICKNAME;
                 mp->msg_para[0] = client1 | (esomp->sel_mons_no[client1] << 8);
                 mp->msg_para[1] = client2 | (esomp->sel_mons_no[client2] << 8);
             }
             else
             {
                 mp->msg_id = BATTLE_MSG_SEND_IN_MON_0;
-                mp->msg_tag = TAG_NICK;
+                mp->msg_tag = TAG_NICKNAME;
                 mp->msg_para[0] = client1 | (esomp->sel_mons_no[client1] << 8);
             }
         }

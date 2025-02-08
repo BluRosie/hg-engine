@@ -422,7 +422,7 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, in
  *  @param ability ability to check for
  *  @return TRUE if the defender has the ability and it isn't canceled by mold breaker; FALSE otherwise
  */
-u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability)
+u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, u32 ability)
 {
     BOOL ret;
 
