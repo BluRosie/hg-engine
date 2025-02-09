@@ -163,6 +163,33 @@ struct PLAYERDATA {
     struct IGT igt;
 };
 
+#define NUM_HOF_RECORDS 30
+
+typedef struct HOFMon {
+    /* 0x00 */ u16 species;
+    /* 0x02 */ u8 level;
+    /* 0x03 */ u8 form;
+    /* 0x04 */ u32 personality;
+    /* 0x08 */ u32 otid;
+    /* 0x0C */ u16 nickname[10 + 1];
+    /* 0x22 */ u16 otname[7 + 1];
+    /* 0x32 */ u16 moves[4];
+    /* 0x3A */ u8 padding[2];
+} HOFMON;
+
+typedef struct HOFParty {
+    HOFMON party[6];
+    u16 year;
+    u8 month;
+    u8 day;
+} HOFTEAM;
+
+typedef struct HallOfFame {
+    HOFTEAM parties[NUM_HOF_RECORDS];
+    u32 next_record;
+    u32 num_total;
+} HallOfFame;
+
 // palette convenience defines
 typedef enum PaletteMemoryRegions {
     /* 0x000 */ MAIN_SCREEN_BG_PAL,
@@ -326,6 +353,13 @@ void *LONG_CALL SaveData_GetEventPtr(void *saveData);
 void *LONG_CALL SaveData_GetDexPtr(void *saveData);
 void *LONG_CALL SaveData_GetPlayerPartyPtr(void *saveData);
 u32 LONG_CALL GetCaughtMonCount(void *dexSaveData);
+HallOfFame * LONG_CALL LoadHallOfFame(void *saveData, u32 heapId, int *ret_p);
+void LONG_CALL Save_HOF_RecordParty(HallOfFame *hof, struct Party *party, struct RTCDate *date);
+
+// can't include scripts.h directly
+typedef struct FieldSystem FieldSystem;
+
+void LONG_CALL AddHallOfFameEntry(FieldSystem *fieldSystem, BOOL gameCleared);
 
 /**
  *  @brief get daycare save data from save block

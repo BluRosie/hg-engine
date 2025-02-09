@@ -100,7 +100,9 @@ SaveData_GetRepelPtr = 0x0202DB05;
 SaveData_GetEventPtr = 0x020503D0 | 1;
 SaveData_GetDexPtr = 0x0202A634 |1;
 SaveData_GetPlayerPartyPtr = 0x02074904 |1;
-
+Save_HOF_RecordParty = 0x0202E0F8 | 1;
+LoadHallOfFame = 0x02027104 | 1;
+AddHallOfFameEntry = 0x02052A50 | 1;
 
 GetVarAdrs = 0x020504A4 | 1;
 EncDataSave_GetSaveDataPtr = 0x0202D9C4 | 1;

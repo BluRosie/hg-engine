@@ -182,6 +182,7 @@ arm9 sub_0206D328 0206D328 2
 
 #hof/pokeathlon/pokewalker fix
 0063 grab_overworld_a081_index 080025E4 3
+0064 grab_overworld_a081_index 021E6E30 3
 0096 grab_overworld_a081_index 080038B8 3
 0112 grab_overworld_a081_index 021F0E14 3
 arm9 get_mon_ow_tag 08069D70 3
