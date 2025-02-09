@@ -863,6 +863,10 @@ void LONG_CALL BattleFormChange(int client, int form_no, void* bw, struct Battle
     sp->battlemon[client].type1 = GetMonData(pp2, MON_DATA_TYPE_1, NULL);
     sp->battlemon[client].type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
     sp->battlemon[client].ability_activated_flag = FALSE;
+
+    // need to update weight as well
+    // read s32's from a214 file 1, resets autotomize lightening
+    ArchiveDataLoadOfs(&sp->battlemon[client].weight, ARC_DEX_LISTS, 1, PokeOtherFormMonsNoGet(sp->battlemon[client].species, form_no) * sizeof(s32), sizeof(s32));
 }
 
 /**
@@ -874,8 +878,8 @@ void LONG_CALL BattleFormChange(int client, int form_no, void* bw, struct Battle
  */
 void TryRevertFormChange(struct BattleStruct *sp, void *bw, int client_no)
 {
-    u16 species = sp->battlemon[client_no].species;
-    u8 form_no = sp->battlemon[client_no].form_no;
+    u32 species = sp->battlemon[client_no].species;
+    u32 form_no = sp->battlemon[client_no].form_no;
 
     void *pp = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
 

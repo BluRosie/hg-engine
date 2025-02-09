@@ -23,8 +23,6 @@ typedef struct
     u8  denominator;
 } AccuracyStatChangeRatio;
 
-int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
-
 // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8684263
 const AccuracyStatChangeRatio sAccStatChanges[] =
 {
@@ -876,7 +874,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     //     command2 = sp->playerActions[client2][3];
     //     move_pos1 = sp->waza_no_pos[client1];
     //     move_pos2 = sp->waza_no_pos[client2];
-    // 
+    //
     //     if(command1 == SELECT_FIGHT_COMMAND)
     //     {
     //         if(sp->oneTurnFlag[client1].struggle_flag)
@@ -3365,7 +3363,7 @@ BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type) {
 }
 
 /// @brief Check if ability is disabled if user is Transformed
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoTransform(int ability) {
     switch (ability) {

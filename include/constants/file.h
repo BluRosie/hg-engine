@@ -18,7 +18,11 @@
 #define ARC_TRAINER_DATA 55
 #define ARC_TRAINER_PARTY_DATA 56
 #define ARC_OTHER_MON_PIC 114
-#define ARC_EGG_MOVES 231 // a229 because of the two random ones
+// 194 and 195 interrupt the otherwise-sensical mapping of file 30 -> a030, every file after is offset by 2
+#define ARC_PBR_POKEGRA 194
+#define ARC_PBR_OTHERPOKE 195
+#define ARC_DEX_LISTS 216
+#define ARC_EGG_MOVES 231
 
 
 //a008 file indexes
