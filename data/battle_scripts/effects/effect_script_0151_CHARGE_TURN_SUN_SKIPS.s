@@ -17,9 +17,19 @@ _026:
     Call BATTLE_SUBSCRIPT_ITEM_SKIP_CHARGE_TURN
 
 _028:
+    PrintAttackMessage
+    Wait 
+    WaitButtonABTime 30
+    // {0} absorbed light!
+    PrintMessage 214, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
+    Wait 
+    WaitButtonABTime 30
+    PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
+    Wait
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLER_TARGET, BATTLER_NONE, _035
 
 _033:
+    UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF|BATTLE_STATUS_NO_ATTACK_MESSAGE
     CalcCrit 
     CalcDamage 
 

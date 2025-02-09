@@ -1,5 +1,22 @@
 # Makefile
 
+ROMNAME = rom.nds
+BUILDROM = test.nds
+
+DESIRED_GAMECODE := IPKE
+GAMECODE = $(shell dd bs=1 skip=12 count=4 if=$(ROMNAME) status=none)
+VALID_GAMECODE = $(shell echo $(GAMECODE) | grep -i -q $(DESIRED_GAMECODE); echo $$?)
+
+define n
+
+
+endef
+
+ifneq ($(VALID_GAMECODE), 0)
+# invalid rom detected based on gamecode.  this primarily catches other-language roms
+$(error ROM Code read from $(ROMNAME) ($(GAMECODE)) does not match valid ROM Code ($(DESIRED_GAMECODE)).$(n)Please use a valid US HeartGold ROM.$(n)hg-engine does not work with non-USA ROM files)
+endif
+
 MAC = $(shell uname -s | grep -i -q 'darwin'; echo $$?)
 
 ifneq ($(MAC), 0)
@@ -33,7 +50,20 @@ CC = $(DEVKITARM)/$(PREFIX)gcc
 LD = $(DEVKITARM)/$(PREFIX)ld
 OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
 endif
-PYTHON = python3
+PYTHON_NO_VENV = python3
+VENV = .venv
+PYTHON_VENV_VERSION := $(shell $(PYTHON_NO_VENV) -m ensurepip 2>&1 | grep -i -q 'No module named'; echo $$?)
+
+ifneq ($(PYTHON_VENV_VERSION), 0)
+# we can use a virtual environment because ensurepip is packaged with the python install
+VENV_ACTIVATE = $(VENV)/bin/activate
+PYTHON = . $(VENV_ACTIVATE); $(PYTHON_NO_VENV)
+REQUIREMENTS = requirements.txt
+else
+# there is no need to use a virtual environment because python does not have the requirements installed
+PYTHON = $(PYTHON_NO_VENV)
+VENV_ACTIVATE = 
+endif
 
 .PHONY: clean all
 
@@ -45,8 +75,16 @@ endif
 
 default: all
 
-ROMNAME = rom.nds
-BUILDROM = test.nds
+ifneq ($(PYTHON_VENV_VERSION), 0)
+# only set up venv if we need to
+venv: $(VENV_ACTIVATE)
+
+# divorce this python3 from venv so that it works
+$(VENV_ACTIVATE):
+	$(PYTHON_NO_VENV) -m venv $(VENV)
+	$(PYTHON) -m pip install -r $(REQUIREMENTS)
+
+endif
 
 ####################### Tools #######################
 ADPCMXQ := tools/adpcm-xq
@@ -89,6 +127,8 @@ C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(C_SRCS))
 ASM_SRCS := $(wildcard $(ASM_SUBDIR)/*.s)
 ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(ASM_SRCS))
 OBJS     := $(C_OBJS) $(ASM_OBJS)
+
+REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
 ## includes
 include data/graphics/pokegra.mk
@@ -179,7 +219,7 @@ $(ENCODEPWIMG):
 TOOLS += $(ENCODEPWIMG)
 
 ####################### Build #######################
-rom_gen.ld:$(LINK) $(OUTPUT) rom.ld
+rom_gen.ld:$(LINK) $(OUTPUT) rom.ld $(VENV_ACTIVATE)
 	cp rom.ld rom_gen.ld
 	$(PYTHON) scripts/generate_ld.py
 
@@ -187,6 +227,7 @@ $(BUILD)/%.d:asm/%.s
 	$(AS) $(ASFLAGS) -c $< -o $@
 
 $(BUILD)/%.o:src/%.c
+	@# sadly this line is still needed as it stands
 	@mkdir -p $(BUILD) $(BUILD)/field $(BUILD)/battle $(BUILD)/pokedex $(BUILD)/individual
 	@echo -e "Compiling"
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -199,9 +240,7 @@ $(OUTPUT):$(LINK)
 
 all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	rm -rf $(BASE)
-	@mkdir -p $(BASE) $(BUILD) $(BUILD)/move $(BUILD)/objects $(MOVE_SEQ_DIR) $(MOVE_SEQ_OBJ_DIR) $(BATTLE_EFF_DIR) $(BATTLE_EFF_OBJ_DIR) $(BATTLE_SUB_DIR) $(BATTLE_SUB_OBJ_DIR)
-	mkdir -p $(BUILD)/pokemonow $(BUILD)/pokemonicon $(BUILD)/pokemonpic $(BUILD)/a018 $(BUILD)/narc $(BUILD)/text $(BUILD)/move $(BUILD)/a011  $(BUILD)/rawtext
-	mkdir -p $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim $(BUILD)/move/move_anim $(BUILD)/pw_pokegra $(BUILD)/pw_pokeicon $(BUILD)/pw_pokegra_int $(BUILD)/pw_pokeicon_int
+	@mkdir -p $(REQUIRED_DIRECTORIES)
 	###The line below is because of junk files that macOS can create which will interrupt the build process###
 	find . -name '*.DS_Store' -execdir rm -f {} \;
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
@@ -228,12 +267,10 @@ restore_build: | restore all
 
 ####################### Clean #######################
 clean:
-	rm -rf $(BUILD)
-	rm -rf $(BASE)
-	rm -rf rom_gen.ld rom_gen_battle.ld
+	rm -rf $(BUILD) $(BASE) rom_gen.ld rom_gen_battle.ld
 
 clean_tools:
-	rm -f $(TOOLS)
+	rm -rf $(TOOLS) $(VENV)
 
 clean_code:
 	rm -f $(OBJS) $(OVERLAY_OBJS) $(LINKED_OUTPUTS) $(OUTPUT) $(OVERLAY_OUTPUTS) rom_gen.ld rom_gen_battle.ld

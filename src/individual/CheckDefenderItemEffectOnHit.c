@@ -96,7 +96,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             if ((sp->battlemon[sp->defence_client].hp)
                 // Defender was hit by a Super Effective attack
                 && (sp->waza_status_flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)) {
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 sp->item_work   = sp->battlemon[sp->defence_client].item;
                 seq_no[0]       = SUB_SEQ_ITEM_HP_RESTORE;
                 ret             = TRUE;
@@ -159,9 +159,9 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && sp->multi_hit_count <= 1) {
+                && sp->multiHitCount <= 1) {
                 u32 temp = sp->attack_client;                   // swap attacker and defender so subseq handles it correctly
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 sp->attack_client = sp->defence_client;
                 sp->defence_client = temp;
                 sp->current_move_index = MOVE_U_TURN;
@@ -176,9 +176,9 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && sp->multi_hit_count <= 1) {
+                && sp->multiHitCount <= 1) {
                 u32 temp = sp->attack_client;                   // swap attacker and defender so subseq handles it correctly
-                sp->client_work = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
                 sp->attack_client = sp->defence_client;
                 sp->defence_client = temp;
                 seq_no[0] = SUB_SEQ_HANDLE_SWITCHING_ITEMS;

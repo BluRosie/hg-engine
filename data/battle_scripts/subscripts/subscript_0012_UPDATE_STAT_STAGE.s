@@ -29,6 +29,13 @@ _041:
     PrintBufferedMessage 
     Wait 
     WaitButtonABTime 30
+    CheckCanActivateDefiantOrCompetitive _NoNeedHandle, _HandleDefiant, _HandleCompetitive
+_HandleDefiant:
+    Call BATTLE_SUBSCRIPT_HANDLE_DEFIANT
+    GoTo _NoNeedHandle
+_HandleCompetitive:
+    Call BATTLE_SUBSCRIPT_HANDLE_COMPETITIVE
+_NoNeedHandle:
     End 
 
 _051:
@@ -44,6 +51,13 @@ _058:
     WaitButtonABTime 30
 
 _069:
+    CheckCanActivateDefiantOrCompetitive _NoNeedHandle2, _HandleDefiant2, _HandleCompetitive2
+_HandleDefiant2:
+    Call BATTLE_SUBSCRIPT_HANDLE_DEFIANT
+    GoTo _NoNeedHandle
+_HandleCompetitive2:
+    Call BATTLE_SUBSCRIPT_HANDLE_COMPETITIVE
+_NoNeedHandle2:
     End 
 
 _070:

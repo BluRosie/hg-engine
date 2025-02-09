@@ -81,6 +81,15 @@
 // uncomment the line out to get this functionality
 //#define DISABLE_END_OF_TURN_WEATHER_MESSAGE
 
+// IMPLEMENT_SEASONS currently implements season mechanics. Used for changing forms of Deerling and Sawsbuck.
+// Comment the line out to disable this functionality (Gen 6+) 
+#define IMPLEMENT_SEASONS
+
+// IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS allows wild species to appear with different forms if it has multiple forms.
+// Normally you will use monwithform, encounterwithform, headbuttencounterwithform to specify different forms (similar to Gen 5+)
+// Uncomment this line to enable this functionality
+// #define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
+
 // EXPAND_PC_BOXES will expand the amount of pc boxes if enabled to 30
 // comment out the line below to keep the max at 18
 #define EXPAND_PC_BOXES
@@ -97,12 +106,22 @@
 // modern generations have this value at 160, older ones at 220.  still max out at 255
 #define FRIENDSHIP_EVOLUTION_THRESHOLD 160
 
-// RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle
-// comment out the line below to keep vanilla behavior
+// RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle (Gen 9)
+// comment out the line below to revert back to Gen 8- behavior
 #define RESTORE_ITEMS_AT_BATTLE_END
 
-// PROTEAN_GENERATION defines the behavior that protean should exhibit, where it either changes type every move (<=8) or changes type once per appearance in battle (>=9)
+// PROTEAN_GENERATION defines the behavior that Protean should exhibit, where it either changes type every move (<=8) or changes type once per appearance in battle (>=9)
 #define PROTEAN_GENERATION 9
+
+// CORROSIVE_GAS_IMPLIED_BEHAVIOUR defines the behavior that Corrosive Gas should exhibit, where it either does it does not affect a Kyogre, a Groudon, or species holding their respective Mega Stones to not lose their Blue Orb, Red Orb, and Mega Stones respectively (TRUE), or affects species in the above cases (FALSE).
+#define CORROSIVE_GAS_IMPLIED_BEHAVIOUR TRUE
+
+#define IMPLEMENT_FORM_REVERSION TRUE
+
+// SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
+// 9 or above: Snow
+// Otherwise: Hail
+#define SNOW_WARNING_GENERATION 9
 
 // IMPLEMENT_REUSABLE_REPELS defines whether or not a prompt to use another repel automatically appears upon the previous repel being used up
 #define IMPLEMENT_REUSABLE_REPELS
@@ -112,5 +131,8 @@
 
 // DISABLE_ITEMS_IN_TRAINER_BATTLE will disable the usage of items in trainer battles. This is also true for the AI.
 //#define DISABLE_ITEMS_IN_TRAINER_BATTLE
+
+// REUSABLE_TMS will make TMs infinite and hide the quantity number.
+#define REUSABLE_TMS
 
 #endif

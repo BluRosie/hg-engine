@@ -1383,4 +1383,27 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
+    .macro TryMegaOrUltraBurstDuringPursuit arg_0
+    .long 253
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .macro CalcConfusionDamage
+    .long 254
+    .endm
+
+    .macro CheckCanActivateDefiantOrCompetitive arg_0, arg_1, arg_2
+    .long 255
+    .long (((\arg_0 - .) / 4) - 3)
+    .long (((\arg_1 - .) / 4) - 2)
+    .long (((\arg_2 - .) / 4) - 1)
+    .endm
+
+    .macro CheckShouldNotTurnOffMultiStatAnim battlerCategory, label
+    // need to skip the stat animation turning off in case of defiant and competitive so the animation shows properly
+    CheckAbility CHECK_OPCODE_HAVE, \battlerCategory, ABILITY_DEFIANT, \label
+    CheckAbility CHECK_OPCODE_HAVE, \battlerCategory, ABILITY_COMPETITIVE, \label
+    .endm
+
+
 .endif
