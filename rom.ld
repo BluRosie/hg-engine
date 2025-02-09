@@ -350,8 +350,14 @@ MapObject_SetFlag29 = 0x0205F89C | 1;
 sub_02069DC8 = 0x02069DC8 | 1;
 ov01_021F9048 = 0x021F9048 | 1;
 
+MapObject_PauseMovement = 0x0205F6FC | 1;
+MapObject_UnpauseMovement = 0x0205F708 | 1;
 MapObjectMan_PauseAllMovement = 0x0205F574 | 1;
 MapObjectMan_UnpauseAllMovement = 0x0205F5A4 | 1;
+MapObject_IsSingleMovementActive = 0x0205F648 | 1;
+GetMetatileBehaviorAt = 0x02054918 | 1;
+GetPlayerXCoord = 0x0205C67C | 1;
+GetPlayerYCoord = 0x0205C688 | 1;
 
 BagView_New = 0x02077878 | 1;
 BagView_SetItem = 0x020778BC | 1;
