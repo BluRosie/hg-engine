@@ -389,6 +389,19 @@
 #define SUB_SEQ_CANNOT_USE_MOVE                       (379)
 #define SUB_SEQ_POWER_HERB_METEOR_BEAM                (380)
 #define SUB_SEQ_SP_ATK_UP_RAIN_SKIP                   (381)
+#define SUB_SEQ_USER_DEF_DOWN_HIT                     (382)
+#define SUB_SEQ_ATK_DEF_SPEED_UP                      (383)
+#define SUB_SEQ_HYPERSPACE_FURY                       (384)
+#define SUB_SEQ_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP     (385)
+#define SUB_SEQ_DRAIN_THREE_QUARTERS                  (386)
+#define SUB_SEQ_JAW_LOCK                              (387)
+#define SUB_SEQ_TOXIC_THREAD                          (388)
+#define SUB_SEQ_MAKE_IT_RAIN                          (389)
+#define SUB_SEQ_ATK_SP_ATK_SPEED_DOWN                 (390)
+#define SUB_SEQ_ATK_SP_ATK_DOWN                       (391)
+#define SUB_SEQ_TAKE_HEART                            (392)
+#define SUB_SEQ_MORTAL_SPIN                           (393)
+#define SUB_SEQ_TIDY_UP                               (394)
 
 
 
@@ -558,7 +571,19 @@
 #define ADD_STATUS_EFF_QUASH                           (161)
 #define ADD_STATUS_EFF_DRAIN_FULL                      (162)
 #define ADD_STATUS_EFF_SIMPLE_BEAM                     (163)
-
+#define ADD_STATUS_EFF_USER_DEF_DOWN_HIT               (164)
+#define ADD_STATUS_EFF_ATK_DEF_SPEED_UP                (165)
+#define ADD_STATUS_EFF_HYPERSPACE_FURY                 (166)
+#define ADD_STATUS_EFF_CLANGOROUS_SOUL                 (167)
+#define ADD_STATUS_EFF_DRAIN_THREE_QUARTERS            (168)
+#define ADD_STATUS_EFF_JAW_LOCK                        (169)
+#define ADD_STATUS_EFF_TOXIC_THREAD                    (170)
+#define ADD_STATUS_EFF_MAKE_IT_RAIN	                   (171)
+#define ADD_STATUS_EFF_ATK_SP_ATK_SPEED_DOWN           (172)
+#define ADD_STATUS_EFF_ATK_SP_ATK_DOWN                 (173)
+#define ADD_STATUS_EFF_TAKE_HEART                      (174)
+#define ADD_STATUS_EFF_MORTAL_SPIN                     (175)
+#define ADD_STATUS_EFF_TIDY_UP                         (176)
 
 
 // additional effect constants
@@ -570,9 +595,6 @@
 #define ADD_STATUS_SOUBIITEM (5)
 #define ADD_STATUS_DOKUBISI (6)
 #define ADD_STATUS_IGNORE (7)
-
-#define ADD_STAGE_ATTACK_UP (15)
-#define ADD_STAGE_SP_ATK_UP (18)
 
 #define BATTLE_ANIMATION_NONE               0
 #define BATTLE_ANIMATION_ASLEEP             1
@@ -597,5 +619,18 @@
 #define BATTLE_ANIMATION_WEATHER_HAIL       20
 #define BATTLE_ANIMATION_WEATHER_SAND       21
 #define BATTLE_ANIMATION_WEATHER_SUN        22
+
+#define MOVE_SIDE_EFFECT_BREAK_SCREENS 0x800000
+#define MOVE_SIDE_EFFECT_CHECK_SUBSTITUTE 0x1000000
+#define MOVE_SIDE_EFFECT_CHECK_HP_AND_SUBSTITUTE 0x2000000
+#define MOVE_SIDE_EFFECT_PROBABILISTIC 0x4000000
+#define MOVE_SIDE_EFFECT_CANNOT_PREVENT 0x8000000
+#define MOVE_SIDE_EFFECT_CHECK_HP 0x10000000
+#define MOVE_SIDE_EFFECT_ON_HIT 0x20000000
+#define MOVE_SIDE_EFFECT_TO_ATTACKER 0x40000000
+#define MOVE_SIDE_EFFECT_TO_DEFENDER 0x80000000
+#define MOVE_SIDE_EFFECT_FLAGS 0xFF800000
+#define MOVE_SIDE_EFFECT_SUBSCRIPT 0xFF800001
+
 
 #endif

@@ -307,7 +307,7 @@ GF_RTC_CopyTime = 0x0201474C | 1;
 GF_RTC_CopyDate = 0x02014780 | 1;
 IsNighttime = 0x02014804 | 1;
 GF_RTC_GetTimeOfDay = 0x0201481C | 1;
-GF_RTC_GetTimeOfDayWildParam = 0x02014844 | 1;
+GF_RTC_GetTimeOfDayWildParam = 0x02014830 | 1;
 GF_RTC_GetTimeOfDayWildParamByHour = 0x0201485C | 1;
 
 
@@ -673,3 +673,25 @@ sPickupTable1 = 0x0226C404;
 sPickupTable2 = 0x0226C30C;
 sPickupWeightTable = 0x0226CA4C;
 sHoneyGatherChanceTable = 0x0226CA58;
+
+sPlayerBattleCommands = 0x0226CA90;
+BattleSystem_GetBattleOutcomeFlags = 0x0223BD14 | 1;
+ov12_022639B8 = 0x022639B8 | 1;
+
+FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom = 0x02067584 | 1;
+MoveId_GetFieldEffectId = 0x0207BCC0 | 1;
+PartyMenu_ContextMenuAddFieldMove = 0x0207D0A0 | 1;
+ClearFrameAndWindow2 = 0x0200E9BC | 1;
+sub_0207B23C = 0x0207B23C | 1;
+PartyMenu_SetContextMenuItems_GiveCapsule = 0x0207B1BC | 1;
+sub_0207B1C8 = 0x0207B1C8 | 1;
+PartyMenu_SetContextMenuItems_SpinTrade = 0x0207B32C | 1;
+PartyMenu_SetContextMenuItems_BattleHallEntry = 0x0207B28C | 1;
+sub_0207B2DC = 0x0207B2DC | 1;
+sub_0207B200 = 0x0207B200 | 1;
+PartyMenu_OpenContextMenu = 0x0207D0E4 | 1;
+sub_0207D1C8 = 0x0207D1C8 | 1;
+PartyMenu_PrintMessageOnWindow33 = 0x0207DAD8 | 1;
+thunk_Sprite_SetPalIndex = 0x0200DD08 | 1;
+
+FreeToHeapExplicit = 0x0201AB80 | 1;

@@ -247,9 +247,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                                 if ((def + spdef) != 0) {
                                     if (def >= spdef) {
-                                        sp->addeffect_param = ADD_STAGE_SP_ATK_UP;
+                                        sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
                                     } else {
-                                        sp->addeffect_param = ADD_STAGE_ATTACK_UP;
+                                        sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
                                     }
                                     sp->addeffect_type = ADD_STATUS_ABILITY;
                                     sp->state_client = client_no;

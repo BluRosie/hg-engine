@@ -71,3 +71,9 @@ arm9 MainMusicComboTable+2 080517E4
 
 # Pokemon battle music table
 arm9 PokemonBattleMusic 080518D4
+
+# secret power move effect table
+0012 sSecretPowerEffectTable 0800CBC0
+
+# camouflage type table
+0012 sCamouflageTypeTable 0800CB60
