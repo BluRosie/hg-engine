@@ -1007,7 +1007,7 @@ gIconPalTable:
 /* SPECIES_SQUAWKABILLY    */ .byte  0x1
 /* SPECIES_NACLI           */ .byte  0x2
 /* SPECIES_NACLSTACK       */ .byte  0x0
-/* SPECIES_GARGANACL       */ .byte  0x3
+/* SPECIES_GARGANACL       */ .byte  0x2
 /* SPECIES_CHARCADET       */ .byte  0x0
 /* SPECIES_ARMAROUGE       */ .byte  0x0
 /* SPECIES_CERULEDGE       */ .byte  0x0
@@ -1353,7 +1353,7 @@ gIconPalTable:
 /* SPECIES_GROWLITHE_HISUIAN           */ .byte  0x0
 /* SPECIES_ARCANINE_HISUIAN            */ .byte  0x0
 /* SPECIES_VOLTORB_HISUIAN             */ .byte  0x0
-/* SPECIES_ELECTRODE_HISUIAN           */ .byte  0x1
+/* SPECIES_ELECTRODE_HISUIAN           */ .byte  0x2
 /* SPECIES_TYPHLOSION_HISUIAN          */ .byte  0x1
 /* SPECIES_QWILFISH_HISUIAN            */ .byte  0x0
 /* SPECIES_SNEASEL_HISUIAN             */ .byte  0x2
@@ -1369,7 +1369,7 @@ gIconPalTable:
 /* SPECIES_KLEAVOR_LORD                */ .byte  0x0
 /* SPECIES_LILLIGANT_LADY              */ .byte  0x1
 /* SPECIES_ARCANINE_LORD               */ .byte  0x0
-/* SPECIES_ELECTRODE_LORD              */ .byte  0x1
+/* SPECIES_ELECTRODE_LORD              */ .byte  0x2
 /* SPECIES_AVALUGG_LORD                */ .byte  0x2
 /* SPECIES_UNFEZANT_FEMALE             */ .byte  0x1
 /* SPECIES_FRILLISH_FEMALE             */ .byte  0x0
@@ -1414,9 +1414,9 @@ gIconPalTable:
 /* SPECIES_OGERPON_WELLSPRING_MASK_TERASTAL     */ .byte  0x0
 /* SPECIES_OGERPON_HEARTHFLAME_MASK_TERASTAL    */ .byte  0x0
 /* SPECIES_OGERPON_CORNERSTONE_MASK_TERASTAL    */ .byte  0x0
+/* SPECIES_URSALUNA_BLOODMOON          */ .byte  0x2
 /* SPECIES_TERAPAGOS_TERASTAL          */ .byte  0x0
 /* SPECIES_TERAPAGOS_STELLAR           */ .byte  0x0
-/* SPECIES_URSALUNA_BLOODMOON          */ .byte  0x2
 
 .endarea
 
