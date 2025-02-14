@@ -27426,7 +27426,7 @@ mondata SPECIES_KORAIDON_GLIDING_BUILD, "-----"
     runchance 0
     colorflip BODY_COLOR_RED, 0
 
-mondata SPECIES_MIRAIDON_LOW_POWER_MODE, "Miraidon"
+mondata SPECIES_MIRAIDON_LOW_POWER_MODE, "-----"
     basestats 100, 85, 100, 135, 135, 115
     types TYPE_ELECTRIC, TYPE_DRAGON
     catchrate 3
@@ -27442,7 +27442,7 @@ mondata SPECIES_MIRAIDON_LOW_POWER_MODE, "Miraidon"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
 
-mondata SPECIES_MIRAIDON_DRIVE_MODE, "Miraidon"
+mondata SPECIES_MIRAIDON_DRIVE_MODE, "-----"
     basestats 100, 85, 100, 135, 135, 115
     types TYPE_ELECTRIC, TYPE_DRAGON
     catchrate 3
@@ -27458,7 +27458,7 @@ mondata SPECIES_MIRAIDON_DRIVE_MODE, "Miraidon"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
 
-mondata SPECIES_MIRAIDON_AQUATIC_MODE, "Miraidon"
+mondata SPECIES_MIRAIDON_AQUATIC_MODE, "-----"
     basestats 100, 85, 100, 135, 135, 115
     types TYPE_ELECTRIC, TYPE_DRAGON
     catchrate 3
@@ -27474,7 +27474,7 @@ mondata SPECIES_MIRAIDON_AQUATIC_MODE, "Miraidon"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
 
-mondata SPECIES_MIRAIDON_GLIDE_MODE, "Miraidon"
+mondata SPECIES_MIRAIDON_GLIDE_MODE, "-----"
     basestats 100, 85, 100, 135, 135, 115
     types TYPE_ELECTRIC, TYPE_DRAGON
     catchrate 3
