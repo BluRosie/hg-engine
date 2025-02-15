@@ -342,8 +342,36 @@
 #define MOVE_EFFECT_SPEED_DOWN_3                            336
 #define MOVE_EFFECT_SP_ATK_DOWN_3                           337
 #define MOVE_EFFECT_SP_DEF_DOWN_3                           338
-
-
+#define MOVE_EFFECT_HURRICANE                               339
+#define MOVE_EFFECT_USER_DEF_DOWN_HIT                       340
+#define MOVE_EFFECT_USER_DEF_DOWN_HIT_REMOVE_PROTECT        341
+#define MOVE_EFFECT_ATK_DEF_SPEED_UP                        342
+#define MOVE_EFFECT_POLTERGEIST                             343
+#define MOVE_EFFECT_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP       344
+#define MOVE_EFFECT_RECOVER_THREE_QUARTERS_DAMAGE_DEALT     345
+#define MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT      346
+#define MOVE_EFFECT_FICKLE_BEAM	                            347
+#define MOVE_EFFECT_SLEEP_POISON_PARALYZE_HIT               348
+#define MOVE_EFFECT_PREVENT_ESCAPE_HIT                      349
+#define MOVE_EFFECT_PREVENT_ESCAPE_BOTH_HIT                 350
+#define MOVE_EFFECT_STEALTH_ROCK_HIT                        351
+#define MOVE_EFFECT_SET_SPIKES_HIT                          352
+#define MOVE_EFFECT_USER_SPEED_DOWN_2_HIT                   353
+#define MOVE_EFFECT_BLEAKWIND_STORM                         354
+#define MOVE_EFFECT_WILDBOLT_STORM                          355
+#define MOVE_EFFECT_SANDSEAR_STORM                          356
+#define MOVE_EFFECT_TOXIC_THREAD                            357
+#define MOVE_EFFECT_MAKE_IT_RAIN                            358
+#define MOVE_EFFECT_VENOM_DRENCH                            359
+#define MOVE_EFFECT_ATK_SP_ATK_DOWN                         360
+#define MOVE_EFFECT_CHARGE_TURN_PARALYZE_HIT                361
+#define MOVE_EFFECT_CHARGE_TURN_BURN_HIT                    362
+#define MOVE_EFFECT_QUARTER_HP                              363
+#define MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL         364
+#define MOVE_EFFECT_TAKE_HEART                              365
+#define MOVE_EFFECT_HIGH_CRITICAL_RAISE_SPEED_HIT           366
+#define MOVE_EFFECT_MORTAL_SPIN                             367
+#define MOVE_EFFECT_TIDY_UP                                 368
 
 #define RANGE_SINGLE_TARGET           0
 #define RANGE_SINGLE_TARGET_SPECIAL   (1 << 0)
