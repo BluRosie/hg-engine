@@ -168,10 +168,9 @@ $(ARMIPS):
 ifeq (,$(wildcard $(ARMIPS)))
 	rm -r -f tools/source/armips
 	cd tools/source ; git clone --recursive https://github.com/BluRosie/armips.git
-	#cd tools/source ; cp -r ~/git/armips armips
-	cd tools/source/armips ; mkdir build
-	cd tools/source/armips/build ; cmake -DCMAKE_BUILD_TYPE=Release ..
-	cd tools/source/armips/build ; cmake --build .
+	mkdir -p tools/source/armips/build
+	cd tools/source/armips/build; cmake .. -DCMAKE_BUILD_TYPE=Release ..
+	cd tools/source/armips/build; $(MAKE)
 	mv tools/source/armips/build/armips tools/armips
 	rm -r -f tools/source/armips
 endif
