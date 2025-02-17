@@ -14,7 +14,7 @@
 .create "build/move/move_anim/0_607", 0
 
 a010_607:
-    changepermanentbg BATTLE_BG_ELECTRIC_TERRAIN, TERRAIN_CURRENT
+    changepermanentbg BATTLE_BG_ELECTRIC_TERRAIN, TERRAIN_ELECTRIC_TERRAIN
     end
 
 

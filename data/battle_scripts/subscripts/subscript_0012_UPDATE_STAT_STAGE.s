@@ -14,6 +14,7 @@ _010:
     Wait 
 
 _018:
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_SUCCESSFUL, _023
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MOVE_NO_CUR, MOVE_RAPID_SPIN, _075
 
 _023:
@@ -28,6 +29,13 @@ _041:
     PrintBufferedMessage 
     Wait 
     WaitButtonABTime 30
+    CheckCanActivateDefiantOrCompetitive _NoNeedHandle, _HandleDefiant, _HandleCompetitive
+_HandleDefiant:
+    Call BATTLE_SUBSCRIPT_HANDLE_DEFIANT
+    GoTo _NoNeedHandle
+_HandleCompetitive:
+    Call BATTLE_SUBSCRIPT_HANDLE_COMPETITIVE
+_NoNeedHandle:
     End 
 
 _051:
@@ -43,6 +51,13 @@ _058:
     WaitButtonABTime 30
 
 _069:
+    CheckCanActivateDefiantOrCompetitive _NoNeedHandle2, _HandleDefiant2, _HandleCompetitive2
+_HandleDefiant2:
+    Call BATTLE_SUBSCRIPT_HANDLE_DEFIANT
+    GoTo _NoNeedHandle
+_HandleCompetitive2:
+    Call BATTLE_SUBSCRIPT_HANDLE_COMPETITIVE
+_NoNeedHandle2:
     End 
 
 _070:
@@ -50,5 +65,5 @@ _070:
     End 
 
 _075:
-    RapidSpin 
+    RapidSpin
     GoTo _023

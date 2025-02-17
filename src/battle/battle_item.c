@@ -58,7 +58,7 @@ u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp,
      && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) // sheer force prevents shell bell from activating
     {
         sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, atk_item_param);
-        sp->client_work = sp->attack_client;
+        sp->battlerIdTemp = sp->attack_client;
         seq_no[0] = SUB_SEQ_ITEM_HP_GRADUAL;
         ret = TRUE;
     }
@@ -71,7 +71,7 @@ u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp,
      && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) // sheer force prevents life orb from activating
     {
         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
-        sp->client_work = sp->attack_client;
+        sp->battlerIdTemp = sp->attack_client;
         seq_no[0] = SUB_SEQ_ITEM_HP_LOSS;
         ret = TRUE;
     }
@@ -95,7 +95,7 @@ u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp,
      && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
         || (sp->oneSelfFlag[sp->defence_client].special_damage))
      // Attacker used a move that makes contact
-     && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT))
+     && (IsContactBeingMade(bw, sp)))
     {
         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, def_item_param);
         seq_no[0] = SUB_SEQ_ITEM_DAMAGE_BACK;
@@ -108,7 +108,7 @@ u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp,
         && ((sp->scw[atk_side].knockoff_item & (1 << sp->sel_mons_no[sp->attack_client])) == 0)
         && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
       || (sp->oneSelfFlag[sp->defence_client].special_damage))
-        && (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT))
+        && (IsContactBeingMade(bw, sp)))
     {
         seq_no[0] = SUB_SEQ_ITEM_GIVE_STICKY_BARB;
         ret = TRUE;
@@ -180,7 +180,7 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
                  && (sp->battlemon[sp->attack_client].hp))
                 {
                     sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, hold_effect_param);
-                    sp->client_work=sp->attack_client;
+                    sp->battlerIdTemp=sp->attack_client;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_GRADUAL);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
@@ -198,7 +198,7 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
              && (sp->battlemon[sp->attack_client].hp))
             {
                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
-                sp->client_work = sp->attack_client;
+                sp->battlerIdTemp = sp->attack_client;
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_LOSS);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = 22;

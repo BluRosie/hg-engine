@@ -1611,7 +1611,7 @@ const struct FormData UNUSED PokeFormDataTbl[]=
     {
         .species = SPECIES_PALAFIN,
         .form_no = 1,
-        .need_rev = 0,
+        .need_rev = 1,
         .file = SPECIES_PALAFIN_HERO,
     },
     {

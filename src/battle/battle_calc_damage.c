@@ -24,22 +24,22 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
 
 
-
+// https://m.bulbapedia.bulbagarden.net/wiki/Stat_modifier#Stage_multipliers
 const u8 StatBoostModifiers[][2] = {
          // numerator, denominator
-        {          10,          40 },
-        {          10,          35 },
-        {          10,          30 },
-        {          10,          25 },
-        {          10,          20 },
-        {          10,          15 },
-        {          10,          10 },
-        {          15,          10 },
-        {          20,          10 },
-        {          25,          10 },
-        {          30,          10 },
-        {          35,          10 },
-        {          40,          10 },
+        { 2, 8 },
+        { 2, 7 },
+        { 2, 6 },
+        { 2, 5 },
+        { 2, 4 },
+        { 2, 3 },
+        { 2, 2 },
+        { 3, 3 },
+        { 4, 2 },
+        { 5, 2 },
+        { 6, 2 },
+        { 7, 2 },
+        { 8, 2 },
 };
 
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,

@@ -288,8 +288,8 @@ _03D4:
     end
 
 _03E3:
-    goto_if_set FLAG_NURSE_NOTICED_CARD, _041D
-    setflag FLAG_NURSE_NOTICED_CARD
+    goto_if_set FLAG_NURSE_NOTICED_TRAINER_CARD, _041D
+    setflag FLAG_NURSE_NOTICED_TRAINER_CARD
     npc_msg 4
     buffer_players_name 0
     npc_msg 5
