@@ -11,56 +11,56 @@ _clearSubstitute:
     CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_ENEMY_SLOT_1, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _clearSubstitutePartner
     UpdateMonData OPCODE_FLAG_OFF, BATTLER_CATEGORY_ENEMY_SLOT_1, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE
     PlayBattleAnimation BATTLER_CATEGORY_ENEMY_SLOT_1, BATTLE_ANIMATION_SUBSTITUTE_OUT
-    Wait 
+    Wait
     RestoreSprite BATTLER_CATEGORY_ENEMY_SLOT_1
-    Wait 
+    Wait
     PlayBattleAnimation BATTLER_CATEGORY_ENEMY_SLOT_1, BATTLE_ANIMATION_SUB_IN
-    Wait 
-    // {0}�s substitute faded!
+    Wait
+    // {0}’s substitute faded!
     PrintMessage 357, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY_SLOT_1
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _clearSubstitutePartner:
     CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_ENEMY_SLOT_2, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _clearPlayerSubstitute
     UpdateMonData OPCODE_FLAG_OFF, BATTLER_CATEGORY_ENEMY_SLOT_2, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE
     PlayBattleAnimation BATTLER_CATEGORY_ENEMY_SLOT_2, BATTLE_ANIMATION_SUBSTITUTE_OUT
-    Wait 
+    Wait
     RestoreSprite BATTLER_CATEGORY_ENEMY_SLOT_2
-    Wait 
+    Wait
     PlayBattleAnimation BATTLER_CATEGORY_ENEMY_SLOT_2, BATTLE_ANIMATION_SUB_IN
-    Wait 
-    // {0}�s substitute faded!
+    Wait
+    // {0}’s substitute faded!
     PrintMessage 357, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY_SLOT_2
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _clearPlayerSubstitute:
     CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_PLAYER_SLOT_1, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _clearPlayerSubstitutePartner
     UpdateMonData OPCODE_FLAG_OFF, BATTLER_CATEGORY_PLAYER_SLOT_1, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE
     PlayBattleAnimation BATTLER_CATEGORY_PLAYER_SLOT_1, BATTLE_ANIMATION_SUBSTITUTE_OUT
-    Wait 
+    Wait
     RestoreSprite BATTLER_CATEGORY_PLAYER_SLOT_1
-    Wait 
+    Wait
     PlayBattleAnimation BATTLER_CATEGORY_PLAYER_SLOT_1, BATTLE_ANIMATION_SUB_IN
-    Wait 
-    // {0}�s substitute faded!
+    Wait
+    // {0}’s substitute faded!
     PrintMessage 357, TAG_NICKNAME, BATTLER_CATEGORY_PLAYER_SLOT_1
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _clearPlayerSubstitutePartner:
     CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_PLAYER_SLOT_2, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _clearSpikes
     UpdateMonData OPCODE_FLAG_OFF, BATTLER_CATEGORY_PLAYER_SLOT_2, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE
     PlayBattleAnimation BATTLER_CATEGORY_PLAYER_SLOT_2, BATTLE_ANIMATION_SUBSTITUTE_OUT
-    Wait 
+    Wait
     RestoreSprite BATTLER_CATEGORY_PLAYER_SLOT_2
-    Wait 
+    Wait
     PlayBattleAnimation BATTLER_CATEGORY_PLAYER_SLOT_2, BATTLE_ANIMATION_SUB_IN
-    Wait 
-    // {0}�s substitute faded!
+    Wait
+    // {0}’s substitute faded!
     PrintMessage 357, TAG_NICKNAME, BATTLER_CATEGORY_PLAYER_SLOT_2
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _clearSpikes:
@@ -69,7 +69,7 @@ _clearSpikes:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_SIDE_CONDITION_TARGET, SIDE_CONDITION_SPIKES
     // The spikes disappeared from around the opposing team!
     PrintMessage 1553, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _clearPlayerSpikes:
@@ -78,7 +78,7 @@ _clearPlayerSpikes:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_SIDE_CONDITION_ATTACKER, SIDE_CONDITION_SPIKES
     // The spikes disappeared from around your team!
     PrintMessage 1552, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _clearToxicSpikes:
@@ -87,7 +87,7 @@ _clearToxicSpikes:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_SIDE_CONDITION_TARGET, SIDE_CONDITION_TOXIC_SPIKES
     // The poison spikes disappeared from around the opposing team!
     PrintMessage 1066, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _clearPlayerToxicSpikes:
@@ -96,7 +96,7 @@ _clearPlayerToxicSpikes:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_SIDE_CONDITION_ATTACKER, SIDE_CONDITION_TOXIC_SPIKES
     // The poison spikes disappeared from around your team!
     PrintMessage 1065, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _clearStealthRock:
@@ -104,7 +104,7 @@ _clearStealthRock:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLER_TARGET, SIDE_CONDITION_STEALTH_ROCKS
     // The pointed stones disappeared from the ground around the opposing team!
     PrintMessage 1551, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _clearPlayerStealthRock:
@@ -112,7 +112,7 @@ _clearPlayerStealthRock:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLER_ATTACKER, SIDE_CONDITION_STEALTH_ROCKS
     // The pointed stones disappeared from the ground around your team!
     PrintMessage 1550, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _clearStickyWeb:
@@ -120,7 +120,7 @@ _clearStickyWeb:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLER_TARGET, SIDE_CONDITION_STICKY_WEB
     // The sticky web has disappeared from the ground around the opposing team!
     PrintMessage 1555, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _clearPlayerStickyWeb:
@@ -128,13 +128,13 @@ _clearPlayerStickyWeb:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLER_ATTACKER, SIDE_CONDITION_STICKY_WEB
     // The sticky web has disappeared from the ground around you!
     PrintMessage 1554, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _boosts:
     // Tidying up complete!
     PrintMessage 1549, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STAT_CHANGE_ATK, 12, _011
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STAT_CHANGE_SPEED, 12, _046
@@ -149,15 +149,15 @@ _011:
     Call BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_UPDATE_STAT_STAGES
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_STAT_STAGE_CHANGE_SHOWN
-    End 
+    End
 
 _046:
-    PrintAttackMessage 
-    Wait 
+    PrintAttackMessage
+    Wait
     WaitButtonABTime 30
-    // {0}�s stats won�t go any higher!
+    // {0}’s stats won’t go any higher!
     PrintMessage 768, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
-    Wait 
+    Wait
     WaitButtonABTime 30
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK
-    End 
+    End

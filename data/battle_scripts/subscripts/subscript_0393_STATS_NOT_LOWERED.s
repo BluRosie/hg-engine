@@ -3,11 +3,11 @@
 .data
 
 _000:
-    PrintAttackMessage 
-    Wait 
+    PrintAttackMessage
+    Wait
     WaitButtonABTime 30
     // {0}’s stats were not lowered!
-    PrintMessage 1493, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
-    Wait 
+    PrintMessage 1499, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
+    Wait
     WaitButtonABTime 30
     End
