@@ -453,6 +453,7 @@
 #define SUB_SEQ_TAKE_HEART                            (443)
 #define SUB_SEQ_MORTAL_SPIN                           (444)
 #define SUB_SEQ_TIDY_UP                               (445)
+#define SUB_SEQ_BURN_AND_DRAIN_HEALTH                 (446)
 
 
 
@@ -649,6 +650,7 @@
 #define ADD_STATUS_EFF_TAKE_HEART                      (188)
 #define ADD_STATUS_EFF_MORTAL_SPIN                     (189)
 #define ADD_STATUS_EFF_TIDY_UP                         (190)
+#define ADD_STATUS_EFF_BURN_AND_DRAIN_HEALTH           (191)
 
 
 // additional effect constants

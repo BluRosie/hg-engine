@@ -203,6 +203,7 @@ u16 move_effect_to_subscripts[] =
     [ADD_STATUS_EFF_TAKE_HEART]                  = SUB_SEQ_TAKE_HEART,
     [ADD_STATUS_EFF_MORTAL_SPIN]                 = SUB_SEQ_MORTAL_SPIN,
     [ADD_STATUS_EFF_TIDY_UP]                     = SUB_SEQ_TIDY_UP,
+    [ADD_STATUS_EFF_BURN_AND_DRAIN_HEALTH]       = SUB_SEQ_BURN_AND_DRAIN_HEALTH,
 };
 
 
