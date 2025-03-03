@@ -1619,11 +1619,11 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                 }
                 if (GetBattlerAbility(sp, defence_client) == ABILITY_PRISM_ARMOR)
                 {
-                  damage = BattleDamageDivide(damage * 3, 4);
+                    damage = BattleDamageDivide(damage * 3, 4);
                 }
                 if (GetBattlerAbility(sp, attack_client) == ABILITY_NEUROFORCE)
                 {
-                  damage = BattleDamageDivide(damage * 5, 4);
+                    damage = BattleDamageDivide(damage * 5, 4);
                 }
                 if (eqp_a == HOLD_EFFECT_POWER_UP_SE)
                 {

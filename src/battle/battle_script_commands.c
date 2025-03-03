@@ -612,9 +612,6 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
 {
     BOOL ret;
     u32 command;
-#ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
-    u8 buf[64];
-#endif //DEBUG_BATTLE_SCRIPT_COMMANDS
 
     gBattleSystem = bw; // constantly update bw even tho it really only need be done once
 
@@ -625,25 +622,11 @@ BOOL BattleScriptCommandHandler(void *bw, struct BattleStruct *sp)
         if (cmdAddress != (u32)&sp->SkillSeqWork[sp->skill_seq_no])
         {
             cmdAddress = (u32)&sp->SkillSeqWork[sp->skill_seq_no];
-            sprintf(buf, "[BattleScriptCommandHandler] %s - 0x%02X\n", BattleScrCmdNames[command], command);
-            debugsyscall(buf);
+            debug_printf("[BattleScriptCommandHandler] %s - 0x%02X\n", BattleScrCmdNames[command], command);
             if (command == 0xE0 || command == 0x24)
             {
-                debugsyscall("\n");
+                debug_printf("\n");
                 cmdAddress = 0;
-            }
-            if (command == 0xE) // wait message soft lock?
-            {
-                sp->SkillSeqWork[0] = 0;
-            }
-        }
-        if (command == 0xE) // wait message soft lock?
-        {
-            if (sp->SkillSeqWork[0]++ > 300) // timeout clear queue
-            {
-        //        debugsyscall("[BattleScriptCommandHandler] TIMEOUT: Force Command Increment\n");
-        //        sp->skill_seq_no++;
-        //        sp->SkillSeqWork[0] = 0;
             }
         }
 #endif //DEBUG_BATTLE_SCRIPT_COMMANDS
