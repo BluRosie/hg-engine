@@ -46,7 +46,7 @@ u16 gMovesThatThawFrozenMons[] =
     //MOVE_SACRED_FIRE,
     MOVE_SCALD,
     MOVE_SCORCHING_SANDS,
-    //MOVE_STEAM_ERUPTION,
+    MOVE_STEAM_ERUPTION,
 };
 
 
