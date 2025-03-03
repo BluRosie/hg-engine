@@ -32,6 +32,24 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp);
 //u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp);
 
+
+// https://bulbapedia.bulbagarden.net/wiki/Category:Moves_that_thaw_out_the_user
+// will have to add matcha gotcha and burn up to the list of effects that thaw the user
+u16 gMovesThatThawFrozenMons[] =
+{
+    //MOVE_BURN_UP,
+    //MOVE_FLAME_WHEEL,
+    //MOVE_FLARE_BLITZ,
+    //MOVE_FUSION_FLARE,
+    MOVE_MATCHA_GOTCHA,
+    //MOVE_PYRO_BALL,
+    //MOVE_SACRED_FIRE,
+    MOVE_SCALD,
+    MOVE_SCORCHING_SANDS,
+    //MOVE_STEAM_ERUPTION,
+};
+
+
 /**
  *  @brief see if the attacker's move is completely negated by the defender's ability and queue up the appropriate subscript
  *
@@ -854,7 +872,6 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
     sp->server_seq_no = 31;
 }
 
-
 /**
  *  @brief handle magic coat and snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
  *
@@ -1018,8 +1035,9 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
     case SWOAK_SEQ_THAW_ICE:
         {
             int movetype;
+            u16 currMove = sp->current_move_index;
 
-            movetype = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index); // new normalize checks
+            movetype = GetAdjustedMoveType(sp, sp->attack_client, currMove); // new normalize checks
 
             sp->swoak_seq_no++;
 
@@ -1030,7 +1048,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                  && (sp->defence_client != sp->attack_client)
                  && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
                  && (sp->battlemon[sp->defence_client].hp)
-                 && ((movetype == TYPE_FIRE) || (sp->current_move_index == MOVE_SCALD) || (sp->current_move_index == MOVE_STEAM_ERUPTION)) // scald can also melt opponents as of gen 6
+                 && ((movetype == TYPE_FIRE) || (IsElementInArray(gMovesThatThawFrozenMons, &currMove, NELEMS(gMovesThatThawFrozenMons), sizeof(u16)))) // scald can also melt opponents as of gen 6
                  && sp->oneTurnFlag[sp->attack_client].parental_bond_flag == 0)
                 {
                     sp->battlerIdTemp = sp->defence_client;

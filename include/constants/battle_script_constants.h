@@ -435,7 +435,7 @@
 #define SUB_SEQ_BOUNCE_CHARGE_TURN                    (425)
 #define SUB_SEQ_SHADOW_FORCE_CHARGE_TURN              (426)
 #define SUB_SEQ_METEOR_BEAM_CHARGE_TURN               (427)
-#define SUB_SEQ_ELETRO_SHOT_CHARGE_TURN               (428)
+#define SUB_SEQ_ELECTRO_SHOT_CHARGE_TURN              (428)
 #define SUB_SEQ_GEOMANCY_CHARGE_TURN                  (429)
 #define SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL              (430)
 #define SUB_SEQ_USE_WEATHER_MOVE_FAIL                 (431)

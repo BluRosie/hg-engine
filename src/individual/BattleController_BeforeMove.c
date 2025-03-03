@@ -1941,22 +1941,7 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
                 needToRunScript = TRUE;
                 break;
             case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH:
-                switch (ctx->current_move_index)
-                {
-                case MOVE_SKY_ATTACK:
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SKY_ATTACK_CHARGE_TURN);
-                    break;
-                case MOVE_FREEZE_SHOCK:
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FREEZE_SHOCK_CHARGE_TURN);
-                    break;
-                case MOVE_ICE_BURN:
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ICE_BURN_CHARGE_TURN);
-                    break;
-                
-                default:
-                    break;
-                }
-                
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SKY_ATTACK_CHARGE_TURN);
                 needToRunScript = TRUE;
                 break;
             case MOVE_EFFECT_CHARGE_TURN_DEF_UP:
@@ -2005,16 +1990,24 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
                     if ((ctx->field_condition & WEATHER_RAIN_ANY)) {
                         needToRunScript = FALSE;
                     } else {
-                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELETRO_SHOT_CHARGE_TURN);
+                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELECTRO_SHOT_CHARGE_TURN);
                         needToRunScript = TRUE;
                     }
                 } else {
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELETRO_SHOT_CHARGE_TURN);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELECTRO_SHOT_CHARGE_TURN);
                     needToRunScript = TRUE;
                 }
                 break;
             case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP:
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_METEOR_BEAM_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
+            case MOVE_EFFECT_CHARGE_TURN_BURN_HIT:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ICE_BURN_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
+            case MOVE_EFFECT_CHARGE_TURN_PARALYZE_HIT:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FREEZE_SHOCK_CHARGE_TURN);
                 needToRunScript = TRUE;
                 break;
             // case MOVE_EFFECT_SKY_DROP:
