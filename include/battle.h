@@ -1328,8 +1328,9 @@ struct PACKED BattleStruct {
     /*0x315C*/ u8 mons_getting_exp_from_item;
     /*0x315D*/ u8 relic_song_tracker; // bitfield with 1 << client for if it used relic song
     /*0x315E*/ u8 frisk_tracker; // see which clients have been frisked by the frisk client (1 << client)
-    /*0x315F*/ u8 binding_turns[4]; // turns left for bind
-    /*0x3163*/ u8 padding_3163[0x1B]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x315F*/ u8 magicBounceTracker; // if any client has already activated magic bounce, another can not activate
+    /*0x3160*/ u8 binding_turns[4]; // turns left for bind
+    /*0x3164*/ u8 padding_3164[0x1A]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
