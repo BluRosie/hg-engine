@@ -438,6 +438,10 @@
 #define ITEM_HM06            425
 #define ITEM_HM07            426
 #define ITEM_HM08            427
+
+#define NUM_TMS (ITEM_TM92 - ITEM_TM01 + 1)
+#define NUM_HMS (ITEM_HM08 - ITEM_HM01 + 1)
+
 #define ITEM_EXPLORER_KIT    428
 #define ITEM_LOOT_SACK       429
 #define ITEM_RULE_BOOK       430
@@ -876,7 +880,12 @@
 #define NEW_ITEM_MAX ITEM_METAL_ALLOY
 
 #define BAG_SLOT_QUANTITY_MAX                    999
+
+#ifdef REUSABLE_TMS
+#define BAG_TMHM_QUANTITY_MAX                      1
+#else
 #define BAG_TMHM_QUANTITY_MAX                     99
+#endif
 
 #define POCKET_ITEMS        0
 #define POCKET_MEDICINE     1
