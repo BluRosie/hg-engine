@@ -440,6 +440,7 @@ arm9 020902B8 60 B4 C0 46
 # one of a few terrain limiters, this one at least partially affects nature power/secret power/camouflage
 # BattleSystem_GetTerrainId
 0012 0223AB46 FF
+
 # BtlCmd_GetTerrainSecondaryEffect
 0012 0224446C FF
 # BtlCmd_TryCamouflage
@@ -521,3 +522,6 @@ arm9 080550D4 2C
 0012 02265ACA 06 D2
 
 #endif
+
+# _CreateTradeMon_hook setup
+0023 02259C40 60 B4 C0 46

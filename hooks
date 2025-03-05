@@ -503,3 +503,6 @@ arm9 sub_0207AFC4 0207AFC4 1
 0012 GetBattlerAbility 022527CC 2
 
 0012 BattleSystem_BufferMessage 0223C754 2
+
+#02259C40(+4)  _CreateTradeMon	(npc_trade.o)
+0023 _CreateTradeMon_hook 02259C44 5
