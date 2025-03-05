@@ -53,3 +53,27 @@ arm9 sItemFieldUseFuncs+8 020649B4
 arm9 sSwarmMapLUT 02097FF0
 arm9 sSwarmMapLUT 02097F94
 arm9 sSwarmMapLUT+2 02097F98
+
+# Trainer Class Money Table
+0012 PrizeMoney 08008380
+0012 PrizeMoney+2 08008384
+arm9 sTrainerGenders 020FFB90
+
+# sTrainerEncounterMusicParam
+arm9 sTrainerEncounterMusicParam 020550E0
+
+# Trainer class battle music table
+arm9 TrainerClassToMusicCombo 08051890
+
+# Combo table for battle music
+arm9 MainMusicComboTable 080517C8
+arm9 MainMusicComboTable+2 080517E4
+
+# Pokemon battle music table
+arm9 PokemonBattleMusic 080518D4
+
+# secret power move effect table
+0012 sSecretPowerEffectTable 0800CBC0
+
+# camouflage type table
+0012 sCamouflageTypeTable 0800CB60

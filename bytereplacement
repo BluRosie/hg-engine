@@ -121,6 +121,9 @@ arm9 0203DFF4 8A 02
 
 #endif
 
+# restore the original code to the initial hook for ClearBattleMonFlags_hook
+# since we moved it
+0012 0224E998 B9 19 0A 54 40 1C 0A 54
 
 #ifndef IMPLEMENT_CAPTURE_EXPERIENCE
 
@@ -429,15 +432,96 @@ arm9 020902B8 60 B4 C0 46
 # normal as a second type should show up in the dex/pc
 0018 021F21AE C0 46
 0014 021F3DB0 C0 46
-
 #ifndef IMPLEMENT_REUSABLE_REPELS
 0002 0224BAE4 10 B5 0C 1C E1 F5 6C FF
 0015 021F993C 10 B5 0C 1C FF F7 F4 FF
 #endif
 
 # one of a few terrain limiters, this one at least partially affects nature power/secret power/camouflage
-# need to disable each of their individual ones but i'm not on that computer rn and i'll get to it later
+# BattleSystem_GetTerrainId
 0012 0223AB46 FF
+
+# BtlCmd_GetTerrainSecondaryEffect
+0012 0224446C FF
+# BtlCmd_TryCamouflage
+0012 022443C4 FF
+# BtlCmd_GetTerrainMove
+0012 0224443C FF
+
+#ifdef UPDATE_VITAMIN_EV_CAPS
+
+# vitamins are capped at 252 EVs instead of 100 EVs (thanks MeroMero)
+# https://projectpokemon.org/home/forums/topic/33166-tutorialhgss-lift-the-100-ev-limit-on-vitamins/
+arm9 02090034 FC
+arm9 020900A0 FC
+arm9 0209010C FC
+arm9 0209017A FC
+arm9 020901E8 FC
+arm9 02090254 FC
+arm9 02090A96 FC
+arm9 02090ABC FC
+arm9 02090AC0 FC
+
+#else
+
+arm9 02090034 64
+arm9 020900A0 64
+arm9 0209010C 64
+arm9 0209017A 64
+arm9 020901E8 64
+arm9 02090254 64
+arm9 02090A96 64
+arm9 02090ABC 64
+arm9 02090AC0 64
+
+#endif
+
+# stats are capped at 252 EVs instead of 255 EVs (thanks MeroMero)
+# https://projectpokemon.org/home/forums/topic/33166-tutorialhgss-lift-the-100-ev-limit-on-vitamins/
+arm9 0204B948 FC
+arm9 0204B94C FC
+0012 0224655C FC
+0012 02246560 FC
+
+# MainMusicComboTable combo range
+arm9 080517AA 2D
+arm9 080517D4 2D
+
+# TrainerClassToMusicCombo table range
+arm9 08051886 20
+
+# PokemonBattleMusic table range
+arm9 080518CA 0B
+
+# sTrainerEncounterMusicParam table range
+arm9 080550D4 2C
+
+# PrizeMoney table range
+0012 0223FBD0 81
+0012 0223FBD4 81
+0012 0223FBDC 81
+
+#ifdef STATIC_HP_BAR
+
+0012 022659F8 C0 46 C0 46
+0012 02265A00 C0 46 C0 46
+0012 02265A12 C0 46 C0 46
+0012 02265A2A C0 46 C0 46 C0 46 C0 46
+0012 02265A32 C0 46 C0 46 C0 46 C0 46
+0012 02265AC6 C0 46
+0012 02265ACA C0 46
+
+#else
+
+0012 022659F8 90 42 02 DA
+0012 02265A00 00 E0 29 60
+0012 02265A12 90 42 09 DA
+0012 02265A2A 29 68 8C 42 02 D1 00 20
+0012 02265A32 C0 43 70 BD 90 42 1D DA
+0012 02265AC6 96 42
+0012 02265ACA 06 D2
+
+#endif
 
 # _CreateTradeMon_hook setup
 0023 02259C40 60 B4 C0 46

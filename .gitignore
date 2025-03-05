@@ -21,6 +21,7 @@ dumpitem.py
 # pycache files
 *.pyc
 *.sav
+.venv
 
 
 /armips/asm/offset.s

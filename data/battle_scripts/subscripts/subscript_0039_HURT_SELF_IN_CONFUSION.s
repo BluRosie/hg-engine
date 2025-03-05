@@ -2,6 +2,7 @@
 
 .data
 
+// TODO: Modernise confusion damage
 _000:
     // {0} is confused!
     PrintMessage 150, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
@@ -13,6 +14,7 @@ _000:
     PrintMessage 797, TAG_NONE
     Wait 
     WaitButtonABTime 30
+    CalcConfusionDamage
     UnlockMoveChoice BATTLER_CATEGORY_ATTACKER
     CheckHoldOnWith1HP BATTLER_CATEGORY_ATTACKER
     Call BATTLE_SUBSCRIPT_UPDATE_HP

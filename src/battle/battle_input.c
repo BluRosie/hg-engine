@@ -5,6 +5,7 @@
 #include "../../include/sprite.h"
 #include "../../include/mega.h"
 #include "../../include/constants/ability.h"
+#include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/item.h"
 #include "../../include/constants/file.h"
 
@@ -664,7 +665,10 @@ u16 TerrainPlatformEnemyNCGR[] =
     [TERRAIN_BATTLE_CASTLE] = 172,
     [TERRAIN_BATTLE_HALL] = 174,
     [TERRAIN_GIRATINA] = 176,
-    [TERRAIN_TRANSPARENT] = 176,
+    [TERRAIN_ELECTRIC_TERRAIN] = 176,
+    [TERRAIN_MISTY_TERRAIN] = 176,
+    [TERRAIN_GRASSY_TERRAIN] = 176,
+    [TERRAIN_PSYCHIC_TERRAIN] = 176,
 };
 
 // indices in a008 that determine the ncgr's for the player's side of the field
@@ -694,7 +698,10 @@ u16 TerrainPlatformPlayerNCGR[] =
     [TERRAIN_BATTLE_CASTLE] = 171,
     [TERRAIN_BATTLE_HALL] = 173,
     [TERRAIN_GIRATINA] = 175,
-    [TERRAIN_TRANSPARENT] = 357,
+    [TERRAIN_ELECTRIC_TERRAIN] = 357,
+    [TERRAIN_MISTY_TERRAIN] = 357,
+    [TERRAIN_GRASSY_TERRAIN] = 357,
+    [TERRAIN_PSYCHIC_TERRAIN] = 357,
 };
 
 // indices in a008 that determine the nclr's for both sides' platforms
@@ -724,7 +731,10 @@ u16 TerrainPlatformPalettes[][3] =
     [TERRAIN_BATTLE_CASTLE] = {61, 62, 63},
     [TERRAIN_BATTLE_HALL] = {64, 65, 66},
     [TERRAIN_GIRATINA] = {67, 68, 69},
-    [TERRAIN_TRANSPARENT] = {358, 358, 358},
+    [TERRAIN_ELECTRIC_TERRAIN] = {358, 358, 358},
+    [TERRAIN_MISTY_TERRAIN] = {358, 358, 358},
+    [TERRAIN_GRASSY_TERRAIN] = {358, 358, 358},
+    [TERRAIN_PSYCHIC_TERRAIN] = {358, 358, 358},
 };
 
 BattleBGStorage NewBattleBgTable[] =
@@ -733,6 +743,70 @@ BattleBGStorage NewBattleBgTable[] =
     [BATTLE_BG_MISTY_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] = {.baseEntry = 356, .hasDayNightPals = FALSE, .hasPlatforms = FALSE},
     [BATTLE_BG_GRASSY_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] = {.baseEntry = 358, .hasDayNightPals = FALSE, .hasPlatforms = FALSE},
     [BATTLE_BG_PSYCHIC_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] = {.baseEntry = 360, .hasDayNightPals = FALSE, .hasPlatforms = FALSE},
+};
+
+u8 sCamouflageTypeTable[] =
+{
+    [TERRAIN_PLAIN] = TYPE_GROUND,
+    [TERRAIN_SAND] = TYPE_GROUND,
+    [TERRAIN_GRASS] = TYPE_GRASS,
+    [TERRAIN_PUDDLE] = TYPE_GRASS,
+    [TERRAIN_MOUNTAIN] = TYPE_ROCK,
+    [TERRAIN_CAVE] = TYPE_ROCK,
+    [TERRAIN_SNOW] = TYPE_ICE,
+    [TERRAIN_WATER] = TYPE_WATER,
+    [TERRAIN_ICE] = TYPE_ICE,
+    [TERRAIN_BUILDING] = TYPE_NORMAL,
+    [TERRAIN_GREAT_MARSH] = TYPE_GROUND,
+    [TERRAIN_UNKNOWN] = TYPE_FLYING,
+    [TERRAIN_WILL] = TYPE_NORMAL,
+    [TERRAIN_KOGA] = TYPE_NORMAL,
+    [TERRAIN_BRUNO] = TYPE_NORMAL,
+    [TERRAIN_KAREN] = TYPE_NORMAL,
+    [TERRAIN_LANCE] = TYPE_NORMAL,
+    [TERRAIN_DISTORTION_WORLD] = TYPE_NORMAL,
+    [TERRAIN_BATTLE_TOWER] = TYPE_NORMAL,
+    [TERRAIN_BATTLE_FACTORY] = TYPE_NORMAL,
+    [TERRAIN_BATTLE_ARCADE] = TYPE_NORMAL,
+    [TERRAIN_BATTLE_CASTLE] = TYPE_NORMAL,
+    [TERRAIN_BATTLE_HALL] = TYPE_NORMAL,
+    [TERRAIN_GIRATINA] = TYPE_NORMAL,
+    [TERRAIN_ELECTRIC_TERRAIN] = TYPE_ELECTRIC,
+    [TERRAIN_MISTY_TERRAIN] = TYPE_FAIRY,
+    [TERRAIN_GRASSY_TERRAIN] = TYPE_GRASS,
+    [TERRAIN_PSYCHIC_TERRAIN] = TYPE_PSYCHIC,
+};
+
+u32 sSecretPowerEffectTable[] =
+{
+    [TERRAIN_PLAIN] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_BOOST_STATS_ACCURACY_DOWN,
+    [TERRAIN_SAND] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_BOOST_STATS_ACCURACY_DOWN,
+    [TERRAIN_GRASS] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_SLEEP,
+    [TERRAIN_PUDDLE] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_SLEEP,
+    [TERRAIN_MOUNTAIN] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_TRY_FLINCH,
+    [TERRAIN_CAVE] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_TRY_FLINCH,
+    [TERRAIN_SNOW] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_FREEZE,
+    [TERRAIN_WATER] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN,
+    [TERRAIN_ICE] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_FREEZE,
+    [TERRAIN_BUILDING] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_GREAT_MARSH] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN,
+    [TERRAIN_UNKNOWN] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_BOOST_STATS_EVASION_DOWN,
+    [TERRAIN_WILL] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_KOGA] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_BRUNO] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_KAREN] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_LANCE] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_DISTORTION_WORLD] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_BATTLE_TOWER] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_BATTLE_FACTORY] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_BATTLE_ARCADE] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_BATTLE_CASTLE] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_BATTLE_HALL] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_GIRATINA] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_ELECTRIC_TERRAIN] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_PARALYSIS,
+    [TERRAIN_MISTY_TERRAIN] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_BOOST_STATS_SP_ATK_DOWN,
+    [TERRAIN_GRASSY_TERRAIN] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_APPLY_SLEEP,
+    [TERRAIN_PSYCHIC_TERRAIN] = MOVE_SIDE_EFFECT_TO_DEFENDER | ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN,
 };
 
 
@@ -768,13 +842,17 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
     PaletteData_LoadNarc(bw->palette, 16, 8, 5, 0, 0x20, 0x80);
     PaletteData_LoadNarc(bw->palette, 16, 8, 5, 0, 0x20, 0xB0);
 
-    // swap out battle platform
+    // swap out battle platform, palette just a work variable here
     if (!(vanillaBg ? TRUE : NewBattleBgTable[bg - NUM_VANILLA_BATTLE_BACKGROUNDS].hasPlatforms)) // need to do it this way because otherwise invalid element is accessed in NewBattleBgTable
     {
-        terrain = TERRAIN_TRANSPARENT;
+        palette = TERRAIN_ELECTRIC_TERRAIN; // electric terrain does not use battle platforms, so we get rid of it here
     }
-    Ground_ActorResourceSet(&bw->ground[0], bw, 0, terrain); // new terrains are just repointed below
-    Ground_ActorResourceSet(&bw->ground[1], bw, 1, terrain);
+    else
+    {
+        palette = terrain;
+    }
+    Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette); // new terrains are just repointed below
+    Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
 
     // free resources
     sys_FreeMemoryEz(bw->bg_area);
@@ -783,5 +861,5 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
 
     // finally set the fields for nature power/secret power/camouflage/friends
     //bw->bgId = bg;
-    bw->terrain = terrain;
+    bw->terrain = terrain; // terrain is used directly for secret power, camouflage
 }
