@@ -18,7 +18,7 @@
 #include "../include/constants/weather_numbers.h"
 
 
-#define NELEMS_POKEFORMDATATBL 287
+#define NELEMS_POKEFORMDATATBL 318
 
 extern u32 word_to_store_form_at;
 // [preevo] = {species, form}, [postevo] = {species, form},
@@ -1034,35 +1034,47 @@ u32 LONG_CALL GrabCurrentSeason(void)
 void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
 {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u32 pid = GetMonData(pp, MON_DATA_PERSONALITY, NULL);
     u32 form = 0;
     BOOL shouldUpdate = TRUE;
 
     switch (species)
     {
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
         case SPECIES_DEERLING:
         case SPECIES_SAWSBUCK:
             form = GrabCurrentSeason(); // update to the current season
             break;
+#endif
         case SPECIES_UNFEZANT:
         case SPECIES_FRILLISH:
         case SPECIES_JELLICENT:
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
         case SPECIES_MEOWSTIC:
         case SPECIES_INDEEDEE:
         case SPECIES_OINKOLOGNE:
+#endif
             form = gf_rand() & 1; // 1/2 male
             break;
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
         case SPECIES_BASCULEGION:
             form = (gf_rand() & 1) ? 3 : 0; // 1/2 male
             break;
         case SPECIES_PYROAR:
             form = (gf_rand() % 8 != 0); // 1/8 male
             break;
-        case SPECIES_DUNSPARCE:
-        case SPECIES_DUDUNSPARCE:
-        case SPECIES_TANDEMAUS:
+#endif
+        case SPECIES_DUNSPARCE: // TODO: move to evolution function
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
+        case SPECIES_DUDUNSPARCE:    // This is not the case for wild Dudunsparce (including those encountered in Tera Raid Battles), as these will always be in Two-Segment Form regardless of their encryption constant value.
+#endif
+        case SPECIES_TANDEMAUS: // TODO: move to evolution function
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
         case SPECIES_MAUSHOLD:
-            form = (gf_rand() % 100 != 0); // 1/100 three seg / family of three
+#endif
+            form = (pid % 100 == 0); // 1/100 three seg / family of three
             break;
+#ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
         case SPECIES_FLABEBE:
         case SPECIES_FLOETTE:
         case SPECIES_FLORGES:
@@ -1079,11 +1091,12 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
         case SPECIES_POLTEAGEIST:
         case SPECIES_SINISTCHA:
         case SPECIES_POLTCHAGEIST:
-            form = (gf_rand() % 20 != 0); // 5% authentic / masterpiece
+            form = (gf_rand() % 20 == 0); // 5% authentic / masterpiece
             break;
         case SPECIES_TATSUGIRI:
             form = gf_rand() % 3; // equal chance for all forms
             break;
+#endif
         default:
             shouldUpdate = FALSE;
     }
@@ -1104,6 +1117,7 @@ BOOL LONG_CALL Party_UpdateDeerlingSeasonForm(struct Party *party)
 {
     u32 ret = FALSE;
 
+#ifdef IMPLEMENT_SEASONS
     for (int i = 0; i < party->count; i++)
     {
         struct PartyPokemon *pp = Party_GetMonByIndex(party, i);
@@ -1115,6 +1129,7 @@ BOOL LONG_CALL Party_UpdateDeerlingSeasonForm(struct Party *party)
             ret = TRUE;
         }
     }
+#endif
 
     return ret;
 }
@@ -1255,7 +1270,7 @@ BOOL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 m
 #if defined(IMPLEMENT_LEVEL_CAP) && defined(UNCAP_CANDIES_FROM_LEVEL_CAP)
     int currentLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
     if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID))
-    {        
+    {
         if (currentLevel < 100 && itemID == ITEM_RARE_CANDY)
         {
             return TRUE;
@@ -1575,10 +1590,10 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
 
     // use this chance to make bad poisoning normal poison at the end of battle
     work = GetMonData(pp, MON_DATA_STATUS, NULL);
-    if (work & STATUS_FLAG_BADLY_POISONED)
+    if (work & STATUS_BAD_POISON)
     {
-        work &= ~(STATUS_FLAG_BADLY_POISONED);
-        work |= STATUS_FLAG_POISONED;
+        work &= ~(STATUS_BAD_POISON);
+        work |= STATUS_POISON;
         SetMonData(pp, MON_DATA_STATUS, &work);
     }
     work = 0; // reset work variable so that the form is fine

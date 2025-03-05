@@ -12,6 +12,12 @@ _000:
     Wait 
 
 _016:
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_ABILITY, ABILITY_ICE_FACE, _skipDisguiseMessage
+    // Its disguise served it as a decoy!
+    PrintMessage 1131, TAG_NONE
+    Wait 
+    WaitButtonABTime 30
+_skipDisguiseMessage:
     PlaySound BATTLER_CATEGORY_MSG_TEMP, 1980
     SetMosaic BATTLER_CATEGORY_MSG_TEMP, 8, 1
     Wait 
@@ -32,8 +38,8 @@ _016:
     GoTo _074
 
 _067:
-    // {0}’s ice face shattered!
-    PrintMessage 1354, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
+    // {0} transformed!
+    PrintMessage 721, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
 

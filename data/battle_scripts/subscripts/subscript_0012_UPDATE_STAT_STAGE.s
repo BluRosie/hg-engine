@@ -9,13 +9,9 @@ _000:
     Wait 
 
 _010:
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _018
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _023
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
-
-_018:
-    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_SUCCESSFUL, _023
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MOVE_NO_CUR, MOVE_RAPID_SPIN, _075
 
 _023:
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_UPDATE_STAT_STAGES, _041
@@ -29,6 +25,13 @@ _041:
     PrintBufferedMessage 
     Wait 
     WaitButtonABTime 30
+    CheckCanActivateDefiantOrCompetitive _NoNeedHandle, _HandleDefiant, _HandleCompetitive
+_HandleDefiant:
+    Call BATTLE_SUBSCRIPT_HANDLE_DEFIANT
+    GoTo _NoNeedHandle
+_HandleCompetitive:
+    Call BATTLE_SUBSCRIPT_HANDLE_COMPETITIVE
+_NoNeedHandle:
     End 
 
 _051:
@@ -44,12 +47,15 @@ _058:
     WaitButtonABTime 30
 
 _069:
+    CheckCanActivateDefiantOrCompetitive _NoNeedHandle2, _HandleDefiant2, _HandleCompetitive2
+_HandleDefiant2:
+    Call BATTLE_SUBSCRIPT_HANDLE_DEFIANT
+    GoTo _NoNeedHandle
+_HandleCompetitive2:
+    Call BATTLE_SUBSCRIPT_HANDLE_COMPETITIVE
+_NoNeedHandle2:
     End 
 
 _070:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 
-
-_075:
-    RapidSpin
-    GoTo _023

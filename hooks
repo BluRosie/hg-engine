@@ -165,7 +165,7 @@ arm9 TT_TrainerTypeSexGet 020735F8 1
 
 #reset battlemon switch in flags (now really really do it)
 # smack in the middle of BattleSystem_GetBattleMon
-0012 ClearBattleMonFlags_hook 0224E998 3
+0012 ClearBattleMonFlags_hook 0224E6B2 0
 # need to do it in the middle of InitFaintedWork too
 0012 ClearBattleMonFlags_hook2 0225155C 0
 
@@ -182,6 +182,7 @@ arm9 sub_0206D328 0206D328 2
 
 #hof/pokeathlon/pokewalker fix
 0063 grab_overworld_a081_index 080025E4 3
+0064 grab_overworld_a081_index 021E6E30 3
 0096 grab_overworld_a081_index 080038B8 3
 0112 grab_overworld_a081_index 021F0E14 3
 arm9 get_mon_ow_tag 08069D70 3
@@ -468,6 +469,9 @@ arm9 GF_AssertFail 0202551C 0
 
 0012 ov12_0224D368 0224D368 3
 0012 ov12_0224C4D8 0224C4D8 3
+0012 ov12_0224D03C 0224D03C 3
+0012 BattleController_LoopMultiHit 0224CF14 3
+0012 ov12_02252D14 02252D14 3
 
 # fix trainer ai being able to switch illegally when binded
 0010 ai_switch_ban_for_bind_hook 022203B4 2
@@ -490,3 +494,11 @@ arm9 form_evo_hook_2 0207641C 0
 0002 PlayerStepEvent_RepelCounterDecrement 0224BAE4 2
 0015 BagApp_GetRepelStepCountAddr 021F993C 3
 #endif
+
+0012 BattleContext_Main 022486B0 2
+
+arm9 sub_0207B0B0 0207B0B0 2
+arm9 sub_0207AFC4 0207AFC4 1
+0012 GetBattlerAbility 022527CC 2
+
+0012 BattleSystem_BufferMessage 0223C754 2

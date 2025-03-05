@@ -136,14 +136,11 @@ _316:
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_CALC_TEMP, 0x00000008, _338
 
 _321:
-    PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
-    Wait 
-    DivideVarByValue BSCRIPT_VAR_HP_CALC, 2
-    // The {0} weakened {1}’s power!
-    PrintMessage 1131, TAG_ITEM_MOVE, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_ATTACKER
-    Wait 
+    // The {1} weakened the damage to {0}!!
+    PrintMessage 1527, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_MSG_TEMP
+    Wait
     WaitButtonABTime 30
     RemoveItem BATTLER_CATEGORY_MSG_TEMP
 
 _338:
-    End 
+    End

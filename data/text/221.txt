@@ -783,8 +783,8 @@ Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHow
 Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Speed stat may suffer.
 Having a Pokémon smell this mint can\nmake its Sp. Def stat grow stronger.\nHowever, its Attack stat may suffer.
 Having a Pokémon smell this mint can\nmake its Sp. Def stat grow stronger.\nHowever, its Defense stat may suffer.
-Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Sp. Def stat may suffer.
-Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Speed stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Def stat grow stronger.\nHowever, its Sp. Atk stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Def stat grow stronger.\nHowever, its Speed stat may suffer.
 Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Attack stat may suffer.
 Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Defense stat may suffer.
 Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Sp. Atk stat may suffer.

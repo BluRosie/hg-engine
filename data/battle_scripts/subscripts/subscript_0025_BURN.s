@@ -128,7 +128,7 @@ _260:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _344
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _344
     WaitButtonABTime 30
-    // {0} already has a burn.
+    // {0} is already burned!
     PrintMessage 98, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
     GoTo _337
 

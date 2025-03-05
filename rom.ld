@@ -11,7 +11,7 @@ BattleWorkZukanWorkGet = 0x307C + 0x022378C1;
 BattleWorkClientSetMaxGet = 0x2F30 + 0x022378C1;
 ST_ServerAgiCalc = 0x18388 + 0x022378C1;
 Sub_GaugeObjHeadGet = 0x2E2F8 + 0x022378C1;
-ST_ServerSelectWazaGet = 0x1AA30 + 0x022378C1;
+GetBattlerSelectedMove = 0x1AA30 + 0x022378C1;
 ST_CheckIfInTruant = 0x1B380 + 0x022378C1;
 SCIO_BlankMessage = 0x2CA30 + 0x022378C1;
 BattleWorkFightMsgGet = 0x0223A930 | 1;
@@ -100,7 +100,9 @@ SaveData_GetRepelPtr = 0x0202DB05;
 SaveData_GetEventPtr = 0x020503D0 | 1;
 SaveData_GetDexPtr = 0x0202A634 |1;
 SaveData_GetPlayerPartyPtr = 0x02074904 |1;
-
+Save_HOF_RecordParty = 0x0202E0F8 | 1;
+LoadHallOfFame = 0x02027104 | 1;
+AddHallOfFameEntry = 0x02052A50 | 1;
 
 GetVarAdrs = 0x020504A4 | 1;
 EncDataSave_GetSaveDataPtr = 0x0202D9C4 | 1;
@@ -186,7 +188,7 @@ Snd_SePlay = 0x0200604C | 1;
 
 
 /* new battle engine */
-GetBattlerAbility = 0x022527CC | 1;
+//GetBattlerAbility = 0x022527CC | 1;
 BattleDamageDivide = 0x02253178 | 1;
 BattleWorkWeatherGet = 0x0223BAF8 | 1;
 BattleWorkEnemyClientGet = 0x32F8 + 0x022378C1;
@@ -211,7 +213,6 @@ SCIO_PSPtoPPCopy = 0x02263B4C | 1;
 SCIO_IncRecord = 0x02263F0C | 1;
 CheckStatusRecoverFromAbilityOnSwitch = 0x0225451C | 1;
 CheckPressureForPPDecrease = 0x02258180 | 1;
-GetBattlePokemonMovePosFromMove = 0x02251C60 | 1;
 CheckBattleAnimationsOption = 0x0223B6D4 | 1;
 SCIO_QueueMoveAnimation = 0x0226340C | 1;
 SCIO_QueueMoveAnimationConsiderAttackerDefender = 0x0226343C | 1;
@@ -307,7 +308,7 @@ GF_RTC_CopyTime = 0x0201474C | 1;
 GF_RTC_CopyDate = 0x02014780 | 1;
 IsNighttime = 0x02014804 | 1;
 GF_RTC_GetTimeOfDay = 0x0201481C | 1;
-GF_RTC_GetTimeOfDayWildParam = 0x02014844 | 1;
+GF_RTC_GetTimeOfDayWildParam = 0x02014830 | 1;
 GF_RTC_GetTimeOfDayWildParamByHour = 0x0201485C | 1;
 
 
@@ -351,8 +352,14 @@ MapObject_SetFlag29 = 0x0205F89C | 1;
 sub_02069DC8 = 0x02069DC8 | 1;
 ov01_021F9048 = 0x021F9048 | 1;
 
+MapObject_PauseMovement = 0x0205F6FC | 1;
+MapObject_UnpauseMovement = 0x0205F708 | 1;
 MapObjectMan_PauseAllMovement = 0x0205F574 | 1;
 MapObjectMan_UnpauseAllMovement = 0x0205F5A4 | 1;
+MapObject_IsSingleMovementActive = 0x0205F648 | 1;
+GetMetatileBehaviorAt = 0x02054918 | 1;
+GetPlayerXCoord = 0x0205C67C | 1;
+GetPlayerYCoord = 0x0205C688 | 1;
 
 BagView_New = 0x02077878 | 1;
 BagView_SetItem = 0x020778BC | 1;
@@ -673,3 +680,57 @@ sPickupTable1 = 0x0226C404;
 sPickupTable2 = 0x0226C30C;
 sPickupWeightTable = 0x0226CA4C;
 sHoneyGatherChanceTable = 0x0226CA58;
+
+sPlayerBattleCommands = 0x0226CA90;
+BattleSystem_GetBattleOutcomeFlags = 0x0223BD14 | 1;
+ov12_022639B8 = 0x022639B8 | 1;
+
+FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom = 0x02067584 | 1;
+MoveId_GetFieldEffectId = 0x0207BCC0 | 1;
+PartyMenu_ContextMenuAddFieldMove = 0x0207D0A0 | 1;
+ClearFrameAndWindow2 = 0x0200E9BC | 1;
+sub_0207B23C = 0x0207B23C | 1;
+PartyMenu_SetContextMenuItems_GiveCapsule = 0x0207B1BC | 1;
+sub_0207B1C8 = 0x0207B1C8 | 1;
+PartyMenu_SetContextMenuItems_SpinTrade = 0x0207B32C | 1;
+PartyMenu_SetContextMenuItems_BattleHallEntry = 0x0207B28C | 1;
+sub_0207B2DC = 0x0207B2DC | 1;
+sub_0207B200 = 0x0207B200 | 1;
+PartyMenu_OpenContextMenu = 0x0207D0E4 | 1;
+sub_0207D1C8 = 0x0207D1C8 | 1;
+PartyMenu_PrintMessageOnWindow33 = 0x0207DAD8 | 1;
+thunk_Sprite_SetPalIndex = 0x0200DD08 | 1;
+
+FreeToHeapExplicit = 0x0201AB80 | 1;
+
+BattleControllerPlayer_ItemInput = 0x0224AAF0 | 1;
+BattleControllerPlayer_PokemonInput = 0x0224AC50 | 1;
+BattleControllerPlayer_RunInput = 0x0224AC94 | 1;
+BattleMon_GetMoveIndex = 0x02251C60 | 1;
+CheckTruant = 0x02252C40 | 1;
+CopyBattleMonToPartyMon = 0x02250C40 | 1;
+LowestFlagNo = 0x020726E0 | 1;
+Battler_GetRandomOpposingBattlerId = 0x02253DA0 | 1;
+GetBattlerLearnedMoveCount = 0x02252EA8 | 1;
+CanSwitchMon = 0x02252890 | 1;
+
+ov12_0224DD74 = 0x0224DD74 | 1;
+ov12_02261258 = 0x02261258 | 1;
+//ov12_02252D14 = 0x02252D14 | 1;
+
+BattleMessage_BufferNickname = 0x0223CDD0 | 1;
+BattleMessage_BufferMove = 0x0223CDF4 | 1;
+BattleMessage_BufferItem = 0x0223CE00 | 1;
+BattleMessage_BufferNumber = 0x0223CE0C | 1;
+BattleMessage_BufferNumbers = 0x0223CE24 | 1;
+BattleMessage_BufferType = 0x0223CE50 | 1;
+BattleMessage_BufferAbility = 0x0223CE5C | 1;
+BattleMessage_BufferStat = 0x0223CE68 | 1;
+BattleMessage_BufferStatus = 0x0223CE74 | 1;
+BattleMessage_BufferPokemon = 0x0223CE80 | 1;
+BattleMessage_BufferPoffin = 0x0223CEA4 | 1;
+BattleMessage_BufferFlavorPreference = 0x0223CEA8 | 1;
+BattleMessage_BufferTrainerClass = 0x0223CEB4 | 1;
+BattleMessage_BufferTrainerName = 0x0223CECC | 1;
+BattleMessage_BufferBoxName = 0x0223CEE4 | 1;
+BufferItemNameWithIndefArticle = 0x0200C100 | 1;
