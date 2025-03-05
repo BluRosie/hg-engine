@@ -423,6 +423,80 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .file = SPECIES_MAROWAK_ALOLAN,
     },
 
+    /**totems**/
+    {
+        .species = SPECIES_RATICATE,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_RATICATE_ALOLAN_LARGE,
+    },
+    {
+        .species = SPECIES_MAROWAK,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_MAROWAK_ALOLAN_LARGE,
+    },
+    {
+        .species = SPECIES_GUMSHOOS,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_GUMSHOOS_LARGE,
+    },
+    {
+        .species = SPECIES_VIKAVOLT,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_VIKAVOLT_LARGE,
+    },
+    {
+        .species = SPECIES_RIBOMBEE,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_RIBOMBEE_LARGE,
+    },
+    {
+        .species = SPECIES_ARAQUANID,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_ARAQUANID_LARGE,
+    },
+    {
+        .species = SPECIES_LURANTIS,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_LURANTIS_LARGE,
+    },
+    {
+        .species = SPECIES_SALAZZLE,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_SALAZZLE_LARGE,
+    },
+    {
+        .species = SPECIES_TOGEDEMARU,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_TOGEDEMARU_LARGE,
+    },
+    {
+        .species = SPECIES_MIMIKYU,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_MIMIKYU_LARGE,
+    },
+    {
+        .species = SPECIES_MIMIKYU,
+        .form_no = 3,
+        .need_rev = 0,
+        .file = SPECIES_MIMIKYU_BUSTED_LARGE,
+    },
+    {
+        .species = SPECIES_KOMMO_O,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_KOMMO_O_LARGE,
+    },
+
     /**galarian forms**/
     {
         .species = SPECIES_MEOWTH,
@@ -1541,6 +1615,38 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .file = SPECIES_DECIDUEYE_HISUIAN,
     },
 
+    /**noble pokémon**/
+    {
+        .species = SPECIES_KLEAVOR,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_KLEAVOR_LORD,
+    },
+    {
+        .species = SPECIES_LILLIGANT,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_LILLIGANT_LADY,
+    },
+    {
+        .species = SPECIES_ARCANINE,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_ARCANINE_LORD,
+    },
+    {
+        .species = SPECIES_ELECTRODE,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_ELECTRODE_LORD,
+    },
+    {
+        .species = SPECIES_AVALUGG,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_AVALUGG_LORD,
+    },
+
     /**significant gender differences**/
     {
         .species = SPECIES_UNFEZANT,
@@ -1639,18 +1745,6 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .file = SPECIES_GIMMIGHOUL_ROAMING,
     },
     {
-        .species = SPECIES_TERAPAGOS,
-        .form_no = 1,
-        .need_rev = 0,
-        .file = SPECIES_TERAPAGOS_TERASTAL,
-    },
-    {
-        .species = SPECIES_TERAPAGOS,
-        .form_no = 2,
-        .need_rev = 0,
-        .file = SPECIES_TERAPAGOS_STELLAR,
-    },
-    {
         .species = SPECIES_WOOPER,
         .form_no = 1,
         .need_rev = 0,
@@ -1711,6 +1805,54 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .file = SPECIES_REVAVROOM_CAPH,
     },
     {
+        .species = SPECIES_KORAIDON,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_KORAIDON_LIMITED_BUILD,
+    },
+    {
+        .species = SPECIES_KORAIDON,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_KORAIDON_SPRINTING_BUILD,
+    },
+    {
+        .species = SPECIES_KORAIDON,
+        .form_no = 3,
+        .need_rev = 0,
+        .file = SPECIES_KORAIDON_SWIMMING_BUILD,
+    },
+    {
+        .species = SPECIES_KORAIDON,
+        .form_no = 4,
+        .need_rev = 0,
+        .file = SPECIES_KORAIDON_GLIDING_BUILD,
+    },
+    {
+        .species = SPECIES_MIRAIDON,
+        .form_no = 1,
+        .need_rev = 0,
+        .file = SPECIES_MIRAIDON_LOW_POWER_MODE,
+    },
+    {
+        .species = SPECIES_MIRAIDON,
+        .form_no = 2,
+        .need_rev = 0,
+        .file = SPECIES_MIRAIDON_DRIVE_MODE,
+    },
+    {
+        .species = SPECIES_MIRAIDON,
+        .form_no = 3,
+        .need_rev = 0,
+        .file = SPECIES_MIRAIDON_AQUATIC_MODE,
+    },
+    {
+        .species = SPECIES_MIRAIDON,
+        .form_no = 4,
+        .need_rev = 0,
+        .file = SPECIES_MIRAIDON_GLIDE_MODE,
+    },
+    {
         .species = SPECIES_POLTCHAGEIST,
         .form_no = 1,
         .need_rev = 0,
@@ -1741,9 +1883,45 @@ const struct FormData UNUSED PokeFormDataTbl[]=
         .file = SPECIES_OGERPON_CORNERSTONE_MASK,
     },
     {
+        .species = SPECIES_OGERPON,
+        .form_no = 4,
+        .need_rev = 1,
+        .file = SPECIES_OGERPON_TEAL_MASK_TERASTAL,
+    },
+    {
+        .species = SPECIES_OGERPON,
+        .form_no = 5,
+        .need_rev = 1,
+        .file = SPECIES_OGERPON_WELLSPRING_MASK_TERASTAL,
+    },
+    {
+        .species = SPECIES_OGERPON,
+        .form_no = 6,
+        .need_rev = 1,
+        .file = SPECIES_OGERPON_HEARTHFLAME_MASK_TERASTAL,
+    },
+    {
+        .species = SPECIES_OGERPON,
+        .form_no = 7,
+        .need_rev = 1,
+        .file = SPECIES_OGERPON_CORNERSTONE_MASK_TERASTAL,
+    },
+    {
         .species = SPECIES_URSALUNA,
         .form_no = 1,
         .need_rev = 0,
         .file = SPECIES_URSALUNA_BLOODMOON,
+    },
+    {
+        .species = SPECIES_TERAPAGOS,
+        .form_no = 1,
+        .need_rev = 1,
+        .file = SPECIES_TERAPAGOS_TERASTAL,
+    },
+    {
+        .species = SPECIES_TERAPAGOS,
+        .form_no = 2,
+        .need_rev = 1,
+        .file = SPECIES_TERAPAGOS_STELLAR,
     },
 };

@@ -140,49 +140,49 @@ BOOL BattleController_CheckTeraShell(struct BattleSystem *bsys UNUSED, struct Ba
 BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 
 /// @brief Check if ability can be suppressed by Neutralizing Gas if value is not the same as CantSuppress.
-/// @param ability 
+/// @param ability
 /// @ref AbilityCantSupress
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityDisabledByNeutralizingGas(int ability);
 
 /// @brief Check if ability causes Role Play and Doodle to fail
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityFailRolePlay(int ability);
 
 /// @brief Check if ability causes Receiver and Power of Alchemy to fail
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoReceiver(int ability);
 
 /// @brief Check if ability causes Entrainment to fail
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoEntrainment(int ability);
 
 /// @brief Check if ability causes Trace to fail
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoTrace(int ability);
 
 /// @brief Check if ability causes Skill Swap and Wandering Spirit to fail
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityFailSkillSwap(int ability);
 
 /// @brief Check if ability can't be suppressed by Gastro Acid. See notes for DisabledByNeutralizingGas.
-/// @param ability 
+/// @param ability
 /// @ref AbilityDisabledByNeutralizingGas
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityCantSupress(int ability);
 
 /// @brief Check if ability can be disabled by Mold Breaker
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityBreakable(int ability);
 
 /// @brief Check if ability is disabled if user is Transformed
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoTransform(int ability);
 
@@ -1074,7 +1074,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 
             LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_CheckTeraShell);
             ctx->wb_seq_no++;
-            FALLTHROUGH;            
+            FALLTHROUGH;
         }
         case BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
@@ -1185,7 +1185,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
 
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
         if (BattleRand(bsys) % 5 != 0) {
-            if (effect != MOVE_EFFECT_THAW_AND_BURN_HIT && effect != MOVE_EFFECT_RECOIL_BURN_HIT) {
+            if (effect != MOVE_EFFECT_THAW_AND_BURN_HIT && effect != MOVE_EFFECT_RECOIL_BURN_HIT && effect != MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT) {
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FROZEN);
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
@@ -1519,7 +1519,7 @@ BOOL BattlerController_DecrementPP(struct BattleSystem *bsys, struct BattleStruc
 
     if (!ctx->oneSelfFlag[ctx->attack_client].no_pressure_flag && ctx->defence_client != BATTLER_NONE) {
         // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-22#post-9427994
-        // Pressure now only affects opponents' moves. 
+        // Pressure now only affects opponents' moves.
         if ((ctx->moveNoTemp == MOVE_IMPRISON)
         || (ctx->moveNoTemp == MOVE_SNATCH)
         || (ctx->moveNoTemp == MOVE_SPIKES)
@@ -1593,7 +1593,7 @@ void BattleController_CheckThawOut(struct BattleSystem *bsys UNUSED, struct Batt
     int effect = ctx->moveTbl[ctx->current_move_index].effect;
 
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
-        if (effect == MOVE_EFFECT_THAW_AND_BURN_HIT || effect == MOVE_EFFECT_RECOIL_BURN_HIT) {
+        if (effect == MOVE_EFFECT_THAW_AND_BURN_HIT || effect == MOVE_EFFECT_RECOIL_BURN_HIT || effect == MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT) {
             ctx->battlerIdTemp = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1892,11 +1892,11 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
             return TRUE;
         }
         break;
-    
+
     default:
         break;
     }
-    
+
     // Handle Queenly Majesty, Dazzling & Armor Tail
     if ((CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_QUEENLY_MAJESTY)
     || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_DAZZLING)
@@ -1941,22 +1941,7 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
                 needToRunScript = TRUE;
                 break;
             case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH:
-                switch (ctx->current_move_index)
-                {
-                case MOVE_SKY_ATTACK:
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SKY_ATTACK_CHARGE_TURN);
-                    break;
-                case MOVE_FREEZE_SHOCK:
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FREEZE_SHOCK_CHARGE_TURN);
-                    break;
-                case MOVE_ICE_BURN:
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ICE_BURN_CHARGE_TURN);
-                    break;
-                
-                default:
-                    break;
-                }
-                
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SKY_ATTACK_CHARGE_TURN);
                 needToRunScript = TRUE;
                 break;
             case MOVE_EFFECT_CHARGE_TURN_DEF_UP:
@@ -2005,16 +1990,24 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
                     if ((ctx->field_condition & WEATHER_RAIN_ANY)) {
                         needToRunScript = FALSE;
                     } else {
-                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELETRO_SHOT_CHARGE_TURN);
+                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELECTRO_SHOT_CHARGE_TURN);
                         needToRunScript = TRUE;
                     }
                 } else {
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELETRO_SHOT_CHARGE_TURN);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELECTRO_SHOT_CHARGE_TURN);
                     needToRunScript = TRUE;
                 }
                 break;
             case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP:
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_METEOR_BEAM_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
+            case MOVE_EFFECT_CHARGE_TURN_BURN_HIT:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ICE_BURN_CHARGE_TURN);
+                needToRunScript = TRUE;
+                break;
+            case MOVE_EFFECT_CHARGE_TURN_PARALYZE_HIT:
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FREEZE_SHOCK_CHARGE_TURN);
                 needToRunScript = TRUE;
                 break;
             // case MOVE_EFFECT_SKY_DROP:
@@ -2081,7 +2074,7 @@ BOOL BattleController_CheckPowerHerb(struct BattleSystem *bsys UNUSED, struct Ba
             needToRunScript = TRUE;
         }
         break;
-    
+
     default:
         break;
     }
@@ -2491,7 +2484,7 @@ BOOL BattleController_CheckSafeguard(struct BattleSystem *bsys UNUSED, struct Ba
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
             break;
-        
+
         default:
             break;
         }
@@ -3227,25 +3220,25 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_SPIKES: {
-            if (ctx->scw[IsClientEnemy(ctx, ctx->attack_client)].spikesLayers >= 3) {
+            if (ctx->scw[IsClientEnemy(bsys, ctx->attack_client)].spikesLayers >= 3) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_STEALTH_ROCK: {
-            if (ctx->side_condition[IsClientEnemy(ctx, ctx->attack_client)] & SIDE_STATUS_STEALTH_ROCK) {
+            if (ctx->side_condition[IsClientEnemy(bsys, ctx->attack_client)] & SIDE_STATUS_STEALTH_ROCK) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_TOXIC_SPIKES: {
-            if (ctx->scw[IsClientEnemy(ctx, ctx->attack_client)].toxicSpikesLayers >= 2) {
+            if (ctx->scw[IsClientEnemy(bsys, ctx->attack_client)].toxicSpikesLayers >= 2) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_STICKY_WEB: {
-            if (ctx->side_condition[IsClientEnemy(ctx, ctx->attack_client)] & SIDE_STATUS_STICKY_WEB) {
+            if (ctx->side_condition[IsClientEnemy(bsys, ctx->attack_client)] & SIDE_STATUS_STICKY_WEB) {
                 butItFailedFlag = TRUE;
             }
             break;
@@ -3470,13 +3463,13 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_REFLECT: {
-            if (ctx->side_condition[IsClientEnemy(ctx, ctx->attack_client)] & SIDE_STATUS_REFLECT) {
+            if (ctx->side_condition[IsClientEnemy(bsys, ctx->attack_client)] & SIDE_STATUS_REFLECT) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_LIGHT_SCREEN: {
-            if (ctx->side_condition[IsClientEnemy(ctx, ctx->attack_client)] & SIDE_STATUS_LIGHT_SCREEN) {
+            if (ctx->side_condition[IsClientEnemy(bsys, ctx->attack_client)] & SIDE_STATUS_LIGHT_SCREEN) {
                 butItFailedFlag = TRUE;
             }
             break;
@@ -4070,7 +4063,7 @@ BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys U
 
 
 /// @brief Check if ability can be suppressed by Neutralizing Gas if value is not the same as CantSuppress.
-/// @param ability 
+/// @param ability
 /// @ref AbilityCantSupress
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityDisabledByNeutralizingGas(int ability) {
@@ -4080,7 +4073,7 @@ BOOL LONG_CALL AbilityDisabledByNeutralizingGas(int ability) {
 }
 
 /// @brief Check if ability causes Role Play and Doodle to fail
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityFailRolePlay(int ability) {
     switch (ability) {
@@ -4129,7 +4122,7 @@ BOOL LONG_CALL AbilityFailRolePlay(int ability) {
 }
 
 /// @brief Check if ability causes Receiver and Power of Alchemy to fail
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoReceiver(int ability) {
     switch (ability) {
@@ -4178,7 +4171,7 @@ BOOL LONG_CALL AbilityNoReceiver(int ability) {
 }
 
 /// @brief Check if ability causes Entrainment to fail
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoEntrainment(int ability) {
     switch (ability) {
@@ -4227,7 +4220,7 @@ BOOL LONG_CALL AbilityNoEntrainment(int ability) {
 }
 
 /// @brief Check if ability causes Trace to fail
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoTrace(int ability) {
     switch (ability) {
@@ -4275,7 +4268,7 @@ BOOL LONG_CALL AbilityNoTrace(int ability) {
 }
 
 /// @brief Check if ability causes Skill Swap and Wandering Spirit to fail
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityFailSkillSwap(int ability) {
     switch (ability) {
@@ -4318,7 +4311,7 @@ BOOL LONG_CALL AbilityFailSkillSwap(int ability) {
 }
 
 /// @brief Check if ability can't be suppressed by Gastro Acid or affected by Mummy. See notes for DisabledByNeutralizingGas.
-/// @param ability 
+/// @param ability
 /// @ref AbilityDisabledByNeutralizingGas
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityCantSupress(int ability) {
@@ -4350,7 +4343,7 @@ BOOL LONG_CALL AbilityCantSupress(int ability) {
 
 
 /// @brief Check if ability can be disabled by Mold Breaker
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityBreakable(int ability) {
     switch (ability) {

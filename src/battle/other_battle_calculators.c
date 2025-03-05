@@ -506,7 +506,9 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
      && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
     {
-        if ((sp->field_condition & WEATHER_SUNNY_ANY) && (sp->moveTbl[move_no].effect == 152)) // thunder sucks in the sun
+        if ((sp->field_condition & WEATHER_SUNNY_ANY)
+         && ((sp->moveTbl[move_no].effect == MOVE_EFFECT_THUNDER) // thunder sucks in the sun
+          || (sp->moveTbl[move_no].effect == MOVE_EFFECT_HURRICANE))) // so does hurricane 
         {
             accuracy = 50;
         }
@@ -1203,6 +1205,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         BattleRand(bw) % CriticalRateTable[temp] == 0
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ALL))
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
+        || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL)
     )
     {
         if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)
@@ -1616,11 +1619,11 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                 }
                 if (GetBattlerAbility(sp, defence_client) == ABILITY_PRISM_ARMOR)
                 {
-                  damage = BattleDamageDivide(damage * 3, 4);
+                    damage = BattleDamageDivide(damage * 3, 4);
                 }
                 if (GetBattlerAbility(sp, attack_client) == ABILITY_NEUROFORCE)
                 {
-                  damage = BattleDamageDivide(damage * 5, 4);
+                    damage = BattleDamageDivide(damage * 5, 4);
                 }
                 if (eqp_a == HOLD_EFFECT_POWER_UP_SE)
                 {
@@ -2126,7 +2129,6 @@ void LONG_CALL getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attack
             *equivalentDefense = rawPhysicalDefense;
             break;
         case MOVE_PHOTON_GEYSER:
-        case MOVE_PRISMATIC_LASER:
             if (tempPhysicalAttack > tempSpecialAttack) {
                 *movesplit = SPLIT_PHYSICAL;
                 *equivalentAttack = rawPhysicalAttack;
@@ -2236,7 +2238,11 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     }
 
     if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-        if (sp->field_condition & WEATHER_RAIN_ANY && sp->moveTbl[move].effect == MOVE_EFFECT_THUNDER) {
+        if ((sp->field_condition & WEATHER_RAIN_ANY) && ((sp->moveTbl[move].effect == MOVE_EFFECT_THUNDER) 
+         || (sp->moveTbl[move].effect == MOVE_EFFECT_HURRICANE)
+         || (sp->moveTbl[move].effect == MOVE_EFFECT_BLEAKWIND_STORM)
+         || (sp->moveTbl[move].effect == MOVE_EFFECT_WILDBOLT_STORM)
+         || (sp->moveTbl[move].effect == MOVE_EFFECT_SANDSEAR_STORM))) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
         }
         // Blizzard is 100% accurate in Snow also
@@ -3401,6 +3407,37 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId) {
     } else {
         return ctx->battlemon[battlerId].ability;
     }
+}
+
+/// @brief Check if ability can't be suppressed by Gastro Acid or affected by Mummy. See notes for DisabledByNeutralizingGas.
+/// @param ability 
+/// @ref AbilityDisabledByNeutralizingGas
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityCantSupress(int ability) {
+    switch (ability) {
+    case ABILITY_MULTITYPE:
+    case ABILITY_ZEN_MODE:
+    case ABILITY_STANCE_CHANGE:
+    case ABILITY_SHIELDS_DOWN:
+    case ABILITY_SCHOOLING:
+    case ABILITY_DISGUISE:
+    case ABILITY_BATTLE_BOND:
+    case ABILITY_POWER_CONSTRUCT:
+    case ABILITY_COMATOSE:
+    case ABILITY_RKS_SYSTEM:
+    case ABILITY_GULP_MISSILE:
+    case ABILITY_ICE_FACE:
+    case ABILITY_AS_ONE_GLASTRIER:
+    case ABILITY_AS_ONE_SPECTRIER:
+    case ABILITY_ZERO_TO_HERO:
+    case ABILITY_TERA_SHIFT:
+        return TRUE;
+        break;
+
+    default:
+        break;
+    }
+    return FALSE;
 }
 
 void BattleSystem_BufferMessage(struct BattleSystem *bsys, MESSAGE_PARAM *msg) {

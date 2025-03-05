@@ -342,8 +342,38 @@
 #define MOVE_EFFECT_SPEED_DOWN_3                            336
 #define MOVE_EFFECT_SP_ATK_DOWN_3                           337
 #define MOVE_EFFECT_SP_DEF_DOWN_3                           338
-
-
+#define MOVE_EFFECT_ACC_DOWN_3                              339
+#define MOVE_EFFECT_EVA_DOWN_3                              340
+#define MOVE_EFFECT_HURRICANE                               341
+#define MOVE_EFFECT_USER_DEF_DOWN_HIT                       342
+#define MOVE_EFFECT_USER_DEF_DOWN_HIT_REMOVE_PROTECT        343
+#define MOVE_EFFECT_ATK_DEF_SPEED_UP                        344
+#define MOVE_EFFECT_POLTERGEIST                             345
+#define MOVE_EFFECT_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP       346
+#define MOVE_EFFECT_RECOVER_THREE_QUARTERS_DAMAGE_DEALT     347
+#define MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT      348
+#define MOVE_EFFECT_FICKLE_BEAM	                            349
+#define MOVE_EFFECT_SLEEP_POISON_PARALYZE_HIT               350
+#define MOVE_EFFECT_PREVENT_ESCAPE_HIT                      351
+#define MOVE_EFFECT_PREVENT_ESCAPE_BOTH_HIT                 352
+#define MOVE_EFFECT_STEALTH_ROCK_HIT                        353
+#define MOVE_EFFECT_SET_SPIKES_HIT                          354
+#define MOVE_EFFECT_USER_SPEED_DOWN_2_HIT                   355
+#define MOVE_EFFECT_BLEAKWIND_STORM                         356
+#define MOVE_EFFECT_WILDBOLT_STORM                          357
+#define MOVE_EFFECT_SANDSEAR_STORM                          358
+#define MOVE_EFFECT_TOXIC_THREAD                            359
+#define MOVE_EFFECT_MAKE_IT_RAIN                            360
+#define MOVE_EFFECT_VENOM_DRENCH                            361
+#define MOVE_EFFECT_ATK_SP_ATK_DOWN                         362
+#define MOVE_EFFECT_CHARGE_TURN_PARALYZE_HIT                363
+#define MOVE_EFFECT_CHARGE_TURN_BURN_HIT                    364
+#define MOVE_EFFECT_QUARTER_HP                              365
+#define MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL         366
+#define MOVE_EFFECT_TAKE_HEART                              367
+#define MOVE_EFFECT_HIGH_CRITICAL_RAISE_SPEED_HIT           368
+#define MOVE_EFFECT_MORTAL_SPIN                             369
+#define MOVE_EFFECT_TIDY_UP                                 370
 
 #define RANGE_SINGLE_TARGET           0
 #define RANGE_SINGLE_TARGET_SPECIAL   (1 << 0)

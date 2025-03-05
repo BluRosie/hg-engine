@@ -129,6 +129,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_TrySubstitute 022414F0 3
 0012 BtlCmd_RapidSpin 02242238 3
 0012 BtlCmd_CheckSubstitute 0224514C 3
+0012 BtlCmd_TrySwapItems 02242A50 3
 0012 BtlCmd_TryWish 02242B58 3
 0012 BtlCmd_TryFutureSight 02242570 3
 0012 BtlCmd_SetMultiHit 0223EC10 3
@@ -502,3 +503,6 @@ arm9 sub_0207AFC4 0207AFC4 1
 0012 GetBattlerAbility 022527CC 2
 
 0012 BattleSystem_BufferMessage 0223C754 2
+
+#02259C40(+4)  _CreateTradeMon	(npc_trade.o)
+0023 _CreateTradeMon_hook 02259C44 5

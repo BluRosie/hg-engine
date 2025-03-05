@@ -20,7 +20,6 @@
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 //int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 //BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
-BOOL MummyAbilityCheck(struct BattleStruct *sp);
 BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no);
 //u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
 BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
@@ -31,6 +30,24 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp);
 //u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp);
+
+
+// https://bulbapedia.bulbagarden.net/wiki/Category:Moves_that_thaw_out_the_user
+// will have to add matcha gotcha and burn up to the list of effects that thaw the user
+u16 gMovesThatThawFrozenMons[] =
+{
+    //MOVE_BURN_UP,
+    //MOVE_FLAME_WHEEL,
+    //MOVE_FLARE_BLITZ,
+    //MOVE_FUSION_FLARE,
+    MOVE_MATCHA_GOTCHA,
+    //MOVE_PYRO_BALL,
+    //MOVE_SACRED_FIRE,
+    MOVE_SCALD,
+    MOVE_SCORCHING_SANDS,
+    MOVE_STEAM_ERUPTION,
+};
+
 
 /**
  *  @brief see if the attacker's move is completely negated by the defender's ability and queue up the appropriate subscript
@@ -854,7 +871,6 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
     sp->server_seq_no = 31;
 }
 
-
 /**
  *  @brief handle magic coat and snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
  *
@@ -875,11 +891,14 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
         return FALSE;
     }
 
-    if (((sp->waza_status_flag & 0x801FDA49) == 0) // just what is in the rom already
-     && (sp->oneTurnFlag[sp->defence_client].magic_cort_flag || GetBattlerAbility(sp, sp->defence_client) == ABILITY_MAGIC_BOUNCE)
+    if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+     && (sp->oneTurnFlag[sp->defence_client].magic_cort_flag
+      // if magic bounce then activate only if it hasn't already activated this move
+      || (GetBattlerAbility(sp, sp->defence_client) == ABILITY_MAGIC_BOUNCE && !sp->magicBounceTracker))
      && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT))
     {
         sp->oneTurnFlag[sp->defence_client].magic_cort_flag = 0;
+        sp->magicBounceTracker = TRUE;
         sp->waza_no_mamoru[sp->attack_client] = 0;
         sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
         sp->waza_no_last = sp->moveNoTemp;
@@ -893,7 +912,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     for(i = 0; i < client_set_max; i++)
     {
         client_no = sp->turnOrder[i];
-        if (((sp->waza_status_flag & 0x801FDA49) == 0)
+        if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
          && (sp->oneTurnFlag[client_no].snatchFlag)
          && (sp->moveTbl[sp->current_move_index].flag & FLAG_SNATCH))
         {
@@ -928,6 +947,7 @@ enum
     SWOAK_SEQ_CHECK_DEFENDER_ITEM_ON_HIT,
     SWOAK_SEQ_THAW_ICE,
     SWOAK_SEQ_CHECK_HEALING_ITEMS,
+    SWOAK_SEQ_CLEAR_MAGIC_COAT,
 };
 
 
@@ -945,7 +965,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
     switch (sp->swoak_seq_no) {
         case SWOAK_SEQ_VANISH_ON_OFF: {
             int ret = 0;
-            while(sp->swoak_work < BattleWorkClientSetMaxGet(bw))
+            while (sp->swoak_work < BattleWorkClientSetMaxGet(bw))
             {
                 if (((sp->battlemon[sp->swoak_work].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0)
                  && (sp->battlemon[sp->swoak_work].effect_of_moves_temp & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)))
@@ -1018,8 +1038,9 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
     case SWOAK_SEQ_THAW_ICE:
         {
             int movetype;
+            u16 currMove = sp->current_move_index;
 
-            movetype = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index); // new normalize checks
+            movetype = GetAdjustedMoveType(sp, sp->attack_client, currMove); // new normalize checks
 
             sp->swoak_seq_no++;
 
@@ -1030,7 +1051,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                  && (sp->defence_client != sp->attack_client)
                  && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
                  && (sp->battlemon[sp->defence_client].hp)
-                 && ((movetype == TYPE_FIRE) || (sp->current_move_index == MOVE_SCALD) || (sp->current_move_index == MOVE_STEAM_ERUPTION)) // scald can also melt opponents as of gen 6
+                 && ((movetype == TYPE_FIRE) || (IsElementInArray(gMovesThatThawFrozenMons, &currMove, NELEMS(gMovesThatThawFrozenMons), sizeof(u16)))) // scald can also melt opponents as of gen 6
                  && sp->oneTurnFlag[sp->attack_client].parental_bond_flag == 0)
                 {
                     sp->battlerIdTemp = sp->defence_client;
@@ -1076,6 +1097,10 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
                 sp->swoak_work = 0;
             }
         }
+        FALLTHROUGH;
+    case SWOAK_SEQ_CLEAR_MAGIC_COAT:
+        sp->magicBounceTracker = FALSE;
+        sp->swoak_seq_no++;
         break;
     default:
         break;

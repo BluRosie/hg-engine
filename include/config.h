@@ -110,6 +110,9 @@
 // comment out the line below to revert back to Gen 8- behavior
 #define RESTORE_ITEMS_AT_BATTLE_END
 
+// AI_CAN_GRAB_ITEMS allows to use Trick, Switcheroo, (Thief still todo) on the Player and actually grab items. This can result in lost items.
+#define AI_CAN_GRAB_ITEMS
+
 // PROTEAN_GENERATION defines the behavior that Protean should exhibit, where it either changes type every move (<=8) or changes type once per appearance in battle (>=9)
 #define PROTEAN_GENERATION 9
 
@@ -134,5 +137,8 @@
 
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
 #define REUSABLE_TMS
+
+// STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
+#define STATIC_HP_BAR
 
 #endif

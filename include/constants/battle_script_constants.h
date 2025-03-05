@@ -435,11 +435,25 @@
 #define SUB_SEQ_BOUNCE_CHARGE_TURN                    (425)
 #define SUB_SEQ_SHADOW_FORCE_CHARGE_TURN              (426)
 #define SUB_SEQ_METEOR_BEAM_CHARGE_TURN               (427)
-#define SUB_SEQ_ELETRO_SHOT_CHARGE_TURN               (428)
+#define SUB_SEQ_ELECTRO_SHOT_CHARGE_TURN              (428)
 #define SUB_SEQ_GEOMANCY_CHARGE_TURN                  (429)
 #define SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL              (430)
 #define SUB_SEQ_USE_WEATHER_MOVE_FAIL                 (431)
 #define SUB_SEQ_FAILED_TO_AFFECT                      (432)
+#define SUB_SEQ_USER_DEF_DOWN_HIT                     (433)
+#define SUB_SEQ_ATK_DEF_SPEED_UP                      (434)
+#define SUB_SEQ_HYPERSPACE_FURY                       (435)
+#define SUB_SEQ_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP     (436)
+#define SUB_SEQ_DRAIN_THREE_QUARTERS                  (437)
+#define SUB_SEQ_JAW_LOCK                              (438)
+#define SUB_SEQ_TOXIC_THREAD                          (439)
+#define SUB_SEQ_MAKE_IT_RAIN                          (440)
+#define SUB_SEQ_ATK_SP_ATK_SPEED_DOWN                 (441)
+#define SUB_SEQ_ATK_SP_ATK_DOWN                       (442)
+#define SUB_SEQ_TAKE_HEART                            (443)
+#define SUB_SEQ_MORTAL_SPIN                           (444)
+#define SUB_SEQ_TIDY_UP                               (445)
+#define SUB_SEQ_BURN_AND_DRAIN_HEALTH                 (446)
 
 
 
@@ -623,7 +637,20 @@
 #define ADD_STATUS_EFF_BOOST_STATS_SP_DEF_DOWN_3       (175)
 #define ADD_STATUS_EFF_BOOST_STATS_ACCURACY_DOWN_3     (176)
 #define ADD_STATUS_EFF_BOOST_STATS_EVASION_DOWN_3      (177)
-
+#define ADD_STATUS_EFF_USER_DEF_DOWN_HIT               (178)
+#define ADD_STATUS_EFF_ATK_DEF_SPEED_UP                (179)
+#define ADD_STATUS_EFF_HYPERSPACE_FURY                 (180)
+#define ADD_STATUS_EFF_CLANGOROUS_SOUL                 (181)
+#define ADD_STATUS_EFF_DRAIN_THREE_QUARTERS            (182)
+#define ADD_STATUS_EFF_JAW_LOCK                        (183)
+#define ADD_STATUS_EFF_TOXIC_THREAD                    (184)
+#define ADD_STATUS_EFF_MAKE_IT_RAIN	                   (185)
+#define ADD_STATUS_EFF_ATK_SP_ATK_SPEED_DOWN           (186)
+#define ADD_STATUS_EFF_ATK_SP_ATK_DOWN                 (187)
+#define ADD_STATUS_EFF_TAKE_HEART                      (188)
+#define ADD_STATUS_EFF_MORTAL_SPIN                     (189)
+#define ADD_STATUS_EFF_TIDY_UP                         (190)
+#define ADD_STATUS_EFF_BURN_AND_DRAIN_HEALTH           (191)
 
 
 // additional effect constants

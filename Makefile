@@ -12,6 +12,11 @@ define n
 
 endef
 
+# Check if user cloned git repository correctly first thing to prevent excessive user enquiries
+ifneq ($(shell git rev-parse --is-inside-work-tree 2>/dev/null), true)
+$(error Current directory is not a git repository. Please follow the instructions in the README: https://github.com/BluRosie/hg-engine)
+endif
+
 ifneq ($(VALID_GAMECODE), 0)
 # invalid rom detected based on gamecode.  this primarily catches other-language roms
 $(error ROM Code read from $(ROMNAME) ($(GAMECODE)) does not match valid ROM Code ($(DESIRED_GAMECODE)).$(n)Please use a valid US HeartGold ROM.$(n)hg-engine does not work with non-USA ROM files)
@@ -168,10 +173,9 @@ $(ARMIPS):
 ifeq (,$(wildcard $(ARMIPS)))
 	rm -r -f tools/source/armips
 	cd tools/source ; git clone --recursive https://github.com/BluRosie/armips.git
-	#cd tools/source ; cp -r ~/git/armips armips
-	cd tools/source/armips ; mkdir build
-	cd tools/source/armips/build ; cmake -DCMAKE_BUILD_TYPE=Release ..
-	cd tools/source/armips/build ; cmake --build .
+	mkdir -p tools/source/armips/build
+	cd tools/source/armips/build; cmake .. -DCMAKE_BUILD_TYPE=Release ..
+	cd tools/source/armips/build; $(MAKE)
 	mv tools/source/armips/build/armips tools/armips
 	rm -r -f tools/source/armips
 endif

@@ -1334,9 +1334,9 @@ The opposing {STRVAR_1 1, 0, 0} transformed\ninto the Water type!
 {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
-(Unused)
-(Unused)
-(Unused)
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas bounced back by Magic Bounce!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas bounced back by Magic Bounce!
+The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas bounced back by Magic Bounce!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas disabled by Cursed Body!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
@@ -1540,3 +1540,17 @@ The opposing {STRVAR_1 1, 0, 0} became cloaked\nin freezing air!
 But it failed to affect\n{STRVAR_1 8, 0, 0}!
 But it failed to affect\nthe wild {STRVAR_1 8, 0, 0}!
 But it failed to affect\nthe opposing {STRVAR_1 8, 0, 0}!
+{STRVAR_1 1, 0, 0} is about to be\nattacked by its {STRVAR_1 6, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} is about to be\nattacked by its {STRVAR_1 6, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} is about to be\nattacked by its {STRVAR_1 6, 1, 0}!
+{STRVAR_1 1, 0, 0} is going all out\nfor this attack!
+The wild {STRVAR_1 1, 0, 0} is going all out\nfor this attack!
+The opposing {STRVAR_1 1, 0, 0} is going all out\nfor this attack!
+Neither Pokémon can run away!
+Tidying up complete!
+The pointed stones disappeared from\naround your team!
+The pointed stones disappeared from\naround the opposing team!
+The spikes disappeared from the ground\naround your team!
+The spikes disappeared from the ground\naround the opposing team!
+The sticky web has disappeared from the\nground around you!
+The sticky web has disappeared from the\nground around the opposing team!

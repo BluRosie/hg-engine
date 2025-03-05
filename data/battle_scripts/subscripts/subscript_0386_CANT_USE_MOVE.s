@@ -3,11 +3,11 @@
 .data
 
 _000:
-    PrintAttackMessage 
-    Wait 
+    PrintAttackMessage
+    Wait
     WaitButtonABTime 30
     // But {0} can’t use the move!
-    PrintMessage 1485, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER 
-    Wait 
+    PrintMessage 1491, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
+    Wait
     WaitButtonABTime 30
     End
