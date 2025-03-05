@@ -135,4 +135,7 @@
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
 #define REUSABLE_TMS
 
+// STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
+#define STATIC_HP_BAR 1
+
 #endif
