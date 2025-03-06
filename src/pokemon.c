@@ -43,7 +43,7 @@ BOOL LONG_CALL GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8
     {
         u16 newSpecies;
         ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons_no + form_no-1), sizeof(u16));
-        newSpecies &= ~(NEEDS_REVISION);
+        newSpecies &= ~(NEEDS_REVERSION);
         if (newSpecies != 0)
         {
             picdata->arc_no = ARC_MON_PIC;
@@ -117,7 +117,7 @@ int LONG_CALL PokeOtherFormMonsNoGet(int mons_no, int form_no)
         {
             u16 newSpecies;
             ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons_no + form_no-1), sizeof(u16));
-            newSpecies &= ~(NEEDS_REVISION);
+            newSpecies &= ~(NEEDS_REVERSION);
             if (newSpecies != 0)
             {
                 mons_no = newSpecies;
@@ -142,7 +142,7 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
     {
         u16 newSpecies;
         ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons_no + form_no-1), sizeof(u16));
-        newSpecies &= ~(NEEDS_REVISION);
+        newSpecies &= ~(NEEDS_REVERSION);
         if (newSpecies != 0)
         {
             mons_no = newSpecies;
@@ -157,24 +157,12 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
  *  @param mons_no species that has already been adjusted by form number by GetSpeciesBasedOnForm
  *  @return base species
  */
-u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no)
+u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no)
 {
-    // TODO: figure out a good way to do this
-    /*if (mons_no > MAX_MON_NUM)
+    if (mons_no > MAX_MON_NUM)
     {
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_DEFAULT, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
-        ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
-
-        for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
-        {
-            if (mons_no == PokeFormDataTbl[i].file)
-            {
-                mons_no = PokeFormDataTbl[i].species;
-                break;
-            }
-        }
-        sys_FreeMemoryEz(PokeFormDataTbl);
-    }*/
+        ArchiveDataLoadOfs(&mons_no, ARC_CODE_ADDONS, CODE_ADDON_FORM_SPECIES_MAPPING, sizeof(u16) * (mons_no - SPECIES_MEGA_START), sizeof(u16));
+    }
     return mons_no;
 }
 
@@ -184,27 +172,21 @@ u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no)
  *  @param mons_no species that has already been adjusted by form number by GetSpeciesBasedOnForm
  *  @return form of adjusted species
  */
-u16 LONG_CALL GetFormBasedOnAdjustedForm(u32 mons_no UNUSED)
+u16 LONG_CALL GetFormFromAdjustedForm(u32 mons_no)
 {
-    // TODO: figure out a good way to do this
-    /*if (mons_no > MAX_MON_NUM) {
-        struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_DEFAULT, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
-        ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
-
-        for (u32 i = 0; i < NELEMS_POKEFORMDATATBL; i++)
+    u32 ret = 0;
+    if (mons_no > MAX_MON_NUM)
+    {
+        u16 oldSpecies = GetBaseSpeciesFromAdjustedForm(mons_no);
+        u16 formTable[32]; // right on stack so do not have to free this
+        ArchiveDataLoadOfs(formTable, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (oldSpecies*32), sizeof(u16)*32);
+        for (ret = 0; ret < 32; ret++)
         {
-            if (mons_no == PokeFormDataTbl[i].file)
-            {
-                mons_no = PokeFormDataTbl[i].form_no;
-                break;
-            }
+            if (formTable[ret] == mons_no || formTable[ret]) break;
         }
-        sys_FreeMemoryEz(PokeFormDataTbl);
-    } else {
-        return 0; // base species are all before MAX_MON_NUM
+        ret++; // offset by 1 because form 0 isn't listed in the file
     }
-    return mons_no;*/
-    return 0;
+    return ret;
 }
 
 /**
@@ -288,7 +270,7 @@ u32 LONG_CALL PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
         {
             u16 newSpecies;
             ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons + form_no-1), sizeof(u16));
-            newSpecies &= ~(NEEDS_REVISION);
+            newSpecies &= ~(NEEDS_REVERSION);
             if (newSpecies != 0)
             {
                 mons = newSpecies;
@@ -329,7 +311,7 @@ u16 LONG_CALL PokeIconCgxPatternGet(struct BoxPokemon *ppp)
         // here we check if the mon at all has any forms--if so we assume its form id is valid and return it
         u16 newSpecies;
         ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*monsno + 1-1), sizeof(u16));
-        newSpecies &= ~(NEEDS_REVISION);
+        newSpecies &= ~(NEEDS_REVERSION);
         if (newSpecies != 0)
         {
             ret = GetBoxMonData(ppp, MON_DATA_FORM, NULL);
@@ -407,7 +389,7 @@ u32 LONG_CALL PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
             {
                 u16 newSpecies;
                 ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons + form-1), sizeof(u16));
-                newSpecies &= ~(NEEDS_REVISION);
+                newSpecies &= ~(NEEDS_REVERSION);
                 if (newSpecies != 0)
                 {
                     mons = newSpecies;
@@ -473,7 +455,6 @@ u16 GetMonHiddenAbilityAlreadySanitized(u16 species)
 u16 LONG_CALL GetMonHiddenAbility(u16 species, u32 form)
 {
 #ifdef HIDDEN_ABILITIES
-    u16 ability = 0;
     species = PokeOtherFormMonsNoGet(species, form);
     return GetMonHiddenAbilityAlreadySanitized(species);
 #else
@@ -1590,24 +1571,15 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
     {
         u16 newSpecies;
         ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*species + form_no-1), sizeof(u16));
-        ret = ((newSpecies & NEEDS_REVISION) != 0); // initial return
-        newSpecies &= ~(NEEDS_REVISION);
+        ret = ((newSpecies & NEEDS_REVERSION) != 0); // initial return
+        newSpecies &= ~(NEEDS_REVERSION);
         // invalid form entry specified or form does not require reversion--return
         if (newSpecies == 0 || ret == FALSE)
         {
             return FALSE;
         }
-        // handle special forms that don't just return to 0
-        if (species == SPECIES_DARMANITAN && form_no == 3)
-            work = 1;
-        else if (species == SPECIES_NECROZMA)
-            work = form_no-2;
-        else if (species == SPECIES_GRENINJA)
-            work = 1;
-        else if (species == SPECIES_MINIOR)
-            work = form_no-7;
-        else if (species == SPECIES_ZYGARDE)
-            work = form_no-2;
+        // Form
+        ArchiveDataLoadOfs(&work, ARC_CODE_ADDONS, CODE_ADDON_FORM_REVERSION_MAPPING, sizeof(u16) * (newSpecies - SPECIES_MEGA_START), sizeof(u16));
 
         SetMonData(pp, MON_DATA_FORM, &work);
         ret = TRUE;
@@ -1774,8 +1746,8 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
     if (species > MAX_MON_NUM) {
         // if form-adjusted species is passed in, no need to call it to grab it again
         newSpecies = species;
-        form = GetFormBasedOnAdjustedForm(species);
-        species = GetOriginalSpeciesBasedOnAdjustedForm(species);
+        form = GetFormFromAdjustedForm(species);
+        species = GetBaseSpeciesFromAdjustedForm(species);
     }
     // shaymin has to have some hacks to get this to work proper because of the same battle stuff above
     else if (species == SPECIES_SHAYMIN) {
