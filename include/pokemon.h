@@ -676,15 +676,7 @@ typedef struct
     u32 personal_rnd;
 } MON_PIC;
 
-struct FormData
-{
-    u16 species;
-
-    u16 form_no:15;
-    u16 need_rev:1;
-
-    u16 file;
-};
+#define NEEDS_REVISION 0x8000
 
 typedef struct EncounterInfo
 {
