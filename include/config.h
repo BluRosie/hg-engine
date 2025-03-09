@@ -90,6 +90,9 @@
 // Uncomment this line to enable this functionality
 // #define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
 
+// Some forms only exist in their debut games, with accompying mechanics. IMPLEMENT_GONE_SPECIES_MECHANICS lets these forms' mechanics coexist with the latest mechanics. Examples include Noble Pokémon
+#define IMPLEMENT_DEXIT_FORMS_MECHANICS
+
 // EXPAND_PC_BOXES will expand the amount of pc boxes if enabled to 30
 // comment out the line below to keep the max at 18
 #define EXPAND_PC_BOXES

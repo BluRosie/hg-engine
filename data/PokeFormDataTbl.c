@@ -526,7 +526,7 @@ const u16 UNUSED PokeFormDataTbl[][32] =
     [SPECIES_MIMIKYU] = {
         NEEDS_REVERSION | SPECIES_MIMIKYU_BUSTED,
         SPECIES_MIMIKYU_LARGE,
-        SPECIES_MIMIKYU_BUSTED_LARGE,
+        NEEDS_REVERSION | SPECIES_MIMIKYU_BUSTED_LARGE,
     },
     [SPECIES_NECROZMA] = {
         SPECIES_NECROZMA_DUSK_MANE,
@@ -563,14 +563,14 @@ const u16 UNUSED PokeFormDataTbl[][32] =
     },
     [SPECIES_ARCANINE] = {
         SPECIES_ARCANINE_HISUIAN,
-        SPECIES_ARCANINE_LORD,
+        NEEDS_REVERSION | SPECIES_ARCANINE_LORD,
     },
     [SPECIES_VOLTORB] = {
         SPECIES_VOLTORB_HISUIAN,
     },
     [SPECIES_ELECTRODE] = {
         SPECIES_ELECTRODE_HISUIAN,
-        SPECIES_ELECTRODE_LORD,
+        NEEDS_REVERSION | SPECIES_ELECTRODE_LORD,
     },
     [SPECIES_TYPHLOSION] = {
         SPECIES_TYPHLOSION_HISUIAN,
@@ -586,7 +586,7 @@ const u16 UNUSED PokeFormDataTbl[][32] =
     },
     [SPECIES_LILLIGANT] = {
         SPECIES_LILLIGANT_HISUIAN,
-        SPECIES_LILLIGANT_LADY,
+        NEEDS_REVERSION | SPECIES_LILLIGANT_LADY,
     },
     [SPECIES_ZORUA] = {
         SPECIES_ZORUA_HISUIAN,
@@ -605,7 +605,7 @@ const u16 UNUSED PokeFormDataTbl[][32] =
     },
     [SPECIES_AVALUGG] = {
         SPECIES_AVALUGG_HISUIAN,
-        SPECIES_AVALUGG_LORD,
+        NEEDS_REVERSION | SPECIES_AVALUGG_LORD,
     },
     [SPECIES_DECIDUEYE] = {
         SPECIES_DECIDUEYE_HISUIAN,
@@ -613,7 +613,7 @@ const u16 UNUSED PokeFormDataTbl[][32] =
 
     /**noble pokemon**/
     [SPECIES_KLEAVOR] = {
-        SPECIES_KLEAVOR_LORD,
+        NEEDS_REVERSION | SPECIES_KLEAVOR_LORD,
     },
 
     /**significant gender differences**/
@@ -672,7 +672,7 @@ const u16 UNUSED PokeFormDataTbl[][32] =
     [SPECIES_OINKOLOGNE] = {
         SPECIES_OINKOLOGNE_FEMALE,
     },
-    [SPECIES_REVAVROOM] = {
+    [SPECIES_REVAVROOM] = { // not technically forms, vanilla mechanics users beware
         SPECIES_REVAVROOM_SEGIN,
         SPECIES_REVAVROOM_SCHEDAR,
         SPECIES_REVAVROOM_NAVI,
