@@ -10,7 +10,7 @@ _000:
     GotoIfParentalBondIsActive _041
 
 _019:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_HP_CALC, 0, _027
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_HP_CALC, 0, _040
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 2
 
 _027:
