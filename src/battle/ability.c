@@ -20,7 +20,6 @@
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 //int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 //BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
-BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no);
 //u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
 BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 //BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
@@ -246,29 +245,6 @@ BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int va
     }
 
     return FALSE;
-}
-
-/**
- *  @brief check if the client_no's item can be stolen by pickpocket
- *
- *  @param sp global battle structure
- *  @param client_no battler whose item to check
- *  @return TRUE if the item can be stolen; FALSE otherwise
- */
-BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no)
-{
-    switch(GetBattleMonItem(sp, client_no))
-    {
-        case ITEM_GRASS_MAIL ... ITEM_BRICK_MAIL:
-        case ITEM_VENUSAURITE ... ITEM_DIANCITE:
-        case ITEM_BLUE_ORB:
-        case ITEM_RED_ORB:
-        case ITEM_GRISEOUS_ORB:
-        case ITEM_NONE:
-            return FALSE;
-        default:
-            return TRUE;
-    }
 }
 
 /**

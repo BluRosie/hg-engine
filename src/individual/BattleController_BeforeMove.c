@@ -138,7 +138,6 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities2(struct BattleSystem
 BOOL BattleController_CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int defender);
 BOOL BattleController_CheckTeraShell(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED);
 BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
-void UpdateBattleStatus(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, u32 moveEffect);
 
 /// @brief Check if ability can be suppressed by Neutralizing Gas if value is not the same as CantSuppress.
 /// @param ability
@@ -674,7 +673,12 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_SET_EXPLOSION_SELF_DESTRUCT_FLAG\n");
 #endif
-
+            if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_HALVE_DEFENSE) {
+                u32 attacker = ctx->attack_client;
+                ctx->server_status_flag |= (No2Bit(attacker) << BATTLE_STATUS_SELFDESTRUCTED_SHIFT);
+                ctx->fainting_client = attacker;
+                ctx->battlemon[attacker].hp = 0;
+            }
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
@@ -689,6 +693,13 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
                 return;
             }
             ctx->wb_seq_no++;
+            FALLTHROUGH;
+        }
+        case BEFORE_MOVE_STATE_SET_CRASH_FLAG: {
+            // handle moves that can "keep going and crash"
+            u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+            if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)
+                ctx->server_status_flag |= BATTLE_STATUS_CRASH_DAMAGE;
             FALLTHROUGH;
         }
         // TODO implement new mechanics
@@ -2151,7 +2162,6 @@ BOOL BattleController_CheckProtect(struct BattleSystem *bsys UNUSED, struct Batt
         UnlockBattlerOutOfCurrentMove(bsys, ctx, ctx->attack_client);
         ctx->battlerIdTemp = defender;
         ctx->moveStatusFlagForSpreadMoves[defender] = WAZA_STATUS_FLAG_MAMORU_NOHIT;
-        UpdateBattleStatus(bsys, ctx, ctx->moveTbl[ctx->current_move_index].effect);
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2221,7 +2231,6 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
         ctx->battlerIdTemp = defender;
-        UpdateBattleStatus(bsys, ctx, ctx->moveTbl[ctx->current_move_index].effect);
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2894,7 +2903,6 @@ BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct Battle
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_MISS;
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_LOCKED_INTO_MOVE;
         ctx->msg_work = defender;
-        UpdateBattleStatus(bsys, ctx, ctx->moveTbl[ctx->current_move_index].effect);
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ATTACK_MISSED);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -4428,21 +4436,4 @@ BOOL LONG_CALL AbilityBreakable(int ability) {
         break;
     }
     return FALSE;
-}
-
-// at some point, we lost the plot and the battle status is reset before each move or something.
-// here we compensate by updating it as necessary when a move fails
-void UpdateBattleStatus(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, u32 moveEffect)
-{
-    // TODO:  figure out what is setting this back to 0 somewhere else
-    // handle moves that can "keep going and crash"
-    if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)
-        ctx->server_status_flag |= BATTLE_STATUS_CRASH_DAMAGE;
-    // queue up selfdesctruct/explosion fainting the mon
-    else if (moveEffect == MOVE_EFFECT_HALVE_DEFENSE) {
-        u32 attacker = ctx->attack_client;
-        ctx->server_status_flag |= (No2Bit(attacker) << BATTLE_STATUS_SELFDESTRUCTED_SHIFT);
-        ctx->fainting_client = attacker;
-        ctx->battlemon[attacker].hp = 0;
-    }
 }
