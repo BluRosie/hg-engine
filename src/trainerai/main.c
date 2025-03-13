@@ -5,6 +5,7 @@
 #include "../../include/pokemon.h"
 #include "../../include/trainer_ai.h"
 #include "../../include/constants/ability.h"
+#include "../../include/constants/move_effects.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
@@ -18,6 +19,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
     int moveScores[4] = {0};
     int defender = 0;
+    int defender_side = 0;
 
     for (int i = 0; i < 4; i++)
     {
@@ -45,11 +47,11 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             }
             if(ctx->moveTbl[ctx->battlemon[battler].move[i]].type == TYPE_GROUND && //ground
                 (ctx->battlemon[defender].ability == ABILITY_LEVITATE ||
-                 ctx->battlemon[defender].ability == ABILITY_EARTH_EATER) ){
+                ctx->battlemon[defender].ability == ABILITY_EARTH_EATER) ){
                 moveScores[i] = -10;
             }
             if(IsMoveSoundBased(ctx->battlemon[battler].move[i]) && //sound based moves
-                    ctx->battlemon[defender].ability == ABILITY_SOUNDPROOF){ 
+                ctx->battlemon[defender].ability == ABILITY_SOUNDPROOF){ 
                 moveScores[i] = -10;
             }
             //if(attack isnt super effective && ctx->battlemon[defender].ability == ABILITY_WONDERGUARD){
@@ -61,6 +63,78 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
         //check for new gen type immunities
 
+        /* Check for grass immunity to powder moves*/
+        if((ctx->battlemon[defender].type1 == TYPE_GRASS || ctx->battlemon[defender].type2 == TYPE_GRASS) && 
+         (ctx->battlemon[battler].move[i] == MOVE_LEECH_SEED ||
+         ctx->battlemon[battler].move[i] == MOVE_SPORE ||
+         ctx->battlemon[battler].move[i] == MOVE_COTTON_SPORE ||
+         ctx->battlemon[battler].move[i] == MOVE_MAGIC_POWDER ||
+         ctx->battlemon[battler].move[i] == MOVE_POISON_POWDER ||
+         ctx->battlemon[battler].move[i] == MOVE_POWDER ||
+         //ctx->battlemon[battler].move[i] == MOVE_RAGE_POWDER || rage powder is self-targetting, so is defender in this case the user?
+         ctx->battlemon[battler].move[i] == MOVE_SLEEP_POWDER ||
+         ctx->battlemon[battler].move[i] == MOVE_STUN_SPORE)){
+            moveScores[i] = -10;
+        }
+
+        /* Check for dark immunity to prankster + status moves*/
+        if((ctx->battlemon[defender].type1 == TYPE_DARK || ctx->battlemon[defender].type2 == TYPE_DARK) && 
+            (ctx->moveTbl[ctx->battlemon[battler].move[i]].split == SPLIT_STATUS && ctx->battlemon[battler].ability == ABILITY_PRANKSTER)){
+            moveScores[i] = -10;
+        }
+
+        /* Check for immunity to paralysis*/
+        if((ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_STATUS_PARALYZE) && 
+            (ctx->battlemon[defender].type1 == TYPE_ELECTRIC || ctx->battlemon[defender].type2 == TYPE_ELECTRIC ||
+                 ctx->battlemon[defender].condition != STATUS_NONE || 
+                 ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
+                 ctx->battlemon[defender].ability == ABILITY_LIMBER ||
+                 (ctx->battlemon[defender].ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
+                 (ctx->battlemon[defender].ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) 
+                 (ctx->battlemon[defender].ability == ABILITY_MAGIC_GUARD && ctx->battlemon[battler].speed > ctx->battlemon[defender].speed)) 
+            ){
+            moveScores[i] = -10;
+        }
+
+        /* Check for immunity to burn*/
+        if((ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_STATUS_BURN) && 
+            (ctx->battlemon[defender].type1 == TYPE_FIRE || ctx->battlemon[defender].type2 == TYPE_FIRE ||
+             ctx->battlemon[defender].condition != STATUS_NONE || 
+             ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
+             ctx->battlemon[defender].ability == ABILITY_MAGIC_GUARD) ||
+             (ctx->battlemon[defender].ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
+             (ctx->battlemon[defender].ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY)  ){
+            moveScores[i] = -10;
+        }
+
+        /* Check for immunity to poison/badly poison*/
+        if((ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_STATUS_POISON ||
+            ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_STATUS_BADLY_POISON) &&
+            (ctx->battlemon[defender].type1 == TYPE_POISON || ctx->battlemon[defender].type2 == TYPE_POISON ||
+            ctx->battlemon[defender].type1 == TYPE_STEEL || ctx->battlemon[defender].type2 == TYPE_STEEL ||
+            ctx->battlemon[defender].condition != STATUS_NONE || 
+            ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
+            ctx->battlemon[defender].ability == ABILITY_MAGIC_GUARD ||
+            ctx->battlemon[defender].ability == ABILITY_IMMUNITY ||
+            ctx->battlemon[defender].ability == ABILITY_POISON_HEAL ||
+            (ctx->battlemon[defender].ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
+            (ctx->battlemon[defender].ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ) ){
+            moveScores[i] = -10;
+        }
+        /*Check for immunity to sleep*/
+        if((ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_STATUS_SLEEP || ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN) && 
+            (
+             ctx->battlemon[defender].condition != STATUS_NONE || 
+             ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
+             ctx->battlemon[defender].ability == ABILITY_VITAL_SPIRIT ||
+             ctx->battlemon[defender].ability == ABILITY_INSOMNIA || 
+             (ctx->battlemon[defender].ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
+             (ctx->battlemon[defender].ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ) ){
+            moveScores[i] = -10;
+        }
+
+
+        
 
         u32 currentBasePower = ctx->moveTbl[ctx->battlemon[battler].move[i]].power;
         if (currentBasePower > highestBasePower)
