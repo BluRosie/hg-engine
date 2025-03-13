@@ -1166,14 +1166,14 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
                 break;
         }
         // moves boosted by sheer force that still maintain their effect
-        if ((sp->current_move_index == MOVE_SPARKLING_ARIA) 
+        if ((sp->current_move_index == MOVE_SPARKLING_ARIA)
         // || (sp->current_move_index == MOVE_GENESIS_SUPERNOVA) // doesnt have an eff atm but still on the table
-         || (sp->current_move_index == MOVE_SPIRIT_SHACKLE) 
-         || (sp->current_move_index == MOVE_ANCHOR_SHOT) 
+         || (sp->current_move_index == MOVE_SPIRIT_SHACKLE)
+         || (sp->current_move_index == MOVE_ANCHOR_SHOT)
         // || (sp->current_move_index == MOVE_EERIE_SPELL) // same as genesis supernova
-         || (sp->current_move_index == MOVE_CEASELESS_EDGE) 
-         || (sp->current_move_index == MOVE_STONE_AXE) 
-         || (sp->current_move_index == MOVE_ELECTRO_SHOT)) { // according to bulbapedia but only on the electro shot page ? 
+         || (sp->current_move_index == MOVE_CEASELESS_EDGE)
+         || (sp->current_move_index == MOVE_STONE_AXE)
+         || (sp->current_move_index == MOVE_ELECTRO_SHOT)) { // according to bulbapedia but only on the electro shot page ?
             sp->battlemon[sp->attack_client].sheer_force_flag = 1;
         }
     }
@@ -3031,7 +3031,7 @@ BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys UNUSED, stru
     int failAddress = read_battle_script_param(ctx);
     int handleDefiantAddress = read_battle_script_param(ctx);
     int handleCompetitiveAddress = read_battle_script_param(ctx);
-    
+
     if ((ctx->battlemon[ctx->state_client].hp != 0)
     && (ctx->oneSelfFlag[ctx->state_client].defiant_flag)
     && (ctx->battlemon[ctx->state_client].states[STAT_ATTACK] < 12)
@@ -3989,6 +3989,11 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
  */
 BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
 {
+    // blanket item bans
+    if (IS_ITEM_MAIL(item) /*|| IS_ITEM_Z_CRYSTAL(item)*/)
+        return FALSE;
+
+    // then species-specific
     switch (species) {
     case SPECIES_ZAMAZENTA:
         return item != ITEM_RUSTED_SHIELD;
@@ -4008,10 +4013,9 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
         return !IS_ITEM_MASK(item);
     }
 
+    // then the other swathes of species
     if ((IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
-     || CheckMegaData(species, item)
-     //|| IS_ITEM_Z_CRYSTAL(item)
-     || IS_ITEM_MAIL(item))
+     || CheckMegaData(species, item))
         return FALSE;
 
     return TRUE;
@@ -4065,7 +4069,7 @@ BOOL BtlCmd_TrySwapItems(void* bw, struct BattleStruct *sp)
     int attackerSpecies = sp->battlemon[sp->attack_client].species;
     int defenderItem = sp->battlemon[sp->defence_client].item;
     int defenderSpecies = sp->battlemon[sp->defence_client].species;
-    if (isTrickAllowedInFight != 0) 
+    if (isTrickAllowedInFight != 0)
         IncrementBattleScriptPtr(sp, attack);
     else if (attackerItem == 0 && defenderItem == 0)
         IncrementBattleScriptPtr(sp, attack);

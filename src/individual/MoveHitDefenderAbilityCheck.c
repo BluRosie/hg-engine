@@ -478,8 +478,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
              && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
              && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
              && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-             && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
-              || (sp->oneSelfFlag[sp->defence_client].special_damage))
+             && ((sp->waza_status_flag & MOVE_STATUS_FLAG_MISS) == 0) // if move was successful
              && (sp->moveTbl[sp->current_move_index].power) // if move has power
             )
             {
@@ -497,8 +496,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
              && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
              && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
              && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-             && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
-              || (sp->oneSelfFlag[sp->defence_client].special_damage))
+             && ((sp->waza_status_flag & MOVE_STATUS_FLAG_MISS) == 0) // if move was successful
              && (sp->moveTbl[sp->current_move_index].power != 0)
              && (GetMoveSplit(sp, sp->current_move_index) == SPLIT_PHYSICAL)
             )
