@@ -90,7 +90,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
                  ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
                  ctx->battlemon[defender].ability == ABILITY_LIMBER ||
                  (ctx->battlemon[defender].ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
-                 (ctx->battlemon[defender].ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) 
+                 (ctx->battlemon[defender].ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ||
                  (ctx->battlemon[defender].ability == ABILITY_MAGIC_GUARD && ctx->battlemon[battler].speed > ctx->battlemon[defender].speed)) 
             ){
             moveScores[i] = -10;
@@ -101,7 +101,8 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             (ctx->battlemon[defender].type1 == TYPE_FIRE || ctx->battlemon[defender].type2 == TYPE_FIRE ||
              ctx->battlemon[defender].condition != STATUS_NONE || 
              ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
-             ctx->battlemon[defender].ability == ABILITY_MAGIC_GUARD) ||
+             ctx->battlemon[defender].ability == ABILITY_MAGIC_GUARD ||
+             ctx->battlemon[defender].ability == ABILITY_WATER_VEIL) ||
              (ctx->battlemon[defender].ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
              (ctx->battlemon[defender].ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY)  ){
             moveScores[i] = -10;
