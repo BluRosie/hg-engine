@@ -44,6 +44,7 @@ OUTPUT = 'build/output.bin'
 OUTPUT_FIELD = 'build/output_field.bin'
 OUTPUT_BATTLE = 'build/output_battle.bin'
 OUTPUT_POKEDEX = 'build/output_pokedex.bin'
+OUTPUT_TRAINERAI = 'build/output_trainerai.bin'
 OUTPUT_GETMONEVOLUTION = 'build/output_getmonevolution.bin'
 OUTPUT_GETMONEVOLUTION_BATTLE = 'build/output_getmonevolution_battle.bin'
 OUTPUT_MOVEHITDEFENDERABILITYCHECK = 'build/output_movehitdefenderabilitycheck.bin'
@@ -64,7 +65,9 @@ ROUTINE_POINTERS = 'routinepointers'
 NEW_OVERLAYS_NO_ARM9_EXT = [OUTPUT_BATTLE, OUTPUT_FIELD, OUTPUT_POKEDEX, OUTPUT_GETMONEVOLUTION, OUTPUT_GETMONEVOLUTION_BATTLE, OUTPUT_MOVEHITDEFENDERABILITYCHECK, OUTPUT_SWITCHINABILITYCHECK, OUTPUT_STATBUFFCHANGE,
                             OUTPUT_CALCBASEDAMAGE, OUTPUT_BATTLEFORMCHANGECHECK, OUTPUT_CHECKDEFENDERITEMEFFECTONHIT, OUTPUT_SERVERFIELDCONDITIONCHECK, OUTPUT_BATTLECONTROLLER_BEFOREMOVE, OUTPUT_BATTLESYSTEM_BUFFERMESSAGE]
 
-LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o', 'build/pokedex_linked.o']
+REPLACE_OVERLAYS = [[OUTPUT_TRAINERAI, 10]]
+
+LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o', 'build/pokedex_linked.o', 'build/trainerai_linked.o']
 OFFSET_START_IN_129 = 0x600
 
 def ExtractPointer(byteList: [bytes]):
@@ -365,8 +368,16 @@ def writeall():
         rom.close()
 
     for i in range(0, len(NEW_OVERLAYS_NO_ARM9_EXT)):
-        with open("base/overlay/overlay_{:04}.bin".format(130+i), 'wb+') as rom:
+        with open(f"base/overlay/overlay_{130+i:04}.bin", 'wb+') as rom:
             with open(NEW_OVERLAYS_NO_ARM9_EXT[i], 'rb') as binary:
+                rom.seek(0)
+                rom.write(binary.read())
+                binary.close()
+            rom.close()
+
+    for i in range(0, len(REPLACE_OVERLAYS)):
+        with open(f"base/overlay/overlay_{REPLACE_OVERLAYS[i][1]:04}.bin", 'wb+') as rom:
+            with open(REPLACE_OVERLAYS[i][0], 'rb') as binary:
                 rom.seek(0)
                 rom.write(binary.read())
                 binary.close()

@@ -67,7 +67,7 @@ REQUIREMENTS = requirements.txt
 else
 # there is no need to use a virtual environment because python does not have the requirements installed
 PYTHON = $(PYTHON_NO_VENV)
-VENV_ACTIVATE = 
+VENV_ACTIVATE =
 endif
 
 .PHONY: clean all
@@ -232,7 +232,7 @@ $(BUILD)/%.d:asm/%.s
 
 $(BUILD)/%.o:src/%.c
 	@# sadly this line is still needed as it stands
-	@mkdir -p $(BUILD) $(BUILD)/field $(BUILD)/battle $(BUILD)/pokedex $(BUILD)/individual
+	@mkdir -p $(BUILD) $(CODE_BUILD_DIRS)
 	@echo -e "Compiling"
 	$(CC) $(CFLAGS) -c $< -o $@
 

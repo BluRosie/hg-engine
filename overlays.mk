@@ -1,29 +1,47 @@
-LDFLAGS_FIELD = rom_gen.ld -T linker_field.ld
-LDFLAGS_BATTLE = rom_gen.ld -T linker_battle.ld
-LDFLAGS_POKEDEX = rom_gen.ld -T linker_pokedex.ld
+LDFLAGS_FIELD = rom_gen.ld -T src/field/linker.ld
+LDFLAGS_BATTLE = rom_gen.ld -T src/battle/linker.ld
+LDFLAGS_POKEDEX = rom_gen.ld -T src/pokedex/linker.ld
+LDFLAGS_TRAINERAI = rom_gen_battle.ld -T src/trainerai/linker.ld
 LDFLAGS_GETMONEVOLUTION = rom_gen.ld -T src/individual/linker_getmonevolution.ld
-LDFLAGS_GETMONEVOLUTION_BATTLE = rom_gen.ld -T linker_pokedex.ld
+LDFLAGS_GETMONEVOLUTION_BATTLE = rom_gen.ld -T src/pokedex/linker.ld
 LDFLAGS_MOVEHITDEFENDERABILITYCHECK = rom_gen_battle.ld -T src/individual/linker_movehitdefenderabilitycheck.ld
 LDFLAGS_SWITCHINABILITYCHECK = rom_gen_battle.ld -T src/individual/linker_switchinabilitycheck.ld
 LDFLAGS_BATTLEFORMCHANGECHECK = rom_gen_battle.ld -T src/individual/linker_battleformchangecheck.ld
 LDFLAGS_POSTARM9 = rom_gen_battle.ld -T src/individual/linker_postarm9.ld
 
+CODE_BUILD_DIRS += $(BUILD)
+LINKED_OUTPUTS = $(BUILD)/linked.o
 
-LINKED_OUTPUTS = build/linked.o
 BATTLE_LINK = $(BUILD)/battle_linked.o
 BATTLE_OUTPUT = $(BUILD)/output_battle.bin
 OVERLAY_OUTPUTS += $(BATTLE_OUTPUT)
 LINKED_OUTPUTS += $(BATTLE_LINK)
+CODE_BUILD_DIRS += $(BUILD)/battle
 
+FIELD_OUTPUT_DIR = $(BUILD)/field
 FIELD_LINK = $(BUILD)/field_linked.o
 FIELD_OUTPUT = $(BUILD)/output_field.bin
 OVERLAY_OUTPUTS += $(FIELD_OUTPUT)
 LINKED_OUTPUTS += $(FIELD_LINK)
+CODE_BUILD_DIRS += $(FIELD_OUTPUT_DIR)
 
+POKEDEX_OUTPUT_DIR = $(BUILD)/pokedex
 POKEDEX_LINK = $(BUILD)/pokedex_linked.o
 POKEDEX_OUTPUT = $(BUILD)/output_pokedex.bin
 OVERLAY_OUTPUTS += $(POKEDEX_OUTPUT)
 LINKED_OUTPUTS += $(POKEDEX_LINK)
+CODE_BUILD_DIRS += $(POKEDEX_OUTPUT_DIR)
+
+TRAINERAI_OUTPUT_DIR = $(BUILD)/trainerai
+TRAINERAI_LINK = $(BUILD)/trainerai_linked.o
+TRAINERAI_OUTPUT = $(BUILD)/output_trainerai.bin
+TRAINERAI_TARGET = $(BASE)/overlay/overlay_0000.bin
+OVERLAY_OUTPUTS += $(TRAINERAI_OUTPUT)
+LINKED_OUTPUTS += $(TRAINERAI_LINK)
+CODE_BUILD_DIRS += $(TRAINERAI_OUTPUT_DIR)
+
+INDIVIDUAL_OUTPUT_DIR = $(BUILD)/individual
+CODE_BUILD_DIRS += $(INDIVIDUAL_OUTPUT_DIR)
 
 GETMONEVOLUTION_LINK = $(BUILD)/getmonevolution_linked.o
 GETMONEVOLUTION_OUTPUT = $(BUILD)/output_getmonevolution.bin
@@ -102,6 +120,13 @@ POKEDEX_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(POKEDEX_ASM_SRCS
 POKEDEX_OBJS := $(POKEDEX_C_OBJS) $(POKEDEX_ASM_OBJS) build/thumb_help.d
 OVERLAY_OBJS += $(POKEDEX_OBJS)
 
+TRAINERAI_C_SRCS := $(wildcard $(C_SUBDIR)/trainerai/*.c)
+TRAINERAI_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(TRAINERAI_C_SRCS))
+TRAINERAI_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/trainerai/*.s)
+TRAINERAI_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(TRAINERAI_ASM_SRCS))
+TRAINERAI_OBJS := $(TRAINERAI_C_OBJS) $(TRAINERAI_ASM_OBJS) build/thumb_help.d
+OVERLAY_OBJS += $(TRAINERAI_OBJS)
+
 GETMONEVOLUTION_C_SRCS := $(C_SUBDIR)/individual/GetMonEvolutionInternal.c
 GETMONEVOLUTION_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(GETMONEVOLUTION_C_SRCS))
 GETMONEVOLUTION_OBJS := $(GETMONEVOLUTION_C_OBJS) build/thumb_help.d
@@ -169,6 +194,12 @@ $(POKEDEX_LINK):$(POKEDEX_OBJS) rom_gen.ld
 	$(LD) $(LDFLAGS_POKEDEX) -o $@ $(POKEDEX_OBJS)
 
 $(POKEDEX_OUTPUT):$(POKEDEX_LINK)
+	$(OBJCOPY) -O binary $< $@
+
+$(TRAINERAI_LINK):$(TRAINERAI_OBJS) rom_gen_battle.ld
+	$(LD) $(LDFLAGS_TRAINERAI) -o $@ $(TRAINERAI_OBJS)
+
+$(TRAINERAI_OUTPUT):$(TRAINERAI_LINK)
 	$(OBJCOPY) -O binary $< $@
 
 $(GETMONEVOLUTION_LINK):$(GETMONEVOLUTION_OBJS) rom_gen.ld

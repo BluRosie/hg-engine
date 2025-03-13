@@ -15,7 +15,11 @@ UNCOMPRESSED equ 0x00000000
 /* overlay   7 */ //.word   7, 0x0221BE20, filesize("base/overlay/overlay_0007.bin"), 0x00000000, 0x0223783C, 0x02237840,   7, UNCOMPRESSED
 /* overlay   8 */ //.word   8, 0x0221BE20, filesize("base/overlay/overlay_0008.bin"), 0x00000000, 0x02225F3C, 0x02225F40,   8, UNCOMPRESSED
 /* overlay   9 */ //.word   9, 0x0221BE20, filesize("base/overlay/overlay_0009.bin"), 0x00000000, 0x0221BE20, 0x0221BE24,   9, UNCOMPRESSED
-/* overlay  10 */ //.word  10, 0x0221BE20, filesize("base/overlay/overlay_0010.bin"), 0x00000000, 0x0222B268, 0x0222B26C,  10, UNCOMPRESSED
+
+.org 10 * 0x20 // we replace overlay 10
+
+/* overlay  10 */   .word  10, 0x0221BE20, filesize("base/overlay/overlay_0010.bin"), 0x00000000, 0x00000000, 0x00000000,  10, UNCOMPRESSED
+
 /* overlay  11 */ //.word  11, 0x021E5900, filesize("base/overlay/overlay_0011.bin"), 0x00000000, 0x021E5900, 0x021E5904,  11, UNCOMPRESSED
 /* overlay  12 */ //.word  12, 0x022378C0, filesize("base/overlay/overlay_0012.bin"), 0x00000000, 0x0226EC08, 0x0226EC10,  12, UNCOMPRESSED
 /* overlay  13 */ //.word  13, 0x0221BA00, filesize("base/overlay/overlay_0013.bin"), 0x000081E0, 0x02245964, 0x02245968,  13, UNCOMPRESSED

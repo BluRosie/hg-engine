@@ -86,34 +86,34 @@ plate_to_type_table:     // 21 bytes
 .close
 
 
-.open "base/overlay/overlay_0010.bin", 0x0221BE20
-
-// ARM9 OVERLAY 10 OFFSET 0x3352
-.org 0x0221F172
-.area 0x0221F1E8 - 0x0221F172, 0xFF
-
-hook_subroutine_0221F172_ov_0A:
-    bl get_arceus_type_from_held_effect
-    mov r7, r0
-    b 0x221F3B4 // continue with the routine
-    // this frees up until 221F1E8
-
-.endarea
-
-
-// ARM9 OVERLAY 10 OFFSET 0x36A0
-.org 0x0221F4C0
-.area 0x0221F536 - 0x0221F4C0, 0xFF
-
-hook_subroutine_0221F4C0_ov_0A:
-    bl get_arceus_type_from_held_effect
-    mov r5, r0
-    b 0x221F5E4 // continue with the routine
-    // this frees up until 221F536
-
-.endarea
-
-.close
+//.open "base/overlay/overlay_0010.bin", 0x0221BE20
+//
+//// ARM9 OVERLAY 10 OFFSET 0x3352
+//.org 0x0221F172
+//.area 0x0221F1E8 - 0x0221F172, 0xFF
+//
+//hook_subroutine_0221F172_ov_0A:
+//    bl get_arceus_type_from_held_effect
+//    mov r7, r0
+//    b 0x221F3B4 // continue with the routine
+//    // this frees up until 221F1E8
+//
+//.endarea
+//
+//
+//// ARM9 OVERLAY 10 OFFSET 0x36A0
+//.org 0x0221F4C0
+//.area 0x0221F536 - 0x0221F4C0, 0xFF
+//
+//hook_subroutine_0221F4C0_ov_0A:
+//    bl get_arceus_type_from_held_effect
+//    mov r5, r0
+//    b 0x221F5E4 // continue with the routine
+//    // this frees up until 221F536
+//
+//.endarea
+//
+//.close
 
 
 .open "base/overlay/overlay_0012.bin", 0x022378C0
