@@ -123,7 +123,8 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             moveScores[i] = -10;
         }
         /*Check for immunity to sleep*/
-        if((ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_STATUS_SLEEP || ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN) && 
+        if((ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_STATUS_SLEEP ||
+             ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN) && 
             (
              ctx->battlemon[defender].condition != STATUS_NONE || 
              ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
@@ -133,9 +134,24 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
              (ctx->battlemon[defender].ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ) ){
             moveScores[i] = -10;
         }
-
-
-        
+        /*Check for immunity to confusion*/ 
+        if((ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_STATUS_CONFUSE ||
+            ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION || //swagger
+            ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION|| //flatter
+            ctx->moveTbl[ctx->battlemon[battler].move[i]].effect == MOVE_EFFECT_CONFUSE_ALL_ADJACENT ) && //teeter dance, need to change for double battles
+            (ctx->battlemon[defender].condition2 & STATUS2_CONFUSION || 
+             ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
+             ctx->battlemon[defender].ability == ABILITY_OWN_TEMPO )){
+            moveScores[i] = -10;
+        }
+        /*Check for immunity to infatuation*/
+        if((ctx->battlemon[battler].move[i] == MOVE_ATTRACT) && 
+            (ctx->battlemon[defender].condition2 & STATUS2_ATTRACT || 
+             ctx->battlemon[defender].ability == ABILITY_OBLIVIOUS ||
+             ctx->battlemon[defender].sex == ctx->battlemon[defender].sex ||
+             ctx->battlemon[defender].sex == POKEMON_GENDER_UNKNOWN)){
+            moveScores[i] = -10;
+        }
 
         u32 currentBasePower = ctx->moveTbl[ctx->battlemon[battler].move[i]].power;
         if (currentBasePower > highestBasePower)
