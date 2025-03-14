@@ -2364,7 +2364,6 @@ void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemo
 void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
     int monsNo = GetMonData(pp, MON_DATA_SPECIES, NULL);
     int formNo = GetMonData(pp, MON_DATA_FORM, NULL);
-    int newMove;
 
     RevertFormChange(pp, monsNo, formNo);
 
@@ -2376,17 +2375,6 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
     case SPECIES_ZACIAN:
         if (GetMonData(pp, MON_DATA_HELD_ITEM, NULL) == ITEM_RUSTED_SWORD) {
             formNo = 1;
-            for (u32 i = 0; i < 4; i++) {
-                if (GetMonData(pp, MON_DATA_MOVE1 + i, NULL) == MOVE_IRON_HEAD) {
-                    newMove = MOVE_BEHEMOTH_BLADE;
-                    SetMonData(pp, MON_DATA_MOVE1 + i, &newMove);
-                    u32 maxPP = GetMonData(pp, MON_DATA_MOVE1MAXPP + i, NULL);
-                    if (GetMonData(pp, MON_DATA_MOVE1PP + i, NULL) > maxPP) {
-                        SetMonData(pp, MON_DATA_MOVE1PP + i, &maxPP);
-                    }
-                    break;
-                }
-            }
             ChangePartyPokemonToForm(pp, formNo);
             correct_zacian_zamazenta_kyurem_moves_for_form(pp, formNo, 0);
         }
@@ -2394,17 +2382,6 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
     case SPECIES_ZAMAZENTA:
         if (GetMonData(pp, MON_DATA_HELD_ITEM, NULL) == ITEM_RUSTED_SHIELD) {
             formNo = 1;
-            for (u32 i = 0; i < 4; i++) {
-                if (GetMonData(pp, MON_DATA_MOVE1 + i, NULL) == MOVE_IRON_HEAD) {
-                    newMove = MOVE_BEHEMOTH_BASH;
-                    SetMonData(pp, MON_DATA_MOVE1 + i, &newMove);
-                    u32 maxPP = GetMonData(pp, MON_DATA_MOVE1MAXPP + i, NULL);
-                    if (GetMonData(pp, MON_DATA_MOVE1PP + i, NULL) > maxPP) {
-                        SetMonData(pp, MON_DATA_MOVE1PP + i, &maxPP);
-                    }
-                    break;
-                }
-            }
             ChangePartyPokemonToForm(pp, formNo);
             correct_zacian_zamazenta_kyurem_moves_for_form(pp, formNo, 0);
         }
