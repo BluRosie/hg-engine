@@ -883,11 +883,7 @@ void TryRevertFormChange(struct BattleStruct *sp, void *bw, int client_no)
 
     void *pp = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
 
-    if (RevertFormChange(pp, species, form_no))
-    {
-        RecalcPartyPokemonStats(pp);
-        ResetPartyPokemonAbility(pp);
-    }
+    RevertFormChange(pp, species, form_no);
 }
 
 /**
@@ -938,11 +934,7 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
         monsno = GetMonData(pp, MON_DATA_SPECIES, NULL);
         form = GetMonData(pp, MON_DATA_FORM, NULL);
 
-        if (RevertFormChange(pp, monsno, form))
-        {
-            ResetPartyPokemonAbility(pp);
-        }
-        RecalcPartyPokemonStats(pp); // always recalc stats at the end of each battle
+        RevertFormChange(pp, monsno, form);
     }
 
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
