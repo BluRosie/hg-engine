@@ -238,14 +238,14 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         /*Avoid increasing already maxed stats using status moves*/
 
         // attack
-        else if((attacker_move_effect == MOVE_EFFECT_ATK_UP ||
+        if((attacker_move_effect == MOVE_EFFECT_ATK_UP ||
             attacker_move_effect == MOVE_EFFECT_ATK_UP_2 || 
             attacker_move_effect == MOVE_EFFECT_ATK_UP_3 ) &&
             (ctx->battlemon[battler].states[STAT_ATTACK] >= 6)){
             moveScores[i] = -10;
         }
         // defense
-        if((attacker_move_effect == MOVE_EFFECT_DEF_UP ||
+        else if((attacker_move_effect == MOVE_EFFECT_DEF_UP ||
             attacker_move_effect == MOVE_EFFECT_DEF_UP_2 || 
             attacker_move_effect == MOVE_EFFECT_DEF_UP_3 ||
             attacker_move_effect == MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER) &&
@@ -260,22 +260,151 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             moveScores[i] = -10;
         }
         //sp.def
-        if((attacker_move_effect == MOVE_EFFECT_SP_DEF_UP ||
+        else if((attacker_move_effect == MOVE_EFFECT_SP_DEF_UP ||
             attacker_move_effect == MOVE_EFFECT_SP_DEF_UP_2 || 
             attacker_move_effect == MOVE_EFFECT_SP_DEF_UP_3 ) &&
             (ctx->battlemon[battler].states[STAT_SPDEF] >= 6)){
             moveScores[i] = -10;
         }
         //speed
-        if((attacker_move_effect == MOVE_EFFECT_SPEED_UP ||
+        else if((attacker_move_effect == MOVE_EFFECT_SPEED_UP ||
             attacker_move_effect == MOVE_EFFECT_SPEED_UP_2 || 
             attacker_move_effect == MOVE_EFFECT_SPEED_UP_3 ) &&
             (ctx->battlemon[battler].states[STAT_SPEED] >= 6)){
             moveScores[i] = -10;
         }
 
-        
+        /*Check for abilities preventing atk drop*/
+        if((attacker_move_effect == MOVE_EFFECT_ATK_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_ATK_DOWN) &&
+            defender_ability == ABILITY_HYPER_CUTTER ||
+            defender_ability == ABILITY_WHITE_SMOKE ||
+            defender_ability == ABILITY_CLEAR_BODY){
+            moveScores[i] = -10;
+        }
+        if((attacker_move_effect == MOVE_EFFECT_EVA_DOWN || //No Guard +  lowering eva/acc
+            attacker_move_effect == MOVE_EFFECT_EVA_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_EVA_DOWN_3 ||
+            attacker_move_effect == MOVE_EFFECT_ACC_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_ACC_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_ACC_DOWN_3 ) &&
+            (attacker_ability == ABILITY_NO_GUARD ||
+             defender_ability == ABILITY_NO_GUARD)){
+            moveScores[i] = -10;
+        }
 
+        if((attacker_move_effect == MOVE_EFFECT_ACC_DOWN || //Keen eye interaction
+            attacker_move_effect == MOVE_EFFECT_ACC_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_ACC_DOWN_3 ) &&
+            (defender_ability == ABILITY_KEEN_EYE)){
+            moveScores[i] = -10;
+        }
+        /*Handle clear body & white smoke*/
+        if((attacker_move_effect == MOVE_EFFECT_ATK_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_ATK_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_ATK_DOWN_3 ||
+            attacker_move_effect == MOVE_EFFECT_DEF_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_DEF_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_DEF_DOWN_3 ||
+            attacker_move_effect == MOVE_EFFECT_SPEED_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_SPEED_DOWN_2 ||\
+            attacker_move_effect == MOVE_EFFECT_SPEED_DOWN_3 ||
+            attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN_3 ||
+            attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER ||
+            attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN_3 ||
+            attacker_move_effect == MOVE_EFFECT_FAINT_AND_ATK_SP_ATK_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_ATK_SP_ATK_DOWN || //need to handle parting shot
+            attacker_move_effect == MOVE_EFFECT_VENOM_DRENCH ||
+            attacker_move_effect == MOVE_EFFECT_ATK_DEF_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_ATK_DEF_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_EVA_DOWN || //No Guard +  lowering eva/acc
+            attacker_move_effect == MOVE_EFFECT_EVA_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_EVA_DOWN_3 ||
+            attacker_move_effect == MOVE_EFFECT_ACC_DOWN || 
+            attacker_move_effect == MOVE_EFFECT_ACC_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_ACC_DOWN_3)&&
+            (defender_ability == ABILITY_CLEAR_BODY ||
+            defender_ability == ABILITY_WHITE_SMOKE)){
+                moveScores[i] = -10;
+            }
+
+        /*Handle any status stat-dropping move when at +6 or -6.
+        This is going to be a massive check.*/
+        // attack
+        if((attacker_move_effect == MOVE_EFFECT_ATK_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_ATK_DOWN_2 || 
+            attacker_move_effect == MOVE_EFFECT_ATK_DOWN_3 ) &&
+            (ctx->battlemon[defender].states[STAT_ATTACK] <= -6)){
+            moveScores[i] = -10;
+        }
+        // defense
+        else if((attacker_move_effect == MOVE_EFFECT_DEF_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_DEF_DOWN_2 || 
+            attacker_move_effect == MOVE_EFFECT_DEF_DOWN_3) &&
+            (ctx->battlemon[defender].states[STAT_DEFENSE] <= -6)){
+            moveScores[i] = -10;
+        }
+        // sp. atk
+        else if((attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN_2 || 
+            attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN_3 ) &&
+            (ctx->battlemon[defender].states[STAT_SPATK] <= -6)){
+            moveScores[i] = -10;
+        }
+        //sp.def
+        else if((attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN_2 || 
+            attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN_3 ) &&
+            (ctx->battlemon[defender].states[STAT_SPDEF] <= -6)){
+            moveScores[i] = -10;
+        }
+        //speed
+        else if((attacker_move_effect == MOVE_EFFECT_SPEED_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_SPEED_DOWN_2 || 
+            attacker_move_effect == MOVE_EFFECT_SPEED_DOWN_3 ) &&
+            (ctx->battlemon[defender].states[STAT_SPEED] <= -6)){
+            moveScores[i] = -10;
+        }
+        //evasion
+        else if((attacker_move_effect == MOVE_EFFECT_EVA_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_EVA_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_EVA_DOWN_3 ) &&
+            (ctx->battlemon[defender].states[STAT_EVASION] <= -6)){
+            moveScores[i] = -10;
+        }
+        //accuracy
+        else if((attacker_move_effect == MOVE_EFFECT_ACC_DOWN ||
+            attacker_move_effect == MOVE_EFFECT_ACC_DOWN_2 ||
+            attacker_move_effect == MOVE_EFFECT_ACC_DOWN_3 ) &&
+            (ctx->battlemon[defender].states[STAT_ACCURACY] <= -6)){
+            moveScores[i] = -10;
+        }
+        
+        /*Check for exclusively speed dropping moves in Trick Room*/
+        if(attacker_move_effect == MOVE_EFFECT_SPEED_DOWN_2 && //string shot and scary face
+            (ctx->field_condition & FIELD_STATUS_TRICK_ROOM)){
+                moveScores[i] = -10;
+        }
+        
+        /*Handle Haze, Psych Up, Heart Swap*/
+        bool8 hasStatChange = 0;
+        for(i = 0; i < STAT_MAX; i++){
+            if (ctx->battlemon[battler].states[i] != 0 ||
+                ctx->battlemon[defender].states[i] != 0){
+                hasStatChange = 1;
+            }
+            
+        }
+        if((attacker_move_effect == MOVE_EFFECT_RESET_STAT_CHANGES ||
+           attacker_move_effect == MOVE_EFFECT_SWAP_STAT_CHANGES ||
+           attacker_move_effect == MOVE_EFFECT_COPY_STAT_CHANGES) &&
+            !hasStatChange){
+            moveScores[i] = -10;
+        }
 
 
 
