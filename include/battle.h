@@ -1706,6 +1706,28 @@ struct __attribute__((packed)) ENCOUNT_SEND_OUT_MESSAGE_PARAM
     u8 sel_mons_no[CLIENT_MAX];
 };
 
+
+typedef enum BeforeTurnState {
+    SBA_RESET_DEFIANT = 0,
+    SBA_RESET_FURY_CUTTER,
+    SBA_RANDOM_SPEED_ROLL,
+    SBA_QUICK_CLAW_CUSTAP_BERRY_O_POWER_ACTIVATION,
+    SBA_SET_GIMMICK_REQUEST_STATUS,
+    // This part is inconsistent between Bulbapedia, Victory Road VGC, and Showdown, defaulting to Showdown for now
+    SBA_ESCAPING,
+    SBA_SWITCHING,
+    SBA_ROTATING,
+    SBA_USING_ITEM,
+    SBA_MEGA_EVOLUTION_ULTRA_BURST,
+    SBA_DYNAMAXING,
+    SBA_TERASTALLIZING,
+    SBA_FOCUS_PUNCH_BEAK_BLAST_SHELL_TRAP,
+    // End inconsistent order
+    SBA_RAGE,
+    SBA_END
+} BeforeTurnState;
+
+
 enum {
     BEFORE_MOVE_START = 0,
 
@@ -3292,6 +3314,13 @@ BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx
 */
 BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp);
 
+/**
+ * @brief checks if the move index is a punching move
+ * @param move move index to check
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsMovePunchingMove(u16 move);
+
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
@@ -3606,7 +3635,7 @@ BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct
 BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
 
 /// @brief Check if ability can't be suppressed by Gastro Acid or affected by Mummy. See notes for DisabledByNeutralizingGas.
-/// @param ability 
+/// @param ability
 /// @ref AbilityDisabledByNeutralizingGas
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityCantSupress(int ability);
