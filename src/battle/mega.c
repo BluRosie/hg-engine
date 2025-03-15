@@ -460,7 +460,7 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
         moves[i] = GetMonData(pp, MON_DATA_MOVE1+i, NULL);
 
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
-    if (form_no) // can not draw mega button if form is nonzero.  only base form can mega evolve
+    if (form_no || (bip->bw->sp->battlemon[bip->client_no].condition2 & STATUS2_TRANSFORMED)) // can not draw mega button if form is nonzero.  only base form can mega evolve
         return FALSE;
 
     return (CheckMegaData(mon, item) || CheckMegaMoveData(mon, moves));

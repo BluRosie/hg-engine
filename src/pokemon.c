@@ -484,6 +484,8 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     mons_no = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
     pid = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
     form = GetBoxMonData(boxmon, MON_DATA_FORM, NULL);
+    ability1 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_1);
+    ability2 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_2);
 
     if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1)
     {
@@ -499,9 +501,6 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     ability_swapped = GET_BOX_MON_SWAP_ABILITY_SLOT_BIT(boxmon);
     mons_no = PokeOtherFormMonsNoGet(mons_no, form);
     hiddenability = GetMonHiddenAbilityAlreadySanitized(mons_no);
-
-    ability1 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_1);
-    ability2 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_2);
 
     if (has_hidden_ability && hiddenability != 0)
     {
