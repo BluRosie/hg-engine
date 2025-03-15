@@ -1752,6 +1752,7 @@ enum {
     BEFORE_MOVE_STATE_CHECK_STOLEN_BY_SNATCH,
     BEFORE_MOVE_STATE_SET_EXPLOSION_SELF_DESTRUCT_FLAG,
     BEFORE_MOVE_STATE_CHECK_NO_TARGET_OR_SELF,
+    BEFORE_MOVE_STATE_SET_CRASH_FLAG,
     BEFORE_MOVE_STATE_SET_STEEL_BEAM_FLAG,
     BEFORE_MOVE_STATE_CHECK_SKY_DROP_TARGET,
     BEFORE_MOVE_STATE_SEMI_INVULNERABILITY,
@@ -2866,7 +2867,24 @@ BOOL LONG_CALL MoldBreakerIsClientGrounded(struct BattleStruct *sp, u32 attacker
  */
 BOOL LONG_CALL Link_QueueIsEmpty(struct BattleStruct *sp);
 
+/**
+ *  @brief check if a held item can be removed from the species it is attached to
+ *
+ *  @param species the species of the mon
+ *  @param item the held item of the attacker
+ *  @return TRUE if item can be removed, FALSE otherwise
+ */
+BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
 
+/**
+ *  @brief check if a held item can be tricked or not depending on the items and species
+ *
+ *  @param attacker_item the held item of the attacker
+ *  @param attacker_species the attacker species
+ *  @param defender_item the held item of the defender
+ *  @param defender_species the defender species
+ */
+BOOL LONG_CALL CanTrickHeldItem(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species);
 
 // defined in ability.c
 int LONG_CALL SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);

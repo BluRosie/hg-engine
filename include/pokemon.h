@@ -676,15 +676,7 @@ typedef struct
     u32 personal_rnd;
 } MON_PIC;
 
-struct FormData
-{
-    u16 species;
-
-    u16 form_no:15;
-    u16 need_rev:1;
-
-    u16 file;
-};
+#define NEEDS_REVERSION 0x8000
 
 typedef struct EncounterInfo
 {
@@ -1471,7 +1463,7 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no);
  *  @param mons_no species that has already been adjusted by form number by GetSpeciesBasedOnForm
  *  @return base species
  */
-u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no);
+u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no);
 
 /**
  *  @brief pass adjusted species and return form of the base species it applies to
@@ -1479,7 +1471,7 @@ u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no);
  *  @param mons_no species that has already been adjusted by form number by GetSpeciesBasedOnForm
  *  @return form of adjusted species
  */
-u16 LONG_CALL GetFormBasedOnAdjustedForm(u32 mons_no);
+u16 LONG_CALL GetFormFromAdjustedForm(u32 mons_no);
 
 /**
  *  @brief grab index in ARC_POKEICON from original species, egg status, and form number
