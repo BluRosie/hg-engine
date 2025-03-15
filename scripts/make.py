@@ -40,31 +40,46 @@ else:  # Linux, OSX, etc.
         NM = (PREFIX + 'nm')
     AS = (PREFIX + 'as')
 
-OUTPUT = 'build/output.bin'
-OUTPUT_FIELD = 'build/output_field.bin'
-OUTPUT_BATTLE = 'build/output_battle.bin'
-OUTPUT_POKEDEX = 'build/output_pokedex.bin'
-OUTPUT_GETMONEVOLUTION = 'build/output_getmonevolution.bin'
-OUTPUT_GETMONEVOLUTION_BATTLE = 'build/output_getmonevolution_battle.bin'
-OUTPUT_MOVEHITDEFENDERABILITYCHECK = 'build/output_movehitdefenderabilitycheck.bin'
-OUTPUT_SWITCHINABILITYCHECK = 'build/output_switchinabilitycheck.bin'
-OUTPUT_STATBUFFCHANGE = 'build/output_btl_scr_cmd_33_statbuffchange.bin'
-OUTPUT_CALCBASEDAMAGE = 'build/output_calcbasedamage.bin'
-OUTPUT_BATTLEFORMCHANGECHECK = 'build/output_battleformchangecheck.bin'
-OUTPUT_CHECKDEFENDERITEMEFFECTONHIT = 'build/output_checkdefenderitemeffectonhit.bin'
-OUTPUT_SERVERFIELDCONDITIONCHECK = 'build/output_serverfieldconditioncheck.bin'
-OUTPUT_BATTLECONTROLLER_BEFOREMOVE = 'build/output_battlecontroller_beforemove.bin'
-OUTPUT_BATTLESYSTEM_BUFFERMESSAGE = 'build/output_battlesystem_buffermessage.bin'
+
 BYTE_REPLACEMENT = 'bytereplacement'
 HOOKS = 'hooks'
 ARM_HOOKS = 'armhooks'
 REPOINTS = 'repoints'
 ROUTINE_POINTERS = 'routinepointers'
 
-NEW_OVERLAYS_NO_ARM9_EXT = [OUTPUT_BATTLE, OUTPUT_FIELD, OUTPUT_POKEDEX, OUTPUT_GETMONEVOLUTION, OUTPUT_GETMONEVOLUTION_BATTLE, OUTPUT_MOVEHITDEFENDERABILITYCHECK, OUTPUT_SWITCHINABILITYCHECK, OUTPUT_STATBUFFCHANGE,
-                            OUTPUT_CALCBASEDAMAGE, OUTPUT_BATTLEFORMCHANGECHECK, OUTPUT_CHECKDEFENDERITEMEFFECTONHIT, OUTPUT_SERVERFIELDCONDITIONCHECK, OUTPUT_BATTLECONTROLLER_BEFOREMOVE, OUTPUT_BATTLESYSTEM_BUFFERMESSAGE]
+# step 1:  list folders in a directory
+SOURCE = "src"
+BUILD = "build"
+SRC_FILES = os.listdir(SOURCE)
+OVERLAYS = []
+for file in SRC_FILES:
+    if ".c" not in file and "individual" not in file and ".ld" not in file:
+        OVERLAYS.append(file)
 
-LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o', 'build/pokedex_linked.o']
+# construct output filename list
+NEW_OVERLAYS = []
+for file in OVERLAYS:
+    NEW_OVERLAYS.append(BUILD + "/output_" + file + ".bin")
+
+# repeat to grab individual overlays
+SRC_FILES = os.listdir(SOURCE + "/individual")
+INDIVIDUAL_OVERLAYS = []
+for file in SRC_FILES:
+    if ".c" in file:
+        INDIVIDUAL_OVERLAYS.append(file[:-1 * len(".c")])
+
+# construct output filename list
+NEW_INDIVIDUAL_OVERLAYS = []
+for file in INDIVIDUAL_OVERLAYS:
+    NEW_INDIVIDUAL_OVERLAYS.append(BUILD + "/output_" + file + ".bin")
+print
+
+# treat overlay 129 specially
+OUTPUT = BUILD + "/output.bin"
+
+LINKED_SECTIONS = [BUILD + "/linked.o"]
+for file in OVERLAYS:
+    LINKED_SECTIONS.append(BUILD + "/" + file + "_linked.o")
 OFFSET_START_IN_129 = 0x600
 
 def ExtractPointer(byteList: [bytes]):
@@ -362,15 +377,82 @@ def writeall():
             rom.seek(OFFSET_START_IN_129)
             rom.write(binary.read())
             binary.close()
+        with open("base/overarm9.bin", "rb+") as y9Table:
+            # update overlay 129 entry
+            # determine insertion location
+            with open(SOURCE + "/linker.ld") as linkerFile:
+                for line in linkerFile:
+                    if "ORIGIN" in line:
+                        address = int(line.split()[4][len("0x"):], 0x10)
+                        break
+            y9Table.seek(129*0x20) # seek address
+            y9Table.write(struct.pack('<I', 129)) # id
+            y9Table.write(struct.pack('<I', address)) # memaddress
+            y9Table.write(struct.pack('<I', os.path.getsize("base/overlay/overlay_0129.bin"))) # memsize
+            y9Table.write(struct.pack('<I', 0)) # bsssize
+            y9Table.write(struct.pack('<I', 0)) # initstart
+            y9Table.write(struct.pack('<I', 0)) # initend
+            y9Table.write(struct.pack('<I', 129)) # file id
+            y9Table.write(struct.pack('<I', 0)) # uncompressed
         rom.close()
 
-    for i in range(0, len(NEW_OVERLAYS_NO_ARM9_EXT)):
-        with open("base/overlay/overlay_{:04}.bin".format(130+i), 'wb+') as rom:
-            with open(NEW_OVERLAYS_NO_ARM9_EXT[i], 'rb') as binary:
+    # all of the conglomerated overlays
+    for i in range(0, len(OVERLAYS)):
+        with open(SOURCE + "/" + OVERLAYS[i] + "/linker.ld") as file:
+            line = file.readline()
+            # grab first line of format /* Overlay ### */, convert ### to a number
+            newOverlay = int(line.split(" ")[2])
+            # determine insertion location
+            for line in file:
+                if "ORIGIN" in line:
+                    address = int(line.split()[4][len("0x"):-1], 0x10)
+                    break
+        with open(f"base/overlay/overlay_{newOverlay:04}.bin", 'wb+') as rom:
+            with open(NEW_OVERLAYS[i], 'rb') as binary:
                 rom.seek(0)
                 rom.write(binary.read())
                 binary.close()
             rom.close()
+        with open("base/overarm9.bin", "rb+") as y9Table:
+            y9Table.seek(newOverlay*0x20) # seek address
+            y9Table.write(struct.pack('<I', newOverlay)) # id
+            y9Table.write(struct.pack('<I', address)) # memaddress
+            y9Table.write(struct.pack('<I', os.path.getsize(f"base/overlay/overlay_{newOverlay:04}.bin"))) # memsize
+            y9Table.write(struct.pack('<I', 0)) # bsssize
+            y9Table.write(struct.pack('<I', 0)) # initstart
+            y9Table.write(struct.pack('<I', 0)) # initend
+            y9Table.write(struct.pack('<I', newOverlay)) # file id
+            y9Table.write(struct.pack('<I', 0)) # uncompressed
+        #print(f"{OVERLAYS[i]} written to overlay {newOverlay}...")
+
+    # all of the individual overlays
+    for i in range(0, len(INDIVIDUAL_OVERLAYS)):
+        with open(SOURCE + "/individual/linker/" + INDIVIDUAL_OVERLAYS[i] + ".ld") as file:
+            line = file.readline()
+            # grab first line of format /* Overlay ### */, convert ### to a number
+            newOverlay = int(line.split(" ")[2])
+            # determine insertion location
+            for line in file:
+                if "ORIGIN" in line:
+                    address = int(line.split()[4][len("0x"):-1], 0x10)
+                    break
+        with open(f"base/overlay/overlay_{newOverlay:04}.bin", 'wb+') as rom:
+            with open(NEW_INDIVIDUAL_OVERLAYS[i], 'rb') as binary:
+                rom.seek(0)
+                rom.write(binary.read())
+                binary.close()
+            rom.close()
+        with open("base/overarm9.bin", "rb+") as y9Table:
+            y9Table.seek(newOverlay*0x20) # seek address
+            y9Table.write(struct.pack('<I', newOverlay)) # id
+            y9Table.write(struct.pack('<I', address)) # memaddress
+            y9Table.write(struct.pack('<I', os.path.getsize(f"base/overlay/overlay_{newOverlay:04}.bin"))) # memsize
+            y9Table.write(struct.pack('<I', 0)) # bsssize
+            y9Table.write(struct.pack('<I', 0)) # initstart
+            y9Table.write(struct.pack('<I', 0)) # initend
+            y9Table.write(struct.pack('<I', newOverlay)) # file id
+            y9Table.write(struct.pack('<I', 0)) # uncompressed
+        #print(f"{INDIVIDUAL_OVERLAYS[i]} written to overlay {newOverlay}...")
 
     width = max(map(len, table.keys())) + 1
     if os.path.isfile('offsets.ini'):
@@ -496,6 +578,7 @@ def decompress_file(path):
             f.write(dec)
     except ValueError: # do nothing, file is already decompressed
         print("")
+
 
 
 if __name__ == '__main__':
