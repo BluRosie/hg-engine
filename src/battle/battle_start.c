@@ -71,11 +71,11 @@ void ServerBeforeAct(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 
     // if ctx->sba_seq_no == SBA_RESET_DEFIANT before func is called, it is the first call
     if (ctx->sba_seq_no == SBA_RESET_DEFIANT) {
-        if (IsOverlayLoaded(0)) { // we are taking overlay 0's place
+        if (IsOverlayLoaded(OVERLAY_WIFI)) { // we are taking overlay 0's place
             ServerBeforeAct_restoreOverlay = TRUE;
-            UnloadOverlayByID(0);
-        } else if (IsOverlayLoaded(18)) {
-            ServerBeforeAct_restoreOverlay = 18;
+            UnloadOverlayByID(OVERLAY_WIFI);
+        } else if (IsOverlayLoaded(OVERLAY_POKEDEX)) {
+            ServerBeforeAct_restoreOverlay = OVERLAY_POKEDEX;
             UnloadOverlayByID(18);
         }
 
@@ -96,7 +96,7 @@ void ServerBeforeAct(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("Restoring overlay %d...\n", (ServerBeforeAct_restoreOverlay == 1 ? 0 : ServerBeforeAct_restoreOverlay));
 #endif
-            HandleLoadOverlay((ServerBeforeAct_restoreOverlay == 1 ? 0 : ServerBeforeAct_restoreOverlay), 2);
+            HandleLoadOverlay((ServerBeforeAct_restoreOverlay == 1 ? OVERLAY_WIFI : ServerBeforeAct_restoreOverlay), 2);
         }
     }
 }
@@ -157,11 +157,11 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
 
     // if wb_seq_no == BEFORE_MOVE_START before func is called, it is the first call
     if (sp->wb_seq_no == BEFORE_MOVE_START) {
-        if (IsOverlayLoaded(0)) { // we are taking overlay 0's place
+        if (IsOverlayLoaded(OVERLAY_WIFI)) { // we are taking overlay 0's place
             ServerWazaBefore_restoreOverlay = TRUE;
-            UnloadOverlayByID(0);
-        } else if (IsOverlayLoaded(18)) {
-            ServerWazaBefore_restoreOverlay = 18;
+            UnloadOverlayByID(OVERLAY_WIFI);
+        } else if (IsOverlayLoaded(OVERLAY_POKEDEX)) {
+            ServerWazaBefore_restoreOverlay = OVERLAY_POKEDEX;
             UnloadOverlayByID(18);
         }
 
@@ -185,7 +185,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("Restoring overlay %d...\n", (ServerWazaBefore_restoreOverlay == 1 ? 0 : ServerWazaBefore_restoreOverlay));
 #endif
-            HandleLoadOverlay((ServerWazaBefore_restoreOverlay == 1 ? 0 : ServerWazaBefore_restoreOverlay), 2);
+            HandleLoadOverlay((ServerWazaBefore_restoreOverlay == 1 ? OVERLAY_WIFI : ServerWazaBefore_restoreOverlay), 2);
         }
     }
 }
