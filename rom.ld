@@ -426,7 +426,8 @@ BattleWorkGroundIDGet = 0x0223AB40 | 1;
 Battle_CheckIfHasCaughtMon = 0x0223C330 | 1;
 Battle_GetTimeOfDay = 0x0223B520 | 1;
 Battle_IsFishingEncounter = 0x0223AAB8 | 1;
-GetCaughtMonCount = 0x02029E84 | 1;
+Pokedex_CountDexOwned = 0x02029E84 | 1;
+Pokedex_CountJohtoDexOwned = 0x02029EA0 | 1;
 BallToSpaIDs = 0x0223746C;
 GetBallID_ov7 = 0x0223251C | 1;
 
