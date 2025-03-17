@@ -109,7 +109,7 @@ SWAV2SWAR := mono $(SWAV2SWAR_EXE)
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
-ASFLAGS = -mthumb -I ./data
+ASFLAGS = -mthumb
 CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
 
 ####################### Output #######################
