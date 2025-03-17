@@ -1567,6 +1567,12 @@ BOOL BattlerController_DecrementPP(struct BattleSystem *bsys, struct BattleStruc
 
     index = BattleMon_GetMoveIndex(&ctx->battlemon[ctx->attack_client], ctx->moveNoTemp);
 
+    // fix for mirror move and really any move that uses another move.  don't decrease any move that isn't already there
+    if (index >= 4)
+    {
+        return FALSE;
+    }
+
     if (CheckMoveIsChargeMove(ctx, ctx->current_move_index)) {
         if (((HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) && ctx->current_move_index != MOVE_BIDE) || (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE)) {
             ctx->oneTurnFlag[ctx->attack_client].pp_dec_flag = 0;
