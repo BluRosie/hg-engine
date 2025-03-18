@@ -3008,12 +3008,26 @@ BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
 BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bsys, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
-    ctx->moveOutCheck[ctx->attack_client].stoppedFromConfusion = TRUE;
-    ctx->defence_client = ctx->attack_client;
-    ctx->battlerIdTemp = ctx->defence_client;
-    ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, 40, 0, ctx->attack_client, ctx->attack_client, 1);
+    u32 attacker = ctx->attack_client;
+    u32 disguiseAddress = read_battle_script_param(ctx);
+
+    ctx->moveOutCheck[attacker].stoppedFromConfusion = TRUE;
+    ctx->defence_client = attacker;
+    ctx->battlerIdTemp = attacker;
+    ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, 40, 0, attacker, attacker, 1);
     ctx->hp_calc_work = AdjustDamageForRoll(bsys, ctx, ctx->hp_calc_work);
     ctx->hp_calc_work *= -1;
+
+    if (((ctx->battlemon[attacker].species == SPECIES_MIMIKYU && GetBattlerAbility(ctx, attacker) == ABILITY_DISGUISE)
+      || (ctx->battlemon[attacker].species == SPECIES_EISCUE && GetBattlerAbility(ctx, attacker) == ABILITY_ICE_FACE))
+     && ctx->battlemon[attacker].form_no == 0
+     && ctx->hp_calc_work == 0)
+    {
+        BattleFormChange(attacker, 1, bsys, ctx, TRUE);
+        ctx->battlerIdTemp = attacker;
+        ctx->battlemon[attacker].form_no = 1;
+        IncrementBattleScriptPtr(ctx, disguiseAddress);
+    }
 
     return FALSE;
 }

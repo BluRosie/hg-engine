@@ -208,9 +208,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     // Mimikyu or Mimikyu-Large
     && (sp->battlemon[defender].form_no == 0 || sp->battlemon[defender].form_no == 2)
     // Not transformed
-    && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
-    // a Mimikyu attacking itself will still deal damage--i.e. confusion self hit
-    && attacker != defender) {
+    && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
         return 0;
@@ -222,9 +220,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     && (sp->battlemon[defender].form_no == 0)
     // Not transformed
     && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
-    && (GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL)
-    // an Eiscue attacking itself will still deal damage--i.e. confusion self hit
-    && attacker != defender) {
+    && (GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
         return 0;
