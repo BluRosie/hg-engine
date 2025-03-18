@@ -201,7 +201,7 @@ BOOL LONG_CALL AbilityNoTransform(int ability);
  */
 void __attribute__((section (".init"))) BattleController_BeforeMove(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
-    debug_printf("In ServerWazaBefore\n");
+    debug_printf("In BattleController_BeforeMove\n");
 #endif
 
     CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
@@ -1349,11 +1349,20 @@ void BattleController_CheckImprison(struct BattleSystem *bsys, struct BattleStru
 }
 
 void BattleController_CheckConfusion(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION) {
-        ctx->battlemon[ctx->attack_client].condition2 -= 1;
-        if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION) {
+    u32 attacker = ctx->attack_client;
+#ifdef DEBUG_ALWAYS_PROC_CONFUSION
+    if ((attacker & 1) == 0 || ctx->battlemon[attacker].condition2 & STATUS2_CONFUSION) {
+        //ctx->battlemon[attacker].condition2 -= 1;
+        if ((attacker & 1) == 0 || ctx->battlemon[attacker].condition2 & STATUS2_CONFUSION) {
+            // modernised to 33%
+            if (FALSE && BattleRand(bsys) % 3 != 0) {
+#else
+    if (ctx->battlemon[attacker].condition2 & STATUS2_CONFUSION) {
+        ctx->battlemon[attacker].condition2 -= 1;
+        if (ctx->battlemon[attacker].condition2 & STATUS2_CONFUSION) {
             // modernised to 33%
             if (BattleRand(bsys) % 3 != 0) {
+#endif
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CONFUSED);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -1362,7 +1371,7 @@ void BattleController_CheckConfusion(struct BattleSystem *bsys, struct BattleStr
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
                 ctx->wb_seq_no = BEFORE_MOVE_START;
-                CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
+                CopyBattleMonToPartyMon(bsys, ctx, attacker);
                 ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
                 ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
             }

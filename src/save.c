@@ -890,6 +890,8 @@ void *AllocFromHeapInternal(void * heap UNUSED, u32 size UNUSED, s32 alignment U
 
     debug_printf("[AllocFromHeapInternal] %sheapId: %2d, size: %05X @ 0x%08X, retAddr: 0x%08X, total free space: 0x%05X\n", better ? "LO " : "   ", heapId, size, (u32)ptr, retAddrPerm, GF_ExpHeap_FndGetTotalFreeSize(heapId));
     return ptr;
+#else
+    return NULL;
 #endif
 }
 

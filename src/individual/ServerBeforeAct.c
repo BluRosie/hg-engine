@@ -46,6 +46,9 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
     int script;
     int command;
 
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+    debug_printf("In ServerBeforeActInternal\n");
+#endif
     ret = 0;
     u32 flag = FALSE;
     client_set_max = BattleWorkClientSetMaxGet(bw);
@@ -397,7 +400,7 @@ static BOOL MegaEvolutionOrUltraBurst(struct BattleSystem *bsys, struct BattleSt
     client_set_max = BattleWorkClientSetMaxGet(bsys);
     for (i = 0; i < client_set_max; i++) {
         client_no = ctx->turnOrder[i];
-        if (newBS.needMega[client_no] == MEGA_NEED && ctx->battlemon[ctx->attack_client].hp) {
+        if (newBS.needMega[client_no] == MEGA_NEED && ctx->battlemon[client_no].hp) {
             if (BattleTypeGet(bsys) & BATTLE_TYPE_MULTI) {
                 if (client_no == 0 || (client_no == 2 && ctx->battlemon[client_no].id_no == ctx->battlemon[0].id_no))
                     newBS.PlayerMegaed = TRUE;
@@ -423,7 +426,7 @@ static BOOL MegaEvolutionOrUltraBurst(struct BattleSystem *bsys, struct BattleSt
             ctx->server_seq_no = 22;
             return TRUE;
         }
-        if (newBS.needMega[client_no] == MEGA_CHECK_APPER && ctx->battlemon[ctx->attack_client].hp) {
+        if (newBS.needMega[client_no] == MEGA_CHECK_APPER && ctx->battlemon[client_no].hp) {
             newBS.needMega[client_no] = MEGA_NO_NEED;
             seq = ST_ServerPokeAppearCheck(bsys, ctx);
             if (seq) {

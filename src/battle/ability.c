@@ -938,7 +938,7 @@ void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx
     internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
     internalFunc(bsys, ctx);
 
-    if (ctx->server_seq_no == CONTROLLER_COMMAND_32) // can finally unload the overlay
+    //if (ctx->swoak_seq_no >= SWOAK_SEQ_CLEAR_MAGIC_COAT) // can finally unload the overlay
     {
         if (ServerDoPostMoveEffects_restoreOverlay) {
             UnloadOverlayByID(ovyId);

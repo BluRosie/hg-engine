@@ -70,7 +70,8 @@ void ServerBeforeAct(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
     // if ctx->sba_seq_no == SBA_RESET_DEFIANT before func is called, it is the first call
-    if (ctx->sba_seq_no == SBA_RESET_DEFIANT) {
+    //if (ctx->sba_seq_no == SBA_RESET_DEFIANT)
+    {
         if (IsOverlayLoaded(OVERLAY_WIFI)) { // we are taking overlay 0's place
             ServerBeforeAct_restoreOverlay = TRUE;
             UnloadOverlayByID(OVERLAY_WIFI);
@@ -89,7 +90,7 @@ void ServerBeforeAct(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
     internalFunc(bsys, ctx);
 
-    if (ctx->sba_seq_no == SBA_RESET_DEFIANT)
+    //if (ctx->sba_seq_no == SBA_RESET_DEFIANT)
     {
         if (ServerBeforeAct_restoreOverlay) {
             UnloadOverlayByID(ovyId);
@@ -149,14 +150,15 @@ u32 ServerWazaBefore_restoreOverlay = 0;
 
 void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
-    debug_printf("In ServerWazaBefore\n");
+    debug_printf("In BattleController_BeforeMove landing pad\n");
 #endif
     u32 ovyId, offset;
 
     void (*internalFunc)(void *bw, struct BattleStruct *sp);
 
     // if wb_seq_no == BEFORE_MOVE_START before func is called, it is the first call
-    if (sp->wb_seq_no == BEFORE_MOVE_START) {
+    //if (sp->wb_seq_no == BEFORE_MOVE_START)
+    {
         if (IsOverlayLoaded(OVERLAY_WIFI)) { // we are taking overlay 0's place
             ServerWazaBefore_restoreOverlay = TRUE;
             UnloadOverlayByID(OVERLAY_WIFI);
@@ -179,7 +181,8 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
     internalFunc(bw, sp);
 
     // if wb_seq_no == BEFORE_MOVE_START after the func is called, it is the last call
-    if (sp->wb_seq_no == BEFORE_MOVE_START) {
+    //if (sp->wb_seq_no == BEFORE_MOVE_START)
+    {
         if (ServerWazaBefore_restoreOverlay) {
             UnloadOverlayByID(ovyId);
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
