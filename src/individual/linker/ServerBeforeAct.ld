@@ -1,9 +1,8 @@
 /* Overlay 146 */
 OUTPUT_ARCH(arm)
 MEMORY {
-
-        rom     : ORIGIN = 0x021E5900, LENGTH = 0x34D80
-        ewram   : ORIGIN = 0x021E5900, LENGTH = 0x34D80
+        rom     : ORIGIN = 0x021FD900, LENGTH = 0x2000
+        ewram   : ORIGIN = 0x021FD900, LENGTH = 0x2000
 }
 
 SECTIONS {
@@ -19,6 +18,7 @@ SECTIONS {
                 *(.rodata)
                 *(.fini)
                 *(COMMON)
+                *(.data)
                 __text_end  = . ;
 
                 __bss_start__ = . ;

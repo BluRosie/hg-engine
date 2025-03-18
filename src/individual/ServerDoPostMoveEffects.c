@@ -185,7 +185,7 @@ void ServerDoPostMoveEffectsInternal(void *bsys, struct BattleStruct *ctx)
     default:
         break;
     }
-    ctx->swoak_seq_no = 0;
+    //ctx->swoak_seq_no = 0;
     ctx->swoak_work = 0;
     ctx->server_seq_no = CONTROLLER_COMMAND_32;
 }

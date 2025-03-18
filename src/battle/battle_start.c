@@ -65,7 +65,7 @@ struct BattleStruct *ServerInit(struct BattleSystem *bw) {
 u32 ServerBeforeAct_restoreOverlay = 0;
 
 void ServerBeforeAct(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    u32 ovyId = OVERLAY_SERVERBEFOREACT, offset = 0x021E5900 | 1;
+    u32 ovyId = OVERLAY_SERVERBEFOREACT, offset = 0x021FD900 | 1;
 
     void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
@@ -84,13 +84,12 @@ void ServerBeforeAct(struct BattleSystem *bsys, struct BattleStruct *ctx) {
         debug_printf("Load OVERLAY_SERVERBEFOREACT\n");
 #endif
 
-        //offset = 0x023C0400 | 1;
         HandleLoadOverlay(ovyId, 2);
     }
     internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
     internalFunc(bsys, ctx);
 
-    //if (ctx->sba_seq_no == SBA_RESET_DEFIANT)
+    if (ctx->sba_seq_no == SBA_RESET_DEFIANT)
     {
         if (ServerBeforeAct_restoreOverlay) {
             UnloadOverlayByID(ovyId);
@@ -157,7 +156,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
     void (*internalFunc)(void *bw, struct BattleStruct *sp);
 
     // if wb_seq_no == BEFORE_MOVE_START before func is called, it is the first call
-    //if (sp->wb_seq_no == BEFORE_MOVE_START)
+    if (sp->wb_seq_no == BEFORE_MOVE_START)
     {
         if (IsOverlayLoaded(OVERLAY_WIFI)) { // we are taking overlay 0's place
             ServerWazaBefore_restoreOverlay = TRUE;
@@ -181,7 +180,7 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
     internalFunc(bw, sp);
 
     // if wb_seq_no == BEFORE_MOVE_START after the func is called, it is the last call
-    //if (sp->wb_seq_no == BEFORE_MOVE_START)
+    if (sp->wb_seq_no == BEFORE_MOVE_START)
     {
         if (ServerWazaBefore_restoreOverlay) {
             UnloadOverlayByID(ovyId);
