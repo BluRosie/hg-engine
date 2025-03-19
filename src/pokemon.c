@@ -484,6 +484,8 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     mons_no = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
     pid = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
     form = GetBoxMonData(boxmon, MON_DATA_FORM, NULL);
+    ability1 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_1);
+    ability2 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_2);
 
     if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1)
     {
@@ -499,9 +501,6 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     ability_swapped = GET_BOX_MON_SWAP_ABILITY_SLOT_BIT(boxmon);
     mons_no = PokeOtherFormMonsNoGet(mons_no, form);
     hiddenability = GetMonHiddenAbilityAlreadySanitized(mons_no);
-
-    ability1 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_1);
-    ability2 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_2);
 
     if (has_hidden_ability && hiddenability != 0)
     {
@@ -1582,6 +1581,9 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
         ArchiveDataLoadOfs(&work, ARC_CODE_ADDONS, CODE_ADDON_FORM_REVERSION_MAPPING, sizeof(u16) * (newSpecies - SPECIES_MEGA_START), sizeof(u16));
 
         SetMonData(pp, MON_DATA_FORM, &work);
+        correct_zacian_zamazenta_kyurem_moves_for_form(pp, work, 0);
+        RecalcPartyPokemonStats(pp);
+        ResetPartyPokemonAbility(pp);
         ret = TRUE;
     }
     return ret;
@@ -2303,4 +2305,88 @@ const u8 sTrainerGenders[] = {
 
 TrainerGender LONG_CALL TT_TrainerTypeSexGet(int tr_type) {
     return (TrainerGender)sTrainerGenders[tr_type];
+}
+
+// https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9714380
+void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemon *param, unsigned int expected_form, int UNUSED *a3) {
+    switch (GetMonData(param, MON_DATA_SPECIES, NULL)) {
+        case SPECIES_KYUREM:
+            switch (expected_form) {
+                case 0:
+                    SwapPartyPokemonMove(param, MOVE_ICE_BURN, MOVE_GLACIATE);
+                    SwapPartyPokemonMove(param, MOVE_FREEZE_SHOCK, MOVE_GLACIATE);
+                    SwapPartyPokemonMove(param, MOVE_FUSION_FLARE, MOVE_SCARY_FACE);
+                    SwapPartyPokemonMove(param, MOVE_FUSION_BOLT, MOVE_SCARY_FACE);
+                    break;
+                case 1:
+                    SwapPartyPokemonMove(param, MOVE_GLACIATE, MOVE_ICE_BURN);
+                    SwapPartyPokemonMove(param, MOVE_SCARY_FACE, MOVE_FUSION_FLARE);
+                    break;
+                case 2:
+                    SwapPartyPokemonMove(param, MOVE_GLACIATE, MOVE_FREEZE_SHOCK);
+                    SwapPartyPokemonMove(param, MOVE_SCARY_FACE, MOVE_FUSION_BOLT);
+                    break;
+
+                default:
+                    break;
+            }
+            break;
+        case SPECIES_ZACIAN:
+            switch (expected_form) {
+                case 0:
+                    SwapPartyPokemonMove(param, MOVE_BEHEMOTH_BLADE, MOVE_IRON_HEAD);
+                    break;
+                case 1:
+                    SwapPartyPokemonMove(param, MOVE_IRON_HEAD, MOVE_BEHEMOTH_BLADE);
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case SPECIES_ZAMAZENTA:
+            switch (expected_form) {
+                case 0:
+                    SwapPartyPokemonMove(param, MOVE_BEHEMOTH_BASH, MOVE_IRON_HEAD);
+                    break;
+                case 1:
+                    SwapPartyPokemonMove(param, MOVE_IRON_HEAD, MOVE_BEHEMOTH_BASH);
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            break;
+    }
+}
+
+void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
+    int monsNo = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    int formNo = GetMonData(pp, MON_DATA_FORM, NULL);
+
+    RevertFormChange(pp, monsNo, formNo);
+
+    switch (monsNo) {
+    case SPECIES_XERNEAS:
+        formNo = 1;
+        ChangePartyPokemonToForm(pp, formNo);
+        break;
+    case SPECIES_ZACIAN:
+        if (GetMonData(pp, MON_DATA_HELD_ITEM, NULL) == ITEM_RUSTED_SWORD) {
+            formNo = 1;
+            ChangePartyPokemonToForm(pp, formNo);
+            correct_zacian_zamazenta_kyurem_moves_for_form(pp, formNo, 0);
+        }
+        break;
+    case SPECIES_ZAMAZENTA:
+        if (GetMonData(pp, MON_DATA_HELD_ITEM, NULL) == ITEM_RUSTED_SHIELD) {
+            formNo = 1;
+            ChangePartyPokemonToForm(pp, formNo);
+            correct_zacian_zamazenta_kyurem_moves_for_form(pp, formNo, 0);
+        }
+        break;
+
+    default:
+        break;
+    }
 }

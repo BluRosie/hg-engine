@@ -6,13 +6,6 @@
 // only *need* to specify a form here if it does not revert to form 0 on battle end, all middle entries are filled with 0's
 const u16 UNUSED FormReversionMapping[] =
 {
-#ifdef IMPLEMENT_DEXIT_FORMS_MECHANICS
-    // this reverts the Noble forms only, the ring around them is stored separately in the data (Noble Flag in PKHeX)
-    [SPECIES_ARCANINE_LORD - SPECIES_MEGA_START]                        = 1,
-    [SPECIES_ELECTRODE_LORD - SPECIES_MEGA_START]                       = 1,
-    [SPECIES_LILLIGANT_LADY - SPECIES_MEGA_START]                       = 1,
-    [SPECIES_AVALUGG_LORD - SPECIES_MEGA_START]                         = 1,
-#endif
     [SPECIES_MIMIKYU_BUSTED_LARGE - SPECIES_MEGA_START]                 = 2,
     [SPECIES_DARMANITAN_ZEN_MODE - SPECIES_MEGA_START]                  = 0,
     [SPECIES_DARMANITAN_ZEN_MODE_GALARIAN - SPECIES_MEGA_START]         = 1,

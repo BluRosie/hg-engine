@@ -352,7 +352,8 @@ u8 *LONG_CALL SaveData_GetRepelPtr(void *saveData);
 void *LONG_CALL SaveData_GetEventPtr(void *saveData);
 void *LONG_CALL SaveData_GetDexPtr(void *saveData);
 void *LONG_CALL SaveData_GetPlayerPartyPtr(void *saveData);
-u32 LONG_CALL GetCaughtMonCount(void *dexSaveData);
+u32 LONG_CALL Pokedex_CountDexOwned(void *dexSaveData);
+u32 LONG_CALL Pokedex_CountJohtoDexOwned(void *dexSaveData);
 HallOfFame * LONG_CALL LoadHallOfFame(void *saveData, u32 heapId, int *ret_p);
 void LONG_CALL Save_HOF_RecordParty(HallOfFame *hof, struct Party *party, struct RTCDate *date);
 

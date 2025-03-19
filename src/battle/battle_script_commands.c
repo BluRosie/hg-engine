@@ -363,11 +363,13 @@ const u8 *BattleScrCmdNames[] =
     "trymegaorultraburstduringpursuit",
     "calcconfusiondamage",
     "checkcanactivatedefiantorcompetitive",
+    // "your_custom_command",
 };
 
 u32 cmdAddress = 0;
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0xFF
 
 const btl_scr_cmd_func NewBattleScriptCmdTable[] =
 {
@@ -402,6 +404,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xFD - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FD_trymegaorultraburstduringpursuit,
     [0xFE - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FE_calcconfusiondamage,
     [0xFF - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive,
+    // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -3581,6 +3584,9 @@ u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes)
         else
         {
             expcalc->work[2] = 1;
+            // TODO: as of SV, this is now false.
+            // https://xcancel.com/Sibuna_Switch/status/1605588207898218496#m
+            // https://xcancel.com/Sibuna_Switch/status/1847665451809075315#m
             expcalc->work[3] = 1; // a failed critical capture still shakes once
         }
     }
