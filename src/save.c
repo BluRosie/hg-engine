@@ -856,3 +856,77 @@ void GF_AssertFail(void) {
     PrintCrashMessageAndReset(255, retAddr);
 #endif // DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES_ASSERT_FAIL
 }
+
+#ifdef DEBUG_PRINT_HEAP_ALLOCATION
+extern u32 AllocFromHeapInternal_return_address;
+#endif
+
+void *AllocFromHeapInternal(void * heap UNUSED, u32 size UNUSED, s32 alignment UNUSED, u32 heapId UNUSED) {
+#ifdef DEBUG_PRINT_HEAP_ALLOCATION
+    //GF_ASSERT(heap);
+    // sp+0x14 is always retAddr from AllocFromHeap/Lo.  we store it in r5 before jumping here
+    register u32 retAddr asm("r5");
+    u32 retAddrPerm = retAddr;
+    BOOL better = (AllocFromHeapInternal_return_address == (0x0201AAEC|1));
+
+    if ((*(u32 *)0x0225F18C == 0xFFFFE9E0) // overlay 123 is loaded
+     && (size == 1000 || (retAddrPerm >= 0x0225F020 && retAddrPerm <= 0x02260D74)))
+    {
+        debug_printf("[AllocFromHeapInternal] Return address in overlay 123/124 territory.  Assume clobber attempt.\n");
+        return NULL;
+    }
+
+    u32 intr_mode = OS_DisableInterrupts();
+    size += 0x10;
+    u8 *ptr = NNS_FndAllocFromExpHeapEx(heap, size, alignment);
+
+    OS_RestoreInterrupts(intr_mode);
+    if (ptr != NULL) {
+        //((MemoryBlock *)ptr)->heapId = heapId;
+        *(u32 *)(&ptr[0xC]) = heapId;
+
+        ptr = &ptr[0x10];
+    }
+
+    debug_printf("[AllocFromHeapInternal] %sheapId: %2d, size: %05X @ 0x%08X, retAddr: 0x%08X, total free space: 0x%05X\n", better ? "LO " : "   ", heapId, size, (u32)ptr, retAddrPerm, GF_ExpHeap_FndGetTotalFreeSize(heapId));
+    return ptr;
+#else
+    return NULL;
+#endif
+}
+
+// now get to find out just *what* fails to load i guess
+void FreeToHeap(u8 *ptr UNUSED) {
+#ifdef DEBUG_PRINT_HEAP_ALLOCATION
+    u8 heapId = ptr[-4]; // trust bro
+    debug_printf("[FreeToHeap]    Freeing 0x%08X from heap %2d...  new free space: 0x%05X\n", (u32)ptr, heapId, GF_ExpHeap_FndGetTotalFreeSize(heapId));
+#endif
+}
+void FreeToHeapExplicit(u8 *ptr UNUSED) {
+#ifdef DEBUG_PRINT_HEAP_ALLOCATION
+    u8 heapId = ptr[0xC];
+    debug_printf("[FreeToHeap] EX Freeing 0x%08X from heap %2d...  new free space: 0x%05X\n", (u32)&ptr[0x10], heapId, GF_ExpHeap_FndGetTotalFreeSize(heapId));
+#endif
+}
+
+
+#ifdef DEBUG_PRINT_HEAP_CREATION
+u8 parentHeaps[256] = {0};
+u32 heapSizes[100] = {0};
+#endif
+
+void CreateHeapInternal(u32 parent UNUSED, u32 child UNUSED, u32 size UNUSED, s32 alignment UNUSED) {
+#ifdef DEBUG_PRINT_HEAP_CREATION
+    debug_printf("[CreateHeapInternal] Heap %2d (0x%05X bytes) created from heap %2d (pre-size 0x%05X bytes) at the %s.\n", child, size, parent, GF_ExpHeap_FndGetTotalFreeSize(parent), alignment == 4 ? "start" : "end");
+    parentHeaps[child] = parent;
+    heapSizes[child] = size;
+#endif
+}
+
+void DestroyHeap(u32 heapId UNUSED) {
+#ifdef DEBUG_PRINT_HEAP_CREATION
+    debug_printf("[DestroyHeap] Destroyed heap %2d (size 0x%05X) from parent heap %2d. New size: 0x%05X\n", heapId, heapId < NELEMS(heapSizes) ? heapSizes[heapId] : -1, parentHeaps[heapId], GF_ExpHeap_FndGetTotalFreeSize(parentHeaps[heapId]));
+    parentHeaps[heapId] = 0;
+    heapSizes[heapId] = 0;
+#endif
+}

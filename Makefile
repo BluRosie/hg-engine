@@ -67,7 +67,7 @@ REQUIREMENTS = requirements.txt
 else
 # there is no need to use a virtual environment because python does not have the requirements installed
 PYTHON = $(PYTHON_NO_VENV)
-VENV_ACTIVATE = 
+VENV_ACTIVATE =
 endif
 
 .PHONY: clean all
@@ -108,8 +108,8 @@ SWAV2SWAR_EXE := tools/swav2swar.exe
 SWAV2SWAR := mono $(SWAV2SWAR_EXE)
 
 # Compiler/Assembler/Linker settings
-LDFLAGS = rom.ld -T linker.ld
-ASFLAGS = -mthumb -I ./data
+LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
+ASFLAGS = -mthumb
 CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
 
 ####################### Output #######################
@@ -127,10 +127,12 @@ OUTPUT = $(BUILD)/output.bin
 INCLUDE_SRCS := $(wildcard $(INCLUDE_SUBDIR)/*.h)
 
 C_SRCS := $(wildcard $(C_SUBDIR)/*.c)
+ALL_C_SRCS += $(C_SRCS)
 C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(C_SRCS))
 
 ASM_SRCS := $(wildcard $(ASM_SUBDIR)/*.s)
-ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(ASM_SRCS))
+ALL_ASM_SRCS += $(ASM_SRCS)
+ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(ASM_SRCS))
 OBJS     := $(C_OBJS) $(ASM_OBJS)
 
 REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
@@ -227,14 +229,31 @@ rom_gen.ld:$(LINK) $(OUTPUT) rom.ld $(VENV_ACTIVATE)
 	cp rom.ld rom_gen.ld
 	$(PYTHON) scripts/generate_ld.py
 
-$(BUILD)/%.d:asm/%.s
-	$(AS) $(ASFLAGS) -c $< -o $@
+# create output folders if they do not exist
+define FOLDER_CREATE_DEFINE
+$1: ; mkdir -p $1
+endef
+$(foreach folder, $(CODE_BUILD_DIRS), $(eval $(call FOLDER_CREATE_DEFINE,$(folder))))
 
-$(BUILD)/%.o:src/%.c
-	@# sadly this line is still needed as it stands
-	@mkdir -p $(BUILD) $(BUILD)/field $(BUILD)/battle $(BUILD)/pokedex $(BUILD)/individual
-	@echo -e "Compiling"
-	$(CC) $(CFLAGS) -c $< -o $@
+# generate .d dependency files that are included as part of compiling if it does not exist
+define SRC_OBJ_INC_DEFINE
+ifneq ($(shell test -e $(basename $1).d && echo 1),1)
+# this generates the objects as part of generating the dependency list which will just be massive files of rules
+$1: $2 $(CODE_BUILD_DIRS)
+	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
+	echo "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
+else
+include $(basename $1).d
+endif
+endef
+$(foreach src, $(ALL_C_SRCS), $(eval $(call SRC_OBJ_INC_DEFINE,$(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o, $(src)),$(src))))
+
+define ASM_OBJ_INC_DEFINE
+# these should have similar dependency scanning, but we do not currently use them in a way conducive to it
+$1: $2 $(CODE_BUILD_DIRS)
+	$(AS) $(ASFLAGS) -c $2 -o $1
+endef
+$(foreach src, $(ALL_ASM_SRCS), $(eval $(call ASM_OBJ_INC_DEFINE,$(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o, $(src)),$(src))))
 
 $(LINK):$(OBJS)
 	$(LD) $(LDFLAGS) -o $@ $(OBJS)
@@ -276,15 +295,16 @@ clean:
 clean_tools:
 	rm -rf $(TOOLS) $(VENV)
 
-clean_code:
-	rm -f $(OBJS) $(OVERLAY_OBJS) $(LINKED_OUTPUTS) $(OUTPUT) $(OVERLAY_OUTPUTS) rom_gen.ld rom_gen_battle.ld
+ALL_CODE_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(ALL_C_SRCS)) \
+ $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(ALL_ASM_SRCS)) \
+ $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.d,$(ALL_C_SRCS))
 
-####################### Debug #######################
-print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
+clean_code:
+	rm -f $(ALL_CODE_OBJS) $(LINKED_OUTPUTS) $(OUTPUT) $(OVERLAY_OUTPUTS) rom_gen.ld rom_gen_battle.ld
 
 ####################### Final ROM Build #######################
-CODE_ADDON_ARTIFACTS := $(wildcard build/a028/9_*) $(wildcard build/a028/8_1*) $(wildcard build/a028/8_2*) build/a028/8_07 build/a028/8_08 build/a028/8_09
-CODE_ADDON_ARTIFACTS := $(filter-out build/a028/8_1 build/a028/8_2 build/a028/8_3 build/a028/8_4 build/a028/8_5 build/a028/8_6, $(CODE_ADDON_ARTIFACTS))
+CODE_ADDON_ARTIFACTS := $(wildcard $(BUILD)/a028/9_*) $(wildcard $(BUILD)/a028/8_1*) $(wildcard build/$(BUILD)/8_2*) $(BUILD)/a028/8_07 $(BUILD)/a028/8_08 $(BUILD)/a028/8_09
+CODE_ADDON_ARTIFACTS := $(filter-out $(BUILD)/a028/8_1 $(BUILD)/a028/8_2 $(BUILD)/a028/8_3 $(BUILD)/a028/8_4 $(BUILD)/a028/8_5 $(BUILD)/a028/8_6, $(CODE_ADDON_ARTIFACTS))
 
 move_narc: $(NARC_FILES)
 	@echo "battle hud layout:"
@@ -401,10 +421,10 @@ move_narc: $(NARC_FILES)
 	cp $(PW_POKEICON_NARC) $(PW_POKEICON_TARGET)
 
 	@echo "font:"
-	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" include/config.h) -eq 0 ]; then cp $(FONT_NARC) $(FONT_TARGET); fi
+	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" $(INCLUDE_SUBDIR)/config.h) -eq 0 ]; then cp $(FONT_NARC) $(FONT_TARGET); fi
 
 	@echo "textbox:"
-	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" include/config.h) -eq 0 ]; then cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET); fi
+	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" $(INCLUDE_SUBDIR)/config.h) -eq 0 ]; then cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET); fi
 
 	@echo "scripts:"
 	cp $(SCR_SEQ_NARC) $(SCR_SEQ_TARGET)
@@ -456,5 +476,5 @@ move_narc: $(NARC_FILES)
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:
 
-# debug makefile print
+####################### Debug #######################
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true

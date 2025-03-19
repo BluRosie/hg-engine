@@ -1706,6 +1706,42 @@ struct __attribute__((packed)) ENCOUNT_SEND_OUT_MESSAGE_PARAM
     u8 sel_mons_no[CLIENT_MAX];
 };
 
+
+enum
+{
+    SWOAK_SEQ_VANISH_ON_OFF=0,
+    SWOAK_SEQ_SYNCHRONIZE_CHECK,
+    SWOAK_SEQ_POKE_APPEAR_CHECK,
+    SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_ATTACKER,
+    SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_DEFENDER,
+    SWOAK_SEQ_CHECK_DEFENDER_ITEM_ON_HIT,
+    SWOAK_SEQ_THAW_ICE,
+    SWOAK_SEQ_CHECK_HEALING_ITEMS,
+    SWOAK_SEQ_CLEAR_MAGIC_COAT,
+};
+
+
+typedef enum BeforeTurnState {
+    SBA_RESET_DEFIANT = 0,
+    SBA_RESET_FURY_CUTTER,
+    SBA_RANDOM_SPEED_ROLL,
+    SBA_QUICK_CLAW_CUSTAP_BERRY_O_POWER_ACTIVATION,
+    SBA_SET_GIMMICK_REQUEST_STATUS,
+    // This part is inconsistent between Bulbapedia, Victory Road VGC, and Showdown, defaulting to Showdown for now
+    SBA_ESCAPING,
+    SBA_SWITCHING,
+    SBA_ROTATING,
+    SBA_USING_ITEM,
+    SBA_MEGA_EVOLUTION_ULTRA_BURST,
+    SBA_DYNAMAXING,
+    SBA_TERASTALLIZING,
+    SBA_FOCUS_PUNCH_BEAK_BLAST_SHELL_TRAP,
+    // End inconsistent order
+    SBA_RAGE,
+    SBA_END
+} BeforeTurnState;
+
+
 enum {
     BEFORE_MOVE_START = 0,
 
@@ -1752,6 +1788,7 @@ enum {
     BEFORE_MOVE_STATE_CHECK_STOLEN_BY_SNATCH,
     BEFORE_MOVE_STATE_SET_EXPLOSION_SELF_DESTRUCT_FLAG,
     BEFORE_MOVE_STATE_CHECK_NO_TARGET_OR_SELF,
+    BEFORE_MOVE_STATE_SET_CRASH_FLAG,
     BEFORE_MOVE_STATE_SET_STEEL_BEAM_FLAG,
     BEFORE_MOVE_STATE_CHECK_SKY_DROP_TARGET,
     BEFORE_MOVE_STATE_SEMI_INVULNERABILITY,
@@ -2866,7 +2903,34 @@ BOOL LONG_CALL MoldBreakerIsClientGrounded(struct BattleStruct *sp, u32 attacker
  */
 BOOL LONG_CALL Link_QueueIsEmpty(struct BattleStruct *sp);
 
+/**
+ *  @brief grab a battler's weight
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param client battler whose weight to grab
+ *  @return battler's weight
+ */
+s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, u32 client);
 
+/**
+ *  @brief check if a held item can be removed from the species it is attached to
+ *
+ *  @param species the species of the mon
+ *  @param item the held item of the attacker
+ *  @return TRUE if item can be removed, FALSE otherwise
+ */
+BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
+
+/**
+ *  @brief check if a held item can be tricked or not depending on the items and species
+ *
+ *  @param attacker_item the held item of the attacker
+ *  @param attacker_species the attacker species
+ *  @param defender_item the held item of the defender
+ *  @param defender_species the defender species
+ */
+BOOL LONG_CALL CanTrickHeldItem(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species);
 
 // defined in ability.c
 int LONG_CALL SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
@@ -2891,6 +2955,16 @@ BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int va
  *  @return TRUE if the defender has the ability and it isn't canceled by mold breaker; FALSE otherwise
  */
 u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, u32 ability);
+
+/**
+ *  @brief check if synchronize should activate
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param server_seq_no current server step, to be queued as sp->next_server_seq_no if a synchronize check passes
+ *  @return TRUE if a battle subscript was loaded to sp->SkillSeqWork
+ */
+BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no);
 
 /**
  *  @brief check if a move should activate the defender's ability and run a subscript
@@ -3274,6 +3348,13 @@ BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx
 */
 BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp);
 
+/**
+ * @brief checks if the move index is a punching move
+ * @param move move index to check
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsMovePunchingMove(u16 move);
+
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
@@ -3588,7 +3669,7 @@ BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct
 BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
 
 /// @brief Check if ability can't be suppressed by Gastro Acid or affected by Mummy. See notes for DisabledByNeutralizingGas.
-/// @param ability 
+/// @param ability
 /// @ref AbilityDisabledByNeutralizingGas
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityCantSupress(int ability);

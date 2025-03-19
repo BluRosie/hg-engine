@@ -20,7 +20,6 @@
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 //int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 //BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
-BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no);
 //u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
 BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 //BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
@@ -29,24 +28,7 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
 BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp);
 //u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
-void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp);
-
-
-// https://bulbapedia.bulbagarden.net/wiki/Category:Moves_that_thaw_out_the_user
-// will have to add matcha gotcha and burn up to the list of effects that thaw the user
-u16 gMovesThatThawFrozenMons[] =
-{
-    //MOVE_BURN_UP,
-    //MOVE_FLAME_WHEEL,
-    //MOVE_FLARE_BLITZ,
-    //MOVE_FUSION_FLARE,
-    MOVE_MATCHA_GOTCHA,
-    //MOVE_PYRO_BALL,
-    //MOVE_SACRED_FIRE,
-    MOVE_SCALD,
-    MOVE_SCORCHING_SANDS,
-    MOVE_STEAM_ERUPTION,
-};
+void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 
 /**
@@ -215,12 +197,20 @@ int LONG_CALL SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
     int ret;
     BOOL (*internalFunc)(void *bw, struct BattleStruct *sp);
 
+    u32 loadNeeded = IsOverlayLoaded(OVERLAY_BATTLECONTROLLER_MOVEEND) ? OVERLAY_BATTLECONTROLLER_MOVEEND : 0;
+
+    if (loadNeeded)
+        UnloadOverlayByID(OVERLAY_BATTLECONTROLLER_MOVEEND); // unload overlay 6 so this can be loaded
+
     ovyId = OVERLAY_SWITCHINABILITYCHECK_SPECIFIC;
     offset = 0x023C0400 | 1;
     HandleLoadOverlay(ovyId, 2);
     internalFunc = (int (*)(void *bw, struct BattleStruct *sp))(offset);
     ret = internalFunc(bw, sp);
     UnloadOverlayByID(ovyId);
+
+    if (loadNeeded)
+        HandleLoadOverlay(loadNeeded, 2);
 
     return ret;
 }
@@ -246,29 +236,6 @@ BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int va
     }
 
     return FALSE;
-}
-
-/**
- *  @brief check if the client_no's item can be stolen by pickpocket
- *
- *  @param sp global battle structure
- *  @param client_no battler whose item to check
- *  @return TRUE if the item can be stolen; FALSE otherwise
- */
-BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no)
-{
-    switch(GetBattleMonItem(sp, client_no))
-    {
-        case ITEM_GRASS_MAIL ... ITEM_BRICK_MAIL:
-        case ITEM_VENUSAURITE ... ITEM_DIANCITE:
-        case ITEM_BLUE_ORB:
-        case ITEM_RED_ORB:
-        case ITEM_GRISEOUS_ORB:
-        case ITEM_NONE:
-            return FALSE;
-        default:
-            return TRUE;
-    }
 }
 
 /**
@@ -474,7 +441,7 @@ u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int
  *  @param server_seq_no current server step, to be queued as sp->next_server_seq_no if a synchronize check passes
  *  @return TRUE if a battle subscript was loaded to sp->SkillSeqWork
  */
-BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no)
+BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no)
 {
     BOOL ret;
     int seq_no;
@@ -937,20 +904,6 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
 }
 
 
-enum
-{
-    SWOAK_SEQ_VANISH_ON_OFF=0,
-    SWOAK_SEQ_SYNCHRONIZE_CHECK,
-    SWOAK_SEQ_POKE_APPEAR_CHECK,
-    SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_ATTACKER,
-    SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_DEFENDER,
-    SWOAK_SEQ_CHECK_DEFENDER_ITEM_ON_HIT,
-    SWOAK_SEQ_THAW_ICE,
-    SWOAK_SEQ_CHECK_HEALING_ITEMS,
-    SWOAK_SEQ_CLEAR_MAGIC_COAT,
-};
-
-
 /**
  *  @brief do post move effects--synchronize, held item effects, ice thawing from move usage, etc.
  *         no other abilities here though.  primarily here to add scald melting frozen battlers
@@ -958,154 +911,43 @@ enum
  *  @param bw battle work structure
  *  @param sp global battle structure
  */
-void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
-{
-    // Sort clients because moves may affect speed
-    DynamicSortClientExecutionOrder(bw, sp, FALSE);
-    switch (sp->swoak_seq_no) {
-        case SWOAK_SEQ_VANISH_ON_OFF: {
-            int ret = 0;
-            while (sp->swoak_work < BattleWorkClientSetMaxGet(bw))
-            {
-                if (((sp->battlemon[sp->swoak_work].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0)
-                 && (sp->battlemon[sp->swoak_work].effect_of_moves_temp & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)))
-                {
-                    sp->battlemon[sp->swoak_work].effect_of_moves_temp &= ~(MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE);
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_VANISH_OFF);
-                    sp->battlerIdTemp = sp->swoak_work;
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
-                    ret = 1;
-                }
+//u32 ServerDoPostMoveEffects_restoreOverlay = 0;
 
-                sp->swoak_work++;
+void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    u32 ovyId = OVERLAY_SERVERDOPOSTMOVEEFFECTS, offset = 0x021FF900 | 1, ServerDoPostMoveEffects_restoreOverlay = 0;
 
-                if (ret)
-                    return;
-            }
+    void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+    // if ctx->sba_seq_no == SBA_RESET_DEFIANT before func is called, it is the first call
+    {
+        if (IsOverlayLoaded(OVERLAY_WIFI)) { // we are taking overlay 0's place
+            ServerDoPostMoveEffects_restoreOverlay = TRUE;
+            UnloadOverlayByID(OVERLAY_WIFI);
+        } else if (IsOverlayLoaded(18)) {
+            ServerDoPostMoveEffects_restoreOverlay = OVERLAY_POKEDEX;
+            UnloadOverlayByID(OVERLAY_POKEDEX);
         }
-        sp->swoak_seq_no++;
-        sp->swoak_work=0;
-        FALLTHROUGH;
-    case SWOAK_SEQ_SYNCHRONIZE_CHECK:
-        sp->swoak_seq_no++;
-        if (SynchroniseAbilityCheck(bw, sp, sp->server_seq_no) == TRUE)
-            return;
-        FALLTHROUGH;
-    case SWOAK_SEQ_POKE_APPEAR_CHECK:
-        {
-            int seq_no;
 
-            seq_no = ST_ServerPokeAppearCheck(bw,sp);
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+        debug_printf("Load OVERLAY_SERVERDOPOSTMOVEEFFECTS\n");
+#endif
 
-            if (seq_no)
-            {
-                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
-                return;
-            }
-        }
-        sp->swoak_seq_no++;
-        FALLTHROUGH;
-    case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_ATTACKER:
-        sp->swoak_seq_no++;
-        if (TryUseHeldItem(bw, sp, sp->attack_client) == TRUE) // will eventually need TryUseHeldItem anyway.  generic berry function thing
-            return;
-        FALLTHROUGH;
-    case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_DEFENDER:
-        sp->swoak_seq_no++;
-        if (sp->defence_client != 0xFF)
-        {
-            if (TryUseHeldItem(bw, sp, sp->defence_client) == TRUE)
-                return;
-        }
-        FALLTHROUGH;
-    case SWOAK_SEQ_CHECK_DEFENDER_ITEM_ON_HIT:
-        {
-            int seq_no;
-
-            sp->swoak_seq_no++;
-            if (CheckDefenderItemEffectOnHit(bw, sp, &seq_no) == TRUE)
-            {
-                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
-                return;
-            }
-        }
-        FALLTHROUGH;
-    case SWOAK_SEQ_THAW_ICE:
-        {
-            int movetype;
-            u16 currMove = sp->current_move_index;
-
-            movetype = GetAdjustedMoveType(sp, sp->attack_client, currMove); // new normalize checks
-
-            sp->swoak_seq_no++;
-
-            if (sp->defence_client != 0xFF)
-            {
-                if ((sp->battlemon[sp->defence_client].condition & STATUS_FREEZE)
-                 && ((sp->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS) == 0)
-                 && (sp->defence_client != sp->attack_client)
-                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
-                 && (sp->battlemon[sp->defence_client].hp)
-                 && ((movetype == TYPE_FIRE) || (IsElementInArray(gMovesThatThawFrozenMons, &currMove, NELEMS(gMovesThatThawFrozenMons), sizeof(u16)))) // scald can also melt opponents as of gen 6
-                 && sp->oneTurnFlag[sp->attack_client].parental_bond_flag == 0)
-                {
-                    sp->battlerIdTemp = sp->defence_client;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
-                    return;
-                }
-            }
-        }
-        FALLTHROUGH;
-    case SWOAK_SEQ_CHECK_HEALING_ITEMS:
-        {
-            int client_no;
-            int ret=0;
-            int seq_no;
-
-            while (sp->swoak_work < BattleWorkClientSetMaxGet(bw))
-            {
-                client_no = sp->turnOrder[sp->swoak_work];
-                if (sp->no_reshuffle_client & No2Bit(client_no))
-                {
-                    sp->swoak_work++;
-                    continue;
-                }
-
-                sp->swoak_work++;
-
-                if (HeldItemHealStatusCheck(bw, sp, client_no, &seq_no) == TRUE) // will also probably need this one too
-                {
-                    sp->battlerIdTemp = client_no;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
-                    ret = 1;
-                    break;
-                }
-            }
-
-            if (ret == 0)
-            {
-                sp->swoak_seq_no++;
-                sp->swoak_work = 0;
-            }
-        }
-        FALLTHROUGH;
-    case SWOAK_SEQ_CLEAR_MAGIC_COAT:
-        sp->magicBounceTracker = FALSE;
-        sp->swoak_seq_no++;
-        break;
-    default:
-        break;
+        //offset = 0x023C0400 | 1;
+        HandleLoadOverlay(ovyId, 2);
     }
-    sp->swoak_seq_no = 0;
-    sp->swoak_work = 0;
-    sp->server_seq_no = 32;
+    internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
+    internalFunc(bsys, ctx);
+
+    //if (ctx->swoak_seq_no >= SWOAK_SEQ_CLEAR_MAGIC_COAT) // can finally unload the overlay
+    {
+        if (ServerDoPostMoveEffects_restoreOverlay) {
+            UnloadOverlayByID(ovyId);
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+            debug_printf("Restoring overlay %d...\n", (ServerDoPostMoveEffects_restoreOverlay == 1 ? OVERLAY_WIFI : ServerDoPostMoveEffects_restoreOverlay));
+#endif
+            HandleLoadOverlay((ServerDoPostMoveEffects_restoreOverlay == 1 ? OVERLAY_WIFI : ServerDoPostMoveEffects_restoreOverlay), 2);
+        }
+    }
+
+    ctx->swoak_seq_no = 0; // reset according to the scriptures
 }
