@@ -541,6 +541,14 @@ struct OVERWORLD_TAG
     u16 callback_params;
 };
 
+#define POKEMON_OVERWORLDS_TAG_START 0x1000
+#define POKEMON_OVERWORLDS_GFX_START 297
+// POKEMON_OVERWORLDS_FEMALE_ADJUSTMENT is automatically adjusted by scripts/reformat_sprite_data.py
+#define POKEMON_OVERWORLDS_FEMALE_ADJUSTMENT 1530 
+#define OVERWORLD_TAG_FROM_SPECIES_FACTOR_GENDER(species, isFemale) (POKEMON_OVERWORLDS_TAG_START + species + POKEMON_OVERWORLDS_FEMALE_ADJUSTMENT*isFemale)
+#define OVERWORLD_TAG_FROM_SPECIES(species, form) (POKEMON_OVERWORLDS_TAG_START + PokeIconIndexGetByMonsNumber(species, 0, form))
+#define OVERWORLD_GFX_FROM_SPECIES_FACTOR_GENDER(species, isFemale) (POKEMON_OVERWORLDS_GFX_START + species + POKEMON_OVERWORLDS_FEMALE_ADJUSTMENT*isFemale)
+#define OVERWORLD_GFX_FROM_SPECIES(species, form) (POKEMON_OVERWORLDS_TAG_START + PokeIconIndexGetByMonsNumber(species, 0, form))
 
 // frick new formes
 struct PLIST_DATA
