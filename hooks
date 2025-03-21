@@ -137,7 +137,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
-arm9 TT_TrainerTypeSexGet 020735F8 1 
+arm9 TT_TrainerTypeSexGet 020735F8 1
 
 #fix money calculation -
 0012 fix_money_calc 0800829E 0
@@ -464,11 +464,10 @@ arm9 ScrCmd_DaycareSanitizeMon 0204CFB8 1
 
 #ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
 arm9 AllocFail_hook 0201AA7C 0
-#endif
-# DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
 arm9 GF_AssertFail 0202551C 0
+#endif
 
-0012 ov12_0224D368 0224D368 3
+0012 BattleController_MoveEnd 0224D368 3
 0012 ov12_0224C4D8 0224C4D8 3
 0012 ov12_0224D03C 0224D03C 3
 0012 BattleController_LoopMultiHit 0224CF14 3
@@ -488,7 +487,7 @@ arm9 GF_AssertFail 0202551C 0
 # evolutions with forms, this time bugless
 # used for queuing up sprites
 arm9 form_evo_hook_1 02077224 1
-# actually setting the new mon's form
+# actually setting the new mon form
 arm9 form_evo_hook_2 0207641C 0
 
 #ifdef IMPLEMENT_REUSABLE_REPELS
@@ -506,3 +505,18 @@ arm9 sub_0207AFC4 0207AFC4 1
 
 #02259C40(+4)  _CreateTradeMon	(npc_trade.o)
 0023 _CreateTradeMon_hook 02259C44 5
+
+#ifdef DEBUG_PRINT_HEAP_ALLOCATION
+
+#arm9 AllocFromHeapInternal_hook 0201AA3C 5
+arm9 FreeToHeap_hook 0201AB10 1
+arm9 FreeToHeapExplicit_hook 0201ABC8 4
+
+#endif
+
+#ifdef DEBUG_PRINT_HEAP_CREATION
+
+arm9 CreateHeapInternal_hook 0201A92C 4
+arm9 DestroyHeap_hook 0201AA24 3
+
+#endif

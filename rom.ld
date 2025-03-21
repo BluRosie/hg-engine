@@ -738,3 +738,8 @@ BufferItemNameWithIndefArticle = 0x0200C100 | 1;
 _GetNpcTradeName = 0x02259C1C | 1;
 MonSetTrainerMemo = 0x0208F260 | 1;
 MapHeader_GetMapSec = 0x0203B36C | 1;
+
+OS_DisableInterrupts = 0x020D3A38;
+NNS_FndAllocFromExpHeapEx = 0x020B53A0;
+OS_RestoreInterrupts = 0x020D3A4C;
+sHeapInfo = 0x021D1584;

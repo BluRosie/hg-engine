@@ -525,3 +525,8 @@ arm9 080550D4 2C
 
 # _CreateTradeMon_hook setup
 0023 02259C40 60 B4 C0 46
+
+#ifdef DEBUG_PRINT_HEAP_ALLOCATION
+## AllocFromHeapInternal func setup
+#arm9 0201AA38 60 B4 C0 46
+#endif

@@ -1388,8 +1388,9 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro CalcConfusionDamage
+    .macro CalcConfusionDamage arg_0
     .long 254
+    .long (((\arg_0 - .) / 4) - 1)
     .endm
 
     .macro CheckCanActivateDefiantOrCompetitive arg_0, arg_1, arg_2
