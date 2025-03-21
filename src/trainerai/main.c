@@ -10,10 +10,11 @@
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
 #include "../../src/battle/ai.c"
+#include "../../data/itemdata/itemdata.c"
 
 // quick hello world example that just runs through the moves and selects the highest base power one
 // likely breaks roamers, but we'll get there when we get there
-enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 battler)
+enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
 {
     enum AIActionChoice result = AI_ENEMY_ATTACK_1, highestBasePower = 0;
     struct BattleStruct *ctx = bsys->sp;
@@ -27,21 +28,23 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     {
         //get move index first -- will be using it a lot.
 
-        int attacker_move = ctx->battlemon[battler].move[i];
-        int attacker_ability = ctx->battlemon[battler].ability;
+        int attacker_move = ctx->battlemon[attacker].move[i];
+        int attacker_ability = ctx->battlemon[attacker].ability;
         int defender_ability = ctx->battlemon[defender].ability;
         int attacker_move_effect = ctx->moveTbl[attacker_move].effect;
         int attacker_move_effectiveness = 0;
-        int hold_effect = BattleItemDataGet(ctx, ctx->battlemon[battler].item, 1);
+        
+        int attacker_item = ctx->battlemon[attacker].item;
+        int hold_effect = BattleItemDataGet(ctx, attacker_item, 1);
         int defender_type_1 = ctx->battlemon[defender].type1;
         int defender_type_2 = ctx->battlemon[defender].type2;
-        int attacker_type_1 = ctx->battlemon[battler].type1;
-        int attacker_type_2 = ctx->battlemon[battler].type2;
+        int attacker_type_1 = ctx->battlemon[attacker].type1;
+        int attacker_type_2 = ctx->battlemon[attacker].type2;
 
         int attacker_move_type = ctx->moveTbl[attacker_move].type;
-        int attacker_hp = ctx->battlemon[battler].hp;
-        int attacker_max_hp = ctx->battlemon[battler].maxhp;
-        int attacker_speed = ctx->battlemon[battler].speed;
+        int attacker_hp = ctx->battlemon[attacker].hp;
+        int attacker_max_hp = ctx->battlemon[attacker].maxhp;
+        int attacker_speed = ctx->battlemon[attacker].speed;
         int defender_speed = ctx->battlemon[defender].speed;
         u32 effectiveness_flag = 0;
 
@@ -118,7 +121,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
                  defender_ability == ABILITY_LIMBER ||
                  (defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
                  (defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ||
-                 (defender_ability == ABILITY_MAGIC_GUARD && ctx->battlemon[battler].speed > ctx->battlemon[defender].speed)) 
+                 (defender_ability == ABILITY_MAGIC_GUARD && ctx->battlemon[attacker].speed > ctx->battlemon[defender].speed)) 
             ){
             moveScores[i] -= 10;
         }
@@ -172,7 +175,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             moveScores[i] -= 10;
         }
         /*Check for immunity to infatuation*/
-        if((attacker_move == MOVE_ATTRACT) && 
+        if((attacker_move_effect == MOVE_EFFECT_INFATUATE) && 
             (ctx->battlemon[defender].condition2 & STATUS2_ATTRACT || 
              defender_ability == ABILITY_OBLIVIOUS ||
              ctx->battlemon[defender].sex == ctx->battlemon[defender].sex ||
@@ -185,11 +188,11 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         int party_size_attacking = Battle_GetClientPartySize(bsys, defender);
         int living_attacking_members = 0;
 
-        int party_size_defending = Battle_GetClientPartySize(bsys, battler);
+        int party_size_defending = Battle_GetClientPartySize(bsys, attacker);
         int living_defending_members = 0;
 
         for (i = 0; i < party_size_attacking; i++) {
-            struct PartyPokemon * current_mon_attacking = Battle_GetClientPartyMon(bsys, battler, i);
+            struct PartyPokemon * current_mon_attacking = Battle_GetClientPartyMon(bsys, attacker, i);
             if(!(GetMonData(current_mon_attacking, MON_DATA_HP, 0) == 0 ||
             GetMonData(current_mon_attacking, MON_DATA_SPECIES_OR_EGG, 0) == 0||
             GetMonData(current_mon_attacking, MON_DATA_SPECIES_OR_EGG, 0) == 494)){
@@ -205,36 +208,36 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
                 living_defending_members++;
             }
         }
-        if((attacker_move == MOVE_EXPLOSION || attacker_move == MOVE_SELF_DESTRUCT || attacker_move == MOVE_MISTY_EXPLOSION) && 
+        if((attacker_move_effect == MOVE_EFFECT_HALVE_DEFENSE ) && 
         ((defender_ability == ABILITY_DAMP && attacker_ability != ABILITY_MOLD_BREAKER) ||
             (living_attacking_members == 1 && living_defending_members > 1))){
             moveScores[i] -= 10; //prevents ai auto-losing the battle
         }
-        else if((attacker_move == MOVE_EXPLOSION || attacker_move == MOVE_SELF_DESTRUCT || attacker_move == MOVE_MISTY_EXPLOSION) &&
+        else if((attacker_move_effect == MOVE_EFFECT_HALVE_DEFENSE) &&
              (living_attacking_members == 1 && living_defending_members == 1)){
             moveScores[i] = -1; //Ai will consider exploding if both parties have one Pokemon left
         }
 
         /*Handle nightmare*/
-        if(attacker_move == MOVE_NIGHTMARE && 
+        if(attacker_move_effect == MOVE_EFFECT_STATUS_NIGHTMARE && 
         (ctx->battlemon[defender].condition2 & STATUS2_NIGHTMARE ||
             defender_ability == ABILITY_MAGIC_GUARD)){
             moveScores[i] -= 10;
         }
-        else if(attacker_move == MOVE_NIGHTMARE &&
+        else if(attacker_move_effect == MOVE_EFFECT_STATUS_NIGHTMARE &&
             ctx->battlemon[defender].condition != STATUS_SLEEP){
             moveScores[i] -= 8;
         }
 
         /*Handle dream eater*/
-        if(attacker_move == MOVE_DREAM_EATER &&
+        if(attacker_move_effect == MOVE_EFFECT_RECOVER_DAMAGE_SLEEP &&
             ctx->battlemon[defender].condition != STATUS_SLEEP){ //must be asleep
             moveScores[i] -= 10;
         }
 
         /*Handle belly drum*/
         
-        if(attacker_move == MOVE_BELLY_DRUM &&
+        if(attacker_move_effect == MOVE_EFFECT_MAX_ATK_LOSE_HALF_MAX_HP &&
             (attacker_hp * 100 / attacker_max_hp < 51 )){
             moveScores[i] -= 10;
         }
@@ -265,7 +268,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         if((attacker_move_effect == MOVE_EFFECT_ATK_UP ||
             attacker_move_effect == MOVE_EFFECT_ATK_UP_2 || 
             attacker_move_effect == MOVE_EFFECT_ATK_UP_3 ) &&
-            (ctx->battlemon[battler].states[STAT_ATTACK] >= 12)){
+            (ctx->battlemon[attacker].states[STAT_ATTACK] >= 12)){
             moveScores[i] -= 10;
         }
         // defense
@@ -273,28 +276,28 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             attacker_move_effect == MOVE_EFFECT_DEF_UP_2 || 
             attacker_move_effect == MOVE_EFFECT_DEF_UP_3 ||
             attacker_move_effect == MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER) &&
-            (ctx->battlemon[battler].states[STAT_DEFENSE] >= 12)){
+            (ctx->battlemon[attacker].states[STAT_DEFENSE] >= 12)){
             moveScores[i] -= 10;
         }
         // sp. atk
         else if((attacker_move_effect == MOVE_EFFECT_SP_ATK_UP ||
             attacker_move_effect == MOVE_EFFECT_SP_ATK_UP_2 || 
             attacker_move_effect == MOVE_EFFECT_SP_ATK_UP_3 ) &&
-            (ctx->battlemon[battler].states[STAT_SPATK] >= 12)){
+            (ctx->battlemon[attacker].states[STAT_SPATK] >= 12)){
             moveScores[i] -= 10;
         }
         //sp.def
         else if((attacker_move_effect == MOVE_EFFECT_SP_DEF_UP ||
             attacker_move_effect == MOVE_EFFECT_SP_DEF_UP_2 || 
             attacker_move_effect == MOVE_EFFECT_SP_DEF_UP_3 ) &&
-            (ctx->battlemon[battler].states[STAT_SPDEF] >= 12)){
+            (ctx->battlemon[attacker].states[STAT_SPDEF] >= 12)){
             moveScores[i] -= 10;
         }
         //speed
         else if((attacker_move_effect == MOVE_EFFECT_SPEED_UP ||
             attacker_move_effect == MOVE_EFFECT_SPEED_UP_2 || 
             attacker_move_effect == MOVE_EFFECT_SPEED_UP_3 ) &&
-            (ctx->battlemon[battler].states[STAT_SPEED] >= 12)){
+            (ctx->battlemon[attacker].states[STAT_SPEED] >= 12)){
             moveScores[i] -= 10;
         }
 
@@ -416,7 +419,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         /*Handle Haze, Psych Up, Heart Swap*/
         bool8 hasStatChange = 0;
         for(i = 0; i < STAT_MAX; i++){
-            if (ctx->battlemon[battler].states[i] != 0 ||
+            if (ctx->battlemon[attacker].states[i] != 0 ||
                 ctx->battlemon[defender].states[i] != 0){
                 hasStatChange = 1;
             }
@@ -446,7 +449,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         /*OHKO moves*/
         if((attacker_move_effect == MOVE_EFFECT_ONE_HIT_KO) &&
             ((defender_ability == ABILITY_STURDY && attacker_ability != ABILITY_MOLD_BREAKER) || 
-            ctx->battlemon[battler].level < ctx->battlemon[defender].level)){
+            ctx->battlemon[attacker].level < ctx->battlemon[defender].level)){
                 moveScores[i] -= 10;
         }
 
@@ -455,21 +458,21 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         Power Trick / Lucky Chant / Aqua Ring / Magnet Rise*/
         if((ctx->battlemon[defender].condition2 & STATUS2_FOCUS_ENERGY  &&
           attacker_move_effect == MOVE_EFFECT_CRIT_UP_2)||
-          (ctx->battlemon[battler].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN  &&
+          (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN  &&
             attacker_move_effect == MOVE_EFFECT_GROUND_TRAP_USER_CONTINUOUS_HEAL) ||
-            (ctx->battlemon[battler].effect_of_moves & MOVE_EFFECT_FLAG_WATER_SPORT  &&
+            (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_WATER_SPORT  &&
                 attacker_move_effect == MOVE_EFFECT_HALVE_ELECTRIC_DAMAGE) ||
-                (ctx->battlemon[battler].effect_of_moves & MOVE_EFFECT_FLAG_MUD_SPORT &&
+                (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_MUD_SPORT &&
                     attacker_move_effect == MOVE_EFFECT_HALVE_FIRE_DAMAGE) ||
-                    (ctx->battlemon[battler].effect_of_moves & MOVE_EFFECT_FLAG_CAMOUFLAGE &&
+                    (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_CAMOUFLAGE &&
                         attacker_move_effect == MOVE_EFFECT_CAMOUFLAGE) ||
-                        (ctx->battlemon[battler].effect_of_moves & MOVE_EFFECT_FLAG_POWER_TRICK &&
+                        (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_POWER_TRICK &&
                             attacker_move_effect == MOVE_EFFECT_SWAP_ATK_DEF) ||
                             (ctx->side_condition[attacker_side] & SIDE_STATUS_LUCKY_CHANT &&
                                 attacker_move_effect == MOVE_EFFECT_PREVENT_CRITS) ||
-                                (ctx->battlemon[battler].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING &&
+                                (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING &&
                                     attacker_move_effect == MOVE_EFFECT_RESTORE_HP_EVERY_TURN) ||
-                                    (ctx->battlemon[battler].effect_of_moves & MOVE_EFFECT_FLAG_MAGNET_RISE &&
+                                    (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_MAGNET_RISE &&
                                         attacker_move_effect == MOVE_EFFECT_GIVE_GROUND_IMMUNITY) ||
                                         ( (attacker_type_2  == TYPE_FLYING ||attacker_type_2  == TYPE_FLYING ||
                                              attacker_ability == ABILITY_LEVITATE) &&
@@ -480,7 +483,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         }
         /*Handle substitute*/
         if(attacker_move_effect == MOVE_EFFECT_SET_SUBSTITUTE && 
-            (ctx->battlemon[battler].condition2 & STATUS2_SUBSTITUTE || attacker_hp*100/attacker_max_hp < 26) ){
+            (ctx->battlemon[attacker].condition2 & STATUS2_SUBSTITUTE || attacker_hp*100/attacker_max_hp < 26) ){
             moveScores[i] -= 10;
         } //might have to consider status moves that are blocked by sub (unrelated)
 
@@ -505,7 +508,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         /*Handle sleep-necessitated moves*/
         if((attacker_move_effect == MOVE_EFFECT_USE_RANDOM_LEARNED_MOVE_SLEEP || //snore and sleep talk
              attacker_move_effect == MOVE_EFFECT_DAMAGE_WHILE_ASLEEP) && 
-            (ctx->battlemon[battler].condition != STATUS_SLEEP) ){
+            (ctx->battlemon[attacker].condition != STATUS_SLEEP) ){
             moveScores[i] -= 10;
         }
 
@@ -536,35 +539,37 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         }
 
         /*Handle Curse*/
-        if((attacker_move == MOVE_CURSE && 
+        if((attacker_move_effect == MOVE_EFFECT_CURSE && 
             (attacker_type_1 == TYPE_GHOST || attacker_type_2 == TYPE_GHOST ||
-            ctx->battlemon[battler].condition2 == STATUS2_CURSE || defender_ability == ABILITY_MAGIC_GUARD) )||
-            (attacker_move == MOVE_CURSE && 
+            ctx->battlemon[attacker].condition2 == STATUS2_CURSE || defender_ability == ABILITY_MAGIC_GUARD) )||
+            (attacker_move_effect == MOVE_EFFECT_CURSE && 
                 (attacker_type_1 != TYPE_GHOST || attacker_type_2 == TYPE_GHOST) &&
-                (ctx->battlemon[battler].states[STAT_ATTACK] >= 12 || ctx->battlemon[battler].states[STAT_DEFENSE] >= 12))){
+                (ctx->battlemon[attacker].states[STAT_ATTACK] >= 12 || ctx->battlemon[attacker].states[STAT_DEFENSE] >= 12))){
             moveScores[i] -= 10;
         }
         /*Handle hazards*/
-        if((attacker_move == MOVE_STEALTH_ROCK && 
-            (ctx->side_condition[defender_side] & SIDE_STATUS_STEALTH_ROCK ||living_defending_members == 1 )) ||
-            (attacker_move == MOVE_SPIKES && 
-                (ctx->scw[defender_side].spikesLayers >= 3 ||living_defending_members == 1) )||
-                (attacker_move == MOVE_TOXIC_SPIKES && 
-                    (ctx->scw[defender_side].toxicSpikesLayers >= 2 ||living_defending_members == 1))){
+        if((attacker_move_effect == MOVE_EFFECT_STEALTH_ROCK && 
+            (ctx->side_condition[defender_side] & SIDE_STATUS_STEALTH_ROCK || living_defending_members == 1 )) ||
+            (attacker_move_effect == MOVE_EFFECT_SET_SPIKES && 
+                (ctx->scw[defender_side].spikesLayers >= 3 || living_defending_members == 1) )||
+                (attacker_move_effect == MOVE_EFFECT_TOXIC_SPIKES && 
+                    (ctx->scw[defender_side].toxicSpikesLayers >= 2 || living_defending_members == 1))){
             moveScores[i] -= 10;
         }
         /*Handle weather*/
-        if((attacker_move == MOVE_SANDSTORM && 
+        if((attacker_move_effect == MOVE_EFFECT_WEATHER_SANDSTORM && 
             (ctx->field_condition & WEATHER_SANDSTORM_ANY)) ||
-            (attacker_move == MOVE_HAIL && 
-                (ctx->field_condition & WEATHER_HAIL_ANY)) ||
-                (attacker_move == MOVE_RAIN_DANCE && 
+            (attacker_move_effect == MOVE_EFFECT_WEATHER_HAIL && 
+                (ctx->field_condition & WEATHER_HAIL_ANY )) ||
+                (attacker_move_effect == MOVE_EFFECT_WEATHER_SNOW && 
+                    (ctx->field_condition & WEATHER_SNOW_ANY )) ||
+                (attacker_move_effect == MOVE_EFFECT_WEATHER_RAIN && 
                     (ctx->field_condition & WEATHER_RAIN_ANY)) ||
-                    (attacker_move == MOVE_SUNNY_DAY && 
+                    (attacker_move_effect == MOVE_EFFECT_WEATHER_SUN && 
                         (ctx->field_condition & WEATHER_SUNNY_ANY))){
             moveScores[i] -= 8;
         }
-        if((attacker_move == MOVE_RAIN_DANCE && (attacker_ability != ABILITY_SWIFT_SWIM && attacker_ability != ABILITY_HYDRATION)) && 
+        if((attacker_move_effect == MOVE_EFFECT_WEATHER_RAIN && (attacker_ability != ABILITY_SWIFT_SWIM && attacker_ability != ABILITY_HYDRATION)) && 
             (ctx->battlemon[defender].condition != STATUS_NONE &&
             ctx->battlemon[defender].ability == ABILITY_HYDRATION) ){
             moveScores[i] -= 8;
@@ -585,33 +590,33 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             moveScores[i] -= 12;
         }
         /*Handle baton pass, shed tail*/
-        if((attacker_move == MOVE_BATON_PASS || attacker_move == MOVE_SHED_TAIL) &&
+        if((attacker_move_effect == MOVE_EFFECT_PASS_STATS_AND_STATUS || attacker_move_effect == MOVE_EFFECT_SHED_TAIL) &&
             living_attacking_members == 1){
             moveScores[i] -= 10;
         }
         /*Handle fake out after turn one*/
-        if(attacker_move == MOVE_FAKE_OUT && ctx->battlemon[battler].moveeffect.fakeOutCount != 0){
+        if(attacker_move_effect == MOVE_EFFECT_ALWAYS_FLINCH_FIRST_TURN_ONLY && ctx->battlemon[attacker].moveeffect.fakeOutCount != 0){
             moveScores[i] -= 10;
         }
         /*Handle stockpile*/
         
-        if(attacker_move == MOVE_STOCKPILE && ctx->battlemon[battler].moveeffect.stockpileCount < 3){
+        if(attacker_move_effect == MOVE_EFFECT_STOCKPILE && ctx->battlemon[attacker].moveeffect.stockpileCount < 3){
             moveScores[i] -= 10;
         }
         /*Spit up / Swallow*/
-        if((attacker_move == MOVE_SPIT_UP || attacker_move == MOVE_SWALLOW) 
-        && ctx->battlemon[battler].moveeffect.stockpileCount == 0){
+        if((attacker_move_effect == MOVE_EFFECT_SPIT_UP || attacker_move_effect == MOVE_EFFECT_SWALLOW) 
+        && ctx->battlemon[attacker].moveeffect.stockpileCount == 0){
             moveScores[i] -= 10;
         }
         /*Handle Memento*/
-        if(attacker_move == MOVE_MEMENTO && ((defender_ability == ABILITY_WHITE_SMOKE ||
+        if(attacker_move_effect == MOVE_EFFECT_FAINT_AND_ATK_SP_ATK_DOWN_2 && ((defender_ability == ABILITY_WHITE_SMOKE ||
             defender_ability == ABILITY_CLEAR_BODY) && attacker_ability != ABILITY_MOLD_BREAKER) ||
-            (ctx->battlemon[battler].states[STAT_ATTACK] <= 0 ||ctx->battlemon[battler].states[STAT_SPATK] <= 0)){
+            (ctx->battlemon[attacker].states[STAT_ATTACK] <= 0 ||ctx->battlemon[attacker].states[STAT_SPATK] <= 0)){
                 moveScores[i] -= 10;
         }
 
         /*Handle Helping Hand*/
-        if(attacker_move == MOVE_HELPING_HAND && !(BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE))){
+        if(attacker_move_effect == MOVE_EFFECT_BOOST_ALLY_POWER_BY_50_PERCENT && !(BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE))){
             moveScores[i] -= 10;
         }
         /*Trick, Switcheroo, Knock Off*/ 
@@ -620,14 +625,14 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         //dont have their own. I'm going to skip these for now.
 
         /*Handle imprison*/
-        if(attacker_move == MOVE_IMPRISON && 
-            (ctx->battlemon[battler].effect_of_moves & MOVE_EFFECT_FLAG_IMPRISONED ||
+        if(attacker_move_effect == MOVE_EFFECT_MAKE_SHARED_MOVES_UNUSEABLE && 
+            (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_IMPRISONED ||
                  ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_IMPRISONED )){
                     moveScores[i] -= 10;
         }
 
         /*Handle Refresh*/
-        if(attacker_move == MOVE_REFRESH && 
+        if(attacker_move_effect == MOVE_EFFECT_HEAL_STATUS && 
             !(ctx->battlemon[defender].condition & STATUS_POISON_ALL ||
                 ctx->battlemon[defender].condition & STATUS_PARALYSIS ||
                 ctx->battlemon[defender].condition & STATUS_BURN )){
@@ -648,59 +653,59 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
         /*Bulk Up*/
         if(attacker_move_effect == MOVE_EFFECT_ATK_DEF_UP && //tickle, in particular
-            (ctx->battlemon[battler].states[STAT_ATTACK] <= 0 )){
+            (ctx->battlemon[attacker].states[STAT_ATTACK] <= 0 )){
                     moveScores[i] -= 10;
         }
         if(attacker_move_effect == MOVE_EFFECT_ATK_DEF_UP &&
-            (ctx->battlemon[battler].states[STAT_DEFENSE] <= 0)){
+            (ctx->battlemon[attacker].states[STAT_DEFENSE] <= 0)){
                     moveScores[i] -= 8;
         }// Punishes each stat if already raised to +6
 
         /*Bulk Up*/
         if(attacker_move_effect == MOVE_EFFECT_SP_ATK_SP_DEF_UP && //tickle, in particular
-            (ctx->battlemon[battler].states[STAT_SPATK] <= 0)){
+            (ctx->battlemon[attacker].states[STAT_SPATK] <= 0)){
                     moveScores[i] -= 10;
         }
         if(attacker_move_effect == MOVE_EFFECT_SP_ATK_SP_DEF_UP &&
-            (ctx->battlemon[battler].states[STAT_SPDEF] <= 0)){
+            (ctx->battlemon[attacker].states[STAT_SPDEF] <= 0)){
                     moveScores[i] -= 8;
         }// Punishes each stat if already raised to +6
 
         /*Dragon Dance*/
         if(attacker_move_effect == MOVE_EFFECT_ATK_SPEED_UP && //tickle, in particular
-            (ctx->battlemon[battler].states[STAT_ATTACK] <= 0 )){
+            (ctx->battlemon[attacker].states[STAT_ATTACK] <= 0 )){
                     moveScores[i] -= 10;
         }
         if(attacker_move_effect == MOVE_EFFECT_ATK_SPEED_UP &&
-            (ctx->battlemon[battler].states[STAT_SPEED] <= 0)){
+            (ctx->battlemon[attacker].states[STAT_SPEED] <= 0)){
                     moveScores[i] -= 8;
         }// Punishes each stat if already raised to +6
 
         /*Tailwind*/
-        if(attacker_move == MOVE_TAILWIND &&
+        if(attacker_move_effect == MOVE_EFFECT_DOUBLE_SPEED_3_TURNS &&
         (ctx->side_condition[attacker_side] & SIDE_STATUS_TAILWIND ||
             ctx->field_condition & FIELD_STATUS_TRICK_ROOM)){
             moveScores[i] -= 10;
         }
         /*Gravity*/
-        if(attacker_move == MOVE_GRAVITY &&
+        if(attacker_move_effect == MOVE_EFFECT_GRAVITY &&
         (ctx->field_condition & FIELD_STATUS_GRAVITY)){
             moveScores[i] -= 10;
         }
         /*Trick Room*/
-        if(attacker_move == MOVE_TRICK_ROOM &&
+        if(attacker_move_effect == MOVE_EFFECT_TRICK_ROOM &&
         (attacker_speed >= defender_speed)){
             moveScores[i] -= 10;
         }
         /*Healing Wish and Lunar Dance*/
-        if((attacker_move == MOVE_HEALING_WISH || attacker_move == MOVE_LUNAR_DANCE)){
+        if((attacker_move_effect == MOVE_EFFECT_FAINT_FULL_RESTORE_NEXT_MON)){
             moveScores[i] = -20;
         }
         //Check hp of attacking party
         int damaged_attacking_mons = 0;
         int statused_attacking_mons = 0;
         for (i = 0; i < party_size_attacking; i++) {
-            struct PartyPokemon * current_mon_attacking = Battle_GetClientPartyMon(bsys, battler, i);
+            struct PartyPokemon * current_mon_attacking = Battle_GetClientPartyMon(bsys, attacker, i);
             if(GetMonData(current_mon_attacking, MON_DATA_HP, 0) ==
              GetMonData(current_mon_attacking, MON_DATA_MAXHP, 0)){
                 damaged_attacking_mons++;
@@ -709,40 +714,57 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
                 statused_attacking_mons++;
             }
         }
-        if((attacker_move == MOVE_HEALING_WISH || attacker_move == MOVE_LUNAR_DANCE) &&
+        if((attacker_move_effect == MOVE_EFFECT_FAINT_AND_FULL_HEAL_NEXT_MON)  &&
             (damaged_attacking_mons > 0 || statused_attacking_mons > 0)){
             moveScores[i] -= 10;
         }
-        if((attacker_move == MOVE_HEALING_WISH || attacker_move == MOVE_LUNAR_DANCE) &&
+        if((attacker_move_effect == MOVE_EFFECT_FAINT_FULL_RESTORE_NEXT_MON) &&
             (living_attacking_members == 1)){
-            moveScores[i] -= 10;
+            moveScores[i] -= 10;//can penalize twice
         }
 
         /*Natural Gift*/
-        if(attacker_move == MOVE_NATURAL_GIFT &&
-            (!IS_ITEM_BERRY(ctx->battlemon[battler].item))){
+        if(attacker_move_effect == MOVE_EFFECT_NATURAL_GIFT &&
+            (!IS_ITEM_BERRY(attacker_item))){
                 moveScores[i] -= 10;
         }
 
         /*Acupressure*/
-        if(attacker_move == MOVE_ACUPRESSURE &&
-            (ctx->battlemon[battler].states[STAT_ATTACK] >= 12 ||
-            ctx->battlemon[battler].states[STAT_DEFENSE] >= 12 ||
-            ctx->battlemon[battler].states[STAT_SPATK] >= 12 ||
-            ctx->battlemon[battler].states[STAT_SPDEF] >= 12 ||
-            ctx->battlemon[battler].states[STAT_SPEED] >= 12 ||
-            ctx->battlemon[battler].states[STAT_EVASION] >= 12 ||
-            ctx->battlemon[battler].states[STAT_ACCURACY] >= 12)){
+        if(attacker_move_effect == MOVE_EFFECT_RANDOM_STAT_UP_2 &&
+            (ctx->battlemon[attacker].states[STAT_ATTACK] >= 12 ||
+            ctx->battlemon[attacker].states[STAT_DEFENSE] >= 12 ||
+            ctx->battlemon[attacker].states[STAT_SPATK] >= 12 ||
+            ctx->battlemon[attacker].states[STAT_SPDEF] >= 12 ||
+            ctx->battlemon[attacker].states[STAT_SPEED] >= 12 ||
+            ctx->battlemon[attacker].states[STAT_EVASION] >= 12 ||
+            ctx->battlemon[attacker].states[STAT_ACCURACY] >= 12)){
                 moveScores[i] -= 10;
         }
         
         /*Metal Burst*/
-        if(attacker_move == MOVE_METAL_BURST &&
+        if(attacker_move_effect == MOVE_EFFECT_METAL_BURST &&
             (defender_ability == ABILITY_STALL || defender_speed < attacker_speed)){
                 moveScores[i] -= 10;
         }
-        if(attacker_move == MOVE_METAL_BURST && attacker_ability == ABILITY_STALL){
+        if(attacker_move_effect == MOVE_EFFECT_METAL_BURST && attacker_ability == ABILITY_STALL){
             moveScores[i] += 10;
+        }
+        /*Embargo*/
+        if(attacker_move_effect == MOVE_EFFECT_PREVENT_ITEM_USE &&
+            (ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_EMBARGO)){
+                moveScores[i] -= 10;
+        }
+        /*Fling*/
+        /*TODO: immunities to fling effects like burn from flame orb on a fire type defender*/
+        u32 fling_power = GetBattleItemData(ctx, attacker_item, ITEM_PARAM_FLING_POWER);
+        if(attacker_move_effect == MOVE_EFFECT_FLING &&
+            (attacker_ability == ABILITY_MULTITYPE || attacker_item == ITEM_NONE || 
+            fling_power == 0)){
+            moveScores[i] -= 10;
+        }
+        /*Psycho Shift*/
+        if(attacker_move_effect == MOVE_EFFECT_TRANSFER_STATUS){
+            
         }
 
         u32 currentBasePower = ctx->moveTbl[attacker_move].power;
