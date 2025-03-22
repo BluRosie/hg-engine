@@ -241,7 +241,7 @@ ifneq ($(shell test -e $(basename $1).d && echo 1),1)
 # this generates the objects as part of generating the dependency list which will just be massive files of rules
 $1: $2 $(CODE_BUILD_DIRS)
 	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
-	echo "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
+	printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
 else
 include $(basename $1).d
 endif
