@@ -11,12 +11,14 @@
 #include "../../include/constants/battle_message_constants.h"
 #include "../../src/battle/ai.c"
 #include "../../data/itemdata/itemdata.c"
+#include "../../src/battle/battle_calc_damage.c"
 
 /*Field/Pokemon state relavent variables*/
 bool8 defender_immune_to_poison;
 bool8 defender_immune_to_paralysis;
 bool8 defender_immune_to_burn;
 bool8 defender_immune_to_sleep;
+bool8 attacker_knows_psych_up;
 int defender;
 int defender_side;
 int attacker_side;
@@ -30,6 +32,10 @@ int attacker_type_1;
 int attacker_type_2;
 int attacker_hp;
 int attacker_max_hp;
+int attacker_percent_hp;
+int defender_hp;
+int defender_max_hp;
+int defender_percent_hp;
 int attacker_speed;
 int defender_speed;
 u32 effectiveness_flag;
@@ -46,9 +52,26 @@ int attacker_move_effect;
 int attacker_move_effectiveness;       
 int attacker_move_type;
 
+int max_roll_move_damages[4] = {0};
+
 
 /*Flag functions return a move score, given the index of the current move*/
 int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i);
+int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i);
+int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i);
+int SetupFirstTurnFlag (struct BattleSystem *bsys, u32 attacker, int i);
+int RiskyFlag (struct BattleSystem *bsys, u32 attacker, int i);
+int PrioritizeDamageFlag (struct BattleSystem *bsys, u32 attacker, int i);
+int BatonPassFlag (struct BattleSystem *bsys, u32 attacker, int i);
+int TagStrategyFlag (struct BattleSystem *bsys, u32 attacker, int i);
+int CheckHPFlag (struct BattleSystem *bsys, u32 attacker, int i);
+int WeatherFlag (struct BattleSystem *bsys, u32 attacker, int i);
+int HarassmentFlag (struct BattleSystem *bsys, u32 attacker, int i);
+
+//int CalcPotentialDamage ();
+
+
+
 
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
     {
@@ -73,9 +96,16 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     attacker_type_1 = ctx->battlemon[attacker].type1;
     attacker_type_2 = ctx->battlemon[attacker].type2;
     attacker_hp = ctx->battlemon[attacker].hp;
+    defender_hp = ctx->battlemon[defender].hp;
     attacker_max_hp = ctx->battlemon[attacker].maxhp;
+    defender_max_hp = ctx->battlemon[defender].maxhp;
+
+    attacker_percent_hp = attacker_hp * 100 / attacker_max_hp;
+    defender_percent_hp = defender_hp * 100 / defender_max_hp; 
     attacker_speed = ctx->battlemon[attacker].speed;
     defender_speed = ctx->battlemon[defender].speed;
+
+
     defender_immune_to_poison = 
         (defender_type_1 == TYPE_POISON || defender_type_2 == TYPE_POISON || //need to consider corrosion
         defender_type_1 == TYPE_STEEL || defender_type_2 == TYPE_STEEL ||
@@ -132,10 +162,22 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     }
     damaged_attacking_mons = 0;
     statused_attacking_mons = 0;
+    attacker_knows_psych_up = 0;
     attacker_moves_known = GetBattlerLearnedMoveCount(bsys, ctx, attacker);
+    //CalcBaseDamage(bsys, ctx, attacker_move, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move].power, 0, attacker, defender, 0);
+
+    /*Loop over all moves for checking certain conditions*/
+    /*Set up max roll damage calculations for all known moves.*/
+    for(int i = 0; i < attacker_moves_known; i++){
+
+        int attacker_move_check = ctx->battlemon[attacker].move[i];
+        max_roll_move_damages[i] = CalcBaseDamage(bsys, ctx, attacker_move_check, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move_check].power, 0, attacker, defender, 0);
+        if(attacker_move_check == MOVE_PSYCH_UP){
+            attacker_knows_psych_up = 1;
+        }
+    }
     
-
-
+    
     /*Main loop over moves and select the best one*/
     for (int i = 0; i < 4; i++)
     {
@@ -145,9 +187,10 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         attacker_move_effectiveness = 0;       
         attacker_move_type = ctx->moveTbl[attacker_move].type;
         AITypeCalc(ctx, attacker_move, attacker_move_type, attacker_ability, defender_ability, hold_effect, defender_type_1, defender_type_2, & effectiveness_flag);
-        moveScores[i] = BasicFlag(bsys, attacker, i);
-
-
+        //should loop over trainer's flags set in trainers.s here
+        moveScores[i] += BasicFlag(bsys, attacker, i);
+        moveScores[i] += EvaluateAttackFlag(bsys, attacker, i);
+        moveScores[i] += ExpertFlag(bsys, attacker, i);
     }
     for(int i = 0; i < 4; i++){
         if(moveScores[i] > moveScores[result]){
@@ -158,6 +201,11 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     return result;
 }
 
+
+/*Flags' logic*/
+
+
+/*Heavily penalize stupid choices that would fail*/
 int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
@@ -882,5 +930,145 @@ int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i){
         ctx->battlemon[defender].states[STAT_SPATK] == 0)){
         moveScore -= 10;
     }
+    return moveScore;
+}
+
+/*A lot of this vanillal logic is really stupid and
+should definitely be changed.*/
+int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i){
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+
+    //damage *= (100 - (BattleRand(bw) % 16)); // 85-100% damage roll (for % calcs)
+    //int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
+    //u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
+    //int damage = CalcBaseDamage(bsys, ctx, ctx->current_move_index, ctx->side_condition[side], ctx->field_condition, 0, 0, ctx->attack_client, ctx->defence_client, 1) * -1;
+
+
+    //int max_roll_attacker_damage = CalcBaseDamage(bsys, ctx, attacker_move, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move].power, 0, attacker, defender, 0);
+    
+    /*Check if the current move kills*/
+    if (max_roll_move_damages[i] >= defender_hp){
+        if(attacker_move_effect == MOVE_EFFECT_HALVE_DEFENSE ){
+            moveScore += 0;
+        }
+        //These should REALLY be re-vamped. This vanilla logic is awful
+        else if(attacker_move_effect == MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING || // sucker punch, future sight, focus punch
+            attacker_move_effect == MOVE_EFFECT_HIT_IN_3_TURNS ||
+            attacker_move_effect == MOVE_EFFECT_HIT_LAST_WHIFF_IF_HIT){
+            if(BattleRand(bsys) % 3 == 0){
+                moveScore += 4; 
+            }
+        }
+        //Prioritize priority moves
+        //Including valid fake out, vanilla does not check this
+        else if(ctx->moveTbl[attacker_move].priority > 0 ||
+            (attacker_move_effect == MOVE_EFFECT_ALWAYS_FLINCH_FIRST_TURN_ONLY &&
+            ctx->battlemon[attacker].moveeffect.fakeOutCount == 0)){
+            moveScore += 6;
+        }
+        else{
+            moveScore += 4;
+        }
+    }
+    bool8 is_current_move_not_strongest = 0;
+    for(int j = 0; j < attacker_moves_known; j++){
+        if ( i != j && max_roll_move_damages[i] < max_roll_move_damages[j]){
+            is_current_move_not_strongest = 1;
+        }
+    }
+    /*Penalize a move that is weaker than others known*/
+    if(is_current_move_not_strongest != 0){
+        moveScore -= 1;
+    }
+    /*Penalize random moves 80% of the time????*/
+    if(attacker_move_effect == MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING || // sucker punch, boom moves, focus punch
+        attacker_move_effect == MOVE_EFFECT_HALVE_DEFENSE ||
+        attacker_move_effect == MOVE_EFFECT_HIT_LAST_WHIFF_IF_HIT){
+        if(BattleRand(bsys) % 10 < 8){
+            moveScore -= 2;
+        }
+    }
+    /*There's a check to see if a move is quad effective for
+    a 31% chance to get +2, but there's not a need. We are already calculating 
+    the move damage anyway. Adding in unnecessary RNG is not a good idea.*/
+
+    return moveScore;
+}
+
+/*In the case of custom ai hacks, this should probably where edits happen.
+A lot of this logic adds in probability.*/
+int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+
+    /*Sleep-required moves*/
+    if((attacker_move_effect == MOVE_EFFECT_STATUS_NIGHTMARE ||
+        attacker_move_effect == MOVE_EFFECT_RECOVER_DAMAGE_SLEEP) &&
+        ctx->battlemon[defender].condition != STATUS_SLEEP){
+            if(BattleRand(bsys) % 2 < 1){
+                moveScore += 1;
+            }
+    }
+
+    /*Poison should only be used if user/defender is > 50% HP*/
+    if((attacker_move_effect == MOVE_EFFECT_STATUS_POISON ||
+        attacker_move_effect == MOVE_EFFECT_STATUS_BADLY_POISON) &&
+        (defender_percent_hp < 50 || attacker_percent_hp < 50)){
+            moveScore -= 1;
+    }
+
+    if(attacker_move_effect == MOVE_EFFECT_STATUS_PARALYZE){
+        if(attacker_speed < defender_speed){
+            moveScore += 3;
+        }
+        if(attacker_percent_hp <= 70){
+            moveScore -= 1;
+        }
+    }
+
+    /*Confusion inducing moves*/
+    if(attacker_move_effect == MOVE_EFFECT_STATUS_CONFUSE ||
+        attacker_move_effect == MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION ||
+        attacker_move_effect == MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION){//confuse ray, supersonic, etc.
+        if(attacker_percent_hp <= 70){
+            if(BattleRand(bsys) % 2 < 1){
+                moveScore -= 1;
+            }
+        }
+        if(defender_percent_hp <= 50){
+            moveScore -= 1;
+        }
+        if(defender_percent_hp <= 30){
+            moveScore -= 1;
+        }        
+        if(attacker_move_effect == MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION){//flatter-specific
+            if(BattleRand(bsys) % 2 < 1){
+                moveScore -= 1;
+            }
+        }
+        if(attacker_move_effect == MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION){//swagger-specific
+            if(!attacker_knows_psych_up){
+                if(BattleRand(bsys) % 2 < 1){
+                    moveScore += 1;
+                }
+            }
+            else{
+                if(ctx->battlemon[defender].states[STAT_ATTACK] >= 3){
+                    moveScore -= 5;
+                }
+                else if(ctx->total_turn == 0){
+                    moveScore += 5;
+                }
+                else{
+                    moveScore += 3;
+                }
+
+            }
+        }
+    }
+
+    
+
     return moveScore;
 }
