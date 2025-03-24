@@ -3545,27 +3545,23 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         case MOVE_TRICK:
         case MOVE_SWITCHEROO: {
             // TODO
-            if ((attackerItem == ITEM_NONE && defenderItem == ITEM_NONE)
-            || IS_ITEM_MAIL(attackerItem) || IS_ITEM_MAIL(defenderItem)
-            // || IS_ITEM_Z_CRYSTAL(attackerItem) || IS_ITEM_Z_CRYSTAL(defenderItem)
-            || ((attackerSpecies == SPECIES_KYOGRE || defenderSpecies == SPECIES_KYOGRE) && (attackerItem == ITEM_BLUE_ORB || defenderItem == ITEM_BLUE_ORB))
-            || ((attackerSpecies == SPECIES_GROUDON || defenderSpecies == SPECIES_GROUDON) && (attackerItem == ITEM_RED_ORB || defenderItem == ITEM_RED_ORB))
-            || (CheckMegaData(attackerSpecies, attackerItem) || CheckMegaData(defenderSpecies, attackerItem) || CheckMegaData(attackerSpecies, defenderItem) || CheckMegaData(defenderSpecies, defenderItem))
-            || ((attackerSpecies == SPECIES_GIRATINA || defenderSpecies == SPECIES_GIRATINA) && (attackerItem == ITEM_GRISEOUS_CORE || defenderItem == ITEM_GRISEOUS_CORE))
-            || ((attackerSpecies == SPECIES_ARCEUS || defenderSpecies == SPECIES_ARCEUS) && (IS_ITEM_ARCEUS_PLATE(attackerItem) || IS_ITEM_ARCEUS_PLATE(defenderItem)))
-            || ((attackerSpecies == SPECIES_GENESECT || defenderSpecies == SPECIES_GENESECT) && (IS_ITEM_GENESECT_DRIVE(attackerItem) || IS_ITEM_GENESECT_DRIVE(defenderItem)))
-            || ((attackerSpecies == SPECIES_SILVALLY || defenderSpecies == SPECIES_SILVALLY) && (IS_ITEM_MEMORY(attackerItem) || IS_ITEM_MEMORY(defenderItem)))
-            || ((attackerSpecies == SPECIES_ZACIAN || defenderSpecies == SPECIES_ZACIAN) && (attackerItem == ITEM_RUSTED_SWORD || defenderItem == ITEM_RUSTED_SWORD))
-            || ((attackerSpecies == SPECIES_ZAMAZENTA || defenderSpecies == SPECIES_ZAMAZENTA) && (attackerItem == ITEM_RUSTED_SHIELD || defenderItem == ITEM_RUSTED_SHIELD))
-            || ((attackerSpecies == SPECIES_OGERPON || defenderSpecies == SPECIES_OGERPON) && (IS_ITEM_MASK(attackerItem) || IS_ITEM_MASK(defenderItem)))
-            ) {
+            if (!CanTrickHeldItem(ctx, ctx->attack_client, ctx->defence_client)) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_BESTOW: {
+            // CheckMegaData will gladly tell you that a galarian slowbro needs its slowbronite...  we make it work here
+            if (defenderItem == ITEM_NONE
+             && attackerSpecies == SPECIES_SLOWBRO
+             && attackerItem == ITEM_SLOWBRONITE
+             && ctx->battlemon[ctx->attack_client].form_no == 2)
+            {
+                break;
+            }
             //TODO
             if (attackerItem == ITEM_NONE
+            // || !CanItemBeRemovedFromClient(ctx, ctx->defence_client) // corrosive gas nonsense prevents this rn i think
             || defenderItem != ITEM_NONE
             || IS_ITEM_MAIL(attackerItem)
             // || IS_ITEM_Z_CRYSTAL(attackerItem)

@@ -51,6 +51,8 @@ struct BattleStruct *ServerInit(struct BattleSystem *bw) {
     sp->original_terrain = bw->terrain;
     sp->original_bgId = bw->bgId;
 
+    gBattleSystem = bw;
+
     return sp;
 }
 

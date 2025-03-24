@@ -2922,6 +2922,8 @@ s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, u32 cli
  */
 BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
 
+BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client);
+
 /**
  *  @brief check if a held item can be tricked or not depending on the items and species
  *
@@ -2930,7 +2932,9 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
  *  @param defender_item the held item of the defender
  *  @param defender_species the defender species
  */
-BOOL LONG_CALL CanTrickHeldItem(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species);
+BOOL LONG_CALL CanTrickHeldItemManual(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species);
+
+BOOL LONG_CALL CanTrickHeldItem(struct BattleStruct *ctx, u32 attacker, u32 defender);
 
 // defined in ability.c
 int LONG_CALL SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);

@@ -3493,45 +3493,24 @@ BOOL BtlCmd_CheckSubstitute(void *bsys, struct BattleStruct *ctx) {
  */
 BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
 {
-    u32 item = sp->battlemon[sp->defence_client].item;
-    u32 species = sp->battlemon[sp->defence_client].species;
-    u32 ability = GetBattlerAbility(sp, sp->defence_client);
+    u32 attacker = sp->attack_client;
+    u32 defender = sp->defence_client;
+    u32 item = sp->battlemon[defender].item;
+    //u32 species = sp->battlemon[defender].species;
+    u32 ability = GetBattlerAbility(sp, defender);
 
     // if the user is about to die because of an opponent's rough skin, iron barbs, or rocky helmet, then do not proc knock off's item removal
         // abilities do 1/8th total hp as damage
-    if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[sp->attack_client].hp <= (s32)(sp->battlemon[sp->attack_client].maxhp) / 8)
+    if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 8)
         // rocky helmet does 1/6th total hp as damage
-      || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[sp->attack_client].hp <= (s32)(sp->battlemon[sp->attack_client].maxhp) / 6))
+      || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 6))
      && IsContactBeingMade(bw, sp)
      && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)
     {
         return FALSE;
     }
 
-    if (item != 0
-        // z crystals can not be removed wherever they are
-        //&& !IS_ITEM_Z_CRYSTAL(item)
-        // mega stones can not be knocked off their own mon
-        && !CheckMegaData(species, item)
-        && !((sp->battlemon[sp->defence_client].species == SPECIES_KYOGRE && sp->battlemon[sp->defence_client].item == ITEM_BLUE_ORB)
-        || (sp->battlemon[sp->defence_client].species == SPECIES_GROUDON && sp->battlemon[sp->defence_client].item == ITEM_RED_ORB))
-        // arceus plate on arceus can not be knocked off
-        && !(species == SPECIES_ARCEUS && IS_ITEM_ARCEUS_PLATE(item))
-        // technically this can be knocked off as of SV but the transformation code hasnt been moved to the core as of right now so ill leave it alone for right now
-        && !(species == SPECIES_GIRATINA && item == ITEM_GRISEOUS_ORB)
-        // drives can not be knocked off of genesect
-        && !(species == SPECIES_GENESECT && IS_ITEM_GENESECT_DRIVE(item))
-        // silvally can not have its memory knocked off
-        && !(species == SPECIES_SILVALLY && IS_ITEM_MEMORY(item))
-        // zacian can not have its rusted sword knocked off
-        && !(species == SPECIES_ZACIAN && item == ITEM_RUSTED_SWORD)
-        // zamazenta can not have its rusted shield knocked off
-        && !(species == SPECIES_ZAMAZENTA && item == ITEM_RUSTED_SHIELD)
-        // paradox mons can not have their booster energy knocked off
-        && !(IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
-        // masks can not be knocked off of ogerpon
-        && !(species == SPECIES_OGERPON && IS_ITEM_MASK(item))
-    )
+    if (item != 0 && CanItemBeRemovedFromClient(sp, defender))
     {
         return TRUE;
     }
@@ -3758,10 +3737,27 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
 
     // then the other swathes of species
     if ((IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
-     || CheckMegaData(species, item))
+     || (CheckMegaData(species, item)))
         return FALSE;
 
     return TRUE;
+}
+
+BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client)
+{
+    u32 species = ctx->battlemon[client].species;
+    u32 item = ctx->battlemon[client].item; // bypass klutz and friends probably
+    u32 form = ctx->battlemon[client].form_no;
+
+    // CheckMegaData will gladly tell you a galarian slowbro can't lose its slowbronite...  we have to take over
+    if (species == SPECIES_SLOWBRO && item == ITEM_SLOWBRONITE && form == 2)
+    {
+        return TRUE;
+    }
+    else
+    {
+        return CanItemBeRemovedFromSpecies(species, item);
+    }
 }
 
 /**
@@ -3773,27 +3769,45 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
  *  @param defender_species the defender species
  *  @return TRUE if the interacting species and items can trick, FALSE otherwise
  */
-BOOL LONG_CALL CanTrickHeldItem(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species)
+BOOL LONG_CALL CanTrickHeldItemManual(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species)
 {
-    // if( ((attacker_item == ITEM_RUSTED_SHIELD || defender_item == ITEM_RUSTED_SHIELD) && (attacker_species == SPECIES_ZAMAZENTA || defender_species == SPECIES_ZAMAZENTA))
-    //     || ((attacker_item == ITEM_RUSTED_SWORD || defender_item == ITEM_RUSTED_SWORD) && (attacker_species == SPECIES_ZACIAN || defender_species == SPECIES_ZACIAN))
-    //     || ((IS_ITEM_GENESECT_DRIVE(attacker_item) || IS_ITEM_GENESECT_DRIVE(defender_item)) && (attacker_species == SPECIES_GENESECT || defender_species == SPECIES_GENESECT))
-    //     || ((attacker_item == ITEM_BLUE_ORB || defender_item == ITEM_BLUE_ORB) && (attacker_species == SPECIES_KYOGRE || defender_species == SPECIES_KYOGRE))
-    //     || ((attacker_item == ITEM_RED_ORB || defender_item == ITEM_RED_ORB) && (attacker_species == SPECIES_GROUDON || defender_species == SPECIES_GROUDON))
-    //     || ((attacker_item == ITEM_GRISEOUS_ORB || defender_item == ITEM_GRISEOUS_ORB) && (attacker_species == SPECIES_GIRATINA || defender_species == SPECIES_GIRATINA))
-    //     || ((IS_ITEM_MEMORY(attacker_item) || IS_ITEM_MEMORY(defender_item)) && (attacker_species == SPECIES_SILVALLY || defender_species == SPECIES_SILVALLY))
-    //     || ((attacker_item == ITEM_BOOSTER_ENERGY || defender_item == ITEM_BOOSTER_ENERGY) && (IS_SPECIES_PARADOX_FORM(attacker_species) || IS_SPECIES_PARADOX_FORM(defender_species)))
-    //     || ((IS_ITEM_MASK(attacker_item) || IS_ITEM_MASK(defender_item)) && (attacker_species == SPECIES_OGERPON || defender_species == SPECIES_OGERPON))
-    //     || (CheckMegaData(attacker_species, attacker_item) || CheckMegaData(defender_species, defender_item))
-    //     || (CheckMegaData(attacker_species, defender_item) || CheckMegaData(defender_species, attacker_item))
-    //     || IS_ITEM_MAIL(attacker_item) // || IS_ITEM_Z_CRYSTAL(attacker_item)
-    //     || IS_ITEM_MAIL(defender_item)) // || IS_ITEM_Z_CRYSTAL(defender_item)
-    //     return FALSE;
-    // return TRUE;
     return (CanItemBeRemovedFromSpecies(attacker_species, attacker_item)
          && CanItemBeRemovedFromSpecies(attacker_species, defender_item)
          && CanItemBeRemovedFromSpecies(defender_species, attacker_item)
          && CanItemBeRemovedFromSpecies(defender_species, defender_item));
+}
+
+BOOL LONG_CALL CanTrickHeldItem(struct BattleStruct *ctx, u32 attacker, u32 defender)
+{
+    u32 attackerSpecies = ctx->battlemon[attacker].species;
+    u32 attackerItem = ctx->battlemon[attacker].item; // bypass klutz and friends probably
+    u32 attackerForm = ctx->battlemon[attacker].form_no;
+    u32 defenderSpecies = ctx->battlemon[defender].species;
+    u32 defenderItem = ctx->battlemon[defender].item; // bypass klutz and friends probably
+    u32 defenderForm = ctx->battlemon[defender].form_no;
+
+    BOOL attackerSlowbroHandling = (attackerSpecies == SPECIES_SLOWBRO && (attackerItem == ITEM_SLOWBRONITE || defenderItem == ITEM_SLOWBRONITE) && attackerForm == 2);
+    BOOL defenderSlowbroHandling = (defenderSpecies == SPECIES_SLOWBRO && (attackerItem == ITEM_SLOWBRONITE || defenderItem == ITEM_SLOWBRONITE) && defenderForm == 2);
+
+    // CheckMegaData will gladly tell you a galarian slowbro can't trick its slowbronite away...  we have to take over
+    if (attackerSlowbroHandling && defenderSlowbroHandling)
+    {
+        return TRUE;
+    }
+    else if (attackerSlowbroHandling || defenderSlowbroHandling)
+    {
+        u32 offendingItem = attackerItem == ITEM_SLOWBRONITE ? 1 : defenderItem == ITEM_SLOWBRONITE ? 2 : 0;
+        if (offendingItem == 1)
+        {
+            attackerItem = ITEM_POKE_BALL;
+        }
+        else if (offendingItem == 2)
+        {
+            defenderItem = ITEM_POKE_BALL;
+        }
+    }
+
+    return (CanTrickHeldItemManual(attackerItem, attackerSpecies, defenderItem, defenderSpecies));
 }
 
 BOOL BtlCmd_TrySwapItems(void* bw, struct BattleStruct *sp)
@@ -3809,14 +3823,14 @@ BOOL BtlCmd_TrySwapItems(void* bw, struct BattleStruct *sp)
 #endif
 
     int attackerItem = sp->battlemon[sp->attack_client].item;
-    int attackerSpecies = sp->battlemon[sp->attack_client].species;
+    //int attackerSpecies = sp->battlemon[sp->attack_client].species;
     int defenderItem = sp->battlemon[sp->defence_client].item;
-    int defenderSpecies = sp->battlemon[sp->defence_client].species;
+    //int defenderSpecies = sp->battlemon[sp->defence_client].species;
     if (isTrickAllowedInFight != 0)
         IncrementBattleScriptPtr(sp, attack);
     else if (attackerItem == 0 && defenderItem == 0)
         IncrementBattleScriptPtr(sp, attack);
-    else if (!CanTrickHeldItem(attackerItem, attackerSpecies, defenderItem, defenderSpecies))
+    else if (!CanTrickHeldItem(sp, sp->attack_client, sp->defence_client))
         IncrementBattleScriptPtr(sp, attack);
     else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE)
         IncrementBattleScriptPtr(sp, defence);
