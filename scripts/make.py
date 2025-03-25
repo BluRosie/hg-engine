@@ -20,8 +20,8 @@ if sys.platform.startswith('win'):
     if PATH == '':
         PATH = 'C://devkitPro//devkitARM//bin'
         if os.path.isdir(PATH) is False:
-            print('Devkit not found.')
-            sys.exit(1)
+            print('Devkit not found, trying executables on PATH...')
+            PATH = ''
 
     PREFIX = 'arm-none-eabi-'
     OBJDUMP = os.path.join(PATH, PREFIX + 'objdump')
@@ -34,20 +34,53 @@ else:  # Linux, OSX, etc.
     else:
         PREFIX = 'arm-none-eabi-'
     OBJDUMP = (PREFIX + 'objdump')
-    NM = (PREFIX + 'nm')
+    if sys.platform.startswith('darwin'):
+        NM = ('nm')
+    else:
+        NM = (PREFIX + 'nm')
     AS = (PREFIX + 'as')
 
-OUTPUT = 'build/output.bin'
-OUTPUT_FIELD = 'build/output_field.bin'
-OUTPUT_BATTLE = 'build/output_battle.bin'
+
 BYTE_REPLACEMENT = 'bytereplacement'
 HOOKS = 'hooks'
 ARM_HOOKS = 'armhooks'
 REPOINTS = 'repoints'
 ROUTINE_POINTERS = 'routinepointers'
 
-LINKED_SECTIONS = ['build/linked.o', 'build/battle_linked.o', 'build/field_linked.o']
-OFFSET_START_IN_129 = 0x1000
+# step 1:  list folders in a directory
+SOURCE = "src"
+BUILD = "build"
+SRC_FILES = os.listdir(SOURCE)
+OVERLAYS = []
+for file in SRC_FILES:
+    if ".c" not in file and "individual" not in file and ".ld" not in file:
+        OVERLAYS.append(file)
+
+# construct output filename list
+NEW_OVERLAYS = []
+for file in OVERLAYS:
+    NEW_OVERLAYS.append(BUILD + "/output_" + file + ".bin")
+
+# repeat to grab individual overlays
+SRC_FILES = os.listdir(SOURCE + "/individual")
+INDIVIDUAL_OVERLAYS = []
+for file in SRC_FILES:
+    if ".c" in file:
+        INDIVIDUAL_OVERLAYS.append(file[:-1 * len(".c")])
+
+# construct output filename list
+NEW_INDIVIDUAL_OVERLAYS = []
+for file in INDIVIDUAL_OVERLAYS:
+    NEW_INDIVIDUAL_OVERLAYS.append(BUILD + "/output_" + file + ".bin")
+print
+
+# treat overlay 129 specially
+OUTPUT = BUILD + "/output.bin"
+
+LINKED_SECTIONS = [BUILD + "/linked.o"]
+for file in OVERLAYS:
+    LINKED_SECTIONS.append(BUILD + "/" + file + "_linked.o")
+OFFSET_START_IN_129 = 0x600
 
 def ExtractPointer(byteList: [bytes]):
     pointer = 0
@@ -63,15 +96,15 @@ def GetTextSection(section=0) -> int:
         # Dump sections
         out = subprocess.check_output([OBJDUMP, '-t', LINKED_SECTIONS[section]])
         lines = out.decode().split('\n')
-    
+
         # Find text section
         text = filter(lambda x: x.strip().endswith('.text'), lines)
         section = (list(text))[0]
-    
+
         # Get the offset
         offset = int(section.split(' ')[0], 16)
         return offset
-    
+
     except:
         print("Error: The insertion process could not be completed.\n"
               + "The linker symbol file was not found. Most likely the compilation process was not completed.")
@@ -94,7 +127,7 @@ def GetSymbols() -> {str: int}:
 
             if parts[1].lower() not in {'t', 'd'}:
                 continue
-    
+
             offset = int(parts[0], 16)
             ret[parts[2]] = offset# - subtract
 
@@ -256,7 +289,17 @@ def install():
                     except ValueError:
                         newNumber = int(newNumber, 16)
 
-                    newNumber = str(hex(newNumber)).split('0x')[1]
+                    if (newNumber >= 16777216): # 32 bits
+                        #newNumber = str(hex(newNumber)).split('0x')[1]
+                        newNumber = (str(hex(newNumber & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 8 & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 16 & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 24 & 0xFF)).split('0x')[1])
+                    elif (newNumber >= 65536): # 24 bits
+                        #newNumber = str(hex(newNumber)).split('0x')[1]
+                        newNumber = (str(hex(newNumber & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 8 & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 16 & 0xFF)).split('0x')[1])
+                    elif (newNumber >= 256): # 16 bits
+                        #newNumber = str(hex(newNumber)).split('0x')[1]
+                        newNumber = (str(hex(newNumber & 0xFF)).split('0x')[1] + " " + str(hex(newNumber >> 8 & 0xFF)).split('0x')[1])
+                    else:
+                        newNumber = str(hex(newNumber)).split('0x')[1]
                     ReplaceBytes(rom2, offset, newNumber)
                 rom2.close()
 
@@ -334,23 +377,82 @@ def writeall():
             rom.seek(OFFSET_START_IN_129)
             rom.write(binary.read())
             binary.close()
+        with open("base/overarm9.bin", "rb+") as y9Table:
+            # update overlay 129 entry
+            # determine insertion location
+            with open(SOURCE + "/linker.ld") as linkerFile:
+                for line in linkerFile:
+                    if "ORIGIN" in line:
+                        address = int(line.split()[4][len("0x"):], 0x10)
+                        break
+            y9Table.seek(129*0x20) # seek address
+            y9Table.write(struct.pack('<I', 129)) # id
+            y9Table.write(struct.pack('<I', address)) # memaddress
+            y9Table.write(struct.pack('<I', os.path.getsize("base/overlay/overlay_0129.bin"))) # memsize
+            y9Table.write(struct.pack('<I', 0)) # bsssize
+            y9Table.write(struct.pack('<I', 0)) # initstart
+            y9Table.write(struct.pack('<I', 0)) # initend
+            y9Table.write(struct.pack('<I', 129)) # file id
+            y9Table.write(struct.pack('<I', 0)) # uncompressed
         rom.close()
 
-    OFFECTSFILES = "base/overlay/overlay_0130.bin"
-    with open(OFFECTSFILES, 'wb+') as rom:
-        with open(OUTPUT_BATTLE, 'rb') as binary:
-            rom.seek(0)
-            rom.write(binary.read())
-            binary.close()
-        rom.close()
+    # all of the conglomerated overlays
+    for i in range(0, len(OVERLAYS)):
+        with open(SOURCE + "/" + OVERLAYS[i] + "/linker.ld") as file:
+            line = file.readline()
+            # grab first line of format /* Overlay ### */, convert ### to a number
+            newOverlay = int(line.split(" ")[2])
+            # determine insertion location
+            for line in file:
+                if "ORIGIN" in line:
+                    address = int(line.split()[4][len("0x"):-1], 0x10)
+                    break
+        with open(f"base/overlay/overlay_{newOverlay:04}.bin", 'wb+') as rom:
+            with open(NEW_OVERLAYS[i], 'rb') as binary:
+                rom.seek(0)
+                rom.write(binary.read())
+                binary.close()
+            rom.close()
+        with open("base/overarm9.bin", "rb+") as y9Table:
+            y9Table.seek(newOverlay*0x20) # seek address
+            y9Table.write(struct.pack('<I', newOverlay)) # id
+            y9Table.write(struct.pack('<I', address)) # memaddress
+            y9Table.write(struct.pack('<I', os.path.getsize(f"base/overlay/overlay_{newOverlay:04}.bin"))) # memsize
+            y9Table.write(struct.pack('<I', 0)) # bsssize
+            y9Table.write(struct.pack('<I', 0)) # initstart
+            y9Table.write(struct.pack('<I', 0)) # initend
+            y9Table.write(struct.pack('<I', newOverlay)) # file id
+            y9Table.write(struct.pack('<I', 0)) # uncompressed
+        #print(f"{OVERLAYS[i]} written to overlay {newOverlay}...")
 
-    OFFECTSFILES = "base/overlay/overlay_0131.bin"
-    with open(OFFECTSFILES, 'wb+') as rom:
-        with open(OUTPUT_FIELD, 'rb') as binary:
-            rom.seek(0)
-            rom.write(binary.read())
-            binary.close()
-        rom.close()
+    # all of the individual overlays
+    for i in range(0, len(INDIVIDUAL_OVERLAYS)):
+        with open(SOURCE + "/individual/linker/" + INDIVIDUAL_OVERLAYS[i] + ".ld") as file:
+            line = file.readline()
+            # grab first line of format /* Overlay ### */, convert ### to a number
+            newOverlay = int(line.split(" ")[2])
+            # determine insertion location
+            for line in file:
+                if "ORIGIN" in line:
+                    address = int(line.split()[4][len("0x"):-1], 0x10)
+                    break
+        with open(f"base/overlay/overlay_{newOverlay:04}.bin", 'wb+') as rom:
+            with open(NEW_INDIVIDUAL_OVERLAYS[i], 'rb') as binary:
+                rom.seek(0)
+                rom.write(binary.read())
+                binary.close()
+            rom.close()
+        with open("base/overarm9.bin", "rb+") as y9Table:
+            y9Table.seek(newOverlay*0x20) # seek address
+            y9Table.write(struct.pack('<I', newOverlay)) # id
+            y9Table.write(struct.pack('<I', address)) # memaddress
+            y9Table.write(struct.pack('<I', os.path.getsize(f"base/overlay/overlay_{newOverlay:04}.bin"))) # memsize
+            y9Table.write(struct.pack('<I', 0)) # bsssize
+            y9Table.write(struct.pack('<I', 0)) # initstart
+            y9Table.write(struct.pack('<I', 0)) # initend
+            y9Table.write(struct.pack('<I', newOverlay)) # file id
+            y9Table.write(struct.pack('<I', 0)) # uncompressed
+        #print(f"{INDIVIDUAL_OVERLAYS[i]} written to overlay {newOverlay}...")
 
     width = max(map(len, table.keys())) + 1
     if os.path.isfile('offsets.ini'):
@@ -435,7 +537,7 @@ def offset():
                 rom.close()
 
 
-OVERLAYS_TO_DECOMPRESS = [1, 2, 6, 7, 8, 10, 12, 14, 15, 18, 63, 96, 112]
+OVERLAYS_TO_DECOMPRESS = [1, 2, 6, 7, 8, 10, 12, 14, 15, 18, 23, 61, 63, 64, 68, 94, 96, 112]
 
 
 def decompress():
@@ -476,6 +578,7 @@ def decompress_file(path):
             f.write(dec)
     except ValueError: # do nothing, file is already decompressed
         print("")
+
 
 
 if __name__ == '__main__':

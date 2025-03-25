@@ -150,9 +150,30 @@ _reset_loop:
 .org 0x022453CC
     .word 0x3182
 
-.org 0x022486A4
-    .word 0x317E + ((NUM_OF_MOVES+1) * 16) // size of new battle structure now
-    .word 0x317E
+//.org 0x022486A4
+//    .word 0x6A2E
+//    //.word 0x317E + ((NUM_OF_MOVES+1) * 16)
+//    .word 0x317E
+
+// here we fix the rage glitch because there was no ~ in front of the STATUS2_RAGE constant in the c code
+// fresh off GetBattlerSelectedMove so r0-r3 are all free
+// https://github.com/pret/pokeheartgold/blob/5ff50bcdf26098be3ac102e24155028d6e7b4b39/asm/overlay_12_battle_controller_player.s#L1755-L1761
+// r5 is a BattleStruct offset by BattlePokemon size
+.org 0x022493F4
+    ldr r2, =0x2DB0 // offsetof(struct BattleStruct, battlemon) + offsetof(struct BattlePokemon, condition2)
+    ldr r1, [r5, r2]
+    mov r0, #2
+    lsl r0, #0x16 // STATUS2_RAGE
+    mvn r0, r0 // new - &= ~STATUS2_RAGE
+    and r1, r0
+    //ldr r2, =0x2DB0
+    str r1, [r5, r2]
+
+.org 0x02249458
+
+.pool
+
+
 
 .org 0x0224B388
     .word 0x3186

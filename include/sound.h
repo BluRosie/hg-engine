@@ -173,25 +173,25 @@ typedef struct NNSSndArcWaveArcInfo
 
 
 // function declarations
-struct SND_WORK __attribute__((long_call)) *GetSoundDataPointer(void);
-void __attribute__((long_call)) GF_SndHeapGetFreeSize(void);
-BOOL __attribute__((long_call)) NNS_SndArcLoadSeq(u32 seq, void *heap);
-BOOL __attribute__((long_call)) NNS_SndArcLoadSeqEx(u32 seq, u32 loadflag, void *heap);
+struct SND_WORK LONG_CALL *GetSoundDataPointer(void);
+void LONG_CALL GF_SndHeapGetFreeSize(void);
+BOOL LONG_CALL NNS_SndArcLoadSeq(u32 seq, void *heap);
+BOOL LONG_CALL NNS_SndArcLoadSeqEx(u32 seq, u32 loadflag, void *heap);
 
-const NNSSndArcBankInfo * __attribute__((long_call)) NNS_SndArcGetBankInfo(int bankNo);
-SNDBankData * __attribute__((long_call)) LoadBank(int fileId, void *heap, BOOL bSetAddr);
-void * __attribute__((long_call)) NNS_SndArcGetFileAddress(int fileId);
-const NNSSndArcWaveArcInfo * __attribute__((long_call)) NNS_SndArcGetWaveArcInfo();
-int __attribute__((long_call)) NNSi_SndArcLoadWaveArc(u16 waveArcNo, u32 loadFlag, void *heap, BOOL bSetAddr, SNDWaveArc *waveArc);
-BOOL __attribute__((long_call)) LoadSingleWaves(SNDWaveArc *waveArc, SNDBankData *bank, int index, u32 fileId, void *heap);
-void __attribute__((long_call)) SND_AssignWaveArc(SNDBankData *bank, int index, SNDWaveArc *waveArc);
+const NNSSndArcBankInfo * LONG_CALL NNS_SndArcGetBankInfo(int bankNo);
+SNDBankData * LONG_CALL LoadBank(int fileId, void *heap, BOOL bSetAddr);
+void * LONG_CALL NNS_SndArcGetFileAddress(int fileId);
+const NNSSndArcWaveArcInfo * LONG_CALL NNS_SndArcGetWaveArcInfo();
+int LONG_CALL NNSi_SndArcLoadWaveArc(u16 waveArcNo, u32 loadFlag, void *heap, BOOL bSetAddr, SNDWaveArc **waveArc);
+BOOL LONG_CALL LoadSingleWaves(SNDWaveArc *waveArc, SNDBankData *bank, int index, u32 fileId, void *heap);
+void LONG_CALL SND_AssignWaveArc(SNDBankData *bank, int index, SNDWaveArc *waveArc);
 
-void __attribute__((long_call)) PlayCry(u16 species, u8 forme);
+void LONG_CALL PlayCry(u16 species, u8 forme);
 
 
 // defined in src/sound.c
-BOOL __attribute__((long_call)) GF_Snd_LoadSeq(int seqNo);
-int __attribute__((long_call)) NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, struct SNDBankData** pData);
+BOOL LONG_CALL GF_Snd_LoadSeq(int seqNo);
+int LONG_CALL NNSi_SndArcLoadBank(int bankNo, u32 loadFlag, void *heap, BOOL bSetAddr, struct SNDBankData** pData);
 
 
 #endif // SOUND_H

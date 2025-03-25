@@ -7,8 +7,6 @@
 //#define DEBUG_ADJUSTED_ACCURACY
 
 // DEBUG_ADJUSTED_DAMAGE is used to debug the adjusted damage for testing abilities that affect damage output.
-// this is used in combination with a lua script to dynamically display the adjusted damage.
-// uncomment the define to have the information written to 0x23DF000
 //#define DEBUG_ADJUSTED_DAMAGE
 
 // DEBUG_HIDDEN_ABILITIES is used to debug hidden abilities by forcing all generated mons to have the hidden ability bit set.
@@ -33,5 +31,47 @@
 
 // DEBUG_SOUND_SBNK_LOADS prints out sseq loads from the SDAT and the free space left after the load.
 //#define DEBUG_SOUND_SBNK_LOADS
+
+// GUARANTEE_CAPTURES guarantees captures
+//#define GUARANTEE_CAPTURES
+
+// DEBUG_SQRT prints debug information for the gpio sqrt function
+//#define DEBUG_SQRT
+
+// DEBUG_PRINT_EXPERIENCE_VALUES prints debug information for experience outputs
+//#define DEBUG_PRINT_EXPERIENCE_VALUES
+
+// DEBUG_CAPTURE_RATE_PERCENTAGES prints debug information for capture rate
+//#define DEBUG_CAPTURE_RATE_PERCENTAGES
+
+// DEBUG_SERVER_QUEUE prints debug information about the status of the server queue when the waitmessage script command
+//#define DEBUG_SERVER_QUEUE
+
+// DEBUG_INIT_PC_BOXES_WITH_MONS initializes pc boxes with mons on save creation.  inits with national dex num
+//#define DEBUG_INIT_PC_BOXES_WITH_MONS
+
+// DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES will cause any crash from a heap overflow to display error information
+//#define DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+
+// DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES_ASSERT_FAIL will cause any GF_AssertFail call to display error information, even those that would normally in vanilla work fine
+//#define DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES_ASSERT_FAIL
+
+// DEBUG_ALWAYS_OBEY will force all battlers to obey regardless of badges owned
+//#define DEBUG_ALWAYS_OBEY
+
+// DEBUG_ENDTURN_LOGIC turns on a number of debug prints related to the end-turn logic
+//#define DEBUG_ENDTURN_LOGIC
+
+// DEBUG_BEFORE_MOVE_LOGIC turns on a number of debug prints related to the before-move logic
+//#define DEBUG_BEFORE_MOVE_LOGIC
+
+// DEBUG_PRINT_HEAP_CREATION allows for debug prints on heap creation/deletion
+//#define DEBUG_PRINT_HEAP_CREATION
+
+// DEBUG_PRINT_HEAP_ALLOCATION allows for debug prints on memory allocation/free
+//#define DEBUG_PRINT_HEAP_ALLOCATION
+
+// NOCASH_GBA_PRINT swaps from desmume prints with the syscall to NO$GBA-style prints for use with i.e. melonDS
+#define NOCASH_GBA_PRINT
 
 #endif // DEBUG_H

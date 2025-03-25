@@ -2,13 +2,14 @@
 .thumb
 
 .include "armips/include/animscriptcmd.s"
-.include "armips/include/abilities.s"
-.include "armips/include/itemnums.s"
-.include "armips/include/monnums.s"
-.include "armips/include/movenums.s"
+
+.include "asm/include/abilities.inc"
+.include "asm/include/items.inc"
+.include "asm/include/species.inc"
+.include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_307", 0
-
+//blast burn
 a010_307:
     jumpifside 0, _0014, _0FD4
     end
@@ -58,7 +59,7 @@ _0014:
     callfunction 75, 5, 0, 31, 3, 0, 0, "NaN", "NaN", "NaN", "NaN", "NaN"
     callfunction 75, 5, 1, 30, 3, 0, 2, "NaN", "NaN", "NaN", "NaN", "NaN"
     addparticle2 0, 3, 0, 3
-    callfunction 72, 10, 3, -90, -90, -90, -90, 48, 24, 7, 0, 0
+    callfunction 72, 10, 3, -90, -90, -90, -90, 48, 24, 7, 0, 0 //adds blast burn particles coming radially from user
     addparticle2 0, 4, 1, 3
     callfunction 72, 10, 4, -90, -90, -90, -90, 48, 24, 7, 0, 0
     addparticle2 0, 5, 2, 3

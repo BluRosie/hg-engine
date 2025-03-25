@@ -1,29 +1,33 @@
-.macro movedata,movenum,name
+.macro movedatalongname,movenum,name,fullname
 
     movename movenum, name
     movenamecaps movenum, name
-    userusedmovename 3*movenum, "{STRVAR_1 1, 0, 0} used\\n" + name + "!"
-    userusedmovename 3*movenum+1, "The wild {STRVAR_1 1, 0, 0} used\\n" + name + "!"
-    userusedmovename 3*movenum+2, "The foe’s {STRVAR_1 1, 0, 0} used\\n" + name + "!"
+    userusedmovename 3*movenum, "{STRVAR_1 1, 0, 0} used\\n" + fullname + "!"
+    userusedmovename 3*movenum+1, "The wild {STRVAR_1 1, 0, 0} used\\n" + fullname + "!"
+    userusedmovename 3*movenum+2, "The opposing {STRVAR_1 1, 0, 0} used\\n" + fullname + "!"
 
 	.if movenum < 10
-		.create "build/a011/move_00" + tostring(movenum),0
+		.create "build/a011/move_00" + movenum,0
 	.elseif movenum < 100
-		.create "build/a011/move_0" + tostring(movenum),0
+		.create "build/a011/move_0" + movenum,0
 	.else
-		.create "build/a011/move_" + tostring(movenum),0
+		.create "build/a011/move_" + movenum,0
 	.endif
-	
+
+.endmacro
+
+.macro movedata,movenum,name
+    movedatalongname movenum, name, name
 .endmacro
 
 .macro movedatanoname, movenum
 
 	.if movenum < 10
-		.create "build/a011/move_00" + tostring(movenum),0
+		.create "build/a011/move_00" + movenum,0
 	.elseif movenum < 100
-		.create "build/a011/move_0" + tostring(movenum),0
+		.create "build/a011/move_0" + movenum,0
 	.else
-		.create "build/a011/move_" + tostring(movenum),0
+		.create "build/a011/move_" + movenum,0
 	.endif
 
 .endmacro
@@ -78,7 +82,7 @@
 
 .macro terminatedata
 	.halfword 0
-	
+
 	.close
 .endmacro
 
@@ -129,18 +133,18 @@ MOVEDATA_CONTEST_TYPE  equ 11
 
 // move target constants
 
-MOVE_TARGET_SELECTED            equ 0x0000
-MOVE_TARGET_DEPENDS             equ 0x0001
-MOVE_TARGET_RANDOM              equ 0x0002
-MOVE_TARGET_BOTH                equ 0x0004
-MOVE_TARGET_FOES_AND_ALLY       equ 0x0008
-MOVE_TARGET_USER                equ 0x0010
-MOVE_TARGET_USER_SIDE           equ 0x0020
-MOVE_TARGET_ACTIVE_FIELD        equ 0x0040
-MOVE_TARGET_OPPONENTS_FIELD     equ 0x0080
-MOVE_TARGET_ALLY                equ 0x0100
-MOVE_TARGET_ACUPRESSURE         equ 0x0200
-MOVE_TARGET_ME_FIRST            equ 0x0400
+.equ RANGE_SINGLE_TARGET,           0
+.equ RANGE_SINGLE_TARGET_SPECIAL,   (1 << 0)
+.equ RANGE_RANDOM_OPPONENT,         (1 << 1)
+.equ RANGE_ADJACENT_OPPONENTS,      (1 << 2)
+.equ RANGE_ALL_ADJACENT,            (1 << 3)
+.equ RANGE_USER,                    (1 << 4)
+.equ RANGE_USER_SIDE,               (1 << 5)
+.equ RANGE_FIELD,                   (1 << 6)
+.equ RANGE_OPPONENT_SIDE,           (1 << 7)
+.equ RANGE_ALLY,                    (1 << 8)
+.equ RANGE_SINGLE_TARGET_USER_SIDE, (1 << 9)
+.equ RANGE_FRONT,                   (1 << 10)
 
 FLAG_CONTACT     equ 0x01
 FLAG_PROTECT     equ 0x02

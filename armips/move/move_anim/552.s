@@ -2,31 +2,32 @@
 .thumb
 
 .include "armips/include/animscriptcmd.s"
-.include "armips/include/abilities.s"
-.include "armips/include/itemnums.s"
-.include "armips/include/monnums.s"
-.include "armips/include/movenums.s"
+
+.include "asm/include/abilities.inc"
+.include "asm/include/items.inc"
+.include "asm/include/species.inc"
+.include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_552", 0
-
+//Glaciate
 a010_552:
-    loadparticlefromspa 0, 486
+    loadparticlefromspa 0, 536
     waitparticle
+    repeatse 1915, 0, 2, 14
+    addparticle 0, 5, 3
+    addparticle 0, 6, 3
+    wait 20
+    repeatse 2052, 117, 4, 4
+    addparticle 0, 4, 4
+    addparticle 0, 2, 4
+    addparticle 0, 3, 4
 
-    addparticle 0, 2, 3
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    addparticle 0, 0, 3
-    wait 10
-
-    addparticle 0, 1, 3
-    addparticle 0, 1, 3
-    wait 10
-
-    addparticle 0, 2, 3
-    addparticle 0, 0, 3
+    wait 30
+    repeatse 1968, -117, 1, 2
+    addparticle 0, 1, 4
+    addparticle 0, 0, 4
+    
     waitparticle
-
     unloadparticle 0
     waitstate
     end

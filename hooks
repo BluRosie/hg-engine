@@ -1,4 +1,5 @@
 #include "include/config.h"
+#include "include/debug.h"
 
 #overlay 1 is loaded in at 021E5900
 #overlay 2 is loaded in at 02245B80
@@ -61,12 +62,15 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 #battle hooks
 #02256FF8+4
 0012 calc_base_damage_hook 02256FFC 5
+0012 CalcDamageOverall 0223DCE0 2
+0012 AdjustDamageForRoll 02257C30 3
 #02252EC8
 0012 MoveCheckDamageNegatingAbilities 0801B608 3
 #02253194
 0012 SwitchInAbilityCheck 0801B8D4 2
-#02253068
-0012 TurnEndAbilityCheck 0801B7A8 3
+## this is no longer needed--handled in
+##02253068
+#0012 TurnEndAbilityCheck 0801B7A8 3
 #02253E04
 0012 MoveHitDefenderAbilityCheck 0801C544 3
 #0224BCC4+4
@@ -97,6 +101,12 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 btl_scr_cmd_33_statbuffchange 080074B8 3
 #022404e0
 0012 btl_scr_cmd_54_ohko_move_handle 08008C20 3
+0012 CheckMoveIsChargeMove 022525AC 2
+0012 btl_scr_cmd_5f_trysleeptalk 02240F7C 3
+#02241F10
+0012 btl_scr_cmd_6f_fury_cutter_damage_calc 02241F10 3
+#02242710
+0012 btl_scr_cmd_7c_beat_up_damage_calc 0800AE50 3
 #0224324C
 0012 btl_scr_cmd_8c_lowkickdamagecalc 0800B98C 3
 #02245008
@@ -109,10 +119,27 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 btl_scr_cmd_18_playanimation2 080067C0 3
 #0223E6A0
 0012 btl_scr_cmd_27_shouldgetexp 08006DE0 3
+0012 btl_scr_cmd_0E_waitmessage 0223DCAC 3
+0012 Link_QueueIsEmpty 0224ED48 1
+0012 btl_scr_cmd_87_tryknockoff 02242EB4 3
+0012 BtlCmd_GoToMoveScript 0223E594 3
+0012 BtlCmd_WeatherHPRecovery 02242380 3
+0012 BtlCmd_CalcWeatherBallParams 022432AC 3
+0012 BtlCmd_EndOfTurnWeatherEffect 02241B30 3
+0012 BtlCmd_TrySubstitute 022414F0 3
+0012 BtlCmd_RapidSpin 02242238 3
+0012 BtlCmd_CheckSubstitute 0224514C 3
+0012 BtlCmd_TrySwapItems 02242A50 3
+0012 BtlCmd_TryWish 02242B58 3
+0012 BtlCmd_TryFutureSight 02242570 3
+0012 BtlCmd_SetMultiHit 0223EC10 3
+0012 BtlCmd_GenerateEndOfBattleItem 022440A0 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
-#fix money calculation - 
+arm9 TT_TrainerTypeSexGet 020735F8 1
+
+#fix money calculation -
 0012 fix_money_calc 0800829E 0
 
 #illusion hooks
@@ -138,7 +165,10 @@ arm9 MakeTrainerPokemonParty 08073604 3
 0012 BattleScriptCommandHandler 080056A8 2
 
 #reset battlemon switch in flags (now really really do it)
-0012 ClearBattleMonFlags_hook 0224E998 3
+# smack in the middle of BattleSystem_GetBattleMon
+0012 ClearBattleMonFlags_hook 0224E6B2 0
+# need to do it in the middle of InitFaintedWork too
+0012 ClearBattleMonFlags_hook2 0225155C 0
 
 #hidden ability
 arm9 SetBoxMonAbility 080722DC 1
@@ -153,6 +183,7 @@ arm9 sub_0206D328 0206D328 2
 
 #hof/pokeathlon/pokewalker fix
 0063 grab_overworld_a081_index 080025E4 3
+0064 grab_overworld_a081_index 021E6E30 3
 0096 grab_overworld_a081_index 080038B8 3
 0112 grab_overworld_a081_index 021F0E14 3
 arm9 get_mon_ow_tag 08069D70 3
@@ -162,8 +193,9 @@ arm9 ArceusBoxPokemonFormeChange 08071BD0 3
 #pc screen forme change
 0014 HandleBoxPokemonFormeChanges 08000BD0 3
 
-#use item forme change
-arm9 UseItemFormeChange_hook 0807C29C 0
+#use item attribute change
+arm9 UseItemMonAttrChangeCheck_hook 0807C29C 0
+0094 UseItemMonAttrLoadDiffMessage_hook 021E5A6A 1
 
 #ifdef ALLOW_SAVE_CHANGES
 
@@ -216,8 +248,10 @@ arm9 grab_sex_for_GetBoxMonData 0806EA1A 1
 
 #item time baby - 02257FA0
 0012 MoveHitUTurnHeldItemEffectCheck 080206E0 3
-#0224E1BC
+#0224E1BC - after move hit effects
 0012 ServerWazaHitAfterCheckAct 080168FC 2
+# post-move effects, not necessarily on hit
+0012 ServerDoPostMoveEffects 0224CC88 2
 #02255634
 0012 CheckDefenderItemEffectOnHit 02255634 3
 
@@ -260,7 +294,9 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 # r0 isn't used, can be burned
 0002 WildEncSingle 02247424 0
 0002 WildWaterEncSingle_hook 022474E4 5
-0002 TryTriggerWildDoubleBattle 02248284 0
+# can't modify SetFieldBattleParam since it is used for sweet scent and fishing and such
+#0002 TryTriggerWildDoubleBattle 02248284 0
+0002 TryTriggerWildDoubleBattle 02246E0E 0
 0012 KeepPlayerPaletteIntact 022607BC 1
 0012 MakeSureDoublesBitIsSet 0226328E 0
 0008 ReleaseDoubleBattleWhenOnlyOneMon 02222CBC 1
@@ -284,3 +320,203 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 #endif
 
 0001 SpeciesAndFormeToWazaOshieIndex 02202C7C 2
+
+# need another hook for this one yeah yeah
+0012 ServerDoTypeCalcMod_hook 02251D2C 5
+0012 AITypeCalc_hook 02252058 5
+0012 GrabMoveTypeForConversion2 0224DD7C 2
+
+# pokewalker grab sprite
+0112 GrabPokewalkerMonSpriteIndex 021E9480 3
+
+
+#ifdef IMPLEMENT_NEW_EV_IV_VIEWER
+
+# code from LheaRachel on github based on code from Bubble791 now on heartgold
+arm9 Summary_IVEV 02088B60 1
+arm9 Summary_Entry_Hook 0208D2C4 1
+
+#endif
+
+
+arm9 CanUseItemOnMonInParty_hook 020902BC 5
+#ifdef IMPLEMENT_LEVEL_CAP
+
+0012 ImplementLevelCap_hook 02245A28 3
+arm9 Pokemon_TryLevelUp 02070DB4 1
+arm9 CapRareCandies 0208FEEA 1
+
+#endif
+
+# rewrite tailwind counter decrement to use our new counter
+0012 ServerFieldConditionCheck 022494DC 2
+
+# dex digits
+0018 FormatDexNumberAnimationDigits 021E6A98 3
+
+# allow for grabbing ally and such in battle script parameters
+0012 GrabClientFromBattleScriptParam 0224768C 3
+0012 read_battle_script_param 022454E8 1
+0012 LoadBattleSubSeqScript 0224EB9C 3
+0012 PushAndLoadBattleScript 0224EBDC 3
+
+0012 ServerInit 02248660 1
+
+0012 CantEscape_hook 02252984 5
+0012 BattlerCantSwitch 02255920 3
+0012 BattleTryRun 02252B68 3
+
+arm9 ModifyStatByNature 0206FE3C 3
+
+# when a specific mon is in illusion, the target icon brought up needs to be in the illusioned state
+0012 target_select_inject_illusion_icon 02267CDC 0
+
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef EXPAND_PC_BOXES
+# save expansion
+arm9 SaveData_New 020271B0 0
+arm9 SaveArray_Get 020272C8 2
+arm9 Save_DeleteAllData 020272F4 1
+arm9 SaveGameNormal 020273F0 1
+arm9 Save_NowWriteFile_AfterMGInit 0202746C 2
+arm9 Save_InitDynamicRegion 020274A8 1
+arm9 Save_PrepareForAsyncWrite 02027550 2
+arm9 Save_WriteFileAsync 02027564 1
+arm9 Save_Cancel 020275A4 1
+arm9 GetSaveSectorFooterPtr 020275F4 3
+arm9 ValidateSaveSectorFooter 0202761C 3
+arm9 SaveSlot_BuildFooter 020276C0 3
+arm9 Save_RecordWhichLatestGoodSector_hook 020277C0 5
+arm9 Save_LoadDynamicRegion 02027AD4 1
+arm9 Save_WriteSlotAsync 02027B74 3
+arm9 Save_WriteChunkFooterAsync 02027BAC 3
+arm9 Save_WriteManInit 02027BDC 3
+arm9 Save_WriteManFinish 02027CEC 3
+
+arm9 SaveData_InitSlotSpecs 02027EFC 2
+
+arm9 HandleWriteSaveAsync_PCBoxes 02028968 2
+arm9 Save_WritePCBoxes 02028AB4 2
+arm9 Save_WriteNextPCBox 02028BA8 3
+arm9 Save_WritePCFooter 02028BF8 3
+arm9 Save_CalcPCBoxModifiedFlags 02028C70 1
+arm9 PCModifiedFlags_CountModifiedBoxes 02028C9C 1
+arm9 PCModifiedFlags_GetIndexOfNthModifiedBox 02028CD4 2
+
+
+#pc box expansion
+arm9 PCStorage_sizeof 02073B20 0
+arm9 PCStorage_InitializeBoxes 02073B28 1
+arm9 PCStorage_PlaceMonInFirstEmptySlotInAnyBox 02073BB8 2
+arm9 PCStorage_PlaceMonInBoxFirstEmptySlot 02073BFC 3
+arm9 PCStorage_PlaceMonInBoxByIndexPair_hook 02073C70 5
+arm9 PCStorage_SwapMonsInBoxByIndexPair_hook 02073CC4 5
+arm9 PCStorage_DeleteBoxMonByIndexPair 02073D10 3
+arm9 PCStorage_GetActiveBox 02073D4C 1
+arm9 PCStorage_FindFirstBoxWithEmptySlot 02073D54 1
+arm9 PCStorage_FindFirstEmptySlot 02073D9C 3
+arm9 PCStorage_CountEmptySpotsInAllBoxes 02073DFC 1
+arm9 PCStorage_CountEmptySpotsInBox 02073E40 2
+arm9 PCStorage_SetActiveBox 02073E84 2
+arm9 PCStorage_GetBoxWallpaper 02073E98 2
+arm9 PCStorage_IsValidWallpaperId 02073EB4 1
+arm9 PCStorage_SetBoxWallpaper 02073EC8 3
+arm9 PCStorage_GetBoxName 02073F00 3
+arm9 PCStorage_SetBoxName 02073F34 3
+arm9 PCStorage_CountMonsAndEggsInBox 02073F64 2
+arm9 PCStorage_CountMonsInBox 02073FA8 2
+arm9 PCStorage_CountMonsInAllBoxes 02073FF8 1
+arm9 PCStorage_GetMonDataByIndexPair_hook 02074018 5
+arm9 PCStorage_GetMonByIndexPair 02074058 3
+arm9 PCStorage_UnlockBonusWallpaper 02074094 2
+arm9 PCStorage_IsBonusWallpaperUnlocked 020740B4 2
+arm9 PCStorage_SetBoxModified 020740D8 2
+arm9 PCStorage_SetAllBoxesModified 020740F8 1
+arm9 PCStorage_ResetBoxModifiedFlags 02074108 1
+arm9 PCStorage_GetBoxModifiedFlags 02074114 1
+arm9 sub_02074128 02074128 1
+
+#endif
+# EXPAND_PC_BOXES
+#endif
+# ALLOW_SAVE_CHANGES
+
+0002 SetFixedWildEncounter_hook 022480C4 5
+
+# allow for crazy shiny odds calcs
+arm9 CalcShininessByOtIdAndPersonality 02070068 2
+
+# expand animation command indices
+0007 GrabAnimScriptCommand 0221F8B0 1
+
+# evolution level up moves
+arm9 MonTryLearnMoveOnLevelUp 02071534 3
+
+# edit the playcry command to potentially take form into account
+0007 AnimCmd_PlayCryEdit_hook 0221F854 0
+
+arm9 ScrCmd_DaycareSanitizeMon 0204CFB8 1
+
+# 0224C018 + 4 = 224C01C
+0012 BattleSystem_CheckMoveEffect_hook 224C01C 5
+
+# 0012 BattleControllerPlayer_UpdateMonCondition 02249CC4 2
+
+#ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
+arm9 AllocFail_hook 0201AA7C 0
+arm9 GF_AssertFail 0202551C 0
+#endif
+
+0012 BattleController_MoveEnd 0224D368 3
+0012 ov12_0224C4D8 0224C4D8 3
+0012 ov12_0224D03C 0224D03C 3
+0012 BattleController_LoopMultiHit 0224CF14 3
+0012 ov12_02252D14 02252D14 3
+
+# fix trainer ai being able to switch illegally when binded
+0010 ai_switch_ban_for_bind_hook 022203B4 2
+
+0012 GetDynamicMoveType 02258688 4
+
+# 022517EC + 4 = 22517F0
+0012 StruggleCheck_hook 22517F0 5
+
+# 02251A28 + 4 = 2251A2C
+0012 ov12_02251A28_hook 2251A2C 5
+
+# evolutions with forms, this time bugless
+# used for queuing up sprites
+arm9 form_evo_hook_1 02077224 1
+# actually setting the new mon form
+arm9 form_evo_hook_2 0207641C 0
+
+#ifdef IMPLEMENT_REUSABLE_REPELS
+0002 PlayerStepEvent_RepelCounterDecrement 0224BAE4 2
+0015 BagApp_GetRepelStepCountAddr 021F993C 3
+#endif
+
+0012 BattleContext_Main 022486B0 2
+
+arm9 sub_0207B0B0 0207B0B0 2
+arm9 sub_0207AFC4 0207AFC4 1
+0012 GetBattlerAbility 022527CC 2
+
+0012 BattleSystem_BufferMessage 0223C754 2
+
+#02259C40(+4)  _CreateTradeMon	(npc_trade.o)
+0023 _CreateTradeMon_hook 02259C44 5
+
+#ifdef DEBUG_PRINT_HEAP_ALLOCATION
+
+#arm9 AllocFromHeapInternal_hook 0201AA3C 5
+arm9 FreeToHeap_hook 0201AB10 1
+arm9 FreeToHeapExplicit_hook 0201ABC8 4
+
+#endif
+
+#ifdef DEBUG_PRINT_HEAP_CREATION
+
+arm9 CreateHeapInternal_hook 0201A92C 4
+arm9 DestroyHeap_hook 0201AA24 3
+
+#endif

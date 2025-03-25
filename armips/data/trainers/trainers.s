@@ -1,24 +1,24 @@
 .nds
 .thumb
 
-.include "armips/include/abilities.s"
 .include "armips/include/constants.s"
-.include "armips/include/itemnums.s"
 .include "armips/include/macros.s"
-.include "armips/include/movenums.s"
-.include "armips/include/monnums.s"
+
+.include "asm/include/abilities.inc"
+.include "asm/include/items.inc"
+.include "asm/include/moves.inc"
+.include "asm/include/species.inc"
 
 trainerdata 0, "-"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PKMN_TRAINER_0
-    battletype 0
+    trainerclass TRAINERCLASS_PKMN_TRAINER_ETHAN
     nummons 0
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 0
@@ -32,15 +32,14 @@ trainerdata 0, "-"
 
 trainerdata 1, "Silver"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 1
@@ -68,15 +67,14 @@ trainerdata 1, "Silver"
 
 trainerdata 2, "Silver"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 2
@@ -90,15 +88,14 @@ trainerdata 2, "Silver"
 
 trainerdata 3, "Silver"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 3
@@ -112,15 +109,14 @@ trainerdata 3, "Silver"
 
 trainerdata 4, "Wade"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 4
@@ -155,15 +151,14 @@ trainerdata 4, "Wade"
 
 trainerdata 5, "Victoria"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 5
@@ -191,15 +186,14 @@ trainerdata 5, "Victoria"
 
 trainerdata 6, "Keith"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POLICEMAN
-    battletype 0
+    trainerclass TRAINERCLASS_POLICEMAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 6
@@ -213,15 +207,14 @@ trainerdata 6, "Keith"
 
 trainerdata 7, "Irwin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_JUGGLER
-    battletype 0
+    trainerclass TRAINERCLASS_JUGGLER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 7
@@ -256,15 +249,14 @@ trainerdata 7, "Irwin"
 
 trainerdata 8, "Joey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 8
@@ -278,15 +270,14 @@ trainerdata 8, "Joey"
 
 trainerdata 9, "Elaine"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 9
@@ -300,15 +291,14 @@ trainerdata 9, "Elaine"
 
 trainerdata 10, "Amy & Mimi"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 10
@@ -329,15 +319,14 @@ trainerdata 10, "Amy & Mimi"
 
 trainerdata 11, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_KIMONO_GIRL
-    battletype 0
+    trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 11
@@ -365,15 +354,14 @@ trainerdata 11, "Mickey"
 
 trainerdata 12, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 12
@@ -401,15 +389,14 @@ trainerdata 12, "Grunt"
 
 trainerdata 13, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET_1
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 13
@@ -430,15 +417,14 @@ trainerdata 13, "Grunt"
 
 trainerdata 14, "Duncan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BURGLAR
-    battletype 0
+    trainerclass TRAINERCLASS_BURGLAR
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 14
@@ -466,15 +452,14 @@ trainerdata 14, "Duncan"
 
 trainerdata 15, "Otis"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FIREBREATHER
-    battletype 0
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 15
@@ -502,15 +487,14 @@ trainerdata 15, "Otis"
 
 trainerdata 16, "Simon"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 16
@@ -531,15 +515,14 @@ trainerdata 16, "Simon"
 
 trainerdata 17, "Kenji"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 17
@@ -553,15 +536,14 @@ trainerdata 17, "Kenji"
 
 trainerdata 18, "Justin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 18
@@ -596,15 +578,14 @@ trainerdata 18, "Justin"
 
 trainerdata 19, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 19
@@ -632,15 +613,14 @@ trainerdata 19, "Mickey"
 
 trainerdata 20, "Falkner"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_M
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_FALKNER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 20
@@ -671,15 +651,14 @@ trainerdata 20, "Falkner"
 
 trainerdata 21, "Bugsy"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_F
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_BUGSY
     nummons 3
     item ITEM_SUPER_POTION
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 21
@@ -722,15 +701,14 @@ trainerdata 21, "Bugsy"
 
 trainerdata 22, "Carrie"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 22
@@ -748,15 +726,14 @@ trainerdata 22, "Carrie"
 
 trainerdata 23, "Larry"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 23
@@ -770,15 +747,14 @@ trainerdata 23, "Larry"
 
 trainerdata 24, "Alan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 24
@@ -792,15 +768,14 @@ trainerdata 24, "Alan"
 
 trainerdata 25, "Russel"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 25
@@ -828,15 +803,14 @@ trainerdata 25, "Russel"
 
 trainerdata 26, "Roland"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 26
@@ -850,15 +824,14 @@ trainerdata 26, "Roland"
 
 trainerdata 27, "Liz"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 27
@@ -872,15 +845,14 @@ trainerdata 27, "Liz"
 
 trainerdata 28, "Jake"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 28
@@ -920,15 +892,14 @@ trainerdata 28, "Jake"
 
 trainerdata 29, "Rod"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 29
@@ -949,15 +920,14 @@ trainerdata 29, "Rod"
 
 trainerdata 30, "Whitney"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_WHITNEY
     nummons 2
     item ITEM_SUPER_POTION
     item ITEM_SUPER_POTION
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 30
@@ -988,15 +958,14 @@ trainerdata 30, "Whitney"
 
 trainerdata 31, "Morty"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_0
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_MORTY
     nummons 4
     item ITEM_HYPER_POTION
     item ITEM_HYPER_POTION
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 31
@@ -1051,15 +1020,14 @@ trainerdata 31, "Morty"
 
 trainerdata 32, "Pryce"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_1
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_PRYCE
     nummons 3
     item ITEM_HYPER_POTION
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 32
@@ -1102,15 +1070,14 @@ trainerdata 32, "Pryce"
 
 trainerdata 33, "Jasmine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_2
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_JASMINE
     nummons 3
     item ITEM_HYPER_POTION
     item ITEM_HYPER_POTION
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 33
@@ -1153,15 +1120,14 @@ trainerdata 33, "Jasmine"
 
 trainerdata 34, "Chuck"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_3
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_CHUCK
     nummons 2
     item ITEM_HYPER_POTION
     item ITEM_HYPER_POTION
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 34
@@ -1192,15 +1158,14 @@ trainerdata 34, "Chuck"
 
 trainerdata 35, "Clair"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_4
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_CLAIR
     nummons 4
     item ITEM_HYPER_POTION
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 35
@@ -1255,15 +1220,14 @@ trainerdata 35, "Clair"
 
 trainerdata 36, "Joyce"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 36
@@ -1292,15 +1256,14 @@ trainerdata 36, "Joyce"
 
 trainerdata 37, "Preston"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_GENTLEMAN
-    battletype 0
+    trainerclass TRAINERCLASS_GENTLEMAN
     nummons 2
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 37
@@ -1321,15 +1284,14 @@ trainerdata 37, "Preston"
 
 trainerdata 38, "Colette"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEACHER
-    battletype 0
+    trainerclass TRAINERCLASS_TEACHER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 38
@@ -1343,15 +1305,14 @@ trainerdata 38, "Colette"
 
 trainerdata 39, "Eugene"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 39
@@ -1379,15 +1340,14 @@ trainerdata 39, "Eugene"
 
 trainerdata 40, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 40
@@ -1401,15 +1361,14 @@ trainerdata 40, "Mickey"
 
 trainerdata 41, "Clyde"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_GUITARIST
-    battletype 0
+    trainerclass TRAINERCLASS_GUITARIST
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 41
@@ -1423,15 +1382,14 @@ trainerdata 41, "Clyde"
 
 trainerdata 42, "Nathan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 42
@@ -1445,15 +1403,14 @@ trainerdata 42, "Nathan"
 
 trainerdata 43, "Chow"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAGE
-    battletype 0
+    trainerclass TRAINERCLASS_SAGE
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 43
@@ -1481,15 +1438,14 @@ trainerdata 43, "Chow"
 
 trainerdata 44, "Derek"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 44
@@ -1507,15 +1463,14 @@ trainerdata 44, "Derek"
 
 trainerdata 45, "Ruth"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_POKEFAN_F
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 45
@@ -1533,15 +1488,14 @@ trainerdata 45, "Ruth"
 
 trainerdata 46, "Martha"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_MEDIUM
-    battletype 0
+    trainerclass TRAINERCLASS_MEDIUM
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 46
@@ -1569,15 +1523,14 @@ trainerdata 46, "Martha"
 
 trainerdata 47, "Mikey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 47
@@ -1598,15 +1551,14 @@ trainerdata 47, "Mikey"
 
 trainerdata 48, "Rob"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 48
@@ -1627,15 +1579,14 @@ trainerdata 48, "Rob"
 
 trainerdata 49, "Albert"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 49
@@ -1656,15 +1607,14 @@ trainerdata 49, "Albert"
 
 trainerdata 50, "Abe"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 50
@@ -1678,15 +1628,14 @@ trainerdata 50, "Abe"
 
 trainerdata 51, "Nico"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAGE
-    battletype 0
+    trainerclass TRAINERCLASS_SAGE
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 51
@@ -1714,15 +1663,14 @@ trainerdata 51, "Nico"
 
 trainerdata 52, "Edmond"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAGE
-    battletype 0
+    trainerclass TRAINERCLASS_SAGE
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 52
@@ -1750,15 +1698,14 @@ trainerdata 52, "Edmond"
 
 trainerdata 53, "Jin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAGE
-    battletype 0
+    trainerclass TRAINERCLASS_SAGE
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 53
@@ -1772,15 +1719,14 @@ trainerdata 53, "Jin"
 
 trainerdata 54, "Troy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAGE
-    battletype 0
+    trainerclass TRAINERCLASS_SAGE
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 54
@@ -1801,15 +1747,14 @@ trainerdata 54, "Troy"
 
 trainerdata 55, "Neal"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAGE
-    battletype 0
+    trainerclass TRAINERCLASS_SAGE
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 55
@@ -1823,15 +1768,14 @@ trainerdata 55, "Neal"
 
 trainerdata 56, "Gordon"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 56
@@ -1845,15 +1789,14 @@ trainerdata 56, "Gordon"
 
 trainerdata 57, "Ralph"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 57
@@ -1867,15 +1810,14 @@ trainerdata 57, "Ralph"
 
 trainerdata 58, "Arnold"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 58
@@ -1889,15 +1831,14 @@ trainerdata 58, "Arnold"
 
 trainerdata 59, "Kyle"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 59
@@ -1925,15 +1866,14 @@ trainerdata 59, "Kyle"
 
 trainerdata 60, "Henry"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 60
@@ -1954,15 +1894,14 @@ trainerdata 60, "Henry"
 
 trainerdata 61, "Anthony"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 61
@@ -1983,15 +1922,14 @@ trainerdata 61, "Anthony"
 
 trainerdata 62, "Samuel"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 62
@@ -2026,15 +1964,14 @@ trainerdata 62, "Samuel"
 
 trainerdata 63, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 63
@@ -2048,15 +1985,14 @@ trainerdata 63, "Mickey"
 
 trainerdata 64, "Ian"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 64
@@ -2085,15 +2021,14 @@ trainerdata 64, "Ian"
 
 trainerdata 65, "Gina"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 65
@@ -2121,15 +2056,14 @@ trainerdata 65, "Gina"
 
 trainerdata 66, "Todd"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 66
@@ -2143,15 +2077,14 @@ trainerdata 66, "Todd"
 
 trainerdata 67, "Benny"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 67
@@ -2179,15 +2112,14 @@ trainerdata 67, "Benny"
 
 trainerdata 68, "Al"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 68
@@ -2208,15 +2140,14 @@ trainerdata 68, "Al"
 
 trainerdata 69, "Josh"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 69
@@ -2230,15 +2161,14 @@ trainerdata 69, "Josh"
 
 trainerdata 70, "Samantha"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 70
@@ -2267,15 +2197,14 @@ trainerdata 70, "Samantha"
 
 trainerdata 71, "Cathy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 71
@@ -2303,15 +2232,14 @@ trainerdata 71, "Cathy"
 
 trainerdata 72, "Bryan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 72
@@ -2332,15 +2260,14 @@ trainerdata 72, "Bryan"
 
 trainerdata 73, "Theo"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 73
@@ -2382,15 +2309,14 @@ trainerdata 73, "Theo"
 
 trainerdata 74, "Ivan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 74
@@ -2418,15 +2344,14 @@ trainerdata 74, "Ivan"
 
 trainerdata 75, "Elliot"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 75
@@ -2447,15 +2372,14 @@ trainerdata 75, "Elliot"
 
 trainerdata 76, "Brooke"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 76
@@ -2473,15 +2397,14 @@ trainerdata 76, "Brooke"
 
 trainerdata 77, "Kim"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 77
@@ -2495,15 +2418,14 @@ trainerdata 77, "Kim"
 
 trainerdata 78, "Arnie"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 78
@@ -2517,15 +2439,14 @@ trainerdata 78, "Arnie"
 
 trainerdata 79, "Ken"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 79
@@ -2546,15 +2467,14 @@ trainerdata 79, "Ken"
 
 trainerdata 80, "Dirk"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POLICEMAN
-    battletype 0
+    trainerclass TRAINERCLASS_POLICEMAN
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 80
@@ -2575,15 +2495,14 @@ trainerdata 80, "Dirk"
 
 trainerdata 81, "Tori & Til"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 81
@@ -2604,15 +2523,14 @@ trainerdata 81, "Tori & Til"
 
 trainerdata 82, "Toby"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 82
@@ -2640,15 +2558,14 @@ trainerdata 82, "Toby"
 
 trainerdata 83, "Cindy"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 83
@@ -2666,15 +2583,14 @@ trainerdata 83, "Cindy"
 
 trainerdata 84, "Barry"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 84
@@ -2692,15 +2608,14 @@ trainerdata 84, "Barry"
 
 trainerdata 85, "Paula"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 85
@@ -2721,15 +2636,14 @@ trainerdata 85, "Paula"
 
 trainerdata 86, "Randall"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 86
@@ -2769,15 +2683,14 @@ trainerdata 86, "Randall"
 
 trainerdata 87, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAGE
-    battletype 0
+    trainerclass TRAINERCLASS_SAGE
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 87
@@ -2791,15 +2704,14 @@ trainerdata 87, "Mickey"
 
 trainerdata 88, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAGE
-    battletype 0
+    trainerclass TRAINERCLASS_SAGE
     nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 88
@@ -2841,15 +2753,14 @@ trainerdata 88, "Mickey"
 
 trainerdata 89, "Grace"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_MEDIUM
-    battletype 0
+    trainerclass TRAINERCLASS_MEDIUM
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 89
@@ -2870,15 +2781,14 @@ trainerdata 89, "Grace"
 
 trainerdata 90, "Kaylee"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 90
@@ -2918,15 +2828,14 @@ trainerdata 90, "Kaylee"
 
 trainerdata 91, "Susie"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 91
@@ -2955,15 +2864,14 @@ trainerdata 91, "Susie"
 
 trainerdata 92, "Denise"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 92
@@ -2977,15 +2885,14 @@ trainerdata 92, "Denise"
 
 trainerdata 93, "Kara"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 93
@@ -3006,15 +2913,14 @@ trainerdata 93, "Kara"
 
 trainerdata 94, "Wendy"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 94
@@ -3043,15 +2949,14 @@ trainerdata 94, "Wendy"
 
 trainerdata 95, "Charlie"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 95
@@ -3079,15 +2984,14 @@ trainerdata 95, "Charlie"
 
 trainerdata 96, "George"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 96
@@ -3136,15 +3040,14 @@ trainerdata 96, "George"
 
 trainerdata 97, "Berke"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 97
@@ -3158,15 +3061,14 @@ trainerdata 97, "Berke"
 
 trainerdata 98, "Ronald"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 98
@@ -3187,15 +3089,14 @@ trainerdata 98, "Ronald"
 
 trainerdata 99, "Matthew"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 99
@@ -3209,15 +3110,14 @@ trainerdata 99, "Matthew"
 
 trainerdata 100, "Anthony"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 100
@@ -3238,15 +3138,14 @@ trainerdata 100, "Anthony"
 
 trainerdata 101, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 101
@@ -3267,15 +3166,14 @@ trainerdata 101, "Grunt"
 
 trainerdata 102, "Gaven"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 102
@@ -3315,15 +3213,14 @@ trainerdata 102, "Gaven"
 
 trainerdata 103, "Blake"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 103
@@ -3363,15 +3260,14 @@ trainerdata 103, "Blake"
 
 trainerdata 104, "Brian"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 104
@@ -3389,15 +3285,14 @@ trainerdata 104, "Brian"
 
 trainerdata 105, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 105
@@ -3425,15 +3320,14 @@ trainerdata 105, "Mickey"
 
 trainerdata 106, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 106
@@ -3461,15 +3355,14 @@ trainerdata 106, "Mickey"
 
 trainerdata 107, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 107
@@ -3497,15 +3390,14 @@ trainerdata 107, "Mickey"
 
 trainerdata 108, "Ryan"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 108
@@ -3534,15 +3426,14 @@ trainerdata 108, "Ryan"
 
 trainerdata 109, "Alton"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 109
@@ -3570,15 +3461,14 @@ trainerdata 109, "Alton"
 
 trainerdata 110, "Paulo"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 110
@@ -3606,15 +3496,14 @@ trainerdata 110, "Paulo"
 
 trainerdata 111, "Mike"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 111
@@ -3628,15 +3517,14 @@ trainerdata 111, "Mike"
 
 trainerdata 112, "Cody"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 112
@@ -3657,15 +3545,14 @@ trainerdata 112, "Cody"
 
 trainerdata 113, "Jamie"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 113
@@ -3694,15 +3581,14 @@ trainerdata 113, "Jamie"
 
 trainerdata 114, "Reena"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 114
@@ -3730,15 +3616,14 @@ trainerdata 114, "Reena"
 
 trainerdata 115, "Megan"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 115
@@ -3778,15 +3663,14 @@ trainerdata 115, "Megan"
 
 trainerdata 116, "Lois"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 116
@@ -3815,15 +3699,14 @@ trainerdata 116, "Lois"
 
 trainerdata 117, "Lola"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 117
@@ -3844,15 +3727,14 @@ trainerdata 117, "Lola"
 
 trainerdata 118, "Kate"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 118
@@ -3873,15 +3755,14 @@ trainerdata 118, "Kate"
 
 trainerdata 119, "Fran"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 119
@@ -3895,15 +3776,14 @@ trainerdata 119, "Fran"
 
 trainerdata 120, "Irene"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 120
@@ -3924,15 +3804,14 @@ trainerdata 120, "Irene"
 
 trainerdata 121, "Kelly"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 121
@@ -3960,15 +3839,14 @@ trainerdata 121, "Kelly"
 
 trainerdata 122, "Marvin"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 122
@@ -4008,15 +3886,14 @@ trainerdata 122, "Marvin"
 
 trainerdata 123, "Tully"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 123
@@ -4030,15 +3907,14 @@ trainerdata 123, "Tully"
 
 trainerdata 124, "Wilton"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 124
@@ -4066,15 +3942,14 @@ trainerdata 124, "Wilton"
 
 trainerdata 125, "Edgar"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 125
@@ -4103,15 +3978,14 @@ trainerdata 125, "Edgar"
 
 trainerdata 126, "Andre"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 126
@@ -4125,15 +3999,14 @@ trainerdata 126, "Andre"
 
 trainerdata 127, "Raymond"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 127
@@ -4168,15 +4041,14 @@ trainerdata 127, "Raymond"
 
 trainerdata 128, "Jonah"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 128
@@ -4211,15 +4083,14 @@ trainerdata 128, "Jonah"
 
 trainerdata 129, "Shane"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 129
@@ -4240,15 +4111,14 @@ trainerdata 129, "Shane"
 
 trainerdata 130, "Beckett"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 130
@@ -4262,15 +4132,14 @@ trainerdata 130, "Beckett"
 
 trainerdata 131, "Brent"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 131
@@ -4291,15 +4160,14 @@ trainerdata 131, "Brent"
 
 trainerdata 132, "Ron"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 132
@@ -4313,15 +4181,14 @@ trainerdata 132, "Ron"
 
 trainerdata 133, "Morgan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 133
@@ -4342,15 +4209,14 @@ trainerdata 133, "Morgan"
 
 trainerdata 134, "Benjamin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 134
@@ -4378,15 +4244,14 @@ trainerdata 134, "Benjamin"
 
 trainerdata 135, "Johnny"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 135
@@ -4414,15 +4279,14 @@ trainerdata 135, "Johnny"
 
 trainerdata 136, "Linda"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 136
@@ -4462,15 +4326,14 @@ trainerdata 136, "Linda"
 
 trainerdata 137, "Vance"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 137
@@ -4491,15 +4354,14 @@ trainerdata 137, "Vance"
 
 trainerdata 138, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 138
@@ -4513,15 +4375,14 @@ trainerdata 138, "Mickey"
 
 trainerdata 139, "Debra"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 139
@@ -4535,15 +4396,14 @@ trainerdata 139, "Debra"
 
 trainerdata 140, "Doug"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 140
@@ -4564,15 +4424,14 @@ trainerdata 140, "Doug"
 
 trainerdata 141, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 141
@@ -4586,15 +4445,14 @@ trainerdata 141, "Mickey"
 
 trainerdata 142, "Gina"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 142
@@ -4622,15 +4480,14 @@ trainerdata 142, "Gina"
 
 trainerdata 143, "Erik"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 143
@@ -4658,15 +4515,14 @@ trainerdata 143, "Erik"
 
 trainerdata 144, "Michael"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 144
@@ -4694,15 +4550,14 @@ trainerdata 144, "Michael"
 
 trainerdata 145, "Parry"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 145
@@ -4716,15 +4571,14 @@ trainerdata 145, "Parry"
 
 trainerdata 146, "Timothy"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 146
@@ -4753,15 +4607,14 @@ trainerdata 146, "Timothy"
 
 trainerdata 147, "Ted"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 147
@@ -4775,15 +4628,14 @@ trainerdata 147, "Ted"
 
 trainerdata 148, "Lloyd"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 148
@@ -4797,15 +4649,14 @@ trainerdata 148, "Lloyd"
 
 trainerdata 149, "Dean"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 149
@@ -4826,15 +4677,14 @@ trainerdata 149, "Dean"
 
 trainerdata 150, "Sid"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 150
@@ -4862,15 +4712,14 @@ trainerdata 150, "Sid"
 
 trainerdata 151, "Erin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 151
@@ -4891,15 +4740,14 @@ trainerdata 151, "Erin"
 
 trainerdata 152, "Hope"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 152
@@ -4913,15 +4761,14 @@ trainerdata 152, "Hope"
 
 trainerdata 153, "Sharon"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 153
@@ -4942,15 +4789,14 @@ trainerdata 153, "Sharon"
 
 trainerdata 154, "Bailey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 154
@@ -4992,15 +4838,14 @@ trainerdata 154, "Bailey"
 
 trainerdata 155, "Anthony"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 155
@@ -5028,15 +4873,14 @@ trainerdata 155, "Anthony"
 
 trainerdata 156, "Yoshi"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 156
@@ -5054,15 +4898,14 @@ trainerdata 156, "Yoshi"
 
 trainerdata 157, "Lao"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 157
@@ -5080,15 +4923,14 @@ trainerdata 157, "Lao"
 
 trainerdata 158, "Kiyo"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 158
@@ -5109,15 +4951,14 @@ trainerdata 158, "Kiyo"
 
 trainerdata 159, "Lung"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 159
@@ -5145,15 +4986,14 @@ trainerdata 159, "Lung"
 
 trainerdata 160, "Naoko"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_KIMONO_GIRL
-    battletype 0
+    trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 160
@@ -5172,15 +5012,14 @@ trainerdata 160, "Naoko"
 
 trainerdata 161, "Sayo"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_KIMONO_GIRL
-    battletype 0
+    trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 161
@@ -5199,15 +5038,14 @@ trainerdata 161, "Sayo"
 
 trainerdata 162, "Zuki"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_KIMONO_GIRL
-    battletype 0
+    trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 162
@@ -5226,15 +5064,14 @@ trainerdata 162, "Zuki"
 
 trainerdata 163, "Kuni"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_KIMONO_GIRL
-    battletype 0
+    trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 163
@@ -5253,15 +5090,14 @@ trainerdata 163, "Kuni"
 
 trainerdata 164, "Miki"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_KIMONO_GIRL
-    battletype 0
+    trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 164
@@ -5280,15 +5116,14 @@ trainerdata 164, "Miki"
 
 trainerdata 165, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 165
@@ -5302,15 +5137,14 @@ trainerdata 165, "Mickey"
 
 trainerdata 166, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 166
@@ -5324,15 +5158,14 @@ trainerdata 166, "Mickey"
 
 trainerdata 167, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 167
@@ -5346,15 +5179,14 @@ trainerdata 167, "Mickey"
 
 trainerdata 168, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 168
@@ -5382,15 +5214,14 @@ trainerdata 168, "Mickey"
 
 trainerdata 169, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 169
@@ -5411,15 +5242,14 @@ trainerdata 169, "Mickey"
 
 trainerdata 170, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 170
@@ -5447,15 +5277,14 @@ trainerdata 170, "Mickey"
 
 trainerdata 171, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 171
@@ -5483,15 +5312,14 @@ trainerdata 171, "Mickey"
 
 trainerdata 172, "Brent"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 172
@@ -5519,15 +5347,14 @@ trainerdata 172, "Brent"
 
 trainerdata 173, "Brent"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 173
@@ -5562,15 +5389,14 @@ trainerdata 173, "Brent"
 
 trainerdata 174, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 174
@@ -5598,15 +5424,14 @@ trainerdata 174, "Mickey"
 
 trainerdata 175, "Bethany"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_MEDIUM
-    battletype 0
+    trainerclass TRAINERCLASS_MEDIUM
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 175
@@ -5620,15 +5445,14 @@ trainerdata 175, "Bethany"
 
 trainerdata 176, "Margaret"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_MEDIUM
-    battletype 0
+    trainerclass TRAINERCLASS_MEDIUM
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 176
@@ -5642,15 +5466,14 @@ trainerdata 176, "Margaret"
 
 trainerdata 177, "Ethel"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_MEDIUM
-    battletype 0
+    trainerclass TRAINERCLASS_MEDIUM
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 177
@@ -5664,15 +5487,14 @@ trainerdata 177, "Ethel"
 
 trainerdata 178, "Jack"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 178
@@ -5693,15 +5515,14 @@ trainerdata 178, "Jack"
 
 trainerdata 179, "Kipp"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 179
@@ -5736,15 +5557,14 @@ trainerdata 179, "Kipp"
 
 trainerdata 180, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 180
@@ -5758,15 +5578,14 @@ trainerdata 180, "Mickey"
 
 trainerdata 181, "William"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 181
@@ -5780,15 +5599,14 @@ trainerdata 181, "William"
 
 trainerdata 182, "Beverly"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_F
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 182
@@ -5802,15 +5620,14 @@ trainerdata 182, "Beverly"
 
 trainerdata 183, "Alice"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 183
@@ -5850,15 +5667,14 @@ trainerdata 183, "Alice"
 
 trainerdata 184, "Krise"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 184
@@ -5879,15 +5695,14 @@ trainerdata 184, "Krise"
 
 trainerdata 185, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 185
@@ -5908,15 +5723,14 @@ trainerdata 185, "Grunt"
 
 trainerdata 186, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 186
@@ -5944,15 +5758,14 @@ trainerdata 186, "Grunt"
 
 trainerdata 187, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 187
@@ -5994,15 +5807,14 @@ trainerdata 187, "Grunt"
 
 trainerdata 188, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 188
@@ -6023,15 +5835,14 @@ trainerdata 188, "Grunt"
 
 trainerdata 189, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 189
@@ -6066,15 +5877,14 @@ trainerdata 189, "Grunt"
 
 trainerdata 190, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 190
@@ -6088,15 +5898,14 @@ trainerdata 190, "Grunt"
 
 trainerdata 191, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 191
@@ -6117,15 +5926,14 @@ trainerdata 191, "Grunt"
 
 trainerdata 192, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 192
@@ -6153,15 +5961,14 @@ trainerdata 192, "Grunt"
 
 trainerdata 193, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 193
@@ -6189,15 +5996,14 @@ trainerdata 193, "Grunt"
 
 trainerdata 194, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 194
@@ -6211,15 +6017,14 @@ trainerdata 194, "Mickey"
 
 trainerdata 195, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 195
@@ -6233,15 +6038,14 @@ trainerdata 195, "Grunt"
 
 trainerdata 196, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 196
@@ -6262,15 +6066,14 @@ trainerdata 196, "Grunt"
 
 trainerdata 197, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 197
@@ -6291,15 +6094,14 @@ trainerdata 197, "Grunt"
 
 trainerdata 198, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET_1
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 198
@@ -6313,15 +6115,14 @@ trainerdata 198, "Grunt"
 
 trainerdata 199, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET_1
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 199
@@ -6342,15 +6143,14 @@ trainerdata 199, "Grunt"
 
 trainerdata 200, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET_1
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 200
@@ -6385,15 +6185,14 @@ trainerdata 200, "Grunt"
 
 trainerdata 201, "Andrew"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 201
@@ -6414,15 +6213,14 @@ trainerdata 201, "Andrew"
 
 trainerdata 202, "Calvin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 202
@@ -6436,15 +6234,14 @@ trainerdata 202, "Calvin"
 
 trainerdata 203, "Phillip"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 203
@@ -6465,15 +6262,14 @@ trainerdata 203, "Phillip"
 
 trainerdata 204, "Leonard"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 204
@@ -6494,15 +6290,14 @@ trainerdata 204, "Leonard"
 
 trainerdata 205, "Nick"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 205
@@ -6542,15 +6337,14 @@ trainerdata 205, "Nick"
 
 trainerdata 206, "Gwen"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 206
@@ -6585,15 +6379,14 @@ trainerdata 206, "Gwen"
 
 trainerdata 207, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 207
@@ -6607,15 +6400,14 @@ trainerdata 207, "Mickey"
 
 trainerdata 208, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 208
@@ -6629,15 +6421,14 @@ trainerdata 208, "Mickey"
 
 trainerdata 209, "Cassie"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 209
@@ -6658,15 +6449,14 @@ trainerdata 209, "Cassie"
 
 trainerdata 210, "Caroline"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 210
@@ -6694,15 +6484,14 @@ trainerdata 210, "Caroline"
 
 trainerdata 211, "Huey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 211
@@ -6723,15 +6512,14 @@ trainerdata 211, "Huey"
 
 trainerdata 212, "Terrell"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 212
@@ -6745,15 +6533,14 @@ trainerdata 212, "Terrell"
 
 trainerdata 213, "Kent"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 213
@@ -6782,15 +6569,14 @@ trainerdata 213, "Kent"
 
 trainerdata 214, "Roberto"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 214
@@ -6818,15 +6604,14 @@ trainerdata 214, "Roberto"
 
 trainerdata 215, "Connie"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 215
@@ -6840,15 +6625,14 @@ trainerdata 215, "Connie"
 
 trainerdata 216, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 216
@@ -6883,15 +6667,14 @@ trainerdata 216, "Grunt"
 
 trainerdata 217, "Denis"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 217
@@ -6919,15 +6702,14 @@ trainerdata 217, "Denis"
 
 trainerdata 218, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 218
@@ -6941,15 +6723,14 @@ trainerdata 218, "Grunt"
 
 trainerdata 219, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 219
@@ -6977,15 +6758,14 @@ trainerdata 219, "Grunt"
 
 trainerdata 220, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 220
@@ -7006,15 +6786,14 @@ trainerdata 220, "Grunt"
 
 trainerdata 221, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 221
@@ -7028,15 +6807,14 @@ trainerdata 221, "Mickey"
 
 trainerdata 222, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 222
@@ -7050,15 +6828,14 @@ trainerdata 222, "Grunt"
 
 trainerdata 223, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 223
@@ -7079,15 +6856,14 @@ trainerdata 223, "Grunt"
 
 trainerdata 224, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 224
@@ -7115,15 +6891,14 @@ trainerdata 224, "Grunt"
 
 trainerdata 225, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 225
@@ -7137,15 +6912,14 @@ trainerdata 225, "Mickey"
 
 trainerdata 226, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 226
@@ -7159,15 +6933,14 @@ trainerdata 226, "Mickey"
 
 trainerdata 227, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 227
@@ -7188,15 +6961,14 @@ trainerdata 227, "Grunt"
 
 trainerdata 228, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 228
@@ -7217,15 +6989,14 @@ trainerdata 228, "Grunt"
 
 trainerdata 229, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 229
@@ -7246,15 +7017,14 @@ trainerdata 229, "Mickey"
 
 trainerdata 230, "Franklin"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 230
@@ -7283,15 +7053,14 @@ trainerdata 230, "Franklin"
 
 trainerdata 231, "Edward"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_GENTLEMAN
-    battletype 0
+    trainerclass TRAINERCLASS_GENTLEMAN
     nummons 1
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 231
@@ -7305,15 +7074,14 @@ trainerdata 231, "Edward"
 
 trainerdata 232, "Vincent"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_GUITARIST
-    battletype 0
+    trainerclass TRAINERCLASS_GUITARIST
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 232
@@ -7353,15 +7121,14 @@ trainerdata 232, "Vincent"
 
 trainerdata 233, "Eric"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 233
@@ -7382,15 +7149,14 @@ trainerdata 233, "Eric"
 
 trainerdata 234, "Eoin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 234
@@ -7418,15 +7184,14 @@ trainerdata 234, "Eoin"
 
 trainerdata 235, "Noland"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 235
@@ -7447,15 +7212,14 @@ trainerdata 235, "Noland"
 
 trainerdata 236, "Shaye"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 236
@@ -7495,15 +7259,14 @@ trainerdata 236, "Shaye"
 
 trainerdata 237, "Carol"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 237
@@ -7543,15 +7306,14 @@ trainerdata 237, "Carol"
 
 trainerdata 238, "Stanly"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 238
@@ -7579,15 +7341,14 @@ trainerdata 238, "Stanly"
 
 trainerdata 239, "Jeff"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 239
@@ -7608,15 +7369,14 @@ trainerdata 239, "Jeff"
 
 trainerdata 240, "Garrett"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 240
@@ -7630,15 +7390,14 @@ trainerdata 240, "Garrett"
 
 trainerdata 241, "Kenneth"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 241
@@ -7673,15 +7432,14 @@ trainerdata 241, "Kenneth"
 
 trainerdata 242, "Fritz"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_JUGGLER
-    battletype 0
+    trainerclass TRAINERCLASS_JUGGLER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 242
@@ -7704,7 +7462,7 @@ trainerdata 242, "Fritz"
         move MOVE_LAVA_PLUME
         move MOVE_FIRE_PUNCH
         move MOVE_CONFUSE_RAY
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 2
@@ -7721,15 +7479,14 @@ trainerdata 242, "Fritz"
 
 trainerdata 243, "Katie"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 243
@@ -7743,15 +7500,14 @@ trainerdata 243, "Katie"
 
 trainerdata 244, "Lance"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_CHAMPION
-    battletype 0
+    trainerclass TRAINERCLASS_CHAMPION
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 244
@@ -7830,15 +7586,14 @@ trainerdata 244, "Lance"
 
 trainerdata 245, "Will"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ELITE_FOUR_0
-    battletype 0
+    trainerclass TRAINERCLASS_ELITE_FOUR_WILL
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 245
@@ -7905,15 +7660,14 @@ trainerdata 245, "Will"
 
 trainerdata 246, "Karen"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ELITE_FOUR_1
-    battletype 0
+    trainerclass TRAINERCLASS_ELITE_FOUR_KAREN
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 246
@@ -7925,7 +7679,7 @@ trainerdata 246, "Karen"
         item ITEM_NONE
         move MOVE_DOUBLE_TEAM
         move MOVE_CONFUSE_RAY
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_PAYBACK
         ballseal 0
 
@@ -7962,7 +7716,7 @@ trainerdata 246, "Karen"
         move MOVE_PLUCK
         move MOVE_WHIRLWIND
         move MOVE_SUCKER_PUNCH
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 4
@@ -7980,15 +7734,14 @@ trainerdata 246, "Karen"
 
 trainerdata 247, "Koga"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ELITE_FOUR_2
-    battletype 0
+    trainerclass TRAINERCLASS_ELITE_FOUR_KOGA
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 247
@@ -8055,15 +7808,14 @@ trainerdata 247, "Koga"
 
 trainerdata 248, "Ed"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 248
@@ -8091,15 +7843,14 @@ trainerdata 248, "Ed"
 
 trainerdata 249, "Don"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 249
@@ -8120,15 +7871,14 @@ trainerdata 249, "Don"
 
 trainerdata 250, "Kenji"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 250
@@ -8163,15 +7913,14 @@ trainerdata 250, "Kenji"
 
 trainerdata 251, "Nob"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 251
@@ -8200,15 +7949,14 @@ trainerdata 251, "Nob"
 
 trainerdata 252, "Harold"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 252
@@ -8229,15 +7977,14 @@ trainerdata 252, "Harold"
 
 trainerdata 253, "Brock"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_5
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_BROCK
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 253
@@ -8304,15 +8051,14 @@ trainerdata 253, "Brock"
 
 trainerdata 254, "Misty"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_6
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_MISTY
     nummons 4
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 254
@@ -8367,15 +8113,14 @@ trainerdata 254, "Misty"
 
 trainerdata 255, "Lt. Surge"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_7
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_LT_SURGE
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 255
@@ -8442,15 +8187,14 @@ trainerdata 255, "Lt. Surge"
 
 trainerdata 256, "Erika"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_8
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_ERIKA
     nummons 4
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 256
@@ -8505,15 +8249,14 @@ trainerdata 256, "Erika"
 
 trainerdata 257, "Janine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_9
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_JANINE
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 257
@@ -8580,15 +8323,14 @@ trainerdata 257, "Janine"
 
 trainerdata 258, "Sabrina"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_10
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_SABRINA
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 258
@@ -8631,15 +8373,14 @@ trainerdata 258, "Sabrina"
 
 trainerdata 259, "Blaine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_11
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_BLAINE
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 259
@@ -8682,15 +8423,14 @@ trainerdata 259, "Blaine"
 
 trainerdata 260, "Red"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PKMN_TRAINER_9
-    battletype 0
+    trainerclass TRAINERCLASS_PKMN_TRAINER_RED
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 260
@@ -8769,15 +8509,14 @@ trainerdata 260, "Red"
 
 trainerdata 261, "Blue"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_12
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_BLUE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 261
@@ -8856,15 +8595,14 @@ trainerdata 261, "Blue"
 
 trainerdata 262, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 262
@@ -8892,15 +8630,14 @@ trainerdata 262, "Mickey"
 
 trainerdata 263, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 263
@@ -8951,15 +8688,14 @@ trainerdata 263, "Silver"
 
 trainerdata 264, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 264
@@ -8970,7 +8706,7 @@ trainerdata 264, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_FURY_SWIPES
         ballseal 0
 
@@ -9032,15 +8768,14 @@ trainerdata 264, "Silver"
 
 trainerdata 265, "Silver"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 265
@@ -9054,15 +8789,14 @@ trainerdata 265, "Silver"
 
 trainerdata 266, "Silver"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 266
@@ -9090,15 +8824,14 @@ trainerdata 266, "Silver"
 
 trainerdata 267, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 267
@@ -9149,15 +8882,14 @@ trainerdata 267, "Silver"
 
 trainerdata 268, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 268
@@ -9168,7 +8900,7 @@ trainerdata 268, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_FURY_SWIPES
         ballseal 0
 
@@ -9230,15 +8962,14 @@ trainerdata 268, "Silver"
 
 trainerdata 269, "Silver"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 269
@@ -9266,15 +8997,14 @@ trainerdata 269, "Silver"
 
 trainerdata 270, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 270
@@ -9325,15 +9055,14 @@ trainerdata 270, "Silver"
 
 trainerdata 271, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 271
@@ -9378,7 +9107,7 @@ trainerdata 271, "Silver"
         move MOVE_ICY_WIND
         move MOVE_QUICK_ATTACK
         move MOVE_FURY_SWIPES
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 4
@@ -9395,15 +9124,14 @@ trainerdata 271, "Silver"
 
 trainerdata 272, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 272
@@ -9414,7 +9142,7 @@ trainerdata 272, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_FURY_SWIPES
         ballseal 0
 
@@ -9476,15 +9204,14 @@ trainerdata 272, "Silver"
 
 trainerdata 273, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 273
@@ -9512,15 +9239,14 @@ trainerdata 273, "Mickey"
 
 trainerdata 274, "Todd"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 274
@@ -9548,15 +9274,14 @@ trainerdata 274, "Todd"
 
 trainerdata 275, "Todd"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 275
@@ -9591,15 +9316,14 @@ trainerdata 275, "Todd"
 
 trainerdata 276, "Liz"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 276
@@ -9620,15 +9344,14 @@ trainerdata 276, "Liz"
 
 trainerdata 277, "Liz"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 277
@@ -9656,15 +9379,14 @@ trainerdata 277, "Liz"
 
 trainerdata 278, "Kenji"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 278
@@ -9699,15 +9421,14 @@ trainerdata 278, "Kenji"
 
 trainerdata 279, "Joey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 279
@@ -9721,15 +9442,14 @@ trainerdata 279, "Joey"
 
 trainerdata 280, "Joey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 280
@@ -9747,15 +9467,14 @@ trainerdata 280, "Joey"
 
 trainerdata 281, "Richard"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FIREBREATHER
-    battletype 0
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 281
@@ -9769,15 +9488,14 @@ trainerdata 281, "Richard"
 
 trainerdata 282, "Ned"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FIREBREATHER
-    battletype 0
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 282
@@ -9805,15 +9523,14 @@ trainerdata 282, "Ned"
 
 trainerdata 283, "Orson"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BURGLAR
-    battletype 0
+    trainerclass TRAINERCLASS_BURGLAR
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 283
@@ -9842,15 +9559,14 @@ trainerdata 283, "Orson"
 
 trainerdata 284, "Corey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BURGLAR
-    battletype 0
+    trainerclass TRAINERCLASS_BURGLAR
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 284
@@ -9885,15 +9601,14 @@ trainerdata 284, "Corey"
 
 trainerdata 285, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 285
@@ -9904,7 +9619,7 @@ trainerdata 285, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_SHADOW_CLAW
         ballseal 0
 
@@ -9966,15 +9681,14 @@ trainerdata 285, "Silver"
 
 trainerdata 286, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 286
@@ -9985,7 +9699,7 @@ trainerdata 286, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_SHADOW_CLAW
         ballseal 0
 
@@ -10047,15 +9761,14 @@ trainerdata 286, "Silver"
 
 trainerdata 287, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 287
@@ -10066,7 +9779,7 @@ trainerdata 287, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_QUICK_ATTACK
         move MOVE_ICY_WIND
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_SHADOW_CLAW
         ballseal 0
 
@@ -10128,15 +9841,14 @@ trainerdata 287, "Silver"
 
 trainerdata 288, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 288
@@ -10181,7 +9893,7 @@ trainerdata 288, "Silver"
         move MOVE_ICY_WIND
         move MOVE_QUICK_ATTACK
         move MOVE_FURY_SWIPES
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 4
@@ -10198,15 +9910,14 @@ trainerdata 288, "Silver"
 
 trainerdata 289, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 289
@@ -10251,7 +9962,7 @@ trainerdata 289, "Silver"
         move MOVE_ICY_WIND
         move MOVE_QUICK_ATTACK
         move MOVE_FURY_SWIPES
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 4
@@ -10268,15 +9979,14 @@ trainerdata 289, "Silver"
 
 trainerdata 290, "Li"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ELDER
-    battletype 0
+    trainerclass TRAINERCLASS_ELDER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 290
@@ -10304,15 +10014,14 @@ trainerdata 290, "Li"
 
 trainerdata 291, "Debbie"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 291
@@ -10326,15 +10035,14 @@ trainerdata 291, "Debbie"
 
 trainerdata 292, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 292
@@ -10348,15 +10056,14 @@ trainerdata 292, "Mickey"
 
 trainerdata 293, "Nicole"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 293
@@ -10384,15 +10091,14 @@ trainerdata 293, "Nicole"
 
 trainerdata 294, "Lori"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 294
@@ -10432,15 +10138,14 @@ trainerdata 294, "Lori"
 
 trainerdata 295, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 295
@@ -10454,15 +10159,14 @@ trainerdata 295, "Mickey"
 
 trainerdata 296, "Nikki"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 296
@@ -10483,15 +10187,14 @@ trainerdata 296, "Nikki"
 
 trainerdata 297, "Diana"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 297
@@ -10509,15 +10212,14 @@ trainerdata 297, "Diana"
 
 trainerdata 298, "Briana"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 298
@@ -10546,15 +10248,14 @@ trainerdata 298, "Briana"
 
 trainerdata 299, "Hank"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 299
@@ -10575,15 +10276,14 @@ trainerdata 299, "Hank"
 
 trainerdata 300, "Roy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 300
@@ -10604,15 +10304,14 @@ trainerdata 300, "Roy"
 
 trainerdata 301, "Boris"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 301
@@ -10640,15 +10339,14 @@ trainerdata 301, "Boris"
 
 trainerdata 302, "Bob"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 302
@@ -10662,15 +10360,14 @@ trainerdata 302, "Bob"
 
 trainerdata 303, "Jose"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 303
@@ -10684,15 +10381,14 @@ trainerdata 303, "Jose"
 
 trainerdata 304, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 304
@@ -10727,15 +10423,14 @@ trainerdata 304, "Mickey"
 
 trainerdata 305, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 305
@@ -10770,15 +10465,14 @@ trainerdata 305, "Mickey"
 
 trainerdata 306, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 306
@@ -10813,15 +10507,14 @@ trainerdata 306, "Mickey"
 
 trainerdata 307, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 307
@@ -10856,15 +10549,14 @@ trainerdata 307, "Mickey"
 
 trainerdata 308, "Jerry"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 308
@@ -10882,15 +10574,14 @@ trainerdata 308, "Jerry"
 
 trainerdata 309, "Dwayne"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 309
@@ -10925,15 +10616,14 @@ trainerdata 309, "Dwayne"
 
 trainerdata 310, "Harris"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 310
@@ -10947,15 +10637,14 @@ trainerdata 310, "Harris"
 
 trainerdata 311, "Zeke"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 311
@@ -10976,15 +10665,14 @@ trainerdata 311, "Zeke"
 
 trainerdata 312, "Charles"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 312
@@ -11012,15 +10700,14 @@ trainerdata 312, "Charles"
 
 trainerdata 313, "Reese"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 313
@@ -11034,15 +10721,14 @@ trainerdata 313, "Reese"
 
 trainerdata 314, "Joel"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 314
@@ -11063,15 +10749,14 @@ trainerdata 314, "Joel"
 
 trainerdata 315, "Glenn"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 315
@@ -11099,15 +10784,14 @@ trainerdata 315, "Glenn"
 
 trainerdata 316, "Herman"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 316
@@ -11147,15 +10831,14 @@ trainerdata 316, "Herman"
 
 trainerdata 317, "Fidel"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 317
@@ -11173,15 +10856,14 @@ trainerdata 317, "Fidel"
 
 trainerdata 318, "Burt"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_FIREBREATHER
-    battletype 0
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 318
@@ -11210,15 +10892,14 @@ trainerdata 318, "Burt"
 
 trainerdata 319, "Bill"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FIREBREATHER
-    battletype 0
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 319
@@ -11239,15 +10920,14 @@ trainerdata 319, "Bill"
 
 trainerdata 320, "Martin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 320
@@ -11268,15 +10948,14 @@ trainerdata 320, "Martin"
 
 trainerdata 321, "Stephen"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 321
@@ -11304,15 +10983,14 @@ trainerdata 321, "Stephen"
 
 trainerdata 322, "Barney"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 322
@@ -11340,15 +11018,14 @@ trainerdata 322, "Barney"
 
 trainerdata 323, "Tully"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 323
@@ -11362,15 +11039,14 @@ trainerdata 323, "Tully"
 
 trainerdata 324, "Tully"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 324
@@ -11398,15 +11074,14 @@ trainerdata 324, "Tully"
 
 trainerdata 325, "Wilton"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 325
@@ -11434,15 +11109,14 @@ trainerdata 325, "Wilton"
 
 trainerdata 326, "Jo & Zoe"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 326
@@ -11471,15 +11145,14 @@ trainerdata 326, "Jo & Zoe"
 
 trainerdata 327, "Danny"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 327
@@ -11507,15 +11180,14 @@ trainerdata 327, "Danny"
 
 trainerdata 328, "Tommy"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 328
@@ -11544,15 +11216,14 @@ trainerdata 328, "Tommy"
 
 trainerdata 329, "Dudley"
     trainermontype TRAINER_DATA_TYPE_ITEMS
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 329
@@ -11567,15 +11238,14 @@ trainerdata 329, "Dudley"
 
 trainerdata 330, "Joe"
     trainermontype TRAINER_DATA_TYPE_ITEMS
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 330
@@ -11598,15 +11268,14 @@ trainerdata 330, "Joe"
 
 trainerdata 331, "Billy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 331
@@ -11634,15 +11303,14 @@ trainerdata 331, "Billy"
 
 trainerdata 332, "Heidi"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 332
@@ -11663,15 +11331,14 @@ trainerdata 332, "Heidi"
 
 trainerdata 333, "Edna"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 333
@@ -11692,15 +11359,14 @@ trainerdata 333, "Edna"
 
 trainerdata 334, "Gina"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 334
@@ -11728,15 +11394,14 @@ trainerdata 334, "Gina"
 
 trainerdata 335, "Erin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 335
@@ -11757,15 +11422,14 @@ trainerdata 335, "Erin"
 
 trainerdata 336, "Tanya"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 336
@@ -11783,15 +11447,14 @@ trainerdata 336, "Tanya"
 
 trainerdata 337, "Gregory"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_GENTLEMAN
-    battletype 0
+    trainerclass TRAINERCLASS_GENTLEMAN
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 337
@@ -11831,15 +11494,14 @@ trainerdata 337, "Gregory"
 
 trainerdata 338, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_GENTLEMAN
-    battletype 0
+    trainerclass TRAINERCLASS_GENTLEMAN
     nummons 1
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 338
@@ -11853,15 +11515,14 @@ trainerdata 338, "Mickey"
 
 trainerdata 339, "Wai"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 339
@@ -11889,15 +11550,14 @@ trainerdata 339, "Wai"
 
 trainerdata 340, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 340
@@ -11911,15 +11571,14 @@ trainerdata 340, "Mickey"
 
 trainerdata 341, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 341
@@ -11933,15 +11592,14 @@ trainerdata 341, "Mickey"
 
 trainerdata 342, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 342
@@ -11955,15 +11613,14 @@ trainerdata 342, "Mickey"
 
 trainerdata 343, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 343
@@ -11977,15 +11634,14 @@ trainerdata 343, "Mickey"
 
 trainerdata 344, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 344
@@ -11999,15 +11655,14 @@ trainerdata 344, "Mickey"
 
 trainerdata 345, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 345
@@ -12021,15 +11676,14 @@ trainerdata 345, "Mickey"
 
 trainerdata 346, "Julia"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 346
@@ -12069,15 +11723,14 @@ trainerdata 346, "Julia"
 
 trainerdata 347, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 347
@@ -12091,15 +11744,14 @@ trainerdata 347, "Mickey"
 
 trainerdata 348, "Robert"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 348
@@ -12113,15 +11765,14 @@ trainerdata 348, "Robert"
 
 trainerdata 349, "Joshua"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 349
@@ -12170,15 +11821,14 @@ trainerdata 349, "Joshua"
 
 trainerdata 350, "Carter"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 350
@@ -12206,15 +11856,14 @@ trainerdata 350, "Carter"
 
 trainerdata 351, "Trevor"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 351
@@ -12228,15 +11877,14 @@ trainerdata 351, "Trevor"
 
 trainerdata 352, "Georgia"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_F
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN
     nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 352
@@ -12278,15 +11926,14 @@ trainerdata 352, "Georgia"
 
 trainerdata 353, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 353
@@ -12300,15 +11947,14 @@ trainerdata 353, "Grunt"
 
 trainerdata 354, "Laura"
     trainermontype TRAINER_DATA_TYPE_ITEMS
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 354
@@ -12339,15 +11985,14 @@ trainerdata 354, "Laura"
 
 trainerdata 355, "Shannon"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 355
@@ -12375,15 +12020,14 @@ trainerdata 355, "Shannon"
 
 trainerdata 356, "Michelle"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 356
@@ -12423,15 +12067,14 @@ trainerdata 356, "Michelle"
 
 trainerdata 357, "Clarke"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 357
@@ -12452,15 +12095,14 @@ trainerdata 357, "Clarke"
 
 trainerdata 358, "Kenny"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 358
@@ -12488,15 +12130,14 @@ trainerdata 358, "Kenny"
 
 trainerdata 359, "Jim"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 359
@@ -12510,15 +12151,14 @@ trainerdata 359, "Jim"
 
 trainerdata 360, "Arnie"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 360
@@ -12532,15 +12172,14 @@ trainerdata 360, "Arnie"
 
 trainerdata 361, "Kevin"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 361
@@ -12580,15 +12219,14 @@ trainerdata 361, "Kevin"
 
 trainerdata 362, "Quinn"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 362
@@ -12617,15 +12255,14 @@ trainerdata 362, "Quinn"
 
 trainerdata 363, "Emma"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 363
@@ -12639,15 +12276,14 @@ trainerdata 363, "Emma"
 
 trainerdata 364, "Sam"
     trainermontype TRAINER_DATA_TYPE_ITEMS
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 364
@@ -12670,15 +12306,14 @@ trainerdata 364, "Sam"
 
 trainerdata 365, "Tyrone"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 365
@@ -12706,15 +12341,14 @@ trainerdata 365, "Tyrone"
 
 trainerdata 366, "Pat"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 366
@@ -12733,15 +12367,14 @@ trainerdata 366, "Pat"
 
 trainerdata 367, "Shawn"
     trainermontype TRAINER_DATA_TYPE_ITEMS
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 367
@@ -12772,15 +12405,14 @@ trainerdata 367, "Shawn"
 
 trainerdata 368, "Rebecca"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_MEDIUM
-    battletype 0
+    trainerclass TRAINERCLASS_MEDIUM
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 368
@@ -12789,7 +12421,7 @@ trainerdata 368, "Rebecca"
         abilityslot 32
         level 45
         pokemon SPECIES_BRONZOR
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_SKILL_SWAP
         move MOVE_SAFEGUARD
         move MOVE_GYRO_BALL
@@ -12809,15 +12441,14 @@ trainerdata 368, "Rebecca"
 
 trainerdata 369, "Darcy"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_MEDIUM
-    battletype 0
+    trainerclass TRAINERCLASS_MEDIUM
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 369
@@ -12846,15 +12477,14 @@ trainerdata 369, "Darcy"
 
 trainerdata 370, "Jerome"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 370
@@ -12889,15 +12519,14 @@ trainerdata 370, "Jerome"
 
 trainerdata 371, "Tucker"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 371
@@ -12918,15 +12547,14 @@ trainerdata 371, "Tucker"
 
 trainerdata 372, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 372
@@ -12954,15 +12582,14 @@ trainerdata 372, "Mickey"
 
 trainerdata 373, "Frankie"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 373
@@ -12976,15 +12603,14 @@ trainerdata 373, "Frankie"
 
 trainerdata 374, "Tyson"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 374
@@ -13013,15 +12639,14 @@ trainerdata 374, "Tyson"
 
 trainerdata 375, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 375
@@ -13049,15 +12674,14 @@ trainerdata 375, "Mickey"
 
 trainerdata 376, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 376
@@ -13085,15 +12709,14 @@ trainerdata 376, "Mickey"
 
 trainerdata 377, "Parker"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 377
@@ -13122,15 +12745,14 @@ trainerdata 377, "Parker"
 
 trainerdata 378, "Warren"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 378
@@ -13151,15 +12773,14 @@ trainerdata 378, "Warren"
 
 trainerdata 379, "Jimmy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 379
@@ -13187,15 +12808,14 @@ trainerdata 379, "Jimmy"
 
 trainerdata 380, "Owen"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 380
@@ -13209,15 +12829,14 @@ trainerdata 380, "Owen"
 
 trainerdata 381, "Jason"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 381
@@ -13238,15 +12857,14 @@ trainerdata 381, "Jason"
 
 trainerdata 382, "Hillary"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEACHER
-    battletype 0
+    trainerclass TRAINERCLASS_TEACHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 382
@@ -13267,15 +12885,14 @@ trainerdata 382, "Hillary"
 
 trainerdata 383, "Peter"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 383
@@ -13303,15 +12920,14 @@ trainerdata 383, "Peter"
 
 trainerdata 384, "Daniel"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 384
@@ -13325,15 +12941,14 @@ trainerdata 384, "Daniel"
 
 trainerdata 385, "Dara & Dia"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 385
@@ -13354,15 +12969,14 @@ trainerdata 385, "Dara & Dia"
 
 trainerdata 386, "Greg"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 386
@@ -13380,15 +12994,14 @@ trainerdata 386, "Greg"
 
 trainerdata 387, "Amy & Mimi"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 387
@@ -13409,15 +13022,14 @@ trainerdata 387, "Amy & Mimi"
 
 trainerdata 388, "Walt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FIREBREATHER
-    battletype 0
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 388
@@ -13438,15 +13050,14 @@ trainerdata 388, "Walt"
 
 trainerdata 389, "Nelson"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 389
@@ -13475,15 +13086,14 @@ trainerdata 389, "Nelson"
 
 trainerdata 390, "Ray"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FIREBREATHER
-    battletype 0
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 390
@@ -13497,15 +13107,14 @@ trainerdata 390, "Ray"
 
 trainerdata 391, "Issac"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 391
@@ -13523,15 +13132,14 @@ trainerdata 391, "Issac"
 
 trainerdata 392, "Donald"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 392
@@ -13552,15 +13160,14 @@ trainerdata 392, "Donald"
 
 trainerdata 393, "Teru"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 393
@@ -13595,15 +13202,14 @@ trainerdata 393, "Teru"
 
 trainerdata 394, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 394
@@ -13631,15 +13237,14 @@ trainerdata 394, "Mickey"
 
 trainerdata 395, "Mark"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 395
@@ -13679,15 +13284,14 @@ trainerdata 395, "Mark"
 
 trainerdata 396, "Horton"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_JUGGLER
-    battletype 0
+    trainerclass TRAINERCLASS_JUGGLER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 396
@@ -13727,15 +13331,14 @@ trainerdata 396, "Horton"
 
 trainerdata 397, "Chad"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 397
@@ -13749,15 +13352,14 @@ trainerdata 397, "Chad"
 
 trainerdata 398, "Valerie"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 398
@@ -13786,15 +13388,14 @@ trainerdata 398, "Valerie"
 
 trainerdata 399, "Lyle"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FIREBREATHER
-    battletype 0
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 399
@@ -13822,15 +13423,14 @@ trainerdata 399, "Lyle"
 
 trainerdata 400, "Dana"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 2
     item ITEM_MOOMOO_MILK
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 400
@@ -13859,15 +13459,14 @@ trainerdata 400, "Dana"
 
 trainerdata 401, "Alfred"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_GENTLEMAN
-    battletype 0
+    trainerclass TRAINERCLASS_GENTLEMAN
     nummons 1
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 401
@@ -13881,15 +13480,14 @@ trainerdata 401, "Alfred"
 
 trainerdata 402, "Tiffany"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 402
@@ -13907,15 +13505,14 @@ trainerdata 402, "Tiffany"
 
 trainerdata 403, "Spencer"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 403
@@ -13943,15 +13540,14 @@ trainerdata 403, "Spencer"
 
 trainerdata 404, "Grunt"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_TEAM_ROCKET_1
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 404
@@ -13980,15 +13576,14 @@ trainerdata 404, "Grunt"
 
 trainerdata 405, "Phil"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 405
@@ -14017,15 +13612,14 @@ trainerdata 405, "Phil"
 
 trainerdata 406, "Zach"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 406
@@ -14039,15 +13633,14 @@ trainerdata 406, "Zach"
 
 trainerdata 407, "Allen"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 407
@@ -14076,15 +13669,14 @@ trainerdata 407, "Allen"
 
 trainerdata 408, "Cybil"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 408
@@ -14113,15 +13705,14 @@ trainerdata 408, "Cybil"
 
 trainerdata 409, "Brandon"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 409
@@ -14142,15 +13733,14 @@ trainerdata 409, "Brandon"
 
 trainerdata 410, "Harry"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 410
@@ -14168,15 +13758,14 @@ trainerdata 410, "Harry"
 
 trainerdata 411, "Vernon"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 411
@@ -14190,15 +13779,14 @@ trainerdata 411, "Vernon"
 
 trainerdata 412, "Eli"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 412
@@ -14226,15 +13814,14 @@ trainerdata 412, "Eli"
 
 trainerdata 413, "Scott"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 413
@@ -14274,15 +13861,14 @@ trainerdata 413, "Scott"
 
 trainerdata 414, "Jose"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 414
@@ -14296,15 +13882,14 @@ trainerdata 414, "Jose"
 
 trainerdata 415, "Jared"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 415
@@ -14344,15 +13929,14 @@ trainerdata 415, "Jared"
 
 trainerdata 416, "Jo & Zoe"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 416
@@ -14381,15 +13965,14 @@ trainerdata 416, "Jo & Zoe"
 
 trainerdata 417, "Jenn"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 417
@@ -14410,15 +13993,14 @@ trainerdata 417, "Jenn"
 
 trainerdata 418, "Bruno"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ELITE_FOUR_3
-    battletype 0
+    trainerclass TRAINERCLASS_ELITE_FOUR_BRUNO
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 418
@@ -14485,15 +14067,14 @@ trainerdata 418, "Bruno"
 
 trainerdata 419, "Ellen"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 419
@@ -14514,15 +14095,14 @@ trainerdata 419, "Ellen"
 
 trainerdata 420, "Perry"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 420
@@ -14536,15 +14116,14 @@ trainerdata 420, "Perry"
 
 trainerdata 421, "Bret"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 421
@@ -14565,15 +14144,14 @@ trainerdata 421, "Bret"
 
 trainerdata 422, "Rodney"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PSYCHIC_M
-    battletype 0
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 422
@@ -14594,15 +14172,14 @@ trainerdata 422, "Rodney"
 
 trainerdata 423, "Jeremy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 423
@@ -14630,15 +14207,14 @@ trainerdata 423, "Jeremy"
 
 trainerdata 424, "Colin"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 424
@@ -14656,15 +14232,14 @@ trainerdata 424, "Colin"
 
 trainerdata 425, "Meg & Peg"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 425
@@ -14685,15 +14260,14 @@ trainerdata 425, "Meg & Peg"
 
 trainerdata 426, "Meg & Peg"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 426
@@ -14714,15 +14288,14 @@ trainerdata 426, "Meg & Peg"
 
 trainerdata 427, "Shirley"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEACHER
-    battletype 0
+    trainerclass TRAINERCLASS_TEACHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 427
@@ -14743,15 +14316,14 @@ trainerdata 427, "Shirley"
 
 trainerdata 428, "Nate"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | F_MULTI_BATTLE_PARTNER | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 428
@@ -14772,15 +14344,14 @@ trainerdata 428, "Nate"
 
 trainerdata 429, "Ricky"
     trainermontype TRAINER_DATA_TYPE_ITEMS
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 429
@@ -14803,15 +14374,14 @@ trainerdata 429, "Ricky"
 
 trainerdata 430, "Jack"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 430
@@ -14832,15 +14402,14 @@ trainerdata 430, "Jack"
 
 trainerdata 431, "Jack"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 431
@@ -14861,15 +14430,14 @@ trainerdata 431, "Jack"
 
 trainerdata 432, "Alan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 432
@@ -14890,15 +14458,14 @@ trainerdata 432, "Alan"
 
 trainerdata 433, "Alan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 433
@@ -14933,15 +14500,14 @@ trainerdata 433, "Alan"
 
 trainerdata 434, "Chad"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 434
@@ -14962,15 +14528,14 @@ trainerdata 434, "Chad"
 
 trainerdata 435, "Chad"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 435
@@ -14991,15 +14556,14 @@ trainerdata 435, "Chad"
 
 trainerdata 436, "Beverly"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_F
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 436
@@ -15013,15 +14577,14 @@ trainerdata 436, "Beverly"
 
 trainerdata 437, "Beverly"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_F
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 437
@@ -15035,15 +14598,14 @@ trainerdata 437, "Beverly"
 
 trainerdata 438, "Derek"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 438
@@ -15064,15 +14626,14 @@ trainerdata 438, "Derek"
 
 trainerdata 439, "Derek"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 439
@@ -15107,15 +14668,14 @@ trainerdata 439, "Derek"
 
 trainerdata 440, "Huey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 440
@@ -15136,15 +14696,14 @@ trainerdata 440, "Huey"
 
 trainerdata 441, "Huey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 441
@@ -15165,15 +14724,14 @@ trainerdata 441, "Huey"
 
 trainerdata 442, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 442
@@ -15187,15 +14745,14 @@ trainerdata 442, "Mickey"
 
 trainerdata 443, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 443
@@ -15209,15 +14766,14 @@ trainerdata 443, "Mickey"
 
 trainerdata 444, "Reena"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 444
@@ -15245,15 +14801,14 @@ trainerdata 444, "Reena"
 
 trainerdata 445, "Reena"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 445
@@ -15281,15 +14836,14 @@ trainerdata 445, "Reena"
 
 trainerdata 446, "Jose"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 446
@@ -15310,15 +14864,14 @@ trainerdata 446, "Jose"
 
 trainerdata 447, "Vance"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 447
@@ -15339,15 +14892,14 @@ trainerdata 447, "Vance"
 
 trainerdata 448, "Vance"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 448
@@ -15375,15 +14927,14 @@ trainerdata 448, "Vance"
 
 trainerdata 449, "Arnie"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 449
@@ -15401,15 +14952,14 @@ trainerdata 449, "Arnie"
 
 trainerdata 450, "Wilton"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 450
@@ -15437,15 +14987,14 @@ trainerdata 450, "Wilton"
 
 trainerdata 451, "Parry"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 451
@@ -15466,15 +15015,14 @@ trainerdata 451, "Parry"
 
 trainerdata 452, "Parry"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 452
@@ -15495,15 +15043,14 @@ trainerdata 452, "Parry"
 
 trainerdata 453, "Erin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 453
@@ -15531,15 +15078,14 @@ trainerdata 453, "Erin"
 
 trainerdata 454, "Irwin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_JUGGLER
-    battletype 0
+    trainerclass TRAINERCLASS_JUGGLER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 454
@@ -15574,15 +15120,14 @@ trainerdata 454, "Irwin"
 
 trainerdata 455, "Irwin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_JUGGLER
-    battletype 0
+    trainerclass TRAINERCLASS_JUGGLER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 455
@@ -15617,15 +15162,14 @@ trainerdata 455, "Irwin"
 
 trainerdata 456, "Gaven"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 456
@@ -15665,15 +15209,14 @@ trainerdata 456, "Gaven"
 
 trainerdata 457, "Gaven"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 457
@@ -15713,15 +15256,14 @@ trainerdata 457, "Gaven"
 
 trainerdata 458, "Jamie"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 458
@@ -15750,15 +15292,14 @@ trainerdata 458, "Jamie"
 
 trainerdata 459, "Jamie"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 459
@@ -15787,15 +15328,14 @@ trainerdata 459, "Jamie"
 
 trainerdata 460, "Wade"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 460
@@ -15846,15 +15386,14 @@ trainerdata 460, "Wade"
 
 trainerdata 461, "Wade"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 461
@@ -15905,15 +15444,14 @@ trainerdata 461, "Wade"
 
 trainerdata 462, "Ralph"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 462
@@ -15927,15 +15465,14 @@ trainerdata 462, "Ralph"
 
 trainerdata 463, "Ralph"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 463
@@ -15956,15 +15493,14 @@ trainerdata 463, "Ralph"
 
 trainerdata 464, "Dana"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 2
     item ITEM_MOOMOO_MILK
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 464
@@ -15993,15 +15529,14 @@ trainerdata 464, "Dana"
 
 trainerdata 465, "Dana"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 2
     item ITEM_MOOMOO_MILK
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 465
@@ -16030,15 +15565,14 @@ trainerdata 465, "Dana"
 
 trainerdata 466, "Tiffany"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 466
@@ -16056,15 +15590,14 @@ trainerdata 466, "Tiffany"
 
 trainerdata 467, "Tiffany"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 467
@@ -16082,15 +15615,14 @@ trainerdata 467, "Tiffany"
 
 trainerdata 468, "Ross"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCIENTIST_1
-    battletype 0
+    trainerclass TRAINERCLASS_SCIENTIST_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 468
@@ -16111,15 +15643,14 @@ trainerdata 468, "Ross"
 
 trainerdata 469, "Mitch"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCIENTIST_1
-    battletype 0
+    trainerclass TRAINERCLASS_SCIENTIST_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 469
@@ -16133,15 +15664,14 @@ trainerdata 469, "Mitch"
 
 trainerdata 470, "Gregg"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCIENTIST_1
-    battletype 0
+    trainerclass TRAINERCLASS_SCIENTIST_GS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 470
@@ -16169,15 +15699,14 @@ trainerdata 470, "Gregg"
 
 trainerdata 471, "Garett"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCIENTIST_1
-    battletype 0
+    trainerclass TRAINERCLASS_SCIENTIST_GS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 471
@@ -16205,15 +15734,14 @@ trainerdata 471, "Garett"
 
 trainerdata 472, "Trenton"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCIENTIST_1
-    battletype 0
+    trainerclass TRAINERCLASS_SCIENTIST_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 472
@@ -16231,15 +15759,14 @@ trainerdata 472, "Trenton"
 
 trainerdata 473, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 473
@@ -16260,15 +15787,14 @@ trainerdata 473, "Mickey"
 
 trainerdata 474, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 474
@@ -16282,15 +15808,14 @@ trainerdata 474, "Mickey"
 
 trainerdata 475, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 475
@@ -16318,15 +15843,14 @@ trainerdata 475, "Mickey"
 
 trainerdata 476, "Mickey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 476
@@ -16354,15 +15878,14 @@ trainerdata 476, "Mickey"
 
 trainerdata 477, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 477
@@ -16380,15 +15903,14 @@ trainerdata 477, "Mickey"
 
 trainerdata 478, "Ariana"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_EXECUTIVE
-    battletype 0
+    trainerclass TRAINERCLASS_EXECUTIVE_ARIANA
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 478
@@ -16428,15 +15950,14 @@ trainerdata 478, "Ariana"
 
 trainerdata 479, "Ariana"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_EXECUTIVE
-    battletype 0
+    trainerclass TRAINERCLASS_EXECUTIVE_ARIANA
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 479
@@ -16476,15 +15997,14 @@ trainerdata 479, "Ariana"
 
 trainerdata 480, "Diana"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SKIER
-    battletype 0
+    trainerclass TRAINERCLASS_SKIER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 480
@@ -16498,15 +16018,14 @@ trainerdata 480, "Diana"
 
 trainerdata 481, "Jill"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SKIER
-    battletype 0
+    trainerclass TRAINERCLASS_SKIER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 481
@@ -16520,15 +16039,14 @@ trainerdata 481, "Jill"
 
 trainerdata 482, "Deandre"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BOARDER
-    battletype 0
+    trainerclass TRAINERCLASS_BOARDER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 482
@@ -16556,15 +16074,14 @@ trainerdata 482, "Deandre"
 
 trainerdata 483, "Patton"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BOARDER
-    battletype 0
+    trainerclass TRAINERCLASS_BOARDER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 483
@@ -16585,15 +16102,14 @@ trainerdata 483, "Patton"
 
 trainerdata 484, "Gerardo"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BOARDER
-    battletype 0
+    trainerclass TRAINERCLASS_BOARDER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 484
@@ -16633,15 +16149,14 @@ trainerdata 484, "Gerardo"
 
 trainerdata 485, "Archer"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_EXECUTIVE_0
-    battletype 0
+    trainerclass TRAINERCLASS_EXECUTIVE_ARCHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 485
@@ -16653,7 +16168,7 @@ trainerdata 485, "Archer"
         move MOVE_FIRE_FANG
         move MOVE_ROAR
         move MOVE_BITE
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
 
         // mon 1
@@ -16675,21 +16190,20 @@ trainerdata 485, "Archer"
         move MOVE_FIRE_FANG
         move MOVE_SMOG
         move MOVE_BITE
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
     endparty
 
 trainerdata 486, "Proton"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_EXECUTIVE_1
-    battletype 0
+    trainerclass TRAINERCLASS_EXECUTIVE_PROTON
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 486
@@ -16710,15 +16224,14 @@ trainerdata 486, "Proton"
 
 trainerdata 487, "Petrel"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_EXECUTIVE_2
-    battletype 0
+    trainerclass TRAINERCLASS_EXECUTIVE_PETREL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 487
@@ -16791,15 +16304,14 @@ trainerdata 487, "Petrel"
 
 trainerdata 488, "Petrel"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_EXECUTIVE_2
-    battletype 0
+    trainerclass TRAINERCLASS_EXECUTIVE_PETREL
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 488
@@ -16827,15 +16339,14 @@ trainerdata 488, "Petrel"
 
 trainerdata 489, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 489
@@ -16846,7 +16357,7 @@ trainerdata 489, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_ICY_WIND
         move MOVE_SHADOW_CLAW
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_METAL_CLAW
         ballseal 0
 
@@ -16908,15 +16419,14 @@ trainerdata 489, "Silver"
 
 trainerdata 490, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 490
@@ -16927,7 +16437,7 @@ trainerdata 490, "Silver"
         pokemon SPECIES_SNEASEL
         move MOVE_ICY_WIND
         move MOVE_SHADOW_CLAW
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_METAL_CLAW
         ballseal 0
 
@@ -16989,15 +16499,14 @@ trainerdata 490, "Silver"
 
 trainerdata 491, "Silver"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 491
@@ -17009,7 +16518,7 @@ trainerdata 491, "Silver"
         item ITEM_NONE
         move MOVE_ICY_WIND
         move MOVE_SHADOW_CLAW
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_METAL_CLAW
         ballseal 0
 
@@ -17076,15 +16585,14 @@ trainerdata 491, "Silver"
 
 trainerdata 492, "Alex"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 492
@@ -17112,15 +16620,14 @@ trainerdata 492, "Alex"
 
 trainerdata 493, "Edith"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_MEDIUM
-    battletype 0
+    trainerclass TRAINERCLASS_MEDIUM
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 493
@@ -17134,15 +16641,14 @@ trainerdata 493, "Edith"
 
 trainerdata 494, "Georgina"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_MEDIUM
-    battletype 0
+    trainerclass TRAINERCLASS_MEDIUM
     nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 494
@@ -17184,15 +16690,14 @@ trainerdata 494, "Georgina"
 
 trainerdata 495, "Boy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PASSERBY
-    battletype 0
+    trainerclass TRAINERCLASS_PASSERBY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 495
@@ -17206,15 +16711,14 @@ trainerdata 495, "Boy"
 
 trainerdata 496, "Boy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PASSERBY
-    battletype 0
+    trainerclass TRAINERCLASS_PASSERBY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 496
@@ -17228,15 +16732,14 @@ trainerdata 496, "Boy"
 
 trainerdata 497, "Boy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PASSERBY
-    battletype 0
+    trainerclass TRAINERCLASS_PASSERBY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 497
@@ -17250,15 +16753,14 @@ trainerdata 497, "Boy"
 
 trainerdata 498, "Eusine"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_MYSTERY_MAN
-    battletype 0
+    trainerclass TRAINERCLASS_MYSTERY_MAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 498
@@ -17298,15 +16800,14 @@ trainerdata 498, "Eusine"
 
 trainerdata 499, "Grunt"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 499
@@ -17335,15 +16836,14 @@ trainerdata 499, "Grunt"
 
 trainerdata 500, "Kobe"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 500
@@ -17361,15 +16861,14 @@ trainerdata 500, "Kobe"
 
 trainerdata 501, "Piper"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 501
@@ -17409,15 +16908,14 @@ trainerdata 501, "Piper"
 
 trainerdata 502, "Clea & Gil"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 502
@@ -17446,15 +16944,14 @@ trainerdata 502, "Clea & Gil"
 
 trainerdata 503, "Jack"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 3
     item ITEM_HYPER_POTION
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 503
@@ -17494,15 +16991,14 @@ trainerdata 503, "Jack"
 
 trainerdata 504, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 504
@@ -17542,15 +17038,14 @@ trainerdata 504, "Mickey"
 
 trainerdata 505, "Alan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 505
@@ -17585,15 +17080,14 @@ trainerdata 505, "Alan"
 
 trainerdata 506, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 506
@@ -17644,15 +17138,14 @@ trainerdata 506, "Mickey"
 
 trainerdata 507, "Chad"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | F_PRIORITIZE_STATUS_MOVES | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 507
@@ -17681,15 +17174,14 @@ trainerdata 507, "Chad"
 
 trainerdata 508, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 508
@@ -17718,15 +17210,14 @@ trainerdata 508, "Mickey"
 
 trainerdata 509, "Huey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 509
@@ -17755,15 +17246,14 @@ trainerdata 509, "Huey"
 
 trainerdata 510, "Joey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 510
@@ -17781,15 +17271,14 @@ trainerdata 510, "Joey"
 
 trainerdata 511, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 511
@@ -17807,15 +17296,14 @@ trainerdata 511, "Mickey"
 
 trainerdata 512, "Wade"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 512
@@ -17866,15 +17354,14 @@ trainerdata 512, "Wade"
 
 trainerdata 513, "Arnie"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 513
@@ -17903,15 +17390,14 @@ trainerdata 513, "Arnie"
 
 trainerdata 514, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 514
@@ -17929,15 +17415,14 @@ trainerdata 514, "Mickey"
 
 trainerdata 515, "Ralph"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 515
@@ -17958,15 +17443,14 @@ trainerdata 515, "Ralph"
 
 trainerdata 516, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 516
@@ -17995,15 +17479,14 @@ trainerdata 516, "Mickey"
 
 trainerdata 517, "Tully"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 517
@@ -18043,15 +17526,14 @@ trainerdata 517, "Tully"
 
 trainerdata 518, "Liz"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 518
@@ -18079,15 +17561,14 @@ trainerdata 518, "Liz"
 
 trainerdata 519, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 519
@@ -18127,15 +17608,14 @@ trainerdata 519, "Mickey"
 
 trainerdata 520, "Gina"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 520
@@ -18163,15 +17643,14 @@ trainerdata 520, "Gina"
 
 trainerdata 521, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 521
@@ -18211,15 +17690,14 @@ trainerdata 521, "Mickey"
 
 trainerdata 522, "Tiffany"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 522
@@ -18237,15 +17715,14 @@ trainerdata 522, "Tiffany"
 
 trainerdata 523, "Anthony"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 523
@@ -18273,15 +17750,14 @@ trainerdata 523, "Anthony"
 
 trainerdata 524, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 524
@@ -18321,15 +17797,14 @@ trainerdata 524, "Mickey"
 
 trainerdata 525, "Todd"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 525
@@ -18364,15 +17839,14 @@ trainerdata 525, "Todd"
 
 trainerdata 526, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 526
@@ -18423,15 +17897,14 @@ trainerdata 526, "Mickey"
 
 trainerdata 527, "Irwin"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_JUGGLER
-    battletype 0
+    trainerclass TRAINERCLASS_JUGGLER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 527
@@ -18482,15 +17955,14 @@ trainerdata 527, "Irwin"
 
 trainerdata 528, "Dana"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 2
     item ITEM_MOOMOO_MILK
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 528
@@ -18519,15 +17991,14 @@ trainerdata 528, "Dana"
 
 trainerdata 529, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 529
@@ -18556,15 +18027,14 @@ trainerdata 529, "Mickey"
 
 trainerdata 530, "Brent"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 530
@@ -18599,15 +18069,14 @@ trainerdata 530, "Brent"
 
 trainerdata 531, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 531
@@ -18636,15 +18105,14 @@ trainerdata 531, "Mickey"
 
 trainerdata 532, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 532
@@ -18695,15 +18163,14 @@ trainerdata 532, "Mickey"
 
 trainerdata 533, "Wayne"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 533
@@ -18724,15 +18191,14 @@ trainerdata 533, "Wayne"
 
 trainerdata 534, "Kimberly"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 534
@@ -18746,15 +18212,14 @@ trainerdata 534, "Kimberly"
 
 trainerdata 535, "Marigold"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_F
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 535
@@ -18768,15 +18233,14 @@ trainerdata 535, "Marigold"
 
 trainerdata 536, "Bertrand"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 536
@@ -18804,15 +18268,14 @@ trainerdata 536, "Bertrand"
 
 trainerdata 537, "Harrison"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKE_MANIAC
-    battletype 0
+    trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 537
@@ -18833,15 +18296,14 @@ trainerdata 537, "Harrison"
 
 trainerdata 538, "Hugh"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 538
@@ -18859,15 +18321,14 @@ trainerdata 538, "Hugh"
 
 trainerdata 539, "Markus"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 539
@@ -18885,15 +18346,14 @@ trainerdata 539, "Markus"
 
 trainerdata 540, "Rex"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 540
@@ -18907,15 +18367,14 @@ trainerdata 540, "Rex"
 
 trainerdata 541, "Andy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 541
@@ -18929,15 +18388,14 @@ trainerdata 541, "Andy"
 
 trainerdata 542, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SAGE
-    battletype 0
+    trainerclass TRAINERCLASS_SAGE
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 542
@@ -18966,15 +18424,14 @@ trainerdata 542, "Mickey"
 
 trainerdata 543, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SAGE
-    battletype 0
+    trainerclass TRAINERCLASS_SAGE
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 543
@@ -19003,15 +18460,14 @@ trainerdata 543, "Mickey"
 
 trainerdata 544, "Mickey"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SAGE
-    battletype 0
+    trainerclass TRAINERCLASS_SAGE
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 544
@@ -19040,15 +18496,14 @@ trainerdata 544, "Mickey"
 
 trainerdata 545, "French"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 2
     item ITEM_DIRE_HIT
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 545
@@ -19079,15 +18534,14 @@ trainerdata 545, "French"
 
 trainerdata 546, "Sherman"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_MULTI_BATTLE_PARTNER | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 546
@@ -19116,15 +18570,14 @@ trainerdata 546, "Sherman"
 
 trainerdata 547, "Bruce"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 547
@@ -19152,15 +18605,14 @@ trainerdata 547, "Bruce"
 
 trainerdata 548, "Manford"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 548
@@ -19178,15 +18630,14 @@ trainerdata 548, "Manford"
 
 trainerdata 549, "Zac & Jen"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_DOUBLE_TEAM
-    battletype 0
+    trainerclass TRAINERCLASS_DOUBLE_TEAM
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 549
@@ -19215,15 +18666,14 @@ trainerdata 549, "Zac & Jen"
 
 trainerdata 550, "Ander"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 550
@@ -19251,15 +18701,14 @@ trainerdata 550, "Ander"
 
 trainerdata 551, "Dwight"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 551
@@ -19280,15 +18729,14 @@ trainerdata 551, "Dwight"
 
 trainerdata 552, "Regis"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 552
@@ -19309,15 +18757,14 @@ trainerdata 552, "Regis"
 
 trainerdata 553, "Moe & Lulu"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNG_COUPLE
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNG_COUPLE
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 553
@@ -19338,15 +18785,14 @@ trainerdata 553, "Moe & Lulu"
 
 trainerdata 554, "Milton"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_GENTLEMAN
-    battletype 0
+    trainerclass TRAINERCLASS_GENTLEMAN
     nummons 1
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 554
@@ -19360,15 +18806,14 @@ trainerdata 554, "Milton"
 
 trainerdata 555, "Justin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 555
@@ -19389,15 +18834,14 @@ trainerdata 555, "Justin"
 
 trainerdata 556, "Gail"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 556
@@ -19418,15 +18862,14 @@ trainerdata 556, "Gail"
 
 trainerdata 557, "Vic & Tara"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_YOUNG_COUPLE
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNG_COUPLE
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_USE_WEATHER | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 557
@@ -19455,15 +18898,14 @@ trainerdata 557, "Vic & Tara"
 
 trainerdata 558, "Kyler"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 558
@@ -19491,15 +18933,14 @@ trainerdata 558, "Kyler"
 
 trainerdata 559, "Tim & Sue"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNG_COUPLE
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNG_COUPLE
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 559
@@ -19520,15 +18961,14 @@ trainerdata 559, "Tim & Sue"
 
 trainerdata 560, "Clark"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 560
@@ -19542,15 +18982,14 @@ trainerdata 560, "Clark"
 
 trainerdata 561, "Tanner"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 561
@@ -19564,15 +19003,14 @@ trainerdata 561, "Tanner"
 
 trainerdata 562, "Piper"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 562
@@ -19586,15 +19024,14 @@ trainerdata 562, "Piper"
 
 trainerdata 563, "Ginger"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 563
@@ -19608,15 +19045,14 @@ trainerdata 563, "Ginger"
 
 trainerdata 564, "Clarice"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_TEACHER
-    battletype 0
+    trainerclass TRAINERCLASS_TEACHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 564
@@ -19647,15 +19083,14 @@ trainerdata 564, "Clarice"
 
 trainerdata 565, "Josh"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 565
@@ -19669,15 +19104,14 @@ trainerdata 565, "Josh"
 
 trainerdata 566, "Connor"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 566
@@ -19696,15 +19130,14 @@ trainerdata 566, "Connor"
 
 trainerdata 567, "Torin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 567
@@ -19725,15 +19158,14 @@ trainerdata 567, "Torin"
 
 trainerdata 568, "Travis"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 568
@@ -19751,15 +19183,14 @@ trainerdata 568, "Travis"
 
 trainerdata 569, "Kay & Tia"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 569
@@ -19788,15 +19219,14 @@ trainerdata 569, "Kay & Tia"
 
 trainerdata 570, "Boone"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 570
@@ -19817,15 +19247,14 @@ trainerdata 570, "Boone"
 
 trainerdata 571, "Eleanor"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_F
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 571
@@ -19846,15 +19275,14 @@ trainerdata 571, "Eleanor"
 
 trainerdata 572, "Dale"
     trainermontype TRAINER_DATA_TYPE_ITEMS
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 572
@@ -19869,15 +19297,14 @@ trainerdata 572, "Dale"
 
 trainerdata 573, "Jacob"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 573
@@ -19898,15 +19325,14 @@ trainerdata 573, "Jacob"
 
 trainerdata 574, "Aiden"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 574
@@ -19920,15 +19346,14 @@ trainerdata 574, "Aiden"
 
 trainerdata 575, "Dan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 575
@@ -19956,15 +19381,14 @@ trainerdata 575, "Dan"
 
 trainerdata 576, "Theron"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 576
@@ -19978,15 +19402,14 @@ trainerdata 576, "Theron"
 
 trainerdata 577, "Markey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 577
@@ -20000,15 +19423,14 @@ trainerdata 577, "Markey"
 
 trainerdata 578, "Teddy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 578
@@ -20022,15 +19444,14 @@ trainerdata 578, "Teddy"
 
 trainerdata 579, "Ernest"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 579
@@ -20051,15 +19472,14 @@ trainerdata 579, "Ernest"
 
 trainerdata 580, "Pedro"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 580
@@ -20078,15 +19498,14 @@ trainerdata 580, "Pedro"
 
 trainerdata 581, "Adrian"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 581
@@ -20100,15 +19519,14 @@ trainerdata 581, "Adrian"
 
 trainerdata 582, "Cheyenne"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 582
@@ -20122,15 +19540,14 @@ trainerdata 582, "Cheyenne"
 
 trainerdata 583, "Bert"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 583
@@ -20151,15 +19568,14 @@ trainerdata 583, "Bert"
 
 trainerdata 584, "Ernie"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 584
@@ -20173,15 +19589,14 @@ trainerdata 584, "Ernie"
 
 trainerdata 585, "Elmo"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 585
@@ -20202,15 +19617,14 @@ trainerdata 585, "Elmo"
 
 trainerdata 586, "Luis"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 586
@@ -20231,15 +19645,14 @@ trainerdata 586, "Luis"
 
 trainerdata 587, "Leona"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 587
@@ -20253,15 +19666,14 @@ trainerdata 587, "Leona"
 
 trainerdata 588, "Mina"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 588
@@ -20289,15 +19701,14 @@ trainerdata 588, "Mina"
 
 trainerdata 589, "Murphy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 589
@@ -20332,15 +19743,14 @@ trainerdata 589, "Murphy"
 
 trainerdata 590, "Liam"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 590
@@ -20354,15 +19764,14 @@ trainerdata 590, "Liam"
 
 trainerdata 591, "Gideon"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 591
@@ -20391,15 +19800,14 @@ trainerdata 591, "Gideon"
 
 trainerdata 592, "Chelan"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 592
@@ -20417,15 +19825,14 @@ trainerdata 592, "Chelan"
 
 trainerdata 593, "Kendra"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 593
@@ -20439,15 +19846,14 @@ trainerdata 593, "Kendra"
 
 trainerdata 594, "Esteban"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 594
@@ -20468,15 +19874,14 @@ trainerdata 594, "Esteban"
 
 trainerdata 595, "Duane"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SWIMMER_M
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 595
@@ -20497,15 +19902,14 @@ trainerdata 595, "Duane"
 
 trainerdata 596, "Kinsley"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 596
@@ -20533,15 +19937,14 @@ trainerdata 596, "Kinsley"
 
 trainerdata 597, "Easton"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 597
@@ -20576,15 +19979,14 @@ trainerdata 597, "Easton"
 
 trainerdata 598, "Day & Dani"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 598
@@ -20605,15 +20007,14 @@ trainerdata 598, "Day & Dani"
 
 trainerdata 599, "Virgil"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 599
@@ -20627,15 +20028,14 @@ trainerdata 599, "Virgil"
 
 trainerdata 600, "Selina"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 600
@@ -20649,15 +20049,14 @@ trainerdata 600, "Selina"
 
 trainerdata 601, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    battletype 0
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 601
@@ -20671,15 +20070,14 @@ trainerdata 601, "Grunt"
 
 trainerdata 602, "Jose"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 3
     item ITEM_X_ATTACK
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 602
@@ -20707,15 +20105,14 @@ trainerdata 602, "Jose"
 
 trainerdata 603, "Erin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_PICNICKER
-    battletype 0
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 603
@@ -20750,15 +20147,14 @@ trainerdata 603, "Erin"
 
 trainerdata 604, "Gaven"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 604
@@ -20798,15 +20194,14 @@ trainerdata 604, "Gaven"
 
 trainerdata 605, "Kenji"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BLACK_BELT
-    battletype 0
+    trainerclass TRAINERCLASS_BLACK_BELT
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 605
@@ -20841,15 +20236,14 @@ trainerdata 605, "Kenji"
 
 trainerdata 606, "Parry"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 606
@@ -20870,15 +20264,14 @@ trainerdata 606, "Parry"
 
 trainerdata 607, "Reena"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 607
@@ -20918,15 +20311,14 @@ trainerdata 607, "Reena"
 
 trainerdata 608, "Wilton"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 608
@@ -20954,15 +20346,14 @@ trainerdata 608, "Wilton"
 
 trainerdata 609, "Jamie"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 609
@@ -20991,15 +20382,14 @@ trainerdata 609, "Jamie"
 
 trainerdata 610, "Derek"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_M
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN_M
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 610
@@ -21034,15 +20424,14 @@ trainerdata 610, "Derek"
 
 trainerdata 611, "Beverly"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_POKEFAN_F
-    battletype 0
+    trainerclass TRAINERCLASS_POKEFAN
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 611
@@ -21056,15 +20445,14 @@ trainerdata 611, "Beverly"
 
 trainerdata 612, "Vance"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 612
@@ -21092,15 +20480,14 @@ trainerdata 612, "Vance"
 
 trainerdata 613, "Krise"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 613
@@ -21121,15 +20508,14 @@ trainerdata 613, "Krise"
 
 trainerdata 614, "Krise"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 614
@@ -21150,15 +20536,14 @@ trainerdata 614, "Krise"
 
 trainerdata 615, "Krise"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_LASS
-    battletype 0
+    trainerclass TRAINERCLASS_LASS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 615
@@ -21179,15 +20564,14 @@ trainerdata 615, "Krise"
 
 trainerdata 616, "Ian"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 616
@@ -21208,15 +20592,14 @@ trainerdata 616, "Ian"
 
 trainerdata 617, "Ian"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 617
@@ -21237,15 +20620,14 @@ trainerdata 617, "Ian"
 
 trainerdata 618, "Ian"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNGSTER
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 618
@@ -21266,15 +20648,14 @@ trainerdata 618, "Ian"
 
 trainerdata 619, "Walt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FIREBREATHER
-    battletype 0
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 619
@@ -21295,15 +20676,14 @@ trainerdata 619, "Walt"
 
 trainerdata 620, "Walt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FIREBREATHER
-    battletype 0
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 620
@@ -21324,15 +20704,14 @@ trainerdata 620, "Walt"
 
 trainerdata 621, "Walt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FIREBREATHER
-    battletype 0
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 621
@@ -21360,15 +20739,14 @@ trainerdata 621, "Walt"
 
 trainerdata 622, "Doug"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 622
@@ -21389,15 +20767,14 @@ trainerdata 622, "Doug"
 
 trainerdata 623, "Doug"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 623
@@ -21418,15 +20795,14 @@ trainerdata 623, "Doug"
 
 trainerdata 624, "Doug"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 624
@@ -21447,15 +20823,14 @@ trainerdata 624, "Doug"
 
 trainerdata 625, "Rob"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 625
@@ -21476,15 +20851,14 @@ trainerdata 625, "Rob"
 
 trainerdata 626, "Rob"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 626
@@ -21505,15 +20879,14 @@ trainerdata 626, "Rob"
 
 trainerdata 627, "Rob"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 627
@@ -21534,15 +20907,14 @@ trainerdata 627, "Rob"
 
 trainerdata 628, "Reese"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 628
@@ -21571,15 +20943,14 @@ trainerdata 628, "Reese"
 
 trainerdata 629, "Reese"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 629
@@ -21608,15 +20979,14 @@ trainerdata 629, "Reese"
 
 trainerdata 630, "Reese"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 630
@@ -21645,15 +21015,14 @@ trainerdata 630, "Reese"
 
 trainerdata 631, "Aiden"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 631
@@ -21674,15 +21043,14 @@ trainerdata 631, "Aiden"
 
 trainerdata 632, "Aiden"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 632
@@ -21703,15 +21071,14 @@ trainerdata 632, "Aiden"
 
 trainerdata 633, "Aiden"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 633
@@ -21739,15 +21106,14 @@ trainerdata 633, "Aiden"
 
 trainerdata 634, "Ernest"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 634
@@ -21768,15 +21134,14 @@ trainerdata 634, "Ernest"
 
 trainerdata 635, "Ernest"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 635
@@ -21797,15 +21162,14 @@ trainerdata 635, "Ernest"
 
 trainerdata 636, "Ernest"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIKER
-    battletype 0
+    trainerclass TRAINERCLASS_BIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 636
@@ -21826,15 +21190,14 @@ trainerdata 636, "Ernest"
 
 trainerdata 637, "Hillary"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEACHER
-    battletype 0
+    trainerclass TRAINERCLASS_TEACHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 637
@@ -21855,15 +21218,14 @@ trainerdata 637, "Hillary"
 
 trainerdata 638, "Hillary"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEACHER
-    battletype 0
+    trainerclass TRAINERCLASS_TEACHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 638
@@ -21884,15 +21246,14 @@ trainerdata 638, "Hillary"
 
 trainerdata 639, "Hillary"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEACHER
-    battletype 0
+    trainerclass TRAINERCLASS_TEACHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 639
@@ -21913,15 +21274,14 @@ trainerdata 639, "Hillary"
 
 trainerdata 640, "Billy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 640
@@ -21949,15 +21309,14 @@ trainerdata 640, "Billy"
 
 trainerdata 641, "Billy"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 641
@@ -21985,15 +21344,14 @@ trainerdata 641, "Billy"
 
 trainerdata 642, "Billy"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 642
@@ -22044,15 +21402,14 @@ trainerdata 642, "Billy"
 
 trainerdata 643, "Kay & Tia"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 643
@@ -22081,15 +21438,14 @@ trainerdata 643, "Kay & Tia"
 
 trainerdata 644, "Kay & Tia"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 644
@@ -22118,15 +21474,14 @@ trainerdata 644, "Kay & Tia"
 
 trainerdata 645, "Kay & Tia"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_TWINS
-    battletype 0
+    trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 645
@@ -22155,15 +21510,14 @@ trainerdata 645, "Kay & Tia"
 
 trainerdata 646, "Josh"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 646
@@ -22184,15 +21538,14 @@ trainerdata 646, "Josh"
 
 trainerdata 647, "Josh"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 647
@@ -22213,15 +21566,14 @@ trainerdata 647, "Josh"
 
 trainerdata 648, "Josh"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BIRD_KEEPER_1
-    battletype 0
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 648
@@ -22242,15 +21594,14 @@ trainerdata 648, "Josh"
 
 trainerdata 649, "Torin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 649
@@ -22278,15 +21629,14 @@ trainerdata 649, "Torin"
 
 trainerdata 650, "Torin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 650
@@ -22314,15 +21664,14 @@ trainerdata 650, "Torin"
 
 trainerdata 651, "Torin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SCHOOL_KID_M
-    battletype 0
+    trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 651
@@ -22350,15 +21699,14 @@ trainerdata 651, "Torin"
 
 trainerdata 652, "Tim & Sue"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNG_COUPLE
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNG_COUPLE
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 652
@@ -22379,15 +21727,14 @@ trainerdata 652, "Tim & Sue"
 
 trainerdata 653, "Tim & Sue"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_YOUNG_COUPLE
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNG_COUPLE
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 653
@@ -22416,15 +21763,14 @@ trainerdata 653, "Tim & Sue"
 
 trainerdata 654, "Tim & Sue"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_YOUNG_COUPLE
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNG_COUPLE
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 654
@@ -22453,15 +21799,14 @@ trainerdata 654, "Tim & Sue"
 
 trainerdata 655, "Kenny"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 655
@@ -22496,15 +21841,14 @@ trainerdata 655, "Kenny"
 
 trainerdata 656, "Kenny"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 656
@@ -22539,15 +21883,14 @@ trainerdata 656, "Kenny"
 
 trainerdata 657, "Kenny"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 657
@@ -22582,15 +21925,14 @@ trainerdata 657, "Kenny"
 
 trainerdata 658, "Tanner"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 658
@@ -22611,15 +21953,14 @@ trainerdata 658, "Tanner"
 
 trainerdata 659, "Tanner"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 659
@@ -22647,15 +21988,14 @@ trainerdata 659, "Tanner"
 
 trainerdata 660, "Tanner"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 660
@@ -22683,15 +22023,14 @@ trainerdata 660, "Tanner"
 
 trainerdata 661, "Kyle"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 661
@@ -22719,15 +22058,14 @@ trainerdata 661, "Kyle"
 
 trainerdata 662, "Kyle"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 662
@@ -22762,15 +22100,14 @@ trainerdata 662, "Kyle"
 
 trainerdata 663, "Kyle"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 663
@@ -22805,15 +22142,14 @@ trainerdata 663, "Kyle"
 
 trainerdata 664, "Kyler"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 664
@@ -22848,15 +22184,14 @@ trainerdata 664, "Kyler"
 
 trainerdata 665, "Kyler"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 665
@@ -22898,15 +22233,14 @@ trainerdata 665, "Kyler"
 
 trainerdata 666, "Kyler"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FISHERMAN
-    battletype 0
+    trainerclass TRAINERCLASS_FISHERMAN
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 666
@@ -22955,15 +22289,14 @@ trainerdata 666, "Kyler"
 
 trainerdata 667, "Cheryl"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PKMN_TRAINER_2
-    battletype 0
+    trainerclass TRAINERCLASS_PKMN_TRAINER_CHERYL
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 667
@@ -23030,15 +22363,14 @@ trainerdata 667, "Cheryl"
 
 trainerdata 668, "Marley"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PKMN_TRAINER_4
-    battletype 0
+    trainerclass TRAINERCLASS_PKMN_TRAINER_MARLEY
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 668
@@ -23105,15 +22437,14 @@ trainerdata 668, "Marley"
 
 trainerdata 669, "Mira"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PKMN_TRAINER_6
-    battletype 0
+    trainerclass TRAINERCLASS_PKMN_TRAINER_MIRA
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 669
@@ -23180,15 +22511,14 @@ trainerdata 669, "Mira"
 
 trainerdata 670, "Riley"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PKMN_TRAINER_3
-    battletype 0
+    trainerclass TRAINERCLASS_PKMN_TRAINER_RILEY
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 670
@@ -23255,15 +22585,14 @@ trainerdata 670, "Riley"
 
 trainerdata 671, "Buck"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PKMN_TRAINER_5
-    battletype 0
+    trainerclass TRAINERCLASS_PKMN_TRAINER_BUCK
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 671
@@ -23330,15 +22659,14 @@ trainerdata 671, "Buck"
 
 trainerdata 672, "Alfred"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_GENTLEMAN
-    battletype 0
+    trainerclass TRAINERCLASS_GENTLEMAN
     nummons 1
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 672
@@ -23352,15 +22680,14 @@ trainerdata 672, "Alfred"
 
 trainerdata 673, "Alfred"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_GENTLEMAN
-    battletype 0
+    trainerclass TRAINERCLASS_GENTLEMAN
     nummons 1
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 673
@@ -23374,15 +22701,14 @@ trainerdata 673, "Alfred"
 
 trainerdata 674, "Alfred"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_GENTLEMAN
-    battletype 0
+    trainerclass TRAINERCLASS_GENTLEMAN
     nummons 1
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 674
@@ -23400,15 +22726,14 @@ trainerdata 674, "Alfred"
 
 trainerdata 675, "Lance"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_PKMN_TRAINER_10
-    battletype 0
+    trainerclass TRAINERCLASS_PKMN_TRAINER_LANCE
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 675
@@ -23426,15 +22751,14 @@ trainerdata 675, "Lance"
 
 trainerdata 676, "Parker"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 676
@@ -23463,15 +22787,14 @@ trainerdata 676, "Parker"
 
 trainerdata 677, "Eddie"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SAILOR
-    battletype 0
+    trainerclass TRAINERCLASS_SAILOR
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 677
@@ -23489,15 +22812,14 @@ trainerdata 677, "Eddie"
 
 trainerdata 678, "Joy"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SWIMMER_F
-    battletype 0
+    trainerclass TRAINERCLASS_SWIMMER_F
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 678
@@ -23515,15 +22837,14 @@ trainerdata 678, "Joy"
 
 trainerdata 679, "Callie"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 679
@@ -23552,15 +22873,14 @@ trainerdata 679, "Callie"
 
 trainerdata 680, "Kassandra"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 680
@@ -23589,15 +22909,14 @@ trainerdata 680, "Kassandra"
 
 trainerdata 681, "Arabella"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 681
@@ -23626,15 +22945,14 @@ trainerdata 681, "Arabella"
 
 trainerdata 682, "Bonita"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_M
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 682
@@ -23663,15 +22981,14 @@ trainerdata 682, "Bonita"
 
 trainerdata 683, "Salma"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ACE_TRAINER_F
-    battletype 0
+    trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 683
@@ -23702,15 +23019,14 @@ trainerdata 683, "Salma"
 
 trainerdata 684, "Elan & Ida"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_DOUBLE_TEAM
-    battletype 0
+    trainerclass TRAINERCLASS_DOUBLE_TEAM
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 684
@@ -23741,15 +23057,14 @@ trainerdata 684, "Elan & Ida"
 
 trainerdata 685, "Edwin"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 685
@@ -23767,15 +23082,14 @@ trainerdata 685, "Edwin"
 
 trainerdata 686, "Bryce"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BOARDER
-    battletype 0
+    trainerclass TRAINERCLASS_BOARDER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 686
@@ -23796,15 +23110,14 @@ trainerdata 686, "Bryce"
 
 trainerdata 687, "Shaun"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BOARDER
-    battletype 0
+    trainerclass TRAINERCLASS_BOARDER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 687
@@ -23825,15 +23138,14 @@ trainerdata 687, "Shaun"
 
 trainerdata 688, "Cady"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_SKIER
-    battletype 0
+    trainerclass TRAINERCLASS_SKIER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 688
@@ -23847,15 +23159,14 @@ trainerdata 688, "Cady"
 
 trainerdata 689, "Cary"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 689
@@ -23873,15 +23184,14 @@ trainerdata 689, "Cary"
 
 trainerdata 690, "Waldo"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 690
@@ -23899,15 +23209,14 @@ trainerdata 690, "Waldo"
 
 trainerdata 691, "Merle"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SUPER_NERD
-    battletype 0
+    trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 691
@@ -23925,15 +23234,14 @@ trainerdata 691, "Merle"
 
 trainerdata 692, "Lowell"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCIENTIST_1
-    battletype 0
+    trainerclass TRAINERCLASS_SCIENTIST_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 692
@@ -23951,15 +23259,14 @@ trainerdata 692, "Lowell"
 
 trainerdata 693, "Linden"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCIENTIST_1
-    battletype 0
+    trainerclass TRAINERCLASS_SCIENTIST_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 693
@@ -23971,21 +23278,20 @@ trainerdata 693, "Linden"
         move MOVE_OVERHEAT
         move MOVE_FIRE_PUNCH
         move MOVE_CONFUSE_RAY
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         ballseal 0
     endparty
 
 trainerdata 694, "Daniel"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_SCIENTIST_1
-    battletype 0
+    trainerclass TRAINERCLASS_SCIENTIST_GS
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 694
@@ -24003,15 +23309,14 @@ trainerdata 694, "Daniel"
 
 trainerdata 695, "Dane"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 695
@@ -24032,15 +23337,14 @@ trainerdata 695, "Dane"
 
 trainerdata 696, "Dion"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 696
@@ -24054,15 +23358,14 @@ trainerdata 696, "Dion"
 
 trainerdata 697, "Stacey"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 697
@@ -24090,15 +23393,14 @@ trainerdata 697, "Stacey"
 
 trainerdata 698, "Ellis"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 698
@@ -24126,15 +23428,14 @@ trainerdata 698, "Ellis"
 
 trainerdata 699, "Abner"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BUG_CATCHER
-    battletype 0
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 699
@@ -24162,15 +23463,14 @@ trainerdata 699, "Abner"
 
 trainerdata 700, "Giovanni"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ROCKET_BOSS
-    battletype 0
+    trainerclass TRAINERCLASS_ROCKET_BOSS
     nummons 4
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 700
@@ -24225,15 +23525,14 @@ trainerdata 700, "Giovanni"
 
 trainerdata 701, "Lance"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_CHAMPION
-    battletype 0
+    trainerclass TRAINERCLASS_CHAMPION
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 701
@@ -24312,15 +23611,14 @@ trainerdata 701, "Lance"
 
 trainerdata 702, "Will"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ELITE_FOUR_0
-    battletype 0
+    trainerclass TRAINERCLASS_ELITE_FOUR_WILL
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 702
@@ -24399,15 +23697,14 @@ trainerdata 702, "Will"
 
 trainerdata 703, "Koga"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ELITE_FOUR_2
-    battletype 0
+    trainerclass TRAINERCLASS_ELITE_FOUR_KOGA
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 703
@@ -24486,15 +23783,14 @@ trainerdata 703, "Koga"
 
 trainerdata 704, "Bruno"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ELITE_FOUR_3
-    battletype 0
+    trainerclass TRAINERCLASS_ELITE_FOUR_BRUNO
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 704
@@ -24573,15 +23869,14 @@ trainerdata 704, "Bruno"
 
 trainerdata 705, "Karen"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_ELITE_FOUR_1
-    battletype 0
+    trainerclass TRAINERCLASS_ELITE_FOUR_KAREN
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 705
@@ -24660,15 +23955,14 @@ trainerdata 705, "Karen"
 
 trainerdata 706, "Proton"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_EXECUTIVE_1
-    battletype 0
+    trainerclass TRAINERCLASS_EXECUTIVE_PROTON
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 706
@@ -24697,15 +23991,14 @@ trainerdata 706, "Proton"
 
 trainerdata 707, "Palmer"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TOWER_TYCOON
-    battletype 0
+    trainerclass TRAINERCLASS_TOWER_TYCOON
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 707
@@ -24719,15 +24012,14 @@ trainerdata 707, "Palmer"
 
 trainerdata 708, "Argenta"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HALL_MATRON
-    battletype 0
+    trainerclass TRAINERCLASS_HALL_MATRON
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 708
@@ -24741,15 +24033,14 @@ trainerdata 708, "Argenta"
 
 trainerdata 709, "Thorton"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_FACTORY_HEAD
-    battletype 0
+    trainerclass TRAINERCLASS_FACTORY_HEAD
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 709
@@ -24763,15 +24054,14 @@ trainerdata 709, "Thorton"
 
 trainerdata 710, "Dahlia"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_ARCADE_STAR
-    battletype 0
+    trainerclass TRAINERCLASS_ARCADE_STAR
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 710
@@ -24785,15 +24075,14 @@ trainerdata 710, "Dahlia"
 
 trainerdata 711, "Darach"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CASTLE_VALET
-    battletype 0
+    trainerclass TRAINERCLASS_CASTLE_VALET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 711
@@ -24807,15 +24096,14 @@ trainerdata 711, "Darach"
 
 trainerdata 712, "Falkner"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_M
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_FALKNER
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 712
@@ -24894,15 +24182,14 @@ trainerdata 712, "Falkner"
 
 trainerdata 713, "Bugsy"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_F
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_BUGSY
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 713
@@ -24981,15 +24268,14 @@ trainerdata 713, "Bugsy"
 
 trainerdata 714, "Whitney"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_WHITNEY
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_PRIORITIZE_STATUS_MOVES | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 714
@@ -25068,15 +24354,14 @@ trainerdata 714, "Whitney"
 
 trainerdata 715, "Morty"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_0
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_MORTY
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 715
@@ -25155,15 +24440,14 @@ trainerdata 715, "Morty"
 
 trainerdata 716, "Pryce"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_1
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_PRYCE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 716
@@ -25242,15 +24526,14 @@ trainerdata 716, "Pryce"
 
 trainerdata 717, "Jasmine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_2
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_JASMINE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 717
@@ -25329,15 +24612,14 @@ trainerdata 717, "Jasmine"
 
 trainerdata 718, "Chuck"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_3
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_CHUCK
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 718
@@ -25416,15 +24698,14 @@ trainerdata 718, "Chuck"
 
 trainerdata 719, "Clair"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_4
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_CLAIR
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 719
@@ -25503,15 +24784,14 @@ trainerdata 719, "Clair"
 
 trainerdata 720, "Brock"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_5
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_BROCK
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 720
@@ -25590,15 +24870,14 @@ trainerdata 720, "Brock"
 
 trainerdata 721, "Misty"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_6
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_MISTY
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 721
@@ -25677,15 +24956,14 @@ trainerdata 721, "Misty"
 
 trainerdata 722, "Lt. Surge"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_7
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_LT_SURGE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 722
@@ -25764,15 +25042,14 @@ trainerdata 722, "Lt. Surge"
 
 trainerdata 723, "Erika"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_8
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_ERIKA
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 723
@@ -25851,15 +25128,14 @@ trainerdata 723, "Erika"
 
 trainerdata 724, "Janine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_9
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_JANINE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 724
@@ -25938,15 +25214,14 @@ trainerdata 724, "Janine"
 
 trainerdata 725, "Sabrina"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_10
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_SABRINA
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_PRIORITIZE_STATUS_MOVES | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 725
@@ -26025,15 +25300,14 @@ trainerdata 725, "Sabrina"
 
 trainerdata 726, "Blaine"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_11
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_BLAINE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 726
@@ -26112,15 +25386,14 @@ trainerdata 726, "Blaine"
 
 trainerdata 727, "Blue"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_12
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_BLUE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 727
@@ -26199,15 +25472,14 @@ trainerdata 727, "Blue"
 
 trainerdata 728, "Charlotte"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_BEAUTY
-    battletype 0
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 728
@@ -26221,15 +25493,14 @@ trainerdata 728, "Charlotte"
 
 trainerdata 729, "Duff & Eda"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_YOUNG_COUPLE
-    battletype 0
+    trainerclass TRAINERCLASS_YOUNG_COUPLE
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 729
@@ -26250,15 +25521,14 @@ trainerdata 729, "Duff & Eda"
 
 trainerdata 730, "Thom & Kae"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_DOUBLE_TEAM
-    battletype 0
+    trainerclass TRAINERCLASS_DOUBLE_TEAM
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 DOUBLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 730
@@ -26280,22 +25550,21 @@ trainerdata 730, "Thom & Kae"
         pokemon SPECIES_MAGMAR
         move MOVE_FLAMETHROWER
         move MOVE_CONFUSE_RAY
-        move MOVE_FAINT_ATTACK
+        move MOVE_FEINT_ATTACK
         move MOVE_PROTECT
         ballseal 0
     endparty
 
 trainerdata 731, "Devin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_HIKER
-    battletype 0
+    trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 731
@@ -26323,15 +25592,14 @@ trainerdata 731, "Devin"
 
 trainerdata 732, "Grant"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_CAMPER
-    battletype 0
+    trainerclass TRAINERCLASS_CAMPER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 732
@@ -26352,15 +25620,14 @@ trainerdata 732, "Grant"
 
 trainerdata 733, "Lance"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_CHAMPION
-    battletype 0
+    trainerclass TRAINERCLASS_CHAMPION
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 733
@@ -26403,15 +25670,14 @@ trainerdata 733, "Lance"
 
 trainerdata 734, "Clair"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_LEADER_4
-    battletype 0
+    trainerclass TRAINERCLASS_LEADER_CLAIR
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 734
@@ -26454,15 +25720,14 @@ trainerdata 734, "Clair"
 
 trainerdata 735, "Silver"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 735
@@ -26505,15 +25770,14 @@ trainerdata 735, "Silver"
 
 trainerdata 736, "Silver"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 736
@@ -26556,15 +25820,14 @@ trainerdata 736, "Silver"
 
 trainerdata 737, "Silver"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
-    battletype 0
+    trainerclass TRAINERCLASS_RIVAL
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype2 SINGLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 737
@@ -26604,4 +25867,3 @@ trainerdata 737, "Silver"
         move MOVE_CONFUSE_RAY
         ballseal 0
     endparty
-

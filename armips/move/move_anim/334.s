@@ -2,13 +2,14 @@
 .thumb
 
 .include "armips/include/animscriptcmd.s"
-.include "armips/include/abilities.s"
-.include "armips/include/itemnums.s"
-.include "armips/include/monnums.s"
-.include "armips/include/movenums.s"
+
+.include "asm/include/abilities.inc"
+.include "asm/include/items.inc"
+.include "asm/include/species.inc"
+.include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_334", 0
-
+// Iron Defense
 a010_334:
     callfunction 33, 5, 0, 0, 0, 12, 32767, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate

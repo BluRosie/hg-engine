@@ -86,7 +86,7 @@ void Sav2_Bag_init(BAG_DATA *bagData);
  * @param src:         Origin BAG_DATA
  * @param dst:         Destination BAG_DATA
  */
-void Sav2_Bag_copy(const BAG_DATA *src, BAG_DATA *dst);
+void Sav2_Bag_copy(BAG_DATA *src, BAG_DATA *dst);
 
 /*
  * u16 Bag_GetRegisteredItemSlot1(BAG_DATA *bag)
@@ -157,10 +157,10 @@ void Bag_UnregisterItem(BAG_DATA *bag, u16 itemId);
  * @returns: TRUE if the action succeeded or would succeed,
  *   otherwise FALSE.
  */
-BOOL Bag_HasSpaceForItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
-BOOL Bag_AddItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
-BOOL Bag_TakeItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
-BOOL Bag_HasItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
+BOOL LONG_CALL Bag_HasSpaceForItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
+BOOL LONG_CALL Bag_AddItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
+BOOL LONG_CALL Bag_TakeItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
+BOOL LONG_CALL Bag_HasItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
 
 /*
  * BOOL Pocket_TakeItem(ITEM_SLOT *slots, u32 count, u16 itemId, u16 quantity)
@@ -174,7 +174,7 @@ BOOL Bag_HasItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id);
  *
  * @returns: TRUE if the action succeeded, otherwise FALSE.
  */
-BOOL Pocket_TakeItem(ITEM_SLOT *slots, u32 count, u16 itemId, u16 quantity);
+BOOL LONG_CALL Pocket_TakeItem(ITEM_SLOT *slots, u32 count, u16 itemId, u16 quantity);
 
 /*
  * BOOL Bag_PocketNotEmpty(BAG_DATA *bag, int pocket)
@@ -187,7 +187,7 @@ BOOL Pocket_TakeItem(ITEM_SLOT *slots, u32 count, u16 itemId, u16 quantity);
  * @returns: TRUE if there is at least one item in the pocket,
  *   otherwise FALSE.
  */
-BOOL Bag_PocketNotEmpty(BAG_DATA *bag, int pocket);
+BOOL LONG_CALL Bag_PocketNotEmpty(BAG_DATA *bag, int pocket);
 
 /*
  * u16 Bag_GetQuantity(BAG_DATA *bag, u16 itemId, int heap_id)
@@ -245,10 +245,10 @@ ITEM_SLOT *Bag_GetPocketSlotN(BAG_DATA *bag, u8 pocket, int n);
  *
  * @returns: Pointer to BAG_DATA
  */
-BAG_DATA *__attribute__((long_call)) Sav2_Bag_get(void *saveData);
+BAG_DATA *LONG_CALL Sav2_Bag_get(void *saveData);
 
 // fuck BAG_VIEW
-void *__attribute__((long_call)) BagView_New(u8 heap_id);
-void __attribute__((long_call)) BagView_SetItem(void *bagView, ITEM_SLOT *slots, u8 pocketId, u8 position);
+void *LONG_CALL BagView_New(u8 heap_id);
+void LONG_CALL BagView_SetItem(void *bagView, ITEM_SLOT *slots, u8 pocketId, u8 position);
 
 #endif //POKEHEARTGOLD_BAG_H

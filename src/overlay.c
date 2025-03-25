@@ -2,36 +2,49 @@
 #include "../include/debug.h"
 #include "../include/overlay.h"
 #include "../include/save.h"
+#include "../include/constants/file.h"
 
 
-struct LinkedOverlayList gLinkedOverlayList[2] =
+struct LinkedOverlayList gLinkedOverlayList[] =
 {
-    { 12, 130}, // battle - battle extension
-    {  1, 131}, // field - field extension
-    { 63, 131}, // hall of fame - field extension
-    { 96, 131}, // pokeathlon - field extension
-    {112, 131}, // pokewalker - field extension
+    {OVERLAY_BATTLE, OVERLAY_BATTLE_EXTENSION},
+    {OVERLAY_FIELD, OVERLAY_FIELD_EXTENSION},
+    {OVERLAY_HALL_OF_FAME, OVERLAY_FIELD_EXTENSION},
+    {OVERLAY_HALL_OF_FAME_PC, OVERLAY_FIELD_EXTENSION},
+    {OVERLAY_POKEATHLON, OVERLAY_FIELD_EXTENSION},
+    {OVERLAY_POKEWALKER, OVERLAY_FIELD_EXTENSION},
+    {OVERLAY_POKEDEX, OVERLAY_POKEDEX_EXTENSION},
+};
+
+// entirely clean up overlays if the first one is being unloaded
+u8 gCleanupOverlayList[][4] =
+{
+    {OVERLAY_BATTLE_EXTENSION, OVERLAY_BATTLECONTROLLER_BEFOREMOVE, OVERLAY_SERVERBEFOREACT, OVERLAY_BATTLECONTROLLER_MOVEEND}
 };
 
 
-void __attribute__((long_call)) UnloadOverlayByID(u32 ovyId) {
-    int i;
+void LONG_CALL UnloadOverlayByID(u32 ovyId) {
+    u32 i, j = 0, k = 1;
+    BOOL cleanupMode = FALSE;
+    PMiLoadedOverlay *table;
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
     u8 buf[64];
+#endif // DEBUG_PRINT_OVERLAY_LOADS
 
 unloadSecond:
-    PMiLoadedOverlay *table = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(ovyId));
-    for (i = 0; i < 8; i++) {
+    table = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(ovyId));
+    for (i = 0; i < MAX_ACTIVE_OVERLAYS; i++) {
         if (table[i].active == TRUE && table[i].id == ovyId) {
             FreeOverlayAllocation(&table[i]);
             break;
         }
     }
-    
+
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
     sprintf(buf, "Freed overlay %d.\n", ovyId);
-    debugsyscall(buf);
+    debug_printf(buf);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
-    
+
     for (i = 0; i < NELEMS(gLinkedOverlayList); i++)
     {
         if (gLinkedOverlayList[i].first_id == ovyId)
@@ -40,26 +53,65 @@ unloadSecond:
             goto unloadSecond;
         }
     }
+
+    // alright we want to clear overlays
+    for (; j < NELEMS(gCleanupOverlayList); j++) {
+        if (k >= NELEMS(gCleanupOverlayList[0])) {
+            cleanupMode = FALSE;
+            k = 1;
+            continue; // increases j
+        }
+        if ((gCleanupOverlayList[j][0] == ovyId) || cleanupMode) {
+            if (gCleanupOverlayList[j][k]) {
+                ovyId = gCleanupOverlayList[j][k++];
+                cleanupMode = TRUE;
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
+                debug_printf("Cleaning up overlay %d linked to overlay %d... ", ovyId, gCleanupOverlayList[j][0]);
+#endif // DEBUG_PRINT_OVERLAY_LOADS
+                goto unloadSecond;
+            } else {
+                k = 1;
+                continue; // increases j
+            }
+        }
+    }
 }
 
 
-u32 __attribute__((long_call)) HandleLoadOverlay(u32 ovyId, u32 loadType) {
+u32 LONG_CALL HandleLoadOverlay(u32 ovyId, u32 loadType) {
     u32 result;
     u32 dmaBak = FS_DMA_NOT_USE;
     u32 overlayRegion;
     PMiLoadedOverlay *loadedOverlays;
-    u8 buf[64];
-    int i;
+    u32 i;
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
+    u8 buf[128];
+#endif // DEBUG_PRINT_OVERLAY_LOADS
 
 loadExtension:
     if (!CanOverlayBeLoaded(ovyId)) {
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
+        overlayRegion = GetOverlayLoadDestination(ovyId);
+        loadedOverlays = GetLoadedOverlaysInRegion(overlayRegion);
+        sprintf(buf, "ERROR: Can't load in overlay_%04d.bin.\n", ovyId);
+        debug_printf(buf);
+        debug_printf("    Loaded overlays: ");
+        for (i = 0; i < MAX_ACTIVE_OVERLAYS; i++)
+        {
+            if (loadedOverlays[i].active == TRUE)
+            {
+                debug_printf("%04d, ", loadedOverlays[i].id);
+            }
+        }
+        debug_printf("\n");
+#endif // DEBUG_PRINT_OVERLAY_LOADS
         return FALSE;
     }
 
     overlayRegion = GetOverlayLoadDestination(ovyId);
     loadedOverlays = GetLoadedOverlaysInRegion(overlayRegion);
 
-    for (i = 0; i < 8; i++) {
+    for (i = 0; i < MAX_ACTIVE_OVERLAYS; i++) {
         if (loadedOverlays[i].active == FALSE) {
             PMiLoadedOverlay *ovy = &loadedOverlays[i];
             ovy->active = TRUE;
@@ -70,12 +122,12 @@ loadExtension:
 
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
     sprintf(buf, "Loaded in overlay_%04d.bin. Total of %d overlays loaded.\n", ovyId, i+1);
-    debugsyscall(buf);
+    debug_printf(buf);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
 
-    if (i >= 8) {
+    if (i >= MAX_ACTIVE_OVERLAYS) {
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
-        debugsyscall("ERROR: Too many overlays!\n");
+        debug_printf("ERROR: Too many overlays!\n");
 #endif // DEBUG_PRINT_OVERLAY_LOADS
         GF_ASSERT(0);
         return FALSE;
@@ -107,12 +159,12 @@ loadExtension:
     if (result == FALSE) {
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
         sprintf(buf, "Failed to load overlay_%04d.bin.\n", ovyId);
-        debugsyscall(buf);
+        debug_printf(buf);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
         GF_ASSERT(0);
         return FALSE;
     }
-    
+
     for (i = 0; i < NELEMS(gLinkedOverlayList); i++)
     {
         if (gLinkedOverlayList[i].first_id == ovyId)
@@ -121,7 +173,7 @@ loadExtension:
             loadType = 2;
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
             sprintf(buf, "Trying to load linked overlay_%04d.bin.\n", ovyId);
-            debugsyscall(buf);
+            debug_printf(buf);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
             goto loadExtension;
         }
@@ -131,15 +183,15 @@ loadExtension:
 }
 
 
-u32 __attribute__((long_call)) IsOverlayLoaded(u32 ovyId)
+u32 LONG_CALL IsOverlayLoaded(u32 ovyId)
 {
     PMiLoadedOverlay *table = GetLoadedOverlaysInRegion(GetOverlayLoadDestination(ovyId));
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < MAX_ACTIVE_OVERLAYS; i++) {
         if (table[i].active == TRUE && table[i].id == ovyId) {
             return 1;
         }
     }
-    
+
     return 0;
 }

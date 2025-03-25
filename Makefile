@@ -1,69 +1,118 @@
 # Makefile
-ifeq ($(strip $DEVKITPRO),)
-$(error "Please set DEVKITPRO in your environment. export DEVKITPRO=<path to>devkitPro)
-endif
-
-ifeq ($(strip $DEVKITARM),)
-$(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM")
-endif
-
-TOOLCHAIN := $(DEVKITARM)
-
-.PHONY: clean all
-
-SYSTEM = $(shell grep -i -q 'microsoft' /proc/version; echo $$?)
-
-ifeq ($(SYSTEM), 0)
-EXE := .exe
-SEP := \\
-
-SWAV2SWAR := tools/swav2swar.exe
-BTX := tools/pngtobtx0.exe
-else
-EXE := 
-SEP := /
-
-SWAV2SWAR := mono tools/swav2swar.exe
-BTX := mono tools/pngtobtx0.exe
-endif
-
-default: all
 
 ROMNAME = rom.nds
 BUILDROM = test.nds
-####################### Tools #########################
-PYTHON = python3
-O2NARC = tools/o2narc
-MSGENC = tools/msgenc
-NDSTOOL = tools/ndstool
-BLZ = tools/blz
-ARMIPS = tools/armips
-NARCHIVE = $(PYTHON) tools/narcpy.py
-GFX = tools/nitrogfx
-SDATTOOL = $(PYTHON) tools/SDATTool.py
-ADPCMXQ = adpcm-xq
-NTRWAVTOOL = $(PYTHON) tools/ntrWavTool.py
-###################### Setting ########################
+
+DESIRED_GAMECODE := IPKE
+GAMECODE = $(shell dd bs=1 skip=12 count=4 if=$(ROMNAME) status=none)
+VALID_GAMECODE = $(shell echo $(GAMECODE) | grep -i -q $(DESIRED_GAMECODE); echo $$?)
+
+define n
+
+
+endef
+
+# Check if user cloned git repository correctly first thing to prevent excessive user enquiries
+ifneq ($(shell git rev-parse --is-inside-work-tree 2>/dev/null), true)
+$(error Current directory is not a git repository. Please follow the instructions in the README: https://github.com/BluRosie/hg-engine)
+endif
+
+ifneq ($(VALID_GAMECODE), 0)
+# invalid rom detected based on gamecode.  this primarily catches other-language roms
+$(error ROM Code read from $(ROMNAME) ($(GAMECODE)) does not match valid ROM Code ($(DESIRED_GAMECODE)).$(n)Please use a valid US HeartGold ROM.$(n)hg-engine does not work with non-USA ROM files)
+endif
+
+MAC = $(shell uname -s | grep -i -q 'darwin'; echo $$?)
+
+ifneq ($(MAC), 0)
+# see if on msys2, but only if not on mac because /proc/version doesn't exist there
+MSYS2 = $(shell grep -i -q 'msys' /proc/version; echo $$?)
+else
+MSYS2 = 1
+endif
+
+# environment setting
+# get rid of devkitpro:  if devkitpro is installed, can still use it.  otherwise, default to arm-none-eabi tools
+ifeq ($(shell echo $$DEVKITARM),)
+ifeq ($(MSYS2), 0)
+PREFIX = /mingw64/bin/arm-none-eabi-
+AS = $(PREFIX)as
+CC = $(PREFIX)gcc
+LD = $(PREFIX)ld
+OBJCOPY = $(PREFIX)objcopy
+else
+PREFIX = arm-none-eabi-
+AS = $(PREFIX)as
+CC = $(PREFIX)gcc
+LD = $(PREFIX)ld
+OBJCOPY = $(PREFIX)objcopy
+endif
+else
+# support legacy devkitpro instructions
 PREFIX = bin/arm-none-eabi-
 AS = $(DEVKITARM)/$(PREFIX)as
 CC = $(DEVKITARM)/$(PREFIX)gcc
 LD = $(DEVKITARM)/$(PREFIX)ld
 OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
-CSC = csc$(EXE)
+endif
+PYTHON_NO_VENV = python3
+VENV = .venv
+PYTHON_VENV_VERSION := $(shell $(PYTHON_NO_VENV) -m ensurepip 2>&1 | grep -i -q 'No module named'; echo $$?)
 
-LDFLAGS = rom.ld -T linker.ld
-LDFLAGS_FIELD = rom_gen.ld -T linker_field.ld
-LDFLAGS_BATTLE = rom_gen.ld -T linker_battle.ld
-ASFLAGS = -mthumb -I ./data
-CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Os -fira-loop-pressure -fipa-pta
+ifneq ($(PYTHON_VENV_VERSION), 0)
+# we can use a virtual environment because ensurepip is packaged with the python install
+VENV_ACTIVATE = $(VENV)/bin/activate
+PYTHON = . $(VENV_ACTIVATE); $(PYTHON_NO_VENV)
+REQUIREMENTS = requirements.txt
+else
+# there is no need to use a virtual environment because python does not have the requirements installed
+PYTHON = $(PYTHON_NO_VENV)
+VENV_ACTIVATE =
+endif
 
-LINK = build/linked.o
-OUTPUT = build/output.bin
-BATTLE_LINK = build/battle_linked.o
-BATTLE_OUTPUT = build/output_battle.bin
-FIELD_LINK = build/field_linked.o
-FIELD_OUTPUT = build/output_field.bin
-####################### output ########################
+.PHONY: clean all
+
+ifeq ($(MSYS2), 0)
+CSC := csc
+else
+CSC := mcs -pkg:dotnet
+endif
+
+default: all
+
+ifneq ($(PYTHON_VENV_VERSION), 0)
+# only set up venv if we need to
+venv: $(VENV_ACTIVATE)
+
+# divorce this python3 from venv so that it works
+$(VENV_ACTIVATE):
+	$(PYTHON_NO_VENV) -m venv $(VENV)
+	$(PYTHON) -m pip install -r $(REQUIREMENTS)
+
+endif
+
+####################### Tools #######################
+ADPCMXQ := tools/adpcm-xq
+ARMIPS := tools/armips
+BLZ := tools/blz
+BTX := $(PYTHON) tools/overworld-btx.py
+ENCODEPWIMG := tools/ENCODE_IMG
+GFX := tools/nitrogfx
+MSGENC := tools/msgenc
+NARCHIVE := $(PYTHON) tools/narcpy.py
+NDSTOOL := tools/ndstool
+NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
+O2NARC := tools/o2narc
+SDATTOOL := $(PYTHON) tools/SDATTool.py
+SWAV2SWAR_EXE := tools/swav2swar.exe
+SWAV2SWAR := mono $(SWAV2SWAR_EXE)
+
+# Compiler/Assembler/Linker settings
+LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
+ASFLAGS = -mthumb
+CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
+
+####################### Output #######################
 C_SUBDIR = src
 ASM_SUBDIR = asm
 INCLUDE_SUBDIR = include
@@ -72,92 +121,44 @@ BUILD_NARC := $(BUILD)/narc
 BASE := base
 FILESYS := $(BASE)/root
 
+LINK = $(BUILD)/linked.o
+OUTPUT = $(BUILD)/output.bin
 
 INCLUDE_SRCS := $(wildcard $(INCLUDE_SUBDIR)/*.h)
 
 C_SRCS := $(wildcard $(C_SUBDIR)/*.c)
+ALL_C_SRCS += $(C_SRCS)
 C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(C_SRCS))
 
 ASM_SRCS := $(wildcard $(ASM_SUBDIR)/*.s)
-ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(ASM_SRCS))
+ALL_ASM_SRCS += $(ASM_SRCS)
+ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(ASM_SRCS))
 OBJS     := $(C_OBJS) $(ASM_OBJS)
 
-BATTLE_C_SRCS := $(wildcard $(C_SUBDIR)/battle/*.c)
-BATTLE_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(BATTLE_C_SRCS))
-BATTLE_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/battle/*.s)
-BATTLE_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(BATTLE_ASM_SRCS))
-BATTLE_OBJS   := $(BATTLE_C_OBJS) $(BATTLE_ASM_OBJS) build/thumb_help.d
-
-FIELD_C_SRCS := $(wildcard $(C_SUBDIR)/field/*.c)
-FIELD_C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(FIELD_C_SRCS))
-FIELD_ASM_SRCS := $(wildcard $(ASM_SUBDIR)/field/*.s)
-FIELD_ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.d,$(FIELD_ASM_SRCS))
-FIELD_OBJS   := $(FIELD_C_OBJS) $(FIELD_ASM_OBJS) build/thumb_help.d
+REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
 ## includes
 include data/graphics/pokegra.mk
 include data/itemdata/itemdata.mk
+include data/codetables.mk
 include narcs.mk
+include overlays.mk
 
-####################### Build #########################
-rom_gen.ld:$(LINK) $(OUTPUT) rom.ld
-	cp rom.ld rom_gen.ld
-	$(PYTHON) scripts/generate_ld.py
-
-$(BUILD)/%.d:asm/%.s
-	$(AS) $(ASFLAGS) -c $< -o $@
-
-$(BUILD)/%.o:src/%.c
-	mkdir -p $(BUILD) $(BUILD)/field $(BUILD)/battle
-	@echo -e "Compiling"
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(LINK):$(OBJS)
-	$(LD) $(LDFLAGS) -o $@ $(OBJS)
-
-$(OUTPUT):$(LINK)
-	$(OBJCOPY) -O binary $< $@
-
-$(FIELD_LINK):$(FIELD_OBJS) rom_gen.ld
-	$(LD) $(LDFLAGS_FIELD) -o $@ $(FIELD_OBJS)
-
-$(FIELD_OUTPUT):$(FIELD_LINK)
-	$(OBJCOPY) -O binary $< $@
-
-$(BATTLE_LINK):$(BATTLE_OBJS) rom_gen.ld
-	$(LD) $(LDFLAGS_BATTLE) -o $@ $(BATTLE_OBJS)
-
-$(BATTLE_OUTPUT):$(BATTLE_LINK)
-	$(OBJCOPY) -O binary $< $@
-
-all: $(OUTPUT) $(BATTLE_OUTPUT) $(FIELD_OUTPUT)
-	rm -rf $(BASE)
-	mkdir -p $(BASE)
-	mkdir -p $(BUILD)
-	mkdir -p $(BUILD)/pokemonow $(BUILD)/pokemonicon $(BUILD)/pokemonpic $(BUILD)/a018 $(BUILD)/narc $(BUILD)/text $(BUILD)/move $(BUILD)/a011  $(BUILD)/rawtext
-	mkdir -p $(BUILD)/move/battle_sub_seq $(BUILD)/move/battle_eff_seq $(BUILD)/move/battle_move_seq $(BUILD)/move/move_anim $(BUILD)/move/move_sub_anim $(BUILD)/move/move_anim
-	###The line below is because of junk files that macOS can create which will interrupt the build process###
-	find . -name '*.DS_Store' -execdir rm -f {} \;
-	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
-	@echo -e "$(ROMNAME) Decompression successful!!"
-	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
-	$(PYTHON) scripts/make.py
-	$(ARMIPS) armips/global.s
-	$(MAKE) move_narc
-	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
-	@echo -e "Making ROM.."
-	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
-	@echo -e "Done."
-
-
-build_tools:
+####################### Build Tools #######################
+MSGENC_SOURCES := $(wildcard tools/source/msgenc/*.cpp) $(wildcard tools/source/msgenc/*.h)
+$(MSGENC): tools/source/msgenc/*
 	cd tools/source/msgenc ; $(MAKE)
 	mv tools/source/msgenc/msgenc tools/msgenc
 
-	cd tools ; $(CSC) /target:exe /out:pngtobtx0.exe "source$(SEP)BTX Editor$(SEP)Program-P.cs" "source$(SEP)BTX Editor$(SEP)pngtobtx0.cs" "source$(SEP)BTX Editor$(SEP)BTX0.cs"
+TOOLS += $(MSGENC)
 
-	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source$(SEP)swav2swar$(SEP)Principal.cs"
+$(SWAV2SWAR_EXE): tools/source/swav2swar/Principal.cs
+	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source/swav2swar/Principal.cs"
 
+TOOLS += $(SWAV2SWAR_EXE)
+
+$(NDSTOOL):
+ifeq (,$(wildcard $(NDSTOOL)))
 	rm -r -f tools/source/ndstool
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
 	cd tools/source/ndstool ; git checkout fa6b6d01881363eb2cd6e31d794f51440791f336
@@ -166,61 +167,149 @@ build_tools:
 	cd tools/source/ndstool ; ./configure && $(MAKE)
 	mv tools/source/ndstool/ndstool tools/ndstool
 	rm -r -f tools/source/ndstool
+endif
 
+TOOLS += $(NDSTOOL)
+
+$(ARMIPS):
+ifeq (,$(wildcard $(ARMIPS)))
 	rm -r -f tools/source/armips
-	cd tools/source ; git clone --recursive https://github.com/Kingcom/armips.git
-	cd tools/source/armips ; mkdir build
-	cd tools/source/armips/build ; cmake -DCMAKE_BUILD_TYPE=Release ..
-	cd tools/source/armips/build ; cmake --build .
+	cd tools/source ; git clone --recursive https://github.com/BluRosie/armips.git
+	mkdir -p tools/source/armips/build
+	cd tools/source/armips/build; cmake .. -DCMAKE_BUILD_TYPE=Release ..
+	cd tools/source/armips/build; $(MAKE)
 	mv tools/source/armips/build/armips tools/armips
 	rm -r -f tools/source/armips
+endif
 
+TOOLS += $(ARMIPS)
+
+$(ADPCMXQ):
+ifeq (,$(wildcard $(ADPCMXQ)))
 	rm -r -f tools/source/adpcm-xq
 	cd tools/source ; git clone https://github.com/dbry/adpcm-xq.git
-	cd tools/source/adpcm-xq ; gcc -O2 *.c -o $(ADPCMXQ)
-	mv tools/source/adpcm-xq/$(ADPCMXQ) tools/$(ADPCMXQ)
+	cd tools/source/adpcm-xq ; gcc -O2 *.c -o adpcm-xq -lm
+	mv tools/source/adpcm-xq/adpcm-xq $(ADPCMXQ)
 	rm -r -f tools/source/adpcm-xq
+endif
 
+TOOLS += $(ADPCMXQ)
+
+tools/ntrWavTool.py:
+ifeq (,$(wildcard tools/ntrWavTool.py))
 	rm -r -f tools/source/ntrWavTool
 	cd tools/source ; git clone https://github.com/turtleisaac/ntrWavTool.git
 	mv tools/source/ntrWavTool/ntrWavTool.py tools/ntrWavTool.py
 	rm -r -f tools/source/ntrWavTool
+endif
 
+TOOLS += tools/ntrWavTool.py
 
-build_nitrogfx:
+NITROGFX_SOURCES := $(wildcard tools/source/nitrogfx/*.c) $(wildcard tools/source/nitrogfx/*.h)
+$(GFX): $(NITROGFX_SOURCES)
 	cd tools/source/nitrogfx ; $(MAKE)
-	mv tools/source/nitrogfx/nitrogfx tools/nitrogfx
+	mv tools/source/nitrogfx/nitrogfx $(GFX)
+
+TOOLS += $(GFX)
+
+$(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/*.h)
 	cd tools/source/o2narc ; $(MAKE)
-	mv tools/source/o2narc/o2narc tools/o2narc
+	mv tools/source/o2narc/o2narc $(O2NARC)
 
+TOOLS += $(O2NARC)
 
+$(ENCODEPWIMG):
+	cd tools/source/DECODEIMG ; $(MAKE)
+	mv tools/source/DECODEIMG/ENCODE_IMG $(ENCODEPWIMG)
 
-clean:
-	rm -rf $(BUILD)
+TOOLS += $(ENCODEPWIMG)
+
+####################### Build #######################
+rom_gen.ld:$(LINK) $(OUTPUT) rom.ld $(VENV_ACTIVATE)
+	cp rom.ld rom_gen.ld
+	$(PYTHON) scripts/generate_ld.py
+
+# create output folders if they do not exist
+define FOLDER_CREATE_DEFINE
+$1: ; mkdir -p $1
+endef
+$(foreach folder, $(CODE_BUILD_DIRS), $(eval $(call FOLDER_CREATE_DEFINE,$(folder))))
+
+# generate .d dependency files that are included as part of compiling if it does not exist
+define SRC_OBJ_INC_DEFINE
+ifneq ($(shell test -e $(basename $1).d && echo 1),1)
+# this generates the objects as part of generating the dependency list which will just be massive files of rules
+$1: $2 $(CODE_BUILD_DIRS)
+	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
+	printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
+else
+include $(basename $1).d
+endif
+endef
+$(foreach src, $(ALL_C_SRCS), $(eval $(call SRC_OBJ_INC_DEFINE,$(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o, $(src)),$(src))))
+
+define ASM_OBJ_INC_DEFINE
+# these should have similar dependency scanning, but we do not currently use them in a way conducive to it
+$1: $2 $(CODE_BUILD_DIRS)
+	$(AS) $(ASFLAGS) -c $2 -o $1
+endef
+$(foreach src, $(ALL_ASM_SRCS), $(eval $(call ASM_OBJ_INC_DEFINE,$(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o, $(src)),$(src))))
+
+$(LINK):$(OBJS)
+	$(LD) $(LDFLAGS) -o $@ $(OBJS)
+
+$(OUTPUT):$(LINK)
+	$(OBJCOPY) -O binary $< $@
+
+all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	rm -rf $(BASE)
-	rm -rf tools/source/ndstool
-	rm -rf tools/source/armips
+	@mkdir -p $(REQUIRED_DIRECTORIES)
+	###The line below is because of junk files that macOS can create which will interrupt the build process###
+	find . -name '*.DS_Store' -execdir rm -f {} \;
+	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
+	@echo "$(ROMNAME) Decompression successful!!"
+	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
+	$(PYTHON) scripts/make.py
+	$(MAKE) move_narc
+	$(ARMIPS) armips/global.s
+	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
+	@echo "Making ROM..."
+	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
+	@echo "Done.  See output $(BUILDROM)."
 
 
+####################### Restore clean base ################
+NEWFILE = romOld-`date +%d%b%y`.nds
+CLEANROM = romClean.nds
+restore:
+	mv $(ROMNAME) $(NEWFILE)
+	cp $(CLEANROM) $(ROMNAME)
+
+####################### Restore and build ################
+restore_build: | restore all
+
+####################### Clean #######################
+clean:
+	rm -rf $(BUILD) $(BASE) rom_gen.ld rom_gen_battle.ld
 
 clean_tools:
-	rm -f tools/msgenc
-	rm -f tools/pngtobtx0.exe
-	rm -f tools/swav2swar.exe
-	rm -f tools/ndstool
-	rm -f tools/armips
-	rm -f tools/nitrogfx
-	rm -f tools/adpcm-xq
+	rm -rf $(TOOLS) $(VENV)
 
+ALL_CODE_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(ALL_C_SRCS)) \
+ $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(ALL_ASM_SRCS)) \
+ $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.d,$(ALL_C_SRCS))
 
-print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
+clean_code:
+	rm -f $(ALL_CODE_OBJS) $(LINKED_OUTPUTS) $(OUTPUT) $(OVERLAY_OUTPUTS) rom_gen.ld rom_gen_battle.ld
 
+####################### Final ROM Build #######################
+CODE_ADDON_ARTIFACTS := $(wildcard $(BUILD)/a028/9_*) $(wildcard $(BUILD)/a028/8_1*) $(wildcard build/$(BUILD)/8_2*) $(BUILD)/a028/8_07 $(BUILD)/a028/8_08 $(BUILD)/a028/8_09
+CODE_ADDON_ARTIFACTS := $(filter-out $(BUILD)/a028/8_1 $(BUILD)/a028/8_2 $(BUILD)/a028/8_3 $(BUILD)/a028/8_4 $(BUILD)/a028/8_5 $(BUILD)/a028/8_6, $(CODE_ADDON_ARTIFACTS))
 
-# ideally this is all just copying and no building.
 move_narc: $(NARC_FILES)
 	@echo "battle hud layout:"
 	cp $(BATTLEHUD_NARC) $(BATTLEHUD_TARGET)
-	
+
 	@echo "move data:"
 	cp $(MOVEDATA_NARC) $(MOVEDATA_TARGET)
 
@@ -269,6 +358,10 @@ move_narc: $(NARC_FILES)
 	cp $(TRAINERDATA_NARC) $(TRAINERDATA_TARGET)
 	cp $(TRAINERDATA_NARC_2) $(TRAINERDATA_TARGET_2)
 
+	@echo "trainer text:"
+	cp $(TRAINERTEXT_NARC) $(TRAINERTEXT_TARGET)
+	cp $(TRAINERTEXT_NARC_2) $(TRAINERTEXT_TARGET_2)
+
 	@echo "footprints:"
 	cp $(FOOTPRINTS_NARC) $(FOOTPRINTS_TARGET)
 
@@ -308,7 +401,7 @@ move_narc: $(NARC_FILES)
 
 	@echo "pokemon overworlds:"
 	cp $(OVERWORLDS_NARC) $(OVERWORLDS_TARGET)
-	
+
 	@echo "pokemon overworld data:"
 	cp $(OVERWORLD_DATA_NARC) $(OVERWORLD_DATA_TARGET)
 
@@ -321,21 +414,67 @@ move_narc: $(NARC_FILES)
 	@echo "ball spa files:"
 	cp $(BALL_SPA_NARC) $(BALL_SPA_TARGET)
 
+	@echo "pokewalker sprites:"
+	cp $(PW_POKEGRA_NARC) $(PW_POKEGRA_TARGET)
+
+	@echo "pokewalker icons:"
+	cp $(PW_POKEICON_NARC) $(PW_POKEICON_TARGET)
+
 	@echo "font:"
-	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" include/config.h) -eq 0 ]; then cp $(FONT_NARC) $(FONT_TARGET); fi
+	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" $(INCLUDE_SUBDIR)/config.h) -eq 0 ]; then cp $(FONT_NARC) $(FONT_TARGET); fi
 
 	@echo "textbox:"
-	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" include/config.h) -eq 0 ]; then cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET); fi
+	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" $(INCLUDE_SUBDIR)/config.h) -eq 0 ]; then cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET); fi
+
+	@echo "scripts:"
+	cp $(SCR_SEQ_NARC) $(SCR_SEQ_TARGET)
+
+	@echo "headbutt trees:"
+	cp $(HEADBUTT_NARC) $(HEADBUTT_TARGET)
+
+	@echo "trainer gfx:"
+	cp $(TRAINER_GFX_NARC) $(TRAINER_GFX_TARGET)
 
 
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
 
-	@echo "tutor data:"
-	$(ARMIPS) armips/data/tutordata.s
+	@echo "tutor moves and tm moves:"
+	$(PYTHON) scripts/tm_learnset.py --writetmlist armips/data/tmlearnset.txt
+	$(PYTHON) scripts/tutor_learnset.py --writemovecostlist armips/data/tutordata.txt
+	$(PYTHON) scripts/tutor_learnset.py armips/data/tutordata.txt
+
+	@if test -s build/a028/8_00; then \
+		rm -rf build/a028/8_0 build/a028/8_1 build/a028/8_2 build/a028/8_3 build/a028/8_4 build/a028/8_5 build/a028/8_6 build/a028/8_7 build/a028/8_8 build/a028/8_9; \
+	fi
+	@if test -s build/a028/8_7; then \
+		rm -rf build/a028/8_7 build/a028/8_8 build/a028/8_9; \
+	fi
+	@rm -rf $(CODE_ADDON_ARTIFACTS)
+
+	@echo "hidden ability table:"
+	cp $(HIDDEN_ABILITY_TABLE_BIN) $(HIDDEN_ABILITY_TABLE_TARGET)
+
+	@echo "base experience table:"
+	cp $(BASE_EXPERIENCE_TABLE_BIN) $(BASE_EXPERIENCE_TABLE_TARGET)
+
+	@echo "mon overworld data:"
+	$(ARMIPS) $(OVERWORLD_DATA_DEPENDENCIES)
+
+	@echo "species to ow gfx table:"
+	cp $(SPECIES_TO_OW_GFX_BIN) $(SPECIES_TO_OW_GFX_TARGET)
+
+	@echo "form data table:"
+	cp $(POKEFORMDATATBL_BIN) $(POKEFORMDATATBL_TARGET)
+
+	@echo "form to species mapping table:"
+	cp $(FORMTOSPECIES_BIN) $(FORMTOSPECIES_TARGET)
+
+	@echo "form reversion mapping table:"
+	cp $(FORMREVERSION_BIN) $(FORMREVERSION_TARGET)
 
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:
 
-# debug makefile print
+####################### Debug #######################
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true

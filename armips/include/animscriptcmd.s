@@ -91,8 +91,8 @@
 
 // constants for panning
 
-PAN_LEFT equ -128
-PAN_RIGHT equ 127
+PAN_LEFT equ -117
+PAN_RIGHT equ 117
 PAN_CENTER equ 0
 
 .macro playsepan,id,pan
@@ -107,8 +107,8 @@ PAN_CENTER equ 0
     .word 0x18, id, panstart, panend, panadd, time
 .endmacro
 
-.macro repeatse,id,pan,num1,num2
-    .word 0x19, id, pan, num1, num2
+.macro repeatse,id,pan,frames,repeat
+    .word 0x19, id, pan, frames, repeat
 .endmacro
 
 .macro waitse,id,pan,num
@@ -220,6 +220,11 @@ PAN_CENTER equ 0
         .word num9
     .endif
 .endmacro
+
+ANIM_TARGET_USER equ 3
+ANIM_TARGET_DEFENDER equ 4
+ANIM_TARGET_MISC equ 17
+ANIM_TARGET_DEFENDER_SIDE equ 20
 
 .macro addparticle,num0,num1,address
     .word 0x2E, num0, num1, address
@@ -471,6 +476,10 @@ PAN_CENTER equ 0
     .word 0x57, num
 .endmacro
 
+.macro changepermanentbg,bg,terrain
+    .word 0x58, bg, terrain
+.endmacro
+
 // helpful macros
 
 .macro loadparticlefromspa,num0,file
@@ -491,4 +500,68 @@ PAN_CENTER equ 0
     resetsprite 1
     resetsprite 2
     resetsprite 3
+.endmacro
+
+.macro shadeattackingmon,red,green,blue
+    callfunction 34, 6, 2, 0, 1, red | green << 5 | blue << 10, 10, 10, "NaN", "NaN", "NaN", "NaN" // shades attacking mon rgb555 color
+.endmacro
+
+.macro shadetargetmon,red,green,blue
+    callfunction 34, 5, 8, 1, 1, red | green << 5 | blue << 10, 12, "NaN", "NaN", "NaN", "NaN", "NaN" // shades target mon rgb555 color
+.endmacro
+
+.macro flashscreencolor,red,green,blue
+    callfunction 33, 5, 0, 1, 12, 0, red | green << 5 | blue << 10, "NaN", "NaN", "NaN", "NaN", "NaN" // flash screen rgb555 color
+.endmacro
+
+.macro shaketargetmon,times,magnitude
+    callfunction 36, 5, times, 0, 1, magnitude, 264, "NaN", "NaN", "NaN", "NaN", "NaN" // shake target mon magnitude pixels times times
+.endmacro
+
+.macro shaketargetside,times,magnitude
+    callfunction 36, 5, times, 0, 1, magnitude, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    callfunction 36, 5, times, 0, 1, magnitude, 272, "NaN", "NaN", "NaN", "NaN", "NaN"
+.endmacro
+
+.macro shakeallbutuser,times,magnitude
+    callfunction 36, 5, times, 0, 1, magnitude, 288, "NaN", "NaN", "NaN", "NaN", "NaN"
+.endmacro
+
+.macro slideattackingmon,x,y
+    callfunction 57, 4, 4, x, y, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN" // slide attacking mon x, y
+.endmacro
+
+.macro shakescreen
+    callfunction 68, 5, 8, 8, 0, 10, 0, "NaN", "NaN", "NaN", "NaN", "NaN" // shake screen some number of times
+.endmacro
+
+// as used in rolling kick/agility
+.macro rotateattackerincircle
+    initspriteresource
+    loadspriteresource 0
+    loadspriteresource 1
+    loadspritemaybe 0, 0, 0, 0
+    loadspritemaybe 0, 0, 1, 1
+    loadspriteresource 4
+    loadspritemaybe 2, 0, 4, 4
+    cmd52 2, 0, 4
+    wait 1
+    callfunction 8, 0, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
+    waitstate
+    resetsprite 0
+    resetsprite 1
+    unloadspriteresource
+    cmd53 0
+    resetsprite 4
+.endmacro
+
+// moves the x axis of a placed particle towards the attacker such that the particle
+// is emitted towards the attacker.  make sure to place particle using location 17
+.macro moveaxistotarget,slot,emitter
+    cmd37 6, slot, emitter, 6, 1, 0, 0, "NaN", "NaN"
+.endmacro
+
+// starts a transition from alpha0 to alpha1 of tint color rgb
+.macro shadescreencolor,red,green,blue,alpha0,alpha1
+    callfunction 33, 5, 0, 1, alpha0, alpha1, red | green << 5 | blue << 10, "NaN", "NaN", "NaN", "NaN", "NaN"
 .endmacro

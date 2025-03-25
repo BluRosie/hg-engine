@@ -1,3 +1,5 @@
+.include "asm/include/debug.inc"
+
 .nds
 .thumb
 
@@ -20,7 +22,7 @@
 
 
 .org 0x021E5AA2 // expand the ram usable by the dex (give about 12 more kb just in case)
-    mov r2, #0x64 // old:  mov r2, #0x61
+    mov r2, #0x67 // old:  mov r2, #0x61
     // later lsld by 0xC to get space to pass to 0x201A910
 
 
@@ -1017,21 +1019,22 @@ CopyPokedexStruct: // rewrite for new struct size
 .org 0x02029408
 
 IsMonNotValid:
-    push {r3, lr}
-    cmp r0, #0
-    beq @@_invalid_mon
-    ldr r1, =NUM_OF_MONS
-    cmp r0, r1
-    bls @@_return_valid
-
-@@_invalid_mon:
-    bl 0x0202551C // HandleError
-    mov r0, #1
-    pop {r3, pc}
-
-@@_return_valid:
+//    push {r3, lr}
+//    cmp r0, #0
+//    beq @@_invalid_mon
+//    ldr r1, =NUM_OF_MONS
+//    cmp r0, r1
+//    bls @@_return_valid
+//
+//@@_invalid_mon:
+//    bl 0x0202551C // HandleError
+//    mov r0, #1
+//    pop {r3, pc}
+//
+//@@_return_valid:
     mov r0, #0
-    pop {r3, pc}
+    bx lr
+//    pop {r3, pc}
 
 .pool
 
@@ -1142,13 +1145,13 @@ PokedexInit: // rewrite the beginning for new struct size
     mov r1, #0
 
 
-// edits to GetCaughtMonCount
+// edits to Pokedex_CountDexOwned
 
 .org 0x02029E0C
 
 .area 0x3C, 0xFF
 
-GetCaughtMonCount:
+Pokedex_CountDexOwned:
     push {r3-r7, lr}
     mov r6, r0
     mov r5, #0
@@ -1176,9 +1179,9 @@ GetCaughtMonCount:
     ble @@_loop
     mov r0, r5
     pop {r3-r7, pc}
-    
+
 .pool
-    
+
 .endarea
 
 
@@ -1216,7 +1219,7 @@ GetSeenMonCount:
     ble @@_loop
     mov r0, r5
     pop {r3-r7, pc}
-    
+
 .pool
 
 .endarea
@@ -1260,8 +1263,13 @@ GetSeenMonCount:
 .area 0x0202A044-., 0xFF
 
 GetCaughtFlag: // 0x02029FF8
+.ifdef DEBUG_DISPLAY_DEX_ENTRIES
+    mov r0, #1
+    bx lr
+.else
     push {r3-r5, lr}
     add r5, r0, #0
+.endif
     add r4, r1, #0
     ldr r1, [r5]
     ldr r0, =0xBEEFCAFE
@@ -1321,8 +1329,13 @@ GetCaughtFlag: // 0x02029FF8
 .area 0x0202A088-., 0xFF
 
 GetSeenFlag: // 0x0202A044
+.ifdef DEBUG_DISPLAY_DEX_ENTRIES
+    mov r0, #1
+    bx lr
+.else
     push {r3-r5, lr}
     add r5, r0, #0
+.endif
     add r4, r1, #0
     ldr r1, [r5]
     ldr r0, =0xBEEFCAFE
@@ -1596,7 +1609,7 @@ SetMonCaught: // 0x0202A434
     add r3, r5, r0
 //    add r3, #0x44 // here
     push {r0}
-    mov r0, #SEEN_FLAGS_OFFSET >> 4 ///////////////////////////////////
+    mov r0, #SEEN_FLAGS_OFFSET >> 4
     lsl r0, #4
     add r3, r0 // net +4
     pop {r0}

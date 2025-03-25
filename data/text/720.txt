@@ -12,7 +12,7 @@ Volt Absorb
 Water Absorb
 Oblivious
 Cloud Nine
-Compoundeyes
+CompoundEyes
 Insomnia
 Color Change
 Immunity
@@ -29,7 +29,7 @@ Effect Spore
 Synchronize
 Clear Body
 Natural Cure
-Lightningrod
+Lightning Rod
 Serene Grace
 Swift Swim
 Chlorophyll
@@ -174,9 +174,9 @@ Competitive
 Strong Jaw
 Refrigerate
 Sweet Veil
-Stance Change
+StanceChange
 Gale Wings
-Mega Launcher
+MegaLauncher
 Grass Pelt
 Symbiosis
 Tough Claws
@@ -192,8 +192,8 @@ Desolate Land
 Delta Stream
 Stamina
 Wimp Out
-Emergency Exit
-Water Compaction
+EmergencyExit
+WaterCompaction
 Merciless
 Shields Down
 Stakeout
@@ -228,11 +228,11 @@ Electric Surge
 Psychic Surge
 Misty Surge
 Grassy Surge
-Full Metal Body
+FullMetalBody
 Shadow Shield
 Prism Armor
 Neuroforce
-Intrepid Sword
+IntrepidSword
 Dauntless Shield
 Libero
 Ball Fetch
@@ -297,3 +297,15 @@ Toxic Debris
 Armor Tail
 Earth Eater
 Mycelium Might
+Hospitality
+Mind’s Eye
+Embody Aspect
+Embody Aspect
+Embody Aspect
+Embody Aspect
+Toxic Chain
+Supersweet Syrup
+Tera Shift
+Tera Shell
+Teraform Zero
+Poison Puppeteer

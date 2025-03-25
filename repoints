@@ -22,3 +22,58 @@ arm9 sPocketCounts 08077C14
 
 0001 gOWTagToFileNum 021F92FC
 0001 gOWTagToFileNum 021FA280
+
+# repoint the type effectiveness table
+0012 TypeEffectivenessTable+1 02251D20
+0012 TypeEffectivenessTable+2 02251D24
+0012 TypeEffectivenessTable 0225204C
+0012 TypeEffectivenessTable 02252174
+0012 TypeEffectivenessTable+1 022521C0
+0012 TypeEffectivenessTable+2 022521C4
+0012 TypeEffectivenessTable 02252640
+0012 TypeEffectivenessTable+1 02252644
+0012 TypeEffectivenessTable+2 02252648
+0012 TypeEffectivenessTable 02252694
+
+# metronome and mimic banlist
+0012 sMetronomeMimicMoveBanList 02257D9C
+0012 sMetronomeMimicMoveBanList 02257DF4
+
+# item use func table
+arm9 sItemFieldUseFuncs 020649AC
+arm9 sItemFieldUseFuncs+4 020649B0
+arm9 sItemFieldUseFuncs+8 020649B4
+
+# terrain table expansion
+0012 TerrainPlatformPlayerNCGR 02265F1C
+0012 TerrainPlatformEnemyNCGR 02265F24
+0012 TerrainPlatformPalettes 02265F2C
+
+# swarm table
+arm9 sSwarmMapLUT 02097FF0
+arm9 sSwarmMapLUT 02097F94
+arm9 sSwarmMapLUT+2 02097F98
+
+# Trainer Class Money Table
+0012 PrizeMoney 08008380
+0012 PrizeMoney+2 08008384
+arm9 sTrainerGenders 020FFB90
+
+# sTrainerEncounterMusicParam
+arm9 sTrainerEncounterMusicParam 020550E0
+
+# Trainer class battle music table
+arm9 TrainerClassToMusicCombo 08051890
+
+# Combo table for battle music
+arm9 MainMusicComboTable 080517C8
+arm9 MainMusicComboTable+2 080517E4
+
+# Pokemon battle music table
+arm9 PokemonBattleMusic 080518D4
+
+# secret power move effect table
+0012 sSecretPowerEffectTable 0800CBC0
+
+# camouflage type table
+0012 sCamouflageTypeTable 0800CB60

@@ -84,7 +84,7 @@ modify_species_encounter_data_rare:
 push {r0-r3}
 
 ldr r0, [sp, #(0x1c+0x10)] // pp
-mov r1, #112 // ID_PARA_form_no
+mov r1, #112 // MON_DATA_FORM
 ldr r2, =space_for_setmondata // &form
 bl call_setmondata
 
@@ -198,11 +198,6 @@ bx r0
 
 .pool
 
-.align 2
-.global word_to_store_form_at
-word_to_store_form_at:
-.word 0
-
 
 
 // 02247A18
@@ -245,7 +240,7 @@ bx r4
 modify_species_encounter_data:
 bl call_setmondata // set the id number
 mov r0, r4 // pp
-mov r1, #112 // ID_PARA_form_no
+mov r1, #112 // MON_DATA_FORM
 ldr r2, =space_for_setmondata // &form
 bl call_setmondata
 
@@ -276,18 +271,14 @@ bx r3
 
 .pool
 
-.global space_for_setmondata
-space_for_setmondata:
-.word 0
 
-
-.global UseItemFormeChange_hook
-UseItemFormeChange_hook:
+.global UseItemMonAttrChangeCheck_hook
+UseItemMonAttrChangeCheck_hook:
 push {r1-r7}
 
 mov r0, r5
 mov r1, r4 // so that the memory can be freed
-bl UseItemFormeChangeCheck
+bl UseItemMonAttrChangeCheck
 
 pop {r1-r7}
 cmp r0, #1
@@ -299,6 +290,27 @@ bx r1
 return_to_0207C2D2:
 ldr r0, =0x0207C2D2 | 1
 bx r0
+
+.pool
+
+
+.global UseItemMonAttrLoadDiffMessage_hook
+UseItemMonAttrLoadDiffMessage_hook:
+ldr r1, =partyMenuSignal
+ldr r1, [r1]
+cmp r1, #1
+bhi _use_signal
+// default handling
+mov r1, #188 // "{STRVAR_1 0, 0, 0} changed Forme!\r"
+
+_use_signal:
+mov r0, #31
+lsl r0, #6
+ldr r0, [r5, r0]
+ldr r2, =0x0200BBA0 | 1 // NewString_ReadMsgData
+bl bx_r2
+ldr r1, =0x021E5A76 | 1
+bx r1
 
 .pool
 
@@ -345,10 +357,6 @@ bx r2
 
 .pool
 
-.global gFieldSysPtr
-gFieldSysPtr:
-.word 0
-
 .global WindowClose
 WindowClose:
 ldr r0, =0x04000050
@@ -364,13 +372,12 @@ bx r2
 .pool
 
 
-.global gTriggerDouble
-gTriggerDouble:
-.word 0
-
-
+// new method:  from the parent func
 .global TryTriggerWildDoubleBattle
 TryTriggerWildDoubleBattle:
+
+mov r8, r1
+
 ldr r2, =0x020272B0 | 1 //SaveBlock2_get
 bl bx_r2
 ldr r2, =0x02074904 | 1 //SavArray_PlayerParty_get
@@ -390,22 +397,34 @@ blt doubleWildBattle
 
 singleBattle:
 mov r1, #0
-b skipDoubleWildBattle
+ldr r0, =gTriggerDouble
+str r1, [r0]
+
+mov r1, r8
+
+mov r0, r5 // fsys
+add r2, sp, #0x20 // *battleWork
+ldr r3, =0x02248244 | 1
+bl bx_r3
+ldr r2, =0x02246E22 | 1
+bx r2
 
 doubleWildBattle:
 mov r1, #2
-
-skipDoubleWildBattle:
 ldr r0, =gTriggerDouble
 str r1, [r0]
 mov r0, #11
-ldr r2, =0x020518D8 | 1
+ldr r2, =0x020518D8 | 1 // BattleSetup_New
 bl bx_r2
-ldr r2, =0x0224828C | 1
+str r0, [sp, #0x20]
+ldr r2, =0x02246E22 | 1
 // fallthrough to bx r2
 
 bx_r2:
 bx r2
+
+bx_r3:
+bx r3
 
 .pool
 
@@ -458,3 +477,250 @@ ldr r2, =0x022607C4|1
 bx r2
 
 .pool
+
+
+
+// summary related code from lhearachel god bless you
+.global Summary_Entry_Hook
+Summary_Entry_Hook:
+bl Summary_ColorizeStatScreen_Wrap
+ldr r1, =0x0208D372 + 1
+bx r1
+
+/*
+
+changes from platinum:
+r5 -> r4
+r3 -> r2
+r4 -> r5
+r6 can stay as r6
+
+*/
+.global Summary_IVEV
+Summary_IVEV:
+mov     r1, #0x20
+ldr     r4, [r3, #0x4C]
+mov     r6, r4
+tst     r6, r1
+beq     Summary_Check_LButton
+sub     r1, #0x21
+bl      Summary_ChangePage
+mov     r0, #2
+pop     {r4-r6,pc}
+
+Summary_Check_LButton:
+mov     r1, #2
+lsl     r1, r1, #8
+tst     r6, r1
+beq     Summary_Check_RButton
+sub     r1, r2, #3
+ldrsb   r1, [r5, r1] // current page
+cmp     r1, #1
+bne     Summary_Check_RButton
+mov     r1, #1
+bl      Summary_ChangeStatScreenState
+mov     r0, #0x5E
+lsl     r0, #4
+add     r0, #1
+ldr     r2, =0x0200604C | 1
+bl      bx_r2
+mov     r0, #2
+pop     {r4-r6,pc}
+
+Summary_Check_RButton:
+mov     r1, #1
+lsl     r1, r1, #8
+tst     r6, r1
+beq     Summary_Check_SELButton
+sub     r1, r2, #3
+ldrsb   r1, [r5, r1]
+cmp     r1, #1
+bne     Summary_Check_SELButton
+mov     r1, #2
+bl      Summary_ChangeStatScreenState
+mov     r0, #0x5E
+lsl     r0, #4
+add     r0, #1
+ldr     r2, =0x0200604C | 1
+bl      bx_r2
+mov     r0, #2
+pop     {r4-r6,pc}
+
+Summary_Check_SELButton:
+mov     r1, #4
+tst     r6, r1
+beq     Summary_StatsPage_Return
+sub     r1, r2, #3
+ldrsb   r1, [r5, r1]
+cmp     r1, #1
+bne     Summary_StatsPage_Return
+mov     r1, #0
+bl      Summary_ChangeStatScreenState
+mov     r0, #0x5E
+lsl     r0, #4
+add     r0, #1
+ldr     r2, =0x0200604C | 1
+bl      bx_r2
+mov     r0, #2
+pop     {r4-r6,pc}
+
+Summary_StatsPage_Return:
+ldr     r1, =0x02088B74 + 1
+bx      r1
+
+Summary_ChangePage:
+ldr     r2, =0x02089E30 + 1
+bx      r2
+
+.pool
+
+
+.global AllocFail_hook
+AllocFail_hook:
+// spC is always the place that called the AllocMemory function, sp10 now
+push {lr}
+ldr r0, [sp, #0x10]
+bl AllocFail
+pop {pc}
+
+
+.global form_evo_hook_1
+form_evo_hook_1:
+// r0 is already pointer to party mon.  need to set species and form
+// r4+0x62 is target species
+add r2, r2, #0x62
+mov r1, r2
+mov r2, #0
+bl SetPartyPokemonParamsForEvoCutscene
+ldr r0, =0x0207722C | 1
+bx r0
+
+.pool
+
+
+.global form_evo_hook_2
+form_evo_hook_2:
+ldr r0, [r4, #0x28]
+add r2, r2, #0x62
+mov r1, r2
+mov r2, #1
+bl SetPartyPokemonParamsForEvoCutscene
+ldr r0, =0x02076426 | 1
+bx r0
+
+.pool
+
+
+.global BagApp_GetRepelStepCountAddr
+BagApp_GetRepelStepCountAddr:
+    push {r4, lr}
+    add r4, r1, #0
+    ldr r3, =0x021F992C | 1 // BagApp_GetSaveRoamers
+    bl bx_r3
+    ldr r3, =0x0202DB04 | 1 // SaveData_GetRepelPtr
+    bl bx_r3
+    strb r4, [r0]
+    bl Repel_SetCurrentType
+    pop {r4, pc}
+
+.pool
+
+
+.global CreateHeapInternal_hook
+CreateHeapInternal_hook:
+push {r0-r3}
+bl CreateHeapInternal
+pop {r0-r3}
+mov r4, r0
+mov r5, r1
+str r2, [sp]
+mov r7, r3
+ldr r0, =0x0201A934 | 1
+bx r0
+
+.pool
+
+
+.global DestroyHeap_hook
+DestroyHeap_hook:
+push {r0-r3}
+mov r0, r4
+bl DestroyHeap
+pop {r0-r3}
+ldr r3, [r1, #8]
+ldrb r2, [r2, r4]
+lsl r2, #2
+str r0, [r3, r2]
+ldr r2, =0x0201AA2C | 1
+bx r2
+
+.pool
+
+.global FreeToHeap_hook
+FreeToHeap_hook:
+bl FreeToHeap
+sub r0, r6, #4
+ldr r0, [r0]
+lsl r0, #0x18
+lsr r4, r0, #0x18
+ldr r0, =0x0201AB18|1
+bx r0
+
+.pool
+
+
+.global FreeToHeapExplicit_hook
+FreeToHeapExplicit_hook:
+push {r0-r3}
+mov r0, r4
+bl FreeToHeapExplicit
+pop {r0-r3}
+lsl r4, r5, #1
+ldr r0, [r0, #0xC]
+ldrh r0, [r0, r4]
+// skip GF_ASSERT fucking Whatever
+ldr r1, =0x0201ABD6|1
+bx r1
+
+.pool
+
+
+// when we get here, sp+0xC is the typical return address that called sys_AllocMemory{Lo}
+// r5 and r6 are on the stack now--so it's now sp+0x14
+.global AllocFromHeapInternal_hook
+AllocFromHeapInternal_hook:
+ldr r5, =AllocFromHeapInternal_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl AllocFromHeapInternal
+ldr r1, =AllocFromHeapInternal_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+.global AllocFromHeapInternal_return_address
+AllocFromHeapInternal_return_address:
+.word 0
+
+
+.data
+
+.align 2
+
+.global space_for_setmondata
+space_for_setmondata:
+.word 0
+
+.global gFieldSysPtr
+gFieldSysPtr:
+.word 0
+
+.global word_to_store_form_at
+word_to_store_form_at:
+.word 0
+
+.global gTriggerDouble
+gTriggerDouble:
+.word 0

@@ -2,10 +2,11 @@
 .thumb
 
 .include "armips/include/animscriptcmd.s"
-.include "armips/include/abilities.s"
-.include "armips/include/itemnums.s"
-.include "armips/include/monnums.s"
-.include "armips/include/movenums.s"
+
+.include "asm/include/abilities.inc"
+.include "asm/include/items.inc"
+.include "asm/include/species.inc"
+.include "asm/include/moves.inc"
 
 .create "build/move/move_anim/0_292", 0
 
@@ -39,6 +40,8 @@ _00D8:
     addparticle 0, 0, 4
     wait 10
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    waitparticle
+    unloadparticle 0
     end
 _014C:
     addparticle 0, 2, 4
@@ -48,6 +51,8 @@ _014C:
     addparticle 0, 0, 4
     wait 10
     callfunction 36, 5, 2, 0, 1, 2, 264, "NaN", "NaN", "NaN", "NaN", "NaN"
+    waitparticle
+    unloadparticle 0
     end
 
 .close

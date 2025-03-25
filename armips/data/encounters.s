@@ -2,7 +2,8 @@
 .thumb
 
 .include "armips/include/macros.s"
-.include "armips/include/monnums.s"
+
+.include "asm/include/species.inc"
 
 // Each encounter data has been labeled with the area it gets used.
 // Some are labeled ???, these are most likely not used.
@@ -14773,5 +14774,3 @@ pokemon SPECIES_POLIWAG
 pokemon SPECIES_MAGIKARP
 
 .close
-
-
