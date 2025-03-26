@@ -2982,12 +2982,12 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     BOOL butItFailedFlag = FALSE;
     BOOL jungleHealingSelfSuccess = FALSE;
     BOOL jungleHealingAllySuccess = FALSE;
-    int clientPosition = 0;
-    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
-    int attackerSpecies = ctx->battlemon[ctx->attack_client].species;
-    int defenderSpecies = ctx->battlemon[ctx->defence_client].species;
-    int attackerItem = ctx->battlemon[ctx->attack_client].item;
-    int defenderItem = ctx->battlemon[ctx->defence_client].item;
+    u32 clientPosition = 0;
+    u32 maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    u32 attackerSpecies = ctx->battlemon[ctx->attack_client].species;
+    u32 defenderSpecies = ctx->battlemon[ctx->defence_client].species;
+    u32 attackerItem = ctx->battlemon[ctx->attack_client].item;
+    u32 defenderItem = ctx->battlemon[ctx->defence_client].item;
 
     BOOL flowerShieldSuccessCount = 0;
 
@@ -3232,25 +3232,25 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_SPIKES: {
-            if (ctx->scw[IsClientEnemy(bsys, ctx->attack_client)].spikesLayers >= 3) {
+            if (ctx->scw[IsClientEnemy(bsys, ctx->defence_client)].spikesLayers >= 3) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_STEALTH_ROCK: {
-            if (ctx->side_condition[IsClientEnemy(bsys, ctx->attack_client)] & SIDE_STATUS_STEALTH_ROCK) {
+            if (ctx->side_condition[IsClientEnemy(bsys, ctx->defence_client)] & SIDE_STATUS_STEALTH_ROCK) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_TOXIC_SPIKES: {
-            if (ctx->scw[IsClientEnemy(bsys, ctx->attack_client)].toxicSpikesLayers >= 2) {
+            if (ctx->scw[IsClientEnemy(bsys, ctx->defence_client)].toxicSpikesLayers >= 2) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_STICKY_WEB: {
-            if (ctx->side_condition[IsClientEnemy(bsys, ctx->attack_client)] & SIDE_STATUS_STICKY_WEB) {
+            if (ctx->side_condition[IsClientEnemy(bsys, ctx->defence_client)] & SIDE_STATUS_STICKY_WEB) {
                 butItFailedFlag = TRUE;
             }
             break;
@@ -3310,7 +3310,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 }
             }
             // If target has already performed action
-            if (ctx->executionIndex > clientPosition) {
+            if (ctx->executionIndex > (u32)clientPosition) {
                 butItFailedFlag = TRUE;
             }
             break;

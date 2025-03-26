@@ -200,7 +200,7 @@ int LONG_CALL SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
     u32 loadNeeded = IsOverlayLoaded(OVERLAY_BATTLECONTROLLER_MOVEEND) ? OVERLAY_BATTLECONTROLLER_MOVEEND : 0;
 
     if (loadNeeded)
-        UnloadOverlayByID(OVERLAY_BATTLECONTROLLER_MOVEEND); // unload overlay 6 so this can be loaded
+        UnloadOverlayByID(OVERLAY_BATTLECONTROLLER_MOVEEND); // unload colliding overlay so that this can be loaded
 
     ovyId = OVERLAY_SWITCHINABILITYCHECK_SPECIFIC;
     offset = 0x023C0400 | 1;

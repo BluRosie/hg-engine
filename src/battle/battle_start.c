@@ -30,13 +30,13 @@
 struct BattleStruct *ServerInit(struct BattleSystem *bw) {
     struct BattleStruct *sp;
 
-    sp = sys_AllocMemory(5, sizeof(struct BattleStruct));
+    sp = sys_AllocMemory(HEAPID_BATTLE_HEAP, sizeof(struct BattleStruct));
     memset(sp, 0, sizeof(struct BattleStruct));
     BattleStructureInit(sp);
     BattleStructureCounterInit(bw, sp);
     ServerMoveAIInit(bw, sp);
     DumpMoveTableData(&sp->moveTbl[0]);
-    sp->aiWorkTable.item = ItemDataTableLoad(5);
+    sp->aiWorkTable.item = ItemDataTableLoad(HEAPID_BATTLE_HEAP);
 
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
 
@@ -91,7 +91,7 @@ void ServerBeforeAct(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
     internalFunc(bsys, ctx);
 
-    if (ctx->sba_seq_no == SBA_RESET_DEFIANT)
+    //if (ctx->sba_seq_no == SBA_RESET_DEFIANT)
     {
         if (ServerBeforeAct_restoreOverlay) {
             UnloadOverlayByID(ovyId);

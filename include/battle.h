@@ -303,6 +303,14 @@
 
 #define STATUS2_BIDE    (STATUS2_BIDE_0 | STATUS2_BIDE_1)
 
+#define HAZARD_IDX_NONE 0
+#define HAZARD_IDX_SPIKES 1
+#define HAZARD_IDX_TOXIC_SPIKES 2
+#define HAZARD_IDX_STEALTH_ROCK 3
+#define HAZARD_IDX_STICKY_WEB 4
+#define HAZARD_IDX_SHARP_STEEL 5
+#define NUM_HAZARD_IDX (HAZARD_IDX_SHARP_STEEL)
+
 /**
  *  @brief side status flags that apply to one side
  *  accessible in BattleStruct's side_condition[side]
@@ -1330,7 +1338,9 @@ struct PACKED BattleStruct {
     /*0x315E*/ u8 frisk_tracker; // see which clients have been frisked by the frisk client (1 << client)
     /*0x315F*/ u8 magicBounceTracker; // if any client has already activated magic bounce, another can not activate
     /*0x3160*/ u8 binding_turns[4]; // turns left for bind
-    /*0x3164*/ u8 padding_3164[0x1A]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x3164*/ u8 entryHazardQueue[2][NUM_HAZARD_IDX];
+    /*0x316E*/ u8 hazardQueueTracker;
+    /*0x316F*/ u8 padding_316F[0x317E - 0x316F]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right

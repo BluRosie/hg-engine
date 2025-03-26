@@ -1400,6 +1400,28 @@
     .long (((\arg_2 - .) / 4) - 1)
     .endm
 
+    .macro JumpToCurrentEntryHazard arg_0, arg_1, arg_2, arg_3, arg_4, arg_5
+    .long 256
+    .long \arg_0
+    .long (((\arg_1 - .) / 4) - 5)
+    .long (((\arg_2 - .) / 4) - 4)
+    .long (((\arg_3 - .) / 4) - 3)
+    .long (((\arg_4 - .) / 4) - 2)
+    .long (((\arg_5 - .) / 4) - 1)
+    .endm
+
+    .macro AddEntryHazardToQueue arg_0, arg_1
+    .long 257
+    .long \arg_0
+    .long \arg_1
+    .endm
+
+    .macro RemoveEntryHazardFromQueue arg_0, arg_1
+    .long 258
+    .long \arg_0
+    .long \arg_1
+    .endm
+
     .macro CheckShouldNotTurnOffMultiStatAnim battlerCategory, label
     // need to skip the stat animation turning off in case of defiant and competitive so the animation shows properly
     CheckAbility CHECK_OPCODE_HAVE, \battlerCategory, ABILITY_DEFIANT, \label
