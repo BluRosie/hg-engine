@@ -678,6 +678,8 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
                 ctx->server_status_flag |= (No2Bit(attacker) << BATTLE_STATUS_SELFDESTRUCTED_SHIFT);
                 ctx->fainting_client = attacker;
                 ctx->battlemon[attacker].hp = 0;
+                // apparently need to do this now
+                CopyBattleMonToPartyMon(bsys, ctx, attacker);
             }
             ctx->wb_seq_no++;
             FALLTHROUGH;
@@ -3310,7 +3312,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 }
             }
             // If target has already performed action
-            if (ctx->executionIndex > (u32)clientPosition) {
+            if (ctx->executionIndex > (s32)clientPosition) {
                 butItFailedFlag = TRUE;
             }
             break;
@@ -3342,7 +3344,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 }
             }
             // If target has already performed action
-            if (ctx->executionIndex > clientPosition) {
+            if (ctx->executionIndex > (s32)clientPosition) {
                 butItFailedFlag = TRUE;
             }
 
