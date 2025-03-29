@@ -20,6 +20,8 @@ bool8 defender_immune_to_burn;
 bool8 defender_immune_to_sleep;
 bool8 attacker_knows_psych_up;
 bool8 attacker_has_super_effective_move;
+bool8 defender_has_hazards;
+
 int defender;
 int defender_side;
 int attacker_side;
@@ -52,9 +54,12 @@ int attacker_party_index;
 int attacker_move;
 int attacker_move_effect;
 int attacker_move_type;
+int defender_last_used_move;
+int defender_last_move_effect;
+int defender_turns_on_field;
 
 
-int max_roll_move_damages[4] = {0};
+int attacker_max_roll_move_damages[4] = {0};
 
 
 /*Flag functions return a move score, given the index of the current move*/
@@ -72,6 +77,10 @@ int HarassmentFlag (struct BattleSystem *bsys, u32 attacker, int i);
 
 /*Helper Functions*/
 int AttackerMonWithHighestDamage (struct BattleSystem *bsys, u32 attacker);
+bool8 BattlerHasStatBoostGreater (struct BattleSystem *bsys, u32 battler, u32 boost_amount);
+bool8 BattlerHasStatBoostLesser (struct BattleSystem *bsys, u32 battler, u32 drop_amount);
+bool8 BattlerKnowsMove (struct BattleSystem *bsys, u32 battler, u32 move);
+bool8 BattlerHasMoveSplit (struct BattleSystem *bsys, u32 battler, u32 move_split);
 
 //int CalcPotentialDamage ();
 
@@ -109,6 +118,18 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     attacker_speed = ctx->battlemon[attacker].speed;
     defender_speed = ctx->battlemon[defender].speed;
     attacker_party_index = ctx->sel_mons_no[attacker];
+    defender_last_used_move = ctx->waza_no_old[defender];
+    defender_last_move_effect = ctx->moveTbl[defender_last_used_move].effect;
+    defender_turns_on_field = ctx->total_turn - ctx->battlemon[defender].moveeffect.fakeOutCount;
+
+    if(ctx->side_condition[defender_side] & SIDE_STATUS_STEALTH_ROCK ||
+        ctx->scw[defender_side].spikesLayers >= 2 ||
+        ctx->scw[defender_side].toxicSpikesLayers >= 1){
+        defender_has_hazards = 1;
+    }
+    else{
+        defender_has_hazards = 0;
+    }
 
     defender_immune_to_poison = 
         (defender_type_1 == TYPE_POISON || defender_type_2 == TYPE_POISON || //need to consider corrosion
@@ -177,7 +198,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     for(int i = 0; i < attacker_moves_known; i++){
 
         int attacker_move_check = ctx->battlemon[attacker].move[i];
-        max_roll_move_damages[i] = CalcBaseDamage(bsys, ctx, attacker_move_check, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move_check].power, 0, attacker, defender, 0);
+        attacker_max_roll_move_damages[i] = CalcBaseDamage(bsys, ctx, attacker_move_check, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move_check].power, 0, attacker, defender, 0);
         if(attacker_move_check == MOVE_PSYCH_UP){
             attacker_knows_psych_up = 1;
         }
@@ -664,6 +685,9 @@ int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i){
             (ctx->battlemon[attacker].states[STAT_ATTACK] >= 12 || ctx->battlemon[attacker].states[STAT_DEFENSE] >= 12))){
         moveScore -= 10;
     }
+
+
+
     /*Handle hazards*/
     if((attacker_move_effect == MOVE_EFFECT_STEALTH_ROCK && 
         (ctx->side_condition[defender_side] & SIDE_STATUS_STEALTH_ROCK || living_defending_members == 1 )) ||
@@ -958,7 +982,7 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i){
     //int max_roll_attacker_damage = CalcBaseDamage(bsys, ctx, attacker_move, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move].power, 0, attacker, defender, 0);
     
     /*Check if the current move kills*/
-    if (max_roll_move_damages[i] >= defender_hp){
+    if (attacker_max_roll_move_damages[i] >= defender_hp){
         if(attacker_move_effect == MOVE_EFFECT_HALVE_DEFENSE ){
             moveScore += 0;
         }
@@ -983,7 +1007,7 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i){
     }
     bool8 is_current_move_not_strongest = 0;
     for(int j = 0; j < attacker_moves_known; j++){
-        if ( i != j && max_roll_move_damages[i] < max_roll_move_damages[j]){
+        if ( i != j && attacker_max_roll_move_damages[i] < attacker_max_roll_move_damages[j]){
             is_current_move_not_strongest = 1;
         }
     }
@@ -1164,7 +1188,44 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
         }
     }
     if(attacker_move_effect == MOVE_EFFECT_COPY_MOVE && attacker_speed > defender_speed){
-        /*TODO: need the last used move stored somewhere. same for sketch and copycat*/
+        if(defender_last_move_effect == MOVE_EFFECT_STATUS_SLEEP || 
+            defender_last_move_effect == MOVE_EFFECT_ACC_DOWN ||
+            defender_last_move_effect == MOVE_EFFECT_ONE_HIT_KO ||
+            defender_last_move_effect == MOVE_EFFECT_STATUS_BADLY_POISON ||
+            defender_last_move_effect == MOVE_EFFECT_HIGH_CRITICAL ||
+            defender_last_move_effect == MOVE_EFFECT_STATUS_CONFUSE ||
+            defender_last_move_effect == MOVE_EFFECT_DEF_DOWN_2 ||
+            defender_last_move_effect == MOVE_EFFECT_SPEED_DOWN_2 ||
+            defender_last_move_effect == MOVE_EFFECT_SP_DEF_DOWN_2 ||
+            defender_last_move_effect == MOVE_EFFECT_STATUS_PARALYZE ||
+            defender_last_move_effect == MOVE_EFFECT_STATUS_POISON ||
+            defender_last_move_effect == MOVE_EFFECT_STATUS_POISON ||
+            defender_last_move_effect == MOVE_EFFECT_CONFUSE_HIT ||
+            defender_last_move_effect == MOVE_EFFECT_RECHARGE_AFTER ||
+            defender_last_move_effect == MOVE_EFFECT_STEAL_HELD_ITEM ||
+            defender_last_move_effect == MOVE_EFFECT_INFATUATE ||
+            defender_last_move_effect == MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION ||
+            defender_last_move_effect == MOVE_EFFECT_TORMENT ||
+            defender_last_move_effect == MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION ||
+            defender_last_move_effect == MOVE_EFFECT_SWITCH_HELD_ITEMS ||
+            defender_last_move_effect == MOVE_EFFECT_USER_ATK_DEF_DOWN_HIT ||
+            defender_last_move_effect == MOVE_EFFECT_SWITCH_ABILITIES ||
+            defender_last_move_effect == MOVE_EFFECT_TRANSFER_STATUS ||
+            defender_last_move_effect == MOVE_EFFECT_SWAP_ATK_SP_ATK_STAT_CHANGES ||
+            defender_last_move_effect == MOVE_EFFECT_SWAP_DEF_SP_DEF_STAT_CHANGES ||
+            defender_last_move_effect == MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING ||
+            defender_last_move_effect == MOVE_EFFECT_PRIORITY_1 ||
+            defender_last_move_effect == MOVE_EFFECT_SWAP_STAT_CHANGES ||
+            defender_last_move_effect == MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER){
+                if(BattleRand(bsys) % 2 < 1){
+                    moveScore += 2;
+                }
+            }
+        else{
+            if(BattleRand(bsys) % 3 < 1){
+                moveScore -= 1;
+            }
+        }
     }
 
     /*Stat boosting moves*/
@@ -1249,9 +1310,22 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
             moveScore -=2;
         }
         else{
-            //need to know target's last used move
+            if(ctx->moveTbl[defender_last_used_move].split == SPLIT_STATUS){
+                if(BattleRand(bsys) % 4 < 3){
+                    moveScore -= 2;
+                }
+            }
+            else if(ctx->moveTbl[defender_last_used_move].split == SPLIT_PHYSICAL){
+                if(BattleRand(bsys) % 2 < 1){
+                    moveScore += 2; //gamefreak has this at -2, which makes zero sense
+                }
+            }
+            else{
+                moveScore -= 2;
+            }
         }
     }
+
     /*Sp. Def*/
     if(attacker_move_effect == MOVE_EFFECT_SP_DEF_UP || 
         attacker_move_effect == MOVE_EFFECT_SP_DEF_UP_2 ||
@@ -1275,7 +1349,19 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
             moveScore -=2;
         }
         else{
-            //need to know target's last used move
+            if(ctx->moveTbl[defender_last_used_move].split == SPLIT_STATUS){
+                if(BattleRand(bsys) % 4 < 3){
+                    moveScore -= 2;
+                }
+            }
+            else if(ctx->moveTbl[defender_last_used_move].split == SPLIT_SPECIAL){
+                if(BattleRand(bsys) % 2 < 1){
+                    moveScore += 2; //gamefreak has this at -2, which makes zero sense
+                }
+            }
+            else{
+                moveScore -= 2;
+            }
         }
     }
 
@@ -1307,11 +1393,14 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
                 moveScore -= 2;
             }
     }
-    /*Evasion*/
+    /*Evasion up AND Accuracy down */
     if(attacker_move_effect == MOVE_EFFECT_EVA_UP || 
         attacker_move_effect == MOVE_EFFECT_EVA_UP_2 ||
         attacker_move_effect == MOVE_EFFECT_EVA_UP_3||
-        attacker_move_effect == MOVE_EFFECT_EVA_UP_2_MINIMIZE) {
+        attacker_move_effect == MOVE_EFFECT_EVA_UP_2_MINIMIZE ||
+        attacker_move_effect == MOVE_EFFECT_ACC_DOWN || 
+        attacker_move_effect == MOVE_EFFECT_ACC_DOWN_2 ||
+        attacker_move_effect == MOVE_EFFECT_ACC_DOWN_3) {
         if(attacker_percent_hp >= 90){
             if(BattleRand(bsys) % 10 < 6){
                 moveScore += 3;
@@ -1416,7 +1505,13 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
         if(defender_percent_hp <= 70){
             moveScore -= 2;
         }
-        /*Check for last used move for next condition*/
+        if(ctx->moveTbl[defender_last_used_move].split != SPLIT_PHYSICAL){
+            if(BattleRand(bsys) % 2 < 1){
+                moveScore -= 2;
+            }
+        }
+
+
     }
     /*Sp. Atk*/
     if(attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN ||
@@ -1436,12 +1531,16 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
         if(defender_percent_hp <= 70){
             moveScore -= 2;
         }
-        /*Check for last used move for next condition*/
+        if(ctx->moveTbl[defender_last_used_move].split != SPLIT_SPECIAL){
+            if(BattleRand(bsys) % 2 < 1){
+                moveScore -= 2;
+            }
+        }
     }
     /*Defense */
-    if(attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN ||
-        attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN_2 ||
-        attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN_3){
+    if(attacker_move_effect == MOVE_EFFECT_DEF_DOWN ||
+        attacker_move_effect == MOVE_EFFECT_DEF_DOWN_2 ||
+        attacker_move_effect == MOVE_EFFECT_DEF_DOWN_3){
             if(attacker_percent_hp <= 70){
                 if(BattleRand(bsys) % 10 < 8){
                     moveScore -= 2;
@@ -1456,11 +1555,269 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
                 moveScore -= 2;
             }
     }
+    /*Sp. Def */
+    if(attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN ||
+        attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN_2 ||
+        attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN_3){
+            if(attacker_percent_hp <= 70){
+                if(BattleRand(bsys) % 10 < 8){
+                    moveScore -= 2;
+                }
+            }
+            if(ctx->battlemon[defender].states[STAT_SPDEF] <= 3){
+                if(BattleRand(bsys) % 10 < 8){
+                    moveScore -= 2;
+                }
+            }
+            if (defender_percent_hp < 70){
+                moveScore -= 2;
+            }
+    }
+    /*Speed*/
+    if(attacker_move_effect == MOVE_EFFECT_SPEED_DOWN ||
+        attacker_move_effect == MOVE_EFFECT_SPEED_DOWN_2 ||
+        attacker_move_effect == MOVE_EFFECT_SPEED_DOWN_3){
+            if(attacker_speed <= defender_speed){
+                if(BattleRand(bsys) % 10 < 7){
+                    moveScore += 2;
+                }
+            }
+            if(attacker_speed > defender_speed){
+                moveScore -= 3;
+            }
+    }
+
+    /*Evasion down*/
+    if(attacker_move_effect == MOVE_EFFECT_EVA_DOWN ||
+        attacker_move_effect == MOVE_EFFECT_EVA_DOWN_2 ||
+        attacker_move_effect == MOVE_EFFECT_EVA_DOWN_3){
+            if(attacker_percent_hp < 70){
+                if(BattleRand(bsys) % 10 < 8){
+                    moveScore -= 2;
+                }
+            }
+            else if(ctx->battlemon[defender].states[STAT_EVASION] <= 3){
+                if(BattleRand(bsys) % 10 < 8){
+                    moveScore -= 2;
+                }
+            }
+            if (defender_percent_hp < 70){
+                moveScore -= 2;
+            }
+    }
+
+    /*Moves ignoring accuracy*/
+    if(attacker_move_effect == MOVE_EFFECT_BYPASS_ACCURACY){
+        if(ctx->battlemon[defender].states[STAT_EVASION] >= 11 ||
+            ctx->battlemon[attacker].states[STAT_ACCURACY] <= 1){
+                if(BattleRand(bsys) % 10 < 6){
+                    moveScore += 2;
+                }
+                if(BattleRand(bsys) % 10 < 4){
+                    moveScore += 1;
+                } 
+        }
+        if(ctx->battlemon[defender].states[STAT_EVASION] >= 9 ||
+            ctx->battlemon[attacker].states[STAT_ACCURACY] <= 3){
+                moveScore += 1;
+        }
+    }
+
+    /*Vital Throw*/
+    if(attacker_move_effect == MOVE_EFFECT_PRIORITY_NEG_1_BYPASS_ACCURACY){
+
+        if(attacker_speed < defender_speed){
+            moveScore += 0;
+        }
+        if(attacker_percent_hp > 60){
+            moveScore -= 0;
+        }
+        else if(attacker_percent_hp < 40){
+            if(BattleRand(bsys) % 10 < 8){
+                moveScore -= 1;
+            } 
+        }
+        else{
+            if(BattleRand(bsys) % 10 < 2){
+                moveScore -= 1;
+            }
+        }
+    }
+
+    /*Haze*/
+    if(attacker_move_effect == MOVE_EFFECT_RESET_STAT_CHANGES){
+        if((ctx->battlemon[attacker].states[STAT_ATTACK] >= 9 ||
+            ctx->battlemon[attacker].states[STAT_DEFENSE] >= 9 ||
+            ctx->battlemon[attacker].states[STAT_SPATK] >= 9 ||
+            ctx->battlemon[attacker].states[STAT_SPDEF] >= 9 ||
+            ctx->battlemon[attacker].states[STAT_SPEED] >= 9 ||
+            ctx->battlemon[attacker].states[STAT_EVASION] >= 9 ||
+            ctx->battlemon[attacker].states[STAT_ACCURACY] >= 9) ||
+            (ctx->battlemon[defender].states[STAT_ATTACK] <= 3 ||
+                ctx->battlemon[defender].states[STAT_DEFENSE] <= 3 ||
+                ctx->battlemon[defender].states[STAT_SPATK] <= 3 ||
+                ctx->battlemon[defender].states[STAT_SPDEF] <= 3 ||
+                ctx->battlemon[defender].states[STAT_SPEED] <= 3 ||
+                ctx->battlemon[defender].states[STAT_EVASION] <= 3 ||
+                ctx->battlemon[defender].states[STAT_ACCURACY] <= 3)){
+                if(BattleRand(bsys) % 10 < 8){
+                    moveScore -= 3;
+                }
+        }
+        else if((ctx->battlemon[attacker].states[STAT_ATTACK] <= 3 ||
+            ctx->battlemon[attacker].states[STAT_DEFENSE] <= 3 ||
+            ctx->battlemon[attacker].states[STAT_SPATK] <= 3 ||
+            ctx->battlemon[attacker].states[STAT_SPDEF] <= 3 ||
+            ctx->battlemon[attacker].states[STAT_SPEED] <= 3 ||
+            ctx->battlemon[attacker].states[STAT_EVASION] <= 3 ||
+            ctx->battlemon[attacker].states[STAT_ACCURACY] <= 3) ||
+            (ctx->battlemon[defender].states[STAT_ATTACK] >= 9 ||
+                ctx->battlemon[defender].states[STAT_DEFENSE] >= 9 ||
+                ctx->battlemon[defender].states[STAT_SPATK] >= 9 ||
+                ctx->battlemon[defender].states[STAT_SPDEF] >= 9 ||
+                ctx->battlemon[defender].states[STAT_SPEED] >= 9 ||
+                ctx->battlemon[defender].states[STAT_EVASION] >= 9 ||
+                ctx->battlemon[defender].states[STAT_ACCURACY] >= 9)){
+                if(BattleRand(bsys) % 10 < 8){
+                    moveScore += 3;
+                }
+        }
+        else{
+            moveScore -= 1;
+        }
+    }
+
+    /*Bide*/
+    if(attacker_move_effect == MOVE_EFFECT_BIDE){
+        if(attacker_percent_hp <= 90){
+            moveScore -= 2;
+        }
+    }
+
+    /*Switch forcing moves*/
+    if(attacker_move_effect == MOVE_EFFECT_FORCE_SWITCH){
+        if(defender_turns_on_field > 3){
+            if(BattleRand(bsys) % 4 < 3){
+                moveScore += 2;
+            }
+        }
+        else if(defender_has_hazards == 1){
+            if(BattleRand(bsys) % 2 < 1){
+                moveScore += 2;
+            }
+        }
+        else if(BattlerHasStatBoostGreater(bsys, defender, 9)){
+            if(BattleRand(bsys) % 2 < 1){
+                moveScore += 2;
+            }
+        }
+        else{
+            moveScore -= 3;
+        }
+    }
+    /*Conversion*/
+    if(attacker_move_effect == MOVE_EFFECT_CONVERSION){
+        if(attacker_percent_hp <= 90){
+            moveScore -= 2;
+        }
+        if(ctx->total_turn != 0){
+            if(BattleRand(bsys) % 4 < 3){
+                moveScore -= 2;
+            }
+        }
+    }
+
+    /*Recovery Moves*/
+    if(attacker_move_effect == MOVE_EFFECT_RESTORE_HALF_HP ||
+        attacker_move_effect == MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN ||
+        attacker_move_effect == MOVE_EFFECT_SWALLOW){
+            if(attacker_percent_hp == 100){
+                moveScore -= 3;
+            }
+            else if(attacker_speed > defender_speed){
+                moveScore -= 8;
+            }
+            else if(attacker_percent_hp > 70){
+                if(BattleRand(bsys) % 10 < 9){
+                    moveScore -= 3;
+                }
+            }
+
+            if(BattlerKnowsMove(bsys, defender, MOVE_SNATCH) == 0){
+                if(BattleRand(bsys) % 10 < 9){
+                    moveScore += 2;
+                }
+            }
+            else{
+                if(BattleRand(bsys) % 10 < 5){
+                    moveScore += 2;
+                }
+            }
+            if(attacker_move_effect == MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN){
+                if(ctx->field_condition & WEATHER_SANDSTORM_ANY ||
+                    ctx->field_condition & WEATHER_RAIN_ANY ||
+                    ctx->field_condition & WEATHER_HAIL_ANY ||
+                    ctx->field_condition & WEATHER_SNOW_ANY){
+                        moveScore -= 2;
+                }
+            }
+    }
+
+    /*Rest*/
+    if(attacker_move_effect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP){
+        if(attacker_speed > defender_speed){
+            if(attacker_percent_hp == 100){
+                if(BattleRand(bsys) % 10 <6){
+                    moveScore -= 8;
+                }
+            }
+            else if(attacker_percent_hp > 50){
+                moveScore -= 3;
+            }
+            else if(attacker_percent_hp >= 40){
+                if(BattleRand(bsys) % 10 < 7){
+                    moveScore -= 3;
+                }
+            }
+        }
+        else if(attacker_speed < defender_speed){
+            if(attacker_percent_hp > 70){
+                moveScore -= 3;
+            }
+            else if(attacker_percent_hp >= 60){
+                if(BattleRand(bsys) % 10 < 8){
+                    moveScore -= 3;
+                }
+            }
+        }
+        if(BattlerKnowsMove(bsys, defender, MOVE_SNATCH) == 0){
+            if(BattleRand(bsys) % 10 < 9){
+                moveScore += 3;
+            }
+        }
+        else{
+            if(BattleRand(bsys) % 10 < 8){
+                moveScore += 3;
+            }
+        }
+    }
+
+    /*Toxic & Leech Seed*/
+    if(attacker_move_effect == MOVE_EFFECT_STATUS_LEECH_SEED ||
+        attacker_move_effect == MOVE_EFFECT_STATUS_BADLY_POISON ){
+
+    }
+    
+
 
         
     
     return moveScore;
 }
+
+
+
+/*-------------------------------Helper Functions--------------------------------*/
 
 /*returns the index of the pokemon on the attacker's (ai's)
 team with the largest damage against the target*/
@@ -1485,3 +1842,60 @@ int AttackerMonWithHighestDamage (struct BattleSystem *bsys, u32 attacker){
     }
     return max_damage_index;
 }
+
+bool8 BattlerHasStatBoostGreater (struct BattleSystem *bsys, u32 battler, u32 boost_amount){
+    bool8 battler_has_stat_boost = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    if(ctx->battlemon[battler].states[STAT_ATTACK] >= boost_amount ||
+        ctx->battlemon[battler].states[STAT_DEFENSE] >= boost_amount ||
+        ctx->battlemon[battler].states[STAT_SPATK] >= boost_amount ||
+        ctx->battlemon[battler].states[STAT_SPDEF] >= boost_amount ||
+        ctx->battlemon[battler].states[STAT_SPEED] >= boost_amount ||
+        ctx->battlemon[battler].states[STAT_EVASION] >= boost_amount ||
+        ctx->battlemon[battler].states[STAT_ACCURACY] >= boost_amount){
+            battler_has_stat_boost = 1;
+    }
+    return battler_has_stat_boost;
+}
+
+bool8 BattlerHasStatBoostLesser (struct BattleSystem *bsys, u32 battler, u32 drop_amount){
+    bool8 battler_has_stat_boost = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    if(ctx->battlemon[battler].states[STAT_ATTACK] <= drop_amount ||
+        ctx->battlemon[battler].states[STAT_DEFENSE] <= drop_amount ||
+        ctx->battlemon[battler].states[STAT_SPATK] <= drop_amount ||
+        ctx->battlemon[battler].states[STAT_SPDEF] <= drop_amount ||
+        ctx->battlemon[battler].states[STAT_SPEED] <= drop_amount ||
+        ctx->battlemon[battler].states[STAT_EVASION] <= drop_amount ||
+        ctx->battlemon[battler].states[STAT_ACCURACY] <= drop_amount){
+            battler_has_stat_boost = 1;
+    }
+    return battler_has_stat_boost;
+}
+
+bool8 BattlerKnowsMove (struct BattleSystem *bsys, u32 battler, u32 move){
+    bool8 knows_move = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    for(int i = 0; i < 4; i++){
+        int battler_move_check = ctx->battlemon[battler].move[i];
+        if(battler_move_check == move){
+            knows_move = 1;
+        }
+    }
+    return knows_move;
+}
+
+bool8 BattlerHasMoveSplit (struct BattleSystem *bsys, u32 battler, u32 move_split){
+    bool8 has_move_split = 0;
+    struct BattleStruct *ctx = bsys->sp;
+
+    for(int i = 0; i < 4; i++){
+        int battler_move_split = ctx->moveTbl[ctx->battlemon[battler].move[i]].split ;
+        if(battler_move_split == move_split){
+            has_move_split = 1;
+        }
+    }
+    return has_move_split;
+}
+
+

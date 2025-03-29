@@ -544,39 +544,51 @@ If the attacker is faster than its target and the last-used move by that target 
 - Hypnosis
 - Sing
 - Grass Whistle
+
 - Shadow Punch
 - Sand Attack
 - Smoke Screen
+
 - Toxic
+
 - Guillotine
 - Horn Drill
 - Fissure
 - Sheer Cold
+
 - Cross Chop
 - Aeroblast
+
 - Confuse Ray
 - Sweet Kiss
+
 - Screech
 - Cotton Spore
 - Scary Face
 - Fake Tears
 - Metal Sound
+
 - Thunder Wave
 - Glare
 - Poison Powder
 - Shadow Ball
+
 - Dynamic Punch
 - Hyper Beam
 - Extreme Speed
 - Thief
 - Covet
+
 - Attract
 - Swagger
+
 - Torment
 - Flatter
 - Trick
+
 - Superpower
 - Skill Swap
+
 - Psycho Shift
 - Power Swap
 - Guard Swap
@@ -776,6 +788,7 @@ If the attacker is faster than its opponent, score -8 and terminate.
 If the attacker is at 70% HP or more, ~88.3% chance of score -3 and terminate.
 
 If the opponent does not know Snatch, ~92.2% chance of score +2.
+
 
 If the opponent does know Snatch, ~56.2% chance of score +2.
 
