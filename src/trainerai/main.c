@@ -81,6 +81,7 @@ bool8 BattlerHasStatBoostGreater (struct BattleSystem *bsys, u32 battler, u32 bo
 bool8 BattlerHasStatBoostLesser (struct BattleSystem *bsys, u32 battler, u32 drop_amount);
 bool8 BattlerKnowsMove (struct BattleSystem *bsys, u32 battler, u32 move);
 bool8 BattlerHasMoveSplit (struct BattleSystem *bsys, u32 battler, u32 move_split);
+bool8 BattlerHasMoveEffect (struct BattleSystem *bsys, u32 battler, u32 move_effect);
 
 //int CalcPotentialDamage ();
 
@@ -1805,13 +1806,111 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
     /*Toxic & Leech Seed*/
     if(attacker_move_effect == MOVE_EFFECT_STATUS_LEECH_SEED ||
         attacker_move_effect == MOVE_EFFECT_STATUS_BADLY_POISON ){
+            bool8 has_damaging_move = 0;
+            for(int i = 0; i < 4; i++){
+                if(attacker_max_roll_move_damages[i] > 0){
+                    has_damaging_move = 1;
+                }
+            }
+            if(has_damaging_move == 1){
+                if(attacker_percent_hp <= 50){
+                    if(BattleRand(bsys) % 10 < 8){
+                        moveScore -= 3;
+                    }
+                }
+                if(defender_percent_hp <= 50){
+                    if(BattleRand(bsys) % 10 < 8){
+                        moveScore -= 3;
+                    }
+                }
+            }
+            if(BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_SP_DEF_UP) ||
+            BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_SP_DEF_UP_2) ||
+            BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_SP_DEF_UP_3) ||
+            BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_DEF_UP) ||
+            BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_DEF_UP_2) ||
+            BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_DEF_UP_3) ||
+            BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_DEF_SP_DEF_UP) ||
+            BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_ATK_DEF_UP) ||
+            BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP)||
+            BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_PROTECT)){
+                if(BattleRand(bsys) % 4 < 3){
+                    moveScore += 2;
+                }
+            }
+    }
+    /*Light Screen*/
+    //TODO: maybe change this logic
+    if(attacker_move_effect == MOVE_EFFECT_SET_LIGHT_SCREEN){
+        if(attacker_percent_hp < 50){
+            moveScore -= 2;
+        }
+        if(attacker_percent_hp >= 90){
+            if(BattleRand(bsys) % 2 < 1){
+                moveScore += 1;
+            }
+        }
+        if(ctx->moveTbl[defender_last_used_move].split == SPLIT_SPECIAL){
+            if(BattleRand(bsys) % 4 < 3){
+                moveScore += 1;
+            }
+        }
+    }
+    /*Reflect*/
+    if(attacker_move_effect == MOVE_EFFECT_SET_REFLECT){
+        if(attacker_percent_hp < 50){
+            moveScore -= 2;
+        }
+        if(attacker_percent_hp >= 90){
+            if(BattleRand(bsys) % 2 < 1){
+                moveScore += 1;
+            }
+        }
+        if(ctx->moveTbl[defender_last_used_move].split == SPLIT_PHYSICAL){
+            if(BattleRand(bsys) % 4 < 3){
+                moveScore += 1;
+            }
+        }
+    }
+
+    /*TODO: more logic here*/
+    /*OH-KO moves*/
+    if(attacker_move_effect == MOVE_EFFECT_ONE_HIT_KO){
+        if(BattleRand(bsys) % 4 < 1){
+            moveScore += 1;
+        }
+    }
+
+    /*Charge moves without invulnerability*/
+    if(attacker_move_effect == MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT ||
+    attacker_move_effect == MOVE_EFFECT_CHARGE_TURN_DEF_UP ||
+    attacker_move_effect == MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH ||
+    attacker_move_effect == MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS ||
+    attacker_move_effect == MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP ||
+    attacker_move_effect == MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS){
+        if(attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_EFFECTIVE ||
+            attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE){
+                moveScore -= 2;
+        }
+
+        else if((attacker_move_effect == MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS &&
+            ctx->field_condition & WEATHER_SUNNY_ANY) || 
+            (attacker_move_effect == MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS &&
+                ctx->field_condition & WEATHER_RAIN_ANY)){
+                moveScore += 2;
+        }
+        else if(attacker_item == ITEM_POWER_HERB){
+            moveScore += 2;
+        }
+        if(BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_PROTECT)){
+            moveScore -= 2;
+        }
+        if(attacker_percent_hp <= 38){
+            moveScore -= 1;
+        }
 
     }
-    
 
-
-        
-    
     return moveScore;
 }
 
@@ -1896,6 +1995,21 @@ bool8 BattlerHasMoveSplit (struct BattleSystem *bsys, u32 battler, u32 move_spli
         }
     }
     return has_move_split;
+}
+
+bool8 BattlerHasMoveEffect (struct BattleSystem *bsys, u32 battler, u32 move_effect){
+
+    bool8 has_move_effect = 0;
+    struct BattleStruct *ctx = bsys->sp;
+
+    for(int i = 0; i < 4; i++){
+        int battler_move_effect = ctx->moveTbl[ctx->battlemon[battler].move[i]].effect ;
+        if(battler_move_effect == move_effect){
+            has_move_effect = 1;
+        }
+    }
+    return has_move_effect;
+
 }
 
 
