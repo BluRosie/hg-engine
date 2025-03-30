@@ -2012,19 +2012,26 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
     /*Speed lowering moves*/
 
     if(attacker_move_effect == MOVE_EFFECT_LOWER_SPEED_HIT){
-        
+        //handle same as normal speed reducing moves
+
+        if(attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_EFFECTIVE ||
+            attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE){
+                moveScore += 0;
+            }
+        else{
+            if(attacker_speed <= defender_speed){
+                if(BattleRand(bsys) % 10 < 7){
+                    moveScore += 2;
+                }
+            }
+            if(attacker_speed > defender_speed){
+                moveScore -= 3;
+            }
+        }
     }
     
 
-//handle same as normal speed reducing moves
-if(attacker_speed <= defender_speed){
-    if(BattleRand(bsys) % 10 < 7){
-        moveScore += 2;
-    }
-}
-if(attacker_speed > defender_speed){
-    moveScore -= 3;
-}
+
 
     return moveScore;
 }
