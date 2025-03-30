@@ -1902,7 +1902,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
         else if(attacker_item == ITEM_POWER_HERB){
             moveScore += 2;
         }
-        if(BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_PROTECT)){
+        if(BattlerHasMoveEffect(bsys, defender, MOVE_EFFECT_PROTECT)){
             moveScore -= 2;
         }
         if(attacker_percent_hp <= 38){
@@ -1910,6 +1910,121 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
         }
 
     }
+    /*Charge moves without invulnerability*/
+    if(attacker_move_effect == MOVE_EFFECT_DIVE ||
+        attacker_move_effect == MOVE_EFFECT_FLY ||
+        attacker_move_effect == MOVE_EFFECT_BOUNCE ||
+        attacker_move_effect == MOVE_EFFECT_DIG ||
+        attacker_move_effect == MOVE_EFFECT_SHADOW_FORCE){
+        if(attacker_item == ITEM_POWER_HERB){
+            moveScore += 2;
+        }
+        if(BattlerHasMoveEffect(bsys, defender, MOVE_EFFECT_PROTECT) &&
+            attacker_move_effect != MOVE_EFFECT_SHADOW_FORCE){
+            moveScore -= 1;
+        }
+        if(attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_EFFECTIVE ||
+            attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE){
+                moveScore -= 1;
+        }
+        if(ctx->battlemon[defender].condition & STATUS_BAD_POISON ||
+            ctx->battlemon[defender].condition2 == STATUS2_CURSE ||
+            ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE){
+                moveScore += 1;
+        }
+        if(((ctx->field_condition & WEATHER_HAIL_ANY)&& (attacker_ability == ABILITY_SNOW_CLOAK || attacker_ability == ABILITY_OVERCOAT || attacker_ability == ABILITY_MAGIC_GUARD || HasType(ctx, attacker, TYPE_ICE)))||
+        ((ctx->field_condition & WEATHER_SANDSTORM_ANY) && (attacker_ability == ABILITY_SAND_VEIL || attacker_ability == ABILITY_SAND_RUSH || defender_ability == ABILITY_SAND_FORCE || defender_ability == ABILITY_OVERCOAT || defender_ability == ABILITY_MAGIC_GUARD ||  HasType(ctx, attacker, TYPE_GROUND) || HasType(ctx, attacker, TYPE_ROCK) ||HasType(ctx, attacker, TYPE_STEEL)))){
+            if(BattleRand(bsys) % 10 < 7){
+                moveScore += 1;
+            }
+        }
+        if(attacker_speed > defender_speed && defender_last_move_effect != MOVE_EFFECT_BYPASS_ACCURACY){
+            if(BattleRand(bsys) % 10 < 7){
+                moveScore += 1;
+            }
+        }
+    }  
+    /*Fake Out*/
+    if(attacker_move_effect == MOVE_EFFECT_ALWAYS_FLINCH_FIRST_TURN_ONLY){
+        moveScore += 2;
+    }
+    /*Spit Up*/
+    if(attacker_move_effect == MOVE_EFFECT_SPIT_UP &&
+        ctx->battlemon[attacker].moveeffect.stockpileCount >= 2){
+            if(BattleRand(bsys) % 10 < 7){
+                moveScore += 2;
+            }
+    }
+
+    /*Super Fang*/
+    if(defender_percent_hp <= 50){
+        moveScore -=1;
+    }
+    
+    /*Binding moves*/
+    if(attacker_move_effect == MOVE_EFFECT_BIND_HIT &&
+    (ctx->battlemon[defender].condition & STATUS_BAD_POISON ||
+        ctx->battlemon[defender].condition2 == STATUS2_CURSE ||
+        ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE ||
+        ctx->battlemon[defender].condition2 & STATUS2_ATTRACT)){
+            if(BattleRand(bsys) % 2 < 1){
+                moveScore += 1;
+            }
+    }
+
+    /*High crit rate moves*/
+    if(attacker_move_effect == MOVE_EFFECT_HIGH_CRITICAL_POISON_HIT ||
+        attacker_move_effect == MOVE_EFFECT_HIGH_CRITICAL ||
+        attacker_move_effect == MOVE_EFFECT_SLEEP_POISON_PARALYZE_HIT ||
+        attacker_move_effect == MOVE_EFFECT_HIGH_CRITICAL_RAISE_SPEED_HIT ||
+        attacker_move_effect == MOVE_EFFECT_HIGH_CRITICAL_POISON_HIT){
+            if(attacker_move_effectiveness == MOVE_STATUS_FLAG_SUPER_EFFECTIVE){
+                if(BattleRand(bsys) % 2 < 1){
+                    moveScore += 1;
+                }
+            }
+            else if(attacker_move_effectiveness != MOVE_STATUS_FLAG_NOT_EFFECTIVE ||
+                attacker_move_effectiveness != MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE){
+                    if(BattleRand(bsys) % 4 < 1){
+                        moveScore += 1;
+                    }
+                }
+    }
+
+    /*Recoil moves*/
+    if(attacker_move_effect == MOVE_EFFECT_RECOIL_QUARTER ||
+       attacker_move_effect == MOVE_EFFECT_RECOIL_BURN_HIT ||
+       attacker_move_effect == MOVE_EFFECT_RECOIL_THIRD ||
+       attacker_move_effect == MOVE_EFFECT_RECOIL_HALF ||
+       attacker_move_effect == MOVE_EFFECT_RECOIL_PARALYZE_HIT){
+        
+        if(attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_EFFECTIVE ||
+            attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE){
+                moveScore += 0;
+            }
+        else{
+            if(attacker_ability == ABILITY_ROCK_HEAD || attacker_ability == ABILITY_MAGIC_GUARD){
+                moveScore += 1;
+            }
+        }
+    }
+
+    /*Speed lowering moves*/
+
+    if(attacker_move_effect == MOVE_EFFECT_LOWER_SPEED_HIT){
+        
+    }
+    
+
+//handle same as normal speed reducing moves
+if(attacker_speed <= defender_speed){
+    if(BattleRand(bsys) % 10 < 7){
+        moveScore += 2;
+    }
+}
+if(attacker_speed > defender_speed){
+    moveScore -= 3;
+}
 
     return moveScore;
 }
