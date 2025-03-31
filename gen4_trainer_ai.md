@@ -849,6 +849,8 @@ If the opponent knows the move Protect, score -2.
 
 If the attacker's HP <= 38%, score -1.
 
+
+##----------------------------------------------
 ### Charge Turn Moves With Invulnerability (Fly, Dive, Dig, Bounce)
 
 If the attacker is holding a Power Herb, score +2.

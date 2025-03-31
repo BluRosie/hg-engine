@@ -2589,6 +2589,51 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
         }
     }
 
+    /*Rain Dance*/
+    if(attacker_move_effect == MOVE_EFFECT_WEATHER_RAIN){
+        if(defender_moves_first && attacker_ability == ABILITY_SWIFT_SWIM && !trick_room_active){
+            moveScore += 1;
+        }
+        else{
+            if(attacker_percent_hp < 40){
+                moveScore -= 1;
+            }
+            else if(ctx->field_condition & WEATHER_HAIL_ANY ||
+                ctx->field_condition & WEATHER_SNOW_ANY ||
+                ctx->field_condition & WEATHER_SANDSTORM_ANY ||
+                ctx->field_condition & WEATHER_RAIN_ANY){
+                    moveScore -= 1;
+            }
+            else if(attacker_ability == ABILITY_RAIN_DISH ||
+                    (attacker_ability == ABILITY_HYDRATION && !(ctx->battlemon[attacker].condition & STATUS_NONE))){
+                    moveScore += 1;
+            }
+        }
+    }
+    
+    /*Sunny Day*/
+    if(attacker_move_effect == MOVE_EFFECT_WEATHER_SUN){
+        if(defender_moves_first && attacker_ability == ABILITY_CHLOROPHYLL && !trick_room_active){
+            moveScore += 1;
+        }
+        else{
+            if(attacker_percent_hp < 40){
+                moveScore -= 1;
+            }
+            else if(ctx->field_condition & WEATHER_HAIL_ANY ||
+                ctx->field_condition & WEATHER_SNOW_ANY ||
+                ctx->field_condition & WEATHER_SANDSTORM_ANY ||
+                ctx->field_condition & WEATHER_SUNNY_ANY){
+                    moveScore -= 1;
+            }
+            else if(attacker_ability == ABILITY_FLOWER_GIFT ||
+                    (attacker_ability == ABILITY_LEAF_GUARD && (ctx->battlemon[attacker].condition & STATUS_NONE))){
+                    moveScore += 1;
+            }
+        }
+    }
+
+    /*Hail & Snow*/  
 
 
     
