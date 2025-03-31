@@ -815,7 +815,7 @@ heightentry SPECIES_MUDBRAY, 0, 0, 0, 0
 heightentry SPECIES_MUDSDALE, 0, 0, 0, 0
 heightentry SPECIES_DEWPIDER, 0, 0, 0, 0
 heightentry SPECIES_ARAQUANID, 0, 0, 0, 0
-heightentry SPECIES_FOMANTIS, 15, 15, 22, 22
+heightentry SPECIES_FOMANTIS, 13, 13, 12, 12
 heightentry SPECIES_LURANTIS, 0, 0, 8, 8
 heightentry SPECIES_MORELULL, 0, 0, 0, 0
 heightentry SPECIES_SHIINOTIC, 10, 10, 0, 0
@@ -1012,8 +1012,8 @@ heightentry SPECIES_SHROODLE, 10, 10, 0, 0
 heightentry SPECIES_GRAFAIAI, 12, 12, 0, 0
 heightentry SPECIES_BRAMBLIN, 0, 0, 0, 0
 heightentry SPECIES_BRAMBLEGHAST, 0, 0, 0, 0
-heightentry SPECIES_TOEDSCOOL, 11, 11, 0, 0
-heightentry SPECIES_TOEDSCRUEL, 14, 14, 0, 0
+heightentry SPECIES_TOEDSCOOL, 0, 0, 9, 9
+heightentry SPECIES_TOEDSCRUEL, 0, 0, 0, 0
 heightentry SPECIES_KLAWF, 0, 0, 0, 0
 heightentry SPECIES_CAPSAKID, 15, 15, 28, 28
 heightentry SPECIES_SCOVILLAIN, 0, 0, 0, 0
@@ -1050,7 +1050,7 @@ heightentry SPECIES_DUDUNSPARCE, 0, 0, 0, 0
 heightentry SPECIES_KINGAMBIT, 0, 0, 0, 0
 heightentry SPECIES_GREAT_TUSK, "null", 0, "null", 0
 heightentry SPECIES_SCREAM_TAIL, "null", 0, "null", 0
-heightentry SPECIES_BRUTE_BONNET, "null", 0, "null", 0
+heightentry SPECIES_BRUTE_BONNET, "null", 0, "null", 12
 heightentry SPECIES_FLUTTER_MANE, "null", 0, "null", 0
 heightentry SPECIES_SLITHER_WING, "null", 0, "null", 0
 heightentry SPECIES_SANDY_SHOCKS, "null", 0, "null", 0
