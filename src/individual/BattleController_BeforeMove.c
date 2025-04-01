@@ -216,6 +216,14 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
     }
 
     switch (ctx->wb_seq_no) {
+        // in order to get concrete data on how this overlay should unload, we introduce a brand new case that is only run at the start and flagged at the end
+        case BEFORE_MOVE_START_FLAG_UNLOAD: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+            debug_printf("In BEFORE_MOVE_START_FLAG_UNLOAD\n");
+#endif
+            ctx->wb_seq_no++;
+        }
+        FALLTHROUGH;
         case BEFORE_MOVE_START: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_START\n");
@@ -1114,10 +1122,10 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
                 ctx->oneTurnFlag[ctx->battlerIdTemp].parental_bond_is_active = TRUE;
             } else {
                 ctx->oneTurnFlag[ctx->battlerIdTemp].parental_bond_is_active = FALSE;
-                ctx->wb_seq_no = 0;
+                //ctx->wb_seq_no = BEFORE_MOVE_START_FLAG_UNLOAD;
             }
 
-            ctx->wb_seq_no = BEFORE_MOVE_START;
+            ctx->wb_seq_no = BEFORE_MOVE_START_FLAG_UNLOAD;
             break;
         }
     }

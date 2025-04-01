@@ -65,6 +65,7 @@
 //overlay id's
 #define OVERLAY_WIFI 0
 #define OVERLAY_FIELD 1
+#define OVERLAY_BATTLE_ANIMS 7
 #define OVERLAY_BATTLE 12
 #define OVERLAY_POKEDEX 18
 #define OVERLAY_HALL_OF_FAME 63

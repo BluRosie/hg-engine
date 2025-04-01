@@ -23,6 +23,26 @@ u8 gCleanupOverlayList[][4] =
 };
 
 
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
+static void inline PrintLoadedOverlays(u32 ovyId)
+{
+    u32 overlayRegion;
+    PMiLoadedOverlay *loadedOverlays;
+    overlayRegion = GetOverlayLoadDestination(ovyId);
+    loadedOverlays = GetLoadedOverlaysInRegion(overlayRegion);
+    debug_printf("    Loaded overlays: ");
+    for (int i = 0; i < MAX_ACTIVE_OVERLAYS; i++)
+    {
+        if (loadedOverlays[i].active == TRUE)
+        {
+            debug_printf(i == 0 ? "%04d" : ", %04d", loadedOverlays[i].id);
+        }
+    }
+    debug_printf("\n\0");
+}
+#endif
+
+
 void LONG_CALL UnloadOverlayByID(u32 ovyId) {
     u32 i, j = 0, k = 1;
     BOOL cleanupMode = FALSE;
@@ -93,17 +113,8 @@ loadExtension:
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
         overlayRegion = GetOverlayLoadDestination(ovyId);
         loadedOverlays = GetLoadedOverlaysInRegion(overlayRegion);
-        sprintf(buf, "ERROR: Can't load in overlay_%04d.bin.\n", ovyId);
-        debug_printf(buf);
-        debug_printf("    Loaded overlays: ");
-        for (i = 0; i < MAX_ACTIVE_OVERLAYS; i++)
-        {
-            if (loadedOverlays[i].active == TRUE)
-            {
-                debug_printf("%04d, ", loadedOverlays[i].id);
-            }
-        }
-        debug_printf("\n");
+        debug_printf("ERROR: Can't load in overlay_%04d.bin.\n", ovyId);
+        PrintLoadedOverlays(ovyId);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
         return FALSE;
     }
@@ -121,13 +132,19 @@ loadExtension:
     }
 
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
-    sprintf(buf, "Loaded in overlay_%04d.bin. Total of %d overlays loaded.\n", ovyId, i+1);
-    debug_printf(buf);
+    {
+        u32 countActive = 0;
+        for (int j = 0; j < MAX_ACTIVE_OVERLAYS; j++)
+        {
+            countActive += loadedOverlays[j].active == TRUE;
+        }
+    }
 #endif // DEBUG_PRINT_OVERLAY_LOADS
 
     if (i >= MAX_ACTIVE_OVERLAYS) {
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
-        debug_printf("ERROR: Too many overlays!\n");
+        debug_printf("ERROR: Too many overlays!  Active count: %d\n", countActive);
+        PrintLoadedOverlays(ovyId);
 #endif // DEBUG_PRINT_OVERLAY_LOADS
         GF_ASSERT(0);
         return FALSE;

@@ -912,18 +912,18 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
  *  @param sp global battle structure
  */
 //u32 ServerDoPostMoveEffects_restoreOverlay = 0;
-
 void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     u32 ovyId = OVERLAY_SERVERDOPOSTMOVEEFFECTS, offset = 0x021FF900 | 1, ServerDoPostMoveEffects_restoreOverlay = 0;
 
     void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
     // if ctx->sba_seq_no == SBA_RESET_DEFIANT before func is called, it is the first call
+    //if (ctx->wb_seq_no == BEFORE_MOVE_START_FLAG_UNLOAD)
     {
         if (IsOverlayLoaded(OVERLAY_WIFI)) { // we are taking overlay 0's place
             ServerDoPostMoveEffects_restoreOverlay = TRUE;
             UnloadOverlayByID(OVERLAY_WIFI);
-        } else if (IsOverlayLoaded(18)) {
+        } else if (IsOverlayLoaded(OVERLAY_POKEDEX)) {
             ServerDoPostMoveEffects_restoreOverlay = OVERLAY_POKEDEX;
             UnloadOverlayByID(OVERLAY_POKEDEX);
         }
@@ -940,8 +940,8 @@ void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx
 
     //if (ctx->swoak_seq_no >= SWOAK_SEQ_CLEAR_MAGIC_COAT) // can finally unload the overlay
     {
+        UnloadOverlayByID(ovyId); // this needs to unload regardless of if dex overlay was unloaded
         if (ServerDoPostMoveEffects_restoreOverlay) {
-            UnloadOverlayByID(ovyId);
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("Restoring overlay %d...\n", (ServerDoPostMoveEffects_restoreOverlay == 1 ? OVERLAY_WIFI : ServerDoPostMoveEffects_restoreOverlay));
 #endif
