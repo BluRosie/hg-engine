@@ -200,9 +200,14 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         def2 = BattleWorkEnemyClientGet(bw, client_no, BATTLER_POSITION_SIDE_LEFT);
 
                         sp->defence_client_work = TraceClientGet(bw, sp, def1, def2);
-
-                        if ((sp->battlemon[client_no].trace_flag == 0) && (sp->defence_client_work != 0xFF) && (sp->battlemon[client_no].hp) && (sp->battlemon[client_no].item != ITEM_GRISEOUS_ORB) && (sp->battlemon[sp->defence_client_work].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_TRACE)) {
-                            sp->battlemon[client_no].trace_flag = 1;
+						
+						if ((sp->battlemon[client_no].ability_activated_flag == 0)
+						&& (sp->defence_client_work != 0xFF)
+						&& (sp->battlemon[client_no].hp)
+						&& (sp->battlemon[client_no].item != ITEM_GRISEOUS_ORB)
+						&& (sp->battlemon[sp->defence_client_work].hp)
+						&& (GetBattlerAbility(sp, client_no) == ABILITY_TRACE)) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
                             sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_TRACE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -212,52 +217,52 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Weather Ability
                     {
-                        if (!(CanUndergoPrimalReversion(sp, client_no)) && (sp->battlemon[client_no].appear_check_flag == 0) && (sp->battlemon[client_no].hp)) {
+                        if (!(CanUndergoPrimalReversion(sp, client_no)) && (sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp)) {
                             switch (GetBattlerAbility(sp, client_no)) {
                                 case ABILITY_DRIZZLE:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_RAIN_ANY) == 0) {
                                         scriptnum = SUB_SEQ_DRIZZLE;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_SAND_STREAM:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_SANDSTORM_ANY) == 0) {
                                         scriptnum = SUB_SEQ_SAND_STREAM;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_DROUGHT:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_SUNNY_ANY) == 0) {
                                         scriptnum = SUB_SEQ_DROUGHT;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_SNOW_WARNING:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_HAIL_ANY) == 0) {
                                         scriptnum = SUB_SEQ_SNOW_WARNING;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_DESOLATE_LAND:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) == 0) {
                                         scriptnum = SUB_SEQ_DESOLATE_LAND;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_PRIMORDIAL_SEA:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_HEAVY_RAIN) == 0) {
                                         scriptnum = SUB_SEQ_PRIMORDIAL_SEA;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
                                 case ABILITY_DELTA_STREAM:
-                                    sp->battlemon[client_no].appear_check_flag = 1;
+                                    sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_STRONG_WINDS) == 0) {
                                         scriptnum = SUB_SEQ_DELTA_STREAM;
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -284,9 +289,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Intimidate
                     {
-                        if ((sp->battlemon[client_no].intimidate_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_INTIMIDATE)) {
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_INTIMIDATE)) {
                             // mark intimidate as having activated if it can regardless of if it does so that abilities that suppress it don't suddenly let it activate once they disappear
-                            sp->battlemon[client_no].intimidate_flag = 1;
+                            sp->battlemon[client_no].ability_activated_flag = 1;
                             if (IntimidateCheckHelper(sp, client_no)) {
                                 sp->battlerIdTemp = client_no;
                                 scriptnum = SUB_SEQ_INTIMIDATE;
@@ -298,7 +303,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Download
                     {
-                        if ((sp->battlemon[client_no].download_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_DOWNLOAD)) {
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_DOWNLOAD)) {
                             {
                                 int num;
                                 int def = 0, spdef = 0;
@@ -310,7 +315,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     }
                                 }
 
-                                sp->battlemon[client_no].download_flag = 1;
+                                sp->battlemon[client_no].ability_activated_flag = 1;
 
                                 if ((def + spdef) != 0) {
                                     if (def >= spdef) {
@@ -330,8 +335,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Anticipation
                     {
-                        if ((sp->battlemon[client_no].anticipation_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_ANTICIPATION)) {
-                            sp->battlemon[client_no].anticipation_flag = 1;
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_ANTICIPATION)) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
                             {
                                 int num, pos;
                                 u16 movenum;
@@ -368,8 +373,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Forewarn
                     {
-                        if ((sp->battlemon[client_no].forewarn_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_FOREWARN)) {
-                            sp->battlemon[client_no].forewarn_flag = 1;
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_FOREWARN)) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
                             {
                                 int num, pos;
                                 u16 movenum;
@@ -439,7 +444,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Frisk
                     {
-                        if ((sp->battlemon[client_no].frisk_flag == FALSE) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_FRISK)) {
+                        if ((sp->battlemon[client_no].ability_activated_flag == FALSE) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_FRISK)) {
                             if (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE) {
                                 int def[2];
 
@@ -464,11 +469,11 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     sp->defence_client = def[1];
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                 } else {
-                                    sp->battlemon[client_no].frisk_flag = TRUE;
+                                    sp->battlemon[client_no].ability_activated_flag = TRUE;
                                     sp->frisk_tracker = 0; // only reset frisk after everything
                                 }
                             } else {
-                                sp->battlemon[client_no].frisk_flag = TRUE;
+                                sp->battlemon[client_no].ability_activated_flag = TRUE;
                                 sp->frisk_tracker = 0;
                                 if ((sp->battlemon[client_no ^ 1].hp) && (sp->battlemon[client_no ^ 1].item))  // xor 1 will always result in opponent in single battle
                                 {
@@ -507,8 +512,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Mold Breaker, Turboblaze, Teravolt
                     {
-                        if ((sp->battlemon[client_no].mold_breaker_flag == 0) && (sp->battlemon[client_no].hp) && ((GetBattlerAbility(sp, client_no) == ABILITY_MOLD_BREAKER) || (GetBattlerAbility(sp, client_no) == ABILITY_TURBOBLAZE) || (GetBattlerAbility(sp, client_no) == ABILITY_TERAVOLT))) {
-                            sp->battlemon[client_no].mold_breaker_flag = 1;
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && ((GetBattlerAbility(sp, client_no) == ABILITY_MOLD_BREAKER) || (GetBattlerAbility(sp, client_no) == ABILITY_TURBOBLAZE) || (GetBattlerAbility(sp, client_no) == ABILITY_TERAVOLT))) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
                             sp->battlerIdTemp = client_no;
                             if (GetBattlerAbility(sp, client_no) == ABILITY_MOLD_BREAKER) {
                                 scriptnum = SUB_SEQ_MOLD_BREAKER;
@@ -525,8 +530,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Pressure
                     {
-                        if ((sp->battlemon[client_no].pressure_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_PRESSURE)) {
-                            sp->battlemon[client_no].pressure_flag = 1;
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_PRESSURE)) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
                             sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_PRESSURE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -570,8 +575,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     // Imposter
                     {
                         if ((GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER) && (sp->battlemon[client_no].imposter_flag == 0)
-                         && (sp->battlemon[client_no].hp)
-                         && IsValidImposterTarget(bw, sp, client_no)) {
+						&& (sp->battlemon[client_no].hp)
+						&& IsValidImposterTarget(bw, sp, client_no)
+						&& ((!(BattleTypeGet(bw) & BATTLE_TYPE_TRAINER)) ? (sp->battlemon[client_no].species == SPECIES_DITTO || sp->battlemon[client_no].species == SPECIES_MEW) : TRUE)) {
                             u32 num;
                             sp->battlemon[client_no].imposter_flag = 1;
                             scriptnum = SUB_SEQ_HANDLE_IMPOSTER;
@@ -597,15 +603,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 src[num] = dest[num];
                             }
 
-                            sp->battlemon[sp->attack_client].appear_check_flag = 0;
-                            sp->battlemon[sp->attack_client].intimidate_flag = 0;
-                            sp->battlemon[sp->attack_client].trace_flag = 0;
-                            sp->battlemon[sp->attack_client].download_flag = 0;
-                            sp->battlemon[sp->attack_client].anticipation_flag = 0;
-                            sp->battlemon[sp->attack_client].forewarn_flag = 0;
-                            sp->battlemon[sp->attack_client].frisk_flag = 0;
-                            sp->battlemon[sp->attack_client].mold_breaker_flag = 0;
-                            sp->battlemon[sp->attack_client].pressure_flag = 0;
+                            sp->battlemon[sp->attack_client].ability_activated_flag = 0;
                             sp->battlemon[sp->attack_client].moveeffect.truantFlag = sp->total_turn & 1;
                             sp->battlemon[sp->attack_client].moveeffect.slowStartTurns = sp->total_turn + 1;
                             sp->battlemon[sp->attack_client].slow_start_flag = 0;
@@ -662,12 +660,42 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             }
                         }
                     }
+					
+                    // Intrepid Sword
+                    {
+                        if ((sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].intrepidSwordFlag == FALSE)
+                        && (sp->battlemon[client_no].hp)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_INTREPID_SWORD)) {
+                            sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].intrepidSwordFlag = TRUE;
+                            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;                        
+                            sp->addeffect_type = ADD_STATUS_ABILITY;
+                            sp->state_client = client_no;
+                            scriptnum = SUB_SEQ_BOOST_STATS;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                            }
+                    }
+
+                    // Dauntless Shield
+                    {
+                        if ((sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].dauntlessShieldFlag == FALSE)
+                        && (sp->battlemon[client_no].hp)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_DAUNTLESS_SHIELD)) {
+                            sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].dauntlessShieldFlag = TRUE;
+                            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP;                        
+                            sp->addeffect_type = ADD_STATUS_ABILITY;
+                            sp->state_client = client_no;
+                            scriptnum = SUB_SEQ_BOOST_STATS;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                            }
+                    }
 
                     // Air Balloon is announced
                     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-9227933
                     {
-                        if ((sp->battlemon[client_no].air_ballon_flag == 0) && (sp->battlemon[client_no].hp) && (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT)) {
-                            sp->battlemon[client_no].air_ballon_flag = 1;
+                        if ((sp->battlemon[client_no].air_balloon_flag == 0) && (sp->battlemon[client_no].hp) && (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT)) {
+                            sp->battlemon[client_no].air_balloon_flag = 1;
                             sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_AIR_BALLOON_MESSAGE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -699,6 +727,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+							sp->switch_in_check_seq_no = SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON;
                             break;
                         }
 #endif  // PRIMAL_REVERSION

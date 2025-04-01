@@ -100,7 +100,9 @@ SaveData_GetRepelPtr = 0x0202DB05;
 SaveData_GetEventPtr = 0x020503D0 | 1;
 SaveData_GetDexPtr = 0x0202A634 |1;
 SaveData_GetPlayerPartyPtr = 0x02074904 |1;
-
+Save_HOF_RecordParty = 0x0202E0F8 | 1;
+LoadHallOfFame = 0x02027104 | 1;
+AddHallOfFameEntry = 0x02052A50 | 1;
 
 GetVarAdrs = 0x020504A4 | 1;
 EncDataSave_GetSaveDataPtr = 0x0202D9C4 | 1;
@@ -186,7 +188,7 @@ Snd_SePlay = 0x0200604C | 1;
 
 
 /* new battle engine */
-GetBattlerAbility = 0x022527CC | 1;
+//GetBattlerAbility = 0x022527CC | 1;
 BattleDamageDivide = 0x02253178 | 1;
 BattleWorkWeatherGet = 0x0223BAF8 | 1;
 BattleWorkEnemyClientGet = 0x32F8 + 0x022378C1;
@@ -350,8 +352,14 @@ MapObject_SetFlag29 = 0x0205F89C | 1;
 sub_02069DC8 = 0x02069DC8 | 1;
 ov01_021F9048 = 0x021F9048 | 1;
 
+MapObject_PauseMovement = 0x0205F6FC | 1;
+MapObject_UnpauseMovement = 0x0205F708 | 1;
 MapObjectMan_PauseAllMovement = 0x0205F574 | 1;
 MapObjectMan_UnpauseAllMovement = 0x0205F5A4 | 1;
+MapObject_IsSingleMovementActive = 0x0205F648 | 1;
+GetMetatileBehaviorAt = 0x02054918 | 1;
+GetPlayerXCoord = 0x0205C67C | 1;
+GetPlayerYCoord = 0x0205C688 | 1;
 
 BagView_New = 0x02077878 | 1;
 BagView_SetItem = 0x020778BC | 1;
@@ -714,6 +722,23 @@ CanSwitchMon = 0x02252890 | 1;
 ov12_0224DD74 = 0x0224DD74 | 1;
 ov12_02261258 = 0x02261258 | 1;
 //ov12_02252D14 = 0x02252D14 | 1;
+
+BattleMessage_BufferNickname = 0x0223CDD0 | 1;
+BattleMessage_BufferMove = 0x0223CDF4 | 1;
+BattleMessage_BufferItem = 0x0223CE00 | 1;
+BattleMessage_BufferNumber = 0x0223CE0C | 1;
+BattleMessage_BufferNumbers = 0x0223CE24 | 1;
+BattleMessage_BufferType = 0x0223CE50 | 1;
+BattleMessage_BufferAbility = 0x0223CE5C | 1;
+BattleMessage_BufferStat = 0x0223CE68 | 1;
+BattleMessage_BufferStatus = 0x0223CE74 | 1;
+BattleMessage_BufferPokemon = 0x0223CE80 | 1;
+BattleMessage_BufferPoffin = 0x0223CEA4 | 1;
+BattleMessage_BufferFlavorPreference = 0x0223CEA8 | 1;
+BattleMessage_BufferTrainerClass = 0x0223CEB4 | 1;
+BattleMessage_BufferTrainerName = 0x0223CECC | 1;
+BattleMessage_BufferBoxName = 0x0223CEE4 | 1;
+BufferItemNameWithIndefArticle = 0x0200C100 | 1;
 
 AcquireMonLock = 0x0206DD40 | 1;
 LoadMonBaseStats_HandleAlternateForm = 0x020725B4 | 1;

@@ -165,7 +165,7 @@ arm9 TT_TrainerTypeSexGet 020735F8 1
 
 #reset battlemon switch in flags (now really really do it)
 # smack in the middle of BattleSystem_GetBattleMon
-0012 ClearBattleMonFlags_hook 0224E998 3
+0012 ClearBattleMonFlags_hook 0224E6B2 0
 # need to do it in the middle of InitFaintedWork too
 0012 ClearBattleMonFlags_hook2 0225155C 0
 
@@ -182,6 +182,7 @@ arm9 sub_0206D328 0206D328 2
 
 #hof/pokeathlon/pokewalker fix
 0063 grab_overworld_a081_index 080025E4 3
+0064 grab_overworld_a081_index 021E6E30 3
 0096 grab_overworld_a081_index 080038B8 3
 0112 grab_overworld_a081_index 021F0E14 3
 arm9 get_mon_ow_tag 08069D70 3
@@ -501,6 +502,9 @@ arm9 form_evo_hook_2 0207641C 0
 
 arm9 sub_0207B0B0 0207B0B0 2
 arm9 sub_0207AFC4 0207AFC4 1
+0012 GetBattlerAbility 022527CC 2
+
+0012 BattleSystem_BufferMessage 0223C754 2
 
 arm9 CalcMonStats 0206E27C 2
 

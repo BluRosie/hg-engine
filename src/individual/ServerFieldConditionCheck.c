@@ -31,6 +31,7 @@ enum EndTurnResolutionOrder {
     ENDTURN_NIGHTMARE,
     ENDTURN_CURSE,
     ENDTURN_TRAPPING_DAMAGE,
+    ENDTURN_STOCKPILE,
     ENDTURN_OCTOLOCK,
     ENDTURN_TAUNT_FADING,
     ENDTURN_TORMENT_FADING,
@@ -323,8 +324,8 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     debugsyscall(buf);
 #endif
                                     sp->side_condition[IsClientEnemy(bw, futureCondition.affectedClient)] &= ~SIDE_STATUS_FUTURE_SIGHT;
-                                    sp->mp.msg_id = 475;  // Seadra took the Doom Desire attack!
-                                    sp->mp.msg_tag = TAG_NICK_MOVE;
+                                    sp->mp.msg_id = BATTLE_MSG_TOOK_DOOM_DESIRE;  // Seadra took the Doom Desire attack!
+                                    sp->mp.msg_tag = TAG_NICKNAME_MOVE;
                                     sp->mp.msg_para[0] = CreateNicknameTag(sp, futureCondition.affectedClient);
                                     sp->mp.msg_para[1] = sp->fcc.future_prediction_wazano[futureCondition.affectedClient];
                                     sp->battlerIdTemp = futureCondition.affectedClient;
@@ -353,7 +354,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                         debugsyscall(buf);
 #endif
                                         sp->battlerIdTemp = futureCondition.affectedClient;
-                                        sp->mp.msg_tag = TAG_NICK;
+                                        sp->mp.msg_tag = TAG_NICKNAME;
                                         sp->mp.msg_id = BATTLE_MSG_WISH_CAME_TRUE;  // "{STRVAR_1 1, 0, 0}’s wish\ncame true!"
                                         sp->mp.msg_para[0] = futureCondition.affectedClient | (sp->fcc.wish_sel_mons[futureCondition.affectedClient] << 8);
                                         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[futureCondition.affectedClient].maxhp, 2);
@@ -395,7 +396,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         if (sp->battlemon[battlerId].hp != 0) {
                             sp->side_condition[IsClientEnemy(bw, battlerId)] &= ~SIDE_STATUS_FUTURE_SIGHT;
                             sp->mp.msg_id = 475;  // Seadra took the Doom Desire attack!
-                            sp->mp.msg_tag = TAG_NICK_MOVE;
+                            sp->mp.msg_tag = TAG_NICKNAME_MOVE;
                             sp->mp.msg_para[0] = CreateNicknameTag(sp, battlerId);
                             sp->mp.msg_para[1] = sp->fcc.future_prediction_wazano[battlerId];
                             sp->client_work = battlerId;
@@ -422,7 +423,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             sp->fcc.wish_count[battlerId]--;
                             if (sp->battlemon[battlerId].hp) {
                                 sp->client_work = battlerId;
-                                sp->mp.msg_tag = TAG_NICK;
+                                sp->mp.msg_tag = TAG_NICKNAME;
                                 sp->mp.msg_id = BATTLE_MSG_WISH_CAME_TRUE;  // "{STRVAR_1 1, 0, 0}’s wish\ncame true!"
                                 sp->mp.msg_para[0] = battlerId | (sp->fcc.wish_sel_mons[battlerId] << 8);
                                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp, 2);
@@ -940,6 +941,29 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 }
                 break;
             }
+            case ENDTURN_STOCKPILE: {
+                while (sp->scc_work < client_set_max) {
+                    battlerId = sp->turnOrder[sp->scc_work];
+					
+					if ((sp->battlemon[battlerId].hp != 0)
+					&& (sp->battlemon[battlerId].condition2 & 0x00002000)) {
+						LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_STOCKPILE);
+                        sp->battlerIdTemp = battlerId;
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        ret = 1;
+                    }
+
+                    sp->scc_work++;
+                    break;
+                }
+
+                if (sp->scc_work >= client_set_max) {
+                    sp->scc_work = 0;
+                    sp->fcc_seq_no++;
+                }
+                break;
+            }
             // TODO
             case ENDTURN_OCTOLOCK: {
                 #ifdef DEBUG_ENDTURN_LOGIC
@@ -1387,7 +1411,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             debugsyscall(buf);
 #endif
 
-                            if (sp->side_condition[side] & SIDE_STATUS_LUCKY_CHANT) {
+                            /*if (sp->side_condition[side] & SIDE_STATUS_LUCKY_CHANT) {
                                 sp->side_condition[side] -= (1 << 12);
                                 if ((sp->side_condition[side] & SIDE_STATUS_LUCKY_CHANT) == 0) {
                                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LUCKY_CHANT_END);
@@ -1396,7 +1420,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
                                     ret = 1;
                                 }
-                            }
+                            }*/
                             sp->endTurnEventBlockSequenceNumber++;
                             break;
                         }

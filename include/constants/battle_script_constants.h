@@ -610,6 +610,9 @@
 #define SUB_SEQ_HEAL_STATUS                           (600)
 #define SUB_SEQ_ATK_DEF_SPEED_UP                      (601)
 #define SUB_SEQ_HEAL_USER_AND_ALLY                    (602)
+#define SUB_SEQ_SOLAR_BLADE_CHARGE_TURN               (603)
+#define SUB_SEQ_SOLAR_BEAM_CHARGE_TURN                (604)
+#define SUB_SEQ_POWER_HERB_SOLAR_BLADE                (605)
 
 
 

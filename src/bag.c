@@ -2,6 +2,7 @@
 #include "../include/constants/item.h"
 #include "../include/bag.h"
 #include "../include/item.h"
+#include "../include/map_events_internal.h"
 #include "../include/save.h"
 #include "../include/script.h"
 
@@ -427,16 +428,8 @@ ITEM_SLOT *Bag_GetPocketSlotN(BAG_DATA *bag, u8 pocket, int n) {
 
 // move these here so gFieldSysPtr works
 
-u32 isPlayerOnLadder = 0;
-
 u32 IsPlayerOnIce(u32 collision) // run to determine if the player is on ice
 {
-    // slowpoke well entrance and azalea gym maps can not have BDHCAM plates
-    if (collision == 0x3C || collision == 0x3D || collision == 0x3E || gFieldSysPtr->location->mapId == 114 || gFieldSysPtr->location->mapId == 180)
-        isPlayerOnLadder = TRUE;
-    else
-        isPlayerOnLadder = FALSE;
-
     if (collision == 32)
         return TRUE;
 
@@ -445,9 +438,9 @@ u32 IsPlayerOnIce(u32 collision) // run to determine if the player is on ice
 
 BOOL IsPlayerOnLadder(void)
 {
-    if (isPlayerOnLadder == TRUE)
-    {
-        return 1;
-    }
-    return 0;
+    if (gFieldSysPtr == NULL)
+        return TRUE;
+    u32 collision = GetMetatileBehaviorAt(gFieldSysPtr, gFieldSysPtr->location->x, gFieldSysPtr->location->z);
+    u32 mapId = gFieldSysPtr->location->mapId;
+    return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
 }

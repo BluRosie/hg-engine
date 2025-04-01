@@ -203,11 +203,27 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 	
 	movesplit = GetMoveSplit(sp, moveno);
 
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DISGUISE) == TRUE && sp->battlemon[defender].form_no == 0))
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DISGUISE) == TRUE)
+    && (sp->battlemon[defender].species == SPECIES_MIMIKYU)
+    // Mimikyu or Mimikyu-Large
+    && (sp->battlemon[defender].form_no == 0 || sp->battlemon[defender].form_no == 2)
+    // Not transformed
+    && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)) {
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
         return 0;
+	}
 
-    if (((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE) && movesplit == SPLIT_PHYSICAL) && sp->battlemon[defender].form_no == 0)
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE)
+    && (sp->battlemon[defender].species == SPECIES_EISCUE)
+    && (sp->battlemon[defender].form_no == 0)
+    // Not transformed
+    && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
+    /*&& (GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL)*/) {
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
         return 0;
+	}
 
     if (pow == 0)
         movepower = sp->moveTbl[moveno].power;
@@ -649,51 +665,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower *= 2;
     }
 
-    // handle simple
-    if (AttackingMon.ability == ABILITY_SIMPLE)
-    {
-        atkstate *= 2;
-        if (atkstate < -6)
-        {
-            atkstate = -6;
-        }
-        if (atkstate > 6)
-        {
-            atkstate = 6;
-        }
-        spatkstate *= 2;
-        if (spatkstate < -6)
-        {
-            spatkstate = -6;
-        }
-        if (spatkstate > 6)
-        {
-            spatkstate = 6;
-        }
-    }
-
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SIMPLE) == TRUE)
-    {
-        defstate *= 2;
-        if (defstate < -6)
-        {
-            defstate = -6;
-        }
-        if (defstate > 6)
-        {
-            defstate = 6;
-        }
-        spdefstate *= 2;
-        if (spdefstate < -6)
-        {
-            spdefstate = -6;
-        }
-        if (spdefstate > 6)
-        {
-            spdefstate = 6;
-        }
-    }
-
     // handle unaware
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_UNAWARE) == TRUE)
     {
@@ -838,14 +809,9 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     if (sp->moveTbl[moveno].effect == MOVE_EFFECT_HALVE_DEFENSE) {
         movepower *= 2;
 	}
-	
-	level -= 5;
-	if (level < 1) {
-		level = 1;
-	}
 
     damage = equivalentAttack * movepower;
-    damage *= (level / 5);
+    damage *= (level / 5 + 2);
 
     damage = damage / equivalentDefense;
     damage /= 50;

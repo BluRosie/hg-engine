@@ -921,7 +921,9 @@
 #define MOVE_EFFECT_HEAL_USER_AND_ALLY                      911
 #define MOVE_EFFECT_FORCE_SWITCH_HIT                        912
 #define MOVE_EFFECT_USER_ATK_DOWN_2                         913
-#define MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS_ATK_UP            914
+#define MOVE_EFFECT_CHARGE_TURN_ATK_UP_SUN_SKIPS            914
+#define MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_SUN_SKIPS         915
+#define MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY              916
 
 
 #define MOVE_TARGET_SELECTED             0x0000

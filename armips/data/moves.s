@@ -221,10 +221,10 @@ movedata MOVE_GUILLOTINE, "Pincer Cross"
 movedata MOVE_RAZOR_WIND, "Razor Wind"
     battleeffect MOVE_EFFECT_HIGH_CRITICAL
     pss SPLIT_PHYSICAL
-    basepower 80
-    type TYPE_FLYING
+    basepower 100
+    type TYPE_ICE
     accuracy 100
-    pp 10
+    pp 5
     effectchance 0
     target RANGE_ADJACENT_OPPONENTS
     priority 0
@@ -349,9 +349,9 @@ movedata MOVE_BIND, "Bind"
 movedata MOVE_SLAM, "Slam"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
-    basepower 100
+    basepower 90
     type TYPE_NORMAL
-    accuracy 90
+    accuracy 100
     pp 10
     effectchance 0
     target RANGE_SINGLE_TARGET
@@ -669,10 +669,10 @@ movedata MOVE_POISON_STING, "Poison Sting"
 movedata MOVE_TWINEEDLE, "Twineedle"
     battleeffect MOVE_EFFECT_POISON_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 30
-    type TYPE_BUG
+    basepower 35
+    type TYPE_POISON
     accuracy 100
-    pp 15
+    pp 10
     effectchance 25
     target RANGE_SINGLE_TARGET
     priority 0
@@ -1019,7 +1019,7 @@ movedata MOVE_AURORA_BEAM, "Aurora Beam"
     movedescription MOVE_AURORA_BEAM, "The foe is hit with a\nrainbow colored beam.\nIt may also lower the\ntarget’s Attack\nstat."
 
 movedata MOVE_HYPER_BEAM, "Hyper Beam"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_NORMAL
@@ -1133,9 +1133,9 @@ movedata MOVE_SEISMIC_TOSS, "Seismic Toss"
 movedata MOVE_STRENGTH, "Strength"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
-    basepower 100
+    basepower 90
     type TYPE_NORMAL
-    accuracy 90
+    accuracy 100
     pp 10
     effectchance 0
     target RANGE_SINGLE_TARGET
@@ -1227,7 +1227,7 @@ movedata MOVE_RAZOR_LEAF, "Razor Leaf"
     movedescription MOVE_RAZOR_LEAF, "Sharp edged leaves\nare launched to slash\nat the foe. It has a\nhigh critical hit\nratio."
 
 movedata MOVE_SOLAR_BEAM, "Solar Beam"
-    battleeffect MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS
+    battleeffect MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_SUN_SKIPS
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_GRASS
@@ -1965,18 +1965,18 @@ movedata MOVE_EGG_BOMB, "Egg Bomb"
 movedata MOVE_LICK, "Lick"
     battleeffect MOVE_EFFECT_PARALYZE_HIT
     pss SPLIT_PHYSICAL
-    basepower 30
+    basepower 40
     type TYPE_GHOST
     accuracy 100
     pp 20
-    effectchance 50
+    effectchance 25
     target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT
     appeal 0x00
     contesttype 0x00
     terminatedata
-    movedescription MOVE_LICK, "The foe is licked with\na long tongue, causing\ndamage.\nIt may also paralyze\nthe target."
+    movedescription MOVE_LICK, "The foe is licked with\na long tongue, causing\ndamage. It may also\nparalyze the target."
 
 movedata MOVE_SMOG, "Smog"
     battleeffect MOVE_EFFECT_POISON_HIT
@@ -2077,18 +2077,18 @@ movedata MOVE_CLAMP, "Clamp"
 movedata MOVE_SWIFT, "Swift"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_SPECIAL
-    basepower 70
+    basepower 60
     type TYPE_NORMAL
     accuracy 100
     pp 15
     effectchance 0
     target RANGE_ADJACENT_OPPONENTS
-    priority 0
+    priority 1
     flags FLAG_KINGS_ROCK | FLAG_MIRROR_MOVE | FLAG_PROTECT
     appeal 0x00
     contesttype 0x00
     terminatedata
-    movedescription MOVE_SWIFT, "Star shaped rays are\nshot at the foe."
+    movedescription MOVE_SWIFT, "Star shaped rays are\nshot at the foe. This\nmove usually goes\nfirst."
 
 movedata MOVE_SKULL_BASH, "Skull Bash"
     battleeffect MOVE_EFFECT_CHARGE_TURN_DEF_UP
@@ -2800,9 +2800,9 @@ movedata MOVE_CURSE, "Curse"
     basepower 0
     type TYPE_GHOST
     accuracy 0
-    pp 10
+    pp 5
     effectchance 0
-    target RANGE_SINGLE_TARGET
+    target RANGE_USER
     priority 0
     flags FLAG_KEEP_HP_BAR
     appeal 0x00
@@ -3406,7 +3406,7 @@ movedata MOVE_MEAN_LOOK, "Mean Look"
     battleeffect MOVE_EFFECT_PREVENT_ESCAPE
     pss SPLIT_STATUS
     basepower 0
-    type TYPE_NORMAL
+    type TYPE_GHOST
     accuracy 0
     pp 5
     effectchance 0
@@ -4923,7 +4923,7 @@ movedata MOVE_CRUSH_CLAW, "Crush Claw"
     movedescription MOVE_CRUSH_CLAW, "The user slashes the\nfoe with hard and\nsharp claws.\nIt may also lower the\ntarget’s Defense."
 
 movedata MOVE_BLAST_BURN, "Blast Burn"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_FIRE
@@ -4939,7 +4939,7 @@ movedata MOVE_BLAST_BURN, "Blast Burn"
     movedescription MOVE_BLAST_BURN, "The foe is razed by\na fiery explosion.\nThe user must rest\non the next turn,\nhowever."
 
 movedata MOVE_HYDRO_CANNON, "Hydro Cannon"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_WATER
@@ -5229,11 +5229,11 @@ movedata MOVE_SHADOW_PUNCH, "Shadow Punch"
 movedata MOVE_EXTRASENSORY, "Extrasensory"
     battleeffect MOVE_EFFECT_FLINCH_HIT
     pss SPLIT_SPECIAL
-    basepower 80
+    basepower 70
     type TYPE_PSYCHIC
     accuracy 100
     pp 10
-    effectchance 25
+    effectchance 50
     target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT
@@ -5419,7 +5419,7 @@ movedata MOVE_DRAGON_CLAW, "Dragon Claw"
     movedescription MOVE_DRAGON_CLAW, "The user slashes the\nfoe with huge, sharp\nclaws."
 
 movedata MOVE_FRENZY_PLANT, "Frenzy Plant"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_GRASS
@@ -5880,7 +5880,7 @@ movedata MOVE_TAILWIND, "Tailwind"
     appeal 0x00
     contesttype 0x00
     terminatedata
-    movedescription MOVE_TAILWIND, "The user whips up a\nturbulent whirlwind\nthat ups the Speed\nof all party Pokémon\nfor three turns."
+    movedescription MOVE_TAILWIND, "The user whips up a\nturbulent whirlwind\nthat ups the Speed\nof all party Pokémon\nfor five turns."
 
 movedata MOVE_ACUPRESSURE, "Acupressure"
     battleeffect MOVE_EFFECT_RANDOM_STAT_UP_2
@@ -6667,7 +6667,7 @@ movedata MOVE_SWITCHEROO, "Switcheroo"
     movedescription MOVE_SWITCHEROO, "The user trades held\nitems with the foe\nfaster than the eye\ncan follow."
 
 movedata MOVE_GIGA_IMPACT, "Giga Impact"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_NORMAL
@@ -7035,7 +7035,7 @@ movedata MOVE_POWER_WHIP, "Power Whip"
     movedescription MOVE_POWER_WHIP, "The user violently\nwhirls its vines or\ntentacles to harshly\nlash the foe."
 
 movedata MOVE_ROCK_WRECKER, "Rock Wrecker"
-    battleeffect MOVE_EFFECT_RECHARGE_AFTER
+    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_ROCK
@@ -8653,11 +8653,11 @@ movedata MOVE_LEAF_TORNADO, "Leaf Tornado"
 movedata MOVE_STEAMROLLER, "Steamroller"
     battleeffect MOVE_EFFECT_FLINCH_HIT
     pss SPLIT_PHYSICAL
-    basepower 70
+    basepower 60
     type TYPE_BUG
     accuracy 100
-    pp 10
-    effectchance 50
+    pp 15
+    effectchance 25
     target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
@@ -8682,13 +8682,13 @@ movedata MOVE_COTTON_GUARD, "Cotton Guard" //Unimplemented
     terminatedata
     movedescription MOVE_COTTON_GUARD, "The user protects\nitself with cotton,\ndrastically raising\nits Defense."
 
-movedata MOVE_NIGHT_DAZE, "Deceive"
+movedata MOVE_NIGHT_DAZE, "Night Daze"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_SPECIAL
-    basepower 80
+    basepower 100
     type TYPE_DARK
     accuracy 100
-    pp 10
+    pp 5
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
@@ -10763,7 +10763,7 @@ movedata MOVE_STRENGTH_SAP, "Strength Sap" //Unimplemented
     movedescription MOVE_STRENGTH_SAP, "---"
 
 movedata MOVE_SOLAR_BLADE, "Solar Blade"
-    battleeffect MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS_ATK_UP
+    battleeffect MOVE_EFFECT_CHARGE_TURN_ATK_UP_SUN_SKIPS
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_GRASS
@@ -14347,7 +14347,7 @@ movedata MOVE_DOUBLE_SHOCK, "Double Shock" //Unimplemented
     movedescription MOVE_DOUBLE_SHOCK, "---"
 
 movedata MOVE_GIGATON_HAMMER, "Gigaton Hammer"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_STEEL
@@ -14475,7 +14475,7 @@ movedata MOVE_MAGICAL_TORQUE, "Magical Torque"
     movedescription MOVE_MAGICAL_TORQUE, "---"
 
 movedata MOVE_BLOOD_MOON, "Blood Moon"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_NORMAL

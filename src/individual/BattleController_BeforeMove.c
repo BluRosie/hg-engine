@@ -186,6 +186,8 @@ BOOL LONG_CALL AbilityBreakable(int ability);
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoTransform(int ability);
 
+#define IS_GENERAL_GROUND_TYPE_ATTACK(ctx) (ctx->move_type == TYPE_GROUND && ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS && ctx->current_move_index != MOVE_THOUSAND_ARROWS)
+
 // 08014ACC
 
 /**
@@ -1187,8 +1189,8 @@ void BattleController_CheckTruant(struct BattleSystem *bsys, struct BattleStruct
 
 BOOL BattleController_CheckFocusPunch(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     if (((ctx->oneTurnFlag[ctx->attack_client].physical_damager_bit) || (ctx->oneTurnFlag[ctx->attack_client].special_damager_bit))
-        && (ctx->oneTurnFlag[ctx->attack_client].pendingFocusPunchFlag)
-        && (ctx->moveTbl[GetBattlerSelectedMove(ctx, ctx->attack_client)].effect == MOVE_EFFECT_HIT_LAST_WHIFF_IF_HIT)) {
+	&& (ctx->oneTurnFlag[ctx->attack_client].pendingFocusPunchFlag)
+	&& (ctx->moveTbl[GetBattlerSelectedMove(ctx, ctx->attack_client)].effect == MOVE_EFFECT_HIT_LAST_WHIFF_IF_HIT)) {
 		//https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-60#post-8755569
 		// The "Pokemon will flinch" flag and the "Focus Punch will lose focus" flag are dichotomous.
 		// idk what dichotomous means, but this seems to be aligned with the video evidence
@@ -1938,6 +1940,32 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_METEOR_BEAM_CHARGE_TURN);
                 needToRunScript = TRUE;
                 break;
+			case MOVE_EFFECT_CHARGE_TURN_ATK_UP_SUN_SKIPS:
+                if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+                    if ((ctx->field_condition & WEATHER_SUNNY_ANY)) {
+                        needToRunScript = FALSE;
+                    } else {
+                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SOLAR_BLADE_CHARGE_TURN);
+                        needToRunScript = TRUE;
+                    }
+                } else {
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SOLAR_BLADE_CHARGE_TURN);
+                    needToRunScript = TRUE;
+                }
+                break;
+			case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_SUN_SKIPS:
+                if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+                    if ((ctx->field_condition & WEATHER_SUNNY_ANY)) {
+                        needToRunScript = FALSE;
+                    } else {
+                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SOLAR_BEAM_CHARGE_TURN);
+                        needToRunScript = TRUE;
+                    }
+                } else {
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SOLAR_BEAM_CHARGE_TURN);
+                    needToRunScript = TRUE;
+                }
+                break;
             // case MOVE_EFFECT_SKY_DROP:
                 // break;
 
@@ -1988,6 +2016,26 @@ BOOL BattleController_CheckPowerHerb(struct BattleSystem *bsys UNUSED, struct Ba
             }
         }
         break;
+	case MOVE_EFFECT_CHARGE_TURN_ATK_UP_SUN_SKIPS:
+        if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE) && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
+            needToRunScript = TRUE;
+            if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+                if ((ctx->field_condition & WEATHER_SUNNY_ANY)) {
+                    needToRunScript = FALSE;
+                }
+            }
+        }
+        break;
+	case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_SUN_SKIPS:
+        if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE) && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
+            needToRunScript = TRUE;
+            if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+                if ((ctx->field_condition & WEATHER_SUNNY_ANY)) {
+                    needToRunScript = FALSE;
+                }
+            }
+        }
+        break;
     case MOVE_EFFECT_FLY:
     case MOVE_EFFECT_DIVE:
     case MOVE_EFFECT_DIG:
@@ -2033,11 +2081,11 @@ BOOL BattleController_CheckStolenBySnatch(struct BattleSystem *bw UNUSED, struct
         if (((sp->waza_status_flag & 0x801FDA49) == 0) && (sp->oneTurnFlag[client_no].snatchFlag) && (sp->moveTbl[sp->current_move_index].flag & FLAG_SNATCH)) {
             sp->battlerIdTemp = client_no;
             sp->oneTurnFlag[client_no].snatchFlag = 0;
-            if ((sp->server_status_flag & (0x00100000)) == 0) {
+            if ((sp->server_status_flag & BATTLE_STATUS_NO_MOVE_SET) == 0) {
                 sp->waza_no_mamoru[sp->attack_client] = 0;
                 sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
                 sp->waza_no_last = sp->moveNoTemp;
-                sp->server_status_flag |= (0x00100000);
+                sp->server_status_flag |= BATTLE_STATUS_NO_MOVE_SET;
             }
             LoadBattleSubSeqScript(sp, 1, SUB_SEQ_SNATCH);
             sp->next_server_seq_no = sp->server_seq_no;
@@ -2051,9 +2099,7 @@ BOOL BattleController_CheckStolenBySnatch(struct BattleSystem *bw UNUSED, struct
 }
 
 BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
-    if (!(ctx->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
-    && !(GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_NO_GUARD)
-    && ctx->moveTbl[ctx->current_move_index].target != RANGE_ADJACENT_OPPONENTS
+    if (ctx->moveTbl[ctx->current_move_index].target != RANGE_ADJACENT_OPPONENTS
     && (
         (!(ctx->server_status_flag & BATTLE_STATUS_HIT_FLY) && ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR)
         || (!(ctx->server_status_flag & BATTLE_STATUS_SHADOW_FORCE) && ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_SHADOW_FORCE)
@@ -2071,13 +2117,18 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
 
 
 BOOL BattleController_CheckProtect(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
+	u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     if (ctx->oneTurnFlag[defender].mamoru_flag
         && ctx->moveTbl[ctx->current_move_index].flag & (1 << 1)
-        && (ctx->current_move_index != MOVE_CURSE || CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client) == TRUE)
+        /*&& (ctx->current_move_index != MOVE_CURSE || CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client) == TRUE)*/
         /*&& (!CheckMoveIsChargeMove(ctx, ctx->current_move_index) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)*/) {
         UnlockBattlerOutOfCurrentMove(bsys, ctx, ctx->attack_client);
         ctx->battlerIdTemp = defender;
         ctx->moveStatusFlagForSpreadMoves[defender] = WAZA_STATUS_FLAG_MAMORU_NOHIT;
+        // TODO:  figure out what is setting this back to 0 somewhere else
+        // handle moves that can "keep going and crash"
+        if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)
+            ctx->server_status_flag |= BATTLE_STATUS_CRASH_DAMAGE;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2126,7 +2177,10 @@ BOOL BattleController_CheckTelekinesis(struct BattleSystem *bsys UNUSED, struct 
 }
 
 BOOL CalcDamageAndSetMoveStatusFlags(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
-    if ((ctx->moveTbl[ctx->current_move_index].target != RANGE_USER && ctx->moveTbl[ctx->current_move_index].target != RANGE_USER_SIDE && ctx->moveTbl[ctx->current_move_index].power != 0 && !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY) /* && !(ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) */) || ctx->current_move_index == MOVE_THUNDER_WAVE) {
+    if (ctx->moveTbl[ctx->current_move_index].target != RANGE_USER
+	&& ctx->moveTbl[ctx->current_move_index].target != RANGE_USER_SIDE
+	&& ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS
+	&& !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY)) {
         // TODO: Probably wrong?
         u32 temp = ctx->moveStatusFlagForSpreadMoves[defender];
         ServerDoTypeCalcMod(bsys, ctx, ctx->current_move_index, ctx->move_type, ctx->attack_client, defender, ctx->damageForSpreadMoves[defender], &temp);
@@ -2138,8 +2192,9 @@ BOOL CalcDamageAndSetMoveStatusFlags(struct BattleSystem *bsys, struct BattleStr
     return FALSE;
 }
 
-// TODO: check message/subscript correctness, move damage out
+// TODO: check message/subscript correctness, move damage out, handle Thousand Arrows
 BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
+	u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     if (!(ctx->waza_out_check_on_off & 2) && ctx->defence_client != 0xFF && CalcDamageAndSetMoveStatusFlags(bsys, ctx, defender) == TRUE) {
         return FALSE;
     }
@@ -2147,6 +2202,10 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
         ctx->battlerIdTemp = defender;
+        // TODO:  figure out what is setting this back to 0 somewhere else
+        // handle moves that can "keep going and crash"
+        if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)
+            ctx->server_status_flag |= BATTLE_STATUS_CRASH_DAMAGE;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2156,7 +2215,8 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
 }
 
 BOOL BattleController_CheckLevitate(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
-    if ((MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_LEVITATE) == TRUE) && (ctx->move_type == TYPE_GROUND)
+    if ((MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_LEVITATE) == TRUE)
+    && (IS_GENERAL_GROUND_TYPE_ATTACK(ctx))
         // iron ball halves speed and grounds
         && (HeldItemHoldEffectGet(ctx, defender) != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_LEVITATE_MISS;
@@ -2178,7 +2238,7 @@ BOOL BattleController_CheckAirBalloonTelekinesisMagnetRise(struct BattleSystem *
             (ctx->battlemon[defender].moveeffect.magnetRiseTurns)
             && ((ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
             && ((ctx->field_condition & FIELD_STATUS_GRAVITY) == 0)
-            && (ctx->move_type == TYPE_GROUND)
+            && (IS_GENERAL_GROUND_TYPE_ATTACK(ctx))
             && (HeldItemHoldEffectGet(ctx, defender) != HOLD_EFFECT_SPEED_DOWN_GROUNDED)
         )
         ||
@@ -2186,7 +2246,7 @@ BOOL BattleController_CheckAirBalloonTelekinesisMagnetRise(struct BattleSystem *
             (HeldItemHoldEffectGet(ctx, defender) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT) // has air balloon
             && ((ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
             && ((ctx->field_condition & FIELD_STATUS_GRAVITY) == 0)
-            && (ctx->move_type == TYPE_GROUND)
+            && (IS_GENERAL_GROUND_TYPE_ATTACK(ctx))
         )
        ) {
         // TODO: if in the future the AI somehow needs to read this flag, create a new flag for Air Balloon
@@ -2796,6 +2856,7 @@ BOOL BattleController_CheckAbilityFailures4_OtherAromaVeilSturdy(struct BattleSy
 }
 
 BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
+	u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     if (!(ctx->waza_out_check_on_off & 0x20) && defender != BATTLER_NONE && BattleSystem_CheckMoveHit(bsys, ctx, ctx->attack_client, defender, ctx->current_move_index) == TRUE) {
         return FALSE;
     }
@@ -2812,12 +2873,17 @@ BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct Battle
     }
 
     if (ctx->waza_status_flag & MOVE_STATUS_FLAG_MISS) {
+		u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
         ctx->waza_status_flag = 0;
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_MISS;
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_LOCKED_INTO_MOVE;
         ctx->msg_work = defender;
+        // TODO:  figure out what is setting this back to 0 somewhere else
+        // handle moves that can "keep going and crash"
+        if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)
+            ctx->server_status_flag |= BATTLE_STATUS_CRASH_DAMAGE;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ATTACK_MISSED);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -3126,7 +3192,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         case MOVE_CURSE:{
             if (CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client)
-            && ctx->battlemon[ctx->defence_client].condition2 & STATUS2_CURSE) {
+            && ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CURSE) {
                 butItFailedFlag = TRUE;
             }
             break;
@@ -3707,7 +3773,7 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
 
 BOOL BattleController_CheckMoveFailures3_PerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     if (IfAllClientsHavePerishSong(bsys, ctx) && ctx->current_move_index == MOVE_PERISH_SONG) {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_USE_MOVE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -4216,7 +4282,7 @@ BOOL LONG_CALL AbilityFailSkillSwap(int ability) {
     return FALSE;
 }
 
-/// @brief Check if ability can't be suppressed by Gastro Acid. See notes for DisabledByNeutralizingGas.
+/// @brief Check if ability can't be suppressed by Gastro Acid or affected by Mummy. See notes for DisabledByNeutralizingGas.
 /// @param ability 
 /// @ref AbilityDisabledByNeutralizingGas
 /// @return `TRUE` or `FALSE`
@@ -4338,33 +4404,6 @@ BOOL LONG_CALL AbilityBreakable(int ability) {
         case ABILITY_EARTH_EATER:
         case ABILITY_MINDS_EYE:
         case ABILITY_TERA_SHELL:
-            return TRUE;
-            break;
-
-    default:
-        break;
-    }
-    return FALSE;
-}
-
-/// @brief Check if ability is disabled if user is Transformed
-/// @param ability 
-/// @return `TRUE` or `FALSE`
-BOOL LONG_CALL AbilityNoTransform(int ability) {
-    switch (ability) {
-        case ABILITY_DISGUISE:
-        case ABILITY_GULP_MISSILE:
-        case ABILITY_ICE_FACE:
-        case ABILITY_NEUTRALIZING_GAS:
-        case ABILITY_HUNGER_SWITCH:
-        case ABILITY_ZERO_TO_HERO:
-        case ABILITY_PROTOSYNTHESIS:
-        case ABILITY_QUARK_DRIVE:
-        case ABILITY_EMBODY_ASPECT:
-        case ABILITY_EMBODY_ASPECT_2:
-        case ABILITY_EMBODY_ASPECT_3:
-        case ABILITY_EMBODY_ASPECT_4:
-        case ABILITY_TERA_SHIFT:
             return TRUE;
             break;
 

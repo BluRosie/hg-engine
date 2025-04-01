@@ -233,7 +233,7 @@ mondata SPECIES_CATERPIE, "Caterpie"
     mondexweight SPECIES_CATERPIE, "6.4 lbs."
 
 mondata SPECIES_METAPOD, "Metapod"
-    basestats 50, 50, 70, 40, 40, 50
+    basestats 50, 50, 50, 40, 40, 70
     types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -253,7 +253,7 @@ mondata SPECIES_METAPOD, "Metapod"
     mondexweight SPECIES_METAPOD, "21.8 lbs."
 
 mondata SPECIES_BUTTERFREE, "Butterfree"
-    basestats 70, 40, 60, 70, 100, 60
+    basestats 60, 50, 50, 70, 90, 80
     types TYPE_BUG, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -2753,7 +2753,7 @@ mondata SPECIES_FLAREON, "Flareon"
     mondexweight SPECIES_FLAREON, "55.1 lbs."
 
 mondata SPECIES_PORYGON, "Porygon"
-    basestats 60, 60, 70, 40, 100, 70
+    basestats 40, 40, 50, 40, 80, 50
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3713,7 +3713,7 @@ mondata SPECIES_AZUMARILL, "Azumarill"
     mondexweight SPECIES_AZUMARILL, "62.8 lbs."
 
 mondata SPECIES_SUDOWOODO, "Sudowoodo"
-    basestats 60, 100, 120, 30, 30, 60
+    basestats 70, 100, 110, 30, 30, 60
     types TYPE_ROCK, TYPE_ROCK
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3724,7 +3724,7 @@ mondata SPECIES_SUDOWOODO, "Sudowoodo"
     basefriendship 255
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
-    abilities ABILITY_COLOR_CHANGE, ABILITY_NONE
+    abilities ABILITY_STURDY, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_SUDOWOODO, "Although it always pretends to be a\ntree, its composition appears more\nsimilar to rock than to vegetation."
@@ -4673,7 +4673,7 @@ mondata SPECIES_DONPHAN, "Donphan"
     mondexweight SPECIES_DONPHAN, "264.6 lbs."
 
 mondata SPECIES_PORYGON2, "Porygon2"
-    basestats 60, 80, 100, 60, 100, 100
+    basestats 60, 60, 70, 40, 100, 70
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -5012,7 +5012,7 @@ mondata SPECIES_LUGIA, "Lugia"
     mondexheight SPECIES_LUGIA, "17’01”"
     mondexweight SPECIES_LUGIA, "476.2 lbs."
 
-mondata SPECIES_HO_OH, "Ho Oh"
+mondata SPECIES_HO_OH, "Ho-oh"
     basestats 110, 150, 90, 30, 90, 130
     types TYPE_FIRE, TYPE_FLYING
     catchrate 255
@@ -7733,7 +7733,7 @@ mondata SPECIES_JIRACHI, "Jirachi"
     mondexweight SPECIES_JIRACHI, "2.4 lbs."
 
 mondata SPECIES_DEOXYS, "Deoxys"
-    basestats 50, 100, 100, 150, 100, 100
+    basestats 100, 100, 100, 100, 100, 100
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -9493,7 +9493,7 @@ mondata SPECIES_MAMOSWINE, "Mamoswine"
     mondexweight SPECIES_MAMOSWINE, "641.5 lbs."
 
 mondata SPECIES_PORYGON_Z, "Porygon-Z"
-    basestats 90, 90, 90, 90, 150, 90
+    basestats 80, 80, 70, 70, 130, 70
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -9593,7 +9593,7 @@ mondata SPECIES_FROSLASS, "Froslass"
     mondexweight SPECIES_FROSLASS, "58.6 lbs."
 
 mondata SPECIES_ROTOM, "Rotom"
-    basestats 50, 70, 100, 100, 100, 100
+    basestats 50, 70, 100, 80, 100, 100
     types TYPE_ELECTRIC, TYPE_GHOST
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -9614,7 +9614,7 @@ mondata SPECIES_ROTOM, "Rotom"
 
 mondata SPECIES_UXIE, "Uxie"
     basestats 70, 70, 150, 70, 70, 150
-    types TYPE_FAIRY, TYPE_FAIRY
+    types TYPE_FAIRY, TYPE_FIGHTING
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -9634,7 +9634,7 @@ mondata SPECIES_UXIE, "Uxie"
 
 mondata SPECIES_MESPRIT, "Mesprit"
     basestats 70, 70, 70, 150, 150, 70
-    types TYPE_PSYCHIC, TYPE_PSYCHIC
+    types TYPE_PSYCHIC, TYPE_FAIRY
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -9654,7 +9654,7 @@ mondata SPECIES_MESPRIT, "Mesprit"
 
 mondata SPECIES_AZELF, "Azelf"
     basestats 70, 150, 70, 150, 70, 70
-    types TYPE_FIGHTING, TYPE_FIGHTING
+    types TYPE_FIGHTING, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -9733,7 +9733,7 @@ mondata SPECIES_HEATRAN, "Heatran"
     mondexweight SPECIES_HEATRAN, "948.0 lbs."
 
 mondata SPECIES_REGIGIGAS, "Regigigas"
-    basestats 150, 100, 100, 150, 100, 100
+    basestats 110, 90, 90, 130, 90, 90
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -9747,7 +9747,7 @@ mondata SPECIES_REGIGIGAS, "Regigigas"
     abilities ABILITY_SLOW_START, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
-    mondexentry SPECIES_REGIGIGAS, "It is believed to have shaped\nREGIROCK, REGICE, and REGISTEEL\nout of clay, ice, and magma."
+    mondexentry SPECIES_REGIGIGAS, "It is believed to have shaped\nRegirock, Regice, and Registeel\nout of clay, ice, and magma."
     mondexclassification SPECIES_REGIGIGAS, "Colossal Pokémon"
     mondexheight SPECIES_REGIGIGAS, "12’02”"
     mondexweight SPECIES_REGIGIGAS, "925.9 lbs."
@@ -9773,7 +9773,7 @@ mondata SPECIES_GIRATINA, "Giratina"
     mondexweight SPECIES_GIRATINA, "1653.5 lbs."
 
 mondata SPECIES_CRESSELIA, "Cresselia"
-    basestats 120, 80, 120, 80, 80, 120
+    basestats 130, 70, 90, 90, 90, 130
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -9793,7 +9793,7 @@ mondata SPECIES_CRESSELIA, "Cresselia"
     mondexweight SPECIES_CRESSELIA, "188.7 lbs."
 
 mondata SPECIES_PHIONE, "Phione"
-    basestats 80, 80, 120, 120, 80, 120
+    basestats 50, 90, 90, 90, 90, 90
     types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -9833,7 +9833,7 @@ mondata SPECIES_MANAPHY, "Manaphy"
     mondexweight SPECIES_MANAPHY, "3.1 lbs."
 
 mondata SPECIES_DARKRAI, "Darkrai"
-    basestats 80, 120, 80, 120, 120, 80
+    basestats 70, 90, 90, 130, 130, 90
     types TYPE_DARK, TYPE_DARK
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -9864,7 +9864,7 @@ mondata SPECIES_SHAYMIN, "Shaymin"
     basefriendship 255
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILITY_OVERGROW, ABILITY_NONE
+    abilities ABILITY_NATURAL_CURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     mondexentry SPECIES_SHAYMIN, "The blooming of Gracidea flowers confers\nthe power of flight upon it. Feelings \nof gratitude are the message it delivers."
@@ -9953,7 +9953,7 @@ mondata SPECIES_DEOXYS_ATTACK, "-----"
     mondexweight SPECIES_DEOXYS_ATTACK, "????.? lbs."
 
 mondata SPECIES_DEOXYS_DEFENSE, "-----"
-    basestats 50, 100, 150, 50, 100, 150
+    basestats 150, 50, 150, 50, 50, 150
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 255
     baseexp 215
@@ -9973,7 +9973,7 @@ mondata SPECIES_DEOXYS_DEFENSE, "-----"
     mondexweight SPECIES_DEOXYS_DEFENSE, "????.? lbs."
 
 mondata SPECIES_DEOXYS_SPEED, "-----"
-    basestats 50, 50, 150, 150, 50, 150
+    basestats 50, 100, 100, 150, 100, 100
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 255
     baseexp 215
@@ -10073,7 +10073,7 @@ mondata SPECIES_SHAYMIN_SKY, "-----"
     mondexweight SPECIES_SHAYMIN_SKY, "????.? lbs."
 
 mondata SPECIES_ROTOM_HEAT, "-----"
-    basestats 50, 70, 100, 100, 100, 100
+    basestats 50, 70, 90, 80, 120, 90
     types TYPE_ELECTRIC, TYPE_FIRE
     catchrate 255
     baseexp 132
@@ -10093,7 +10093,7 @@ mondata SPECIES_ROTOM_HEAT, "-----"
     mondexweight SPECIES_ROTOM_HEAT, "????.? lbs."
 
 mondata SPECIES_ROTOM_WASH, "-----"
-    basestats 50, 70, 100, 100, 100, 100
+    basestats 50, 70, 120, 80, 90, 90
     types TYPE_ELECTRIC, TYPE_WATER
     catchrate 255
     baseexp 132
@@ -10113,7 +10113,7 @@ mondata SPECIES_ROTOM_WASH, "-----"
     mondexweight SPECIES_ROTOM_WASH, "????.? lbs."
 
 mondata SPECIES_ROTOM_FROST, "-----"
-    basestats 50, 70, 100, 100, 100, 100
+    basestats 50, 70, 90, 80, 90, 120
     types TYPE_ELECTRIC, TYPE_ICE
     catchrate 255
     baseexp 132
@@ -10133,7 +10133,7 @@ mondata SPECIES_ROTOM_FROST, "-----"
     mondexweight SPECIES_ROTOM_FROST, "????.? lbs."
 
 mondata SPECIES_ROTOM_FAN, "-----"
-    basestats 50, 70, 100, 100, 100, 100
+    basestats 50, 70, 90, 120, 90, 80
     types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 255
     baseexp 132
@@ -10153,7 +10153,7 @@ mondata SPECIES_ROTOM_FAN, "-----"
     mondexweight SPECIES_ROTOM_FAN, "????.? lbs."
 
 mondata SPECIES_ROTOM_MOW, "-----"
-    basestats 50, 70, 100, 100, 100, 100
+    basestats 50, 120, 70, 80, 90, 90
     types TYPE_ELECTRIC, TYPE_GRASS
     catchrate 255
     baseexp 132

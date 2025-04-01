@@ -8,6 +8,5 @@ _000:
     PrintMessage 774, TAG_NONE
     Wait 
     WaitButtonABTime 30
-
 _052:
     End 

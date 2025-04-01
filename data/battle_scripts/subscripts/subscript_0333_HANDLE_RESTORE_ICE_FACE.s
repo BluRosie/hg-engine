@@ -19,8 +19,8 @@ _016:
     PlaySound BATTLER_CATEGORY_MSG_TEMP, 1984
     SetMosaic BATTLER_CATEGORY_MSG_TEMP, 0, 1
     Wait 
-    // {0}’s ice face was restored!
-    PrintMessage 1357, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
+    // {0} transformed!
+    PrintMessage 721, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
     CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _058

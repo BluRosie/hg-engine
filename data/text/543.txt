@@ -47,7 +47,7 @@ Professor Elm: Hi, {STRVAR_1 3, 0, 0}!\nHow are you?\rHow is the Egg doing?\nAre
 Professor Elm: What?\nThat Pokémon!?\r
 Hmm...\nAs far as I know, there is not a\fPokémon like this in Johto...\rJust like Mr. Pokémon was saying\nover the phone...\rThe legendary Pokémon could be...\nOh, never mind.\rAnyway, I’m sure things will be\nhappening around you, {STRVAR_1 3, 0, 0}!\rYou are making me all excited!\nI’ll give you a present for that.\fPlease take it.\r
 Hmm...\nAs far as I know, there is not a\fPokémon like this in Johto...\rJust like Mr. Pokémon was saying\nover the phone...\rThe legendary Pokémon could be...\nOh, never mind.\rAnyway, I’m sure things will be\nhappening around you, {STRVAR_1 3, 0, 0}!\rYou are making me all excited!\nI’ll give you a present for that.\fPlease take it.\r
-Professor Elm: That’s an Exp Share.\rA Pokémon grows as it learns.\rBut if it’s holding an Exp Share,\nthe experience can be shared.\rIf you'd like to help an inexperienced Pokémon,\nhave it hold an Exp Share!\r
+Professor Elm: That’s an Exp Share.\rA Pokémon grows as it learns.\rBut if it’s holding an Exp Share,\nthe experience can be shared.\rIf you’d like to help an inexperienced\nPokémon, have it hold an Exp Share!\r
 Professor Elm: {STRVAR_1 3, 0, 0}, good luck\nwith your journey!\rOh, one more thing...\nDon’t forget about my research!
 Professor Elm: {STRVAR_1 3, 0, 0}, good luck\nwith your journey!\rOh, one more thing...\nDon’t forget about my research!
 Uh-oh, your Bag is chock-full.

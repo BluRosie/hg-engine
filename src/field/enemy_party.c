@@ -128,6 +128,32 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     }
 
     struct PartyPokemon * mons[pokecount];
+	
+	int totalLevelEnemy = 0;
+	int totalLevelPlayer = 0;
+	int highestLevelPlayer = 0;
+	
+	for (i = 0; i < pokecount; i++)
+	{
+		totalLevelEnemy += buf[2] | (buf[3] << 8);
+	}
+	
+	struct Party *playerParty = bp->poke_party[0];
+	
+	for (i = 0; i < playerParty->count; i++) {
+		struct PartyPokemon *pp = Party_GetMonByIndex(playerParty, i);
+		totalLevelPlayer += GetMonData(pp, MON_DATA_LEVEL, NULL);
+		if (highestLevelPlayer < GetMonData(pp, MON_DATA_LEVEL, NULL))
+			highestLevelPlayer = GetMonData(pp, MON_DATA_LEVEL, NULL);
+	}
+	
+	int scaledTotalLevel;
+	
+	if (totalLevelEnemy < totalLevelPlayer) {
+		scaledTotalLevel = 10 * (totalLevelPlayer - totalLevelEnemy) / (totalLevelPlayer + totalLevelEnemy);
+	} else {
+		scaledTotalLevel = 0;
+	}
 
     for (i = 0; i < pokecount; i++)
     {
@@ -142,7 +168,20 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
         // level field
         level = buf[offset] | (buf[offset+1] << 8);
-        gLastPokemonLevelForMoneyCalc = level; // ends up being the last level at the end of the loop that we use for the money calc loop default case
+		int scaledLevel;
+		scaledLevel = level + (scaledTotalLevel / pokecount);
+		
+		if (scaledTotalLevel > 0) {
+			if (scaledLevel - highestLevelPlayer > highestLevelPlayer - level) {
+				level = highestLevelPlayer * 2 - level;
+			} else {
+				level = scaledLevel;
+			}
+		}
+		
+		int totalLevelForMoneyCalc = 0;
+		totalLevelForMoneyCalc += level;
+        gLastPokemonLevelForMoneyCalc = totalLevelForMoneyCalc / pokecount; // ends up being the last level at the end of the loop that we use for the money calc loop default case
         offset += 2;
 
         // species field

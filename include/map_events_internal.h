@@ -300,4 +300,10 @@ typedef struct FIELD_PLAYER_AVATAR {
     u32 unk3c;
 } FIELD_PLAYER_AVATAR; //size: 0x40
 
+u8 LONG_CALL GetMetatileBehaviorAt(FieldSystem *fieldSystem, int x, int y);
+int LONG_CALL GetPlayerXCoord(FIELD_PLAYER_AVATAR *avatar);
+int LONG_CALL GetPlayerYCoord(FIELD_PLAYER_AVATAR *avatar);
+BOOL MapObject_IsSingleMovementActive(LocalMapObject *obj);
+void MapObject_PauseMovement(LocalMapObject *obj);
+
 #endif //POKEHEARTGOLD_MAP_EVENTS_INTERNAL_H

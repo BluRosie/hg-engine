@@ -23,8 +23,6 @@ typedef struct
     u8  denominator;
 } AccuracyStatChangeRatio;
 
-int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
-
 // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8684263
 const AccuracyStatChangeRatio sAccStatChanges[] =
 {
@@ -453,16 +451,6 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     stat_stage_acc = sp->battlemon[attacker].states[STAT_ACCURACY] - 6;
     stat_stage_evasion = 6 - sp->battlemon[defender].states[STAT_EVASION];
 
-    if (atk_ability == ABILITY_SIMPLE)
-    {
-        stat_stage_acc *= 2;
-    }
-
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SIMPLE) == TRUE)
-    {
-        stat_stage_evasion *= 2;
-    }
-
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_UNAWARE) == TRUE)
     {
         stat_stage_acc = 0;
@@ -648,31 +636,6 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     stat_stage_spd1 = sp->battlemon[client1].states[STAT_SPEED];
     stat_stage_spd2 = sp->battlemon[client2].states[STAT_SPEED];
-
-    if (GetBattlerAbility(sp, client1) == ABILITY_SIMPLE)
-    {
-        stat_stage_spd1 = 6 + ((stat_stage_spd1 - 6) * 2);
-        if (stat_stage_spd1 > 12)
-        {
-            stat_stage_spd1 = 12;
-        }
-        if (stat_stage_spd1 < 0)
-        {
-            stat_stage_spd1 = 0;
-        }
-    }
-    if (GetBattlerAbility(sp, client2) == ABILITY_SIMPLE)
-    {
-        stat_stage_spd2 = 6 + ((stat_stage_spd2 - 6) * 2);
-        if (stat_stage_spd2 > 12)
-        {
-            stat_stage_spd2 = 12;
-        }
-        if (stat_stage_spd2 < 0)
-        {
-            stat_stage_spd2 = 0;
-        }
-    }
 
     speed1 = sp->battlemon[client1].speed * StatBoostModifiers[stat_stage_spd1][0] / StatBoostModifiers[stat_stage_spd1][1];
     speed2 = sp->battlemon[client2].speed * StatBoostModifiers[stat_stage_spd2][0] / StatBoostModifiers[stat_stage_spd2][1];
@@ -1135,7 +1098,6 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     u16 temp;
     u16 item;
     int hold_effect;
-    u16 species;
     u32 defender_condition;
     u32 condition2;
     u32 move_effect;
@@ -1145,7 +1107,6 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     item = GetBattleMonItem(sp, attacker);
     hold_effect = BattleItemDataGet(sp, item, 1);
 
-    species = sp->battlemon[attacker].species;
     defender_condition = sp->battlemon[defender].condition;
     condition2 = sp->battlemon[attacker].condition2;
     move_effect = sp->battlemon[defender].effect_of_moves;
@@ -1154,8 +1115,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     temp = (((condition2 & STATUS2_FOCUS_ENERGY) != 0) * 2)
 			+ (hold_effect == HOLD_EFFECT_CRITRATE_UP)
 			+ critical_count
-			+ (ability == ABILITY_SUPER_LUCK)
-			+ (2 * ((hold_effect == HOLD_EFFECT_CHANSEY_CRITRATE_UP) && (species == SPECIES_CHANSEY)));
+			+ (ability == ABILITY_SUPER_LUCK);
 
     if (temp > 4)
     {
@@ -1173,7 +1133,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 		&& (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SHELL_ARMOR) == FALSE)
 		&& ((side_condition & SIDE_STATUS_LUCKY_CHANT) == 0)
 		&& ((move_effect & MOVE_EFFECT_NO_CRITICAL_HITS) == 0)
-		&& ((ability & ABILITY_HUSTLE) == 0))
+		&& (ability != ABILITY_HUSTLE))
         {
             multiplier = 2;
         }
@@ -1244,6 +1204,13 @@ void ServerHPCalc(void *bw, struct BattleStruct *sp)
         }
         else
         {
+			if (BattleTypeGet(bw) & BATTLE_TYPE_CATCHING_DEMO)
+            {
+                if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
+                {
+                    sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
+                }
+            }
             if (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_LEAVE_WITH_1_HP)
             {
                 if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
@@ -1643,7 +1610,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
         if (msg == NULL) {
             return TRUE;
         }
-        msg->msg_tag = TAG_NICK_ABILITY;
+        msg->msg_tag = TAG_NICKNAME_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
         msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
         msg->msg_para[1] = ABILITY_SHADOW_TAG;
@@ -1657,7 +1624,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
                if (msg == NULL) {
                     return TRUE;
                 }
-                msg->msg_tag = TAG_NICK_ABILITY;
+                msg->msg_tag = TAG_NICKNAME_ABILITY;
                 msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
                 msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
                 msg->msg_para[1] = ABILITY_ARENA_TRAP;
@@ -1667,7 +1634,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
             if (msg == NULL) {
                 return TRUE;
             }
-            msg->msg_tag = TAG_NICK_ABILITY;
+            msg->msg_tag = TAG_NICKNAME_ABILITY;
             msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
             msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
             msg->msg_para[1] = ABILITY_ARENA_TRAP;
@@ -1680,7 +1647,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
         if (msg == NULL) {
             return TRUE;
         }
-        msg->msg_tag = TAG_NICK_ABILITY;
+        msg->msg_tag = TAG_NICKNAME_ABILITY;
         msg->msg_id = BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH;
         msg->msg_para[0] = CreateNicknameTag(sp, battlerIdAbility);
         msg->msg_para[1] = ABILITY_MAGNET_PULL;
@@ -2463,7 +2430,10 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
                 break;
             case ABILITY_BATTLE_BOND:
                 if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                    if (ctx->battlemon[ctx->attack_client].species == SPECIES_GRENINJA && ctx->battlemon[ctx->attack_client].form_no == 1) {
+                    if (ctx->battlemon[ctx->attack_client].species == SPECIES_GRENINJA
+					&& ctx->battlemon[ctx->attack_client].form_no == 1
+                    && ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag == FALSE) {
+                        ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag = TRUE;
                         ctx->state_client = ctx->attack_client;
                         ctx->battlerIdTemp = ctx->attack_client;
                         ctx->battlemon[ctx->attack_client].form_no = 2;
@@ -2503,9 +2473,9 @@ void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx
     // debug_printf("BATTLE_STATUS_CHARGE_MOVE_HIT %d\n", ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT);
 
     // Handle Razor Wind. Why? Beats me
-    /*if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT || (ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] & MOVE_STATUS_FLAG_FAILURE_ANY)) {
+    if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT || (ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] & MOVE_STATUS_FLAG_FAILURE_ANY)) {
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_LOCKED_INTO_MOVE;
-    }*/
+    }
 
     int client_set_max = BattleWorkClientSetMaxGet(bsys);
 
@@ -2584,7 +2554,7 @@ BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleS
     return FALSE;
 }
 
-void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+void LONG_CALL ov12_02252D14(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     ctx->waza_status_flag = 0;
     ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = 0;
     ctx->critical = 1;
@@ -2704,7 +2674,7 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
 void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     // debug_printf("In BattleController_LoopMultiHit\n");
     if (ctx->multiHitCountTemp != 0) {
-        if (ctx->fainting_client == BATTLER_NONE && !(ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)) {
+        if (ctx->fainting_client == BATTLER_NONE && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)) {
             if (--ctx->multiHitCount) {
                 ctx->loop_flag = 1;
                 ov12_02252D14(bsys, ctx);
@@ -3056,13 +3026,8 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
 }
 
 const u16 CantUseTwiceList[] = {
-	MOVE_GIGATON_HAMMER,
-	MOVE_BLOOD_MOON,
-	MOVE_FRENZY_PLANT,
-	MOVE_HYDRO_CANNON,
-	MOVE_BLAST_BURN,
-	MOVE_HYPER_BEAM,
-	MOVE_GIGA_IMPACT,
+	MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY,
+	MOVE_EFFECT_PROTECT,
 };
 
 u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u32 nonSelectableMoves, u32 struggleCheckFlags) {
@@ -3122,7 +3087,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             if (!(ctx->battlemon[battlerId].moveeffect.encoredMove && ctx->battlemon[battlerId].moveeffect.encoredTurns == 3)) {
                 if (ctx->waza_no_old[battlerId] == ctx->battlemon[battlerId].move[movePos]) {
 					    for (u16 i = 0; i < NELEMS(CantUseTwiceList); i++) {
-							if (ctx->waza_no_old[battlerId] == CantUseTwiceList[i]) {
+							if (ctx->moveTbl[ctx->waza_no_old[battlerId]].effect == CantUseTwiceList[i]) {
 							nonSelectableMoves |= No2Bit(movePos);
 							break;
 						}
@@ -3149,41 +3114,41 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
     BOOL ret = TRUE;
 
     if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_DISABLED) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_DISABLED;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_TORMENT) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK;
+        msg->msg_tag = TAG_NICKNAME;
         // {STRVAR_1 1, 0, 0} can’t use the same move\ntwice in a row due to the torment!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_TORMENT;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_TAUNT) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_TAUNT;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_IMPRISON) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0} can’t use\nthe sealed {STRVAR_1 6, 1, 0}!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_IMPRISON;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GRAVITY) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} because of gravity!
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_GRAVITY;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_HEAL_BLOCK) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE_MOVE;
         // {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 2, 0} because of\f{STRVAR_1 6, 1, 0}!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_HEAL_BLOCK;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
@@ -3198,7 +3163,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->msg_para[1] = ctx->battlemon[battlerId].moveeffect.moveNoChoice;
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GORILLA_TACTICS) & No2Bit(movePos)) {
-        msg->msg_tag = TAG_NICK_MOVE;
+        msg->msg_tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0} can only use {STRVAR_1 6, 1, 0}!\r
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_GORILLA_TACTICS;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
@@ -3364,6 +3329,66 @@ BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type) {
     GF_ASSERT(TYPE_NORMAL < type && type < TYPE_STELLAR);
     struct BattlePokemon client = ctx->battlemon[battlerId];
     return ((client.type1 == type && client.type2 == type && client.type3 == type) || (client.is_currently_terastallized ? client.tera_type == type : FALSE));
+}
+
+/// @brief Check if ability is disabled if user is Transformed
+/// @param ability 
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityNoTransform(int ability) {
+    switch (ability) {
+        case ABILITY_DISGUISE:
+        case ABILITY_GULP_MISSILE:
+        case ABILITY_ICE_FACE:
+        case ABILITY_NEUTRALIZING_GAS:
+        case ABILITY_HUNGER_SWITCH:
+        case ABILITY_ZERO_TO_HERO:
+        case ABILITY_PROTOSYNTHESIS:
+        case ABILITY_QUARK_DRIVE:
+        case ABILITY_EMBODY_ASPECT:
+        case ABILITY_EMBODY_ASPECT_2:
+        case ABILITY_EMBODY_ASPECT_3:
+        case ABILITY_EMBODY_ASPECT_4:
+        case ABILITY_TERA_SHIFT:
+            return TRUE;
+            break;
+
+    default:
+        break;
+    }
+    return FALSE;
+}
+
+u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId) {
+    if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_GASTRO_ACID) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
+        return ABILITY_NONE;
+    } else if ((ctx->field_condition & FIELD_STATUS_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
+        return ABILITY_NONE;
+    } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
+        return ABILITY_NONE;
+    } else if (AbilityNoTransform(ctx->battlemon[battlerId].ability) && (ctx->battlemon[battlerId].condition2 & STATUS2_TRANSFORMED)) {
+        return ABILITY_NONE;
+    } else {
+        return ctx->battlemon[battlerId].ability;
+    }
+}
+
+void BattleSystem_BufferMessage(struct BattleSystem *bsys, MESSAGE_PARAM *msg) {
+    // debug_printf("In BattleSystem_BufferMessage\n");
+
+    u32 ovyId, offset;
+
+    void (*internalFunc)(struct BattleSystem *bsys, MESSAGE_PARAM *msg);
+
+    UnloadOverlayByID(6); // unload overlay 6 so this can be loaded
+
+    ovyId = OVERLAY_BATTLESYSTEM_BUFFERMESSAGE;
+    offset = 0x023C0400 | 1;
+    HandleLoadOverlay(ovyId, 2);
+    internalFunc = (void (*)(struct BattleSystem *bsys, MESSAGE_PARAM *msg))(offset);
+    internalFunc(bsys, msg);
+    UnloadOverlayByID(ovyId);
+
+    HandleLoadOverlay(6, 2); // reload 6 so things are okay
 }
 
 void InitializeTurn(struct BattleSystem *bsys, struct BattleStruct *ctx) {

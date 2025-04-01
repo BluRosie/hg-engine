@@ -678,8 +678,8 @@ trainerdata 21, "Bugsy"
         pokemon SPECIES_PINECO
         item ITEM_NONE
         move MOVE_STICKY_WEB
-        move MOVE_NONE
-        move MOVE_NONE
+        move MOVE_PROTECT
+        move MOVE_TACKLE
         move MOVE_NONE
         ballseal 0
 
@@ -689,7 +689,7 @@ trainerdata 21, "Bugsy"
         level 17
         pokemon SPECIES_YANMA
         item ITEM_NONE
-        move MOVE_U_TURN
+        move MOVE_SOMERSAULT
         move MOVE_WHIRLWIND
         move MOVE_NONE
         move MOVE_NONE
@@ -702,7 +702,7 @@ trainerdata 21, "Bugsy"
         pokemon SPECIES_SCYTHER
         item ITEM_NONE
         move MOVE_U_TURN
-        move MOVE_AERIAL_ACE
+        move MOVE_SOMERSAULT
         move MOVE_PURSUIT
         move MOVE_QUICK_ATTACK
         ballseal 0
@@ -930,7 +930,7 @@ trainerdata 29, "Rod"
 trainerdata 30, "Whitney"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_LEADER_WHITNEY
-    nummons 2
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -943,7 +943,7 @@ trainerdata 30, "Whitney"
         // mon 0
         ivs 0
         abilityslot 0
-        level 17
+        level 21
         pokemon SPECIES_CLEFAIRY
         item ITEM_NONE
         move MOVE_DOUBLE_SLAP
@@ -951,11 +951,35 @@ trainerdata 30, "Whitney"
         move MOVE_ENCORE
         move MOVE_METRONOME
         ballseal 0
-
+		
         // mon 1
         ivs 0
         abilityslot 0
-        level 19
+        level 23
+        pokemon SPECIES_SNUBBULL
+        item ITEM_NONE
+        move MOVE_HEADBUTT
+        move MOVE_BITE
+        move MOVE_LICK
+        move MOVE_CHARM
+        ballseal 0
+		
+        // mon 2
+        ivs 0
+        abilityslot 0
+        level 21
+        pokemon SPECIES_PORYGON2
+        item ITEM_NONE
+        move MOVE_HIDDEN_POWER
+        move MOVE_SONIC_BOOM
+        move MOVE_HARDEN
+        move MOVE_CONVERSION
+        ballseal 0
+
+        // mon 3
+        ivs 0
+        abilityslot 0
+        level 21
         pokemon SPECIES_MILTANK
         item ITEM_NONE
         move MOVE_ROLLOUT
@@ -16721,7 +16745,7 @@ trainerdata 495, "Boy"
         abilityslot 0
         level 5
         pokemon SPECIES_CHIKORITA
-        move MOVE_TACKLE
+        move MOVE_POUND
         move MOVE_NONE
         move MOVE_NONE
         move MOVE_NONE
@@ -16771,7 +16795,7 @@ trainerdata 497, "Boy"
         abilityslot 0
         level 5
         pokemon SPECIES_TOTODILE
-        move MOVE_TACKLE
+        move MOVE_SCRATCH
         move MOVE_NONE
         move MOVE_NONE
         move MOVE_NONE

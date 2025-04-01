@@ -415,13 +415,13 @@ The opposing {STRVAR_1 1, 0, 0} began\nhaving a nightmare!
 {STRVAR_1 1, 0, 0} is locked\nin a nightmare!
 The wild {STRVAR_1 1, 0, 0} is locked\nin a nightmare!
 The opposing {STRVAR_1 1, 0, 0} is locked\nin a nightmare!
-{STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on {STRVAR_1 1, 1, 0}!
-{STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on the wild\f{STRVAR_1 1, 1, 0}!
-{STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on the opposing\f{STRVAR_1 1, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on {STRVAR_1 1, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on the wild\f{STRVAR_1 1, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on {STRVAR_1 1, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on the opposing\f{STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} cut its own HP\nand casted a curse!
+{STRVAR_1 1, 0, 0} cut its own HP\nand casted a curse!
+{STRVAR_1 1, 0, 0} cut its own HP\nand casted a curse!
+The wild {STRVAR_1 1, 0, 0} cut its own HP\nand casted a curse!
+The wild {STRVAR_1 1, 0, 0} cut its own HP\nand casted a curse!
+The opposing {STRVAR_1 1, 0, 0} cut its own HP\nand casted a curse!
+The opposing {STRVAR_1 1, 0, 0} cut its own HP\nand casted a curse!
 {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
 The wild {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
 The opposing {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
@@ -511,16 +511,16 @@ The opposing {STRVAR_1 1, 0, 0} is ready to\nhelp the opposing {STRVAR_1 1, 1, 0
 {STRVAR_1 1, 0, 0} switched\nitems with its target!
 The wild {STRVAR_1 1, 0, 0} switched\nitems with its target!
 The opposing {STRVAR_1 1, 0, 0} switched\nitems with its target!
-{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.
-The wild {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.
-The opposing {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.
-{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.
-{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
-{STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
-The wild {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
-The wild {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
-The opposing {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
-The opposing {STRVAR_1 1, 0, 0} obtained\n a/an {STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n a/an {STRVAR_1 8, 3, 0}.\r
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
+The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
+The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
+The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
 {STRVAR_1 1, 0, 0} copied\n{STRVAR_1 1, 1, 0}’s Ability!
 {STRVAR_1 1, 0, 0} copied the wild\n{STRVAR_1 1, 1, 0}’s Ability!
 {STRVAR_1 1, 0, 0} copied the opposing\n{STRVAR_1 1, 1, 0}’s Ability!
@@ -817,7 +817,7 @@ But it failed to swallow a thing!
 The wind turned into a\nheat wave!
 All stat changes were\neliminated!
 Coins were scattered everywhere!
-But it does not have enough HP\nleft to make a substitute!
+But it does not have enough HP!
 The battlers shared\ntheir pain!
 A bell chimed!
 All Pokémon that heard the song\nwill faint in three turns!
@@ -1129,7 +1129,7 @@ The opposing {STRVAR_1 1, 2, 0} is tormented\nby the opposing {STRVAR_1 1, 0, 0}
 {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
-(Unused)
+Its disguise served it as a decoy!
 {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}\nis hurt by its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\nis hurt by its {STRVAR_1 8, 1, 0}!
@@ -1334,9 +1334,9 @@ The opposing {STRVAR_1 1, 0, 0} transformed\ninto the Water type!
 {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
-(Unused)
-(Unused)
-(Unused)
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas bounced back by Magic Bounce!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas bounced back by Magic Bounce!
+The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas bounced back by Magic Bounce!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas disabled by Cursed Body!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
@@ -1352,12 +1352,12 @@ The opposing {STRVAR_1 1, 0, 0}’s\nillusion wore off!
 {STRVAR_1 1, 0, 0}’s disguise was busted!
 The wild {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
 The opposing {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
-{STRVAR_1 1, 0, 0}’s ice face shattered!
-The wild {STRVAR_1 1, 0, 0}’s ice face\nshattered!
-The opposing {STRVAR_1 1, 0, 0}’s ice face\nshattered!
-{STRVAR_1 1, 0, 0}’s ice face was restored!
-The wild {STRVAR_1 1, 0, 0}’s ice face was\nrestored!
-The opposing {STRVAR_1 1, 0, 0}’s ice face was\nrestored!
+(Unused)
+(Unused)
+(Unused)
+(Unused)
+(Unused)
+(Unused)
 You sense the presence of many!
 {STRVAR_1 1, 0, 0} transformed into its Complete\nForme!
 The wild {STRVAR_1 1, 0, 0} transformed\ninto its Complete Forme!

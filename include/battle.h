@@ -273,7 +273,7 @@
 #define STATUS2_UPROAR (0x00000070)
 #define STATUS2_RAMPAGE_TURNS (0x00000C00)
 #define STATUS2_LOCKED_INTO_MOVE (0x00001000)
-#define STATUS2_BINDING_TURNS (0x0000E000) // no longer used, see sp->binding_turns
+#define STATUS2_BINDING_TURNS (0x0000E000) // no longer used, see sp->binding_turns, hijacked for Stockpile
 #define STATUS2_ATTRACT (0x000f0000)
 #define STATUS2_FOCUS_ENERGY (0x00100000)
 #define STATUS2_TRANSFORMED (0x00200000)
@@ -446,78 +446,72 @@
  *
  *  specifically used for printmessage battle script command
  */
-#define TAG_NONE                        (0)     //nothing
+#define TAG_NONE                                            0
+#define TAG_NONE_SIDE                                       1
+#define TAG_NICKNAME                                        2
+#define TAG_MOVE                                            3
+#define TAG_STAT                                            4
+#define TAG_ITEM                                            5
+#define TAG_NUMBER                                          6
+#define TAG_NUMBERS                                         7
+#define TAG_TRNAME                                          8
+#define TAG_NICKNAME_NICKNAME                               9
+#define TAG_NICKNAME_MOVE                                   10
+#define TAG_NICKNAME_ABILITY                                11
+#define TAG_NICKNAME_STAT                                   12
+#define TAG_NICKNAME_TYPE                                   13
+#define TAG_NICKNAME_POKE                                   14
+#define TAG_NICKNAME_ITEM                                   15
+#define TAG_NICKNAME_POFFIN                                 16
+#define TAG_NICKNAME_NUM                                    17
+#define TAG_NICKNAME_TRNAME                                 18
+#define TAG_NICKNAME_BOX                                    19
+#define TAG_MOVE_SIDE                                       20
+#define TAG_MOVE_NICKNAME                                   21
+#define TAG_MOVE_MOVE                                       22
+#define TAG_ABILITY_NICKNAME                                23
+#define TAG_ITEM_MOVE                                       24
+#define TAG_NUMBER_NUMBER                                   25
+#define TAG_TRNAME_TRNAME                                   26
+#define TAG_TRNAME_NICKNAME                                 27
+#define TAG_TRNAME_ITEM                                     28
+#define TAG_TRNAME_NUM                                      29
+#define TAG_TRCLASS_TRNAME                                  30
+#define TAG_NICKNAME_NICKNAME_MOVE                          31
+#define TAG_NICKNAME_NICKNAME_ABILITY                       32
+#define TAG_NICKNAME_NICKNAME_ITEM                          33
+#define TAG_NICKNAME_MOVE_MOVE                              34
+#define TAG_NICKNAME_MOVE_NUMBER                            35
+#define TAG_NICKNAME_ABILITY_NICKNAME                       36
+#define TAG_NICKNAME_ABILITY_MOVE                           37
+#define TAG_NICKNAME_ABILITY_ITEM                           38
+#define TAG_NICKNAME_ABILITY_STAT                           39
+#define TAG_NICKNAME_ABILITY_TYPE                           40
+#define TAG_NICKNAME_ABILITY_STATUS                         41
+#define TAG_NICKNAME_ABILITY_NUMBER                         42
+#define TAG_NICKNAME_ITEM_NICKNAME                          43
+#define TAG_NICKNAME_ITEM_MOVE                              44
+#define TAG_NICKNAME_ITEM_STAT                              45
+#define TAG_NICKNAME_ITEM_STATUS                            46
+#define TAG_NICKNAME_BOX_BOX                                47
+#define TAG_ITEM_NICKNAME_FLAVOR                            48
+#define TAG_TRNAME_NICKNAME_NICKNAME                        49
+#define TAG_TRCLASS_TRNAME_NICKNAME                         50
+#define TAG_TRCLASS_TRNAME_ITEM                             51
+#define TAG_NICKNAME_ABILITY_NICKNAME_MOVE                  52
+#define TAG_NICKNAME_ABILITY_NICKNAME_ABILITY               53
+#define TAG_NICKNAME_ABILITY_NICKNAME_STAT                  54
+#define TAG_NICKNAME_ITEM_NICKNAME_ITEM                     55
+#define TAG_TRNAME_NICKNAME_TRNAME_NICKNAME                 56
+#define TAG_TRCLASS_TRNAME_NICKNAME_NICKNAME                57
+#define TAG_TRCLASS_TRNAME_NICKNAME_TRNAME                  58
+#define TAG_TRCLASS_TRNAME_TRCLASS_TRNAME                   59
+#define TAG_TRCLASS_TRNAME_NICKNAME_TRCLASS_TRNAME_NICKNAME 60
 
-#define TAG_NONE_DIR                    (1)     //nothing (but switch depending on team)
-#define TAG_NICK                        (2)     //nickname
-#define TAG_MOVE                        (3)     //move
-#define TAG_STAT                        (4)     //stat
-#define TAG_ITEM                        (5)     //helditem
-#define TAG_NUM                         (6)     //number
-#define TAG_NUMS                        (7)     //number(right aligned)
-#define TAG_TRNAME                      (8)     //trainername
-
-#define TAG_NICK_NICK                   (9)     //nickname      nickname
-#define TAG_NICK_MOVE                   (10)    //nickname      move
-#define TAG_NICK_ABILITY                (11)    //nickname      ability
-#define TAG_NICK_STAT                   (12)    //nickname      stat
-#define TAG_NICK_TYPE                   (13)    //nickname      type
-#define TAG_NICK_POKE                   (14)    //nickname      pokémon
-#define TAG_NICK_ITEM                   (15)    //nickname      helditem
-#define TAG_NICK_UNK                    (16)    //nickname      ?
-#define TAG_NICK_NUM                    (17)    //nickname      number
-#define TAG_NICK_TRNAME                 (18)    //nickname      trainername
-#define TAG_NICK_BOX                    (19)    //nickname      boxname
-#define TAG_MOVE_DIR                    (20)    //move (but switch depending on team)
-#define TAG_MOVE_NICK                   (21)    //move          nickname
-#define TAG_MOVE_MOVE                   (22)    //move          move
-#define TAG_ABILITY_NICK                (23)    //ability       nickname
-#define TAG_ITEM_MOVE                   (24)    //helditem      move
-#define TAG_NUM_NUM                     (25)    //number        number
-#define TAG_TRNAME_TRNAME               (26)    //trainername   trainername
-#define TAG_TRNAME_NICK                 (27)    //trainername   nickname
-#define TAG_TRNAME_ITEM                 (28)    //trainername   helditem
-#define TAG_TRNAME_NUM                  (29)    //trainername   number
-#define TAG_TRTITLE_TRNAME              (30)    //trainertitle  trainername
-
-#define TAG_NICK_NICK_MOVE              (31)    //nickname      nickname        move
-#define TAG_NICK_NICK_ABILITY           (32)    //nickname      nickname        ability
-#define TAG_NICK_NICK_ITEM              (33)    //nickname      nickname        helditem
-#define TAG_NICK_MOVE_MOVE              (34)    //nickname      move            move
-#define TAG_NICK_MOVE_NUM               (35)    //nickname      move            number
-#define TAG_NICK_ABILITY_NICK           (36)    //nickname      ability         nickname
-#define TAG_NICK_ABILITY_MOVE           (37)    //nickname      ability         move
-#define TAG_NICK_ABILITY_ITEM           (38)    //nickname      ability         helditem
-#define TAG_NICK_ABILITY_STAT           (39)    //nickname      ability         stat
-#define TAG_NICK_ABILITY_TYPE           (40)    //nickname      ability         type
-#define TAG_NICK_ABILITY_COND           (41)    //nickname      ability         condition
-#define TAG_NICK_ABILITY_NUM            (42)    //nickname      ability         number
-#define TAG_NICK_ITEM_NICK              (43)    //nickname      helditem        nickname
-#define TAG_NICK_ITEM_MOVE              (44)    //nickname      helditem        move
-#define TAG_NICK_ITEM_STAT              (45)    //nickname      helditem        stat
-#define TAG_NICK_ITEM_COND              (46)    //nickname      helditem        condition
-#define TAG_NICK_BOX_BOX                (47)    //nickname      box             box
-#define TAG_ITEM_NICK_TASTE             (48)    //helditem      nickname        taste
-#define TAG_TRNAME_NICK_NICK            (49)    //trainername   nickname        nickname
-#define TAG_TRTYPE_TRNAME_NICK          (50)    //trainertitle  trainername     nickname
-#define TAG_TRTYPE_TRNAME_ITEM          (51)    //trainertitle  trainername     helditem
-
-#define TAG_NICK_ABILITY_NICK_MOVE      (52)    //nickname      ability         nickname        move
-#define TAG_NICK_ABILITY_NICK_ABILITY   (53)    //nickname      ability         nickname        ability
-#define TAG_NICK_ABILITY_NICK_STAT      (54)    //nickname      ability         nickname        stat
-#define TAG_NICK_ITEM_NICK_ITEM         (55)    //nickname      helditem        nickname        helditem
-#define TAG_TRNAME_NICK_TRNAME_NICK     (56)    //trainername   nickname        trainername     nickname
-#define TAG_TRTYPE_TRNAME_NICK_NICK     (57)    //trainertitle  trainername     nickname        nickname
-#define TAG_TRTYPE_TRNAME_NICK_TRNAME   (58)    //trainertitle  trainername     nickname        trainername
-#define TAG_TRTYPE_TRNAME_TRTYPE_TRNAME (59)    //trainertitle  trainername     trainertitle    trainername
-
-#define TAG_TRTYPE_TRNAME_NICK_TRTYPE_TRNAME_NICK \
-                                        (60)    //trainertitle  trainername     nickname        trainertitle  trainername     nickname
-
-
+// https://github.com/pret/pokeplatinum/blob/main/include/constants/battle/message_tags.h#L7
 #define TAG_NO_DIR                      (0x80)
 #define TAG_DIR                         (0x40)
-#define TAG_NO_DIR_OFF                  (0x3f)
+#define TAG_NO_DIR_OFF                  (0xFF ^ TAG_NO_DIR ^ TAG_DIR)
 
 
 /**
@@ -809,22 +803,15 @@ struct __attribute__((packed)) BattlePokemon
                u8 ability;                   /**< ability index */
 
                /** switch in flags to mark it as having been done */
-    /* 0x28 */ u32 appear_check_flag : 1;    /**< has appeared */
-               u32 intimidate_flag : 1;      /**< intimidate has activated */
-               u32 trace_flag : 1;           /**< trace has activated */
-               u32 download_flag : 1;        /**< download has activated */
-               u32 anticipation_flag : 1;    /**< anticipation has printed its message */
-               u32 forewarn_flag : 1;        /**< forewarn has printed its message */
+    /* 0x28 */ u32 paddingForNow1 : 6;
                u32 slow_start_flag : 1;      /**< slow start has printed its message */
                u32 slow_start_end_flag : 1;  /**< slow start should end */
-               u32 frisk_flag : 1;           /**< frisk has printed its message */
-               u32 mold_breaker_flag : 1;    /**< mold breaker has printed its message */
-               u32 pressure_flag : 1;        /**< pressure has printed its message */
+               u32 paddingForNow2 : 3;
                u32 canMega : 1;              /**< the BattlePokemon can mega */
                u32 sheer_force_flag : 1;     /**< keep track of sheer force activation */
                u32 imposter_flag : 1;        /**< imposter has activated */
                u32 critical_hits : 2;        /**< tracks the amount of critical hits the pokémon has landed while in battle so far */
-               u32 air_ballon_flag : 1;      /**< the held air balloon has printed its message */
+               u32 air_balloon_flag : 1;      /**< the held air balloon has printed its message */
                u32 potentially_affected_by_psychic_terrain_move_used_flag : 1;
                u32 ability_activated_flag : 1;
                u32 tera_type : 5;
@@ -1151,13 +1138,19 @@ typedef struct FutureCondition {
     u8 affectedClient;
 } FutureCondition;
 
+typedef struct OnceOnlyAbilityFlags {
+    BOOL battleBondFlag;
+    BOOL intrepidSwordFlag;
+    BOOL dauntlessShieldFlag;
+    BOOL superSweetSyrupFlag;
+} OnceOnlyAbilityFlags;
+
 /**
  *  @brief the entire battle structure that we are interested in (for the most part)
  *
  *  tracks everything about battle state.  consider it a "battle global" structure
  */
-struct PACKED BattleStruct
-{
+struct PACKED BattleStruct {
     /*0x0*/ u8 com_seq_no[CLIENT_MAX];
     /*0x4*/ u8 ret_seq_no[CLIENT_MAX];
     /*0x8*/ int server_seq_no;
@@ -1355,16 +1348,15 @@ struct PACKED BattleStruct
                u8 original_bgId:7;
                u8 hasLoadedBgIdOver:1;
                u32 moveStatusFlagForSpreadMoves[CLIENT_MAX];
-               // u32 or int?
-               u32 damageForSpreadMoves[CLIENT_MAX];
+               u32 damageForSpreadMoves[CLIENT_MAX]; // u32 or int?
                u8 clientLoopForSpreadMoves;
                BOOL boostedAccuracy;
                BOOL moveStolen;
                BOOL moveBounced;
                u8 rawSpeedNonRNGClientOrder[CLIENT_MAX];
-               // idk it's probably not u8?
-               int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX];
+               int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
+			   OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
 };
 
 enum {
@@ -1413,7 +1405,7 @@ struct BattleSystem {
     /* 0x08 */ void * /*Window **/ window;
     /* 0x0C */ u32 *unkC;
     /* 0x10 */ u32 *unk10;
-    /* 0x14 */ u32 *unk14;
+    /* 0x14 */ u32 *msgFormat;
     /* 0x18 */ void * /*String **/ msgBuffer;
     /* 0x1C */ u32 unk1C;
     /* 0x20 */ u32 unk20;
@@ -1944,11 +1936,11 @@ void LONG_CALL DistributeEffortValues(struct Party *party, u32 slot, u32 species
 /**
  *  @brief grab battler ability.  don't consider mold breaker in this
  *
- *  @param sp global battle structure
- *  @param client battler to check
+ *  @param ctx global battle structure
+ *  @param battlerId battler to check
  *  @return ability index that battler has
  */
-int LONG_CALL GetBattlerAbility(struct BattleStruct *sp, int client);
+u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId);
 
 /**
  *  @brief perform damage division, setting the variables that need to be set for damage in general
@@ -2897,7 +2889,7 @@ BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int va
  *  @param ability ability to check for
  *  @return TRUE if the defender has the ability and it isn't canceled by mold breaker; FALSE otherwise
  */
-u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
+u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, u32 ability);
 
 /**
  *  @brief check if a move should activate the defender's ability and run a subscript
@@ -3595,6 +3587,24 @@ void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleS
 BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
 
 BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
+
+void LONG_CALL BattleMessage_BufferNickname(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferMove(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferItem(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferNumber(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferNumbers(struct BattleSystem *bsys, int bufferIndex, int param, int numDigits);
+void LONG_CALL BattleMessage_BufferType(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferAbility(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferStat(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferStatus(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferPokemon(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferPoffin(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferFlavorPreference(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferTrainerClass(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferTrainerName(struct BattleSystem *bsys, int bufferIndex, int param);
+void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int bufferIndex, int param);
+
+void LONG_CALL BufferItemNameWithIndefArticle(u32 *msgFmt, u32 fieldno, u32 itemId);
 
 BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx);
 

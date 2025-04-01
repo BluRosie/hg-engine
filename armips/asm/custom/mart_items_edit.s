@@ -392,7 +392,7 @@ END_OF_LIST equ 0xFFFF
 .halfword ITEM_KINGS_ROCK
 .halfword 1
 .halfword ITEM_DRAGON_SCALE
-.halfword 0
+.halfword 1
 .halfword END_OF_LIST
 .halfword 0
 .halfword END_OF_LIST

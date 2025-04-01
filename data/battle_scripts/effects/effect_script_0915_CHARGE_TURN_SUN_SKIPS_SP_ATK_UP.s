@@ -4,7 +4,7 @@
 
 _000:
     CheckIgnoreWeather _006
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_RAIN_ALL, _028
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN_ALL, _028
 
 _006:
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS2, STATUS2_LOCKED_INTO_MOVE, _033
@@ -23,8 +23,8 @@ _028:
     PrintAttackMessage
     Wait 
     WaitButtonABTime 30
-	// {0} absorbed electricity!
-    BufferMessage 1480, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
+    // {0} absorbed light!
+    BufferMessage 214, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Call BATTLE_SUBSCRIPT_SP_ATK_UP_RAIN_SKIP /* Need a separate subscript here so the Power Herb isnt animated and removed. */
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLER_TARGET, BATTLER_NONE, _035
 

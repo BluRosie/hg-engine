@@ -1,0 +1,8 @@
+{COLOR 2}♈{COLOR 0}Items
+{COLOR 2}♌{COLOR 0}Medicine
+{COLOR 2}♎{COLOR 0}Poké Balls
+{COLOR 2}♊{COLOR 0}TMs & HMs
+{COLOR 2}♍{COLOR 0}Berries
+{COLOR 2}♋{COLOR 0}Mail
+{COLOR 2}♏{COLOR 0}Battle Items
+{COLOR 2}♉{COLOR 0}Key Items

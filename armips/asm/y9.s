@@ -141,7 +141,7 @@ UNCOMPRESSED equ 0x00000000
 .word 129, 0x023D8000, filesize("base/overlay/overlay_0129.bin"), 0x00000000, 0x00000000, 0x00000000, 129, UNCOMPRESSED // arm9 expansion
 .word 130, 0x023C4000, filesize("base/overlay/overlay_0130.bin"), 0x00000000, 0x00000000, 0x00000000, 130, UNCOMPRESSED // battle overlay
 .word 131, 0x023C8000, filesize("base/overlay/overlay_0131.bin"), 0x00000000, 0x00000000, 0x00000000, 131, UNCOMPRESSED // field overlay
-.word 132, 0x021FBE60, filesize("base/overlay/overlay_0132.bin"), 0x00000000, 0x00000000, 0x00000000, 132, UNCOMPRESSED // pokedex overlay - located after the dex overlay in overlay 0's place
+.word 132, 0x021FBE60, filesize("base/overlay/overlay_0132.bin"), 0x00000000, 0x00000000, 0x00000000, 132, UNCOMPRESSED // pokedex overlay - located after the dex overlay in overlay 0s place
 .word 133, 0x023C0400, filesize("base/overlay/overlay_0133.bin"), 0x00000000, 0x00000000, 0x00000000, 133, UNCOMPRESSED // getmonevolution overlay
 .word 134, 0x021FBE60, filesize("base/overlay/overlay_0134.bin"), 0x00000000, 0x00000000, 0x00000000, 134, UNCOMPRESSED // getmonevolution overlay for battles
 .word 135, 0x023C0400, filesize("base/overlay/overlay_0135.bin"), 0x00000000, 0x00000000, 0x00000000, 135, UNCOMPRESSED // MoveHitDefenderAbilityCheck specific overlay
@@ -152,5 +152,6 @@ UNCOMPRESSED equ 0x00000000
 .word 140, 0x023C0400, filesize("base/overlay/overlay_0140.bin"), 0x00000000, 0x00000000, 0x00000000, 140, UNCOMPRESSED // CheckDefenderItemEffectOnHit specific overlay
 .word 141, 0x023C0400, filesize("base/overlay/overlay_0141.bin"), 0x00000000, 0x00000000, 0x00000000, 141, UNCOMPRESSED // ServerFieldConditionCheck specific overlay
 .word 142, 0x021E5900, filesize("base/overlay/overlay_0142.bin"), 0x00000000, 0x00000000, 0x00000000, 142, UNCOMPRESSED // BattleController_BeforeMove specific overlay
+.word 143, 0x023C0400, filesize("base/overlay/overlay_0143.bin"), 0x00000000, 0x00000000, 0x00000000, 143, UNCOMPRESSED // BattleSystem_BufferMessage specific overlay
 
 .close
