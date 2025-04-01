@@ -2425,7 +2425,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
     }
 
     /*Spikes*/
-    if(attacker_move_effect == MOVE_EFFECT_SET_SPIKES){
+    else if(attacker_move_effect == MOVE_EFFECT_SET_SPIKES){
         if(BattleRand(bsys) % 2 < 1){
             moveScore += 0;
         }
@@ -2440,7 +2440,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
     }
 
     /*Foresight & Odor Sleuth*/
-    if(attacker_move_effect == MOVE_EFFECT_IGNORE_EVASION_REMOVE_GHOST_IMMUNE){
+    else if(attacker_move_effect == MOVE_EFFECT_IGNORE_EVASION_REMOVE_GHOST_IMMUNE){
         if(HasType(ctx, defender, TYPE_GHOST)){
             if(BattleRand(bsys) % 2 < 1){
                 moveScore += 2;
@@ -2457,7 +2457,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
     }
 
     /*Miracle Eye*/
-    if(attacker_move_effect == MOVE_EFFECT_IGNORE_EVATION_REMOVE_DARK_IMMUNE){
+    else if(attacker_move_effect == MOVE_EFFECT_IGNORE_EVATION_REMOVE_DARK_IMMUNE){
         if(HasType(ctx, defender, TYPE_DARK)){
             if(BattleRand(bsys) % 2 < 1){
                 moveScore += 2;
@@ -2474,7 +2474,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
     }
 
     /*Endure*/
-    if(attacker_move_effect == MOVE_EFFECT_SURVIVE_WITH_1_HP){
+    else if(attacker_move_effect == MOVE_EFFECT_SURVIVE_WITH_1_HP){
         if(attacker_percent_hp < 4){
             moveScore -= 1;
         }
@@ -2488,7 +2488,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
     /*Substitute*/
     /*This logic seems to create a discrete distribution 
     of probability depending on the user's HP*/
-    if(attacker_move_effect == MOVE_EFFECT_SET_SUBSTITUTE){
+    else if(attacker_move_effect == MOVE_EFFECT_SET_SUBSTITUTE){
         if(BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_HIT_LAST_WHIFF_IF_HIT)){
             if(BattleRand(bsys) % 10 < 6){
                 moveScore += 1;
@@ -2543,7 +2543,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
 
     /*Baton Pass*/
     /*This also has its own flag*/
-    if(attacker_move_effect == MOVE_EFFECT_PASS_STATS_AND_STATUS){
+    else if(attacker_move_effect == MOVE_EFFECT_PASS_STATS_AND_STATUS){
         if(BattlerHasStatBoostGreater(bsys, attacker, 9)){//+3
             if(defender_moves_first && attacker_percent_hp <= 70){
                 if(BattleRand(bsys) % 10 < 7){
@@ -2571,7 +2571,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
 
     /*Pursuit*/
     //TODO: once again, really weird ai logic from gamefreak
-    if(attacker_move_effect == MOVE_EFFECT_HIT_BEFORE_SWITCH){
+    else if(attacker_move_effect == MOVE_EFFECT_HIT_BEFORE_SWITCH){
         if(attacker_turns_on_field == 0){
             if(BattleRand(bsys) % 2 < 1){
                 moveScore += 1;
@@ -2590,7 +2590,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
     }
 
     /*Rain Dance*/
-    if(attacker_move_effect == MOVE_EFFECT_WEATHER_RAIN){
+    else if(attacker_move_effect == MOVE_EFFECT_WEATHER_RAIN){
         if(defender_moves_first && attacker_ability == ABILITY_SWIFT_SWIM && !trick_room_active){
             moveScore += 1;
         }
@@ -2602,7 +2602,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
                 ctx->field_condition & WEATHER_SNOW_ANY ||
                 ctx->field_condition & WEATHER_SANDSTORM_ANY ||
                 ctx->field_condition & WEATHER_RAIN_ANY){
-                    moveScore -= 1;
+                    moveScore += 1;
             }
             else if(attacker_ability == ABILITY_RAIN_DISH ||
                     (attacker_ability == ABILITY_HYDRATION && !(ctx->battlemon[attacker].condition & STATUS_NONE))){
@@ -2612,7 +2612,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
     }
     
     /*Sunny Day*/
-    if(attacker_move_effect == MOVE_EFFECT_WEATHER_SUN){
+    else if(attacker_move_effect == MOVE_EFFECT_WEATHER_SUN){
         if(defender_moves_first && attacker_ability == ABILITY_CHLOROPHYLL && !trick_room_active){
             moveScore += 1;
         }
@@ -2624,7 +2624,7 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
                 ctx->field_condition & WEATHER_SNOW_ANY ||
                 ctx->field_condition & WEATHER_SANDSTORM_ANY ||
                 ctx->field_condition & WEATHER_SUNNY_ANY){
-                    moveScore -= 1;
+                    moveScore += 1;
             }
             else if(attacker_ability == ABILITY_FLOWER_GIFT ||
                     (attacker_ability == ABILITY_LEAF_GUARD && (ctx->battlemon[attacker].condition & STATUS_NONE))){
@@ -2634,10 +2634,154 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i){
     }
 
     /*Hail & Snow*/  
+    else if(attacker_move_effect == MOVE_EFFECT_WEATHER_SNOW ||
+        attacker_move_effect == MOVE_EFFECT_WEATHER_HAIL){
+        if(defender_moves_first && attacker_ability == ABILITY_SLUSH_RUSH && !trick_room_active){
+            moveScore += 1;
+        }
+        else{
+            if(attacker_percent_hp < 40){
+                moveScore -= 1;
+            }
+            else if(BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_BLIZZARD)){
+                moveScore += 2;
+            }
+            else if(ctx->field_condition & WEATHER_RAIN_ANY ||
+                ctx->field_condition & WEATHER_SANDSTORM_ANY ||
+                ctx->field_condition & WEATHER_SUNNY_ANY){
+                    moveScore += 1;
+            }
+            
+            else if(attacker_ability == ABILITY_ICE_BODY){
+                    moveScore += 2;
+            }
+        }
+    }
 
+    /*Gravity*/
+    else if(attacker_move_effect == MOVE_EFFECT_GRAVITY){
+        if(defender_ability == ABILITY_LEVITATE ||
+            ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MAGNET_RISE || 
+            HasType(ctx, defender, TYPE_FLYING)){
+            if(BattleRand(bsys) % 4 < 3){
+                moveScore += 1;
+            }
+        }
+        else if(attacker_percent_hp >= 60){
+            if(BattleRand(bsys) % 10 < 4){
+                moveScore += 1;
+            }
+        }
 
+    }
+
+    /*Tailwind*/
+    /*TODO: This logic sucks, definitely change for custom hacks*/
+    else if(attacker_move_effect == MOVE_EFFECT_DOUBLE_SPEED_3_TURNS){
+        if(BattleRand(bsys) % 4 < 1){
+            moveScore += 0;
+        }
+        else{
+            if(attacker_moves_first){
+                moveScore -= 1;
+            }
+            else if(attacker_percent_hp <= 30){
+                moveScore -= 1;
+            }
+            else if(attacker_percent_hp > 75){
+                moveScore += 1;
+            }
+            else{
+                if(BattleRand(bsys) % 4 < 3){
+                    moveScore += 1;
+                }
+            }
+        }
+    }
+
+    /*Belly Drum*/
+    else if(attacker_move_effect == MOVE_EFFECT_MAX_ATK_LOSE_HALF_MAX_HP){
+        if(attacker_percent_hp < 90){
+            moveScore -= 2;
+        }
+    }
+
+    /*Psych Up*/
+    else if(attacker_move_effect == MOVE_EFFECT_COPY_STAT_CHANGES){
+        if(BattlerHasStatBoostGreater(bsys, defender, 9)){//greater than +3
+            if(ctx->battlemon[attacker].states[STAT_EVASION] <= 6){//+0 or lower
+                moveScore += 2;
+            }
+            else if(ctx->battlemon[attacker].states[STAT_ATTACK] <= 6 ||
+                ctx->battlemon[attacker].states[STAT_DEFENSE] <= 6 ||
+                ctx->battlemon[attacker].states[STAT_SPATK] <= 6 ||
+                ctx->battlemon[attacker].states[STAT_SPDEF] <= 6){
+                    moveScore += 1;
+                }
+            else{
+                if(BattleRand(bsys) % 10 < 8){
+                    moveScore -= 2;
+                }
+            }
+        }
+        else{
+            moveScore -= 2;
+        }
+    }
+
+    /*Facade*/
+    else if(attacker_move_effect == MOVE_EFFECT_DOUBLE_POWER_WHEN_STATUSED){
+        if(ctx->battlemon[attacker].condition & STATUS_PARALYSIS ||
+            ctx->battlemon[attacker].condition & STATUS_BURN ||
+            ctx->battlemon[attacker].condition & STATUS_POISON_ALL){
+                moveScore += 1;
+            }
+    }
+
+    /*Focus Punch*/
+    else if(attacker_move_effect == MOVE_EFFECT_HIT_LAST_WHIFF_IF_HIT){
+        if(attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_EFFECTIVE ||
+            attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE){
+                moveScore -= 1;
+        }
+        else if(ctx->battlemon[attacker].condition2 & STATUS2_SUBSTITUTE){
+            moveScore += 5;
+        }
+        else if(ctx->battlemon[defender].condition & STATUS_SLEEP){
+            moveScore += 1;
+        }
+        else if(ctx->battlemon[defender].condition2 & STATUS2_CONFUSION ||
+            ctx->battlemon[defender].condition2 & STATUS2_ATTRACT){
+            if(BattleRand(bsys) % 10 < 6){
+                moveScore += 1;
+            }
+        }
+        else if(attacker_turns_on_field != 0){
+            if(BattleRand(bsys) % 5 < 1){
+                moveScore += 1;
+            }
+        }
+    }
+
+    /*Smelling Salt*/
+    else if(attacker_move_effect == MOVE_EFFECT_DOUBLE_POWER_AND_CURE_PARALYSIS){
+        if(ctx->battlemon[defender].condition & STATUS_PARALYSIS){
+            moveScore += 2;
+        }
+    }
     
+    /*Wake-Up Slap*/
+    else if(attacker_move_effect == MOVE_EFFECT_DOUBLE_POWER_HEAL_SLEEP){
+        if(attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_EFFECTIVE ||
+            attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE){
+            moveScore -= 1;
+        }
+        else if(ctx->battlemon[defender].condition & STATUS_SLEEP){
+            moveScore += 2;
+        }
+    }
 
+    /*Trick & Switcheroo*/
 
 
     return moveScore;
