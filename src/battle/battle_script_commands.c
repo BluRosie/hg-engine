@@ -3217,14 +3217,14 @@ void BattleContext_RemoveEntryHazardFromQueue(struct BattleStruct *ctx, u32 side
         }
     }
 #ifdef DEBUG_ENTRY_HAZARD_PRINTS
-    debug_printf("[BattleContext_RemoveEntryHazardFromQueue] Removed hazard %s from side %d queue.\n    Remaining queue:\n    %s,\n    %s,\n    %s,\n    %s,\n    %s\n",
+    debug_printf("[BattleContext_RemoveEntryHazardFromQueue] Removed hazard %s from side %d queue.\nRemaining queue:\n",
         gHazardNames[hazard],
-        side,
-        gHazardNames[ctx->entryHazardQueue[side][0]],
-        gHazardNames[ctx->entryHazardQueue[side][1]],
-        gHazardNames[ctx->entryHazardQueue[side][2]],
-        gHazardNames[ctx->entryHazardQueue[side][3]],
-        gHazardNames[ctx->entryHazardQueue[side][4]]);
+        side)
+    for (i = 0; i < NUM_HAZARD_IDX; i++)
+    {
+        if (ctx->entryHazardQueue[side][i] != HAZARD_IDX_NONE)
+            debug_printf("    [%d] = %s\n", i, gHazardNames[ctx->entryHazardQueue[side][i]]);
+    }
 #endif
 }
 
