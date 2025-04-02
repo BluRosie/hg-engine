@@ -937,28 +937,31 @@
 #define MOVE_UPPER_HAND 921
 #define MOVE_MALIGNANT_CHAIN 922
 
-// null moves
-#define MOVE_NIBBLE 923
-#define MOVE_KNEAD 924
-#define MOVE_JAB 925
-#define MOVE_WATERMILL 926
-#define MOVE_TRAMPLE 927
-#define MOVE_LEAP 928
-#define MOVE_SHOCK 929
-#define MOVE_SKID 930
-#define MOVE_SHEAR 931
-#define MOVE_PALM_CLOSE 932
-#define MOVE_SKULK_OUT 933
-#define MOVE_CACKLE 934
-#define MOVE_SOMERSAULT 935
-
 // there are a bunch more here but that is fine
 
-#define NUM_OF_MOVES 936
+#define NUM_OF_CANONICAL_MOVES 923
 
-#define ADD_G_MAX_MOVES 0
+// make.py doesn't support constants for now
+// define your new moves below like this
+// #define MOVE_CUSTOM_MOVE_1 924
 
-#ifdef ADD_G_MAX_MOVES
+// null moves
+#define MOVE_NIBBLE 924
+#define MOVE_KNEAD 925
+#define MOVE_JAB 926
+#define MOVE_WATERMILL 927
+#define MOVE_TRAMPLE 928
+#define MOVE_LEAP 929
+#define MOVE_SHOCK 930
+#define MOVE_SKID 931
+#define MOVE_SHEAR 932
+#define MOVE_PALM_CLOSE 933
+#define MOVE_SKULK_OUT 934
+#define MOVE_CACKLE 935
+#define MOVE_SOMERSAULT 936
+
+// update this number yourself manually
+#define NUM_OF_MOVES 937
 
 #define MOVE_G_MAX_WILDFIRE (NUM_OF_MOVES-1+1)
 #define MOVE_G_MAX_BEFUDDLE (NUM_OF_MOVES-1+2)
@@ -993,7 +996,5 @@
 #define MOVE_G_MAX_HYDROSNIPE (NUM_OF_MOVES-1+31)
 #define MOVE_G_MAX_ONE_BLOW (NUM_OF_MOVES-1+32)
 #define MOVE_G_MAX_RAPID_FLOW (NUM_OF_MOVES-1+33)
-
-#endif
 
 #endif

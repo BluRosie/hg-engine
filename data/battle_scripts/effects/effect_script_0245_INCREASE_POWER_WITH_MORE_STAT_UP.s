@@ -3,7 +3,7 @@
 .data
 
 _000:
-    CalcPunishmentPower
+    CalcPunishmentPower 
     CalcCrit 
     CalcDamage 
     End 

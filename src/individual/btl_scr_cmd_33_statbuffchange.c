@@ -88,7 +88,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         statchange = 1;
         sp->temp_work = STATUS_EFF_UP;
     }
-	
+
     if (battlemon->ability == ABILITY_SIMPLE) {
         statchange *= 2;
     }

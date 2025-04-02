@@ -187,7 +187,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
                 break;
             case SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON: {
-                for (i = 0; i < client_set_max; i++) {
+                for (i = 0; i < client_set_max; i++) {      
                     client_no = sp->turnOrder[i];
 
                     // Abilities with entry effects can announce, except Neutralizing Gas/Unnerve (earlier) and form-changing abilities (later)
@@ -200,8 +200,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         def2 = BattleWorkEnemyClientGet(bw, client_no, BATTLER_POSITION_SIDE_LEFT);
 
                         sp->defence_client_work = TraceClientGet(bw, sp, def1, def2);
-						
-						if ((sp->battlemon[client_no].ability_activated_flag == 0)
+
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0)
 						&& (sp->defence_client_work != 0xFF)
 						&& (sp->battlemon[client_no].hp)
 						&& (sp->battlemon[client_no].item != ITEM_GRISEOUS_ORB)
@@ -575,9 +575,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     // Imposter
                     {
                         if ((GetBattlerAbility(sp, client_no) == ABILITY_IMPOSTER) && (sp->battlemon[client_no].imposter_flag == 0)
-						&& (sp->battlemon[client_no].hp)
-						&& IsValidImposterTarget(bw, sp, client_no)
-						&& ((!(BattleTypeGet(bw) & BATTLE_TYPE_TRAINER)) ? (sp->battlemon[client_no].species == SPECIES_DITTO || sp->battlemon[client_no].species == SPECIES_MEW) : TRUE)) {
+                         && (sp->battlemon[client_no].hp)
+                         && IsValidImposterTarget(bw, sp, client_no)
+                         && ((!(BattleTypeGet(bw) & BATTLE_TYPE_TRAINER)) ? (sp->battlemon[client_no].species == SPECIES_DITTO || sp->battlemon[client_no].species == SPECIES_MEW) : TRUE)) {
                             u32 num;
                             sp->battlemon[client_no].imposter_flag = 1;
                             scriptnum = SUB_SEQ_HANDLE_IMPOSTER;
@@ -603,6 +603,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 src[num] = dest[num];
                             }
 
+                            sp->battlemon[sp->attack_client].ability_activated_flag = 0;
                             sp->battlemon[sp->attack_client].ability_activated_flag = 0;
                             sp->battlemon[sp->attack_client].moveeffect.truantFlag = sp->total_turn & 1;
                             sp->battlemon[sp->attack_client].moveeffect.slowStartTurns = sp->total_turn + 1;
@@ -660,7 +661,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             }
                         }
                     }
-					
+
                     // Intrepid Sword
                     {
                         if ((sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].intrepidSwordFlag == FALSE)
@@ -691,6 +692,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             }
                     }
 
+
                     // Air Balloon is announced
                     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-9227933
                     {
@@ -701,6 +703,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
                         }
+                        // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9905712
+                        sp->battlemon[client_no].air_balloon_flag = 1;
                     }
 
                     // Need to trigger script
@@ -727,7 +731,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_HANDLE_PRIMAL_REVERSION;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-							sp->switch_in_check_seq_no = SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON;
+                            sp->switch_in_check_seq_no = SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON;
                             break;
                         }
 #endif  // PRIMAL_REVERSION

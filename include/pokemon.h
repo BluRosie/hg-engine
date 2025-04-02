@@ -676,15 +676,7 @@ typedef struct
     u32 personal_rnd;
 } MON_PIC;
 
-struct FormData
-{
-    u16 species;
-
-    u16 form_no:15;
-    u16 need_rev:1;
-
-    u16 file;
-};
+#define NEEDS_REVERSION 0x8000
 
 typedef struct EncounterInfo
 {
@@ -1471,7 +1463,7 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no);
  *  @param mons_no species that has already been adjusted by form number by GetSpeciesBasedOnForm
  *  @return base species
  */
-u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no);
+u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no);
 
 /**
  *  @brief pass adjusted species and return form of the base species it applies to
@@ -1479,7 +1471,7 @@ u16 LONG_CALL GetOriginalSpeciesBasedOnAdjustedForm(u32 mons_no);
  *  @param mons_no species that has already been adjusted by form number by GetSpeciesBasedOnForm
  *  @return form of adjusted species
  */
-u16 LONG_CALL GetFormBasedOnAdjustedForm(u32 mons_no);
+u16 LONG_CALL GetFormFromAdjustedForm(u32 mons_no);
 
 /**
  *  @brief grab index in ARC_POKEICON from original species, egg status, and form number
@@ -1824,8 +1816,6 @@ void LONG_CALL Daycare_GetBothBoxMonsPtr(Daycare *dayCare, struct BoxPokemon **b
 
 BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 moveIdx, u32 heapID);
 
-void LONG_CALL CreateMon(struct PartyPokemon *mon, s32 species, s32 level, s32 fixedIV, s32 hasFixedPersonality, s32 fixedPersonality, s32 otIdType, s32 fixedOtId);
-
 /**
  *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
  *
@@ -1840,6 +1830,10 @@ u32 LONG_CALL GetLevelCap(void);
  *  @return TRUE if level >= level cap; FALSE otherwise
  */
 u32 LONG_CALL IsLevelAtLevelCap(u32 level);
+
+void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemon *param, unsigned int expected_form, int *a3);
+
+void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp);
 
 void LONG_CALL CalcMonStats(struct PartyPokemon *mon);
 

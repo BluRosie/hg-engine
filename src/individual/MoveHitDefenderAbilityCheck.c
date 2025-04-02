@@ -13,9 +13,6 @@
 #include "../../include/constants/battle_message_constants.h"
 #include "../../include/constants/file.h"
 
-static BOOL MummyAbilityCheck(struct BattleStruct *sp);
-static BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no);
-
 /**
  *  @brief check if a move should activate the defender's ability and run a subscript
  *
@@ -231,9 +228,9 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
                 // berserk doesn't activate if the Pokémon gets attacked by a sheer force boosted move
-                //&& !((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) && (sp->battlemon[sp->attack_client].sheer_force_flag == 1))
+                && !((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) && (sp->battlemon[sp->attack_client].sheer_force_flag == 1))
                 // berserk doesn't activate until the last hit of a multi-hit move
-                //&& (sp->multiHitCount <= 1)
+                && (sp->multiHitCount <= 1)
                 && (sp->battlemon[sp->defence_client].hp <= (s32)(sp->battlemon[sp->defence_client].maxhp / 2))
                 && (
                     // checks if the pokémon has gone below half HP from the current damage instance
@@ -261,9 +258,9 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
                 // berserk doesn't activate if the Pokémon gets attacked by a sheer force boosted move
-                //&& !((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) && (sp->battlemon[sp->attack_client].sheer_force_flag == 1))
+                && !((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) && (sp->battlemon[sp->attack_client].sheer_force_flag == 1))
                 // berserk doesn't activate until the last hit of a multi-hit move
-                //&& (sp->multiHitCount <= 1)
+                && (sp->multiHitCount <= 1)
                 && (sp->battlemon[sp->defence_client].hp <= (s32)(sp->battlemon[sp->defence_client].maxhp / 2))
                 && (
                     // checks if the pokémon has gone below half HP from the current damage instance
@@ -317,12 +314,16 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             }
             break;
         case ABILITY_MUMMY:
+            FALLTHROUGH;
         case ABILITY_LINGERING_AROMA:
+            if (sp->battlemon[sp->attack_client].ability == sp->battlemon[sp->defence_client].ability) {
+                break;
+            }
             if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
                 && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                 && (IsContactBeingMade(bw, sp))
-                && (MummyAbilityCheck(sp) == TRUE)
+                && (!AbilityCantSupress(sp->battlemon[sp->attack_client].ability))
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage)))
             {
@@ -441,13 +442,25 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
         //         ret = TRUE;
         //     }
         //     break;
-        //handle pickpocket - steal attacker's item if it can
+        // handle pickpocket - steal attacker's item if it can
         case ABILITY_PICKPOCKET:
             if (sp->battlemon[sp->defence_client].hp != 0
+             && (sp->battlemon[sp->attack_client].condition == 0)
+             && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+             && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+             && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+             && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+              || (sp->oneSelfFlag[sp->defence_client].special_damage))
              && IsContactBeingMade(bw, sp)
              && sp->moveTbl[sp->current_move_index].power != 0
-             && CanPickpocketStealClientItem(sp, sp->attack_client)
-             && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) // pickpocket doesn't activate if attacked by sheer force
+             // can not steal an item if you already have one
+             && sp->battlemon[sp->defence_client].item == ITEM_NONE
+             // if the attacker has its species-specific item or the target would get its item, then pickpocket can not activate
+             && CanTrickHeldItem(sp, sp->attack_client, sp->defence_client)
+             // pickpocket doesn't activate if attacked by sheer force
+             && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)
+             // does not hit until the last hit of a multi-strike move
+             && (sp->multiHitCount <= 1))
             {
                 seq_no[0] = SUB_SEQ_HANDLE_PICKPOCKET_DEF;
                 ret = TRUE;
@@ -457,6 +470,11 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
         case ABILITY_CURSED_BODY:
             move_pos = BattleMon_GetMoveIndex(&sp->battlemon[sp->attack_client], sp->current_move_index);
             if (sp->battlemon[sp->attack_client].hp != 0
+             && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+             && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+             && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+             && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+              || (sp->oneSelfFlag[sp->defence_client].special_damage))
              && sp->battlemon[sp->attack_client].moveeffect.disabledMove == 0
              && move_pos != 4 // is a valid move the mon knows
              && sp->battlemon[sp->attack_client].pp[move_pos] != 0 // pp is nonzero
@@ -476,6 +494,9 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             if ((sp->battlemon[sp->defence_client].species == SPECIES_MIMIKYU)
              && (sp->battlemon[sp->defence_client].hp)
              && (sp->battlemon[sp->defence_client].form_no == 0)
+             && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+             && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+             && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
              && ((sp->waza_status_flag & MOVE_STATUS_FLAG_MISS) == 0) // if move was successful
              && (sp->moveTbl[sp->current_move_index].power) // if move has power
             )
@@ -491,6 +512,9 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             if ((sp->battlemon[sp->defence_client].species == SPECIES_EISCUE)
              && (sp->battlemon[sp->defence_client].hp)
              && (sp->battlemon[sp->defence_client].form_no == 0)
+             && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+             && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+             && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
              && ((sp->waza_status_flag & MOVE_STATUS_FLAG_MISS) == 0) // if move was successful
              && (sp->moveTbl[sp->current_move_index].power != 0)
              && (GetMoveSplit(sp, sp->current_move_index) == SPLIT_PHYSICAL)
@@ -536,60 +560,4 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
     }
 
     return ret;
-}
-
-/**
- *  @brief check if mummy can overwrite the attacker's ability
- *
- *  @param sp global battle structure
- *  @return TRUE if the ability can be overwritten; FALSE otherwise
- */
-BOOL MummyAbilityCheck(struct BattleStruct *sp)
-{
-    switch(GetBattlerAbility(sp, sp->attack_client))
-    {
-        case ABILITY_MULTITYPE:
-        case ABILITY_MUMMY:
-        case ABILITY_ZEN_MODE:
-        case ABILITY_STANCE_CHANGE:
-        case ABILITY_SHIELDS_DOWN:
-        case ABILITY_SCHOOLING:
-        case ABILITY_DISGUISE:
-        case ABILITY_BATTLE_BOND:
-        case ABILITY_POWER_CONSTRUCT:
-        case ABILITY_COMATOSE:
-        case ABILITY_RKS_SYSTEM:
-        case ABILITY_AS_ONE_GLASTRIER:
-        case ABILITY_AS_ONE_SPECTRIER:
-        // seems to be based on Lingering Aroma from Bulbapedia
-        case ABILITY_LINGERING_AROMA:
-        case ABILITY_ZERO_TO_HERO:
-        case ABILITY_COMMANDER:
-            return FALSE;
-        default:
-            return TRUE;
-    }
-}
-
-/**
- *  @brief check if the client_no's item can be stolen by pickpocket.  copied into this overlay for convenience
- *
- *  @param sp global battle structure
- *  @param client_no battler whose item to check
- *  @return TRUE if the item can be stolen; FALSE otherwise
- */
-static BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no)
-{
-    switch(GetBattleMonItem(sp, client_no))
-    {
-        case ITEM_GRASS_MAIL ... ITEM_BRICK_MAIL:
-        case ITEM_VENUSAURITE ... ITEM_DIANCITE:
-        case ITEM_BLUE_ORB:
-        case ITEM_RED_ORB:
-        case ITEM_GRISEOUS_ORB:
-        case ITEM_NONE:
-            return FALSE;
-        default:
-            return TRUE;
-    }
 }

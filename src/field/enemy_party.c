@@ -434,6 +434,8 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             }
         }
 
+        ChangeToBattleForm(mons[i]);
+
         RecalcPartyPokemonStats(mons[i]); // recalculate stats here
 
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ADDITIONAL_FLAGS)

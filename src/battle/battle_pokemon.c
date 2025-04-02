@@ -46,8 +46,8 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_FIGHTING, TYPE_NORMAL, 0x14 },
     { TYPE_FIGHTING, TYPE_FLYING, 0x05 },
     { TYPE_FIGHTING, TYPE_POISON, 0x05 },
-    { TYPE_FIGHTING, TYPE_ROCK, 0x14 },
     { TYPE_FIGHTING, TYPE_STELLAR, 0x05 },
+    { TYPE_FIGHTING, TYPE_ROCK, 0x14 },
     { TYPE_FIGHTING, TYPE_BUG, 0x05 },
     { TYPE_FIGHTING, TYPE_STEEL, 0x14 },
 
@@ -65,8 +65,8 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_FLYING, TYPE_GRASS, 0x14 },
     { TYPE_FLYING, TYPE_ELECTRIC, 0x05 },
     { TYPE_POISON, TYPE_POISON, 0x05 },
-    { TYPE_POISON, TYPE_GROUND, 0x05 },
     { TYPE_POISON, TYPE_STELLAR, 0x05 },
+    { TYPE_POISON, TYPE_GROUND, 0x05 },
     { TYPE_POISON, TYPE_ROCK, 0x05 },
     { TYPE_POISON, TYPE_GHOST, 0x05 },
 
@@ -862,8 +862,8 @@ void LONG_CALL BattleFormChange(int client, int form_no, void* bw, struct Battle
 
     sp->battlemon[client].type1 = GetMonData(pp2, MON_DATA_TYPE_1, NULL);
     sp->battlemon[client].type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
-	sp->battlemon[client].ability_activated_flag = FALSE;
-	
+    sp->battlemon[client].ability_activated_flag = FALSE;
+
     // need to update weight as well
     // read s32's from a214 file 1, resets autotomize lightening
     ArchiveDataLoadOfs(&sp->battlemon[client].weight, ARC_DEX_LISTS, 1, PokeOtherFormMonsNoGet(sp->battlemon[client].species, form_no) * sizeof(s32), sizeof(s32));
@@ -883,11 +883,7 @@ void TryRevertFormChange(struct BattleStruct *sp, void *bw, int client_no)
 
     void *pp = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
 
-    if (RevertFormChange(pp, species, form_no))
-    {
-        RecalcPartyPokemonStats(pp);
-        ResetPartyPokemonAbility(pp);
-    }
+    RevertFormChange(pp, species, form_no);
 }
 
 /**
@@ -938,11 +934,7 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
         monsno = GetMonData(pp, MON_DATA_SPECIES, NULL);
         form = GetMonData(pp, MON_DATA_FORM, NULL);
 
-        if (RevertFormChange(pp, monsno, form))
-        {
-            ResetPartyPokemonAbility(pp);
-        }
-        RecalcPartyPokemonStats(pp); // always recalc stats at the end of each battle
+        RevertFormChange(pp, monsno, form);
     }
 
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
@@ -1026,7 +1018,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     // code from aero's pr
     sp->battlemon[client].slow_start_flag = 0;
     sp->battlemon[client].slow_start_end_flag = 0;
-	
+
     sp->battlemon[client].sheer_force_flag = 0;
     sp->battlemon[client].imposter_flag = 0;
     sp->battlemon[client].critical_hits = 0;
@@ -1056,7 +1048,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
         }
     }
 
-	// TODO: set forms when loading them into the party instead when sending out
+    // TODO: set forms when loading them into the party instead when sending out
     // Xerneas should be in Active Mode when in battle
     if (sp->battlemon[client].species == SPECIES_XERNEAS) {
         sp->battlemon[client].form_no = 1;

@@ -405,8 +405,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     // should take precedent over a move using an alternate accuracy calc, as this will still be called for those.
     if (GetBattlerAbility(sp, defender) == ABILITY_TELEPATHY // defender has telepathy ability
      && (attacker & 1) == (defender & 1) // attacker and defender are on the same side
-     && GetMoveSplit(sp, move_no) != SPLIT_STATUS // move actually damages
-	 && !((move_no == MOVE_POLLEN_PUFF) || (move_no == MOVE_PRESENT))) // move isnt Pollen Puff or Present
+     && sp->moveTbl[move_no].power != 0) // move actually damages
     {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
         sp->oneTurnFlag[attacker].parental_bond_flag = 0;
@@ -480,7 +479,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     accuracy = sp->moveTbl[move_no].accuracy;
 
-    if (!accuracy)
+    if (accuracy == 0)
     {
         return FALSE;
     }
@@ -507,7 +506,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     // handle victory star
     if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_VICTORY_STAR && sp->battlemon[BATTLER_ALLY(attacker)].hp != 0)
-		|| (atk_ability == ABILITY_VICTORY_STAR))
+     || (atk_ability == ABILITY_VICTORY_STAR))
     {
         accuracy = accuracy * 11 / 10;
     }
@@ -788,7 +787,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     //     command2 = sp->playerActions[client2][3];
     //     move_pos1 = sp->waza_no_pos[client1];
     //     move_pos2 = sp->waza_no_pos[client2];
-    // 
+    //
     //     if(command1 == SELECT_FIGHT_COMMAND)
     //     {
     //         if(sp->oneTurnFlag[client1].struggle_flag)
@@ -1127,6 +1126,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         BattleRand(bw) % 100 < CriticalRateTable[temp]
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ALL))
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
+        || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL)
     )
     {
         if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)
@@ -1157,163 +1157,20 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 }
 
 
-void ServerHPCalc(void *bw, struct BattleStruct *sp)
+void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    int eqp;
-    int atk;
+    u32 ovyId, offset;
 
-    if (sp->waza_status_flag & MOVE_STATUS_FLAG_OHKO_HIT)
-    {
-        sp->damage = sp->battlemon[sp->defence_client].maxhp * -1;
-    }
+    void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-    if (sp->damage)
-    {
-        eqp = HeldItemHoldEffectGet(sp, sp->defence_client);
-        atk = HeldItemAtkGet(sp, sp->defence_client, ATK_CHECK_NORMAL);
-
-        if (IsClientEnemy(bw, sp->attack_client) == IsClientEnemy(bw, sp->defence_client))
-        {
-            SCIO_IncRecord(bw, sp->attack_client, CLIENT_BOOT_TYPE_MINE, RECID_TEMOTI_MAKIZOE);
-        }
-
-        sp->client_no_hit[sp->defence_client] = sp->attack_client;
-
-        if ((sp->battlemon[sp->defence_client].condition2 & STATUS2_SUBSTITUTE)
-         && (sp->damage < 0)
-         && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_INFILTRATOR))
-        {
-            if ((sp->battlemon[sp->defence_client].moveeffect.substituteHp + sp->damage) <= 0)
-            {
-                sp->oneSelfFlag[sp->attack_client].shell_bell_damage += (sp->battlemon[sp->defence_client].moveeffect.substituteHp * -1);
-                sp->battlemon[sp->defence_client].condition2 &= ~(STATUS2_SUBSTITUTE);
-                sp->hit_damage = sp->battlemon[sp->defence_client].moveeffect.substituteHp * -1;
-                sp->battlemon[sp->defence_client].moveeffect.substituteHp = 0;
-            }
-            else
-            {
-                sp->oneSelfFlag[sp->attack_client].shell_bell_damage += sp->damage;
-                sp->battlemon[sp->defence_client].moveeffect.substituteHp += sp->damage;
-                sp->hit_damage = sp->damage;
-            }
-            sp->oneSelfFlag[sp->defence_client].status_flag |= SELF_STATUS_FLAG_SUBSTITUTE_HIT;
-            sp->battlerIdTemp = sp->defence_client;
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HIT_SUBSTITUTE);
-            sp->server_seq_no = 22;
-            sp->next_server_seq_no = 29;
-        }
-        else
-        {
-			if (BattleTypeGet(bw) & BATTLE_TYPE_CATCHING_DEMO)
-            {
-                if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
-                {
-                    sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
-                }
-            }
-            if (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_LEAVE_WITH_1_HP)
-            {
-                if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
-                {
-                    sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
-                }
-            }
-            if (sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability == FALSE)
-            {
-                if ((eqp == HOLD_EFFECT_MAYBE_ENDURE) && ((BattleRand(bw) % 100) < atk))
-                {
-                    sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = TRUE;
-                }
-                else if ((eqp == HOLD_EFFECT_ENDURE) && (sp->battlemon[sp->defence_client].hp == (s32)sp->battlemon[sp->defence_client].maxhp))
-                {
-                    sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = TRUE;
-                }
-                else
-                {
-                    sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = FALSE;
-                }
-            }
-
-            // handle sturdy--prevent one-hit ko's if hp == maxhp
-            if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE) && (sp->battlemon[sp->defence_client].hp == (s32)sp->battlemon[sp->defence_client].maxhp))
-            {
-                sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability = TRUE;
-            }
-            // make sure to cancel sturdy if hp != maxhp.  necessary for multi-hit moves
-            else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE && (sp->battlemon[sp->defence_client].hp != (s32)sp->battlemon[sp->defence_client].maxhp))
-            {
-                sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability = FALSE;
-            }
-
-            if ((sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability) || (sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item))
-            {
-                if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
-                {
-                    sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
-                    if (sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability)
-                    {
-                        sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
-                    }
-                    else
-                    {
-                        sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
-                    }
-                }
-            }
-
-            /**
-             * END OF ORIGINAL AND USER-DEFINED DAMAGE CALCULATIONS.
-             * ALL NEW EFFECTS SHOULD BE PLACED ABOVE THIS COMMENT UNLESS YOU WISH TO EDIT THE CODE BELOW.
-             */
-            sp->store_damage[sp->defence_client] += sp->damage;
-
-            if (sp->battlemon[sp->defence_client].hit_count < 255)
-            {
-                sp->battlemon[sp->defence_client].hit_count++;
-            }
-            if (GetMoveSplit(sp, sp->current_move_index) == SPLIT_PHYSICAL)
-            {
-                sp->oneTurnFlag[sp->defence_client].physical_damage[sp->attack_client] = sp->damage;
-                sp->oneTurnFlag[sp->defence_client].physical_damager = sp->attack_client;
-                sp->oneTurnFlag[sp->defence_client].physical_damager_bit |= No2Bit(sp->attack_client);
-                sp->oneSelfFlag[sp->defence_client].physical_damage = sp->damage;
-                sp->oneSelfFlag[sp->defence_client].physical_damager = sp->attack_client;
-            }
-            else if(GetMoveSplit(sp, sp->current_move_index) == SPLIT_SPECIAL)
-            {
-                sp->oneTurnFlag[sp->defence_client].special_damage[sp->attack_client] = sp->damage;
-                sp->oneTurnFlag[sp->defence_client].special_damager = sp->attack_client;
-                sp->oneTurnFlag[sp->defence_client].special_damager_bit |= No2Bit(sp->attack_client);
-                sp->oneSelfFlag[sp->defence_client].special_damage = sp->damage;
-                sp->oneSelfFlag[sp->defence_client].special_damager = sp->attack_client;
-            }
-
-            if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
-            {
-                sp->oneSelfFlag[sp->attack_client].shell_bell_damage += (sp->battlemon[sp->defence_client].hp * -1);
-            }
-            else
-            {
-                sp->oneSelfFlag[sp->attack_client].shell_bell_damage += sp->damage;
-            }
-            sp->oneTurnFlag[sp->defence_client].last_damage = sp->damage;
-            sp->oneTurnFlag[sp->defence_client].last_damager = sp->attack_client;
-
-            sp->battlerIdTemp = sp->defence_client;
-            sp->hp_calc_work = sp->damage;
-
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
-            sp->server_seq_no = 22;
-            sp->next_server_seq_no = 29;
-
-            sp->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
-        }
-    }
-    else
-    {
-        sp->server_seq_no = 29;
-    }
+    ovyId = OVERLAY_SERVERHPCALC;
+    offset = 0x023C0400 | 1;
+    HandleLoadOverlay(ovyId, 2);
+    internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
+    internalFunc(bsys, ctx);
+    UnloadOverlayByID(ovyId);
 }
+
 
 u16 gf_p_rand(const u16 denominator)
 {
@@ -1548,11 +1405,11 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                 }
                 if (GetBattlerAbility(sp, defence_client) == ABILITY_PRISM_ARMOR)
                 {
-                  damage = BattleDamageDivide(damage * 3, 4);
+                    damage = BattleDamageDivide(damage * 3, 4);
                 }
                 if (GetBattlerAbility(sp, attack_client) == ABILITY_NEUROFORCE)
                 {
-                  damage = BattleDamageDivide(damage * 5, 4);
+                    damage = BattleDamageDivide(damage * 5, 4);
                 }
                 if (eqp_a == HOLD_EFFECT_POWER_UP_SE)
                 {
@@ -2181,7 +2038,11 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     }
 
     if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-        if (sp->field_condition & WEATHER_RAIN_ANY && sp->moveTbl[move].effect == MOVE_EFFECT_THUNDER) {
+        if ((sp->field_condition & WEATHER_RAIN_ANY) && ((sp->moveTbl[move].effect == MOVE_EFFECT_THUNDER)
+         || (sp->moveTbl[move].effect == MOVE_EFFECT_HURRICANE)
+         || (sp->moveTbl[move].effect == MOVE_EFFECT_BLEAKWIND_STORM)
+         || (sp->moveTbl[move].effect == MOVE_EFFECT_WILDBOLT_STORM)
+         || (sp->moveTbl[move].effect == MOVE_EFFECT_SANDSEAR_STORM))) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
         }
         // Blizzard is 100% accurate in Snow also
@@ -2235,271 +2096,30 @@ BOOL LONG_CALL CanUndergoPrimalReversion(struct BattleStruct *sp, u8 client_no) 
  * BattleController_MoveEnd
  * https://github.com/pret/pokeplatinum/blob/447c17a0f12b4a7656dded8aaa6e41ae9694cd09/src/battle/battle_controller.c#L3965
  */
-void LONG_CALL ov12_0224D368(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+void LONG_CALL BattleController_MoveEnd(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     // debug_printf("In BattleController_MoveEnd\n");
-    int script;
-    u32 battleType = BattleTypeGet(bsys);
 
-    if (!(battleType & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_POKE_PARK))) {
-        if (AbilityStatusRecoverCheck(bsys, ctx, ctx->attack_client, 0) == TRUE) {
-            return;
-        }
-        // BATTLER_NONE
-        if (ctx->defence_client != 0xFF && AbilityStatusRecoverCheck(bsys, ctx, ctx->defence_client, 0) == TRUE) {
-            return;
-        }
-        if (ov12_0224DD18(ctx, ctx->server_seq_no, ctx->server_seq_no) == TRUE) {
-            return;
-        }
-        if (ov12_0224D7EC(bsys, ctx) == TRUE) {
-            return;
-        }
+    u32 ovyId, offset;
 
-        // Handle Sparkling Aria
-        if (ctx->current_move_index == MOVE_SPARKLING_ARIA && ctx->battlemon[ctx->attack_client].sheer_force_flag == 0) {
-            int i;
-            int numberOfClientsHitBySparklingAria = 0;
-            int client_no = 0;  // initialize
-            int client_set_max = BattleWorkClientSetMaxGet(bsys);
+    void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-            // Count how many mons were hit by Sparkling Aria
-            for (i = 0; i < client_set_max; i++) {
-                client_no = ctx->turnOrder[i];
-                if (ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client) {
-                    numberOfClientsHitBySparklingAria++;
-                }
-            }
+    ovyId = OVERLAY_BATTLECONTROLLER_MOVEEND;
+    offset = 0x023C0400 | 1;
+    HandleLoadOverlay(ovyId, 2);
+    internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
+    internalFunc(bsys, ctx);
+    UnloadOverlayByID(ovyId);
+}
 
-            // Heal Burn loop
-            for (i = 0; i < client_set_max; i++) {
-                client_no = ctx->turnOrder[i];
-                if ((ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client)
-                && (ctx->battlemon[client_no].condition & STATUS_BURN)
-                && (ctx->battlemon[client_no].hp)) {
-                    if (numberOfClientsHitBySparklingAria > 1 || GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST) {
-                        ctx->battlerIdTemp = client_no;
-                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HEAL_TARGET_BURN);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        return;
-                    }
-                }
-            }
-        }
-		
-		// Handle Fell Stinger
-		// +3 Attack 
-		if ((ctx->current_move_index == MOVE_FELL_STINGER && ctx->battlemon[ctx->attack_client].sheer_force_flag == 0)
-		&& (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs)
-		&& (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12)
-		&& (ctx->battlemon[ctx->attack_client].moveeffect.fakeOutCount != (ctx->total_turn + 1))) {
-			ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
-			ctx->addeffect_type = ADD_EFFECT_DIRECT;
-			ctx->state_client = ctx->attack_client;
-			LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
-			ctx->next_server_seq_no = ctx->server_seq_no;
-			ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-			ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-			return;
-        }
-		
-		// Handle Dragon Tail/Circle Throw
-		if ((ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_FORCE_SWITCH_HIT)
-		&& (ctx->battlemon[ctx->defence_client].hp > 0)
-		&& !(ctx->oneTurnFlag[ctx->attack_client].numberOfKOs)
-		&& (ctx->battlemon[ctx->attack_client].moveeffect.fakeOutCount != (ctx->total_turn + 1))) {
-			LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FORCE_OUT);
-			ctx->next_server_seq_no = ctx->server_seq_no;
-			ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-			return;
-        }
 
-        // TODO: A rampage move that fails (Thrash, Outrage etc) will cancel except on the last turn
-        if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS && !ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag) {
-			ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 1;
-			ctx->battlemon[ctx->attack_client].condition2 -= 1 << 10;
-			if (ov12_02252218(ctx, ctx->attack_client)) { // come back to this
-				ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RAMPAGE_TURNS;
-			} else if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS) && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
-				ctx->state_client = ctx->attack_client;
-				LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THRASH_END);
-				ctx->next_server_seq_no = ctx->server_seq_no;
-				ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-				return;
-			}
-		}
-
-        // If the user's next move is not Electric-type, Charge no longer wears off, and instead remains active for the next move that is.
-        // However, if the user attempted to use an Electric-type move,
-        // Charge will still wear off even if a condition prevented the move from being used, such as being asleep or flinching.
-        // TODO: Refactor this
-        int move_type = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index);
-        if (ctx->battlemon[ctx->attack_client].moveeffect.isCharged && move_type == TYPE_ELECTRIC && !ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag) {
-            if (--ctx->battlemon[ctx->attack_client].moveeffect.isCharged == 0) {
-                    ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_CHARGE;
-                }
-                ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag = 1;
-        }
-
-        switch (GetBattlerAbility(ctx, ctx->attack_client)) {
-            case ABILITY_BEAST_BOOST:
-                if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                    u8 stat = BeastBoostGreatestStatHelper(ctx, ctx->attack_client);
-
-                    if ((ctx->battlemon[ctx->attack_client].states[STAT_ATTACK + stat] < 12) && (ctx->battlemon[ctx->attack_client].moveeffect.fakeOutCount != (ctx->total_turn + 1))) {
-                        switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                        case 1:
-                            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP + stat;
-                            break;
-                        case 2:
-                            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2 + stat;
-                            break;
-                        case 3:
-                            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3 + stat;
-                            break;
-
-                        default:
-                            break;
-                        }
-                        ctx->addeffect_type = ADD_EFFECT_ABILITY;
-                        ctx->state_client = ctx->attack_client;
-                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-                        return;
-                    }
-                }
-                break;
-            case ABILITY_CHILLING_NEIGH:
-            case ABILITY_AS_ONE_GLASTRIER:
-            case ABILITY_MOXIE:
-                if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                    if (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12) {
-                        switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                            case 1:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
-                                break;
-                            case 2:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2;
-                                break;
-                            case 3:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
-                                break;
-
-                            default:
-                                break;
-                        }
-                        ctx->addeffect_type = ADD_EFFECT_ABILITY;
-                        ctx->state_client = ctx->attack_client;
-                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-                        return;
-                    }
-                }
-                break;
-            case ABILITY_GRIM_NEIGH:
-            case ABILITY_AS_ONE_SPECTRIER:
-                if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                    if (ctx->battlemon[ctx->attack_client].states[STAT_SPATK] < 12) {
-                        switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                            case 1:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
-                                break;
-                            case 2:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP_2;
-                                break;
-                            case 3:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP_3;
-                                break;
-
-                            default:
-                                break;
-                        }
-                        ctx->addeffect_type = ADD_EFFECT_ABILITY;
-                        ctx->state_client = ctx->attack_client;
-                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-                        return;
-                    }
-                }
-                break;
-            case ABILITY_BATTLE_BOND:
-                if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                    if (ctx->battlemon[ctx->attack_client].species == SPECIES_GRENINJA
-					&& ctx->battlemon[ctx->attack_client].form_no == 1
-                    && ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag == FALSE) {
-                        ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag = TRUE;
-                        ctx->state_client = ctx->attack_client;
-                        ctx->battlerIdTemp = ctx->attack_client;
-                        ctx->battlemon[ctx->attack_client].form_no = 2;
-                        BattleFormChange(ctx->battlerIdTemp, ctx->battlemon[ctx->battlerIdTemp].form_no, bsys, ctx, 0);
-                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FORM_CHANGE);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-                        return;
-                    }
-                }
-                break;
-            default:
-                ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-                break;
-        }
-
-        // Reset Focus Punch flag
-        ctx->oneTurnFlag[ctx->attack_client].pendingFocusPunchFlag = FALSE;
-
-        script = SwitchInAbilityCheck(bsys, ctx);
-        if (script) {
-            LoadBattleSubSeqScript(ctx, 1, script);
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            return;
-        }
-        if (ov12_0224E130(bsys, ctx) == TRUE) {
-            return;
-        }
-        ov12_0224DC0C(bsys, ctx);
-    }
-
-    ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag = 0;
-    ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 0;
-    // debug_printf("locked into move: %d\n", (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE));
-    // debug_printf("BATTLE_STATUS_CHARGE_MOVE_HIT %d\n", ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT);
-
-    // Handle Razor Wind. Why? Beats me
-    if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT || (ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] & MOVE_STATUS_FLAG_FAILURE_ANY)) {
-        ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_LOCKED_INTO_MOVE;
-    }
-
-    int client_set_max = BattleWorkClientSetMaxGet(bsys);
-
-    for (int i = 0; i < client_set_max; i++) {
-        ctx->moveStatusFlagForSpreadMoves[i] = 0;
-        ctx->damageForSpreadMoves[i] = 0;
-    }
-    ctx->clientLoopForSpreadMoves = 0;
-    ctx->boostedAccuracy = FALSE;
-
-    ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
-
-    if (ctx->oneSelfFlag[ctx->attack_client].trickRoomFlag) {
-        SortExecutionOrderBySpeed(bsys, ctx);
-        SortMonsBySpeed(bsys, ctx);
-        ctx->executionIndex = 0;
-    } else {
-        ctx->executionIndex++;
-    }
-
-    BattleStructureInit(ctx);
-
-    ctx->server_seq_no = CONTROLLER_COMMAND_8;
-    // debug_printf("End of BattleController_MoveEnd\n");
+/**
+ * @brief checks if the move index is a punching move
+ * @param move move index to check
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsMovePunchingMove(u16 move)
+{
+    return IsElementInArray(PunchingMovesTable, (u16 *)&move, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]));
 }
 
 
@@ -2531,7 +2151,7 @@ BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleS
     if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
         // punching gloves prevents contact when attacking with punching moves
         || (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
-            && IsElementInArray(PunchingMovesTable, (u16 *)&sp->current_move_index, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0])))
+            && IsMovePunchingMove(sp->current_move_index))
         // Kept in case people add their own
         // || HeldItemHoldEffectGet(sp, sp->attack_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_ATTACKER_CONTACT
         ) {
@@ -2690,7 +2310,7 @@ void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct B
                 ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
             }
         } else {
-            if (ctx->fainting_client != BATTLER_NONE || ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
+            if (ctx->fainting_client != BATTLER_NONE) {
                 ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount + 1;
             } else {
                 ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount;
@@ -3244,6 +2864,7 @@ BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type) {
     return (client.type1 == type || client.type2 == type || client.type3 == type || client.is_currently_terastallized ? client.tera_type == type : FALSE);
 }
 
+
 void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     int client_set_max;
     BOOL needToSwap = FALSE;
@@ -3332,7 +2953,7 @@ BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type) {
 }
 
 /// @brief Check if ability is disabled if user is Transformed
-/// @param ability 
+/// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoTransform(int ability) {
     switch (ability) {
@@ -3370,6 +2991,37 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId) {
     } else {
         return ctx->battlemon[battlerId].ability;
     }
+}
+
+/// @brief Check if ability can't be suppressed by Gastro Acid or affected by Mummy. See notes for DisabledByNeutralizingGas.
+/// @param ability
+/// @ref AbilityDisabledByNeutralizingGas
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityCantSupress(int ability) {
+    switch (ability) {
+    case ABILITY_MULTITYPE:
+    case ABILITY_ZEN_MODE:
+    case ABILITY_STANCE_CHANGE:
+    case ABILITY_SHIELDS_DOWN:
+    case ABILITY_SCHOOLING:
+    case ABILITY_DISGUISE:
+    case ABILITY_BATTLE_BOND:
+    case ABILITY_POWER_CONSTRUCT:
+    case ABILITY_COMATOSE:
+    case ABILITY_RKS_SYSTEM:
+    case ABILITY_GULP_MISSILE:
+    case ABILITY_ICE_FACE:
+    case ABILITY_AS_ONE_GLASTRIER:
+    case ABILITY_AS_ONE_SPECTRIER:
+    case ABILITY_ZERO_TO_HERO:
+    case ABILITY_TERA_SHIFT:
+        return TRUE;
+        break;
+
+    default:
+        break;
+    }
+    return FALSE;
 }
 
 void BattleSystem_BufferMessage(struct BattleSystem *bsys, MESSAGE_PARAM *msg) {

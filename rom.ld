@@ -21,7 +21,7 @@ Task_DistributeExp = 0x02245898 | 1;
 ServerCriticalMessage = 0x166BC+ 0x022378C1;
 ServerWazaStatusMessage = 0x166D8 + 0x022378C1;
 ST_ServerAddStatusCheck = 0x18BD0 + 0x022378C1;
-#ServerIkariCheck = 0x1672C + 0x022378C1;
+//ServerIkariCheck = 0x1672C + 0x022378C1;
 ST_ServerWazaHitTokuseiCheck_Old = 0x1C544 + 0x022378C1;
 ST_ServerWaruagakiCheck = 0x19F2C + 0x022378C1;
 ServerSenseiCheck = 0x143E4 + 0x022378C1;
@@ -308,7 +308,7 @@ GF_RTC_CopyTime = 0x0201474C | 1;
 GF_RTC_CopyDate = 0x02014780 | 1;
 IsNighttime = 0x02014804 | 1;
 GF_RTC_GetTimeOfDay = 0x0201481C | 1;
-GF_RTC_GetTimeOfDayWildParam = 0x02014844 | 1;
+GF_RTC_GetTimeOfDayWildParam = 0x02014830 | 1;
 GF_RTC_GetTimeOfDayWildParamByHour = 0x0201485C | 1;
 
 
@@ -426,7 +426,8 @@ BattleWorkGroundIDGet = 0x0223AB40 | 1;
 Battle_CheckIfHasCaughtMon = 0x0223C330 | 1;
 Battle_GetTimeOfDay = 0x0223B520 | 1;
 Battle_IsFishingEncounter = 0x0223AAB8 | 1;
-GetCaughtMonCount = 0x02029E84 | 1;
+Pokedex_CountDexOwned = 0x02029E84 | 1;
+Pokedex_CountJohtoDexOwned = 0x02029EA0 | 1;
 BallToSpaIDs = 0x0223746C;
 GetBallID_ov7 = 0x0223251C | 1;
 
@@ -672,11 +673,6 @@ CanUseItemOnPokemon = 0x0208FD9C | 1;
 
 BagApp_GetSaveRoamers = 0x021F992C | 1;
 
-CreateMon = 0x0206DE38 | 1;
-_GetNpcTradeName = 0x02259C1C | 1;
-MonSetTrainerMemo = 0x0208F260 | 1;
-MapHeader_GetMapSec = 0x0203B36C | 1;
-
 ov12_022506D4 = 0x022506D4 | 1;
 ov12_02250A18 = 0x02250A18 | 1;
 
@@ -739,6 +735,15 @@ BattleMessage_BufferTrainerClass = 0x0223CEB4 | 1;
 BattleMessage_BufferTrainerName = 0x0223CECC | 1;
 BattleMessage_BufferBoxName = 0x0223CEE4 | 1;
 BufferItemNameWithIndefArticle = 0x0200C100 | 1;
+
+_GetNpcTradeName = 0x02259C1C | 1;
+MonSetTrainerMemo = 0x0208F260 | 1;
+MapHeader_GetMapSec = 0x0203B36C | 1;
+
+OS_DisableInterrupts = 0x020D3A38;
+NNS_FndAllocFromExpHeapEx = 0x020B53A0;
+OS_RestoreInterrupts = 0x020D3A4C;
+sHeapInfo = 0x021D1584;
 
 AcquireMonLock = 0x0206DD40 | 1;
 LoadMonBaseStats_HandleAlternateForm = 0x020725B4 | 1;

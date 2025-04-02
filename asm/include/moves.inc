@@ -937,28 +937,32 @@
 .equ MOVE_UPPER_HAND, 921
 .equ MOVE_MALIGNANT_CHAIN, 922
 
-// null moves
-.equ MOVE_NIBBLE, 923
-.equ MOVE_KNEAD, 924
-.equ MOVE_JAB, 925
-.equ MOVE_WATERMILL, 926
-.equ MOVE_TRAMPLE, 927
-.equ MOVE_LEAP, 928
-.equ MOVE_SHOCK, 929
-.equ MOVE_SKID, 930
-.equ MOVE_SHEAR, 931
-.equ MOVE_PALM_CLOSE, 932
-.equ MOVE_SKULK_OUT, 933
-.equ MOVE_CACKLE, 934
-.equ MOVE_SOMERSAULT, 935
 
 // there are a bunch more here but that is fine
 
-.equ NUM_OF_MOVES, 936
+.equ NUM_OF_CANONICAL_MOVES, 923
 
-.equ ADD_G_MAX_MOVES, 0
+// make.py doesn't support constants for now
+// define your new moves below like this
+// .equ MOVE_CUSTOM_MOVE_1, 924
 
-.if ADD_G_MAX_MOVES == 1
+// null moves
+.equ MOVE_NIBBLE, 924
+.equ MOVE_KNEAD, 925
+.equ MOVE_JAB, 926
+.equ MOVE_WATERMILL, 927
+.equ MOVE_TRAMPLE, 928
+.equ MOVE_LEAP, 929
+.equ MOVE_SHOCK, 930
+.equ MOVE_SKID, 931
+.equ MOVE_SHEAR, 932
+.equ MOVE_PALM_CLOSE, 933
+.equ MOVE_SKULK_OUT, 934
+.equ MOVE_CACKLE, 935
+.equ MOVE_SOMERSAULT, 936
+
+// update this number yourself manually
+.equ NUM_OF_MOVES, 937
 
 .equ MOVE_G_MAX_WILDFIRE, (NUM_OF_MOVES-1+1)
 .equ MOVE_G_MAX_BEFUDDLE, (NUM_OF_MOVES-1+2)
@@ -994,6 +998,5 @@
 .equ MOVE_G_MAX_ONE_BLOW, (NUM_OF_MOVES-1+32)
 .equ MOVE_G_MAX_RAPID_FLOW, (NUM_OF_MOVES-1+33)
 
-.endif
 
 .endif

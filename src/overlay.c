@@ -10,15 +10,22 @@ struct LinkedOverlayList gLinkedOverlayList[] =
     {OVERLAY_BATTLE, OVERLAY_BATTLE_EXTENSION},
     {OVERLAY_FIELD, OVERLAY_FIELD_EXTENSION},
     {OVERLAY_HALL_OF_FAME, OVERLAY_FIELD_EXTENSION},
-	{OVERLAY_HALL_OF_FAME_PC, OVERLAY_FIELD_EXTENSION},
+    {OVERLAY_HALL_OF_FAME_PC, OVERLAY_FIELD_EXTENSION},
     {OVERLAY_POKEATHLON, OVERLAY_FIELD_EXTENSION},
     {OVERLAY_POKEWALKER, OVERLAY_FIELD_EXTENSION},
     {OVERLAY_POKEDEX, OVERLAY_POKEDEX_EXTENSION},
 };
 
+// entirely clean up overlays if the first one is being unloaded
+u8 gCleanupOverlayList[][4] =
+{
+    {OVERLAY_BATTLE_EXTENSION, OVERLAY_BATTLECONTROLLER_BEFOREMOVE, OVERLAY_SERVERBEFOREACT, OVERLAY_BATTLECONTROLLER_MOVEEND}
+};
+
 
 void LONG_CALL UnloadOverlayByID(u32 ovyId) {
-    u32 i;
+    u32 i, j = 0, k = 1;
+    BOOL cleanupMode = FALSE;
     PMiLoadedOverlay *table;
 #ifdef DEBUG_PRINT_OVERLAY_LOADS
     u8 buf[64];
@@ -44,6 +51,28 @@ unloadSecond:
         {
             ovyId = gLinkedOverlayList[i].ext_id;
             goto unloadSecond;
+        }
+    }
+
+    // alright we want to clear overlays
+    for (; j < NELEMS(gCleanupOverlayList); j++) {
+        if (k >= NELEMS(gCleanupOverlayList[0])) {
+            cleanupMode = FALSE;
+            k = 1;
+            continue; // increases j
+        }
+        if ((gCleanupOverlayList[j][0] == ovyId) || cleanupMode) {
+            if (gCleanupOverlayList[j][k]) {
+                ovyId = gCleanupOverlayList[j][k++];
+                cleanupMode = TRUE;
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
+                debug_printf("Cleaning up overlay %d linked to overlay %d... ", ovyId, gCleanupOverlayList[j][0]);
+#endif // DEBUG_PRINT_OVERLAY_LOADS
+                goto unloadSecond;
+            } else {
+                k = 1;
+                continue; // increases j
+            }
         }
     }
 }

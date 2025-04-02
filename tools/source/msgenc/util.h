@@ -6,7 +6,7 @@
 
 static inline __attribute__((format(printf, 1, 2))) void debug_printf(const char * fmt, ...) {
 #ifndef NDEBUG
-    //fputs("DEBUG: ", stderr);
+    fputs("DEBUG: ", stderr);
     va_list va_args;
     va_start(va_args, fmt);
     vfprintf(stderr, fmt, va_args);

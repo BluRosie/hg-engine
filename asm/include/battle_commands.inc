@@ -1398,24 +1398,31 @@
     .long (((\arg_1 - .) / 4) - 2)
     .long (((\arg_2 - .) / 4) - 1)
     .endm
-	
+
     .macro CheckShouldNotTurnOffMultiStatAnim battlerCategory, label
     // need to skip the stat animation turning off in case of defiant and competitive so the animation shows properly
     CheckAbility CHECK_OPCODE_HAVE, \battlerCategory, ABILITY_DEFIANT, \label
     CheckAbility CHECK_OPCODE_HAVE, \battlerCategory, ABILITY_COMPETITIVE, \label
     .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 255
+
+    // .macro YourCustomCommand
+    // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)
+    // .endm
 	
-    .macro CalcStoredPowerPower
-    .long 256
+	.macro CalcStoredPowerPower
+    .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)
     .endm
 	
     .macro CalcElectroBallPower
-    .long 257
+    .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 2)
     .endm
 	
     .macro IfLastHitOfMultiHit arg_0
-    .long 258
+    .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 3)
     .long (((\arg_0 - .) / 4) - 1)
     .endm
+
 
 .endif

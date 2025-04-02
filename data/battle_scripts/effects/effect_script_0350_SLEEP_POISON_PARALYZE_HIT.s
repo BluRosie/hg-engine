@@ -1,0 +1,26 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    Random 2, 0
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0, _sleep
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 1, _poison
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 2, _paralysis
+
+_sleep:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT, MOVE_SIDE_EFFECT_TO_DEFENDER|MOVE_SUBSCRIPT_PTR_SLEEP
+    GoTo _end
+
+_poison:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT, MOVE_SIDE_EFFECT_TO_DEFENDER|MOVE_SUBSCRIPT_PTR_POISON
+    GoTo _end
+
+_paralysis:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT, MOVE_SIDE_EFFECT_TO_DEFENDER|MOVE_SUBSCRIPT_PTR_PARALYZE
+    GoTo _end
+
+_end:
+    CalcCrit 
+    CalcDamage 
+    End 

@@ -173,7 +173,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     defstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
     spatkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
     spdefstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
-	
+
     level = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_LEVEL, NULL);
 
     AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
@@ -212,7 +212,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
         return 0;
-	}
+    }
+        
 
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE)
     && (sp->battlemon[defender].species == SPECIES_EISCUE)
@@ -223,7 +224,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
         return 0;
-	}
+    }
+        
 
     if (pow == 0)
         movepower = sp->moveTbl[moveno].power;
@@ -271,6 +273,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         {
             movepower = movepower * 13 / 10;
         }
+
     }
 
     // handle sheer force
@@ -279,12 +282,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower = movepower * 13 / 10;
     }
 
-//    // handle punk rock TODO uncomment
-//    if (AttackingMon.ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(sp->current_move_index))
-//    {
-//        movepower = movepower * 13 / 10;
-//        break;
-//    }
+    // handle punk rock
+    if (AttackingMon.ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(sp->current_move_index))
+    {
+        movepower = movepower * 13 / 10;
+    }
 
 
     // type boosting held items
@@ -305,8 +307,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     // handle soul dew - gen 7 changes it to just boost movepower if the type is dragon or psychic, no more defense boost
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_LATI_SPECIAL)
-		&& ((AttackingMon.species == SPECIES_LATIOS) || (AttackingMon.species == SPECIES_LATIAS))
-		&& (movetype == TYPE_DRAGON || movetype == TYPE_PSYCHIC))
+     && ((AttackingMon.species == SPECIES_LATIOS) || (AttackingMon.species == SPECIES_LATIAS))
+     && (movetype == TYPE_DRAGON || movetype == TYPE_PSYCHIC))
     {
         movepower = movepower * 12 / 10; // 4915/4096
     }
@@ -339,22 +341,22 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
     // handle eviolite
     if (DefendingMon.item_held_effect == HOLD_EFFECT_EVIOLITE) {
-		u16 speciesWithForm;
-		struct Evolution *evoTable;
-		
-		speciesWithForm = PokeOtherFormMonsNoGet(DefendingMon.species, sp->battlemon[defender].form_no);
-		evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
+        u16 speciesWithForm;
+        speciesWithForm = PokeOtherFormMonsNoGet(sp->battlemon[defender].species, sp->battlemon[defender].form_no);
 
-        ArchiveDataLoad(evoTable, 34, speciesWithForm); // 34 is evo narc
+        struct Evolution *evoTable;
+        evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
+        ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, speciesWithForm);
 
-        // If a Pokémon has any evolutions, there should be a non EVO_NONE entry at the top
-        // A more thorough check would be to check all methods, but would take longer
-        // This should yield the same result if things are written correctly
+        // If a Pokémon has any evolutions, there should be an entry at the top that isn't EVO_NONE.
+        // In that case, the Pokémon is capable of evolving, and so the effect of Eviolite should apply.
         if (evoTable[0].method != EVO_NONE) {
-			defense = defense * 15 / 10;
-			sp_defense = sp_defense * 15 / 10;
-		}
-	}
+            defense = defense * 150 / 100;
+            sp_defense = sp_defense * 150 / 100;
+        }
+
+        sys_FreeMemoryEz(evoTable);
+    }
 	
     // handle leek
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && ((AttackingMon.species == SPECIES_FARFETCHD) || (AttackingMon.species == SPECIES_SIRFETCHD)))
@@ -665,6 +667,51 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         movepower *= 2;
     }
 
+    // handle simple
+    // if (AttackingMon.ability == ABILITY_SIMPLE)
+    // {
+    //     atkstate *= 2;
+    //     if (atkstate < -6)
+    //     {
+    //         atkstate = -6;
+    //     }
+    //     if (atkstate > 6)
+    //     {
+    //         atkstate = 6;
+    //     }
+    //     spatkstate *= 2;
+    //     if (spatkstate < -6)
+    //     {
+    //         spatkstate = -6;
+    //     }
+    //     if (spatkstate > 6)
+    //     {
+    //         spatkstate = 6;
+    //     }
+    // }
+
+    // if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SIMPLE) == TRUE)
+    // {
+    //     defstate *= 2;
+    //     if (defstate < -6)
+    //     {
+    //         defstate = -6;
+    //     }
+    //     if (defstate > 6)
+    //     {
+    //         defstate = 6;
+    //     }
+    //     spdefstate *= 2;
+    //     if (spdefstate < -6)
+    //     {
+    //         spdefstate = -6;
+    //     }
+    //     if (spdefstate > 6)
+    //     {
+    //         spdefstate = 6;
+    //     }
+    // }
+
     // handle unaware
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_UNAWARE) == TRUE)
     {
@@ -961,12 +1008,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         damage /= 2;
     }
 
-//    // handle punk rock TODO uncomment
-//    if (DefendingMon.ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(moveno))
-//    {
-//        damage /= 2;
-//        break;
-//    }
+    // handle punk rock
+    if (DefendingMon.ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(moveno))
+    {
+        damage /= 2;
+    }
 
     // handle purifying salt
     if ((DefendingMon.ability == ABILITY_PURIFYING_SALT) && (movetype == TYPE_GHOST))

@@ -20,8 +20,6 @@
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 //int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 //BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
-BOOL MummyAbilityCheck(struct BattleStruct *sp);
-BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no);
 //u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
 BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 //BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
@@ -30,9 +28,8 @@ BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_n
 BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp);
 //u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
-void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp);
+void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-#define RANGE_SHOULDNT_BE_ABSORBED (RANGE_USER | RANGE_FIELD | RANGE_ALLY | RANGE_SINGLE_TARGET_USER_SIDE)
 
 /**
  *  @brief see if the attacker's move is completely negated by the defender's ability and queue up the appropriate subscript
@@ -45,7 +42,7 @@ void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp);
 int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender)
 {
     int scriptnum = 0;
-    int movetype, moverange;
+    int movetype;
 
     // trigger meloetta's relic song form transformation if possible
     if ((sp->battlemon[attacker].species == SPECIES_MELOETTA)
@@ -57,42 +54,37 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
 
     movetype = GetAdjustedMoveType(sp, attacker, sp->current_move_index); // new normalize checks
-	moverange = sp->moveTbl[sp->current_move_index].target;
 
     // 02252EF4
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_VOLT_ABSORB) == TRUE)
-	&& ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
-    && (movetype == TYPE_ELECTRIC)) {
-		sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
-		scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_VOLT_ABSORB) == TRUE)
+    {
+        if ((movetype == TYPE_ELECTRIC) && (attacker != defender))
+        {
+            sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
+            scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
+        }
     }
 
     // 02252F24
-    if (((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE) || (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE))
-	&& ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
-    && (movetype == TYPE_WATER)) {
-		sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
-		scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE)
+    {
+        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->moveTbl[sp->current_move_index].power))
+        {
+            sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
+            scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
+        }
     }
 
     // 02252F6A
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLASH_FIRE) == TRUE)
-	&& ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
-    && (movetype == TYPE_FIRE)) {
-		sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
-		scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
-    }
-	
-    // Handle Sap Sipper
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAP_SIPPER) == TRUE)
-	&& ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
-    && (movetype == TYPE_GRASS)) {
-		sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
-		scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLASH_FIRE) == TRUE)
+    {
+        if ((movetype == TYPE_FIRE)
+         //&& ((sp->battlemon[defender].condition & STATUS_FLAG_FROZEN) == 0) // gen 5 does not prevent flash fire from working
+         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+         && ((sp->moveTbl[sp->current_move_index].power) || (sp->current_move_index == MOVE_WILL_O_WISP)))
+        {
+            scriptnum = SUB_SEQ_FLASH_FIRE;
+        }
     }
 
     // 02252FB0
@@ -105,43 +97,72 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
 
     // 02252FDC
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MOTOR_DRIVE) == TRUE)
-	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
-    && (movetype == TYPE_ELECTRIC)) {
-		scriptnum = SUB_SEQ_MOTOR_DRIVE;
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MOTOR_DRIVE) == TRUE)
+    {
+        if ((movetype == TYPE_ELECTRIC) && (attacker != defender))
+        {
+            scriptnum = SUB_SEQ_MOTOR_DRIVE;
+        }
+    }
+
+    // 02252FF8
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE)
+    {
+        if ((movetype == TYPE_WATER)
+         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+         && (sp->moveTbl[sp->current_move_index].power))
+        {
+            sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
+            scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
+        }
+    }
+
+    // Handle Sap Sipper
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAP_SIPPER) == TRUE)
+    {
+        if ((movetype == TYPE_GRASS) && (attacker != defender))
+        {
+            scriptnum = SUB_SEQ_HANDLE_SAP_SIPPER;
+        }
     }
 
     // Handle Lightning Rod
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE)
-	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
-    && (movetype == TYPE_ELECTRIC)) {
-		scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE)
+    {
+        if ((movetype == TYPE_ELECTRIC) && (attacker != defender))
+        {
+            scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
+        }
     }
 
     // Handle Storm Drain
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_STORM_DRAIN) == TRUE)
-	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
-    && (movetype == TYPE_WATER)) {
-		scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_STORM_DRAIN) == TRUE)
+    {
+        if ((movetype == TYPE_WATER) && (attacker != defender))
+        {
+            scriptnum = SUB_SEQ_HANDLE_LIGHTNING_ROD_RAISE_SPATK;
+        }
     }
 
     // TODO: Confirm location in-game
     // Handle Well Baked Body
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE)
-	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
-    && (movetype == TYPE_FIRE)) {
-		scriptnum = SUB_SEQ_ABSORB_AND_DEF_UP_2_STAGE;
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE)
+    {
+        if ((movetype == TYPE_FIRE) && (attacker != defender))
+        {
+            scriptnum = SUB_SEQ_ABSORB_AND_DEF_UP_2_STAGE;
+        }
     }
 
     // TODO: Confirm location in-game
     // Handle Earth Eater
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE)
-	&& (moverange != RANGE_SHOULDNT_BE_ABSORBED)
-    && (movetype == TYPE_GROUND)
-	&& ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-	&& (sp->moveTbl[sp->current_move_index].power)) {
-		sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
-		scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE)
+    {
+        if ((movetype == TYPE_GROUND) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->moveTbl[sp->current_move_index].power))
+        {
+            sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
+            scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
+        }
     }
 
     // TODO
@@ -176,12 +197,20 @@ int LONG_CALL SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
     int ret;
     BOOL (*internalFunc)(void *bw, struct BattleStruct *sp);
 
+    u32 loadNeeded = IsOverlayLoaded(OVERLAY_BATTLECONTROLLER_MOVEEND) ? OVERLAY_BATTLECONTROLLER_MOVEEND : 0;
+
+    if (loadNeeded)
+        UnloadOverlayByID(OVERLAY_BATTLECONTROLLER_MOVEEND); // unload overlay 6 so this can be loaded
+
     ovyId = OVERLAY_SWITCHINABILITYCHECK_SPECIFIC;
     offset = 0x023C0400 | 1;
     HandleLoadOverlay(ovyId, 2);
     internalFunc = (int (*)(void *bw, struct BattleStruct *sp))(offset);
     ret = internalFunc(bw, sp);
     UnloadOverlayByID(ovyId);
+
+    if (loadNeeded)
+        HandleLoadOverlay(loadNeeded, 2);
 
     return ret;
 }
@@ -207,29 +236,6 @@ BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int va
     }
 
     return FALSE;
-}
-
-/**
- *  @brief check if the client_no's item can be stolen by pickpocket
- *
- *  @param sp global battle structure
- *  @param client_no battler whose item to check
- *  @return TRUE if the item can be stolen; FALSE otherwise
- */
-BOOL CanPickpocketStealClientItem(struct BattleStruct *sp, int client_no)
-{
-    switch(GetBattleMonItem(sp, client_no))
-    {
-        case ITEM_GRASS_MAIL ... ITEM_BRICK_MAIL:
-        case ITEM_VENUSAURITE ... ITEM_DIANCITE:
-        case ITEM_BLUE_ORB:
-        case ITEM_RED_ORB:
-        case ITEM_GRISEOUS_ORB:
-        case ITEM_NONE:
-            return FALSE;
-        default:
-            return TRUE;
-    }
 }
 
 /**
@@ -435,7 +441,7 @@ u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int
  *  @param server_seq_no current server step, to be queued as sp->next_server_seq_no if a synchronize check passes
  *  @return TRUE if a battle subscript was loaded to sp->SkillSeqWork
  */
-BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no)
+BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no)
 {
     BOOL ret;
     int seq_no;
@@ -832,7 +838,6 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
     sp->server_seq_no = 31;
 }
 
-
 /**
  *  @brief handle magic coat and snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
  *
@@ -853,11 +858,14 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
         return FALSE;
     }
 
-    if (((sp->waza_status_flag & 0x801FDA49) == 0) // just what is in the rom already
-     && (sp->oneTurnFlag[sp->defence_client].magic_cort_flag || GetBattlerAbility(sp, sp->defence_client) == ABILITY_MAGIC_BOUNCE)
+    if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+     && (sp->oneTurnFlag[sp->defence_client].magic_cort_flag
+      // if magic bounce then activate only if it hasn't already activated this move
+      || (GetBattlerAbility(sp, sp->defence_client) == ABILITY_MAGIC_BOUNCE && !sp->magicBounceTracker))
      && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT))
     {
         sp->oneTurnFlag[sp->defence_client].magic_cort_flag = 0;
+        sp->magicBounceTracker = TRUE;
         sp->waza_no_mamoru[sp->attack_client] = 0;
         sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
         sp->waza_no_last = sp->moveNoTemp;
@@ -871,7 +879,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     for(i = 0; i < client_set_max; i++)
     {
         client_no = sp->turnOrder[i];
-        if (((sp->waza_status_flag & 0x801FDA49) == 0)
+        if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
          && (sp->oneTurnFlag[client_no].snatchFlag)
          && (sp->moveTbl[sp->current_move_index].flag & FLAG_SNATCH))
         {
@@ -896,19 +904,6 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
 }
 
 
-enum
-{
-    SWOAK_SEQ_VANISH_ON_OFF=0,
-    SWOAK_SEQ_SYNCHRONIZE_CHECK,
-    SWOAK_SEQ_POKE_APPEAR_CHECK,
-    SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_ATTACKER,
-    SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_DEFENDER,
-    SWOAK_SEQ_CHECK_DEFENDER_ITEM_ON_HIT,
-    SWOAK_SEQ_THAW_ICE,
-    SWOAK_SEQ_CHECK_HEALING_ITEMS,
-};
-
-
 /**
  *  @brief do post move effects--synchronize, held item effects, ice thawing from move usage, etc.
  *         no other abilities here though.  primarily here to add scald melting frozen battlers
@@ -916,151 +911,45 @@ enum
  *  @param bw battle work structure
  *  @param sp global battle structure
  */
-void ServerDoPostMoveEffects(void *bw, struct BattleStruct *sp)
-{
-    // Sort clients because moves may affect speed
-    DynamicSortClientExecutionOrder(bw, sp, FALSE);
-    switch (sp->swoak_seq_no) {
-        case SWOAK_SEQ_VANISH_ON_OFF: {
-            int ret = 0;
-            while(sp->swoak_work < BattleWorkClientSetMaxGet(bw))
-            {
-                if (((sp->battlemon[sp->swoak_work].effect_of_moves & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)) == 0)
-                 && (sp->battlemon[sp->swoak_work].effect_of_moves_temp & (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)))
-                {
-                    sp->battlemon[sp->swoak_work].effect_of_moves_temp &= ~(MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE);
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_VANISH_OFF);
-                    sp->battlerIdTemp = sp->swoak_work;
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
-                    ret = 1;
-                }
+//u32 ServerDoPostMoveEffects_restoreOverlay = 0;
 
-                sp->swoak_work++;
+void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    u32 ovyId = OVERLAY_SERVERDOPOSTMOVEEFFECTS, offset = 0x021FF900 | 1, ServerDoPostMoveEffects_restoreOverlay = 0;
 
-                if (ret)
-                    return;
-            }
+    void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+    // if ctx->sba_seq_no == SBA_RESET_DEFIANT before func is called, it is the first call
+    {
+        if (IsOverlayLoaded(OVERLAY_WIFI)) { // we are taking overlay 0's place
+            ServerDoPostMoveEffects_restoreOverlay = TRUE;
+            UnloadOverlayByID(OVERLAY_WIFI);
+        } else if (IsOverlayLoaded(18)) {
+            ServerDoPostMoveEffects_restoreOverlay = OVERLAY_POKEDEX;
+            UnloadOverlayByID(OVERLAY_POKEDEX);
         }
-        sp->swoak_seq_no++;
-        sp->swoak_work=0;
-        FALLTHROUGH;
-    case SWOAK_SEQ_SYNCHRONIZE_CHECK:
-        sp->swoak_seq_no++;
-        if (SynchroniseAbilityCheck(bw, sp, sp->server_seq_no) == TRUE)
-            return;
-        FALLTHROUGH;
-    case SWOAK_SEQ_POKE_APPEAR_CHECK:
-        {
-            int seq_no;
 
-            seq_no = ST_ServerPokeAppearCheck(bw,sp);
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+        debug_printf("Load OVERLAY_SERVERDOPOSTMOVEEFFECTS\n");
+#endif
 
-            if (seq_no)
-            {
-                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
-                return;
-            }
-        }
-        sp->swoak_seq_no++;
-        FALLTHROUGH;
-    case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_ATTACKER:
-        sp->swoak_seq_no++;
-        if (TryUseHeldItem(bw, sp, sp->attack_client) == TRUE) // will eventually need TryUseHeldItem anyway.  generic berry function thing
-            return;
-        FALLTHROUGH;
-    case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_DEFENDER:
-        sp->swoak_seq_no++;
-        if (sp->defence_client != 0xFF)
-        {
-            if (TryUseHeldItem(bw, sp, sp->defence_client) == TRUE)
-                return;
-        }
-        FALLTHROUGH;
-    case SWOAK_SEQ_CHECK_DEFENDER_ITEM_ON_HIT:
-        {
-            int seq_no;
-
-            sp->swoak_seq_no++;
-            if (CheckDefenderItemEffectOnHit(bw, sp, &seq_no) == TRUE)
-            {
-                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = 22;
-                return;
-            }
-        }
-        FALLTHROUGH;
-    case SWOAK_SEQ_THAW_ICE:
-        {
-            int movetype;
-
-            movetype = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index); // new normalize checks
-
-            sp->swoak_seq_no++;
-
-            if (sp->defence_client != 0xFF)
-            {
-                if ((sp->battlemon[sp->defence_client].condition & STATUS_FREEZE)
-                 && ((sp->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS) == 0)
-                 && (sp->defence_client != sp->attack_client)
-                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
-                 && (sp->battlemon[sp->defence_client].hp)
-                 && ((movetype == TYPE_FIRE) || (sp->current_move_index == MOVE_SCALD) || (sp->current_move_index == MOVE_STEAM_ERUPTION)) // scald can also melt opponents as of gen 6
-                 && sp->oneTurnFlag[sp->attack_client].parental_bond_flag == 0)
-                {
-                    sp->battlerIdTemp = sp->defence_client;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
-                    return;
-                }
-            }
-        }
-        FALLTHROUGH;
-    case SWOAK_SEQ_CHECK_HEALING_ITEMS:
-        {
-            int client_no;
-            int ret=0;
-            int seq_no;
-
-            while (sp->swoak_work < BattleWorkClientSetMaxGet(bw))
-            {
-                client_no = sp->turnOrder[sp->swoak_work];
-                if (sp->no_reshuffle_client & No2Bit(client_no))
-                {
-                    sp->swoak_work++;
-                    continue;
-                }
-
-                sp->swoak_work++;
-
-                if (HeldItemHealStatusCheck(bw, sp, client_no, &seq_no) == TRUE) // will also probably need this one too
-                {
-                    sp->battlerIdTemp = client_no;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
-                    ret = 1;
-                    break;
-                }
-            }
-
-            if (ret == 0)
-            {
-                sp->swoak_seq_no++;
-                sp->swoak_work = 0;
-            }
-        }
-        break;
-    default:
-        break;
+        //offset = 0x023C0400 | 1;
+        HandleLoadOverlay(ovyId, 2);
     }
-    sp->swoak_seq_no = 0;
-    sp->swoak_work = 0;
-    sp->server_seq_no = 32;
+    internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
+    internalFunc(bsys, ctx);
+
+    //if (ctx->swoak_seq_no >= SWOAK_SEQ_CLEAR_MAGIC_COAT) // can finally unload the overlay
+    {
+        if (ServerDoPostMoveEffects_restoreOverlay) {
+            UnloadOverlayByID(ovyId);
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+            debug_printf("Restoring overlay %d...\n", (ServerDoPostMoveEffects_restoreOverlay == 1 ? OVERLAY_WIFI : ServerDoPostMoveEffects_restoreOverlay));
+#endif
+            HandleLoadOverlay((ServerDoPostMoveEffects_restoreOverlay == 1 ? OVERLAY_WIFI : ServerDoPostMoveEffects_restoreOverlay), 2);
+        }
+    }
+
+    ctx->swoak_seq_no = 0; // reset according to the scriptures
 }
 
 BOOL LONG_CALL ServerIkariCheck(void*, struct BattleStruct *ctx) {

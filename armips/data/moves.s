@@ -77,7 +77,7 @@ movedata MOVE_DOUBLE_SLAP, "Double Slap"
 movedata MOVE_COMET_PUNCH, "Comet Punch"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_PSYCHIC
     accuracy 90
     pp 10
@@ -509,7 +509,7 @@ movedata MOVE_HORN_ATTACK, "Horn Attack"
 movedata MOVE_FURY_ATTACK, "Fury Attack"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_NORMAL
     accuracy 90
     pp 10
@@ -685,7 +685,7 @@ movedata MOVE_TWINEEDLE, "Twineedle"
 movedata MOVE_PIN_MISSILE, "Pin Missile"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_BUG
     accuracy 90
     pp 10
@@ -2109,7 +2109,7 @@ movedata MOVE_SKULL_BASH, "Skull Bash"
 movedata MOVE_SPIKE_CANNON, "Barb Cannon"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_POISON
     accuracy 90
     pp 10
@@ -2253,7 +2253,7 @@ movedata MOVE_POISON_GAS, "Poison Gas"
 movedata MOVE_BARRAGE, "Barrage"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_GRASS
     accuracy 90
     pp 10
@@ -2477,7 +2477,7 @@ movedata MOVE_EXPLOSION, "Explosion"
 movedata MOVE_FURY_SWIPES, "Fury Swipes"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_NORMAL
     accuracy 90
     pp 10
@@ -3181,7 +3181,7 @@ movedata MOVE_DETECT, "Detect"
 movedata MOVE_BONE_RUSH, "Bone Rush"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_ROCK
     accuracy 90
     pp 10
@@ -4685,7 +4685,7 @@ movedata MOVE_DIVE, "Dive"
 movedata MOVE_ARM_THRUST, "Arm Thrust"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_FIGHTING
     accuracy 90
     pp 10
@@ -5309,7 +5309,7 @@ movedata MOVE_MUDDY_WATER, "Muddy Water"
 movedata MOVE_BULLET_SEED, "Bullet Seed"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_GRASS
     accuracy 90
     pp 10
@@ -5341,7 +5341,7 @@ movedata MOVE_AERIAL_ACE, "Aerial Ace"
 movedata MOVE_ICICLE_SPEAR, "Icicle Spear"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_ICE
     accuracy 90
     pp 10
@@ -5613,7 +5613,7 @@ movedata MOVE_DRAGON_DANCE, "Dragon Dance"
 movedata MOVE_ROCK_BLAST, "Rock Blast"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_ROCK
     accuracy 90
     pp 10
@@ -8717,7 +8717,7 @@ movedata MOVE_PSYSTRIKE, "Psystrike"
 movedata MOVE_TAIL_SLAP, "Tail Slap"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_NORMAL
     accuracy 90
     pp 10
@@ -9565,7 +9565,7 @@ movedata MOVE_HYPERSPACE_HOLE, "Hyperspace Hole"
 movedata MOVE_WATER_SHURIKEN, "Water Shuriken"
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_SPECIAL
-    basepower 20
+    basepower 25
     type TYPE_WATER
     accuracy 90
     pp 10
@@ -12842,13 +12842,13 @@ movedata MOVE_STEEL_ROLLER, "Steel Roller" //Unimplemented
     terminatedata
     movedescription MOVE_STEEL_ROLLER, "The user attacks while\ndestroying the terrain.\nThis move fails if the\nground hasn’t turned\ninto a terrain."
 
-movedata MOVE_SCALE_SHOT, "Scale Shot"
+movedata MOVE_SCALE_SHOT, "Scale Shot" //Unimplemented
     battleeffect MOVE_EFFECT_MULTI_HIT
     pss SPLIT_PHYSICAL
-    basepower 20
+    basepower 25
     type TYPE_DRAGON
     accuracy 90
-    pp 20
+    pp 10
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0

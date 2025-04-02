@@ -6,7 +6,6 @@ _000:
     PrintAttackMessage 
     Wait 
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _043
-	UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_ATTACKER
     TrySubstitute _036
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_SUBSTITUTE_IN
     Wait 
@@ -22,7 +21,7 @@ _000:
 
 _036:
     WaitButtonABTime 30
-    // But it does not have enough HP!
+    // It was too weak to make a substitute!
     PrintMessage 819, TAG_NONE
     GoTo _049
 

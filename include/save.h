@@ -164,6 +164,7 @@ struct PLAYERDATA {
 };
 
 #define NUM_HOF_RECORDS 30
+
 typedef struct HOFMon {
     /* 0x00 */ u16 species;
     /* 0x02 */ u8 level;
@@ -175,12 +176,14 @@ typedef struct HOFMon {
     /* 0x32 */ u16 moves[4];
     /* 0x3A */ u8 padding[2];
 } HOFMON;
+
 typedef struct HOFParty {
     HOFMON party[6];
     u16 year;
     u8 month;
     u8 day;
 } HOFTEAM;
+
 typedef struct HallOfFame {
     HOFTEAM parties[NUM_HOF_RECORDS];
     u32 next_record;
@@ -349,7 +352,8 @@ u8 *LONG_CALL SaveData_GetRepelPtr(void *saveData);
 void *LONG_CALL SaveData_GetEventPtr(void *saveData);
 void *LONG_CALL SaveData_GetDexPtr(void *saveData);
 void *LONG_CALL SaveData_GetPlayerPartyPtr(void *saveData);
-u32 LONG_CALL GetCaughtMonCount(void *dexSaveData);
+u32 LONG_CALL Pokedex_CountDexOwned(void *dexSaveData);
+u32 LONG_CALL Pokedex_CountJohtoDexOwned(void *dexSaveData);
 HallOfFame * LONG_CALL LoadHallOfFame(void *saveData, u32 heapId, int *ret_p);
 void LONG_CALL Save_HOF_RecordParty(HallOfFame *hof, struct Party *party, struct RTCDate *date);
 

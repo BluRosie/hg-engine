@@ -1145,13 +1145,13 @@ PokedexInit: // rewrite the beginning for new struct size
     mov r1, #0
 
 
-// edits to GetCaughtMonCount
+// edits to Pokedex_CountDexOwned
 
 .org 0x02029E0C
 
 .area 0x3C, 0xFF
 
-GetCaughtMonCount:
+Pokedex_CountDexOwned:
     push {r3-r7, lr}
     mov r6, r0
     mov r5, #0
