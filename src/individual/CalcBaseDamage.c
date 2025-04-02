@@ -220,7 +220,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     && (sp->battlemon[defender].form_no == 0)
     // Not transformed
     && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
-    /*&& (GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL)*/) {
+    /*&& (movesplit == SPLIT_PHYSICAL)*/) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
         return 0;
@@ -351,8 +351,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         // If a Pokémon has any evolutions, there should be an entry at the top that isn't EVO_NONE.
         // In that case, the Pokémon is capable of evolving, and so the effect of Eviolite should apply.
         if (evoTable[0].method != EVO_NONE) {
-            defense = defense * 150 / 100;
-            sp_defense = sp_defense * 150 / 100;
+            defense = defense * 15 / 10;
+            sp_defense = sp_defense * 15 / 10;
         }
 
         sys_FreeMemoryEz(evoTable);
@@ -527,22 +527,22 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     // handle "in a pinch" type boosters
-    if ((movetype == TYPE_GRASS) && (AttackingMon.ability == ABILITY_OVERGROW) && (AttackingMon.hp <= AttackingMon.maxhp * 10 / 30))
+    if ((movetype == TYPE_GRASS) && (AttackingMon.ability == ABILITY_OVERGROW) && (AttackingMon.hp <= AttackingMon.maxhp / 3))
     {
         movepower = movepower * 15 / 10;
     }
 
-    if ((movetype == TYPE_FIRE) && (AttackingMon.ability == ABILITY_BLAZE) && (AttackingMon.hp <= AttackingMon.maxhp * 10 / 30))
+    if ((movetype == TYPE_FIRE) && (AttackingMon.ability == ABILITY_BLAZE) && (AttackingMon.hp <= AttackingMon.maxhp / 3))
     {
         movepower = movepower * 15 / 10;
     }
 
-    if ((movetype == TYPE_WATER) && (AttackingMon.ability == ABILITY_TORRENT) && (AttackingMon.hp <= AttackingMon.maxhp * 10 / 30))
+    if ((movetype == TYPE_WATER) && (AttackingMon.ability == ABILITY_TORRENT) && (AttackingMon.hp <= AttackingMon.maxhp / 3))
     {
         movepower = movepower * 15 / 10;
     }
 
-    if ((movetype == TYPE_BUG) && (AttackingMon.ability == ABILITY_SWARM) && (AttackingMon.hp <= AttackingMon.maxhp * 10 / 30))
+    if ((movetype == TYPE_BUG) && (AttackingMon.ability == ABILITY_SWARM) && (AttackingMon.hp <= AttackingMon.maxhp / 3))
     {
         movepower = movepower * 15 / 10;
     }
@@ -876,8 +876,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
             sp->oneTurnFlag[attacker].parental_bond_flag = 0;
             break;
     }
-	
-	movesplit = GetMoveSplit(sp, moveno);
 
     // handle physical moves
     if (movesplit == SPLIT_PHYSICAL)

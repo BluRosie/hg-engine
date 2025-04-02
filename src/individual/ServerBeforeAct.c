@@ -77,13 +77,10 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
             case SBA_RESET_FURY_CUTTER: {
                 // debug_printf("In SBA_RESET_FURY_CUTTER\n");
 
-                /*for (client_no = 0; client_no < client_set_max; client_no++) {
-                    if ((sp->battlemon[client_no].condition & STATUS_SLEEP) != 0)
-						|| (sp->moveTbl[GetBattlerSelectedMove(sp, client_no)].effect == MOVE_EFFECT_DOUBLE_POWER_EACH_TURN)
-						|| (ST_CheckIfInTruant(sp, client_no) != FALSE)
-						|| (sp->oneTurnFlag[client_no].struggle_flag != 0))
+                for (client_no = 0; client_no < client_set_max; client_no++) {
+                    if (((sp->battlemon[client_no].condition & 7) != 0) || (GetBattlerSelectedMove(sp, client_no) != MOVE_FURY_CUTTER) || (ST_CheckIfInTruant(sp, client_no) != FALSE) || (sp->oneTurnFlag[client_no].struggle_flag != 0))
                         sp->battlemon[client_no].moveeffect.furyCutterCount = 0;
-                }*/
+                }
                 sp->sba_seq_no++;
                 break;
             }
@@ -341,14 +338,14 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                     sp->sba_work++;
 
                     // 真氣拳
-                    if ((sp->moveTbl[GetBattlerSelectedMove(sp, client_no)].effect == MOVE_EFFECT_HIT_LAST_WHIFF_IF_HIT) &&
+                    if (((sp->battlemon[client_no].condition & 7) == 0) &&
+                        (GetBattlerSelectedMove(sp, client_no) == MOVE_FOCUS_PUNCH) &&
                         (ST_CheckIfInTruant(sp, client_no) == FALSE) &&
                         (sp->oneTurnFlag[client_no].struggle_flag == 0)) {
                         SCIO_BlankMessage(bw);
                         sp->battlerIdTemp = client_no;
                         // decomp doesn't have this???
                         // sp->battlemon[client_no].form_no = 1; // ?
-						sp->waza_work = GetBattlerSelectedMove(sp, client_no);
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FOCUS_PUNCH_START);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
@@ -369,7 +366,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
             case SBA_RAGE: {
                 // debug_printf("In SBA_RAGE\n");
                 for (client_no = 0; client_no < client_set_max; client_no++) {
-                    if ((sp->battlemon[client_no].condition2 & STATUS2_RAGE) && (sp->moveTbl[GetBattlerSelectedMove(sp, client_no)].effect == MOVE_EFFECT_RAISE_ATK_WHEN_HIT)) {
+                    if ((sp->battlemon[client_no].condition2 & STATUS2_RAGE) && (GetBattlerSelectedMove(sp, client_no) != MOVE_RAGE)) {
                         sp->battlemon[client_no].condition2 &= ~STATUS2_RAGE;
                     }
                 }

@@ -720,8 +720,8 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     battlerId = sp->turnOrder[sp->scc_work];
 
                     if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)
-						&& (u32)sp->battlemon[battlerId].hp != sp->battlemon[battlerId].maxhp
-						&& sp->battlemon[battlerId].hp != 0) {
+                    && (u32)sp->battlemon[battlerId].hp != sp->battlemon[battlerId].maxhp
+                    && sp->battlemon[battlerId].hp != 0) {
                         if (sp->battlemon[battlerId].moveeffect.healBlockTurns) {
                             sp->battlerIdTemp = battlerId;
                             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_HEAL);

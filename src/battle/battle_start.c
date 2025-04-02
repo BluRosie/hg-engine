@@ -30,13 +30,13 @@
 struct BattleStruct *ServerInit(struct BattleSystem *bw) {
     struct BattleStruct *sp;
 
-    sp = sys_AllocMemory(5, sizeof(struct BattleStruct));
+    sp = sys_AllocMemory(HEAPID_BATTLE_HEAP, sizeof(struct BattleStruct));
     memset(sp, 0, sizeof(struct BattleStruct));
     BattleStructureInit(sp);
     BattleStructureCounterInit(bw, sp);
     ServerMoveAIInit(bw, sp);
     DumpMoveTableData(&sp->moveTbl[0]);
-    sp->aiWorkTable.item = ItemDataTableLoad(5);
+    sp->aiWorkTable.item = ItemDataTableLoad(HEAPID_BATTLE_HEAP);
 
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
 
@@ -91,7 +91,7 @@ void ServerBeforeAct(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
     internalFunc(bsys, ctx);
 
-    if (ctx->sba_seq_no == SBA_RESET_DEFIANT)
+    //if (ctx->sba_seq_no == SBA_RESET_DEFIANT)
     {
         if (ServerBeforeAct_restoreOverlay) {
             UnloadOverlayByID(ovyId);
@@ -157,15 +157,15 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
 
     void (*internalFunc)(void *bw, struct BattleStruct *sp);
 
-    // if wb_seq_no == BEFORE_MOVE_START before func is called, it is the first call
-    if (sp->wb_seq_no == BEFORE_MOVE_START)
+    // if wb_seq_no == BEFORE_MOVE_START_FLAG_UNLOAD before func is called, it is the first call
+    if (sp->wb_seq_no == BEFORE_MOVE_START_FLAG_UNLOAD)
     {
         if (IsOverlayLoaded(OVERLAY_WIFI)) { // we are taking overlay 0's place
             ServerWazaBefore_restoreOverlay = TRUE;
             UnloadOverlayByID(OVERLAY_WIFI);
         } else if (IsOverlayLoaded(OVERLAY_POKEDEX)) {
             ServerWazaBefore_restoreOverlay = OVERLAY_POKEDEX;
-            UnloadOverlayByID(18);
+            UnloadOverlayByID(OVERLAY_POKEDEX);
         }
 
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
@@ -181,15 +181,17 @@ void ServerWazaBefore(void *bw, struct BattleStruct *sp) {
     internalFunc = (void (*)(void *bw, struct BattleStruct *sp))(offset);
     internalFunc(bw, sp);
 
-    // if wb_seq_no == BEFORE_MOVE_START after the func is called, it is the last call
-    if (sp->wb_seq_no == BEFORE_MOVE_START)
+    // if wb_seq_no == BEFORE_MOVE_START_FLAG_UNLOAD after the func is called, it is the last call
+    if (sp->wb_seq_no == BEFORE_MOVE_START_FLAG_UNLOAD)
     {
+        // needs to unload regardless of if it took OVERLAY_POKEDEX space
+        UnloadOverlayByID(ovyId);
         if (ServerWazaBefore_restoreOverlay) {
-            UnloadOverlayByID(ovyId);
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("Restoring overlay %d...\n", (ServerWazaBefore_restoreOverlay == 1 ? 0 : ServerWazaBefore_restoreOverlay));
 #endif
             HandleLoadOverlay((ServerWazaBefore_restoreOverlay == 1 ? OVERLAY_WIFI : ServerWazaBefore_restoreOverlay), 2);
+            ServerWazaBefore_restoreOverlay = FALSE;
         }
     }
 }

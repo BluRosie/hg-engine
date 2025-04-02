@@ -154,8 +154,14 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
  *  @param damage unrolled damage
  *  @return adjusted damage
  */
-int AdjustDamageForRoll(void *bw, struct BattleStruct *sp UNUSED, int damage)
+int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage)
 {
+    // 0 for type is okay because we get adjusted type in the function anyway
+    // putting ServerDoTypeCalcMod here fixes a bug after the rewrite that we were omitting this function
+    // this still rather closely matches smogon's damage calculator for gen 4.  may have to refactor down the line
+    u32 temp = 0;
+    damage = ServerDoTypeCalcMod(bw, sp, sp->current_move_index, 0, sp->attack_client, sp->defence_client, damage, &temp);
+
 #ifdef DEBUG_ADJUSTED_DAMAGE
     u8 buf[128];
     s32 predamage = damage;

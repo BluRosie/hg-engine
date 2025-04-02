@@ -86,6 +86,11 @@ BOOL btl_scr_cmd_FC_trystickyweb(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_100_jumptocurrententryhazard(void *bsys, struct BattleStruct *ctx);
+void BattleContext_AddEntryHazardToQueue(struct BattleStruct *ctx, u32 side, u32 hazard);
+BOOL btl_scr_cmd_101_addentryhazardtoqueue(void *bsys UNUSED, struct BattleStruct *ctx);
+void BattleContext_RemoveEntryHazardFromQueue(struct BattleStruct *ctx, u32 side, u32 hazard);
+BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -104,9 +109,9 @@ u32 LoadCaptureSuccessSPA(u32 id);
 u32 LoadCaptureSuccessSPAStarEmitter(u32 id);
 u32 LoadCaptureSuccessSPANumEmitters(u32 id);
 
-BOOL btl_scr_cmd_100_storedpowerdamagecalc(void *bsys, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_101_electroballdamagecalc(void *bsys, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_102_iflasthitofmultihit(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_CUSTOM_storedpowerdamagecalc(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_CUSTOM_electroballdamagecalc(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_CUSTOM_iflasthitofmultihit(void *bw, struct BattleStruct *sp);
 
 #ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
 const u8 *BattleScrCmdNames[] =
@@ -411,10 +416,13 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0xFD - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FD_trymegaorultraburstduringpursuit,
     [0xFE - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FE_calcconfusiondamage,
     [0xFF - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive,
+    [0x100 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_100_jumptocurrententryhazard,
+    [0x101 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_101_addentryhazardtoqueue,
+    [0x102 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_102_removeentryhazardfromqueue,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
-	[BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_100_storedpowerdamagecalc,
-	[BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 2] = btl_scr_cmd_101_electroballdamagecalc,
-	[BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 3] = btl_scr_cmd_102_iflasthitofmultihit,
+	[BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_CUSTOM_storedpowerdamagecalc,
+	[BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 2] = btl_scr_cmd_CUSTOM_electroballdamagecalc,
+	[BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 3] = btl_scr_cmd_CUSTOM_iflasthitofmultihit,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -1451,8 +1459,6 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                 }
                 expcalc->sp->exp_share_obtained_exp = 0;
             }
-        }
-    }
 
 #ifdef DEBUG_PRINT_EXPERIENCE_VALUES
     u8 buf[128];
@@ -1463,6 +1469,9 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     sprintf(buf, "top = %d, bottom = %d\n", top, bottom);
     debugsyscall(buf);
 #endif
+
+        }
+    }
 
 #else // EXPERIENCE_FORMULA_GEN < 5 || EXPERIENCE_FORMULA_GEN == 6 // flat exp rate needs to be calculated
     if (expcalc->seq_no != 38)
@@ -3049,7 +3058,7 @@ BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys UNUSED, stru
     int failAddress = read_battle_script_param(ctx);
     int handleDefiantAddress = read_battle_script_param(ctx);
     int handleCompetitiveAddress = read_battle_script_param(ctx);
-    
+
     if ((ctx->battlemon[ctx->state_client].hp != 0)
     && (ctx->oneSelfFlag[ctx->state_client].defiant_flag)
     && (ctx->battlemon[ctx->state_client].states[STAT_ATTACK] < 12)
@@ -3076,6 +3085,165 @@ BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys UNUSED, stru
     }
 
     IncrementBattleScriptPtr(ctx, failAddress);
+
+    return FALSE;
+}
+
+#ifdef DEBUG_ENTRY_HAZARD_PRINTS
+
+const u8 *gHazardNames[] = {
+    [HAZARD_IDX_NONE] = "no hazard",
+    [HAZARD_IDX_SHARP_STEEL] = "sharp steel",
+    [HAZARD_IDX_SPIKES] = "spikes",
+    [HAZARD_IDX_TOXIC_SPIKES] = "toxic spikes",
+    [HAZARD_IDX_STEALTH_ROCK] = "stealth rock",
+    [HAZARD_IDX_STICKY_WEB] = "sticky web",
+};
+
+#endif
+
+/**
+ *  @brief script command to control the flow of the entry hazards script
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_100_jumptocurrententryhazard(void *bsys UNUSED, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    s32 hazardAddresses[NUM_HAZARD_IDX];
+    u32 side = (1 & GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx)));
+
+    hazardAddresses[HAZARD_IDX_SPIKES-1] = read_battle_script_param(ctx);
+    hazardAddresses[HAZARD_IDX_TOXIC_SPIKES-1] = read_battle_script_param(ctx);
+    hazardAddresses[HAZARD_IDX_STEALTH_ROCK-1] = read_battle_script_param(ctx);
+    hazardAddresses[HAZARD_IDX_STICKY_WEB-1] = read_battle_script_param(ctx);
+    hazardAddresses[HAZARD_IDX_SHARP_STEEL-1] = read_battle_script_param(ctx);
+
+    // queue system -- read from the current queue step and then jump to that offset
+    if (ctx->entryHazardQueue[side][ctx->hazardQueueTracker] != HAZARD_IDX_NONE)
+    {
+#ifdef DEBUG_ENTRY_HAZARD_PRINTS
+        debug_printf("[JumpToCurrentEntryHazard] Jumping to side %d queue pos %d hazard %d (%s)\n", side, ctx->hazardQueueTracker,
+            ctx->entryHazardQueue[side][ctx->hazardQueueTracker],
+            gHazardNames[ctx->entryHazardQueue[side][ctx->hazardQueueTracker]]);
+#endif
+        IncrementBattleScriptPtr(ctx, hazardAddresses[ctx->entryHazardQueue[side][ctx->hazardQueueTracker]-1]);
+        ctx->hazardQueueTracker++;
+    }
+    else // no more hazards to be processed
+    {
+        ctx->hazardQueueTracker = 0;
+    }
+
+    return FALSE;
+}
+
+void BattleContext_AddEntryHazardToQueue(struct BattleStruct *ctx, u32 side, u32 hazard)
+{
+    if (hazard != HAZARD_IDX_NONE) // idk man people might misuse the system or something
+    {
+        for (int i = 0; i < NUM_HAZARD_IDX; i++)
+        {
+            if (ctx->entryHazardQueue[side][i] == hazard)
+            {
+#ifdef DEBUG_ENTRY_HAZARD_PRINTS
+                debug_printf("[BattleContext_AddEntryHazardToQueue] Hazard %s already in side %d queue (slot %d).  Skipping.\n",
+                    gHazardNames[hazard], side, i);
+#endif
+                break;
+            }
+            if (ctx->entryHazardQueue[side][i] == HAZARD_IDX_NONE)
+            {
+#ifdef DEBUG_ENTRY_HAZARD_PRINTS
+                debug_printf("[BattleContext_AddEntryHazardToQueue] Adding hazard %s to side %d queue position %d.\n",
+                    gHazardNames[hazard], side, i);
+#endif
+                ctx->entryHazardQueue[side][i] = hazard;
+                break;
+            }
+        }
+    }
+}
+
+/**
+ *  @brief script command to add to the queue of the entry hazard system
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_101_addentryhazardtoqueue(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u32 side = (1 & GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx)));
+    u32 hazard = read_battle_script_param(ctx);
+    BattleContext_AddEntryHazardToQueue(ctx, side, hazard);
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to remove from the queue a specific hazard
+ *
+ *  @param ctx global battle structure
+ *  @param hazard HAZARD_IDX_* to remove
+ */
+void BattleContext_RemoveEntryHazardFromQueue(struct BattleStruct *ctx, u32 side, u32 hazard)
+{
+    int i = 0;
+    if (hazard != HAZARD_IDX_NONE) // idk man people might misuse the system or something
+    {
+        BOOL hasMetZero = FALSE;
+        for (i = 0; i < NUM_HAZARD_IDX; i++)
+        {
+            // remove the current element
+            if (hazard == ctx->entryHazardQueue[side][i])
+            {
+                ctx->entryHazardQueue[side][i] = HAZARD_IDX_NONE;
+                if (ctx->hazardQueueTracker) ctx->hazardQueueTracker--; // set everything back
+                break;
+            }
+        }
+        for (i = 0; i < (NUM_HAZARD_IDX-1); i++)
+        {
+            // if the current element is NONE, we want to move every subsequent element back one
+            if (HAZARD_IDX_NONE == ctx->entryHazardQueue[side][i] || hasMetZero)
+            {
+                u32 nextHazard = ctx->entryHazardQueue[side][i+1];
+                ctx->entryHazardQueue[side][i] = nextHazard;
+                hasMetZero = TRUE;
+            }
+        }
+    }
+#ifdef DEBUG_ENTRY_HAZARD_PRINTS
+    debug_printf("[BattleContext_RemoveEntryHazardFromQueue] Removed hazard %s from side %d queue.\nRemaining queue:\n",
+        gHazardNames[hazard],
+        side)
+    for (i = 0; i < NUM_HAZARD_IDX; i++)
+    {
+        if (ctx->entryHazardQueue[side][i] != HAZARD_IDX_NONE)
+            debug_printf("    [%d] = %s\n", i, gHazardNames[ctx->entryHazardQueue[side][i]]);
+    }
+#endif
+}
+
+/**
+ *  @brief script command to remove from the queue a specific hazard
+ *
+ *  @param bsys battle work structure
+ *  @param ctx global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u32 side = (1 & GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx)));
+    u32 hazard = read_battle_script_param(ctx);
+    BattleContext_RemoveEntryHazardFromQueue(ctx, side, hazard);
 
     return FALSE;
 }
@@ -3368,6 +3536,12 @@ BOOL BtlCmd_TrySubstitute(void *bw UNUSED, struct BattleStruct *sp)
 BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
 {
     int side = IsClientEnemy(bw, sp->attack_client);
+
+    // clear all of these now since they will be cleared
+    for (int i = 0; i < NUM_HAZARD_IDX; i++)
+        sp->entryHazardQueue[0][i] = HAZARD_IDX_NONE;
+    for (int i = 0; i < NUM_HAZARD_IDX; i++)
+        sp->entryHazardQueue[1][i] = HAZARD_IDX_NONE;
 
     //Binding Moves
     if (sp->binding_turns[sp->attack_client] != 0) {
@@ -3950,7 +4124,7 @@ BOOL BtlCmd_CalcGyroBallPower(void *bsys UNUSED, struct BattleStruct *ctx) {
     return FALSE;
 }
 
-BOOL btl_scr_cmd_100_storedpowerdamagecalc(void *bsys UNUSED, struct BattleStruct *ctx) {
+BOOL btl_scr_cmd_CUSTOM_storedpowerdamagecalc(void *bsys UNUSED, struct BattleStruct *ctx) {
     int stat, cnt;
 
     IncrementBattleScriptPtr(ctx, 1);
@@ -3967,7 +4141,7 @@ BOOL btl_scr_cmd_100_storedpowerdamagecalc(void *bsys UNUSED, struct BattleStruc
     return FALSE;
 }
 
-BOOL btl_scr_cmd_101_electroballdamagecalc(void *bsys UNUSED, struct BattleStruct *ctx) {
+BOOL btl_scr_cmd_CUSTOM_electroballdamagecalc(void *bsys UNUSED, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
     ctx->damage_power = 25 * ctx->effectiveSpeed[ctx->attack_client] / ctx->effectiveSpeed[ctx->defence_client];
@@ -3987,7 +4161,7 @@ BOOL btl_scr_cmd_101_electroballdamagecalc(void *bsys UNUSED, struct BattleStruc
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_102_iflasthitofmultihit(void *bw UNUSED, struct BattleStruct *sp) {
+BOOL btl_scr_cmd_CUSTOM_iflasthitofmultihit(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
 	
     int address = read_battle_script_param(sp);
