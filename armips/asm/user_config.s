@@ -16,13 +16,13 @@ getSetMode:
 
 .org 0x0202AD98 // location of battle mon switching rule set routine - this makes it so player can not change selection from "set"
 
-battleStyleSelectionCallback:
+/*battleStyleSelectionCallback:
     ldrh r2, [r0]
     mov r1, #0x40
     orr r1, r2
     strh r1, [r0]
     bx lr
-
+*/
 .endif
 
 .if ALWAYS_UNCAPPED_FRAME_RATE

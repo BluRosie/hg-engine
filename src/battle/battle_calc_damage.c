@@ -163,16 +163,16 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage)
     damage = ServerDoTypeCalcMod(bw, sp, sp->current_move_index, 0, sp->attack_client, sp->defence_client, damage, &temp);
 
 #ifdef DEBUG_ADJUSTED_DAMAGE
-    u8 buf[128];
     s32 predamage = damage;
 #endif // DEBUG_ADJUSTED_DAMAGE
-	//if (damage)
-    //{
-		//damage *= (100 - (BattleRand(bw) % 16)); // 85-100% damage roll
-		//damage /= 100;
-		if (damage < 0)
+
+	/*if (damage)
+    {
+		damage *= (100 - (BattleRand(bw) % 16)); // 85-100% damage roll
+		damage /= 100;
+		if (damage == 0)
 			damage = 1;
-	//}
+	}*/
 
 #ifdef DEBUG_ADJUSTED_DAMAGE
     debug_printf("Unrolled damage: %d -- Battler %d hit battler %d for %d damage.\n", predamage, sp->attack_client, sp->defence_client, damage+1);

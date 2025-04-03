@@ -946,22 +946,22 @@
 // #define MOVE_CUSTOM_MOVE_1 924
 
 // null moves
-#define MOVE_NIBBLE 924
-#define MOVE_KNEAD 925
-#define MOVE_JAB 926
-#define MOVE_WATERMILL 927
-#define MOVE_TRAMPLE 928
-#define MOVE_LEAP 929
-#define MOVE_SHOCK 930
-#define MOVE_SKID 931
-#define MOVE_SHEAR 932
-#define MOVE_PALM_CLOSE 933
-#define MOVE_SKULK_OUT 934
-#define MOVE_CACKLE 935
-#define MOVE_SOMERSAULT 936
+#define MOVE_NIBBLE 923
+#define MOVE_KNEAD 924
+#define MOVE_JAB 925
+#define MOVE_WATERMILL 926
+#define MOVE_TRAMPLE 927
+#define MOVE_LEAP 930
+#define MOVE_SHOCK 931
+#define MOVE_SKID 932
+#define MOVE_SHEAR 933
+#define MOVE_PALM_CLOSE 934
+#define MOVE_SKULK_OUT 935
+#define MOVE_CACKLE 936
+#define MOVE_SOMERSAULT 937
 
 // update this number yourself manually
-#define NUM_OF_MOVES 937
+#define NUM_OF_MOVES 938
 
 #define MOVE_G_MAX_WILDFIRE (NUM_OF_MOVES-1+1)
 #define MOVE_G_MAX_BEFUDDLE (NUM_OF_MOVES-1+2)

@@ -45,7 +45,7 @@
 
 // IMPLEMENT_BDHCAM_ROUTINE defines whether or not the BDHCam routine (by Mikelan) will be built into the ROM.  this is necessary to get it shiftable because DSPRE writes it to a fixed location
 // uncommenting this line will include it in your ROM
-#define IMPLEMENT_BDHCAM_ROUTINE
+//#define IMPLEMENT_BDHCAM_ROUTINE
 
 // IMPLEMENT_TRANSPARENT_TEXTBOXES should be used if you want to implement transparent textboxes
 // uncommenting this line out will enable transparent textboxes
@@ -87,7 +87,7 @@
 
 // IMPLEMENT_SEASONS currently implements season mechanics. Used for changing forms of Deerling and Sawsbuck.
 // Comment the line out to disable this functionality (Gen 6+) 
-#define IMPLEMENT_SEASONS
+//#define IMPLEMENT_SEASONS
 
 // IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS allows wild species to appear with different forms if it has multiple forms.
 // Normally you will use monwithform, encounterwithform, headbuttencounterwithform to specify different forms (similar to Gen 5+)
@@ -95,7 +95,7 @@
 // #define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
 
 // Some forms only exist in their debut games, with accompying mechanics. IMPLEMENT_GONE_SPECIES_MECHANICS lets these forms' mechanics coexist with the latest mechanics. Examples include Noble Pokémon
-#define IMPLEMENT_DEXIT_FORMS_MECHANICS
+//#define IMPLEMENT_DEXIT_FORMS_MECHANICS
 
 // EXPAND_PC_BOXES will expand the amount of pc boxes if enabled to 30
 // comment out the line below to keep the max at 18

@@ -6,6 +6,7 @@
 .include "armips/include/config.s"
 .include "armips/include/movemacros.s"
 
+.include "asm/include/debug.inc"
 .include "asm/include/moves.inc"
 .include "asm/include/move_effects.inc"
 
@@ -266,20 +267,20 @@ movedata MOVE_CUT, "Cut"
     movedescription MOVE_CUT, "The foe is cut with a\nscythe or a claw.\nIt has a high\ncritical hit ratio."
 
 movedata MOVE_GUST, "Gust"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_CONFUSE_HIT
     pss SPLIT_SPECIAL
-    basepower 50
+    basepower 40
     type TYPE_FLYING
     accuracy 100
     pp 20
-    effectchance 0
+    effectchance 25
     target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_KINGS_ROCK | FLAG_MIRROR_MOVE | FLAG_PROTECT
     appeal 0x00
     contesttype 0x00
     terminatedata
-    movedescription MOVE_GUST, "A gust of wind is\nwhipped up by wings\nand launched at the\nfoe to inflict damage."
+    movedescription MOVE_GUST, "A gust of wind is\nwhipped up by wings\nand launched at the\nfoe. It may confuse the target."
 
 movedata MOVE_WING_ATTACK, "Wing Attack"
     battleeffect MOVE_EFFECT_HIT
@@ -791,7 +792,7 @@ movedata MOVE_SUPERSONIC, "Supersonic"
     appeal 0x00
     contesttype 0x00
     terminatedata
-    movedescription MOVE_SUPERSONIC, "The user generates\nodd sound waves from\nits body. It may\nconfuse the target."
+    movedescription MOVE_SUPERSONIC, "The user generates\nodd sound waves from\nits body to confuse\nthe target."
 
 movedata MOVE_SONIC_BOOM, "Sonic Boom"
     battleeffect MOVE_EFFECT_HALVE_HP
@@ -7511,7 +7512,7 @@ movedata MOVE_468, "MOVE_468"
     appeal 0x00
     contesttype 0x00
     terminatedata
-    movedescription MOVE_SHADOW_FORCE+1, "--"
+    movedescription MOVE_468, "--"
 
 movedata MOVE_469, "MOVE_469"
     battleeffect MOVE_EFFECT_HIT
@@ -7527,7 +7528,7 @@ movedata MOVE_469, "MOVE_469"
     appeal 0x00
     contesttype 0x00
     terminatedata
-    movedescription MOVE_SHADOW_FORCE+2, "--"
+    movedescription MOVE_469, "--"
 
 movedata MOVE_470, "MOVE_470"
     battleeffect MOVE_EFFECT_HIT
@@ -7543,7 +7544,7 @@ movedata MOVE_470, "MOVE_470"
     appeal 0x00
     contesttype 0x00
     terminatedata
-    movedescription MOVE_SHADOW_FORCE+3, "--"
+    movedescription MOVE_470, "--"
 
 movedata MOVE_HONE_CLAWS, "Hone Claws"
     battleeffect MOVE_EFFECT_ATK_ACC_UP
@@ -14996,6 +14997,6 @@ movedatanoname NUM_OF_MOVES
     target 0x0000
     priority 0
     flags 0x32
-    appeal 0x00
-    contesttype 0x00
+    appeal 0x10
+    contesttype CONTEST_BEAUTY
     terminatedata

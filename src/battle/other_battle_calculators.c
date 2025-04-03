@@ -3093,7 +3093,7 @@ void InitializeTurn(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     for (battlerId = 0; battlerId < 4; battlerId++) {
         MIi_CpuClearFast(0, (u32 *)&ctx->oneTurnFlag[battlerId], sizeof(struct OneTurnEffect));
         MIi_CpuClearFast(0, (u32 *)&ctx->moveOutCheck[battlerId], sizeof(struct MoveOutCheck));
-        //ctx->battlemon[battlerId].condition2 &= ~STATUS2_FLINCH;
+        ctx->battlemon[battlerId].condition2 &= ~STATUS2_FLINCH;
         if (ctx->battlemon[battlerId].moveeffect.rechargeCount + 1 < ctx->total_turn) {
             ctx->battlemon[battlerId].condition2 &= ~STATUS2_RECHARGE;
         }

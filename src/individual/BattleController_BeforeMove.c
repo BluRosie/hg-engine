@@ -422,9 +422,9 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_PARALYSIS\n");
 #endif
 
-            if ((ctx->waza_out_check_on_off & SYSCTL_SKIP_STATUS_CHECK) == FALSE) {
+            /*if ((ctx->waza_out_check_on_off & SYSCTL_SKIP_STATUS_CHECK) == FALSE) {
                 BattleController_CheckParalysis(bsys, ctx);
-            }
+            }*/
             ctx->wb_seq_no++;
             return;
         }
@@ -3861,7 +3861,7 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
                 result = TRUE;
             }
             break;
-        case MOVE_EFFECT_STOCKPILE:
+        //case MOVE_EFFECT_STOCKPILE:
         case MOVE_EFFECT_DEF_SP_DEF_UP:
             if (ctx->battlemon[defender].states[STAT_DEFENSE] == 12 && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
                 result = TRUE;

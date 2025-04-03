@@ -150,7 +150,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 	int scaledTotalLevel;
 	
 	if (totalLevelEnemy < totalLevelPlayer) {
-		scaledTotalLevel = 10 * (totalLevelPlayer - totalLevelEnemy) / (totalLevelPlayer + totalLevelEnemy);
+		scaledTotalLevel = totalLevelPlayer - totalLevelEnemy;
 	} else {
 		scaledTotalLevel = 0;
 	}
@@ -169,7 +169,11 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         // level field
         level = buf[offset] | (buf[offset+1] << 8);
 		int scaledLevel;
-		scaledLevel = level + (scaledTotalLevel / pokecount);
+		if (pokecount == 1) {
+			scaledLevel = (level + highestLevelPlayer) / 2;
+		} else {
+			scaledLevel = level + (scaledTotalLevel / pokecount);
+		}
 		
 		if (scaledTotalLevel > 0) {
 			if (scaledLevel - highestLevelPlayer > highestLevelPlayer - level) {

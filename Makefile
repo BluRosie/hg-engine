@@ -478,3 +478,16 @@ move_narc: $(NARC_FILES)
 
 ####################### Debug #######################
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
+
+effect_script:
+	i=447 ; \
+	while [ "$$i" -le 500 ] ; do \
+		if [ "$$i" -le 10 ]; then \
+			cp data/battle_scripts/subscripts/subscript_0448_CUSTOM_2_UNUSED_1.s data/battle_scripts/subscripts/subscript_000$${i}_UNUSED_$$i.s; \
+		elif [ "$$i" -le 100 ]; then \
+			cp data/battle_scripts/subscripts/subscript_0448_CUSTOM_2_UNUSED_1.s data/battle_scripts/subscripts/subscript_00$${i}_UNUSED_$$i.s; \
+		else \
+			cp data/battle_scripts/subscripts/subscript_0448_CUSTOM_2_UNUSED_1.s data/battle_scripts/subscripts/subscript_0$${i}_UNUSED_$$i.s; \
+		fi; \
+		i=$$((i+1)); \
+	done

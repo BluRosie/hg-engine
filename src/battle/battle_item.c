@@ -158,14 +158,14 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
         switch(sp->swhac_seq_no)
         {
         case SWHAC_RAGE_ATTACK_CHECK:
-            //if ((sp->battlemon[sp->attack_client].condition2 & STATUS2_RAGE) && (sp->current_move_index != MOVE_RAGE))
+            /*if ((sp->battlemon[sp->attack_client].condition2 & STATUS2_RAGE) && (sp->current_move_index != MOVE_RAGE))
             {
-                //sp->battlemon[sp->attack_client].condition2 &= ~(STATUS2_RAGE);
-            }
+                sp->battlemon[sp->attack_client].condition2 &= ~(STATUS2_RAGE);
+            }*/
             sp->swhac_seq_no++;
 
-            if (GetBattlerAbility(sp,sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1) // skip over shell bell and life orb if sheer force is active
-                sp->swhac_seq_no = SWHAC_END;
+            /*if (GetBattlerAbility(sp,sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1) // skip over shell bell and life orb if sheer force is active
+                sp->swhac_seq_no = SWHAC_END;*/
 
             break;
         case SWHAC_HELD_ITEM_SHELL_BELL:

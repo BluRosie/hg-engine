@@ -1035,8 +1035,8 @@ typedef enum ControllerCommand {
     CONTROLLER_COMMAND_POKEMON_INPUT, //15
     CONTROLLER_COMMAND_RUN_INPUT,
     CONTROLLER_COMMAND_SAFARI_THROW_BALL,
+    CONTROLLER_COMMAND_SAFARI_THROW_BAIT,
     CONTROLLER_COMMAND_SAFARI_THROW_MUD,
-    CONTROLLER_COMMAND_SAFARI_RUN,
     CONTROLLER_COMMAND_SAFARI_WATCHING, //20
     CONTROLLER_COMMAND_CATCHING_CONSTEST_THROW_BALL,
     CONTROLLER_COMMAND_RUN_SCRIPT,
@@ -1153,6 +1153,8 @@ typedef struct OnceOnlyAbilityFlags {
     BOOL superSweetSyrupFlag;
 } OnceOnlyAbilityFlags;
 
+#define BATTLE_SCRIPT_PUSH_DEPTH 4
+
 /**
  *  @brief the entire battle structure that we are interested in (for the most part)
  *
@@ -1208,9 +1210,9 @@ struct PACKED BattleStruct {
     /*0xB0*/ int skill_arc_index;
     /*0xB4*/ int skill_seq_no;
     /*0xB8*/ int push_count;
-    /*0xBC*/ int push_skill_arc_kind[CLIENT_MAX];
-    /*0xCC*/ int push_skill_arc_index[CLIENT_MAX];
-    /*0xDC*/ int push_skill_seq_no[CLIENT_MAX];
+    /*0xBC*/ int push_skill_arc_kind[BATTLE_SCRIPT_PUSH_DEPTH];
+    /*0xCC*/ int push_skill_arc_index[BATTLE_SCRIPT_PUSH_DEPTH];
+    /*0xDC*/ int push_skill_seq_no[BATTLE_SCRIPT_PUSH_DEPTH];
     /*0xEC*/ int executionIndex;
     /*0xF0*/ int wait_cnt;
     /*0xF4*/ MESSAGE_PARAM mp;          // buffMsg

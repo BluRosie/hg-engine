@@ -1173,7 +1173,7 @@ mondata SPECIES_PRIMEAPE, "Primeape"
     mondexweight SPECIES_PRIMEAPE, "70.5 lbs."
 
 mondata SPECIES_GROWLITHE, "Growlithe"
-    basestats 60, 80, 50, 70, 80, 60 // 400
+    basestats 60, 70, 60, 70, 70, 70 // 400
     types TYPE_FIRE, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -3993,7 +3993,7 @@ mondata SPECIES_MURKROW, "Murkrow"
     mondexweight SPECIES_MURKROW, "4.6 lbs."
 
 mondata SPECIES_SLOWKING, "Slowking"
-    basestats 100, 80, 80, 30, 110, 100
+    basestats 100, 80, 80, 20, 120, 120
     types TYPE_WATER, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
