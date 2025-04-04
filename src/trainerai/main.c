@@ -118,10 +118,13 @@ bool8 IsDesirableAbility(u32 ability);
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
     {
     enum AIActionChoice result = AI_ENEMY_ATTACK_1, highestBasePower = 0;
+    int highest_move_score = 0;
+
     struct BattleStruct *ctx = bsys->sp;
 
-    int moveScores[4] = {0};
-
+    int moveScores[4] = {100, 100, 100, 100}; //don't want to get negative numbers, so start high
+    int num_move_score_ties = 0;
+    int move_tie_indices[4] = {0};
     /*Setup field state and mon state variables.
     These are generally used multiple times throughout
     different flags.*/
@@ -326,11 +329,29 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         moveScores[i] += EvaluateAttackFlag(bsys, attacker, i);
         moveScores[i] += ExpertFlag(bsys, attacker, i);
     }
+
     for(int i = 0; i < 4; i++){
         if(moveScores[i] > moveScores[result]){
             result = i;
         }
     }
+    /*Check for move ties*/
+    highest_move_score = moveScores[result];
+    int j_tie_index = 0;
+
+    for (int i = 0; i < 4; i++){
+        if(moveScores[i] == highest_move_score){
+            num_move_score_ties++;
+            move_tie_indices[j_tie_index] = i;
+            j_tie_index++;
+        }
+    }
+    /*If there are no move ties, this still works.*/
+    result  = move_tie_indices[BattleRand(bsys) % num_move_score_ties];
+
+
+
+
     /*Need to add some sort of check in the case of score tie*/
     return result;
 }
