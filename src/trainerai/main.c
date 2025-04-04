@@ -101,8 +101,8 @@ int HarassmentFlag (struct BattleSystem *bsys, u32 attacker, int i);
 /*Helper Functions*/
 int AttackerMonWithHighestDamage (struct BattleSystem *bsys, u32 attacker);
 int BattlerPositiveStatChangesSum (struct BattleSystem *bsys, u32 battler);
-bool8 BattlerHasStatBoostGreater (struct BattleSystem *bsys, u32 battler, u32 boost_amount);
-bool8 BattlerHasStatBoostLesser (struct BattleSystem *bsys, u32 battler, u32 drop_amount);
+bool8 BattlerHasStatBoostGreaterThan(struct BattleSystem *bsys, u32 battler, u32 boost_amount);
+bool8 BattlerHasStatBoostLessThan(struct BattleSystem *bsys, u32 battler, u32 drop_amount);
 bool8 BattlerKnowsMove (struct BattleSystem *bsys, u32 battler, u32 move);
 bool8 BattlerHasMoveSplit (struct BattleSystem *bsys, u32 battler, u32 move_split);
 bool8 BattlerHasMoveEffect (struct BattleSystem *bsys, u32 battler, u32 move_effect);
