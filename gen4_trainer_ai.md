@@ -1323,6 +1323,7 @@ If the opponent has a desirable ability, 80.5% chance of score +2.
 - Effect Spore
 - Swift Swim
 - Huge Power
+
 - Rain Dish
 - Cute Charm
 - Shed Skin
@@ -1488,6 +1489,7 @@ If it is the attacker's first turn in battle, 75% chance of additional score +1.
 If the opponent resists or is immune to the move, score -1 and terminate.
 
 If the attacker is the last living party member, score +2 and terminate.
+(should this be -2?)
 
 If the attacker has a super-effective move on its opponent, 75% chance of additional score -2.
 
