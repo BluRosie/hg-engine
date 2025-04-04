@@ -432,7 +432,7 @@ static BOOL MegaEvolutionOrUltraBurst(struct BattleSystem *bsys, struct BattleSt
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_MEGA_EVOLUTION);  // load sequence 297 and execute
             }
             ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = 22;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
         }
         if (newBS.needMega[client_no] == MEGA_CHECK_APPER && ctx->battlemon[client_no].hp) {
@@ -441,7 +441,7 @@ static BOOL MegaEvolutionOrUltraBurst(struct BattleSystem *bsys, struct BattleSt
             if (seq) {
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq);
                 ctx->next_server_seq_no = ctx->server_seq_no;
-                ctx->server_seq_no = 22;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
             }
         }
