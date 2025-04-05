@@ -12,24 +12,28 @@
 #include "../../src/battle/ai.c"
 #include "../../data/itemdata/itemdata.c"
 #include "../../src/battle/battle_calc_damage.c"
+#include "../../include/constants/item.h"
+#include "../../include/item.h"
 
 /*Field/Pokemon state relavent variables*/
-bool8 defender_immune_to_poison;
-bool8 defender_immune_to_paralysis;
-bool8 defender_immune_to_burn;
-bool8 defender_immune_to_sleep;
-bool8 attacker_knows_psych_up;
-bool8 attacker_has_super_effective_move;
-bool8 defender_has_hazards;
-bool8 trick_room_active;
-bool8 hasStatChange;
-bool8 attacker_has_damaging_move;
-bool8 defender_has_bad_item;
-
+BOOL defender_immune_to_poison;
+BOOL defender_immune_to_paralysis;
+BOOL defender_immune_to_burn;
+BOOL defender_immune_to_sleep;
+BOOL attacker_knows_psych_up;
+BOOL attacker_has_super_effective_move;
+BOOL defender_has_hazards;
+BOOL trick_room_active;
+BOOL hasStatChange;
+BOOL attacker_has_damaging_move;
+BOOL defender_has_bad_item;
 
 u8 attacker_moves_first;
 u8 defender_moves_first;
 u8 is_speed_tie;
+
+u32 fling_power;
+u32 attacker_move_effectiveness;
 
 int defender;
 int defender_side;
@@ -38,7 +42,6 @@ int attacker_ability;
 int defender_ability;
 int attacker_item;
 int defender_item;
-
 int hold_effect;
 int defender_type_1;
 int defender_type_2;
@@ -52,7 +55,6 @@ int defender_max_hp;
 int defender_percent_hp;
 int attacker_speed;
 int defender_speed;
-u32 attacker_move_effectiveness;
 int party_size_attacking;
 int living_attacking_members;
 int party_size_defending;
@@ -65,255 +67,61 @@ int defender_last_used_move;
 int defender_last_move_effect;
 int defender_turns_on_field;
 int attacker_turns_on_field;
-u32 fling_power; 
 int difference_in_attack_stages;
 int difference_in_spatk_stages;
 int difference_in_defense_stages;
 int difference_in_spdef_stages;
-
 
 /*Move-relevant variables*/
 int attacker_move;
 int attacker_move_effect;
 int attacker_move_type;
 int attacker_move_pp_remaining;
-
-
-
-
-
 int attacker_max_roll_move_damages[4] = {0};
 
-
 /*Flag functions return a move score, given the index of the current move*/
-int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i);
-int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i);
-int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i);
-int SetupFirstTurnFlag (struct BattleSystem *bsys, u32 attacker, int i);
-int RiskyFlag (struct BattleSystem *bsys, u32 attacker, int i);
-int PrioritizeDamageFlag (struct BattleSystem *bsys, u32 attacker, int i);
-int BatonPassFlag (struct BattleSystem *bsys, u32 attacker, int i);
-int TagStrategyFlag (struct BattleSystem *bsys, u32 attacker, int i);
-int CheckHPFlag (struct BattleSystem *bsys, u32 attacker, int i);
-int WeatherFlag (struct BattleSystem *bsys, u32 attacker, int i);
-int HarassmentFlag (struct BattleSystem *bsys, u32 attacker, int i);
+int BasicFlag(struct BattleSystem *bsys, u32 attacker, int i);
+int EvaluateAttackFlag(struct BattleSystem *bsys, u32 attacker, int i);
+int ExpertFlag(struct BattleSystem *bsys, u32 attacker, int i);
+int SetupFirstTurnFlag(struct BattleSystem *bsys, u32 attacker, int i);
+int RiskyFlag(struct BattleSystem *bsys, u32 attacker, int i);
+int PrioritizeDamageFlag(struct BattleSystem *bsys, u32 attacker, int i);
+int BatonPassFlag(struct BattleSystem *bsys, u32 attacker, int i);
+int TagStrategyFlag(struct BattleSystem *bsys, u32 attacker, int i);
+int CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i);
+int WeatherFlag(struct BattleSystem *bsys, u32 attacker, int i);
+int HarassmentFlag(struct BattleSystem *bsys, u32 attacker, int i);
 
 /*Helper Functions*/
-int AttackerMonWithHighestDamage (struct BattleSystem *bsys, u32 attacker);
-int BattlerPositiveStatChangesSum (struct BattleSystem *bsys, u32 battler);
-bool8 BattlerHasStatBoostGreater (struct BattleSystem *bsys, u32 battler, u32 boost_amount);
-bool8 BattlerHasStatBoostLesser (struct BattleSystem *bsys, u32 battler, u32 drop_amount);
-bool8 BattlerKnowsMove (struct BattleSystem *bsys, u32 battler, u32 move);
-bool8 BattlerHasMoveSplit (struct BattleSystem *bsys, u32 battler, u32 move_split);
-bool8 BattlerHasMoveEffect (struct BattleSystem *bsys, u32 battler, u32 move_effect);
-bool8 ItemIsBadToTrade(u32 item);
-bool8 ItemIsDisruptive(u32 item);
-bool8 IsDesirableAbility(u32 ability);
-
-
-//int CalcPotentialDamage ();
-
+int AttackerMonWithHighestDamage(struct BattleSystem *bsys, u32 attacker);
+int BattlerPositiveStatChangesSum(struct BattleSystem *bsys, u32 battler);
+BOOL BattlerHasStatBoostGreater(struct BattleSystem *bsys, u32 battler, u32 boost_amount);
+BOOL BattlerHasStatBoostLesser(struct BattleSystem *bsys, u32 battler, u32 drop_amount);
+BOOL BattlerKnowsMove(struct BattleSystem *bsys, u32 battler, u32 move);
+BOOL BattlerHasMoveSplit(struct BattleSystem *bsys, u32 battler, u32 move_split);
+BOOL BattlerHasMoveEffect(struct BattleSystem *bsys, u32 battler, u32 move_effect);
+BOOL ItemIsBadToTrade(u32 item);
+BOOL ItemIsDisruptive(u32 item);
+BOOL IsDesirableAbility(u32 ability);
+BOOL LONG_CALL DropsStatsAsStatus(u32 moveEffect);
+BOOL LONG_CALL IsInMirrorMoveList(u32 moveEffect);
+void SetupStateVariables(struct BattleSystem *bsys, u32 attacker);
 
 
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
     {
     enum AIActionChoice result = AI_ENEMY_ATTACK_1, highestBasePower = 0;
     int highest_move_score = 0;
-
-    struct BattleStruct *ctx = bsys->sp;
-
     int moveScores[4] = {100, 100, 100, 100}; //don't want to get negative numbers, so start high
     int num_move_score_ties = 0;
     int move_tie_indices[4] = {0};
     /*Setup field state and mon state variables.
     These are generally used multiple times throughout
     different flags.*/
+    struct BattleStruct *ctx = bsys->sp;
 
-    defender = 0;
-    defender_side = 0;
-    attacker_side = 1;
-    attacker_ability = ctx->battlemon[attacker].ability;
-    defender_ability = ctx->battlemon[defender].ability;
-    attacker_item = ctx->battlemon[attacker].item;
-    defender_item = ctx->battlemon[defender].item;
-    hold_effect = BattleItemDataGet(ctx, attacker_item, 1);
-    defender_type_1 = ctx->battlemon[defender].type1;
-    defender_type_2 = ctx->battlemon[defender].type2;
-    attacker_type_1 = ctx->battlemon[attacker].type1;
-    attacker_type_2 = ctx->battlemon[attacker].type2;
-    attacker_hp = ctx->battlemon[attacker].hp;
-    defender_hp = ctx->battlemon[defender].hp;
-    attacker_max_hp = ctx->battlemon[attacker].maxhp;
-    defender_max_hp = ctx->battlemon[defender].maxhp;
-    attacker_percent_hp = attacker_hp * 100 / attacker_max_hp;
-    defender_percent_hp = defender_hp * 100 / defender_max_hp; 
-    attacker_speed = ctx->battlemon[attacker].speed;
-    defender_speed = ctx->battlemon[defender].speed;
-    attacker_party_index = ctx->sel_mons_no[attacker];
-    defender_last_used_move = ctx->waza_no_old[defender];
-    defender_last_move_effect = ctx->moveTbl[defender_last_used_move].effect;
-    defender_turns_on_field = ctx->total_turn - ctx->battlemon[defender].moveeffect.fakeOutCount;
-    attacker_turns_on_field = ctx->total_turn - ctx->battlemon[attacker].moveeffect.fakeOutCount;
-    fling_power = GetBattleItemData(ctx, attacker_item, ITEM_PARAM_FLING_POWER);
-    difference_in_attack_stages = ctx->battlemon[attacker].states[STAT_ATTACK] - ctx->battlemon[defender].states[STAT_ATTACK];
-    difference_in_spatk_stages = ctx->battlemon[attacker].states[STAT_SPATK] - ctx->battlemon[defender].states[STAT_SPATK];
-    difference_in_defense_stages = ctx->battlemon[attacker].states[STAT_DEFENSE] - ctx->battlemon[defender].states[STAT_DEFENSE];
-    difference_in_spdef_stages = ctx->battlemon[attacker].states[STAT_SPDEF] - ctx->battlemon[defender].states[STAT_SPDEF];
-    defender_moves_first = 0;
-    attacker_moves_first = 0;
-    is_speed_tie = 0;
-    trick_room_active = 0;
-    defender_has_bad_item = 0;
-    if((defender_item == ITEM_IRON_BALL && !trick_room_active)||defender_item == ITEM_LAGGING_TAIL ||defender_item == ITEM_TOXIC_ORB ||defender_item == ITEM_FLAME_ORB || defender_item == ITEM_RING_TARGET ||
-    defender_item == ITEM_STICKY_BARB || defender_item == ITEM_CHOICE_SCARF || defender_item == ITEM_CHOICE_SPECS || defender_item == ITEM_CHOICE_BAND){
-        defender_has_bad_item = 1;
-    }
-
-    u8 speed_calc = CalcSpeed(ctx, ctx, defender, attacker, CALCSPEED_FLAG_NO_PRIORITY); //checks actual turn order with field state considered
-    //evaluates to 0 if defender > attacker (false)
-    //and 1 if defender < attacker (true)
-    //if speed tie, then 2.
-    if(speed_calc == 0){
-        defender_moves_first = 1;
-    }
-    else if(speed_calc == 1){
-        attacker_moves_first = 1;
-    }
-    else if(speed_calc == 2){
-        is_speed_tie = 1;
-    }
-
-    if(ctx->field_condition & FIELD_STATUS_TRICK_ROOM){
-        trick_room_active = 1;
-    }
-    
-
-
-    /*Check if target or user has stat change*/
-    hasStatChange = 0;
-    for(int i = 0; i < STAT_MAX; i++){
-        if (ctx->battlemon[attacker].states[i] != 0 ||
-            ctx->battlemon[defender].states[i] != 0){
-            hasStatChange = 1;
-        }
-    }
-    
-    /*Check if defender has any IMPACTFUL hazards up (spikes at level 2 or higher)*/
-    if(ctx->side_condition[defender_side] & SIDE_STATUS_STEALTH_ROCK ||
-        ctx->scw[defender_side].spikesLayers >= 2 ||
-        ctx->scw[defender_side].toxicSpikesLayers >= 1){
-        defender_has_hazards = 1;
-    }
-    else{
-        defender_has_hazards = 0;
-    }
-
-    defender_immune_to_poison = 
-        (defender_type_1 == TYPE_POISON || defender_type_2 == TYPE_POISON || //TODO need to consider corrosion
-        defender_type_1 == TYPE_STEEL || defender_type_2 == TYPE_STEEL ||
-        ctx->battlemon[defender].condition & STATUS_ALL || 
-        ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
-        defender_ability == ABILITY_MAGIC_GUARD ||
-        defender_ability == ABILITY_IMMUNITY ||
-        defender_ability == ABILITY_POISON_HEAL ||
-        (defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
-        (defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) );
-    defender_immune_to_paralysis =
-        (defender_type_1 == TYPE_ELECTRIC || defender_type_2 == TYPE_ELECTRIC ||
-        ctx->battlemon[defender].condition & STATUS_ALL || 
-        ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
-        defender_ability == ABILITY_LIMBER ||
-        (defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
-        (defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ||
-        (defender_ability == ABILITY_MAGIC_GUARD && ctx->battlemon[attacker].speed > ctx->battlemon[defender].speed)) ;
-    defender_immune_to_burn =  
-        (defender_type_1 == TYPE_FIRE || defender_type_2 == TYPE_FIRE ||
-        ctx->battlemon[defender].condition & STATUS_ALL || 
-        ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
-        defender_ability == ABILITY_MAGIC_GUARD ||
-        defender_ability == ABILITY_WATER_VEIL) ||
-        (defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
-        (defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY);
-    defender_immune_to_sleep = (ctx->battlemon[defender].condition & STATUS_ALL || 
-        ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
-        defender_ability == ABILITY_VITAL_SPIRIT ||
-        defender_ability == ABILITY_INSOMNIA || 
-        (defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
-        (defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) );
-    attacker_move_effectiveness = 0;
-    party_size_attacking = Battle_GetClientPartySize(bsys, attacker);
-    living_attacking_members = 0;
-    party_size_defending = Battle_GetClientPartySize(bsys, defender);
-    living_defending_members = 0;
-
-    int work;
-    statused_attacking_mons = 0;
-    damaged_attacking_mons = 0;
-
-
-    /*Check if attacker's team has anyone status or damaged*/
-    for (int i = 0; i < party_size_attacking; i++) {
-        struct PartyPokemon * current_mon_attacking = Battle_GetClientPartyMon(bsys, attacker, i);
-
-        if(!(GetMonData(current_mon_attacking, MON_DATA_HP, 0) == 0 ||
-        GetMonData(current_mon_attacking, MON_DATA_SPECIES_OR_EGG, 0) == 0||
-        GetMonData(current_mon_attacking, MON_DATA_SPECIES_OR_EGG, 0) == 494)){
-
-            //similar to beat up
-            living_attacking_members++;
-
-            //check if any LIVING members are damaged or statused
-            work = GetMonData(current_mon_attacking, MON_DATA_STATUS, NULL);
-        
-            if(GetMonData(current_mon_attacking, MON_DATA_HP, 0) !=
-            GetMonData(current_mon_attacking, MON_DATA_MAXHP, 0)){
-                damaged_attacking_mons++;
-            }
-            if(!(work & STATUS_NONE)){
-                statused_attacking_mons++;
-            }
-        }
-    }
-
-    /*Loop over defending team*/
-    for (int i = 0; i < party_size_defending; i++) {
-        struct PartyPokemon * current_mon_defending = Battle_GetClientPartyMon(bsys, defender, i);
-        if(!(GetMonData(current_mon_defending, MON_DATA_HP, 0) == 0 ||
-        GetMonData(current_mon_defending, MON_DATA_SPECIES_OR_EGG, 0) == 0||
-        GetMonData(current_mon_defending, MON_DATA_SPECIES_OR_EGG, 0) == 494)){
-            living_defending_members++;
-        }
-    }
-
-    damaged_attacking_mons = 0;
-    statused_attacking_mons = 0;
-    attacker_knows_psych_up = 0;
-    attacker_moves_known = GetBattlerLearnedMoveCount(bsys, ctx, attacker);
-    attacker_has_super_effective_move = 0;
-    attacker_has_damaging_move = 0;
-    //CalcBaseDamage(bsys, ctx, attacker_move, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move].power, 0, attacker, defender, 0);
-
-    /*Loop over all moves for checking certain conditions*/
-    /*Set up max roll damage calculations for all known moves.
-    Also check if user has a super-effective move*/
-    for(int i = 0; i < attacker_moves_known; i++){
-
-        int attacker_move_check = ctx->battlemon[attacker].move[i];
-        int attacker_move_type_check = ctx->moveTbl[attacker_move_check].type;
-        attacker_max_roll_move_damages[i] = CalcBaseDamage(bsys, ctx, attacker_move_check, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move_check].power, 0, attacker, defender, 0);
-        if(attacker_max_roll_move_damages[i] > 0){
-            attacker_has_damaging_move = 1;
-        }
-        if(attacker_move_check == MOVE_PSYCH_UP){
-            attacker_knows_psych_up = 1;
-        }
-        AITypeCalc(ctx, attacker_move_check, attacker_move_type_check, attacker_ability, defender_ability, hold_effect, defender_type_1, defender_type_2, & attacker_move_effectiveness);
-        if(attacker_move_effectiveness == MOVE_STATUS_FLAG_SUPER_EFFECTIVE){
-            attacker_has_super_effective_move = 1;
-        }
-    }
-    
-    
+    SetupStateVariables(bsys, attacker);
+    debug_printf("In AI decision function\n");
     /*Main loop over moves and select the best one*/
     for (int i = 0; i < 4; i++)
     {
@@ -331,10 +139,12 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     }
 
     for(int i = 0; i < 4; i++){
+        debug_printf("MoveScore: ", moveScores[i],"for move number ",i,"\n");
         if(moveScores[i] > moveScores[result]){
             result = i;
         }
     }
+
     /*Check for move ties*/
     highest_move_score = moveScores[result];
     int j_tie_index = 0;
@@ -349,16 +159,10 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     /*If there are no move ties, this still works.*/
     result  = move_tie_indices[BattleRand(bsys) % num_move_score_ties];
 
-
-
-
-    /*Need to add some sort of check in the case of score tie*/
     return result;
 }
 
-
 /*Flags' logic*/
-
 
 /*Heavily penalize stupid choices that would fail*/
 int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i){
@@ -585,38 +389,14 @@ int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i){
         (defender_ability == ABILITY_KEEN_EYE)){
         moveScore -= 10;
     }
+
     /*Handle clear body & white smoke*/
-    else if((attacker_move_effect == MOVE_EFFECT_ATK_DOWN ||
-        attacker_move_effect == MOVE_EFFECT_ATK_DOWN_2 ||
-        attacker_move_effect == MOVE_EFFECT_ATK_DOWN_3 ||
-        attacker_move_effect == MOVE_EFFECT_DEF_DOWN ||
-        attacker_move_effect == MOVE_EFFECT_DEF_DOWN_2 ||
-        attacker_move_effect == MOVE_EFFECT_DEF_DOWN_3 ||
-        attacker_move_effect == MOVE_EFFECT_SPEED_DOWN ||
-        attacker_move_effect == MOVE_EFFECT_SPEED_DOWN_2 ||
-        attacker_move_effect == MOVE_EFFECT_SPEED_DOWN_3 ||
-        attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN ||
-        attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN_2 ||
-        attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN_3 ||
-        attacker_move_effect == MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER ||
-        attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN ||
-        attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN_2 ||
-        attacker_move_effect == MOVE_EFFECT_SP_DEF_DOWN_3 ||
-        attacker_move_effect == MOVE_EFFECT_FAINT_AND_ATK_SP_ATK_DOWN_2 ||
-        attacker_move_effect == MOVE_EFFECT_ATK_SP_ATK_DOWN || //need to handle parting shot
-        attacker_move_effect == MOVE_EFFECT_VENOM_DRENCH ||
-        attacker_move_effect == MOVE_EFFECT_ATK_DEF_DOWN ||
-        attacker_move_effect == MOVE_EFFECT_EVA_DOWN || //No Guard +  lowering eva/acc
-        attacker_move_effect == MOVE_EFFECT_EVA_DOWN_2 ||
-        attacker_move_effect == MOVE_EFFECT_EVA_DOWN_3 ||
-        attacker_move_effect == MOVE_EFFECT_ACC_DOWN || 
-        attacker_move_effect == MOVE_EFFECT_ACC_DOWN_2 ||
-        attacker_move_effect == MOVE_EFFECT_ACC_DOWN_3)&&
+    else if(DropsStatsAsStatus(attacker_move_effect) &&
         ((defender_ability == ABILITY_CLEAR_BODY ||
         defender_ability == ABILITY_WHITE_SMOKE) &&
         attacker_ability != ABILITY_MOLD_BREAKER)){
             moveScore -= 10;
-        }
+    }
 
     /*Handle any status stat-dropping move when at +6 or -6.
     This is going to be a massive check.*/
@@ -1041,7 +821,7 @@ int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i){
     }
 
     /*Worry Seed*/
-    bool8 defender_knows_sleepy_moves = 0;
+    BOOL defender_knows_sleepy_moves = 0;
     for (int i = 0; i < 4; i++){
         if(ctx->battlemon[defender].move[i] == MOVE_SLEEP_TALK ||
             ctx->battlemon[defender].move[i] == MOVE_SNORE){
@@ -1113,7 +893,7 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i){
             moveScore += 4;
         }
     }
-    bool8 is_current_move_not_strongest = 0;
+    BOOL is_current_move_not_strongest = 0;
     for(int j = 0; j < attacker_moves_known; j++){
         if ( i != j && attacker_max_roll_move_damages[i] < attacker_max_roll_move_damages[j]){
             is_current_move_not_strongest = 1;
@@ -4020,8 +3800,8 @@ int BattlerPositiveStatChangesSum (struct BattleSystem *bsys, u32 battler){
     return stat_sum;
 }
 
-bool8 BattlerHasStatBoostGreater (struct BattleSystem *bsys, u32 battler, u32 boost_amount){
-    bool8 battler_has_stat_boost = 0;
+BOOL BattlerHasStatBoostGreater (struct BattleSystem *bsys, u32 battler, u32 boost_amount){
+    BOOL battler_has_stat_boost = 0;
     struct BattleStruct *ctx = bsys->sp;
     if(ctx->battlemon[battler].states[STAT_ATTACK] >= boost_amount ||
         ctx->battlemon[battler].states[STAT_DEFENSE] >= boost_amount ||
@@ -4035,8 +3815,8 @@ bool8 BattlerHasStatBoostGreater (struct BattleSystem *bsys, u32 battler, u32 bo
     return battler_has_stat_boost;
 }
 
-bool8 BattlerHasStatBoostLesser (struct BattleSystem *bsys, u32 battler, u32 drop_amount){
-    bool8 battler_has_stat_boost = 0;
+BOOL BattlerHasStatBoostLesser (struct BattleSystem *bsys, u32 battler, u32 drop_amount){
+    BOOL battler_has_stat_boost = 0;
     struct BattleStruct *ctx = bsys->sp;
     if(ctx->battlemon[battler].states[STAT_ATTACK] <= drop_amount ||
         ctx->battlemon[battler].states[STAT_DEFENSE] <= drop_amount ||
@@ -4050,8 +3830,8 @@ bool8 BattlerHasStatBoostLesser (struct BattleSystem *bsys, u32 battler, u32 dro
     return battler_has_stat_boost;
 }
 
-bool8 BattlerKnowsMove (struct BattleSystem *bsys, u32 battler, u32 move){
-    bool8 knows_move = 0;
+BOOL BattlerKnowsMove (struct BattleSystem *bsys, u32 battler, u32 move){
+    BOOL knows_move = 0;
     struct BattleStruct *ctx = bsys->sp;
     for(int i = 0; i < 4; i++){
         int battler_move_check = ctx->battlemon[battler].move[i];
@@ -4062,8 +3842,8 @@ bool8 BattlerKnowsMove (struct BattleSystem *bsys, u32 battler, u32 move){
     return knows_move;
 }
 
-bool8 BattlerHasMoveSplit (struct BattleSystem *bsys, u32 battler, u32 move_split){
-    bool8 has_move_split = 0;
+BOOL BattlerHasMoveSplit (struct BattleSystem *bsys, u32 battler, u32 move_split){
+    BOOL has_move_split = 0;
     struct BattleStruct *ctx = bsys->sp;
 
     for(int i = 0; i < 4; i++){
@@ -4075,9 +3855,9 @@ bool8 BattlerHasMoveSplit (struct BattleSystem *bsys, u32 battler, u32 move_spli
     return has_move_split;
 }
 
-bool8 BattlerHasMoveEffect (struct BattleSystem *bsys, u32 battler, u32 move_effect){
+BOOL BattlerHasMoveEffect (struct BattleSystem *bsys, u32 battler, u32 move_effect){
 
-    bool8 has_move_effect = 0;
+    BOOL has_move_effect = 0;
     struct BattleStruct *ctx = bsys->sp;
 
     for(int i = 0; i < 4; i++){
@@ -4089,7 +3869,7 @@ bool8 BattlerHasMoveEffect (struct BattleSystem *bsys, u32 battler, u32 move_eff
     return has_move_effect;
 }
 
-bool8 ItemIsBadToTrade(u32 item){
+BOOL ItemIsBadToTrade(u32 item){
     //these are items the ai wouldnt want to steal
     if((item == ITEM_IRON_BALL && !trick_room_active)||
     item == ITEM_LAGGING_TAIL ||item == ITEM_TOXIC_ORB ||
@@ -4107,7 +3887,7 @@ bool8 ItemIsBadToTrade(u32 item){
     }
 }
 
-bool8 ItemIsDisruptive(u32 item){
+BOOL ItemIsDisruptive(u32 item){
     //these are items the ai wouldnt want to steal
     if((item == ITEM_IRON_BALL && !trick_room_active)||
     item == ITEM_CHOICE_SCARF ||
@@ -4124,7 +3904,7 @@ bool8 ItemIsDisruptive(u32 item){
 }
 
 
-bool8 IsDesirableAbility(u32 ability){
+BOOL IsDesirableAbility(u32 ability){
     if(ability == ABILITY_SPEED_BOOST ||
         ability == ABILITY_BATTLE_ARMOR ||
         ability == ABILITY_SAND_VEIL ||
@@ -4158,7 +3938,282 @@ bool8 IsDesirableAbility(u32 ability){
     
 }
 
+const u16 DropStatList[] = {
+    MOVE_EFFECT_ATK_DOWN,
+    MOVE_EFFECT_ATK_DOWN_2,
+    MOVE_EFFECT_ATK_DOWN_3,
+    MOVE_EFFECT_DEF_DOWN,
+    MOVE_EFFECT_DEF_DOWN_2,
+    MOVE_EFFECT_DEF_DOWN_3,
+    MOVE_EFFECT_SPEED_DOWN,
+    MOVE_EFFECT_SPEED_DOWN_2,
+    MOVE_EFFECT_SPEED_DOWN_3,
+    MOVE_EFFECT_SP_ATK_DOWN,
+    MOVE_EFFECT_SP_ATK_DOWN_2,
+    MOVE_EFFECT_SP_ATK_DOWN_3,
+    MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER,
+    MOVE_EFFECT_SP_DEF_DOWN,
+    MOVE_EFFECT_SP_DEF_DOWN_2,
+    MOVE_EFFECT_SP_DEF_DOWN_3,
+    MOVE_EFFECT_FAINT_AND_ATK_SP_ATK_DOWN_2,
+    MOVE_EFFECT_ATK_SP_ATK_DOWN,
+    MOVE_EFFECT_VENOM_DRENCH,
+    MOVE_EFFECT_ATK_DEF_DOWN,
+    MOVE_EFFECT_EVA_DOWN,
+    MOVE_EFFECT_EVA_DOWN_2,
+    MOVE_EFFECT_EVA_DOWN_3,
+    MOVE_EFFECT_ACC_DOWN,
+    MOVE_EFFECT_ACC_DOWN_2,
+    MOVE_EFFECT_ACC_DOWN_3
+};
+
+
+const u16 MirrorMoveEffectList[] ={
+    MOVE_EFFECT_STATUS_SLEEP,
+    MOVE_EFFECT_ACC_DOWN,
+    MOVE_EFFECT_ONE_HIT_KO,
+    MOVE_EFFECT_STATUS_BADLY_POISON,
+    MOVE_EFFECT_HIGH_CRITICAL,
+    MOVE_EFFECT_STATUS_CONFUSE,
+    MOVE_EFFECT_DEF_DOWN_2,
+    MOVE_EFFECT_SPEED_DOWN_2,
+    MOVE_EFFECT_SP_DEF_DOWN_2,
+    MOVE_EFFECT_STATUS_PARALYZE,
+    MOVE_EFFECT_STATUS_POISON,
+    MOVE_EFFECT_CONFUSE_HIT,
+    MOVE_EFFECT_RECHARGE_AFTER,
+    MOVE_EFFECT_STEAL_HELD_ITEM,
+    MOVE_EFFECT_INFATUATE,
+    MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION,
+    MOVE_EFFECT_TORMENT,
+    MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION,
+    MOVE_EFFECT_SWITCH_HELD_ITEMS,
+    MOVE_EFFECT_USER_ATK_DEF_DOWN_HIT,
+    MOVE_EFFECT_SWITCH_ABILITIES,
+    MOVE_EFFECT_TRANSFER_STATUS,
+    MOVE_EFFECT_SWAP_ATK_SP_ATK_STAT_CHANGES,
+    MOVE_EFFECT_SWAP_DEF_SP_DEF_STAT_CHANGES,
+    MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING,
+    MOVE_EFFECT_PRIORITY_1,
+    MOVE_EFFECT_SWAP_STAT_CHANGES,
+    MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER
+};
 
 
 
+/**
+ * @brief Check if the current move is a stat dropping move (Status moves only)
+ * @param moveEffect move's effect
+ * @return TRUE if it is a stat dropping move
+*/
+BOOL LONG_CALL DropsStatsAsStatus(u32 moveEffect) {
+    u8 output = FALSE;
+    for (u16 i = 0; i < NELEMS(DropStatList); i++) {
+        if (moveEffect == DropStatList[i]) {
+            output = TRUE;
+            break;
+        }
+    }
+    return output;
+}
 
+
+/**
+ * @brief Check if the current move is a stat dropping move (Status moves only)
+ * @param moveEffect move's effect
+ * @return TRUE if it is a stat dropping move
+*/
+BOOL LONG_CALL IsInMirrorMoveList(u32 moveEffect) {
+    u8 output = FALSE;
+    for (u16 i = 0; i < NELEMS(MirrorMoveEffectList); i++) {
+        if (moveEffect == MirrorMoveEffectList[i]) {
+            output = TRUE;
+            break;
+        }
+    }
+    return output;
+}
+
+void SetupStateVariables(struct BattleSystem *bsys, u32 attacker){
+    struct BattleStruct *ctx = bsys->sp;
+    u8 speed_calc;
+    int work;
+    defender = 0;
+    defender_side = 0;
+    attacker_side = 1;
+    attacker_ability = ctx->battlemon[attacker].ability;
+    defender_ability = ctx->battlemon[defender].ability;
+    attacker_item = ctx->battlemon[attacker].item;
+    defender_item = ctx->battlemon[defender].item;
+    hold_effect = BattleItemDataGet(ctx, attacker_item, 1);
+    defender_type_1 = ctx->battlemon[defender].type1;
+    defender_type_2 = ctx->battlemon[defender].type2;
+    attacker_type_1 = ctx->battlemon[attacker].type1;
+    attacker_type_2 = ctx->battlemon[attacker].type2;
+    attacker_hp = ctx->battlemon[attacker].hp;
+    defender_hp = ctx->battlemon[defender].hp;
+    attacker_max_hp = ctx->battlemon[attacker].maxhp;
+    defender_max_hp = ctx->battlemon[defender].maxhp;
+    attacker_percent_hp = attacker_hp * 100 / attacker_max_hp;
+    defender_percent_hp = defender_hp * 100 / defender_max_hp; 
+    attacker_speed = ctx->battlemon[attacker].speed;
+    defender_speed = ctx->battlemon[defender].speed;
+    attacker_party_index = ctx->sel_mons_no[attacker];
+    defender_last_used_move = ctx->waza_no_old[defender];
+    defender_last_move_effect = ctx->moveTbl[defender_last_used_move].effect;
+    defender_turns_on_field = ctx->total_turn - ctx->battlemon[defender].moveeffect.fakeOutCount;
+    attacker_turns_on_field = ctx->total_turn - ctx->battlemon[attacker].moveeffect.fakeOutCount;
+    fling_power = BattleItemDataGet(ctx, attacker_item, ITEM_PARAM_FLING_POWER);
+    difference_in_attack_stages = ctx->battlemon[attacker].states[STAT_ATTACK] - ctx->battlemon[defender].states[STAT_ATTACK];
+    difference_in_spatk_stages = ctx->battlemon[attacker].states[STAT_SPATK] - ctx->battlemon[defender].states[STAT_SPATK];
+    difference_in_defense_stages = ctx->battlemon[attacker].states[STAT_DEFENSE] - ctx->battlemon[defender].states[STAT_DEFENSE];
+    difference_in_spdef_stages = ctx->battlemon[attacker].states[STAT_SPDEF] - ctx->battlemon[defender].states[STAT_SPDEF];
+    defender_moves_first = 0;
+    attacker_moves_first = 0;
+    is_speed_tie = 0;
+    trick_room_active = 0;
+    defender_has_bad_item = 0;
+    
+    speed_calc = CalcSpeed(ctx, ctx, defender, attacker, CALCSPEED_FLAG_NO_PRIORITY); //checks actual turn order with field state considered
+    //evaluates to 0 if defender > attacker (false)
+    //and 1 if defender < attacker (true)
+    //if speed tie, then 2.
+    if(speed_calc == 0){
+        defender_moves_first = 1;
+    }
+    else if(speed_calc == 1){
+        attacker_moves_first = 1;
+    }
+    else if(speed_calc == 2){
+        is_speed_tie = 1;
+    }
+
+    if(ctx->field_condition & FIELD_STATUS_TRICK_ROOM){
+        trick_room_active = 1;
+    }
+    if((defender_item == ITEM_IRON_BALL && !trick_room_active)||defender_item == ITEM_LAGGING_TAIL ||defender_item == ITEM_TOXIC_ORB ||defender_item == ITEM_FLAME_ORB || defender_item == ITEM_RING_TARGET ||
+    defender_item == ITEM_STICKY_BARB || defender_item == ITEM_CHOICE_SCARF || defender_item == ITEM_CHOICE_SPECS || defender_item == ITEM_CHOICE_BAND){
+        defender_has_bad_item = 1;
+    }
+
+    /*Check if target or user has stat change*/
+    hasStatChange = 0;
+    for(int i = 0; i < STAT_MAX; i++){
+        if (ctx->battlemon[attacker].states[i] != 0 ||
+            ctx->battlemon[defender].states[i] != 0){
+            hasStatChange = 1;
+        }
+    }
+    
+    /*Check if defender has any IMPACTFUL hazards up (spikes at level 2 or higher)*/
+    if(ctx->side_condition[defender_side] & SIDE_STATUS_STEALTH_ROCK ||
+        ctx->scw[defender_side].spikesLayers >= 2 ||
+        ctx->scw[defender_side].toxicSpikesLayers >= 1){
+        defender_has_hazards = 1;
+    }
+    else{
+        defender_has_hazards = 0;
+    }
+
+    defender_immune_to_poison = 
+        (defender_type_1 == TYPE_POISON || defender_type_2 == TYPE_POISON || //TODO need to consider corrosion
+        defender_type_1 == TYPE_STEEL || defender_type_2 == TYPE_STEEL ||
+        ctx->battlemon[defender].condition & STATUS_ALL || 
+        ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
+        defender_ability == ABILITY_MAGIC_GUARD ||
+        defender_ability == ABILITY_IMMUNITY ||
+        defender_ability == ABILITY_POISON_HEAL ||
+        (defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
+        (defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) );
+    defender_immune_to_paralysis =
+        (defender_type_1 == TYPE_ELECTRIC || defender_type_2 == TYPE_ELECTRIC ||
+        ctx->battlemon[defender].condition & STATUS_ALL || 
+        ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
+        defender_ability == ABILITY_LIMBER ||
+        (defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
+        (defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ||
+        (defender_ability == ABILITY_MAGIC_GUARD && ctx->battlemon[attacker].speed > ctx->battlemon[defender].speed)) ;
+    defender_immune_to_burn =  
+        (defender_type_1 == TYPE_FIRE || defender_type_2 == TYPE_FIRE ||
+        ctx->battlemon[defender].condition & STATUS_ALL || 
+        ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
+        defender_ability == ABILITY_MAGIC_GUARD ||
+        defender_ability == ABILITY_WATER_VEIL) ||
+        (defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
+        (defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY);
+    defender_immune_to_sleep = (ctx->battlemon[defender].condition & STATUS_ALL || 
+        ctx->side_condition[defender_side] & SIDE_STATUS_SAFEGUARD ||
+        defender_ability == ABILITY_VITAL_SPIRIT ||
+        defender_ability == ABILITY_INSOMNIA || 
+        (defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
+        (defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) );
+    attacker_move_effectiveness = 0;
+    party_size_attacking = Battle_GetClientPartySize(bsys, attacker);
+    living_attacking_members = 0;
+    party_size_defending = Battle_GetClientPartySize(bsys, defender);
+    living_defending_members = 0;
+    statused_attacking_mons = 0;
+    damaged_attacking_mons = 0;
+
+    /*Check if attacker's team has anyone status or damaged*/
+    for (int i = 0; i < party_size_attacking; i++) {
+        struct PartyPokemon * current_mon_attacking = Battle_GetClientPartyMon(bsys, attacker, i);
+
+        if(!(GetMonData(current_mon_attacking, MON_DATA_HP, 0) == 0 ||
+        GetMonData(current_mon_attacking, MON_DATA_SPECIES_OR_EGG, 0) == 0||
+        GetMonData(current_mon_attacking, MON_DATA_SPECIES_OR_EGG, 0) == 494)){
+
+            //similar to beat up
+            living_attacking_members++;
+
+            //check if any LIVING members are damaged or statused
+            work = GetMonData(current_mon_attacking, MON_DATA_STATUS, NULL);
+        
+            if(GetMonData(current_mon_attacking, MON_DATA_HP, 0) !=
+            GetMonData(current_mon_attacking, MON_DATA_MAXHP, 0)){
+                damaged_attacking_mons++;
+            }
+            if(!(work & STATUS_NONE)){
+                statused_attacking_mons++;
+            }
+        }
+    }
+
+    /*Loop over defending team*/
+    for (int i = 0; i < party_size_defending; i++) {
+        struct PartyPokemon * current_mon_defending = Battle_GetClientPartyMon(bsys, defender, i);
+        if(!(GetMonData(current_mon_defending, MON_DATA_HP, 0) == 0 ||
+        GetMonData(current_mon_defending, MON_DATA_SPECIES_OR_EGG, 0) == 0||
+        GetMonData(current_mon_defending, MON_DATA_SPECIES_OR_EGG, 0) == 494)){
+            living_defending_members++;
+        }
+    }
+
+    damaged_attacking_mons = 0;
+    statused_attacking_mons = 0;
+    attacker_knows_psych_up = 0;
+    attacker_moves_known = GetBattlerLearnedMoveCount(bsys, ctx, attacker);
+    attacker_has_super_effective_move = 0;
+    attacker_has_damaging_move = 0;
+    //CalcBaseDamage(bsys, ctx, attacker_move, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move].power, 0, attacker, defender, 0);
+
+    /*Loop over all moves for checking certain conditions*/
+    /*Set up max roll damage calculations for all known moves.
+    Also check if user has a super-effective move*/
+    for(int i = 0; i < attacker_moves_known; i++){
+
+        int attacker_move_check = ctx->battlemon[attacker].move[i];
+        int attacker_move_type_check = ctx->moveTbl[attacker_move_check].type;
+        attacker_max_roll_move_damages[i] = CalcBaseDamage(bsys, ctx, attacker_move_check, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move_check].power, 0, attacker, defender, 0);
+        if(attacker_max_roll_move_damages[i] > 0){
+            attacker_has_damaging_move = 1;
+        }
+        if(attacker_move_check == MOVE_PSYCH_UP){
+            attacker_knows_psych_up = 1;
+        }
+        AITypeCalc(ctx, attacker_move_check, attacker_move_type_check, attacker_ability, defender_ability, hold_effect, defender_type_1, defender_type_2, & attacker_move_effectiveness);
+        if(attacker_move_effectiveness == MOVE_STATUS_FLAG_SUPER_EFFECTIVE){
+            attacker_has_super_effective_move = 1;
+        }
+    }
+}

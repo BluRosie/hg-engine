@@ -1940,8 +1940,7 @@ If the opponent's side of the field is under the effect of Light Screen or Refle
   - 80.5% chance of additional score -2.
   - If the opponent's HP > 70%, score -2.
 - Start at score +1.
-- If the opponent has at least one remaining party member and their side of the field is
-under the effect of Spikes, Stealth Rock, or Toxic Spikes, 50% chance of score -1.
+- If the opponent has at least one remaining party member and their side of the field is under the effect of Spikes, Stealth Rock, or Toxic Spikes, 50% chance of score -1.
 - Proceed to the final if-block below.
 
 If the opponent's side of the field is under the effect of Spikes, Stealth Rock, or Toxic
