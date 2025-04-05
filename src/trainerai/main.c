@@ -93,19 +93,20 @@ int WeatherFlag(struct BattleSystem *bsys, u32 attacker, int i);
 int HarassmentFlag(struct BattleSystem *bsys, u32 attacker, int i);
 
 /*Helper Functions*/
-int AttackerMonWithHighestDamage(struct BattleSystem *bsys, u32 attacker);
-int BattlerPositiveStatChangesSum(struct BattleSystem *bsys, u32 battler);
-BOOL BattlerHasStatBoostGreater(struct BattleSystem *bsys, u32 battler, u32 boost_amount);
-BOOL BattlerHasStatBoostLesser(struct BattleSystem *bsys, u32 battler, u32 drop_amount);
+int AttackerMonWithHighestDamage (struct BattleSystem *bsys, u32 attacker);
+int BattlerPositiveStatChangesSum (struct BattleSystem *bsys, u32 battler);
+BOOL BattlerHasStatBoostGreaterThan(struct BattleSystem *bsys, u32 battler, u32 boost_amount);
+BOOL BattlerHasStatBoostLessThan(struct BattleSystem *bsys, u32 battler, u32 drop_amount);
 BOOL BattlerKnowsMove(struct BattleSystem *bsys, u32 battler, u32 move);
 BOOL BattlerHasMoveSplit(struct BattleSystem *bsys, u32 battler, u32 move_split);
 BOOL BattlerHasMoveEffect(struct BattleSystem *bsys, u32 battler, u32 move_effect);
 BOOL ItemIsBadToTrade(u32 item);
 BOOL ItemIsDisruptive(u32 item);
 BOOL IsDesirableAbility(u32 ability);
-BOOL LONG_CALL DropsStatsAsStatus(u32 moveEffect);
-BOOL LONG_CALL IsInMirrorMoveList(u32 moveEffect);
-void SetupStateVariables(struct BattleSystem *bsys, u32 attacker);
+
+
+//int CalcPotentialDamage ();
+
 
 
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
