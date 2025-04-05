@@ -103,6 +103,7 @@ BOOL BattlerHasMoveEffect(struct BattleSystem *bsys, u32 battler, u32 move_effec
 BOOL ItemIsBadToTrade(u32 item);
 BOOL ItemIsDisruptive(u32 item);
 BOOL IsDesirableAbility(u32 ability);
+void SetupStateVariables(struct BattleSystem *bsys, u32 attacker);
 
 
 //int CalcPotentialDamage ();
@@ -120,9 +121,13 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     These are generally used multiple times throughout
     different flags.*/
     struct BattleStruct *ctx = bsys->sp;
-
+    
+    u8 buf[200];
+    sprintf(buf,"Trainer Ai");
     SetupStateVariables(bsys, attacker);
+    #ifndef DEBUG_TRAINER_AI
     debug_printf("In AI decision function\n");
+    #endif 
     /*Main loop over moves and select the best one*/
     for (int i = 0; i < 4; i++)
     {
