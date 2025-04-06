@@ -40,7 +40,7 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
     {
         return;
     }
-    debug_printf("In AI typecalc function\n");
+
     typeLocal = GetAdjustedMoveTypeBasics(sp, move, atkAbility, type); // not just normalize, now others
 
     if ((atkAbility != ABILITY_MOLD_BREAKER)

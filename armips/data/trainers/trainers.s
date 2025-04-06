@@ -65,68 +65,25 @@ trainerdata 1, "Silver"
         ballseal 0
     endparty
 
-trainerdata 2, "Lilly"
-	trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK
-    trainerclass TRAINERCLASS_LASS
-     
-    nummons 3
+trainerdata 2, "Silver"
+    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainerclass TRAINERCLASS_RIVAL
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
     battletype SINGLE_BATTLE
     endentry
 
     party 2
-    // mon 0
-		ivs 250
-		abilityslot 32
-		level 4
-		pokemon SPECIES_BRONZOR
-		item ITEM_SPELL_TAG
-		move MOVE_CONFUSION
-		move MOVE_FLASH_CANNON
-		move MOVE_AURA_SPHERE
-		move MOVE_SHADOW_BALL
-		ability ABILITY_LEVITATE
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 0, 0, 0, 0, 0, 0
-		nature NATURE_NAIVE
-		shinylock 1
-		ballseal 0
-	// mon 1
-		ivs 250
-		abilityslot 32
-		level 4
-		pokemon SPECIES_TIMBURR
-		item ITEM_NONE
-		move MOVE_MACH_PUNCH
-		move MOVE_DRAIN_PUNCH
-		move MOVE_NONE
-		move MOVE_NONE
-		ability ABILITY_GUTS
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 0, 0, 0, 0, 0, 0
-		nature NATURE_HARDY
-		shinylock 1
-		ballseal 0
-	// mon 2
-		ivs 250
-		abilityslot 32
-		level 4
-		pokemon SPECIES_YAMASK
-		item ITEM_NONE
-		move MOVE_SONIC_BOOM
-		move MOVE_TACKLE
-		move MOVE_NONE
-		move MOVE_NONE
-		ability ABILITY_TECHNICIAN
-		setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spe, spatk, spdef
-		setevs 0, 0, 0, 0, 0, 0
-		nature NATURE_NAUGHTY
-		shinylock 1
-		ballseal 0
+        // mon 0
+        ivs 0
+        abilityslot 0
+        level 5
+        pokemon SPECIES_CYNDAQUIL
+        ballseal 0
     endparty
 
 trainerdata 3, "Silver"
@@ -150,10 +107,10 @@ trainerdata 3, "Silver"
         ballseal 0
     endparty
 
-trainerdata 4, "Purple"
+trainerdata 4, "Wade"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_PKMN_TRAINER_ETHAN
-    nummons 3
+    trainerclass TRAINERCLASS_BUG_CATCHER
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -7545,10 +7502,10 @@ trainerdata 244, "Lance"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_CHAMPION
     nummons 6
-    item ITEM_NONE
-    item ITEM_NONE
-    item ITEM_NONE
-    item ITEM_NONE
+    item ITEM_FULL_RESTORE
+    item ITEM_FULL_RESTORE
+    item ITEM_FULL_RESTORE
+    item ITEM_FULL_RESTORE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
     battletype SINGLE_BATTLE
     endentry
