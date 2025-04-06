@@ -84,7 +84,7 @@ trainerdata 2, "Lilly"
 		abilityslot 32
 		level 4
 		pokemon SPECIES_BRONZOR
-		item ITEM_NONE
+		item ITEM_SPELL_TAG
 		move MOVE_CONFUSION
 		move MOVE_FLASH_CANNON
 		move MOVE_AURA_SPHERE

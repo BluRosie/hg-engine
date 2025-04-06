@@ -15,69 +15,74 @@
 #include "../../include/constants/item.h"
 #include "../../include/item.h"
 
-/*Field/Pokemon state relavent variables*/
-BOOL defender_immune_to_poison;
-BOOL defender_immune_to_paralysis;
-BOOL defender_immune_to_burn;
-BOOL defender_immune_to_sleep;
-BOOL attacker_knows_psych_up;
-BOOL attacker_has_super_effective_move;
-BOOL defender_has_hazards;
-BOOL trick_room_active;
-BOOL hasStatChange;
-BOOL attacker_has_damaging_move;
-BOOL defender_has_bad_item;
 
-u8 attacker_moves_first;
-u8 defender_moves_first;
-u8 is_speed_tie;
+typedef struct {
+    /*Field/Pokemon state relavent variables*/
+    BOOL defender_immune_to_poison;
+    BOOL defender_immune_to_paralysis;
+    BOOL defender_immune_to_burn;
+    BOOL defender_immune_to_sleep;
+    BOOL attacker_knows_psych_up;
+    BOOL attacker_has_super_effective_move;
+    BOOL defender_has_hazards;
+    BOOL trick_room_active;
+    BOOL hasStatChange;
+    BOOL attacker_has_damaging_move;
+    BOOL defender_has_bad_item;
 
-u32 fling_power;
-u32 attacker_move_effectiveness;
+    u8 attacker_moves_first;
+    u8 defender_moves_first;
+    u8 is_speed_tie;
 
-int defender;
-int defender_side;
-int attacker_side;
-int attacker_ability;
-int defender_ability;
-int attacker_item;
-int defender_item;
-int hold_effect;
-int defender_type_1;
-int defender_type_2;
-int attacker_type_1;
-int attacker_type_2;
-int attacker_hp;
-int attacker_max_hp;
-int attacker_percent_hp;
-int defender_hp;
-int defender_max_hp;
-int defender_percent_hp;
-int attacker_speed;
-int defender_speed;
-int party_size_attacking;
-int living_attacking_members;
-int party_size_defending;
-int living_defending_members;
-int damaged_attacking_mons;
-int statused_attacking_mons;
-int attacker_moves_known;
-int attacker_party_index;
-int defender_last_used_move;
-int defender_last_move_effect;
-int defender_turns_on_field;
-int attacker_turns_on_field;
-int difference_in_attack_stages;
-int difference_in_spatk_stages;
-int difference_in_defense_stages;
-int difference_in_spdef_stages;
+    u32 fling_power;
+    u32 attacker_move_effectiveness;
 
-/*Move-relevant variables*/
-int attacker_move;
-int attacker_move_effect;
-int attacker_move_type;
-int attacker_move_pp_remaining;
-int attacker_max_roll_move_damages[4] = {0};
+    int defender;
+    int defender_side;
+    int attacker_side;
+    int attacker_ability;
+    int defender_ability;
+    int attacker_item;
+    int defender_item;
+    int hold_effect;
+    int defender_type_1;
+    int defender_type_2;
+    int attacker_type_1;
+    int attacker_type_2;
+    int attacker_hp;
+    int attacker_max_hp;
+    int attacker_percent_hp;
+    int defender_hp;
+    int defender_max_hp;
+    int defender_percent_hp;
+    int attacker_speed;
+    int defender_speed;
+    int party_size_attacking;
+    int living_attacking_members;
+    int party_size_defending;
+    int living_defending_members;
+    int damaged_attacking_mons;
+    int statused_attacking_mons;
+    int attacker_moves_known;
+    int attacker_party_index;
+    int defender_last_used_move;
+    int defender_last_move_effect;
+    int defender_turns_on_field;
+    int attacker_turns_on_field;
+    int difference_in_attack_stages;
+    int difference_in_spatk_stages;
+    int difference_in_defense_stages;
+    int difference_in_spdef_stages;
+
+    /*Move-relevant variables*/
+    int attacker_move;
+    int attacker_move_effect;
+    int attacker_move_type;
+    int attacker_move_pp_remaining;
+    int attacker_max_roll_move_damages[4];
+} AiContext;
+
+
 
 /*Flag functions return a move score, given the index of the current move*/
 int BasicFlag(struct BattleSystem *bsys, u32 attacker, int i);
@@ -110,11 +115,11 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker);
 
 
 
-enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
+enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker, AiContext *aictx)
     {
     enum AIActionChoice result = AI_ENEMY_ATTACK_1, highestBasePower = 0;
     int highest_move_score = 0;
-    int moveScores[4] = {100, 100, 100, 100}; //don't want to get negative numbers, so start high
+    u32 moveScores[4] = {100, 100, 100, 100}; //don't want to get negative numbers, so start high
     int num_move_score_ties = 0;
     int move_tie_indices[4] = {0};
     /*Setup field state and mon state variables.
@@ -144,8 +149,11 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         moveScores[i] += ExpertFlag(bsys, attacker, i);
     }
 
+    
+
+
     for(int i = 0; i < 4; i++){
-        debug_printf("MoveScore: ", moveScores[i],"for move number ",i,"\n");
+        debug_printf("MoveScore: %d -- for move number:%d \n", moveScores[i], i);
         if(moveScores[i] > moveScores[result]){
             result = i;
         }
@@ -874,7 +882,13 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i){
 
 
     //int max_roll_attacker_damage = CalcBaseDamage(bsys, ctx, attacker_move, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move].power, 0, attacker, defender, 0);
-    
+    BOOL is_current_move_not_strongest = 0;
+    for(int j = 0; j < attacker_moves_known; j++){
+        debug_printf("attacker_max_roll_move_damages[%d] = %d\n", j, attacker_max_roll_move_damages[j]);
+        if ( i != j && attacker_max_roll_move_damages[i] < attacker_max_roll_move_damages[j]){
+            is_current_move_not_strongest = 1;
+        }
+    }
     /*Check if the current move kills*/
     if (attacker_max_roll_move_damages[i] >= defender_hp){
         if(attacker_move_effect == MOVE_EFFECT_HALVE_DEFENSE ){
@@ -899,18 +913,13 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i){
             moveScore += 4;
         }
     }
-    BOOL is_current_move_not_strongest = 0;
-    for(int j = 0; j < attacker_moves_known; j++){
-        if ( i != j && attacker_max_roll_move_damages[i] < attacker_max_roll_move_damages[j]){
-            is_current_move_not_strongest = 1;
-        }
-    }
+   
     /*Penalize a move that is weaker than others known*/
-    if(is_current_move_not_strongest != 0){
+    else if(is_current_move_not_strongest != 0){
         moveScore -= 1;
     }
     /*Penalize random moves 80% of the time????*/
-    if(attacker_move_effect == MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING || // sucker punch, boom moves, focus punch
+    else if(attacker_move_effect == MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING || // sucker punch, boom moves, focus punch
         attacker_move_effect == MOVE_EFFECT_HALVE_DEFENSE ||
         attacker_move_effect == MOVE_EFFECT_HIT_LAST_WHIFF_IF_HIT){
         if(BattleRand(bsys) % 10 < 8){
@@ -4202,7 +4211,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker){
     attacker_has_super_effective_move = 0;
     attacker_has_damaging_move = 0;
     //CalcBaseDamage(bsys, ctx, attacker_move, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move].power, 0, attacker, defender, 0);
-
+    u32 temp = 0;
     /*Loop over all moves for checking certain conditions*/
     /*Set up max roll damage calculations for all known moves.
     Also check if user has a super-effective move*/
@@ -4211,6 +4220,8 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker){
         int attacker_move_check = ctx->battlemon[attacker].move[i];
         int attacker_move_type_check = ctx->moveTbl[attacker_move_check].type;
         attacker_max_roll_move_damages[i] = CalcBaseDamage(bsys, ctx, attacker_move_check, ctx->side_condition[defender_side],ctx->field_condition, ctx->moveTbl[attacker_move_check].power, 0, attacker, defender, 0);
+        attacker_max_roll_move_damages[i] = ServerDoTypeCalcMod(bsys, ctx, attacker_move_check, 0, attacker, defender, attacker_max_roll_move_damages[i], &temp);
+        //serparately add in type calc after base damage. will need to add in consideration for multihit moves
         if(attacker_max_roll_move_damages[i] > 0){
             attacker_has_damaging_move = 1;
         }
