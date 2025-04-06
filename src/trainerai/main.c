@@ -114,16 +114,12 @@ BOOL LONG_CALL IsInStatList(u32 moveEffect, const u16 StatList[], u16 ListLength
 void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai);
 
 
-//int CalcPotentialDamage ();
-
-
-
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
-    {debug_printf("before ai construct\n");
+    {
     struct BattleStruct *ctx = bsys->sp;
     AiContext aictx = {0};
     AiContext *ai = &aictx;
-    debug_printf("after ai construct\n");
+
     enum AIActionChoice result = AI_ENEMY_ATTACK_1, highestBasePower = 0;
     int highest_move_score = 0;
     u32 moveScores[4] = {100, 100, 100, 100}; //don't want to get negative numbers, so start high
@@ -133,11 +129,11 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     These are generally used multiple times throughout
     different flags.*/
 
-    debug_printf("before setup state vars\n");
+
     SetupStateVariables(bsys, attacker, ai);
 
 
-    debug_printf("after setup state vars\n");
+
     /*Main loop over moves and select the best one*/
     for (int i = 0; i < 4; i++)
     {
@@ -149,12 +145,12 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         ai->attacker_move_pp_remaining = ctx->battlemon[attacker].pp[i];
         AITypeCalc(ctx, ai->attacker_move, ai->attacker_move_type, ai->attacker_ability, ai->defender_ability, ai->hold_effect, ai->defender_type_1, ai->defender_type_2, & ai->attacker_move_effectiveness);
         //should loop over trainer's flags set in trainers.s here
-        debug_printf("before flag calc for move index: %d\n", i);
+
         moveScores[i] += BasicFlag(bsys, attacker, i, ai);
         moveScores[i] += EvaluateAttackFlag(bsys, attacker, i, ai);
         moveScores[i] += ExpertFlag(bsys, attacker, i, ai);
     }
-    debug_printf("after move relevant vars\n");
+
     
 
 
@@ -3853,6 +3849,47 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
 }
 
 
+int SetupFirstTurnFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    return moveScore;
+}
+int RiskyFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    return moveScore;
+}
+int PrioritizeDamageFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    return moveScore;
+}
+int BatonPassFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    return moveScore;
+}
+int TagStrategyFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    return moveScore;
+}
+int CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    return moveScore;
+}
+int WeatherFlag(struct BattleSystem *bsys, u32 attacker, int i){
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    return moveScore;
+}
+int HarassmentFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    return moveScore;
+}
+
 
 
 
@@ -4076,16 +4113,12 @@ BOOL LONG_CALL IsInStatList(u32 moveEffect, const u16 StatList[], u16 ListLength
 }
 
 
-
-
 void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai){
     struct BattleStruct *ctx = bsys->sp;
     u8 speed_calc;
     int work;
-    debug_printf("in setup, before ai-> \n");
     ai->defender = 0;
     ai->defender_side = 0;
-    debug_printf("in setup, after ai->defend \n");
     ai->attacker_side = 1;
     ai->attacker_ability = ctx->battlemon[attacker].ability;
     ai->defender_ability = ctx->battlemon[ai->defender].ability;
