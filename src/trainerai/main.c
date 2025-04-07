@@ -400,6 +400,33 @@ const u16 SetupFirstTurnList[] = {
     MOVE_EFFECT_BIND_HIT
 };
 
+const u16 RiskyFlagList[] = {
+    MOVE_EFFECT_STATUS_SLEEP,
+    MOVE_EFFECT_HALVE_DEFENSE,
+    MOVE_EFFECT_COPY_MOVE,
+    MOVE_EFFECT_ONE_HIT_KO,
+    MOVE_EFFECT_HIGH_CRITICAL,
+    MOVE_EFFECT_HIGH_CRITICAL_POISON_HIT,
+    MOVE_EFFECT_SLEEP_POISON_PARALYZE_HIT,
+    MOVE_EFFECT_HIGH_CRITICAL_RAISE_SPEED_HIT,
+    MOVE_EFFECT_HIGH_CRITICAL_POISON_HIT,
+    MOVE_EFFECT_CALL_RANDOM_MOVE,
+    MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL,
+    MOVE_EFFECT_COUNTER,
+    MOVE_EFFECT_MIRROR_COAT,
+    MOVE_EFFECT_METAL_BURST,
+    MOVE_EFFECT_KO_MON_THAT_DEFEATED_USER,
+    MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION,
+    MOVE_EFFECT_INFATUATE,
+    MOVE_EFFECT_RANDOM_POWER_MAYBE_HEAL,
+    MOVE_EFFECT_RAISE_ALL_STATS_HIT,
+    MOVE_EFFECT_MAX_ATK_LOSE_HALF_MAX_HP,
+    MOVE_EFFECT_HIT_LAST_WHIFF_IF_HIT,
+    MOVE_EFFECT_RANDOM_STAT_UP_2,
+    MOVE_EFFECT_DOUBLE_POWER_IF_HIT,
+    MOVE_EFFECT_USE_MOVE_FIRST,
+    MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING
+};
 /*Flags' logic*/
 
 /*Heavily penalize stupid choices that would fail*/
@@ -3923,9 +3950,16 @@ int SetupFirstTurnFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext
     return moveScore;
 }
 
+
+
 int RiskyFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
+    if(IsInStatList(ai->attacker_move_effect, RiskyFlagList, NELEMS(RiskyFlagList))){
+        if(BattleRand(bsys) % 2 < 1){
+            moveScore += 2;
+        }
+    }
     return moveScore;
 }
 int PrioritizeDamageFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
