@@ -94,7 +94,7 @@ int PrioritizeDamageFlag(struct BattleSystem *bsys, u32 attacker, int i, AiConte
 int BatonPassFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai);
 int TagStrategyFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai);
 int CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai);
-int WeatherFlag(struct BattleSystem *bsys, u32 attacker, int i);
+int WeatherFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai);
 int HarassmentFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai);
 
 /*Helper Functions*/
@@ -427,6 +427,36 @@ const u16 RiskyFlagList[] = {
     MOVE_EFFECT_USE_MOVE_FIRST,
     MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING
 };
+
+
+const u16 PrioritizeDamageFlagList[] = {
+    MOVE_EFFECT_HALVE_DEFENSE,
+    MOVE_EFFECT_RECOVER_DAMAGE_SLEEP,
+    MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT,
+    MOVE_EFFECT_CHARGE_TURN_DEF_UP,
+    MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH,
+    MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS,
+    MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP,
+    MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS,
+    MOVE_EFFECT_RECHARGE_AFTER,
+    MOVE_EFFECT_SPIT_UP,
+    MOVE_EFFECT_HIT_LAST_WHIFF_IF_HIT,
+    MOVE_EFFECT_USER_ATK_DEF_DOWN_HIT,
+    MOVE_EFFECT_INCREASE_POWER_WITH_LESS_HP,
+    MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING,
+    MOVE_EFFECT_RECOIL_HALF,
+    MOVE_EFFECT_RANDOM_TYPE_BASED_ON_IVS,
+    MOVE_EFFECT_POWER_BASED_ON_LOW_SPEED,
+    MOVE_EFFECT_NATURAL_GIFT,
+    MOVE_EFFECT_JUDGMENT,
+    MOVE_EFFECT_POWER_BASED_ON_FRIENDSHIP,
+    MOVE_EFFECT_POWER_BASED_ON_LOW_FRIENDSHIP,
+    MOVE_EFFECT_INCREASE_POWER_WITH_WEIGHT,
+    MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL,
+    MOVE_EFFECT_LEVEL_DAMAGE_FLAT,
+    MOVE_EFFECT_40_DAMAGE_FLAT,
+    MOVE_EFFECT_10_DAMAGE_FLAT
+}
 /*Flags' logic*/
 
 /*Heavily penalize stupid choices that would fail*/
@@ -3951,7 +3981,6 @@ int SetupFirstTurnFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext
 }
 
 
-
 int RiskyFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
@@ -3962,11 +3991,18 @@ int RiskyFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     }
     return moveScore;
 }
+
 int PrioritizeDamageFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
+    if(IsInStatList(ai->attacker_move_effect, PrioritizeDamageFlagList, NELEMS(PrioritizeDamageFlagList))){
+        if(BattleRand(bsys) % 10 < 6){
+            moveScore += 2;
+        }
+    }
     return moveScore;
 }
+
 int BatonPassFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
@@ -3982,9 +4018,22 @@ int CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     struct BattleStruct *ctx = bsys->sp;
     return moveScore;
 }
-int WeatherFlag(struct BattleSystem *bsys, u32 attacker, int i){
+int WeatherFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
+    
+    if((ai->attacker_move_effect == MOVE_EFFECT_WEATHER_SANDSTORM && 
+        !(ctx->field_condition & WEATHER_SANDSTORM_ANY)) ||
+        (ai->attacker_move_effect == MOVE_EFFECT_WEATHER_HAIL && 
+            !(ctx->field_condition & WEATHER_HAIL_ANY )) ||
+            (ai->attacker_move_effect == MOVE_EFFECT_WEATHER_SNOW && 
+                !(ctx->field_condition & WEATHER_SNOW_ANY )) ||
+            (ai->attacker_move_effect == MOVE_EFFECT_WEATHER_RAIN && 
+                !(ctx->field_condition & WEATHER_RAIN_ANY)) ||
+                (ai->attacker_move_effect == MOVE_EFFECT_WEATHER_SUN && 
+                    !(ctx->field_condition & WEATHER_SUNNY_ANY))){
+                moveScore += 5;
+    }
     return moveScore;
 }
 int HarassmentFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
