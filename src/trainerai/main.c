@@ -207,12 +207,43 @@ const u16 DropStatList[] = {
     MOVE_EFFECT_ACC_DOWN_2,
     MOVE_EFFECT_ACC_DOWN_3
 };
+
+const u16 RaiseStatList[] = {
+    MOVE_EFFECT_ATK_UP,
+    MOVE_EFFECT_ATK_UP_2,
+    MOVE_EFFECT_ATK_UP_3,
+    MOVE_EFFECT_DEF_UP,
+    MOVE_EFFECT_DEF_UP_2,
+    MOVE_EFFECT_DEF_UP_3,
+    MOVE_EFFECT_SPEED_UP,
+    MOVE_EFFECT_SPEED_UP_2,
+    MOVE_EFFECT_SPEED_UP_3,
+    MOVE_EFFECT_SP_ATK_UP,
+    MOVE_EFFECT_SP_ATK_UP_2,
+    MOVE_EFFECT_SP_ATK_UP_3,
+    MOVE_EFFECT_SP_DEF_UP,
+    MOVE_EFFECT_SP_DEF_UP_2,
+    MOVE_EFFECT_SP_DEF_UP_3,
+    MOVE_EFFECT_ACC_UP,
+    MOVE_EFFECT_ACC_UP_2,
+    MOVE_EFFECT_ACC_UP_3,
+    MOVE_EFFECT_EVA_UP,
+    MOVE_EFFECT_EVA_UP_2,
+    MOVE_EFFECT_EVA_UP_2_MINIMIZE,
+    MOVE_EFFECT_EVA_UP_3,
+    MOVE_EFFECT_ATK_SPEED_UP,
+    MOVE_EFFECT_ATK_SP_ATK_UP,
+    MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER,
+    MOVE_EFFECT_DEF_SP_DEF_UP,
+    MOVE_EFFECT_SP_ATK_SP_DEF_UP
+
+};
 /*Stat increases*/
 const u16 AttackRaiseList[] = {
     MOVE_EFFECT_ATK_UP,
     MOVE_EFFECT_ATK_UP_2,
     MOVE_EFFECT_ATK_UP_3,
-    MOVE_EFFECT_ATK_SPEED_UP,
+    //MOVE_EFFECT_ATK_SPEED_UP, dragon dance is intentionally excluded
     MOVE_EFFECT_ATK_SP_ATK_UP
 };
 
@@ -229,7 +260,6 @@ const u16 SpAtkRaiseList[] = {
     MOVE_EFFECT_SP_ATK_UP_2,
     MOVE_EFFECT_SP_ATK_UP_3,
     MOVE_EFFECT_ATK_SP_ATK_UP,
-    MOVE_EFFECT_SP_ATK_SP_DEF_UP
 };
 
 const u16 SpDefRaiseList[] = {
@@ -342,6 +372,32 @@ const u16 MirrorMoveEffectList[] ={
     MOVE_EFFECT_PRIORITY_1,
     MOVE_EFFECT_SWAP_STAT_CHANGES,
     MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER
+};
+
+const u16 SetupFirstTurnList[] = {
+    MOVE_EFFECT_CONVERSION,
+    MOVE_EFFECT_SET_REFLECT,
+    MOVE_EFFECT_SET_LIGHT_SCREEN,
+    MOVE_EFFECT_STATUS_PARALYZE,
+    MOVE_EFFECT_STATUS_POISON,
+    MOVE_EFFECT_STATUS_BADLY_POISON,
+    MOVE_EFFECT_STATUS_BURN,
+    MOVE_EFFECT_STATUS_SLEEP,
+    MOVE_EFFECT_STATUS_CONFUSE,
+    MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION,
+    MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION,
+    MOVE_EFFECT_STATUS_LEECH_SEED,
+    MOVE_EFFECT_SET_SUBSTITUTE,
+    MOVE_EFFECT_EVA_UP_2_MINIMIZE,
+    MOVE_EFFECT_TORMENT,
+    MOVE_EFFECT_GROUND_TRAP_USER_CONTINUOUS_HEAL,
+    MOVE_EFFECT_MAKE_SHARED_MOVES_UNUSEABLE,
+    MOVE_EFFECT_DOUBLE_SPEED_3_TURNS,
+    MOVE_EFFECT_PREVENT_CRITS,
+    MOVE_EFFECT_GIVE_GROUND_IMMUNITY,
+    MOVE_EFFECT_REMOVE_HAZARDS_SCREENS_EVA_DOWN,
+    MOVE_EFFECT_WHIRLPOOL,
+    MOVE_EFFECT_BIND_HIT
 };
 
 /*Flags' logic*/
@@ -3852,8 +3908,21 @@ int ExpertFlag (struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
 int SetupFirstTurnFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
+    if(ctx->total_turn == 0){
+        if(IsInStatList(ai->attacker_move_effect, RaiseStatList, NELEMS(RaiseStatList))||
+           IsInStatList(ai->attacker_move_effect, DropStatList, NELEMS(DropStatList)) ||
+           IsInStatList(ai->attacker_move_effect, SetupFirstTurnList, NELEMS(SetupFirstTurnList))){
+            if(BattleRand(bsys) % 10 < 7){
+                moveScore += 2;
+            }
+        }
+    }
+    else{
+        moveScore += 0;
+    }
     return moveScore;
 }
+
 int RiskyFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
