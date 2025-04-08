@@ -104,6 +104,23 @@ extern u8 DebugTextBuf[0xAC];
 #define GF_ASSERT(cond) if (!(cond)) { }
 //#define GF_ASSERT(cond) (cond) ? 0 : GF_ASSERT_INTERNAL()
 
+struct HeapInfo {
+    void **heapHandles;
+    void *parentHeapHandles;
+    void **subHeapRawPtrs;
+    u16 *numMemBlocks;
+    u8 *heapIdxs;
+    u16 totalNumHeaps;
+    u16 nTemplates;
+    u16 maxHeaps;
+    u16 unallocatedHeapId;
+};
+
+u32 LONG_CALL OS_DisableInterrupts(void);
+void *LONG_CALL NNS_FndAllocFromExpHeapEx(void *heap, u32 size, u32 align);
+void LONG_CALL OS_RestoreInterrupts(u32);
+extern struct HeapInfo sHeapInfo;
+
 void LONG_CALL GF_ASSERT_INTERNAL();
 u16 LONG_CALL gf_rand(void);
 

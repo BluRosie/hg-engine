@@ -563,14 +563,14 @@ const u16 UNUSED PokeFormDataTbl[][32] =
     },
     [SPECIES_ARCANINE] = {
         SPECIES_ARCANINE_HISUIAN,
-        NEEDS_REVERSION | SPECIES_ARCANINE_LORD,
+        SPECIES_ARCANINE_LORD,
     },
     [SPECIES_VOLTORB] = {
         SPECIES_VOLTORB_HISUIAN,
     },
     [SPECIES_ELECTRODE] = {
         SPECIES_ELECTRODE_HISUIAN,
-        NEEDS_REVERSION | SPECIES_ELECTRODE_LORD,
+        SPECIES_ELECTRODE_LORD,
     },
     [SPECIES_TYPHLOSION] = {
         SPECIES_TYPHLOSION_HISUIAN,
@@ -586,7 +586,7 @@ const u16 UNUSED PokeFormDataTbl[][32] =
     },
     [SPECIES_LILLIGANT] = {
         SPECIES_LILLIGANT_HISUIAN,
-        NEEDS_REVERSION | SPECIES_LILLIGANT_LADY,
+        SPECIES_LILLIGANT_LADY,
     },
     [SPECIES_ZORUA] = {
         SPECIES_ZORUA_HISUIAN,
@@ -605,7 +605,7 @@ const u16 UNUSED PokeFormDataTbl[][32] =
     },
     [SPECIES_AVALUGG] = {
         SPECIES_AVALUGG_HISUIAN,
-        NEEDS_REVERSION | SPECIES_AVALUGG_LORD,
+        SPECIES_AVALUGG_LORD,
     },
     [SPECIES_DECIDUEYE] = {
         SPECIES_DECIDUEYE_HISUIAN,
@@ -613,7 +613,7 @@ const u16 UNUSED PokeFormDataTbl[][32] =
 
     /**noble pokemon**/
     [SPECIES_KLEAVOR] = {
-        NEEDS_REVERSION | SPECIES_KLEAVOR_LORD,
+        SPECIES_KLEAVOR_LORD,
     },
 
     /**significant gender differences**/

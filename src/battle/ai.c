@@ -106,17 +106,3 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
 
     return;
 }
-
-/**
- *  @brief see if bind should restrain switching for AI
- *
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @param battler battler whose bind counter to check
- *  @return TRUE if the switch should not be able to happen, FALSE otherwise
- */
-BOOL SeeIfBindShouldRestrainSwitch(struct BattleSystem *bw UNUSED, struct BattleStruct *sp, u32 battler)
-{
-    //debug_printf("Battler %d can%s switch out.\n", battler, (sp->binding_turns[battler] != 0) ? "'t" : "");
-    return (sp->binding_turns[battler] != 0);
-}

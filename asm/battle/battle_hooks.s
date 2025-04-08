@@ -555,39 +555,6 @@ BattleSystem_CheckMoveEffect_return_address:
 .word 0
 
 
-.global ai_switch_ban_for_bind_hook
-ai_switch_ban_for_bind_hook:
-
-// r0 is already bw, r1 is already sp, r6 is battler
-
-push {r0-r3}
-
-add r2, r6, #0
-bl SeeIfBindShouldRestrainSwitch
-cmp r0, #1
-beq _returnTo02220424
-
-pop {r0-r3}
-// else do not return false and just continue the checks, starting with mean look
-//ldr r2, =0x2DB0
-mov r2, #0x2D
-lsl r2, #0x8
-add r2, #0xB0 // fuck you movw
-mov r3, #1
-lsl r3, #26 // 0x04000000 for mean look
-ldr r4, [r5, r2]
-str r0, [sp, #4]
-ldr r7, =0x022203BC | 1
-bx r7
-
-_returnTo02220424:
-pop {r0-r3}
-ldr r0, =0x02220424 | 1
-bx r0
-
-.pool
-
-
 .global StruggleCheck_hook
 StruggleCheck_hook:
 ldr r5, =StruggleCheck_return_address

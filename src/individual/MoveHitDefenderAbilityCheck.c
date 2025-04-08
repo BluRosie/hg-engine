@@ -437,7 +437,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
              // can not steal an item if you already have one
              && sp->battlemon[sp->defence_client].item == ITEM_NONE
              // if the attacker has its species-specific item or the target would get its item, then pickpocket can not activate
-             && CanTrickHeldItem(sp->battlemon[sp->attack_client].item, sp->battlemon[sp->attack_client].species, ITEM_NONE, sp->battlemon[sp->defence_client].species)
+             && CanTrickHeldItem(sp, sp->attack_client, sp->defence_client)
              // pickpocket doesn't activate if attacked by sheer force
              && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)
              // does not hit until the last hit of a multi-strike move
