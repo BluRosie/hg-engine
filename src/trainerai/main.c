@@ -41,6 +41,7 @@ typedef struct {
     int defender_side;
     int attacker_side;
     int attacker_ability;
+    int attacker_level;
     int defender_ability;
     int attacker_item;
     int defender_item;
@@ -125,14 +126,11 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     u32 moveScores[4] = {100, 100, 100, 100}; //don't want to get negative numbers, so start high
     int num_move_score_ties = 0;
     int move_tie_indices[4] = {0};
+
     /*Setup field state and mon state variables.
     These are generally used multiple times throughout
     different flags.*/
-
-
     SetupStateVariables(bsys, attacker, ai);
-
-
 
     /*Main loop over moves and select the best one*/
     for (int i = 0; i < 4; i++)
@@ -146,13 +144,11 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         AITypeCalc(ctx, ai->attacker_move, ai->attacker_move_type, ai->attacker_ability, ai->defender_ability, ai->hold_effect, ai->defender_type_1, ai->defender_type_2, & ai->attacker_move_effectiveness);
         //should loop over trainer's flags set in trainers.s here
 
+        //TODO: add checks for flags once they are correctly refactored. For now we just use the champion ai.
         moveScores[i] += BasicFlag(bsys, attacker, i, ai);
         moveScores[i] += EvaluateAttackFlag(bsys, attacker, i, ai);
         moveScores[i] += ExpertFlag(bsys, attacker, i, ai);
     }
-
-    
-
 
     for(int i = 0; i < 4; i++){
         debug_printf("MoveScore: %d -- for move number:%d \n", moveScores[i], i);
@@ -172,7 +168,8 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             j_tie_index++;
         }
     }
-    /*If there are no move ties, this still works.*/
+    /*If there are no move ties, this still works.
+      Pick a random move from the ties.*/
     result  = move_tie_indices[BattleRand(bsys) % num_move_score_ties];
 
     return result;
@@ -456,7 +453,17 @@ const u16 PrioritizeDamageFlagList[] = {
     MOVE_EFFECT_LEVEL_DAMAGE_FLAT,
     MOVE_EFFECT_40_DAMAGE_FLAT,
     MOVE_EFFECT_10_DAMAGE_FLAT
-}
+};
+
+
+const u16 BatonPassFlagList[] = {
+    MOVE_EFFECT_ATK_UP_2,
+    MOVE_EFFECT_ATK_SPEED_UP,
+    MOVE_EFFECT_SP_ATK_SP_DEF_UP,
+    MOVE_EFFECT_SP_ATK_UP_2
+};
+
+
 /*Flags' logic*/
 
 /*Heavily penalize stupid choices that would fail*/
@@ -4006,6 +4013,57 @@ int PrioritizeDamageFlag(struct BattleSystem *bsys, u32 attacker, int i, AiConte
 int BatonPassFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
+    if(ai->living_attacking_members == 1 || ctx->moveTbl[ai->attacker_move].split != SPLIT_STATUS ){
+        moveScore += 0;
+    }
+    else if(!BattlerHasMoveEffect(bsys, attacker, MOVE_EFFECT_PASS_STATS_AND_STATUS, ai) && BattleRand(bsys) % 10 < 3){
+        moveScore += 0;
+    }
+    else{
+        if(IsInStatList(ai->attacker_move_effect, BatonPassFlagList, NELEMS(BatonPassFlagList))){
+            if(ctx->total_turn == 0){
+                moveScore += 5;
+            }
+            else if(ai->attacker_percent_hp >= 60){
+                moveScore += 1;
+            }
+            else{
+                moveScore -= 10;
+            }
+        }
+        else if(ai->attacker_move_effect == MOVE_EFFECT_PROTECT){
+            if(ctx->battlemon[attacker].moveeffect.protectSuccessTurns > 0){
+                moveScore -=2;
+            }
+            else{
+                moveScore += 2;
+            }
+        }
+        else if(ai->attacker_move_effect == MOVE_EFFECT_PASS_STATS_AND_STATUS){
+            if(ctx->total_turn == 0){
+                moveScore -= 2;
+            }
+            else{
+                if(ctx->battlemon[attacker].states[STAT_ATTACK] >= 9 ||
+                    ctx->battlemon[attacker].states[STAT_SPATK] >= 9 ){
+                    moveScore += 3;
+                }
+                else if(ctx->battlemon[attacker].states[STAT_ATTACK] >= 8 ||
+                    ctx->battlemon[attacker].states[STAT_SPATK] >= 8 ){
+                    moveScore += 2;
+                }
+                else if(ctx->battlemon[attacker].states[STAT_ATTACK] >= 7 ||
+                    ctx->battlemon[attacker].states[STAT_SPATK] >= 7 ){
+                    moveScore += 1;
+                }
+            }
+        }
+        else{
+            if(BattleRand(bsys) % 10 < 9){
+                moveScore += 3;
+            }
+        }
+    }
     return moveScore;
 }
 int TagStrategyFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
@@ -4272,6 +4330,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
     ai->defender = 0;
     ai->defender_side = 0;
     ai->attacker_side = 1;
+    ai->attacker_level = ctx->battlemon[attacker].level;
     ai->attacker_ability = ctx->battlemon[attacker].ability;
     ai->defender_ability = ctx->battlemon[ai->defender].ability;
     ai->attacker_item = ctx->battlemon[attacker].item;
@@ -4434,10 +4493,35 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
     for(int i = 0; i < ai->attacker_moves_known; i++){
 
         int attacker_move_check = ctx->battlemon[attacker].move[i];
-        int attacker_move_type_check = ctx->moveTbl[attacker_move_check].type;
-        ai->attacker_max_roll_move_damages[i] = CalcBaseDamage(bsys, ctx, attacker_move_check, ctx->side_condition[ai->defender_side],ctx->field_condition, ctx->moveTbl[attacker_move_check].power, 0, attacker, ai->defender, 0);
+        int attacker_effect_check = ctx->moveTbl[attacker_move_check].effect;
+        int attacker_move_type_check = ctx->moveTbl[attacker_move_check].type;\
+        int special_move_power = 0;
+        if(attacker_effect_check == MOVE_EFFECT_RANDOM_POWER_10_CASES){
+            special_move_power = 71;
+        }
+        ai->attacker_max_roll_move_damages[i] = CalcBaseDamage(bsys, ctx, attacker_move_check, ctx->side_condition[ai->defender_side],ctx->field_condition, ctx->moveTbl[attacker_move_check].power, special_move_power, attacker, ai->defender, 0);
         ai->attacker_max_roll_move_damages[i] = ServerDoTypeCalcMod(bsys, ctx, attacker_move_check, 0, attacker, ai->defender, ai->attacker_max_roll_move_damages[i], &temp);
+
+        /*Directly modify max roll damages for multihit moves by 3.0 (average damage is 3.1x)*/
         //serparately add in type calc after base damage. will need to add in consideration for multihit moves
+        if(attacker_move_check == MOVE_EFFECT_MULTI_HIT){
+            ai->attacker_max_roll_move_damages[i] = ai->attacker_max_roll_move_damages[i] * 3;
+        }
+        //if flat damage moves, set to level (even for psywave)
+        else if(attacker_effect_check == MOVE_EFFECT_LEVEL_DAMAGE_FLAT || attacker_move_check == MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL){
+            ai->attacker_max_roll_move_damages[i] = ai->attacker_level;
+        }
+        else if(attacker_effect_check == MOVE_EFFECT_10_DAMAGE_FLAT){//this is misnamed in hg-engine (sonicboom)
+            ai->attacker_max_roll_move_damages[i] = 20;
+        }
+        else if(attacker_effect_check == MOVE_EFFECT_40_DAMAGE_FLAT){//dragon rage
+            ai->attacker_max_roll_move_damages[i] = 40;
+        }
+        else if(attacker_effect_check == MOVE_EFFECT_POISON_MULTI_HIT ||
+                attacker_effect_check == MOVE_EFFECT_HIT_TWICE){//twineedle
+            ai->attacker_max_roll_move_damages[i] = ai->attacker_max_roll_move_damages[i] * 2;
+        }
+
         if(ai->attacker_max_roll_move_damages[i] > 0){
             ai->attacker_has_damaging_move = 1;
         }
