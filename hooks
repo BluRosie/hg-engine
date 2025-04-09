@@ -517,3 +517,5 @@ arm9 CreateHeapInternal_hook 0201A92C 4
 arm9 DestroyHeap_hook 0201AA24 3
 
 #endif
+
+0012 TrainerAI_PickCommand_hook 0225E10C 0
