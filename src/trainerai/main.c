@@ -463,6 +463,34 @@ const u16 BatonPassFlagList[] = {
     MOVE_EFFECT_SP_ATK_UP_2
 };
 
+const u16 HarassmentFlagList[] = {//also included in harassment flag are all statdrop list moves
+    MOVE_EFFECT_STATUS_PARALYZE,
+    MOVE_EFFECT_STATUS_POISON,
+    MOVE_EFFECT_STATUS_BADLY_POISON,
+    MOVE_EFFECT_STATUS_BURN,
+    MOVE_EFFECT_STATUS_SLEEP,
+    MOVE_EFFECT_STATUS_CONFUSE,
+    MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION,
+    MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION,
+    MOVE_EFFECT_INFATUATE,
+    MOVE_EFFECT_STATUS_LEECH_SEED,
+    MOVE_EFFECT_ENCORE,
+    MOVE_EFFECT_DECREASE_LAST_MOVE_PP,
+    MOVE_EFFECT_SET_SPIKES,
+    MOVE_EFFECT_TORMENT,
+    MOVE_EFFECT_NATURE_POWER,
+    MOVE_EFFECT_REMOVE_HELD_ITEM,
+    MOVE_EFFECT_MAKE_SHARED_MOVES_UNUSEABLE,
+    MOVE_EFFECT_SECRET_POWER,
+    MOVE_EFFECT_ATK_DEF_DOWN,
+    MOVE_EFFECT_CAMOUFLAGE,
+    MOVE_EFFECT_PREVENT_ITEM_USE,
+    MOVE_EFFECT_TRANSFER_STATUS,
+    MOVE_EFFECT_TOXIC_SPIKES,
+    MOVE_EFFECT_REMOVE_HAZARDS_SCREENS_EVA_DOWN,
+    MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER
+};
+
 
 /*Flags' logic*/
 
@@ -4097,6 +4125,12 @@ int WeatherFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
 int HarassmentFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
+    if(IsInStatList(ai->attacker_move_effect, HarassmentFlagList, NELEMS(HarassmentFlagList)) ||
+       IsInStatList(ai->attacker_move_effect, DropStatList, NELEMS(DropStatList))){
+        if(BattleRand(bsys) % 2 < 1){
+            moveScore += 2;
+        }
+    }
     return moveScore;
 }
 
