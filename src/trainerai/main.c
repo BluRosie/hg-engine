@@ -491,6 +491,82 @@ const u16 HarassmentFlagList[] = {//also included in harassment flag are all sta
     MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER
 };
 
+const u16 CheckHPFlagList_1[] = {
+    MOVE_EFFECT_RESTORE_HALF_HP,
+    MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN,
+    MOVE_EFFECT_KO_MON_THAT_DEFEATED_USER,
+    MOVE_EFFECT_INCREASE_POWER_WITH_LESS_HP,
+    MOVE_EFFECT_FAINT_AND_ATK_SP_ATK_DOWN_2,
+    MOVE_EFFECT_FAINT_AND_FULL_HEAL_NEXT_MON,
+    MOVE_EFFECT_REMOVE_ALL_PP_ON_DEFEAT
+};
+
+const u16 CheckHPFlagList_2[] = {
+    MOVE_EFFECT_CRIT_UP_2,
+    MOVE_EFFECT_BIDE,
+    MOVE_EFFECT_CONVERSION,
+    MOVE_EFFECT_CONVERSION2,
+    MOVE_EFFECT_SET_LIGHT_SCREEN,
+    MOVE_EFFECT_SET_REFLECT,
+    MOVE_EFFECT_PREVENT_STAT_REDUCTION,
+    MOVE_EFFECT_PREVENT_STATUS,
+    MOVE_EFFECT_MAX_ATK_LOSE_HALF_MAX_HP
+};
+
+const u16 CheckHPFlagList_3[] = {
+    MOVE_EFFECT_PREVENT_CRITS,
+    MOVE_EFFECT_SWAP_ATK_SP_ATK_STAT_CHANGES,
+    MOVE_EFFECT_SWAP_DEF_SP_DEF_STAT_CHANGES,
+};
+
+const u16 CheckHPFlagList_4[] = {
+    MOVE_EFFECT_RAISE_ATK_WHEN_HIT,
+    MOVE_EFFECT_NEXT_ATTACK_ALWAYS_HITS,
+    MOVE_EFFECT_COPY_STAT_CHANGES,
+    MOVE_EFFECT_MIRROR_COAT,
+    MOVE_EFFECT_METAL_BURST,
+    MOVE_EFFECT_DECREASE_POWER_WITH_LESS_USER_HP,
+    MOVE_EFFECT_HALVE_ELECTRIC_DAMAGE,
+    MOVE_EFFECT_HALVE_FIRE_DAMAGE,
+    MOVE_EFFECT_RANDOM_STAT_UP_2
+};
+
+const u16 CheckHPFlagList_5[] = {
+    MOVE_EFFECT_STATUS_POISON,
+    MOVE_EFFECT_PREVENT_STAT_REDUCTION,
+    MOVE_EFFECT_AVERAGE_HP,
+    MOVE_EFFECT_PREVENT_STATUS,
+    MOVE_EFFECT_RANDOM_STAT_UP_2,
+    MOVE_EFFECT_INCREASE_POWER_WITH_MORE_HP,
+    MOVE_EFFECT_ALL_FAINT_3_TURNS
+};
+
+const u16 CheckHPFlagList_6[] = {
+    MOVE_EFFECT_STATUS_PARALYZE,
+    MOVE_EFFECT_STATUS_POISON,
+    MOVE_EFFECT_STATUS_BADLY_POISON,
+    MOVE_EFFECT_STATUS_BURN,
+    MOVE_EFFECT_STATUS_SLEEP,
+    MOVE_EFFECT_STATUS_CONFUSE,
+    MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION,
+    MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION,
+    MOVE_EFFECT_BIDE,
+    MOVE_EFFECT_CONVERSION,
+    MOVE_EFFECT_CONVERSION2,
+    MOVE_EFFECT_SET_LIGHT_SCREEN,
+    MOVE_EFFECT_SET_REFLECT,
+    MOVE_EFFECT_ONE_HIT_KO,
+    MOVE_EFFECT_HALVE_HP,
+    MOVE_EFFECT_NEXT_ATTACK_ALWAYS_HITS,
+    MOVE_EFFECT_DECREASE_LAST_MOVE_PP,
+    MOVE_EFFECT_DOUBLE_POWER_EACH_TURN_LOCK_INTO,
+    MOVE_EFFECT_COPY_STAT_CHANGES,
+    MOVE_EFFECT_MIRROR_COAT,
+    MOVE_EFFECT_COUNTER,
+    MOVE_EFFECT_HALVE_DEFENSE
+};
+
+
 
 /*Flags' logic*/
 
@@ -4102,6 +4178,64 @@ int TagStrategyFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *a
 int CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
+
+    //attacker hp considered first
+    if(ai->attacker_move_effect == MOVE_EFFECT_HALVE_DEFENSE){
+        if(ai->attacker_percent_hp >= 31){
+            if(BattleRand(bsys) % 10 < 8){
+                moveScore -= 2;
+            }
+        }
+    }
+    else if(IsInStatList(ai->attacker_move_effect, CheckHPFlagList_1, NELEMS(CheckHPFlagList_1))){
+        if(ai->attacker_percent_hp >= 71){
+            if(BattleRand(bsys) % 10 < 8){
+                moveScore -= 2;
+            }
+        }
+    }
+    else if(IsInStatList(ai->attacker_move_effect, CheckHPFlagList_2, NELEMS(CheckHPFlagList_2))){
+        if(ai->attacker_percent_hp < 70){
+            if(BattleRand(bsys) % 10 < 8){
+                moveScore -= 2;
+            }
+        }
+    }
+    else if(IsInStatList(ai->attacker_move_effect, CheckHPFlagList_3, NELEMS(CheckHPFlagList_3))){
+        if(ai->attacker_percent_hp >= 31 && ai->attacker_percent_hp <= 70){
+            if(BattleRand(bsys) % 10 < 8){
+                moveScore -= 2;
+            }
+        }
+    }
+    else if(IsInStatList(ai->attacker_move_effect, CheckHPFlagList_4, NELEMS(CheckHPFlagList_4))){
+        if(ai->attacker_percent_hp < 31){
+            if(BattleRand(bsys) % 10 < 8){
+                moveScore -= 2;
+            }
+        }
+    }
+
+    //defender hp considered next
+    if(ai->defender_percent_hp > 71){
+        moveScore += 0;
+    }
+    else{
+        if(IsInStatList(ai->attacker_move_effect, CheckHPFlagList_5, NELEMS(CheckHPFlagList_5))){
+            if(BattleRand(bsys) % 10 < 8){
+                moveScore -= 2;
+            }
+        }
+        else if(IsInStatList(ai->attacker_move_effect, CheckHPFlagList_6, NELEMS(CheckHPFlagList_6))){
+            if(ai->attacker_percent_hp <= 30){
+                if(BattleRand(bsys) % 10 < 8){
+                    moveScore -= 2;
+                }
+            }
+        }
+    }
+
+
     return moveScore;
 }
 int WeatherFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
