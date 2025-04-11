@@ -65,6 +65,12 @@
 // DEBUG_BEFORE_MOVE_LOGIC turns on a number of debug prints related to the before-move logic
 //#define DEBUG_BEFORE_MOVE_LOGIC
 
+// DEBUG_PRINT_HEAP_CREATION allows for debug prints on heap creation/deletion
+//#define DEBUG_PRINT_HEAP_CREATION
+
+// DEBUG_PRINT_HEAP_ALLOCATION allows for debug prints on memory allocation/free
+//#define DEBUG_PRINT_HEAP_ALLOCATION
+
 // NOCASH_GBA_PRINT swaps from desmume prints with the syscall to NO$GBA-style prints for use with i.e. melonDS
 //#define NOCASH_GBA_PRINT
 

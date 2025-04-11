@@ -426,7 +426,8 @@ BattleWorkGroundIDGet = 0x0223AB40 | 1;
 Battle_CheckIfHasCaughtMon = 0x0223C330 | 1;
 Battle_GetTimeOfDay = 0x0223B520 | 1;
 Battle_IsFishingEncounter = 0x0223AAB8 | 1;
-GetCaughtMonCount = 0x02029E84 | 1;
+Pokedex_CountDexOwned = 0x02029E84 | 1;
+Pokedex_CountJohtoDexOwned = 0x02029EA0 | 1;
 BallToSpaIDs = 0x0223746C;
 GetBallID_ov7 = 0x0223251C | 1;
 
@@ -738,3 +739,8 @@ BufferItemNameWithIndefArticle = 0x0200C100 | 1;
 _GetNpcTradeName = 0x02259C1C | 1;
 MonSetTrainerMemo = 0x0208F260 | 1;
 MapHeader_GetMapSec = 0x0203B36C | 1;
+
+OS_DisableInterrupts = 0x020D3A38;
+NNS_FndAllocFromExpHeapEx = 0x020B53A0;
+OS_RestoreInterrupts = 0x020D3A4C;
+sHeapInfo = 0x021D1584;

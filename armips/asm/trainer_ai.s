@@ -10,11 +10,6 @@
 .org 0x0225E43E
 bl 0x0221BE20
 
-// no more TrainerAI_PickCommand
-.org 0x0225E10E
-mov r0, #1
-nop
-
 .close
 
 

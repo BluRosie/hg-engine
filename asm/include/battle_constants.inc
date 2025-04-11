@@ -373,6 +373,11 @@
 .equ MOVE_SUBSCRIPT_PTR_TIDY_UP, 0xBE
 .equ MOVE_SUBSCRIPT_PTR_BURN_AND_DRAIN_HEALTH, 0xBF
 
+.equ MAX_BASE_SUBSCRIPT_NUM, 0xBF
+
+// define your custom subscripts below like this
+//.equ MOVE_SUBSCRIPT_PTR_CUSTOM_1, (MAX_BASE_SUBSCRIPT_NUM + 1)
+
 
 
 .equ FIELD_CONDITION_RAIN, 0x1
@@ -1637,5 +1642,12 @@
 .equ RANGE_ALLY,                    (1 << 8)
 .equ RANGE_SINGLE_TARGET_USER_SIDE, (1 << 9)
 .equ RANGE_FRONT,                   (1 << 10)
+
+.equ HAZARD_IDX_NONE, 0
+.equ HAZARD_IDX_SPIKES, 1
+.equ HAZARD_IDX_TOXIC_SPIKES, 2
+.equ HAZARD_IDX_STEALTH_ROCK, 3
+.equ HAZARD_IDX_STICKY_WEB, 4
+.equ HAZARD_IDX_SHARP_STEEL, 5
 
 .endif

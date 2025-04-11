@@ -303,6 +303,14 @@
 
 #define STATUS2_BIDE    (STATUS2_BIDE_0 | STATUS2_BIDE_1)
 
+#define HAZARD_IDX_NONE 0
+#define HAZARD_IDX_SPIKES 1
+#define HAZARD_IDX_TOXIC_SPIKES 2
+#define HAZARD_IDX_STEALTH_ROCK 3
+#define HAZARD_IDX_STICKY_WEB 4
+#define HAZARD_IDX_SHARP_STEEL 5
+#define NUM_HAZARD_IDX (HAZARD_IDX_SHARP_STEEL)
+
 /**
  *  @brief side status flags that apply to one side
  *  accessible in BattleStruct's side_condition[side]
@@ -1027,8 +1035,8 @@ typedef enum ControllerCommand {
     CONTROLLER_COMMAND_POKEMON_INPUT, //15
     CONTROLLER_COMMAND_RUN_INPUT,
     CONTROLLER_COMMAND_SAFARI_THROW_BALL,
+    CONTROLLER_COMMAND_SAFARI_THROW_BAIT,
     CONTROLLER_COMMAND_SAFARI_THROW_MUD,
-    CONTROLLER_COMMAND_SAFARI_RUN,
     CONTROLLER_COMMAND_SAFARI_WATCHING, //20
     CONTROLLER_COMMAND_CATCHING_CONSTEST_THROW_BALL,
     CONTROLLER_COMMAND_RUN_SCRIPT,
@@ -1145,6 +1153,8 @@ typedef struct OnceOnlyAbilityFlags {
     BOOL superSweetSyrupFlag;
 } OnceOnlyAbilityFlags;
 
+#define BATTLE_SCRIPT_PUSH_DEPTH 4
+
 /**
  *  @brief the entire battle structure that we are interested in (for the most part)
  *
@@ -1200,9 +1210,9 @@ struct PACKED BattleStruct {
     /*0xB0*/ int skill_arc_index;
     /*0xB4*/ int skill_seq_no;
     /*0xB8*/ int push_count;
-    /*0xBC*/ int push_skill_arc_kind[CLIENT_MAX];
-    /*0xCC*/ int push_skill_arc_index[CLIENT_MAX];
-    /*0xDC*/ int push_skill_seq_no[CLIENT_MAX];
+    /*0xBC*/ int push_skill_arc_kind[BATTLE_SCRIPT_PUSH_DEPTH];
+    /*0xCC*/ int push_skill_arc_index[BATTLE_SCRIPT_PUSH_DEPTH];
+    /*0xDC*/ int push_skill_seq_no[BATTLE_SCRIPT_PUSH_DEPTH];
     /*0xEC*/ int executionIndex;
     /*0xF0*/ int wait_cnt;
     /*0xF4*/ MESSAGE_PARAM mp;          // buffMsg
@@ -1264,7 +1274,7 @@ struct PACKED BattleStruct {
     /*0x218C*/ u32 condition2_off_req[CLIENT_MAX];
     /*0x219C*/ u8 sel_mons_no[CLIENT_MAX];  // selectedMonIndex
     /*0x21A0*/ u8 reshuffle_sel_mons_no[CLIENT_MAX];
-    /*0x21A4*/ u8 ai_reshuffle_sel_mons_no[CLIENT_MAX];
+    /*0x21A4*/ u8 aiSwitchedPartySlot[CLIENT_MAX];
     /*0x21A8*/ u32 playerActions[4][4]; // client_act_work
     /*0x21E8*/ u8 executionOrder[4]; // client_agi_work -- accounts for running, items, etc used in battler slots
     /*0x21EC*/ u8 turnOrder[4]; // turn_order -- by pokemon speed, accounting for trick room
@@ -1330,7 +1340,9 @@ struct PACKED BattleStruct {
     /*0x315E*/ u8 frisk_tracker; // see which clients have been frisked by the frisk client (1 << client)
     /*0x315F*/ u8 magicBounceTracker; // if any client has already activated magic bounce, another can not activate
     /*0x3160*/ u8 binding_turns[4]; // turns left for bind
-    /*0x3164*/ u8 padding_3164[0x1A]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x3164*/ u8 entryHazardQueue[2][NUM_HAZARD_IDX];
+    /*0x316E*/ u8 hazardQueueTracker;
+    /*0x316F*/ u8 padding_316F[0x317E - 0x316F]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
@@ -1706,8 +1718,45 @@ struct __attribute__((packed)) ENCOUNT_SEND_OUT_MESSAGE_PARAM
     u8 sel_mons_no[CLIENT_MAX];
 };
 
+
+enum
+{
+    SWOAK_SEQ_VANISH_ON_OFF=0,
+    SWOAK_SEQ_SYNCHRONIZE_CHECK,
+    SWOAK_SEQ_POKE_APPEAR_CHECK,
+    SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_ATTACKER,
+    SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_DEFENDER,
+    SWOAK_SEQ_CHECK_DEFENDER_ITEM_ON_HIT,
+    SWOAK_SEQ_THAW_ICE,
+    SWOAK_SEQ_CHECK_HEALING_ITEMS,
+    SWOAK_SEQ_CLEAR_MAGIC_COAT,
+};
+
+
+typedef enum BeforeTurnState {
+    SBA_RESET_DEFIANT = 0,
+    SBA_RESET_FURY_CUTTER,
+    SBA_RANDOM_SPEED_ROLL,
+    SBA_QUICK_CLAW_CUSTAP_BERRY_O_POWER_ACTIVATION,
+    SBA_SET_GIMMICK_REQUEST_STATUS,
+    // This part is inconsistent between Bulbapedia, Victory Road VGC, and Showdown, defaulting to Showdown for now
+    SBA_ESCAPING,
+    SBA_SWITCHING,
+    SBA_ROTATING,
+    SBA_USING_ITEM,
+    SBA_MEGA_EVOLUTION_ULTRA_BURST,
+    SBA_DYNAMAXING,
+    SBA_TERASTALLIZING,
+    SBA_FOCUS_PUNCH_BEAK_BLAST_SHELL_TRAP,
+    // End inconsistent order
+    SBA_RAGE,
+    SBA_END
+} BeforeTurnState;
+
+
 enum {
-    BEFORE_MOVE_START = 0,
+    BEFORE_MOVE_START_FLAG_UNLOAD = 0,
+    BEFORE_MOVE_START,
 
     BEFORE_MOVE_STATE_RECHARGE,
     BEFORE_MOVE_STATE_SLEEP_OR_FROZEN,
@@ -2868,6 +2917,16 @@ BOOL LONG_CALL MoldBreakerIsClientGrounded(struct BattleStruct *sp, u32 attacker
 BOOL LONG_CALL Link_QueueIsEmpty(struct BattleStruct *sp);
 
 /**
+ *  @brief grab a battler's weight
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param client battler whose weight to grab
+ *  @return battler's weight
+ */
+s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, u32 client);
+
+/**
  *  @brief check if a held item can be removed from the species it is attached to
  *
  *  @param species the species of the mon
@@ -2875,6 +2934,8 @@ BOOL LONG_CALL Link_QueueIsEmpty(struct BattleStruct *sp);
  *  @return TRUE if item can be removed, FALSE otherwise
  */
 BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
+
+BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client);
 
 /**
  *  @brief check if a held item can be tricked or not depending on the items and species
@@ -2884,7 +2945,9 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
  *  @param defender_item the held item of the defender
  *  @param defender_species the defender species
  */
-BOOL LONG_CALL CanTrickHeldItem(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species);
+BOOL LONG_CALL CanTrickHeldItemManual(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species);
+
+BOOL LONG_CALL CanTrickHeldItem(struct BattleStruct *ctx, u32 attacker, u32 defender);
 
 // defined in ability.c
 int LONG_CALL SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
@@ -2909,6 +2972,16 @@ BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int va
  *  @return TRUE if the defender has the ability and it isn't canceled by mold breaker; FALSE otherwise
  */
 u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, u32 ability);
+
+/**
+ *  @brief check if synchronize should activate
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @param server_seq_no current server step, to be queued as sp->next_server_seq_no if a synchronize check passes
+ *  @return TRUE if a battle subscript was loaded to sp->SkillSeqWork
+ */
+BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no);
 
 /**
  *  @brief check if a move should activate the defender's ability and run a subscript
@@ -3292,6 +3365,13 @@ BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx
 */
 BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp);
 
+/**
+ * @brief checks if the move index is a punching move
+ * @param move move index to check
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsMovePunchingMove(u16 move);
+
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
@@ -3606,7 +3686,7 @@ BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct
 BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
 
 /// @brief Check if ability can't be suppressed by Gastro Acid or affected by Mummy. See notes for DisabledByNeutralizingGas.
-/// @param ability 
+/// @param ability
 /// @ref AbilityDisabledByNeutralizingGas
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityCantSupress(int ability);
