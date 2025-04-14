@@ -134,7 +134,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
     /*Main loop over moves and select the best one*/
     for (int i = 0; i < 4; i++)
-    {
+    {   
         /*Move-relevant variables*/
         ai->attacker_move = ctx->battlemon[attacker].move[i];
         ai->attacker_move_effect = ctx->moveTbl[ai->attacker_move].effect;
@@ -583,6 +583,8 @@ int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
         ai->defender_ability == ABILITY_WONDER_GUARD && ai->attacker_ability != ABILITY_MOLD_BREAKER){
         moveScore -= 10;
     }
+
+
     //check for basic ability immunities, and score them low.
     if(ai->attacker_ability != ABILITY_MOLD_BREAKER){
         if(ai->attacker_move_type == TYPE_ELECTRIC && //electric
@@ -594,11 +596,13 @@ int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
         if(ai->attacker_move_type == TYPE_WATER && //water
             (ai->defender_ability == ABILITY_STORM_DRAIN ||
             ai->defender_ability == ABILITY_WATER_ABSORB ||
-            ai->defender_ability == ABILITY_DRY_SKIN) ){
+            ai->defender_ability == ABILITY_DRY_SKIN || 
+            ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT)  ){
             moveScore -= 10;
         }
         if(ai->attacker_move_type == TYPE_FIRE && //fire
-            (ai->defender_ability == ABILITY_FLASH_FIRE) ){
+            (ai->defender_ability == ABILITY_FLASH_FIRE || 
+            ctx->field_condition & WEATHER_HEAVY_RAIN) ){
             moveScore -= 10;
         }
         if(ai->attacker_move_type == TYPE_GRASS && //grass
@@ -4503,7 +4507,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
     ai->defender_ability = ctx->battlemon[ai->defender].ability;
     ai->attacker_item = ctx->battlemon[attacker].item;
     ai->defender_item = ctx->battlemon[ai->defender].item;
-    ai->hold_effect = BattleItemDataGet(ctx, ai->attacker_item, 1);
+    ai->hold_effect = BattleItemDataGet(ctx, ai->defender_item, 1); //this was mistakenly documented as attacker's held item in ai.c -- fixed now
     ai->defender_type_1 = ctx->battlemon[ai->defender].type1;
     ai->defender_type_2 = ctx->battlemon[ai->defender].type2;
     ai->attacker_type_1 = ctx->battlemon[attacker].type1;
@@ -4582,7 +4586,8 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
         ai->defender_ability == ABILITY_IMMUNITY ||
         ai->defender_ability == ABILITY_POISON_HEAL ||
         (ai->defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
-        (ai->defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) );
+        (ai->defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ) ||
+        (IsClientGrounded(ctx, ai->defender) && ctx->terrainOverlay.type == MISTY_TERRAIN);
     ai->defender_immune_to_paralysis =
         (ai->defender_type_1 == TYPE_ELECTRIC || ai->defender_type_2 == TYPE_ELECTRIC ||
         ctx->battlemon[ai->defender].condition & STATUS_ALL || 
@@ -4590,7 +4595,8 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
         ai->defender_ability == ABILITY_LIMBER ||
         (ai->defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
         (ai->defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ||
-        (ai->defender_ability == ABILITY_MAGIC_GUARD && ctx->battlemon[attacker].speed > ctx->battlemon[ai->defender].speed)) ;
+        (ai->defender_ability == ABILITY_MAGIC_GUARD && ctx->battlemon[attacker].speed > ctx->battlemon[ai->defender].speed)) ||
+        (IsClientGrounded(ctx, ai->defender) && ctx->terrainOverlay.type == MISTY_TERRAIN) ;
     ai->defender_immune_to_burn =  
         (ai->defender_type_1 == TYPE_FIRE || ai->defender_type_2 == TYPE_FIRE ||
         ctx->battlemon[ai->defender].condition & STATUS_ALL || 
@@ -4598,13 +4604,16 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
         ai->defender_ability == ABILITY_MAGIC_GUARD ||
         ai->defender_ability == ABILITY_WATER_VEIL) ||
         (ai->defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
-        (ai->defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY);
+        (ai->defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ||
+        (IsClientGrounded(ctx, ai->defender) && ctx->terrainOverlay.type == MISTY_TERRAIN);
     ai->defender_immune_to_sleep = (ctx->battlemon[ai->defender].condition & STATUS_ALL || 
         ctx->side_condition[ai->defender_side] & SIDE_STATUS_SAFEGUARD ||
         ai->defender_ability == ABILITY_VITAL_SPIRIT ||
         ai->defender_ability == ABILITY_INSOMNIA || 
         (ai->defender_ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)|| 
-        (ai->defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) );
+        (ai->defender_ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ||
+        (ai->defender_ability == ABILITY_MAGIC_GUARD && ctx->battlemon[attacker].speed > ctx->battlemon[ai->defender].speed)||
+        (IsClientGrounded(ctx, ai->defender) && (ctx->terrainOverlay.type == ELECTRIC_TERRAIN ||ctx->terrainOverlay.type == MISTY_TERRAIN)));
     ai->attacker_move_effectiveness = 0;
     ai->party_size_attacking = Battle_GetClientPartySize(bsys, attacker);
     ai->living_attacking_members = 0;
