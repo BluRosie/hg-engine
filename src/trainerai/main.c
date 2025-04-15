@@ -15,6 +15,16 @@
 #include "../../include/constants/item.h"
 #include "../../include/item.h"
 
+#define BATTLER_OPP(battler) (battler ^ 1)
+#define BATTLER_SIDE(battler) ((battler) & 1)
+//BATTLER_ALLY
+
+/*
+#define BATTLER_PLAYER_1 0
+#define BATTLER_ENEMY_1  1
+#define BATTLER_PLAYER_2 2
+#define BATTLER_ENEMY_2  3
+*/
 
 typedef struct {
     /*Field/Pokemon state relavent variables*/
@@ -36,7 +46,8 @@ typedef struct {
 
     u32 fling_power;
     u32 attacker_move_effectiveness;
-
+    int chosen_target;
+    int attacker;
     int defender;
     int defender_side;
     int attacker_side;
@@ -121,56 +132,128 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     AiContext aictx = {0};
     AiContext *ai = &aictx;
 
-    enum AIActionChoice result = AI_ENEMY_ATTACK_1, highestBasePower = 0;
+        
+
+    enum AIActionChoice result = AI_ENEMY_ATTACK_1, highest_damage_something = 0;
     int highest_move_score = 0;
-    u32 moveScores[4] = {100, 100, 100, 100}; //don't want to get negative numbers, so start high
+    u32 moveScores[4][4];
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            moveScores[i][j] = 100;
+        }
+    } //don't want to get negative (unsigned ints) numbers, so start high at 100
+    int max_scores[4] = {0}; //highest score of each of the 4 moves the attacker has, for each mon on the field (self is always 0)
+    int num_defender_ties = 0;
+    int defender_tie_indices[4] = {0};
+
     int num_move_score_ties = 0;
     int move_tie_indices[4] = {0};
+
+    int target = 0;
+
 
     /*Setup field state and mon state variables.
     These are generally used multiple times throughout
     different flags.*/
     SetupStateVariables(bsys, attacker, ai);
 
-    /*Main loop over moves and select the best one*/
-    for (int i = 0; i < 4; i++)
-    {   
-        /*Move-relevant variables*/
-        ai->attacker_move = ctx->battlemon[attacker].move[i];
-        ai->attacker_move_effect = ctx->moveTbl[ai->attacker_move].effect;
-        ai->attacker_move_effectiveness = 0;       
-        ai->attacker_move_type = ctx->moveTbl[ai->attacker_move].type;
-        ai->attacker_move_pp_remaining = ctx->battlemon[attacker].pp[i];
-        AITypeCalc(ctx, ai->attacker_move, ai->attacker_move_type, ai->attacker_ability, ai->defender_ability, ai->hold_effect, ai->defender_type_1, ai->defender_type_2, & ai->attacker_move_effectiveness);
-        //should loop over trainer's flags set in trainers.s here
+    /*For more than a 1v1 battle, loop over all battlers and compute the highest score for each. Then */
+    if(BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)){
+        for(int battler_no = 0; battler_no < CLIENT_MAX; battler_no++){
+            if(battler_no == attacker){
+                for(int i = 0; i < 4; i ++){
+                    moveScores[battler_no][i] = 0; //prevent ai from thinking it is also the defender for calculations
+                }
+            }
+            else{
+                /*Main loop over moves and select the best one*/
+                for (int i = 0; i < 4; i++)
+                {   
+                    ai->defender = battler_no;
+                    ai->defender_side = BATTLER_SIDE(ai->defender); //this is relevant since the potential target could be the ally in double battles
+                    /*Move-relevant variables*/
+                    ai->attacker_move = ctx->battlemon[attacker].move[i];
+                    ai->attacker_move_effect = ctx->moveTbl[ai->attacker_move].effect;
+                    ai->attacker_move_effectiveness = 0;       
+                    ai->attacker_move_type = ctx->moveTbl[ai->attacker_move].type;
+                    ai->attacker_move_pp_remaining = ctx->battlemon[attacker].pp[i];
+                    AITypeCalc(ctx, ai->attacker_move, ai->attacker_move_type, ai->attacker_ability, ai->defender_ability, ai->hold_effect, ai->defender_type_1, ai->defender_type_2, & ai->attacker_move_effectiveness);
+                    //should loop over trainer's flags set in trainers.s here
 
-        //TODO: add checks for flags once they are correctly refactored. For now we just use the champion ai.
-        moveScores[i] += BasicFlag(bsys, attacker, i, ai);
-        moveScores[i] += EvaluateAttackFlag(bsys, attacker, i, ai);
-        moveScores[i] += ExpertFlag(bsys, attacker, i, ai);
+                    //TODO: add checks for flags once they are correctly refactored. For now we just use the champion ai.
+                    moveScores[battler_no][i] += BasicFlag(bsys, attacker, i, ai);
+                    moveScores[battler_no][i] += EvaluateAttackFlag(bsys, attacker, i, ai);
+                    moveScores[battler_no][i] += ExpertFlag(bsys, attacker, i, ai);
+
+                    if(moveScores[battler_no][i] > max_scores[battler_no]){
+                        max_scores[battler_no] = moveScores[battler_no][i]; //track the highest score for this mon
+                    }
+                    if(max_scores[battler_no] < highest_move_score){
+                        highest_move_score = max_scores[battler_no]; //track the absolute largest score
+                    }
+                }
+            }
+        }
+        int j_tie_index = 0;
+        for(int battler_no = 0; battler_no < 4; battler_no++){
+            if(highest_move_score == max_scores[battler_no]){
+                num_defender_ties++;
+                defender_tie_indices[j_tie_index] = battler_no;
+                j_tie_index++;
+            }
+        }
+        target = defender_tie_indices[BattleRand(bsys) % num_defender_ties];
+        //if two Pokemon have a tie for the highest move score, pick one randomly
+        ctx->aiWorkTable.ai_dir_select_client[attacker] = target; //tell the battle who is being targetted
+
+        /*Determine the potential target with the highest score*/
     }
+    else{ //single battles
+        /*Main loop over moves and select the best one*/
+        for (int i = 0; i < 4; i++)
+        {   
+            /*Move-relevant variables*/
+            ai->attacker_move = ctx->battlemon[attacker].move[i];
+            ai->attacker_move_effect = ctx->moveTbl[ai->attacker_move].effect;
+            ai->attacker_move_effectiveness = 0;       
+            ai->attacker_move_type = ctx->moveTbl[ai->attacker_move].type;
+            ai->attacker_move_pp_remaining = ctx->battlemon[attacker].pp[i];
+            AITypeCalc(ctx, ai->attacker_move, ai->attacker_move_type, ai->attacker_ability, ai->defender_ability, ai->hold_effect, ai->defender_type_1, ai->defender_type_2, & ai->attacker_move_effectiveness);
+            //should loop over trainer's flags set in trainers.s here
+
+            //TODO: add checks for flags once they are correctly refactored. For now we just use the champion ai.
+            //Target is 0 for single battles (i.e. player)
+            moveScores[target][i] += BasicFlag(bsys, attacker, i, ai);
+            moveScores[target][i] += EvaluateAttackFlag(bsys, attacker, i, ai);
+            moveScores[target][i] += ExpertFlag(bsys, attacker, i, ai);
+        }
+        ctx->aiWorkTable.ai_dir_select_client[attacker] = target; //target is always 0 in single battles (the player)
+    }
+    
 
     for(int i = 0; i < 4; i++){
-        debug_printf("MoveScore: %d -- for move number:%d \n", moveScores[i], i);
-        if(moveScores[i] > moveScores[result]){
+        debug_printf("MoveScore: %d -- for move number:%d \n", moveScores[target][i], i);
+        if(moveScores[target][i] > moveScores[target][result]){
             result = i;
         }
     }
 
     /*Check for move ties*/
-    highest_move_score = moveScores[result];
+    highest_move_score = moveScores[target][result];
     int j_tie_index = 0;
 
-    for (int i = 0; i < 4; i++){
-        if(moveScores[i] == highest_move_score){
+    for (int moveno = 0; moveno < 4; moveno++){
+        if(moveScores[target][moveno] == highest_move_score){
             num_move_score_ties++;
-            move_tie_indices[j_tie_index] = i;
+            move_tie_indices[j_tie_index] = moveno;
             j_tie_index++;
         }
     }
     /*If there are no move ties, this still works.
       Pick a random move from the ties.*/
+      
     result  = move_tie_indices[BattleRand(bsys) % num_move_score_ties];
+    
 
     return result;
 }
@@ -574,6 +657,12 @@ const u16 CheckHPFlagList_6[] = {
 int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i, AiContext *ai){
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
+
+    /*If defender is the ally, never attack it.*/
+    if(BATTLER_ALLY(ai->attacker) == ai->defender){
+        moveScore -= 50;
+    }
+
     /*Check for ai->defender type immunities.*/
     if(ai->attacker_move_effectiveness == MOVE_STATUS_FLAG_NOT_EFFECTIVE){
         moveScore -= 10;
@@ -4499,9 +4588,10 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
     struct BattleStruct *ctx = bsys->sp;
     u8 speed_calc;
     int work;
-    ai->defender = 0;
-    ai->defender_side = 0;
-    ai->attacker_side = 1;
+    ai->attacker = attacker;
+    ai->defender = BATTLER_OPP(attacker);
+    ai->attacker_side = BATTLER_SIDE(ai->attacker);
+    ai->defender_side = BATTLER_SIDE(ai->defender);
     ai->attacker_level = ctx->battlemon[attacker].level;
     ai->attacker_ability = ctx->battlemon[attacker].ability;
     ai->defender_ability = ctx->battlemon[ai->defender].ability;

@@ -8,7 +8,7 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
-#include "../../src/battle/other_battle_calculators.c"
+//#include "../../src/battle/other_battle_calculators.c"
 #include "../../src/battle/ai.c"
 
 #define BATTLER_OPP(battler) (battler ^ 1)
@@ -46,7 +46,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     struct BattleStruct *ctx = bsys->sp;
     battleType = BattleTypeGet(bsys);
 
-    if ((battleType & BATTLE_TYPE_TRAINER) || BATTLER_SIDE(attacker) == BATTLE_SIDE_PLAYER) {
+    if ((battleType & BATTLE_TYPE_TRAINER) || BATTLER_SIDE(attacker) == 0) { //w
         if (TrainerAI_ShouldSwitch(bsys, attacker)) {
             // If this is a switch which should use the post-KO switch logic, then do so.
             // If there is no valid battler, pick the first one in party order.
@@ -114,9 +114,10 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, int attacker)
         ingrain, shadow tag, arena trap, and magnet pull*/
         MESSAGE_PARAM message = {0};
         MESSAGE_PARAM *msg = &message;
+        /*
         if(CantEscape(bsys, ctx, attacker, msg)){ 
             return FALSE;
-        }
+        }*/
 
         start = 0;
         end = Battle_GetClientPartySize(bsys, attacker);
@@ -350,7 +351,7 @@ BOOL AI_CannotDamageWonderGuard(struct BattleSystem *battleSys, struct BattleStr
  * @param battler   The AI's battler.
  * @return TRUE if the AI has a switch to make, FALSE otherwise.
  */
-static BOOL AI_OnlyIneffectiveMoves(struct BattleSystem *battleSys, struct BattleStruct *battleCtx, int battler)
+BOOL AI_OnlyIneffectiveMoves(struct BattleSystem *battleSys, struct BattleStruct *battleCtx, int battler)
 {
     int i, j;
     u8 defender1, defender2;
@@ -562,7 +563,7 @@ static BOOL AI_OnlyIneffectiveMoves(struct BattleSystem *battleSys, struct Battl
  * @param battler   The AI's battler.
  * @return BOOL
  */
- static BOOL AI_HasAbsorbAbilityInParty(struct BattleSystem *battleSys, struct BattleStruct *battleCtx, int battler)
+ BOOL AI_HasAbsorbAbilityInParty(struct BattleSystem *battleSys, struct BattleStruct *battleCtx, int battler)
  {
      int i;
      u8 aiSlot1, aiSlot2;
@@ -658,7 +659,7 @@ static BOOL AI_OnlyIneffectiveMoves(struct BattleSystem *battleSys, struct Battl
  *                  target against which the battler has a super-effective move.
  * @return TRUE if the AI's battler has a super-effective move.
  */
-static BOOL AI_HasSuperEffectiveMove(struct BattleSystem *battleSys, struct BattleStruct *battleCtx, int battler, BOOL flag)
+BOOL AI_HasSuperEffectiveMove(struct BattleSystem *battleSys, struct BattleStruct *battleCtx, int battler, BOOL flag)
 {
     int i;
     u32 effectiveness;
@@ -755,7 +756,7 @@ static BOOL AI_HasSuperEffectiveMove(struct BattleSystem *battleSys, struct Batt
 * @param rand                  Random odds to switch, if conditions are met.
 * @return TRUE if the AI should switch, FALSE if not.
 */
-static BOOL AI_HasPartyMemberWithSuperEffectiveMove(struct BattleSystem *battleSys, struct BattleStruct *battleCtx, int battler, u32 checkEffectiveness, u8 rand)
+BOOL AI_HasPartyMemberWithSuperEffectiveMove(struct BattleSystem *battleSys, struct BattleStruct *battleCtx, int battler, u32 checkEffectiveness, u8 rand)
 {
    int i, j;
    u8 aiSlot1, aiSlot2;
@@ -853,7 +854,7 @@ static BOOL AI_HasPartyMemberWithSuperEffectiveMove(struct BattleSystem *battleS
  * @param battler   The AI's battler.
  * @return TRUE if the AI should switch, FALSE otherwise.
  */
- static BOOL AI_IsAsleepWithNaturalCure(struct BattleSystem *battleSys, struct BattleStruct *battleCtx, int battler)
+ BOOL AI_IsAsleepWithNaturalCure(struct BattleSystem *battleSys, struct BattleStruct *battleCtx, int battler)
  {
      // Don't switch if we aren't asleep, don't have Natural Cure, or are below 50% HP.
      if ((battleCtx->battlemon[battler].condition & STATUS_SLEEP) == FALSE
@@ -910,7 +911,7 @@ static BOOL AI_HasPartyMemberWithSuperEffectiveMove(struct BattleSystem *battleS
  * @return          TRUE if the AI has a high number of positive stat stages;
  *                  FALSE otherwise.
  */
-static BOOL AI_IsHeavilyStatBoosted(struct BattleSystem *battleSys, struct  BattleStruct *battleCtx, int battler)
+BOOL AI_IsHeavilyStatBoosted(struct BattleSystem *battleSys, struct  BattleStruct *battleCtx, int battler)
 {
     int stat;
     u8 numBoosts = 0;
