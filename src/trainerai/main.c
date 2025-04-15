@@ -9,11 +9,12 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
-#include "../../src/battle/ai.c"
-#include "../../data/itemdata/itemdata.c"
-#include "../../src/battle/battle_calc_damage.c"
+//#include "../../src/battle/ai.c"
+//#include "../../data/itemdata/itemdata.c"
+//#include "../../src/battle/battle_calc_damage.c"
 #include "../../include/constants/item.h"
 #include "../../include/item.h"
+
 
 #define BATTLER_OPP(battler) (battler ^ 1)
 #define BATTLER_SIDE(battler) ((battler) & 1)
@@ -25,7 +26,6 @@
 #define BATTLER_PLAYER_2 2
 #define BATTLER_ENEMY_2  3
 */
-
 typedef struct {
     /*Field/Pokemon state relavent variables*/
     BOOL defender_immune_to_poison;
@@ -151,14 +151,15 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
     int target = 0;
 
-
+    debug_printf("About to make decision: ");
     /*Setup field state and mon state variables.
     These are generally used multiple times throughout
     different flags.*/
     SetupStateVariables(bsys, attacker, ai);
-
+    debug_printf("after setup ");
     /*For more than a 1v1 battle, loop over all battlers and compute the highest score for each. Then */
     if(BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)){
+        debug_printf("in multi battle if ");
         for(int battler_no = 0; battler_no < CLIENT_MAX; battler_no++){
             if(battler_no == attacker){
                 for(int i = 0; i < 4; i ++){
@@ -209,6 +210,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         /*Determine the potential target with the highest score*/
     }
     else{ //single battles
+        debug_printf("in single battle else ");
         /*Main loop over moves and select the best one*/
         for (int i = 0; i < 4; i++)
         {   
@@ -227,6 +229,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             moveScores[target][i] += EvaluateAttackFlag(bsys, attacker, i, ai);
             moveScores[target][i] += ExpertFlag(bsys, attacker, i, ai);
         }
+        debug_printf("before client selection ");
         ctx->aiWorkTable.ai_dir_select_client[attacker] = target; //target is always 0 in single battles (the player)
     }
     
@@ -4588,6 +4591,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
     struct BattleStruct *ctx = bsys->sp;
     u8 speed_calc;
     int work;
+
     ai->attacker = attacker;
     ai->defender = BATTLER_OPP(attacker);
     ai->attacker_side = BATTLER_SIDE(ai->attacker);
@@ -4595,6 +4599,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
     ai->attacker_level = ctx->battlemon[attacker].level;
     ai->attacker_ability = ctx->battlemon[attacker].ability;
     ai->defender_ability = ctx->battlemon[ai->defender].ability;
+
     ai->attacker_item = ctx->battlemon[attacker].item;
     ai->defender_item = ctx->battlemon[ai->defender].item;
     ai->hold_effect = BattleItemDataGet(ctx, ai->defender_item, 1); //this was mistakenly documented as attacker's held item in ai.c -- fixed now
@@ -4625,6 +4630,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
     ai->is_speed_tie = 0;
     ai->trick_room_active = 0;
     ai->defender_has_bad_item = 0;
+
     
     speed_calc = CalcSpeed(ctx, ctx, ai->defender, attacker, CALCSPEED_FLAG_NO_PRIORITY); //checks actual turn order with field state considered
     //evaluates to 0 if ai->defender > attacker (false)
@@ -4757,6 +4763,8 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
     /*Loop over all moves for checking certain conditions*/
     /*Set up max roll damage calculations for all known moves.
     Also check if user has a super-effective move*/
+
+
     for(int i = 0; i < ai->attacker_moves_known; i++){
 
         int attacker_move_check = ctx->battlemon[attacker].move[i];
@@ -4766,9 +4774,10 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
         if(attacker_effect_check == MOVE_EFFECT_RANDOM_POWER_10_CASES){
             special_move_power = 71;
         }
-        ai->attacker_max_roll_move_damages[i] = CalcBaseDamage(bsys, ctx, attacker_move_check, ctx->side_condition[ai->defender_side],ctx->field_condition, ctx->moveTbl[attacker_move_check].power, special_move_power, attacker, ai->defender, 0);
+        ai->attacker_max_roll_move_damages[i] = CalcBaseDamage(bsys, ctx, attacker_move_check, ctx->side_condition[ai->defender_side],ctx->field_condition, special_move_power, 0, ai->attacker, ai->defender, 0);
+        debug_printf("notype: Move Damage: %d -- for move number:%d \n\n\n", ai->attacker_max_roll_move_damages[i] , i);
         ai->attacker_max_roll_move_damages[i] = ServerDoTypeCalcMod(bsys, ctx, attacker_move_check, 0, attacker, ai->defender, ai->attacker_max_roll_move_damages[i], &temp);
-
+        
         /*Directly modify max roll damages for multihit moves by 3.0 (average damage is 3.1x)*/
         //serparately add in type calc after base damage. will need to add in consideration for multihit moves
         if(attacker_move_check == MOVE_EFFECT_MULTI_HIT){
@@ -4795,6 +4804,9 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, AiContext *ai)
         if(attacker_move_check == MOVE_PSYCH_UP){
             ai->attacker_knows_psych_up = 1;
         }
+        //print the damages
+        debug_printf("Move Damage: %d -- for move number:%d \n\n\n", ai->attacker_max_roll_move_damages[i] , i);
+
         AITypeCalc(ctx, attacker_move_check, attacker_move_type_check, ai->attacker_ability, ai->defender_ability, ai->hold_effect, ai->defender_type_1, ai->defender_type_2, & ai->attacker_move_effectiveness);
         if(ai->attacker_move_effectiveness == MOVE_STATUS_FLAG_SUPER_EFFECTIVE){
             ai->attacker_has_super_effective_move = 1;

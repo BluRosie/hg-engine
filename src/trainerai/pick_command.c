@@ -9,7 +9,7 @@
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
 //#include "../../src/battle/other_battle_calculators.c"
-#include "../../src/battle/ai.c"
+//#include "../../src/battle/ai.c"
 
 #define BATTLER_OPP(battler) (battler ^ 1)
 #define BATTLER_SIDE(battler) ((battler) & 1)
@@ -46,6 +46,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     struct BattleStruct *ctx = bsys->sp;
     battleType = BattleTypeGet(bsys);
 
+    /*
     if ((battleType & BATTLE_TYPE_TRAINER) || BATTLER_SIDE(attacker) == 0) { //w
         if (TrainerAI_ShouldSwitch(bsys, attacker)) {
             // If this is a switch which should use the post-KO switch logic, then do so.
@@ -85,12 +86,14 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
         }
 
         // Check if the AI determines that it should use an item
-        /*
-        if (TrainerAI_ShouldUseItem(battleSys, battler)) {
-            return PLAYER_INPUT_ITEM;
-        }
-        */
+        
+        //if (TrainerAI_ShouldUseItem(battleSys, battler)) {
+        //    return PLAYER_INPUT_ITEM;
+        //}
+        //
     }
+
+    */
     return PLAYER_INPUT_FIGHT;
 }
 
@@ -114,10 +117,10 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, int attacker)
         ingrain, shadow tag, arena trap, and magnet pull*/
         MESSAGE_PARAM message = {0};
         MESSAGE_PARAM *msg = &message;
-        /*
+        
         if(CantEscape(bsys, ctx, attacker, msg)){ 
             return FALSE;
-        }*/
+        }
 
         start = 0;
         end = Battle_GetClientPartySize(bsys, attacker);
