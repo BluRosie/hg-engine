@@ -700,7 +700,7 @@ The sunlight turned harsh!
 (Unused)
 (Unused)
 It started to hail!
-(Unused)
+It’s snowing!
 (Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents {STRVAR_1 13, 2, 0} loss!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents\f{STRVAR_1 13, 2, 0} loss!

@@ -67,6 +67,11 @@ nclr_back_gen_format = """	if test -s $<; then \\
 	fi
 POKEGRA_DEPENDENCIES += {0}-00.NCGR {0}-01.NCGR {0}-02.NCGR {0}-03.NCGR {0}-04.NCLR {0}-05.NCLR
 """
+overworld_format = """	$(BTX) $< $@
+
+OVERWORLDS_SRCS += {0}.png {0}-tsure_poke0.pal {0}-tsure_poke1.pal {0}.json
+OVERWORLDS_OBJS += {0}.btx0
+"""
 icon_format = """\t$(GFX) $< $@ -clobbersize -version101
 
 ICONGFX_OBJS += {0}.NCGR
@@ -100,6 +105,13 @@ def path_resolver_icons(inputPath: str, speciesDict: dict) -> str:
 
     return inputPath
 
+def path_resolver_overworlds(inputPath: str, speciesDict: dict) -> str:
+    if ("data/graphics/overworlds/") in inputPath:
+        inputPath = inputPath[len("data/graphics/overworlds/"):]
+    speciesName = "SPECIES_" + inputPath.upper()
+    inputPath = "build/pokemonow/1_{:04d}".format(speciesDict[speciesName])
+    return inputPath
+
 
 def GenMakefile(outputPath: str, speciesDict: dict):
     output = open(outputPath, "w")
@@ -131,6 +143,7 @@ ICONGFX_RAWDATA_DIR := rawdata/files_from_a020
         speciesName = entry[len("SPECIES_"):].lower()
         convertedName = path_resolver(speciesName, speciesDict)
         convertedIcon = path_resolver_icons(speciesName, speciesDict)
+        convertedOverworld = path_resolver_overworlds(speciesName, speciesDict)
         output.write(convertedName + "-00.NCGR: data/graphics/sprites/" + speciesName + "/female/back.png\n" + ncgr_gen_format)
         output.write(convertedName + "-01.NCGR: data/graphics/sprites/" + speciesName + "/male/back.png\n" + ncgr_gen_format)
         output.write(convertedName + "-02.NCGR: data/graphics/sprites/" + speciesName + "/female/front.png\n" + ncgr_gen_format)
@@ -138,6 +151,7 @@ ICONGFX_RAWDATA_DIR := rawdata/files_from_a020
         output.write(convertedName + "-04.NCLR: data/graphics/sprites/" + speciesName + "/male/front.png\n" + nclr_front_gen_format)
         output.write(convertedName + "-05.NCLR: data/graphics/sprites/" + speciesName + "/male/back.png\n" + nclr_back_gen_format.format(convertedName))
         output.write(convertedIcon + ".NCGR: data/graphics/sprites/" + speciesName + "/icon.png\n" + icon_format.format(convertedIcon))
+        output.write(convertedOverworld + ".BTX0: data/graphics/sprites/" + speciesName + "/overworld.png\n" + overworld_format.format(convertedOverworld))
 
 # footer
     output.write("""$(POKEGRA_NARC): $(POKEGRA_DEPENDENCIES)
