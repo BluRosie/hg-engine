@@ -72,12 +72,6 @@ endif
 
 .PHONY: clean all
 
-ifeq ($(MSYS2), 0)
-CSC := csc
-else
-CSC := mcs -pkg:dotnet
-endif
-
 default: all
 
 ifneq ($(PYTHON_VENV_VERSION), 0)
@@ -104,8 +98,6 @@ NDSTOOL := tools/ndstool
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
 O2NARC := tools/o2narc
 SDATTOOL := $(PYTHON) tools/SDATTool.py
-SWAV2SWAR_EXE := tools/swav2swar.exe
-SWAV2SWAR := mono $(SWAV2SWAR_EXE)
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
@@ -151,11 +143,6 @@ $(MSGENC): tools/source/msgenc/*
 	mv tools/source/msgenc/msgenc tools/msgenc
 
 TOOLS += $(MSGENC)
-
-$(SWAV2SWAR_EXE): tools/source/swav2swar/Principal.cs
-	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source/swav2swar/Principal.cs"
-
-TOOLS += $(SWAV2SWAR_EXE)
 
 $(NDSTOOL):
 ifeq (,$(wildcard $(NDSTOOL)))

@@ -518,22 +518,21 @@ SDAT_TARGET := $(FILESYS)/data/sound/gs_sound_data.sdat
 SDAT_DEPENDENCIES_DIR := sound/cries
 
 SDAT_SRCS := $(wildcard $(SDAT_DEPENDENCIES_DIR)/*.wav)
-SDAT_MED_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav,$(SDAT_SRCS))
-SDAT_SWAR_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar,$(SDAT_SRCS))
+SDAT_SWAR_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav,$(SDAT_SRCS))
 
 $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav:$(SDAT_DEPENDENCIES_DIR)/%.wav
 	mkdir -p $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV$$(basename "$<" .wav)
 	$(NTRWAVTOOL) $< $@ 16384 --adpcm-xq $(ADPCMXQ) --temp-file-dir build/sdat/temp
 
-$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar:$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav
-	$(SWAV2SWAR) $< $@
-
 # we need to unpack the sdat
-# move the swav/swar/sbnk over
+# move the swav/sbnk over
+# swar rebuilding is handled by sdattool
 # reorder cries 387+ to be numerical order in the FileBlock.json and InfoBlock.json
 $(SDAT_BUILD):$(SDAT_SWAR_OBJS)
 	$(SDATTOOL) -u $(SDAT_TARGET) $(SDAT_DIR)
-	cp -r $(SDAT_OBJ_DIR)/* $(SDAT_FILES_DIR)
+	cp -rf $(SDAT_OBJ_DIR)/* $(SDAT_FILES_DIR)
+	@# trigger rebuild here
+	rm -rf $(SDAT_FILES_DIR)/WAVARC/*.swar
 	$(PYTHON) scripts/rebuild_json.py
 	$(SDATTOOL) -b $@ $(SDAT_DIR)
 
