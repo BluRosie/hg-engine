@@ -149,7 +149,8 @@ ifeq (,$(wildcard $(NDSTOOL)))
 	rm -r -f tools/source/ndstool
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
 	cd tools/source/ndstool ; git checkout fa6b6d01881363eb2cd6e31d794f51440791f336
-	cd tools/source/ndstool ; find . -name '*.sh' -execdir chmod +x {} \;
+	@# do not need to account for subdirectories here because ndstool does not have any .sh in subdirs
+	cd tools/source/ndstool ; chmod +x *.sh
 	cd tools/source/ndstool ; ./autogen.sh
 	cd tools/source/ndstool ; ./configure && $(MAKE)
 	mv tools/source/ndstool/ndstool tools/ndstool
@@ -249,8 +250,8 @@ $(OUTPUT):$(LINK)
 all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	rm -rf $(BASE)
 	@mkdir -p $(REQUIRED_DIRECTORIES)
-	###The line below is because of junk files that macOS can create which will interrupt the build process###
-	find . -name '*.DS_Store' -execdir rm -f {} \;
+	@# find and delete macOS files that it creates for some reason
+	find . -name "*.DS_Store" -delete
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo "$(ROMNAME) Decompression successful!!"
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
