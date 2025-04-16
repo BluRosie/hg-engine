@@ -224,14 +224,12 @@ $(foreach folder, $(CODE_BUILD_DIRS), $(eval $(call FOLDER_CREATE_DEFINE,$(folde
 
 # generate .d dependency files that are included as part of compiling if it does not exist
 define SRC_OBJ_INC_DEFINE
-ifneq ($(shell test -e $(basename $1).d && echo 1),1)
 # this generates the objects as part of generating the dependency list which will just be massive files of rules
 $1: $2 $(CODE_BUILD_DIRS)
 	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
-	printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
-else
-include $(basename $1).d
-endif
+	@#printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
+
+-include $(basename $1).d
 endef
 $(foreach src, $(ALL_C_SRCS), $(eval $(call SRC_OBJ_INC_DEFINE,$(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o, $(src)),$(src))))
 
