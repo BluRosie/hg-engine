@@ -166,8 +166,11 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     /*For more than a 1v1 battle, loop over all battlers and compute the highest score for each.
     The highest score among them determines the target.*/
     if(BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)){
+        /*ALWAYS turn on tag strategy in double battles. Prevents user errors. Otherwise targeting and scoring will be incorrect.*/
+        bsys->trainers[ai->attacker].aibit |= AI_FLAG_TAG_STRATEGY;
         for(int battler_no = 0; battler_no < CLIENT_MAX; battler_no++){
             ai->defender = battler_no;
+            debug_printf("\nfor Attacker: %d, Defender: %d\n", ai->attacker, ai->defender);
             SetupStateVariables(bsys, attacker, ai->defender, ai);             //need to reset the ai vars for each defender 
 
             if(battler_no == ai->attacker || ctx->battlemon[ai->defender].hp == 0){     //edge case for doubles when only one mon remains alive. Not including this causes incorrect scoring.
@@ -187,24 +190,46 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
                     ai->attacker_move_pp_remaining = ctx->battlemon[ai->attacker].pp[i];
                     AITypeCalc(ctx, ai->attacker_move, ai->attacker_move_type, ai->attacker_ability, ai->defender_ability, ai->hold_effect, ai->defender_type_1, ai->defender_type_2, & ai->attacker_move_effectiveness);
                     
-                    /*ALWAYS turn on tag strategy in double battles. Prevents user errors. Otherwise targeting and scoring will be incorrect.*/
-                    bsys->trainers[ai->attacker].aibit |= AI_FLAG_TAG_STRATEGY;
-
-                    /*Apply flags set in trainers.s*/
+/*
+                    moveScores[battler_no][i] += BasicFlag(bsys, attacker, i, ai);
+                    moveScores[battler_no][i] += EvaluateAttackFlag(bsys, attacker, i, ai);
+                    moveScores[battler_no][i] += ExpertFlag(bsys, attacker, i, ai);
+                    moveScores[battler_no][i] += TagStrategyFlag(bsys, attacker, i, ai);
+*/
+                    
+                    
                     for (int j = 0; j < sizeof(moveEvaluators) / sizeof(moveEvaluators[0]); j++) {
-                        if (bsys->trainers[ai->attacker].aibit & moveEvaluators[j].flag) {
-                            moveScores[target][i] += moveEvaluators[j].evaluator(bsys, ai->attacker, i, ai);
+
+                        if(BattleTypeGet(bsys) &  BATTLE_TYPE_DOUBLE){
+                            if (bsys->trainers[1].aibit & moveEvaluators[j].flag) { //hardcoding double battles to ONLY read the first trainer's aibit, since a second trainer's does not exist.
+                                                                                    //not doing this will result in the left side using random moves. This also fixes the "left side ai problem"
+                                debug_printf("for Move: %d, using Flag: %d\n", i, moveEvaluators[j].flag);
+                                moveScores[battler_no][i] += moveEvaluators[j].evaluator(bsys, ai->attacker, i, ai);
+                            }
                         }
+                        else{
+                            if (bsys->trainers[ai->attacker].aibit & moveEvaluators[j].flag) { //grab the associated ai bit for the attacker.
+                                debug_printf("for Move: %d, using Flag: %d\n", i, moveEvaluators[j].flag);
+                                moveScores[battler_no][i] += moveEvaluators[j].evaluator(bsys, ai->attacker, i, ai);   
+                            }
+                        }
+
+
                     }
+                    
                     if(moveScores[battler_no][i] > max_scores[battler_no]){
                         max_scores[battler_no] = moveScores[battler_no][i];             //track the highest score for this potential target
                     }
                     if(max_scores[battler_no] > highest_move_score){
                         highest_move_score = max_scores[battler_no];                    //track the absolute largest score over all potential targets
                     }
+                    debug_printf("Move: %d, Score: %d\n", i, moveScores[battler_no][i]);
                 }
             }
+            debug_printf("Max score for defender %d: %d\n\n\n", battler_no, max_scores[battler_no]);
+
         }
+        debug_printf("Highest move score: %d\n", highest_move_score);
         int j_tie_index = 0;
         for(int battler_no = 0; battler_no < 4; battler_no++){
             if(highest_move_score == max_scores[battler_no]){                           //find all defenders that tied for the maximum score 
@@ -215,6 +240,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         }
         target = defender_tie_indices[BattleRand(bsys) % num_defender_ties];        //randomly pick a target among the tie
         ctx->aiWorkTable.ai_dir_select_client[ai->attacker] = target;                   //assign the correct target for this attacker.
+        debug_printf("Target: %d\n", target);
     }
     else{ //single battles
         
@@ -1359,6 +1385,9 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AiContex
             is_current_move_not_strongest = 1;
         }
     }
+    for(int j = 0; j < 4; j++){
+        debug_printf("Move %d: Max damage roll %d\n", j, ai->attacker_max_roll_move_damages[j]);
+    }
 
     /*Check if the current move kills*/
     if (ai->attacker_max_roll_move_damages[i] >= ai->defender_hp){
@@ -1402,7 +1431,7 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AiContex
             moveScore -= 2;
         }
     }
-
+    debug_printf("Move score returned from evaluate attack flag: %d\n", moveScore);
     return moveScore;
 }
 
@@ -4471,6 +4500,10 @@ int TagStrategyFlag(struct BattleSystem *bsys, u32 attacker, int i, AiContext *a
                         }
                     }
                 }
+            }
+            /*DO NOT attack our partner otherwise!*/
+            else{
+                moveScore -= 30; 
             }
 
 
