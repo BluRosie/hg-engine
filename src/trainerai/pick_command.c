@@ -46,7 +46,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     struct BattleStruct *ctx = bsys->sp;
     battleType = BattleTypeGet(bsys);
 
-    /*
+    
     if ((battleType & BATTLE_TYPE_TRAINER) || BATTLER_SIDE(attacker) == 0) { //w
         if (TrainerAI_ShouldSwitch(bsys, attacker)) {
             // If this is a switch which should use the post-KO switch logic, then do so.
@@ -93,7 +93,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
         //
     }
 
-    */
+    
     return PLAYER_INPUT_FIGHT;
 }
 
