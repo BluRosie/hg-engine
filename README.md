@@ -8,6 +8,7 @@
 ## Table of Contents
 - [Features](#features)
 - [Setup Instructions (Linux with apt)](#setup-instructions-linux-with-apt)
+- [Setup Instructions (Linux with apk)](#setup-instructions-linux-with-apk)
 - [Setup Instructions (macOS)](#setup-instructions-macos)
 - [Setup Instructions (Windows on WSL)](#setup-instructions-windows-on-wsl)
 - [Setup Instructions (Windows on MSYS2)](#setup-instructions-windows-on-msys2)
@@ -37,8 +38,17 @@
 
 ## Setup Instructions (Linux with apt)
 1. In a Terminal window, run the following commands:
-    * ```sudo apt-get install libpng-dev build-essential cmake python3-pip python3-venv git automake autoconf gcc-arm-none-eabi```
+    * ```sudo apt-get install libpng-dev build-essential cmake python3-pip python3-venv git automake autoconf gcc-arm-none-eabi pkg-config```
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+
+
+## Setup Instructions (Linux with apk)
+1. In a Terminal window, run the following commands:
+    * ```apk add libpng-dev build-base cmake python3 git automake autoconf```
+    * Grab your Alpine Linux version using the command `grep PRETTY_NAME /etc/os-release`.  I get `PRETTY_NAME='Alpine Linux v3.14'`, so my version is `v3.14`.  Substitute that into the next command for `[version]`.
+    * ```apk add --no-cache binutils-arm-none-eabi gcc-arm-none-eabi newlib-arm-none-eabi --repository http://dl-cdn.alpinelinux.org/alpine/[version]/community```
+2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+
 
 ## Setup Instructions (macOS)
 1. If you don't have it already, install `brew` by running the following in Terminal: ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
@@ -62,7 +72,7 @@
 4. In WSL, type in ```sudo apt update```, and after it finishes processing, type in ```sudo apt upgrade```. This will take quite a while, so find something else to do in the meantime. These two commands together will update all of the packages that came pre-installed with Ubuntu.
     * At some point during the process, you'll be asked to confirm whether you want WSL to restart automatically during package updates. We'll select "Yes" and press Enter. The process will then proceed.
 5. In WSL, run the following commands:
-    * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip python3-venv cmake automake autoconf gcc-arm-none-eabi```
+    * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip python3-venv cmake automake autoconf gcc-arm-none-eabi pkg-config```
         * You will be asked to confirm the installation, so press "y" followed by Enter to do so.
 6. Once the last process has finished, continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
