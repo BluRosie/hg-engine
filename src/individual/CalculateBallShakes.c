@@ -47,7 +47,7 @@ u16 MoonBallSpecies[] =
  *  @return the amount of shakes a ball undergoes.  or'd with 0x80 for critical captures
  */
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
-    u32 i, captureRate, ballRate, type1, type2;
+    u32 i, captureRate, ballRate, type1, type2, criticalCapture = FALSE;
 
     if (BattleTypeGet(bw) & (BATTLE_TYPE_POKE_PARK | BATTLE_TYPE_CATCHING_DEMO)) // poke park and safari zone always succeed
     {
@@ -83,11 +83,11 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
         //ballRate = 10;
         break;
     case ITEM_SAFARI_BALL:
-        ballRate = 15;
+        ballRate = 10;
         break;
     case ITEM_NET_BALL:
         if (type1 == TYPE_WATER || type2 == TYPE_WATER || type1 == TYPE_BUG || type2 == TYPE_BUG)
-            ballRate = 30;
+            ballRate = 35;
         break;
     case ITEM_DIVE_BALL:
         if (BattleWorkGroundIDGet(bw) == 7) // if the battle is happening with a water background
@@ -101,7 +101,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
         break;
     case ITEM_REPEAT_BALL:
         if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species))
-            ballRate = 30;
+            ballRate = 35;
         break;
     case ITEM_TIMER_BALL:
         ballRate = 10 + sp->total_turn;
@@ -116,14 +116,14 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     //    break;
     case ITEM_DUSK_BALL:
         if (Battle_GetTimeOfDay(bw) == 3 || Battle_GetTimeOfDay(bw) == 4 || BattleWorkGroundIDGet(bw) == 5)
-            ballRate = 35;
+            ballRate = 30;
         break;
     //case ITEM_HEAL_BALL:
     //
     //    break;
     case ITEM_QUICK_BALL:
         if (sp->total_turn < 1)
-            ballRate = 40;
+            ballRate = 50;
         break;
     //case ITEM_CHERISH_BALL:
     //
@@ -195,19 +195,29 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
             ballRate = 40;
         break;
     case ITEM_SPORT_BALL:
-        ballRate = 15;
+        ballRate = 10;
         break;
     //case ITEM_PARK_BALL:
     //
     //    break;
     case ITEM_DREAM_BALL:
         if (sp->battlemon[sp->defence_client].condition & (STATUS_SLEEP))
-        captureRate *= 4;
+            captureRate *= 4;
         break;
-    //case ITEM_BEAST_BALL:
-    //
-    //    break;
+    // case ITEM_BEAST_BALL:
+    //     if (IS_SPECIES_ULTRA_BEAST(sp->battlemon[sp->defence_client].species)) {
+    //         captureRate *= 5;
+    //     } else {
+    //         captureRate *= 410 / 4096;
+    //     }
+    //     if (captureRate > 255) {
+    //         captureRate = 255;
+    //     }
+    //     break;
     }
+
+    // TODO: SV Capture formula
+    // https://xcancel.com/Sibuna_Switch/status/1610341810655608833
 
     // = captureRate * ballRate / 10 * (3maxHP - 2curHP) / (3maxHP)
     captureRate = ((captureRate * ballRate) / 10) * (sp->battlemon[sp->defence_client].maxhp * 3  -  sp->battlemon[sp->defence_client].hp * 2) / (sp->battlemon[sp->defence_client].maxhp * 3);
@@ -231,9 +241,16 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
 
 #ifdef IMPLEMENT_CRITICAL_CAPTURE
 
-        u32 criticalCaptureWork, caughtMons, criticalCapture = FALSE;
+        u32 criticalCaptureWork, caughtMons;
 
-        caughtMons = GetCaughtMonCount(SaveData_GetDexPtr(SaveBlock2_get()));
+#if CRITICAL_CAPTURE_GENERATION >= 9
+        // https://xcancel.com/Sibuna_Switch/status/1610341810655608833
+        // TODO: does our dex expansion handle this correctly?
+        caughtMons = Pokedex_CountJohtoDexOwned(SaveData_GetDexPtr(SaveBlock2_get()));
+#else
+        // https://xcancel.com/Sibuna_Switch/status/1549932678304210946#m
+        caughtMons = Pokedex_CountDexOwned(SaveData_GetDexPtr(SaveBlock2_get()));
+#endif
         if (caughtMons > 600)
             criticalCaptureWork = 25;
         else if (caughtMons > 450)
@@ -308,10 +325,19 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
         SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), MON_DATA_FRIENDSHIP, &friendship);
     }
 
-
 #ifdef GUARANTEE_CAPTURES
+    // if the capture is successful, and the target species is already registered, use the critical capture animation, otherwise there should be 0 shakes.
+    // https://xcancel.com/Sibuna_Switch/status/1847665451809075315#m
+    if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
+        return 1 | 0x80;
+    }
     return 4;
 #else
-    return i;
+    // if the capture is successful, and the target species is already registered, use the critical capture animation, otherwise there should be 0 shakes.
+    // https://xcancel.com/Sibuna_Switch/status/1847665451809075315#m
+    if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
+        return (i == 4 || i == (1 | 0x80)) ? 1 | 0x80 : 0;
+    }
+    return i == (0 | 0x80) ? 0 : i;
 #endif
 }

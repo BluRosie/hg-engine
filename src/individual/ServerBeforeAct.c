@@ -191,11 +191,14 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                         // 先逃走，然後才處理超級進化
 
                         // debug_printf("client %d: SELECT_ESCAPE_COMMAND\n", client_no);
-                        BattleControllerPlayer_RunInput(bw, sp);
-                        sp->next_server_seq_no = tempSequenceNumber;
-                        sp->waza_status_flag = tempMoveStatusFlag;
-                        sp->playerActions[client_no][3] = CONTROLLER_COMMAND_40;
-                        sp->playerActions[client_no][0] = CONTROLLER_COMMAND_40;
+                        if ((BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) == 0)
+                        {
+                            BattleControllerPlayer_RunInput(bw, sp);
+                            sp->next_server_seq_no = tempSequenceNumber;
+                            sp->waza_status_flag = tempMoveStatusFlag;
+                            sp->playerActions[client_no][3] = CONTROLLER_COMMAND_40;
+                            sp->playerActions[client_no][0] = CONTROLLER_COMMAND_40;
+                        }
                         return;
                     default:
                         break;
@@ -235,11 +238,14 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                         // 先切換，然後才處理超級進化
 
                         // debug_printf("client %d: SELECT_POKEMON_COMMAND\n", client_no);
-                        BattleControllerPlayer_PokemonInput(bw, sp);
-                        sp->next_server_seq_no = tempSequenceNumber;
-                        sp->waza_status_flag = tempMoveStatusFlag;
-                        sp->playerActions[client_no][3] = CONTROLLER_COMMAND_40;
-                        sp->playerActions[client_no][0] = CONTROLLER_COMMAND_40;
+                        if ((BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) == 0)
+                        {
+                            BattleControllerPlayer_PokemonInput(bw, sp);
+                            sp->next_server_seq_no = tempSequenceNumber;
+                            sp->waza_status_flag = tempMoveStatusFlag;
+                            sp->playerActions[client_no][3] = CONTROLLER_COMMAND_40;
+                            sp->playerActions[client_no][0] = CONTROLLER_COMMAND_40;
+                        }
                         return;
                     default:
                         break;
@@ -285,13 +291,16 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                         // 先使用道具，然後才處理超級進化
 
                         // debug_printf("client %d: SELECT_ITEM_COMMAND\n", client_no);
-                        BattleControllerPlayer_ItemInput(bw, sp);
-                        sp->next_server_seq_no = tempSequenceNumber;
-                        sp->waza_status_flag = tempMoveStatusFlag;
-                        // CONTROLLER_COMMAND_40 makes the client not take an action, taken from BtlCmd_TryPursuit
-                        // 參考 BtlCmd_TryPursuit ，令寶可夢不會行動
-                        sp->playerActions[client_no][3] = CONTROLLER_COMMAND_40;
-                        sp->playerActions[client_no][0] = CONTROLLER_COMMAND_40;
+                        if ((BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) == 0)
+                        {
+                            BattleControllerPlayer_ItemInput(bw, sp);
+                            sp->next_server_seq_no = tempSequenceNumber;
+                            sp->waza_status_flag = tempMoveStatusFlag;
+                            // CONTROLLER_COMMAND_40 makes the client not take an action, taken from BtlCmd_TryPursuit
+                            // 參考 BtlCmd_TryPursuit ，令寶可夢不會行動
+                            sp->playerActions[client_no][3] = CONTROLLER_COMMAND_40;
+                            sp->playerActions[client_no][0] = CONTROLLER_COMMAND_40;
+                        }
                         return;
                     default:
                         break;
@@ -423,7 +432,7 @@ static BOOL MegaEvolutionOrUltraBurst(struct BattleSystem *bsys, struct BattleSt
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_MEGA_EVOLUTION);  // load sequence 297 and execute
             }
             ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = 22;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
         }
         if (newBS.needMega[client_no] == MEGA_CHECK_APPER && ctx->battlemon[client_no].hp) {
@@ -432,7 +441,7 @@ static BOOL MegaEvolutionOrUltraBurst(struct BattleSystem *bsys, struct BattleSt
             if (seq) {
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq);
                 ctx->next_server_seq_no = ctx->server_seq_no;
-                ctx->server_seq_no = 22;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
             }
         }

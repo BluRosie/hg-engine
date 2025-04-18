@@ -38,8 +38,7 @@
 ## Setup Instructions (Linux with apt)
 1. In a Terminal window, run the following commands:
     * ```sudo apt-get install libpng-dev build-essential cmake python3-pip python3-venv git automake autoconf gcc-arm-none-eabi```
-2. On distros where `mono` is not preinstalled (Ubuntu-based ones come to mind), install it with `sudo apt-get install mono-devel`
-3. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 ## Setup Instructions (macOS)
 1. If you don't have it already, install `brew` by running the following in Terminal: ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
@@ -48,8 +47,7 @@
     * ```brew install python3 libpng automake autoconf cmake zlib pkg-config zstd```
     * ```brew install --cask gcc-arm-embedded```
     * ```export PKG_CONFIG_PATH=$(brew --prefix zlib)/lib/pkgconfig```
-3. Download and install Mono using the download and instructions [**here**](https://www.mono-project.com/docs/getting-started/install/mac/).
-4. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+3. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Setup Instructions (Windows on WSL)
@@ -64,7 +62,7 @@
 4. In WSL, type in ```sudo apt update```, and after it finishes processing, type in ```sudo apt upgrade```. This will take quite a while, so find something else to do in the meantime. These two commands together will update all of the packages that came pre-installed with Ubuntu.
     * At some point during the process, you'll be asked to confirm whether you want WSL to restart automatically during package updates. We'll select "Yes" and press Enter. The process will then proceed.
 5. In WSL, run the following commands:
-    * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip python3-venv cmake automake autoconf mono-devel gcc-arm-none-eabi```
+    * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip python3-venv cmake automake autoconf gcc-arm-none-eabi```
         * You will be asked to confirm the installation, so press "y" followed by Enter to do so.
 6. Once the last process has finished, continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
@@ -74,7 +72,7 @@
 2. Open up the base MSYS2 with the light purple background.
 3. Execute the commands:
     * ```pacman -Syu```
-    * ```pacman -S gcc base-devel cmake python git automake autoconf mingw-w64-x86_64-mono mingw-w64-x86_64-arm-none-eabi-gcc p7zip zlib-devel```
+    * ```pacman -S gcc base-devel cmake python git automake autoconf mingw-w64-x86_64-arm-none-eabi-gcc p7zip zlib-devel```
     * ```export PATH=$PATH:/mingw64/bin```
     * ```echo export PATH='$'PATH:/mingw64/bin >> ~/.bashrc```
     * ```python3 -m ensurepip --upgrade```

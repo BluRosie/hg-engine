@@ -4,7 +4,7 @@ THUMB_HELP := $(BUILD)/thumb_help.o
 LINKED_OUTPUTS = build/linked.o
 
 INDIVIDUAL := individual
-OVERLAYS := $(filter-out $(INDIVIDUAL),$(shell cd $(C_SUBDIR); ls -d -- */ | sed -e 's#/##g'))
+OVERLAYS := $(filter-out $(INDIVIDUAL),$(shell cd $(C_SUBDIR); ls -d */ | tr '/' ' '))
 
 INDIVIDUAL_OVERLAYS = $(basename $(notdir $(wildcard $(C_SUBDIR)/$(INDIVIDUAL)/*.c)))
 

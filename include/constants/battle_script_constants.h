@@ -455,6 +455,11 @@
 #define SUB_SEQ_TIDY_UP                               (445)
 #define SUB_SEQ_BURN_AND_DRAIN_HEALTH                 (446)
 
+#define MAX_BASE_SUBSCRIPT_NUM 446
+
+// define your custom subscripts below like this
+// #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
+
 
 
 // add status effect constants--used in battle effect scripts to queue up a subscript through the table in src/moves.c

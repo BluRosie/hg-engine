@@ -940,6 +940,13 @@
 
 // there are a bunch more here but that is fine
 
+.equ NUM_OF_CANONICAL_MOVES, 923
+
+// make.py doesn't support constants for now
+// define your new moves below like this
+// .equ MOVE_CUSTOM_MOVE_1, 924
+
+// update this number yourself manually
 .equ NUM_OF_MOVES, 923
 
 .equ MOVE_G_MAX_WILDFIRE, (NUM_OF_MOVES-1+1)

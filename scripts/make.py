@@ -385,10 +385,12 @@ def writeall():
                     if "ORIGIN" in line:
                         address = int(line.split()[4][len("0x"):], 0x10)
                         break
+            rom.seek(0, 2)
+            memSize = rom.tell()
             y9Table.seek(129*0x20) # seek address
             y9Table.write(struct.pack('<I', 129)) # id
             y9Table.write(struct.pack('<I', address)) # memaddress
-            y9Table.write(struct.pack('<I', os.path.getsize("base/overlay/overlay_0129.bin"))) # memsize
+            y9Table.write(struct.pack('<I', memSize)) # memsize
             y9Table.write(struct.pack('<I', 0)) # bsssize
             y9Table.write(struct.pack('<I', 0)) # initstart
             y9Table.write(struct.pack('<I', 0)) # initend

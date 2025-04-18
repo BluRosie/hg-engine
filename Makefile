@@ -72,12 +72,6 @@ endif
 
 .PHONY: clean all
 
-ifeq ($(MSYS2), 0)
-CSC := csc
-else
-CSC := mcs -pkg:dotnet
-endif
-
 default: all
 
 ifneq ($(PYTHON_VENV_VERSION), 0)
@@ -104,8 +98,6 @@ NDSTOOL := tools/ndstool
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
 O2NARC := tools/o2narc
 SDATTOOL := $(PYTHON) tools/SDATTool.py
-SWAV2SWAR_EXE := tools/swav2swar.exe
-SWAV2SWAR := mono $(SWAV2SWAR_EXE)
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
@@ -151,11 +143,6 @@ $(MSGENC): tools/source/msgenc/*
 	mv tools/source/msgenc/msgenc tools/msgenc
 
 TOOLS += $(MSGENC)
-
-$(SWAV2SWAR_EXE): tools/source/swav2swar/Principal.cs
-	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source/swav2swar/Principal.cs"
-
-TOOLS += $(SWAV2SWAR_EXE)
 
 $(NDSTOOL):
 ifeq (,$(wildcard $(NDSTOOL)))
@@ -241,7 +228,7 @@ ifneq ($(shell test -e $(basename $1).d && echo 1),1)
 # this generates the objects as part of generating the dependency list which will just be massive files of rules
 $1: $2 $(CODE_BUILD_DIRS)
 	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
-	echo "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
+	printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
 else
 include $(basename $1).d
 endif

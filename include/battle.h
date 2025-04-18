@@ -303,6 +303,14 @@
 
 #define STATUS2_BIDE    (STATUS2_BIDE_0 | STATUS2_BIDE_1)
 
+#define HAZARD_IDX_NONE 0
+#define HAZARD_IDX_SPIKES 1
+#define HAZARD_IDX_TOXIC_SPIKES 2
+#define HAZARD_IDX_STEALTH_ROCK 3
+#define HAZARD_IDX_STICKY_WEB 4
+#define HAZARD_IDX_SHARP_STEEL 5
+#define NUM_HAZARD_IDX (HAZARD_IDX_SHARP_STEEL)
+
 /**
  *  @brief side status flags that apply to one side
  *  accessible in BattleStruct's side_condition[side]
@@ -1027,8 +1035,8 @@ typedef enum ControllerCommand {
     CONTROLLER_COMMAND_POKEMON_INPUT, //15
     CONTROLLER_COMMAND_RUN_INPUT,
     CONTROLLER_COMMAND_SAFARI_THROW_BALL,
+    CONTROLLER_COMMAND_SAFARI_THROW_BAIT,
     CONTROLLER_COMMAND_SAFARI_THROW_MUD,
-    CONTROLLER_COMMAND_SAFARI_RUN,
     CONTROLLER_COMMAND_SAFARI_WATCHING, //20
     CONTROLLER_COMMAND_CATCHING_CONSTEST_THROW_BALL,
     CONTROLLER_COMMAND_RUN_SCRIPT,
@@ -1145,6 +1153,8 @@ typedef struct OnceOnlyAbilityFlags {
     BOOL superSweetSyrupFlag;
 } OnceOnlyAbilityFlags;
 
+#define BATTLE_SCRIPT_PUSH_DEPTH 4
+
 /**
  *  @brief the entire battle structure that we are interested in (for the most part)
  *
@@ -1200,9 +1210,9 @@ struct PACKED BattleStruct {
     /*0xB0*/ int skill_arc_index;
     /*0xB4*/ int skill_seq_no;
     /*0xB8*/ int push_count;
-    /*0xBC*/ int push_skill_arc_kind[CLIENT_MAX];
-    /*0xCC*/ int push_skill_arc_index[CLIENT_MAX];
-    /*0xDC*/ int push_skill_seq_no[CLIENT_MAX];
+    /*0xBC*/ int push_skill_arc_kind[BATTLE_SCRIPT_PUSH_DEPTH];
+    /*0xCC*/ int push_skill_arc_index[BATTLE_SCRIPT_PUSH_DEPTH];
+    /*0xDC*/ int push_skill_seq_no[BATTLE_SCRIPT_PUSH_DEPTH];
     /*0xEC*/ int executionIndex;
     /*0xF0*/ int wait_cnt;
     /*0xF4*/ MESSAGE_PARAM mp;          // buffMsg
@@ -1330,7 +1340,9 @@ struct PACKED BattleStruct {
     /*0x315E*/ u8 frisk_tracker; // see which clients have been frisked by the frisk client (1 << client)
     /*0x315F*/ u8 magicBounceTracker; // if any client has already activated magic bounce, another can not activate
     /*0x3160*/ u8 binding_turns[4]; // turns left for bind
-    /*0x3164*/ u8 padding_3164[0x1A]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x3164*/ u8 entryHazardQueue[2][NUM_HAZARD_IDX];
+    /*0x316E*/ u8 hazardQueueTracker;
+    /*0x316F*/ u8 padding_316F[0x317E - 0x316F]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
@@ -1743,7 +1755,8 @@ typedef enum BeforeTurnState {
 
 
 enum {
-    BEFORE_MOVE_START = 0,
+    BEFORE_MOVE_START_FLAG_UNLOAD = 0,
+    BEFORE_MOVE_START,
 
     BEFORE_MOVE_STATE_RECHARGE,
     BEFORE_MOVE_STATE_SLEEP_OR_FROZEN,
@@ -2922,6 +2935,8 @@ s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, u32 cli
  */
 BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
 
+BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client);
+
 /**
  *  @brief check if a held item can be tricked or not depending on the items and species
  *
@@ -2930,7 +2945,9 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
  *  @param defender_item the held item of the defender
  *  @param defender_species the defender species
  */
-BOOL LONG_CALL CanTrickHeldItem(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species);
+BOOL LONG_CALL CanTrickHeldItemManual(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species);
+
+BOOL LONG_CALL CanTrickHeldItem(struct BattleStruct *ctx, u32 attacker, u32 defender);
 
 // defined in ability.c
 int LONG_CALL SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);

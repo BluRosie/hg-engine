@@ -216,6 +216,14 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
     }
 
     switch (ctx->wb_seq_no) {
+        // in order to get concrete data on how this overlay should unload, we introduce a brand new case that is only run at the start and flagged at the end
+        case BEFORE_MOVE_START_FLAG_UNLOAD: {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+            debug_printf("In BEFORE_MOVE_START_FLAG_UNLOAD\n");
+#endif
+            ctx->wb_seq_no++;
+        }
+        FALLTHROUGH;
         case BEFORE_MOVE_START: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_START\n");
@@ -678,6 +686,8 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
                 ctx->server_status_flag |= (No2Bit(attacker) << BATTLE_STATUS_SELFDESTRUCTED_SHIFT);
                 ctx->fainting_client = attacker;
                 ctx->battlemon[attacker].hp = 0;
+                // apparently need to do this now
+                CopyBattleMonToPartyMon(bsys, ctx, attacker);
             }
             ctx->wb_seq_no++;
             FALLTHROUGH;
@@ -1112,10 +1122,10 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
                 ctx->oneTurnFlag[ctx->battlerIdTemp].parental_bond_is_active = TRUE;
             } else {
                 ctx->oneTurnFlag[ctx->battlerIdTemp].parental_bond_is_active = FALSE;
-                ctx->wb_seq_no = 0;
+                //ctx->wb_seq_no = BEFORE_MOVE_START_FLAG_UNLOAD;
             }
 
-            ctx->wb_seq_no = BEFORE_MOVE_START;
+            ctx->wb_seq_no = BEFORE_MOVE_START_FLAG_UNLOAD;
             break;
         }
     }
@@ -2982,12 +2992,12 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     BOOL butItFailedFlag = FALSE;
     BOOL jungleHealingSelfSuccess = FALSE;
     BOOL jungleHealingAllySuccess = FALSE;
-    int clientPosition = 0;
-    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
-    int attackerSpecies = ctx->battlemon[ctx->attack_client].species;
-    int defenderSpecies = ctx->battlemon[ctx->defence_client].species;
-    int attackerItem = ctx->battlemon[ctx->attack_client].item;
-    int defenderItem = ctx->battlemon[ctx->defence_client].item;
+    u32 clientPosition = 0;
+    u32 maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    u32 attackerSpecies = ctx->battlemon[ctx->attack_client].species;
+    u32 defenderSpecies = ctx->battlemon[ctx->defence_client].species;
+    u32 attackerItem = ctx->battlemon[ctx->attack_client].item;
+    u32 defenderItem = ctx->battlemon[ctx->defence_client].item;
 
     BOOL flowerShieldSuccessCount = 0;
 
@@ -3232,25 +3242,25 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_SPIKES: {
-            if (ctx->scw[IsClientEnemy(bsys, ctx->attack_client)].spikesLayers >= 3) {
+            if (ctx->scw[IsClientEnemy(bsys, ctx->defence_client)].spikesLayers >= 3) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_STEALTH_ROCK: {
-            if (ctx->side_condition[IsClientEnemy(bsys, ctx->attack_client)] & SIDE_STATUS_STEALTH_ROCK) {
+            if (ctx->side_condition[IsClientEnemy(bsys, ctx->defence_client)] & SIDE_STATUS_STEALTH_ROCK) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_TOXIC_SPIKES: {
-            if (ctx->scw[IsClientEnemy(bsys, ctx->attack_client)].toxicSpikesLayers >= 2) {
+            if (ctx->scw[IsClientEnemy(bsys, ctx->defence_client)].toxicSpikesLayers >= 2) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_STICKY_WEB: {
-            if (ctx->side_condition[IsClientEnemy(bsys, ctx->attack_client)] & SIDE_STATUS_STICKY_WEB) {
+            if (ctx->side_condition[IsClientEnemy(bsys, ctx->defence_client)] & SIDE_STATUS_STICKY_WEB) {
                 butItFailedFlag = TRUE;
             }
             break;
@@ -3310,7 +3320,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 }
             }
             // If target has already performed action
-            if (ctx->executionIndex > clientPosition) {
+            if (ctx->executionIndex > (s32)clientPosition) {
                 butItFailedFlag = TRUE;
             }
             break;
@@ -3342,7 +3352,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 }
             }
             // If target has already performed action
-            if (ctx->executionIndex > clientPosition) {
+            if (ctx->executionIndex > (s32)clientPosition) {
                 butItFailedFlag = TRUE;
             }
 
@@ -3545,27 +3555,23 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         case MOVE_TRICK:
         case MOVE_SWITCHEROO: {
             // TODO
-            if ((attackerItem == ITEM_NONE && defenderItem == ITEM_NONE)
-            || IS_ITEM_MAIL(attackerItem) || IS_ITEM_MAIL(defenderItem)
-            // || IS_ITEM_Z_CRYSTAL(attackerItem) || IS_ITEM_Z_CRYSTAL(defenderItem)
-            || ((attackerSpecies == SPECIES_KYOGRE || defenderSpecies == SPECIES_KYOGRE) && (attackerItem == ITEM_BLUE_ORB || defenderItem == ITEM_BLUE_ORB))
-            || ((attackerSpecies == SPECIES_GROUDON || defenderSpecies == SPECIES_GROUDON) && (attackerItem == ITEM_RED_ORB || defenderItem == ITEM_RED_ORB))
-            || (CheckMegaData(attackerSpecies, attackerItem) || CheckMegaData(defenderSpecies, attackerItem) || CheckMegaData(attackerSpecies, defenderItem) || CheckMegaData(defenderSpecies, defenderItem))
-            || ((attackerSpecies == SPECIES_GIRATINA || defenderSpecies == SPECIES_GIRATINA) && (attackerItem == ITEM_GRISEOUS_CORE || defenderItem == ITEM_GRISEOUS_CORE))
-            || ((attackerSpecies == SPECIES_ARCEUS || defenderSpecies == SPECIES_ARCEUS) && (IS_ITEM_ARCEUS_PLATE(attackerItem) || IS_ITEM_ARCEUS_PLATE(defenderItem)))
-            || ((attackerSpecies == SPECIES_GENESECT || defenderSpecies == SPECIES_GENESECT) && (IS_ITEM_GENESECT_DRIVE(attackerItem) || IS_ITEM_GENESECT_DRIVE(defenderItem)))
-            || ((attackerSpecies == SPECIES_SILVALLY || defenderSpecies == SPECIES_SILVALLY) && (IS_ITEM_MEMORY(attackerItem) || IS_ITEM_MEMORY(defenderItem)))
-            || ((attackerSpecies == SPECIES_ZACIAN || defenderSpecies == SPECIES_ZACIAN) && (attackerItem == ITEM_RUSTED_SWORD || defenderItem == ITEM_RUSTED_SWORD))
-            || ((attackerSpecies == SPECIES_ZAMAZENTA || defenderSpecies == SPECIES_ZAMAZENTA) && (attackerItem == ITEM_RUSTED_SHIELD || defenderItem == ITEM_RUSTED_SHIELD))
-            || ((attackerSpecies == SPECIES_OGERPON || defenderSpecies == SPECIES_OGERPON) && (IS_ITEM_MASK(attackerItem) || IS_ITEM_MASK(defenderItem)))
-            ) {
+            if (!CanTrickHeldItem(ctx, ctx->attack_client, ctx->defence_client)) {
                 butItFailedFlag = TRUE;
             }
             break;
         }
         case MOVE_BESTOW: {
+            // CheckMegaData will gladly tell you that a galarian slowbro needs its slowbronite...  we make it work here
+            if (defenderItem == ITEM_NONE
+             && attackerSpecies == SPECIES_SLOWBRO
+             && attackerItem == ITEM_SLOWBRONITE
+             && ctx->battlemon[ctx->attack_client].form_no == 2)
+            {
+                break;
+            }
             //TODO
             if (attackerItem == ITEM_NONE
+            // || !CanItemBeRemovedFromClient(ctx, ctx->defence_client) // corrosive gas nonsense prevents this rn i think
             || defenderItem != ITEM_NONE
             || IS_ITEM_MAIL(attackerItem)
             // || IS_ITEM_Z_CRYSTAL(attackerItem)
