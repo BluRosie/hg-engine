@@ -193,6 +193,18 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         offset += 2;
         form_no = (species & 0xF800) >> 11;
         species &= 0x07FF;
+		
+		u16 speciesWithForm;
+        speciesWithForm = PokeOtherFormMonsNoGet(species, form_no);
+
+        struct Evolution *evoTable;
+        evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
+        ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, speciesWithForm);
+
+        if (evoTable[0].method != EVO_LEVEL
+			&& level >= evoTable[0].param) {
+            species = evoTable[0].target;
+        }
 
         // item field - conditional
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)

@@ -1878,4 +1878,6 @@ BOOL LONG_CALL ReleaseMonLock(struct PartyPokemon *mon, BOOL decrypt_result);
 
 void LONG_CALL LoadMonBaseStats_HandleAlternateForm(int species, int form, BASE_STATS *personal);
 
+u32 ChangePersonalityToNatureGenderAndAbility(u32 pid, u16 species, u8 nature, u8 gender, u8 ability, BOOL gen_mode);
+
 #endif

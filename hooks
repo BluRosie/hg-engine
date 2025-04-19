@@ -536,3 +536,5 @@ arm9 ScrCmd_FollowerPokeIsEventTrigger 02046A1C 2
 arm9 IsPlayerInCave 0205B8D0 1
 
 0012 InitializeTurn 02251710 3
+
+0001 ScrCmd_GiveSpikyEarPichu 022021F8 1

@@ -80,3 +80,5 @@ arm9 PokemonBattleMusic 080518D4
 
 # nature power move table
 0012 sNaturePowerMoveTable 0800CB94
+
+0001 sSpikyEarPichuMoveset 022093BA

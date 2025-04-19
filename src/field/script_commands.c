@@ -1,12 +1,13 @@
-#include "../../include/types.h"
 #include "../../include/bag.h"
 #include "../../include/battle.h"
 #include "../../include/config.h"
 #include "../../include/debug.h"
+#include "../../include/npc_trade.h"
 #include "../../include/pokemon.h"
 #include "../../include/rtc.h"
 #include "../../include/save.h"
 #include "../../include/script.h"
+#include "../../include/types.h"
 #include "../../include/constants/ability.h"
 #include "../../include/constants/file.h"
 #include "../../include/constants/game.h"
@@ -319,5 +320,129 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
 }
 
 BOOL IsPlayerInCave(u8 collision) {
+    return FALSE;
+}
+
+#define EVENT_SPIKY_EARED_PICHU     0
+#define EVENT_ARCEUS_HALL_OF_ORIGIN 1
+#define EVENT_ARCEUS_MOVIE_GIFT     2
+#define EVENT_CELEBI                3
+#define NUM_EVENTS 4
+
+BOOL ScrCmd_FollowerPokeIsEventTrigger(struct SCRIPTCONTEXT *ctx) {
+    u8 event = ScriptReadByte(ctx);
+    u16 party_slot = ScriptGetVar(ctx);
+    u16 *ret_ptr = ScriptGetVarPointer(ctx);
+    struct PartyPokemon *mon;
+    int species;
+
+    *ret_ptr = FALSE;
+    mon = Party_GetMonByIndex(SaveData_GetPlayerPartyPtr(ctx->fsys->savedata), party_slot);
+
+    if (event >= NUM_EVENTS) {
+        return FALSE;
+    }
+    if (GetMonData(mon, MON_DATA_IS_EGG, NULL) || GetMonData(mon, MON_DATA_CHECKSUM_FAILED, NULL)) {
+        return FALSE;
+    }
+    /*if (!MonMetadataMatchesEvent(event, mon, GetMonData(mon, MON_DATA_OTID, NULL) == PlayerProfile_GetTrainerID(Save_PlayerData_GetProfileAddr(ctx->fieldSystem->saveData)))) {
+        return FALSE;
+    }*/
+
+    species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    switch (event) {
+    case EVENT_SPIKY_EARED_PICHU:
+        if ((species == SPECIES_PICHU || species == SPECIES_PIKACHU || species == SPECIES_RAICHU) && MonIsShiny(mon)) {
+            *ret_ptr = TRUE;
+        }
+        break;
+    case EVENT_ARCEUS_HALL_OF_ORIGIN:
+    case EVENT_ARCEUS_MOVIE_GIFT:
+        if (species == SPECIES_ARCEUS) {
+            *ret_ptr = TRUE;
+        }
+        break;
+    case EVENT_CELEBI:
+        if (species == SPECIES_CELEBI) {
+            *ret_ptr = TRUE;
+        }
+        break;
+    }
+
+    return FALSE;
+}
+
+u16 sSpikyEarPichuMoveset[4] = {
+    MOVE_VOLT_TACKLE,
+    MOVE_HELPING_HAND,
+    MOVE_SWAGGER,
+    MOVE_PAIN_SPLIT,
+};
+
+BOOL LONG_CALL ScrCmd_GiveSpikyEarPichu(SCRIPTCONTEXT *ctx) {
+    s32 i;
+    u8 pp;
+    FieldSystem *fsys = ctx->fsys;
+	SaveData *saveData = SaveBlock2_get();
+
+    struct PlayerProfile *profile = Sav2_PlayerData_GetProfileAddr(saveData);
+    struct Party *party = SaveData_GetPlayerPartyPtr(saveData);
+    
+    if (party->count >= 6) {
+        return FALSE;
+    }
+    
+    struct PartyPokemon *mon = AllocMonZeroed(11);
+    ZeroMonData(mon);
+    
+	u32 trId = profile->id;
+	
+    u32 pid = trId;
+	
+	u8 nature = NATURE_NAUGHTY;
+	u8 gender = POKEMON_GENDER_FEMALE;
+	u8 ability = 0;
+	
+    GF_ASSERT(ability < 2);
+    GF_ASSERT(gender != 0xFF);
+	
+	u8 ratio = 127;
+	GF_ASSERT((nature & 1) == ability);
+	pid = (0xFF00 ^ ((((pid & 0xFFFF0000) >> 16) ^ (u16)pid) & 0xFF00)) << 16;
+	// Force the pid to have the requested nature
+	pid += nature - (pid % 25);
+	// Maintaining that pid%25 is nature, and pid&1 is ability,
+	// ensure pid&0xFF compared to the gender ratio yields gender
+	if (ratio < (u8)pid) {
+		// pid is male; force pid to become female
+		pid -= 25 * (((u8)pid - ratio) / 25u + 1);
+		if ((pid & 1) != ability) {
+			GF_ASSERT((u8)pid >= 25);
+			pid -= 25;
+		}
+	}
+    PokeParaSet(mon, SPECIES_PICHU, 15, 0x20, 1, pid, 1, trId);
+    
+    u8 form = 1;
+    SetMonData(mon, MON_DATA_FORM, &form);
+
+    for (i = 0; i < 4; i++) {
+        SetMonData(mon, MON_DATA_MOVE1 + i, &sSpikyEarPichuMoveset[i]);
+        pp = GetMonData(mon, MON_DATA_MOVE1MAXPP + i, 0);
+        SetMonData(mon, MON_DATA_MOVE1PP + i, &pp);
+    }
+
+    u16 heldItem = ITEM_ZAP_PLATE;
+    SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
+	
+	u32 unkB = sub_02017FE4(0, MapHeader_GetMapSec(fsys->location->mapId));
+    sub_020720FC(mon, profile, ITEM_POKE_BALL, unkB, 0x18, 11);
+
+    PokeParty_Add(party, mon);
+
+    sys_FreeMemoryEz(mon);
+
+    UpdatePokedexWithReceivedSpecies(saveData, mon);
+
     return FALSE;
 }

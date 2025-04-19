@@ -911,7 +911,7 @@
 #define MOVE_EFFECT_SKULK_OUT                               901
 #define MOVE_EFFECT_CACKLE                                  902
 #define MOVE_EFFECT_FREEZE_HIT_DOUBLE_POWER_ON_STATUS       903
-#define MOVE_EFFECT_UNUSED_904                              904
+#define MOVE_EFFECT_REMOVE_ITEM_HIT                         904
 #define MOVE_EFFECT_UNUSED_905                              905
 #define MOVE_EFFECT_GROWTH                                  906
 #define MOVE_EFFECT_STATUS_FREEZE                           907

@@ -3588,8 +3588,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
 // TODO: implement new mechanics
 // Edit: should be done? Need to double check
 BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
-    switch (ctx->current_move_index) {
-        case MOVE_LIFE_DEW: {
+    switch (ctx->moveTbl[ctx->current_move_index].effect) {
+        case MOVE_EFFECT_HEAL_USER_AND_ALLY: {
             if (ctx->battlemon[defender].hp == (s32)ctx->battlemon[defender].maxhp) {
                 ctx->msg_work = defender;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL);

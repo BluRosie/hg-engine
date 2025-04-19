@@ -1915,8 +1915,10 @@ BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw UNUSED, struct BattleStruct
         sp->battlemon[sp->attack_client].moveeffect.furyCutterCount++;
     }
 	
-    sp->damage_power = sp->moveTbl[sp->current_move_index].power >> sp->battlemon[sp->attack_client].moveeffect.furyCutterCount;
-
+	if (sp->battlemon[sp->attack_client].moveeffect.furyCutterCount > 1) {
+		sp->damage_power = sp->moveTbl[sp->current_move_index].power << (sp->battlemon[sp->attack_client].moveeffect.furyCutterCount - 1);
+	}
+	
     return FALSE;
 }
 
