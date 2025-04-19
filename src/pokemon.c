@@ -199,13 +199,13 @@ u16 LONG_CALL GetFormFromAdjustedForm(u32 mons_no)
  */
 u32 LONG_CALL PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 {
-    u32 pat = 7+mons;
+    u32 pat = ICON_NUM_ADJUSTMENT+mons;
 
     if (egg == 1)
     {
         if (mons == SPECIES_MANAPHY)
         {
-            return 502; // manaphy egg icon
+            return ICON_NUM_MANAPHY_EGG+ICON_NUM_ADJUSTMENT; // manaphy egg icon
         }
         else
         {
@@ -221,62 +221,60 @@ u32 LONG_CALL PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
         {
             if (mons == SPECIES_DEOXYS)
             {
-                return (503 + pat - 1);
+                return (ICON_NUM_DEOXYS_ATTACK+ICON_NUM_ADJUSTMENT + pat - 1);
             }
-            if (mons == SPECIES_UNOWN)
+            else if (mons == SPECIES_UNOWN)
             {
-                return (507 + pat - 1);
+                return (ICON_NUM_UNOWN_B+ICON_NUM_ADJUSTMENT + pat - 1);
             }
-            if (mons == SPECIES_BURMY)
+            else if (mons == SPECIES_BURMY)
             {
-                return (534 + pat - 1);
+                return (ICON_NUM_BURMY_SANDY+ICON_NUM_ADJUSTMENT + pat - 1);
             }
-            if (mons == SPECIES_WORMADAM)
+            else if (mons == SPECIES_WORMADAM)
             {
-                return (536 + pat - 1);
+                return (ICON_NUM_WORMADAM_SANDY+ICON_NUM_ADJUSTMENT + pat - 1);
             }
-            if (mons == SPECIES_SHELLOS)
+            else if (mons == SPECIES_SHELLOS)
             {
-                return (538 + pat - 1);
+                return (ICON_NUM_SHELLOS_EAST+ICON_NUM_ADJUSTMENT + pat - 1);
             }
-            if (mons == SPECIES_GASTRODON)
+            else if (mons == SPECIES_GASTRODON)
             {
-                return (539 + pat - 1);
+                return (ICON_NUM_GASTRODON_EAST+ICON_NUM_ADJUSTMENT + pat - 1);
             }
-            if (mons == SPECIES_GIRATINA)
+            else if (mons == SPECIES_GIRATINA)
             {
-                return (540 + pat - 1);
+                return (ICON_NUM_GIRATINA_ORIGIN+ICON_NUM_ADJUSTMENT + pat - 1);
             }
-            if (mons == SPECIES_SHAYMIN)
+            else if (mons == SPECIES_SHAYMIN)
             {
-                return (541 + pat - 1);
+                return (ICON_NUM_SHAYMIN_SKY+ICON_NUM_ADJUSTMENT + pat - 1);
             }
-            if (mons == SPECIES_ROTOM)
+            else if (mons == SPECIES_ROTOM)
             {
-                return (542 + pat - 1);
+                return (ICON_NUM_ROTOM_HEAT+ICON_NUM_ADJUSTMENT + pat - 1);
             }
             else if (mons == SPECIES_CASTFORM)
             {
-                return (547 + pat - 1);
+                return (ICON_NUM_CASTFORM_SUNNY+ICON_NUM_ADJUSTMENT + pat - 1);
             }
             else if (mons == SPECIES_CHERRIM)
             {
-                return (550 + pat - 1);
+                return (ICON_NUM_CHERRIM_SUN+ICON_NUM_ADJUSTMENT + pat - 1);
             }
         }
 
         // pat is now treated as the return value.  is initially set as the mons+7, but is adjusted as necessary below
-        if (form_no != 0)
+
+        u16 newSpecies;
+        ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons + form_no-1), sizeof(u16));
+        newSpecies &= ~(NEEDS_REVERSION);
+        if (newSpecies != 0)
         {
-            u16 newSpecies;
-            ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons + form_no-1), sizeof(u16));
-            newSpecies &= ~(NEEDS_REVERSION);
-            if (newSpecies != 0)
-            {
-                mons = newSpecies;
-            }
+            mons = newSpecies;
         }
-        pat = (7 + mons);
+        pat = (ICON_NUM_ADJUSTMENT + mons);
     }
     return pat;
 }
@@ -1338,36 +1336,16 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
 {
     u32 adjustment = 0, ret = 0;
     u8 maxForm = 0;
-    if (species > SPECIES_FINNEON) // split between 0x1AC and 0x1E4
-    {
-        adjustment = 0x1E4;
-    }
-    else
-    {
-        adjustment = 0x1AC;
-    }
-
-    ret = GetPokemonOwNum(species) + adjustment;
 
     ArchiveDataLoadOfs(&maxForm, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON, sizeof(u8)*species, sizeof(u8));
 
-    if (species == SPECIES_PIKACHU) // pikachu forms take gender adjustment into account and are looser with restrictions
-    {
-        if (isFemale || form) // both female pikachu and those with forms will need this adjustment
-            ret++;
-        if (form < maxForm) // invalid pikachu forms will show as female, but that's okay
-            ret += form;
-    }
-    else if (species == SPECIES_SLOWBRO && form)
-    {
-        u32 newform = form - 1;
-        if (newform <= maxForm)
-            ret += newform;
-    }
-    else if (form <= maxForm)
-        ret += form;
-    else if (isFemale && gDimorphismTable[species-1])
-        ret += isFemale;
+    // new tag formula--adjusted species + 0x800 if female + 0x1000 for start
+    if (isFemale && gDimorphismTable[species-1])
+        ret = OVERWORLD_TAG_FROM_SPECIES(species, form);
+    else if (form >= maxForm)
+        return OVERWORLD_TAG_FROM_SPECIES(SPECIES_BULBASAUR, 0);
+    else if (species < MAX_MON_NUM)
+        ret = OVERWORLD_TAG_FROM_SPECIES_FACTOR_GENDER(species, isFemale);
 
     return ret;
 }
