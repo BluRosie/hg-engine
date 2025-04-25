@@ -24,6 +24,10 @@ DESIRED_GAMECODE := IPKE
 GAMECODE = $(shell dd bs=1 skip=12 count=4 if=$(ROMNAME) status=none)
 VALID_GAMECODE = $(shell echo $(GAMECODE) | grep -i -q $(DESIRED_GAMECODE); echo $$?)
 
+ifneq ($(shell pwd | grep -i 'onedrive'),)
+$(error "HAAAAAAAAAAAAAAAANK HAAAAAAAAAAAAAAAAAAAAAAAAAAANK DO NOT PUT FILES IN ONEDRIVE. CLONE THE REPOSITORY IN ANOTHER FOLDER" )
+endif
+
 ifneq ($(VALID_GAMECODE), 0)
 # invalid rom detected based on gamecode.  this primarily catches other-language roms
 $(error ROM Code read from $(ROMNAME) ($(GAMECODE)) does not match valid ROM Code ($(DESIRED_GAMECODE)).$(n)Please use a valid US HeartGold ROM.$(n)hg-engine does not work with non-USA ROM files)
