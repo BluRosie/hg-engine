@@ -807,7 +807,7 @@ heightentry SPECIES_ORICORIO, 4, 4, 0, 0
 heightentry SPECIES_CUTIEFLY, 0, 0, 0, 0
 heightentry SPECIES_RIBOMBEE, 0, 0, 0, 0
 heightentry SPECIES_ROCKRUFF, 10, 10, 0, 0
-heightentry SPECIES_LYCANROC, 7, 7, 0, 0
+heightentry SPECIES_LYCANROC, 0, 0, 0, 0
 heightentry SPECIES_WISHIWASHI, 9, 9, 0, 0
 heightentry SPECIES_MAREANIE, 8, 8, 0, 0
 heightentry SPECIES_TOXAPEX, 0, 0, 0, 0
@@ -1298,7 +1298,7 @@ heightentry SPECIES_ORICORIO_PAU, 14, 14, 0, 0
 heightentry SPECIES_ORICORIO_SENSU, 6, 6, 0, 0
 heightentry SPECIES_ROCKRUFF_OWN_TEMPO, 10, 10, 0, 0
 heightentry SPECIES_LYCANROC_MIDNIGHT, 0, 0, 0, 0
-heightentry SPECIES_LYCANROC_DUSK, 7, 7, 0, 0
+heightentry SPECIES_LYCANROC_DUSK, 0, 0, 0, 0
 heightentry SPECIES_WISHIWASHI_SCHOOL, 0, 0, 0, 0
 heightentry SPECIES_MINIOR_METEOR_ORANGE, 0, 0, 0, 0
 heightentry SPECIES_MINIOR_METEOR_YELLOW, 0, 0, 0, 0
