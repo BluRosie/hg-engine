@@ -2,8 +2,6 @@
 .align 2
 .thumb
 
-.include "offset_def.s"
-
 /*不同形态的图片读取*/
 .global PokePicLoad
 PokePicLoad:
