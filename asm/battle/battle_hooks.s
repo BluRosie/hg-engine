@@ -626,13 +626,6 @@ ov12_02251A28_return_address:
 .global load_max_move_num_metronome
 load_max_move_num_metronome:
 mov r0, r7
-ldr r1, =0x0223BD98|1
-bl bx_r1
-ldr r1, =NUM_OF_MOVES
-ldr r2, =0x022408B4|1
-bx r2
-
-.pool
-
-bx_r1:
+bl RollMetronomeMove
+ldr r1, =0x022408BA|1
 bx r1
