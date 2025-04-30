@@ -2,7 +2,8 @@
 .align 2
 .thumb
 
-.include "offset_def.s"
+.include "asm/include/interop_macros.inc"
+.include "asm/include/moves.inc"
 
 .global calc_base_damage_hook
 calc_base_damage_hook:
@@ -135,7 +136,7 @@ mov r1, r6
 mov r0, r5
 bl TryRevertFormChange
 pop {r0-r2}
-ldr r3, =0x69B4 + Overlay_12_Start
+ldr r3, =0x69B4 + 0x022378C0|1
 bx r3
 
 //战斗结束
@@ -149,7 +150,7 @@ push {r0-r3}
 mov r0, r4
 bl BattleEndRevertFormChange
 pop {r0-r3}
-ldr r1, =0xB98 + Overlay_12_Start
+ldr r1, =0xB98 + 0x022378C0|1
 bx r1
 
 //mega
@@ -164,7 +165,7 @@ push {r0-r3}
 mov r0, r5
 bl LoadMegaIcon
 pop {r0-r3}
-ldr r2, =0x2F8A4 + Overlay_12_Start
+ldr r2, =0x2F8A4 + 0x022378C0|1
 bx r2
 
 //0802FBFC
@@ -178,7 +179,7 @@ bl LoadMegaButton
 pop {r1-r3}
 mov r0, #0x3
 str r0, [sp, #0x4]
-ldr r0, =0x2FC04 + Overlay_12_Start
+ldr r0, =0x2FC04 + 0x022378C0|1
 bx r0
 
 //08030644
@@ -195,11 +196,11 @@ bne end
 pop {r0-r3}
 cmp r4, #0x1
 blt sub_803065Ah
-ldr r3, =0x3064C + Overlay_12_Start
+ldr r3, =0x3064C + 0x022378C0|1
 bx r3
 
 sub_803065Ah:
-ldr r0, =0x3065A + Overlay_12_Start
+ldr r0, =0x3065A + 0x022378C0|1
 bx r0
 
 end:
@@ -620,3 +621,11 @@ mov pc, r1
 
 ov12_02251A28_return_address:
 .word 0
+
+
+.global load_max_move_num_metronome
+load_max_move_num_metronome:
+mov r0, r7
+bl RollMetronomeMove
+ldr r1, =0x022408BA|1
+bx r1

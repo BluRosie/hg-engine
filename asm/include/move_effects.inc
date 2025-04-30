@@ -375,4 +375,11 @@
 .equ MOVE_EFFECT_MORTAL_SPIN, 369
 .equ MOVE_EFFECT_TIDY_UP, 370
 
+.equ MAX_BASE_MOVE_EFFECT_NUM, 370
+
+// define your custom move effects below like this
+// .equ MOVE_EFFECT_CUSTOM_1, (MAX_BASE_MOVE_EFFECT_NUM + 1)
+
+
+
 .endif
