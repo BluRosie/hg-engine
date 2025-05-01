@@ -3714,4 +3714,6 @@ void LONG_CALL BufferItemNameWithIndefArticle(u32 *msgFmt, u32 fieldno, u32 item
 /// @return shake chance
 unsigned int LONG_CALL get_shake_chance(int input_value);
 
+int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
+
 #endif // BATTLE_H

@@ -120,8 +120,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // Handle Sap Sipper
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAP_SIPPER) == TRUE)
     {
-        if ((movetype == TYPE_GRASS) && (attacker != defender))
-        {
+        if ((movetype == TYPE_GRASS) && (attacker != defender)) {
             scriptnum = SUB_SEQ_HANDLE_SAP_SIPPER;
         }
     }
@@ -144,22 +143,32 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
+    // Handle Telepathy
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TELEPATHY) == TRUE) {
+        if (((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+        && ((sp->moveTbl[sp->current_move_index].power))
+        && (attacker & 1) == (defender & 1) ) { // attacker and defender are on the same side
+            scriptnum = SUB_SEQ_HANDLE_TELEPATHY;
+        }
+    }
+
     // TODO: Confirm location in-game
     // Handle Well Baked Body
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE)
-    {
-        if ((movetype == TYPE_FIRE) && (attacker != defender))
-        {
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE) {
+        if ((movetype == TYPE_FIRE)
+        && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+        && ((sp->moveTbl[sp->current_move_index].power) || (sp->current_move_index == MOVE_WILL_O_WISP))
+        && (attacker != defender)) {
             scriptnum = SUB_SEQ_ABSORB_AND_DEF_UP_2_STAGE;
         }
     }
 
     // TODO: Confirm location in-game
     // Handle Earth Eater
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE)
-    {
-        if ((movetype == TYPE_GROUND) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->moveTbl[sp->current_move_index].power))
-        {
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE) {
+        if ((movetype == TYPE_GROUND)
+        && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+        && (sp->moveTbl[sp->current_move_index].power)) {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
             scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
         }
