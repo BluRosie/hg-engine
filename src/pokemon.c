@@ -1392,7 +1392,7 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
     void *profile;
     u32 sp1C;
     BOOL result;
-
+	
     profile = Sav2_PlayerData_GetProfileAddr(saveData);
     party = SaveData_GetPlayerPartyPtr(saveData);
 
@@ -1401,14 +1401,15 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
     PokeParaSet(pokemon, species, level, 32, FALSE, 0, 0, 0); // CreateMon
     sub_020720FC(pokemon, profile, ITEM_POKE_BALL, ball, encounterType, heapId);
     sp1C = heldItem;
-    SetMonData(pokemon, MON_DATA_HELD_ITEM, &sp1C);
+    
+	SetMonData(pokemon, MON_DATA_HELD_ITEM, &sp1C);
     SetMonData(pokemon, MON_DATA_FORM, &forme);
-
+	
     if (forme != 0) // reinitialize moves for different learnsets
     {
         InitBoxMonMoveset(&pokemon->box);
     }
-
+	
     RecalcPartyPokemonStats(pokemon); // recalculate stats
 
     if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1)
@@ -1455,7 +1456,9 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
     u32 title, language;
     title = VERSION_GOLD;
     language = LANG_ENGLISH;
-
+	
+	
+	
     BoxMonInit(boxmon);
 
     flag = BoxMonSetFastModeOn(boxmon);
@@ -1522,6 +1525,20 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
         j=(i&(0x001f<<10))>>10;
         SetBoxMonData(boxmon,MON_DATA_SPDEF_IV,(u8 *)&j);
     }
+	
+	#ifdef ALL_PERFECT_IVS
+	
+	u16 IV_31;
+	IV_31 = 31;
+	
+	SetBoxMonData(boxmon, MON_DATA_HP_IV, &IV_31);
+	SetBoxMonData(boxmon, MON_DATA_ATK_IV, &IV_31);
+	SetBoxMonData(boxmon, MON_DATA_DEF_IV, &IV_31);
+	SetBoxMonData(boxmon, MON_DATA_SPATK_IV, &IV_31);
+	SetBoxMonData(boxmon, MON_DATA_SPDEF_IV, &IV_31);
+	SetBoxMonData(boxmon, MON_DATA_SPEED_IV, &IV_31);
+	
+	#endif
 
     i = PokePersonalParaGet(species,PERSONAL_ABILITY_1);
     j = PokePersonalParaGet(species,PERSONAL_ABILITY_2);
@@ -1599,6 +1616,18 @@ u32 gLastPokemonLevelForMoneyCalc;
  */
 void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon *pp)
 {
+	
+	u16 IV_31;
+	IV_31 = 31;
+	
+	SetMonData(pp, MON_DATA_HP_IV, &IV_31);
+	SetMonData(pp, MON_DATA_ATK_IV, &IV_31);
+	SetMonData(pp, MON_DATA_DEF_IV, &IV_31);
+	SetMonData(pp, MON_DATA_SPATK_IV, &IV_31);
+	SetMonData(pp, MON_DATA_SPDEF_IV, &IV_31);
+	SetMonData(pp, MON_DATA_SPEED_IV, &IV_31);
+	RecalcPartyPokemonStats(pp);
+	
     if (CheckScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG) == 1)
     {
         SET_MON_HIDDEN_ABILITY_BIT(pp)
@@ -1633,11 +1662,11 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
     u8 hasNickname = FALSE;
     u8 pokeball = 4; // poke ball
     u8 metLevel = 0;
-
+	
     u16 dummy_p2_1 = GetMonData(pokemon, MON_DATA_RESERVED_113, NULL); // hidden ability field
 
     sub_0206D038(pokemon, heapId); // carries over egg values to a clean mon
-    SetMonData(pokemon, MON_DATA_IS_EGG, &isEgg);
+	SetMonData(pokemon, MON_DATA_IS_EGG, &isEgg);
     GetSpeciesNameIntoArray(GetMonData(pokemon, MON_DATA_SPECIES, NULL), 0, nickname);
     SetMonData(pokemon, MON_DATA_NICKNAME, nickname);
     SetMonData(pokemon, MON_DATA_HAS_NICKNAME, &hasNickname);
@@ -1645,7 +1674,6 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
     SetMonData(pokemon, MON_DATA_MET_LEVEL, &metLevel);
     SetMonData(pokemon, MON_DATA_RESERVED_113, &dummy_p2_1);
     RecalcPartyPokemonStats(pokemon);
-
     ResetPartyPokemonAbility(pokemon);
 }
 
