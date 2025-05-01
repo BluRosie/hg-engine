@@ -13,6 +13,7 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/file.h"
 #include "../../include/overlay.h"
+#include "../../include/q412.h"
 
 
 extern const u8 StatBoostModifiers[][2];
@@ -631,279 +632,259 @@ const u8 DecreaseSpeedHoldEffects[] =
 };
 
 // return 0 if client1 moves first, 1 if client2 moves first, 2 if random roll between the two.
-u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag)
-{
+u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag) {
     u8 ret = 0;
     u32 speed1, speed2;
-    //u16 move1 = 0, move2 = 0;
     u8 hold_effect1;
-    //u8 hold_atk1;
     u8 hold_effect2;
-    //u8 hold_atk2;
     s8 priority1 = sp->clientPriority[client1];
     s8 priority2 = sp->clientPriority[client2];
     u8 quick_claw1 = sp->battlemon[client1].moveeffect.quickClawFlag || sp->battlemon[client1].moveeffect.custapBerryFlag;
     u8 quick_claw2 = sp->battlemon[client2].moveeffect.quickClawFlag || sp->battlemon[client2].moveeffect.custapBerryFlag;
     u8 move_last1 = 0, move_last2 = 0;
-    //int command1;
-    //int command2;
-    //int move_pos1;
-    //int move_pos2;
     int ability1;
     int ability2;
     int stat_stage_spd1;
     int stat_stage_spd2;
     u32 i;
 
-    // if one mon is fainted and the other isn't, then the alive one obviously goes first
-    if ((sp->battlemon[client1].hp == 0) && (sp->battlemon[client2].hp))
-    {
-        return 1;
-    }
-    if ((sp->battlemon[client1].hp) && (sp->battlemon[client2].hp == 0))
-    {
-        return 0;
-    }
-
-    // Potential After You or Quash present
-    if (sp->oneTurnFlag[client1].force_execution_order_flag != sp->oneTurnFlag[client2].force_execution_order_flag) {
-        switch (sp->oneTurnFlag[client1].force_execution_order_flag) {
-            case EXECUTION_ORDER_AFTER_YOU:
-                return 0;
-                break;
-            case EXECUTION_ORDER_QUASH:
-                return 1;
-                break;
-            default:
-                break;
-        }
-        switch (sp->oneTurnFlag[client2].force_execution_order_flag) {
-            case EXECUTION_ORDER_AFTER_YOU:
-                return 1;
-                break;
-            case EXECUTION_ORDER_QUASH:
-                return 0;
-                break;
-            default:
-                break;
-        }
-    }
+    u32 speedModifier1 = UQ412__1_0;
+    u32 speedModifier2 = UQ412__1_0;
 
     ability1 = GetBattlerAbility(sp, client1);
     ability2 = GetBattlerAbility(sp, client2);
 
     hold_effect1 = HeldItemHoldEffectGet(sp, client1);
-    //hold_atk1 = HeldItemAtkGet(sp, client1, 0);
     hold_effect2 = HeldItemHoldEffectGet(sp, client2);
-    //hold_atk2 = HeldItemAtkGet(sp, client2, 0);
 
     stat_stage_spd1 = sp->battlemon[client1].states[STAT_SPEED];
     stat_stage_spd2 = sp->battlemon[client2].states[STAT_SPEED];
 
-    // if (GetBattlerAbility(sp, client1) == ABILITY_SIMPLE)
-    // {
-    //     stat_stage_spd1 = 6 + ((stat_stage_spd1 - 6) * 2);
-    //     if (stat_stage_spd1 > 12)
-    //     {
-    //         stat_stage_spd1 = 12;
-    //     }
-    //     if (stat_stage_spd1 < 0)
-    //     {
-    //         stat_stage_spd1 = 0;
-    //     }
-    // }
-    // if (GetBattlerAbility(sp, client2) == ABILITY_SIMPLE)
-    // {
-    //     stat_stage_spd2 = 6 + ((stat_stage_spd2 - 6) * 2);
-    //     if (stat_stage_spd2 > 12)
-    //     {
-    //         stat_stage_spd2 = 12;
-    //     }
-    //     if (stat_stage_spd2 < 0)
-    //     {
-    //         stat_stage_spd2 = 0;
-    //     }
-    // }
+    // Begin calculating Speed Modifiers
 
-    speed1 = sp->battlemon[client1].speed * StatBoostModifiers[stat_stage_spd1][0] / StatBoostModifiers[stat_stage_spd1][1];
-    speed2 = sp->battlemon[client2].speed * StatBoostModifiers[stat_stage_spd2][0] / StatBoostModifiers[stat_stage_spd2][1];
+    // https://web.archive.org/web/20241226231016/https://www.trainertower.com/dawoblefets-damage-dissertation/
+    // NormalRound is QMul_RoundUp
+    // pokeRound is QMul_RoundDown
 
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)==0)
-     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)==0))
-    {
+    speed1 = (sp->battlemon[client1].speed * StatBoostModifiers[stat_stage_spd1][0] / StatBoostModifiers[stat_stage_spd1][1]) % 65536;
+    speed2 = (sp->battlemon[client2].speed * StatBoostModifiers[stat_stage_spd2][0] / StatBoostModifiers[stat_stage_spd2][1]) % 65536;
+
+    // Step 1: 2x Abilities
+
+    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
         if (((ability1 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
          || ((ability1 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability1 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
-         || ((ability1 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))))
-        {
-            speed1 *= 2;
+         || ((ability1 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY)))) {
+            QMul_RoundUp(speedModifier1, UQ412__2_0);
         }
         if (((ability2 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
          || ((ability2 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability2 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
-         || ((ability2 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))))
-        {
-            speed2 *= 2;
+         || ((ability2 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY)))) {
+            QMul_RoundUp(speedModifier2, UQ412__2_0);
         }
     }
 
-    for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++)
-    {
-        if (BattleItemDataGet(sp, sp->battlemon[client1].item, 1) == DecreaseSpeedHoldEffects[i]) {
-            if (!(GetBattlerAbility(sp, client1) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
-            speed1 /= 2;
-            break;
-            }
+    if ((sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0)) {
+        if (ability1 == ABILITY_SURGE_SURFER) {
+            QMul_RoundUp(speedModifier1, UQ412__2_0);
+        }
+
+        if (ability2 == ABILITY_SURGE_SURFER) {
+            QMul_RoundUp(speedModifier2, UQ412__2_0);
         }
     }
-
-    if ((ability1 == ABILITY_SURGE_SURFER) && (sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0))
-    {
-        speed1 *= 2;
-    }
-
-    if ((ability2 == ABILITY_SURGE_SURFER) && (sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0))
-    {
-        speed2 *= 2;
-    }
-
-    if (hold_effect1 == HOLD_EFFECT_CHOICE_SPEED)
-    {
-        speed1 = speed1 * 15 / 10;
-    }
-
-    if ((hold_effect1 == HOLD_EFFECT_DITTO_SPEED_UP) && (sp->battlemon[client1].species == SPECIES_DITTO))
-    {
-        speed1 *= 2;
-    }
-
-    if ((ability1 == ABILITY_QUICK_FEET) && (sp->battlemon[client1].condition & STATUS_ANY_PERSISTENT))
-    {
-        speed1 = speed1 * 15 / 10;
-    }
-    else
-    {
-        if (sp->battlemon[client1].condition & STATUS_PARALYSIS)
-        {
-            speed1 /= 2; // gen 7 on only halves speed for paralysis
-        }
-    }
-
-    if ((ability1 == ABILITY_SLOW_START)
-     && ((sp->total_turn - sp->battlemon[client1].moveeffect.slowStartTurns) < 5))
-    {
-        speed1 /= 2;
-    }
-
+    
     if ((ability1 == ABILITY_UNBURDEN)
-     && (sp->battlemon[client1].moveeffect.knockOffFlag)
-     && (sp->battlemon[client1].item == 0))
-    {
-        speed1 *= 2;
-    }
-
-    if (sp->tailwindCount[IsClientEnemy(bw, client1)]) // new tailwind handling
-    {
-        speed1 *= 2;
-    }
-
-    if (hold_effect1 == HOLD_EFFECT_PRIORITY_DOWN)
-    {
-        move_last1 = 1;
-    }
-
-    for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++)
-    {
-        if (BattleItemDataGet(sp, sp->battlemon[client2].item, 1) == DecreaseSpeedHoldEffects[i]) {
-            if (!(GetBattlerAbility(sp, client2) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
-                speed2 /= 2;
-            break;
-            }
-        }
-    }
-
-    if (hold_effect2 == HOLD_EFFECT_CHOICE_SPEED)
-    {
-        speed2 = speed2 * 15 / 10;
-    }
-
-    if ((hold_effect2 == HOLD_EFFECT_DITTO_SPEED_UP) && (sp->battlemon[client2].species == SPECIES_DITTO))
-    {
-        speed2 *= 2;
-    }
-
-    if ((ability2 == ABILITY_QUICK_FEET) && (sp->battlemon[client2].condition & STATUS_ANY_PERSISTENT))
-    {
-        speed2 = speed2 * 15 / 10;
-    }
-    else
-    {
-        if (sp->battlemon[client2].condition & STATUS_PARALYSIS)
-        {
-            speed2 /= 2; // gen 7 on only halves speed for paralysis
-        }
-    }
-
-    if ((ability2 == ABILITY_SLOW_START)
-     && ((sp->total_turn - sp->battlemon[client2].moveeffect.slowStartTurns) < 5))
-    {
-        speed2 /= 2;
+    && (sp->battlemon[client1].moveeffect.knockOffFlag)
+    && (sp->battlemon[client1].item == 0)) {
+        QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
 
     if ((ability2 == ABILITY_UNBURDEN)
-     && (sp->battlemon[client2].moveeffect.knockOffFlag)
-     && (sp->battlemon[client2].item == 0))
-    {
-        speed2 *= 2;
+    && (sp->battlemon[client2].moveeffect.knockOffFlag)
+    && (sp->battlemon[client2].item == 0)) {
+        QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
-    if (sp->tailwindCount[IsClientEnemy(bw, client2)]) // new tailwind handling
-    {
-        speed2 *= 2;
+    // Step 2: Quick Feet
+
+    if ((ability1 == ABILITY_QUICK_FEET) && (sp->battlemon[client1].condition & STATUS_ANY_PERSISTENT)) {
+        QMul_RoundUp(speedModifier1, UQ412__1_5);
     }
 
-    if (hold_effect2 == HOLD_EFFECT_PRIORITY_DOWN)
-    {
-        move_last2 = 1;
+    if ((ability2 == ABILITY_QUICK_FEET) && (sp->battlemon[client2].condition & STATUS_ANY_PERSISTENT)) {
+        QMul_RoundUp(speedModifier2, UQ412__1_5);
     }
 
-    sp->effectiveSpeed[client1]=speed1;
-    sp->effectiveSpeed[client2]=speed2;
+    // Step 3: Slow Start
 
-    // if (flag == 0)
-    // {
-    //     command1 = sp->playerActions[client1][3];
-    //     command2 = sp->playerActions[client2][3];
-    //     move_pos1 = sp->waza_no_pos[client1];
-    //     move_pos2 = sp->waza_no_pos[client2];
-    //
-    //     if(command1 == SELECT_FIGHT_COMMAND)
-    //     {
-    //         if(sp->oneTurnFlag[client1].struggle_flag)
-    //         {
-    //             move1 = MOVE_STRUGGLE;
-    //         }
-    //         else
-    //         {
-    //             move1 = BattlePokemonParamGet(sp, client1, BATTLE_MON_DATA_MOVE_1 + move_pos1, NULL);
-    //         }
-    //     }
-    //     if (command2 == SELECT_FIGHT_COMMAND)
-    //     {
-    //         if (sp->oneTurnFlag[client2].struggle_flag)
-    //         {
-    //             move2 = MOVE_STRUGGLE;
-    //         }
-    //         else
-    //         {
-    //             move2 = BattlePokemonParamGet(sp, client2, BATTLE_MON_DATA_MOVE_1 + move_pos2, NULL);
-    //         }
-    //     }
-    // }
+    if ((ability1 == ABILITY_SLOW_START)
+     && ((sp->total_turn - sp->battlemon[client1].moveeffect.slowStartTurns) < 5)) {
+        QMul_RoundUp(speedModifier1, UQ412__0_5);
+    }
+
+    if ((ability2 == ABILITY_SLOW_START)
+     && ((sp->total_turn - sp->battlemon[client2].moveeffect.slowStartTurns) < 5)) {
+        QMul_RoundUp(speedModifier2, UQ412__0_5);
+    }
+
+    // Step 4: Quick Powder
+
+    if ((hold_effect1 == HOLD_EFFECT_DITTO_SPEED_UP)
+    && (sp->battlemon[client1].species == SPECIES_DITTO)
+    // Not transformed
+    && !(sp->battlemon[client1].condition2 & STATUS2_TRANSFORMED)) {
+        QMul_RoundUp(speedModifier1, UQ412__2_0);
+    }
+
+    if ((hold_effect2 == HOLD_EFFECT_DITTO_SPEED_UP)
+    && (sp->battlemon[client2].species == SPECIES_DITTO)
+    // Not transformed
+    && !(sp->battlemon[client2].condition2 & STATUS2_TRANSFORMED)) {
+        QMul_RoundUp(speedModifier2, UQ412__2_0);
+    }
+
+    // Step 5: Choice Scarf
+
+    if (hold_effect1 == HOLD_EFFECT_CHOICE_SPEED) {
+        QMul_RoundUp(speedModifier1, UQ412__1_5);
+    }
+
+    if (hold_effect2 == HOLD_EFFECT_CHOICE_SPEED) {
+        QMul_RoundUp(speedModifier2, UQ412__1_5);
+    }
+
+    // Step 6: Iron Ball / Macho Brace / Power EV items
+
+    for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++) {
+        if (BattleItemDataGet(sp, sp->battlemon[client1].item, 1) == DecreaseSpeedHoldEffects[i]) {
+            if (!(GetBattlerAbility(sp, client1) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
+                QMul_RoundUp(speedModifier1, UQ412__0_5);
+                break;
+            }
+        }
+    }
+
+    for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++) {
+        if (BattleItemDataGet(sp, sp->battlemon[client2].item, 1) == DecreaseSpeedHoldEffects[i]) {
+            if (!(GetBattlerAbility(sp, client2) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
+                QMul_RoundUp(speedModifier2, UQ412__0_5);
+                break;
+            }
+        }
+    }
+
+    // Step 7: Tailwind
+
+    if (sp->tailwindCount[IsClientEnemy(bw, client1)]) { // new tailwind handling
+        QMul_RoundUp(speedModifier1, UQ412__2_0);
+    }
+
+    if (sp->tailwindCount[IsClientEnemy(bw, client2)]) { // new tailwind handling
+        QMul_RoundUp(speedModifier2, UQ412__2_0);
+    }
+
+    // Step 8: Swamp
+
+    // TODO
+    if (FALSE) {
+        QMul_RoundUp(speedModifier1, UQ412__0_25);
+    }
+
+    if (FALSE) {
+        QMul_RoundUp(speedModifier2, UQ412__0_25);
+    }
+
+    // Step 9: Apply limit
+    // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-59#post-8704137
+
+    speedModifier1 = speedModifier1 < 410 ? 410 : speedModifier1;
+    speedModifier2 = speedModifier2 < 410 ? 410 : speedModifier2;
+
+    // Step 10: Apply the chained modifier to the starting speed
+
+    speed1 = QMul_RoundDown(speed1, speedModifier1);
+    speed2 = QMul_RoundDown(speed2, speedModifier2);
+
+    // Step 11: Paralysis
+
+    if ((ability1 != ABILITY_QUICK_FEET)
+    && sp->battlemon[client1].condition & STATUS_PARALYSIS) {
+        QMul_RoundUp(speed1, UQ412__0_5);  // gen 7 on only halves speed for paralysis
+    }
+
+    if ((ability2 != ABILITY_QUICK_FEET)
+    && sp->battlemon[client2].condition & STATUS_PARALYSIS) {
+        QMul_RoundUp(speed2, UQ412__0_5);  // gen 7 on only halves speed for paralysis
+    }
+
+    // Step 12: Apply limit
+
+    speed1 = speed1 % 65536;
+    speed1 = speed1 > 10000 ? 10000 : speed1;
+    speed2 = speed2 % 65536;
+    speed2 = speed2 > 10000 ? 10000 : speed2;
+
+    // Step 13: Speed calculations stop here for the purposes of Gyro Ball / Electro Ball
+
+    sp->effectiveSpeed[client1] = speed1;
+    sp->effectiveSpeed[client2] = speed2;
+
+    // Step 14: Trick Room
 
     if (sp->field_condition & FIELD_STATUS_TRICK_ROOM) {
-        speed1 = (10000 - speed1) % 8192;
-        speed2 = (10000 - speed2) % 8192;
+        speed1 = 10000 - speed1;
+        speed2 = 10000 - speed2;
+    }
+
+    // Step 15: Apply Limit
+
+    speed1 = speed1 % 8192;
+    speed2 = speed2 % 8192;
+
+    // End of calculating Speed Modifiers
+
+    // if one mon is fainted and the other isn't, then the alive one obviously goes first
+    if ((sp->battlemon[client1].hp == 0) && (sp->battlemon[client2].hp)) {
+        return 1;
+    }
+    if ((sp->battlemon[client1].hp) && (sp->battlemon[client2].hp == 0)) {
+        return 0;
+    }
+
+    // Potential After You or Quash present
+    if (sp->oneTurnFlag[client1].forceExecutionOrderFlag != sp->oneTurnFlag[client2].forceExecutionOrderFlag) {
+        switch (sp->oneTurnFlag[client1].forceExecutionOrderFlag) {
+            case EXECUTION_ORDER_AFTER_YOU:
+                return 0;
+                break;
+            case EXECUTION_ORDER_QUASH:
+                return 1;
+                break;
+            default:
+                break;
+        }
+        switch (sp->oneTurnFlag[client2].forceExecutionOrderFlag) {
+            case EXECUTION_ORDER_AFTER_YOU:
+                return 1;
+                break;
+            case EXECUTION_ORDER_QUASH:
+                return 0;
+                break;
+            default:
+                break;
+        }
+    }
+
+    if (hold_effect1 == HOLD_EFFECT_PRIORITY_DOWN) {
+        move_last1 = 1;
+    }
+
+    if (hold_effect2 == HOLD_EFFECT_PRIORITY_DOWN) {
+        move_last2 = 1;
     }
 
     if (flag & CALCSPEED_FLAG_NO_PRIORITY)
