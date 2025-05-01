@@ -73,7 +73,7 @@
 // if the level is greater than or equal to LEVEL_CAP_VARIABLE, the pokémon will no longer gain experience
 // uncommenting IMPLEMENT_LEVEL_CAP enables the level cap system.  undefining LEVEL_CAP_VARIABLE will just cause compilation errors
 // uncommenting UNCAP_CANDIES_FROM_LEVEL_CAP will allow for rare candies to not be capped by the level cap even with the level cap in place, like run & bun
-//#define IMPLEMENT_LEVEL_CAP
+#define IMPLEMENT_LEVEL_CAP
 #define LEVEL_CAP_VARIABLE 0x416F
 //#define UNCAP_CANDIES_FROM_LEVEL_CAP
 
@@ -92,7 +92,7 @@
 // IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS allows wild species to appear with different forms if it has multiple forms.
 // Normally you will use monwithform, encounterwithform, headbuttencounterwithform to specify different forms (similar to Gen 5+)
 // Uncomment this line to enable this functionality
-// #define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
+#define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
 
 // Some forms only exist in their debut games, with accompying mechanics. IMPLEMENT_GONE_SPECIES_MECHANICS lets these forms' mechanics coexist with the latest mechanics. Examples include Noble Pokémon
 #define IMPLEMENT_DEXIT_FORMS_MECHANICS
@@ -140,12 +140,30 @@
 #define UPDATE_VITAMIN_EV_CAPS
 
 // DISABLE_ITEMS_IN_TRAINER_BATTLE will disable the usage of items in trainer battles. This is also true for the AI.
-//#define DISABLE_ITEMS_IN_TRAINER_BATTLE
+#define DISABLE_ITEMS_IN_TRAINER_BATTLE
 
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
 #define REUSABLE_TMS
 
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
+
+// IMPLEMENT_SCALING defines whether or not dynamic level scaling of wild pokemon and enemy trainers is implemented, and provides a variable to allow for user selection of different implementations (WIP)
+// Need to add script to ask/set variable
+// 0 = Do Not Scale; 1 = Scale Up Wild and Trainer pokemon to AVERAGE level of player party; 2 = Scale Up Wild and Trainer pokemon to HIGHEST level in player party; 3 = Scale Up Wild and Trainer pokemon to LOWEST level in player party
+// Trainers will only scale up, if levels in trainers.s are higher they will remain the same.
+// uncommenting IMPLEMENT_SCALING enables dynamic scaling.  Undefining SCALING_TYPE_VARIABLE will just cause compilation errors
+#define IMPLEMENT_SCALING
+#define SCALING_TYPE_VARIABLE 0x406A
+
+// ALL_PERFECT_IVS defines whether or not all wild and gift pokemon have perfect IVS
+// This will set all wild and gift pokemon IVs to 31
+// comment out PERFECT_WILD_IVS to return to random IVs
+#define ALL_PERFECT_IVS
+
+// PERFECT_STARTER_IVS defines whether or not starter pokemon have perfect IVS
+// This will set all starter pokemon IVs to 31
+// comment out PERFECT_WILD_IVS to return to random IVs
+#define PERFECT_STARTER_IVS
 
 #endif
