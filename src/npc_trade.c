@@ -26,6 +26,19 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
     SetMonData(mon, MON_DATA_SPEED_IV, &trade_dat->speedIv);
     SetMonData(mon, MON_DATA_SPATK_IV, &trade_dat->spAtkIv);
     SetMonData(mon, MON_DATA_SPDEF_IV, &trade_dat->spDefIv);
+	
+	#ifdef ALL_PERFECT_IVS
+	
+	u16 IV_31 = 31;
+	
+	SetMonData(mon, MON_DATA_HP_IV, &IV_31);
+	SetMonData(mon, MON_DATA_ATK_IV, &IV_31);
+	SetMonData(mon, MON_DATA_DEF_IV, &IV_31);
+	SetMonData(mon, MON_DATA_SPATK_IV, &IV_31);
+	SetMonData(mon, MON_DATA_SPDEF_IV, &IV_31);
+	SetMonData(mon, MON_DATA_SPEED_IV, &IV_31);
+	
+	#endif
 
     SetMonData(mon, MON_DATA_COOL, &trade_dat->cool);
     SetMonData(mon, MON_DATA_BEAUTY, &trade_dat->beauty);
