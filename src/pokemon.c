@@ -1617,6 +1617,8 @@ u32 gLastPokemonLevelForMoneyCalc;
 void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon *pp)
 {
 	
+	#ifdef PERFECT_STARTER_IVS
+	
 	u16 IV_31;
 	IV_31 = 31;
 	
@@ -1626,7 +1628,8 @@ void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon 
 	SetMonData(pp, MON_DATA_SPATK_IV, &IV_31);
 	SetMonData(pp, MON_DATA_SPDEF_IV, &IV_31);
 	SetMonData(pp, MON_DATA_SPEED_IV, &IV_31);
-	RecalcPartyPokemonStats(pp);
+	
+	#endif
 	
     if (CheckScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG) == 1)
     {
