@@ -195,26 +195,30 @@ levelup SPECIES_WARTORTLE
 
 
 levelup SPECIES_BLASTOISE
-    learnset MOVE_FLASH_CANNON, 0
+    learnset MOVE_SCALD, 0
+    learnset MOVE_FALSE_SWIPE, 1
     learnset MOVE_FLASH_CANNON, 1
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_TAIL_WHIP, 1
+    learnset MOVE_ICY_WIND, 1
+    learnset MOVE_SCALD, 1
     learnset MOVE_WATER_GUN, 1
-    learnset MOVE_WITHDRAW, 1
     learnset MOVE_TAIL_WHIP, 4
     learnset MOVE_WATER_GUN, 7
     learnset MOVE_WITHDRAW, 10
     learnset MOVE_BUBBLE, 13
-    learnset MOVE_RAPID_SPIN, 14
-    learnset MOVE_BITE, 14
-    learnset MOVE_WATER_PULSE, 21
-    learnset MOVE_PROTECT, 22
-    learnset MOVE_AQUA_TAIL, 31
-    learnset MOVE_SHELL_SMASH, 35
-    learnset MOVE_RAIN_DANCE, 38
-    learnset MOVE_IRON_DEFENSE, 44
-    learnset MOVE_SKULL_BASH, 48
-    learnset MOVE_HYDRO_PUMP, 54
+    learnset MOVE_BITE, 17
+    learnset MOVE_FAKE_OUT, 19
+    learnset MOVE_RAPID_SPIN, 20
+    learnset MOVE_DETECT, 22
+    learnset MOVE_WATER_PULSE, 25
+    learnset MOVE_AQUA_TAIL, 33
+    learnset MOVE_SKULL_BASH, 40
+    learnset MOVE_ICE_BEAM, 44
+    learnset MOVE_IRON_DEFENSE, 47
+    learnset MOVE_RAIN_DANCE, 54
+    learnset MOVE_HYDRO_PUMP, 60
+    learnset MOVE_WAVE_CRASH, 67
+    learnset MOVE_AURA_SPHERE, 73
+    learnset MOVE_SHELL_SMASH, 82
     terminatelearnset
 
 
