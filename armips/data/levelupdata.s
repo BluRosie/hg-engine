@@ -3611,20 +3611,21 @@ levelup SPECIES_TYPHLOSION
 levelup SPECIES_TOTODILE
     learnset MOVE_SCRATCH, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_WATER_GUN, 6
+    learnset MOVE_AQUA_JET, 6
     learnset MOVE_RAGE, 8
     learnset MOVE_BITE, 13
-    learnset MOVE_SCARY_FACE, 15
-    learnset MOVE_ICE_FANG, 20
-    learnset MOVE_FLAIL, 22
-    learnset MOVE_CRUNCH, 27
-    learnset MOVE_CHIP_AWAY, 29
-    learnset MOVE_SLASH, 34
-    learnset MOVE_SCREECH, 36
-    learnset MOVE_THRASH, 41
-    learnset MOVE_AQUA_TAIL, 43
-    learnset MOVE_SUPERPOWER, 48
-    learnset MOVE_HYDRO_PUMP, 50
+    learnset MOVE_ICE_FANG, 15
+    learnset MOVE_SCARY_FACE, 18
+    learnset MOVE_FLAIL, 21
+    learnset MOVE_ROAR, 23
+    learnset MOVE_CRUNCH, 25
+    learnset MOVE_CHIP_AWAY, 27
+    learnset MOVE_SLASH, 30
+    learnset MOVE_SCREECH, 32
+    learnset MOVE_THRASH, 36
+    learnset MOVE_AQUA_TAIL, 39
+    learnset MOVE_SUPERPOWER, 42
+    learnset MOVE_HYDRO_PUMP, 46
     terminatelearnset
 
 
