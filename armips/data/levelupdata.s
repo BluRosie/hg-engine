@@ -15,21 +15,22 @@ levelup SPECIES_NONE
 
 levelup SPECIES_BULBASAUR
     learnset MOVE_TACKLE, 1
-    learnset MOVE_GROWL, 1
     learnset MOVE_GROWL, 3
-    learnset MOVE_VINE_WHIP, 5
-    learnset MOVE_LEECH_SEED, 8
-    learnset MOVE_GROWTH, 14
-    learnset MOVE_POISON_POWDER, 14
-    learnset MOVE_SLEEP_POWDER, 14
-    learnset MOVE_RAZOR_LEAF, 15
-    learnset MOVE_TAKE_DOWN, 18
-    learnset MOVE_SWEET_SCENT, 22
-    learnset MOVE_SEED_BOMB, 26
-    learnset MOVE_SYNTHESIS, 29
-    learnset MOVE_WORRY_SEED, 30
-    learnset MOVE_DOUBLE_EDGE, 30
-    learnset MOVE_SOLAR_BEAM, 36
+    learnset MOVE_VINE_WHIP, 6
+    learnset MOVE_LEECH_SEED, 7
+    learnset MOVE_MAGICAL_LEAF, 9
+    learnset MOVE_POISON_POWDER, 13
+    learnset MOVE_SLEEP_POWDER, 13
+    learnset MOVE_SLUDGE, 15
+    learnset MOVE_MEGA_DRAIN, 19
+    learnset MOVE_TAKE_DOWN, 21
+    learnset MOVE_GROWTH, 25
+    learnset MOVE_DOUBLE_EDGE, 27
+    learnset MOVE_WORRY_SEED, 31
+    learnset MOVE_SYNTHESIS, 33
+    learnset MOVE_SEED_BOMB, 37
+    learnset MOVE_SLUDGE_BOMB, 40
+    learnset MOVE_SOLAR_BEAM, 42
     terminatelearnset
 
 
