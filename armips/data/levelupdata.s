@@ -60,28 +60,28 @@ levelup SPECIES_IVYSAUR
 levelup SPECIES_VENUSAUR
     learnset MOVE_PETAL_BLIZZARD, 0
     learnset MOVE_PETAL_DANCE, 0
-    learnset MOVE_PETAL_BLIZZARD, 1
+    learnset MOVE_GROWL, 1
+    learnset MOVE_LEECH_SEED, 1
+    learnset MOVE_MAGICAL_LEAF, 1
     learnset MOVE_PETAL_DANCE, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_GROWL, 1
-    learnset MOVE_VINE_WHIP, 1
-    learnset MOVE_GROWTH, 1
-    learnset MOVE_LEECH_SEED, 1
     learnset MOVE_GROWL, 3
-    learnset MOVE_LEECH_SEED, 8
+    learnset MOVE_LEECH_SEED, 7
     learnset MOVE_VINE_WHIP, 9
-    learnset MOVE_POISON_POWDER, 14
-    learnset MOVE_SLEEP_POWDER, 14
-    learnset MOVE_RAZOR_LEAF, 15
-    learnset MOVE_SEED_BOMB, 20
-    learnset MOVE_TAKE_DOWN, 20
-    learnset MOVE_SWEET_SCENT, 26
+    learnset MOVE_POISON_POWDER, 13
+    learnset MOVE_SLEEP_POWDER, 13
+    learnset MOVE_TAKE_DOWN, 15
+    learnset MOVE_MEGA_DRAIN, 20
+    learnset MOVE_SLUDGE, 23
     learnset MOVE_GROWTH, 28
-    learnset MOVE_SYNTHESIS, 40
-    learnset MOVE_WORRY_SEED, 41
-    learnset MOVE_DOUBLE_EDGE, 41
-    learnset MOVE_PETAL_BLIZZARD, 50
-    learnset MOVE_SOLAR_BEAM, 55
+    learnset MOVE_DOUBLE_EDGE, 31
+    learnset MOVE_SLUDGE_BOMB, 39
+    learnset MOVE_SYNTHESIS, 45
+    learnset MOVE_POWER_WHIP, 50
+    learnset MOVE_GIGA_DRAIN, 53
+    learnset MOVE_SOLAR_BEAM, 58
+    learnset MOVE_LEAF_STORM, 61
+    learnset MOVE_CHLOROBLAST, 64
     terminatelearnset
 
 
