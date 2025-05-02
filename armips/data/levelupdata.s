@@ -3629,23 +3629,25 @@ levelup SPECIES_TOTODILE
 
 
 levelup SPECIES_CROCONAW
-    learnset MOVE_SCRATCH, 1
+    learnset MOVE_AQUA_JET, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_WATER_GUN, 1
+    learnset MOVE_SCRATCH, 1
     learnset MOVE_WATER_GUN, 6
     learnset MOVE_RAGE, 8
     learnset MOVE_BITE, 13
-    learnset MOVE_SCARY_FACE, 15
-    learnset MOVE_ICE_FANG, 21
+    learnset MOVE_ICE_FANG, 15
+    learnset MOVE_SEISMIC_TOSS, 18
+    learnset MOVE_SCARY_FACE, 21
+    learnset MOVE_ROAR, 23
     learnset MOVE_FLAIL, 24
-    learnset MOVE_CRUNCH, 30
-    learnset MOVE_CHIP_AWAY, 33
-    learnset MOVE_SLASH, 39
-    learnset MOVE_SCREECH, 42
-    learnset MOVE_THRASH, 48
-    learnset MOVE_AQUA_TAIL, 51
-    learnset MOVE_SUPERPOWER, 57
-    learnset MOVE_HYDRO_PUMP, 60
+    learnset MOVE_CRUNCH, 27
+    learnset MOVE_CHIP_AWAY, 30
+    learnset MOVE_SLASH, 33
+    learnset MOVE_SCREECH, 37
+    learnset MOVE_THRASH, 40
+    learnset MOVE_AQUA_TAIL, 43
+    learnset MOVE_SUPERPOWER, 46
+    learnset MOVE_HYDRO_PUMP, 49
     terminatelearnset
 
 
