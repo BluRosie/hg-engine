@@ -225,12 +225,13 @@ levelup SPECIES_BLASTOISE
 levelup SPECIES_CATERPIE
     learnset MOVE_TACKLE, 1
     learnset MOVE_STRING_SHOT, 1
-    learnset MOVE_BUG_BITE, 9
+    learnset MOVE_BUG_BITE, 7
     terminatelearnset
 
 
 levelup SPECIES_METAPOD
     learnset MOVE_HARDEN, 0
+    learnset MOVE_BUG_BITE, 1
     learnset MOVE_HARDEN, 1
     terminatelearnset
 
