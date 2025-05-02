@@ -154,44 +154,43 @@ levelup SPECIES_CHARIZARD
 
 
 levelup SPECIES_SQUIRTLE
+    learnset MOVE_FALSE_SWIPE, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_TAIL_WHIP, 1
-    learnset MOVE_WATER_GUN, 4
     learnset MOVE_TAIL_WHIP, 4
-    learnset MOVE_WITHDRAW, 7
-    learnset MOVE_RAPID_SPIN, 13
-    learnset MOVE_BITE, 13
-    learnset MOVE_BUBBLE, 13
-    learnset MOVE_WATER_PULSE, 19
-    learnset MOVE_PROTECT, 19
-    learnset MOVE_AQUA_TAIL, 25
-    learnset MOVE_SHELL_SMASH, 27
-    learnset MOVE_RAIN_DANCE, 28
-    learnset MOVE_IRON_DEFENSE, 31
-    learnset MOVE_SKULL_BASH, 33
-    learnset MOVE_HYDRO_PUMP, 36
+    learnset MOVE_BUBBLE, 7
+    learnset MOVE_RAPID_SPIN, 10
+    learnset MOVE_WATER_PULSE, 13
+    learnset MOVE_BITE, 16
+    learnset MOVE_FAKE_OUT, 19
+    learnset MOVE_DETECT, 22
+    learnset MOVE_BUBBLE_BEAM, 25
+    learnset MOVE_AQUA_TAIL, 28
+    learnset MOVE_SHELL_SMASH, 31
+    learnset MOVE_IRON_DEFENSE, 34
+    learnset MOVE_RAIN_DANCE, 37
+    learnset MOVE_HYDRO_PUMP, 40
     terminatelearnset
 
 
 levelup SPECIES_WARTORTLE
+    learnset MOVE_ICY_WIND, 0
+    learnset MOVE_FALSE_SWIPE, 1
+    learnset MOVE_ICY_WIND, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_TAIL_WHIP, 1
     learnset MOVE_WATER_GUN, 1
     learnset MOVE_WITHDRAW, 1
     learnset MOVE_TAIL_WHIP, 4
-    learnset MOVE_WATER_GUN, 7
-    learnset MOVE_WITHDRAW, 10
-    learnset MOVE_BUBBLE, 13
-    learnset MOVE_RAPID_SPIN, 14
-    learnset MOVE_BITE, 14
-    learnset MOVE_WATER_PULSE, 21
-    learnset MOVE_PROTECT, 22
-    learnset MOVE_AQUA_TAIL, 31
-    learnset MOVE_RAIN_DANCE, 34
-    learnset MOVE_SHELL_SMASH, 35
-    learnset MOVE_IRON_DEFENSE, 40
-    learnset MOVE_SKULL_BASH, 43
-    learnset MOVE_HYDRO_PUMP, 46
+    learnset MOVE_BUBBLE, 7
+    learnset MOVE_RAPID_SPIN, 10
+    learnset MOVE_WATER_PULSE, 13
+    learnset MOVE_BITE, 17
+    learnset MOVE_FAKE_OUT, 19
+    learnset MOVE_DETECT, 22
+    learnset MOVE_AQUA_TAIL, 33
+    learnset MOVE_SHELL_SMASH, 37
+    learnset MOVE_IRON_DEFENSE, 41
+    learnset MOVE_RAIN_DANCE, 45
+    learnset MOVE_HYDRO_PUMP, 49
     terminatelearnset
 
 
