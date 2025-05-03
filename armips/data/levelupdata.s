@@ -2864,7 +2864,7 @@ levelup SPECIES_OMASTAR
 
 
 levelup SPECIES_KABUTO
-    learnset MOVE_HARDEN, 
+    learnset MOVE_HARDEN, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_ABSORB, 6
     learnset MOVE_LEER, 11
@@ -3745,7 +3745,7 @@ levelup SPECIES_AMPHAROS
 
 
 levelup SPECIES_BELLOSSOM
-    learnset MOVE_MAGICAL_LEAF, 
+    learnset MOVE_MAGICAL_LEAF, 1
     learnset MOVE_LEAF_BLADE, 1
     learnset MOVE_LEAF_STORM, 1
     learnset MOVE_MAGICAL_LEAF, 1
@@ -4523,7 +4523,7 @@ levelup SPECIES_SLUGMA
 
 
 levelup SPECIES_MAGCARGO
-    learnset MOVE_EARTH_POWER, 
+    learnset MOVE_EARTH_POWER, 1
     learnset MOVE_EMBER, 1
     learnset MOVE_SMOG, 1
     learnset MOVE_WILL_O_WISP, 1
@@ -9719,14 +9719,14 @@ levelup SPECIES_GALLADE
     learnset MOVE_SLASH, 0
     learnset MOVE_SLASH, 1
     learnset MOVE_AQUA_CUTTER, 1
-    learnset MOVE_CONFUSION, 
+    learnset MOVE_CONFUSION, 1
     learnset MOVE_LEAF_BLADE, 1
-    learnset MOVE_LEER, 
-    learnset MOVE_NIGHT_SLASH, 
-    learnset MOVE_STORED_POWER, 
-    learnset MOVE_TELEPORT, 
-    learnset MOVE_CONFUSION, 
-    learnset MOVE_TELEPORT, 
+    learnset MOVE_LEER, 1
+    learnset MOVE_NIGHT_SLASH, 1
+    learnset MOVE_STORED_POWER, 1
+    learnset MOVE_TELEPORT, 1
+    learnset MOVE_CONFUSION, 4
+    learnset MOVE_TELEPORT, 9
     learnset MOVE_QUICK_GUARD, 1
     learnset MOVE_FURY_CUTTER, 14
     learnset MOVE_AERIAL_ACE, 17
@@ -9887,7 +9887,7 @@ levelup SPECIES_MESPRIT
 
 levelup SPECIES_AZELF
     learnset MOVE_CONFUSION, 1
-    learnset MOVE_LAST_RESORT, 
+    learnset MOVE_LAST_RESORT, 1
     learnset MOVE_NATURAL_GIFT, 1
     learnset MOVE_REST, 1
     learnset MOVE_IMPRISON, 6
@@ -10922,7 +10922,7 @@ levelup SPECIES_SIMISEAR
     learnset MOVE_LEER, 1
     learnset MOVE_LICK, 1
     learnset MOVE_FURY_SWIPES, 1
-    learnset MOVE_FLAME_BURST, 
+    learnset MOVE_FLAME_BURST, 1
     learnset MOVE_MYSTICAL_FIRE, 1
     learnset MOVE_FIRE_BLAST, 50
     terminatelearnset
@@ -11325,7 +11325,7 @@ levelup SPECIES_CONKELDURR
     learnset MOVE_SCARY_FACE, 41
     learnset MOVE_HAMMER_ARM, 45
     learnset MOVE_STONE_EDGE, 49
-    learnset MOVE_FOCUS_PUNCH, 53=
+    learnset MOVE_FOCUS_PUNCH, 53
     learnset MOVE_SUPERPOWER, 57
     terminatelearnset
 
@@ -11759,7 +11759,7 @@ levelup SPECIES_DARMANITAN
 levelup SPECIES_MARACTUS
     learnset MOVE_ABSORB, 1
     learnset MOVE_COTTON_GUARD, 1
-    learnset MOVE_PECK, 
+    learnset MOVE_PECK, 1
     learnset MOVE_SPIKY_SHIELD, 1
     learnset MOVE_SWEET_SCENT, 3
     learnset MOVE_GROWTH, 6
