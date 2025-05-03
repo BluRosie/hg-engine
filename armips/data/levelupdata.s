@@ -14,7 +14,7 @@ levelup SPECIES_NONE
 
 
 levelup SPECIES_BULBASAUR
-    learnset MOVE_TACLKE, 1
+    learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 3
     learnset MOVE_VINE_WHIP, 6
     learnset MOVE_LEECH_SEED, 7
