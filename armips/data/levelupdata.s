@@ -12184,24 +12184,24 @@ levelup SPECIES_GOTHORITA
 
 levelup SPECIES_GOTHITELLE
     learnset MOVE_HEAL_BLOCK, 1
-	learnset MOVE_PLAY_NICE, 1
-	learnset MOVE_POUND, 1
-	learnset MOVE_THUNDER_WAVE, 1
-	learnset MOVE_CONFUSION, 3
-	learnset MOVE_TICKLE, 7
-	learnset MOVE_FAKE_TEARS, 10
-	learnset MOVE_DOUBLE_SLAP, 14
-	learnset MOVE_PSYBEAM, 16
-	learnset MOVE_EMBARGO, 19
-	learnset MOVE_FEINT_ATTACK, 24
-	learnset MOVE_PSYSHOCK, 25
-	learnset MOVE_FLATTER, 28
-	learnset MOVE_FUTURE_SIGHT, 31
-	learnset MOVE_SHADOW_BALL, 34
-	learnset MOVE_PSYCHIC, 39
-	learnset MOVE_CHARM, 54
-	learnset MOVE_MAGIC_ROOM, 59
-	learnset MOVE_PSYCHO_BOOST, 70
+    learnset MOVE_PLAY_NICE, 1
+    learnset MOVE_POUND, 1
+    learnset MOVE_THUNDER_WAVE, 1
+    learnset MOVE_CONFUSION, 3
+    learnset MOVE_TICKLE, 7
+    learnset MOVE_FAKE_TEARS, 10
+    learnset MOVE_DOUBLE_SLAP, 14
+    learnset MOVE_PSYBEAM, 16
+    learnset MOVE_EMBARGO, 19
+    learnset MOVE_FEINT_ATTACK, 24
+    learnset MOVE_PSYSHOCK, 25
+    learnset MOVE_FLATTER, 28
+    learnset MOVE_FUTURE_SIGHT, 31
+    learnset MOVE_SHADOW_BALL, 34
+    learnset MOVE_PSYCHIC, 39
+    learnset MOVE_CHARM, 54
+    learnset MOVE_MAGIC_ROOM, 59
+    learnset MOVE_PSYCHO_BOOST, 70
     terminatelearnset
 
 
@@ -12364,7 +12364,7 @@ levelup SPECIES_VANILLUXE
     learnset MOVE_UPROAR, 1
     learnset MOVE_WEATHER_BALL, 1
     learnset MOVE_HARDEN, 4
-    learnset MOVE_ASTONISH, 7'
+    learnset MOVE_ASTONISH, 7
     learnset MOVE_UPROAR, 10
     learnset MOVE_ICY_WIND, 13
     learnset MOVE_MIST, 16
@@ -12572,28 +12572,28 @@ levelup SPECIES_JELLICENT
 
 levelup SPECIES_ALOMOMOLA
     learnset MOVE_HEALING_WISH, 1
-	learnset MOVE_HELPING_HAND, 1
-	learnset MOVE_HYDRO_PUMP, 1
-	learnset MOVE_PLAY_NICE, 1
-	learnset MOVE_POUND, 1
-	learnset MOVE_WATER_SPORT, 1
-	learnset MOVE_WIDE_GUARD, 1
-	learnset MOVE_AQUA_RING, 5
-	learnset MOVE_AQUA_JET, 9
-	learnset MOVE_DOUBLE_SLAP, 13
-	learnset MOVE_HEAL_PULSE, 17
-	learnset MOVE_PROTECT, 21
-	learnset MOVE_WATER_PULSE, 25
-	learnset MOVE_WAKE_UP_SLAP, 29
-	learnset MOVE_SOAK, 33
-	learnset MOVE_WISH, 37
-	learnset MOVE_BRINE, 41
-	learnset MOVE_SAFEGUARD, 45
-	learnset MOVE_WHIRLPOOL, 49
-	learnset MOVE_HELPING_HAND, 53
-	learnset MOVE_HEALING_WISH, 57
-	learnset MOVE_WIDE_GUARD, 61
-	learnset MOVE_HYDRO_PUMP, 65
+    learnset MOVE_HELPING_HAND, 1
+    learnset MOVE_HYDRO_PUMP, 1
+    learnset MOVE_PLAY_NICE, 1
+    learnset MOVE_POUND, 1
+    learnset MOVE_WATER_SPORT, 1
+    learnset MOVE_WIDE_GUARD, 1
+    learnset MOVE_AQUA_RING, 5
+    learnset MOVE_AQUA_JET, 9
+    learnset MOVE_DOUBLE_SLAP, 13
+    learnset MOVE_HEAL_PULSE, 17
+    learnset MOVE_PROTECT, 21
+    learnset MOVE_WATER_PULSE, 25
+    learnset MOVE_WAKE_UP_SLAP, 29
+    learnset MOVE_SOAK, 33
+    learnset MOVE_WISH, 37
+    learnset MOVE_BRINE, 41
+    learnset MOVE_SAFEGUARD, 45
+    learnset MOVE_WHIRLPOOL, 49
+    learnset MOVE_HELPING_HAND, 53
+    learnset MOVE_HEALING_WISH, 57
+    learnset MOVE_WIDE_GUARD, 61
+    learnset MOVE_HYDRO_PUMP, 65
     terminatelearnset
 
 
