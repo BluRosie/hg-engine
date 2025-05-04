@@ -1,5 +1,6 @@
 #include "include/config.h"
 #include "include/debug.h"
+#include "include/constants/moves.h"
 #include "include/constants/save.h"
 
 # damage calc hook setup
@@ -188,6 +189,9 @@ arm9 0208CDE8 04
 0018 021EE796 04
 0018 021EEC74 04
 0018 021F8D50 04
+
+# expand metronome movepool
+0012 022408F8 NUM_OF_MOVES
 
 # pass PartyPokemon to ModifyStatByNature for recalculating PartyPokemon stats
 arm9 0206E3C6 00 00 00 00
@@ -480,22 +484,22 @@ arm9 0204B94C FC
 0012 02246560 FC
 
 # MainMusicComboTable combo range
-arm9 080517AA 2D
-arm9 080517D4 2D
+arm9 080517AA 2E
+arm9 080517D4 2E
 
 # TrainerClassToMusicCombo table range
-arm9 08051886 20
+arm9 08051886 21
 
 # PokemonBattleMusic table range
-arm9 080518CA 0B
+arm9 080518CA C
 
 # sTrainerEncounterMusicParam table range
-arm9 080550D4 2C
+arm9 080550D4 2D
 
 # PrizeMoney table range
-0012 0223FBD0 81
-0012 0223FBD4 81
-0012 0223FBDC 81
+0012 0223FBD0 82
+0012 0223FBD4 82
+0012 0223FBDC 82
 
 #ifdef STATIC_HP_BAR
 
