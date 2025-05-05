@@ -385,10 +385,11 @@ const u16 PunchingMovesTable[] = {
     MOVE_WICKED_BLOW,
 };
 
-// TODO: Tidy up this
 // set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
-BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no)
-{
+BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no) {
+    // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-58#post-8684263
+
+    // Apply accuracy / evasion modifiers
     u16 accuracy;
     s8 temp;
     s8 stat_stage_acc, stat_stage_evasion;
@@ -397,84 +398,185 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     u8 move_type UNUSED; // unused but will be needed
     u8 move_split;
     u16 atk_ability = GetBattlerAbility(sp, attacker);
-
-    if (BattleTypeGet(bw) & BATTLE_TYPE_CATCHING_DEMO)
-    {
-        return FALSE;
-    }
-
-    // should take precedent over a move using an alternate accuracy calc, as this will still be called for those.
-    if (GetBattlerAbility(sp, defender) == ABILITY_TELEPATHY // defender has telepathy ability
-     && (attacker & 1) == (defender & 1) // attacker and defender are on the same side
-     && sp->moveTbl[move_no].power != 0) // move actually damages
-    {
-        sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
-        sp->oneTurnFlag[attacker].parental_bond_flag = 0;
-        sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
-        return FALSE;
-    }
-
-    if (atk_ability == ABILITY_PRANKSTER // prankster ability
-     && (sp->battlemon[defender].type1 == TYPE_DARK || sp->battlemon[defender].type2 == TYPE_DARK) // used on a dark type
-     && GetMoveSplit(sp, move_no) == SPLIT_STATUS // move is actually status
-     && (attacker & 1) != (defender & 1)) // used on an enemy
-    {
-        sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
-        sp->oneTurnFlag[attacker].parental_bond_flag = 0;
-        sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
-        return FALSE;
-    }
-
     int i;
+    int maxBattlers = BattleWorkClientSetMaxGet(bw);
+    int accuracyModifier = UQ412__1_0;
 
-    for (i = 0; i < (s32)NELEMS(PowderMovesList); i++) {
-        if (sp->current_move_index == PowderMovesList[i]) {
-            if
-            (
-                (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_GRASS) ||
-                (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_GRASS) ||
-                (hold_effect == HOLD_EFFECT_SPORE_POWDER_IMMUNITY)
-            )
-            {
-                sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
-                sp->oneTurnFlag[attacker].parental_bond_flag = 0;
-                sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
-                return FALSE;
-            }
-        }
+    if (BattleTypeGet(bw) & BATTLE_TYPE_CATCHING_DEMO) {
+        return FALSE;
+    }
+
+    if (sp->server_status_flag & SERVER_STATUS_FLAG_x20) {
+        return FALSE;
+    }
+
+    if (sp->server_status_flag & SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC) {
+        return FALSE;
     }
 
     move_type = GetAdjustedMoveType(sp, attacker, move_no);
     move_split = GetMoveSplit(sp, move_no);
 
+    // 4. Look up the move's "base accuracy". For example, Fire Blast's base accuracy is 85.
+
+    accuracy = sp->moveTbl[move_no].accuracy;
+
+    if (accuracy == 0) {
+        return FALSE;
+    }
+
+    // 5. If the move is a status move, has greater than 50% accuracy, and the target has Wonder Skin, or the move is Thunder / Hurricane and the weather is sun, set the move's accuracy to 50.
+
+    // handle wonder skin
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE)
+    && (GetMoveSplit(sp, move_no) == SPLIT_STATUS)) {
+        accuracy = accuracy > 50 ? 50 : accuracy;
+    }
+
+    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+    && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
+        if ((sp->field_condition & WEATHER_SUNNY_ANY)
+        // thunder sucks in the sun
+        && ((sp->moveTbl[move_no].effect == MOVE_EFFECT_THUNDER)
+        // so does hurricane
+        || (sp->moveTbl[move_no].effect == MOVE_EFFECT_HURRICANE))) { 
+            accuracy = 50;
+        }
+    }
+
+    // 5.5 We handle Fog here because there is no vanilla Gen 5+ implementation
+
+    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+    && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
+        if (sp->field_condition & FIELD_STATUS_FOG) {
+            accuracy = accuracy * 6 / 10;
+        }
+    }
+
+    // 6. Chain the accuracy and evasion modifiers
+
+    // 6.1 Gravity
+
+    if (sp->field_condition & FIELD_STATUS_GRAVITY) {
+        QMul_RoundUp(accuracyModifier, UQ412__1_67);
+    }
+
+    // 6.2 Abilities; order is determined by raw Speed with a non-RNG Speed tie.
+    
+    SortRawSpeedNonRNGArray(bw, sp);
+
+    for (i = 0; i < maxBattlers; i++) {
+
+        // Tangled Feet - 2048/4096
+
+        if ((defender == sp->rawSpeedNonRNGClientOrder[i])
+        && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TANGLED_FEET) == TRUE)
+        && (sp->battlemon[defender].condition2 & STATUS2_CONFUSION)) {
+            QMul_RoundUp(accuracyModifier, UQ412__0_5);
+            continue;
+        }
+
+        // Hustle - 3277/4096
+
+        if ((attacker == sp->rawSpeedNonRNGClientOrder[i])
+        && (atk_ability == ABILITY_HUSTLE)
+        && (move_split == SPLIT_PHYSICAL)) {
+            QMul_RoundUp(accuracyModifier, UQ412__0_8);
+            continue;
+        }
+
+        // Sand Veil- 3277/4096
+
+        if ((sp->field_condition & WEATHER_SANDSTORM_ANY)
+        && (defender == sp->rawSpeedNonRNGClientOrder[i])
+        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAND_VEIL)) {
+            QMul_RoundUp(accuracyModifier, UQ412__0_8);
+            continue;
+        }
+
+        // Snow Cloak - 3277/4096
+        if ((sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))
+        && (defender == sp->rawSpeedNonRNGClientOrder[i])
+        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SNOW_CLOAK)) {
+            QMul_RoundUp(accuracyModifier, UQ412__0_8);
+            continue;
+        }
+
+        // Compound Eyes - 5325/4096
+
+        if ((attacker == sp->rawSpeedNonRNGClientOrder[i])
+        && (atk_ability == ABILITY_COMPOUND_EYES)) {
+            QMul_RoundUp(accuracyModifier, UQ412__1_3);
+        }
+
+        // Victory Star - 4506/4096 for each Victory Star
+
+        if (BATTLER_ALLY(attacker) == sp->rawSpeedNonRNGClientOrder[i]
+        && GetBattlerAbility(sp, sp->rawSpeedNonRNGClientOrder[i]) == ABILITY_VICTORY_STAR) {
+            QMul_RoundUp(accuracyModifier, UQ412__1_1_BUT_HIGHER);
+        }
+    }
+
+    // 6.3 Items; order is determined by raw Speed with a non-RNG Speed tie.
+
+    for (i = 0; i < maxBattlers; i++) {
+        if (defender == sp->rawSpeedNonRNGClientOrder[i]) {
+            hold_effect = HeldItemHoldEffectGet(sp, defender);
+            hold_effect_atk = HeldItemAtkGet(sp, defender, 0);
+
+            // Bright Powder - 3686/4096
+            // Lax Incense - 3686/4096
+
+            if (hold_effect == HOLD_EFFECT_ACC_REDUCE) {
+                QMul_RoundUp(accuracyModifier, UQ412__0_9);
+            }
+        }
+
+        if (attacker == sp->rawSpeedNonRNGClientOrder[i]) {
+            hold_effect = HeldItemHoldEffectGet(sp, attacker);
+            hold_effect_atk = HeldItemAtkGet(sp, attacker, 0);
+
+            // Wide Lens - 4505/4096
+
+            if (hold_effect == HOLD_EFFECT_ACCURACY_UP) {
+                QMul_RoundUp(accuracyModifier, UQ412__1_1);
+            }
+
+            // Zoom Lens - 4915/4096
+
+            // TODO: We modified playerActions in `ServerBeforeActInternal`. Does it affect `IsMovingAfterClient`?
+            if ((hold_effect == HOLD_EFFECT_ACCURACY_UP_SLOWER) && (IsMovingAfterClient(sp, defender) == TRUE)) {
+                QMul_RoundUp(accuracyModifier, UQ412__1_2);
+            }
+        }
+    }
+
+    // 7. Apply a modifier to the value from step 5) with the result of step 6). That is, pokeRound[(step 5 * step 6) / 4096], where pokeRound means do standard rounding, but round down on 0.5. The resulting value can be greater than 100.
+
+    QMul_RoundDown(accuracy, accuracyModifier);
+
+    // Apply accuracy stat boosts / drops
+
+    // Determine the number of accuracy / evasion boosts. The number must be within 0-12. (0 = -6, 1 = -5, 6 = 0, 12 = +6, etc.)
+
     stat_stage_acc = sp->battlemon[attacker].states[STAT_ACCURACY] - 6;
+    GF_ASSERT(stat_stage_acc >= 0 && stat_stage_acc <= 12);
     stat_stage_evasion = 6 - sp->battlemon[defender].states[STAT_EVASION];
+    GF_ASSERT(stat_stage_evasion >= 0 && stat_stage_evasion <= 12);
 
-    // if (atk_ability == ABILITY_SIMPLE)
-    // {
-    //     stat_stage_acc *= 2;
-    // }
+    // 8. If the user has Keen Eye or Unaware, or the move is Sacred Sword / Chip Away / Darkest Lariat, or the target is identified (Odor Sleuth / Foresight / Miracle Eye) and has positive evasion boosts, set the target's evasion boosts to 6 (+0).
 
-    // if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SIMPLE) == TRUE)
-    // {
-    //     stat_stage_evasion *= 2;
-    // }
+    if ((atk_ability == ABILITY_ILLUMINATE || atk_ability == ABILITY_KEEN_EYE || atk_ability == ABILITY_UNAWARE || atk_ability == ABILITY_MINDS_EYE)
+    || (move_no == MOVE_SACRED_SWORD || move_no == MOVE_CHIP_AWAY || move_no == MOVE_DARKEST_LARIAT)
+    || (((sp->battlemon[defender].condition2 & STATUS2_FORESIGHT) || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MIRACLE_EYE)) && (stat_stage_evasion < 0))) {
+        stat_stage_evasion = 0;
+    }
 
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_UNAWARE) == TRUE)
-    {
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_UNAWARE) == TRUE) {
         stat_stage_acc = 0;
     }
 
-    if (atk_ability == ABILITY_UNAWARE || atk_ability == ABILITY_MINDS_EYE || atk_ability == ABILITY_KEEN_EYE || atk_ability == ABILITY_ILLUMINATE)
-    {
-        stat_stage_evasion = 0;
-    }
-
-    if (((sp->battlemon[defender].condition2 & STATUS2_FORESIGHT) || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MIRACLE_EYE))
-     && (stat_stage_evasion < 0))
-    {
-        stat_stage_evasion = 0;
-    }
+    // 9. Start with 6, then add all of the user's accuracy stat boosts / drops, and subtract all of the target's evasion stat boosts / drops.
 
     temp = 6 + stat_stage_evasion + stat_stage_acc;
 
@@ -487,129 +589,39 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         temp = 12;
     }
 
-    accuracy = sp->moveTbl[move_no].accuracy;
-
-    if (accuracy == 0)
-    {
-        return FALSE;
-    }
-
-    if (sp->server_status_flag & SERVER_STATUS_FLAG_x20)
-    {
-        return FALSE;
-    }
-
-    if (sp->server_status_flag & SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC)
-    {
-        return FALSE;
-    }
-
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
-     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
-    {
-        if ((sp->field_condition & WEATHER_SUNNY_ANY)
-         && ((sp->moveTbl[move_no].effect == MOVE_EFFECT_THUNDER) // thunder sucks in the sun
-          || (sp->moveTbl[move_no].effect == MOVE_EFFECT_HURRICANE))) // so does hurricane
-        {
-            accuracy = 50;
-        }
-    }
+    // 10. Take the value of step 9 and compare to the following table. Multiply the result from step 7 by the numerator first, then divide by the denominator and floor the result. If the resulting value would be greater than 100, make it 100.
 
     accuracy *= sAccStatChanges[temp].numerator;
     accuracy /= sAccStatChanges[temp].denominator;
 
-    if (atk_ability == ABILITY_COMPOUND_EYES)
-    {
-        accuracy = accuracy * 130 / 100;
+    accuracy = accuracy > 100 ? 100 : accuracy;
+
+    // Final steps
+
+    // 11. If Micle Berry would boost the move's accuracy, pokeRound([step 10 * 4915]/4096).
+
+    if (sp->boostedAccuracy) {
+        QMul_RoundDown(accuracy, UQ412__1_2);
     }
 
-    // handle wonder skin
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (GetMoveSplit(sp, move_no) == SPLIT_STATUS))
-    {
-        accuracy = accuracy * 50 / 100;
+    // 12. If the percentage is above 100, make it 100.
+
+    accuracy = accuracy > 100 ? 100 : accuracy;
+
+    // 13. If the affection of the target is 4 hearts or more, subtract 10. You can't go below 0.
+    // https://bulbapedia.bulbagarden.net/wiki/Friendship
+
+#ifdef FRIENDSHIP_EFFECTS
+    if ((sp->battlemon[defender].friendship == 255)
+    && !(BattleTypeGet(bw) & BATTLE_TYPE_NO_EXPERIENCE)) {
+        accuracy -= 10;
+        accuracy = accuracy < 0 ? 0 : accuracy;
     }
+#endif
 
-    // handle victory star
-    if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_VICTORY_STAR && sp->battlemon[BATTLER_ALLY(attacker)].hp != 0)
-     || (atk_ability == ABILITY_VICTORY_STAR))
-    {
-        accuracy = accuracy * 110 / 100;
-    }
+    // 14. Roll a random number 0-99 inclusive. If the accuracy value is greater than that random number, the move hits. (That is, check if accuracy > rand(100)).
 
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
-     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
-    {
-        if (sp->field_condition & WEATHER_SANDSTORM_ANY){
-            if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAND_VEIL) == TRUE)
-            {
-                accuracy = accuracy * 80 / 100;
-            }
-        }
-        if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))
-        {
-            if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SNOW_CLOAK) == TRUE)
-            {
-                accuracy = accuracy * 80 / 100;
-            }
-        }
-        if (sp->field_condition & FIELD_STATUS_FOG)
-        {
-            accuracy = accuracy * 6 / 10;
-        }
-    }
-
-    if ((atk_ability == ABILITY_HUSTLE) && (move_split == SPLIT_PHYSICAL))
-    {
-        accuracy = accuracy * 80 / 100;
-    }
-
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TANGLED_FEET) == TRUE)
-     && (sp->battlemon[defender].condition2 & STATUS2_CONFUSION))
-    {
-        accuracy = accuracy * 50 / 100;
-    }
-
-    hold_effect = HeldItemHoldEffectGet(sp, defender);
-    hold_effect_atk = HeldItemAtkGet(sp, defender, 0);
-
-    if (hold_effect == HOLD_EFFECT_ACC_REDUCE)
-    {
-        accuracy = accuracy * (100 - hold_effect_atk) / 100;
-    }
-
-    hold_effect = HeldItemHoldEffectGet(sp, attacker);
-    hold_effect_atk = HeldItemAtkGet(sp, attacker, 0);
-
-    if (hold_effect == HOLD_EFFECT_ACCURACY_UP)
-    {
-        accuracy = accuracy * (100 + hold_effect_atk) / 100;
-    }
-
-    if ((hold_effect == HOLD_EFFECT_ACCURACY_UP_SLOWER) && (IsMovingAfterClient(sp, defender) == TRUE))
-    {
-        accuracy = accuracy * (100 + hold_effect_atk) / 100;
-    }
-
-    if (sp->boostedAccuracy)
-    {
-        accuracy = accuracy * 120 / 100;
-    }
-
-    if (sp->field_condition & FIELD_STATUS_GRAVITY)
-    {
-        accuracy = accuracy * 10 / 6;
-    }
-
-    // toxic when used by a poison type
-    if (move_no == MOVE_TOXIC
-     && (BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
-      || BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON))
-    {
-        return FALSE;
-    }
-
-    if (((BattleRand(bw) % 100) + 1) > accuracy)
-    {
+    if (accuracy <= (BattleRand(bw) % 100)) {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
         sp->oneTurnFlag[attacker].parental_bond_flag = 0;
         sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
@@ -2059,18 +2071,45 @@ u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
     return sp->moveTbl[moveno].split;
 }
 
+const u16 MinimizeVulnerabilityMovesList[] = {
+    MOVE_BODY_SLAM,
+    MOVE_STOMP,
+    MOVE_SLEEP_POWDER,
+    MOVE_DRAGON_RUSH,
+    MOVE_STEAMROLLER,
+    MOVE_HEAT_CRASH,
+    MOVE_HEAVY_SLAM,
+    MOVE_FLYING_PRESS,
+    MOVE_MALICIOUS_MOONSAULT,
+    MOVE_SUPERCELL_SLAM
+};
+
+/**
+ * @brief checks if the move index is a move that will hit with double power if target is minimized
+ * @param move move index to check
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsMoveInMinimizeVulnerabilityMovesList(u16 move) {
+    return IsElementInArray(MinimizeVulnerabilityMovesList, (u16 *)&move, NELEMS(MinimizeVulnerabilityMovesList), sizeof(MinimizeVulnerabilityMovesList[0]));
+}
+
+// We change it so that if it is sure-hit, return TRUE
 BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, int battlerIdAttacker, int battlerIdTarget, int move) {
     if (sp->server_status_flag & BATTLE_STATUS_CHARGE_TURN) {
-        return FALSE;
+        return TRUE;
     }
 
-    if (sp->oneTurnFlag[battlerIdTarget].mamoru_flag
-        && sp->moveTbl[move].flag & (1 << 1)
-        && (move != MOVE_CURSE || CurseUserIsGhost(sp, move, battlerIdAttacker) == TRUE)
-        && (!CheckMoveIsChargeMove(sp, move) || sp->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)) {
-        UnlockBattlerOutOfCurrentMove(bw, sp, battlerIdAttacker);
-        sp->waza_status_flag |= WAZA_STATUS_FLAG_MAMORU_NOHIT;
-        return FALSE;
+    // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-58#post-8684263
+
+    // Check if the move will hit with certainty
+
+    // 1. Check if user or target has No Guard, or if the user has sure-hit accuracy from Poison-type Toxic, or if the user has used Lock-On / Mind Reader.
+
+    // toxic when used by a poison type
+    if (move == MOVE_TOXIC
+        && (BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
+        || BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON)) {
+        return TRUE;
     }
 
     if (!(sp->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE) //TODO: Is this flag a debug flag to ignore hit rates..?
@@ -2079,21 +2118,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
           || GetBattlerAbility(sp, battlerIdAttacker) == ABILITY_NO_GUARD
           || GetBattlerAbility(sp, battlerIdTarget) == ABILITY_NO_GUARD)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-        return FALSE;
-    }
-
-    if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-        if ((sp->field_condition & WEATHER_RAIN_ANY) && ((sp->moveTbl[move].effect == MOVE_EFFECT_THUNDER)
-         || (sp->moveTbl[move].effect == MOVE_EFFECT_HURRICANE)
-         || (sp->moveTbl[move].effect == MOVE_EFFECT_BLEAKWIND_STORM)
-         || (sp->moveTbl[move].effect == MOVE_EFFECT_WILDBOLT_STORM)
-         || (sp->moveTbl[move].effect == MOVE_EFFECT_SANDSEAR_STORM))) {
-            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-        }
-        // Blizzard is 100% accurate in Snow also
-        if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && sp->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
-            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-        }
+        return TRUE;
     }
 
     if (!(sp->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
@@ -2103,7 +2128,45 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
             || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIG) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
             || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIVE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING))) {
         sp->waza_status_flag |= WAZA_STATUS_FLAG_KIE_NOHIT;
+        return FALSE;
     }
+
+    // 2. Check if the move itself is sure-hit (accuracy 101, like Aerial Ace), or if the move was custom-set to be sure-hit: Pursuit and target is switching, Thunder / Hurricane in rain, Blizzard in hail, Stomp / Steamroller / Dragon Rush / Body Slam / Malicious Moonsault / Heavy Slam / Heat Crash / Flying Press vs. Minimize.
+    // TODO: modernise flow and Handle Pursuit
+
+    if (sp->moveTbl[move].accuracy == 0) {
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+    }
+
+    if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+    && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+        if ((sp->field_condition & WEATHER_RAIN_ANY)
+        && ((sp->moveTbl[move].effect == MOVE_EFFECT_THUNDER)
+        || (sp->moveTbl[move].effect == MOVE_EFFECT_HURRICANE)
+        || (sp->moveTbl[move].effect == MOVE_EFFECT_BLEAKWIND_STORM)
+        || (sp->moveTbl[move].effect == MOVE_EFFECT_WILDBOLT_STORM)
+        || (sp->moveTbl[move].effect == MOVE_EFFECT_SANDSEAR_STORM))) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+            return TRUE;
+        }
+        // Blizzard is 100% accurate in Snow also
+        if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && sp->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+            return TRUE;
+        }
+    }
+
+    if (sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZED
+        && !sp->battlemon[battlerIdTarget].is_currently_dynamaxed
+        && IsMoveInMinimizeVulnerabilityMovesList(move)) {
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        return TRUE;
+    }
+
+    // 3. Check if the target has Telekinesis.
+
+    // TODO
+
     return FALSE;
 }
 
