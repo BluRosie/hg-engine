@@ -526,3 +526,6 @@ arm9 080550D4 2C
 ## AllocFromHeapInternal func setup
 #arm9 0201AA38 60 B4 C0 46
 #endif
+
+# change the string displayed when a mon learns a tm without having to overwrite a move
+arm9 020821B0 DB
