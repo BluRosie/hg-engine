@@ -3160,7 +3160,7 @@ u32 RollMetronomeMove(struct BattleSystem *bsys)
 }
 
 // fuck it be a coward and pre-calulate the values
-const int getShakeChancesLookupTable[] = {
+const u16 getShakeChancesLookupTable[] = {
     [0]   = 0,
     [1]   = 23186,
     [2]   = 26405,
@@ -3416,12 +3416,15 @@ const int getShakeChancesLookupTable[] = {
     [252] = 65392,
     [253] = 65440,
     [254] = 65488,
-    [255] = 65536,
 };
 
 /// @brief Returns a pre-calculated value of the shake chance
 /// @param input_value 
 /// @return shake chance
 unsigned int LONG_CALL get_shake_chance(int input_value) {
+    if (input_value == 255) {
+        return 65536;
+    }
+
     return getShakeChancesLookupTable[input_value / 4096];
 }

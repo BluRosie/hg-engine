@@ -209,7 +209,8 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     //
     //    break;
     case ITEM_DREAM_BALL:
-        if (sp->battlemon[sp->defence_client].condition & (STATUS_SLEEP)) {
+        if (sp->battlemon[sp->defence_client].condition & (STATUS_SLEEP)
+        || (GetBattlerAbility(sp, sp->defence_client) == ABILITY_COMATOSE)) {
             ballCaptureRatio = 0x4000;
         }
         break;
