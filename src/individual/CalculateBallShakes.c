@@ -50,7 +50,7 @@ u16 MoonBallSpecies[] =
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     u32 i, speciesCatchRate, ballCaptureRatio, type1, type2, criticalCapture = FALSE;
     u32 heavyBallMod = 0;
-    u32 a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, captureValueCoeffcient = 0, modifiedCatchRate = 0, badgePenalty = 4096, statusModifier = 0, criticalCatchModifier = 0, speciesInDex = 0, criticalCatchRate = 0, shakeChecks = 4, shakeChance = 0;
+    u32 a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, captureValueCoeffcient = 0, modifiedCatchRate = 0, badgePenalty = UQ412__1_0, statusModifier = 0, criticalCatchModifier = 0, speciesInDex = 0, criticalCatchRate = 0, shakeChecks = 4, shakeChance = 0;
     int badges, missingBadges;
     BOOL isCriticalCatch = FALSE;
 
@@ -240,7 +240,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     debug_printf("Step 1: Calculate the HP modifier\n");
 #endif
 
-    a = (QMul_RoundDown((3 * sp->battlemon[sp->defence_client].maxhp - 2 * sp->battlemon[sp->defence_client].hp) * 4096, UQ412__1_0) + QMul_RoundDown(1, UQ412__0_5));
+    a = (QMul_RoundDown((3 * sp->battlemon[sp->defence_client].maxhp - 2 * sp->battlemon[sp->defence_client].hp) * UQ412__1_0, UQ412__1_0) + QMul_RoundDown(1, UQ412__0_5));
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("a: %d\n\n", a);
 #endif
@@ -376,9 +376,9 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
         debug_printf("Need to apply status modifier\n");
 #endif
         if (sp->battlemon[sp->defence_client].condition & (STATUS_SLEEP | STATUS_FREEZE)) {
-            statusModifier = 10240;
+            statusModifier = UQ412__2_5;
         } else {
-            statusModifier = 6144;
+            statusModifier = UQ412__1_5;
         }
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
         debug_printf("statusModifier: %d\n", statusModifier);
@@ -434,20 +434,20 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
 #endif
 
     if (speciesInDex > 600) {
-        criticalCatchModifier = 10240;
+        criticalCatchModifier = UQ412__2_5;
     } else if (speciesInDex > 450) {
-        criticalCatchModifier = 8192;
+        criticalCatchModifier = UQ412__2_0;
     } else if (speciesInDex > 300) {
-        criticalCatchModifier = 6144;
+        criticalCatchModifier = UQ412__1_5;
     } else if (speciesInDex > 150) {
-        criticalCatchModifier = 4096;
+        criticalCatchModifier = UQ412__1_0;
     } else if (speciesInDex > 30) {
-        criticalCatchModifier = 2048;
+        criticalCatchModifier = UQ412__0_5;
     } else {
         criticalCatchModifier = 0;
     }
 
-    criticalCatchRate = 715827883 * QMul_RoundUp(modifiedCatchRate, criticalCatchModifier) / 4294967296 / 4096;
+    criticalCatchRate = 715827883 * QMul_RoundUp(modifiedCatchRate, criticalCatchModifier) / 4294967296 / UQ412__1_0;
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("criticalCatchRate: %d\n\n", criticalCatchRate);
 #endif
