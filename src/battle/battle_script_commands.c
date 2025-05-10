@@ -2054,6 +2054,7 @@ const u16 sLowKickWeightToPower[][2] =
 s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, u32 client)
 {
     s32 weight;
+    u32 weightModifier = 1;
 
     weight = sp->battlemon[client].weight;
 
@@ -2063,10 +2064,14 @@ s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, u32 cli
     }
     else if (GetBattlerAbility(sp, client) == ABILITY_LIGHT_METAL)
     {
-        weight /= 2;
+        weightModifier *= 2;
     }
 
-    return weight;
+    if (GetBattleMonItem(sp, client) == ITEM_FLOAT_STONE) {
+        weightModifier *= 2;
+    }
+
+    return weight / weightModifier;
 }
 
 /**
@@ -2503,8 +2508,6 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
 
     u8 endTerrainFlag = read_battle_script_param(sp);
     int address = read_battle_script_param(sp);
-    int client_set_max;
-    int client_no;
     int item, itemPower;
 
     enum TerrainOverlayType oldTerrainOverlay = sp->terrainOverlay.type;
@@ -2547,8 +2550,6 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
             sp->terrainOverlay.numberOfTurnsLeft = 0;
         }
     }
-
-    client_set_max = BattleWorkClientSetMaxGet(bw);
 
     return FALSE;
 }
@@ -3473,15 +3474,18 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
         if (cnt == 0) {
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SKILL_LINK) {
                 cnt = 5;
+            } else if ((ctx->battlemon[ctx->attack_client].species == SPECIES_GRENINJA && ctx->battlemon[ctx->attack_client].form_no == 1)
+            && ctx->current_move_index == MOVE_WATER_SHURIKEN) {
+                cnt = 3;
             } else {
-                cnt = (BattleRand(bsys) % 100); // 0 - 99, 100 numbers
+                cnt = (BattleRand(bsys) % 100);  // 0 - 99, 100 numbers
                 if (cnt < 35) {
                     cnt = 2;
                 } else if (cnt < 70) {
                     cnt = 3;
                 } else if (cnt < 85) {
                     cnt = 4;
-                } else { // >= 85
+                } else {  // >= 85
                     cnt = 5;
                 }
 
