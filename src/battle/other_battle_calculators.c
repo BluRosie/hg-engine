@@ -458,7 +458,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     // 6.1 Gravity
 
     if (sp->field_condition & FIELD_STATUS_GRAVITY) {
-        QMul_RoundUp(accuracyModifier, UQ412__1_67);
+        accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_67);
     }
 
     // 6.2 Abilities; order is determined by raw Speed with a non-RNG Speed tie.
@@ -472,7 +472,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         if ((defender == sp->rawSpeedNonRNGClientOrder[i])
         && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TANGLED_FEET) == TRUE)
         && (sp->battlemon[defender].condition2 & STATUS2_CONFUSION)) {
-            QMul_RoundUp(accuracyModifier, UQ412__0_5);
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_5);
             continue;
         }
 
@@ -481,7 +481,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         if ((attacker == sp->rawSpeedNonRNGClientOrder[i])
         && (atk_ability == ABILITY_HUSTLE)
         && (move_split == SPLIT_PHYSICAL)) {
-            QMul_RoundUp(accuracyModifier, UQ412__0_8);
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_8);
             continue;
         }
 
@@ -490,7 +490,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         if ((sp->field_condition & WEATHER_SANDSTORM_ANY)
         && (defender == sp->rawSpeedNonRNGClientOrder[i])
         && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAND_VEIL)) {
-            QMul_RoundUp(accuracyModifier, UQ412__0_8);
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_8);
             continue;
         }
 
@@ -498,7 +498,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         if ((sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))
         && (defender == sp->rawSpeedNonRNGClientOrder[i])
         && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SNOW_CLOAK)) {
-            QMul_RoundUp(accuracyModifier, UQ412__0_8);
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_8);
             continue;
         }
 
@@ -506,14 +506,14 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
         if ((attacker == sp->rawSpeedNonRNGClientOrder[i])
         && (atk_ability == ABILITY_COMPOUND_EYES)) {
-            QMul_RoundUp(accuracyModifier, UQ412__1_3);
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_3);
         }
 
         // Victory Star - 4506/4096 for each Victory Star
 
         if (BATTLER_ALLY(attacker) == sp->rawSpeedNonRNGClientOrder[i]
         && GetBattlerAbility(sp, sp->rawSpeedNonRNGClientOrder[i]) == ABILITY_VICTORY_STAR) {
-            QMul_RoundUp(accuracyModifier, UQ412__1_1_BUT_HIGHER);
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_1_BUT_HIGHER);
         }
     }
 
@@ -528,7 +528,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
             // Lax Incense - 3686/4096
 
             if (hold_effect == HOLD_EFFECT_ACC_REDUCE) {
-                QMul_RoundUp(accuracyModifier, UQ412__0_9);
+                accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_9);
             }
         }
 
@@ -539,14 +539,14 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
             // Wide Lens - 4505/4096
 
             if (hold_effect == HOLD_EFFECT_ACCURACY_UP) {
-                QMul_RoundUp(accuracyModifier, UQ412__1_1);
+                accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_1);
             }
 
             // Zoom Lens - 4915/4096
 
             // TODO: We modified playerActions in `ServerBeforeActInternal`. Does it affect `IsMovingAfterClient`?
             if ((hold_effect == HOLD_EFFECT_ACCURACY_UP_SLOWER) && (IsMovingAfterClient(sp, defender) == TRUE)) {
-                QMul_RoundUp(accuracyModifier, UQ412__1_2);
+                accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_2);
             }
         }
     }
@@ -689,58 +689,58 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
          || ((ability1 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability1 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
          || ((ability1 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY)))) {
-            QMul_RoundUp(speedModifier1, UQ412__2_0);
+            speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
         }
         if (((ability2 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
          || ((ability2 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability2 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
          || ((ability2 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY)))) {
-            QMul_RoundUp(speedModifier2, UQ412__2_0);
+            speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
         }
     }
 
     if ((sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0)) {
         if (ability1 == ABILITY_SURGE_SURFER) {
-            QMul_RoundUp(speedModifier1, UQ412__2_0);
+            speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
         }
 
         if (ability2 == ABILITY_SURGE_SURFER) {
-            QMul_RoundUp(speedModifier2, UQ412__2_0);
+            speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
         }
     }
     
     if ((ability1 == ABILITY_UNBURDEN)
     && (sp->battlemon[client1].moveeffect.knockOffFlag)
     && (sp->battlemon[client1].item == 0)) {
-        QMul_RoundUp(speedModifier1, UQ412__2_0);
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
 
     if ((ability2 == ABILITY_UNBURDEN)
     && (sp->battlemon[client2].moveeffect.knockOffFlag)
     && (sp->battlemon[client2].item == 0)) {
-        QMul_RoundUp(speedModifier2, UQ412__2_0);
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
     // Step 2: Quick Feet
 
     if ((ability1 == ABILITY_QUICK_FEET) && (sp->battlemon[client1].condition & STATUS_ANY_PERSISTENT)) {
-        QMul_RoundUp(speedModifier1, UQ412__1_5);
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__1_5);
     }
 
     if ((ability2 == ABILITY_QUICK_FEET) && (sp->battlemon[client2].condition & STATUS_ANY_PERSISTENT)) {
-        QMul_RoundUp(speedModifier2, UQ412__1_5);
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__1_5);
     }
 
     // Step 3: Slow Start
 
     if ((ability1 == ABILITY_SLOW_START)
      && ((sp->total_turn - sp->battlemon[client1].moveeffect.slowStartTurns) < 5)) {
-        QMul_RoundUp(speedModifier1, UQ412__0_5);
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__0_5);
     }
 
     if ((ability2 == ABILITY_SLOW_START)
      && ((sp->total_turn - sp->battlemon[client2].moveeffect.slowStartTurns) < 5)) {
-        QMul_RoundUp(speedModifier2, UQ412__0_5);
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__0_5);
     }
 
     // Step 4: Quick Powder
@@ -749,24 +749,24 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     && (sp->battlemon[client1].species == SPECIES_DITTO)
     // Not transformed
     && !(sp->battlemon[client1].condition2 & STATUS2_TRANSFORMED)) {
-        QMul_RoundUp(speedModifier1, UQ412__2_0);
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
 
     if ((hold_effect2 == HOLD_EFFECT_DITTO_SPEED_UP)
     && (sp->battlemon[client2].species == SPECIES_DITTO)
     // Not transformed
     && !(sp->battlemon[client2].condition2 & STATUS2_TRANSFORMED)) {
-        QMul_RoundUp(speedModifier2, UQ412__2_0);
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
     // Step 5: Choice Scarf
 
     if (hold_effect1 == HOLD_EFFECT_CHOICE_SPEED) {
-        QMul_RoundUp(speedModifier1, UQ412__1_5);
+        speedModifier1= QMul_RoundUp(speedModifier1, UQ412__1_5);
     }
 
     if (hold_effect2 == HOLD_EFFECT_CHOICE_SPEED) {
-        QMul_RoundUp(speedModifier2, UQ412__1_5);
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__1_5);
     }
 
     // Step 6: Iron Ball / Macho Brace / Power EV items
@@ -774,7 +774,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++) {
         if (BattleItemDataGet(sp, sp->battlemon[client1].item, 1) == DecreaseSpeedHoldEffects[i]) {
             if (!(GetBattlerAbility(sp, client1) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
-                QMul_RoundUp(speedModifier1, UQ412__0_5);
+                speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__0_5);
                 break;
             }
         }
@@ -783,7 +783,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++) {
         if (BattleItemDataGet(sp, sp->battlemon[client2].item, 1) == DecreaseSpeedHoldEffects[i]) {
             if (!(GetBattlerAbility(sp, client2) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
-                QMul_RoundUp(speedModifier2, UQ412__0_5);
+                speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__0_5);
                 break;
             }
         }
@@ -792,22 +792,22 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     // Step 7: Tailwind
 
     if (sp->tailwindCount[IsClientEnemy(bw, client1)]) { // new tailwind handling
-        QMul_RoundUp(speedModifier1, UQ412__2_0);
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
 
     if (sp->tailwindCount[IsClientEnemy(bw, client2)]) { // new tailwind handling
-        QMul_RoundUp(speedModifier2, UQ412__2_0);
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
     // Step 8: Swamp
 
     // TODO
     if (FALSE) {
-        QMul_RoundUp(speedModifier1, UQ412__0_25);
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__0_25);
     }
 
     if (FALSE) {
-        QMul_RoundUp(speedModifier2, UQ412__0_25);
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__0_25);
     }
 
     // Step 9: Apply limit
@@ -825,12 +825,12 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     if ((ability1 != ABILITY_QUICK_FEET)
     && sp->battlemon[client1].condition & STATUS_PARALYSIS) {
-        QMul_RoundUp(speed1, UQ412__0_5);  // gen 7 on only halves speed for paralysis
+        speed1 = QMul_RoundUp(speed1, UQ412__0_5);  // gen 7 on only halves speed for paralysis
     }
 
     if ((ability2 != ABILITY_QUICK_FEET)
     && sp->battlemon[client2].condition & STATUS_PARALYSIS) {
-        QMul_RoundUp(speed2, UQ412__0_5);  // gen 7 on only halves speed for paralysis
+        speed2 = QMul_RoundUp(speed2, UQ412__0_5);  // gen 7 on only halves speed for paralysis
     }
 
     // Step 12: Apply limit
