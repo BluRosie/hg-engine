@@ -553,7 +553,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     // 7. Apply a modifier to the value from step 5) with the result of step 6). That is, pokeRound[(step 5 * step 6) / 4096], where pokeRound means do standard rounding, but round down on 0.5. The resulting value can be greater than 100.
 
-    QMul_RoundDown(accuracy, accuracyModifier);
+    accuracy = QMul_RoundDown(accuracy, accuracyModifier);
 
     // Apply accuracy stat boosts / drops
 
@@ -601,7 +601,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     // 11. If Micle Berry would boost the move's accuracy, pokeRound([step 10 * 4915]/4096).
 
     if (sp->boostedAccuracy) {
-        QMul_RoundDown(accuracy, UQ412__1_2);
+        accuracy = QMul_RoundDown(accuracy, UQ412__1_2);
     }
 
     // 12. If the percentage is above 100, make it 100.
