@@ -2,27 +2,6 @@
 #include "include/debug.h"
 #include "include/constants/save.h"
 
-# damage calc hook setup
-# push {r5-r6}
-# nop
-0012 0801F738 60 B4 C0 46
-
-# CalcAccuracy hook setup
-# 0224BCC4
-0012 0224BCC4 60 B4 C0 46
-
-# CalcSpeed hook setup
-# 0224FC48
-0012 08018388 60 B4 C0 46
-
-# CalcCritical hook setup
-# 02257C5C
-0012 0802039C 60 B4 C0 46
-
-# MoldBreakerAbilityCheck hook setup
-# 02252834
-0012 0801AF74 60 B4 C0 46
-
 # PokePasoParaSet hook setup
 # 0206DED0
 arm9 0806DED0 60 B4 C0 46

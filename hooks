@@ -60,8 +60,7 @@ arm9 GetMonIconPalette 02074364 3
 arm9 set_starter_hidden_ability_hook 02096158 5
 
 #battle hooks
-#02256FF8+4
-0012 calc_base_damage_hook 02256FFC 5
+0012 CalcBaseDamage 02256FF8
 0012 CalcDamageOverall 0223DCE0 2
 0012 AdjustDamageForRoll 02257C30 3
 #02252EC8
@@ -73,16 +72,12 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 #0012 TurnEndAbilityCheck 0801B7A8 3
 #02253E04
 0012 MoveHitDefenderAbilityCheck 0801C544 3
-#0224BCC4+4
-0012 CalcAccuracy_hook 08014408 5
-#0224FC48+4
-0012 CalcSpeed_hook 0801838C 5
-#02257C5C+4
-0012 CalcCritical_hook 080203A0 5
+0012 CalcAccuracy 0224BCC4
+0012 CalcSpeed 0224FC48
+0012 CalcCritical 02257C5C
 #022555EC
 0012 GetBattleMonItem 0801DD2C 2
-#02252834
-0012 MoldBreakerAbilityCheck_hook 0801AF78 5
+0012 MoldBreakerAbilityCheck 02252834
 #02254580
 0012 SynchroniseAbilityCheck 02254580 3
 #02256914
