@@ -71,6 +71,12 @@
 // DEBUG_PRINT_HEAP_ALLOCATION allows for debug prints on memory allocation/free
 //#define DEBUG_PRINT_HEAP_ALLOCATION
 
+//DEBUG_SPEED_CALC shows debug information related to calculating speed. It is very slow and laggy.
+// #define DEBUG_SPEED_CALC
+
+// FANCY_PRINT_NICKNAME defines in progress implementations that may not necessarily function.
+// #define FANCY_PRINT_NICKNAME
+
 // NOCASH_GBA_PRINT swaps from desmume prints with the syscall to NO$GBA-style prints for use with i.e. melonDS
 #define NOCASH_GBA_PRINT
 
