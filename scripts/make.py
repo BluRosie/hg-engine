@@ -167,10 +167,10 @@ def Hook(rom: _io.BufferedReader, space: int, hookAt: int, register=0, memAddres
             immediateHigher & 0xFF, (0xF0 | ((immediateHigher >> 8) & 0x3) | (0x4 if (memAddress+0xE) > space else 0)),
             immediateLower & 0xFF, (0xF8 | ((immediateLower >> 8) & 0x7)),
             0x01, 0x49, 0x09, 0x68, 0x8F, 0x46])
-        print(f"bl construction: space = {space:08X}, hookAt = {hookAt:06X}, memAddress = {memAddress:08X}, immediate = {immediate:06X}, {immediateHigher:03X} {immediateLower:03X}")
-        for i in range(0, len(data)):
-            print(f"{data[i]:02X}", end=' ')
-        print("")
+        #print(f"bl construction: space = {space:08X}, hookAt = {hookAt:06X}, memAddress = {memAddress:08X}, immediate = {immediate:06X}, {immediateHigher:03X} {immediateLower:03X}")
+        #for i in range(0, len(data)):
+        #    print(f"{data[i]:02X}", end=' ')
+        #print("")
         data += ((memAddress + 0x18).to_bytes(4, 'little'))
 
     rom.write(bytes(data))
