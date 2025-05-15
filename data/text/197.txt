@@ -1554,3 +1554,6 @@ The spikes disappeared from the ground\naround your team!
 The spikes disappeared from the ground\naround the opposing team!
 The sticky web has disappeared from the\nground around you!
 The sticky web has disappeared from the\nground around the opposing team!
+{STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
+The wild {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
+The opposing {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
