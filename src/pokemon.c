@@ -1021,13 +1021,11 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
         case SPECIES_MEOWSTIC:
         case SPECIES_INDEEDEE:
         case SPECIES_OINKOLOGNE:
+        case SPECIES_BASCULEGION:
 #endif
             form = gf_rand() & 1; // 1/2 male
             break;
 #ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
-        case SPECIES_BASCULEGION:
-            form = (gf_rand() & 1) ? 3 : 0; // 1/2 male
-            break;
         case SPECIES_PYROAR:
             form = (gf_rand() % 8 != 0); // 1/8 male
             break;
