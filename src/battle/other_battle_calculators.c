@@ -3108,3 +3108,9 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, MESSAGE_PARAM *msg) {
 
     HandleLoadOverlay(6, 2); // reload 6 so things are okay
 }
+
+// banlist is handled in original function, no need to include it here
+u32 RollMetronomeMove(struct BattleSystem *bsys)
+{
+    return (BattleRand(bsys) % NUM_OF_MOVES) + 1;
+}

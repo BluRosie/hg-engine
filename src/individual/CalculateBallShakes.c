@@ -49,7 +49,7 @@ u16 MoonBallSpecies[] =
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     u32 i, captureRate, ballRate, type1, type2, criticalCapture = FALSE;
 
-    if (BattleTypeGet(bw) & (BATTLE_TYPE_POKE_PARK | BATTLE_TYPE_CATCHING_DEMO)) // poke park and safari zone always succeed
+    if (BattleTypeGet(bw) & (BATTLE_TYPE_PAL_PARK | BATTLE_TYPE_CATCHING_DEMO)) // poke park and safari zone always succeed
     {
         return 4;
     }
@@ -72,7 +72,10 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     switch (sp->item_work)
     {
     case ITEM_MASTER_BALL:
-        return 4; // automatic success
+        if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
+            return 1 | 0x80;
+        }
+        return 4;
     case ITEM_ULTRA_BALL:
         ballRate = 20;
         break;
@@ -326,17 +329,15 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     }
 
 #ifdef GUARANTEE_CAPTURES
-    // if the capture is successful, and the target species is already registered, use the critical capture animation, otherwise there should be 0 shakes.
-    // https://xcancel.com/Sibuna_Switch/status/1847665451809075315#m
     if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
         return 1 | 0x80;
     }
     return 4;
 #else
-    // if the capture is successful, and the target species is already registered, use the critical capture animation, otherwise there should be 0 shakes.
+    // if the capture is successful, and the target species is already registered, use the critical capture animation, otherwise there should still be 0-3 shakes.
     // https://xcancel.com/Sibuna_Switch/status/1847665451809075315#m
     if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
-        return (i == 4 || i == (1 | 0x80)) ? 1 | 0x80 : 0;
+        return (i == 4 || i == (1 | 0x80)) ? 1 | 0x80 : i;
     }
     return i == (0 | 0x80) ? 0 : i;
 #endif

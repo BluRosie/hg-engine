@@ -375,6 +375,13 @@
 #define MOVE_EFFECT_MORTAL_SPIN                             369
 #define MOVE_EFFECT_TIDY_UP                                 370
 
+#define MAX_BASE_MOVE_EFFECT_NUM                            370
+
+// define your custom move effects below like this
+// #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
+
+
+
 #define RANGE_SINGLE_TARGET           0
 #define RANGE_SINGLE_TARGET_SPECIAL   (1 << 0)
 #define RANGE_RANDOM_OPPONENT         (1 << 1)

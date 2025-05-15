@@ -317,14 +317,22 @@ MOVE_SEQ_OBJ_DIR := $(MOVE_ANIM_SCRIPT_OUTPUT_DIR)/objects/battle_move_seq
 MOVE_SEQ_NARC := $(BUILD_NARC)/a000.narc
 MOVE_SEQ_TARGET := $(FILESYS)/a/0/0/0
 MOVE_SEQ_DEPENDENCIES_DIR := data/battle_scripts/moves
+MOVE_SEQ_CUSTOM_DIR := $(MOVE_SEQ_DEPENDENCIES_DIR)/custom
 
 MOVE_SEQ_SRCS := $(wildcard $(MOVE_SEQ_DEPENDENCIES_DIR)/*.s)
+MOVE_SEQ_CUSTOM_SRCS := $(wildcard $(MOVE_SEQ_CUSTOM_DIR)/*.s)
 MOVE_SEQ_OBJS := $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_DIR)/0_%,$(MOVE_SEQ_SRCS))
+MOVE_SEQ_OBJS += $(patsubst $(MOVE_SEQ_CUSTOM_DIR)/%.s,$(MOVE_SEQ_DIR)/1_%,$(MOVE_SEQ_CUSTOM_SRCS))
 
 $(MOVE_SEQ_DIR)/0_%:$(MOVE_SEQ_DEPENDENCIES_DIR)/%.s
 	$(AS) -c $< -o $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/0_%.o,$<)
 	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/0_%_linked.o,$<) $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/0_%.o,$<)
 	$(OBJCOPY) -O binary $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/0_%_linked.o,$<) $@
+
+$(MOVE_SEQ_DIR)/1_%:$(MOVE_SEQ_CUSTOM_DIR)/%.s
+	$(AS) -c $< -o $(patsubst $(MOVE_SEQ_CUSTOM_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/1_%.o,$<)
+	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(MOVE_SEQ_CUSTOM_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/1_%_linked.o,$<) $(patsubst $(MOVE_SEQ_CUSTOM_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/1_%.o,$<)
+	$(OBJCOPY) -O binary $(patsubst $(MOVE_SEQ_CUSTOM_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/1_%_linked.o,$<) $@
 
 $(MOVE_SEQ_NARC): $(MOVE_SEQ_OBJS)
 	$(NARCHIVE) create $@ $(MOVE_SEQ_DIR) -nf
@@ -340,14 +348,22 @@ BATTLE_EFF_OBJ_DIR := $(MOVE_ANIM_SCRIPT_OUTPUT_DIR)/objects/battle_eff_seq
 BATTLE_EFF_NARC := $(BUILD_NARC)/a030.narc
 BATTLE_EFF_TARGET := $(FILESYS)/a/0/3/0
 BATTLE_EFF_DEPENDENCIES_DIR := data/battle_scripts/effects
+BATTLE_EFF_CUSTOM_DIR := $(BATTLE_EFF_DEPENDENCIES_DIR)/custom
 
 BATTLE_EFF_SRCS := $(wildcard $(BATTLE_EFF_DEPENDENCIES_DIR)/*.s)
+BATTLE_EFF_CUSTOM_SRCS := $(wildcard $(BATTLE_EFF_CUSTOM_DIR)/*.s)
 BATTLE_EFF_OBJS := $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_DIR)/0_%,$(BATTLE_EFF_SRCS))
+BATTLE_EFF_OBJS += $(patsubst $(BATTLE_EFF_CUSTOM_DIR)/%.s,$(BATTLE_EFF_DIR)/1_%,$(BATTLE_EFF_CUSTOM_SRCS))
 
 $(BATTLE_EFF_DIR)/0_%:$(BATTLE_EFF_DEPENDENCIES_DIR)/%.s
 	$(AS) -c $< -o $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/0_%.o,$<)
 	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/0_%_linked.o,$<) $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/0_%.o,$<)
 	$(OBJCOPY) -O binary $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/0_%_linked.o,$<) $@
+
+$(BATTLE_EFF_DIR)/1_%:$(BATTLE_EFF_CUSTOM_DIR)/%.s
+	$(AS) -c $< -o $(patsubst $(BATTLE_EFF_CUSTOM_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/1_%.o,$<)
+	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(BATTLE_EFF_CUSTOM_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/1_%_linked.o,$<) $(patsubst $(BATTLE_EFF_CUSTOM_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/1_%.o,$<)
+	$(OBJCOPY) -O binary $(patsubst $(BATTLE_EFF_CUSTOM_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/1_%_linked.o,$<) $@
 
 $(BATTLE_EFF_NARC): $(BATTLE_EFF_OBJS)
 	$(NARCHIVE) create $@ $(BATTLE_EFF_DIR) -nf
@@ -361,14 +377,22 @@ BATTLE_SUB_OBJ_DIR := $(MOVE_ANIM_SCRIPT_OUTPUT_DIR)/objects/battle_sub_seq
 BATTLE_SUB_NARC := $(BUILD_NARC)/a001.narc
 BATTLE_SUB_TARGET := $(FILESYS)/a/0/0/1
 BATTLE_SUB_DEPENDENCIES_DIR := data/battle_scripts/subscripts
+BATTLE_SUB_CUSTOM_DIR := $(BATTLE_SUB_DEPENDENCIES_DIR)/custom
 
 BATTLE_SUB_SRCS := $(wildcard $(BATTLE_SUB_DEPENDENCIES_DIR)/*.s)
+BATTLE_SUB_CUSTOM_SRCS += $(wildcard $(BATTLE_SUB_CUSTOM_DIR)/*.s)
 BATTLE_SUB_OBJS := $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_DIR)/1_%,$(BATTLE_SUB_SRCS))
+BATTLE_SUB_OBJS += $(patsubst $(BATTLE_SUB_CUSTOM_DIR)/%.s,$(BATTLE_SUB_DIR)/2_%,$(BATTLE_SUB_CUSTOM_SRCS))
 
 $(BATTLE_SUB_DIR)/1_%:$(BATTLE_SUB_DEPENDENCIES_DIR)/%.s
 	$(AS) -c $< -o $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/1_%.o,$<)
 	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/1_%_linked.o,$<) $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/1_%.o,$<)
 	$(OBJCOPY) -O binary $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/1_%_linked.o,$<) $@
+
+$(BATTLE_SUB_DIR)/2_%:$(BATTLE_SUB_CUSTOM_DIR)/%.s
+	$(AS) -c $< -o $(patsubst $(BATTLE_SUB_CUSTOM_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/2_%.o,$<)
+	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(BATTLE_SUB_CUSTOM_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/2_%_linked.o,$<) $(patsubst $(BATTLE_SUB_CUSTOM_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/2_%.o,$<)
+	$(OBJCOPY) -O binary $(patsubst $(BATTLE_SUB_CUSTOM_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/2_%_linked.o,$<) $@
 
 $(BATTLE_SUB_NARC): $(BATTLE_SUB_OBJS)
 	$(NARCHIVE) create $@ $(BATTLE_SUB_DIR) -nf
@@ -383,15 +407,25 @@ ITEMGFX_DIR := $(BUILD)/a018
 ITEMGFX_NARC := $(BUILD_NARC)/a018.narc
 ITEMGFX_TARGET := $(FILESYS)/a/0/1/8
 ITEMGFX_DEPENDENCIES_DIR := data/graphics/item
+ITEMGFX_CUSTOM_DIR := $(ITEMGFX_DEPENDENCIES_DIR)/custom
 
 ITEMGFX_SRCS := $(wildcard $(ITEMGFX_DEPENDENCIES_DIR)/*.png)
+ITEMGFX_CUSTOM_SRCS := $(wildcard $(ITEMGFX_CUSTOM_DIR)/*.png)
 ITEMGFX_OBJS := $(patsubst $(ITEMGFX_DEPENDENCIES_DIR)/%.png,$(ITEMGFX_DIR)/9_%-00.NCGR,$(ITEMGFX_SRCS))
+ITEMGFX_OBJS += $(patsubst $(ITEMGFX_CUSTOM_DIR)/%.png,$(ITEMGFX_DIR)/A_%-00.NCGR,$(ITEMGFX_CUSTOM_SRCS))
 ITEMGFX_PALS := $(patsubst $(ITEMGFX_DEPENDENCIES_DIR)/%.png,$(ITEMGFX_DIR)/9_%-01.NCLR,$(ITEMGFX_SRCS))
+ITEMGFX_PALS += $(patsubst $(ITEMGFX_CUSTOM_DIR)/%.png,$(ITEMGFX_DIR)/A_%-01.NCLR,$(ITEMGFX_CUSTOM_SRCS))
 
 $(ITEMGFX_DIR)/9_%-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/%.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
 $(ITEMGFX_DIR)/9_%-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/%.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+$(ITEMGFX_DIR)/A_%-00.NCGR:$(ITEMGFX_CUSTOM_DIR)/%.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/A_%-01.NCLR:$(ITEMGFX_CUSTOM_DIR)/%.png
 	$(GFX) $< $@ -ir -bitdepth 4
 
 # go overkill on the removal + support 4-digit removal, so that's fine
@@ -411,16 +445,11 @@ OVERWORLDS_TARGET := $(FILESYS)/a/0/8/1
 OVERWORLDS_DEPENDENCIES_DIR := data/graphics/overworlds
 
 OVERWORLDS_SRCS := $(wildcard $(OVERWORLDS_DEPENDENCIES_DIR)/*.png) $(wildcard $(OVERWORLDS_DEPENDENCIES_DIR)/*.bin) $(wildcard $(OVERWORLDS_DEPENDENCIES_DIR)/*.json) $(wildcard $(OVERWORLDS_DEPENDENCIES_DIR)/*.pal)
-#OVERWORLDS_SRCS := $(filter-out $(wildcard $(OVERWORLDS_DEPENDENCIES_DIR)/*_shiny.png),$(OVERWORLDS_SRCS))
 OVERWORLDS_OBJS := $(patsubst $(OVERWORLDS_DEPENDENCIES_DIR)/%.png,$(OVERWORLDS_DIR)/1_%.btx0,$(OVERWORLDS_SRCS)) $(patsubst $(OVERWORLDS_DEPENDENCIES_DIR)/%.bin,$(OVERWORLDS_DIR)/1_%.bin,$(OVERWORLDS_SRCS))
-#OVERWORLDS_OBJ_FILTERS := $(patsubst $(OVERWORLDS_DEPENDENCIES_DIR)/%.png,$(OVERWORLDS_DIR)/3_%,$(OVERWORLDS_SRCS))
 
 # add your own overworld sources here
 ALL_OVERWORLDS_SRCS := $(OVERWORLDS_SRCS)
 ALL_OVERWORLDS_OBJS := $(OVERWORLDS_OBJS)
-
-#$(OVERWORLDS_DIR)/2_%_shiny:$(OVERWORLDS_DEPENDENCIES_DIR)/%_shiny.png
-#	@:
 
 $(OVERWORLDS_DIR)/1_%.btx0:$(OVERWORLDS_DEPENDENCIES_DIR)/%.png $(OVERWORLDS_DEPENDENCIES_DIR)/%.json $(OVERWORLDS_DEPENDENCIES_DIR)/%*.pal
 	$(BTX) $< $@
@@ -518,22 +547,21 @@ SDAT_TARGET := $(FILESYS)/data/sound/gs_sound_data.sdat
 SDAT_DEPENDENCIES_DIR := sound/cries
 
 SDAT_SRCS := $(wildcard $(SDAT_DEPENDENCIES_DIR)/*.wav)
-SDAT_MED_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav,$(SDAT_SRCS))
-SDAT_SWAR_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar,$(SDAT_SRCS))
+SDAT_SWAR_OBJS := $(patsubst $(SDAT_DEPENDENCIES_DIR)/%.wav,$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav,$(SDAT_SRCS))
 
 $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav:$(SDAT_DEPENDENCIES_DIR)/%.wav
 	mkdir -p $(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV$$(basename "$<" .wav)
 	$(NTRWAVTOOL) $< $@ 16384 --adpcm-xq $(ADPCMXQ) --temp-file-dir build/sdat/temp
 
-$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%.swar:$(SDAT_OBJ_DIR)/WAVARC/WAVE_ARC_PV%/00.swav
-	$(SWAV2SWAR) $< $@
-
 # we need to unpack the sdat
-# move the swav/swar/sbnk over
+# move the swav/sbnk over
+# swar rebuilding is handled by sdattool
 # reorder cries 387+ to be numerical order in the FileBlock.json and InfoBlock.json
 $(SDAT_BUILD):$(SDAT_SWAR_OBJS)
 	$(SDATTOOL) -u $(SDAT_TARGET) $(SDAT_DIR)
-	cp -r $(SDAT_OBJ_DIR)/* $(SDAT_FILES_DIR)
+	cp -rf $(SDAT_OBJ_DIR)/* $(SDAT_FILES_DIR)
+	@# trigger rebuild here
+	rm -rf $(SDAT_FILES_DIR)/WAVARC/*.swar
 	$(PYTHON) scripts/rebuild_json.py
 	$(SDATTOOL) -b $@ $(SDAT_DIR)
 
