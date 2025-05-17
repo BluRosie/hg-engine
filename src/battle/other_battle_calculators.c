@@ -1160,6 +1160,8 @@ void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp
 
     maxBattlers = BattleWorkClientSetMaxGet(bw);
 
+    CalcPriorityAndQuickClawCustapBerry(bw, sp);
+
     // for (i = 0; i < maxBattlers; i++) {
     //     if (sp->attack_client == sp->executionOrder[i]) {
     //         currentAttackerId = i;

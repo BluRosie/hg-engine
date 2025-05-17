@@ -993,7 +993,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
                 continue;
             }
 
-            // Handle Dry SKin
+            // Handle Dry Skin
             if ((movetype == TYPE_FIRE)
             && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE)) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_25);
