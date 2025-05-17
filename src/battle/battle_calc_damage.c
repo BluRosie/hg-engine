@@ -355,11 +355,33 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
-    // 6.9.14.4 Behemoth Bash
+    // 6.9.14.4 Behemoth Blade/Behemoth Bash/Dynamax Cannon
     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8319925
-    if (sp->battlemon[defender].is_currently_dynamaxed && sp->current_move_index == MOVE_BEHEMOTH_BASH) {
+    if ((sp->battlemon[defender].is_currently_dynamaxed)
+    && (sp->current_move_index == MOVE_BEHEMOTH_BLADE || sp->current_move_index == MOVE_BEHEMOTH_BASH ||sp->current_move_index == MOVE_DYNAMAX_CANNON)) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
+
+    if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_NONE) == 0)) {
+        switch (moveEffectiveness) {
+            case TYPE_MUL_SUPER_EFFECTIVE:
+            case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
+            case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
+                // 6.9.14.45 Collision Course/Electro Drift
+                if (sp->current_move_index == MOVE_COLLISION_COURSE || sp->current_move_index == MOVE_ELECTRO_DRIFT) {
+                    finalModifier = QMul_RoundUp(finalModifier, UQ412__1_3333);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+#ifdef DEBUG_DAMAGE_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcBaseDamage] 6.9.14 Doubled-damage moves\n");
+    debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+#endif
 
     // Effects relative to a particular side of the field
     // 6.9.1 Screens
@@ -503,6 +525,11 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         && (GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_PUNK_ROCK)
         && IsMoveSoundBased(moveno)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
+#ifdef DEBUG_DAMAGE_CALC
+            debug_printf("\n=================\n");
+            debug_printf("[CalcBaseDamage] 6.9.15 Punk Rock\n");
+            debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+#endif
         }
 
         // 6.9.16 Ice Scales
@@ -510,6 +537,11 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8319925
         if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_SCALES) == TRUE && movesplit == SPLIT_SPECIAL) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
+#ifdef DEBUG_DAMAGE_CALC
+            debug_printf("\n=================\n");
+            debug_printf("[CalcBaseDamage] 6.9.16 Ice Scales\n");
+            debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+#endif
         }
     }
 
@@ -606,6 +638,27 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_DAMAGE_CALC
     debug_printf("\n=================\n");
     debug_printf("[CalcBaseDamage] Step 10. Z-move into Protecting Move Modifier\n");
+    debug_printf("[CalcBaseDamage] damage: %d\n", damage);
+#endif
+
+    // Step 10.5. Tera Raid boss's shield
+    // https://x.com/Sibuna_Switch/status/1610483831769018368
+    // TODO
+    if (FALSE) {
+        if (!sp->battlemon[attacker].is_currently_terastallized) {
+            damage = QMul_RoundUp(damage, UQ412__0_2);
+        } else {
+            if (type != sp->battlemon[attacker].tera_type) {
+                damage = QMul_RoundUp(damage, UQ412__0_35);
+            } else {
+                damage = QMul_RoundUp(damage, UQ412__0_75);
+            }
+        }
+    }
+
+#ifdef DEBUG_DAMAGE_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcBaseDamage] Step 10.5. Tera Raid boss's shield\n");
     debug_printf("[CalcBaseDamage] damage: %d\n", damage);
 #endif
 

@@ -72,6 +72,7 @@
 #define UQ412__0_8_exp_6        1074                                    // 0.262144
 #define UQ412__0_8_exp_7        859                                     // 0.2097152
 #define UQ412__0_8_exp_8        687                                     // 0.16777216
+#define UQ412__0_35             1434                                    // 0.35
 
 /*
  * Shift by this much to the right to translate the whole component from Q4.12
