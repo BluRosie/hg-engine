@@ -21,54 +21,11 @@
 /********************************************************************************************************************/
 /********************************************************************************************************************/
 
-enum {
-    SEQ_MEGA_CHECK = 0,
-    SEQ_SENSEI_CHECK,
-    SEQ_STATUS_CHECK,
-    SEQ_BADGE_CHECK,
-    SEQ_PP_CHECK,
-    SEQ_DEFENCE_CHECK,
-    SEQ_WAZAKOYUU_CHECK,
-    SEQ_DEFENCE_CHANGE_CHECK,
-    SEQ_PROTEAN_CHECK,
-    SEQ_STANCE_CHANGE_CHECK,
-    SEQ_PARENTAL_BOND_CHECK,
-};
-
 enum ObedienceCheckResult {
     OBEY_CHECK_SUCCESS = 0,
     OBEY_CHECK_DO_NOTHING,
     OBEY_CHECK_DIFFERENT_MOVE,
     OBEY_CHECK_HIT_SELF
-};
-
-enum {
-    CHECK_STATUS_START = 0,
-
-    CHECK_STATUS_STATE_SLEEP,
-    CHECK_STATUS_STATE_FREEZE,
-    CHECK_STATUS_STATE_TRUANT,
-    CHECK_STATUS_STATE_RECHARGING,
-    CHECK_STATUS_STATE_FLINCH,
-    CHECK_STATUS_STATE_DISABLE,
-    CHECK_STATUS_STATE_TAUNT,
-    CHECK_STATUS_STATE_IMPRISON,
-    CHECK_STATUS_STATE_GRAVITY,
-    CHECK_STATUS_STATE_HEAL_BLOCK,
-    CHECK_STATUS_STATE_CONFUSION,
-    CHECK_STATUS_STATE_PARALYSIS,
-    CHECK_STATUS_STATE_ATTRACT,
-    CHECK_STATUS_STATE_BIDE,
-    CHECK_STATUS_STATE_SELF_THAW,
-
-    CHECK_STATUS_END,
-};
-
-enum {
-    CHECK_STATUS_LOOP_BACK = 0,
-    CHECK_STATUS_DISRUPT_MOVE,  // wholly disrupt the move; attacker does not get a turn
-    CHECK_STATUS_GO_TO_SCRIPT,  // execute a given script, then proceed with the chosen move
-    CHECK_STATUS_DONE,
 };
 
 
@@ -1347,6 +1304,9 @@ void BattleController_CheckTaunt(struct BattleSystem *bsys, struct BattleStruct 
 }
 
 void BattleController_CheckImprison(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    if (I_AM_TERAPAGOS_AND_I_NEED_TO_KO_CARMINES_SINISTCHA(bsys, ctx, ctx->attack_client)) {
+        return;
+    }
     if (BattleContext_CheckMoveImprisoned(bsys, ctx, ctx->attack_client, ctx->current_move_index)) {
         ctx->moveOutCheck[ctx->attack_client].stoppedFromImprison = TRUE;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_IS_IMPRISONED);
@@ -2182,7 +2142,7 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
 
 BOOL BattleController_CheckProtect(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     if (ctx->oneTurnFlag[defender].mamoru_flag
-        && ctx->moveTbl[ctx->current_move_index].flag & (1 << 1)
+        && ctx->moveTbl[ctx->current_move_index].flag & FLAG_PROTECT
         && (ctx->current_move_index != MOVE_CURSE || CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client) == TRUE)
         /*&& (!CheckMoveIsChargeMove(ctx, ctx->current_move_index) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)*/) {
         UnlockBattlerOutOfCurrentMove(bsys, ctx, ctx->attack_client);
@@ -3043,6 +3003,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             }
             break;
         }
+        // TODO: handle Good As Gold interaction
         case MOVE_SIMPLE_BEAM:{
             if (AbilityCantSupress(GetBattlerAbility(ctx, ctx->defence_client))
             || GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_TRUANT
