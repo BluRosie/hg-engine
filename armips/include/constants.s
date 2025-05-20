@@ -573,7 +573,7 @@
 
 .equ SINGLE_BATTLE, 0
 .equ DOUBLE_BATTLE, 2
-.equ NO_COMPANION_DOUBLE_BATTLE, 3
+.equ NO_PARTNER_DOUBLE_BATTLE, 3
 
 // trainer text types
 

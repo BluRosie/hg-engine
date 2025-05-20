@@ -32,7 +32,7 @@ def parse_trainers_s(filepath):
     return trainers
 
 
-def patch_no_companion_double_battle_trainers(trainer_narc_path, trainers_s_path):
+def patch_no_partner_double_battle_trainers(trainer_narc_path, trainers_s_path):
     trainer_narc_files = sorted(os.listdir(trainer_narc_path))
     trainers_s = parse_trainers_s(trainers_s_path)
 
@@ -47,7 +47,7 @@ def patch_no_companion_double_battle_trainers(trainer_narc_path, trainers_s_path
             data = bytearray(f.read())
 
         trainer_s_trainer = trainers_s.get(trainer_index)
-        if trainer_s_trainer and trainer_s_trainer["battletype"] == 'NO_COMPANION_DOUBLE_BATTLE':
+        if trainer_s_trainer and trainer_s_trainer["battletype"] == 'NO_PARTNER_DOUBLE_BATTLE':
             if len(data) > 16:
                 if data[16] == 0:
                     data[16] |= 0x03
@@ -61,4 +61,4 @@ if __name__ == "__main__":
         print(f"Usage: python3 {sys.argv[0]} <trainer_narc_path> <trainers_s_path>")
         sys.exit(1)
 
-    patch_no_companion_double_battle_trainers(sys.argv[1], sys.argv[2])
+    patch_no_partner_double_battle_trainers(sys.argv[1], sys.argv[2])

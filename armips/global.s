@@ -38,9 +38,9 @@
 
 .endif
 
-.if NO_COMPANION_DOUBLE_BATTLES == 1
+.if NO_PARTNER_DOUBLE_BATTLES == 1
 
-.include "armips/asm/no_companion_double_battles.s"
+.include "armips/asm/no_partner_double_battles.s"
 
 .endif
 
