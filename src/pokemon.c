@@ -661,6 +661,24 @@ BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp)
     return FALSE;
 }
 
+/**
+ *  @brief check if a certain type of nectar can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check the nectar against
+ *  @param nectar Nectar item id to check for
+ *  @return TRUE if nectar can be used; FALSE otherwise
+ */
+BOOL LONG_CALL CanUseNectar(struct PartyPokemon *pp, u16 nectar)
+{
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u16 form = (u16) GetMonData(pp, MON_DATA_FORM, NULL);
+    if (species == SPECIES_ORICORIO && form != nectar - ITEM_RED_NECTAR)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
 #define RESHIRAM_MASK (0x80)
 #define JUST_SPLICER_POS_MASK (0x7F)
 
@@ -786,6 +804,21 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
         ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works alright
+        return TRUE;
+    }
+
+    // handle oricorio form changes
+    // This code relies on the item ids of the nectars being consecutive
+
+    if (wk->dat->item >= ITEM_RED_NECTAR && wk->dat->item <= ITEM_PURPLE_NECTAR
+     && CanUseNectar(pp, wk->dat->item) == TRUE)
+    {
+        void *bag = Sav2_Bag_get(SaveBlock2_get());
+        wk->dat->after_mons = wk->dat->item - ITEM_RED_NECTAR;
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        ChangePartyPokemonToForm(pp, wk->dat->after_mons);
+        Bag_TakeItem(bag, wk->dat->item, 1, 11);
         return TRUE;
     }
 
