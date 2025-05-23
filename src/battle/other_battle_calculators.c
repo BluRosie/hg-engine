@@ -419,7 +419,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-58#post-8684263
 
     // Apply accuracy / evasion modifiers
-    u16 accuracy;
+    s16 accuracy;
     s8 temp;
     s8 stat_stage_acc, stat_stage_evasion;
     int hold_effect = HeldItemHoldEffectGet(sp, defender);
@@ -551,31 +551,39 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     for (i = 0; i < maxBattlers; i++) {
         if (defender == sp->rawSpeedNonRNGClientOrder[i]) {
             hold_effect = HeldItemHoldEffectGet(sp, defender);
-            hold_effect_atk = HeldItemAtkGet(sp, defender, 0);
 
             // Bright Powder - 3686/4096
             // Lax Incense - 3686/4096
 
             if (hold_effect == HOLD_EFFECT_ACC_REDUCE) {
-                accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_9);
+                u32 multiplierFromItems = UQ412__1_0;
+                hold_effect_atk = HeldItemAtkGet(sp, defender, 0);
+                // alternate subtracting 0.099853515625 and 0.10009765625 starting with latter
+                for (int j = 0; j < hold_effect_atk; j += 10)
+                {
+                    multiplierFromItems -= (j & 1) ? UQ412__0_1 : UQ412__0_1_BUT_HIGHER;
+                }
+                accuracyModifier = QMul_RoundUp(accuracyModifier, multiplierFromItems);
             }
         }
 
         if (attacker == sp->rawSpeedNonRNGClientOrder[i]) {
             hold_effect = HeldItemHoldEffectGet(sp, attacker);
-            hold_effect_atk = HeldItemAtkGet(sp, attacker, 0);
 
-            // Wide Lens - 4505/4096
-
-            if (hold_effect == HOLD_EFFECT_ACCURACY_UP) {
-                accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_1);
-            }
-
-            // Zoom Lens - 4915/4096
-
+            // Wide Lens - 4505/4096 (param 10 - 409)
+            // Zoom Lens - 4915/4096 (param 20 - 819)
             // TODO: We modified playerActions in `ServerBeforeActInternal`. Does it affect `IsMovingAfterClient`?
-            if ((hold_effect == HOLD_EFFECT_ACCURACY_UP_SLOWER) && (IsMovingAfterClient(sp, defender) == TRUE)) {
-                accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_2);
+
+            if (hold_effect == HOLD_EFFECT_ACCURACY_UP
+            || ((hold_effect == HOLD_EFFECT_ACCURACY_UP_SLOWER) && (IsMovingAfterClient(sp, defender) == TRUE))) {
+                u32 multiplierFromItems = UQ412__1_0;
+                hold_effect_atk = HeldItemAtkGet(sp, attacker, 0);
+                // alternate adding 0.099853515625 and 0.10009765625 starting with former
+                for (int j = 0; j < hold_effect_atk; j += 10)
+                {
+                    multiplierFromItems += (j & 1) ? UQ412__0_1_BUT_HIGHER : UQ412__0_1;
+                }
+                accuracyModifier = QMul_RoundUp(accuracyModifier, multiplierFromItems);
             }
         }
     }

@@ -8,6 +8,14 @@
 # 0224A112
 0012 08012852 08
 
+#ifdef ALLOW_SAVE_CHANGES
+#ifdef ITEM_POCKET_EXPANSION
+
+# Bag_HasItem hook setup because it's not even 0x1C bytes long
+arm9 020784B0 60 B4 C0 46
+
+#endif
+#endif
 
 # 021F9380
 # trying a few things out
@@ -431,6 +439,8 @@ arm9 080550D4 2C
 ## AllocFromHeapInternal func setup
 #arm9 0201AA38 60 B4 C0 46
 #endif
+
+
 
 # change the string displayed when a mon learns a tm without having to overwrite a move
 arm9 020821B0 DB

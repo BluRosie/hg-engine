@@ -45,7 +45,7 @@ u16 MoonBallSpecies[] =
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
- *  @return the amount of shakes a ball undergoes.  or'd with 0x80 for critical captures
+ *  @return the amount of shakes a ball undergoes.  or'd with CRITICAL_CAPTURE_MASK for critical captures
  */
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     u32 i, speciesCatchRate, ballCaptureRatio, type1, type2, criticalCapture = FALSE;
@@ -78,7 +78,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     {
     case ITEM_MASTER_BALL:
         if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
-            return 1 | 0x80;
+            return 1 | CRITICAL_CAPTURE_MASK;
         }
         return 4;
     case ITEM_ULTRA_BALL:
@@ -502,7 +502,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
         }
 
         if (criticalCapture) // succeeded the one chance it had
-            i = i | 0x80; // change the flow of the ball callback to make sure that critical captures only shake once then succeed.  if it shakes, it succeeds, though
+            i = i | CRITICAL_CAPTURE_MASK;
 
 
     }
@@ -511,7 +511,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     debug_printf("\nEnding ball business\n=================\n");
 #endif
 
-    if (sp->item_work == ITEM_FRIEND_BALL && (i & 0x7F) >= 4)  // 0x80 signifies critical capture, which is already caught above.  this code still necessary for the case that IMPLEMENT_CRITICAL_CAPTURE isn't defined
+    if (sp->item_work == ITEM_FRIEND_BALL && (i & ~CRITICAL_CAPTURE_MASK) >= 4) // this code still necessary for the case that IMPLEMENT_CRITICAL_CAPTURE isn't defined
     {
         u32 friendship = 200;
         SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), MON_DATA_FRIENDSHIP, &friendship);
@@ -519,15 +519,15 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
 
 #ifdef GUARANTEE_CAPTURES
     if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
-        return 1 | 0x80;
+        return 1 | CRITICAL_CAPTURE_MASK;
     }
     return 4;
 #else
     // if the capture is successful, and the target species is already registered, use the critical capture animation, otherwise there should still be 0-3 shakes.
     // https://xcancel.com/Sibuna_Switch/status/1847665451809075315#m
     if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
-        return (i == 4 || i == (1 | 0x80)) ? 1 | 0x80 : i;
+        return ((i == 4 || i == (1 | CRITICAL_CAPTURE_MASK)) ? (1 | CRITICAL_CAPTURE_MASK) : (i));
     }
-    return i == (0 | 0x80) ? 0 : i;
+    return i & ~CRITICAL_CAPTURE_MASK; //(i == (0 | CRITICAL_CAPTURE_MASK) ? 0 : i);
 #endif
 }

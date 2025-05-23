@@ -3704,7 +3704,7 @@ BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
- *  @return the amount of shakes a ball undergoes.  or'd with 0x80 for critical captures
+ *  @return the amount of shakes a ball undergoes.  or'd with CRITICAL_CAPTURE_MASK for critical captures
  */
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 {
@@ -3727,17 +3727,17 @@ u32 sSuccessfulCriticalCapture = 0;
  *  @brief reroute the capture shake task if a critical capture activates
  *
  *  @param expcalc exp calculator structure
- *  @param shakes number of shakes or'd with 0x80 for critical captures
+ *  @param shakes number of shakes or'd with CRITICAL_CAPTURE_MASK for critical captures
  *  @return amouont of actual shakes
  */
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes)
 {
 #ifdef IMPLEMENT_CRITICAL_CAPTURE
-    sSuccessfulCriticalCapture = 0;
-    if (shakes & 0x80) // critical capture
+    sSuccessfulCriticalCapture = FALSE;
+    if (shakes & CRITICAL_CAPTURE_MASK) // critical capture
     {
-        expcalc->work[3] = shakes&0x7F;
-        if ((shakes&0x7F) == 1)
+        expcalc->work[3] = shakes & ~CRITICAL_CAPTURE_MASK;
+        if ((shakes & ~CRITICAL_CAPTURE_MASK) == 1)
         {
             expcalc->work[2] = 4; // successful capture
             sSuccessfulCriticalCapture = TRUE;
@@ -3745,10 +3745,9 @@ u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes)
         else
         {
             expcalc->work[2] = 1;
-            // TODO: as of SV, this is now false.
             // https://xcancel.com/Sibuna_Switch/status/1605588207898218496#m
             // https://xcancel.com/Sibuna_Switch/status/1847665451809075315#m
-            expcalc->work[3] = 1; // a failed critical capture still shakes once
+            expcalc->work[3] = 0; // a failed critical capture no longer shakes once and just breaks free
         }
     }
     else

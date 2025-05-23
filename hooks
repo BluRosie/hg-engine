@@ -214,7 +214,7 @@ arm9 Pocket_GetItemSlotForRemove 020783E0
 arm9 Bag_GetItemSlotForRemove 02078410
 arm9 Bag_TakeItem 02078434
 arm9 Pocket_TakeItem 02078480
-arm9 Bag_HasItem 020784B0
+arm9 Bag_HasItem_hook 020784B4 5
 
 # no more extended hook
 arm9 Bag_PocketNotEmpty 080784C4 2

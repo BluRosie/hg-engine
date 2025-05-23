@@ -18,7 +18,7 @@ $(error Current directory is not a git repository. Please follow the instruction
 endif
 
 ifneq ($(shell pwd | grep -i 'onedrive'),)
-$(error "HAAAAAAAAAAAAAAAANK HAAAAAAAAAAAAAAAAAAAAAAAAAAANK DO NOT PUT FILES IN ONEDRIVE. CLONE THE REPOSITORY IN ANOTHER FOLDER" )
+$(error "Do not put files into OneDrive.  Please clone the repository in a different folder." )
 endif
 
 ifneq ($(VALID_GAMECODE), 0)

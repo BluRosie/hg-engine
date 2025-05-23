@@ -158,6 +158,9 @@
 
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_PAL_PARK)
 
+// change the flow of the ball callback to make sure that critical captures only shake once then succeed.  if it shakes, it succeeds, though
+#define CRITICAL_CAPTURE_MASK (0x80)
+
 
 /**
  *  @brief flags for effect_of_moves
