@@ -2239,10 +2239,9 @@ BOOL LONG_CALL IsMoveInMinimizeVulnerabilityMovesList(u16 move) {
     return IsElementInArray(MinimizeVulnerabilityMovesList, (u16 *)&move, NELEMS(MinimizeVulnerabilityMovesList), sizeof(MinimizeVulnerabilityMovesList[0]));
 }
 
-// We change it so that if it is sure-hit, return TRUE
 BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, int battlerIdAttacker, int battlerIdTarget, int move) {
     if (sp->server_status_flag & BATTLE_STATUS_CHARGE_TURN) {
-        return TRUE;
+        return FALSE;
     }
 
     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-58#post-8684263
@@ -2255,7 +2254,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     if (move == MOVE_TOXIC
         && (BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
         || BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON)) {
-        return TRUE;
+        return FALSE;
     }
 
     if (!(sp->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE) //TODO: Is this flag a debug flag to ignore hit rates..?
@@ -2264,7 +2263,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
           || GetBattlerAbility(sp, battlerIdAttacker) == ABILITY_NO_GUARD
           || GetBattlerAbility(sp, battlerIdTarget) == ABILITY_NO_GUARD)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-        return TRUE;
+        return FALSE;
     }
 
     if (!(sp->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
@@ -2293,12 +2292,12 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         || (sp->moveTbl[move].effect == MOVE_EFFECT_WILDBOLT_STORM)
         || (sp->moveTbl[move].effect == MOVE_EFFECT_SANDSEAR_STORM))) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-            return TRUE;
+            return FALSE;
         }
         // Blizzard is 100% accurate in Snow also
         if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && sp->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-            return TRUE;
+            return FALSE;
         }
     }
 
@@ -2306,7 +2305,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         && !sp->battlemon[battlerIdTarget].is_currently_dynamaxed
         && IsMoveInMinimizeVulnerabilityMovesList(move)) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-            return TRUE;
+            return FALSE;
     }
 
     // 3. Check if the target has Telekinesis.
