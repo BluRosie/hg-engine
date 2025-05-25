@@ -986,13 +986,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
 
 
         if (defender == sp->rawSpeedNonRNGClientOrder[i]) {
-            // handle Heatproof
-            if ((movetype == TYPE_FIRE)
-            && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_HEATPROOF) == TRUE)) {
-                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__0_5);
-                continue;
-            }
-
             // Handle Dry Skin
             if ((movetype == TYPE_FIRE)
             && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE)) {
@@ -1346,6 +1339,14 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         }
 
         if (defender == sp->rawSpeedNonRNGClientOrder[i]) {
+            // handle Heatproof
+            // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9800504
+            if ((movetype == TYPE_FIRE)
+            && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_HEATPROOF) == TRUE)) {
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__0_5);
+                continue;
+            }
+
             // handle Thick Fat
             if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_THICK_FAT) == TRUE)
             && ((movetype == TYPE_FIRE) || (movetype == TYPE_ICE))) {
@@ -1357,7 +1358,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__0_5);
             }
 
-            // handle purifying salt
+            // handle Purifying Salt
             // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9469856
             if ((DefendingMon.ability == ABILITY_PURIFYING_SALT) && (movetype == TYPE_GHOST)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__0_5);
