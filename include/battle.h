@@ -3712,11 +3712,6 @@ void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int buffer
 
 void LONG_CALL BufferItemNameWithIndefArticle(u32 *msgFmt, u32 fieldno, u32 itemId);
 
-/// @brief Returns a pre-calculated value of the shake chance
-/// @param input_value 
-/// @return shake chance
-unsigned int LONG_CALL get_shake_chance(int input_value);
-
 int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 
 #endif // BATTLE_H

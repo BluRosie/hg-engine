@@ -11,6 +11,9 @@
 #ifdef ALLOW_SAVE_CHANGES
 #ifdef ITEM_POCKET_EXPANSION
 
+# Bag_HasSpaceForItem hook setup because it's not even 0x1C bytes long
+arm9 02078384 60 B4 C0 46
+
 # Bag_HasItem hook setup because it's not even 0x1C bytes long
 arm9 020784B0 60 B4 C0 46
 

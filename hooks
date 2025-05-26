@@ -208,7 +208,7 @@ arm9 Bag_UnregisterItem 08078208 2
 arm9 Bag_GetItemPocket 02078240
 arm9 Pocket_GetItemSlotForAdd 020782DC
 arm9 Bag_GetItemSlotForAdd 02078340
-arm9 Bag_HasSpaceForItem 02078384
+arm9 Bag_HasSpaceForItem_hook 02078388 5
 arm9 Bag_AddItem 02078398
 arm9 Pocket_GetItemSlotForRemove 020783E0
 arm9 Bag_GetItemSlotForRemove 02078410
