@@ -1128,7 +1128,7 @@ heightentry SPECIES_MEGA_BANETTE, 0, 0, 0, 0
 heightentry SPECIES_MEGA_ABSOL, 0, 0, 0, 0
 heightentry SPECIES_MEGA_GLALIE, 0, 0, 0, 0
 heightentry SPECIES_MEGA_SALAMENCE, 2, 2, 0, 0
-heightentry SPECIES_MEGA_METAGROSS, 14, 14, 0, 0
+heightentry SPECIES_MEGA_METAGROSS, 0, 0, 0, 0
 heightentry SPECIES_MEGA_LATIAS, 0, 0, 0, 0 
 heightentry SPECIES_MEGA_LATIOS, 0, 0, 0, 0
 heightentry SPECIES_MEGA_RAYQUAZA, 8, 8, 0, 0
