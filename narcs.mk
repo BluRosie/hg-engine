@@ -229,14 +229,9 @@ TRAINERDATA_TARGET_2 := $(FILESYS)/a/0/5/6
 TRAINERDATA_DEPENDENCIES := armips/data/trainers/trainers.s
 TRAINERDATA_TRAINER_NAMES_DIR := $(BUILD)/rawtext/729
 
-NO_PARTNER_DOUBLE_BATTLES := $(shell grep -E '^NO_PARTNER_DOUBLE_BATTLES[[:space:]]+equ' armips/include/config.s | awk '{print $$3}')
-
 $(TRAINERDATA_NARC): $(TRAINERDATA_DEPENDENCIES)
 	$(ARMIPS) $^
 	$(NARCHIVE) create $@ $(TRAINERDATA_DIR) -nf
-ifeq ($(NO_PARTNER_DOUBLE_BATTLES), 1)
-	$(PYTHON) scripts/no_partner_double_battles_patch.py $(TRAINERDATA_DIR) $(TRAINERDATA_DEPENDENCIES)
-endif
 	$(NARCHIVE) create $(TRAINERDATA_NARC_2) $(TRAINERDATA_DIR_2) -nf
 
 NARC_FILES += $(TRAINERDATA_NARC)
