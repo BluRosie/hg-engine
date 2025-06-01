@@ -27,19 +27,19 @@ def dump_moves(narc):
 			break
 
 		moves_armip += f"{MOVE_ENTRIES[idx][0]}"
-		moves_armip += f"    battleeffect {MOVE_EFFECTS["MOVE"][move["effect"]]}\n"
-		moves_armip += f"    pss {MOVE_MACROS["SPLIT"][move["category"]]}\n"
-		moves_armip += f"    basepower {move["power"]}\n"
-		moves_armip += f"    type {CONSTANTS["TYPE"][move["type"]]}\n"
-		moves_armip += f"    accuracy {move["accuracy"]}\n"
-		moves_armip += f"    pp {move["pp"]}\n"
-		moves_armip += f"    effectchance {move["effect_chance"]}\n"
-		moves_armip += f"    target {MOVE_MACROS["MOVE"][move["target"]]}\n"
-		moves_armip += f"    priority {move["priority"]}\n"
-		moves_armip += f"    flags {get_flags(move["properties"])}\n"
-		moves_armip += f"    appeal 0x{move["appeal"]:02x}\n"
-		moves_armip += f"    contesttype {MOVE_MACROS["CONTEST"][move["contest_type"]]}\n"
-		moves_armip += f"    terminatedata\n"
+		moves_armip += f'    battleeffect {MOVE_EFFECTS["MOVE"][move["effect"]]}\n'
+		moves_armip += f'    pss {MOVE_MACROS["SPLIT"][move["category"]]}\n'
+		moves_armip += f'    basepower {move["power"]}\n'
+		moves_armip += f'    type {CONSTANTS["TYPE"][move["type"]]}\n'
+		moves_armip += f'    accuracy {move["accuracy"]}\n'
+		moves_armip += f'    pp {move["pp"]}\n'
+		moves_armip += f'    effectchance {move["effect_chance"]}\n'
+		moves_armip += f'    target {MOVE_MACROS["MOVE"][move["target"]]}\n'
+		moves_armip += f'    priority {move["priority"]}\n'
+		moves_armip += f'    flags {get_flags(move["properties"])}\n'
+		moves_armip += f'    appeal 0x{move["appeal"]:02x}\n'
+		moves_armip += f'    contesttype {MOVE_MACROS["CONTEST"][move["contest_type"]]}\n'
+		moves_armip += f'    terminatedata\n'
 		moves_armip += MOVE_ENTRIES[idx][1]
 		moves_armip += "\n"
 	moves_armip += get_remaining_lines("../armips/data/moves.s", len(narc), "movedata")

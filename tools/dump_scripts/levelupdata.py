@@ -10,14 +10,14 @@ def dump_levelupdata(narc):
 	levelupdata_armip += "// the level up moves for each pokemon\n\n\n"
 
 	is_expanded = True if ("move_id_29" in narc[0]) else False
-	max_moves = 30 if is_expanded else 20
+	max_moves = 41 if is_expanded else 20
 
 	for idx, levelup in enumerate(narc):
-		levelupdata_armip += f"levelup {MONS["SPECIES"][idx]}\n"		
+		levelupdata_armip += f'levelup {MONS["SPECIES"][idx]}\n'
 		
 		for n in range(0,max_moves):
-			if levelup[f"move_id_{n}"] != 0xFFFF and levelup[f"move_id_{n}"] != 0:
-				levelupdata_armip += f"    learnset {MOVES["MOVE"][levelup[f"move_id_{n}"]]}, {levelup[f"lvl_learned_{n}"]}\n"
+			if levelup[f"move_id_{n}"] != 0xFFFF and levelup[f"move_id_{n}"] != 0 and levelup[f"lvl_learned_{n}"] <= 100:
+				levelupdata_armip += f'    learnset {MOVES["MOVE"][levelup[f"move_id_{n}"]]}, {levelup[f"lvl_learned_{n}"]}\n'
 			else:
 				levelupdata_armip += "    terminatelearnset\n\n\n"
 				break
@@ -25,12 +25,3 @@ def dump_levelupdata(narc):
 	levelupdata_armip += get_remaining_lines("../armips/data/levelupdata.s", len(narc), "levelup")
 
 	return levelupdata_armip
-
-
-
-
-
-
-
-
-

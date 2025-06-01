@@ -15,63 +15,63 @@ def dump_encounters(narc, is_expanded):
 	for idx, enc in enumerate(narc):
 		encs_armip += f"{ENC_ENTRIES[idx]}\n"
 
-		encs_armip += f"walkrate {enc["walking_rate"]}\n"
-		encs_armip += f"surfrate {enc["surf_rate"]}\n"
-		encs_armip += f"rocksmashrate {enc["rock_smash_rate"]}\n"
-		encs_armip += f"oldrodrate {enc["old_rod_rate"]}\n"
-		encs_armip += f"goodrodrate {enc["good_rod_rate"]}\n"
-		encs_armip += f"superrodrate {enc["super_rod_rate"]}\n"
-		encs_armip += f"walklevels {", ".join(str(value) for key, value in enc.items() if key.startswith('walking_') and key.endswith('_level'))}\n\n"
+		encs_armip += f'walkrate {enc["walking_rate"]}\n'
+		encs_armip += f'surfrate {enc["surf_rate"]}\n'
+		encs_armip += f'rocksmashrate {enc["rock_smash_rate"]}\n'
+		encs_armip += f'oldrodrate {enc["old_rod_rate"]}\n'
+		encs_armip += f'goodrodrate {enc["good_rod_rate"]}\n'
+		encs_armip += f'superrodrate {enc["super_rod_rate"]}\n'
+		encs_armip += f"walklevels {', '.join(str(value) for key, value in enc.items() if key.startswith('walking_') and key.endswith('_level'))}\n\n"
 		
 		encs_armip += "// morning encounter slots\n"
 		for i in range(0,12):
-			encs_armip += f"{get_enc_macro(enc[f"morning_{i}_species_id"], "pokemon", is_expanded)}\n"
+			encs_armip += f'{get_enc_macro(enc[f"morning_{i}_species_id"], "pokemon", is_expanded)}\n'
 
 		encs_armip += "\n// day encounter slots\n"
 		for i in range(0,12):
-			encs_armip += f"{get_enc_macro(enc[f"day_{i}_species_id"], "pokemon", is_expanded)}\n"
+			encs_armip += f'{get_enc_macro(enc[f"day_{i}_species_id"], "pokemon", is_expanded)}\n'
 
 		encs_armip += "\n// night encounter slots\n"
 		for i in range(0,12):
-			encs_armip += f"{get_enc_macro(enc[f"night_{i}_species_id"], "pokemon", is_expanded)}\n"
+			encs_armip += f'{get_enc_macro(enc[f"night_{i}_species_id"], "pokemon", is_expanded)}\n'
 
 		encs_armip += "\n// hoenn encounter slots\n"
 		for i in range(0,2):
-			encs_armip += f"{get_enc_macro(enc[f"hoenn_{i}_species_id"], "pokemon", is_expanded)}\n"
+			encs_armip += f'{get_enc_macro(enc[f"hoenn_{i}_species_id"], "pokemon", is_expanded)}\n'
 
 		encs_armip += "\n// sinnoh encounter slots\n"
 		for i in range(0,2):
-			encs_armip += f"{get_enc_macro(enc[f"sinnoh_{i}_species_id"], "pokemon", is_expanded)}\n"
+			encs_armip += f'{get_enc_macro(enc[f"sinnoh_{i}_species_id"], "pokemon", is_expanded)}\n'
 
 		encs_armip += "\n// surf encounters\n"
 		for i in range(0,5):
-			encs_armip += f"{get_enc_macro(enc[f"surf_{i}_species_id"], "encounter", is_expanded )}, {enc[f"surf_{i}_min_lvl"]}, {enc[f"surf_{i}_max_lvl"]}\n"
+			encs_armip += f'{get_enc_macro(enc[f"surf_{i}_species_id"], "encounter", is_expanded )}, {enc[f"surf_{i}_min_lvl"]}, {enc[f"surf_{i}_max_lvl"]}\n'
 
 
 		encs_armip += "\n// rock smash encounters\n"
 		for i in range(0,2):
-			encs_armip += f"{get_enc_macro(enc[f"rock_smash_{i}_species_id"], "encounter", is_expanded )}, {enc[f"rock_smash_{i}_min_lvl"]}, {enc[f"rock_smash_{i}_max_lvl"]}\n"
+			encs_armip += f'{get_enc_macro(enc[f"rock_smash_{i}_species_id"], "encounter", is_expanded )}, {enc[f"rock_smash_{i}_min_lvl"]}, {enc[f"rock_smash_{i}_max_lvl"]}\n'
 
 		encs_armip += "\n// old rod encounters\n"
 		for i in range(0,5):
-			encs_armip += f"{get_enc_macro(enc[f"old_rod_{i}_species_id"], "encounter", is_expanded )}, {enc[f"old_rod_{i}_min_lvl"]}, {enc[f"old_rod_{i}_max_lvl"]}\n"
+			encs_armip += f'{get_enc_macro(enc[f"old_rod_{i}_species_id"], "encounter", is_expanded )}, {enc[f"old_rod_{i}_min_lvl"]}, {enc[f"old_rod_{i}_max_lvl"]}\n'
 
 		encs_armip += "\n// good rod encounters\n"
 		for i in range(0,5):
-			encs_armip += f"{get_enc_macro(enc[f"good_rod_{i}_species_id"], "encounter", is_expanded )}, {enc[f"good_rod_{i}_min_lvl"]}, {enc[f"good_rod_{i}_max_lvl"]}\n"
+			encs_armip += f'{get_enc_macro(enc[f"good_rod_{i}_species_id"], "encounter", is_expanded )}, {enc[f"good_rod_{i}_min_lvl"]}, {enc[f"good_rod_{i}_max_lvl"]}\n'
 
 		encs_armip += "\n// super rod encounters\n"
 		for i in range(0,5):
-			encs_armip += f"{get_enc_macro(enc[f"super_rod_{i}_species_id"], "encounter", is_expanded )}, {enc[f"super_rod_{i}_min_lvl"]}, {enc[f"super_rod_{i}_max_lvl"]}\n"
+			encs_armip += f'{get_enc_macro(enc[f"super_rod_{i}_species_id"], "encounter", is_expanded )}, {enc[f"super_rod_{i}_min_lvl"]}, {enc[f"super_rod_{i}_max_lvl"]}\n'
 
 		encs_armip += "\n// swarm grass\n"
-		encs_armip += f"{get_enc_macro(enc[f"swarm_0_species_id"], "pokemon", is_expanded)}\n"
+		encs_armip += f'{get_enc_macro(enc[f"swarm_0_species_id"], "pokemon", is_expanded)}\n'
 		encs_armip += "// swarm surf\n"
-		encs_armip += f"{get_enc_macro(enc[f"swarm_1_species_id"], "pokemon", is_expanded)}\n"
+		encs_armip += f'{get_enc_macro(enc[f"swarm_1_species_id"], "pokemon", is_expanded)}\n'
 		encs_armip += "// swarm good rod\n"
-		encs_armip += f"{get_enc_macro(enc[f"swarm_2_species_id"], "pokemon", is_expanded)}\n"
+		encs_armip += f'{get_enc_macro(enc[f"swarm_2_species_id"], "pokemon", is_expanded)}\n'
 		encs_armip += "// swarm super rod\n"
-		encs_armip += f"{get_enc_macro(enc[f"swarm_3_species_id"], "pokemon", is_expanded)}\n\n"
+		encs_armip += f'{get_enc_macro(enc[f"swarm_3_species_id"], "pokemon", is_expanded)}\n\n'
 		encs_armip += ".close\n\n\n"
 
 	return encs_armip

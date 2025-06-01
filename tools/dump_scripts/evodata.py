@@ -14,7 +14,7 @@ def dump_evodata(narc):
 	is_expanded = True if ("target_7" in narc[0]) else False
 
 	for idx, evo in enumerate(narc):
-		evodata_armip += f"evodata {MONS["SPECIES"][idx]}\n"
+		evodata_armip += f'evodata {MONS["SPECIES"][idx]}\n'
 
 		for i in range(0,9):
 			if f"target_{i}" in evo:
@@ -62,7 +62,7 @@ def get_evo_macro(species_id, method_id, param_id, is_expanded):
 		target = MONS["SPECIES"][base_form_id]
 		return f"    evolutionwithform {method}, {param}, {target}, {form_id}\n"
 	else:
-		return f"    evolution {method}, {param}, {MONS["SPECIES"][species_id]}\n"
+		return f"    evolution {method}, {param}, {MONS['SPECIES'][species_id]}\n"
 
 
 

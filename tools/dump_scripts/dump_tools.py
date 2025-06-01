@@ -50,13 +50,14 @@ MOVE_NARC_FORMAT = [
 [1, "appeal"],
 [1, "contest_type"]]
 
+# if this is dumping from a vanilla rom, the data structure is much different
+# new format for vanilla learnset len 4 = [bytes, bits for low field, low field, high field]
 LEARNSET_NARC_FORMAT = []
 for n in range(20):
-    LEARNSET_NARC_FORMAT.append([2, f'move_id_{n}'])
-    LEARNSET_NARC_FORMAT.append([2, f'lvl_learned_{n}'])
+    LEARNSET_NARC_FORMAT.append([2, 9, f'move_id_{n}', f'lvl_learned_{n}'])
 
 EXPANDED_LEARNSET_NARC_FORMAT = []
-for n in range(30):
+for n in range(41):
     EXPANDED_LEARNSET_NARC_FORMAT.append([2, f'move_id_{n}'])
     EXPANDED_LEARNSET_NARC_FORMAT.append([2, f'lvl_learned_{n}'])
 
@@ -165,8 +166,13 @@ def read_narc_data(data, narc_format):
     file = {}
     
     #USE THE FORMAT LIST TO PARSE BYTES
-    for entry in narc_format: 
-        file[entry[1]] = read_bytes(stream, entry[0])
+    for entry in narc_format:
+        if (len(entry) == 4):
+            work = read_bytes(stream, entry[0])
+            file[entry[2]] = work & ((1 << entry[1])-1)
+            file[entry[3]] = (work & (0xFFFFFFFF ^ ((1 << entry[1])-1))) >> entry[1]
+        else:
+            file[entry[1]] = read_bytes(stream, entry[0])
         
     return file
 
@@ -243,7 +249,7 @@ def get_form(species_id, is_expanded):
         return [form + 1, base_form_id]
 
 def get_remaining_lines(file_path, original_rom_mon_count, keyword):
-    with open(file_path, 'r') as f:
+    with open(file_path, 'r', encoding="utf-8") as f:
         content = f.readlines()
 
     mon_count = 0

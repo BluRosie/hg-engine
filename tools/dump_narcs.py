@@ -27,31 +27,31 @@ if __name__ == "__main__":
 		print("HG Engine Rom detected") 
 
 
-	with open('./dumped_armips/mondata.s', 'w') as file:
+	with open('./dumped_armips/mondata.s', 'w', encoding="utf-8") as file:
 		file.write(dump_mondata(mondata_narc))
 
 	# Dump Moves
 
 	moves_narc = dump_narc(rom, "a/0/1/1", MOVE_NARC_FORMAT)
-	with open('./dumped_armips/moves.s', 'w') as file:
+	with open('./dumped_armips/moves.s', 'w', encoding="utf-8") as file:
 		file.write(dump_moves(moves_narc))
 
 	# Dump Encounters
 
 	encounters_narc = dump_narc(rom, "a/0/3/7", ENCOUNTER_NARC_FORMAT)
-	with open('./dumped_armips/encounters.s', 'w') as file:
+	with open('./dumped_armips/encounters.s', 'w', encoding="utf-8") as file:
 		file.write(dump_encounters(encounters_narc, EXPANDED))
 
 	# Dump Evolutions
 
 	evodata_narc = dump_narc(rom, 'a/0/3/4', (EXPANDED_EVO_NARC_FORMAT if EXPANDED else EVO_NARC_FORMAT))
-	with open('./dumped_armips/evodata.s', 'w') as file:
+	with open('./dumped_armips/evodata.s', 'w', encoding="utf-8") as file:
 		file.write(dump_evodata(evodata_narc))
 
 	# Dump Learnsets
 
 	levelupdata_narc = dump_narc(rom, "a/0/3/3", (EXPANDED_LEARNSET_NARC_FORMAT if EXPANDED else LEARNSET_NARC_FORMAT))
-	with open('./dumped_armips/levelupdata.s', 'w') as file:
+	with open('./dumped_armips/levelupdata.s', 'w', encoding="utf-8") as file:
 		file.write(dump_levelupdata(levelupdata_narc))
 
 	# Dump Trainers
