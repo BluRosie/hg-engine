@@ -3,23 +3,26 @@
 ROMNAME = rom.nds
 BUILDROM = test.nds
 
-DESIRED_GAMECODE := IPKE
-GAMECODE = $(shell dd bs=1 skip=12 count=4 if=$(ROMNAME) status=none)
-VALID_GAMECODE = $(shell echo $(GAMECODE) | grep -i -q $(DESIRED_GAMECODE); echo $$?)
-
 define n
 
 
 endef
 
 # Check if user cloned git repository correctly first thing to prevent excessive user enquiries
+# add an exception for the path to hg-engine that is normally in the docker container
+ifneq ($(shell pwd),/hg-engine)
 ifneq ($(shell git rev-parse --is-inside-work-tree 2>/dev/null), true)
 $(error Current directory is not a git repository. Please follow the instructions in the README: https://github.com/BluRosie/hg-engine)
+endif
 endif
 
 ifneq ($(shell pwd | grep -i 'onedrive'),)
 $(error "Do not put files into OneDrive.  Please clone the repository in a different folder." )
 endif
+
+DESIRED_GAMECODE := IPKE
+GAMECODE = $(shell dd bs=1 skip=12 count=4 if=$(ROMNAME) status=none)
+VALID_GAMECODE = $(shell echo $(GAMECODE) | grep -i -q $(DESIRED_GAMECODE); echo $$?)
 
 ifneq ($(VALID_GAMECODE), 0)
 # invalid rom detected based on gamecode.  this primarily catches other-language roms
