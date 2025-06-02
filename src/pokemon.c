@@ -661,6 +661,24 @@ BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp)
     return FALSE;
 }
 
+/**
+ *  @brief check if a certain type of nectar can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check the nectar against
+ *  @param nectar Nectar item id to check for
+ *  @return TRUE if nectar can be used; FALSE otherwise
+ */
+BOOL LONG_CALL CanUseNectar(struct PartyPokemon *pp, u16 nectar)
+{
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u16 form = (u16) GetMonData(pp, MON_DATA_FORM, NULL);
+    if (species == SPECIES_ORICORIO && form != nectar - ITEM_RED_NECTAR)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
 #define RESHIRAM_MASK (0x80)
 #define JUST_SPLICER_POS_MASK (0x7F)
 
@@ -786,6 +804,21 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
         ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works alright
+        return TRUE;
+    }
+
+    // handle oricorio form changes
+    // This code relies on the item ids of the nectars being consecutive
+
+    if (wk->dat->item >= ITEM_RED_NECTAR && wk->dat->item <= ITEM_PURPLE_NECTAR
+     && CanUseNectar(pp, wk->dat->item) == TRUE)
+    {
+        void *bag = Sav2_Bag_get(SaveBlock2_get());
+        wk->dat->after_mons = wk->dat->item - ITEM_RED_NECTAR;
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        ChangePartyPokemonToForm(pp, wk->dat->after_mons);
+        Bag_TakeItem(bag, wk->dat->item, 1, 11);
         return TRUE;
     }
 
@@ -1021,13 +1054,11 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
         case SPECIES_MEOWSTIC:
         case SPECIES_INDEEDEE:
         case SPECIES_OINKOLOGNE:
+        case SPECIES_BASCULEGION:
 #endif
             form = gf_rand() & 1; // 1/2 male
             break;
 #ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
-        case SPECIES_BASCULEGION:
-            form = (gf_rand() & 1) ? 3 : 0; // 1/2 male
-            break;
         case SPECIES_PYROAR:
             form = (gf_rand() % 8 != 0); // 1/8 male
             break;
@@ -1957,13 +1988,17 @@ u32 SpeciesAndFormeToWazaOshieIndex(u32 species, u32 form)
 /**
  *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
  *
- *  @return level cap from LEVEL_CAP_VARIABLE script variable
+ *  @return level cap from LEVEL_CAP_VARIABLE script variable or 100 if it's not set at all
  */
 u32 GetLevelCap(void)
 {
+#ifdef IMPLEMENT_LEVEL_CAP
     u32 levelCap = GetScriptVar(LEVEL_CAP_VARIABLE);
-    if (levelCap > 100) levelCap = 100;
+    if (levelCap > 100 || levelCap == 0) levelCap = 100;
     return levelCap;
+#else
+    return 100;
+#endif // IMPLEMENT_LEVEL_CAP
 }
 
 /**
