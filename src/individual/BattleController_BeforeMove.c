@@ -1077,9 +1077,10 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
                 ctx->multiHitCount = 2;
                 ctx->multiHitCountTemp = 2;
                 ctx->loop_hit_check = 0xFD;
-                ctx->oneTurnFlag[ctx->battlerIdTemp].parental_bond_is_active = TRUE;
+                ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 1;
+                ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = TRUE;
             } else {
-                ctx->oneTurnFlag[ctx->battlerIdTemp].parental_bond_is_active = FALSE;
+                ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
                 //ctx->wb_seq_no = BEFORE_MOVE_START_FLAG_UNLOAD;
             }
 

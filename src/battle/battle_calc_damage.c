@@ -155,23 +155,35 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     // 6.2 Parental Bond Modifier
 
-    if (sp->oneTurnFlag[attacker].parental_bond_flag == 2) {
-        damage = QMul_RoundDown(damage, UQ412__0_25);
-    }
-    switch (sp->oneTurnFlag[attacker].parental_bond_flag) {
-        case 1:
-            sp->oneTurnFlag[attacker].parental_bond_flag++;
-            sp->oneTurnFlag[attacker].parental_bond_is_active = TRUE; // after first hit, set this flag just in case the ability is nullified after the first one
-            break;
-        default:
-            sp->oneTurnFlag[attacker].parental_bond_flag = 0;
-            sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
-            break;
-    }
-
 #ifdef DEBUG_DAMAGE_CALC
     debug_printf("\n=================\n");
     debug_printf("[CalcBaseDamage] 6.2 Parental Bond Modifier\n");
+#endif
+
+    // this is beacuse of weirdness, just make sure the value is correct at all times
+    if (sp->oneTurnFlag[attacker].parental_bond_flag) {
+#ifdef DEBUG_DAMAGE_CALC
+        debug_printf("[CalcBaseDamage] parental_bond_flag: %d\n", sp->oneTurnFlag[attacker].parental_bond_flag);
+#endif
+        switch (sp->oneTurnFlag[attacker].parental_bond_flag) {
+            case 1:
+                sp->oneTurnFlag[attacker].parental_bond_flag++;
+                sp->oneTurnFlag[attacker].parental_bond_is_active = TRUE;  // after first hit, set this flag just in case the ability is nullified after the first one
+                break;
+            case 2:
+                debug_printf("[CalcBaseDamage] parental_bond_flag is 2, damage reduction\n");
+                damage = QMul_RoundDown(damage, UQ412__0_25);
+                break;
+            default:
+                debug_printf("[CalcBaseDamage] Why are we here?\n");
+                break;
+        }
+#ifdef DEBUG_DAMAGE_CALC
+        debug_printf("[CalcBaseDamage] setting parental_bond_flag to %d\n", sp->oneTurnFlag[attacker].parental_bond_flag);
+#endif
+    }
+
+#ifdef DEBUG_DAMAGE_CALC
     debug_printf("[CalcBaseDamage] damage: %d\n", damage);
 #endif
 
@@ -680,6 +692,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     debug_printf("\n=================\n");
     debug_printf("[CalcBaseDamage] Step 12. 65,535 Damage Check\n");
     debug_printf("[CalcBaseDamage] Final sp->damage: %d\n", sp->damage);
+    debug_printf("\n=================\n\n\n\n\n");
 #endif
 }
 

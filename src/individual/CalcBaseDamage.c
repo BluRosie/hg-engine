@@ -314,12 +314,16 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
     
     //=====Step 1. Custom BP=====
 
-    // movepower = sp->moveTbl[moveno].power;
+    movepower = sp->moveTbl[moveno].power;
 
-    if (pow == 0)
-        movepower = sp->moveTbl[moveno].power;
-    else
-        movepower = pow;
+    // TODO: Check if there are any moves not ported yet 
+    // if (pow == 0) {
+    //     debug_printf("First case\n");
+    //     movepower = sp->moveTbl[moveno].power;
+    // } else {
+    //     debug_printf("Second case\n");
+    //     movepower = pow;
+    // }
 
     switch (moveno) {
     // Speed-based
@@ -602,6 +606,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
 #ifdef DEBUG_DAMAGE_CALC
     debug_printf("\n=================\n");
     debug_printf("[CalcBaseDamage] Step 1. Custom BP\n");
+    debug_printf("[CalcBaseDamage] moveno: %d\n", moveno);
     debug_printf("[CalcBaseDamage] movepower: %d\n", movepower);
 #endif
 
