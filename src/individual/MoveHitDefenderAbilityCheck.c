@@ -259,6 +259,29 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 ret = TRUE;
             }
         break;
+        case ABILITY_ELECTROMORPHOSIS:
+            if ((sp->battlemon[sp->defence_client].hp)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage)))
+            {
+                sp->addeffect_param = ADD_STATUS_EFF_CHARGE;
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->state_client = sp->defence_client;
+                seq_no[0] = SUB_SEQ_HANDLE_CHARGE_BOOST;
+                ret = TRUE;
+            }
+        break;
+        case ABILITY_WIND_POWER:
+            if ((sp->battlemon[sp->defence_client].hp)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
+                && (IsMoveWindMove(sp->current_move_index)))
+            {
+                sp->addeffect_param = ADD_STATUS_EFF_CHARGE;
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->state_client = sp->defence_client;
+                seq_no[0] = SUB_SEQ_HANDLE_CHARGE_BOOST;
+                ret = TRUE;
+            }
+        break;
         case ABILITY_STAMINA:
             if ((sp->battlemon[sp->defence_client].hp)
                 && (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
