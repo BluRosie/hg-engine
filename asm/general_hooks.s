@@ -89,3 +89,21 @@ mov pc, r1
 
 Bag_HasItem_return_address:
 .word 0
+
+
+// still needed because function itself is not 0x1C bytes long
+.global CanUseItemOnMonInParty_hook
+CanUseItemOnMonInParty_hook:
+ldr r5, =CanUseItemOnMonInParty_return_address
+mov r6, lr
+str r6, [r5]
+pop {r5-r6}
+bl CanUseItemOnMonInParty
+ldr r1, =CanUseItemOnMonInParty_return_address
+ldr r1, [r1]
+mov pc, r1
+
+.pool
+
+CanUseItemOnMonInParty_return_address:
+.word 0

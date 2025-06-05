@@ -20,6 +20,9 @@ arm9 020784B0 60 B4 C0 46
 #endif
 #endif
 
+# CanUseItemOnMonInParty hook setup because it's not even 0x1C bytes long
+arm9 020902B8 60 B4 C0 46
+
 # 021F9380
 # trying a few things out
 0015 08000036 50
