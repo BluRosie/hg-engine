@@ -1990,7 +1990,7 @@ u32 SpeciesAndFormeToWazaOshieIndex(u32 species, u32 form)
  *
  *  @return level cap from LEVEL_CAP_VARIABLE script variable or 100 if it's not set at all
  */
-u32 GetLevelCap(void)
+u32 LONG_CALL GetLevelCap(void)
 {
 #ifdef IMPLEMENT_LEVEL_CAP
     u32 levelCap = GetScriptVar(LEVEL_CAP_VARIABLE);
@@ -2007,7 +2007,7 @@ u32 GetLevelCap(void)
  *  @param level level to check
  *  @return TRUE if level >= level cap; FALSE otherwise
  */
-u32 IsLevelAtLevelCap(u32 level)
+u32 LONG_CALL IsLevelAtLevelCap(u32 level)
 {
     return (level >= GetLevelCap());
 }
