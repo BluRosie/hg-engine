@@ -1344,7 +1344,8 @@ struct PACKED BattleStruct {
     /*0x315F*/ u8 magicBounceTracker; // if any client has already activated magic bounce, another can not activate
     /*0x3160*/ u8 binding_turns[4]; // turns left for bind
     /*0x3164*/ u8 entryHazardQueue[2][NUM_HAZARD_IDX];
-    /*0x316E*/ u8 hazardQueueTracker;
+    /*0x316E*/ u8 hazardQueueTracker:7;
+               u8 itemActivatedTracker:1; // if an item that isn't lost on activation has been activated for this hit (think rocky helmet)
     /*0x316F*/ u8 padding_316F[0x317E - 0x316F]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
