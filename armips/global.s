@@ -25,6 +25,7 @@
 
 .include "armips/asm/tm.s" // make tms infinite
 .include "armips/asm/forget_hm.s" // allows hm to be forgotten
+.include "armips/asm/no_partner_double_battles.s" // allows no partner double battles
 
 .if FAIRY_TYPE_IMPLEMENTED == 1
 
@@ -35,12 +36,6 @@
 .ifdef APPLY_ANTIPIRACY
 
 .include "armips/asm/antipiracy.s" // install antipiracy into the rom
-
-.endif
-
-.if NO_PARTNER_DOUBLE_BATTLES == 1
-
-.include "armips/asm/no_partner_double_battles.s"
 
 .endif
 
