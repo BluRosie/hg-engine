@@ -455,8 +455,10 @@
 #define SUB_SEQ_TIDY_UP                               (445)
 #define SUB_SEQ_BURN_AND_DRAIN_HEALTH                 (446)
 #define SUB_SEQ_HANDLE_TELEPATHY                      (447)
+#define SUB_SEQ_HANDLE_WIND_RIDER                     (448)
+#define SUB_SEQ_HANDLE_CHARGE_BOOST                   (449)
 
-#define MAX_BASE_SUBSCRIPT_NUM 446
+#define MAX_BASE_SUBSCRIPT_NUM 449
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

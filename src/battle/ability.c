@@ -125,6 +125,14 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
+    // Handle Wind Rider
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WIND_RIDER) == TRUE)
+    {
+        if ((IsMoveWindMove(sp->current_move_index)) && (attacker != defender)) {
+            scriptnum = SUB_SEQ_HANDLE_WIND_RIDER;
+        }
+    }
+	
     // Handle Lightning Rod
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE)
     {

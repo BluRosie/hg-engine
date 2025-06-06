@@ -1557,3 +1557,6 @@ The sticky web has disappeared from the\nground around the opposing team!
 {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
 The wild {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
 The opposing {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
+Being hit by {STRVAR_1 6, 1, 0} charged the wild\n{STRVAR_1 1, 0, 0} with power!
+Being hit by {STRVAR_1 6, 1, 0} charged\n{STRVAR_1 1, 0, 0} with power!
+Being hit by {STRVAR_1 6, 1, 0} charged the opposing\n{STRVAR_1 1, 0, 0} with power!
