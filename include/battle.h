@@ -1332,7 +1332,7 @@ struct PACKED BattleStruct {
     /*0x3144*/ int jingle_flag;
     /*0x3148*/ int server_queue_time_out;
     /*0x314C*/ u8 rec_select_flag[4];
-    /*0x3150*/ int client_working_count;
+    /*0x3150*/ int waitingBattlers;
     /*0x3154*/ u32 battle_progress_flag : 1;
                u32 : 31;
     /*0x3158*/ u8 log_hail_for_ice_face; // bitfield with 1 << client for if there was hail last turn
