@@ -71,6 +71,15 @@ enum {
     CHECK_STATUS_DONE,
 };
 
+const u16 sProtectSuccessChance[] = {
+    1, // 100%
+    3, // ~33.3%
+    9, // ~11.1%
+    27, // ~3.7%
+    // 81, // unused due to no space in protectSuccessTurns
+    // 243, // unused due to no space in protectSuccessTurns
+    // 729, // unused due to no space in protectSuccessTurns
+}
 
 // this file's functions
 void UNUSED BattleController_BeforeMove(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -1857,6 +1866,23 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     // TODO: Refactor random roll location - Protecting move when user failed to repeat a successive protecting move
     // TODO: Protecting move when move is the last used in the turn
 
+    if (moveEffect == MOVE_EFFECT_PROTECT
+    || moveEffect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
+        // User is last in the turn
+        if ((ctx->waitingBattlers == 1)
+        || (BattleRand(bsys) % sProtectSuccessRate[ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns] > 0)
+        || (currentMoveIndex != MOVE_QUICK_GUARD)
+        || (currentMoveIndex != MOVE_WIDE_GUARD)
+        || (currentMoveIndex != MOVE_MAT_BLOCK)
+        || (currentMoveIndex != MOVE_CRAFTY_SHIELD)) {
+            ctx->server_seq_no = CONTROLLER_COMMAND_25;
+            ctx->waza_status_flag |= MOVE_STATUS_FLAG_FAILED;
+            ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
+            return TRUE;
+        }
+    } else {
+        ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
+    }
     // Following has to be in order
 
     if (moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP) {
@@ -2144,7 +2170,7 @@ BOOL BattleController_CheckStolenBySnatch(struct BattleSystem *bw UNUSED, struct
             sp->battlerIdTemp = client_no;
             sp->oneTurnFlag[client_no].snatchFlag = 0;
             if ((sp->server_status_flag & (BATTLE_STATUS_NO_MOVE_SET)) == 0) {
-                sp->waza_no_mamoru[sp->attack_client] = 0;
+                sp->moveProtect[sp->attack_client] = 0;
                 sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
                 sp->waza_no_last = sp->moveNoTemp;
                 sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
@@ -2181,13 +2207,13 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
 
 
 BOOL BattleController_CheckProtect(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
-    if (ctx->oneTurnFlag[defender].mamoru_flag
-        && ctx->moveTbl[ctx->current_move_index].flag & (1 << 1)
+    if (ctx->oneTurnFlag[defender].protectFlag
+        && ctx->moveTbl[ctx->current_move_index].flag & FLAG_PROTECT
         && (ctx->current_move_index != MOVE_CURSE || CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client) == TRUE)
         /*&& (!CheckMoveIsChargeMove(ctx, ctx->current_move_index) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)*/) {
         UnlockBattlerOutOfCurrentMove(bsys, ctx, ctx->attack_client);
         ctx->battlerIdTemp = defender;
-        ctx->moveStatusFlagForSpreadMoves[defender] = WAZA_STATUS_FLAG_MAMORU_NOHIT;
+        ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_PROTECTED;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;

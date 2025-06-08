@@ -888,7 +888,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     {
         sp->oneTurnFlag[sp->defence_client].magic_cort_flag = 0;
         sp->magicBounceTracker = TRUE;
-        sp->waza_no_mamoru[sp->attack_client] = 0;
+        sp->moveProtect[sp->attack_client] = 0;
         sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
         sp->waza_no_last = sp->moveNoTemp;
         sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
@@ -909,7 +909,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             sp->oneTurnFlag[client_no].snatchFlag=0;
             if ((sp->server_status_flag & (BATTLE_STATUS_NO_MOVE_SET)) == 0)
             {
-                sp->waza_no_mamoru[sp->attack_client] = 0;
+                sp->moveProtect[sp->attack_client] = 0;
                 sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
                 sp->waza_no_last = sp->moveNoTemp;
                 sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
