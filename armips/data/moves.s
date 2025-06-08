@@ -7563,7 +7563,7 @@ movedata MOVE_HONE_CLAWS, "Hone Claws"
     movedescription MOVE_HONE_CLAWS, "The user sharpens\nits claws to boost\nits Attack and\nAccuracy."
 
 movedata MOVE_WIDE_GUARD, "Wide Guard"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PROTECT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ROCK
@@ -8075,7 +8075,7 @@ movedata MOVE_STORED_POWER, "Stored Power"
     movedescription MOVE_STORED_POWER, "The user attacks\nwith a stored power\nthat grows with\neach raised stat."
 
 movedata MOVE_QUICK_GUARD, "Quick Guard"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PROTECT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_FIGHTING
@@ -9125,7 +9125,7 @@ movedata MOVE_PHANTOM_FORCE, "Phantom Force"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK | FLAG_CONTACT
+    flags FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -9308,7 +9308,7 @@ movedata MOVE_DRAINING_KISS, "Draining Kiss"
     movedescription MOVE_DRAINING_KISS, "---"
 
 movedata MOVE_CRAFTY_SHIELD, "Crafty Shield"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PROTECT
     pss SPLIT_STATUS
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -9324,7 +9324,7 @@ movedata MOVE_CRAFTY_SHIELD, "Crafty Shield"
     movedescription MOVE_CRAFTY_SHIELD, "---"
 
 movedata MOVE_FLOWER_SHIELD, "Flower Shield"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PROTECT
     pss SPLIT_STATUS
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -9468,7 +9468,7 @@ movedata MOVE_FAIRY_LOCK, "Fairy Lock"
     movedescription MOVE_FAIRY_LOCK, "---"
 
 movedata MOVE_KINGS_SHIELD, "King’s Shield"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PROTECT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_STEEL
@@ -9477,7 +9477,7 @@ movedata MOVE_KINGS_SHIELD, "King’s Shield"
     effectchance 0
     target RANGE_USER
     priority 4
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags 0
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -9596,7 +9596,7 @@ movedata MOVE_MYSTICAL_FIRE, "Mystical Fire"
     movedescription MOVE_MYSTICAL_FIRE, "The user attacks by\nbreathing a special,\nhot fire.\nThis also lowers the\ntarget's Sp. Atk stat."
 
 movedata MOVE_SPIKY_SHIELD, "Spiky Shield"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PROTECT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
@@ -9605,7 +9605,7 @@ movedata MOVE_SPIKY_SHIELD, "Spiky Shield"
     effectchance 0
     target RANGE_USER
     priority 4
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags 0
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -10645,7 +10645,7 @@ movedata MOVE_BANEFUL_BUNKER, "Baneful Bunker"
     effectchance 0
     target RANGE_USER
     priority 4
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags 0
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -11948,7 +11948,7 @@ movedatalongname MOVE_DOUBLE_IRON_BASH, "Double IronBash", "Double Iron Bash"
     movedescription MOVE_DOUBLE_IRON_BASH, "---"
 
 movedata MOVE_MAX_GUARD, "Max Guard"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PROTECT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -11957,7 +11957,7 @@ movedata MOVE_MAX_GUARD, "Max Guard"
     effectchance 0
     target RANGE_USER
     priority 4
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags 0
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12732,7 +12732,7 @@ movedata MOVE_LIFE_DEW, "Life Dew"
     movedescription MOVE_LIFE_DEW, "---"
 
 movedata MOVE_OBSTRUCT, "Obstruct"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PROTECT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_DARK
@@ -12741,7 +12741,7 @@ movedata MOVE_OBSTRUCT, "Obstruct"
     effectchance 0
     target RANGE_USER
     priority 4
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags 0
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13692,7 +13692,7 @@ movedata MOVE_TERA_BLAST, "Tera Blast"
     movedescription MOVE_TERA_BLAST, "---"
 
 movedata MOVE_SILK_TRAP, "Silk Trap"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PROTECT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_BUG
@@ -13701,7 +13701,7 @@ movedata MOVE_SILK_TRAP, "Silk Trap"
     effectchance 0
     target RANGE_USER
     priority 4
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags 0
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -14588,7 +14588,7 @@ movedata MOVE_FICKLE_BEAM, "Fickle Beam"
     movedescription MOVE_FICKLE_BEAM, "The user shoots a beam\nof light. Sometimes\nthe user's heads shoot\nin unison, doubling\nthe move's power."
 
 movedata MOVE_BURNING_BULWARK, "Burning Bulwark"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PROTECT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_FIRE
@@ -14597,7 +14597,7 @@ movedata MOVE_BURNING_BULWARK, "Burning Bulwark"
     effectchance 0
     target RANGE_USER
     priority 4
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags 0
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
