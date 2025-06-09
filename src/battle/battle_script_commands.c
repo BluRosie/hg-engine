@@ -91,6 +91,7 @@ void BattleContext_AddEntryHazardToQueue(struct BattleStruct *ctx, u32 side, u32
 BOOL btl_scr_cmd_101_addentryhazardtoqueue(void *bsys UNUSED, struct BattleStruct *ctx);
 void BattleContext_RemoveEntryHazardFromQueue(struct BattleStruct *ctx, u32 side, u32 hazard);
 BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -98,7 +99,7 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
 BOOL BtlCmd_TryWish(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx);
-BOOL BtlCmd_TryProtection(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_TryProtection(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TrySubstitute(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_TrySwapItems(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
@@ -372,6 +373,7 @@ const u8 *BattleScrCmdNames[] =
     "JumpToCurrentEntryHazard",
     "AddEntryHazardToQueue",
     "RemoveEntryHazardFromQueue",
+    "CheckProtectContactMoves",
     // "YourCustomCommand",
 };
 
@@ -416,6 +418,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x100 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_100_jumptocurrententryhazard,
     [0x101 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_101_addentryhazardtoqueue,
     [0x102 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_102_removeentryhazardfromqueue,
+    [0x103 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_103_checkprotectcontactmoves,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -3243,6 +3246,61 @@ BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct Battle
     return FALSE;
 }
 
+BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (IsContactBeingMade(bsys, ctx)
+     && ctx->battlemon[ctx->attack_client].hp
+     && (ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) == 0) {
+        switch (ctx->moveProtect[ctx->defence_client]) {
+            case MOVE_KINGS_SHIELD:
+                if (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] > 0) {
+                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN;
+                    ctx->state_client = ctx->attack_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+                }
+                break;
+            case MOVE_SPIKY_SHIELD:
+                if (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_MAGIC_GUARD) {
+                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp * -1, 8);
+                    ctx->state_client = ctx->attack_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SPIKY_SHIELD);
+                }
+                break;
+            case MOVE_BANEFUL_BUNKER:
+                if (ctx->battlemon[ctx->attack_client].condition == 0) {
+                    ctx->state_client = ctx->attack_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_APPLY_POISON);
+                }
+                break;
+            case MOVE_OBSTRUCT:
+                if (ctx->battlemon[ctx->attack_client].states[STAT_DEFENSE] > 0) {
+                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_DEFENSE_DOWN_2;
+                    ctx->state_client = ctx->attack_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+                }
+                break;
+            case MOVE_SILK_TRAP:
+                if (ctx->battlemon[ctx->attack_client].states[STAT_SPEED] > 0) {
+                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
+                    ctx->state_client = ctx->attack_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+                }
+                break;
+            case MOVE_BURNING_BULWARK:
+                if (ctx->battlemon[ctx->attack_client].condition == 0) {
+                    ctx->state_client = ctx->attack_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_APPLY_BURN);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    
+    return FALSE;
+}
+
 /**
  *  @brief script command to calculate the amount of HP should a client recover by using Moonlight, Morning Sun, or Synthesis
  *
@@ -3513,31 +3571,42 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 
 BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
-    // No need for fail case anymore handled in BattleController_BeforeMove.c
+    
+    int adrs = read_battle_script_param(ctx); // Unused, but still required as param
 
     if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT) {
         ctx->oneTurnFlag[ctx->attack_client].protectFlag = TRUE;
         ctx->mp.msg_id = BATTLE_MSG_PROTECT_ITSELF; // "{0} protected itself!"
-        ctx->mp.msg_tag = TAG_NICK;
+        ctx->mp.msg_tag = TAG_NICKNAME;
         ctx->mp.msg_para[0] = CreateNicknameTag(ctx, ctx->attack_client);
     }
 
-    // TODO: Side protection moves
+    // TODO: Test side protection moves, change MOVE_EFFECT_PROTECT to MOVE_EFFECT_PROTECT_USER_SIDE
+    // if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT) {
+    //     ctx->oneTurnFlag[ctx->attack_client].protectFlag = TRUE;
+    //     ctx->oneTurnFlag[BATTLER_ALLY(ctx->attack_client)].protectFlag = TRUE;
+    //     ctx->mp.msg_id = BATTLE_MSG_PROTECT_ITSELF; // "{0} protected [your/the opposing] team" TODO: change to own battle msg
+    //     ctx->mp.msg_tag = TAG_MOVE_SIDE;
+    //     ctx->mp.msg_para[0] = ctx->current_move_index;
+    //     ctx->mp.msg_para[1] = IsClientEnemy(bsys, ctx->attack_client);
+    // }
 
     if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
         ctx->oneTurnFlag[ctx->attack_client].prevent_one_hit_ko_ability = TRUE;
         ctx->mp.msg_id = BATTLE_MSG_BRACED_ITSELF; // "{0} braced itself!"
-        ctx->mp.msg_tag = TAG_NICK;
+        ctx->mp.msg_tag = TAG_NICKNAME;
         ctx->mp.msg_para[0] = CreateNicknameTag(ctx, ctx->attack_client);
     }
 
     // Don't increase protectSuccessTurns at max
     // Mat Block and Crafty Shield don't increase the counter, Quick Guard and Wide Guard do.
-    if (ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns < NELEMS(sProtectSuccessChance) - 1 
+    if (ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns < 3 
     && !(ctx->current_move_index == MOVE_MAT_BLOCK) 
     && !(ctx->current_move_index == MOVE_CRAFTY_SHIELD)) {
         ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns++;
     }
+
+    return FALSE;
 }
 
 
