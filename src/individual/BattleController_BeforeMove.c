@@ -79,7 +79,7 @@ const u16 sProtectSuccessChance[] = {
     // 81, // unused due to no space in protectSuccessTurns
     // 243, // unused due to no space in protectSuccessTurns
     // 729, // unused due to no space in protectSuccessTurns
-}
+};
 
 // this file's functions
 void UNUSED BattleController_BeforeMove(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -1866,15 +1866,17 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     // TODO: Refactor random roll location - Protecting move when user failed to repeat a successive protecting move
     // TODO: Protecting move when move is the last used in the turn
 
+    // Protecting move when user failed to repeat a successive protecting move
+    // Protecting move when move is the last used in the turn
     if (moveEffect == MOVE_EFFECT_PROTECT
     || moveEffect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
-        // User is last in the turn
         if ((ctx->waitingBattlers == 1)
-        || (BattleRand(bsys) % sProtectSuccessRate[ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns] > 0)
-        || (currentMoveIndex != MOVE_QUICK_GUARD)
-        || (currentMoveIndex != MOVE_WIDE_GUARD)
-        || (currentMoveIndex != MOVE_MAT_BLOCK)
-        || (currentMoveIndex != MOVE_CRAFTY_SHIELD)) {
+        || ((BattleRand(bsys) % sProtectSuccessChance[ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns] > 0)
+            // Skip RNG check if Quick Guard, Wide Guard, Mat Block or Crafty Shield.
+            && (currentMoveIndex != MOVE_QUICK_GUARD)
+            && (currentMoveIndex != MOVE_WIDE_GUARD)
+            && (currentMoveIndex != MOVE_MAT_BLOCK)
+            && (currentMoveIndex != MOVE_CRAFTY_SHIELD))) {
             ctx->server_seq_no = CONTROLLER_COMMAND_25;
             ctx->waza_status_flag |= MOVE_STATUS_FLAG_FAILED;
             ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
@@ -2206,17 +2208,87 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
 }
 
 
-BOOL BattleController_CheckProtect(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
+BOOL BattleController_CheckProtect(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
     if (ctx->oneTurnFlag[defender].protectFlag
-        && ctx->moveTbl[ctx->current_move_index].flag & FLAG_PROTECT
-        && (ctx->current_move_index != MOVE_CURSE || CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client) == TRUE)
-        /*&& (!CheckMoveIsChargeMove(ctx, ctx->current_move_index) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)*/) {
-        UnlockBattlerOutOfCurrentMove(bsys, ctx, ctx->attack_client);
-        ctx->battlerIdTemp = defender;
-        ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_PROTECTED;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED);
-        ctx->next_server_seq_no = ctx->server_seq_no;
-        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+     && ctx->moveTbl[ctx->current_move_index].flag & FLAG_PROTECT
+     && (!(GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_UNSEEN_FIST && IsContactBeingMade(bsys, ctx)))
+     && (ctx->current_move_index != MOVE_CURSE || CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client) == TRUE)
+   /*&& (!CheckMoveIsChargeMove(ctx, ctx->current_move_index) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)*/) {
+        BOOL runProtectedSubseq = FALSE;
+
+        switch (ctx->moveProtect[defender]) {
+            case MOVE_PROTECT:
+            case MOVE_DETECT:
+            case MOVE_SPIKY_SHIELD:
+            case MOVE_BANEFUL_BUNKER:
+            case MOVE_MAX_GUARD:
+                runProtectedSubseq = TRUE;
+                break;
+            case MOVE_KINGS_SHIELD:
+            case MOVE_OBSTRUCT:
+            case MOVE_SILK_TRAP:
+            case MOVE_BURNING_BULWARK:
+            case MOVE_MAT_BLOCK:
+                if (GetMoveSplit(ctx, ctx->current_move_index) != SPLIT_STATUS) {
+                    runProtectedSubseq = TRUE;
+                }
+                break;
+            case MOVE_QUICK_GUARD:
+                if (AdjustedMoveHasPositivePriority(ctx, ctx->attack_client)) {
+                    runProtectedSubseq = TRUE;
+                }
+                break;
+            case MOVE_WIDE_GUARD:
+                if (ctx->moveTbl[ctx->current_move_index].target == RANGE_ADJACENT_OPPONENTS
+                 || ctx->moveTbl[ctx->current_move_index].target == RANGE_ALL_ADJACENT) {
+                    runProtectedSubseq = TRUE;
+                }
+                break;
+            case MOVE_CRAFTY_SHIELD:
+                if (GetMoveSplit(ctx, ctx->current_move_index) == SPLIT_STATUS) {
+                    runProtectedSubseq = TRUE;
+                }
+                break;
+            // You can receive a protectFlag without using a protect move because of side protection moves, thus default case is FALSE.
+            default:
+                break;
+        }
+
+        switch (ctx->moveProtect[BATTLER_ALLY(defender)]) {
+            case MOVE_QUICK_GUARD:
+                if (AdjustedMoveHasPositivePriority(ctx, ctx->attack_client)) {
+                    runProtectedSubseq = TRUE;
+                }
+                break;
+            case MOVE_WIDE_GUARD:
+                if (ctx->moveTbl[ctx->current_move_index].target == RANGE_ADJACENT_OPPONENTS
+                 || ctx->moveTbl[ctx->current_move_index].target == RANGE_ALL_ADJACENT) {
+                    runProtectedSubseq = TRUE;
+                }
+                break;
+            case MOVE_MAT_BLOCK:
+                if (GetMoveSplit(ctx, ctx->current_move_index) != SPLIT_STATUS) {
+                    runProtectedSubseq = TRUE;
+                }
+                break;
+            case MOVE_CRAFTY_SHIELD:
+                if (GetMoveSplit(ctx, ctx->current_move_index) == SPLIT_STATUS) {
+                    runProtectedSubseq = TRUE;
+                }
+                break;
+            default:
+                break;
+        }
+
+        if (runProtectedSubseq) {
+            ctx->battlerIdTemp = defender;
+            UnlockBattlerOutOfCurrentMove(bsys, ctx, ctx->attack_client);
+            ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_PROTECTED;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        }
+
         return TRUE;
     }
     return FALSE;
