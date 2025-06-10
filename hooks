@@ -25,12 +25,10 @@ arm9 PokeIconIndexGetByMonsNumber 080741BC 3
 arm9 PokeIconCgxPatternGet 080742CC 1
 arm9 IconPalGet 08074364 2
 arm9 ItemDataTableLoad 08078138 1
-#0206DED0+4
-arm9 CreateBoxMonData_hook 0806DED4 5
+arm9 CreateBoxMonData 0206DED0
 arm9 LoadEggMoves 0806C488 2
 #arm9 InheritMoves 0206C510 3 # come back later for egg move expansion
-#02070E34+4
-arm9 GetMonEvolution_hook 08070E38 5
+arm9 GetMonEvolution 02070E34
 0007 hook_7_spriteOffsetSpecies 08018A48 3
 0012 hook_12_spriteOffsetSpecies 08022154 2
 0012 hook_12_spriteOffsetSpecies_escapeFromBall 02259DBC 2
@@ -60,8 +58,7 @@ arm9 GetMonIconPalette 02074364 3
 arm9 set_starter_hidden_ability_hook 02096158 5
 
 #battle hooks
-#02256FF8+4
-0012 calc_base_damage_hook 02256FFC 5
+0012 CalcBaseDamage 02256FF8
 0012 CalcDamageOverall 0223DCE0 2
 0012 AdjustDamageForRoll 02257C30 3
 #02252EC8
@@ -73,16 +70,12 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 #0012 TurnEndAbilityCheck 0801B7A8 3
 #02253E04
 0012 MoveHitDefenderAbilityCheck 0801C544 3
-#0224BCC4+4
-0012 CalcAccuracy_hook 08014408 5
-#0224FC48+4
-0012 CalcSpeed_hook 0801838C 5
-#02257C5C+4
-0012 CalcCritical_hook 080203A0 5
+0012 CalcAccuracy 0224BCC4
+0012 CalcSpeed 0224FC48
+0012 CalcCritical 02257C5C
 #022555EC
 0012 GetBattleMonItem 0801DD2C 2
-#02252834
-0012 MoldBreakerAbilityCheck_hook 0801AF78 5
+0012 MoldBreakerAbilityCheck 02252834
 #02254580
 0012 SynchroniseAbilityCheck 02254580 3
 #02256914
@@ -151,10 +144,8 @@ arm9 TT_TrainerTypeSexGet 020735F8 1
 0012 ClientPokemonAppear 08021648 2
 #022480C0
 0012 MessageParam_GetNickname 08010800 3
-#02261464+4
-0012 CT_SwitchInMessageParamMake_hook 08029BA8 5
-#022615F0+4
-0012 CT_EncountSendOutMessageParamMake_hook 08029D34 5
+0012 CT_SwitchInMessageParamMake 02261464
+0012 CT_EncountSendOutMessageParamMake 022615F0
 
 #move expansion
 #0225839A - edits to ST_ServerAddStatusParamSet to be better
@@ -172,10 +163,10 @@ arm9 TT_TrainerTypeSexGet 020735F8 1
 
 #hidden ability
 arm9 SetBoxMonAbility 080722DC 1
-arm9 GiveMon_hook 080541E0 5
+arm9 GiveMon 020541DC 5
 #0224855C
 #need to use this to UpdatePassiveForms, reinitialize the moveset, set the hidden ability, recalc stats
-0002 AddWildPartyPokemon_hook 080029E0 5
+0002 AddWildPartyPokemon 0224855C
 
 arm9 ScrCmd_GiveEgg 0204D248 1
 0001 ScrCmd_GiveTogepiEgg 022020CC 1
@@ -213,17 +204,17 @@ arm9 Bag_GetRegisteredItemSlot2 080781D0 1
 arm9 Bag_TryRegisterItem 080781DC 2
 arm9 Bag_UnregisterItem 08078208 2
 
-# needs an extended hook +4
-arm9 Bag_GetItemPocket_hook 08078244 5
-arm9 Pocket_GetItemSlotForAdd_hook 080782E0 5
-arm9 Bag_GetItemSlotForAdd_hook 08078344 5
-arm9 Bag_HasSpaceForItem_hook 08078388 5
-arm9 Bag_AddItem_hook 0807839C 5
-arm9 Pocket_GetItemSlotForRemove_hook 080783E4 5
-arm9 Bag_GetItemSlotForRemove_hook 08078414 5
-arm9 Bag_TakeItem_hook 08078438 5
-arm9 Pocket_TakeItem_hook 08078484 5
-arm9 Bag_HasItem_hook 080784B4 5
+# bag expansion - new function rewrite in place lets us take out _hooks
+arm9 Bag_GetItemPocket 02078240
+arm9 Pocket_GetItemSlotForAdd 020782DC
+arm9 Bag_GetItemSlotForAdd 02078340
+arm9 Bag_HasSpaceForItem_hook 02078388 5
+arm9 Bag_AddItem 02078398
+arm9 Pocket_GetItemSlotForRemove 020783E0
+arm9 Bag_GetItemSlotForRemove 02078410
+arm9 Bag_TakeItem 02078434
+arm9 Pocket_TakeItem 02078480
+arm9 Bag_HasItem_hook 020784B4 5
 
 # no more extended hook
 arm9 Bag_PocketNotEmpty 080784C4 2
@@ -293,7 +284,7 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 
 # r0 isn't used, can be burned
 0002 WildEncSingle 02247424 0
-0002 WildWaterEncSingle_hook 022474E4 5
+0002 WildWaterEncSingle 022474E0
 # can't modify SetFieldBattleParam since it is used for sweet scent and fishing and such
 #0002 TryTriggerWildDoubleBattle 02248284 0
 0002 TryTriggerWildDoubleBattle 02246E0E 0
@@ -322,8 +313,8 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 0001 SpeciesAndFormeToWazaOshieIndex 02202C7C 2
 
 # need another hook for this one yeah yeah
-0012 ServerDoTypeCalcMod_hook 02251D2C 5
-0012 AITypeCalc_hook 02252058 5
+0012 ServerDoTypeCalcMod 02251D28
+0012 AITypeCalc 02252054
 0012 GrabMoveTypeForConversion2 0224DD7C 2
 
 # pokewalker grab sprite
@@ -362,7 +353,7 @@ arm9 CapRareCandies 0208FEEA 1
 
 0012 ServerInit 02248660 1
 
-0012 CantEscape_hook 02252984 5
+0012 CantEscape 02252980
 0012 BattlerCantSwitch 02255920 3
 0012 BattleTryRun 02252B68 3
 
@@ -386,7 +377,7 @@ arm9 Save_Cancel 020275A4 1
 arm9 GetSaveSectorFooterPtr 020275F4 3
 arm9 ValidateSaveSectorFooter 0202761C 3
 arm9 SaveSlot_BuildFooter 020276C0 3
-arm9 Save_RecordWhichLatestGoodSector_hook 020277C0 5
+arm9 Save_RecordWhichLatestGoodSector 020277BC
 arm9 Save_LoadDynamicRegion 02027AD4 1
 arm9 Save_WriteSlotAsync 02027B74 3
 arm9 Save_WriteChunkFooterAsync 02027BAC 3
@@ -409,8 +400,8 @@ arm9 PCStorage_sizeof 02073B20 0
 arm9 PCStorage_InitializeBoxes 02073B28 1
 arm9 PCStorage_PlaceMonInFirstEmptySlotInAnyBox 02073BB8 2
 arm9 PCStorage_PlaceMonInBoxFirstEmptySlot 02073BFC 3
-arm9 PCStorage_PlaceMonInBoxByIndexPair_hook 02073C70 5
-arm9 PCStorage_SwapMonsInBoxByIndexPair_hook 02073CC4 5
+arm9 PCStorage_PlaceMonInBoxByIndexPair 02073C6C
+arm9 PCStorage_SwapMonsInBoxByIndexPair 02073CC0
 arm9 PCStorage_DeleteBoxMonByIndexPair 02073D10 3
 arm9 PCStorage_GetActiveBox 02073D4C 1
 arm9 PCStorage_FindFirstBoxWithEmptySlot 02073D54 1
@@ -426,7 +417,7 @@ arm9 PCStorage_SetBoxName 02073F34 3
 arm9 PCStorage_CountMonsAndEggsInBox 02073F64 2
 arm9 PCStorage_CountMonsInBox 02073FA8 2
 arm9 PCStorage_CountMonsInAllBoxes 02073FF8 1
-arm9 PCStorage_GetMonDataByIndexPair_hook 02074018 5
+arm9 PCStorage_GetMonDataByIndexPair 02074014
 arm9 PCStorage_GetMonByIndexPair 02074058 3
 arm9 PCStorage_UnlockBonusWallpaper 02074094 2
 arm9 PCStorage_IsBonusWallpaperUnlocked 020740B4 2
@@ -441,7 +432,7 @@ arm9 sub_02074128 02074128 1
 #endif
 # ALLOW_SAVE_CHANGES
 
-0002 SetFixedWildEncounter_hook 022480C4 5
+0002 SetFixedWildEncounter 022480C0
 
 # allow for crazy shiny odds calcs
 arm9 CalcShininessByOtIdAndPersonality 02070068 2
@@ -457,8 +448,7 @@ arm9 MonTryLearnMoveOnLevelUp 02071534 3
 
 arm9 ScrCmd_DaycareSanitizeMon 0204CFB8 1
 
-# 0224C018 + 4 = 224C01C
-0012 BattleSystem_CheckMoveEffect_hook 224C01C 5
+0012 BattleSystem_CheckMoveEffect 0224C018
 
 # 0012 BattleControllerPlayer_UpdateMonCondition 02249CC4 2
 
@@ -478,11 +468,8 @@ arm9 GF_AssertFail 0202551C 0
 
 0012 GetDynamicMoveType 02258688 4
 
-# 022517EC + 4 = 22517F0
-0012 StruggleCheck_hook 22517F0 5
-
-# 02251A28 + 4 = 2251A2C
-0012 ov12_02251A28_hook 2251A2C 5
+0012 StruggleCheck 022517EC
+0012 ov12_02251A28 02251A28
 
 # evolutions with forms, this time bugless
 # used for queuing up sprites
@@ -503,8 +490,8 @@ arm9 sub_0207AFC4 0207AFC4 1
 
 0012 BattleSystem_BufferMessage 0223C754 2
 
-#02259C40(+4)  _CreateTradeMon	(npc_trade.o)
-0023 _CreateTradeMon_hook 02259C44 5
+# 02259C40  _CreateTradeMon	(npc_trade.o)
+0023 _CreateTradeMon 02259C40
 
 #ifdef DEBUG_PRINT_HEAP_ALLOCATION
 

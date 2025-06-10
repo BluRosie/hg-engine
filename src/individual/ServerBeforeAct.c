@@ -191,7 +191,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                         // 先逃走，然後才處理超級進化
 
                         // debug_printf("client %d: SELECT_ESCAPE_COMMAND\n", client_no);
-                        if ((BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) == 0)
+                        if ((BattleTypeGet(bw) & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_BUG_CONTEST | BATTLE_TYPE_PAL_PARK)) == 0)
                         {
                             BattleControllerPlayer_RunInput(bw, sp);
                             sp->next_server_seq_no = tempSequenceNumber;
@@ -238,7 +238,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                         // 先切換，然後才處理超級進化
 
                         // debug_printf("client %d: SELECT_POKEMON_COMMAND\n", client_no);
-                        if ((BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) == 0)
+                        if ((BattleTypeGet(bw) & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_BUG_CONTEST | BATTLE_TYPE_PAL_PARK)) == 0)
                         {
                             BattleControllerPlayer_PokemonInput(bw, sp);
                             sp->next_server_seq_no = tempSequenceNumber;
@@ -291,7 +291,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                         // 先使用道具，然後才處理超級進化
 
                         // debug_printf("client %d: SELECT_ITEM_COMMAND\n", client_no);
-                        if ((BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) == 0)
+                        if ((BattleTypeGet(bw) & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_BUG_CONTEST | BATTLE_TYPE_PAL_PARK)) == 0)
                         {
                             BattleControllerPlayer_ItemInput(bw, sp);
                             sp->next_server_seq_no = tempSequenceNumber;

@@ -411,7 +411,11 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 break;
             }
         }
+        #if defined(IMPLEMENT_LEVEL_CAP) && defined(ALLOW_LEVEL_CAP_EVOLVE)
+        if ((level == 100 || level == GetLevelCap()) && usedItem == ITEM_RARE_CANDY)
+        #else
         if (level == 100 && usedItem == ITEM_RARE_CANDY)
+        #endif
         {
             species = GetMonEvolutionInternal(party, pokemon, EVOCTX_LEVELUP, usedItem, NULL);
             if (species) {
