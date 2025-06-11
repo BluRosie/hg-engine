@@ -271,12 +271,7 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
             }
 
             if (potentialOverrideMoveSlot != 4) {
-                // Evil code to convert a PartyPokemon to a BoxPokemon
-                struct PartyPokemon *tempMon = AllocMonZeroed(11);
-                ZeroMonData(tempMon);
-                PokeParaSet(tempMon, GetBoxMonData(daycareMon, MON_DATA_SPECIES, NULL), 69, 32, FALSE, 0, 0, 0);
-
-                numEggMoves = LoadEggMoves(tempMon, baby_egg_moves);
+                numEggMoves = LoadEggMoves((struct PartyPokemon *)daycareMon, baby_egg_moves);
 
                 u32 numAvailableToInheritMoves = 0;
                 for (u8 i = 0; i < numEggMoves; i++) {
