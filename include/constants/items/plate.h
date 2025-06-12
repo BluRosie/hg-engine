@@ -20,10 +20,12 @@
 #define ITEM_DRACO_PLATE     (ITEM_PLATE_START + 13)
 #define ITEM_DREAD_PLATE     (ITEM_PLATE_START + 14)
 #define ITEM_IRON_PLATE      (ITEM_PLATE_START + 15)
-#define ITEM_PIXIE_PLATE     (ITEM_PLATE_START + 286) //because of item expansion
+#define ITEM_PIXIE_PLATE     (ITEM_PLATE_START + 286)
+#define ITEM_BLANK_PLATE     (ITEM_PLATE_START + 424)
+#define ITEM_LEGEND_PLATE    (ITEM_PLATE_START + 425)
 
 #define ITEM_PLATE_END      ITEM_IRON_PLATE
-#define IS_ITEM_PLATE(item) ((item >= ITEM_PLATE_START && item <= ITEM_PLATE_END) || (item == ITEM_PIXIE_PLATE))
-#define NUM_PLATES (ITEM_PLATE_END - ITEM_PLATE_START + 2) // +2 for Pixie Plate
+#define IS_ITEM_PLATE(item) ((item >= ITEM_PLATE_START && item <= ITEM_PLATE_END) || (item == ITEM_PIXIE_PLATE) || (item >= ITEM_BLANK_PLATE && item <= ITEM_LEGEND_PLATE))
+#define NUM_PLATES ((ITEM_PLATE_END - ITEM_PLATE_START) + (ITEM_LEGEND_PLATE - ITEM_BLANK_PLATE) + 2) // +2 for Pixie Plate
 
 #endif

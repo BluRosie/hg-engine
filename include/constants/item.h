@@ -473,8 +473,6 @@
 #define ITEM_PURPLE_NECTAR      (ITEM_PIXIE_PLATE + 137)
 
 //Plates
-#define ITEM_BLANK_PLATE        (ITEM_PIXIE_PLATE + 138)
-#define ITEM_LEGEND_PLATE       (ITEM_PIXIE_PLATE + 139)
 
 //Relic Items
 #define ITEM_RELIC_COPPER       (ITEM_PIXIE_PLATE + 140)
