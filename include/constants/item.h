@@ -15,6 +15,9 @@
 #include "./items/incense.h"
 #include "./items/gem.h"
 #include "./items/nature_mint.h"
+#include "./items/genesect_drive.h"
+#include "./items/relic_item.h"
+#include "./items/feather.h"
 
 #define ITEM_NONE            0
 
@@ -417,43 +420,11 @@
 #define ITEM_MIRROR_HERB        (ITEM_PIXIE_PLATE + 82)
 #define ITEM_PUNCHING_GLOVE     (ITEM_PIXIE_PLATE + 83)
 
-//Drives
-#define ITEM_BURN_DRIVE         (ITEM_PIXIE_PLATE + 87)
-#define ITEM_CHILL_DRIVE        (ITEM_PIXIE_PLATE + 88)
-#define ITEM_DOUSE_DRIVE        (ITEM_PIXIE_PLATE + 89)
-#define ITEM_SHOCK_DRIVE        (ITEM_PIXIE_PLATE + 90)
-
-#define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_BURN_DRIVE && item <= ITEM_SHOCK_DRIVE)
-
-//Fossils
-#define ITEM_FOSSILIZED_BIRD    (ITEM_PIXIE_PLATE + 95)
-#define ITEM_FOSSILIZED_DINO    (ITEM_PIXIE_PLATE + 96)
-#define ITEM_FOSSILIZED_DRAKE   (ITEM_PIXIE_PLATE + 97)
-#define ITEM_FOSSILIZED_FISH    (ITEM_PIXIE_PLATE + 98)
-
 //Nectars
 #define ITEM_RED_NECTAR         (ITEM_PIXIE_PLATE + 134)
 #define ITEM_YELLOW_NECTAR      (ITEM_PIXIE_PLATE + 135)
 #define ITEM_PINK_NECTAR        (ITEM_PIXIE_PLATE + 136)
 #define ITEM_PURPLE_NECTAR      (ITEM_PIXIE_PLATE + 137)
-
-//Relic Items
-#define ITEM_RELIC_COPPER       (ITEM_PIXIE_PLATE + 140)
-#define ITEM_RELIC_SILVER       (ITEM_PIXIE_PLATE + 141)
-#define ITEM_RELIC_GOLD         (ITEM_PIXIE_PLATE + 142)
-#define ITEM_RELIC_VASE         (ITEM_PIXIE_PLATE + 143)
-#define ITEM_RELIC_BAND         (ITEM_PIXIE_PLATE + 144)
-#define ITEM_RELIC_STATUE       (ITEM_PIXIE_PLATE + 145)
-#define ITEM_RELIC_CROWN        (ITEM_PIXIE_PLATE + 146)
-
-//Wings
-#define ITEM_HEALTH_FEATHER     (ITEM_PIXIE_PLATE + 147)
-#define ITEM_MUSCLE_FEATHER     (ITEM_PIXIE_PLATE + 148)
-#define ITEM_RESIST_FEATHER     (ITEM_PIXIE_PLATE + 149)
-#define ITEM_GENIUS_FEATHER     (ITEM_PIXIE_PLATE + 150)
-#define ITEM_CLEVER_FEATHER     (ITEM_PIXIE_PLATE + 151)
-#define ITEM_SWIFT_FEATHER      (ITEM_PIXIE_PLATE + 152)
-#define ITEM_PRETTY_FEATHER     (ITEM_PIXIE_PLATE + 153)
 
 //Key Items
 #define ITEM_DNA_SPLICERS       (ITEM_PIXIE_PLATE + 154)
