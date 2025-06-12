@@ -9,6 +9,10 @@
 #include "./items/mail.h"
 #include "./items/berry.h"
 #include "./items/mega_stone.h"
+#include "./items/plate.h"
+#include "./items/memory.h"
+#include "./items/hm.h"
+#include "./items/incense.h"
 
 #define ITEM_NONE            0
 
@@ -445,34 +449,11 @@
 #define ITEM_DARK_GEM           (ITEM_PIXIE_PLATE + 115)
 #define ITEM_FAIRY_GEM          (ITEM_PIXIE_PLATE + 116)
 
-//Memories
-#define IS_ITEM_MEMORY(item) (item >= ITEM_FIGHTING_MEMORY && item <= ITEM_FAIRY_MEMORY)
-
-#define ITEM_FIGHTING_MEMORY    (ITEM_PIXIE_PLATE + 117)
-#define ITEM_FLYING_MEMORY      (ITEM_PIXIE_PLATE + 118)
-#define ITEM_POISON_MEMORY      (ITEM_PIXIE_PLATE + 119)
-#define ITEM_GROUND_MEMORY      (ITEM_PIXIE_PLATE + 120)
-#define ITEM_ROCK_MEMORY        (ITEM_PIXIE_PLATE + 121)
-#define ITEM_BUG_MEMORY         (ITEM_PIXIE_PLATE + 122)
-#define ITEM_GHOST_MEMORY       (ITEM_PIXIE_PLATE + 123)
-#define ITEM_STEEL_MEMORY       (ITEM_PIXIE_PLATE + 124)
-#define ITEM_FIRE_MEMORY        (ITEM_PIXIE_PLATE + 125)
-#define ITEM_WATER_MEMORY       (ITEM_PIXIE_PLATE + 126)
-#define ITEM_GRASS_MEMORY       (ITEM_PIXIE_PLATE + 127)
-#define ITEM_ELECTRIC_MEMORY    (ITEM_PIXIE_PLATE + 128)
-#define ITEM_PSYCHIC_MEMORY     (ITEM_PIXIE_PLATE + 129)
-#define ITEM_ICE_MEMORY         (ITEM_PIXIE_PLATE + 130)
-#define ITEM_DRAGON_MEMORY      (ITEM_PIXIE_PLATE + 131)
-#define ITEM_DARK_MEMORY        (ITEM_PIXIE_PLATE + 132)
-#define ITEM_FAIRY_MEMORY       (ITEM_PIXIE_PLATE + 133)
-
 //Nectars
 #define ITEM_RED_NECTAR         (ITEM_PIXIE_PLATE + 134)
 #define ITEM_YELLOW_NECTAR      (ITEM_PIXIE_PLATE + 135)
 #define ITEM_PINK_NECTAR        (ITEM_PIXIE_PLATE + 136)
 #define ITEM_PURPLE_NECTAR      (ITEM_PIXIE_PLATE + 137)
-
-//Plates
 
 //Relic Items
 #define ITEM_RELIC_COPPER       (ITEM_PIXIE_PLATE + 140)
