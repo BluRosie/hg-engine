@@ -1,0 +1,25 @@
+#ifndef CONSTANTS_ITEM_MAIL_H
+#define CONSTANTS_ITEM_MAIL_H
+
+#include "../../config.h"
+
+#define ITEM_MAIL_START      137
+
+#define ITEM_GRASS_MAIL      (ITEM_MAIL_START)
+#define ITEM_FLAME_MAIL      (ITEM_MAIL_START + 1)
+#define ITEM_BUBBLE_MAIL     (ITEM_MAIL_START + 2)
+#define ITEM_BLOOM_MAIL      (ITEM_MAIL_START + 3)
+#define ITEM_TUNNEL_MAIL     (ITEM_MAIL_START + 4)
+#define ITEM_STEEL_MAIL      (ITEM_MAIL_START + 5)
+#define ITEM_HEART_MAIL      (ITEM_MAIL_START + 6)
+#define ITEM_SNOW_MAIL       (ITEM_MAIL_START + 7)
+#define ITEM_SPACE_MAIL      (ITEM_MAIL_START + 8)
+#define ITEM_AIR_MAIL        (ITEM_MAIL_START + 9)
+#define ITEM_MOSAIC_MAIL     (ITEM_MAIL_START + 10)
+#define ITEM_BRICK_MAIL      (ITEM_MAIL_START + 11)
+
+#define ITEM_MAIL_END        ITEM_BRICK_MAIL
+#define IS_ITEM_MAIL(item) ((item >= ITEM_MAIL_START && item <= ITEM_MAIL_END))
+#define NUM_MAILS (ITEM_MAIL_END - ITEM_MAIL_START + 1)
+
+#endif
