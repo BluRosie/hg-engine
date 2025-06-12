@@ -13,6 +13,7 @@
 #include "./items/memory.h"
 #include "./items/hm.h"
 #include "./items/incense.h"
+#include "./items/gem.h"
 
 #define ITEM_NONE            0
 
@@ -428,26 +429,6 @@
 #define ITEM_FOSSILIZED_DINO    (ITEM_PIXIE_PLATE + 96)
 #define ITEM_FOSSILIZED_DRAKE   (ITEM_PIXIE_PLATE + 97)
 #define ITEM_FOSSILIZED_FISH    (ITEM_PIXIE_PLATE + 98)
-
-//Gems
-#define ITEM_NORMAL_GEM         (ITEM_PIXIE_PLATE + 99)
-#define ITEM_FIGHTING_GEM       (ITEM_PIXIE_PLATE + 100)
-#define ITEM_FLYING_GEM         (ITEM_PIXIE_PLATE + 101)
-#define ITEM_POISON_GEM         (ITEM_PIXIE_PLATE + 102)
-#define ITEM_GROUND_GEM         (ITEM_PIXIE_PLATE + 103)
-#define ITEM_ROCK_GEM           (ITEM_PIXIE_PLATE + 104)
-#define ITEM_BUG_GEM            (ITEM_PIXIE_PLATE + 105)
-#define ITEM_GHOST_GEM          (ITEM_PIXIE_PLATE + 106)
-#define ITEM_STEEL_GEM          (ITEM_PIXIE_PLATE + 107)
-#define ITEM_FIRE_GEM           (ITEM_PIXIE_PLATE + 108)
-#define ITEM_WATER_GEM          (ITEM_PIXIE_PLATE + 109)
-#define ITEM_GRASS_GEM          (ITEM_PIXIE_PLATE + 110)
-#define ITEM_ELECTRIC_GEM       (ITEM_PIXIE_PLATE + 111)
-#define ITEM_PSYCHIC_GEM        (ITEM_PIXIE_PLATE + 112)
-#define ITEM_ICE_GEM            (ITEM_PIXIE_PLATE + 113)
-#define ITEM_DRAGON_GEM         (ITEM_PIXIE_PLATE + 114)
-#define ITEM_DARK_GEM           (ITEM_PIXIE_PLATE + 115)
-#define ITEM_FAIRY_GEM          (ITEM_PIXIE_PLATE + 116)
 
 //Nectars
 #define ITEM_RED_NECTAR         (ITEM_PIXIE_PLATE + 134)
