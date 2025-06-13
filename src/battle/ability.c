@@ -278,17 +278,16 @@ u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
     };
 
     u8 max = 0;
-    u8 ret = 0;
+
     for (u8 i = 0; i < NELEMS(stats); i++)
     {
-        if (stats[i] > max)
+        if (stats[i] > stats[max])
         {
-            max = stats[i];
-            ret = i;
+            max = i;
         }
     }
 
-    return ret;
+    return max;
 }
 
 
