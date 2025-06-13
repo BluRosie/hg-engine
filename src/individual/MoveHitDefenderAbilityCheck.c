@@ -227,7 +227,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     ret = TRUE;
                 }
             }
-        break;
+            break;
         // handle berserk
         case ABILITY_BERSERK:
             if
@@ -258,7 +258,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 seq_no[0] = SUB_SEQ_BOOST_STATS;
                 ret = TRUE;
             }
-        break;
+            break;
         case ABILITY_ELECTROMORPHOSIS:
             if ((sp->battlemon[sp->defence_client].hp)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage)))
@@ -269,7 +269,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 seq_no[0] = SUB_SEQ_HANDLE_CHARGE_BOOST;
                 ret = TRUE;
             }
-        break;
+            break;
         case ABILITY_WIND_POWER:
             if ((sp->battlemon[sp->defence_client].hp)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
@@ -281,7 +281,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 seq_no[0] = SUB_SEQ_HANDLE_CHARGE_BOOST;
                 ret = TRUE;
             }
-        break;
+            break;
         case ABILITY_STAMINA:
             if ((sp->battlemon[sp->defence_client].hp)
                 && (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
@@ -317,6 +317,17 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 ret = TRUE;
             }
             break;
+        case ABILITY_COTTON_DOWN:
+            if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage)))
+    {
+                sp->battlerIdTemp = sp->defence_client;
+                seq_no[0] = SUB_SEQ_COTTON_DOWN;
+                return TRUE;
+            }
         case ABILITY_MUMMY:
             FALLTHROUGH;
         case ABILITY_LINGERING_AROMA:
