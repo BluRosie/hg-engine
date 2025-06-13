@@ -9,6 +9,7 @@
 - [Features](#features)
 - [Setup Instructions (Linux with apt)](#setup-instructions-linux-with-apt)
 - [Setup Instructions (Linux with apk)](#setup-instructions-linux-with-apk)
+- [Setup Instructions (Linux with dnf or yum)](#setup-instructions-linux-with-dnf-or-yum)
 - [Setup Instructions (macOS)](#setup-instructions-macos)
 - [Setup Instructions (Windows on WSL)](#setup-instructions-windows-on-wsl)
 - [Setup Instructions (Windows on MSYS2)](#setup-instructions-windows-on-msys2)
@@ -50,6 +51,12 @@
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
+## Setup Instructions (Linux with dnf or yum)
+1. In a Terminal window, run the following commands (replace `dnf` with `yum` if applicable):
+    * ```sudo dnf install libpng-devel arm-none-eabi-gcc-cs arm-none-eabi-newlib.noarch cmake python3 git automake autoconf make```
+2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+
+
 ## Setup Instructions (macOS)
 1. If you don't have it already, install `brew` by running the following in Terminal: ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
 2. In a Terminal window, run the following commands:
@@ -63,7 +70,7 @@
 ## Setup Instructions (Windows on WSL)
 1. Open the Windows Command Prompt as Administrator (look up "Command Prompt" on your Start Menu, Right Click -> Run as Administrator). Once you have done that, execute the following command: ```dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all```
     * Once this process finishes, you will have to restart your PC by entering "Y"
-    * If Windows is not cooperating and has issues logging in when your PC reboots, do not worry! You likely just need to enable virtualization in your BIOS. For instructions on that, look [**here**](https://bce.berkeley.edu/enabling-virtualization-in-your-pc-bios.html).
+    * If Windows is not cooperating and has issues logging in when your PC reboots, do not worry! You likely just need to enable virtualization in your BIOS. For instructions on that, look [**here**](https://support.microsoft.com/en-gb/windows/enable-virtualization-on-windows-c5578302-6e43-4b4b-a449-8ced115f58e1).
 2. Go to the Microsoft Store and search "Ubuntu". Go to any one of the version's pages in the store and click the blue "Get" button.  It shouldn't matter which you choose.
     * Once Ubuntu finishes installing, launch it from its page in the Microsoft Store so it can finish setting itself up.
     * Once Ubuntu finishes setting itself up, it will ask you to enter a username (in lowercase letters only) and password. After doing so, you can close Ubuntu.
