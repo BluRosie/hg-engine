@@ -21,6 +21,7 @@
 // 194 and 195 interrupt the otherwise-sensical mapping of file 30 -> a030, every file after is offset by 2
 #define ARC_PBR_POKEGRA 194
 #define ARC_PBR_OTHERPOKE 195
+#define ARC_ICON_FORM_CHANGE_SPA 208
 #define ARC_DEX_LISTS 216
 #define ARC_EGG_MOVES 231
 

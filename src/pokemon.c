@@ -8,12 +8,14 @@
 #include "../include/rtc.h"
 #include "../include/save.h"
 #include "../include/script.h"
+#include "../include/sound.h"
 #include "../include/constants/ability.h"
 #include "../include/constants/file.h"
 #include "../include/constants/game.h"
 #include "../include/constants/hold_item_effects.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
+#include "../include/constants/sndseq.h"
 #include "../include/constants/species.h"
 #include "../include/constants/weather_numbers.h"
 
@@ -679,6 +681,23 @@ BOOL LONG_CALL CanUseNectar(struct PartyPokemon *pp, u16 nectar)
     return FALSE;
 }
 
+BOOL LONG_CALL Mon_CanUseGracidea(struct PartyPokemon *mon)
+{
+    struct RTCTime time;
+    int species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    int form = GetMonData(mon, MON_DATA_FORM, NULL);
+    int status = GetMonData(mon, MON_DATA_STATUS, NULL);
+    int hp = GetMonData(mon, MON_DATA_HP, NULL);
+    //BOOL fatefulEncounter = GetMonData(mon, MON_DATA_FATEFUL_ENCOUNTER, NULL);
+    GF_RTC_CopyTime(&time);
+
+    if (species == SPECIES_SHAYMIN && form == 0 && hp != 0 && !(status & STATUS_FREEZE) && (time.hour >= 4 && time.hour < 20)) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
+
 #define RESHIRAM_MASK (0x80)
 #define JUST_SPLICER_POS_MASK (0x7F)
 
@@ -784,11 +803,12 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
     // handle shaymin
 
     if (wk->dat->item == ITEM_GRACIDEA
-     && GrashideaFeasibleCheck(pp) == TRUE)
+     && Mon_CanUseGracidea(pp) == TRUE)
     {
         wk->dat->after_mons = 1; // change to sky forme
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
+        ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works alright
         return TRUE;
     }
 
@@ -797,10 +817,8 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
     if (wk->dat->item == ITEM_REVEAL_GLASS
      && CanUseRevealGlass(pp) == TRUE)
     {
-        if (GetMonData(pp, MON_DATA_FORM, NULL) == 1)
-            wk->dat->after_mons = 0; // change to incarnate forme
-        else
-            wk->dat->after_mons = 1; // change to therian forme
+        u32 currForm = GetMonData(pp, MON_DATA_FORM, NULL);
+        wk->dat->after_mons = currForm ^ 1; // toggle form between therian/incarnate
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
         ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works alright
@@ -938,6 +956,48 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
     }
 
     return FALSE;
+}
+
+void LoadIconChangeAnim(struct IconFormChangeData *work, struct PartyPokemon *mon) {
+    work->species = GetMonData(mon, MON_DATA_SPECIES, NULL);
+    if (partyMenuSignal == 0)
+    {
+        switch (work->species)
+        {
+        case SPECIES_GIRATINA:
+            work->duration = 65; // duration of animation in frames
+            work->fileId = 0; // SPA 0 loaded from narc a206
+            GiratinaBoxPokemonFormChange(&mon->box);
+            break;
+        case SPECIES_SHAYMIN:
+            work->duration = 35;
+            work->fileId = 1;
+            break;
+        }
+    }
+}
+
+void _EmitParticles(struct IconFormChangeData *partyMenu) {
+    // still load the open SPA so that the task can unload it later
+    LoadOpenSPAToEmitter(partyMenu->particleSystem, OpenSPAFileInHeap(ARC_ICON_FORM_CHANGE_SPA, partyMenu->fileId, HEAP_ID_PARTY_MENU), 0xA, 1);
+
+    if (partyMenuSignal == 0)
+    {
+        switch (partyMenu->species)
+        {
+        case SPECIES_GIRATINA:
+            QueueEmitterWithCallback(partyMenu->particleSystem, 0, particleEmitCallback, partyMenu);
+            QueueEmitterWithCallback(partyMenu->particleSystem, 1, particleEmitCallback, partyMenu);
+            QueueEmitterWithCallback(partyMenu->particleSystem, 2, particleEmitCallback, partyMenu);
+            PlaySE(SEQ_SE_PL_W467109);
+            break;
+        case SPECIES_SHAYMIN:
+            QueueEmitterWithCallback(partyMenu->particleSystem, 0, particleEmitCallback, partyMenu);
+            QueueEmitterWithCallback(partyMenu->particleSystem, 1, particleEmitCallback, partyMenu);
+            PlaySE(SEQ_SE_PL_W363);
+            break;
+        }
+    }
 }
 
 /**
