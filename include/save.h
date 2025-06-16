@@ -367,7 +367,7 @@ void LONG_CALL AddHallOfFameEntry(FieldSystem *fieldSystem, BOOL gameCleared);
  *
  *  @param saveData saveData from SaveBlock2_get()
  */
-Daycare *Save_Daycare_Get(void *saveData);
+Daycare * LONG_CALL Save_Daycare_Get(void *saveData);
 
 
 // grab var data from the save -> pass in SavArray_Flags_get for both flags/vars
