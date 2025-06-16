@@ -1,5 +1,5 @@
 {
-  "TUTOR_TOP_LEFT": [
+  "TopLeft": [
     {
       "Move": "MOVE_DIVE",
       "Cost": 40
@@ -57,7 +57,7 @@
       "Cost": 32
     }
   ],
-  "TUTOR_TOP_RIGHT": [
+  "TopRight": [
     {
       "Move": "MOVE_MUD_SLAP",
       "Cost": 32
@@ -143,7 +143,7 @@
       "Cost": 64
     }
   ],
-  "TUTOR_BOTTOM_RIGHT": [
+  "BottomRight": [
     {
       "Move": "MOVE_SNORE",
       "Cost": 32
@@ -209,7 +209,7 @@
       "Cost": 32
     }
   ],
-  "TUTOR_HEADBUTT": [
+  "Headbutt": [
     {
       "Move": "MOVE_HEADBUTT",
       "Cost": 0
