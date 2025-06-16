@@ -104,7 +104,8 @@ MONDATA_WEIGHTS_DIR := $(BUILD)/rawtext/812 $(BUILD)/rawtext/813
 
 $(MONDATA_NARC): $(MONDATA_DEPENDENCIES)
 	$(ARMIPS) armips/data/mondata.s
-	$(PYTHON) scripts/tm_learnset.py armips/data/tmlearnset.txt
+# 	$(PYTHON) scripts/tm_learnset.py armips/data/tmlearnset.txt
+	$(PYTHON) scripts/learnsets.py --writespeciesbitmasks
 	$(NARCHIVE) create $@ $(MONDATA_DIR) -nf
 
 NARC_FILES += $(MONDATA_NARC)

@@ -434,7 +434,8 @@ move_narc: $(NARC_FILES)
 	$(ARMIPS) armips/data/babymons.s
 
 	@echo "tutor moves and tm moves:"
-	$(PYTHON) scripts/tm_learnset.py --writetmlist armips/data/tmlearnset.txt
+# 	$(PYTHON) scripts/tm_learnset.py --writetmlist armips/data/tmlearnset.txt
+	$(PYTHON) scripts/learnsets.py --writetmlist
 	$(PYTHON) scripts/tutor_learnset.py --writemovecostlist armips/data/tutordata.txt
 	$(PYTHON) scripts/tutor_learnset.py armips/data/tutordata.txt
 
