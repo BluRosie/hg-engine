@@ -10,7 +10,14 @@ _000:
     Wait 
     WaitButtonABTime 30
     SetTailwindCounter 1
+    // handle wind power/rider activating on this
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_WIND_POWER, _procCharge
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_WIND_RIDER, _raiseAttack
     End 
+
+_procCharge:
+
+_raiseAttack:
 
 _014:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
