@@ -512,3 +512,5 @@ arm9 DestroyHeap_hook 0201AA24 3
 
 # expand metronome move pool
 0012 load_max_move_num_metronome 022408AC 0
+
+arm9 GetMonTMHMCompat 0207224C 1

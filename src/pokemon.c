@@ -2485,3 +2485,11 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
         break;
     }
 }
+
+BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    if (species == SPECIES_HOOTHOOT) {
+        return TRUE;
+    }
+    return FALSE;
+}
