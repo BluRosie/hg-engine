@@ -744,3 +744,5 @@ OS_DisableInterrupts = 0x020D3A38;
 NNS_FndAllocFromExpHeapEx = 0x020B53A0;
 OS_RestoreInterrupts = 0x020D3A4C;
 sHeapInfo = 0x021D1584;
+
+BattleSystem_GetTrainer = 0x0223A9F4 | 1;

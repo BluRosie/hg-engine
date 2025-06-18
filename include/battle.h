@@ -3746,4 +3746,24 @@ BOOL LONG_CALL IsMoveInMinimizeVulnerabilityMovesList(u16 move);
 // TODO: come back here after implementing Raids
 #define I_AM_TERAPAGOS_AND_I_NEED_TO_KO_CARMINES_SINISTCHA(bsys, ctx, attacker) (FALSE)
 
+typedef struct TrainerData {
+    /*000*/ u8 trainerType;
+    /*001*/ u8 trainerClass;
+    /*002*/ u8 unk_2;
+    /*003*/ u8 npoke;
+    /*004*/ u16 items[4];
+    /*00C*/ u32 aiFlags;
+    /*010*/ u32 doubleBattle;
+} TrainerData;
+
+typedef struct Trainer {
+    struct TrainerData data;
+    /*014*/ u16 name[7 + 1];
+    // Used in the Frontier
+    /*024*/ PMS_DATA winMessage;
+    /*02C*/ PMS_DATA loseMessage;
+} Trainer; // size=0x34
+
+Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battlerId);
+
 #endif // BATTLE_H
