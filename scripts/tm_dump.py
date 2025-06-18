@@ -4,11 +4,6 @@ TM_TOTAL = 92
 HM_TOTAL = 8
 TOTAL_TMHM = TM_TOTAL + HM_TOTAL
 
-# Assumes tm_defs is a dict like { "TM001": "MOVE_NAME", ... }
-# species_dict maps "Bulbasaur" → SPECIES_BULBASAUR
-# species_learnsets contains { "Bulbasaur": { "TMMoves": ["Move1", "Move2", ...] } }
-
-
 def load_species_header(file_path):
     species_dict = {}
     index = 0
@@ -35,7 +30,7 @@ def load_moves_header(file_path):
     return moves_dict
 
 
-def generate_tm_learnset_c_file(tm_defs, species_dict, moves_dict, species_learnsets, output_path="../src/tm_learnsets.c"):
+def generate_tm_learnset_c_file(tm_defs, species_dict, moves_dict, species_learnsets, output_path="../data/TMLearnsets.c"):
     # Build TM/HM name to bit index map
     tm_move_to_index = {}
     for tm_label, move_name in tm_defs.items():
@@ -52,8 +47,10 @@ def generate_tm_learnset_c_file(tm_defs, species_dict, moves_dict, species_learn
     with open(output_path, "w") as out:
         out.write("// Auto-generated TM/HM learnsets\n")
         out.write("#include \"../include/types.h\"\n")
-        out.write("#include \"../include/species.h\"\n")
-        out.write("const u32 TMLearnSets[][4] = {\n")
+        out.write("#include \"../include/config.h\"\n")
+        out.write("#include \"../include/pokemon.h\"\n")
+        out.write("#include \"../include/constants/species.h\"\n\n")
+        out.write("const u32 UNUSED TMLearnsets[][4] = {\n")
 
         for species_name in species_dict:
             learnset = species_learnsets.get(species_name, {}).get("TMMoves", [])
