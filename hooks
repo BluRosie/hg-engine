@@ -512,3 +512,6 @@ arm9 DestroyHeap_hook 0201AA24 3
 
 # expand metronome move pool
 0012 load_max_move_num_metronome 022408AC 0
+
+# reroute the end of this to not go back to bag immediately without an evolution.  need to do it for learning move though i think
+arm9 PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_case6 02081E54 0
