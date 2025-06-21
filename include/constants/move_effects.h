@@ -381,6 +381,7 @@
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
 
+#define MOVE_EFFECT_STRENGTH_SAP (MAX_BASE_MOVE_EFFECT_NUM + 1)
 
 
 #define RANGE_SINGLE_TARGET           0

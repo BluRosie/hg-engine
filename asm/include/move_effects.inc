@@ -381,6 +381,7 @@
 // define your custom move effects below like this
 // .equ MOVE_EFFECT_CUSTOM_1, (MAX_BASE_MOVE_EFFECT_NUM + 1)
 
+.equ MOVE_EFFECT_STRENGTH_SAP, (MAX_BASE_MOVE_EFFECT_NUM + 1)
 
 
 .endif
