@@ -645,7 +645,8 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
 #ifdef FRIENDSHIP_EFFECTS
     if ((sp->battlemon[defender].friendship == 255)
-    && !(BattleTypeGet(bw) & BATTLE_TYPE_NO_EXPERIENCE)) {
+    && !(BattleTypeGet(bw) & BATTLE_TYPE_NO_EXPERIENCE)
+    && ClientBelongsToPlayer(bw, defender)) {
         if (accuracy < 10) {
             accuracy = 0;
         } else {

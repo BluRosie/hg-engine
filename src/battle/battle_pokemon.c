@@ -1223,3 +1223,7 @@ BOOL LONG_CALL DoesSideHave2Battlers(void *bw, u32 client)
     }
     return FALSE;
 }
+
+BOOL LONG_CALL ClientBelongsToPlayer(struct BattleSystem *bsys, int client) {
+    return BattleWork_GetTrainerIndex(bsys, client) == 0;
+}
