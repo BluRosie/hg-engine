@@ -460,7 +460,9 @@
 #define SUB_SEQ_SPIKY_SHIELD                          (450)
 
 #define SUB_SEQ_STRENGTH_SAP                          (451)
-#define MAX_BASE_SUBSCRIPT_NUM 451
+#define SUB_SEQ_HEAL_PULSE                            (452)
+#define SUB_SEQ_POLLEN_PUFF_HEAL                      (453)
+#define MAX_BASE_SUBSCRIPT_NUM 453
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -659,7 +661,10 @@
 #define ADD_STATUS_EFF_MORTAL_SPIN                     (189)
 #define ADD_STATUS_EFF_TIDY_UP                         (190)
 #define ADD_STATUS_EFF_BURN_AND_DRAIN_HEALTH           (191)
+// custom
 #define ADD_STATUS_EFF_STRENGTH_SAP                    (192)
+#define ADD_STATUS_EFF_HEAL_PULSE                      (193)
+#define ADD_STATUS_EFF_POLLEN_PUFF_HEAL                (194)
 
 
 // additional effect constants

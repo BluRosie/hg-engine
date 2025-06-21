@@ -8139,7 +8139,7 @@ movedata MOVE_SHELL_SMASH, "Shell Smash"
     movedescription MOVE_SHELL_SMASH, "Sharply raises\nAttack, Sp. Atk, and\nSpeed, but lowers\nDefense and Sp. Def."
 
 movedata MOVE_HEAL_PULSE, "Heal Pulse"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HEAL_TARGET
     pss SPLIT_STATUS
     basepower 0
     type TYPE_PSYCHIC
@@ -10876,7 +10876,7 @@ movedata MOVE_THROAT_CHOP, "Throat Chop"
     movedescription MOVE_THROAT_CHOP, "The user attacks the\ntarget's throat,\npreventing the target\nfrom using sound-based\nmoves for two turns."
 
 movedata MOVE_POLLEN_PUFF, "Pollen Puff"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_POLLEN_PUFF
     pss SPLIT_SPECIAL
     basepower 90
     type TYPE_BUG
