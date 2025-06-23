@@ -260,8 +260,8 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             }
         break;
         case ABILITY_ELECTROMORPHOSIS:
-            if ((sp->battlemon[sp->defence_client].hp)
-                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage)))
+            if (/*(sp->battlemon[sp->defence_client].hp) // mon notably does not need to be alive for this ability to proc
+                && */((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage)))
             {
                 sp->addeffect_param = ADD_STATUS_EFF_CHARGE;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
@@ -271,13 +271,15 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             }
         break;
         case ABILITY_WIND_POWER:
-            if ((sp->battlemon[sp->defence_client].hp)
-                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
+            // tailwind activation handled in SwitchInAbilityCheck
+            if (/*(sp->battlemon[sp->defence_client].hp) // mon notably does not need to be alive for this ability to proc
+                && */((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
                 && (IsMoveWindMove(sp->current_move_index)))
             {
                 sp->addeffect_param = ADD_STATUS_EFF_CHARGE;
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
-                sp->state_client = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
+                sp->waza_work = sp->current_move_index;
                 seq_no[0] = SUB_SEQ_HANDLE_CHARGE_BOOST;
                 ret = TRUE;
             }
