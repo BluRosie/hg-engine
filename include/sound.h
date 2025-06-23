@@ -187,6 +187,7 @@ BOOL LONG_CALL LoadSingleWaves(SNDWaveArc *waveArc, SNDBankData *bank, int index
 void LONG_CALL SND_AssignWaveArc(SNDBankData *bank, int index, SNDWaveArc *waveArc);
 
 void LONG_CALL PlayCry(u16 species, u8 forme);
+void LONG_CALL PlaySE(u32 se);
 
 
 // defined in src/sound.c

@@ -187,6 +187,8 @@ arm9 ArceusBoxPokemonFormeChange 08071BD0 3
 #use item attribute change
 arm9 UseItemMonAttrChangeCheck_hook 0807C29C 0
 0094 UseItemMonAttrLoadDiffMessage_hook 021E5A6A 1
+0094 LoadIconChangeAnim_hook 021E5980 0
+0094 _EmitParticles 021E5BA0 1
 
 #ifdef ALLOW_SAVE_CHANGES
 

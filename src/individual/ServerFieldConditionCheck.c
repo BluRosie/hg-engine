@@ -1368,6 +1368,16 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     sp->server_seq_no = 22;
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
                                     ret = 1;
+
+                                    // clear ability activated flag for wind power/rider
+                                    for (int index = side; index < client_set_max; index += 2)
+                                    {
+                                        u32 currAbility = GetBattlerAbility(sp, index);
+                                        if (currAbility == ABILITY_WIND_POWER || currAbility == ABILITY_WIND_RIDER)
+                                        {
+                                            sp->battlemon[index].ability_activated_flag = FALSE;
+                                        }
+                                    }
                                 }
                             }
                             sp->endTurnEventBlockSequenceNumber++;

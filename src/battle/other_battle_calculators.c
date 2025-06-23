@@ -112,8 +112,29 @@ const u16 BulletproofMoveList[] =
     MOVE_SEED_BOMB,
     MOVE_SHADOW_BALL,
     MOVE_SLUDGE_BOMB,
+    MOVE_SYRUP_BOMB,
     MOVE_WEATHER_BALL,
     MOVE_ZAP_CANNON,
+};
+
+const u16 WindMovesTable[] = {
+    MOVE_AEROBLAST,
+    MOVE_AIR_CUTTER,
+    MOVE_BLEAKWIND_STORM,
+    MOVE_BLIZZARD,
+    MOVE_FAIRY_WIND,
+    MOVE_GUST,
+    MOVE_HEAT_WAVE,
+    MOVE_HURRICANE,
+    MOVE_ICY_WIND,
+    MOVE_PETAL_BLIZZARD,
+    MOVE_SANDSEAR_STORM,
+    MOVE_SANDSTORM,
+    MOVE_SPRINGTIDE_STORM,
+    MOVE_TAILWIND,
+    MOVE_TWISTER,
+    MOVE_WHIRLWIND,
+    MOVE_WILDBOLT_STORM,
 };
 
 // List of multi-strike moves
@@ -2392,6 +2413,16 @@ void LONG_CALL BattleController_MoveEnd(struct BattleSystem *bsys, struct Battle
 BOOL LONG_CALL IsMovePunchingMove(u16 move)
 {
     return IsElementInArray(PunchingMovesTable, (u16 *)&move, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]));
+}
+
+/**
+ * @brief checks if the move index is a wind move
+ * @param move move index to check
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsMoveWindMove(u16 move)
+{
+    return IsElementInArray(WindMovesTable, (u16 *)&move, NELEMS(WindMovesTable), sizeof(WindMovesTable[0]));
 }
 
 

@@ -3376,6 +3376,13 @@ BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *
 */
 BOOL LONG_CALL IsMovePunchingMove(u16 move);
 
+/**
+ * @brief Checks if the move index is a wind move.
+ * @param move The move index to check.
+ * @return TRUE if the move is in the WindMovesTable, FALSE otherwise.
+ */
+BOOL LONG_CALL IsMoveWindMove(u16 move);
+
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);

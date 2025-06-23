@@ -603,6 +603,16 @@ struct PLIST_WORK
     u8 pos;
 };
 
+struct IconFormChangeData {
+    int state;
+    int effectTimer;
+    int duration;
+    int species;
+    int fileId;
+    int partyMonIndex;
+    void *particleSystem; // SPLEmitter from pokeheartgold
+};
+
 
 struct SAVE_MISC_DATA;
 
@@ -1066,14 +1076,6 @@ void LONG_CALL BoxMonInit(struct BoxPokemon *boxmon);
  *  @param bp BoxPokemon to check for a form change
  */
 void LONG_CALL GiratinaBoxPokemonFormChange(struct BoxPokemon *bp);
-
-/**
- *  @brief check if the gracidea flower can be used on a PartyPokemon
- *
- *  @param pp PartyPokemon to check for gracidea validity
- *  @return TRUE if the gracidea can be used on the PartyPokemon
- */
-BOOL LONG_CALL GrashideaFeasibleCheck(struct PartyPokemon *pp);
 
 /**
  *  @brief load in the party overlay
