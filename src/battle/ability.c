@@ -130,6 +130,11 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     {
         if ((IsMoveWindMove(sp->current_move_index)) && (attacker != defender)) {
             scriptnum = SUB_SEQ_HANDLE_WIND_RIDER;
+            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
+            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->state_client = defender;
+            sp->battlerIdTemp = defender;
+            //scriptnum = SUB_SEQ_BOOST_STATS;
         }
     }
 	
