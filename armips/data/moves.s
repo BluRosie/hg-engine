@@ -7563,7 +7563,7 @@ movedata MOVE_HONE_CLAWS, "Hone Claws"
     movedescription MOVE_HONE_CLAWS, "The user sharpens\nits claws to boost\nits Attack and\nAccuracy."
 
 movedata MOVE_WIDE_GUARD, "Wide Guard"
-    battleeffect MOVE_EFFECT_PROTECT
+    battleeffect MOVE_EFFECT_PROTECT_USER_SIDE
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ROCK
@@ -8075,14 +8075,14 @@ movedata MOVE_STORED_POWER, "Stored Power"
     movedescription MOVE_STORED_POWER, "The user attacks\nwith a stored power\nthat grows with\neach raised stat."
 
 movedata MOVE_QUICK_GUARD, "Quick Guard"
-    battleeffect MOVE_EFFECT_PROTECT
+    battleeffect MOVE_EFFECT_PROTECT_USER_SIDE
     pss SPLIT_STATUS
     basepower 0
     type TYPE_FIGHTING
     accuracy 0
     pp 15
     effectchance 0
-    target RANGE_USER
+    target RANGE_USER_SIDE
     priority 3
     flags FLAG_SNATCH
     appeal 0x00
@@ -9036,7 +9036,7 @@ movedata MOVE_FLYING_PRESS, "Flying Press"
     movedescription MOVE_FLYING_PRESS, "The user dives down\nonto the target from\nthe sky. This move is\nFighting and Flying\ntype simultaneously."
 
 movedata MOVE_MAT_BLOCK, "Mat Block"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PROTECT_USER_SIDE
     pss SPLIT_STATUS
     basepower 0
     type TYPE_FIGHTING
@@ -9308,7 +9308,7 @@ movedata MOVE_DRAINING_KISS, "Draining Kiss"
     movedescription MOVE_DRAINING_KISS, "---"
 
 movedata MOVE_CRAFTY_SHIELD, "Crafty Shield"
-    battleeffect MOVE_EFFECT_PROTECT
+    battleeffect MOVE_EFFECT_PROTECT_USER_SIDE
     pss SPLIT_STATUS
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
