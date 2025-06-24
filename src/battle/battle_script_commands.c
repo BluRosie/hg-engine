@@ -3251,11 +3251,13 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleSt
 
     if (IsContactBeingMade(bsys, ctx)
      && ctx->battlemon[ctx->attack_client].hp
+     && ctx->oneTurnFlag[ctx->defence_client].gainedProtectFlagFromAlly == FALSE
      && (ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) == 0) {
         switch (ctx->moveProtect[ctx->defence_client]) {
             case MOVE_KINGS_SHIELD:
                 if (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] > 0) {
-                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN;
+                    // King's Shield lowers Attack by two stages in Generation 6 and 7.
+                    ctx->addeffect_param = (GEN_LATEST > 7) ? ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN : ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_2;
                     ctx->state_client = ctx->attack_client;
                     SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
                 }
@@ -3263,13 +3265,16 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleSt
             case MOVE_SPIKY_SHIELD:
                 if (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_MAGIC_GUARD) {
                     ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp * -1, 8);
-                    ctx->state_client = ctx->attack_client;
+                    ctx->battlerIdTemp = ctx->attack_client;
                     SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SPIKY_SHIELD);
                 }
                 break;
             case MOVE_BANEFUL_BUNKER:
                 if (ctx->battlemon[ctx->attack_client].condition == 0) {
+                    ctx->addeffect_type = ADD_STATUS_MOVE_EFFECT;
                     ctx->state_client = ctx->attack_client;
+                    // Swap atk client to defender so it checks the protect users ability for Corrosion
+                    ctx->attack_client = ctx->defence_client;
                     SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_APPLY_POISON);
                 }
                 break;
@@ -3289,6 +3294,7 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleSt
                 break;
             case MOVE_BURNING_BULWARK:
                 if (ctx->battlemon[ctx->attack_client].condition == 0) {
+                    ctx->addeffect_type = ADD_STATUS_MOVE_EFFECT;
                     ctx->state_client = ctx->attack_client;
                     SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_APPLY_BURN);
                 }
@@ -3576,20 +3582,27 @@ BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
 
     if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT) {
         ctx->oneTurnFlag[ctx->attack_client].protectFlag = TRUE;
+        // Own protect moves should keep this flag off - incase protect user is slower than side protect user.
+        ctx->oneTurnFlag[ctx->attack_client].gainedProtectFlagFromAlly = FALSE;
         ctx->mp.msg_id = BATTLE_MSG_PROTECT_ITSELF; // "{0} protected itself!"
         ctx->mp.msg_tag = TAG_NICKNAME;
         ctx->mp.msg_para[0] = CreateNicknameTag(ctx, ctx->attack_client);
     }
 
-    // TODO: Test side protection moves, change MOVE_EFFECT_PROTECT to MOVE_EFFECT_PROTECT_USER_SIDE
-    // if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT) {
-    //     ctx->oneTurnFlag[ctx->attack_client].protectFlag = TRUE;
-    //     ctx->oneTurnFlag[BATTLER_ALLY(ctx->attack_client)].protectFlag = TRUE;
-    //     ctx->mp.msg_id = BATTLE_MSG_PROTECT_ITSELF; // "{0} protected [your/the opposing] team" TODO: change to own battle msg
-    //     ctx->mp.msg_tag = TAG_MOVE_SIDE;
-    //     ctx->mp.msg_para[0] = ctx->current_move_index;
-    //     ctx->mp.msg_para[1] = IsClientEnemy(bsys, ctx->attack_client);
-    // }
+    if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT_USER_SIDE) {
+        ctx->oneTurnFlag[ctx->attack_client].protectFlag = TRUE;
+
+        // Only give gainedProtectFlagFromAlly flag when ally doesn't have protect flag
+        if (ctx->oneTurnFlag[BATTLER_ALLY(ctx->attack_client)].protectFlag == FALSE) {
+            ctx->oneTurnFlag[BATTLER_ALLY(ctx->attack_client)].protectFlag = TRUE;
+            ctx->oneTurnFlag[BATTLER_ALLY(ctx->attack_client)].gainedProtectFlagFromAlly = TRUE;
+        }
+
+        ctx->mp.msg_id = BATTLE_MSG_PROTECT_USER_SIDE; // "{0} protected [your/the opposing] team"
+        ctx->mp.msg_tag = TAG_MOVE_SIDE;
+        ctx->mp.msg_para[0] = ctx->current_move_index;
+        ctx->mp.msg_para[1] = IsClientEnemy(bsys, ctx->attack_client);
+    }
 
     if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
         ctx->oneTurnFlag[ctx->attack_client].prevent_one_hit_ko_ability = TRUE;

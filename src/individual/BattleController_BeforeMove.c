@@ -1863,12 +1863,11 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
 
     // TODO: Destiny Bond when user has "Destiny Bond" Y-info volatile
     // TODO: No Retreat when user has Can't Escape flag set by No Retreat
-    // TODO: Refactor random roll location - Protecting move when user failed to repeat a successive protecting move
-    // TODO: Protecting move when move is the last used in the turn
 
     // Protecting move when user failed to repeat a successive protecting move
     // Protecting move when move is the last used in the turn
     if (moveEffect == MOVE_EFFECT_PROTECT
+    || moveEffect == MOVE_EFFECT_PROTECT_USER_SIDE
     || moveEffect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
         if ((ctx->waitingBattlers == 1)
         || ((BattleRand(bsys) % sProtectSuccessChance[ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns] > 0)
@@ -2215,69 +2214,86 @@ BOOL BattleController_CheckProtect(struct BattleSystem *bsys, struct BattleStruc
      && (ctx->current_move_index != MOVE_CURSE || CurseUserIsGhost(ctx, ctx->current_move_index, ctx->attack_client) == TRUE)
    /*&& (!CheckMoveIsChargeMove(ctx, ctx->current_move_index) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)*/) {
         BOOL runProtectedSubseq = FALSE;
-
-        switch (ctx->moveProtect[defender]) {
-            case MOVE_PROTECT:
-            case MOVE_DETECT:
-            case MOVE_SPIKY_SHIELD:
-            case MOVE_BANEFUL_BUNKER:
-            case MOVE_MAX_GUARD:
-                runProtectedSubseq = TRUE;
-                break;
-            case MOVE_KINGS_SHIELD:
-            case MOVE_OBSTRUCT:
-            case MOVE_SILK_TRAP:
-            case MOVE_BURNING_BULWARK:
-            case MOVE_MAT_BLOCK:
-                if (GetMoveSplit(ctx, ctx->current_move_index) != SPLIT_STATUS) {
-                    runProtectedSubseq = TRUE;
-                }
-                break;
-            case MOVE_QUICK_GUARD:
-                if (AdjustedMoveHasPositivePriority(ctx, ctx->attack_client)) {
-                    runProtectedSubseq = TRUE;
-                }
-                break;
-            case MOVE_WIDE_GUARD:
-                if (ctx->moveTbl[ctx->current_move_index].target == RANGE_ADJACENT_OPPONENTS
-                 || ctx->moveTbl[ctx->current_move_index].target == RANGE_ALL_ADJACENT) {
-                    runProtectedSubseq = TRUE;
-                }
-                break;
-            case MOVE_CRAFTY_SHIELD:
-                if (GetMoveSplit(ctx, ctx->current_move_index) == SPLIT_STATUS) {
-                    runProtectedSubseq = TRUE;
-                }
-                break;
-            // You can receive a protectFlag without using a protect move because of side protection moves, thus default case is FALSE.
-            default:
-                break;
-        }
+        u16 protectedMoveMessage = 0;
 
         switch (ctx->moveProtect[BATTLER_ALLY(defender)]) {
             case MOVE_QUICK_GUARD:
                 if (AdjustedMoveHasPositivePriority(ctx, ctx->attack_client)) {
                     runProtectedSubseq = TRUE;
+                    protectedMoveMessage = MOVE_QUICK_GUARD;
                 }
                 break;
             case MOVE_WIDE_GUARD:
                 if (ctx->moveTbl[ctx->current_move_index].target == RANGE_ADJACENT_OPPONENTS
                  || ctx->moveTbl[ctx->current_move_index].target == RANGE_ALL_ADJACENT) {
                     runProtectedSubseq = TRUE;
+                    protectedMoveMessage = MOVE_WIDE_GUARD;
                 }
                 break;
             case MOVE_MAT_BLOCK:
                 if (GetMoveSplit(ctx, ctx->current_move_index) != SPLIT_STATUS) {
                     runProtectedSubseq = TRUE;
+                    protectedMoveMessage = MOVE_MAT_BLOCK;
                 }
                 break;
             case MOVE_CRAFTY_SHIELD:
                 if (GetMoveSplit(ctx, ctx->current_move_index) == SPLIT_STATUS) {
                     runProtectedSubseq = TRUE;
+                    protectedMoveMessage = MOVE_CRAFTY_SHIELD;
                 }
                 break;
             default:
                 break;
+        }
+
+        // Prevent previous Protect move being read if being attacked before using a different move
+        if (ctx->oneTurnFlag[defender].gainedProtectFlagFromAlly == FALSE) {
+            switch (ctx->moveProtect[defender]) {
+                case MOVE_PROTECT:
+                case MOVE_DETECT:
+                case MOVE_SPIKY_SHIELD:
+                case MOVE_BANEFUL_BUNKER:
+                case MOVE_MAX_GUARD:
+                    runProtectedSubseq = TRUE;
+                    protectedMoveMessage = 0;
+                    break;
+                case MOVE_KINGS_SHIELD:
+                case MOVE_OBSTRUCT:
+                case MOVE_SILK_TRAP:
+                case MOVE_BURNING_BULWARK:
+                    if (GetMoveSplit(ctx, ctx->current_move_index) != SPLIT_STATUS) {
+                        runProtectedSubseq = TRUE;
+                        protectedMoveMessage = 0;
+                    }
+                    break;
+                case MOVE_MAT_BLOCK:
+                    if (GetMoveSplit(ctx, ctx->current_move_index) != SPLIT_STATUS) {
+                        runProtectedSubseq = TRUE;
+                        protectedMoveMessage = MOVE_MAT_BLOCK;
+                    }
+                    break;
+                case MOVE_QUICK_GUARD:
+                    if (AdjustedMoveHasPositivePriority(ctx, ctx->attack_client)) {
+                        runProtectedSubseq = TRUE;
+                        protectedMoveMessage = MOVE_QUICK_GUARD;
+                    }
+                    break;
+                case MOVE_WIDE_GUARD:
+                    if (ctx->moveTbl[ctx->current_move_index].target == RANGE_ADJACENT_OPPONENTS
+                     || ctx->moveTbl[ctx->current_move_index].target == RANGE_ALL_ADJACENT) {
+                        runProtectedSubseq = TRUE;
+                        protectedMoveMessage = MOVE_WIDE_GUARD;
+                    }
+                    break;
+                case MOVE_CRAFTY_SHIELD:
+                    if (GetMoveSplit(ctx, ctx->current_move_index) == SPLIT_STATUS) {
+                        runProtectedSubseq = TRUE;
+                        protectedMoveMessage = MOVE_CRAFTY_SHIELD;
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
         if (runProtectedSubseq) {
@@ -2285,6 +2301,18 @@ BOOL BattleController_CheckProtect(struct BattleSystem *bsys, struct BattleStruc
             UnlockBattlerOutOfCurrentMove(bsys, ctx, ctx->attack_client);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_PROTECTED;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED);
+            
+            if (protectedMoveMessage > 0) {
+                ctx->mp.msg_id = BATTLE_MSG_MOVE_PROTECTED_SIDE;
+                ctx->mp.msg_tag = TAG_NICKNAME_MOVE;
+                ctx->mp.msg_para[0] = CreateNicknameTag(ctx, defender);
+                ctx->mp.msg_para[1] = protectedMoveMessage;
+            } else {
+                ctx->mp.msg_id = BATTLE_MSG_PROTECTED_ITSELF;
+                ctx->mp.msg_tag = TAG_NICKNAME;
+                ctx->mp.msg_para[0] = CreateNicknameTag(ctx, defender);
+            }
+
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         }
