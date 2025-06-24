@@ -284,6 +284,7 @@ restore_build: | restore all
 ####################### Clean #######################
 clean:
 	rm -rf $(BUILD) $(BASE) rom_gen.ld rom_gen_battle.ld
+	@echo "Build artifacts removed."
 
 clean_tools:
 	rm -rf $(TOOLS) $(VENV)

@@ -1496,7 +1496,7 @@ The wild {STRVAR_1 1, 0, 0}\nshook its head.\fIt seems like it can’t use this 
 The opposing {STRVAR_1 1, 0, 0}\nshook its head.\fIt seems like it can’t use this move...
 {STRVAR_1 1, 0, 0} surrounds itself with\na protective mist!
 The wild {STRVAR_1 1, 0, 0}\nsurrounds itself with\fa protective mist!
-The opposing {STRVAR_1 1, 0, 0}nsurrounds itself with\fa protective mist!
+The opposing {STRVAR_1 1, 0, 0}\nsurrounds itself with\fa protective mist!
 {STRVAR_1 1, 0, 0}’s\nstats were not lowered!
 The wild {STRVAR_1 1, 0, 0}’s\nstats were not lowered!
 The opposing {STRVAR_1 1, 0, 0}’s\nstats were not lowered!
