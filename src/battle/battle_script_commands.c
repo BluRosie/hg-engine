@@ -1329,7 +1329,7 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
 }
 
 // global variables to track experience
-u8 scratchpad[4] = {0, 0, 0, 0};
+u8 ALIGN4 scratchpad[4] = {0, 0, 0, 0};
 
 #define monCount scratchpad[0]
 #define monCountFromItem scratchpad[1]
@@ -1350,8 +1350,9 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     struct PartyPokemon *pp = NULL;
     struct EXP_CALCULATOR *expcalc = work;
     int exp_client_no = 0;
+    struct BattleStruct *sp = expcalc->sp;
 
-    client_no = (expcalc->sp->fainting_client >> 1) & 1;
+    client_no = (sp->fainting_client >> 1) & 1;
 
     if (expcalc->seq_no < 37)
     {
@@ -1364,7 +1365,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
             eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
 
-            if ((eqp == HOLD_EFFECT_EXP_SHARE) || (expcalc->sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
+            if ((eqp == HOLD_EFFECT_EXP_SHARE) || (sp->obtained_exp_right_flag[client_no] & No2Bit(sel_mons_no)))
             {
                 break;
             }
@@ -1387,13 +1388,13 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             struct PartyPokemon *pploop = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
             if ((GetMonData(pploop, MON_DATA_SPECIES, NULL)) && (GetMonData(pploop, MON_DATA_HP, NULL)))
             {
-                if (expcalc->sp->obtained_exp_right_flag[client_no /*(expcalc->sp->fainting_client >> 1) & 1*/] & No2Bit(i))
+                if (sp->obtained_exp_right_flag[client_no /*(sp->fainting_client >> 1) & 1*/] & No2Bit(i))
                 {
                     monCount++;
                 }
 
                 item = GetMonData(pploop, MON_DATA_HELD_ITEM, NULL);
-                eqp = BattleItemDataGet(expcalc->sp, item, 1);
+                eqp = BattleItemDataGet(sp, item, 1);
 
                 if (eqp == HOLD_EFFECT_EXP_SHARE)
                 {
@@ -1409,9 +1410,9 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         {
             // actually calculate the experience
             u32 Lp = GetMonData(pp, MON_DATA_LEVEL, NULL); // this should contain the level of the person getting experience
-            u32 level = expcalc->sp->battlemon[expcalc->sp->fainting_client].level; // need to calculate exp individually for each mon it seems
+            u32 level = sp->battlemon[sp->fainting_client].level; // need to calculate exp individually for each mon it seems
 
-            u32 base = GetSpeciesBaseExp(expcalc->sp->battlemon[expcalc->sp->fainting_client].species, expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no); // base experience
+            u32 base = GetSpeciesBaseExp(sp->battlemon[sp->fainting_client].species, sp->battlemon[sp->fainting_client].form_no); // base experience
             totalexp = (base * level) / 5;
 
             u32 top = (2*level + 10) * (2*level + 10) * sqrt(2*level + 10);
@@ -1440,32 +1441,32 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
             if (monCountFromItem)
             {
-                expcalc->sp->obtained_exp = (totalexp / 2) / monCount;
-                if (expcalc->sp->obtained_exp == 0)
+                sp->obtained_exp = (totalexp / 2) / monCount;
+                if (sp->obtained_exp == 0)
                 {
-                    expcalc->sp->obtained_exp = 1;
+                    sp->obtained_exp = 1;
                 }
-                expcalc->sp->exp_share_obtained_exp = (totalexp / 2) / monCountFromItem;
-                if (expcalc->sp->exp_share_obtained_exp == 0)
+                sp->exp_share_obtained_exp = (totalexp / 2) / monCountFromItem;
+                if (sp->exp_share_obtained_exp == 0)
                 {
-                    expcalc->sp->exp_share_obtained_exp = 1;
+                    sp->exp_share_obtained_exp = 1;
                 }
             }
             else
             {
-                expcalc->sp->obtained_exp = totalexp / monCount;
-                if (expcalc->sp->obtained_exp == 0)
+                sp->obtained_exp = totalexp / monCount;
+                if (sp->obtained_exp == 0)
                 {
-                    expcalc->sp->obtained_exp = 1;
+                    sp->obtained_exp = 1;
                 }
-                expcalc->sp->exp_share_obtained_exp = 0;
+                sp->exp_share_obtained_exp = 0;
             }
         }
     }
 
 #ifdef DEBUG_PRINT_EXPERIENCE_VALUES
     u8 buf[128];
-    sprintf(buf, "[Task_DistributeExp_Extend] Scaled Rate - experience = %d, Lp = %d", expcalc->sp->obtained_exp, Lp);
+    sprintf(buf, "[Task_DistributeExp_Extend] Scaled Rate - experience = %d, Lp = %d", sp->obtained_exp, Lp);
     debugsyscall(buf);
     sprintf(buf, ", level = %d, totalexp = %d, ", level, totalexp);
     debugsyscall(buf);
@@ -1474,38 +1475,27 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 #endif
 
 #else // EXPERIENCE_FORMULA_GEN < 5 || EXPERIENCE_FORMULA_GEN == 6 // flat exp rate needs to be calculated
-    if (expcalc->seq_no != 38)
+    if (expcalc->seq_no < 37) // prevents NULL access
     {
-        int i;
-        int total_exp;
-        //int mons_getting_exp = 0;
-        //int mons_getting_exp_from_item = 0;
-        u16 item;
         u32 totalexp;
-        int eqp;
         struct Party *party = BattleWorkPokePartyGet(expcalc->bw, 0);
-        struct PartyPokemon *pp;
-        struct BattleStruct *sp = expcalc->sp;
-        void *bw = expcalc->bw;
 
         // count how many pokémon are getting experience
         if (!expcalc->work[6])
         {
             monCount = 0;
             monCountFromItem = 0;
-            for (i = 0; i < party->count; i++)
+            for (int i = 0; i < party->count; i++)
             {
-                pp = BattleWorkPokemonParamGet(bw, exp_client_no, i);
-                if ((GetMonData(pp, MON_DATA_SPECIES, NULL)) && (GetMonData(pp, MON_DATA_HP, NULL)))
+                struct PartyPokemon *pploop = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
+                if ((GetMonData(pploop, MON_DATA_SPECIES, NULL)) && (GetMonData(pploop, MON_DATA_HP, NULL)))
                 {
-                    monCount = 0;
-                    monCountFromItem = 0;
-                    if (sp->obtained_exp_right_flag[(sp->fainting_client >> 1) & 1] & No2Bit(i))
+                    if (sp->obtained_exp_right_flag[client_no /*(sp->fainting_client >> 1) & 1*/] & No2Bit(i))
                     {
                         monCount++;
                     }
 
-                    item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
+                    item = GetMonData(pploop, MON_DATA_HELD_ITEM, NULL);
                     eqp = BattleItemDataGet(sp, item, 1);
 
                     if (eqp == HOLD_EFFECT_EXP_SHARE)
@@ -1555,8 +1545,8 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     {
         DistributeEffortValues(BattleWorkPokePartyGet(expcalc->bw, exp_client_no),
                                sel_mons_no,
-                               expcalc->sp->battlemon[expcalc->sp->fainting_client].species,
-                               expcalc->sp->battlemon[expcalc->sp->fainting_client].form_no);
+                               sp->battlemon[sp->fainting_client].species,
+                               sp->battlemon[sp->fainting_client].form_no);
     }
 
 _skipAllThis:
@@ -2054,6 +2044,7 @@ const u16 sLowKickWeightToPower[][2] =
 s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, u32 client)
 {
     s32 weight;
+    u32 weightModifier = 1;
 
     weight = sp->battlemon[client].weight;
 
@@ -2063,10 +2054,14 @@ s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, u32 cli
     }
     else if (GetBattlerAbility(sp, client) == ABILITY_LIGHT_METAL)
     {
-        weight /= 2;
+        weightModifier *= 2;
     }
 
-    return weight;
+    if (GetBattleMonItem(sp, client) == ITEM_FLOAT_STONE) {
+        weightModifier *= 2;
+    }
+
+    return weight / weightModifier;
 }
 
 /**
@@ -2503,8 +2498,6 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
 
     u8 endTerrainFlag = read_battle_script_param(sp);
     int address = read_battle_script_param(sp);
-    int client_set_max;
-    int client_no;
     int item, itemPower;
 
     enum TerrainOverlayType oldTerrainOverlay = sp->terrainOverlay.type;
@@ -2545,17 +2538,6 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
             }
         } else {
             sp->terrainOverlay.numberOfTurnsLeft = 0;
-        }
-    }
-
-    client_set_max = BattleWorkClientSetMaxGet(bw);
-
-    if (sp->terrainOverlay.type == ELECTRIC_TERRAIN) {
-        for (int i = 0; i < client_set_max; i++) {
-            client_no = sp->turnOrder[i];
-            if (IsClientGrounded(sp, client_no)) {
-                sp->battlemon[client_no].effect_of_moves &= ~(MOVE_EFFECT_YAWN_COUNTER);
-            }
         }
     }
 
@@ -2767,15 +2749,15 @@ BOOL btl_scr_cmd_F6_changeexecutionorderpriority(void *bw, struct BattleStruct *
 
     switch (forceExecutionOrder) {
         case EXECUTION_ORDER_AFTER_YOU:
-            sp->oneTurnFlag[client_no].force_execution_order_flag = EXECUTION_ORDER_AFTER_YOU;
+            sp->oneTurnFlag[client_no].forceExecutionOrderFlag = EXECUTION_ORDER_AFTER_YOU;
             break;
         case EXECUTION_ORDER_QUASH:
 
-            sp->oneTurnFlag[client_no].force_execution_order_flag = EXECUTION_ORDER_QUASH;
+            sp->oneTurnFlag[client_no].forceExecutionOrderFlag = EXECUTION_ORDER_QUASH;
             break;
         // user should not use this under normal circumstances
         case EXECUTION_ORDER_NORMAL:
-            sp->oneTurnFlag[client_no].force_execution_order_flag = EXECUTION_ORDER_NORMAL;
+            sp->oneTurnFlag[client_no].forceExecutionOrderFlag = EXECUTION_ORDER_NORMAL;
             break;
         default:
             // idk crash the game I guess
@@ -3482,15 +3464,18 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
         if (cnt == 0) {
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SKILL_LINK) {
                 cnt = 5;
+            } else if ((ctx->battlemon[ctx->attack_client].species == SPECIES_GRENINJA && ctx->battlemon[ctx->attack_client].form_no == 1)
+            && ctx->current_move_index == MOVE_WATER_SHURIKEN) {
+                cnt = 3;
             } else {
-                cnt = (BattleRand(bsys) % 100); // 0 - 99, 100 numbers
+                cnt = (BattleRand(bsys) % 100);  // 0 - 99, 100 numbers
                 if (cnt < 35) {
                     cnt = 2;
                 } else if (cnt < 70) {
                     cnt = 3;
                 } else if (cnt < 85) {
                     cnt = 4;
-                } else { // >= 85
+                } else {  // >= 85
                     cnt = 5;
                 }
 
@@ -3709,7 +3694,7 @@ BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
- *  @return the amount of shakes a ball undergoes.  or'd with 0x80 for critical captures
+ *  @return the amount of shakes a ball undergoes.  or'd with CRITICAL_CAPTURE_MASK for critical captures
  */
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 {
@@ -3732,17 +3717,17 @@ u32 sSuccessfulCriticalCapture = 0;
  *  @brief reroute the capture shake task if a critical capture activates
  *
  *  @param expcalc exp calculator structure
- *  @param shakes number of shakes or'd with 0x80 for critical captures
+ *  @param shakes number of shakes or'd with CRITICAL_CAPTURE_MASK for critical captures
  *  @return amouont of actual shakes
  */
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes)
 {
 #ifdef IMPLEMENT_CRITICAL_CAPTURE
-    sSuccessfulCriticalCapture = 0;
-    if (shakes & 0x80) // critical capture
+    sSuccessfulCriticalCapture = FALSE;
+    if (shakes & CRITICAL_CAPTURE_MASK) // critical capture
     {
-        expcalc->work[3] = shakes&0x7F;
-        if ((shakes&0x7F) == 1)
+        expcalc->work[3] = shakes & ~CRITICAL_CAPTURE_MASK;
+        if ((shakes & ~CRITICAL_CAPTURE_MASK) == 1)
         {
             expcalc->work[2] = 4; // successful capture
             sSuccessfulCriticalCapture = TRUE;
@@ -3750,10 +3735,9 @@ u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes)
         else
         {
             expcalc->work[2] = 1;
-            // TODO: as of SV, this is now false.
             // https://xcancel.com/Sibuna_Switch/status/1605588207898218496#m
             // https://xcancel.com/Sibuna_Switch/status/1847665451809075315#m
-            expcalc->work[3] = 1; // a failed critical capture still shakes once
+            expcalc->work[3] = 0; // a failed critical capture no longer shakes once and just breaks free
         }
     }
     else

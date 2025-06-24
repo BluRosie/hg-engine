@@ -307,8 +307,28 @@ lsl r0, #6
 ldr r0, [r5, r0]
 ldr r2, =0x0200BBA0 | 1 // NewString_ReadMsgData
 bl bx_r2
+
+// reset partyMenuSignal to 0 to clear out its usage
+ldr r1, =partyMenuSignal
+mov r2, #0
+str r2, [r0]
+
 ldr r1, =0x021E5A76 | 1
 bx r1
+
+.pool
+
+
+// basically we are looking to expand the capability of the original system
+.global LoadIconChangeAnim_hook
+LoadIconChangeAnim_hook:
+mov r0, r4 // IconFormChangeData pointer
+mov r1, r6 // PartyPokemon pointer
+bl LoadIconChangeAnim // (struct IconFormChangeData *, struct PartyPokemon *);
+
+_return_to_021E59C6:
+ldr r0, =0x021E59C6 | 1
+bx r0
 
 .pool
 

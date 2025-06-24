@@ -187,6 +187,8 @@ arm9 ArceusBoxPokemonFormeChange 08071BD0 3
 #use item attribute change
 arm9 UseItemMonAttrChangeCheck_hook 0807C29C 0
 0094 UseItemMonAttrLoadDiffMessage_hook 021E5A6A 1
+0094 LoadIconChangeAnim_hook 021E5980 0
+0094 _EmitParticles 021E5BA0 1
 
 #ifdef ALLOW_SAVE_CHANGES
 
@@ -208,13 +210,13 @@ arm9 Bag_UnregisterItem 08078208 2
 arm9 Bag_GetItemPocket 02078240
 arm9 Pocket_GetItemSlotForAdd 020782DC
 arm9 Bag_GetItemSlotForAdd 02078340
-arm9 Bag_HasSpaceForItem 02078384
+arm9 Bag_HasSpaceForItem_hook 02078388 5
 arm9 Bag_AddItem 02078398
 arm9 Pocket_GetItemSlotForRemove 020783E0
 arm9 Bag_GetItemSlotForRemove 02078410
 arm9 Bag_TakeItem 02078434
 arm9 Pocket_TakeItem 02078480
-arm9 Bag_HasItem 020784B0
+arm9 Bag_HasItem_hook 020784B4 5
 
 # no more extended hook
 arm9 Bag_PocketNotEmpty 080784C4 2
@@ -330,7 +332,7 @@ arm9 Summary_Entry_Hook 0208D2C4 1
 #endif
 
 
-arm9 CanUseItemOnMonInParty 020902B8
+arm9 CanUseItemOnMonInParty_hook 020902BC 5
 #ifdef IMPLEMENT_LEVEL_CAP
 
 0012 ImplementLevelCap_hook 02245A28 3

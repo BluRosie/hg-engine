@@ -158,6 +158,9 @@
 
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_PAL_PARK)
 
+// change the flow of the ball callback to make sure that critical captures only shake once then succeed.  if it shakes, it succeeds, though
+#define CRITICAL_CAPTURE_MASK (0x80)
+
 
 /**
  *  @brief flags for effect_of_moves
@@ -664,7 +667,7 @@ struct __attribute__((packed)) OneTurnEffect
                u32 escape_flag : 2;
                u32 prevent_one_hit_ko_ability : 1; /**< pokémon has damp active */
                // begin custom flags
-               enum ForceExecutionOrder{EXECUTION_ORDER_NORMAL, EXECUTION_ORDER_AFTER_YOU, EXECUTION_ORDER_QUASH} force_execution_order_flag : 2;
+               enum ForceExecutionOrder{EXECUTION_ORDER_NORMAL, EXECUTION_ORDER_AFTER_YOU, EXECUTION_ORDER_QUASH} forceExecutionOrderFlag : 2;
                u32 parental_bond_flag : 2;
                u32 parental_bond_is_active : 1;
                u32 rampageProcessedFlag : 1;
@@ -1341,7 +1344,8 @@ struct PACKED BattleStruct {
     /*0x315F*/ u8 magicBounceTracker; // if any client has already activated magic bounce, another can not activate
     /*0x3160*/ u8 binding_turns[4]; // turns left for bind
     /*0x3164*/ u8 entryHazardQueue[2][NUM_HAZARD_IDX];
-    /*0x316E*/ u8 hazardQueueTracker;
+    /*0x316E*/ u8 hazardQueueTracker:7;
+               u8 itemActivatedTracker:1; // if an item that isn't lost on activation has been activated for this hit (think rocky helmet)
     /*0x316F*/ u8 padding_316F[0x317E - 0x316F]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
@@ -3372,6 +3376,13 @@ BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *
 */
 BOOL LONG_CALL IsMovePunchingMove(u16 move);
 
+/**
+ * @brief Checks if the move index is a wind move.
+ * @param move The move index to check.
+ * @return TRUE if the move is in the WindMovesTable, FALSE otherwise.
+ */
+BOOL LONG_CALL IsMoveWindMove(u16 move);
+
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
@@ -3586,7 +3597,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {\
                         numClientsChecked++;\
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client));\
-                        if (failureSubscriptToRun) {\
+                        if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_ALLY(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3598,7 +3609,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
                         numClientsChecked++;\
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client));\
-                        if (failureSubscriptToRun) {\
+                        if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3610,7 +3621,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
                         numClientsChecked++;\
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client));\
-                        if (failureSubscriptToRun) {\
+                        if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3634,10 +3645,20 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
             ctx->clientLoopForSpreadMoves = SPREAD_MOVE_LOOP_MAX + 1;\
             if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
                 int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);\
-                if (failureSubscriptToRun) {\
+                if (failureSubscriptToRun == 1) {\
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);\
                     ctx->server_seq_no = CONTROLLER_COMMAND_24;\
                     ST_ServerTotteokiCountCalc(bsys, ctx);\
+                    return;\
+                }\
+                if (failureSubscriptToRun > 1) {\
+                    ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;\
+                    ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;\
+                    ctx->msg_work = ctx->defence_client;\
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, failureSubscriptToRun);\
+                    ctx->next_server_seq_no = ctx->server_seq_no;\
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;\
+                    ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = MOVE_STATUS_NO_MORE_WORK;\
                     return;\
                 }\
             }\
@@ -3708,5 +3729,7 @@ void LONG_CALL BattleMessage_BufferTrainerName(struct BattleSystem *bsys, int bu
 void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int bufferIndex, int param);
 
 void LONG_CALL BufferItemNameWithIndefArticle(u32 *msgFmt, u32 fieldno, u32 itemId);
+
+int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 
 #endif // BATTLE_H
