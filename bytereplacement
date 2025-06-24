@@ -1,46 +1,6 @@
 #include "include/config.h"
 #include "include/debug.h"
-#include "include/constants/moves.h"
 #include "include/constants/save.h"
-
-# damage calc hook setup
-# push {r5-r6}
-# nop
-0012 0801F738 60 B4 C0 46
-
-# CalcAccuracy hook setup
-# 0224BCC4
-0012 0224BCC4 60 B4 C0 46
-
-# CalcSpeed hook setup
-# 0224FC48
-0012 08018388 60 B4 C0 46
-
-# CalcCritical hook setup
-# 02257C5C
-0012 0802039C 60 B4 C0 46
-
-# MoldBreakerAbilityCheck hook setup
-# 02252834
-0012 0801AF74 60 B4 C0 46
-
-# PokePasoParaSet hook setup
-# 0206DED0
-arm9 0806DED0 60 B4 C0 46
-
-# CT_SwitchInMessageParamMake hook setup
-# 02261464
-0012 08029BA4 60 B4 C0 46
-
-# CT_EncountSendOutMessageParamMake hook setup
-# 022615F0
-0012 08029D30 60 B4 C0 46
-
-# CantEscape hook setup
-0012 02252980 60 B4 C0 46
-
-# expand evolutions to 9 per mon + form evos - GetMonEvolution hook setup
-arm9 08070E34 60 B4 C0 46
 
 #updating old moves
 
@@ -48,25 +8,20 @@ arm9 08070E34 60 B4 C0 46
 # 0224A112
 0012 08012852 08
 
-
 #ifdef ALLOW_SAVE_CHANGES
 #ifdef ITEM_POCKET_EXPANSION
 
-# bag expansion
-arm9 08078240 60 B4 C0 46
-arm9 080782DC 60 B4 C0 46
-arm9 08078340 60 B4 C0 46
-arm9 08078384 60 B4 C0 46
-arm9 08078398 60 B4 C0 46
-arm9 080783E0 60 B4 C0 46
-arm9 08078410 60 B4 C0 46
-arm9 08078434 60 B4 C0 46
-arm9 08078480 60 B4 C0 46
-arm9 080784B0 60 B4 C0 46
+# Bag_HasSpaceForItem hook setup because it's not even 0x1C bytes long
+arm9 02078384 60 B4 C0 46
+
+# Bag_HasItem hook setup because it's not even 0x1C bytes long
+arm9 020784B0 60 B4 C0 46
 
 #endif
 #endif
 
+# CanUseItemOnMonInParty hook setup because it's not even 0x1C bytes long
+arm9 020902B8 60 B4 C0 46
 
 # 021F9380
 # trying a few things out
@@ -85,12 +40,6 @@ arm9 080784B0 60 B4 C0 46
 0015 080061B6 AC
 0015 08006E40 C0 0E 00 00
 
-# GiveMon hook setup
-arm9 080541DC 60 B4 C0 46
-
-# AddWildPartyPokemon hook setup
-0002 080029DC 60 B4 C0 46
-
 # NNSi_SndArcLoadBank_hook setup - it's an arm function
 # push {r5-r6}
 arm9 020CA054 60 00 2D E9
@@ -105,11 +54,7 @@ arm9 0203DFF4 8A 02
 0112 021F126C FF 7F 00 00
 0112 021F323C FF 7F 00 00
 
-#ifdef IMPLEMENT_WILD_DOUBLE_BATTLES
-# WildEnc water or something idk
-0002 022474E0 60 B4 C0 46
-
-#else
+#ifndef IMPLEMENT_WILD_DOUBLE_BATTLES
 
 # undo wild doubles--restore the vanilla code
 0002 02247424 00 B5 83 B0 00 20 00 90
@@ -133,10 +78,6 @@ arm9 0203DFF4 8A 02
 0012 022463A0 5E 20 61 68 00 22 80 00
 #endif
 
-# ServerDoTypeCalcMod hook setup
-0012 02251D28 60 B4 C0 46
-# AITypeCalc hook setup
-0012 02252054 60 B4 C0 46
 # fix fire fang glitch - change 273 to 272 to properly check shadow force's effect
 0012 0225848C 10
 
@@ -190,9 +131,6 @@ arm9 0208CDE8 04
 0018 021EEC74 04
 0018 021F8D50 04
 
-# expand metronome movepool
-0012 022408F8 NUM_OF_MOVES
-
 # pass PartyPokemon to ModifyStatByNature for recalculating PartyPokemon stats
 arm9 0206E3C6 00 00 00 00
 arm9 0206E406 00 00 00 00
@@ -203,7 +141,6 @@ arm9 0206E4C6 00 00 00 00
 #ifdef ALLOW_SAVE_CHANGES
 #ifdef EXPAND_PC_BOXES
 # save expansion
-arm9 020277BC 60 B4 C0 46
 
 arm9 020279E8 OFFSET_sectorCleanFlag
 arm9 02027CE8 OFFSET_lastGoodSector
@@ -232,10 +169,6 @@ arm9 020F64A8 SAVE_PAGE_MAX_8
 arm9 020F64B8 SAVE_PAGE_MAX_10
 
 #pc box expansion
-arm9 02073C6C 60 B4 C0 46
-arm9 02073CC0 60 B4 C0 46
-arm9 02074014 60 B4 C0 46
-
 arm9 0202716C NUM_PC_BOXES
 0014 021F0298 NUM_PC_BOXES_MINUS_ONE
 0014 021F031C NUM_PC_BOXES_MINUS_ONE
@@ -404,14 +337,8 @@ arm9 02074128 F8 B5 82 B0 00 90 00 20
 
 #endif
 
-# SetFixedWildEncounter_hook setup
-0002 022480C0 60 B4 C0 46
-
 # expand allowed terrain platforms
 0012 02265FEE FF
-
-# BattleSystem_CheckMoveEffect_hook setup
-0012 0224C018 60 B4 C0 46
 
 #ifdef DEBUG_ALWAYS_OBEY
 0012 0224AED0 00 20 70 47
@@ -419,15 +346,6 @@ arm9 02074128 F8 B5 82 B0 00 90 00 20
 
 # Fix Hidden Power to 60 BP (change +30 instruction to =60)
 0012 022424DC 3C 20
-
-# StruggleCheck_hook setup
-0012 022517EC 60 B4 C0 46
-
-# ov12_02251A28_hook setup
-0012 02251A28 60 B4 C0 46
-
-# CanUseItemOnMonInParty hook setup
-arm9 020902B8 60 B4 C0 46
 
 # normal as a second type should show up in the dex/pc
 0018 021F21AE C0 46
@@ -523,10 +441,12 @@ arm9 080550D4 2C
 
 #endif
 
-# _CreateTradeMon_hook setup
-0023 02259C40 60 B4 C0 46
-
 #ifdef DEBUG_PRINT_HEAP_ALLOCATION
 ## AllocFromHeapInternal func setup
 #arm9 0201AA38 60 B4 C0 46
 #endif
+
+
+
+# change the string displayed when a mon learns a tm without having to overwrite a move
+arm9 020821B0 DB

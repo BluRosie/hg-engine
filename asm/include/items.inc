@@ -843,5 +843,12 @@
 .equ ITEM_HEARTHFLAME_MASK, (ITEM_PIXIE_PLATE + 214)
 .equ ITEM_METAL_ALLOY, (ITEM_PIXIE_PLATE + 215)
 
+.equ MAX_BASE_ITEM_NUM, ITEM_METAL_ALLOY
+
+// define your custom move effects below like this
+// .equ ITEM_CUSTOM_1, (MAX_BASE_ITEM_NUM + 1)
+
+
+
 
 .endif

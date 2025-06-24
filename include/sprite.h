@@ -150,4 +150,10 @@ void LONG_CALL PaletteData_LoadNarc(void *data, u32 narcID, s32 memberNo, u32 he
 void LONG_CALL DrawFrameAndWindow2(void *window, BOOL dont_copy_to_vram, u16 baseTile, u8 palette_num);
 void LONG_CALL AddWindowParameterized(void *bgConfig, void *window, u8 bgId, u8 x, u8 y, u8 width, u8 height, u8 paletteNum, u16 baseTile);
 
+// SPA functions - names are speculative
+void LONG_CALL LoadOpenSPAToEmitter(/*SPLEmitter*/ void *emitter, void *data, u32 flag, BOOL loadNow);
+void * LONG_CALL OpenSPAFileInHeap(u32 narcId, int fileId, u32 heapId);
+void LONG_CALL QueueEmitterWithCallback(/*SPLEmitter*/ void *emitter, int res_no, void (*fp_callback)(/*SPLEmitter*/ void *), void *arg);
+void LONG_CALL particleEmitCallback(/*SPLEmitter*/ void *partyMenu);
+
 #endif

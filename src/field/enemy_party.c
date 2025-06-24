@@ -81,7 +81,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
     // goal:  get rid of massive switch statement with each individual byte.  make the trainer type a bitfield
     u32 id;
-    u16 species = 0, item = 0, ability = 0, level = 0, ball = 0, hp = 0, atk = 0, def = 0, speed = 0, spatk = 0, spdef = 0;
+    u16 species = 0, adjustedSpecies = 0, item = 0, ability = 0, level = 0, ball = 0, hp = 0, atk = 0, def = 0, speed = 0, spatk = 0, spdef = 0;
     u16 offset = 0;
     u16 moves[4];
     u8 ivnums[6];
@@ -318,17 +318,17 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         SetMonData(mons[i], MON_DATA_FORM, &form_no);
 
         //set default abilities
-        species = PokeOtherFormMonsNoGet(species, form_no);
-        ab1 = PokePersonalParaGet(species, PERSONAL_ABILITY_1);
-        ab2 = PokePersonalParaGet(species, PERSONAL_ABILITY_2);
+        adjustedSpecies = PokeOtherFormMonsNoGet(species, form_no);
+        ab1 = PokePersonalParaGet(adjustedSpecies, PERSONAL_ABILITY_1);
+        ab2 = PokePersonalParaGet(adjustedSpecies, PERSONAL_ABILITY_2);
         if (ab2 != 0)
         {
             if (abilityslot & 1 || abilityslot == 32) // abilityslot 32 gives second slot in vanilla
             {
-                SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab1);
+                SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab2);
             }
             else{
-                SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab2);
+                SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab1);
             }
         }
         else
@@ -340,7 +340,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         if (abilityslot == 2)
         {
             u16 hiddenability = GetMonHiddenAbility(species, form_no);
-            SET_MON_HIDDEN_ABILITY_BIT(mons[i])
+            SET_MON_HIDDEN_ABILITY_BIT(mons[i]);
             SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&hiddenability);
         }
 

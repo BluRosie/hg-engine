@@ -76,6 +76,7 @@ dumpitem.py
 *.DS_STORE
 armips/asm/offset.s
 .vs/
+.vscode/
 rom_gen*.ld
 
 sdat/*
