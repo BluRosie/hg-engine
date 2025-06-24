@@ -26,7 +26,7 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
  *  @param move index of the move being used
  *  @param atkAbility ability of the attacker
  *  @param defAbility ability of the defender
- *  @param held_effect held item effect of the attacker
+ *  @param held_effect held item effect of the DEFENDER (this was erroneously labeled before)
  *  @param type1 primary type of defender
  *  @param type2 secondary type of defender
  *  @param flag flags to modify so that the AI knows what decision to make

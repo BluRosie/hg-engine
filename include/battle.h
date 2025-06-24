@@ -3396,7 +3396,7 @@ BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem *bsys, str
 //Buffer messages related to being unable to select moves?
 BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int movePos, MESSAGE_PARAM *msg);
 
-int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
+int LONG_CALL CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                    u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
 
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);

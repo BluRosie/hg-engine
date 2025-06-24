@@ -125,11 +125,19 @@ static const u16 SharpnessMovesTable[] = {
     MOVE_STONE_AXE,
     MOVE_X_SCISSOR,
 };
+/*
+// Base damage calc that uses a party pokemon on the attacker side for 
+// computing the potential damage done by switch-ins for the AI
+int CalcBaseDamageAI(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
+    u32 field_cond, u16 pow, u8 type UNUSED, struct PartyPokemon pp, u8 defender, u8 critical){
+        s32 damage = 0;
+        return damage;
+}*/
 
 
 
 
-int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
+int UNUSED CalcBaseDamageInternal(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                    u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
 {
     u32 i;
