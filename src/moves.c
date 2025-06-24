@@ -208,6 +208,7 @@ u16 move_effect_to_subscripts[] =
     [ADD_STATUS_EFF_STRENGTH_SAP]                = SUB_SEQ_STRENGTH_SAP,
     [ADD_STATUS_EFF_HEAL_PULSE]                  = SUB_SEQ_HEAL_PULSE,
     [ADD_STATUS_EFF_POLLEN_PUFF_HEAL]            = SUB_SEQ_POLLEN_PUFF_HEAL,
+    [ADD_STATUS_EFF_COACHING]                    = SUB_SEQ_COACHING,
 };
 
 

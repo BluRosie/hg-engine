@@ -1436,7 +1436,16 @@
     .long 260
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 260
+    .macro BoltBeakDamageCalc
+    .long 261
+    .endm
+
+    .macro CheckTargetIsPartner arg_0
+    .long 262
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 262
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)
