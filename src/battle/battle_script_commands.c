@@ -3336,6 +3336,8 @@ BOOL btl_scr_cmd_custom_01_strengthsapcalc(void* bw UNUSED, struct BattleStruct*
 
     sp->hp_calc_work = -damage;
 
+//    debug_printf("strengthsap: %d\n", damage);
+
     return FALSE;
 }
 
