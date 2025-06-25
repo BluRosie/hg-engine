@@ -1,6 +1,7 @@
 import sys
 import re
 
+
 def parse_trainers(file_path):
     with open(file_path, 'r') as f:
         lines = f.readlines()
@@ -102,163 +103,136 @@ def parse_trainers(file_path):
 
 def mon_additional_flag_check(trainer, mon, mon_index, flag, key):
     has_additionalflags_flag = "additionalflags" in mon
-
     has_flag = has_additionalflags_flag and flag in mon["additionalflags"]
     has_val = key in mon
 
     if has_flag and not has_val:
-        print(f"ERROR: {trainer['name']} (id: {trainer['id']}, mon: {mon_index}) has the {flag} flag but does not have {key} set")
-        return True
+        return f"ERROR: {trainer['name']} (id: {trainer['id']}, mon: {mon_index}) has the {flag} flag but does not have {key} set"
     elif has_val and not has_flag:
-        print(f"ERROR: {trainer['name']} (id: {trainer['id']}, mon: {mon_index}) does not have the {flag} flag but has {key} set")
-        return True
-    return False
+        return f"ERROR: {trainer['name']} (id: {trainer['id']}, mon: {mon_index}) does not have the {flag} flag but has {key} set"
+    return None
+
+
+def trainer_flag_check(trainer, party, flag, key):
+    has_trainer_flag = flag in trainer["trainermontype"]
+    all_have_key = all(key in mon for mon in party)
+    any_have_key = any(key in mon for mon in party)
+
+    if has_trainer_flag and not all_have_key:
+        return f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) has {flag} flag but not all party pokémon have {key} defined"
+    elif not has_trainer_flag and any_have_key:
+        return f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) does not have {flag} flag but some party pokémon have {key} defined"
+    return None
+
+
+def validate_items(trainer, party):
+    flag_errs = trainer_flag_check(trainer, party, "TRAINER_DATA_TYPE_ITEMS", "item")
+    return [flag_errs] if flag_errs else []
+
+
+# this does not use the trainer_flag_check func because it has extra logic for move count
+def validate_moves(trainer, party):
+    errors = []
+    has_moves_flag = 'TRAINER_DATA_TYPE_MOVES' in trainer["trainermontype"]
+    all_have_moves = all("move4" in mon for mon in party)
+    any_have_moves = any("move1" in mon for mon in party)
+    any_have_extra_moves = any("move5" in mon for mon in party)
+
+    if has_moves_flag and not all_have_moves:
+        errors.append(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) has TRAINER_DATA_TYPE_MOVES flag but not all party pokémon have four moves defined")
+    elif not has_moves_flag and any_have_moves:
+        errors.append(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) does not have the TRAINER_DATA_TYPE_MOVES flag but some party pokémon have move(s) defined")
+
+    if has_moves_flag and any_have_extra_moves:
+        errors.append(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) has extra moves for Pokémon in party")
+    return errors
+
+
+def validate_abilities(trainer, party):
+    flag_errs = trainer_flag_check(trainer, party, "TRAINER_DATA_TYPE_ABILITY", "ability")
+    return [flag_errs] if flag_errs else []
+
+
+def validate_field_order(trainer, party):
+    errors = []
+    correct_field_order = [
+        "ivs", "abilityslot", "level", "pokemon", "item",
+        "move1", "move2", "move3", "move4",
+        "ability", "setivs", "setevs", "nature",
+        "shinylock", "additionalflags", "status",
+        "hp", "atk", "def", "speed", "spatk", "spdef",
+        "types", "ppcounts", "nickname", "ballseal"
+    ]
+    for i, mon in enumerate(party):
+        actual_order = []
+        for field in mon.keys():
+            if field.startswith("move"):
+                actual_order.append((field, correct_field_order.index("move1")))
+            elif field in correct_field_order:
+                actual_order.append((field, correct_field_order.index(field)))
+
+        indices = [idx for _, idx in actual_order]
+
+        if indices != sorted(indices):
+            errors.append(f"ERROR: {trainer['name']} (id: {trainer['id']} mon {i}: field order is incorrect.")
+            errors.append(f"  found order: {[f for f, _ in actual_order]}")
+            errors.append(f"  expected order (if present): {correct_field_order}")
+    return errors
+
+
+def validate_additional_flags(trainer, party):
+    errors = []
+    flag_key_pairs = [
+        ('TRAINER_DATA_EXTRA_TYPE_STATUS', 'status'),
+        ('TRAINER_DATA_EXTRA_TYPE_HP', 'hp'),
+        ('TRAINER_DATA_EXTRA_TYPE_ATK', 'atk'),
+        ('TRAINER_DATA_EXTRA_TYPE_DEF', 'def'),
+        ('TRAINER_DATA_EXTRA_TYPE_SPEED', 'speed'),
+        ('TRAINER_DATA_EXTRA_TYPE_SP_ATK', 'spatk'),
+        ('TRAINER_DATA_EXTRA_TYPE_SP_DEF', 'spdef'),
+        ('TRAINER_DATA_EXTRA_TYPE_TYPES', 'types'),
+        ('TRAINER_DATA_EXTRA_TYPE_PP_COUNTS', 'ppcounts'),
+        ('TRAINER_DATA_EXTRA_TYPE_NICKNAME', 'nickname')
+    ]
+    for i, mon in enumerate(party):
+        for flag, key in flag_key_pairs:
+            error = mon_additional_flag_check(trainer, mon, i, flag, key)
+            if error:
+                errors.append(error)
+    return errors
 
 
 def validate_trainers(trainers, print_team):
-    any_error = False
+    errors = []
     for trainer in trainers:
         if trainer["id"] == 0:
             continue
 
+        err_count = len(errors)
+
         party = trainer["party"]
 
-        # Item validation
-        has_items_flag = 'TRAINER_DATA_TYPE_ITEMS' in trainer["trainermontype"]
-        all_have_items = all("item" in mon for mon in party)
-        any_have_items = any("item" in mon for mon in party)
-
-        if has_items_flag and not all_have_items:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) has TRAINER_DATA_TYPE_ITEMS flag but not all party pokémon have an item defined")
-            any_error = True
-        elif not has_items_flag and any_have_items:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) does not have the TRAINER_DATA_TYPE_ITEMS flag but some party pokémon have an item defined")
-            any_error = True
-
-        # Move validation
-        has_moves_flag = 'TRAINER_DATA_TYPE_MOVES' in trainer["trainermontype"]
-        all_have_moves = all("move4" in mon for mon in party)
-        any_have_moves = any("move1" in mon for mon in party)
-        any_have_extra_moves = any("move5" in mon for mon in party)
-
-        if has_moves_flag and not all_have_moves:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) has TRAINER_DATA_TYPE_MOVES flag but not all party pokémon have four moves defined")
-            any_error = True
-        elif not has_moves_flag and any_have_moves:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) does not have the TRAINER_DATA_TYPE_MOVES flag but some party pokémon have move(s) defined")
-            any_error = True
-
-        if has_moves_flag and any_have_extra_moves:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) mon {i} has {len(move_keys)} moves but should have 4")
-
-        # Ability validation
-        has_ability_flag = 'TRAINER_DATA_TYPE_ABILITY' in trainer["trainermontype"]
-        all_have_ability = all("ability" in mon for mon in party)
-        any_have_ability = any("ability" in mon for mon in party)
-
-        if has_ability_flag and not all_have_ability:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) has TRAINER_DATA_TYPE_ABILITY flag but not all party pokémon have an ability defined")
-            any_error = True
-        elif not has_ability_flag and any_have_ability:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) does not have the TRAINER_DATA_TYPE_ABILITY flag but some party pokémon have an ability defined")
-            any_error = True
-
-        # Nature validation
-        has_nature_flag = 'TRAINER_DATA_TYPE_NATURE_SET' in trainer["trainermontype"]
-        all_have_nature = all("nature" in mon for mon in party)
-        any_have_nature = any("nature" in mon for mon in party)
-
-        if has_nature_flag and not all_have_nature:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) has TRAINER_DATA_TYPE_NATURE_SET flag but not all party pokémon have a nature defined")
-            any_error = True
-        elif not has_nature_flag and any_have_nature:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) does not have the TRAINER_DATA_TYPE_NATURE_SET flag but some party pokémon have a nature defined")
-            any_error = True
-
-        # EV/IV validation
-        has_ev_iv_flag = 'TRAINER_DATA_TYPE_IV_EV_SET' in trainer["trainermontype"]
-        all_have_ev = all("setevs" in mon for mon in party)
-        any_have_ev = any("setevs" in mon for mon in party)
-        all_have_iv = all("setivs" in mon for mon in party)
-        any_have_iv = any("setivs" in mon for mon in party)
-
-        if has_ev_iv_flag and not all_have_ev:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) has TRAINER_DATA_TYPE_IV_EV_SET flag but not all party pokémon have EVs defined")
-            any_error = True
-        if not has_ev_iv_flag and any_have_ev:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) does not have the TRAINER_DATA_TYPE_IV_EV_SET flag but some party pokémon have EVs defined")
-            any_error = True
-        if has_ev_iv_flag and not all_have_iv:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) has TRAINER_DATA_TYPE_IV_EV_SET flag but not all party pokémon have IVs defined")
-            any_error = True
-        if not has_ev_iv_flag and any_have_iv:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) does not have the TRAINER_DATA_TYPE_IV_EV_SET flag but some party pokémon have IVs defined")
-            any_error = True
+        errors.extend(validate_items(trainer, party))
+        errors.extend(validate_moves(trainer, party))
+        errors.extend(validate_abilities(trainer, party))
+        errors.extend(validate_field_order(trainer, party))
+        errors.extend(validate_additional_flags(trainer, party))
 
         # Party size validation
         if len(party) != trainer["nummons"]:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, nummons: {trainer['nummons']}) has {len(party)} pokémon defined")
-            any_error = True
+            errors.append(f"ERROR: {trainer['name']} (id: {trainer['id']}, nummons: {trainer['nummons']}) has {len(party)} pokémon defined")
 
-        if has_nature_flag and not all_have_nature:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) has TRAINER_DATA_TYPE_NATURE_SET flag but not all party pokémon have a nature defined")
-            any_error = True
-        elif not has_nature_flag and any_have_nature:
-            print(f"ERROR: {trainer['name']} (id: {trainer['id']}, flags: {trainer['trainermontype']}) does not have the TRAINER_DATA_TYPE_NATURE_SET flag but some party pokémon have a nature defined")
-            any_error = True
-
-        # Field order validation
-        correct_field_order = [
-            "ivs", "abilityslot", "level", "pokemon", "item",
-            "move1", "move2", "move3", "move4",
-            "ability", "setivs", "setevs", "nature",
-            "shinylock", "additionalflags", "status",
-            "hp", "atk", "def", "speed", "spatk", "spdef",
-            "types", "ppcounts", "nickname", "ballseal"
-        ]
-        for i, mon in enumerate(party):
-            actual_order = []
-            for field in mon.keys():
-                if field.startswith("move"):
-                    actual_order.append((field, correct_field_order.index("move1")))
-                elif field in correct_field_order:
-                    actual_order.append((field, correct_field_order.index(field)))
-
-            indices = [idx for _, idx in actual_order]
-
-            if indices != sorted(indices):
-                print(f"ERROR: {trainer['name']} (id: {trainer['id']} mon {i}: field order is incorrect.")
-                print("  found order:", [f for f, _ in actual_order])
-                print("  expected order (if present):", correct_field_order)
-                any_error = True
-
-            # additonalflags validation
-            flag_key_pairs = [
-                ('TRAINER_DATA_EXTRA_TYPE_STATUS', 'status'),
-                ('TRAINER_DATA_EXTRA_TYPE_HP', 'hp'),
-                ('TRAINER_DATA_EXTRA_TYPE_ATK', 'atk'),
-                ('TRAINER_DATA_EXTRA_TYPE_DEF', 'def'),
-                ('TRAINER_DATA_EXTRA_TYPE_SPEED', 'speed'),
-                ('TRAINER_DATA_EXTRA_TYPE_SP_ATK', 'spatk'),
-                ('TRAINER_DATA_EXTRA_TYPE_SP_DEF', 'spdef'),
-                ('TRAINER_DATA_EXTRA_TYPE_TYPES', 'types'),
-                ('TRAINER_DATA_EXTRA_TYPE_PP_COUNTS', 'ppcounts'),
-                ('TRAINER_DATA_EXTRA_TYPE_NICKNAME', 'nickname')
-            ]
-            for i, mon in enumerate(party):
-                for flag, key in flag_key_pairs:
-                    if mon_additional_flag_check(trainer, mon, i, flag, key):
-                        any_error = True
-
-        if any_error and print_team:
+        if print_team and len(errors) > err_count:
             print(f'------- Start Party {trainer["id"]} -------')
-            for pokemon in party:
-                for k, v in pokemon.items():
+            for mon in party:
+                for k, v in mon.items():
                     print(f"{k}: {v}")
                 print("\n")
             print(f'------- End Party {trainer["id"]} -------')
 
-    if any_error:
+    if errors:
+        for error in errors:
+            print(error)
         sys.exit(1)
 
 
