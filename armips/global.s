@@ -27,6 +27,9 @@
 .include "armips/asm/forget_hm.s" // allows hm to be forgotten
 .include "armips/asm/no_partner_double_battles.s" // allows no partner double battles
 
+// custom includes
+.include "armips/asm/custom/mart_items.s"
+
 .if FAIRY_TYPE_IMPLEMENTED == 1
 
 .include "armips/asm/fairy.s" // repoints all the move table defines within the structure

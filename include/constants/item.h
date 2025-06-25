@@ -872,7 +872,9 @@
 
 // define your custom move effects below like this
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
-
+#define ITEM_INFINITE_CANDY          (MAX_BASE_ITEM_NUM + 1)
+#define ITEM_INFINITE_REJUVINATOR    (MAX_BASE_ITEM_NUM + 2)
+#define ITEM_INFINITE_ASHES          (MAX_BASE_ITEM_NUM + 3)
 
 
 #define NUM_MEGA_STONES 48 // includes the pixie plate

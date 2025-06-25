@@ -74,10 +74,10 @@
 // uncommenting IMPLEMENT_LEVEL_CAP enables the level cap system.  make sure to also uncomment LEVEL_CAP_VARIABLE in the process
 // uncommenting UNCAP_CANDIES_FROM_LEVEL_CAP will allow for rare candies to not be capped by the level cap even with the level cap in place, like run & bun
 // uncommenting ALLOW_LEVEL_CAP_EVOLVE will allow for rare candies to evolve pokemon already at the level cap that can evolve at that level already
-//#define IMPLEMENT_LEVEL_CAP
-//#define LEVEL_CAP_VARIABLE 0x416F
+#define IMPLEMENT_LEVEL_CAP
+#define LEVEL_CAP_VARIABLE 0x416F
 //#define UNCAP_CANDIES_FROM_LEVEL_CAP
-//#define ALLOW_LEVEL_CAP_EVOLVE
+#define ALLOW_LEVEL_CAP_EVOLVE
 
 // UPDATE_OVERWORLD_POISON will remove overworld poison if enabled
 // comment the line out below to retain overworld poison
@@ -118,7 +118,7 @@
 
 // Friendship grants additional bonuses.
 // Comment out the line below to revert back to Gen 5- behaviour
-#define FRIENDSHIP_EFFECTS
+// #define FRIENDSHIP_EFFECTS
 
 // RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle (Gen 9)
 // comment out the line below to revert back to Gen 8- behavior
