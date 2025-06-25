@@ -9,11 +9,19 @@ def load_species_header(file_path):
     index = 0
     with open(file_path) as f:
         for line in f:
-            if len(line.split()) > 1:
-                test = line.split()[1].strip()
-                if 'SPECIES' in test and not '_START' in test and not '_SPECIES_H' in test and not '_NUM (' in line and not 'MAX_' in test:
-                    species_dict[test] = index
-                    index += 1
+            parts = line.strip().split()
+            if len(parts) < 2:
+                continue
+            symbol = parts[1]
+            if (
+                    "SPECIES" in symbol
+                    and "_START" not in symbol
+                    and "_H" not in symbol
+                    and "MAX_" not in symbol
+                    and "_NUM" not in line
+            ):
+                species_dict[symbol] = index
+                index += 1
     return species_dict
 
 
@@ -22,18 +30,26 @@ def load_moves_header(file_path):
     index = 0
     with open(file_path) as f:
         for line in f:
-            if len(line.split()) > 1:
-                test = line.split()[1].strip()
-                if 'MOVE' in test and not '_START' in test and not '_MOVES_H' in test and not 'NUM_OF' in test:
-                    moves_dict[test] = index
-                    index += 1
+            parts = line.strip().split()
+            if len(parts) < 2:
+                continue
+            symbol = parts[1]
+            if (
+                    "MOVE" in symbol
+                    and "_START" not in symbol
+                    and "_H" not in symbol
+                    and "NUM_OF" not in symbol
+            ):
+                moves_dict[symbol] = index
+                index += 1
     return moves_dict
 
 
 def generate_tm_learnset_c_file(tm_defs, species_dict, moves_dict, species_learnsets, output_path="../data/TMLearnsets.c"):
-    # Build TM/HM name to bit index map
+    # Build TM/HM move name -> bit index map
     tm_move_to_index = {}
     for tm_label, move_name in tm_defs.items():
+        move_name = move_name.strip()
         if tm_label.startswith("TM"):
             tm_id = int(tm_label[2:]) - 1
         elif tm_label.startswith("HM"):
@@ -44,6 +60,9 @@ def generate_tm_learnset_c_file(tm_defs, species_dict, moves_dict, species_learn
         if move_id is not None:
             tm_move_to_index[move_name] = tm_id
 
+    max_species_index = max(species_dict.values())
+    index_to_species = {v: k for k, v in species_dict.items()}
+
     with open(output_path, "w") as out:
         out.write("// Auto-generated TM/HM learnsets\n")
         out.write("#include \"../include/types.h\"\n")
@@ -52,18 +71,31 @@ def generate_tm_learnset_c_file(tm_defs, species_dict, moves_dict, species_learn
         out.write("#include \"../include/constants/species.h\"\n\n")
         out.write("const u32 UNUSED TMLearnsets[][4] = {\n")
 
-        for species_name in species_dict:
-            learnset = species_learnsets.get(species_name, {}).get("TMMoves", [])
-            bitfield = 0
-            for move in learnset:
-                tm_index = tm_move_to_index.get(move)
-                if tm_index is not None:
-                    bitfield |= (1 << tm_index)
+        for i in range(max_species_index + 1):
+            if i in index_to_species:
+                species_name = index_to_species[i]
+                learnset = species_learnsets.get(species_name, {}).get("TMMoves", [])
+                learnset = list(set(m.strip() for m in learnset))  # dedupe + strip
+                parts = [0, 0, 0, 0]
 
-            # Split bitfield into 4 u32 values
-            parts = [(bitfield >> (32 * i)) & 0xFFFFFFFF for i in range(4)]
-            formatted = ", ".join(f"0x{val:08X}" for val in parts)
-            out.write(f"    [{species_name}] = {{ {formatted} }},\n")
+                for move in learnset:
+                    tm_index = tm_move_to_index.get(move)
+                    if tm_index is not None and tm_index < 128:
+                        word = tm_index // 32
+                        bit = tm_index % 32
+                        parts[word] |= (1 << bit)
+
+                        # Debug just for Charizard and MOVE_FLY
+                        if species_name == "SPECIES_CHARIZARD" and move == "MOVE_FLY":
+                            print(f"[DEBUG] Setting MOVE_FLY (tm_index={tm_index}) for {species_name} at word={word}, bit={bit}")
+
+                if species_name == "SPECIES_CHARIZARD":
+                    print(f"[DEBUG] Charizard TM bitfield: {parts}")
+
+                formatted = ", ".join(f"0x{val:08X}" for val in parts)
+                out.write(f"    [{species_name}] = {{ {formatted} }},\n")
+            else:
+                out.write(f"    [{i}] = {{ 0x00000000, 0x00000000, 0x00000000, 0x00000000 }}, // unused\n")
 
         out.write("};\n")
 

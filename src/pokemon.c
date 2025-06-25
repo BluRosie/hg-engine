@@ -2488,25 +2488,16 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
 
 BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
-    debug_printf("TMCompat: species=%d tmhm=%d\n", species, tmhm);
 
-    debug_printf("TMCompat: species=%d tmhm=%d (0x%08X)\n", species, tmhm, tmhm);
-
-    // avoid index out of bounds
-    if (species >= MAX_SPECIES_INCLUDING_FORMS || tmhm >= 4 * 32) {
+    // TODO
+    if (species > MAX_SPECIES_INCLUDING_FORMS || tmhm > 100) {
         return FALSE;
     }
 
+    // TODO const
     u32 buf[4];
+    // TODO const
     ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, species * 4 * sizeof(u32), 4 * sizeof(u32));
 
-    u32 wordIndex = tmhm / 32;
-    u32 bitIndex  = tmhm % 32;
-
-    debug_printf("TMCompat: checking wordIndex=%d bitIndex=%d\n", wordIndex, bitIndex);
-
-    BOOL result = (buf[wordIndex] >> bitIndex) & 1;
-
-    debug_printf("TMCompat: result=%d\n", result);
-    return result;
+    return (buf[tmhm / 32] >> tmhm % 32) & 1;
 }

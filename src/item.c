@@ -220,3 +220,11 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, data->itemId);
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
+
+u8 ItemToTMHMId(u16 itemId) {
+    if (itemId < ITEM_TM01 || itemId > ITEM_HM08) {
+        return 0;
+    }
+
+    return itemId - ITEM_TM01;
+}

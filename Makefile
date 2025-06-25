@@ -470,6 +470,9 @@ move_narc: $(NARC_FILES)
 	@echo "form reversion mapping table:"
 	cp $(FORMREVERSION_BIN) $(FORMREVERSION_TARGET)
 
+	@echo "tm learnset table:"
+	cp $(TMLEARNSET_BIN) $(TMLEARNSET_TARGET)
+
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:
 
