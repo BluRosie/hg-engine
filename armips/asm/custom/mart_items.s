@@ -24,9 +24,6 @@ EIGHT_BADGES equ 6
 .halfword ZERO_BADGES
 
 
-// This is a test for branch pushing
-
-
 /** Special Mart Index - This is not in byte order
 const u16 *_0210FA3C[] = {
     _020FBA54, 0

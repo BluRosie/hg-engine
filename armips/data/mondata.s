@@ -9,7 +9,7 @@
 .include "asm/include/items.inc"
 .include "asm/include/species.inc"
 
-
+// THIS IS A BASE STAT & TYPE CHART REFERENCING VOLT WHITE 2
 // all the mon personal data.  tm learnsets are specifically in tmlearnset.txt
 // basestats and evyields 0, 0, 0, 0, 0, 0
 
