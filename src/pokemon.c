@@ -2489,6 +2489,8 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
 BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
 
+    debug_printf("[GetMonTMHMCompat] species = %d, tmhm = %d\n", species, tmhm);
+
     // TODO
     if (species > MAX_SPECIES_INCLUDING_FORMS || tmhm > 100) {
         return FALSE;

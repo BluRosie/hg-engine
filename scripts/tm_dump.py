@@ -84,14 +84,6 @@ def generate_tm_learnset_c_file(tm_defs, species_dict, moves_dict, species_learn
                         word = tm_index // 32
                         bit = tm_index % 32
                         parts[word] |= (1 << bit)
-
-                        # Debug just for Charizard and MOVE_FLY
-                        if species_name == "SPECIES_CHARIZARD" and move == "MOVE_FLY":
-                            print(f"[DEBUG] Setting MOVE_FLY (tm_index={tm_index}) for {species_name} at word={word}, bit={bit}")
-
-                if species_name == "SPECIES_CHARIZARD":
-                    print(f"[DEBUG] Charizard TM bitfield: {parts}")
-
                 formatted = ", ".join(f"0x{val:08X}" for val in parts)
                 out.write(f"    [{species_name}] = {{ {formatted} }},\n")
             else:
