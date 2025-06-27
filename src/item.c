@@ -10,108 +10,138 @@
 #define ITEM_DATA_ENTRIES (513)
 #define NEW_ITEM_GFX (807)
 
-//static const u16 sTMHMMoves[] = {
-//    MOVE_FOCUS_PUNCH,  // TM01
-//    MOVE_DRAGON_CLAW,  // TM02
-//    MOVE_WATER_PULSE,  // TM03
-//    MOVE_CALM_MIND,    // TM04
-//    MOVE_ROAR,         // TM05
-//    MOVE_TOXIC,        // TM06
-//    MOVE_HAIL,         // TM07
-//    MOVE_BULK_UP,      // TM08
-//    MOVE_BULLET_SEED,  // TM09
-//    MOVE_HIDDEN_POWER, // TM10
-//    MOVE_SUNNY_DAY,    // TM11
-//    MOVE_TAUNT,        // TM12
-//    MOVE_ICE_BEAM,     // TM13
-//    MOVE_BLIZZARD,     // TM14
-//    MOVE_HYPER_BEAM,   // TM15
-//    MOVE_LIGHT_SCREEN, // TM16
-//    MOVE_PROTECT,      // TM17
-//    MOVE_RAIN_DANCE,   // TM18
-//    MOVE_GIGA_DRAIN,   // TM19
-//    MOVE_SAFEGUARD,    // TM20
-//    MOVE_FRUSTRATION,  // TM21
-//    MOVE_SOLAR_BEAM,   // TM22
-//    MOVE_IRON_TAIL,    // TM23
-//    MOVE_THUNDERBOLT,  // TM24
-//    MOVE_THUNDER,      // TM25
-//    MOVE_EARTHQUAKE,   // TM26
-//    MOVE_RETURN,       // TM27
-//    MOVE_DIG,          // TM28
-//    MOVE_PSYCHIC,      // TM29
-//    MOVE_SHADOW_BALL,  // TM30
-//    MOVE_BRICK_BREAK,  // TM31
-//    MOVE_DOUBLE_TEAM,  // TM32
-//    MOVE_REFLECT,      // TM33
-//    MOVE_SHOCK_WAVE,   // TM34
-//    MOVE_FLAMETHROWER, // TM35
-//    MOVE_SLUDGE_BOMB,  // TM36
-//    MOVE_SANDSTORM,    // TM37
-//    MOVE_FIRE_BLAST,   // TM38
-//    MOVE_ROCK_TOMB,    // TM39
-//    MOVE_AERIAL_ACE,   // TM40
-//    MOVE_TORMENT,      // TM41
-//    MOVE_FACADE,       // TM42
-//    MOVE_SECRET_POWER, // TM43
-//    MOVE_REST,         // TM44
-//    MOVE_ATTRACT,      // TM45
-//    MOVE_THIEF,        // TM46
-//    MOVE_STEEL_WING,   // TM47
-//    MOVE_SKILL_SWAP,   // TM48
-//    MOVE_SNATCH,       // TM49
-//    MOVE_OVERHEAT,     // TM50
-//    MOVE_ROOST,        // TM51
-//    MOVE_FOCUS_BLAST,  // TM52
-//    MOVE_ENERGY_BALL,  // TM53
-//    MOVE_FALSE_SWIPE,  // TM54
-//    MOVE_BRINE,        // TM55
-//    MOVE_FLING,        // TM56
-//    MOVE_CHARGE_BEAM,  // TM57
-//    MOVE_ENDURE,       // TM58
-//    MOVE_DRAGON_PULSE, // TM59
-//    MOVE_DRAIN_PUNCH,  // TM60
-//    MOVE_WILL_O_WISP,  // TM61
-//    MOVE_SILVER_WIND,  // TM62
-//    MOVE_EMBARGO,      // TM63
-//    MOVE_EXPLOSION,    // TM64
-//    MOVE_SHADOW_CLAW,  // TM65
-//    MOVE_PAYBACK,      // TM66
-//    MOVE_RECYCLE,      // TM67
-//    MOVE_GIGA_IMPACT,  // TM68
-//    MOVE_ROCK_POLISH,  // TM69
-//    MOVE_FLASH,        // TM70
-//    MOVE_STONE_EDGE,   // TM71
-//    MOVE_AVALANCHE,    // TM72
-//    MOVE_THUNDER_WAVE, // TM73
-//    MOVE_GYRO_BALL,    // TM74
-//    MOVE_SWORDS_DANCE, // TM75
-//    MOVE_STEALTH_ROCK, // TM76
-//    MOVE_PSYCH_UP,     // TM77
-//    MOVE_CAPTIVATE,    // TM78
-//    MOVE_DARK_PULSE,   // TM79
-//    MOVE_ROCK_SLIDE,   // TM80
-//    MOVE_X_SCISSOR,    // TM81
-//    MOVE_SLEEP_TALK,   // TM82
-//    MOVE_NATURAL_GIFT, // TM83
-//    MOVE_POISON_JAB,   // TM84
-//    MOVE_DREAM_EATER,  // TM85
-//    MOVE_GRASS_KNOT,   // TM86
-//    MOVE_SWAGGER,      // TM87
-//    MOVE_PLUCK,        // TM88
-//    MOVE_U_TURN,       // TM89
-//    MOVE_SUBSTITUTE,   // TM90
-//    MOVE_FLASH_CANNON, // TM91
-//    MOVE_TRICK_ROOM,   // TM92
-//    MOVE_CUT,          // HM01
-//    MOVE_FLY,          // HM02
-//    MOVE_SURF,         // HM03
-//    MOVE_STRENGTH,     // HM04
-//    MOVE_WHIRLPOOL,    // HM05
-//    MOVE_ROCK_SMASH,   // HM06
-//    MOVE_WATERFALL,    // HM07
-//    MOVE_ROCK_CLIMB,   // HM08
-//};
+static const u16 sTMHMMoves[] = {
+    MOVE_FOCUS_PUNCH,  // TM01
+    MOVE_DRAGON_CLAW,  // TM02
+    MOVE_WATER_PULSE,  // TM03
+    MOVE_CALM_MIND,    // TM04
+    MOVE_ROAR,         // TM05
+    MOVE_TOXIC,        // TM06
+    MOVE_HAIL,         // TM07
+    MOVE_BULK_UP,      // TM08
+    MOVE_BULLET_SEED,  // TM09
+    MOVE_HIDDEN_POWER, // TM10
+    MOVE_SUNNY_DAY,    // TM11
+    MOVE_TAUNT,        // TM12
+    MOVE_ICE_BEAM,     // TM13
+    MOVE_BLIZZARD,     // TM14
+    MOVE_HYPER_BEAM,   // TM15
+    MOVE_LIGHT_SCREEN, // TM16
+    MOVE_PROTECT,      // TM17
+    MOVE_RAIN_DANCE,   // TM18
+    MOVE_GIGA_DRAIN,   // TM19
+    MOVE_SAFEGUARD,    // TM20
+    MOVE_FRUSTRATION,  // TM21
+    MOVE_SOLAR_BEAM,   // TM22
+    MOVE_IRON_TAIL,    // TM23
+    MOVE_THUNDERBOLT,  // TM24
+    MOVE_THUNDER,      // TM25
+    MOVE_EARTHQUAKE,   // TM26
+    MOVE_RETURN,       // TM27
+    MOVE_DIG,          // TM28
+    MOVE_PSYCHIC,      // TM29
+    MOVE_SHADOW_BALL,  // TM30
+    MOVE_BRICK_BREAK,  // TM31
+    MOVE_DOUBLE_TEAM,  // TM32
+    MOVE_REFLECT,      // TM33
+    MOVE_SHOCK_WAVE,   // TM34
+    MOVE_FLAMETHROWER, // TM35
+    MOVE_SLUDGE_BOMB,  // TM36
+    MOVE_SANDSTORM,    // TM37
+    MOVE_FIRE_BLAST,   // TM38
+    MOVE_ROCK_TOMB,    // TM39
+    MOVE_AERIAL_ACE,   // TM40
+    MOVE_TORMENT,      // TM41
+    MOVE_FACADE,       // TM42
+    MOVE_SECRET_POWER, // TM43
+    MOVE_REST,         // TM44
+    MOVE_ATTRACT,      // TM45
+    MOVE_THIEF,        // TM46
+    MOVE_STEEL_WING,   // TM47
+    MOVE_SKILL_SWAP,   // TM48
+    MOVE_SNATCH,       // TM49
+    MOVE_OVERHEAT,     // TM50
+    MOVE_ROOST,        // TM51
+    MOVE_FOCUS_BLAST,  // TM52
+    MOVE_ENERGY_BALL,  // TM53
+    MOVE_FALSE_SWIPE,  // TM54
+    MOVE_BRINE,        // TM55
+    MOVE_FLING,        // TM56
+    MOVE_CHARGE_BEAM,  // TM57
+    MOVE_ENDURE,       // TM58
+    MOVE_DRAGON_PULSE, // TM59
+    MOVE_DRAIN_PUNCH,  // TM60
+    MOVE_WILL_O_WISP,  // TM61
+    MOVE_SILVER_WIND,  // TM62
+    MOVE_EMBARGO,      // TM63
+    MOVE_EXPLOSION,    // TM64
+    MOVE_SHADOW_CLAW,  // TM65
+    MOVE_PAYBACK,      // TM66
+    MOVE_RECYCLE,      // TM67
+    MOVE_GIGA_IMPACT,  // TM68
+    MOVE_ROCK_POLISH,  // TM69
+    MOVE_FLASH,        // TM70
+    MOVE_STONE_EDGE,   // TM71
+    MOVE_AVALANCHE,    // TM72
+    MOVE_THUNDER_WAVE, // TM73
+    MOVE_GYRO_BALL,    // TM74
+    MOVE_SWORDS_DANCE, // TM75
+    MOVE_STEALTH_ROCK, // TM76
+    MOVE_PSYCH_UP,     // TM77
+    MOVE_CAPTIVATE,    // TM78
+    MOVE_DARK_PULSE,   // TM79
+    MOVE_ROCK_SLIDE,   // TM80
+    MOVE_X_SCISSOR,    // TM81
+    MOVE_SLEEP_TALK,   // TM82
+    MOVE_NATURAL_GIFT, // TM83
+    MOVE_POISON_JAB,   // TM84
+    MOVE_DREAM_EATER,  // TM85
+    MOVE_GRASS_KNOT,   // TM86
+    MOVE_SWAGGER,      // TM87
+    MOVE_PLUCK,        // TM88
+    MOVE_U_TURN,       // TM89
+    MOVE_SUBSTITUTE,   // TM90
+    MOVE_FLASH_CANNON, // TM91
+    MOVE_TRICK_ROOM,   // TM92
+
+    MOVE_CUT,          // HM01
+    MOVE_FLY,          // HM02
+    MOVE_SURF,         // HM03
+    MOVE_STRENGTH,     // HM04
+    MOVE_WHIRLPOOL,    // HM05
+    MOVE_ROCK_SMASH,   // HM06
+    MOVE_WATERFALL,    // HM07
+    MOVE_ROCK_CLIMB,   // HM08
+
+    MOVE_TACKLE,       // TM93
+    MOVE_TACKLE,       // TM94
+    MOVE_TACKLE,       // TM95
+    MOVE_TACKLE,       // TM96
+    MOVE_TACKLE,       // TM97
+    MOVE_TACKLE,       // TM98
+    MOVE_TACKLE,       // TM99
+    MOVE_TACKLE,       // TM100
+    MOVE_TACKLE,       // TM101
+    MOVE_TACKLE,       // TM102
+    MOVE_TACKLE,       // TM103
+    MOVE_TACKLE,       // TM104
+    MOVE_TACKLE,       // TM105
+    MOVE_TACKLE,       // TM106
+    MOVE_TACKLE,       // TM107
+    MOVE_TACKLE,       // TM108
+    MOVE_TACKLE,       // TM109
+    MOVE_TACKLE,       // TM110
+    MOVE_TACKLE,       // TM111
+    MOVE_TACKLE,       // TM112
+    MOVE_TACKLE,       // TM113
+    MOVE_TACKLE,       // TM114
+    MOVE_TACKLE,       // TM115
+    MOVE_TACKLE,       // TM116
+    MOVE_TACKLE,       // TM117
+    MOVE_TACKLE,       // TM118
+    MOVE_TACKLE,       // TM119
+    MOVE_TACKLE,       // TM120
+};
 
 u16 GetItemIndex(u16 item, u16 type);
 void *GetItemArcData(u16 item, u16 type, u32 heap_id);
@@ -327,20 +357,57 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
 
 u8 ItemToTMHMId(u16 itemId) {
     debug_printf("[ItemToTMHMId] itemId = %d\n", itemId);
-    if (itemId < ITEM_TM01 || itemId > ITEM_HM08) {
-        return ITEM_NONE;
+
+    // vanilla TMs
+    if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) {
+        debug_printf("[ItemToTMHMId] vanilla tm = %d\n", itemId - ITEM_TM01);
+        return itemId - ITEM_TM01;
     }
 
-//    return itemId - ITEM_TM01;
-    return ITEM_HM02 - ITEM_TM01;
+    // vanilla HMs
+    if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) {
+        debug_printf("[ItemToTMHMId] vanilla hm = %d\n", itemId - ITEM_HM01 + 92);
+        return itemId - ITEM_HM01 + 92;
+    }
+
+    // TM expansion
+    if (itemId >= ITEM_TM93 && itemId <= ITEM_TM120) {
+        debug_printf("[ItemToTMHMId] expansion = %d\n", itemId - ITEM_TM93 + 100);
+        return itemId - ITEM_TM93 + 100;
+    }
+
+    return ITEM_NONE;
+}
+
+BOOL MoveIsHM(u16 moveId) {
+    debug_printf("[MoveIsHM] moveId = %d\n", moveId);
+
+    u8 i;
+
+    for (i = 0; i < NUM_HMS; i++) {
+        if (sTMHMMoves[i + ITEM_HM01 - ITEM_TM01] == moveId) {
+            debug_printf("[MoveIsHM] is hm\n");
+            return TRUE;
+        }
+    }
+
+    debug_printf("[MoveIsHM] not hm\n");
+
+    return FALSE;
 }
 
 u16 TMHMGetMove(u16 itemId) {
     debug_printf("[TMHMGetMove] itemId = %d\n", itemId);
-    if (itemId < ITEM_TM01 || itemId > ITEM_HM08) {
+    BOOL vanillaTMHM = itemId >= ITEM_TM01 && itemId <= ITEM_HM08;
+    BOOL expandedTM = itemId >= ITEM_TM93 && itemId <= ITEM_TM120;
+
+    if (!vanillaTMHM && !expandedTM) {
+        debug_printf("[TMHMGetMove] itemId out of bounds\n");
         return MOVE_NONE;
     }
 
-//    itemId -= ITEM_TM01;
-    return MOVE_FLY;
+    u8 tmNum = ItemToTMHMId(itemId);
+    debug_printf("[TMHMGetMove] tmNum = %d\n", tmNum);
+
+    return sTMHMMoves[tmNum];
 }
