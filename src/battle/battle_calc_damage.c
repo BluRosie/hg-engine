@@ -487,7 +487,8 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 #endif
         }
 
-        if ((sp->rawSpeedNonRNGClientOrder[i] == BATTLER_ALLY(defender)) && (GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_FLUFFY)) {
+        if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
+        && (GetBattlerAbility(sp, defender) == ABILITY_FLUFFY)) {
             // 6.9.6 Fluffy (contact moves)
             if (IsContactBeingMade(bw, sp)) {
                 finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
@@ -509,9 +510,9 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         }
 
         // 6.9.5 Multiscale / Shadow Shield
-        if ((sp->rawSpeedNonRNGClientOrder[i] == BATTLER_ALLY(defender))
-        && ((GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_MULTISCALE)
-        || (GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_SHADOW_SHIELD))
+        if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
+        && ((GetBattlerAbility(sp, defender) == ABILITY_MULTISCALE)
+        || (GetBattlerAbility(sp, defender) == ABILITY_SHADOW_SHIELD))
         && (sp->battlemon[defender].hp == (s32)sp->battlemon[defender].maxhp)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
@@ -534,7 +535,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         // 6.9.15 Punk Rock
         // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8291673
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && (GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_PUNK_ROCK)
+        && (GetBattlerAbility(sp, defender) == ABILITY_PUNK_ROCK)
         && IsMoveSoundBased(moveno)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
