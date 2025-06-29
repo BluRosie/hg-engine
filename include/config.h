@@ -83,9 +83,6 @@
 #define FLAG_DYNAMAX_ENABLED 2520
 #define FLAG_TERASTALIZATION_ENABLED 2521
 
-// Uncomment this when you want to enable all gimmicks while testing
-// #define DEBUG_ENABLE_ALL_GIMMICKS
-
 // UPDATE_OVERWORLD_POISON will remove overworld poison if enabled
 // comment the line out below to retain overworld poison
 #define UPDATE_OVERWORLD_POISON
