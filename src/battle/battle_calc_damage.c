@@ -171,11 +171,15 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
                 sp->oneTurnFlag[attacker].parental_bond_is_active = TRUE;  // after first hit, set this flag just in case the ability is nullified after the first one
                 break;
             case 2:
+#ifdef DEBUG_DAMAGE_CALC
                 debug_printf("[CalcBaseDamage] parental_bond_flag is 2, damage reduction\n");
+#endif
                 damage = QMul_RoundDown(damage, UQ412__0_25);
                 break;
             default:
+#ifdef DEBUG_DAMAGE_CALC
                 debug_printf("[CalcBaseDamage] Why are we here?\n");
+#endif
                 break;
         }
 #ifdef DEBUG_DAMAGE_CALC
