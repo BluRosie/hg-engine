@@ -119,6 +119,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_WeatherHPRecovery 02242380 3
 0012 BtlCmd_CalcWeatherBallParams 022432AC 3
 0012 BtlCmd_EndOfTurnWeatherEffect 02241B30 3
+0012 BtlCmd_TryProtection 022413B4 3
 0012 BtlCmd_TrySubstitute 022414F0 3
 0012 BtlCmd_RapidSpin 02242238 3
 0012 BtlCmd_CheckSubstitute 0224514C 3
