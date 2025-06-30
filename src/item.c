@@ -112,35 +112,6 @@ static const u16 sTMHMMoves[] = {
     MOVE_ROCK_SMASH,   // HM06
     MOVE_WATERFALL,    // HM07
     MOVE_ROCK_CLIMB,   // HM08
-
-    MOVE_TACKLE,       // TM93
-    MOVE_TACKLE,       // TM94
-    MOVE_TACKLE,       // TM95
-    MOVE_TACKLE,       // TM96
-    MOVE_TACKLE,       // TM97
-    MOVE_TACKLE,       // TM98
-    MOVE_TACKLE,       // TM99
-    MOVE_TACKLE,       // TM100
-    MOVE_TACKLE,       // TM101
-    MOVE_TACKLE,       // TM102
-    MOVE_TACKLE,       // TM103
-    MOVE_TACKLE,       // TM104
-    MOVE_TACKLE,       // TM105
-    MOVE_TACKLE,       // TM106
-    MOVE_TACKLE,       // TM107
-    MOVE_TACKLE,       // TM108
-    MOVE_TACKLE,       // TM109
-    MOVE_TACKLE,       // TM110
-    MOVE_TACKLE,       // TM111
-    MOVE_TACKLE,       // TM112
-    MOVE_TACKLE,       // TM113
-    MOVE_TACKLE,       // TM114
-    MOVE_TACKLE,       // TM115
-    MOVE_TACKLE,       // TM116
-    MOVE_TACKLE,       // TM117
-    MOVE_TACKLE,       // TM118
-    MOVE_TACKLE,       // TM119
-    MOVE_TACKLE,       // TM120
 };
 
 u16 GetItemIndex(u16 item, u16 type);
