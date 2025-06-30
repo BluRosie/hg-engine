@@ -326,59 +326,32 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
 
+/**
+ * @brief converts a TM or HM item ID to its corresponding TM/HM index
+ *
+ * HMs are numbered immediately after TMs
+ * ITEM_TM01 = 0 and ITEM_HM01 = 92
+ */
 u8 ItemToTMHMId(u16 itemId) {
-    debug_printf("[ItemToTMHMId] itemId = %d\n", itemId);
-
-    // vanilla TMs
     if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) {
-        debug_printf("[ItemToTMHMId] vanilla tm = %d\n", itemId - ITEM_TM01);
         return itemId - ITEM_TM01;
     }
 
-    // vanilla HMs
     if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) {
-        debug_printf("[ItemToTMHMId] vanilla hm = %d\n", itemId - ITEM_HM01 + 92);
         return itemId - ITEM_HM01 + 92;
     }
 
-    // TM expansion
-    if (itemId >= ITEM_TM93 && itemId <= ITEM_TM120) {
-        debug_printf("[ItemToTMHMId] expansion = %d\n", itemId - ITEM_TM93 + 100);
-        return itemId - ITEM_TM93 + 100;
-    }
-
-    return ITEM_NONE;
+    return 0;
 }
 
-BOOL MoveIsHM(u16 moveId) {
-    debug_printf("[MoveIsHM] moveId = %d\n", moveId);
-
-    u8 i;
-
-    for (i = 0; i < NUM_HMS; i++) {
-        if (sTMHMMoves[i + ITEM_HM01 - ITEM_TM01] == moveId) {
-            debug_printf("[MoveIsHM] is hm\n");
-            return TRUE;
-        }
-    }
-
-    debug_printf("[MoveIsHM] not hm\n");
-
-    return FALSE;
-}
-
+/**
+ * @brief converts a TM or HM index into the associated move
+ */
 u16 TMHMGetMove(u16 itemId) {
-    debug_printf("[TMHMGetMove] itemId = %d\n", itemId);
-    BOOL vanillaTMHM = itemId >= ITEM_TM01 && itemId <= ITEM_HM08;
-    BOOL expandedTM = itemId >= ITEM_TM93 && itemId <= ITEM_TM120;
-
-    if (!vanillaTMHM && !expandedTM) {
-        debug_printf("[TMHMGetMove] itemId out of bounds\n");
+    if (itemId < ITEM_TM01 || itemId > ITEM_HM08) {
         return MOVE_NONE;
     }
 
     u8 tmNum = ItemToTMHMId(itemId);
-    debug_printf("[TMHMGetMove] tmNum = %d\n", tmNum);
-
     return sTMHMMoves[tmNum];
 }

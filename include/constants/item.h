@@ -442,6 +442,14 @@
 #define NUM_TMS (ITEM_TM92 - ITEM_TM01 + 1)
 #define NUM_HMS (ITEM_HM08 - ITEM_HM01 + 1)
 
+// max number of TM and HMs currently allowed by learnset bitfield
+#define MAX_NUM_TMHMS  128
+
+// learnset bitfield uses u32
+#define TM_LEARNSETS_BITS_PER_WORD  32
+#define TM_LEARNSETS_BITFIELD_COUNT (MAX_NUM_TMHMS / TM_LEARNSETS_BITS_PER_WORD)
+#define TM_LEARNSETS_ENTRY_SIZE     (TM_LEARNSETS_BITFIELD_COUNT * sizeof(u32))
+
 #define ITEM_EXPLORER_KIT    428
 #define ITEM_LOOT_SACK       429
 #define ITEM_RULE_BOOK       430

@@ -2486,23 +2486,23 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
     }
 }
 
+/**
+ * @brief checks if a given Pokémon species can learn a specific TM or HM by index. reads from TMLearnsets.c
+ */
 BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
-
-    debug_printf("[GetMonTMHMCompat] species = %d, tmhm = %d\n", species, tmhm);
 
     if (species > MAX_SPECIES_INCLUDING_FORMS) {
         return FALSE;
     }
 
-    if (tmhm > NUM_TMS + NUM_HMS) {
+    if (tmhm >= MAX_NUM_TMHMS) {
         return FALSE;
     }
 
-    // TODO const
-    u32 buf[4];
-    // TODO const
-    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, species * 4 * sizeof(u32), 4 * sizeof(u32));
+    u32 buf[TM_LEARNSETS_BITFIELD_COUNT];
+    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, species * TM_LEARNSETS_ENTRY_SIZE, TM_LEARNSETS_ENTRY_SIZE);
 
-    return (buf[tmhm / 32] >> tmhm % 32) & 1;
+    // check if the specific bit based on tm/hm num is set for the species
+    return (buf[tmhm / TM_LEARNSETS_BITS_PER_WORD] >> tmhm % TM_LEARNSETS_BITS_PER_WORD) & 1;
 }
