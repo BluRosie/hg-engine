@@ -740,7 +740,7 @@ struct __attribute__((packed)) battle_moveflag
                u32 encoredTurns : 3;         /**< duration of encore */
                u32 isCharged : 2;            /**< whether or not the pokémon is charged */
                u32 tauntTurns : 3;           /**< duration of taunt */
-               u32 protectSuccessTurns : 2;  /**< how many times protect has succeeded */
+               u32 protectSuccessTurns : 2;  /**< how many times protect has succeeded UNUSED see ctx->protectSuccessTurns[] */
                u32 perishSongTurns : 2;      /**< perish song count */
                u32 rolloutCount : 3;         /**< rollout count */
                u32 furyCutterCount : 3;      /**< fury cutter successes */
@@ -1375,6 +1375,7 @@ struct PACKED BattleStruct {
                int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
+               u8 protectSuccessTurns[CLIENT_MAX]; // Only need to count up to 6
 };
 
 enum {

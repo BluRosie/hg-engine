@@ -3613,10 +3613,10 @@ BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
 
     // Don't increase protectSuccessTurns at max
     // Mat Block and Crafty Shield don't increase the counter, Quick Guard and Wide Guard do.
-    if (ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns < 3 
+    if (ctx->protectSuccessTurns[ctx->attack_client] < 6 
     && !(ctx->current_move_index == MOVE_MAT_BLOCK) 
     && !(ctx->current_move_index == MOVE_CRAFTY_SHIELD)) {
-        ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns++;
+        ctx->protectSuccessTurns[ctx->attack_client]++;
     }
 
     return FALSE;

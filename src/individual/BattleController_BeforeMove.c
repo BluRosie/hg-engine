@@ -76,9 +76,9 @@ const u16 sProtectSuccessChance[] = {
     3, // ~33.3%
     9, // ~11.1%
     27, // ~3.7%
-    // 81, // unused due to no space in protectSuccessTurns
-    // 243, // unused due to no space in protectSuccessTurns
-    // 729, // unused due to no space in protectSuccessTurns
+    81, // ~1.2%
+    243, // ~0.4%
+    729, // ~0.1%
 };
 
 // this file's functions
@@ -1870,7 +1870,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     || moveEffect == MOVE_EFFECT_PROTECT_USER_SIDE
     || moveEffect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
         if ((ctx->waitingBattlers == 1)
-        || ((BattleRand(bsys) % sProtectSuccessChance[ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns] > 0)
+        || ((BattleRand(bsys) % sProtectSuccessChance[ctx->protectSuccessTurns[ctx->attack_client]] > 0)
             // Skip RNG check if Quick Guard, Wide Guard, Mat Block or Crafty Shield.
             && (currentMoveIndex != MOVE_QUICK_GUARD)
             && (currentMoveIndex != MOVE_WIDE_GUARD)
@@ -1878,11 +1878,11 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
             && (currentMoveIndex != MOVE_CRAFTY_SHIELD))) {
             ctx->server_seq_no = CONTROLLER_COMMAND_25;
             ctx->waza_status_flag |= MOVE_STATUS_FLAG_FAILED;
-            ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
+            ctx->protectSuccessTurns[ctx->attack_client] = 0;
             return TRUE;
         }
     } else {
-        ctx->battlemon[ctx->attack_client].moveeffect.protectSuccessTurns = 0;
+        ctx->protectSuccessTurns[ctx->attack_client] = 0;
     }
     // Following has to be in order
 
