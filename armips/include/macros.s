@@ -532,8 +532,6 @@
 	.halfword num
 .endmacro
 
-// types already exists
-
 .macro ppcounts,num1,num2,num3,num4
 	.byte num1, num2, num3, num4
 .endmacro

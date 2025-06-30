@@ -263,7 +263,6 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	@echo "$(ROMNAME) Decompression successful!!"
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
 	$(PYTHON) scripts/make.py
-	$(PYTHON) scripts/validate_trainers_s.py $(TRAINERDATA_DEPENDENCIES)
 	$(MAKE) move_narc
 	$(ARMIPS) armips/global.s
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf

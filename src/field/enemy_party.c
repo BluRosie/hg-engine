@@ -86,7 +86,6 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     u16 moves[4];
     u8 ivnums[6];
     u8 evnums[6];
-    u8 types[2];
     u8 ppcounts[4];
     u16 *nickname = sys_AllocMemory(heapID, 11*sizeof(u16));
     u8 form_no = 0, abilityslot = 0, nature = 0, ballseal = 0, shinylock = 0, status = 0, ab1 = 0, ab2 = 0;
@@ -269,16 +268,6 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
                 offset += 2;
             }
 
-            // custom types field
-            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_TYPES)
-            {
-                for(j = 0; j < 2; j++)
-                {
-                    types[j] = buf[offset];
-                    offset++;
-                }
-            }
-
             // move PP counts field
             if(additionalflags & TRAINER_DATA_EXTRA_TYPE_PP_COUNTS)
             {
@@ -429,13 +418,6 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_SP_DEF)
             {
                 SetMonData(mons[i],MON_DATA_SPECIAL_DEFENSE, &spdef);
-            }
-            if (additionalflags & TRAINER_DATA_EXTRA_TYPE_TYPES)
-            {
-                for(j = 0; j < 2; j++)
-                {
-                    SetMonData(mons[i],MON_DATA_TYPE_1+j, &types[j]);
-                }
             }
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_PP_COUNTS)
             {

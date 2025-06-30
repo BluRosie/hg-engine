@@ -84,6 +84,9 @@ def parse_trainers(file_path):
                                 mon_dict[f"move{move_count}"] = value
                                 move_count += 1
                             else:
+                                if (key in mon_dict):
+                                    print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has a duplicate {key} field in one of its mons.")
+                                    sys.exit(1)
                                 mon_dict[key] = value
                     parsed_mons.append(mon_dict)
 
@@ -125,9 +128,13 @@ def trainer_flag_check(trainer, party, flag, key):
     return None
 
 
-def validate_items(trainer, party):
-    flag_errs = trainer_flag_check(trainer, party, "TRAINER_DATA_TYPE_ITEMS", "item")
+def validate_single_field(trainer, party, flag, key):
+    flag_errs = trainer_flag_check(trainer, party, flag, key)
     return [flag_errs] if flag_errs else []
+
+
+def validate_items(trainer, party):
+    return validate_single_field(trainer, party, "TRAINER_DATA_TYPE_ITEMS", "item")
 
 
 # this does not use the trainer_flag_check func because it has extra logic for move count
@@ -149,8 +156,7 @@ def validate_moves(trainer, party):
 
 
 def validate_abilities(trainer, party):
-    flag_errs = trainer_flag_check(trainer, party, "TRAINER_DATA_TYPE_ABILITY", "ability")
-    return [flag_errs] if flag_errs else []
+    return validate_single_field(trainer, party, "TRAINER_DATA_TYPE_ABILITY", "ability")
 
 
 def validate_field_order(trainer, party):
@@ -160,8 +166,8 @@ def validate_field_order(trainer, party):
         "move1", "move2", "move3", "move4",
         "ability", "setivs", "setevs", "nature",
         "shinylock", "additionalflags", "status",
-        "hp", "atk", "def", "speed", "spatk", "spdef",
-        "types", "ppcounts", "nickname", "ballseal"
+        "stathp", "statatk", "statdef", "statspeed", "statspatk", "statspdef",
+        "ppcounts", "nickname", "ballseal"
     ]
     for i, mon in enumerate(party):
         actual_order = []
@@ -182,15 +188,17 @@ def validate_field_order(trainer, party):
 
 def validate_additional_flags(trainer, party):
     errors = []
+    flag_errs = trainer_flag_check(trainer, party, "TRAINER_DATA_TYPE_ADDITIONAL_FLAGS", "additionalflags")
+    if (flag_errs):
+        errors.append(flag_errs)
     flag_key_pairs = [
         ('TRAINER_DATA_EXTRA_TYPE_STATUS', 'status'),
-        ('TRAINER_DATA_EXTRA_TYPE_HP', 'hp'),
-        ('TRAINER_DATA_EXTRA_TYPE_ATK', 'atk'),
-        ('TRAINER_DATA_EXTRA_TYPE_DEF', 'def'),
-        ('TRAINER_DATA_EXTRA_TYPE_SPEED', 'speed'),
-        ('TRAINER_DATA_EXTRA_TYPE_SP_ATK', 'spatk'),
-        ('TRAINER_DATA_EXTRA_TYPE_SP_DEF', 'spdef'),
-        ('TRAINER_DATA_EXTRA_TYPE_TYPES', 'types'),
+        ('TRAINER_DATA_EXTRA_TYPE_HP', 'stathp'),
+        ('TRAINER_DATA_EXTRA_TYPE_ATK', 'statatk'),
+        ('TRAINER_DATA_EXTRA_TYPE_DEF', 'statdef'),
+        ('TRAINER_DATA_EXTRA_TYPE_SPEED', 'statspeed'),
+        ('TRAINER_DATA_EXTRA_TYPE_SP_ATK', 'statspatk'),
+        ('TRAINER_DATA_EXTRA_TYPE_SP_DEF', 'statspdef'),
         ('TRAINER_DATA_EXTRA_TYPE_PP_COUNTS', 'ppcounts'),
         ('TRAINER_DATA_EXTRA_TYPE_NICKNAME', 'nickname')
     ]
@@ -215,8 +223,13 @@ def validate_trainers(trainers, print_team):
         errors.extend(validate_items(trainer, party))
         errors.extend(validate_moves(trainer, party))
         errors.extend(validate_abilities(trainer, party))
-        errors.extend(validate_field_order(trainer, party))
+        errors.extend(validate_single_field(trainer, party, "TRAINER_DATA_TYPE_BALL", "ball"))
+        errors.extend(validate_single_field(trainer, party, "TRAINER_DATA_TYPE_IV_EV_SET", "setivs"))
+        errors.extend(validate_single_field(trainer, party, "TRAINER_DATA_TYPE_IV_EV_SET", "setevs"))
+        errors.extend(validate_single_field(trainer, party, "TRAINER_DATA_TYPE_NATURE_SET", "nature"))
+        errors.extend(validate_single_field(trainer, party, "TRAINER_DATA_TYPE_SHINY_LOCK", "shinylock"))
         errors.extend(validate_additional_flags(trainer, party))
+        errors.extend(validate_field_order(trainer, party))
 
         # Party size validation
         if len(party) != trainer["nummons"]:
