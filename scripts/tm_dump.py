@@ -1,8 +1,10 @@
+import re
 import json
 
-TM_TOTAL = 92
-HM_TOTAL = 8
-TOTAL_TMHM = TM_TOTAL + HM_TOTAL
+# Constants matching the C config
+MAX_NUM_TMHMS = 128
+TM_LEARNSETS_BITS_PER_WORD = 32
+TM_LEARNSETS_BITFIELD_COUNT = MAX_NUM_TMHMS // TM_LEARNSETS_BITS_PER_WORD
 
 def load_species_header(file_path):
     species_dict = {}
@@ -24,7 +26,6 @@ def load_species_header(file_path):
                 index += 1
     return species_dict
 
-
 def load_moves_header(file_path):
     moves_dict = {}
     index = 0
@@ -44,21 +45,36 @@ def load_moves_header(file_path):
                 index += 1
     return moves_dict
 
+def parse_tmhm_c_file(c_path):
+    """
+    Parses the static const u16 sTMHMMoves[] definition from a C source file.
+    Returns a list of move names (e.g., ["MOVE_FOCUS_PUNCH", ...])
+    """
+    move_list = []
+    in_array = False
+    move_pattern = re.compile(r'\bMOVE_[A-Z0-9_]+')
 
-def generate_tm_learnset_c_file(tm_defs, species_dict, moves_dict, species_learnsets, output_path="../data/TMLearnsets.c"):
+    with open(c_path, encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if 'static const u16 sTMHMMoves[]' in line:
+                in_array = True
+                continue
+            if in_array:
+                if '};' in line:
+                    break
+                matches = move_pattern.findall(line)
+                move_list.extend(matches)
+
+    return move_list
+
+
+def generate_tm_learnset_c_file(tmhm_moves, species_dict, moves_dict, species_learnsets, output_path="../data/TMLearnsets.c"):
     # Build TM/HM move name -> bit index map
     tm_move_to_index = {}
-    for tm_label, move_name in tm_defs.items():
-        move_name = move_name.strip()
-        if tm_label.startswith("TM"):
-            tm_id = int(tm_label[2:]) - 1
-        elif tm_label.startswith("HM"):
-            tm_id = int(tm_label[2:]) - 1 + TM_TOTAL
-        else:
-            continue
-        move_id = moves_dict.get(move_name)
-        if move_id is not None:
-            tm_move_to_index[move_name] = tm_id
+    for tmhm_index, move_name in enumerate(tmhm_moves):
+        if move_name in moves_dict:
+            tm_move_to_index[move_name] = tmhm_index
 
     max_species_index = max(species_dict.values())
     index_to_species = {v: k for k, v in species_dict.items()}
@@ -70,36 +86,41 @@ def generate_tm_learnset_c_file(tm_defs, species_dict, moves_dict, species_learn
         out.write("#include \"../include/pokemon.h\"\n")
         out.write("#include \"../include/constants/species.h\"\n")
         out.write("#include \"../include/constants/item.h\"\n\n")
-        out.write("const u32 UNUSED TMLearnsets[][TM_LEARNSETS_BITFIELD_COUNT] = {\n")
+        out.write(f"const u32 UNUSED TMLearnsets[][TM_LEARNSETS_BITFIELD_COUNT] = {{\n")
 
         for i in range(max_species_index + 1):
             if i in index_to_species:
                 species_name = index_to_species[i]
                 learnset = species_learnsets.get(species_name, {}).get("TMMoves", [])
                 learnset = list(set(m.strip() for m in learnset))  # dedupe + strip
-                parts = [0, 0, 0, 0]
+                parts = [0] * TM_LEARNSETS_BITFIELD_COUNT
 
                 for move in learnset:
                     tm_index = tm_move_to_index.get(move)
-                    if tm_index is not None and tm_index < 128:
-                        word = tm_index // 32
-                        bit = tm_index % 32
+                    if tm_index is not None and tm_index < MAX_NUM_TMHMS:
+                        word = tm_index // TM_LEARNSETS_BITS_PER_WORD
+                        bit = tm_index % TM_LEARNSETS_BITS_PER_WORD
                         parts[word] |= (1 << bit)
                 formatted = ", ".join(f"0x{val:08X}" for val in parts)
                 out.write(f"    [{species_name}] = {{ {formatted} }},\n")
             else:
-                out.write(f"    [{i}] = {{ 0x00000000, 0x00000000, 0x00000000, 0x00000000 }}, // unused\n")
+                zeroes = ", ".join("0x00000000" for _ in range(TM_LEARNSETS_BITFIELD_COUNT))
+                out.write(f"    [{i}] = {{ {zeroes} }}, // unused\n")
 
         out.write("};\n")
 
-
 if __name__ == "__main__":
-    with open("../armips/data/tm_moves.json", encoding="utf-8") as f:
-        tm_defs = json.load(f)
+    tmhm_moves = parse_tmhm_c_file("../src/item.c")
     species_dict = load_species_header("../include/constants/species.h")
     moves_dict = load_moves_header("../include/constants/moves.h")
 
     with open("../armips/data/learnsets.json", encoding="utf-8") as f:
         species_learnsets = json.load(f)
 
-    generate_tm_learnset_c_file(tm_defs, species_dict, moves_dict, species_learnsets)
+    generate_tm_learnset_c_file(
+        tmhm_moves,
+        species_dict,
+        moves_dict,
+        species_learnsets,
+        output_path="../data/TMLearnsets.c"
+    )
