@@ -90,7 +90,7 @@
 #define MOVE_STATUS_FLAG_OHKO_HIT_NOHIT          (0x00001000)
 #define WAZA_STATUS_FLAG_NANIMOOKORAN            (0x00002000)
 #define MOVE_STATUS_FLAG_FURY_CUTTER_MISS        (0x00004000)
-#define WAZA_STATUS_FLAG_MAMORU_NOHIT            (0x00008000)
+#define MOVE_STATUS_FLAG_PROTECTED               (0x00008000)
 #define WAZA_STATUS_FLAG_KIE_NOHIT               (0x00010000)
 #define WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT        (0x00020000)
 #define MOVE_STATUS_FLAG_MISS_WONDER_GUARD       (0x00040000)
@@ -108,7 +108,7 @@
                                          MOVE_STATUS_FLAG_LEVITATE_MISS|\
                                          MOVE_STATUS_FLAG_OHKO_HIT_NOHIT|\
                                          MOVE_STATUS_FLAG_FURY_CUTTER_MISS|\
-                                         WAZA_STATUS_FLAG_MAMORU_NOHIT|\
+                                         MOVE_STATUS_FLAG_PROTECTED|\
                                          WAZA_STATUS_FLAG_KIE_NOHIT|\
                                          WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT|\
                                          MOVE_STATUS_FLAG_MISS_WONDER_GUARD|\
@@ -659,7 +659,7 @@ struct __attribute__((packed)) OneTurnEffect
 {
     /* 0x00 */ u32 struggle_flag : 1;     /**< pokémon struggled this turn */
                u32 pp_dec_flag : 1;       /**< pp decreased this turn? */
-               u32 mamoru_flag : 1;
+               u32 protectFlag : 1;       /**< pokémon is currently protecting */
                u32 helping_hand_flag : 1; /**< pokémon is being aided by helping hand */
                u32 magic_cort_flag : 1;   /**< pokémon has magic coat active */
                u32 snatchFlag : 1;
@@ -674,7 +674,8 @@ struct __attribute__((packed)) OneTurnEffect
                u32 chargeProcessedFlag : 1;
                u32 numberOfKOs : 3;
                u32 pendingFocusPunchFlag : 1;
-               u32 : 11;
+               u32 gainedProtectFlagFromAlly : 1;
+               u32 : 10;
 
     /* 0x04 */ int physical_damage[4];    /**< [don't use] physical damage as indexed by battler.  Counter doesn't use this, use OneSelfTurnEffect's physical_damage (sp->oneSelfFlag[battler].physical_damage) */
     /* 0x14 */ int physical_damager;      /**< [don't use] last battler that physically damaged this pokémon.  Counter doesn't use this, use OneSelfTurnEffect's physical_damager (sp->oneSelfFlag[battler].physical_damager) */
@@ -739,7 +740,7 @@ struct __attribute__((packed)) battle_moveflag
                u32 encoredTurns : 3;         /**< duration of encore */
                u32 isCharged : 2;            /**< whether or not the pokémon is charged */
                u32 tauntTurns : 3;           /**< duration of taunt */
-               u32 protectSuccessTurns : 2;  /**< how many times protect has succeeded */
+               u32 protectSuccessTurns : 2;  /**< how many times protect has succeeded UNUSED see ctx->protectSuccessTurns[] */
                u32 perishSongTurns : 2;      /**< perish song count */
                u32 rolloutCount : 3;         /**< rollout count */
                u32 furyCutterCount : 3;      /**< fury cutter successes */
@@ -1293,7 +1294,7 @@ struct PACKED BattleStruct {
     /*0x3048*/ u32 waza_no_last;
     /*0x304C*/ u32 waza_no_keep[CLIENT_MAX];
 
-    /*0x305C*/ u16 waza_no_mamoru[CLIENT_MAX];
+    /*0x305C*/ u16 moveProtect[CLIENT_MAX];
     /*0x3064*/ u16 waza_no_hit[CLIENT_MAX];
     /*0x306C*/ u16 waza_no_hit_client[CLIENT_MAX];
     /*0x3074*/ u16 waza_no_hit_type[CLIENT_MAX];
@@ -1332,7 +1333,7 @@ struct PACKED BattleStruct {
     /*0x3144*/ int jingle_flag;
     /*0x3148*/ int server_queue_time_out;
     /*0x314C*/ u8 rec_select_flag[4];
-    /*0x3150*/ int client_working_count;
+    /*0x3150*/ int waitingBattlers;
     /*0x3154*/ u32 battle_progress_flag : 1;
                u32 : 31;
     /*0x3158*/ u8 log_hail_for_ice_face; // bitfield with 1 << client for if there was hail last turn
@@ -1374,6 +1375,7 @@ struct PACKED BattleStruct {
                int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
+               u8 protectSuccessTurns[CLIENT_MAX]; // Only need to count up to 6
 };
 
 enum {

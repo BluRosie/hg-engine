@@ -457,8 +457,9 @@
 #define SUB_SEQ_HANDLE_TELEPATHY                      (447)
 #define SUB_SEQ_HANDLE_WIND_RIDER                     (448)
 #define SUB_SEQ_HANDLE_CHARGE_BOOST                   (449)
+#define SUB_SEQ_SPIKY_SHIELD                          (450)
 
-#define MAX_BASE_SUBSCRIPT_NUM 449
+#define MAX_BASE_SUBSCRIPT_NUM 450
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -666,7 +667,7 @@
 #define ADD_STATUS_DIRECT (1)
 #define ADD_STATUS_INDIRECT (2)
 #define ADD_STATUS_ABILITY (3)
-#define ADD_STATUS_WAZA_KOUKA (4)
+#define ADD_STATUS_MOVE_EFFECT (4)
 #define ADD_STATUS_SOUBIITEM (5)
 #define ADD_STATUS_DOKUBISI (6)
 #define ADD_STATUS_IGNORE (7)
