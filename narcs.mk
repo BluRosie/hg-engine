@@ -95,7 +95,7 @@ NARC_FILES += $(OPENDEMO_NARC)
 MONDATA_DIR := $(BUILD)/a002
 MONDATA_NARC := $(BUILD_NARC)/mondata.narc
 MONDATA_TARGET := $(FILESYS)/a/0/0/2
-MONDATA_DEPENDENCIES := armips/data/mondata.s armips/data/tmlearnset.txt
+MONDATA_DEPENDENCIES := armips/data/mondata.s
 MONDATA_NAMES_DIR := $(BUILD)/rawtext/237 $(BUILD)/rawtext/238 $(BUILD)/rawtext/817
 MONDATA_DESCRIPTIONS_DIR := $(BUILD)/rawtext/803
 MONDATA_CLASSIFICATIONS_DIR := $(BUILD)/rawtext/816 $(BUILD)/rawtext/823
@@ -104,8 +104,6 @@ MONDATA_WEIGHTS_DIR := $(BUILD)/rawtext/812 $(BUILD)/rawtext/813
 
 $(MONDATA_NARC): $(MONDATA_DEPENDENCIES)
 	$(ARMIPS) armips/data/mondata.s
-# 	$(PYTHON) scripts/tm_learnset.py armips/data/tmlearnset.txt
-	$(PYTHON) scripts/learnsets.py --writetmlearnsets
 	$(NARCHIVE) create $@ $(MONDATA_DIR) -nf
 
 NARC_FILES += $(MONDATA_NARC)
@@ -198,10 +196,10 @@ REQUIRED_DIRECTORIES += $(EVOS_DIR)
 LEARNSET_DIR := $(BUILD)/a033
 LEARNSET_NARC := $(BUILD_NARC)/a033.narc
 LEARNSET_TARGET := $(FILESYS)/a/0/3/3
-LEARNSET_DEPENDENCIES := armips/data/levelupdata.s
+LEARNSET_DEPENDENCIES := armips/data/learnsets.json
 
 $(LEARNSET_NARC): $(LEARNSET_DEPENDENCIES)
-	$(ARMIPS) $^
+	$(PYTHON) scripts/learnsets.py --writeleveluplearnsets --levelupout $(LEARNSET_DIR)
 	$(NARCHIVE) create $@ $(LEARNSET_DIR) -nf
 
 NARC_FILES += $(LEARNSET_NARC)

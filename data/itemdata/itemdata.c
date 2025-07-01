@@ -3263,7 +3263,7 @@ const ITEMDATA __data[] =
 
 [ITEM_RARE_CANDY] =
 {
-    .price = 4800,
+    .price = 1,
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,

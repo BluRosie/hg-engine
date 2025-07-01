@@ -1,4 +1,10 @@
 {
+  "SPECIES_NONE": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
   "SPECIES_BULBASAUR": {
     "LevelMoves": [
       {
@@ -68198,6 +68204,222 @@
     "EggMoves": [],
     "TutorMoves": []
   },
+  "SPECIES_508": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_509": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_510": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_511": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_512": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_513": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_514": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_515": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_516": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_517": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_518": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_519": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_520": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_521": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_522": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_523": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_524": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_525": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_526": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_527": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_528": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_529": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_530": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_531": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_532": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_533": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_534": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_535": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_536": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_537": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_538": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_539": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_540": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_541": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_542": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
+  "SPECIES_543": {
+    "LevelMoves": [],
+    "TMMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
+  },
   "SPECIES_VICTINI": {
     "LevelMoves": [
       {
@@ -126178,12 +126400,6 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_MEGA_START": {
-    "LevelMoves": [],
-    "TMMoves": [],
-    "EggMoves": [],
-    "TutorMoves": []
-  },
   "SPECIES_MEGA_VENUSAUR": {
     "LevelMoves": [
       {
@@ -131128,12 +131344,6 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_PRIMAL_START": {
-    "LevelMoves": [],
-    "TMMoves": [],
-    "EggMoves": [],
-    "TutorMoves": []
-  },
   "SPECIES_KYOGRE_PRIMAL": {
     "LevelMoves": [
       {
@@ -131272,12 +131482,6 @@
         "Move": "MOVE_ERUPTION"
       }
     ],
-    "TMMoves": [],
-    "EggMoves": [],
-    "TutorMoves": []
-  },
-  "SPECIES_ALOLAN_REGIONAL_START": {
-    "LevelMoves": [],
     "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
@@ -134705,12 +134909,6 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_GALARIAN_REGIONAL_START": {
-    "LevelMoves": [],
-    "TMMoves": [],
-    "EggMoves": [],
-    "TutorMoves": []
-  },
   "SPECIES_MEOWTH_GALARIAN": {
     "LevelMoves": [
       {
@@ -136784,12 +136982,6 @@
       "MOVE_PAIN_SPLIT",
       "MOVE_REFLECT_TYPE"
     ],
-    "TutorMoves": []
-  },
-  "SPECIES_MISC_FORM_START": {
-    "LevelMoves": [],
-    "TMMoves": [],
-    "EggMoves": [],
     "TutorMoves": []
   },
   "SPECIES_PIKACHU_COSPLAY": {
@@ -152476,12 +152668,6 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_HISUIAN_REGIONAL_START": {
-    "LevelMoves": [],
-    "TMMoves": [],
-    "EggMoves": [],
-    "TutorMoves": []
-  },
   "SPECIES_GROWLITHE_HISUIAN": {
     "LevelMoves": [
       {
@@ -154701,12 +154887,6 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_SIGNIFICANT_GENDER_DIFFERENCE_START": {
-    "LevelMoves": [],
-    "TMMoves": [],
-    "EggMoves": [],
-    "TutorMoves": []
-  },
   "SPECIES_UNFEZANT_FEMALE": {
     "LevelMoves": [
       {
@@ -155509,12 +155689,6 @@
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL"
     ],
-    "EggMoves": [],
-    "TutorMoves": []
-  },
-  "SPECIES_PALDEAN_FORMS_START": {
-    "LevelMoves": [],
-    "TMMoves": [],
     "EggMoves": [],
     "TutorMoves": []
   },

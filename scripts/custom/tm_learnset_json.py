@@ -5,17 +5,17 @@ import re
 from collections import defaultdict, OrderedDict
 
 
-def parse_species_header(filepath):
-    species_list = []
-    with open(filepath) as f:
+def parse_species_header(file_path):
+    species_dict = {}
+    index = 0
+    with open(file_path) as f:
         for line in f:
-            match = re.match(r'#define\s+(SPECIES_[A-Z0-9_]+)\s+', line)
-            if match:
-                species = match.group(1)
-                if species == 'SPECIES_NONE' or species.replace('SPECIES_', '').isdigit():
-                    continue
-                species_list.append(species)
-    return species_list
+            if len(line.split()) > 1:
+                test = line.split()[1].strip()
+                if 'SPECIES' in test and not '_START' in test and not '_SPECIES_H' in test and not '_NUM (' in line and not 'MAX_' in test:
+                    species_dict[test] = index
+                    index += 1
+    return species_dict
 
 
 def sort_tm_list(tm_list):
@@ -194,6 +194,7 @@ def print_usage():
     print("    python convert_tmlearnset.py to-txt <species.json> <moves.json> <output.txt> <species.h>")
 
 
+# TODO clean me up
 if __name__ == "__main__":
     if len(sys.argv) < 5:
         print_usage()
