@@ -123,10 +123,10 @@ if __name__ == "__main__":
     species_dict = load_species_header("include/constants/species.h")
     moves_dict = load_moves_header("include/constants/moves.h")
 
-    with open("armips/data/learnsets.json", encoding="utf-8") as f:
+    with open("data/moves/learnsets.json", encoding="utf-8") as f:
         species_learnsets = json.load(f)
 
-    with open("armips/data/tutor_moves.json", encoding="utf-8") as f:
+    with open("data/moves/tutor_moves.json", encoding="utf-8") as f:
         tutor_entries = json.load(f)
 
     if args.writetutormovelist:

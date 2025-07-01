@@ -196,7 +196,7 @@ REQUIRED_DIRECTORIES += $(EVOS_DIR)
 LEARNSET_DIR := $(BUILD)/a033
 LEARNSET_NARC := $(BUILD_NARC)/a033.narc
 LEARNSET_TARGET := $(FILESYS)/a/0/3/3
-LEARNSET_DEPENDENCIES := armips/data/learnsets.json
+LEARNSET_DEPENDENCIES := data/moves/learnsets.json
 
 $(LEARNSET_NARC): $(LEARNSET_DEPENDENCIES)
 	$(PYTHON) scripts/learnsets.py --writeleveluplearnsets --levelupout $(LEARNSET_DIR)
