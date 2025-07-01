@@ -1384,10 +1384,11 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
             }
     
-            // TODO: it’s not a Ditto/Smeargle/Mew Transformed into the species <- how to do this?
             // handle Thick Club
             if ((AttackingMon.item_held_effect == HOLD_EFFECT_CUBONE_ATK_UP)
             && ((AttackingMon.species == SPECIES_CUBONE) || (AttackingMon.species == SPECIES_MAROWAK))
+            // it’s not a Ditto/Smeargle/Mew Transformed into the species
+            && !(sp->battlemon[attacker].condition2 & STATUS2_TRANSFORMED)
             && (movesplit == SPLIT_PHYSICAL)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__2_0);
             }
@@ -1395,12 +1396,17 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
             // handle Deep Sea Tooth
             if ((AttackingMon.item_held_effect == HOLD_EFFECT_CLAMPERL_SPATK)
             && (AttackingMon.species == SPECIES_CLAMPERL)
+            // it’s not a Ditto/Smeargle/Mew Transformed into the species
+            && !(sp->battlemon[attacker].condition2 & STATUS2_TRANSFORMED)
             && (movesplit == SPLIT_SPECIAL)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__2_0);
             }
 
-            // handle light ball
-            if ((AttackingMon.item_held_effect == HOLD_EFFECT_PIKA_SPATK_UP) && (AttackingMon.species == SPECIES_PIKACHU)) {
+            // handle Light Ball
+            if ((AttackingMon.item_held_effect == HOLD_EFFECT_PIKA_SPATK_UP)
+            && (AttackingMon.species == SPECIES_PIKACHU)
+            // it’s not a Ditto/Smeargle/Mew Transformed into the species
+            && !(sp->battlemon[attacker].condition2 & STATUS2_TRANSFORMED)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__2_0);
             }
         }
@@ -1642,13 +1648,17 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
             // handle Deep Sea Scale
             if ((DefendingMon.item_held_effect == HOLD_EFFECT_CLAMPERL_SPDEF)
             && (DefendingMon.species == SPECIES_CLAMPERL)
+            // it’s not a Ditto/Smeargle/Mew Transformed into the species
+            && !(sp->battlemon[attacker].condition2 & STATUS2_TRANSFORMED)
             && (movesplit == SPLIT_SPECIAL)) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__2_0);
             }
 
-            // handle metal powder
+            // handle Metal Powder
             if ((DefendingMon.item_held_effect == HOLD_EFFECT_DITTO_DEF_UP)
             && (DefendingMon.species == SPECIES_DITTO)
+            // it’s not a Ditto/Smeargle/Mew Transformed into the species
+            && !(sp->battlemon[attacker].condition2 & STATUS2_TRANSFORMED)
             && (movesplit == SPLIT_PHYSICAL)) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__2_0);
             }
