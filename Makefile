@@ -342,7 +342,7 @@ move_narc: $(NARC_FILES)
 	@echo "evolution data:"
 	cp $(EVOS_NARC) $(EVOS_TARGET)
 
-	@echo "mon learnset data:"
+	@echo "mon levelup data:"
 	cp $(LEARNSET_NARC) $(LEARNSET_TARGET)
 
 	@echo "regional dex order:"
@@ -434,10 +434,10 @@ move_narc: $(NARC_FILES)
 	$(ARMIPS) armips/data/babymons.s
 
 	@echo "tutor moves and tm moves:"
-# 	$(PYTHON) scripts/learnsets.py --writetutormovelist
-	$(PYTHON) scripts/tutor_learnset.py --writemovecostlist armips/data/tutordata.txt
-# 	$(PYTHON) scripts/learnsets.py --writetutorlearnsets
-	$(PYTHON) scripts/tutor_learnset.py armips/data/tutordata.txt
+	$(PYTHON) scripts/learnsets.py --writetutormovelist
+	$(PYTHON) scripts/learnsets.py --writetutorlearnsets
+
+    # TODO need to do tm_dump.py
 
 	@if test -s build/a028/8_00; then \
 		rm -rf build/a028/8_0 build/a028/8_1 build/a028/8_2 build/a028/8_3 build/a028/8_4 build/a028/8_5 build/a028/8_6 build/a028/8_7 build/a028/8_8 build/a028/8_9; \
