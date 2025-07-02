@@ -328,20 +328,13 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
 
 /**
  * @brief converts a TM or HM item ID to its corresponding TM/HM index
- *
- * HMs are numbered immediately after TMs
- * ITEM_TM01 = 0 and ITEM_HM01 = 92
  */
 u8 ItemToTMHMId(u16 itemId) {
-    if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) {
-        return itemId - ITEM_TM01;
+    if (itemId < ITEM_TM01 || itemId > ITEM_HM08) {
+        return 0;
     }
 
-    if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) {
-        return itemId - ITEM_HM01 + 92;
-    }
-
-    return 0;
+    return itemId - ITEM_TM01;
 }
 
 /**
@@ -352,6 +345,5 @@ u16 TMHMGetMove(u16 itemId) {
         return MOVE_NONE;
     }
 
-    u8 tmNum = ItemToTMHMId(itemId);
-    return sTMHMMoves[tmNum];
+    return sTMHMMoves[ItemToTMHMId(itemId)];
 }

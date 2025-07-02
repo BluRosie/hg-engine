@@ -271,6 +271,7 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	$(MAKE) move_narc
 	$(ARMIPS) armips/global.s
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
+	$(NARCHIVE) create $(FILESYS)/a/0/3/3 $(BUILD)/a033/ -nf
 	@echo "Making ROM..."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo "Done.  See output $(BUILDROM)."
@@ -346,9 +347,6 @@ move_narc: $(NARC_FILES)
 
 	@echo "evolution data:"
 	cp $(EVOS_NARC) $(EVOS_TARGET)
-
-	@echo "mon levelup data:"
-	cp $(LEARNSET_NARC) $(LEARNSET_TARGET)
 
 	@echo "regional dex order:"
 	cp $(REGIONALDEX_NARC) $(REGIONALDEX_TARGET)
@@ -473,6 +471,9 @@ move_narc: $(NARC_FILES)
 
 	@echo "tm learnset table:"
 	cp $(TMLEARNSET_BIN) $(TMLEARNSET_TARGET)
+
+	@echo "levelup learnset table:"
+	cp $(LEVELUPLEARNSET_BIN) $(LEVELUPLEARNSET_TARGET)
 
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:

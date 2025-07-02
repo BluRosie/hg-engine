@@ -2,7 +2,6 @@ import json
 import struct
 import argparse
 import sys
-import os
 
 MAX_TUTOR_MOVES = 52
 TUTOR_NAME_TO_NUM = {
@@ -89,43 +88,12 @@ def write_tutor_learnsets(tutor_path, species_learnsets, species_dict):
                 f.write(struct.pack("<I", (bits >> (32 * j)) & 0xFFFFFFFF))
 
 
-def write_levelup_learnsets(species_learnsets, species_dict, moves_dict, out_dir):
-    os.makedirs(out_dir, exist_ok=True)
-    for species_name, data in species_learnsets.items():
-        if "LevelMoves" not in data:
-            continue
-        if species_name not in species_dict:
-            print(f"[WARN] Skipping unknown species: {species_name}\n")
-            continue
-
-        species_id = species_dict[species_name]
-        entries = []
-        for move_entry in data["LevelMoves"]:
-            move = move_entry["Move"]
-            level = int(move_entry["Level"])
-            if move not in moves_dict:
-                print(f"[ERROR]: Move '{move}' not in moves.h")
-                sys.exit(1)
-            move_id = moves_dict[move]
-            encoded = (level << 16) | move_id
-            entries.append(encoded)
-
-        entries.append(0x0000FFFF)
-
-        out_path = os.path.join(out_dir, f"learnset_{species_id:04d}")
-        with open(out_path, "wb") as out:
-            for entry in entries:
-                out.write(struct.pack("<I", entry))
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--learnsets", default="data/moves/learnsets.json")
     parser.add_argument("--tutormoves", default="data/moves/tutor_moves.json")
-    parser.add_argument("--levelupout", default="build/a033")
     parser.add_argument("--writetutormovelist", action="store_true")
     parser.add_argument("--writetutorlearnsets", action="store_true")
-    parser.add_argument("--writeleveluplearnsets", action="store_true")
     args = parser.parse_args()
 
     species_dict = load_species_header("include/constants/species.h")
@@ -139,5 +107,3 @@ if __name__ == "__main__":
     if args.writetutorlearnsets:
         write_tutor_learnsets(args.tutormoves, species_learnsets, species_dict)
 
-    if args.writeleveluplearnsets:
-        write_levelup_learnsets(species_learnsets, species_dict, moves_dict, args.levelupout)
