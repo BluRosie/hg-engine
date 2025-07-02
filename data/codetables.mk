@@ -75,6 +75,10 @@ TMLEARNSET_DEPENDENCIES := data/TMLearnsets.c
 TMLEARNSET_OBJS := $(patsubst data/%.c,build/%.o,$(TMLEARNSET_DEPENDENCIES))
 TMLEARNSET_BIN := $(patsubst data/%.c,build/%.bin,$(TMLEARNSET_DEPENDENCIES))
 
+$(TMLEARNSET_DEPENDENCIES): $(LEARNSETS_DATA)
+	@echo "tm moves:"
+	$(PYTHON) scripts/build_tm_learnsets.py --learnsets $(LEARNSETS_DATA) --output ${TMLEARNSET_DEPENDENCIES}
+
 $(TMLEARNSET_BIN): $(TMLEARNSET_DEPENDENCIES)
 	$(CC) $(CFLAGS) -c $< -o $(TMLEARNSET_OBJS)
 	$(OBJCOPY) -O binary $(TMLEARNSET_OBJS) $@

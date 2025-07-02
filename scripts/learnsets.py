@@ -38,7 +38,10 @@ def load_moves_header(file_path):
     return moves_dict
 
 
-def write_tutor_move_list(tutor_entries, moves_dict):
+def write_tutor_move_list(tutor_path, moves_dict):
+    with open(tutor_path, encoding="utf-8") as f:
+        tutor_entries = json.load(f)
+
     with open("base/overlay/overlay_0001.bin", "r+b") as ovl1:
         for idx, entry in enumerate(tutor_entries):
             move = entry["Move"]
@@ -61,7 +64,10 @@ def write_tutor_move_list(tutor_entries, moves_dict):
             ovl1.write(struct.pack("<B", location_id))
 
 
-def write_tutor_learnsets(tutor_entries, species_learnsets, species_dict):
+def write_tutor_learnsets(tutor_path, species_learnsets, species_dict):
+    with open(tutor_path, encoding="utf-8") as f:
+        tutor_entries = json.load(f)
+
     move_index = {entry["Move"]: idx for idx, entry in enumerate(tutor_entries)}
 
     tutor_bitfields = {}
@@ -114,28 +120,24 @@ def write_levelup_learnsets(species_learnsets, species_dict, moves_dict, out_dir
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument("--learnsets", default="data/moves/learnsets.json")
+    parser.add_argument("--tutormoves", default="data/moves/tutor_moves.json")
+    parser.add_argument("--levelupout", default="build/a033")
     parser.add_argument("--writetutormovelist", action="store_true")
     parser.add_argument("--writetutorlearnsets", action="store_true")
     parser.add_argument("--writeleveluplearnsets", action="store_true")
-    parser.add_argument("--levelupout")
     args = parser.parse_args()
 
     species_dict = load_species_header("include/constants/species.h")
     moves_dict = load_moves_header("include/constants/moves.h")
 
-    with open("data/moves/learnsets.json", encoding="utf-8") as f:
+    with open(args.learnsets, encoding="utf-8") as f:
         species_learnsets = json.load(f)
 
-    with open("data/moves/tutor_moves.json", encoding="utf-8") as f:
-        tutor_entries = json.load(f)
-
     if args.writetutormovelist:
-        write_tutor_move_list(tutor_entries, moves_dict)
+        write_tutor_move_list(args.tutormoves, moves_dict)
     if args.writetutorlearnsets:
-        write_tutor_learnsets(tutor_entries, species_learnsets, species_dict)
+        write_tutor_learnsets(args.tutormoves, species_learnsets, species_dict)
 
     if args.writeleveluplearnsets:
-        if not args.levelupout:
-            print("Missing --levelupout")
-            sys.exit(1)
         write_levelup_learnsets(species_learnsets, species_dict, moves_dict, args.levelupout)

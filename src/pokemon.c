@@ -2492,6 +2492,8 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
 BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
 
+    debug_printf("[GetMonTMHMCompat] species %d tmhm %d\n", species, tmhm);
+
     if (species > MAX_SPECIES_INCLUDING_FORMS) {
         return FALSE;
     }
@@ -2502,6 +2504,19 @@ BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
 
     u32 buf[TM_LEARNSETS_BITFIELD_COUNT];
     ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, species * TM_LEARNSETS_ENTRY_SIZE, TM_LEARNSETS_ENTRY_SIZE);
+
+    debug_printf("[GetMonTMHMCompat] Bitfield for species %d: %08X %08X %08X %08X\n",
+           species, buf[0], buf[1], buf[2], buf[3]);
+
+    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, species * TM_LEARNSETS_ENTRY_SIZE, TM_LEARNSETS_ENTRY_SIZE);
+
+    debug_printf("[GetMonTMHMCompat] +1 Bitfield for species %d: %08X %08X %08X %08X\n",
+           species+1, buf[0], buf[1], buf[2], buf[3]);
+
+    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, species * TM_LEARNSETS_ENTRY_SIZE, TM_LEARNSETS_ENTRY_SIZE);
+
+    debug_printf("[GetMonTMHMCompat] -1 Bitfield for species %d: %08X %08X %08X %08X\n",
+           species-1, buf[0], buf[1], buf[2], buf[3]);
 
     // check if the specific bit based on tm/hm num is set for the species
     return (buf[tmhm / TM_LEARNSETS_BITS_PER_WORD] >> tmhm % TM_LEARNSETS_BITS_PER_WORD) & 1;
