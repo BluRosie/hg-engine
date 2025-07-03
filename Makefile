@@ -137,8 +137,8 @@ OBJS     := $(C_OBJS) $(ASM_OBJS)
 REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
 
-LEARNSETS_DATA := data/moves/learnsets.json
-TUTORMOVES_DATA := data/moves/tutor_moves.json
+LEARNSETS_DATA := data/mon/learnsets.json
+TUTORMOVES_DATA := data/tutor/tutor_moves.json
 
 
 ## includes
@@ -341,10 +341,6 @@ move_narc: $(NARC_FILES)
 	@echo "pokedex sort lists:"
 	cp $(DEXSORT_NARC) $(DEXSORT_TARGET)
 
-	@echo "egg moves:"
-	cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET)
-	cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET_2)
-
 	@echo "evolution data:"
 	cp $(EVOS_NARC) $(EVOS_TARGET)
 
@@ -474,6 +470,11 @@ move_narc: $(NARC_FILES)
 
 	@echo "levelup learnset table:"
 	cp $(LEVELUPLEARNSET_BIN) $(LEVELUPLEARNSET_TARGET)
+	cp $(LEVELUPLEARNSETOFFSET_BIN) $(LEVELUPLEARNSETOFFSET_TARGET)
+
+	@echo "egg move tables:"
+	cp $(EGGLEARNSET_BIN) $(EGGLEARNSET_TARGET)
+	cp $(EGGLEARNSETOFFSET_BIN) $(EGGLEARNSETOFFSET_TARGET)
 
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:

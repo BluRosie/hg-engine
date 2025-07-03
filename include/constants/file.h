@@ -52,7 +52,8 @@
 #define CODE_ADDON_TM_LEARNSETS 14
 
 //a033 file indexes
-#define LEVELUP_LEARNSETS_FLAT 0
+#define LEVELUP_LEARNSETS 0
+#define LEVELUP_LEARNSET_OFFSETS 1
 
 //a018 file indices for mega stuff
 #define MEGA_ICON_FIGHT_GFX (797)
@@ -60,6 +61,10 @@
 #define PRIMAL_REVERSION_ALPHA_GFX (801)
 #define MEGA_ICON_SELECTED_GFX (803)
 #define MEGA_ICON_BLANK_GFX (805)
+
+//kowaza file indexes
+#define EGG_LEARNSETS 0
+#define EGG_LEARNSET_OFFSETS 1
 
 //heap IDs
 #define HEAPID_DEFAULT 0

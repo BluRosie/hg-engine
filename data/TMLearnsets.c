@@ -2,7 +2,6 @@
 
 #include "../include/types.h"
 #include "../include/config.h"
-#include "../include/pokemon.h"
 #include "../include/constants/species.h"
 #include "../include/constants/item.h"
 

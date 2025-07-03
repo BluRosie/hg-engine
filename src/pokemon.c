@@ -1243,36 +1243,23 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
  *  @param dest destination for the array of egg moves
  *  @return number of egg moves in dest
  */
-u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest)
-{
-    u16 n;
-    u16 *kowaza_list;
-    u16 offset;
-    u16 species;
-    u16 i;
+u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest) {
+    u16 species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
 
-    kowaza_list = sys_AllocMemory(HEAPID_MAIN_HEAP, NUM_EGG_MOVES_TOTAL*2);
-    ArchiveDataLoad(kowaza_list, ARC_EGG_MOVES, 0);
+    // load species offset
+    u32 offset;
+    ArchiveDataLoadOfs(&offset, ARC_EGG_MOVES, EGG_LEARNSET_OFFSETS, species * sizeof(u32), sizeof(u32));
 
-    n = 0;
-    offset = 0;
+    // load EGG_MOVES_PER_MON starting at the species offset
+    ArchiveDataLoadOfs(dest, ARC_EGG_MOVES, EGG_LEARNSETS, offset * sizeof(u16), EGG_MOVES_PER_MON * sizeof(u16));
 
-    species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
-    for (i = 0; i < NUM_EGG_MOVES_TOTAL; i++) {
-        if (species + 20000 == kowaza_list[i]) {
-            offset = i + 1;
-            break;
-        }
+    // count the egg moves loaded
+    u8 count = 0;
+    while (count < EGG_MOVES_PER_MON && dest[count] != 0xFFFF) {
+        count++;
     }
-    for (i = 0; i < EGG_MOVES_PER_MON; i++) {
-        if (kowaza_list[offset + i] > 20000) {
-            break;
-        }
-        dest[i] = kowaza_list[offset + i];
-        n++;
-    }
-    sys_FreeMemoryEz(kowaza_list);
-    return n;
+
+    return count;
 }
 
 /**
@@ -2487,7 +2474,7 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
 }
 
 /**
- * @brief checks if a given mon can learn a specific TM or HM by index. reads from data/TMLearnsets.c packed in NARC
+ * @brief checks if a given mon can learn a specific TM or HM by index. reads from data/TMLearnsets.c
  */
 BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
@@ -2510,15 +2497,17 @@ BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
     return (buf[tmhm / TM_LEARNSETS_BITS_PER_WORD] >> tmhm % TM_LEARNSETS_BITS_PER_WORD) & 1;
 }
 
-// TODO zebben move these
-#define MAX_LEARNSET_ENTRIES 40
-#define OFFSET_TABLE_START_INDEX 25970
-#define OFFSET_TABLE_BYTE_OFFSET (OFFSET_TABLE_START_INDEX * sizeof(u32))
-
+/**
+ * @brief loads level up data for a mon. reads from data/LevelupLearnsets.c
+ */
 void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset) {
+    debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] species %d form %d\n", species, form);
     species = PokeOtherFormMonsNoGet(species, form);
-    u32 offset = 0;
-    ArchiveDataLoadOfs(&offset, ARC_LEVELUP_LEARNSETS, LEVELUP_LEARNSETS_FLAT, OFFSET_TABLE_BYTE_OFFSET + species * sizeof(u32), sizeof(u32));
+    debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] species %d\n", species);
 
-    ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, LEVELUP_LEARNSETS_FLAT, offset * sizeof(u32), MAX_LEARNSET_ENTRIES * sizeof(u32));
+    u32 offset = 0;
+    ArchiveDataLoadOfs(&offset, ARC_LEVELUP_LEARNSETS, LEVELUP_LEARNSET_OFFSETS, species * sizeof(u32), sizeof(u32));
+    debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] offset %u\n", offset);
+
+    ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, LEVELUP_LEARNSETS, offset * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
 }

@@ -155,4 +155,7 @@
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
 
+// MAX_LEVELUP_MOVES is the maximum number of level up moves each mon can learn
+#define MAX_LEVELUP_MOVES 40
+
 #endif

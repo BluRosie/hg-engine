@@ -2,13 +2,10 @@
 
 #include "../include/types.h"
 #include "../include/config.h"
-#include "../include/constants/species.h"
-#include "../include/constants/moves.h"
-
-#define OFFSET_TABLE_START 25970
 
 const u32 UNUSED LevelUpLearnsets[] = {
     0x0000FFFF,
+    // SPECIES_BULBASAUR
     0x00010021,
     0x0001002D,
     0x0003002D,
@@ -26,6 +23,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001E0026,
     0x0024004C,
     0x0000FFFF,
+    // SPECIES_IVYSAUR
     0x00010021,
     0x0001002D,
     0x00010016,
@@ -46,6 +44,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00260026,
     0x002F004C,
     0x0000FFFF,
+    // SPECIES_VENUSAUR
     0x0000023F,
     0x00000050,
     0x0001023F,
@@ -71,6 +70,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032023F,
     0x0037004C,
     0x0000FFFF,
+    // SPECIES_CHARMANDER
     0x0001000A,
     0x0001002D,
     0x00050034,
@@ -86,6 +86,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280208,
     0x0028018A,
     0x0000FFFF,
+    // SPECIES_CHARMELEON
     0x0001000A,
     0x0001002D,
     0x00010034,
@@ -103,6 +104,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320208,
     0x0036018A,
     0x0000FFFF,
+    // SPECIES_CHARIZARD
     0x00000193,
     0x00000011,
     0x00010193,
@@ -129,6 +131,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0045018A,
     0x00470101,
     0x0000FFFF,
+    // SPECIES_SQUIRTLE
     0x00010021,
     0x00010027,
     0x00040037,
@@ -146,6 +149,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00210082,
     0x00240038,
     0x0000FFFF,
+    // SPECIES_WARTORTLE
     0x00010021,
     0x00010027,
     0x00010037,
@@ -165,6 +169,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0082,
     0x002E0038,
     0x0000FFFF,
+    // SPECIES_BLASTOISE
     0x000001AE,
     0x000101AE,
     0x00010021,
@@ -186,13 +191,16 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300082,
     0x00360038,
     0x0000FFFF,
+    // SPECIES_CATERPIE
     0x00010021,
     0x00010051,
     0x000901C2,
     0x0000FFFF,
+    // SPECIES_METAPOD
     0x0000006A,
     0x0001006A,
     0x0000FFFF,
+    // SPECIES_BUTTERFREE
     0x00000010,
     0x00010010,
     0x0001006A,
@@ -216,13 +224,16 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0026016E,
     0x002D01E6,
     0x0000FFFF,
+    // SPECIES_WEEDLE
     0x00010028,
     0x00010051,
     0x000901C2,
     0x0000FFFF,
+    // SPECIES_KAKUNA
     0x0000006A,
     0x0001006A,
     0x0000FFFF,
+    // SPECIES_BEEDRILL
     0x00000029,
     0x00010029,
     0x0001001F,
@@ -239,6 +250,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0029011B,
     0x002C0238,
     0x0000FFFF,
+    // SPECIES_PIDGEY
     0x00010021,
     0x0005001C,
     0x00090010,
@@ -254,6 +266,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00310193,
     0x00350221,
     0x0000FFFF,
+    // SPECIES_PIDGEOTTO
     0x00010021,
     0x0001001C,
     0x00010010,
@@ -271,6 +284,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390193,
     0x003E0221,
     0x0000FFFF,
+    // SPECIES_PIDGEOT
     0x00010221,
     0x00010021,
     0x0001001C,
@@ -290,6 +304,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003E0193,
     0x00440221,
     0x0000FFFF,
+    // SPECIES_RATTATA
     0x00010021,
     0x00010027,
     0x00040062,
@@ -304,6 +319,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001F0026,
     0x0022011B,
     0x0000FFFF,
+    // SPECIES_RATICATE
     0x000000B8,
     0x000100B8,
     0x0001000E,
@@ -323,6 +339,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270026,
     0x002C011B,
     0x0000FFFF,
+    // SPECIES_SPEAROW
     0x00010040,
     0x0001002D,
     0x0004002B,
@@ -336,6 +353,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00200163,
     0x00240041,
     0x0000FFFF,
+    // SPECIES_FEAROW
     0x00010214,
     0x0001016D,
     0x00010040,
@@ -354,6 +372,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00290041,
     0x002D0214,
     0x0000FFFF,
+    // SPECIES_EKANS
     0x00010023,
     0x0001002B,
     0x00040028,
@@ -372,6 +391,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C01EC,
     0x003101B9,
     0x0000FFFF,
+    // SPECIES_ARBOK
     0x000000F2,
     0x000100F2,
     0x000101A7,
@@ -397,6 +417,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003801EC,
     0x003F01B9,
     0x0000FFFF,
+    // SPECIES_PIKACHU
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -423,6 +444,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_RAICHU
     0x00000009,
     0x00010009,
     0x00010250,
@@ -446,6 +468,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0001002D,
     0x00010062,
     0x0000FFFF,
+    // SPECIES_SANDSHREW
     0x0001000A,
     0x0001006F,
     0x00030028,
@@ -466,6 +489,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00C9,
     0x002D0059,
     0x0000FFFF,
+    // SPECIES_SANDSLASH
     0x00000132,
     0x00010132,
     0x0001000A,
@@ -489,6 +513,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400C9,
     0x00390059,
     0x0000FFFF,
+    // SPECIES_NIDORAN_F
     0x0001002D,
     0x00010028,
     0x0001000A,
@@ -507,6 +532,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0131,
     0x0037019E,
     0x0000FFFF,
+    // SPECIES_NIDORINA
     0x0001002D,
     0x00010028,
     0x0001000A,
@@ -525,6 +551,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A0131,
     0x0047019E,
     0x0000FFFF,
+    // SPECIES_NIDOQUEEN
     0x00000114,
     0x00010114,
     0x0001009A,
@@ -545,6 +572,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B019E,
     0x003A0114,
     0x0000FFFF,
+    // SPECIES_NIDORAN_M
     0x0001002B,
     0x00010028,
     0x00010040,
@@ -563,6 +591,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0020,
     0x0037019E,
     0x0000FFFF,
+    // SPECIES_NIDORINO
     0x0001002B,
     0x00010028,
     0x00010040,
@@ -581,6 +610,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A0020,
     0x0047019E,
     0x0000FFFF,
+    // SPECIES_NIDOKING
     0x000000E0,
     0x000100E0,
     0x0001001F,
@@ -601,6 +631,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B019E,
     0x003A00E0,
     0x0000FFFF,
+    // SPECIES_CLEFAIRY
     0x0001002F,
     0x000100BA,
     0x00010241,
@@ -632,6 +663,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C024C,
     0x00330169,
     0x0000FFFF,
+    // SPECIES_CLEFABLE
     0x0001002F,
     0x000100BA,
     0x00010241,
@@ -657,6 +689,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000102A2,
     0x00010003,
     0x0000FFFF,
+    // SPECIES_VULPIX
     0x00010034,
     0x00010027,
     0x00040032,
@@ -682,6 +715,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300120,
     0x0031007E,
     0x0000FFFF,
+    // SPECIES_NINETALES
     0x000101A1,
     0x00010201,
     0x000100B4,
@@ -700,6 +734,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010032,
     0x00010062,
     0x0000FFFF,
+    // SPECIES_JIGGLYPUFF
     0x000100BA,
     0x00010241,
     0x00010032,
@@ -730,6 +765,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028024A,
     0x002C0026,
     0x0000FFFF,
+    // SPECIES_WIGGLYTUFF
     0x000100BA,
     0x00010241,
     0x00010032,
@@ -753,6 +789,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0001006F,
     0x00010003,
     0x0000FFFF,
+    // SPECIES_ZUBAT
     0x00010047,
     0x00010030,
     0x00050136,
@@ -770,6 +807,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B008D,
     0x002D0193,
     0x0000FFFF,
+    // SPECIES_GOLBAT
     0x00010067,
     0x00010047,
     0x00010030,
@@ -791,6 +829,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0035008D,
     0x00370193,
     0x0000FFFF,
+    // SPECIES_ODDISH
     0x00010047,
     0x0001004A,
     0x00060033,
@@ -808,6 +847,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0027016B,
     0x002D0050,
     0x0000FFFF,
+    // SPECIES_GLOOM
     0x00010047,
     0x0001004A,
     0x00010033,
@@ -828,6 +868,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031023F,
     0x00360050,
     0x0000FFFF,
+    // SPECIES_VILEPLUME
     0x0000023F,
     0x0001023F,
     0x00010138,
@@ -849,6 +890,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B0050,
     0x0045004C,
     0x0000FFFF,
+    // SPECIES_PARAS
     0x0001000A,
     0x0006004E,
     0x0006004D,
@@ -862,6 +904,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003101DF,
     0x00360194,
     0x0000FFFF,
+    // SPECIES_PARASECT
     0x000101B8,
     0x0001000A,
     0x0001004E,
@@ -879,6 +922,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B01DF,
     0x00420194,
     0x0000FFFF,
+    // SPECIES_VENONAT
     0x00010021,
     0x00010032,
     0x000100C1,
@@ -894,6 +938,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00290131,
     0x002F005E,
     0x0000FFFF,
+    // SPECIES_VENOMOTH
     0x00000010,
     0x00010010,
     0x000101E6,
@@ -917,6 +962,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B0195,
     0x003F01E6,
     0x0000FFFF,
+    // SPECIES_DIGLETT
     0x0001001C,
     0x0001000A,
     0x0004002D,
@@ -933,6 +979,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270059,
     0x002B005A,
     0x0000FFFF,
+    // SPECIES_DUGTRIO
     0x00000148,
     0x00010148,
     0x00010190,
@@ -956,6 +1003,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0059,
     0x0035005A,
     0x0000FFFF,
+    // SPECIES_MEOWTH
     0x000100FC,
     0x0001002D,
     0x0001000A,
@@ -975,6 +1023,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01BD,
     0x00310190,
     0x0000FFFF,
+    // SPECIES_PERSIAN
     0x00000198,
     0x00000081,
     0x00010198,
@@ -1002,6 +1051,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D0190,
     0x0041016C,
     0x0000FFFF,
+    // SPECIES_PSYDUCK
     0x0001000A,
     0x00010027,
     0x0001015A,
@@ -1020,6 +1070,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00250038,
     0x002801DB,
     0x0000FFFF,
+    // SPECIES_GOLDUCK
     0x000101C5,
     0x0001000A,
     0x00010027,
@@ -1042,6 +1093,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0038,
     0x002F01DB,
     0x0000FFFF,
+    // SPECIES_MANKEY
     0x00010157,
     0x0001000A,
     0x00010043,
@@ -1062,6 +1114,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F00C8,
     0x00320206,
     0x0000FFFF,
+    // SPECIES_PRIMEAPE
     0x00000063,
     0x00010063,
     0x00010206,
@@ -1085,6 +1138,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003500C8,
     0x00390206,
     0x0000FFFF,
+    // SPECIES_GROWLITHE
     0x00010034,
     0x0001002B,
     0x00040150,
@@ -1102,6 +1156,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400B3,
     0x0038018A,
     0x0000FFFF,
+    // SPECIES_ARCANINE
     0x000000F5,
     0x000100F5,
     0x00010061,
@@ -1121,6 +1176,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010024,
     0x00050035,
     0x0000FFFF,
+    // SPECIES_POLIWAG
     0x00010037,
     0x0001005F,
     0x0001015A,
@@ -1140,6 +1196,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002901AA,
     0x00360026,
     0x0000FFFF,
+    // SPECIES_POLIWHIRL
     0x00010037,
     0x0001005F,
     0x00010001,
@@ -1160,6 +1217,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003501AA,
     0x00420026,
     0x0000FFFF,
+    // SPECIES_POLIWRATH
     0x00000042,
     0x00010042,
     0x00010200,
@@ -1181,8 +1239,10 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B00AA,
     0x00350200,
     0x0000FFFF,
+    // SPECIES_ABRA
     0x00010064,
     0x0000FFFF,
+    // SPECIES_KADABRA
     0x0000005D,
     0x00000086,
     0x0001005D,
@@ -1205,6 +1265,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E010F,
     0x0032015B,
     0x0000FFFF,
+    // SPECIES_ALAKAZAM
     0x00000086,
     0x0001005D,
     0x00010086,
@@ -1226,6 +1287,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D015B,
     0x002E010F,
     0x0000FFFF,
+    // SPECIES_MACHOP
     0x00010043,
     0x0001002B,
     0x00030074,
@@ -1246,6 +1308,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C00DF,
     0x00340026,
     0x0000FFFF,
+    // SPECIES_MACHOKE
     0x00010043,
     0x0001002B,
     0x00010074,
@@ -1269,6 +1332,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003700DF,
     0x00420026,
     0x0000FFFF,
+    // SPECIES_MACHAMP
     0x00000046,
     0x000101D8,
     0x00010043,
@@ -1295,6 +1359,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003700DF,
     0x00420026,
     0x0000FFFF,
+    // SPECIES_BELLSPROUT
     0x00010016,
     0x0007004A,
     0x000B0023,
@@ -1310,6 +1375,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0015,
     0x0032017A,
     0x0000FFFF,
+    // SPECIES_WEEPINBELL
     0x00010016,
     0x0001004A,
     0x00010023,
@@ -1327,6 +1393,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360015,
     0x003A017A,
     0x0000FFFF,
+    // SPECIES_VICTREEBEL
     0x0000021B,
     0x0001021B,
     0x000100FE,
@@ -1339,6 +1406,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002001B5,
     0x002C015C,
     0x0000FFFF,
+    // SPECIES_TENTACOOL
     0x00010028,
     0x00010037,
     0x00060033,
@@ -1360,6 +1428,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0038,
     0x0031017A,
     0x0000FFFF,
+    // SPECIES_TENTACRUEL
     0x00010204,
     0x00010028,
     0x00010037,
@@ -1387,6 +1456,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370038,
     0x0038017A,
     0x0000FFFF,
+    // SPECIES_GEODUDE
     0x00010021,
     0x0001006F,
     0x0004012C,
@@ -1404,6 +1474,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280026,
     0x002A01BC,
     0x0000FFFF,
+    // SPECIES_GRAVELER
     0x00010021,
     0x0001006F,
     0x0001012C,
@@ -1423,6 +1494,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320026,
     0x003601BC,
     0x0000FFFF,
+    // SPECIES_GOLEM
     0x000101E7,
     0x00010021,
     0x0001006F,
@@ -1444,6 +1516,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003601BC,
     0x003C01E7,
     0x0000FFFF,
+    // SPECIES_PONYTA
     0x00010021,
     0x0001002D,
     0x00040027,
@@ -1459,6 +1532,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0154,
     0x0034018A,
     0x0000FFFF,
+    // SPECIES_RAPIDASH
     0x000002AF,
     0x0000001F,
     0x000102AF,
@@ -1483,6 +1557,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031007E,
     0x0038018A,
     0x0000FFFF,
+    // SPECIES_SLOWPOKE
     0x000100AE,
     0x00010021,
     0x0003002D,
@@ -1501,6 +1576,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00F0,
     0x002D01FC,
     0x0000FFFF,
+    // SPECIES_SLOWBRO
     0x000100F8,
     0x000100AE,
     0x0001002D,
@@ -1521,6 +1597,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E00F0,
     0x003301FC,
     0x0000FFFF,
+    // SPECIES_MAGNEMITE
     0x00010054,
     0x00010021,
     0x00010030,
@@ -1542,6 +1619,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C00C7,
     0x003200C0,
     0x0000FFFF,
+    // SPECIES_MAGNETON
     0x000000A1,
     0x000100A1,
     0x0001025F,
@@ -1567,6 +1645,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003500C7,
     0x003F00C0,
     0x0000FFFF,
+    // SPECIES_FARFETCHD
     0x00010040,
     0x0001001C,
     0x0001019D,
@@ -1591,6 +1670,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037015C,
     0x003C019D,
     0x0000FFFF,
+    // SPECIES_DODUO
     0x00010040,
     0x0001002D,
     0x00050062,
@@ -1608,6 +1688,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F011B,
     0x00320025,
     0x0000FFFF,
+    // SPECIES_DODRIO
     0x000000A1,
     0x000100A1,
     0x00010040,
@@ -1629,6 +1710,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034011B,
     0x00380025,
     0x0000FFFF,
+    // SPECIES_SEEL
     0x0001001D,
     0x0003002D,
     0x0007015A,
@@ -1647,6 +1729,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003300DB,
     0x00350102,
     0x0000FFFF,
+    // SPECIES_DEWGONG
     0x00000149,
     0x00010149,
     0x0001001D,
@@ -1670,6 +1753,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D00DB,
     0x00410102,
     0x0000FFFF,
+    // SPECIES_GRIMER
     0x00010001,
     0x0001008B,
     0x0004006A,
@@ -1687,6 +1771,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0235,
     0x00300106,
     0x0000FFFF,
+    // SPECIES_MUK
     0x0000025A,
     0x0001025A,
     0x00010001,
@@ -1708,6 +1793,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340235,
     0x00390106,
     0x0000FFFF,
+    // SPECIES_SHELLDER
     0x00010021,
     0x00010037,
     0x0004006E,
@@ -1726,6 +1812,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003101FB,
     0x00360038,
     0x0000FFFF,
+    // SPECIES_CLOYSTER
     0x0000014D,
     0x0001014D,
     0x0001022F,
@@ -1749,6 +1836,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001C00BF,
     0x0032022F,
     0x0000FFFF,
+    // SPECIES_GASTLY
     0x0001007A,
     0x0001006D,
     0x0001005F,
@@ -1767,6 +1855,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00C2,
     0x002F00AB,
     0x0000FFFF,
+    // SPECIES_HAUNTER
     0x00000145,
     0x00010145,
     0x0001007A,
@@ -1788,6 +1877,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400C2,
     0x003D00AB,
     0x0000FFFF,
+    // SPECIES_GENGAR
     0x00000145,
     0x00010145,
     0x000100C3,
@@ -1811,6 +1901,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400C2,
     0x003D00AB,
     0x0000FFFF,
+    // SPECIES_ONIX
     0x00010021,
     0x0001006A,
     0x00010014,
@@ -1835,6 +1926,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003101BC,
     0x00340026,
     0x0000FFFF,
+    // SPECIES_DROWZEE
     0x0001005F,
     0x00010001,
     0x00050032,
@@ -1853,6 +1945,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003901DC,
     0x003D00F8,
     0x0000FFFF,
+    // SPECIES_HYPNO
     0x000100F8,
     0x000101A1,
     0x000100AB,
@@ -1877,6 +1970,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003901DC,
     0x003D00F8,
     0x0000FFFF,
+    // SPECIES_KRABBY
     0x00010037,
     0x0001002B,
     0x0001012C,
@@ -1897,6 +1991,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028000C,
     0x002A0098,
     0x0000FFFF,
+    // SPECIES_KINGLER
     0x000101D8,
     0x00010167,
     0x00010037,
@@ -1922,6 +2017,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0033016A,
     0x00360098,
     0x0000FFFF,
+    // SPECIES_VOLTORB
     0x0001010C,
     0x00010021,
     0x00040031,
@@ -1940,6 +2036,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0168,
     0x003000F3,
     0x0000FFFF,
+    // SPECIES_ELECTRODE
     0x0001025D,
     0x0001010C,
     0x00010021,
@@ -1961,6 +2058,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360168,
     0x003A00F3,
     0x0000FFFF,
+    // SPECIES_EXEGGCUTE
     0x00010047,
     0x0001005F,
     0x0001008C,
@@ -1982,6 +2080,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031004C,
     0x00320207,
     0x0000FFFF,
+    // SPECIES_EXEGGUTOR
     0x00000017,
     0x00010017,
     0x00010192,
@@ -2007,6 +2106,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002501C4,
     0x002F01B5,
     0x0000FFFF,
+    // SPECIES_CUBONE
     0x000100BD,
     0x0001002D,
     0x00030027,
@@ -2025,6 +2125,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002700C6,
     0x002D0026,
     0x0000FFFF,
+    // SPECIES_MAROWAK
     0x000100BD,
     0x0001002D,
     0x00010027,
@@ -2047,6 +2148,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E00C6,
     0x00380026,
     0x0000FFFF,
+    // SPECIES_HITMONLEE
     0x00000118,
     0x00000018,
     0x00010118,
@@ -2083,6 +2185,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0172,
     0x003100B3,
     0x0000FFFF,
+    // SPECIES_HITMONCHAN
     0x00000199,
     0x00000004,
     0x00010199,
@@ -2120,6 +2223,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00310108,
     0x00320172,
     0x0000FFFF,
+    // SPECIES_LICKITUNG
     0x0001007A,
     0x0001006F,
     0x00080030,
@@ -2138,6 +2242,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0039017A,
     0x003C00BB,
     0x0000FFFF,
+    // SPECIES_KOFFING
     0x0001008B,
     0x00010021,
     0x0004007B,
@@ -2155,6 +2260,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0106,
     0x002E00C2,
     0x0000FFFF,
+    // SPECIES_WEEZING
     0x000001CA,
     0x000101CA,
     0x00010101,
@@ -2177,6 +2283,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003600C2,
     0x00380106,
     0x0000FFFF,
+    // SPECIES_RHYHORN
     0x00010021,
     0x00010027,
     0x0001001E,
@@ -2197,6 +2304,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400E0,
     0x00380020,
     0x0000FFFF,
+    // SPECIES_RHYDON
     0x00000167,
     0x00010167,
     0x00010021,
@@ -2222,6 +2330,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A00E0,
     0x00410020,
     0x0000FFFF,
+    // SPECIES_CHANSEY
     0x000100BA,
     0x00010241,
     0x00010157,
@@ -2251,6 +2360,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330026,
     0x00360169,
     0x0000FFFF,
+    // SPECIES_TANGELA
     0x00010047,
     0x00010014,
     0x00010113,
@@ -2274,6 +2384,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340113,
     0x00340247,
     0x0000FFFF,
+    // SPECIES_KANGASKHAN
     0x00010001,
     0x00010027,
     0x00010004,
@@ -2297,6 +2408,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F00C8,
     0x00340183,
     0x0000FFFF,
+    // SPECIES_HORSEA
     0x00010037,
     0x0001002B,
     0x00010091,
@@ -2315,6 +2427,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030015D,
     0x003700F0,
     0x0000FFFF,
+    // SPECIES_SEADRA
     0x00010037,
     0x0001002B,
     0x0001006C,
@@ -2336,6 +2449,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037015D,
     0x004100F0,
     0x0000FFFF,
+    // SPECIES_GOLDEEN
     0x00010040,
     0x00010027,
     0x0001015A,
@@ -2351,6 +2465,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0020,
     0x002D00E0,
     0x0000FFFF,
+    // SPECIES_SEAKING
     0x00010040,
     0x00010027,
     0x00010030,
@@ -2370,6 +2485,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00310020,
     0x003400E0,
     0x0000FFFF,
+    // SPECIES_STARYU
     0x00010021,
     0x0001006A,
     0x00040037,
@@ -2392,6 +2508,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320142,
     0x00360038,
     0x0000FFFF,
+    // SPECIES_STARMIE
     0x000100E5,
     0x0001006B,
     0x00010081,
@@ -2411,6 +2528,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000102A2,
     0x0028006D,
     0x0000FFFF,
+    // SPECIES_MR_MIME
     0x000101F8,
     0x000101D8,
     0x00010180,
@@ -2445,6 +2563,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E00E2,
     0x0034012A,
     0x0000FFFF,
+    // SPECIES_SCYTHER
     0x0001002B,
     0x00010062,
     0x000400D2,
@@ -2459,6 +2578,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280194,
     0x002C000E,
     0x0000FFFF,
+    // SPECIES_JYNX
     0x000100BA,
     0x0001007A,
     0x00010001,
@@ -2486,6 +2606,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003500C3,
     0x003A003B,
     0x0000FFFF,
+    // SPECIES_ELECTABUZZ
     0x00010062,
     0x0001002B,
     0x00010054,
@@ -2504,6 +2625,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00380057,
     0x004001A0,
     0x0000FFFF,
+    // SPECIES_MAGMAR
     0x0001007B,
     0x0001002B,
     0x00010034,
@@ -2525,6 +2647,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0038007E,
     0x0040003F,
     0x0000FFFF,
+    // SPECIES_PINSIR
     0x0001000B,
     0x0001006A,
     0x00010074,
@@ -2546,6 +2669,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030000C,
     0x00310114,
     0x0000FFFF,
+    // SPECIES_TAUROS
     0x00010021,
     0x00010027,
     0x00050211,
@@ -2561,10 +2685,12 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370026,
     0x003C01A0,
     0x0000FFFF,
+    // SPECIES_MAGIKARP
     0x00010096,
     0x000F0021,
     0x001B00AF,
     0x0000FFFF,
+    // SPECIES_GYARADOS
     0x0000002C,
     0x0001002C,
     0x000100AF,
@@ -2590,6 +2716,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300025,
     0x0034003F,
     0x0000FFFF,
+    // SPECIES_LAPRAS
     0x0001002D,
     0x00010037,
     0x0001002F,
@@ -2608,8 +2735,10 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330038,
     0x003A0149,
     0x0000FFFF,
+    // SPECIES_DITTO
     0x00010090,
     0x0000FFFF,
+    // SPECIES_EEVEE
     0x00010157,
     0x0001010E,
     0x00010021,
@@ -2629,6 +2758,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0178,
     0x00300183,
     0x0000FFFF,
+    // SPECIES_VAPOREON
     0x00000037,
     0x00010037,
     0x00010157,
@@ -2655,6 +2785,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0038,
     0x00300183,
     0x0000FFFF,
+    // SPECIES_JOLTEON
     0x00000054,
     0x00010054,
     0x00010157,
@@ -2681,6 +2812,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0057,
     0x00300183,
     0x0000FFFF,
+    // SPECIES_FLAREON
     0x00000034,
     0x00010034,
     0x00010157,
@@ -2706,6 +2838,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F018A,
     0x00300183,
     0x0000FFFF,
+    // SPECIES_PORYGON
     0x00010021,
     0x000100A0,
     0x000100B0,
@@ -2724,6 +2857,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340115,
     0x003C00C0,
     0x0000FFFF,
+    // SPECIES_OMANYTE
     0x00010014,
     0x0001006E,
     0x00010084,
@@ -2742,6 +2876,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003401FB,
     0x00390038,
     0x0000FFFF,
+    // SPECIES_OMASTAR
     0x000000F2,
     0x00000083,
     0x000100F2,
@@ -2767,6 +2902,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004001FB,
     0x00480038,
     0x0000FFFF,
+    // SPECIES_KABUTO
     0x00010047,
     0x0001006A,
     0x0001000A,
@@ -2787,6 +2923,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032017A,
     0x003C01BC,
     0x0000FFFF,
+    // SPECIES_KABUTOPS
     0x000000A3,
     0x000100A3,
     0x00010190,
@@ -2813,6 +2950,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004601BC,
     0x00480190,
     0x0000FFFF,
+    // SPECIES_AERODACTYL
     0x0001002C,
     0x000100F6,
     0x000101BA,
@@ -2837,6 +2975,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B003F,
     0x004501A0,
     0x0000FFFF,
+    // SPECIES_SNORLAX
     0x00010116,
     0x00010157,
     0x000100FE,
@@ -2870,6 +3009,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F029E,
     0x00340235,
     0x0000FFFF,
+    // SPECIES_ARTICUNO
     0x00010010,
     0x00010036,
     0x000100B5,
@@ -2889,6 +3029,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00480221,
     0x00530149,
     0x0000FFFF,
+    // SPECIES_ZAPDOS
     0x00010040,
     0x00010056,
     0x00010054,
@@ -2908,6 +3049,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004D025D,
     0x005300C0,
     0x0000FFFF,
+    // SPECIES_MOLTRES
     0x00010010,
     0x0001002B,
     0x00010011,
@@ -2930,6 +3072,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0049008F,
     0x005002AD,
     0x0000FFFF,
+    // SPECIES_DRATINI
     0x00010023,
     0x0001002B,
     0x000700EF,
@@ -2946,6 +3089,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003700C8,
     0x003C003F,
     0x0000FFFF,
+    // SPECIES_DRAGONAIR
     0x00010023,
     0x0001002B,
     0x000100EF,
@@ -2964,6 +3108,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004300C8,
     0x004A003F,
     0x0000FFFF,
+    // SPECIES_DRAGONITE
     0x00000221,
     0x00000011,
     0x00010221,
@@ -2991,6 +3136,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004D003F,
     0x00510221,
     0x0000FFFF,
+    // SPECIES_MEWTWO
     0x0001031A,
     0x000102A4,
     0x00010032,
@@ -3016,6 +3162,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0055021F,
     0x005D017E,
     0x0000FFFF,
+    // SPECIES_MEW
     0x00010001,
     0x00010204,
     0x000A0085,
@@ -3029,6 +3176,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005A018C,
     0x0064005E,
     0x0000FFFF,
+    // SPECIES_CHIKORITA
     0x0001002D,
     0x00010021,
     0x0006004B,
@@ -3045,6 +3193,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0138,
     0x002D004C,
     0x0000FFFF,
+    // SPECIES_BAYLEEF
     0x0001002D,
     0x0001004D,
     0x0001004B,
@@ -3061,6 +3210,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320138,
     0x0036004C,
     0x0000FFFF,
+    // SPECIES_MEGANIUM
     0x00000050,
     0x00010050,
     0x0001002D,
@@ -3080,6 +3230,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0138,
     0x0041004C,
     0x0000FFFF,
+    // SPECIES_CYNDAQUIL
     0x0001002B,
     0x00010021,
     0x0006006C,
@@ -3097,6 +3248,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A013B,
     0x0040011C,
     0x0000FFFF,
+    // SPECIES_QUILAVA
     0x0001002B,
     0x0001006C,
     0x00010021,
@@ -3114,6 +3266,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0044013B,
     0x004B011C,
     0x0000FFFF,
+    // SPECIES_TYPHLOSION
     0x00010026,
     0x00010034,
     0x0001011C,
@@ -3132,6 +3285,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D00CD,
     0x004A013B,
     0x0000FFFF,
+    // SPECIES_TOTODILE
     0x0001000A,
     0x0001002B,
     0x00060037,
@@ -3149,6 +3303,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300114,
     0x00320038,
     0x0000FFFF,
+    // SPECIES_CROCONAW
     0x0001000A,
     0x0001002B,
     0x00010037,
@@ -3167,6 +3322,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390114,
     0x003C0038,
     0x0000FFFF,
+    // SPECIES_FERALIGATR
     0x00010061,
     0x0001000A,
     0x0001002B,
@@ -3187,6 +3343,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00470114,
     0x004C0038,
     0x0000FFFF,
+    // SPECIES_SENTRET
     0x0001000A,
     0x000100C1,
     0x0004006F,
@@ -3202,6 +3359,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A017E,
     0x002F0130,
     0x0000FFFF,
+    // SPECIES_FURRET
     0x00000061,
     0x00010061,
     0x000101EC,
@@ -3222,6 +3380,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032017E,
     0x00380130,
     0x0000FFFF,
+    // SPECIES_HOOTHOOT
     0x0001002D,
     0x00010040,
     0x00030021,
@@ -3238,6 +3397,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0024005F,
     0x0027008A,
     0x0000FFFF,
+    // SPECIES_NOCTOWL
     0x000101F4,
     0x0001002D,
     0x00010040,
@@ -3254,6 +3414,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030005F,
     0x0035008A,
     0x0000FFFF,
+    // SPECIES_LEDYBA
     0x00010021,
     0x00050030,
     0x00080081,
@@ -3269,6 +3430,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00240193,
     0x00280026,
     0x0000FFFF,
+    // SPECIES_LEDIAN
     0x00010021,
     0x00010030,
     0x00010081,
@@ -3286,6 +3448,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0193,
     0x002F0026,
     0x0000FFFF,
+    // SPECIES_SPINARAK
     0x00010028,
     0x00010051,
     0x00010084,
@@ -3305,6 +3468,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320237,
     0x003602A3,
     0x0000FFFF,
+    // SPECIES_ARIADOS
     0x0000000E,
     0x0001000E,
     0x00010074,
@@ -3331,6 +3495,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A0237,
     0x003F02A3,
     0x0000FFFF,
+    // SPECIES_CROBAT
     0x000001B8,
     0x000101B8,
     0x0001016E,
@@ -3356,6 +3521,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0035008D,
     0x00370193,
     0x0000FFFF,
+    // SPECIES_CHINCHOU
     0x00010037,
     0x00010030,
     0x00010091,
@@ -3374,6 +3540,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0038,
     0x002F023C,
     0x0000FFFF,
+    // SPECIES_LANTURN
     0x000000FF,
     0x00000100,
     0x000000FE,
@@ -3402,6 +3569,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340038,
     0x0036023C,
     0x0000FFFF,
+    // SPECIES_PICHU
     0x00010054,
     0x00010027,
     0x000100CC,
@@ -3413,6 +3581,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00120056,
     0x001400CC,
     0x0000FFFF,
+    // SPECIES_CLEFFA
     0x00010096,
     0x00010001,
     0x0001017F,
@@ -3425,6 +3594,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00100159,
     0x001400CC,
     0x0000FFFF,
+    // SPECIES_IGGLYBUFF
     0x0001002F,
     0x00010001,
     0x0001017F,
@@ -3437,6 +3607,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00100032,
     0x001400CC,
     0x0000FFFF,
+    // SPECIES_TOGEPI
     0x0001002D,
     0x00010001,
     0x000100CC,
@@ -3456,6 +3627,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00E2,
     0x00300183,
     0x0000FFFF,
+    // SPECIES_TOGETIC
     0x0000024B,
     0x0001024B,
     0x0001002D,
@@ -3481,6 +3653,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00E2,
     0x00300183,
     0x0000FFFF,
+    // SPECIES_NATU
     0x00010040,
     0x0001002B,
     0x00090064,
@@ -3498,6 +3671,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C00F8,
     0x0032017E,
     0x0000FFFF,
+    // SPECIES_XATU
     0x00000193,
     0x00010193,
     0x0001016E,
@@ -3521,6 +3695,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400F8,
     0x0039017E,
     0x0000FFFF,
+    // SPECIES_MAREEP
     0x00010021,
     0x0001002D,
     0x00040056,
@@ -3537,6 +3712,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0071,
     0x002E0057,
     0x0000FFFF,
+    // SPECIES_FLAAFFY
     0x00010021,
     0x0001002D,
     0x00010056,
@@ -3555,6 +3731,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340071,
     0x00380057,
     0x0000FFFF,
+    // SPECIES_AMPHAROS
     0x00000009,
     0x00010009,
     0x000100C0,
@@ -3581,6 +3758,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003E0057,
     0x00410196,
     0x0000FFFF,
+    // SPECIES_BELLOSSOM
     0x0000023F,
     0x00000159,
     0x0001023F,
@@ -3608,6 +3786,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B0050,
     0x004501B5,
     0x0000FFFF,
+    // SPECIES_MARILL
     0x000100CD,
     0x0001006F,
     0x00010021,
@@ -3632,6 +3811,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00250038,
     0x00250114,
     0x0000FFFF,
+    // SPECIES_AZUMARILL
     0x000100CD,
     0x0001006F,
     0x00010021,
@@ -3657,6 +3837,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0038,
     0x00300114,
     0x0000FFFF,
+    // SPECIES_SUDOWOODO
     0x00000015,
     0x00010015,
     0x000101BC,
@@ -3683,6 +3864,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003201C9,
     0x00320167,
     0x0000FFFF,
+    // SPECIES_POLITOED
     0x00000154,
     0x00010154,
     0x000100CF,
@@ -3704,6 +3886,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00250154,
     0x00300130,
     0x0000FFFF,
+    // SPECIES_HOPPIP
     0x00010047,
     0x00010096,
     0x000400EB,
@@ -3725,6 +3908,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0154,
     0x00310106,
     0x0000FFFF,
+    // SPECIES_SKIPLOOM
     0x00010047,
     0x00010096,
     0x000100EB,
@@ -3748,6 +3932,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00380154,
     0x003C0106,
     0x0000FFFF,
+    // SPECIES_JUMPLUFF
     0x00010047,
     0x00010096,
     0x000100EB,
@@ -3771,6 +3956,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00400154,
     0x00450106,
     0x0000FFFF,
+    // SPECIES_AIPOM
     0x0001000A,
     0x00010027,
     0x0004001C,
@@ -3786,6 +3972,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002701A1,
     0x002B0183,
     0x0000FFFF,
+    // SPECIES_SUNKERN
     0x00010047,
     0x0001004A,
     0x00040113,
@@ -3803,6 +3990,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002800F1,
     0x002B0192,
     0x0000FFFF,
+    // SPECIES_SUNFLORA
     0x00010246,
     0x00010047,
     0x00010001,
@@ -3823,6 +4011,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B01B5,
     0x0032023F,
     0x0000FFFF,
+    // SPECIES_YANMA
     0x00010021,
     0x000100C1,
     0x00060062,
@@ -3840,6 +4029,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360193,
     0x00390195,
     0x0000FFFF,
+    // SPECIES_WOOPER
     0x00010037,
     0x00010027,
     0x0005012C,
@@ -3856,6 +4046,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0024005C,
     0x00240059,
     0x0000FFFF,
+    // SPECIES_QUAGSIRE
     0x00010037,
     0x00010027,
     0x000100F0,
@@ -3875,6 +4066,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0059,
     0x002E005C,
     0x0000FFFF,
+    // SPECIES_ESPEON
     0x0000005D,
     0x0001005D,
     0x00010157,
@@ -3900,6 +4092,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270180,
     0x00300183,
     0x0000FFFF,
+    // SPECIES_UMBREON
     0x0000022E,
     0x000000E4,
     0x0001022E,
@@ -3929,6 +4122,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B00D4,
     0x00300183,
     0x0000FFFF,
+    // SPECIES_MURKROW
     0x00010040,
     0x00010136,
     0x000500E4,
@@ -3945,6 +4139,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D0103,
     0x00410202,
     0x0000FFFF,
+    // SPECIES_SLOWKING
     0x00010374,
     0x000100F8,
     0x000100AE,
@@ -3967,6 +4162,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00F0,
     0x002D01FC,
     0x0000FFFF,
+    // SPECIES_MISDREAVUS
     0x0001002D,
     0x00010095,
     0x000500B4,
@@ -3982,8 +4178,10 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320120,
     0x00370198,
     0x0000FFFF,
+    // SPECIES_UNOWN
     0x000100ED,
     0x0000FFFF,
+    // SPECIES_WOBBUFFET
     0x000000C2,
     0x000000DB,
     0x000000F3,
@@ -3997,6 +4195,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000100DB,
     0x000100C2,
     0x0000FFFF,
+    // SPECIES_GIRAFARIG
     0x00010180,
     0x00010181,
     0x00010136,
@@ -4015,6 +4214,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01A1,
     0x0032005E,
     0x0000FFFF,
+    // SPECIES_PINECO
     0x00010021,
     0x000100B6,
     0x00060078,
@@ -4030,6 +4230,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0168,
     0x002D0026,
     0x0000FFFF,
+    // SPECIES_FORRETRESS
     0x000001DE,
     0x000001AD,
     0x000101AD,
@@ -4058,6 +4259,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C00C0,
     0x004001E7,
     0x0000FFFF,
+    // SPECIES_DUNSPARCE
     0x0001006F,
     0x000100AF,
     0x000400BD,
@@ -4074,6 +4276,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300026,
     0x0034011B,
     0x0000FFFF,
+    // SPECIES_GLIGAR
     0x00010028,
     0x0004001C,
     0x0007006A,
@@ -4090,6 +4293,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032000E,
     0x0037000C,
     0x0000FFFF,
+    // SPECIES_STEELIX
     0x000100F2,
     0x000101A6,
     0x000101A7,
@@ -4121,6 +4325,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340026,
     0x003C0189,
     0x0000FFFF,
+    // SPECIES_SNUBBULL
     0x000101A7,
     0x000101A8,
     0x000101A6,
@@ -4137,6 +4342,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0173,
     0x003100F2,
     0x0000FFFF,
+    // SPECIES_GRANBULL
     0x000100C8,
     0x000101A7,
     0x000101A8,
@@ -4155,6 +4361,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B00F2,
     0x004300C8,
     0x0000FFFF,
+    // SPECIES_QWILFISH
     0x00010028,
     0x00010021,
     0x00010238,
@@ -4183,6 +4390,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B00C2,
     0x003C016F,
     0x0000FFFF,
+    // SPECIES_SCIZOR
     0x000001A2,
     0x000101A2,
     0x00010011,
@@ -4211,6 +4419,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034000E,
     0x003D016C,
     0x0000FFFF,
+    // SPECIES_SHUCKLE
     0x0001006E,
     0x00010023,
     0x00010237,
@@ -4234,6 +4443,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330237,
     0x003601BC,
     0x0000FFFF,
+    // SPECIES_HERACROSS
     0x00010021,
     0x0001002B,
     0x00010124,
@@ -4258,6 +4468,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032000E,
     0x00340172,
     0x0000FFFF,
+    // SPECIES_SNEASEL
     0x0001002B,
     0x0001000A,
     0x0006010D,
@@ -4271,6 +4482,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360067,
     0x003C00A3,
     0x0000FFFF,
+    // SPECIES_TEDDIURSA
     0x00010263,
     0x00010157,
     0x00010176,
@@ -4287,6 +4499,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002500AD,
     0x00290025,
     0x0000FFFF,
+    // SPECIES_URSARING
     0x0001000A,
     0x0001002B,
     0x0001007A,
@@ -4305,6 +4518,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00380025,
     0x00400167,
     0x0000FFFF,
+    // SPECIES_SLUGMA
     0x00010119,
     0x0001007B,
     0x00060034,
@@ -4322,6 +4536,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300035,
     0x0032019E,
     0x0000FFFF,
+    // SPECIES_MAGCARGO
     0x000001FB,
     0x000101FB,
     0x0001019E,
@@ -4344,6 +4559,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360035,
     0x003A019E,
     0x0000FFFF,
+    // SPECIES_SWINUB
     0x00010021,
     0x000100BD,
     0x0001013C,
@@ -4361,6 +4577,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00290059,
     0x002F003B,
     0x0000FFFF,
+    // SPECIES_PILOSWINE
     0x000001A7,
     0x0000001F,
     0x000101A7,
@@ -4388,6 +4605,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350025,
     0x0037003B,
     0x0000FFFF,
+    // SPECIES_CORSOLA
     0x00010021,
     0x0001006A,
     0x00040091,
@@ -4409,6 +4627,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D019E,
     0x003200F3,
     0x0000FFFF,
+    // SPECIES_REMORAID
     0x00010037,
     0x0001010E,
     0x000B003C,
@@ -4424,6 +4643,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C01EA,
     0x002C003F,
     0x0000FFFF,
+    // SPECIES_OCTILLERY
     0x000000BE,
     0x000100BE,
     0x000101B9,
@@ -4450,9 +4670,11 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003701EA,
     0x0037003F,
     0x0000FFFF,
+    // SPECIES_DELIBIRD
     0x000100D9,
     0x00190041,
     0x0000FFFF,
+    // SPECIES_MANTINE
     0x0001003C,
     0x0001014B,
     0x00010163,
@@ -4477,6 +4699,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0154,
     0x00300038,
     0x0000FFFF,
+    // SPECIES_SKARMORY
     0x00010040,
     0x0001002B,
     0x0004001C,
@@ -4498,6 +4721,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034019D,
     0x00350190,
     0x0000FFFF,
+    // SPECIES_HOUNDOUR
     0x0001002B,
     0x00010034,
     0x00040150,
@@ -4515,6 +4739,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003401A1,
     0x00380208,
     0x0000FFFF,
+    // SPECIES_HOUNDOOM
     0x00010208,
     0x000101A1,
     0x000101A6,
@@ -4537,6 +4762,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C01A1,
     0x00410208,
     0x0000FFFF,
+    // SPECIES_KINGDRA
     0x000100FA,
     0x00010119,
     0x00010037,
@@ -4560,6 +4786,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037015D,
     0x004100F0,
     0x0000FFFF,
+    // SPECIES_PHANPY
     0x0001013C,
     0x00010021,
     0x0001002D,
@@ -4574,6 +4801,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00250183,
     0x002A0026,
     0x0000FFFF,
+    // SPECIES_DONPHAN
     0x0000001F,
     0x0001001F,
     0x000101A8,
@@ -4592,6 +4820,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0059,
     0x003201A0,
     0x0000FFFF,
+    // SPECIES_PORYGON2
     0x0001006F,
     0x00010021,
     0x000100A0,
@@ -4615,6 +4844,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C00C0,
     0x0041003F,
     0x0000FFFF,
+    // SPECIES_STANTLER
     0x00010021,
     0x0003002B,
     0x00070136,
@@ -4629,6 +4859,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031011E,
     0x00370026,
     0x0000FFFF,
+    // SPECIES_SMEARGLE
     0x000100A6,
     0x000B00A6,
     0x001500A6,
@@ -4640,12 +4871,14 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005100A6,
     0x005B00A6,
     0x0000FFFF,
+    // SPECIES_TYROGUE
     0x00010021,
     0x0001010E,
     0x000100FC,
     0x00010074,
     0x000100C1,
     0x0000FFFF,
+    // SPECIES_HITMONTOP
     0x000000A7,
     0x0000001B,
     0x000100A7,
@@ -4680,6 +4913,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0172,
     0x0033011B,
     0x0000FFFF,
+    // SPECIES_SMOOCHUM
     0x0001007A,
     0x00010001,
     0x0005007A,
@@ -4699,6 +4933,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C00C3,
     0x0030003B,
     0x0000FFFF,
+    // SPECIES_ELEKID
     0x00010062,
     0x0001002B,
     0x00040054,
@@ -4715,6 +4950,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280055,
     0x002D0057,
     0x0000FFFF,
+    // SPECIES_MAGBY
     0x0001007B,
     0x0001002B,
     0x00040034,
@@ -4733,6 +4969,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002800F1,
     0x002D007E,
     0x0000FFFF,
+    // SPECIES_MILTANK
     0x00010021,
     0x0001002D,
     0x0003002D,
@@ -4752,6 +4989,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320166,
     0x0037029E,
     0x0000FFFF,
+    // SPECIES_BLISSEY
     0x000100BA,
     0x00010241,
     0x00010157,
@@ -4781,6 +5019,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330026,
     0x00360169,
     0x0000FFFF,
+    // SPECIES_RAIKOU
     0x000100F5,
     0x00010054,
     0x0001002B,
@@ -4805,6 +5044,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004E0057,
     0x004E00C0,
     0x0000FFFF,
+    // SPECIES_ENTEI
     0x000100DD,
     0x000100F5,
     0x00010034,
@@ -4833,6 +5073,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0047007E,
     0x0051011C,
     0x0000FFFF,
+    // SPECIES_SUICUNE
     0x00010149,
     0x000100F5,
     0x00010037,
@@ -4860,6 +5101,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00470038,
     0x0051003B,
     0x0000FFFF,
+    // SPECIES_LARVITAR
     0x00010021,
     0x0001002B,
     0x0001002C,
@@ -4879,6 +5121,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002801BC,
     0x0030003F,
     0x0000FFFF,
+    // SPECIES_PUPITAR
     0x0000014E,
     0x0001014E,
     0x00010021,
@@ -4903,6 +5146,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F01BC,
     0x003B003F,
     0x0000FFFF,
+    // SPECIES_TYRANITAR
     0x0001014E,
     0x000101A6,
     0x000101A7,
@@ -4930,6 +5174,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D003F,
     0x004501A0,
     0x0000FFFF,
+    // SPECIES_LUGIA
     0x00010197,
     0x00010010,
     0x00010012,
@@ -4951,6 +5196,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0055016B,
     0x005E008F,
     0x0000FFFF,
+    // SPECIES_HO_OH
     0x00010010,
     0x00010012,
     0x00010137,
@@ -4972,6 +5218,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005E008F,
     0x006302AD,
     0x0000FFFF,
+    // SPECIES_CELEBI
     0x0001005D,
     0x000100D7,
     0x00010049,
@@ -4990,6 +5237,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005601B5,
     0x005F00C3,
     0x0000FFFF,
+    // SPECIES_TREECKO
     0x00010001,
     0x0001002B,
     0x000302A1,
@@ -5009,6 +5257,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280067,
     0x0028011B,
     0x0000FFFF,
+    // SPECIES_GROVYLE
     0x000000D2,
     0x000100D2,
     0x000100CE,
@@ -5037,6 +5286,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350067,
     0x003801B5,
     0x0000FFFF,
+    // SPECIES_SCEPTILE
     0x00000215,
     0x00010215,
     0x000100D2,
@@ -5068,6 +5318,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A0067,
     0x003F01B5,
     0x0000FFFF,
+    // SPECIES_TORCHIC
     0x0001000A,
     0x0001002D,
     0x00030034,
@@ -5088,6 +5339,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0027018A,
     0x00290077,
     0x0000FFFF,
+    // SPECIES_COMBUSKEN
     0x00000018,
     0x00010018,
     0x00010035,
@@ -5114,6 +5366,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350147,
     0x0038018A,
     0x0000FFFF,
+    // SPECIES_BLAZIKEN
     0x0000012B,
     0x00010018,
     0x00010007,
@@ -5145,6 +5398,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390147,
     0x003F018A,
     0x0000FFFF,
+    // SPECIES_MUDKIP
     0x00010021,
     0x0001002D,
     0x00030037,
@@ -5166,6 +5420,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0027011B,
     0x00270038,
     0x0000FFFF,
+    // SPECIES_MARSHTOMP
     0x00000155,
     0x00010155,
     0x00010059,
@@ -5193,6 +5448,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032011B,
     0x00370038,
     0x0000FFFF,
+    // SPECIES_SWAMPERT
     0x00010155,
     0x00010167,
     0x00010059,
@@ -5221,6 +5477,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003F0038,
     0x003F0167,
     0x0000FFFF,
+    // SPECIES_POOCHYENA
     0x00010021,
     0x00040150,
     0x0007001C,
@@ -5238,6 +5495,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0185,
     0x002E024A,
     0x0000FFFF,
+    // SPECIES_MIGHTYENA
     0x0000022E,
     0x0001022E,
     0x000101A8,
@@ -5265,6 +5523,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340185,
     0x0038024A,
     0x0000FFFF,
+    // SPECIES_ZIGZAGOON
     0x00010021,
     0x0001002D,
     0x0004001C,
@@ -5283,6 +5542,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002200BB,
     0x00240026,
     0x0000FFFF,
+    // SPECIES_LINOONE
     0x000000A3,
     0x000100A3,
     0x0001019F,
@@ -5311,14 +5571,17 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00290026,
     0x002B00BB,
     0x0000FFFF,
+    // SPECIES_WURMPLE
     0x00010021,
     0x00010051,
     0x00050028,
     0x000F01C2,
     0x0000FFFF,
+    // SPECIES_SILCOON
     0x0000006A,
     0x0001006A,
     0x0000FFFF,
+    // SPECIES_BEAUTIFLY
     0x00000010,
     0x00010010,
     0x000C0047,
@@ -5334,9 +5597,11 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00250063,
     0x002801E6,
     0x0000FFFF,
+    // SPECIES_CASCOON
     0x0000006A,
     0x0001006A,
     0x0000FFFF,
+    // SPECIES_DUSTOX
     0x00000010,
     0x00010010,
     0x000C005D,
@@ -5352,6 +5617,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002500B6,
     0x002801E6,
     0x0000FFFF,
+    // SPECIES_LOTAD
     0x00010136,
     0x0001002D,
     0x0003002D,
@@ -5369,6 +5635,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002301AC,
     0x0027019C,
     0x0000FFFF,
+    // SPECIES_LOMBRE
     0x0001012A,
     0x000100FC,
     0x0001011A,
@@ -5395,6 +5662,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360038,
     0x0039019C,
     0x0000FFFF,
+    // SPECIES_LUDICOLO
     0x0001012A,
     0x000100FC,
     0x0001011A,
@@ -5414,6 +5682,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010047,
     0x00010037,
     0x0000FFFF,
+    // SPECIES_SEEDOT
     0x00010021,
     0x0001006A,
     0x00010075,
@@ -5430,6 +5699,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001E0185,
     0x00210099,
     0x0000FFFF,
+    // SPECIES_NUZLEAF
     0x0000004B,
     0x0001004B,
     0x0001013A,
@@ -5459,6 +5729,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B015C,
     0x00320185,
     0x0000FFFF,
+    // SPECIES_SHIFTRY
     0x0000021B,
     0x0001021B,
     0x0001004B,
@@ -5489,6 +5760,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00200221,
     0x002C01B5,
     0x0000FFFF,
+    // SPECIES_TAILLOW
     0x00010040,
     0x0001002D,
     0x00050074,
@@ -5503,6 +5775,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0029019D,
     0x002D00B3,
     0x0000FFFF,
+    // SPECIES_SWELLOW
     0x0001019D,
     0x00010193,
     0x0001016D,
@@ -5522,6 +5795,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0033019D,
     0x003900B3,
     0x0000FFFF,
+    // SPECIES_WINGULL
     0x0001002D,
     0x00010037,
     0x00070030,
@@ -5537,6 +5811,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00240163,
     0x002C0221,
     0x0000FFFF,
+    // SPECIES_PELIPPER
     0x000000B6,
     0x000100B6,
     0x000101EA,
@@ -5566,6 +5841,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370221,
     0x00380038,
     0x0000FFFF,
+    // SPECIES_RALTS
     0x0001002D,
     0x00010241,
     0x00040068,
@@ -5587,6 +5863,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0025008A,
     0x002A01F7,
     0x0000FFFF,
+    // SPECIES_KIRLIA
     0x0001002D,
     0x00010241,
     0x00010068,
@@ -5611,6 +5888,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F008A,
     0x003301F7,
     0x0000FFFF,
+    // SPECIES_GARDEVOIR
     0x00000260,
     0x00010260,
     0x0001024C,
@@ -5643,6 +5921,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A01F7,
     0x003E024C,
     0x0000FFFF,
+    // SPECIES_SURSKIT
     0x00010091,
     0x00060062,
     0x000900E6,
@@ -5655,6 +5934,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002300E2,
     0x00260237,
     0x0000FFFF,
+    // SPECIES_MASQUERAIN
     0x000101E6,
     0x00010012,
     0x00010195,
@@ -5676,6 +5956,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300012,
     0x003401E6,
     0x0000FFFF,
+    // SPECIES_SHROOMISH
     0x00010047,
     0x00010021,
     0x0005004E,
@@ -5690,6 +5971,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00240192,
     0x00280093,
     0x0000FFFF,
+    // SPECIES_BRELOOM
     0x000000B7,
     0x000100B7,
     0x00010047,
@@ -5708,6 +5990,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0192,
     0x003200DF,
     0x0000FFFF,
+    // SPECIES_SLAKOTH
     0x0001000A,
     0x00010119,
     0x000600E3,
@@ -5720,6 +6003,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002100AF,
     0x0026024A,
     0x0000FFFF,
+    // SPECIES_VIGOROTH
     0x000100B3,
     0x0001000A,
     0x00010074,
@@ -5735,6 +6019,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00250108,
     0x002B00B3,
     0x0000FFFF,
+    // SPECIES_SLAKING
     0x000000CF,
     0x000100CF,
     0x00010167,
@@ -5756,6 +6041,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350182,
     0x003D0167,
     0x0000FFFF,
+    // SPECIES_NINCADA
     0x0001001C,
     0x0001000A,
     0x0001006A,
@@ -5770,6 +6056,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001E00AA,
     0x0026005B,
     0x0000FFFF,
+    // SPECIES_NINJASK
     0x000000D2,
     0x00000067,
     0x00000068,
@@ -5798,6 +6085,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031000E,
     0x00380194,
     0x0000FFFF,
+    // SPECIES_SHEDINJA
     0x000101A5,
     0x00010120,
     0x000100BD,
@@ -5820,6 +6108,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00F7,
     0x00370239,
     0x0000FFFF,
+    // SPECIES_WHISMUR
     0x00010136,
     0x00010001,
     0x000401F4,
@@ -5835,6 +6124,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0130,
     0x002B01E8,
     0x0000FFFF,
+    // SPECIES_LOUDRED
     0x0000002C,
     0x0001002C,
     0x00010136,
@@ -5854,6 +6144,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003201E8,
     0x00330130,
     0x0000FFFF,
+    // SPECIES_EXPLOUD
     0x000000F2,
     0x000100F2,
     0x0001002C,
@@ -5880,6 +6171,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0041024D,
     0x0049003F,
     0x0000FFFF,
+    // SPECIES_MAKUHITA
     0x00010021,
     0x00010074,
     0x0004001C,
@@ -5898,6 +6190,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B00B3,
     0x002E01E7,
     0x0000FFFF,
+    // SPECIES_HARIYAMA
     0x0001016A,
     0x00010021,
     0x00010074,
@@ -5919,6 +6212,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200B3,
     0x003601E7,
     0x0000FFFF,
+    // SPECIES_AZURILL
     0x00010096,
     0x00010037,
     0x00010027,
@@ -5931,6 +6225,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000F0015,
     0x00120154,
     0x0000FFFF,
+    // SPECIES_NOSEPASS
     0x00010021,
     0x0004006A,
     0x0007014F,
@@ -5948,6 +6243,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B00C7,
     0x002B00C0,
     0x0000FFFF,
+    // SPECIES_SKITTY
     0x000100FC,
     0x0001002D,
     0x00010027,
@@ -5968,11 +6264,13 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B01BD,
     0x002E024A,
     0x0000FFFF,
+    // SPECIES_DELCATTY
     0x000100FC,
     0x0001002F,
     0x000100D5,
     0x00010003,
     0x0000FFFF,
+    // SPECIES_SABLEYE
     0x0001002B,
     0x0001000A,
     0x000400C1,
@@ -5995,6 +6293,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00F7,
     0x002C01EF,
     0x0000FFFF,
+    // SPECIES_MAWILE
     0x00010136,
     0x0001002D,
     0x0001024A,
@@ -6018,6 +6317,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028010D,
     0x0030024A,
     0x0000FFFF,
+    // SPECIES_ARON
     0x00010021,
     0x0001006A,
     0x000400BD,
@@ -6037,6 +6337,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003101E7,
     0x00360170,
     0x0000FFFF,
+    // SPECIES_LAIRON
     0x00010021,
     0x0001006A,
     0x000100E8,
@@ -6060,6 +6361,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390026,
     0x00420170,
     0x0000FFFF,
+    // SPECIES_AGGRON
     0x00010021,
     0x0001006A,
     0x000100E8,
@@ -6083,6 +6385,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004101E7,
     0x004C0170,
     0x0000FFFF,
+    // SPECIES_MEDITITE
     0x00010075,
     0x00040060,
     0x0007005D,
@@ -6101,6 +6404,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00290069,
     0x002C0044,
     0x0000FFFF,
+    // SPECIES_MEDICHAM
     0x000101AC,
     0x00010007,
     0x00010009,
@@ -6126,6 +6430,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0069,
     0x00350044,
     0x0000FFFF,
+    // SPECIES_ELECTRIKE
     0x00010021,
     0x00010056,
     0x0004002B,
@@ -6142,6 +6447,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270213,
     0x002E0057,
     0x0000FFFF,
+    // SPECIES_MANECTRIC
     0x000101A8,
     0x00010021,
     0x00010056,
@@ -6163,6 +6469,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360057,
     0x003C025F,
     0x0000FFFF,
+    // SPECIES_PLUSLE
     0x00010264,
     0x00010250,
     0x0001002D,
@@ -6185,6 +6492,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01A1,
     0x003101F1,
     0x0000FFFF,
+    // SPECIES_MINUN
     0x00010264,
     0x00010250,
     0x0001002D,
@@ -6207,6 +6515,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01A1,
     0x003101F1,
     0x0000FFFF,
+    // SPECIES_VOLBEAT
     0x00010094,
     0x00010021,
     0x00050068,
@@ -6224,6 +6533,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0026,
     0x00320266,
     0x0000FFFF,
+    // SPECIES_ILLUMISE
     0x00010250,
     0x00010021,
     0x000500E6,
@@ -6241,6 +6551,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0157,
     0x00320266,
     0x0000FFFF,
+    // SPECIES_ROSELIA
     0x00000028,
     0x00010028,
     0x00010047,
@@ -6264,6 +6575,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0138,
     0x00370050,
     0x0000FFFF,
+    // SPECIES_GULPIN
     0x00010001,
     0x00050119,
     0x0008008B,
@@ -6281,6 +6593,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C017A,
     0x003101B9,
     0x0000FFFF,
+    // SPECIES_SWALOT
     0x00000022,
     0x00010022,
     0x0001025A,
@@ -6306,6 +6619,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0036017A,
     0x003D01B9,
     0x0000FFFF,
+    // SPECIES_CARVANHA
     0x000101C5,
     0x0001002B,
     0x0001002C,
@@ -6324,6 +6638,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002802C9,
     0x002B0024,
     0x0000FFFF,
+    // SPECIES_SHARPEDO
     0x000000A3,
     0x000100A3,
     0x00010190,
@@ -6352,6 +6667,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0038010D,
     0x003E0190,
     0x0000FFFF,
+    // SPECIES_WAILMER
     0x00010096,
     0x0003002D,
     0x00090037,
@@ -6370,6 +6686,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00290143,
     0x002E0038,
     0x0000FFFF,
+    // SPECIES_WAILORD
     0x000101EA,
     0x0001023B,
     0x00010096,
@@ -6395,6 +6712,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0143,
     0x00350038,
     0x0000FFFF,
+    // SPECIES_NUMEL
     0x0001002D,
     0x00010021,
     0x00050034,
@@ -6411,6 +6729,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0035,
     0x002F0026,
     0x0000FFFF,
+    // SPECIES_CAMERUPT
     0x0000009D,
     0x0001009D,
     0x0001005A,
@@ -6433,6 +6752,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034011C,
     0x003B005A,
     0x0000FFFF,
+    // SPECIES_TORKOAL
     0x0001007B,
     0x00010034,
     0x0004007B,
@@ -6455,6 +6775,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003501FB,
     0x0040011C,
     0x0000FFFF,
+    // SPECIES_SPOINK
     0x00010096,
     0x00070095,
     0x000A013C,
@@ -6471,6 +6792,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C005E,
     0x00320154,
     0x0000FFFF,
+    // SPECIES_GRUMPIG
     0x0000012A,
     0x0001012A,
     0x00010235,
@@ -6493,6 +6815,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034005E,
     0x003C0154,
     0x0000FFFF,
+    // SPECIES_SPINDA
     0x00010021,
     0x0005017F,
     0x000A00B9,
@@ -6507,6 +6830,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200AF,
     0x00370025,
     0x0000FFFF,
+    // SPECIES_TRAPINCH
     0x0001001C,
     0x00010136,
     0x0001002C,
@@ -6528,6 +6852,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B003F,
     0x002F005A,
     0x0000FFFF,
+    // SPECIES_VIBRAVA
     0x000000E1,
     0x000100E1,
     0x000102A4,
@@ -6559,6 +6884,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037024D,
     0x00380197,
     0x0000FFFF,
+    // SPECIES_FLYGON
     0x00000151,
     0x00010151,
     0x000100E1,
@@ -6593,6 +6919,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350197,
     0x0044024D,
     0x0000FFFF,
+    // SPECIES_CACNEA
     0x00010028,
     0x0001002B,
     0x00040047,
@@ -6611,6 +6938,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200C9,
     0x003600C2,
     0x0000FFFF,
+    // SPECIES_CACTURNE
     0x00000257,
     0x00010257,
     0x000100C2,
@@ -6635,6 +6963,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003600C9,
     0x003B00C2,
     0x0000FFFF,
+    // SPECIES_SWABLU
     0x00010040,
     0x0001002D,
     0x00030136,
@@ -6654,6 +6983,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A024C,
     0x002B00C3,
     0x0000FFFF,
+    // SPECIES_ALTARIA
     0x00000196,
     0x000000E1,
     0x00010196,
@@ -6684,6 +7014,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003000C3,
     0x0039008F,
     0x0000FFFF,
+    // SPECIES_ZANGOOSE
     0x0001000A,
     0x0001002B,
     0x00050062,
@@ -6701,6 +7032,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F000E,
     0x00320172,
     0x0000FFFF,
+    // SPECIES_SEVIPER
     0x00010023,
     0x000100CF,
     0x0004002C,
@@ -6722,6 +7054,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C01EC,
     0x002E017A,
     0x0000FFFF,
+    // SPECIES_LUNATONE
     0x0001024C,
     0x000100EC,
     0x00010021,
@@ -6744,6 +7077,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01E1,
     0x002F0099,
     0x0000FFFF,
+    // SPECIES_SOLROCK
     0x0001018A,
     0x000100EA,
     0x00010021,
@@ -6765,6 +7099,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01DB,
     0x002F0099,
     0x0000FFFF,
+    // SPECIES_BARBOACH
     0x000100BD,
     0x00010037,
     0x0006012C,
@@ -6782,6 +7117,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002800F8,
     0x002E005A,
     0x0000FFFF,
+    // SPECIES_WHISCASH
     0x00000025,
     0x00010025,
     0x00010235,
@@ -6808,6 +7144,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E00F8,
     0x0036005A,
     0x0000FFFF,
+    // SPECIES_CORPHISH
     0x00010037,
     0x0001006A,
     0x00010091,
@@ -6827,6 +7164,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030011B,
     0x0032000C,
     0x0000FFFF,
+    // SPECIES_CRAWDAUNT
     0x00000081,
     0x00010081,
     0x00010037,
@@ -6851,6 +7189,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A011B,
     0x003B000C,
     0x0000FFFF,
+    // SPECIES_BALTOY
     0x0001006A,
     0x000100BD,
     0x0001005D,
@@ -6872,6 +7211,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002700C9,
     0x002B0099,
     0x0000FFFF,
+    // SPECIES_CLAYDOL
     0x0000003F,
     0x0001003F,
     0x00010064,
@@ -6896,6 +7236,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C00C9,
     0x00340099,
     0x0000FFFF,
+    // SPECIES_LILEEP
     0x00010023,
     0x00010136,
     0x00010084,
@@ -6914,6 +7255,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0100,
     0x0034017A,
     0x0000FFFF,
+    // SPECIES_CRADILY
     0x00010049,
     0x00010023,
     0x00010136,
@@ -6937,6 +7279,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0100,
     0x003D017A,
     0x0000FFFF,
+    // SPECIES_ANORITH
     0x000100D2,
     0x0001006A,
     0x0001000A,
@@ -6954,6 +7297,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C00B6,
     0x002C0194,
     0x0000FFFF,
+    // SPECIES_ARMALDO
     0x000100D2,
     0x0001006A,
     0x00010037,
@@ -6974,10 +7318,12 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F00B6,
     0x002F0194,
     0x0000FFFF,
+    // SPECIES_FEEBAS
     0x00010096,
     0x000F0021,
     0x001B00AF,
     0x0000FFFF,
+    // SPECIES_MILOTIC
     0x00000160,
     0x00010160,
     0x000100AF,
@@ -7004,6 +7350,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D00F0,
     0x00300038,
     0x0000FFFF,
+    // SPECIES_CASTFORM
     0x00010021,
     0x000A0037,
     0x000A0034,
@@ -7018,6 +7365,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0023003B,
     0x002D0221,
     0x0000FFFF,
+    // SPECIES_KECLEON
     0x000100A8,
     0x00010027,
     0x00010136,
@@ -7038,6 +7386,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0185,
     0x003201E8,
     0x0000FFFF,
+    // SPECIES_SHUPPET
     0x0001011A,
     0x00040067,
     0x00070065,
@@ -7055,6 +7404,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032010F,
     0x00360239,
     0x0000FFFF,
+    // SPECIES_BANETTE
     0x00010239,
     0x0001011A,
     0x00010067,
@@ -7076,6 +7426,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A010F,
     0x00400239,
     0x0000FFFF,
+    // SPECIES_DUSKULL
     0x00010136,
     0x0001002B,
     0x00010065,
@@ -7094,6 +7445,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002800F7,
     0x003000F8,
     0x0000FFFF,
+    // SPECIES_DUSCLOPS
     0x00000145,
     0x00010145,
     0x00010007,
@@ -7122,6 +7474,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B00F7,
     0x003700F8,
     0x0000FFFF,
+    // SPECIES_TROPIUS
     0x000101B5,
     0x0001002B,
     0x00010010,
@@ -7140,6 +7493,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0038004C,
     0x003D01B5,
     0x0000FFFF,
+    // SPECIES_CHIMECHO
     0x00010169,
     0x000101E8,
     0x00010023,
@@ -7161,6 +7515,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003401E8,
     0x00390169,
     0x0000FFFF,
+    // SPECIES_ABSOL
     0x00010062,
     0x0001002B,
     0x000100C3,
@@ -7186,6 +7541,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003300F8,
     0x003700C3,
     0x0000FFFF,
+    // SPECIES_WYNAUT
     0x00010044,
     0x000100F3,
     0x000100DB,
@@ -7199,6 +7555,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000F00DB,
     0x000F00C2,
     0x0000FFFF,
+    // SPECIES_SNORUNT
     0x000100B5,
     0x00010136,
     0x0001002B,
@@ -7215,6 +7572,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003000F2,
     0x0035003B,
     0x0000FFFF,
+    // SPECIES_GLALIE
     0x00000240,
     0x00010240,
     0x00010149,
@@ -7236,6 +7594,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A003B,
     0x003D0149,
     0x0000FFFF,
+    // SPECIES_SPHEAL
     0x000100CD,
     0x0001006F,
     0x000100B5,
@@ -7257,6 +7616,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0102,
     0x00310149,
     0x0000FFFF,
+    // SPECIES_SEALEO
     0x000000CF,
     0x000100CF,
     0x000100CD,
@@ -7278,6 +7638,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300102,
     0x003A0149,
     0x0000FFFF,
+    // SPECIES_WALREIN
     0x000001A7,
     0x000100CF,
     0x000100F2,
@@ -7301,12 +7662,14 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034003B,
     0x00420149,
     0x0000FFFF,
+    // SPECIES_CLAMPERL
     0x00010080,
     0x00010037,
     0x000100FA,
     0x0001014E,
     0x003201FB,
     0x0000FFFF,
+    // SPECIES_HUNTAIL
     0x000100FA,
     0x0001002C,
     0x00050067,
@@ -7323,6 +7686,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01EC,
     0x00320038,
     0x0000FFFF,
+    // SPECIES_GOREBYSS
     0x000100FA,
     0x0001005D,
     0x0005015A,
@@ -7339,6 +7703,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01EC,
     0x00320038,
     0x0000FFFF,
+    // SPECIES_RELICANTH
     0x00010021,
     0x0001006A,
     0x000100AF,
@@ -7359,6 +7724,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320026,
     0x003701C9,
     0x0000FFFF,
+    // SPECIES_LUVDISC
     0x00010021,
     0x000100CC,
     0x00040037,
@@ -7377,6 +7743,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0038,
     0x003100DB,
     0x0000FFFF,
+    // SPECIES_BAGON
     0x00010034,
     0x0001002B,
     0x00010063,
@@ -7394,6 +7761,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200C8,
     0x00340026,
     0x0000FFFF,
+    // SPECIES_SHELGON
     0x000000B6,
     0x000100B6,
     0x00010034,
@@ -7415,6 +7783,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C00C8,
     0x003D0026,
     0x0000FFFF,
+    // SPECIES_SALAMENCE
     0x00000013,
     0x00010013,
     0x000100B6,
@@ -7440,9 +7809,11 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004000C8,
     0x00440026,
     0x0000FFFF,
+    // SPECIES_BELDUM
     0x00010021,
     0x00010024,
     0x0000FFFF,
+    // SPECIES_METANG
     0x000000E8,
     0x0000005D,
     0x0001005D,
@@ -7465,6 +7836,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360061,
     0x003E003F,
     0x0000FFFF,
+    // SPECIES_METAGROSS
     0x00000167,
     0x00010167,
     0x0001005D,
@@ -7487,6 +7859,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390061,
     0x0047003F,
     0x0000FFFF,
+    // SPECIES_REGIROCK
     0x000101C3,
     0x00010058,
     0x00010099,
@@ -7508,6 +7881,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0045003F,
     0x004E0099,
     0x0000FFFF,
+    // SPECIES_REGICE
     0x000101C3,
     0x000100C4,
     0x00010099,
@@ -7529,6 +7903,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0045003F,
     0x004E0099,
     0x0000FFFF,
+    // SPECIES_REGISTEEL
     0x000101C3,
     0x000100E8,
     0x00010099,
@@ -7552,6 +7927,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0045003F,
     0x004E0099,
     0x0000FFFF,
+    // SPECIES_LATIAS
     0x000101F7,
     0x000100CC,
     0x00010169,
@@ -7579,6 +7955,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003801D9,
     0x00410169,
     0x0000FFFF,
+    // SPECIES_LATIOS
     0x000101F7,
     0x0001015D,
     0x00010106,
@@ -7607,6 +7984,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003801DA,
     0x00410106,
     0x0000FFFF,
+    // SPECIES_KYOGRE
     0x00010160,
     0x000100F6,
     0x00010022,
@@ -7624,6 +8002,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00500026,
     0x005A0143,
     0x0000FFFF,
+    // SPECIES_GROUDON
     0x00010155,
     0x000100F6,
     0x000101B4,
@@ -7641,6 +8020,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0049007E,
     0x005A011C,
     0x0000FFFF,
+    // SPECIES_RAYQUAZA
     0x0001026F,
     0x000100EF,
     0x000100F6,
@@ -7660,6 +8040,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005000C8,
     0x005A003F,
     0x0000FFFF,
+    // SPECIES_JIRACHI
     0x0001005D,
     0x00010111,
     0x00080081,
@@ -7679,6 +8060,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004E0183,
     0x00540161,
     0x0000FFFF,
+    // SPECIES_DEOXYS
     0x0001002B,
     0x00010023,
     0x00070065,
@@ -7694,6 +8076,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00430162,
     0x0049003F,
     0x0000FFFF,
+    // SPECIES_TURTWIG
     0x00010021,
     0x0005006E,
     0x00090047,
@@ -7707,6 +8090,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002900CA,
     0x002D01B5,
     0x0000FFFF,
+    // SPECIES_GROTLE
     0x00010021,
     0x0001006E,
     0x00010047,
@@ -7722,6 +8106,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F00CA,
     0x003401B5,
     0x0000FFFF,
+    // SPECIES_TORTERRA
     0x00000059,
     0x00010059,
     0x000101C4,
@@ -7741,6 +8126,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003300CA,
     0x003901B5,
     0x0000FFFF,
+    // SPECIES_CHIMCHAR
     0x0001000A,
     0x0001002B,
     0x00070034,
@@ -7755,6 +8141,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0029012F,
     0x002F0035,
     0x0000FFFF,
+    // SPECIES_MONFERNO
     0x000000B7,
     0x000100B7,
     0x0001000A,
@@ -7772,6 +8159,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031012F,
     0x0038018A,
     0x0000FFFF,
+    // SPECIES_INFERNAPE
     0x00000172,
     0x00010172,
     0x000100B7,
@@ -7791,6 +8179,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A015B,
     0x0044018A,
     0x0000FFFF,
+    // SPECIES_PIPLUP
     0x00010001,
     0x0004002D,
     0x00080091,
@@ -7805,6 +8194,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270041,
     0x002B0038,
     0x0000FFFF,
+    // SPECIES_PRINPLUP
     0x000000E8,
     0x000100E8,
     0x00010021,
@@ -7823,6 +8213,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0041,
     0x00320038,
     0x0000FFFF,
+    // SPECIES_EMPOLEON
     0x000001C5,
     0x000101C5,
     0x000100E8,
@@ -7842,6 +8233,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340041,
     0x003B0038,
     0x0000FFFF,
+    // SPECIES_STARLY
     0x00010021,
     0x0001002D,
     0x00050062,
@@ -7855,6 +8247,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0025019D,
     0x00290206,
     0x0000FFFF,
+    // SPECIES_STARAVIA
     0x00010021,
     0x0001002D,
     0x00010062,
@@ -7869,6 +8262,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B019D,
     0x00300206,
     0x0000FFFF,
+    // SPECIES_STARAPTOR
     0x00000172,
     0x00010172,
     0x00010021,
@@ -7886,6 +8280,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031019D,
     0x00390206,
     0x0000FFFF,
+    // SPECIES_BIDOOF
     0x00010021,
     0x0001002D,
     0x0005006F,
@@ -7901,6 +8296,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0114,
     0x003100AE,
     0x0000FFFF,
+    // SPECIES_BIBAREL
     0x00000037,
     0x00010037,
     0x000101C5,
@@ -7920,11 +8316,13 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350114,
     0x003A00AE,
     0x0000FFFF,
+    // SPECIES_KRICKETOT
     0x0001002D,
     0x00010075,
     0x0006020D,
     0x001001C2,
     0x0000FFFF,
+    // SPECIES_KRICKETUNE
     0x000000D2,
     0x000100D2,
     0x0001002D,
@@ -7942,6 +8340,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0195,
     0x003200C3,
     0x0000FFFF,
+    // SPECIES_SHINX
     0x00010021,
     0x0001002B,
     0x00040054,
@@ -7960,6 +8359,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002801B3,
     0x002E0213,
     0x0000FFFF,
+    // SPECIES_LUXIO
     0x00010021,
     0x0001002B,
     0x00010054,
@@ -7978,6 +8378,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003301B3,
     0x003D0213,
     0x0000FFFF,
+    // SPECIES_LUXRAY
     0x0001025F,
     0x00010021,
     0x0001002B,
@@ -7998,6 +8399,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0043025F,
     0x00480213,
     0x0000FFFF,
+    // SPECIES_BUDEW
     0x00010047,
     0x0001004A,
     0x0001004E,
@@ -8008,6 +8410,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000D0048,
     0x00100184,
     0x0000FFFF,
+    // SPECIES_ROSERADE
     0x00010247,
     0x00010028,
     0x0001025A,
@@ -8029,6 +8432,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010184,
     0x00010137,
     0x0000FFFF,
+    // SPECIES_CRANIDOS
     0x0001001D,
     0x0001002B,
     0x00060074,
@@ -8042,6 +8446,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0067,
     0x002E01C9,
     0x0000FFFF,
+    // SPECIES_RAMPARDOS
     0x0000011B,
     0x0001011B,
     0x0001001D,
@@ -8059,6 +8464,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330067,
     0x003A01C9,
     0x0000FFFF,
+    // SPECIES_SHIELDON
     0x00010021,
     0x000100B6,
     0x0006010D,
@@ -8072,6 +8478,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A01BA,
     0x002E01E7,
     0x0000FFFF,
+    // SPECIES_BASTIODON
     0x0000014F,
     0x0001014F,
     0x00010021,
@@ -8089,11 +8496,13 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003301BA,
     0x003A01E7,
     0x0000FFFF,
+    // SPECIES_BURMY
     0x000100B6,
     0x000A0021,
     0x000F01C2,
     0x001400ED,
     0x0000FFFF,
+    // SPECIES_WORMADAM
     0x000001E6,
     0x000101E6,
     0x00010185,
@@ -8114,6 +8523,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F01B5,
     0x00320195,
     0x0000FFFF,
+    // SPECIES_MOTHIM
     0x000001E6,
     0x000101E6,
     0x00010021,
@@ -8133,6 +8543,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F02AA,
     0x00320195,
     0x0000FFFF,
+    // SPECIES_COMBEE
     0x000100E6,
     0x00010010,
     0x0001020D,
@@ -8140,6 +8551,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000D01C2,
     0x001D0195,
     0x0000FFFF,
+    // SPECIES_VESPIQUEN
     0x000000A3,
     0x000100A3,
     0x0001020D,
@@ -8166,6 +8578,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A01C6,
     0x003000C2,
     0x0000FFFF,
+    // SPECIES_PACHIRISU
     0x0001002D,
     0x00010075,
     0x00050062,
@@ -8182,6 +8595,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0183,
     0x0031009E,
     0x0000FFFF,
+    // SPECIES_BUIZEL
     0x00010031,
     0x0004002D,
     0x0007015A,
@@ -8197,6 +8611,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00290061,
     0x002D0038,
     0x0000FFFF,
+    // SPECIES_FLOATZEL
     0x000101A7,
     0x000100F2,
     0x00010031,
@@ -8217,6 +8632,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330061,
     0x00390038,
     0x0000FFFF,
+    // SPECIES_CHERUBI
     0x000100EA,
     0x00010021,
     0x000502A1,
@@ -8231,6 +8647,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028017D,
     0x0029004C,
     0x0000FFFF,
+    // SPECIES_CHERRIM
     0x000000F1,
     0x00000050,
     0x000100F1,
@@ -8253,6 +8670,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031004C,
     0x003E0050,
     0x0000FFFF,
+    // SPECIES_SHELLOS
     0x00010037,
     0x000100BD,
     0x0002012C,
@@ -8268,6 +8686,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0023019E,
     0x002D0106,
     0x0000FFFF,
+    // SPECIES_GASTRODON
     0x00010037,
     0x000100BD,
     0x0001006A,
@@ -8287,6 +8706,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350106,
     0x00360069,
     0x0000FFFF,
+    // SPECIES_AMBIPOM
     0x00010215,
     0x0001000A,
     0x00010027,
@@ -8305,6 +8725,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002701A1,
     0x002B0183,
     0x0000FFFF,
+    // SPECIES_DRIFLOON
     0x0001006B,
     0x00010136,
     0x00010084,
@@ -8325,6 +8746,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280085,
     0x002E0099,
     0x0000FFFF,
+    // SPECIES_DRIFBLIM
     0x00000239,
     0x00010239,
     0x0001029F,
@@ -8351,6 +8773,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00380099,
     0x00410239,
     0x0000FFFF,
+    // SPECIES_BUNEARY
     0x00010096,
     0x00010001,
     0x000100DA,
@@ -8373,6 +8796,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330154,
     0x00390169,
     0x0000FFFF,
+    // SPECIES_LOPUNNY
     0x000000D8,
     0x000100F3,
     0x00010115,
@@ -8402,6 +8826,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390169,
     0x003C0088,
     0x0000FFFF,
+    // SPECIES_MISMAGIUS
     0x00010256,
     0x00010198,
     0x00010239,
@@ -8412,6 +8837,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000100B4,
     0x00010136,
     0x0000FFFF,
+    // SPECIES_HONCHKROW
     0x00010190,
     0x00010185,
     0x00010136,
@@ -8425,6 +8851,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00410202,
     0x004B018F,
     0x0000FFFF,
+    // SPECIES_GLAMEOW
     0x000100FC,
     0x0005000A,
     0x0008002D,
@@ -8440,6 +8867,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003001D7,
     0x0032024A,
     0x0000FFFF,
+    // SPECIES_PURUGLY
     0x000000CF,
     0x000100CF,
     0x000100FC,
@@ -8458,6 +8886,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400D5,
     0x003C01D7,
     0x0000FFFF,
+    // SPECIES_CHINGLING
     0x00010023,
     0x0004002D,
     0x00070136,
@@ -8467,6 +8896,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001301F1,
     0x002000FD,
     0x0000FFFF,
+    // SPECIES_STUNKY
     0x0001008B,
     0x0001000A,
     0x00010074,
@@ -8488,6 +8918,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280235,
     0x002D0099,
     0x0000FFFF,
+    // SPECIES_SKUNTANK
     0x00000035,
     0x00010035,
     0x0001008B,
@@ -8514,6 +8945,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0235,
     0x00310099,
     0x0000FFFF,
+    // SPECIES_BRONZOR
     0x00010021,
     0x0001005D,
     0x0007006D,
@@ -8531,6 +8963,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002701E7,
     0x002D0179,
     0x0000FFFF,
+    // SPECIES_BRONZONG
     0x0000014F,
     0x0001014F,
     0x000100F1,
@@ -8558,6 +8991,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340179,
     0x003800F0,
     0x0000FFFF,
+    // SPECIES_BONSLY
     0x00010139,
     0x0001017F,
     0x000400AF,
@@ -8573,7 +9007,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00260044,
     0x002B0026,
     0x0000FFFF,
-    0x0000FFFF,
+    // SPECIES_HAPPINY
     0x0001006B,
     0x00010001,
     0x0001017F,
@@ -8586,6 +9020,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00100157,
     0x001400CC,
     0x0000FFFF,
+    // SPECIES_CHATOT
     0x00010130,
     0x000101C0,
     0x00010251,
@@ -8606,6 +9041,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320129,
     0x00390130,
     0x0000FFFF,
+    // SPECIES_SPIRITOMB
     0x00010065,
     0x0001006D,
     0x000100AE,
@@ -8627,6 +9063,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D00F7,
     0x0031018F,
     0x0000FFFF,
+    // SPECIES_GIBLE
     0x00010148,
     0x00010021,
     0x0004001C,
@@ -8642,6 +9079,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0024005B,
     0x00310197,
     0x0000FFFF,
+    // SPECIES_GABITE
     0x00000215,
     0x00010215,
     0x00010148,
@@ -8661,6 +9099,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D005B,
     0x003E0197,
     0x0000FFFF,
+    // SPECIES_GARCHOMP
     0x000000F2,
     0x000100F2,
     0x00010215,
@@ -8683,6 +9122,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E005B,
     0x00450197,
     0x0000FFFF,
+    // SPECIES_MUNCHLAX
     0x0001007A,
     0x00010021,
     0x00010183,
@@ -8709,6 +9149,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320121,
     0x00360183,
     0x0000FFFF,
+    // SPECIES_RIOLU
     0x00010062,
     0x000100CB,
     0x000100C1,
@@ -8727,6 +9168,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C010E,
     0x00330206,
     0x0000FFFF,
+    // SPECIES_LUCARIO
     0x0000018C,
     0x0001018C,
     0x0001031A,
@@ -8762,6 +9204,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390172,
     0x003C00F5,
     0x0000FFFF,
+    // SPECIES_HIPPOPOTAS
     0x00010021,
     0x0001001C,
     0x0005002C,
@@ -8778,6 +9221,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030005A,
     0x0034012F,
     0x0000FFFF,
+    // SPECIES_HIPPOWDON
     0x000101A7,
     0x000101A8,
     0x000101A6,
@@ -8799,6 +9243,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0039005A,
     0x003E012F,
     0x0000FFFF,
+    // SPECIES_SKORUPI
     0x00010028,
     0x0001002B,
     0x0001002C,
@@ -8820,6 +9265,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B01B8,
     0x002E00F2,
     0x0000FFFF,
+    // SPECIES_DRAPION
     0x000101A6,
     0x000101A7,
     0x000101A8,
@@ -8847,6 +9293,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003300F2,
     0x00350238,
     0x0000FFFF,
+    // SPECIES_CROAGUNK
     0x00010028,
     0x000100BD,
     0x00010136,
@@ -8868,6 +9315,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C00BC,
     0x002F0235,
     0x0000FFFF,
+    // SPECIES_TOXICROAK
     0x00010028,
     0x000100BD,
     0x00010136,
@@ -8889,6 +9337,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200BC,
     0x00370235,
     0x0000FFFF,
+    // SPECIES_CARNIVINE
     0x00010014,
     0x0001004A,
     0x0007002C,
@@ -8904,6 +9353,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F017A,
     0x003201B6,
     0x0000FFFF,
+    // SPECIES_FINNEON
     0x00010001,
     0x00060037,
     0x000A00D5,
@@ -8919,6 +9369,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031013E,
     0x003601EA,
     0x0000FFFF,
+    // SPECIES_LUMINEON
     0x000101EA,
     0x00010010,
     0x00010001,
@@ -8938,6 +9389,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B013E,
     0x004201EA,
     0x0000FFFF,
+    // SPECIES_MANTYKE
     0x00010021,
     0x00010037,
     0x00010091,
@@ -8955,6 +9407,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0154,
     0x00300038,
     0x0000FFFF,
+    // SPECIES_SNOVER
     0x000100B5,
     0x0001002B,
     0x000502A1,
@@ -8969,6 +9422,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B003B,
     0x00300149,
     0x0000FFFF,
+    // SPECIES_ABOMASNOW
     0x00000008,
     0x00010008,
     0x000102B9,
@@ -8989,6 +9443,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030003B,
     0x00380149,
     0x0000FFFF,
+    // SPECIES_WEAVILE
     0x00010117,
     0x00010174,
     0x00010062,
@@ -9014,6 +9469,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300190,
     0x0039018F,
     0x0000FFFF,
+    // SPECIES_MAGNEZONE
     0x000100A1,
     0x0001025F,
     0x0001025D,
@@ -9041,6 +9497,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003500C7,
     0x003F00C0,
     0x0000FFFF,
+    // SPECIES_LICKILICKY
     0x0001007A,
     0x0001006F,
     0x000100CD,
@@ -9064,6 +9521,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C00BB,
     0x003D0168,
     0x0000FFFF,
+    // SPECIES_RHYPERIOR
     0x00010167,
     0x00010021,
     0x00010027,
@@ -9091,6 +9549,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00410020,
     0x004801B7,
     0x0000FFFF,
+    // SPECIES_TANGROWTH
     0x0001014F,
     0x00010047,
     0x00010014,
@@ -9118,6 +9577,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350247,
     0x0038014F,
     0x0000FFFF,
+    // SPECIES_ELECTIVIRE
     0x00010062,
     0x0001002B,
     0x00010054,
@@ -9141,6 +9601,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003F01A0,
     0x0041025F,
     0x0000FFFF,
+    // SPECIES_MAGMORTAR
     0x0001007B,
     0x0001002B,
     0x00010034,
@@ -9163,6 +9624,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0038007E,
     0x003F003F,
     0x0000FFFF,
+    // SPECIES_TOGEKISS
     0x00000193,
     0x00010193,
     0x0001024B,
@@ -9186,6 +9648,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000100BA,
     0x0001031A,
     0x0000FFFF,
+    // SPECIES_YANMEGA
     0x00010195,
     0x00010193,
     0x00010190,
@@ -9209,6 +9672,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360193,
     0x00390195,
     0x0000FFFF,
+    // SPECIES_LEAFEON
     0x0000004B,
     0x0001004B,
     0x00010157,
@@ -9236,6 +9700,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F015C,
     0x00300183,
     0x0000FFFF,
+    // SPECIES_GLACEON
     0x000000C4,
     0x000100C4,
     0x00010157,
@@ -9262,6 +9727,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F003B,
     0x00300183,
     0x0000FFFF,
+    // SPECIES_GLISCOR
     0x0001000C,
     0x000101A6,
     0x000101A7,
@@ -9285,6 +9751,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032000E,
     0x0037000C,
     0x0000FFFF,
+    // SPECIES_MAMOSWINE
     0x000001CA,
     0x000101CA,
     0x000101A7,
@@ -9316,6 +9783,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037003B,
     0x003A00B8,
     0x0000FFFF,
+    // SPECIES_PORYGON_Z
     0x000101B1,
     0x000101A1,
     0x0001006F,
@@ -9341,6 +9809,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C00C0,
     0x0041003F,
     0x0000FFFF,
+    // SPECIES_GALLADE
     0x000000A3,
     0x000100A3,
     0x00010190,
@@ -9381,6 +9850,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A0172,
     0x003A01F7,
     0x0000FFFF,
+    // SPECIES_PROBOPASS
     0x000000A1,
     0x000100A1,
     0x0001025D,
@@ -9407,6 +9877,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B00C7,
     0x002B00C0,
     0x0000FFFF,
+    // SPECIES_DUSKNOIR
     0x00010145,
     0x00010007,
     0x00010008,
@@ -9435,6 +9906,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003600C2,
     0x003700F8,
     0x0000FFFF,
+    // SPECIES_FROSLASS
     0x000001FD,
     0x000001D2,
     0x000101FD,
@@ -9466,6 +9938,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A003B,
     0x003D00C2,
     0x0000FFFF,
+    // SPECIES_ROTOM
     0x00010136,
     0x00010068,
     0x000101B3,
@@ -9488,6 +9961,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D010F,
     0x003801B3,
     0x0000FFFF,
+    // SPECIES_UXIE
     0x0001005D,
     0x0001009C,
     0x00010106,
@@ -9506,6 +9980,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0042016B,
     0x004C0106,
     0x0000FFFF,
+    // SPECIES_MESPRIT
     0x0001005D,
     0x0001009C,
     0x00010169,
@@ -9525,6 +10000,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0042016B,
     0x004C0169,
     0x0000FFFF,
+    // SPECIES_AZELF
     0x0001005D,
     0x0001009C,
     0x0001016B,
@@ -9542,6 +10018,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0042016B,
     0x004C0099,
     0x0000FFFF,
+    // SPECIES_DIALGA
     0x000100B8,
     0x000100E8,
     0x000100E1,
@@ -9558,6 +10035,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003E00E7,
     0x004401CB,
     0x0000FFFF,
+    // SPECIES_PALKIA
     0x000100B8,
     0x00010160,
     0x000100E1,
@@ -9574,6 +10052,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004001CC,
     0x00460038,
     0x0000FFFF,
+    // SPECIES_HEATRAN
     0x00010053,
     0x0001002B,
     0x000101CF,
@@ -9596,6 +10075,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004C01BC,
     0x005301CF,
     0x0000FFFF,
+    // SPECIES_REGIGIGAS
     0x00010001,
     0x0001006D,
     0x000101E7,
@@ -9620,6 +10100,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004C01CE,
     0x005501A0,
     0x0000FFFF,
+    // SPECIES_GIRATINA
     0x000101A9,
     0x000101B0,
     0x000100E1,
@@ -9639,6 +10120,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003800C2,
     0x003E01D3,
     0x0000FFFF,
+    // SPECIES_CRESSELIA
     0x0001005D,
     0x00010068,
     0x000101CD,
@@ -9658,6 +10140,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004D01CD,
     0x004E024C,
     0x0000FFFF,
+    // SPECIES_PHIONE
     0x00010091,
     0x0001015A,
     0x000900CC,
@@ -9670,6 +10153,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D0123,
     0x004500F0,
     0x0000FFFF,
+    // SPECIES_MANAPHY
     0x00010126,
     0x00010091,
     0x0001015A,
@@ -9684,6 +10168,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004500F0,
     0x004C0187,
     0x0000FFFF,
+    // SPECIES_DARKRAI
     0x000101D2,
     0x00010032,
     0x000B0062,
@@ -9697,6 +10182,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0054008A,
     0x005D018F,
     0x0000FFFF,
+    // SPECIES_SHAYMIN
     0x0001004A,
     0x000A0159,
     0x00130049,
@@ -9710,6 +10196,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B0169,
     0x006401D1,
     0x0000FFFF,
+    // SPECIES_ARCEUS
     0x00010045,
     0x00010142,
     0x0001016B,
@@ -9725,10 +10212,13 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005A00C3,
     0x006401C1,
     0x0000FFFF,
+    // SPECIES_EGG
     0x00010096,
     0x0000FFFF,
+    // SPECIES_BAD_EGG
     0x00010096,
     0x0000FFFF,
+    // SPECIES_DEOXYS_ATTACK
     0x0001002B,
     0x00010023,
     0x00070065,
@@ -9744,6 +10234,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00430162,
     0x0049003F,
     0x0000FFFF,
+    // SPECIES_DEOXYS_DEFENSE
     0x0001002B,
     0x00010023,
     0x00070065,
@@ -9761,6 +10252,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00490044,
     0x004900F3,
     0x0000FFFF,
+    // SPECIES_DEOXYS_SPEED
     0x0001002B,
     0x00010023,
     0x00070065,
@@ -9776,6 +10268,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00430162,
     0x004900F5,
     0x0000FFFF,
+    // SPECIES_WORMADAM_SANDY
     0x000001E6,
     0x000101E6,
     0x00010185,
@@ -9796,6 +10289,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F005A,
     0x00320195,
     0x0000FFFF,
+    // SPECIES_WORMADAM_TRASHY
     0x000001E6,
     0x000101E6,
     0x00010185,
@@ -9816,6 +10310,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F01BA,
     0x00320195,
     0x0000FFFF,
+    // SPECIES_GIRATINA_ORIGIN
     0x000101A9,
     0x000101B0,
     0x000100E1,
@@ -9835,6 +10330,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003800C2,
     0x003E01D3,
     0x0000FFFF,
+    // SPECIES_SHAYMIN_SKY
     0x0001004A,
     0x000A0159,
     0x00130049,
@@ -9848,6 +10344,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B01B5,
     0x006401D1,
     0x0000FFFF,
+    // SPECIES_ROTOM_HEAT
     0x00010136,
     0x00010068,
     0x000101B3,
@@ -9870,6 +10367,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D010F,
     0x003801B3,
     0x0000FFFF,
+    // SPECIES_ROTOM_WASH
     0x00010136,
     0x00010068,
     0x000101B3,
@@ -9892,6 +10390,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D010F,
     0x003801B3,
     0x0000FFFF,
+    // SPECIES_ROTOM_FROST
     0x00010136,
     0x00010068,
     0x000101B3,
@@ -9914,6 +10413,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D010F,
     0x003801B3,
     0x0000FFFF,
+    // SPECIES_ROTOM_FAN
     0x00010136,
     0x00010068,
     0x000101B3,
@@ -9936,6 +10436,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D010F,
     0x003801B3,
     0x0000FFFF,
+    // SPECIES_ROTOM_MOW
     0x00010136,
     0x00010068,
     0x000101B3,
@@ -9958,42 +10459,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D010F,
     0x003801B3,
     0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
-    0x0000FFFF,
+    // SPECIES_VICTINI
     0x00010230,
     0x00010062,
     0x000101EB,
@@ -10017,6 +10483,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00560206,
     0x005A013B,
     0x0000FFFF,
+    // SPECIES_SNIVY
     0x00010021,
     0x0004002B,
     0x00070016,
@@ -10033,6 +10500,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028017C,
     0x002B01B5,
     0x0000FFFF,
+    // SPECIES_SERVINE
     0x00010021,
     0x0001002B,
     0x00010016,
@@ -10052,6 +10520,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030017C,
     0x003401B5,
     0x0000FFFF,
+    // SPECIES_SERPERIOR
     0x00010021,
     0x0001002B,
     0x00010016,
@@ -10071,6 +10540,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0038017C,
     0x003E01B5,
     0x0000FFFF,
+    // SPECIES_TEPIG
     0x00010021,
     0x00030027,
     0x00070034,
@@ -10087,6 +10557,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0027002E,
     0x002B018A,
     0x0000FFFF,
+    // SPECIES_PIGNITE
     0x00000124,
     0x00010124,
     0x00010021,
@@ -10108,6 +10579,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F002E,
     0x0034018A,
     0x0000FFFF,
+    // SPECIES_EMBOAR
     0x00010124,
     0x00010167,
     0x00010021,
@@ -10129,6 +10601,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037002E,
     0x003E018A,
     0x0000FFFF,
+    // SPECIES_OSHAWOTT
     0x00010021,
     0x00050027,
     0x00070037,
@@ -10145,6 +10618,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0029000E,
     0x002B0038,
     0x0000FFFF,
+    // SPECIES_DEWOTT
     0x00010021,
     0x00010027,
     0x00010037,
@@ -10164,6 +10638,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032000E,
     0x00350038,
     0x0000FFFF,
+    // SPECIES_SAMUROTT
     0x000000A3,
     0x000100A3,
     0x000100E0,
@@ -10186,6 +10661,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A000E,
     0x003F0038,
     0x0000FFFF,
+    // SPECIES_PATRAT
     0x00010021,
     0x0003002B,
     0x0006002C,
@@ -10204,6 +10680,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002600E2,
     0x00290015,
     0x0000FFFF,
+    // SPECIES_WATCHOG
     0x0000006D,
     0x0001006D,
     0x00010236,
@@ -10228,6 +10705,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E00E2,
     0x00320015,
     0x0000FFFF,
+    // SPECIES_LILLIPUP
     0x00010021,
     0x0001002B,
     0x0005013C,
@@ -10244,6 +10722,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280183,
     0x002C01A0,
     0x0000FFFF,
+    // SPECIES_HERDIER
     0x00010021,
     0x0001002B,
     0x00010211,
@@ -10263,6 +10742,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330183,
     0x003901A0,
     0x0000FFFF,
+    // SPECIES_STOUTLAND
     0x000101A7,
     0x000101A8,
     0x000101A6,
@@ -10285,6 +10765,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D0183,
     0x004501A0,
     0x0000FFFF,
+    // SPECIES_PURRLOIN
     0x0001000A,
     0x0001002D,
     0x0003002D,
@@ -10304,6 +10785,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270121,
     0x002C024A,
     0x0000FFFF,
+    // SPECIES_LIEPARD
     0x0001000A,
     0x0001002D,
     0x0001001C,
@@ -10326,6 +10808,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0121,
     0x0036024A,
     0x0000FFFF,
+    // SPECIES_PANSAGE
     0x0001000A,
     0x00010250,
     0x0004002B,
@@ -10343,11 +10826,13 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028016B,
     0x002B00F2,
     0x0000FFFF,
+    // SPECIES_SIMISAGE
     0x0001002B,
     0x0001007A,
     0x0001009A,
     0x00010192,
     0x0000FFFF,
+    // SPECIES_PANSEAR
     0x0001000A,
     0x00010250,
     0x0004002B,
@@ -10365,11 +10850,13 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028016B,
     0x002B00F2,
     0x0000FFFF,
+    // SPECIES_SIMISEAR
     0x0001002B,
     0x0001007A,
     0x0001009A,
     0x000101E4,
     0x0000FFFF,
+    // SPECIES_PANPOUR
     0x0001000A,
     0x00010250,
     0x0004002B,
@@ -10387,11 +10874,13 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028016B,
     0x002B00F2,
     0x0000FFFF,
+    // SPECIES_SIMIPOUR
     0x0001002B,
     0x0001007A,
     0x0001009A,
     0x000101FA,
     0x0000FFFF,
+    // SPECIES_MUNNA
     0x000101F7,
     0x0001006F,
     0x00010095,
@@ -10414,6 +10903,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F01F7,
     0x003401DB,
     0x0000FFFF,
+    // SPECIES_MUSHARNA
     0x000102A9,
     0x0001011E,
     0x000100EC,
@@ -10432,6 +10922,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0001003C,
     0x0001017D,
     0x0000FFFF,
+    // SPECIES_PIDOVE
     0x00010010,
     0x0001002D,
     0x0004002D,
@@ -10449,6 +10940,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0107,
     0x002E008F,
     0x0000FFFF,
+    // SPECIES_TRANQUILL
     0x00010010,
     0x0001002D,
     0x0001002B,
@@ -10468,6 +10960,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0033016E,
     0x0039008F,
     0x0000FFFF,
+    // SPECIES_UNFEZANT
     0x00010010,
     0x0001002D,
     0x0001002B,
@@ -10487,6 +10980,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A016E,
     0x0042008F,
     0x0000FFFF,
+    // SPECIES_BLITZLE
     0x00010062,
     0x00040027,
     0x0008010C,
@@ -10501,6 +10995,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270213,
     0x002B0025,
     0x0000FFFF,
+    // SPECIES_ZEBSTRIKA
     0x0001023C,
     0x00010062,
     0x00010027,
@@ -10520,6 +11015,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350025,
     0x003A023C,
     0x0000FFFF,
+    // SPECIES_ROGGENROLA
     0x0001001C,
     0x00010021,
     0x0004006A,
@@ -10535,6 +11031,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002601BC,
     0x002A0099,
     0x0000FFFF,
+    // SPECIES_BOLDORE
     0x00000198,
     0x00010198,
     0x0001001C,
@@ -10555,6 +11052,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003001BC,
     0x00360099,
     0x0000FFFF,
+    // SPECIES_GIGALITH
     0x00010198,
     0x0001001C,
     0x00010021,
@@ -10574,6 +11072,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003001BC,
     0x00360099,
     0x0000FFFF,
+    // SPECIES_WOOBAT
     0x00010010,
     0x000100D5,
     0x0001005D,
@@ -10593,6 +11092,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B00F8,
     0x003701F0,
     0x0000FFFF,
+    // SPECIES_SWOOBAT
     0x00010010,
     0x000100D5,
     0x0001005D,
@@ -10614,6 +11114,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F011B,
     0x003701F0,
     0x0000FFFF,
+    // SPECIES_DRILBUR
     0x000100BD,
     0x000100E5,
     0x0001000A,
@@ -10634,6 +11135,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00290214,
     0x002F005A,
     0x0000FFFF,
+    // SPECIES_EXCADRILL
     0x00000020,
     0x00010020,
     0x000100BD,
@@ -10657,6 +11159,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320214,
     0x003B005A,
     0x0000FFFF,
+    // SPECIES_AUDINO
     0x00010001,
     0x00010250,
     0x00010183,
@@ -10684,6 +11187,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00380248,
     0x003A0183,
     0x0000FFFF,
+    // SPECIES_TIMBURR
     0x00010001,
     0x0001002B,
     0x00070043,
@@ -10702,6 +11206,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0114,
     0x002F0108,
     0x0000FFFF,
+    // SPECIES_GURDURR
     0x00010001,
     0x0001002B,
     0x00010043,
@@ -10724,6 +11229,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370114,
     0x00380108,
     0x0000FFFF,
+    // SPECIES_CONKELDURR
     0x00010001,
     0x0001002B,
     0x00010043,
@@ -10746,6 +11252,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370114,
     0x00380108,
     0x0000FFFF,
+    // SPECIES_TYMPOLE
     0x000101F4,
     0x0001002D,
     0x00010091,
@@ -10763,6 +11270,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280130,
     0x002D0038,
     0x0000FFFF,
+    // SPECIES_PALPITOAD
     0x000101F4,
     0x0001002D,
     0x00010033,
@@ -10782,6 +11290,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0130,
     0x00350038,
     0x0000FFFF,
+    // SPECIES_SEISMITOAD
     0x00000199,
     0x00000033,
     0x00010199,
@@ -10806,6 +11315,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340130,
     0x003E0038,
     0x0000FFFF,
+    // SPECIES_THROH
     0x00010014,
     0x0001002B,
     0x00010234,
@@ -10824,6 +11334,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F00B3,
     0x00300114,
     0x0000FFFF,
+    // SPECIES_SAWK
     0x000100F9,
     0x0001002B,
     0x00010075,
@@ -10841,6 +11352,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F00B3,
     0x00300172,
     0x0000FFFF,
+    // SPECIES_SEWADDLE
     0x00010021,
     0x00010051,
     0x000801C2,
@@ -10851,6 +11363,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00240195,
     0x002B00AF,
     0x0000FFFF,
+    // SPECIES_SWADLOON
     0x000000B6,
     0x000100B6,
     0x00010140,
@@ -10859,6 +11372,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000101C2,
     0x0001004B,
     0x0000FFFF,
+    // SPECIES_LEAVANNY
     0x000000A3,
     0x000100A3,
     0x000100CE,
@@ -10877,6 +11391,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E000E,
     0x003201B5,
     0x0000FFFF,
+    // SPECIES_VENIPEDE
     0x00010028,
     0x0001006F,
     0x000100CD,
@@ -10896,6 +11411,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002801AF,
     0x002B0026,
     0x0000FFFF,
+    // SPECIES_WHIRLIPEDE
     0x0000014E,
     0x0001014E,
     0x00010028,
@@ -10918,6 +11434,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01AF,
     0x00350026,
     0x0000FFFF,
+    // SPECIES_SCOLIPEDE
     0x000000E2,
     0x0001014E,
     0x000100E2,
@@ -10943,6 +11460,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0026,
     0x004500E0,
     0x0000FFFF,
+    // SPECIES_COTTONEE
     0x00010047,
     0x0001010E,
     0x0001024B,
@@ -10963,6 +11481,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A011B,
     0x002F004C,
     0x0000FFFF,
+    // SPECIES_WHIMSICOTT
     0x00010010,
     0x0001016E,
     0x0001024C,
@@ -10990,6 +11509,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0221,
     0x0032024C,
     0x0000FFFF,
+    // SPECIES_PETILIL
     0x00010047,
     0x0001004A,
     0x0004004A,
@@ -11008,6 +11528,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002601F1,
     0x002B01B5,
     0x0000FFFF,
+    // SPECIES_LILLIGANT
     0x00000050,
     0x00010050,
     0x00010047,
@@ -11030,6 +11551,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0001012A,
     0x00050159,
     0x0000FFFF,
+    // SPECIES_BASCULIN
     0x00010027,
     0x00010021,
     0x00010037,
@@ -11049,6 +11571,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0025,
     0x002E01C9,
     0x0000FFFF,
+    // SPECIES_SANDILE
     0x000102AC,
     0x0001002B,
     0x00010063,
@@ -11069,6 +11592,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270059,
     0x002A0025,
     0x0000FFFF,
+    // SPECIES_KROKOROK
     0x000102AC,
     0x0001002B,
     0x0001001C,
@@ -11091,6 +11615,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0059,
     0x00310025,
     0x0000FFFF,
+    // SPECIES_KROOKODILE
     0x000102AC,
     0x0001002B,
     0x0001001C,
@@ -11114,6 +11639,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330025,
     0x003A00C8,
     0x0000FFFF,
+    // SPECIES_DARUMAKA
     0x00010034,
     0x00010021,
     0x000300CD,
@@ -11133,6 +11659,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A013B,
     0x002B0114,
     0x0000FFFF,
+    // SPECIES_DARMANITAN
     0x00000167,
     0x00010167,
     0x00010034,
@@ -11159,6 +11686,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330114,
     0x0036013B,
     0x0000FFFF,
+    // SPECIES_MARACTUS
     0x00010257,
     0x00010040,
     0x00010047,
@@ -11184,6 +11712,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0039021D,
     0x003901F2,
     0x0000FFFF,
+    // SPECIES_DWEBBLE
     0x000100D2,
     0x0001001C,
     0x0005006E,
@@ -11201,6 +11730,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002801FB,
     0x002D01B7,
     0x0000FFFF,
+    // SPECIES_CRUSTLE
     0x000100D2,
     0x0001001C,
     0x0001006E,
@@ -11222,6 +11752,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01FB,
     0x003701B7,
     0x0000FFFF,
+    // SPECIES_SCRAGGY
     0x00010043,
     0x0001002B,
     0x0001001D,
@@ -11243,6 +11774,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300108,
     0x003301C9,
     0x0000FFFF,
+    // SPECIES_SCRAFTY
     0x00010043,
     0x0001002B,
     0x00010173,
@@ -11266,6 +11798,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370108,
     0x003E01C9,
     0x0000FFFF,
+    // SPECIES_SIGILYPH
     0x00010010,
     0x0001005D,
     0x00010165,
@@ -11286,6 +11819,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034008F,
     0x003C011D,
     0x0000FFFF,
+    // SPECIES_YAMASK
     0x00010136,
     0x000100B6,
     0x00060072,
@@ -11304,6 +11838,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C018F,
     0x003200C2,
     0x0000FFFF,
+    // SPECIES_COFAGRIGUS
     0x000001A5,
     0x000000B8,
     0x000101A5,
@@ -11329,6 +11864,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032018F,
     0x003B00C2,
     0x0000FFFF,
+    // SPECIES_TIRTOUGA
     0x00010037,
     0x0001006E,
     0x00010075,
@@ -11349,6 +11885,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B00F0,
     0x002D0038,
     0x0000FFFF,
+    // SPECIES_CARRACOSTA
     0x00010037,
     0x0001006E,
     0x000100B6,
@@ -11372,6 +11909,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003000F0,
     0x00350038,
     0x0000FFFF,
+    // SPECIES_ARCHEN
     0x00010062,
     0x0001002B,
     0x00010011,
@@ -11393,6 +11931,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0151,
     0x002D0025,
     0x0000FFFF,
+    // SPECIES_ARCHEOPS
     0x00010062,
     0x0001002B,
     0x00010058,
@@ -11414,6 +11953,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300151,
     0x00350025,
     0x0000FFFF,
+    // SPECIES_TRUBBISH
     0x00010001,
     0x0001008B,
     0x00030116,
@@ -11433,6 +11973,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002901B9,
     0x002C0099,
     0x0000FFFF,
+    // SPECIES_GARBODOR
     0x00010001,
     0x00010024,
     0x000100E8,
@@ -11457,6 +11998,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003001B9,
     0x00350099,
     0x0000FFFF,
+    // SPECIES_ZORUA
     0x0001000A,
     0x0001002B,
     0x000500E4,
@@ -11476,6 +12018,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01A1,
     0x002F021E,
     0x0000FFFF,
+    // SPECIES_ZOROARK
     0x00000190,
     0x00010190,
     0x00010171,
@@ -11503,6 +12046,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003401A1,
     0x0036021E,
     0x0000FFFF,
+    // SPECIES_MINCCINO
     0x00010001,
     0x00010263,
     0x00030263,
@@ -11522,6 +12066,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0130,
     0x002E0183,
     0x0000FFFF,
+    // SPECIES_CINCCINO
     0x0001014B,
     0x0001015E,
     0x0001002F,
@@ -11539,6 +12084,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0001010E,
     0x000101F4,
     0x0000FFFF,
+    // SPECIES_GOTHITA
     0x00010001,
     0x0001005D,
     0x0003005D,
@@ -11560,6 +12106,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002801E0,
     0x003001E1,
     0x0000FFFF,
+    // SPECIES_GOTHORITA
     0x00010001,
     0x0001005D,
     0x00010250,
@@ -11582,6 +12129,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B01E0,
     0x003701E1,
     0x0000FFFF,
+    // SPECIES_GOTHITELLE
     0x00010001,
     0x0001005D,
     0x00010250,
@@ -11604,6 +12152,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01E0,
     0x003D01E1,
     0x0000FFFF,
+    // SPECIES_SOLOSIS
     0x000100B6,
     0x0001005D,
     0x00010095,
@@ -11625,6 +12174,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0179,
     0x003001DB,
     0x0000FFFF,
+    // SPECIES_DUOSION
     0x000100B6,
     0x0001005D,
     0x00010069,
@@ -11651,6 +12201,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320179,
     0x003701DB,
     0x0000FFFF,
+    // SPECIES_REUNICLUS
     0x00000167,
     0x00000092,
     0x00010167,
@@ -11681,6 +12232,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360179,
     0x003D01DB,
     0x0000FFFF,
+    // SPECIES_DUCKLETT
     0x00010037,
     0x0003015A,
     0x000601B0,
@@ -11697,6 +12249,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0029019D,
     0x002E0221,
     0x0000FFFF,
+    // SPECIES_SWANNA
     0x00010037,
     0x0001015A,
     0x000101B0,
@@ -11716,6 +12269,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F019D,
     0x00370221,
     0x0000FFFF,
+    // SPECIES_VANILLITE
     0x00010136,
     0x0001006A,
     0x0001014D,
@@ -11735,6 +12289,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E003B,
     0x00320149,
     0x0000FFFF,
+    // SPECIES_VANILLISH
     0x00010136,
     0x0001006A,
     0x0001010D,
@@ -11757,6 +12312,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0033003B,
     0x00380149,
     0x0000FFFF,
+    // SPECIES_VANILLUXE
     0x00010137,
     0x0001022F,
     0x00010240,
@@ -11783,6 +12339,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037003B,
     0x003F0149,
     0x0000FFFF,
+    // SPECIES_DEERLING
     0x00010021,
     0x00010125,
     0x0004002D,
@@ -11799,6 +12356,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0026,
     0x0033004C,
     0x0000FFFF,
+    // SPECIES_SAWSBUCK
     0x00000217,
     0x00010217,
     0x000100E0,
@@ -11820,6 +12378,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340026,
     0x003C004C,
     0x0000FFFF,
+    // SPECIES_EMOLGA
     0x00010264,
     0x00010027,
     0x00010054,
@@ -11840,6 +12399,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003201B3,
     0x00320061,
     0x0000FFFF,
+    // SPECIES_KARRABLAST
     0x00010040,
     0x0001002B,
     0x0004002B,
@@ -11858,6 +12418,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B000E,
     0x00330026,
     0x0000FFFF,
+    // SPECIES_ESCAVALIER
     0x00010238,
     0x000100CB,
     0x000100AF,
@@ -11887,6 +12448,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340170,
     0x003C0238,
     0x0000FFFF,
+    // SPECIES_FOONGUS
     0x00010047,
     0x00010136,
     0x0004004A,
@@ -11905,6 +12467,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B004C,
     0x00300093,
     0x0000FFFF,
+    // SPECIES_AMOONGUSS
     0x00010047,
     0x00010136,
     0x0001004A,
@@ -11925,6 +12488,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030004C,
     0x00390093,
     0x0000FFFF,
+    // SPECIES_FRILLISH
     0x00010047,
     0x00010037,
     0x00010091,
@@ -11946,6 +12510,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360143,
     0x0037017A,
     0x0000FFFF,
+    // SPECIES_JELLICENT
     0x00010097,
     0x00010047,
     0x00010037,
@@ -11971,6 +12536,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D0143,
     0x003D017A,
     0x0000FFFF,
+    // SPECIES_ALOMOMOLA
     0x00010250,
     0x00010038,
     0x000101D8,
@@ -11995,6 +12561,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D01D8,
     0x00410038,
     0x0000FFFF,
+    // SPECIES_JOLTIK
     0x00010047,
     0x000100D2,
     0x00010051,
@@ -12014,6 +12581,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002801B3,
     0x00300195,
     0x0000FFFF,
+    // SPECIES_GALVANTULA
     0x00000237,
     0x00010237,
     0x00010047,
@@ -12038,6 +12606,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01B3,
     0x00390195,
     0x0000FFFF,
+    // SPECIES_FERROSEED
     0x00010021,
     0x0001006A,
     0x000600CD,
@@ -12054,6 +12623,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0173,
     0x00340099,
     0x0000FFFF,
+    // SPECIES_FERROTHORN
     0x000001B6,
     0x000101B6,
     0x00010021,
@@ -12077,6 +12647,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350173,
     0x003D0099,
     0x0000FFFF,
+    // SPECIES_KLINK
     0x00010054,
     0x0001000B,
     0x0007010C,
@@ -12094,6 +12665,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003000C0,
     0x0034003F,
     0x0000FFFF,
+    // SPECIES_KLANG
     0x00010054,
     0x0001000B,
     0x00010014,
@@ -12114,6 +12686,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003500C0,
     0x003A003F,
     0x0000FFFF,
+    // SPECIES_KLINKLANG
     0x0000025D,
     0x000102A5,
     0x0001025D,
@@ -12138,11 +12711,13 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003F003F,
     0x0040025F,
     0x0000FFFF,
+    // SPECIES_TYNAMO
     0x00010021,
     0x00010056,
     0x000100D1,
     0x000101C3,
     0x0000FFFF,
+    // SPECIES_EELEKTRIK
     0x000000F2,
     0x000100F2,
     0x0001001D,
@@ -12160,6 +12735,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004500C0,
     0x004A0025,
     0x0000FFFF,
+    // SPECIES_EELEKTROSS
     0x000100F2,
     0x00010025,
     0x000100C0,
@@ -12171,6 +12747,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010033,
     0x000101B3,
     0x0000FFFF,
+    // SPECIES_ELGYEM
     0x0001005D,
     0x0001002D,
     0x0004002D,
@@ -12192,6 +12769,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003501E8,
     0x003601DB,
     0x0000FFFF,
+    // SPECIES_BEHEEYEM
     0x000102A9,
     0x0001005D,
     0x0001002D,
@@ -12219,6 +12797,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003F01DB,
     0x003F01E8,
     0x0000FFFF,
+    // SPECIES_LITWICK
     0x00010136,
     0x0001007B,
     0x00010034,
@@ -12239,6 +12818,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003300DC,
     0x0038013B,
     0x0000FFFF,
+    // SPECIES_LAMPENT
     0x00010136,
     0x0001007B,
     0x00010034,
@@ -12259,6 +12839,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003800DC,
     0x003F013B,
     0x0000FFFF,
+    // SPECIES_CHANDELURE
     0x0001006D,
     0x000101FD,
     0x00010105,
@@ -12277,6 +12858,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0001006B,
     0x000101E4,
     0x0000FFFF,
+    // SPECIES_AXEW
     0x0001000A,
     0x0001002B,
     0x0003002C,
@@ -12298,6 +12880,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003000C8,
     0x003601A0,
     0x0000FFFF,
+    // SPECIES_FRAXURE
     0x0001000A,
     0x0001002B,
     0x0001002C,
@@ -12322,6 +12905,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034000C,
     0x003C01A0,
     0x0000FFFF,
+    // SPECIES_HAXORUS
     0x0001000A,
     0x0001002B,
     0x0001002C,
@@ -12347,6 +12931,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037000C,
     0x004201A0,
     0x0000FFFF,
+    // SPECIES_CUBCHOO
     0x000100B5,
     0x0001002D,
     0x000500B5,
@@ -12366,6 +12951,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0025,
     0x00310149,
     0x0000FFFF,
+    // SPECIES_BEARTIC
     0x0000022F,
     0x0001022F,
     0x000101C5,
@@ -12397,6 +12983,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330114,
     0x00370149,
     0x0000FFFF,
+    // SPECIES_CRYOGONAL
     0x00010014,
     0x000101A4,
     0x00010149,
@@ -12422,6 +13009,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0035004C,
     0x003A0149,
     0x0000FFFF,
+    // SPECIES_SHELMET
     0x00010047,
     0x000100B6,
     0x00040033,
@@ -12439,6 +13027,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0195,
     0x00330206,
     0x0000FFFF,
+    // SPECIES_ACCELGOR
     0x00010255,
     0x00010033,
     0x000100AE,
@@ -12468,6 +13057,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330206,
     0x0034005C,
     0x0000FFFF,
+    // SPECIES_STUNFISK
     0x000100BD,
     0x00010021,
     0x00010037,
@@ -12492,6 +13082,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400AF,
     0x0039005A,
     0x0000FFFF,
+    // SPECIES_MIENFOO
     0x00010001,
     0x000100C5,
     0x00050060,
@@ -12512,6 +13103,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034018C,
     0x00370088,
     0x0000FFFF,
+    // SPECIES_MIENSHAO
     0x000101F8,
     0x00010001,
     0x000100C5,
@@ -12537,6 +13129,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D0088,
     0x003F00B3,
     0x0000FFFF,
+    // SPECIES_DRUDDIGON
     0x0001000A,
     0x0001002B,
     0x0006002C,
@@ -12556,6 +13149,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003700C8,
     0x00370114,
     0x0000FFFF,
+    // SPECIES_GOLETT
     0x000100BD,
     0x00010136,
     0x00010001,
@@ -12579,6 +13173,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330059,
     0x003D0108,
     0x0000FFFF,
+    // SPECIES_GOLURK
     0x000001E7,
     0x0001029E,
     0x00010108,
@@ -12604,6 +13199,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0239,
     0x00450108,
     0x0000FFFF,
+    // SPECIES_PAWNIARD
     0x0001000A,
     0x0001002B,
     0x000600D2,
@@ -12623,6 +13219,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A000E,
     0x003F000C,
     0x0000FFFF,
+    // SPECIES_BISHARP
     0x00010170,
     0x0001000A,
     0x0001002B,
@@ -12648,6 +13245,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003F000E,
     0x0047000C,
     0x0000FFFF,
+    // SPECIES_BOUFFALANT
     0x00010021,
     0x0001002B,
     0x000100E4,
@@ -12665,6 +13263,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320025,
     0x003901A0,
     0x0000FFFF,
+    // SPECIES_RUFFLET
     0x0001002B,
     0x00010040,
     0x000601D7,
@@ -12680,6 +13279,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00420025,
     0x0048019D,
     0x0000FFFF,
+    // SPECIES_BRAVIARY
     0x00000114,
     0x00010114,
     0x000101D7,
@@ -12698,6 +13298,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00480025,
     0x0050019D,
     0x0000FFFF,
+    // SPECIES_VULLABY
     0x00010010,
     0x0001002B,
     0x0005001F,
@@ -12718,6 +13319,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0041019D,
     0x004200D5,
     0x0000FFFF,
+    // SPECIES_MANDIBUZZ
     0x000000C6,
     0x000100C6,
     0x0001008F,
@@ -12748,6 +13350,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004800D5,
     0x0048019D,
     0x0000FFFF,
+    // SPECIES_HEATMOR
     0x0001007A,
     0x00010021,
     0x000101D7,
@@ -12771,6 +13374,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0208,
     0x003C018A,
     0x0000FFFF,
+    // SPECIES_DURANT
     0x000100D2,
     0x0001001C,
     0x0001013F,
@@ -12792,6 +13396,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031014E,
     0x0035000C,
     0x0000FFFF,
+    // SPECIES_DEINO
     0x00010021,
     0x00010074,
     0x00010052,
@@ -12812,6 +13417,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003801A1,
     0x003C00C8,
     0x0000FFFF,
+    // SPECIES_ZWEILOUS
     0x00010021,
     0x000101CA,
     0x00010074,
@@ -12835,6 +13441,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C01A1,
     0x004400C8,
     0x0000FFFF,
+    // SPECIES_HYDREIGON
     0x00010021,
     0x000101CA,
     0x000100A1,
@@ -12862,6 +13469,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004900C8,
     0x004C003F,
     0x0000FFFF,
+    // SPECIES_LARVESTA
     0x00010034,
     0x00010051,
     0x000A0047,
@@ -12878,6 +13486,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0051018A,
     0x005A0025,
     0x0000FFFF,
+    // SPECIES_VOLCARONA
     0x000001E6,
     0x000101E6,
     0x0001022B,
@@ -12916,6 +13525,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004E01DF,
     0x0064022B,
     0x0000FFFF,
+    // SPECIES_COBALION
     0x00010062,
     0x0001002B,
     0x0001010E,
@@ -12937,6 +13547,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00310211,
     0x00410172,
     0x0000FFFF,
+    // SPECIES_TERRAKION
     0x00010062,
     0x0001002B,
     0x0001010E,
@@ -12957,6 +13568,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B01BC,
     0x00410172,
     0x0000FFFF,
+    // SPECIES_VIRIZION
     0x00010062,
     0x0001002B,
     0x0001010E,
@@ -12978,6 +13590,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B015C,
     0x00410172,
     0x0000FFFF,
+    // SPECIES_TORNADUS
     0x00010136,
     0x00010010,
     0x0005002B,
@@ -12996,6 +13609,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460025,
     0x004D0351,
     0x0000FFFF,
+    // SPECIES_THUNDURUS
     0x00010136,
     0x00010054,
     0x0005002B,
@@ -13014,6 +13628,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460025,
     0x004B0352,
     0x0000FFFF,
+    // SPECIES_RESHIRAM
     0x000100E1,
     0x0001023B,
     0x000100F6,
@@ -13034,6 +13649,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005200C8,
     0x005D022A,
     0x0000FFFF,
+    // SPECIES_ZEKROM
     0x000100E1,
     0x0001023B,
     0x000100F6,
@@ -13054,6 +13670,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005200C8,
     0x005D0229,
     0x0000FFFF,
+    // SPECIES_LANDORUS
     0x00010148,
     0x000101E2,
     0x0005002B,
@@ -13072,6 +13689,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004B005A,
     0x00500353,
     0x0000FFFF,
+    // SPECIES_KYUREM
     0x000100E1,
     0x0001023B,
     0x000100F6,
@@ -13090,6 +13708,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00500228,
     0x00580149,
     0x0000FFFF,
+    // SPECIES_KELDEO
     0x00010227,
     0x000101C5,
     0x0001002B,
@@ -13110,6 +13729,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00400038,
     0x00470172,
     0x0000FFFF,
+    // SPECIES_MELOETTA
     0x000101F3,
     0x00010062,
     0x0001005D,
@@ -13129,6 +13749,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004E0172,
     0x005500C3,
     0x0000FFFF,
+    // SPECIES_GENESECT
     0x000100D2,
     0x00010062,
     0x00010238,
@@ -13156,6 +13777,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00540225,
     0x00540078,
     0x0000FFFF,
+    // SPECIES_CHESPIN
     0x0001002D,
     0x00010016,
     0x00050016,
@@ -13171,6 +13793,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D00DC,
     0x003001C4,
     0x0000FFFF,
+    // SPECIES_QUILLADIN
     0x0000012E,
     0x0001012E,
     0x0001002D,
@@ -13188,6 +13811,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400DC,
     0x003801C4,
     0x0000FFFF,
+    // SPECIES_CHESNAUGHT
     0x00000257,
     0x00010257,
     0x0001012E,
@@ -13213,6 +13837,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00480167,
     0x004E01A0,
     0x0000FFFF,
+    // SPECIES_FENNEKIN
     0x0001000A,
     0x00010027,
     0x00050034,
@@ -13230,6 +13855,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01E1,
     0x0030007E,
     0x0000FFFF,
+    // SPECIES_BRAIXEN
     0x0001000A,
     0x00010027,
     0x00010034,
@@ -13248,6 +13874,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003801E1,
     0x003B007E,
     0x0000FFFF,
+    // SPECIES_DELPHOX
     0x00000256,
     0x00010256,
     0x000100F8,
@@ -13274,6 +13901,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004A007E,
     0x005000F8,
     0x0000FFFF,
+    // SPECIES_FROAKIE
     0x00010001,
     0x0001002D,
     0x00050091,
@@ -13289,6 +13917,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0068,
     0x00300038,
     0x0000FFFF,
+    // SPECIES_FROGADIER
     0x00010001,
     0x0001002D,
     0x00010091,
@@ -13305,6 +13934,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320068,
     0x00380038,
     0x0000FFFF,
+    // SPECIES_GRENINJA
     0x00000255,
     0x00010255,
     0x00010190,
@@ -13330,6 +13960,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460072,
     0x004D0190,
     0x0000FFFF,
+    // SPECIES_BUNNELBY
     0x000100BD,
     0x0001002B,
     0x00010021,
@@ -13352,6 +13983,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0059,
     0x002F0107,
     0x0000FFFF,
+    // SPECIES_DIGGERSBY
     0x000100BD,
     0x0001002B,
     0x00010021,
@@ -13378,6 +14010,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360107,
     0x003A0167,
     0x0000FFFF,
+    // SPECIES_FLETCHLING
     0x00010040,
     0x0001002D,
     0x00010021,
@@ -13397,6 +14030,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B00D3,
     0x00320013,
     0x0000FFFF,
+    // SPECIES_FLETCHINDER
     0x000001EB,
     0x00000034,
     0x000101EB,
@@ -13421,6 +14055,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400D3,
     0x00400013,
     0x0000FFFF,
+    // SPECIES_TALONFLAME
     0x000101EB,
     0x0001018A,
     0x0001016C,
@@ -13446,15 +14081,18 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004A0013,
     0x004A019D,
     0x0000FFFF,
+    // SPECIES_SCATTERBUG
     0x00010021,
     0x00010051,
     0x0006004E,
     0x000F01C2,
     0x0000FFFF,
+    // SPECIES_SPEWPA
     0x000000B6,
     0x000100B6,
     0x0001006A,
     0x0000FFFF,
+    // SPECIES_VIVILLON
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -13473,6 +14111,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_LITLEO
     0x00010021,
     0x0001002B,
     0x00050034,
@@ -13489,6 +14128,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0201,
     0x0032013B,
     0x0000FFFF,
+    // SPECIES_PYROAR
     0x0001003F,
     0x00010021,
     0x0001002B,
@@ -13508,6 +14148,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330201,
     0x0039013B,
     0x0000FFFF,
+    // SPECIES_FLABEBE
     0x00010021,
     0x00010016,
     0x0006024B,
@@ -13523,6 +14164,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0050,
     0x0030004C,
     0x0000FFFF,
+    // SPECIES_FLOETTE
     0x00010021,
     0x00010016,
     0x0001024B,
@@ -13539,6 +14181,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330050,
     0x003A004C,
     0x0000FFFF,
+    // SPECIES_FLORGES
     0x00010241,
     0x0001017D,
     0x00010111,
@@ -13552,6 +14195,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010050,
     0x00010138,
     0x0000FFFF,
+    // SPECIES_SKIDDO
     0x00010021,
     0x0001004A,
     0x00070016,
@@ -13569,6 +14213,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D015C,
     0x003200D0,
     0x0000FFFF,
+    // SPECIES_GOGOAT
     0x0000014C,
     0x0001014C,
     0x00010059,
@@ -13591,6 +14236,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037015C,
     0x003A00D0,
     0x0000FFFF,
+    // SPECIES_PANCHAM
     0x00010021,
     0x0001002B,
     0x00050124,
@@ -13608,6 +14254,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B01F1,
     0x00300147,
     0x0000FFFF,
+    // SPECIES_PANGORO
     0x00000190,
     0x000001A2,
     0x00010190,
@@ -13636,6 +14283,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003F0167,
     0x0041010D,
     0x0000FFFF,
+    // SPECIES_FURFROU
     0x00010021,
     0x0001002D,
     0x0005001C,
@@ -13650,6 +14298,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0185,
     0x0030021D,
     0x0000FFFF,
+    // SPECIES_ESPURR
     0x0001000A,
     0x0001002B,
     0x0009005D,
@@ -13661,6 +14310,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001D01DC,
     0x001E0073,
     0x0000FFFF,
+    // SPECIES_MEOWSTIC
     0x000100D4,
     0x0001000A,
     0x0001002B,
@@ -13688,6 +14338,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003201F8,
     0x00360248,
     0x0000FFFF,
+    // SPECIES_HONEDGE
     0x00010021,
     0x000100D2,
     0x0001000E,
@@ -13706,6 +14357,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C000E,
     0x002F0218,
     0x0000FFFF,
+    // SPECIES_DOUBLADE
     0x00010021,
     0x000100D2,
     0x000101A9,
@@ -13726,6 +14378,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032000E,
     0x00350218,
     0x0000FFFF,
+    // SPECIES_AEGISLASH
     0x0000024F,
     0x0001024F,
     0x000101C9,
@@ -13745,6 +14398,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000101DE,
     0x000100E4,
     0x0000FFFF,
+    // SPECIES_SPRITZEE
     0x0001024B,
     0x000100E6,
     0x000400BA,
@@ -13762,6 +14416,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0029011D,
     0x00320241,
     0x0000FFFF,
+    // SPECIES_AROMATISSE
     0x00010258,
     0x000101FC,
     0x0001024B,
@@ -13786,6 +14441,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400F4,
     0x00390073,
     0x0000FFFF,
+    // SPECIES_SWIRLIX
     0x00010021,
     0x000100E6,
     0x00050250,
@@ -13804,6 +14460,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A0071,
     0x004300DB,
     0x0000FFFF,
+    // SPECIES_SLURPUFF
     0x00010021,
     0x000100E6,
     0x00010250,
@@ -13825,6 +14482,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A0071,
     0x004300DB,
     0x0000FFFF,
+    // SPECIES_INKAY
     0x00010040,
     0x00010021,
     0x00010084,
@@ -13845,6 +14503,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00220190,
     0x002B0114,
     0x0000FFFF,
+    // SPECIES_MALAMAR
     0x000100B3,
     0x00010040,
     0x00010021,
@@ -13868,6 +14527,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00220190,
     0x002F0114,
     0x0000FFFF,
+    // SPECIES_BINACLE
     0x000100BD,
     0x0001000A,
     0x000101FB,
@@ -13887,6 +14547,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00290190,
     0x002E00EE,
     0x0000FFFF,
+    // SPECIES_BARBARACLE
     0x00010082,
     0x000100BD,
     0x0001000A,
@@ -13912,6 +14573,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003801BC,
     0x00410082,
     0x0000FFFF,
+    // SPECIES_SKRELP
     0x00010021,
     0x0001006C,
     0x00010037,
@@ -13930,6 +14592,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C00BC,
     0x00300038,
     0x0000FFFF,
+    // SPECIES_DRAGALGE
     0x000000EF,
     0x00010021,
     0x0001006C,
@@ -13954,6 +14617,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B0210,
     0x004200C8,
     0x0000FFFF,
+    // SPECIES_CLAUNCHER
     0x00010096,
     0x00010037,
     0x0006000B,
@@ -13971,6 +14635,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0154,
     0x0031014A,
     0x0000FFFF,
+    // SPECIES_CLAWITZER
     0x0000018C,
     0x0001018F,
     0x00010196,
@@ -13996,6 +14661,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00310154,
     0x0038014A,
     0x0000FFFF,
+    // SPECIES_HELIOPTILE
     0x000100BD,
     0x00010027,
     0x00010001,
@@ -14013,6 +14679,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0249,
     0x002C0057,
     0x0000FFFF,
+    // SPECIES_HELIOLISK
     0x00010259,
     0x000101B3,
     0x00010062,
@@ -14030,6 +14697,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010054,
     0x0001000D,
     0x0000FFFF,
+    // SPECIES_TYRUNT
     0x00010021,
     0x00010027,
     0x0004002E,
@@ -14047,6 +14715,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0059,
     0x00300020,
     0x0000FFFF,
+    // SPECIES_TYRANTRUM
     0x0000009D,
     0x00010021,
     0x00010027,
@@ -14072,6 +14741,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003E01C9,
     0x003F01A0,
     0x0000FFFF,
+    // SPECIES_AMAURA
     0x000100B5,
     0x0001002D,
     0x000A0058,
@@ -14092,6 +14762,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0038003F,
     0x003A003B,
     0x0000FFFF,
+    // SPECIES_AURORUS
     0x00000240,
     0x000100B5,
     0x0001002D,
@@ -14118,6 +14789,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0040003F,
     0x0042003B,
     0x0000FFFF,
+    // SPECIES_SYLVEON
     0x00000241,
     0x0000024B,
     0x00010241,
@@ -14145,6 +14817,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D00F4,
     0x00300183,
     0x0000FFFF,
+    // SPECIES_HAWLUCHA
     0x00010021,
     0x000101D7,
     0x000100C5,
@@ -14166,6 +14839,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034008F,
     0x003701FE,
     0x0000FFFF,
+    // SPECIES_DEDENNE
     0x00010264,
     0x00010027,
     0x00010021,
@@ -14186,6 +14860,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200A2,
     0x00350057,
     0x0000FFFF,
+    // SPECIES_CARBINK
     0x00010021,
     0x0001006A,
     0x00050058,
@@ -14205,6 +14880,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003601BC,
     0x004600DB,
     0x0000FFFF,
+    // SPECIES_GOOMY
     0x00010047,
     0x00010021,
     0x00010091,
@@ -14221,6 +14897,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002900AE,
     0x002C014A,
     0x0000FFFF,
+    // SPECIES_SLIGGOO
     0x000001EE,
     0x000101EE,
     0x00010047,
@@ -14240,6 +14917,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B00AE,
     0x002F014A,
     0x0000FFFF,
+    // SPECIES_GOODRA
     0x00000191,
     0x00010191,
     0x000101EE,
@@ -14267,6 +14945,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003700C8,
     0x003B01B6,
     0x0000FFFF,
+    // SPECIES_KLEFKI
     0x0001024E,
     0x00010136,
     0x00010021,
@@ -14288,6 +14967,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320179,
     0x00340183,
     0x0000FFFF,
+    // SPECIES_PHANTUMP
     0x00010136,
     0x00010021,
     0x0001006D,
@@ -14307,6 +14987,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C023E,
     0x002E01C4,
     0x0000FFFF,
+    // SPECIES_TREVENANT
     0x000001A5,
     0x000101A5,
     0x00010136,
@@ -14331,6 +15012,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C023E,
     0x002E01C4,
     0x0000FFFF,
+    // SPECIES_PUMPKABOO
     0x0001023A,
     0x00010136,
     0x0001010F,
@@ -14348,6 +15030,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028010F,
     0x002B00DC,
     0x0000FFFF,
+    // SPECIES_GOURGEIST
     0x00010099,
     0x0001024C,
     0x0001023A,
@@ -14371,6 +15054,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340239,
     0x00460099,
     0x0000FFFF,
+    // SPECIES_BERGMITE
     0x000100E5,
     0x0001006A,
     0x00010021,
@@ -14393,6 +15077,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028003B,
     0x002D0026,
     0x0000FFFF,
+    // SPECIES_AVALUGG
     0x00000022,
     0x00010022,
     0x000101D8,
@@ -14422,6 +15107,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320026,
     0x00370082,
     0x0000FFFF,
+    // SPECIES_NOIBAT
     0x00010047,
     0x00010021,
     0x00010067,
@@ -14443,6 +15129,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A016E,
     0x00360221,
     0x0000FFFF,
+    // SPECIES_NOIVERN
     0x00000196,
     0x00010196,
     0x000100EC,
@@ -14471,6 +15158,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0044024D,
     0x00460196,
     0x0000FFFF,
+    // SPECIES_XERNEAS
     0x00010021,
     0x00010164,
     0x000101FC,
@@ -14496,6 +15184,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005600C8,
     0x005601A0,
     0x0000FFFF,
+    // SPECIES_YVELTAL
     0x00010010,
     0x00010068,
     0x00010221,
@@ -14521,6 +15210,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0056008F,
     0x0056003F,
     0x0000FFFF,
+    // SPECIES_ZYGARDE
     0x00010269,
     0x0001026A,
     0x000102B2,
@@ -14543,6 +15233,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004801EC,
     0x005400C8,
     0x0000FFFF,
+    // SPECIES_DIANCIE
     0x00010021,
     0x0001006A,
     0x00010058,
@@ -14564,6 +15255,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004600DB,
     0x00470252,
     0x0000FFFF,
+    // SPECIES_HOOPA
     0x00010254,
     0x0001010F,
     0x000100C2,
@@ -14585,6 +15277,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004B005E,
     0x00550254,
     0x0000FFFF,
+    // SPECIES_VOLCANION
     0x00010053,
     0x00010037,
     0x00010253,
@@ -14608,6 +15301,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004E0253,
     0x00530099,
     0x0000FFFF,
+    // SPECIES_ROWLET
     0x00010021,
     0x0001002D,
     0x000102A1,
@@ -14628,6 +15322,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00230129,
     0x0027019D,
     0x0000FFFF,
+    // SPECIES_DARTRIX
     0x00010021,
     0x0001002D,
     0x000102A1,
@@ -14649,6 +15344,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0129,
     0x0032019D,
     0x0000FFFF,
+    // SPECIES_DECIDUEYE
     0x00000299,
     0x00010299,
     0x00010239,
@@ -14677,6 +15373,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320129,
     0x0038019D,
     0x0000FFFF,
+    // SPECIES_LITTEN
     0x0001000A,
     0x0001002D,
     0x00010034,
@@ -14696,6 +15393,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0027018A,
     0x002E00C8,
     0x0000FFFF,
+    // SPECIES_TORRACAT
     0x0001000A,
     0x0001002D,
     0x00010034,
@@ -14715,6 +15413,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032018A,
     0x003700C8,
     0x0000FFFF,
+    // SPECIES_INCINEROAR
     0x0000029A,
     0x0001029A,
     0x000100EE,
@@ -14740,6 +15439,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C00C8,
     0x004200EE,
     0x0000FFFF,
+    // SPECIES_POPPLIO
     0x00010001,
     0x0001002D,
     0x00010037,
@@ -14759,6 +15459,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270038,
     0x002701BD,
     0x0000FFFF,
+    // SPECIES_BRIONNE
     0x00010001,
     0x0001002D,
     0x00010037,
@@ -14778,6 +15479,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01BD,
     0x00320038,
     0x0000FFFF,
+    // SPECIES_PRIMARINA
     0x0000029B,
     0x0001029B,
     0x00010001,
@@ -14799,6 +15501,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003101BD,
     0x00380038,
     0x0000FFFF,
+    // SPECIES_PIKIPEK
     0x00010040,
     0x0003002D,
     0x000701F4,
@@ -14813,6 +15516,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00210129,
     0x00250130,
     0x0000FFFF,
+    // SPECIES_TRUMBEAK
     0x0001015E,
     0x00010040,
     0x0001002D,
@@ -14831,6 +15535,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280129,
     0x002D0130,
     0x0000FFFF,
+    // SPECIES_TOUCANNON
     0x000002B5,
     0x000102B5,
     0x0001015E,
@@ -14852,6 +15557,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0129,
     0x00320130,
     0x0000FFFF,
+    // SPECIES_YUNGOOS
     0x00010021,
     0x0003002B,
     0x000700E4,
@@ -14869,6 +15575,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0025,
     0x002E009C,
     0x0000FFFF,
+    // SPECIES_GUMSHOOS
     0x00010021,
     0x0001002B,
     0x000100E4,
@@ -14889,6 +15596,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330025,
     0x0037009C,
     0x0000FFFF,
+    // SPECIES_GRUBBIN
     0x0001000B,
     0x000100BD,
     0x00040051,
@@ -14902,6 +15610,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001C00F2,
     0x0022005B,
     0x0000FFFF,
+    // SPECIES_CHARJABUG
     0x0000010C,
     0x0001010C,
     0x0001000B,
@@ -14922,6 +15631,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0035014E,
     0x003601B3,
     0x0000FFFF,
+    // SPECIES_VIKAVOLT
     0x00000055,
     0x00010055,
     0x0001010C,
@@ -14950,6 +15660,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350061,
     0x003500C0,
     0x0000FFFF,
+    // SPECIES_CRABRAWLER
     0x00010091,
     0x000500F9,
     0x0009002B,
@@ -14964,6 +15675,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D00DF,
     0x00310172,
     0x0000FFFF,
+    // SPECIES_CRABOMINABLE
     0x00000008,
     0x00010008,
     0x00010091,
@@ -14983,6 +15695,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D00DF,
     0x00310172,
     0x0000FFFF,
+    // SPECIES_ORICORIO
     0x00010001,
     0x0004002D,
     0x00060040,
@@ -15000,6 +15713,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0061,
     0x00320221,
     0x0000FFFF,
+    // SPECIES_CUTIEFLY
     0x00010047,
     0x0001024B,
     0x0004024B,
@@ -15014,6 +15728,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00250195,
     0x002F01E6,
     0x0000FFFF,
+    // SPECIES_RIBOMBEE
     0x000002A7,
     0x000102A7,
     0x00010157,
@@ -15034,6 +15749,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0195,
     0x003901E6,
     0x0000FFFF,
+    // SPECIES_ROCKRUFF
     0x00010021,
     0x0001002B,
     0x0004001C,
@@ -15051,6 +15767,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01AF,
     0x003001BC,
     0x0000FFFF,
+    // SPECIES_LYCANROC
     0x00000185,
     0x000002C8,
     0x00010185,
@@ -15076,6 +15793,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01AF,
     0x003601BC,
     0x0000FFFF,
+    // SPECIES_WISHIWASHI
     0x00010037,
     0x0001002D,
     0x0004010E,
@@ -15093,6 +15811,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0026,
     0x00300038,
     0x0000FFFF,
+    // SPECIES_MAREANIE
     0x00010028,
     0x00010040,
     0x00050040,
@@ -15108,6 +15827,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002902C9,
     0x0029018E,
     0x0000FFFF,
+    // SPECIES_TOXAPEX
     0x00000298,
     0x00010298,
     0x00010028,
@@ -15128,6 +15848,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B018E,
     0x002D02C9,
     0x0000FFFF,
+    // SPECIES_MUDBRAY
     0x000100BD,
     0x000100F9,
     0x0003012C,
@@ -15145,6 +15866,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00290019,
     0x002C0114,
     0x0000FFFF,
+    // SPECIES_MUDSDALE
     0x000100BD,
     0x000100F9,
     0x0001014E,
@@ -15167,6 +15889,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320019,
     0x00370114,
     0x0000FFFF,
+    // SPECIES_DEWPIDER
     0x00010037,
     0x00010266,
     0x0001015A,
@@ -15186,6 +15909,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A02C9,
     0x002C00F3,
     0x0000FFFF,
+    // SPECIES_ARAQUANID
     0x000101D8,
     0x00010037,
     0x00010266,
@@ -15209,6 +15933,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003502C9,
     0x003800F3,
     0x0000FFFF,
+    // SPECIES_FOMANTIS
     0x000102A1,
     0x000100D2,
     0x000502A1,
@@ -15223,6 +15948,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D00F1,
     0x002D004C,
     0x0000FFFF,
+    // SPECIES_LURANTIS
     0x0000023F,
     0x0001023F,
     0x00010190,
@@ -15246,6 +15972,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400F1,
     0x003702A0,
     0x0000FFFF,
+    // SPECIES_MORELULL
     0x00010047,
     0x00010136,
     0x00040136,
@@ -15263,6 +15990,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B008A,
     0x002E02A2,
     0x0000FFFF,
+    // SPECIES_SHIINOTIC
     0x00010047,
     0x00010136,
     0x0001006D,
@@ -15283,6 +16011,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034008A,
     0x003502A2,
     0x0000FFFF,
+    // SPECIES_SALANDIT
     0x0001000A,
     0x0001008B,
     0x00070034,
@@ -15301,6 +16030,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0035,
     0x003C011B,
     0x0000FFFF,
+    // SPECIES_SALAZZLE
     0x000002AB,
     0x000001BD,
     0x000102AB,
@@ -15332,6 +16062,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0033025A,
     0x00330035,
     0x0000FFFF,
+    // SPECIES_STUFFUL
     0x00010021,
     0x0001002B,
     0x00050075,
@@ -15348,6 +16079,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0026,
     0x00300114,
     0x0000FFFF,
+    // SPECIES_BEWEAR
     0x00000014,
     0x00010014,
     0x00010021,
@@ -15368,6 +16100,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360026,
     0x003C0114,
     0x0000FFFF,
+    // SPECIES_BOUNSWEET
     0x00010096,
     0x00040250,
     0x000800E5,
@@ -15379,6 +16112,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00200258,
     0x00240138,
     0x0000FFFF,
+    // SPECIES_STEENEE
     0x00000003,
     0x000100AF,
     0x00010096,
@@ -15398,6 +16132,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B0138,
     0x003001B5,
     0x0000FFFF,
+    // SPECIES_TSAREENA
     0x000002B3,
     0x000102B3,
     0x000101B6,
@@ -15423,6 +16158,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350088,
     0x003501B6,
     0x0000FFFF,
+    // SPECIES_COMFEY
     0x00010023,
     0x0001004A,
     0x0001010E,
@@ -15448,6 +16184,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B024A,
     0x002F0247,
     0x0000FFFF,
+    // SPECIES_ORANGURU
     0x0001005D,
     0x0001010D,
     0x000401F2,
@@ -15465,6 +16202,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01EF,
     0x003500F8,
     0x0000FFFF,
+    // SPECIES_PASSIMIAN
     0x00010021,
     0x0001002B,
     0x0004002B,
@@ -15482,10 +16220,12 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200B3,
     0x003701A0,
     0x0000FFFF,
+    // SPECIES_WIMPOD
     0x0001020D,
     0x0001001C,
     0x0001006F,
     0x0000FFFF,
+    // SPECIES_GOLISOPOD
     0x00000297,
     0x00010297,
     0x0001020D,
@@ -15507,6 +16247,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0026002A,
     0x002D02C9,
     0x0000FFFF,
+    // SPECIES_SANDYGAST
     0x00010047,
     0x0001006A,
     0x00050136,
@@ -15522,6 +16263,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340296,
     0x003900C9,
     0x0000FFFF,
+    // SPECIES_PALOSSAND
     0x00010047,
     0x0001006A,
     0x00010136,
@@ -15540,6 +16282,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390296,
     0x004000C9,
     0x0000FFFF,
+    // SPECIES_PYUKUMUKU
     0x000100E2,
     0x0001006A,
     0x0001015A,
@@ -15558,6 +16301,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032005C,
     0x00360106,
     0x0000FFFF,
+    // SPECIES_TYPE_NULL
     0x00010021,
     0x0001011E,
     0x00050063,
@@ -15578,6 +16322,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0046000D,
     0x00550179,
     0x0000FFFF,
+    // SPECIES_SILVALLY
     0x000002D1,
     0x000102D1,
     0x00010099,
@@ -15610,6 +16355,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0046000D,
     0x00470242,
     0x0000FFFF,
+    // SPECIES_MINIOR
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -15626,6 +16372,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_KOMALA
     0x0001006F,
     0x000100CD,
     0x000600FE,
@@ -15640,6 +16387,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002901C4,
     0x002E0025,
     0x0000FFFF,
+    // SPECIES_TURTONATOR
     0x0001007B,
     0x00010021,
     0x00010034,
@@ -15658,6 +16406,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030013B,
     0x00340099,
     0x0000FFFF,
+    // SPECIES_TOGEDEMARU
     0x00010264,
     0x00010021,
     0x00010054,
@@ -15676,6 +16425,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300213,
     0x00360257,
     0x0000FFFF,
+    // SPECIES_MIMIKYU
     0x000101C4,
     0x00010096,
     0x00010136,
@@ -15693,6 +16443,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032024A,
     0x003700DC,
     0x0000FFFF,
+    // SPECIES_BRUXISH
     0x00010037,
     0x00040136,
     0x0009005D,
@@ -15706,6 +16457,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002902C5,
     0x002C01E8,
     0x0000FFFF,
+    // SPECIES_DRAMPA
     0x00010250,
     0x000101F4,
     0x000500EF,
@@ -15722,6 +16474,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00310130,
     0x003600C8,
     0x0000FFFF,
+    // SPECIES_DHELMISE
     0x00010047,
     0x000100E5,
     0x0001019F,
@@ -15744,6 +16497,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390239,
     0x003D01B6,
     0x0000FFFF,
+    // SPECIES_JANGMO_O
     0x00010021,
     0x0001002B,
     0x0005002B,
@@ -15760,6 +16514,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C015D,
     0x003000C8,
     0x0000FFFF,
+    // SPECIES_HAKAMO_O
     0x00000147,
     0x000101DE,
     0x00010021,
@@ -15783,6 +16538,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003500C8,
     0x003B0172,
     0x0000FFFF,
+    // SPECIES_KOMMO_O
     0x000002B6,
     0x000102B6,
     0x000100BB,
@@ -15810,6 +16566,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0044030A,
     0x004C024D,
     0x0000FFFF,
+    // SPECIES_TAPU_KOKO
     0x00010062,
     0x00010054,
     0x0001025F,
@@ -15836,6 +16593,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460180,
     0x004B025F,
     0x0000FFFF,
+    // SPECIES_TAPU_LELE
     0x00010136,
     0x0001005D,
     0x000102A9,
@@ -15861,6 +16619,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B024C,
     0x004B02A9,
     0x0000FFFF,
+    // SPECIES_TAPU_BULU
     0x000102A1,
     0x000100F9,
     0x00010247,
@@ -15888,6 +16647,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00400082,
     0x004B0247,
     0x0000FFFF,
+    // SPECIES_TAPU_FINI
     0x00010241,
     0x00010037,
     0x00010248,
@@ -15916,14 +16676,17 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D0038,
     0x004B0248,
     0x0000FFFF,
+    // SPECIES_COSMOG
     0x00010096,
     0x00010064,
     0x00170064,
     0x0000FFFF,
+    // SPECIES_COSMOEM
     0x00000142,
     0x00010142,
     0x00010064,
     0x0000FFFF,
+    // SPECIES_SOLGALEO
     0x000002CC,
     0x000102CC,
     0x00010142,
@@ -15945,6 +16708,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004801D8,
     0x004E01A0,
     0x0000FFFF,
+    // SPECIES_LUNALA
     0x000002CD,
     0x000102CD,
     0x00010142,
@@ -15964,6 +16728,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004801D8,
     0x004E003F,
     0x0000FFFF,
+    // SPECIES_NIHILEGO
     0x00010023,
     0x00010001,
     0x000101DA,
@@ -15989,6 +16754,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004101DB,
     0x004701C9,
     0x0000FFFF,
+    // SPECIES_BUZZWOLE
     0x00010267,
     0x0001006A,
     0x00010238,
@@ -16013,6 +16779,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00410114,
     0x00470108,
     0x0000FFFF,
+    // SPECIES_PHEROMOSA
     0x0001016C,
     0x000100E5,
     0x000101E6,
@@ -16040,6 +16807,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004101E6,
     0x00440088,
     0x0000FFFF,
+    // SPECIES_XURKITREE
     0x00010023,
     0x00010054,
     0x00010126,
@@ -16062,6 +16830,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0043023C,
     0x004700C0,
     0x0000FFFF,
+    // SPECIES_CELESTEELA
     0x00010047,
     0x00010021,
     0x000101D8,
@@ -16085,6 +16854,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003F01E7,
     0x00440026,
     0x0000FFFF,
+    // SPECIES_KARTANA
     0x000100D2,
     0x0001019A,
     0x00010218,
@@ -16109,6 +16879,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004301AB,
     0x0047000C,
     0x0000FFFF,
+    // SPECIES_GUZZLORD
     0x0001002C,
     0x00010210,
     0x00010235,
@@ -16137,6 +16908,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0043017A,
     0x004601A0,
     0x0000FFFF,
+    // SPECIES_NECROZMA
     0x000100EC,
     0x000100EA,
     0x000101C3,
@@ -16158,6 +16930,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0043017A,
     0x005102CA,
     0x0000FFFF,
+    // SPECIES_MAGEARNA
     0x00010168,
     0x0001010E,
     0x00010245,
@@ -16188,6 +16961,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00590187,
     0x00610178,
     0x0000FFFF,
+    // SPECIES_MARSHADOW
     0x00010009,
     0x00010007,
     0x00010008,
@@ -16215,6 +16989,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004C0172,
     0x005102A4,
     0x0000FFFF,
+    // SPECIES_POIPOLE
     0x00010196,
     0x00010040,
     0x0001002D,
@@ -16230,6 +17005,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034005C,
     0x0038017C,
     0x0000FFFF,
+    // SPECIES_NAGANADEL
     0x0000013A,
     0x0001013A,
     0x00010193,
@@ -16251,6 +17027,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D0196,
     0x00460197,
     0x0000FFFF,
+    // SPECIES_STAKATAKA
     0x00010021,
     0x0001006A,
     0x000100B6,
@@ -16270,6 +17047,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003101BA,
     0x00410026,
     0x0000FFFF,
+    // SPECIES_BLACEPHALON
     0x00010136,
     0x00010053,
     0x00010034,
@@ -16290,6 +17068,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370105,
     0x004002D3,
     0x0000FFFF,
+    // SPECIES_ZERAORA
     0x00010267,
     0x000100FC,
     0x0001000A,
@@ -16312,6 +17091,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00490172,
     0x00500061,
     0x0000FFFF,
+    // SPECIES_MELTAN
     0x00010054,
     0x0001006A,
     0x00080027,
@@ -16320,6 +17100,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00200097,
     0x002801AE,
     0x0000FFFF,
+    // SPECIES_MELMETAL
     0x00000009,
     0x00010009,
     0x00010054,
@@ -16337,6 +17118,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005802E9,
     0x0060003F,
     0x0000FFFF,
+    // SPECIES_GROOKEY
     0x0001000A,
     0x0001002D,
     0x00060314,
@@ -16349,6 +17131,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002001C4,
     0x0024011B,
     0x0000FFFF,
+    // SPECIES_THWACKEY
     0x000101CA,
     0x0001000A,
     0x0001002D,
@@ -16362,6 +17145,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A01C4,
     0x0030011B,
     0x0000FFFF,
+    // SPECIES_RILLABOOM
     0x0001030D,
     0x000101CA,
     0x00010247,
@@ -16379,6 +17163,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0036011B,
     0x003E024D,
     0x0000FFFF,
+    // SPECIES_SCORBUNNY
     0x00010021,
     0x0001002D,
     0x00060034,
@@ -16391,6 +17176,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00200154,
     0x00240026,
     0x0000FFFF,
+    // SPECIES_RABOOT
     0x00010021,
     0x0001002D,
     0x00010034,
@@ -16403,6 +17189,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0154,
     0x00300026,
     0x0000FFFF,
+    // SPECIES_CINDERACE
     0x0001030F,
     0x0001016C,
     0x00010021,
@@ -16418,6 +17205,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360026,
     0x003E02F7,
     0x0000FFFF,
+    // SPECIES_SOBBLE
     0x00010001,
     0x0001002D,
     0x00060037,
@@ -16430,6 +17218,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002001EA,
     0x002400F0,
     0x0000FFFF,
+    // SPECIES_DRIZZILE
     0x00010001,
     0x0001002D,
     0x00010037,
@@ -16442,6 +17231,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A01EA,
     0x003000F0,
     0x0000FFFF,
+    // SPECIES_INTELEON
     0x000102EC,
     0x00010203,
     0x00010001,
@@ -16457,6 +17247,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003600F0,
     0x003E0038,
     0x0000FFFF,
+    // SPECIES_SKWOVET
     0x00010021,
     0x00010027,
     0x0005002C,
@@ -16471,6 +17262,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002800A2,
     0x002D0235,
     0x0000FFFF,
+    // SPECIES_GREEDENT
     0x00010157,
     0x00010021,
     0x00010027,
@@ -16486,6 +17278,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003000A2,
     0x00370235,
     0x0000FFFF,
+    // SPECIES_ROOKIDEE
     0x00010040,
     0x0001002B,
     0x000402AC,
@@ -16498,6 +17291,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002000CF,
     0x0024019D,
     0x0000FFFF,
+    // SPECIES_CORVISQUIRE
     0x00010040,
     0x0001002B,
     0x000102AC,
@@ -16510,6 +17304,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002800CF,
     0x002E019D,
     0x0000FFFF,
+    // SPECIES_CORVIKNIGHT
     0x000100D3,
     0x0001014E,
     0x0001013F,
@@ -16525,13 +17320,16 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00CF,
     0x0032019D,
     0x0000FFFF,
+    // SPECIES_BLIPBUG
     0x0001020D,
     0x0000FFFF,
+    // SPECIES_DOTTLER
     0x00010073,
     0x00010071,
     0x0001005D,
     0x0001020D,
     0x0000FFFF,
+    // SPECIES_ORBEETLE
     0x00010073,
     0x00010071,
     0x0001005D,
@@ -16549,6 +17347,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C015B,
     0x003002A9,
     0x0000FFFF,
+    // SPECIES_NICKIT
     0x00010062,
     0x00010027,
     0x000400FB,
@@ -16561,6 +17360,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00200220,
     0x002401EF,
     0x0000FFFF,
+    // SPECIES_THIEVUL
     0x000100A8,
     0x00010062,
     0x00010027,
@@ -16575,6 +17375,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01EF,
     0x00340242,
     0x0000FFFF,
+    // SPECIES_GOSSIFLEUR
     0x000102A1,
     0x0001002F,
     0x000400E5,
@@ -16587,6 +17388,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00200138,
     0x002401B5,
     0x0000FFFF,
+    // SPECIES_ELDEGOSS
     0x000100B2,
     0x000102A1,
     0x0001002F,
@@ -16601,6 +17403,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01B5,
     0x0034021D,
     0x0000FFFF,
+    // SPECIES_WOOLOO
     0x00010021,
     0x0001002D,
     0x0004006F,
@@ -16614,6 +17417,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0024021D,
     0x00280026,
     0x0000FFFF,
+    // SPECIES_DUBWOOL
     0x00010021,
     0x0001002D,
     0x0001006F,
@@ -16628,6 +17432,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320026,
     0x00380183,
     0x0000FFFF,
+    // SPECIES_CHEWTLE
     0x00010021,
     0x00010037,
     0x0007002C,
@@ -16638,6 +17443,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A02C9,
     0x00310022,
     0x0000FFFF,
+    // SPECIES_DREDNAW
     0x0001013D,
     0x00010219,
     0x000100F2,
@@ -16653,6 +17459,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390022,
     0x004201C9,
     0x0000FFFF,
+    // SPECIES_YAMPER
     0x00010021,
     0x00010027,
     0x00050264,
@@ -16665,6 +17472,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280213,
     0x002D024A,
     0x0000FFFF,
+    // SPECIES_BOLTUND
     0x00010249,
     0x00010021,
     0x00010027,
@@ -16679,6 +17487,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037024A,
     0x003E025F,
     0x0000FFFF,
+    // SPECIES_ROLYCOLY
     0x00010021,
     0x0001006C,
     0x000500E5,
@@ -16690,6 +17499,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0023021A,
     0x0028015E,
     0x0000FFFF,
+    // SPECIES_CARKOL
     0x000101EB,
     0x00010021,
     0x0001006C,
@@ -16703,6 +17513,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030015E,
     0x003702AD,
     0x0000FFFF,
+    // SPECIES_COALOSSAL
     0x000102F0,
     0x000101EB,
     0x00010021,
@@ -16717,9 +17528,11 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0036015E,
     0x003F02AD,
     0x0000FFFF,
+    // SPECIES_APPLIN
     0x0001006E,
     0x00010136,
     0x0000FFFF,
+    // SPECIES_FLAPPLE
     0x00010011,
     0x00010116,
     0x0001006E,
@@ -16738,6 +17551,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280013,
     0x002C0197,
     0x0000FFFF,
+    // SPECIES_APPLETUN
     0x0001001D,
     0x00010116,
     0x0001006E,
@@ -16756,6 +17570,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280196,
     0x002C019C,
     0x0000FFFF,
+    // SPECIES_SILICOBRA
     0x00010023,
     0x0001001C,
     0x0005006B,
@@ -16769,6 +17584,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01EC,
     0x00320148,
     0x0000FFFF,
+    // SPECIES_SANDACONDA
     0x00010082,
     0x00010023,
     0x0001001C,
@@ -16783,6 +17599,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003101EC,
     0x00330148,
     0x0000FFFF,
+    // SPECIES_CRAMORANT
     0x00010235,
     0x00010040,
     0x000100FE,
@@ -16797,6 +17614,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00310025,
     0x00380038,
     0x0000FFFF,
+    // SPECIES_ARROKUDA
     0x00010040,
     0x000101C5,
     0x0006001F,
@@ -16808,6 +17626,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A02C9,
     0x00300026,
     0x0000FFFF,
+    // SPECIES_BARRASKEWDA
     0x000102A6,
     0x00010040,
     0x000101C5,
@@ -16820,6 +17639,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003002C9,
     0x00380026,
     0x0000FFFF,
+    // SPECIES_TOXEL
     0x00010235,
     0x000102CE,
     0x00010264,
@@ -16827,6 +17647,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000100AF,
     0x00010033,
     0x0000FFFF,
+    // SPECIES_TOXTRICITY
     0x000100D1,
     0x00010259,
     0x00010235,
@@ -16853,6 +17674,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030024D,
     0x003401FF,
     0x0000FFFF,
+    // SPECIES_SIZZLIPEDE
     0x00010034,
     0x0001006C,
     0x00050023,
@@ -16867,6 +17689,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003202AA,
     0x003702AD,
     0x0000FFFF,
+    // SPECIES_CENTISKORCH
     0x00010208,
     0x00010034,
     0x0001006C,
@@ -16882,6 +17705,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C02AA,
     0x004302AD,
     0x0000FFFF,
+    // SPECIES_CLOBBOPUS
     0x000100F9,
     0x0001002B,
     0x0005016C,
@@ -16894,6 +17718,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002800B3,
     0x002D0114,
     0x0000FFFF,
+    // SPECIES_GRAPPLOCT
     0x000102F4,
     0x000100BE,
     0x000100F9,
@@ -16909,6 +17734,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0114,
     0x00320243,
     0x0000FFFF,
+    // SPECIES_SINISTEA
     0x00010136,
     0x0001006E,
     0x00060258,
@@ -16922,6 +17748,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360106,
     0x003C01FB,
     0x0000FFFF,
+    // SPECIES_POLTEAGEIST
     0x000102F3,
     0x0001029F,
     0x00010136,
@@ -16938,6 +17765,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C01FB,
     0x004200AE,
     0x0000FFFF,
+    // SPECIES_HATENNA
     0x0001005D,
     0x00010250,
     0x0005031A,
@@ -16950,6 +17778,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028005E,
     0x002D0169,
     0x0000FFFF,
+    // SPECIES_HATTREM
     0x000102B8,
     0x0001005D,
     0x00010250,
@@ -16963,6 +17792,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C005E,
     0x00330169,
     0x0000FFFF,
+    // SPECIES_HATTERENE
     0x000101AB,
     0x000102B8,
     0x0001005D,
@@ -16978,6 +17808,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370169,
     0x004002F1,
     0x0000FFFF,
+    // SPECIES_IMPIDIMP
     0x000100FC,
     0x00010251,
     0x0004002C,
@@ -16992,6 +17823,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028024A,
     0x002C01EF,
     0x0000FFFF,
+    // SPECIES_MORGREM
     0x0001031C,
     0x000100FC,
     0x00010251,
@@ -17007,6 +17839,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E024A,
     0x003401EF,
     0x0000FFFF,
+    // SPECIES_GRIMMSNARL
     0x00010318,
     0x0001031C,
     0x00010153,
@@ -17026,6 +17859,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003801EF,
     0x00400167,
     0x0000FFFF,
+    // SPECIES_OBSTAGOON
     0x0001031B,
     0x000100EE,
     0x00010042,
@@ -17048,6 +17882,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031010D,
     0x00380026,
     0x0000FFFF,
+    // SPECIES_PERRSERKER
     0x000101BA,
     0x00010170,
     0x0001014E,
@@ -17065,6 +17900,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030013F,
     0x00360025,
     0x0000FFFF,
+    // SPECIES_CURSOLA
     0x000100C3,
     0x00010021,
     0x0001006A,
@@ -17080,6 +17916,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320120,
     0x003700F3,
     0x0000FFFF,
+    // SPECIES_SIRFETCHD
     0x0001014E,
     0x00010297,
     0x00010040,
@@ -17099,6 +17936,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0041019D,
     0x0046031D,
     0x0000FFFF,
+    // SPECIES_MR_RIME
     0x00010139,
     0x0001012F,
     0x000101F2,
@@ -17130,6 +17968,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030005E,
     0x0034012A,
     0x0000FFFF,
+    // SPECIES_RUNERIGUS
     0x000101A5,
     0x000100B8,
     0x00010136,
@@ -17149,6 +17988,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003801D9,
     0x003E00C2,
     0x0000FFFF,
+    // SPECIES_MILCERY
     0x00010021,
     0x00010258,
     0x000500BA,
@@ -17162,6 +18002,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0248,
     0x003201F1,
     0x0000FFFF,
+    // SPECIES_ALCREMIE
     0x0001030C,
     0x00010021,
     0x00010258,
@@ -17176,6 +18017,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0248,
     0x003201F1,
     0x0000FFFF,
+    // SPECIES_FALINKS
     0x00010021,
     0x000100B6,
     0x000500F9,
@@ -17191,6 +18033,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003700E0,
     0x003C0044,
     0x0000FFFF,
+    // SPECIES_PINCURCHIN
     0x00010040,
     0x00010054,
     0x00050037,
@@ -17206,9 +18049,11 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037016F,
     0x003C01B3,
     0x0000FFFF,
+    // SPECIES_SNOM
     0x000100B5,
     0x0001020D,
     0x0000FFFF,
+    // SPECIES_FROSMOTH
     0x000100C4,
     0x000100B5,
     0x0001020D,
@@ -17228,6 +18073,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003001D8,
     0x003401E6,
     0x0000FFFF,
+    // SPECIES_STONJOURNER
     0x00010058,
     0x0001014F,
     0x0006018D,
@@ -17242,6 +18088,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C01BC,
     0x00420019,
     0x0000FFFF,
+    // SPECIES_EISCUE
     0x000100B5,
     0x00010021,
     0x00060036,
@@ -17255,6 +18102,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360039,
     0x003C003B,
     0x0000FFFF,
+    // SPECIES_INDEEDEE
     0x000101F7,
     0x00010250,
     0x000500E3,
@@ -17269,6 +18117,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003202A9,
     0x00370183,
     0x0000FFFF,
+    // SPECIES_MORPEKO
     0x00010054,
     0x00010027,
     0x0005002B,
@@ -17284,6 +18133,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370312,
     0x003C0025,
     0x0000FFFF,
+    // SPECIES_CUFANT
     0x00010021,
     0x0001002D,
     0x000500CD,
@@ -17298,6 +18148,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032029E,
     0x00370114,
     0x0000FFFF,
+    // SPECIES_COPPERAJAH
     0x000101E7,
     0x00010021,
     0x0001002D,
@@ -17313,6 +18164,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A029E,
     0x00410114,
     0x0000FFFF,
+    // SPECIES_DRACOZOLT
     0x00010021,
     0x00010054,
     0x0007010C,
@@ -17327,6 +18179,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460196,
     0x004D0197,
     0x0000FFFF,
+    // SPECIES_ARCTOZOLT
     0x000100B5,
     0x00010054,
     0x0007010C,
@@ -17341,6 +18194,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0046022F,
     0x004D003B,
     0x0000FFFF,
+    // SPECIES_DRACOVISH
     0x00010021,
     0x00010037,
     0x000700B6,
@@ -17355,6 +18209,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460196,
     0x004D0197,
     0x0000FFFF,
+    // SPECIES_ARCTOVISH
     0x000100B5,
     0x00010037,
     0x000700B6,
@@ -17369,6 +18224,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0046022F,
     0x004D003B,
     0x0000FFFF,
+    // SPECIES_DURALUDON
     0x000100E8,
     0x0001002B,
     0x000600F9,
@@ -17383,11 +18239,13 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0170,
     0x0042003F,
     0x0000FFFF,
+    // SPECIES_DREEPY
     0x00010136,
     0x00010266,
     0x00010062,
     0x0001002C,
     0x0000FFFF,
+    // SPECIES_DRAKLOAK
     0x00010196,
     0x00010136,
     0x00010266,
@@ -17406,6 +18264,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00420026,
     0x00480183,
     0x0000FFFF,
+    // SPECIES_DRAGAPULT
     0x000102F2,
     0x000100E1,
     0x00010185,
@@ -17426,6 +18285,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460026,
     0x004E0183,
     0x0000FFFF,
+    // SPECIES_ZACIAN
     0x00010218,
     0x000101F8,
     0x000100E8,
@@ -17441,6 +18301,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004D0172,
     0x005801A0,
     0x0000FFFF,
+    // SPECIES_ZAMAZENTA
     0x00010170,
     0x000101D8,
     0x000100E8,
@@ -17456,6 +18317,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004D0172,
     0x005801A0,
     0x0000FFFF,
+    // SPECIES_ETERNATUS
     0x00010156,
     0x0001006D,
     0x00010210,
@@ -17472,6 +18334,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0050003F,
     0x0058031E,
     0x0000FFFF,
+    // SPECIES_KUBFU
     0x000100F9,
     0x0001002B,
     0x000400CB,
@@ -17488,6 +18351,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300172,
     0x00340108,
     0x0000FFFF,
+    // SPECIES_URSHIFU
     0x00000334,
     0x00010334,
     0x00010185,
@@ -17507,6 +18371,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300172,
     0x00340108,
     0x0000FFFF,
+    // SPECIES_ZARUDE
     0x00010014,
     0x0001000A,
     0x0006002B,
@@ -17525,6 +18390,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005401B6,
     0x005A0333,
     0x0000FFFF,
+    // SPECIES_REGIELEKI
     0x00010054,
     0x000100E5,
     0x00060212,
@@ -17541,6 +18407,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0048003F,
     0x004E0099,
     0x0000FFFF,
+    // SPECIES_REGIDRAGO
     0x000100EF,
     0x0001000B,
     0x0006002C,
@@ -17557,6 +18424,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0048003F,
     0x004E0099,
     0x0000FFFF,
+    // SPECIES_GLASTRIER
     0x00010021,
     0x00010027,
     0x00060018,
@@ -17572,6 +18440,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00420026,
     0x0048000E,
     0x0000FFFF,
+    // SPECIES_SPECTRIER
     0x00010021,
     0x00010027,
     0x00060018,
@@ -17587,6 +18456,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00420026,
     0x004801A1,
     0x0000FFFF,
+    // SPECIES_CALYREX
     0x00010001,
     0x00010048,
     0x0001005D,
@@ -17603,6 +18473,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0050004C,
     0x005800F8,
     0x0000FFFF,
+    // SPECIES_WYRDEER
     0x0000033F,
     0x0001033F,
     0x00010021,
@@ -17620,6 +18491,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370026,
     0x003E00E0,
     0x0000FFFF,
+    // SPECIES_KLEAVOR
     0x00000341,
     0x00010341,
     0x0001002B,
@@ -17636,6 +18508,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280194,
     0x002C000E,
     0x0000FFFF,
+    // SPECIES_URSALUNA
     0x00000349,
     0x00010349,
     0x000100EC,
@@ -17657,6 +18530,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00380025,
     0x00400167,
     0x0000FFFF,
+    // SPECIES_BASCULEGION
     0x00010239,
     0x000100F7,
     0x00010027,
@@ -17676,6 +18550,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340026,
     0x003801C9,
     0x0000FFFF,
+    // SPECIES_SNEASLER
     0x0000033E,
     0x0001033E,
     0x00010176,
@@ -17693,6 +18568,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360067,
     0x003C0172,
     0x0000FFFF,
+    // SPECIES_OVERQWIL
     0x00010028,
     0x00010021,
     0x0004006A,
@@ -17711,6 +18587,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034016F,
     0x003800C2,
     0x0000FFFF,
+    // SPECIES_ENAMORUS
     0x00010136,
     0x0001024B,
     0x00050103,
@@ -17729,6 +18606,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004600C8,
     0x004B0342,
     0x0000FFFF,
+    // SPECIES_SPRIGATITO
     0x000102A1,
     0x0001000A,
     0x00010027,
@@ -17743,6 +18621,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0020019C,
     0x0024024A,
     0x0000FFFF,
+    // SPECIES_FLORAGATO
     0x000102A1,
     0x0001000A,
     0x00010027,
@@ -17758,6 +18637,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A024A,
     0x002E01B5,
     0x0000FFFF,
+    // SPECIES_MEOWSCARADA
     0x00000369,
     0x00010369,
     0x00010068,
@@ -17780,6 +18660,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A0247,
     0x004001B5,
     0x0000FFFF,
+    // SPECIES_FUECOCO
     0x00010034,
     0x0001002B,
     0x00010021,
@@ -17793,6 +18674,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00200130,
     0x0024007E,
     0x0000FFFF,
+    // SPECIES_CROCALOR
     0x00010034,
     0x0001002B,
     0x00010021,
@@ -17808,6 +18690,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0105,
     0x002F007E,
     0x0000FFFF,
+    // SPECIES_SKELEDIRGE
     0x0000036A,
     0x0001036A,
     0x0001002F,
@@ -17828,6 +18711,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A007E,
     0x0040013B,
     0x0000FFFF,
+    // SPECIES_QUAXLY
     0x0001002D,
     0x00010001,
     0x00010037,
@@ -17841,6 +18725,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001F0203,
     0x002302C9,
     0x0000FFFF,
+    // SPECIES_QUAXWELL
     0x000101CA,
     0x0001002D,
     0x00010001,
@@ -17857,6 +18742,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B02C9,
     0x00300129,
     0x0000FFFF,
+    // SPECIES_QUAQUAVAL
     0x0000036B,
     0x0001036B,
     0x00010044,
@@ -17878,6 +18764,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A0172,
     0x00400345,
     0x0000FFFF,
+    // SPECIES_LECHONK
     0x00010021,
     0x00010027,
     0x00050241,
@@ -17892,6 +18779,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002000FD,
     0x00230026,
     0x0000FFFF,
+    // SPECIES_OINKOLOGNE
     0x00010021,
     0x00010027,
     0x00050241,
@@ -17908,6 +18796,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030019E,
     0x00360235,
     0x0000FFFF,
+    // SPECIES_TAROUNTULA
     0x00010051,
     0x00010021,
     0x0005020D,
@@ -17923,6 +18812,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002802A6,
     0x002C0329,
     0x0000FFFF,
+    // SPECIES_SPIDOPS
     0x00000357,
     0x00010357,
     0x00010051,
@@ -17940,6 +18830,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D02A6,
     0x00310329,
     0x0000FFFF,
+    // SPECIES_NYMBLE
     0x0001002B,
     0x00010021,
     0x0004020D,
@@ -17954,6 +18845,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00260185,
     0x00290297,
     0x0000FFFF,
+    // SPECIES_LOKIX
     0x000002AA,
     0x000102AA,
     0x000100C5,
@@ -17975,6 +18867,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300154,
     0x00350358,
     0x0000FFFF,
+    // SPECIES_PAWMI
     0x0001002D,
     0x0001000A,
     0x00030054,
@@ -17991,6 +18884,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280061,
     0x002C0213,
     0x0000FFFF,
+    // SPECIES_PAWMO
     0x00000124,
     0x00010124,
     0x0001002D,
@@ -18009,6 +18903,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0061,
     0x00340213,
     0x0000FFFF,
+    // SPECIES_PAWMOT
     0x00000362,
     0x00010362,
     0x0001002D,
@@ -18030,6 +18925,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360061,
     0x003C037F,
     0x0000FFFF,
+    // SPECIES_TANDEMAUS
     0x00010263,
     0x00010001,
     0x000501F4,
@@ -18045,6 +18941,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0029017F,
     0x002E035F,
     0x0000FFFF,
+    // SPECIES_MAUSHOLD
     0x00010263,
     0x0001010A,
     0x00010001,
@@ -18062,6 +18959,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E017F,
     0x0035035F,
     0x0000FFFF,
+    // SPECIES_FIDOUGH
     0x0001002D,
     0x00010021,
     0x0003007A,
@@ -18078,6 +18976,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002800F2,
     0x002D0183,
     0x0000FFFF,
+    // SPECIES_DACHSBUN
     0x0001002D,
     0x00010021,
     0x0003007A,
@@ -18094,6 +18993,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F00F2,
     0x00350183,
     0x0000FFFF,
+    // SPECIES_SMOLIV
     0x000100E6,
     0x00010021,
     0x00050047,
@@ -18108,6 +19008,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00220049,
     0x00260328,
     0x0000FFFF,
+    // SPECIES_DOLLIV
     0x000100E6,
     0x00010021,
     0x00050047,
@@ -18122,6 +19023,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00250049,
     0x002A0328,
     0x0000FFFF,
+    // SPECIES_ARBOLIVA
     0x000100F3,
     0x000100DB,
     0x000100E6,
@@ -18140,6 +19042,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034023F,
     0x003A0050,
     0x0000FFFF,
+    // SPECIES_SQUAWKABILLY
     0x0001002D,
     0x00010066,
     0x00010040,
@@ -18157,6 +19060,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0163,
     0x003400B3,
     0x0000FFFF,
+    // SPECIES_NACLI
     0x0001006A,
     0x00010021,
     0x00050058,
@@ -18172,6 +19076,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280059,
     0x002D01BC,
     0x0000FFFF,
+    // SPECIES_NACLSTACK
     0x00000363,
     0x00010363,
     0x0001006A,
@@ -18189,6 +19094,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0059,
     0x003301BC,
     0x0000FFFF,
+    // SPECIES_GARGANACL
     0x00010167,
     0x00010167,
     0x0001014F,
@@ -18210,6 +19116,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003601BC,
     0x003C0099,
     0x0000FFFF,
+    // SPECIES_CHARCADET
     0x00010136,
     0x00010034,
     0x0001002B,
@@ -18221,6 +19128,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001C0201,
     0x002001B4,
     0x0000FFFF,
+    // SPECIES_ARMAROUGE
     0x000001DC,
     0x000101DC,
     0x00010136,
@@ -18241,6 +19149,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00380320,
     0x003E037D,
     0x0000FFFF,
+    // SPECIES_CERULEDGE
     0x000001A5,
     0x000101A5,
     0x00010136,
@@ -18261,6 +19170,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003801AB,
     0x003E018A,
     0x0000FFFF,
+    // SPECIES_TADBULB
     0x000100BD,
     0x0001012F,
     0x00010021,
@@ -18276,6 +19186,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0185,
     0x003200C0,
     0x0000FFFF,
+    // SPECIES_BELLIBOLT
     0x000100BD,
     0x0001012F,
     0x00010021,
@@ -18291,6 +19202,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0185,
     0x003200C0,
     0x0000FFFF,
+    // SPECIES_WATTREL
     0x0001002D,
     0x00010040,
     0x00040054,
@@ -18304,6 +19216,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0025020C,
     0x002B01B3,
     0x0000FFFF,
+    // SPECIES_KILOWATTREL
     0x000001E9,
     0x000101E9,
     0x0001002D,
@@ -18320,6 +19233,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003001B3,
     0x00370221,
     0x0000FFFF,
+    // SPECIES_MASCHIFF
     0x0001002B,
     0x000100B8,
     0x00010021,
@@ -18336,6 +19250,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B02ED,
     0x00310026,
     0x0000FFFF,
+    // SPECIES_MABOSSTIFF
     0x00000381,
     0x00010381,
     0x0001002B,
@@ -18355,6 +19270,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370026,
     0x003C00C8,
     0x0000FFFF,
+    // SPECIES_SHROODLE
     0x0001002B,
     0x0001000A,
     0x000501EE,
@@ -18371,6 +19287,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028011A,
     0x002D01B9,
     0x0000FFFF,
+    // SPECIES_GRAFAIAI
     0x00000366,
     0x00010366,
     0x0001002B,
@@ -18388,6 +19305,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D011A,
     0x003301B9,
     0x0000FFFF,
+    // SPECIES_BRAMBLIN
     0x00010136,
     0x0001006F,
     0x000100CD,
@@ -18404,6 +19322,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200DC,
     0x003701B6,
     0x0000FFFF,
+    // SPECIES_BRAMBLEGHAST
     0x00010136,
     0x0001006F,
     0x000100CD,
@@ -18420,6 +19339,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200DC,
     0x003701B6,
     0x0000FFFF,
+    // SPECIES_TOEDSCOOL
     0x000100BD,
     0x00010023,
     0x00040047,
@@ -18438,6 +19358,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030019E,
     0x003401B6,
     0x0000FFFF,
+    // SPECIES_TOEDSCRUEL
     0x000100BD,
     0x00010204,
     0x00010023,
@@ -18457,6 +19378,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0036019E,
     0x003A01B6,
     0x0000FFFF,
+    // SPECIES_KLAWF
     0x00010058,
     0x0001000B,
     0x0006006A,
@@ -18473,6 +19395,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0033014E,
     0x0038000C,
     0x0000FFFF,
+    // SPECIES_CAPSAKID
     0x000102A1,
     0x0001002B,
     0x0004002C,
@@ -18486,6 +19409,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0192,
     0x0030004C,
     0x0000FFFF,
+    // SPECIES_SCOVILLAIN
     0x00000035,
     0x0000035D,
     0x00010035,
@@ -18506,6 +19430,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030013B,
     0x0030004C,
     0x0000FFFF,
+    // SPECIES_RELLOR
     0x0001006F,
     0x00010021,
     0x0004001C,
@@ -18517,6 +19442,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001D005B,
     0x002302AA,
     0x0000FFFF,
+    // SPECIES_RABSCA
     0x00000362,
     0x00010362,
     0x000100F4,
@@ -18538,6 +19464,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0195,
     0x0032005E,
     0x0000FFFF,
+    // SPECIES_FLITTLE
     0x0001002D,
     0x00010040,
     0x0005005D,
@@ -18549,6 +19476,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001D0061,
     0x002200FD,
     0x0000FFFF,
+    // SPECIES_ESPATHRA
     0x0000035A,
     0x0001035A,
     0x00010041,
@@ -18567,6 +19495,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031005E,
     0x00360183,
     0x0000FFFF,
+    // SPECIES_TINKATINK
     0x00010136,
     0x0001024B,
     0x00050263,
@@ -18584,6 +19513,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0329,
     0x0034011A,
     0x0000FFFF,
+    // SPECIES_TINKATUFF
     0x00010136,
     0x0001024B,
     0x00050263,
@@ -18601,6 +19531,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0329,
     0x0034011A,
     0x0000FFFF,
+    // SPECIES_TINKATON
     0x00000380,
     0x00010380,
     0x00010136,
@@ -18620,6 +19551,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0329,
     0x0034011A,
     0x0000FFFF,
+    // SPECIES_WIGLETT
     0x0001001C,
     0x00010037,
     0x000400BD,
@@ -18633,6 +19565,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002402A6,
     0x002802C9,
     0x0000FFFF,
+    // SPECIES_WUGTRIO
     0x000100BD,
     0x0001001C,
     0x00010037,
@@ -18647,6 +19580,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003002A6,
     0x003602C9,
     0x0000FFFF,
+    // SPECIES_BOMBIRDIER
     0x000101D7,
     0x0001002B,
     0x00010106,
@@ -18664,6 +19598,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0035011A,
     0x003C0242,
     0x0000FFFF,
+    // SPECIES_FINIZEN
     0x00010030,
     0x00010037,
     0x00070136,
@@ -18678,6 +19613,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0036,
     0x00320038,
     0x0000FFFF,
+    // SPECIES_PALAFIN
     0x0000032F,
     0x0001032F,
     0x0001035C,
@@ -18697,6 +19633,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370108,
     0x003D0345,
     0x0000FFFF,
+    // SPECIES_VAROOM
     0x0001007A,
     0x0001008B,
     0x0004007B,
@@ -18713,6 +19650,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E035E,
     0x003201B9,
     0x0000FFFF,
+    // SPECIES_REVAVROOM
     0x000001FF,
     0x000101FF,
     0x0001007A,
@@ -18732,6 +19670,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034035E,
     0x003A01B9,
     0x0000FFFF,
+    // SPECIES_CYCLIZAR
     0x0001002D,
     0x00010021,
     0x000700E5,
@@ -18747,6 +19686,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330026,
     0x00390197,
     0x0000FFFF,
+    // SPECIES_ORTHWORM
     0x0001006A,
     0x00010021,
     0x00010023,
@@ -18762,6 +19702,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0059,
     0x00340373,
     0x0000FFFF,
+    // SPECIES_GLIMMET
     0x0001006A,
     0x00010058,
     0x000101E2,
@@ -18777,6 +19718,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00290097,
     0x002E01E5,
     0x0000FFFF,
+    // SPECIES_GLIMMORA
     0x00000365,
     0x00010365,
     0x0001006A,
@@ -18796,6 +19738,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0097,
     0x003201E5,
     0x0000FFFF,
+    // SPECIES_GREAVARD
     0x0001002D,
     0x00010021,
     0x0003007A,
@@ -18812,6 +19755,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E00CC,
     0x00340026,
     0x0000FFFF,
+    // SPECIES_HOUNDSTONE
     0x00000359,
     0x00010359,
     0x0001002D,
@@ -18830,6 +19774,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003300CC,
     0x003A0026,
     0x0000FFFF,
+    // SPECIES_FLAMIGO
     0x0001017F,
     0x00010040,
     0x00050018,
@@ -18846,6 +19791,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003002A6,
     0x0036019D,
     0x0000FFFF,
+    // SPECIES_CETODDLE
     0x000100B5,
     0x00010021,
     0x0006002D,
@@ -18862,6 +19808,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00310026,
     0x0035003B,
     0x0000FFFF,
+    // SPECIES_CETITAN
     0x000100B5,
     0x00010021,
     0x0006002D,
@@ -18878,6 +19825,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00310026,
     0x0035003B,
     0x0000FFFF,
+    // SPECIES_VELUZA
     0x000101C5,
     0x00010021,
     0x0007016D,
@@ -18892,6 +19840,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200F2,
     0x00370206,
     0x0000FFFF,
+    // SPECIES_DONDOZO
     0x00010030,
     0x00010021,
     0x00010037,
@@ -18910,6 +19859,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0026,
     0x00410345,
     0x0000FFFF,
+    // SPECIES_TATSUGIRI
     0x00010096,
     0x00010037,
     0x0006006A,
@@ -18923,6 +19873,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F00F3,
     0x00340196,
     0x0000FFFF,
+    // SPECIES_ANNIHILAPE
     0x00000145,
     0x00010145,
     0x00010044,
@@ -18949,6 +19900,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003500C8,
     0x00390206,
     0x0000FFFF,
+    // SPECIES_CLODSIRE
     0x00000085,
     0x00010085,
     0x00010028,
@@ -18964,6 +19916,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028005C,
     0x00300059,
     0x0000FFFF,
+    // SPECIES_FARIGIRAF
     0x00010136,
     0x0001002D,
     0x00010181,
@@ -18982,6 +19935,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01A1,
     0x0032005E,
     0x0000FFFF,
+    // SPECIES_DUDUNSPARCE
     0x0001006F,
     0x000100AF,
     0x000400BD,
@@ -19000,6 +19954,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00380221,
     0x003E024D,
     0x0000FFFF,
+    // SPECIES_KINGAMBIT
     0x00000368,
     0x00010368,
     0x000100D2,
@@ -19021,6 +19976,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0040000E,
     0x0047000C,
     0x0000FFFF,
+    // SPECIES_GREAT_TUSK
     0x0001006F,
     0x0001001E,
     0x000100CD,
@@ -19039,6 +19995,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005401C9,
     0x005B0349,
     0x0000FFFF,
+    // SPECIES_SCREAM_TAIL
     0x00010032,
     0x00010001,
     0x0001002F,
@@ -19056,6 +20013,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005400C3,
     0x005B024D,
     0x0000FFFF,
+    // SPECIES_BRUTE_BONNET
     0x00010047,
     0x00010136,
     0x0001004A,
@@ -19072,6 +20030,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004D01DF,
     0x005B004C,
     0x0000FFFF,
+    // SPECIES_FLUTTER_MANE
     0x00010136,
     0x0001006D,
     0x000100B4,
@@ -19090,6 +20049,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0054024C,
     0x005B00C3,
     0x0000FFFF,
+    // SPECIES_SLITHER_WING
     0x000100F1,
     0x000101C2,
     0x00010034,
@@ -19109,6 +20069,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0054008D,
     0x005B0025,
     0x0000FFFF,
+    // SPECIES_SANDY_SHOCKS
     0x000100F1,
     0x0001025F,
     0x00010030,
@@ -19128,6 +20089,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005400C0,
     0x005B025D,
     0x0000FFFF,
+    // SPECIES_IRON_TREADS
     0x0001006F,
     0x0001025F,
     0x0001001E,
@@ -19145,6 +20107,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005401A0,
     0x005B0321,
     0x0000FFFF,
+    // SPECIES_IRON_BUNDLE
     0x0001025F,
     0x000100D9,
     0x000700B5,
@@ -19161,6 +20124,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005402B9,
     0x005B003B,
     0x0000FFFF,
+    // SPECIES_IRON_HANDS
     0x0001025F,
     0x00010124,
     0x00010074,
@@ -19180,6 +20144,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005400BB,
     0x005B0108,
     0x0000FFFF,
+    // SPECIES_IRON_JUGULIS
     0x0001013A,
     0x0001025F,
     0x00010074,
@@ -19198,6 +20163,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00540196,
     0x005B003F,
     0x0000FFFF,
+    // SPECIES_IRON_MOTH
     0x0001025F,
     0x000101EE,
     0x00010034,
@@ -19217,6 +20183,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00540195,
     0x005B013B,
     0x0000FFFF,
+    // SPECIES_IRON_THORNS
     0x0001025F,
     0x000101A8,
     0x000101A7,
@@ -19236,6 +20203,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005401BC,
     0x005B01A0,
     0x0000FFFF,
+    // SPECIES_FRIGIBAX
     0x00010210,
     0x0001002B,
     0x00010021,
@@ -19250,6 +20218,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C00F2,
     0x0030022F,
     0x0000FFFF,
+    // SPECIES_ARCTIBAX
     0x00010210,
     0x0001002B,
     0x00010021,
@@ -19264,6 +20233,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200F2,
     0x0037022F,
     0x0000FFFF,
+    // SPECIES_BAXCALIBUR
     0x00000361,
     0x00010361,
     0x00010313,
@@ -19283,9 +20253,11 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003700F2,
     0x003E022F,
     0x0000FFFF,
+    // SPECIES_GIMMIGHOUL
     0x00010136,
     0x00010021,
     0x0000FFFF,
+    // SPECIES_GHOLDENGO
     0x00010136,
     0x00010021,
     0x00070065,
@@ -19299,6 +20271,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003F01A1,
     0x00460106,
     0x0000FFFF,
+    // SPECIES_WO_CHIEN
     0x00010047,
     0x000100D4,
     0x000100B4,
@@ -19319,6 +20292,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0046011A,
     0x004B01B5,
     0x0000FFFF,
+    // SPECIES_CHIEN_PAO
     0x000100D4,
     0x000100B5,
     0x000100B4,
@@ -19339,6 +20313,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004602A6,
     0x004B0149,
     0x0000FFFF,
+    // SPECIES_TING_LU
     0x000100D4,
     0x00010148,
     0x000100B4,
@@ -19358,6 +20333,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460059,
     0x004B005A,
     0x0000FFFF,
+    // SPECIES_CHI_YU
     0x00010034,
     0x000100D4,
     0x000100B4,
@@ -19377,6 +20353,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460106,
     0x004B013B,
     0x0000FFFF,
+    // SPECIES_ROARING_MOON
     0x0001002C,
     0x000100E1,
     0x00010074,
@@ -19395,6 +20372,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00540163,
     0x005B0026,
     0x0000FFFF,
+    // SPECIES_IRON_VALIANT
     0x00010032,
     0x00010068,
     0x000100D2,
@@ -19414,6 +20392,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005401D8,
     0x005B0318,
     0x0000FFFF,
+    // SPECIES_KORAIDON
     0x00010313,
     0x000100F1,
     0x000700F9,
@@ -19431,6 +20410,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B018A,
     0x03D501A0,
     0x0000FFFF,
+    // SPECIES_MIRAIDON
     0x000100E1,
     0x0001025F,
     0x00010054,
@@ -19448,6 +20428,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B013B,
     0x0062003F,
     0x0000FFFF,
+    // SPECIES_WALKING_WAKE
     0x000101D7,
     0x000100F1,
     0x000101C5,
@@ -19466,6 +20447,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004D0035,
     0x00540038,
     0x0000FFFF,
+    // SPECIES_IRON_LEAVES
     0x0001025F,
     0x00010202,
     0x0001010E,
@@ -19486,6 +20468,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005401F9,
     0x005B02A0,
     0x0000FFFF,
+    // SPECIES_DIPPLIN
     0x000001CA,
     0x000101CA,
     0x00010266,
@@ -19504,6 +20487,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028019C,
     0x002C00A4,
     0x0000FFFF,
+    // SPECIES_POLTCHAGEIST
     0x00010136,
     0x0001004E,
     0x0001006E,
@@ -19518,6 +20502,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360106,
     0x003C01B5,
     0x0000FFFF,
+    // SPECIES_SINISTCHA
     0x00000389,
     0x00000389,
     0x00010136,
@@ -19534,6 +20519,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360106,
     0x003C01B5,
     0x0000FFFF,
+    // SPECIES_OKIDOGI
     0x0001002C,
     0x00010153,
     0x00010043,
@@ -19547,6 +20533,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00400114,
     0x004801A0,
     0x0000FFFF,
+    // SPECIES_MUNKIDORI
     0x0001005D,
     0x000100FC,
     0x00010104,
@@ -19561,6 +20548,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004000F8,
     0x00480242,
     0x0000FFFF,
+    // SPECIES_FEZANDIPITI
     0x00010241,
     0x00010018,
     0x00010040,
@@ -19576,6 +20564,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00400163,
     0x0048024C,
     0x0000FFFF,
+    // SPECIES_OGERPON
     0x00010044,
     0x00010018,
     0x00010217,
@@ -19596,6 +20585,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0114,
     0x004201C4,
     0x0000FFFF,
+    // SPECIES_ARCHALUDON
     0x0000038C,
     0x0001038C,
     0x0001002B,
@@ -19612,6 +20602,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0170,
     0x0042003F,
     0x0000FFFF,
+    // SPECIES_HYDRAPPLE
     0x0000038E,
     0x0001038E,
     0x000101CA,
@@ -19632,6 +20623,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028019C,
     0x002C00A4,
     0x0000FFFF,
+    // SPECIES_GOUGING_FIRE
     0x000100F6,
     0x00010018,
     0x0001023B,
@@ -19653,6 +20645,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0054018A,
     0x005B0344,
     0x0000FFFF,
+    // SPECIES_RAGING_BOLT
     0x000100F6,
     0x0001015F,
     0x00010017,
@@ -19672,6 +20665,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0054030B,
     0x005B0057,
     0x0000FFFF,
+    // SPECIES_IRON_BOULDER
     0x0001025F,
     0x0001001E,
     0x0001002B,
@@ -19690,6 +20684,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005401BC,
     0x005B01A0,
     0x0000FFFF,
+    // SPECIES_IRON_CROWN
     0x0001005D,
     0x0001025F,
     0x0001002B,
@@ -19708,6 +20703,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00540170,
     0x005B003F,
     0x0000FFFF,
+    // SPECIES_TERAPAGOS
     0x000100E5,
     0x000100A1,
     0x0001006E,
@@ -19721,6 +20717,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0050018D,
     0x005A0168,
     0x0000FFFF,
+    // SPECIES_PECHARUNT
     0x0001006F,
     0x000100D4,
     0x000100CD,
@@ -19738,6 +20735,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004001A1,
     0x00480069,
     0x0000FFFF,
+    // SPECIES_MEGA_VENUSAUR
     0x0000023F,
     0x00000050,
     0x0001023F,
@@ -19763,6 +20761,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032023F,
     0x0037004C,
     0x0000FFFF,
+    // SPECIES_MEGA_CHARIZARD_X
     0x00000193,
     0x00000011,
     0x00010193,
@@ -19789,6 +20788,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0045018A,
     0x00470101,
     0x0000FFFF,
+    // SPECIES_MEGA_CHARIZARD_Y
     0x00000193,
     0x00000011,
     0x00010193,
@@ -19815,6 +20815,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0045018A,
     0x00470101,
     0x0000FFFF,
+    // SPECIES_MEGA_BLASTOISE
     0x000001AE,
     0x000101AE,
     0x00010021,
@@ -19836,6 +20837,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300082,
     0x00360038,
     0x0000FFFF,
+    // SPECIES_MEGA_BEEDRILL
     0x00000029,
     0x00010029,
     0x0001001F,
@@ -19852,6 +20854,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0029011B,
     0x002C0238,
     0x0000FFFF,
+    // SPECIES_MEGA_PIDGEOT
     0x00010221,
     0x00010021,
     0x0001001C,
@@ -19871,6 +20874,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003E0193,
     0x00440221,
     0x0000FFFF,
+    // SPECIES_MEGA_ALAKAZAM
     0x00000086,
     0x0001005D,
     0x00010086,
@@ -19892,6 +20896,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D015B,
     0x002E010F,
     0x0000FFFF,
+    // SPECIES_MEGA_SLOWBRO
     0x0000006E,
     0x0001006E,
     0x00010021,
@@ -19916,6 +20921,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200F0,
     0x003A01FC,
     0x0000FFFF,
+    // SPECIES_MEGA_GENGAR
     0x00000145,
     0x00010145,
     0x000100C3,
@@ -19939,6 +20945,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400C2,
     0x003D00AB,
     0x0000FFFF,
+    // SPECIES_MEGA_KANGASKHAN
     0x00010001,
     0x00010027,
     0x00010004,
@@ -19962,6 +20969,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F00C8,
     0x00340183,
     0x0000FFFF,
+    // SPECIES_MEGA_PINSIR
     0x0001000B,
     0x0001006A,
     0x00010074,
@@ -19983,6 +20991,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030000C,
     0x00310114,
     0x0000FFFF,
+    // SPECIES_MEGA_GYARADOS
     0x0000002C,
     0x0001002C,
     0x000100AF,
@@ -20008,6 +21017,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300025,
     0x0034003F,
     0x0000FFFF,
+    // SPECIES_MEGA_AERODACTYL
     0x0001002C,
     0x000100F6,
     0x000101BA,
@@ -20032,6 +21042,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003B003F,
     0x004501A0,
     0x0000FFFF,
+    // SPECIES_MEGA_MEWTWO_X
     0x0001031A,
     0x000102A4,
     0x00010032,
@@ -20057,6 +21068,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0055021F,
     0x005D017E,
     0x0000FFFF,
+    // SPECIES_MEGA_MEWTWO_Y
     0x0001031A,
     0x000102A4,
     0x00010032,
@@ -20082,6 +21094,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0055021F,
     0x005D017E,
     0x0000FFFF,
+    // SPECIES_MEGA_AMPHAROS
     0x00000009,
     0x00010009,
     0x000100C0,
@@ -20108,6 +21121,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003E0057,
     0x00410196,
     0x0000FFFF,
+    // SPECIES_MEGA_STEELIX
     0x000100F2,
     0x000101A6,
     0x000101A7,
@@ -20139,6 +21153,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340026,
     0x003C0189,
     0x0000FFFF,
+    // SPECIES_MEGA_SCIZOR
     0x000001A2,
     0x000101A2,
     0x00010011,
@@ -20167,6 +21182,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034000E,
     0x003D016C,
     0x0000FFFF,
+    // SPECIES_MEGA_HERACROSS
     0x00010021,
     0x0001002B,
     0x00010124,
@@ -20191,6 +21207,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032000E,
     0x00340172,
     0x0000FFFF,
+    // SPECIES_MEGA_HOUNDOOM
     0x00010208,
     0x000101A1,
     0x000101A6,
@@ -20213,6 +21230,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C01A1,
     0x00410208,
     0x0000FFFF,
+    // SPECIES_MEGA_TYRANITAR
     0x0001014E,
     0x000101A6,
     0x000101A7,
@@ -20240,6 +21258,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D003F,
     0x004501A0,
     0x0000FFFF,
+    // SPECIES_MEGA_SCEPTILE
     0x00000215,
     0x00010215,
     0x000100D2,
@@ -20271,6 +21290,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A0067,
     0x003F01B5,
     0x0000FFFF,
+    // SPECIES_MEGA_BLAZIKEN
     0x0000012B,
     0x00010018,
     0x00010007,
@@ -20302,6 +21322,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390147,
     0x003F018A,
     0x0000FFFF,
+    // SPECIES_MEGA_SWAMPERT
     0x00010155,
     0x00010167,
     0x00010059,
@@ -20330,6 +21351,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003F0038,
     0x003F0167,
     0x0000FFFF,
+    // SPECIES_MEGA_GARDEVOIR
     0x00000260,
     0x00010260,
     0x0001024C,
@@ -20362,6 +21384,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A01F7,
     0x003E024C,
     0x0000FFFF,
+    // SPECIES_MEGA_SABLEYE
     0x0001002B,
     0x0001000A,
     0x000400C1,
@@ -20384,6 +21407,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00F7,
     0x002C01EF,
     0x0000FFFF,
+    // SPECIES_MEGA_MAWILE
     0x00010136,
     0x0001002D,
     0x0001024A,
@@ -20407,6 +21431,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028010D,
     0x0030024A,
     0x0000FFFF,
+    // SPECIES_MEGA_AGGRON
     0x00010021,
     0x0001006A,
     0x000100E8,
@@ -20430,6 +21455,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004101E7,
     0x004C0170,
     0x0000FFFF,
+    // SPECIES_MEGA_MEDICHAM
     0x000101AC,
     0x00010007,
     0x00010009,
@@ -20455,6 +21481,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0069,
     0x00350044,
     0x0000FFFF,
+    // SPECIES_MEGA_MANECTRIC
     0x000101A8,
     0x00010021,
     0x00010056,
@@ -20476,6 +21503,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360057,
     0x003C025F,
     0x0000FFFF,
+    // SPECIES_MEGA_SHARPEDO
     0x000000A3,
     0x000100A3,
     0x00010190,
@@ -20504,6 +21532,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0038010D,
     0x003E0190,
     0x0000FFFF,
+    // SPECIES_MEGA_CAMERUPT
     0x0000009D,
     0x0001009D,
     0x0001005A,
@@ -20526,6 +21555,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034011C,
     0x003B005A,
     0x0000FFFF,
+    // SPECIES_MEGA_ALTARIA
     0x00000196,
     0x000000E1,
     0x00010196,
@@ -20556,6 +21586,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003000C3,
     0x0039008F,
     0x0000FFFF,
+    // SPECIES_MEGA_BANETTE
     0x00010239,
     0x0001011A,
     0x00010067,
@@ -20577,6 +21608,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A010F,
     0x00400239,
     0x0000FFFF,
+    // SPECIES_MEGA_ABSOL
     0x00010062,
     0x0001002B,
     0x000100C3,
@@ -20602,6 +21634,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003300F8,
     0x003700C3,
     0x0000FFFF,
+    // SPECIES_MEGA_GLALIE
     0x00000240,
     0x00010240,
     0x00010149,
@@ -20623,6 +21656,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A003B,
     0x003D0149,
     0x0000FFFF,
+    // SPECIES_MEGA_SALAMENCE
     0x00000013,
     0x00010013,
     0x000100B6,
@@ -20648,6 +21682,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004000C8,
     0x00440026,
     0x0000FFFF,
+    // SPECIES_MEGA_METAGROSS
     0x00000167,
     0x00010167,
     0x0001005D,
@@ -20670,6 +21705,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390061,
     0x0047003F,
     0x0000FFFF,
+    // SPECIES_MEGA_LATIAS
     0x000101F7,
     0x000100CC,
     0x00010169,
@@ -20697,6 +21733,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003801D9,
     0x00410169,
     0x0000FFFF,
+    // SPECIES_MEGA_LATIOS
     0x000101F7,
     0x0001015D,
     0x00010106,
@@ -20725,6 +21762,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003801DA,
     0x00410106,
     0x0000FFFF,
+    // SPECIES_MEGA_RAYQUAZA
     0x0001026F,
     0x000100EF,
     0x000100F6,
@@ -20744,6 +21782,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005000C8,
     0x005A003F,
     0x0000FFFF,
+    // SPECIES_MEGA_LOPUNNY
     0x000000D8,
     0x000100F3,
     0x00010115,
@@ -20773,6 +21812,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390169,
     0x003C0088,
     0x0000FFFF,
+    // SPECIES_MEGA_GARCHOMP
     0x000000F2,
     0x000100F2,
     0x00010215,
@@ -20795,6 +21835,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E005B,
     0x00450197,
     0x0000FFFF,
+    // SPECIES_MEGA_LUCARIO
     0x0000018C,
     0x0001018C,
     0x0001031A,
@@ -20830,6 +21871,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00390172,
     0x003C00F5,
     0x0000FFFF,
+    // SPECIES_MEGA_ABOMASNOW
     0x00000008,
     0x00010008,
     0x000102B9,
@@ -20850,6 +21892,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030003B,
     0x00380149,
     0x0000FFFF,
+    // SPECIES_MEGA_GALLADE
     0x000000A3,
     0x000100A3,
     0x00010190,
@@ -20890,6 +21933,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A0172,
     0x003A01F7,
     0x0000FFFF,
+    // SPECIES_MEGA_AUDINO
     0x00010001,
     0x00010250,
     0x00010183,
@@ -20917,6 +21961,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00380248,
     0x003A0183,
     0x0000FFFF,
+    // SPECIES_MEGA_DIANCIE
     0x00010021,
     0x0001006A,
     0x00010058,
@@ -20938,6 +21983,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004600DB,
     0x00470252,
     0x0000FFFF,
+    // SPECIES_KYOGRE_PRIMAL
     0x00010160,
     0x000100F6,
     0x00010022,
@@ -20955,6 +22001,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00500026,
     0x005A0143,
     0x0000FFFF,
+    // SPECIES_GROUDON_PRIMAL
     0x00010155,
     0x000100F6,
     0x000101B4,
@@ -20972,6 +22019,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0049007E,
     0x005A011C,
     0x0000FFFF,
+    // SPECIES_RATTATA_ALOLAN
     0x00010021,
     0x00010027,
     0x00040062,
@@ -20986,6 +22034,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001F0026,
     0x0022011B,
     0x0000FFFF,
+    // SPECIES_RATICATE_ALOLAN
     0x000000B8,
     0x000100B8,
     0x0001000E,
@@ -21005,6 +22054,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270026,
     0x002C011B,
     0x0000FFFF,
+    // SPECIES_RAICHU_ALOLAN
     0x0000005E,
     0x0001005E,
     0x00010250,
@@ -21029,6 +22079,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010062,
     0x000102AE,
     0x0000FFFF,
+    // SPECIES_SANDSHREW_ALOLAN
     0x0001000A,
     0x0001006F,
     0x00030036,
@@ -21049,6 +22100,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0102,
     0x002D003B,
     0x0000FFFF,
+    // SPECIES_SANDSLASH_ALOLAN
     0x0000014D,
     0x0001014D,
     0x0001022F,
@@ -21072,6 +22124,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000100B5,
     0x0001012D,
     0x0000FFFF,
+    // SPECIES_VULPIX_ALOLAN
     0x000100B5,
     0x00010027,
     0x00040032,
@@ -21097,6 +22150,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300120,
     0x0031003B,
     0x0000FFFF,
+    // SPECIES_NINETALES_ALOLAN
     0x00000260,
     0x00010260,
     0x000101A1,
@@ -21118,6 +22172,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000101A4,
     0x000100DB,
     0x0000FFFF,
+    // SPECIES_DIGLETT_ALOLAN
     0x0001001C,
     0x000100E8,
     0x0004002D,
@@ -21134,6 +22189,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270059,
     0x002B005A,
     0x0000FFFF,
+    // SPECIES_DUGTRIO_ALOLAN
     0x00000148,
     0x00010148,
     0x00010190,
@@ -21157,6 +22213,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0059,
     0x0035005A,
     0x0000FFFF,
+    // SPECIES_MEOWTH_ALOLAN
     0x000100FC,
     0x0001002D,
     0x0001000A,
@@ -21176,6 +22233,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01BD,
     0x00310190,
     0x0000FFFF,
+    // SPECIES_PERSIAN_ALOLAN
     0x00000198,
     0x00000081,
     0x00010198,
@@ -21205,6 +22263,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0041016C,
     0x0045018F,
     0x0000FFFF,
+    // SPECIES_GEODUDE_ALOLAN
     0x00010021,
     0x0001006F,
     0x0004010C,
@@ -21222,6 +22281,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280026,
     0x002A01BC,
     0x0000FFFF,
+    // SPECIES_GRAVELER_ALOLAN
     0x00010021,
     0x0001006F,
     0x0001010C,
@@ -21241,6 +22301,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320026,
     0x003601BC,
     0x0000FFFF,
+    // SPECIES_GOLEM_ALOLAN
     0x000101E7,
     0x00010021,
     0x0001006F,
@@ -21262,6 +22323,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003601BC,
     0x003C01E7,
     0x0000FFFF,
+    // SPECIES_GRIMER_ALOLAN
     0x00010001,
     0x0001008B,
     0x0004006A,
@@ -21279,6 +22341,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0235,
     0x00300106,
     0x0000FFFF,
+    // SPECIES_MUK_ALOLAN
     0x0001025A,
     0x00010001,
     0x0001008B,
@@ -21299,6 +22362,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340235,
     0x00390106,
     0x0000FFFF,
+    // SPECIES_EXEGGUTOR_ALOLAN
     0x000002B7,
     0x000102B7,
     0x00010192,
@@ -21324,6 +22388,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002501C4,
     0x002F01B5,
     0x0000FFFF,
+    // SPECIES_MAROWAK_ALOLAN
     0x000002C7,
     0x000100CE,
     0x0001001D,
@@ -21352,6 +22417,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0038018A,
     0x003B0205,
     0x0000FFFF,
+    // SPECIES_RATICATE_ALOLAN_LARGE
     0x000000B8,
     0x000100B8,
     0x0001000E,
@@ -21371,6 +22437,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00270026,
     0x002C011B,
     0x0000FFFF,
+    // SPECIES_MAROWAK_ALOLAN_LARGE
     0x000002C7,
     0x000100CE,
     0x0001001D,
@@ -21399,6 +22466,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0038018A,
     0x003B0205,
     0x0000FFFF,
+    // SPECIES_GUMSHOOS_LARGE
     0x00010021,
     0x0001002B,
     0x000100E4,
@@ -21419,6 +22487,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330025,
     0x0037009C,
     0x0000FFFF,
+    // SPECIES_VIKAVOLT_LARGE
     0x00000055,
     0x00010055,
     0x0001010C,
@@ -21447,6 +22516,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350061,
     0x003500C0,
     0x0000FFFF,
+    // SPECIES_RIBOMBEE_LARGE
     0x000002A7,
     0x000102A7,
     0x00010157,
@@ -21467,6 +22537,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0195,
     0x003901E6,
     0x0000FFFF,
+    // SPECIES_ARAQUANID_LARGE
     0x000101D8,
     0x00010037,
     0x00010266,
@@ -21490,6 +22561,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003502C9,
     0x003800F3,
     0x0000FFFF,
+    // SPECIES_LURANTIS_LARGE
     0x0000023F,
     0x0001023F,
     0x00010190,
@@ -21513,6 +22585,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400F1,
     0x003702A0,
     0x0000FFFF,
+    // SPECIES_SALAZZLE_LARGE
     0x000002AB,
     0x000001BD,
     0x000102AB,
@@ -21544,6 +22617,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0033025A,
     0x00330035,
     0x0000FFFF,
+    // SPECIES_TOGEDEMARU_LARGE
     0x00010264,
     0x00010021,
     0x00010054,
@@ -21562,6 +22636,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300213,
     0x00360257,
     0x0000FFFF,
+    // SPECIES_MIMIKYU_LARGE
     0x000101C4,
     0x00010096,
     0x00010136,
@@ -21579,6 +22654,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032024A,
     0x003700DC,
     0x0000FFFF,
+    // SPECIES_MIMIKYU_BUSTED_LARGE
     0x000101C4,
     0x00010096,
     0x00010136,
@@ -21596,6 +22672,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032024A,
     0x003700DC,
     0x0000FFFF,
+    // SPECIES_KOMMO_O_LARGE
     0x000002B6,
     0x000102B6,
     0x000100BB,
@@ -21623,6 +22700,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0044030A,
     0x004C024D,
     0x0000FFFF,
+    // SPECIES_MEOWTH_GALARIAN
     0x000100FC,
     0x0001002D,
     0x0001000A,
@@ -21642,6 +22720,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E01BD,
     0x003100A3,
     0x0000FFFF,
+    // SPECIES_PONYTA_GALARIAN
     0x00010021,
     0x0001002D,
     0x00050027,
@@ -21656,6 +22735,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032005E,
     0x00370169,
     0x0000FFFF,
+    // SPECIES_RAPIDASH_GALARIAN
     0x000001AB,
     0x000101AB,
     0x000100E0,
@@ -21674,6 +22754,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0038005E,
     0x003F0169,
     0x0000FFFF,
+    // SPECIES_SLOWPOKE_GALARIAN
     0x000100AE,
     0x00010021,
     0x0003002D,
@@ -21692,6 +22773,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00F0,
     0x002D01FC,
     0x0000FFFF,
+    // SPECIES_SLOWBRO_GALARIAN
     0x00000324,
     0x00010324,
     0x000100F8,
@@ -21714,6 +22796,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00F0,
     0x002D01FC,
     0x0000FFFF,
+    // SPECIES_FARFETCHD_GALARIAN
     0x00010040,
     0x0001001C,
     0x0005002B,
@@ -21730,6 +22813,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0206,
     0x0041019D,
     0x0000FFFF,
+    // SPECIES_WEEZING_GALARIAN
     0x000001CA,
     0x00010319,
     0x000101B0,
@@ -21753,6 +22837,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003E00C2,
     0x00440248,
     0x0000FFFF,
+    // SPECIES_MR_MIME_GALARIAN
     0x0001017F,
     0x000100E3,
     0x00010110,
@@ -21780,6 +22865,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030005E,
     0x0034012A,
     0x0000FFFF,
+    // SPECIES_ARTICUNO_GALARIAN
     0x00010010,
     0x0005005D,
     0x000A0073,
@@ -21796,6 +22882,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004100F8,
     0x004601B1,
     0x0000FFFF,
+    // SPECIES_ZAPDOS_GALARIAN
     0x00010040,
     0x00010074,
     0x000500F9,
@@ -21813,6 +22900,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00410172,
     0x004600B3,
     0x0000FFFF,
+    // SPECIES_MOLTRES_GALARIAN
     0x00010010,
     0x0001002B,
     0x00050173,
@@ -21830,7 +22918,8 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00410106,
     0x0046008F,
     0x0000FFFF,
-    0x0000033D,
+    // SPECIES_SLOWKING_GALARIAN
+    0x0001033D,
     0x00010374,
     0x000100F8,
     0x0001005C,
@@ -21855,6 +22944,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A00F0,
     0x002D01FC,
     0x0000FFFF,
+    // SPECIES_CORSOLA_GALARIAN
     0x00010021,
     0x0001006A,
     0x00050136,
@@ -21869,6 +22959,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320120,
     0x003700F3,
     0x0000FFFF,
+    // SPECIES_ZIGZAGOON_GALARIAN
     0x00010021,
     0x0001002B,
     0x0003001C,
@@ -21884,6 +22975,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0021010D,
     0x00240026,
     0x0000FFFF,
+    // SPECIES_LINOONE_GALARIAN
     0x00010190,
     0x0001019F,
     0x0001002A,
@@ -21903,6 +22995,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002B010D,
     0x00300026,
     0x0000FFFF,
+    // SPECIES_DARUMAKA_GALARIAN
     0x000100B5,
     0x00010021,
     0x0004010D,
@@ -21918,6 +23011,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0025,
     0x00300114,
     0x0000FFFF,
+    // SPECIES_DARMANITAN_GALARIAN
     0x0001022F,
     0x000100B5,
     0x00010021,
@@ -21934,6 +23028,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320025,
     0x00380114,
     0x0000FFFF,
+    // SPECIES_YAMASK_GALARIAN
     0x00010136,
     0x000100B6,
     0x00040072,
@@ -21951,6 +23046,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003001D9,
     0x003400C2,
     0x0000FFFF,
+    // SPECIES_STUNFISK_GALARIAN
     0x000100BD,
     0x00010021,
     0x00010037,
@@ -21967,6 +23063,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003200AF,
     0x0037005A,
     0x0000FFFF,
+    // SPECIES_PIKACHU_COSPLAY
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -21993,6 +23090,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_ROCK_STAR
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22019,6 +23117,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_BELLE
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22045,6 +23144,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_POP_STAR
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22071,6 +23171,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_PH_D
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22097,6 +23198,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_LIBRE
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22123,6 +23225,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_ORIGINAL_CAP
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22149,6 +23252,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_HOENN_CAP
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22175,6 +23279,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_SINNOH_CAP
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22201,6 +23306,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_UNOVA_CAP
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22227,6 +23333,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_KALOS_CAP
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22253,6 +23360,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_ALOLA_CAP
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22279,6 +23387,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_PARTNER_CAP
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22305,6 +23414,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_PIKACHU_WORLD_CAP
     0x00010250,
     0x000100BA,
     0x00010264,
@@ -22331,6 +23441,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320057,
     0x00320213,
     0x0000FFFF,
+    // SPECIES_CASTFORM_SUNNY
     0x00010021,
     0x000A0037,
     0x000A0034,
@@ -22345,6 +23456,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0023003B,
     0x002D0221,
     0x0000FFFF,
+    // SPECIES_CASTFORM_RAINY
     0x00010021,
     0x000A0037,
     0x000A0034,
@@ -22359,6 +23471,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0023003B,
     0x002D0221,
     0x0000FFFF,
+    // SPECIES_CASTFORM_SNOWY
     0x00010021,
     0x000A0037,
     0x000A0034,
@@ -22373,6 +23486,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0023003B,
     0x002D0221,
     0x0000FFFF,
+    // SPECIES_CHERRIM_SUNSHINE
     0x000000F1,
     0x00000050,
     0x000100F1,
@@ -22395,6 +23509,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0031004C,
     0x003E0050,
     0x0000FFFF,
+    // SPECIES_SHELLOS_EAST_SEA
     0x00010037,
     0x000100BD,
     0x0002012C,
@@ -22410,6 +23525,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0023019E,
     0x002D0106,
     0x0000FFFF,
+    // SPECIES_GASTRODON_EAST_SEA
     0x00010037,
     0x000100BD,
     0x0001006A,
@@ -22429,6 +23545,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00350106,
     0x00360069,
     0x0000FFFF,
+    // SPECIES_DIALGA_ORIGIN
     0x000100B8,
     0x000100E8,
     0x000100E1,
@@ -22445,6 +23562,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003E00E7,
     0x004401CB,
     0x0000FFFF,
+    // SPECIES_PALKIA_ORIGIN
     0x000100B8,
     0x00010160,
     0x000100E1,
@@ -22461,6 +23579,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004001CC,
     0x00460038,
     0x0000FFFF,
+    // SPECIES_BASCULIN_BLUE_STRIPED
     0x00010027,
     0x00010021,
     0x00010037,
@@ -22480,6 +23599,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0025,
     0x002E01C9,
     0x0000FFFF,
+    // SPECIES_BASCULIN_WHITE_STRIPED
     0x00010027,
     0x00010037,
     0x00040021,
@@ -22497,6 +23617,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340026,
     0x003801C9,
     0x0000FFFF,
+    // SPECIES_DARMANITAN_ZEN_MODE
     0x00010167,
     0x00010021,
     0x000100CD,
@@ -22518,6 +23639,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0114,
     0x0036013B,
     0x0000FFFF,
+    // SPECIES_DARMANITAN_ZEN_MODE_GALARIAN
     0x00010167,
     0x00010021,
     0x000100CD,
@@ -22539,6 +23661,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0114,
     0x0036013B,
     0x0000FFFF,
+    // SPECIES_DEERLING_SUMMER
     0x00010021,
     0x00010125,
     0x0004002D,
@@ -22555,6 +23678,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0026,
     0x0033004C,
     0x0000FFFF,
+    // SPECIES_DEERLING_AUTUMN
     0x00010021,
     0x00010125,
     0x0004002D,
@@ -22571,6 +23695,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0026,
     0x0033004C,
     0x0000FFFF,
+    // SPECIES_DEERLING_WINTER
     0x00010021,
     0x00010125,
     0x0004002D,
@@ -22587,6 +23712,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0026,
     0x0033004C,
     0x0000FFFF,
+    // SPECIES_SAWSBUCK_SUMMER
     0x00010217,
     0x000100E0,
     0x00010021,
@@ -22607,6 +23733,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340026,
     0x003C004C,
     0x0000FFFF,
+    // SPECIES_SAWSBUCK_AUTUMN
     0x00010217,
     0x000100E0,
     0x00010021,
@@ -22627,6 +23754,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340026,
     0x003C004C,
     0x0000FFFF,
+    // SPECIES_SAWSBUCK_WINTER
     0x00010217,
     0x000100E0,
     0x00010021,
@@ -22647,6 +23775,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340026,
     0x003C004C,
     0x0000FFFF,
+    // SPECIES_TORNADUS_THERIAN
     0x00010136,
     0x00010010,
     0x0005002B,
@@ -22665,6 +23794,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460025,
     0x004D0351,
     0x0000FFFF,
+    // SPECIES_THUNDURUS_THERIAN
     0x00010136,
     0x00010054,
     0x0005002B,
@@ -22683,6 +23813,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460025,
     0x004B0352,
     0x0000FFFF,
+    // SPECIES_LANDORUS_THERIAN
     0x00010148,
     0x000101E2,
     0x0005002B,
@@ -22701,6 +23832,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004B005A,
     0x00500353,
     0x0000FFFF,
+    // SPECIES_KYUREM_WHITE
     0x000100E1,
     0x0001023B,
     0x000100F6,
@@ -22719,6 +23851,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0050022D,
     0x00580149,
     0x0000FFFF,
+    // SPECIES_KYUREM_BLACK
     0x000100E1,
     0x0001023B,
     0x000100F6,
@@ -22737,6 +23870,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0050022C,
     0x00580149,
     0x0000FFFF,
+    // SPECIES_KELDEO_RESOLUTE
     0x00010227,
     0x000101C5,
     0x0001002B,
@@ -22757,6 +23891,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00400038,
     0x00470172,
     0x0000FFFF,
+    // SPECIES_MELOETTA_PIROUETTE
     0x000101F3,
     0x00010062,
     0x0001005D,
@@ -22776,6 +23911,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004E0172,
     0x005500C3,
     0x0000FFFF,
+    // SPECIES_GENESECT_DOUSE_DRIVE
     0x000100D2,
     0x00010062,
     0x00010238,
@@ -22803,6 +23939,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00540225,
     0x00540078,
     0x0000FFFF,
+    // SPECIES_GENESECT_SHOCK_DRIVE
     0x000100D2,
     0x00010062,
     0x00010238,
@@ -22830,6 +23967,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00540225,
     0x00540078,
     0x0000FFFF,
+    // SPECIES_GENESECT_BURN_DRIVE
     0x000100D2,
     0x00010062,
     0x00010238,
@@ -22857,6 +23995,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00540225,
     0x00540078,
     0x0000FFFF,
+    // SPECIES_GENESECT_CHILL_DRIVE
     0x000100D2,
     0x00010062,
     0x00010238,
@@ -22884,6 +24023,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00540225,
     0x00540078,
     0x0000FFFF,
+    // SPECIES_GRENINJA_BATTLE_BOND
     0x00000255,
     0x00010255,
     0x00010190,
@@ -22909,6 +24049,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460072,
     0x004D0190,
     0x0000FFFF,
+    // SPECIES_GRENINJA_ASH
     0x00000255,
     0x00010255,
     0x00010190,
@@ -22934,6 +24075,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00460072,
     0x004D0190,
     0x0000FFFF,
+    // SPECIES_VIVILLON_POLAR
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -22952,6 +24094,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_TUNDRA
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -22970,6 +24113,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_CONTINENTAL
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -22988,6 +24132,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_GARDEN
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23006,6 +24151,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_ELEGANT
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23024,6 +24170,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_MEADOW
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23042,6 +24189,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_MODERN
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23060,6 +24208,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_MARINE
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23078,6 +24227,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_ARCHIPELAGO
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23096,6 +24246,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_HIGH_PLAINS
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23114,6 +24265,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_SANDSTORM
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23132,6 +24284,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_RIVER
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23150,6 +24303,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_MONSOON
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23168,6 +24322,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_SAVANNA
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23186,6 +24341,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_SUN
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23204,6 +24360,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_OCEAN
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23222,6 +24379,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_JUNGLE
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23240,6 +24398,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_FANCY
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23258,6 +24417,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_VIVILLON_POKE_BALL
     0x00000010,
     0x00010010,
     0x0001025B,
@@ -23276,6 +24436,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00320221,
     0x0037025B,
     0x0000FFFF,
+    // SPECIES_FLABEBE_YELLOW_FLOWER
     0x00010021,
     0x00010016,
     0x0006024B,
@@ -23291,6 +24452,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0050,
     0x0030004C,
     0x0000FFFF,
+    // SPECIES_FLABEBE_ORANGE_FLOWER
     0x00010021,
     0x00010016,
     0x0006024B,
@@ -23306,6 +24468,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0050,
     0x0030004C,
     0x0000FFFF,
+    // SPECIES_FLABEBE_BLUE_FLOWER
     0x00010021,
     0x00010016,
     0x0006024B,
@@ -23321,6 +24484,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0050,
     0x0030004C,
     0x0000FFFF,
+    // SPECIES_FLABEBE_WHITE_FLOWER
     0x00010021,
     0x00010016,
     0x0006024B,
@@ -23336,6 +24500,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0050,
     0x0030004C,
     0x0000FFFF,
+    // SPECIES_FLOETTE_YELLOW_FLOWER
     0x00010021,
     0x00010016,
     0x0001024B,
@@ -23352,6 +24517,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330050,
     0x003A004C,
     0x0000FFFF,
+    // SPECIES_FLOETTE_ORANGE_FLOWER
     0x00010021,
     0x00010016,
     0x0001024B,
@@ -23368,6 +24534,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330050,
     0x003A004C,
     0x0000FFFF,
+    // SPECIES_FLOETTE_BLUE_FLOWER
     0x00010021,
     0x00010016,
     0x0001024B,
@@ -23384,6 +24551,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330050,
     0x003A004C,
     0x0000FFFF,
+    // SPECIES_FLOETTE_WHITE_FLOWER
     0x00010021,
     0x00010016,
     0x0001024B,
@@ -23400,6 +24568,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330050,
     0x003A004C,
     0x0000FFFF,
+    // SPECIES_FLOETTE_ETERNAL_FLOWER
     0x00010021,
     0x00010016,
     0x0001024B,
@@ -23417,6 +24586,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330050,
     0x003A004C,
     0x0000FFFF,
+    // SPECIES_FLORGES_YELLOW_FLOWER
     0x00010241,
     0x0001017D,
     0x00010111,
@@ -23430,6 +24600,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010050,
     0x00010138,
     0x0000FFFF,
+    // SPECIES_FLORGES_ORANGE_FLOWER
     0x00010241,
     0x0001017D,
     0x00010111,
@@ -23443,6 +24614,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010050,
     0x00010138,
     0x0000FFFF,
+    // SPECIES_FLORGES_BLUE_FLOWER
     0x00010241,
     0x0001017D,
     0x00010111,
@@ -23456,6 +24628,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010050,
     0x00010138,
     0x0000FFFF,
+    // SPECIES_FLORGES_WHITE_FLOWER
     0x00010241,
     0x0001017D,
     0x00010111,
@@ -23469,6 +24642,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00010050,
     0x00010138,
     0x0000FFFF,
+    // SPECIES_FURFROU_HEART
     0x00010021,
     0x0001002D,
     0x0005001C,
@@ -23483,6 +24657,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0185,
     0x0030021D,
     0x0000FFFF,
+    // SPECIES_FURFROU_STAR
     0x00010021,
     0x0001002D,
     0x0005001C,
@@ -23497,6 +24672,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0185,
     0x0030021D,
     0x0000FFFF,
+    // SPECIES_FURFROU_DIAMOND
     0x00010021,
     0x0001002D,
     0x0005001C,
@@ -23511,6 +24687,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0185,
     0x0030021D,
     0x0000FFFF,
+    // SPECIES_FURFROU_DEBUTANTE
     0x00010021,
     0x0001002D,
     0x0005001C,
@@ -23525,6 +24702,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0185,
     0x0030021D,
     0x0000FFFF,
+    // SPECIES_FURFROU_MATRON
     0x00010021,
     0x0001002D,
     0x0005001C,
@@ -23539,6 +24717,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0185,
     0x0030021D,
     0x0000FFFF,
+    // SPECIES_FURFROU_DANDY
     0x00010021,
     0x0001002D,
     0x0005001C,
@@ -23553,6 +24732,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0185,
     0x0030021D,
     0x0000FFFF,
+    // SPECIES_FURFROU_LA_REINE
     0x00010021,
     0x0001002D,
     0x0005001C,
@@ -23567,6 +24747,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0185,
     0x0030021D,
     0x0000FFFF,
+    // SPECIES_FURFROU_KABUKI
     0x00010021,
     0x0001002D,
     0x0005001C,
@@ -23581,6 +24762,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0185,
     0x0030021D,
     0x0000FFFF,
+    // SPECIES_FURFROU_PHARAOH
     0x00010021,
     0x0001002D,
     0x0005001C,
@@ -23595,6 +24777,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002A0185,
     0x0030021D,
     0x0000FFFF,
+    // SPECIES_AEGISLASH_BLADE
     0x0000024F,
     0x0001024F,
     0x000101C9,
@@ -23614,6 +24797,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x000101DE,
     0x000100E4,
     0x0000FFFF,
+    // SPECIES_PUMPKABOO_SMALL
     0x0001023A,
     0x00010136,
     0x0001010F,
@@ -23631,6 +24815,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028010F,
     0x002B00DC,
     0x0000FFFF,
+    // SPECIES_PUMPKABOO_LARGE
     0x0001023A,
     0x00010136,
     0x0001010F,
@@ -23648,6 +24833,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028010F,
     0x002B00DC,
     0x0000FFFF,
+    // SPECIES_PUMPKABOO_SUPER
     0x0001023A,
     0x00010136,
     0x0001010F,
@@ -23665,6 +24851,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0028010F,
     0x002B00DC,
     0x0000FFFF,
+    // SPECIES_GOURGEIST_SMALL
     0x00010099,
     0x0001024C,
     0x0001023A,
@@ -23688,6 +24875,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340239,
     0x00460099,
     0x0000FFFF,
+    // SPECIES_GOURGEIST_LARGE
     0x00010099,
     0x0001024C,
     0x0001023A,
@@ -23711,6 +24899,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340239,
     0x00460099,
     0x0000FFFF,
+    // SPECIES_GOURGEIST_SUPER
     0x00010099,
     0x0001024C,
     0x0001023A,
@@ -23734,6 +24923,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340239,
     0x00460099,
     0x0000FFFF,
+    // SPECIES_XERNEAS_ACTIVE
     0x00010021,
     0x00010164,
     0x000101FC,
@@ -23759,6 +24949,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005600C8,
     0x005601A0,
     0x0000FFFF,
+    // SPECIES_ZYGARDE_10
     0x00010269,
     0x0001026A,
     0x000102B2,
@@ -23781,6 +24972,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004801EC,
     0x005400C8,
     0x0000FFFF,
+    // SPECIES_ZYGARDE_10_POWER_CONSTRUCT
     0x00010269,
     0x0001026A,
     0x000102B2,
@@ -23803,6 +24995,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004801EC,
     0x005400C8,
     0x0000FFFF,
+    // SPECIES_ZYGARDE_50_POWER_CONSTRUCT
     0x00010269,
     0x0001026A,
     0x000102B2,
@@ -23825,6 +25018,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004801EC,
     0x005400C8,
     0x0000FFFF,
+    // SPECIES_ZYGARDE_10_COMPLETE
     0x00010269,
     0x0001026A,
     0x000102B2,
@@ -23847,6 +25041,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004801EC,
     0x005400C8,
     0x0000FFFF,
+    // SPECIES_ZYGARDE_50_COMPLETE
     0x00010269,
     0x0001026A,
     0x000102B2,
@@ -23869,6 +25064,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004801EC,
     0x005400C8,
     0x0000FFFF,
+    // SPECIES_HOOPA_UNBOUND
     0x00010270,
     0x0001010F,
     0x000100C2,
@@ -23890,6 +25086,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004B005E,
     0x00550270,
     0x0000FFFF,
+    // SPECIES_ORICORIO_POM_POM
     0x00010001,
     0x0004002D,
     0x00060040,
@@ -23907,6 +25104,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0061,
     0x00320221,
     0x0000FFFF,
+    // SPECIES_ORICORIO_PAU
     0x00010001,
     0x0004002D,
     0x00060040,
@@ -23924,6 +25122,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0061,
     0x00320221,
     0x0000FFFF,
+    // SPECIES_ORICORIO_SENSU
     0x00010001,
     0x0004002D,
     0x00060040,
@@ -23941,6 +25140,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0061,
     0x00320221,
     0x0000FFFF,
+    // SPECIES_ROCKRUFF_OWN_TEMPO
     0x00010021,
     0x0001002B,
     0x0004001C,
@@ -23958,6 +25158,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01AF,
     0x003001BC,
     0x0000FFFF,
+    // SPECIES_LYCANROC_MIDNIGHT
     0x00000044,
     0x00010044,
     0x000100CB,
@@ -23982,6 +25183,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01AF,
     0x003601BC,
     0x0000FFFF,
+    // SPECIES_LYCANROC_DUSK
     0x00000132,
     0x00000025,
     0x00010132,
@@ -24013,6 +25215,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01AF,
     0x003601BC,
     0x0000FFFF,
+    // SPECIES_WISHIWASHI_SCHOOL
     0x00010037,
     0x0001002D,
     0x0004010E,
@@ -24030,6 +25233,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C0026,
     0x00300038,
     0x0000FFFF,
+    // SPECIES_MINIOR_METEOR_ORANGE
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24046,6 +25250,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_METEOR_YELLOW
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24062,6 +25267,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_METEOR_GREEN
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24078,6 +25284,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_METEOR_BLUE
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24094,6 +25301,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_METEOR_INDIGO
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24110,6 +25318,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_METEOR_VIOLET
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24126,6 +25335,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_CORE_RED
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24142,6 +25352,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_CORE_ORANGE
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24158,6 +25369,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_CORE_YELLOW
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24174,6 +25386,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_CORE_GREEN
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24190,6 +25403,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_CORE_BLUE
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24206,6 +25420,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_CORE_INDIGO
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24222,6 +25437,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MINIOR_CORE_VIOLET
     0x00010021,
     0x0003006F,
     0x000800CD,
@@ -24238,6 +25454,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D01FB,
     0x00320099,
     0x0000FFFF,
+    // SPECIES_MIMIKYU_BUSTED
     0x000101C4,
     0x00010096,
     0x00010136,
@@ -24255,6 +25472,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0032024A,
     0x003700DC,
     0x0000FFFF,
+    // SPECIES_NECROZMA_DUSK_MANE
     0x000100EC,
     0x000100EA,
     0x000101C3,
@@ -24276,6 +25494,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0043017A,
     0x005102CA,
     0x0000FFFF,
+    // SPECIES_NECROZMA_DAWN_WINGS
     0x000100EC,
     0x000100EA,
     0x000101C3,
@@ -24297,6 +25516,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0043017A,
     0x005102CA,
     0x0000FFFF,
+    // SPECIES_NECROZMA_ULTRA_DUSK_MANE
     0x000100EC,
     0x000100EA,
     0x000101C3,
@@ -24318,6 +25538,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0043017A,
     0x005102CA,
     0x0000FFFF,
+    // SPECIES_NECROZMA_ULTRA_DAWN_WINGS
     0x000100EC,
     0x000100EA,
     0x000101C3,
@@ -24339,6 +25560,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0043017A,
     0x005102CA,
     0x0000FFFF,
+    // SPECIES_MAGEARNA_ORIGINAL
     0x00010168,
     0x0001010E,
     0x00010245,
@@ -24369,6 +25591,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00590187,
     0x00610178,
     0x0000FFFF,
+    // SPECIES_PIKACHU_PARTNER
     0x00010054,
     0x0001002D,
     0x00030027,
@@ -24382,6 +25605,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001B0061,
     0x001E0057,
     0x0000FFFF,
+    // SPECIES_EEVEE_PARTNER
     0x00010021,
     0x0001002D,
     0x00030027,
@@ -24394,6 +25618,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x001C0026,
     0x001F010E,
     0x0000FFFF,
+    // SPECIES_CRAMORANT_GULPING
     0x00010235,
     0x00010040,
     0x000100FE,
@@ -24408,6 +25633,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00310025,
     0x00380038,
     0x0000FFFF,
+    // SPECIES_CRAMORANT_GORGING
     0x00010235,
     0x00010040,
     0x000100FE,
@@ -24422,6 +25648,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00310025,
     0x00380038,
     0x0000FFFF,
+    // SPECIES_TOXTRICITY_LOW_KEY
     0x000100D1,
     0x00010259,
     0x00010235,
@@ -24448,6 +25675,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0030024D,
     0x0034025D,
     0x0000FFFF,
+    // SPECIES_SINISTEA_ANTIQUE
     0x00010136,
     0x0001006E,
     0x00060258,
@@ -24461,6 +25689,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360106,
     0x003C01FB,
     0x0000FFFF,
+    // SPECIES_POLTEAGEIST_ANTIQUE
     0x000102F3,
     0x0001029F,
     0x00010136,
@@ -24477,6 +25706,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C01FB,
     0x004200AE,
     0x0000FFFF,
+    // SPECIES_ALCREMIE_BERRY_SWEET
     0x0001030C,
     0x00010021,
     0x00010258,
@@ -24491,6 +25721,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0248,
     0x003201F1,
     0x0000FFFF,
+    // SPECIES_ALCREMIE_LOVE_SWEET
     0x0001030C,
     0x00010021,
     0x00010258,
@@ -24505,6 +25736,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0248,
     0x003201F1,
     0x0000FFFF,
+    // SPECIES_ALCREMIE_STAR_SWEET
     0x0001030C,
     0x00010021,
     0x00010258,
@@ -24519,6 +25751,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0248,
     0x003201F1,
     0x0000FFFF,
+    // SPECIES_ALCREMIE_CLOVER_SWEET
     0x0001030C,
     0x00010021,
     0x00010258,
@@ -24533,6 +25766,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0248,
     0x003201F1,
     0x0000FFFF,
+    // SPECIES_ALCREMIE_FLOWER_SWEET
     0x0001030C,
     0x00010021,
     0x00010258,
@@ -24547,6 +25781,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0248,
     0x003201F1,
     0x0000FFFF,
+    // SPECIES_ALCREMIE_RIBBON_SWEET
     0x0001030C,
     0x00010021,
     0x00010258,
@@ -24561,6 +25796,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0248,
     0x003201F1,
     0x0000FFFF,
+    // SPECIES_ALCREMIE_FILLER_1
     0x0001030C,
     0x00010021,
     0x00010258,
@@ -24575,6 +25811,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0248,
     0x003201F1,
     0x0000FFFF,
+    // SPECIES_ALCREMIE_FILLER_2
     0x0001030C,
     0x00010021,
     0x00010258,
@@ -24589,6 +25826,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D0248,
     0x003201F1,
     0x0000FFFF,
+    // SPECIES_EISCUE_NOICE_FACE
     0x000100B5,
     0x00010021,
     0x00060036,
@@ -24602,6 +25840,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360039,
     0x003C003B,
     0x0000FFFF,
+    // SPECIES_MORPEKO_HANGRY
     0x00010054,
     0x00010027,
     0x0005002B,
@@ -24617,6 +25856,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370312,
     0x003C0025,
     0x0000FFFF,
+    // SPECIES_ZACIAN_CROWNED
     0x00010218,
     0x000101F8,
     0x000100E8,
@@ -24632,6 +25872,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004D0172,
     0x005801A0,
     0x0000FFFF,
+    // SPECIES_ZAMAZENTA_CROWNED
     0x00010170,
     0x000101D8,
     0x000100E8,
@@ -24647,6 +25888,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004D0172,
     0x005801A0,
     0x0000FFFF,
+    // SPECIES_ETERNATUS_ETERNAMAX
     0x00010156,
     0x0001006D,
     0x00010210,
@@ -24663,6 +25905,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0050003F,
     0x0058031E,
     0x0000FFFF,
+    // SPECIES_URSHIFU_RAPID_STRIKE
     0x00000335,
     0x00010335,
     0x000101C5,
@@ -24682,6 +25925,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00300172,
     0x00340108,
     0x0000FFFF,
+    // SPECIES_ZARUDE_DADA
     0x00010014,
     0x0001000A,
     0x0006002B,
@@ -24700,6 +25944,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005401B6,
     0x005A0333,
     0x0000FFFF,
+    // SPECIES_CALYREX_ICE_RIDER
     0x0001033B,
     0x00010021,
     0x00010027,
@@ -24731,6 +25976,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0050004C,
     0x005800F8,
     0x0000FFFF,
+    // SPECIES_CALYREX_SHADOW_RIDER
     0x0001033C,
     0x00010021,
     0x00010027,
@@ -24762,6 +26008,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0050004C,
     0x005800F8,
     0x0000FFFF,
+    // SPECIES_ENAMORUS_THERIAN
     0x00010136,
     0x0001024B,
     0x00050103,
@@ -24780,6 +26027,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x004600C8,
     0x004B0342,
     0x0000FFFF,
+    // SPECIES_GROWLITHE_HISUIAN
     0x00010034,
     0x0001002B,
     0x00040150,
@@ -24796,6 +26044,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003400B3,
     0x0038018A,
     0x0000FFFF,
+    // SPECIES_ARCANINE_HISUIAN
     0x000000F5,
     0x000100F5,
     0x00010061,
@@ -24816,6 +26065,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00050035,
     0x00400344,
     0x0000FFFF,
+    // SPECIES_VOLTORB_HISUIAN
     0x0001010C,
     0x00010021,
     0x00040054,
@@ -24834,6 +26084,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0168,
     0x00320247,
     0x0000FFFF,
+    // SPECIES_ELECTRODE_HISUIAN
     0x00000346,
     0x00010346,
     0x0001010C,
@@ -24854,6 +26105,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0168,
     0x00320247,
     0x0000FFFF,
+    // SPECIES_TYPHLOSION_HISUIAN
     0x0000034F,
     0x0001034F,
     0x0001011C,
@@ -24874,6 +26126,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D00CD,
     0x004A013B,
     0x0000FFFF,
+    // SPECIES_QWILFISH_HISUIAN
     0x00010028,
     0x00010021,
     0x0004006A,
@@ -24892,6 +26145,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034016F,
     0x003800C2,
     0x0000FFFF,
+    // SPECIES_SNEASEL_HISUIAN
     0x0001002B,
     0x000100F9,
     0x0001000A,
@@ -24906,6 +26160,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360067,
     0x003C0172,
     0x0000FFFF,
+    // SPECIES_SAMUROTT_HISUIAN
     0x00000350,
     0x00010350,
     0x00010185,
@@ -24926,6 +26181,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A000E,
     0x003F0038,
     0x0000FFFF,
+    // SPECIES_LILLIGANT_HISUIAN
     0x00000348,
     0x00010348,
     0x0001023F,
@@ -24951,6 +26207,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0001004E,
     0x00050358,
     0x0000FFFF,
+    // SPECIES_ZORUA_HISUIAN
     0x0001002B,
     0x0001000A,
     0x00040103,
@@ -24966,6 +26223,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002C01A1,
     0x003001EF,
     0x0000FFFF,
+    // SPECIES_ZOROARK_HISUIAN
     0x000001A5,
     0x000101A5,
     0x000101D7,
@@ -24984,6 +26242,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003401A1,
     0x003A01EF,
     0x0000FFFF,
+    // SPECIES_BRAVIARY_HISUIAN
     0x0000034B,
     0x0001034B,
     0x000101D7,
@@ -25003,6 +26262,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00480025,
     0x00500221,
     0x0000FFFF,
+    // SPECIES_SLIGGOO_HISUIAN
     0x0000034D,
     0x0001034D,
     0x00010047,
@@ -25019,6 +26279,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003101BA,
     0x0038014A,
     0x0000FFFF,
+    // SPECIES_GOODRA_HISUIAN
     0x000000E7,
     0x000100E7,
     0x00010047,
@@ -25040,6 +26301,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A014A,
     0x004301E7,
     0x0000FFFF,
+    // SPECIES_AVALUGG_HISUIAN
     0x0000009D,
     0x0001009D,
     0x000101D8,
@@ -25062,6 +26324,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003301BC,
     0x003D0347,
     0x0000FFFF,
+    // SPECIES_DECIDUEYE_HISUIAN
     0x0000034E,
     0x0001034E,
     0x000101B5,
@@ -25080,6 +26343,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330129,
     0x003A019D,
     0x0000FFFF,
+    // SPECIES_KLEAVOR_LORD
     0x00000341,
     0x00010341,
     0x0001002B,
@@ -25096,6 +26360,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00280194,
     0x002C000E,
     0x0000FFFF,
+    // SPECIES_LILLIGANT_LADY
     0x00000348,
     0x00010348,
     0x0001023F,
@@ -25121,6 +26386,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0001004E,
     0x00050358,
     0x0000FFFF,
+    // SPECIES_ARCANINE_LORD
     0x000000F5,
     0x000100F5,
     0x00010061,
@@ -25141,6 +26407,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00050035,
     0x00400344,
     0x0000FFFF,
+    // SPECIES_ELECTRODE_LORD
     0x00000346,
     0x00010346,
     0x0001010C,
@@ -25161,6 +26428,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E0168,
     0x00320247,
     0x0000FFFF,
+    // SPECIES_AVALUGG_LORD
     0x0000009D,
     0x0001009D,
     0x000101D8,
@@ -25183,6 +26451,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003301BC,
     0x003D0347,
     0x0000FFFF,
+    // SPECIES_UNFEZANT_FEMALE
     0x00010010,
     0x0001002D,
     0x0001002B,
@@ -25202,6 +26471,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003A016E,
     0x0042008F,
     0x0000FFFF,
+    // SPECIES_FRILLISH_FEMALE
     0x00010047,
     0x00010037,
     0x00010091,
@@ -25223,6 +26493,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360143,
     0x0037017A,
     0x0000FFFF,
+    // SPECIES_JELLICENT_FEMALE
     0x00010097,
     0x00010047,
     0x00010037,
@@ -25248,6 +26519,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003D0143,
     0x003D017A,
     0x0000FFFF,
+    // SPECIES_PYROAR_FEMALE
     0x0001003F,
     0x00010021,
     0x0001002B,
@@ -25267,6 +26539,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00330201,
     0x0039013B,
     0x0000FFFF,
+    // SPECIES_MEOWSTIC_FEMALE
     0x00010159,
     0x0001000A,
     0x0001002B,
@@ -25294,6 +26567,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F005E,
     0x003600F8,
     0x0000FFFF,
+    // SPECIES_INDEEDEE_FEMALE
     0x000101F7,
     0x00010250,
     0x000500E2,
@@ -25308,6 +26582,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003202A9,
     0x00370169,
     0x0000FFFF,
+    // SPECIES_BASCULEGION_FEMALE
     0x00010239,
     0x000100F7,
     0x00010027,
@@ -25327,6 +26602,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00340026,
     0x003801C9,
     0x0000FFFF,
+    // SPECIES_MAUSHOLD_FAMILY_OF_THREE
     0x00010263,
     0x0001010A,
     0x00010001,
@@ -25344,6 +26620,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002E017F,
     0x0035035F,
     0x0000FFFF,
+    // SPECIES_SQUAWKABILLY_BLUE_PLUMAGE
     0x0001002D,
     0x00010066,
     0x00010040,
@@ -25361,6 +26638,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0163,
     0x003400B3,
     0x0000FFFF,
+    // SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE
     0x0001002D,
     0x00010066,
     0x00010040,
@@ -25378,6 +26656,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0163,
     0x003400B3,
     0x0000FFFF,
+    // SPECIES_SQUAWKABILLY_WHITE_PLUMAGE
     0x0001002D,
     0x00010066,
     0x00010040,
@@ -25395,6 +26674,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F0163,
     0x003400B3,
     0x0000FFFF,
+    // SPECIES_PALAFIN_HERO
     0x0001035C,
     0x00010030,
     0x00010037,
@@ -25412,6 +26692,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370108,
     0x003D0345,
     0x0000FFFF,
+    // SPECIES_TATSUGIRI_DROOPY
     0x00010096,
     0x00010037,
     0x0006006A,
@@ -25425,6 +26706,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F00F3,
     0x00340196,
     0x0000FFFF,
+    // SPECIES_TATSUGIRI_STRETCHY
     0x00010096,
     0x00010037,
     0x0006006A,
@@ -25438,6 +26720,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002F00F3,
     0x00340196,
     0x0000FFFF,
+    // SPECIES_DUDUNSPARCE_THREE_SEGMENT
     0x0001006F,
     0x000100AF,
     0x000400BD,
@@ -25456,9 +26739,11 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00380221,
     0x003E024D,
     0x0000FFFF,
+    // SPECIES_GIMMIGHOUL_ROAMING
     0x00010136,
     0x00010021,
     0x0000FFFF,
+    // SPECIES_WOOPER_PALDEAN
     0x00010027,
     0x00010155,
     0x00040021,
@@ -25472,6 +26757,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0024005C,
     0x00280059,
     0x0000FFFF,
+    // SPECIES_TAUROS_COMBAT
     0x00010021,
     0x00010027,
     0x00050211,
@@ -25487,6 +26773,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370026,
     0x003C0172,
     0x0000FFFF,
+    // SPECIES_TAUROS_BLAZE
     0x00010021,
     0x00010027,
     0x00050211,
@@ -25502,6 +26789,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0037018A,
     0x003C0172,
     0x0000FFFF,
+    // SPECIES_TAUROS_AQUA
     0x00010021,
     0x00010027,
     0x00050211,
@@ -25517,6 +26805,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00370345,
     0x003C0172,
     0x0000FFFF,
+    // SPECIES_OINKOLOGNE_FEMALE
     0x00010021,
     0x00010027,
     0x00030241,
@@ -25533,6 +26822,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x002D019E,
     0x00330235,
     0x0000FFFF,
+    // SPECIES_REVAVROOM_SEGIN
     0x000001FF,
     0x000101FF,
     0x0001007A,
@@ -25552,6 +26842,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034035E,
     0x003A01B9,
     0x0000FFFF,
+    // SPECIES_REVAVROOM_SCHEDAR
     0x000001FF,
     0x000101FF,
     0x0001007A,
@@ -25571,6 +26862,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034035E,
     0x003A01B9,
     0x0000FFFF,
+    // SPECIES_REVAVROOM_NAVI
     0x000001FF,
     0x000101FF,
     0x0001007A,
@@ -25590,6 +26882,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034035E,
     0x003A01B9,
     0x0000FFFF,
+    // SPECIES_REVAVROOM_RUCHBAH
     0x000001FF,
     0x000101FF,
     0x0001007A,
@@ -25609,6 +26902,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034035E,
     0x003A01B9,
     0x0000FFFF,
+    // SPECIES_REVAVROOM_CAPH
     0x000001FF,
     0x000101FF,
     0x0001007A,
@@ -25628,6 +26922,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0034035E,
     0x003A01B9,
     0x0000FFFF,
+    // SPECIES_KORAIDON_LIMITED_BUILD
     0x00010313,
     0x000100F1,
     0x000700F9,
@@ -25645,6 +26940,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B018A,
     0x03D501A0,
     0x0000FFFF,
+    // SPECIES_KORAIDON_SPRINTING_BUILD
     0x00010313,
     0x000100F1,
     0x000700F9,
@@ -25662,6 +26958,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B018A,
     0x03D501A0,
     0x0000FFFF,
+    // SPECIES_KORAIDON_SWIMMING_BUILD
     0x00010313,
     0x000100F1,
     0x000700F9,
@@ -25679,6 +26976,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B018A,
     0x03D501A0,
     0x0000FFFF,
+    // SPECIES_KORAIDON_GLIDING_BUILD
     0x00010313,
     0x000100F1,
     0x000700F9,
@@ -25696,6 +26994,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B018A,
     0x03D501A0,
     0x0000FFFF,
+    // SPECIES_MIRAIDON_LOW_POWER_MODE
     0x000100E1,
     0x0001025F,
     0x00010054,
@@ -25713,6 +27012,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B013B,
     0x0062003F,
     0x0000FFFF,
+    // SPECIES_MIRAIDON_DRIVE_MODE
     0x000100E1,
     0x0001025F,
     0x00010054,
@@ -25730,6 +27030,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B013B,
     0x0062003F,
     0x0000FFFF,
+    // SPECIES_MIRAIDON_AQUATIC_MODE
     0x000100E1,
     0x0001025F,
     0x00010054,
@@ -25747,6 +27048,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B013B,
     0x0062003F,
     0x0000FFFF,
+    // SPECIES_MIRAIDON_GLIDE_MODE
     0x000100E1,
     0x0001025F,
     0x00010054,
@@ -25764,6 +27066,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x005B013B,
     0x0062003F,
     0x0000FFFF,
+    // SPECIES_POLTCHAGEIST_MASTERPIECE
     0x00010136,
     0x0001004E,
     0x0001006E,
@@ -25778,6 +27081,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360106,
     0x003C01B5,
     0x0000FFFF,
+    // SPECIES_SINISTCHA_MASTERPIECE
     0x00000389,
     0x00000389,
     0x00010136,
@@ -25794,6 +27098,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00360106,
     0x003C01B5,
     0x0000FFFF,
+    // SPECIES_OGERPON_WELLSPRING_MASK
     0x00010044,
     0x00010018,
     0x00010217,
@@ -25814,6 +27119,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0114,
     0x004201C4,
     0x0000FFFF,
+    // SPECIES_OGERPON_HEARTHFLAME_MASK
     0x00010044,
     0x00010018,
     0x00010217,
@@ -25834,6 +27140,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0114,
     0x004201C4,
     0x0000FFFF,
+    // SPECIES_OGERPON_CORNERSTONE_MASK
     0x00010044,
     0x00010018,
     0x00010217,
@@ -25854,6 +27161,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0114,
     0x004201C4,
     0x0000FFFF,
+    // SPECIES_OGERPON_TEAL_MASK_TERASTAL
     0x00010044,
     0x00010018,
     0x00010217,
@@ -25874,6 +27182,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0114,
     0x004201C4,
     0x0000FFFF,
+    // SPECIES_OGERPON_WELLSPRING_MASK_TERASTAL
     0x00010044,
     0x00010018,
     0x00010217,
@@ -25894,6 +27203,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0114,
     0x004201C4,
     0x0000FFFF,
+    // SPECIES_OGERPON_HEARTHFLAME_MASK_TERASTAL
     0x00010044,
     0x00010018,
     0x00010217,
@@ -25914,6 +27224,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0114,
     0x004201C4,
     0x0000FFFF,
+    // SPECIES_OGERPON_CORNERSTONE_MASK_TERASTAL
     0x00010044,
     0x00010018,
     0x00010217,
@@ -25934,6 +27245,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x003C0114,
     0x004201C4,
     0x0000FFFF,
+    // SPECIES_URSALUNA_BLOODMOON
     0x000100EC,
     0x0001000A,
     0x0001002B,
@@ -25952,6 +27264,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x00400167,
     0x00460388,
     0x0000FFFF,
+    // SPECIES_TERAPAGOS_TERASTAL
     0x000100E5,
     0x000100A1,
     0x0001006E,
@@ -25965,6 +27278,7 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0050018D,
     0x005A0168,
     0x0000FFFF,
+    // SPECIES_TERAPAGOS_STELLAR
     0x000100E5,
     0x000100A1,
     0x0001006E,
@@ -25978,1397 +27292,4 @@ const u32 UNUSED LevelUpLearnsets[] = {
     0x0050018D,
     0x005A0168,
     0x0000FFFF,
-    0x00000000,
-    0x00000001,
-    0x00000012,
-    0x00000026,
-    0x0000003F,
-    0x0000004E,
-    0x0000005F,
-    0x00000079,
-    0x0000008A,
-    0x0000009D,
-    0x000000B2,
-    0x000000B6,
-    0x000000B9,
-    0x000000D0,
-    0x000000D4,
-    0x000000D7,
-    0x000000E7,
-    0x000000F6,
-    0x00000107,
-    0x0000011A,
-    0x00000128,
-    0x0000013B,
-    0x00000148,
-    0x0000015A,
-    0x0000016C,
-    0x00000185,
-    0x0000019F,
-    0x000001B6,
-    0x000001CA,
-    0x000001E1,
-    0x000001F3,
-    0x00000205,
-    0x00000219,
-    0x0000022B,
-    0x0000023D,
-    0x00000251,
-    0x00000270,
-    0x00000289,
-    0x000002A2,
-    0x000002B4,
-    0x000002D2,
-    0x000002E9,
-    0x000002FA,
-    0x0000030F,
-    0x00000320,
-    0x00000334,
-    0x00000349,
-    0x00000356,
-    0x00000367,
-    0x00000376,
-    0x0000038D,
-    0x0000039D,
-    0x000003B4,
-    0x000003C7,
-    0x000003E2,
-    0x000003F4,
-    0x0000040A,
-    0x0000041E,
-    0x00000435,
-    0x00000446,
-    0x00000459,
-    0x0000046C,
-    0x00000480,
-    0x00000495,
-    0x00000497,
-    0x000004AD,
-    0x000004C2,
-    0x000004D6,
-    0x000004ED,
-    0x00000507,
-    0x00000516,
-    0x00000527,
-    0x00000533,
-    0x00000548,
-    0x00000563,
-    0x00000574,
-    0x00000587,
-    0x0000059C,
-    0x000005AB,
-    0x000005C3,
-    0x000005D5,
-    0x000005E9,
-    0x000005FE,
-    0x00000617,
-    0x0000062F,
-    0x00000640,
-    0x00000655,
-    0x00000667,
-    0x0000067E,
-    0x0000068F,
-    0x000006A4,
-    0x000006B6,
-    0x000006CD,
-    0x000006DF,
-    0x000006F4,
-    0x0000070B,
-    0x00000723,
-    0x00000735,
-    0x0000074D,
-    0x00000761,
-    0x0000077A,
-    0x0000078C,
-    0x000007A1,
-    0x000007B6,
-    0x000007CF,
-    0x000007E1,
-    0x000007F7,
-    0x0000081B,
-    0x00000840,
-    0x00000852,
-    0x00000863,
-    0x00000879,
-    0x0000088D,
-    0x000008A6,
-    0x000008C3,
-    0x000008DA,
-    0x000008F1,
-    0x00000903,
-    0x00000918,
-    0x00000927,
-    0x0000093A,
-    0x00000950,
-    0x00000963,
-    0x00000985,
-    0x00000993,
-    0x000009AE,
-    0x000009C0,
-    0x000009D5,
-    0x000009EA,
-    0x000009F9,
-    0x000009FD,
-    0x00000A16,
-    0x00000A28,
-    0x00000A2A,
-    0x00000A3D,
-    0x00000A57,
-    0x00000A71,
-    0x00000A8A,
-    0x00000A9C,
-    0x00000AAE,
-    0x00000AC7,
-    0x00000ADB,
-    0x00000AF5,
-    0x00000B0D,
-    0x00000B2E,
-    0x00000B41,
-    0x00000B54,
-    0x00000B6A,
-    0x00000B7A,
-    0x00000B8C,
-    0x00000BA7,
-    0x00000BC0,
-    0x00000BCD,
-    0x00000BDD,
-    0x00000BED,
-    0x00000C00,
-    0x00000C11,
-    0x00000C22,
-    0x00000C34,
-    0x00000C45,
-    0x00000C57,
-    0x00000C6B,
-    0x00000C7A,
-    0x00000C8E,
-    0x00000C9E,
-    0x00000CAE,
-    0x00000CBD,
-    0x00000CCE,
-    0x00000CE1,
-    0x00000CFB,
-    0x00000D14,
-    0x00000D26,
-    0x00000D42,
-    0x00000D4D,
-    0x00000D59,
-    0x00000D65,
-    0x00000D78,
-    0x00000D91,
-    0x00000DA2,
-    0x00000DB9,
-    0x00000DC9,
-    0x00000DDB,
-    0x00000DF5,
-    0x00000E10,
-    0x00000E28,
-    0x00000E41,
-    0x00000E5B,
-    0x00000E70,
-    0x00000E85,
-    0x00000E9C,
-    0x00000EB3,
-    0x00000EC2,
-    0x00000ED3,
-    0x00000EE7,
-    0x00000EF8,
-    0x00000F08,
-    0x00000F1B,
-    0x00000F34,
-    0x00000F51,
-    0x00000F61,
-    0x00000F77,
-    0x00000F86,
-    0x00000F88,
-    0x00000F95,
-    0x00000FA7,
-    0x00000FB6,
-    0x00000FD2,
-    0x00000FE2,
-    0x00000FF2,
-    0x00001011,
-    0x00001021,
-    0x00001033,
-    0x0000104F,
-    0x0000106B,
-    0x00001082,
-    0x0000109A,
-    0x000010A7,
-    0x000010B7,
-    0x000010C9,
-    0x000010DA,
-    0x000010F0,
-    0x00001101,
-    0x0000111C,
-    0x00001131,
-    0x00001140,
-    0x0000115A,
-    0x0000115D,
-    0x00001175,
-    0x0000118A,
-    0x0000119B,
-    0x000011B1,
-    0x000011C8,
-    0x000011D6,
-    0x000011E8,
-    0x000011FF,
-    0x0000120D,
-    0x00001218,
-    0x0000121E,
-    0x00001240,
-    0x00001253,
-    0x00001263,
-    0x00001275,
-    0x00001288,
-    0x000012A5,
-    0x000012BD,
-    0x000012D9,
-    0x000012F4,
-    0x00001307,
-    0x0000131F,
-    0x0000133A,
-    0x0000134F,
-    0x00001364,
-    0x00001376,
-    0x00001389,
-    0x000013A5,
-    0x000013C4,
-    0x000013D8,
-    0x000013F2,
-    0x00001411,
-    0x00001426,
-    0x00001441,
-    0x0000145D,
-    0x0000146E,
-    0x00001489,
-    0x0000149B,
-    0x000014B7,
-    0x000014BC,
-    0x000014BF,
-    0x000014CE,
-    0x000014D1,
-    0x000014E0,
-    0x000014F1,
-    0x0000150B,
-    0x0000151E,
-    0x0000152E,
-    0x0000154B,
-    0x00001569,
-    0x00001577,
-    0x0000158A,
-    0x00001599,
-    0x000015B6,
-    0x000015CB,
-    0x000015E3,
-    0x00001603,
-    0x0000160F,
-    0x00001624,
-    0x00001632,
-    0x00001644,
-    0x00001650,
-    0x0000165F,
-    0x00001674,
-    0x00001682,
-    0x0000169E,
-    0x000016B4,
-    0x000016C3,
-    0x000016D6,
-    0x000016F0,
-    0x00001702,
-    0x00001717,
-    0x00001723,
-    0x00001734,
-    0x00001748,
-    0x0000174D,
-    0x00001763,
-    0x0000177A,
-    0x0000178D,
-    0x000017A4,
-    0x000017BB,
-    0x000017CD,
-    0x000017E6,
-    0x000017F6,
-    0x0000180B,
-    0x00001821,
-    0x00001837,
-    0x00001848,
-    0x00001859,
-    0x00001870,
-    0x00001881,
-    0x0000189A,
-    0x000018AC,
-    0x000018C8,
-    0x000018DA,
-    0x000018F3,
-    0x00001903,
-    0x00001919,
-    0x0000192F,
-    0x0000193F,
-    0x00001955,
-    0x00001963,
-    0x00001978,
-    0x00001997,
-    0x000019B9,
-    0x000019CB,
-    0x000019E3,
-    0x000019F6,
-    0x00001A14,
-    0x00001A25,
-    0x00001A3A,
-    0x00001A50,
-    0x00001A65,
-    0x00001A76,
-    0x00001A90,
-    0x00001AA3,
-    0x00001ABB,
-    0x00001AD0,
-    0x00001AE8,
-    0x00001AFA,
-    0x00001B11,
-    0x00001B22,
-    0x00001B36,
-    0x00001B3A,
-    0x00001B54,
-    0x00001B62,
-    0x00001B76,
-    0x00001B87,
-    0x00001B9C,
-    0x00001BAE,
-    0x00001BCA,
-    0x00001BDC,
-    0x00001BF1,
-    0x00001C0A,
-    0x00001C17,
-    0x00001C27,
-    0x00001C3C,
-    0x00001C51,
-    0x00001C66,
-    0x00001C7D,
-    0x00001C83,
-    0x00001C93,
-    0x00001CA3,
-    0x00001CB7,
-    0x00001CC9,
-    0x00001CDA,
-    0x00001CEF,
-    0x00001D08,
-    0x00001D0B,
-    0x00001D21,
-    0x00001D37,
-    0x00001D4C,
-    0x00001D61,
-    0x00001D78,
-    0x00001D93,
-    0x00001DAF,
-    0x00001DC0,
-    0x00001DD1,
-    0x00001DE4,
-    0x00001DF7,
-    0x00001E06,
-    0x00001E13,
-    0x00001E22,
-    0x00001E35,
-    0x00001E43,
-    0x00001E54,
-    0x00001E67,
-    0x00001E75,
-    0x00001E87,
-    0x00001E9A,
-    0x00001EA7,
-    0x00001EB5,
-    0x00001EC6,
-    0x00001ED5,
-    0x00001EE8,
-    0x00001EED,
-    0x00001EFE,
-    0x00001F10,
-    0x00001F22,
-    0x00001F36,
-    0x00001F40,
-    0x00001F55,
-    0x00001F62,
-    0x00001F73,
-    0x00001F80,
-    0x00001F91,
-    0x00001F96,
-    0x00001FAA,
-    0x00001FBD,
-    0x00001FC4,
-    0x00001FDE,
-    0x00001FEE,
-    0x00001FFD,
-    0x00002011,
-    0x0000201F,
-    0x00002035,
-    0x00002044,
-    0x00002057,
-    0x00002069,
-    0x0000207D,
-    0x00002097,
-    0x000020AD,
-    0x000020CA,
-    0x000020D4,
-    0x000020E1,
-    0x000020F0,
-    0x00002102,
-    0x0000210B,
-    0x00002120,
-    0x0000213A,
-    0x0000214B,
-    0x00002166,
-    0x00002175,
-    0x00002176,
-    0x00002182,
-    0x00002196,
-    0x000021AB,
-    0x000021BA,
-    0x000021CD,
-    0x000021E3,
-    0x000021FD,
-    0x0000220F,
-    0x00002232,
-    0x00002242,
-    0x00002257,
-    0x0000226C,
-    0x00002287,
-    0x0000229C,
-    0x000022B1,
-    0x000022C0,
-    0x000022CF,
-    0x000022E2,
-    0x000022F3,
-    0x00002301,
-    0x00002315,
-    0x0000232E,
-    0x00002349,
-    0x00002360,
-    0x0000237B,
-    0x00002396,
-    0x000023AD,
-    0x000023C3,
-    0x000023DA,
-    0x000023F1,
-    0x0000240C,
-    0x00002426,
-    0x0000243D,
-    0x0000245C,
-    0x00002475,
-    0x0000249D,
-    0x000024B7,
-    0x000024D3,
-    0x000024F2,
-    0x00002508,
-    0x0000251A,
-    0x0000252D,
-    0x0000253E,
-    0x0000254E,
-    0x0000255E,
-    0x00002574,
-    0x0000258C,
-    0x0000259F,
-    0x000025B2,
-    0x000025BE,
-    0x000025CC,
-    0x000025D9,
-    0x000025E6,
-    0x000025F5,
-    0x000025F7,
-    0x000025F9,
-    0x00002608,
-    0x00002619,
-    0x00002628,
-    0x0000263C,
-    0x00002650,
-    0x00002663,
-    0x00002670,
-    0x00002686,
-    0x0000269C,
-    0x000026B2,
-    0x000026C8,
-    0x000026DE,
-    0x000026DF,
-    0x000026E0,
-    0x000026E1,
-    0x000026E2,
-    0x000026E3,
-    0x000026E4,
-    0x000026E5,
-    0x000026E6,
-    0x000026E7,
-    0x000026E8,
-    0x000026E9,
-    0x000026EA,
-    0x000026EB,
-    0x000026EC,
-    0x000026ED,
-    0x000026EE,
-    0x000026EF,
-    0x000026F0,
-    0x000026F1,
-    0x000026F2,
-    0x000026F3,
-    0x000026F4,
-    0x000026F5,
-    0x000026F6,
-    0x000026F7,
-    0x000026F8,
-    0x000026F9,
-    0x000026FA,
-    0x000026FB,
-    0x000026FC,
-    0x000026FD,
-    0x000026FE,
-    0x000026FF,
-    0x00002700,
-    0x00002701,
-    0x00002702,
-    0x00002719,
-    0x00002729,
-    0x0000273C,
-    0x0000274F,
-    0x0000275F,
-    0x00002774,
-    0x00002789,
-    0x00002799,
-    0x000027AC,
-    0x000027C2,
-    0x000027D4,
-    0x000027EC,
-    0x000027FC,
-    0x0000280F,
-    0x00002825,
-    0x00002838,
-    0x0000284E,
-    0x0000285F,
-    0x00002864,
-    0x00002875,
-    0x0000287A,
-    0x0000288B,
-    0x00002890,
-    0x000028A6,
-    0x000028B8,
-    0x000028C9,
-    0x000028DC,
-    0x000028EF,
-    0x000028FD,
-    0x00002910,
-    0x0000291F,
-    0x00002933,
-    0x00002946,
-    0x00002959,
-    0x0000296E,
-    0x00002982,
-    0x00002999,
-    0x000029B4,
-    0x000029C6,
-    0x000029DC,
-    0x000029F2,
-    0x00002A03,
-    0x00002A16,
-    0x00002A2E,
-    0x00002A40,
-    0x00002A51,
-    0x00002A5B,
-    0x00002A63,
-    0x00002A75,
-    0x00002A88,
-    0x00002A9E,
-    0x00002AB7,
-    0x00002ACB,
-    0x00002AE6,
-    0x00002AF8,
-    0x00002B0E,
-    0x00002B21,
-    0x00002B35,
-    0x00002B4B,
-    0x00002B62,
-    0x00002B75,
-    0x00002B8F,
-    0x00002BA8,
-    0x00002BB9,
-    0x00002BCE,
-    0x00002BE3,
-    0x00002BFA,
-    0x00002C0E,
-    0x00002C20,
-    0x00002C39,
-    0x00002C4D,
-    0x00002C64,
-    0x00002C79,
-    0x00002C8E,
-    0x00002CA1,
-    0x00002CB9,
-    0x00002CCC,
-    0x00002CE7,
-    0x00002CFA,
-    0x00002D0B,
-    0x00002D20,
-    0x00002D36,
-    0x00002D4C,
-    0x00002D61,
-    0x00002D7B,
-    0x00002D99,
-    0x00002DA9,
-    0x00002DBC,
-    0x00002DCF,
-    0x00002DE5,
-    0x00002DFF,
-    0x00002E0F,
-    0x00002E24,
-    0x00002E38,
-    0x00002E4A,
-    0x00002E67,
-    0x00002E79,
-    0x00002E8D,
-    0x00002EA2,
-    0x00002EBB,
-    0x00002ED3,
-    0x00002EE6,
-    0x00002EFE,
-    0x00002F0E,
-    0x00002F25,
-    0x00002F36,
-    0x00002F4A,
-    0x00002F62,
-    0x00002F67,
-    0x00002F78,
-    0x00002F83,
-    0x00002F98,
-    0x00002FB3,
-    0x00002FC7,
-    0x00002FDB,
-    0x00002FED,
-    0x00003002,
-    0x0000301A,
-    0x00003033,
-    0x00003046,
-    0x00003065,
-    0x0000307E,
-    0x0000308F,
-    0x000030AC,
-    0x000030C4,
-    0x000030D8,
-    0x000030F1,
-    0x00003104,
-    0x0000311B,
-    0x00003134,
-    0x00003147,
-    0x00003160,
-    0x00003171,
-    0x00003180,
-    0x00003192,
-    0x000031A6,
-    0x000031C4,
-    0x000031DB,
-    0x000031F0,
-    0x00003204,
-    0x0000321B,
-    0x00003236,
-    0x00003246,
-    0x0000326C,
-    0x00003281,
-    0x00003295,
-    0x000032AA,
-    0x000032BC,
-    0x000032CE,
-    0x000032E2,
-    0x000032F6,
-    0x00003308,
-    0x0000331A,
-    0x0000332E,
-    0x00003341,
-    0x0000335C,
-    0x0000336B,
-    0x0000337C,
-    0x00003395,
-    0x000033A6,
-    0x000033B8,
-    0x000033D2,
-    0x000033E1,
-    0x000033F1,
-    0x0000340A,
-    0x00003420,
-    0x0000343A,
-    0x0000344D,
-    0x00003465,
-    0x0000347E,
-    0x00003483,
-    0x00003487,
-    0x00003499,
-    0x000034A9,
-    0x000034BC,
-    0x000034CB,
-    0x000034DB,
-    0x000034E8,
-    0x000034F9,
-    0x0000350F,
-    0x00003520,
-    0x0000353C,
-    0x0000354A,
-    0x00003555,
-    0x00003570,
-    0x00003582,
-    0x00003596,
-    0x000035A9,
-    0x000035BA,
-    0x000035D2,
-    0x000035E4,
-    0x000035F9,
-    0x0000360D,
-    0x00003624,
-    0x00003637,
-    0x00003650,
-    0x00003662,
-    0x0000367A,
-    0x0000368B,
-    0x000036A4,
-    0x000036B5,
-    0x000036C6,
-    0x000036D7,
-    0x000036F0,
-    0x00003704,
-    0x0000371E,
-    0x00003739,
-    0x0000374E,
-    0x00003762,
-    0x00003775,
-    0x00003785,
-    0x00003798,
-    0x000037B3,
-    0x000037C8,
-    0x000037DB,
-    0x000037F3,
-    0x00003804,
-    0x0000381B,
-    0x00003831,
-    0x0000384E,
-    0x00003863,
-    0x0000387F,
-    0x00003898,
-    0x000038B1,
-    0x000038C7,
-    0x000038DC,
-    0x000038F1,
-    0x00003908,
-    0x0000391C,
-    0x00003931,
-    0x0000394D,
-    0x00003960,
-    0x00003973,
-    0x0000398C,
-    0x0000399F,
-    0x000039B2,
-    0x000039C7,
-    0x000039D5,
-    0x000039E7,
-    0x000039FC,
-    0x00003A0D,
-    0x00003A21,
-    0x00003A2E,
-    0x00003A42,
-    0x00003A5E,
-    0x00003A6C,
-    0x00003A7F,
-    0x00003A90,
-    0x00003A9E,
-    0x00003AB2,
-    0x00003AC3,
-    0x00003ADC,
-    0x00003AED,
-    0x00003AFC,
-    0x00003B10,
-    0x00003B21,
-    0x00003B37,
-    0x00003B4A,
-    0x00003B61,
-    0x00003B6F,
-    0x00003B86,
-    0x00003B97,
-    0x00003BAB,
-    0x00003BBD,
-    0x00003BDC,
-    0x00003BEC,
-    0x00003C00,
-    0x00003C0B,
-    0x00003C1E,
-    0x00003C37,
-    0x00003C50,
-    0x00003C61,
-    0x00003C72,
-    0x00003C76,
-    0x00003C8B,
-    0x00003C9A,
-    0x00003CAC,
-    0x00003CBE,
-    0x00003CD2,
-    0x00003CF2,
-    0x00003D02,
-    0x00003D10,
-    0x00003D22,
-    0x00003D34,
-    0x00003D45,
-    0x00003D52,
-    0x00003D62,
-    0x00003D78,
-    0x00003D88,
-    0x00003D9F,
-    0x00003DBA,
-    0x00003DD4,
-    0x00003DED,
-    0x00003E08,
-    0x00003E24,
-    0x00003E28,
-    0x00003E2C,
-    0x00003E41,
-    0x00003E54,
-    0x00003E6D,
-    0x00003E85,
-    0x00003EA0,
-    0x00003EB6,
-    0x00003ECD,
-    0x00003EE5,
-    0x00003F01,
-    0x00003F16,
-    0x00003F34,
-    0x00003F4F,
-    0x00003F5E,
-    0x00003F73,
-    0x00003F86,
-    0x00003F9A,
-    0x00003FB0,
-    0x00003FB8,
-    0x00003FC9,
-    0x00003FD5,
-    0x00003FE2,
-    0x00003FF3,
-    0x00003FFF,
-    0x0000400B,
-    0x0000401A,
-    0x00004026,
-    0x00004032,
-    0x00004041,
-    0x0000404F,
-    0x0000405E,
-    0x0000406A,
-    0x00004076,
-    0x00004085,
-    0x00004087,
-    0x0000408C,
-    0x0000409D,
-    0x000040A9,
-    0x000040B7,
-    0x000040C3,
-    0x000040D1,
-    0x000040DE,
-    0x000040EC,
-    0x000040F6,
-    0x00004105,
-    0x00004111,
-    0x0000411F,
-    0x0000412A,
-    0x00004137,
-    0x00004145,
-    0x00004148,
-    0x0000415A,
-    0x0000416C,
-    0x00004179,
-    0x00004187,
-    0x00004195,
-    0x000041A0,
-    0x000041AC,
-    0x000041B3,
-    0x000041CD,
-    0x000041DB,
-    0x000041EA,
-    0x000041F6,
-    0x00004205,
-    0x00004212,
-    0x00004222,
-    0x0000422E,
-    0x0000423B,
-    0x0000424A,
-    0x00004258,
-    0x00004267,
-    0x0000427A,
-    0x00004290,
-    0x000042A1,
-    0x000042B0,
-    0x000042C3,
-    0x000042E2,
-    0x000042F5,
-    0x00004302,
-    0x00004310,
-    0x0000431F,
-    0x0000432E,
-    0x00004331,
-    0x00004344,
-    0x00004352,
-    0x0000435F,
-    0x0000436D,
-    0x0000437C,
-    0x0000438A,
-    0x00004399,
-    0x000043A7,
-    0x000043B5,
-    0x000043C3,
-    0x000043D1,
-    0x000043DF,
-    0x000043E4,
-    0x000043F6,
-    0x0000440A,
-    0x00004419,
-    0x00004428,
-    0x00004438,
-    0x00004448,
-    0x0000445B,
-    0x0000446D,
-    0x0000447D,
-    0x0000448D,
-    0x0000449C,
-    0x000044AB,
-    0x000044BB,
-    0x000044CC,
-    0x000044DC,
-    0x000044F1,
-    0x00004504,
-    0x00004515,
-    0x00004527,
-    0x00004539,
-    0x00004547,
-    0x00004556,
-    0x0000456C,
-    0x00004579,
-    0x00004588,
-    0x0000459C,
-    0x000045A9,
-    0x000045B9,
-    0x000045CE,
-    0x000045DC,
-    0x000045EC,
-    0x000045FB,
-    0x0000460C,
-    0x0000461A,
-    0x0000462F,
-    0x0000463F,
-    0x00004651,
-    0x00004666,
-    0x00004675,
-    0x00004686,
-    0x00004696,
-    0x000046A6,
-    0x000046B4,
-    0x000046C2,
-    0x000046D4,
-    0x000046E5,
-    0x000046F4,
-    0x00004705,
-    0x0000471A,
-    0x00004725,
-    0x00004739,
-    0x0000474D,
-    0x0000475C,
-    0x0000476B,
-    0x00004778,
-    0x00004788,
-    0x00004798,
-    0x000047AB,
-    0x000047BB,
-    0x000047CC,
-    0x000047DC,
-    0x000047EC,
-    0x000047FE,
-    0x00004811,
-    0x00004821,
-    0x0000482E,
-    0x00004842,
-    0x0000484D,
-    0x00004862,
-    0x0000486D,
-    0x0000487F,
-    0x00004890,
-    0x000048A1,
-    0x000048B4,
-    0x000048C1,
-    0x000048CF,
-    0x000048E0,
-    0x000048EE,
-    0x00004901,
-    0x00004911,
-    0x00004924,
-    0x00004933,
-    0x00004942,
-    0x00004951,
-    0x00004964,
-    0x00004974,
-    0x00004986,
-    0x00004996,
-    0x000049A6,
-    0x000049B6,
-    0x000049C4,
-    0x000049D6,
-    0x000049E3,
-    0x000049FD,
-    0x00004A0C,
-    0x00004A1E,
-    0x00004A30,
-    0x00004A45,
-    0x00004A57,
-    0x00004A68,
-    0x00004A78,
-    0x00004A8A,
-    0x00004A9D,
-    0x00004AB0,
-    0x00004AC1,
-    0x00004AD1,
-    0x00004AE4,
-    0x00004AF6,
-    0x00004B09,
-    0x00004B1C,
-    0x00004B2A,
-    0x00004B38,
-    0x00004B4B,
-    0x00004B4E,
-    0x00004B5B,
-    0x00004B6F,
-    0x00004B83,
-    0x00004B96,
-    0x00004BA9,
-    0x00004BBB,
-    0x00004BCE,
-    0x00004BDF,
-    0x00004BF0,
-    0x00004C02,
-    0x00004C16,
-    0x00004C28,
-    0x00004C36,
-    0x00004C46,
-    0x00004C53,
-    0x00004C61,
-    0x00004C70,
-    0x00004C84,
-    0x00004C94,
-    0x00004CA8,
-    0x00004CBD,
-    0x00004CD0,
-    0x00004CE2,
-    0x00004CF4,
-    0x00004D01,
-    0x00004D12,
-    0x00004D2B,
-    0x00004D45,
-    0x00004D5F,
-    0x00004D74,
-    0x00004D84,
-    0x00004D97,
-    0x00004DAC,
-    0x00004DC4,
-    0x00004DDB,
-    0x00004DF2,
-    0x00004E07,
-    0x00004E20,
-    0x00004E38,
-    0x00004E51,
-    0x00004E6A,
-    0x00004E84,
-    0x00004EA3,
-    0x00004EBF,
-    0x00004ED7,
-    0x00004EED,
-    0x00004F08,
-    0x00004F27,
-    0x00004F46,
-    0x00004F62,
-    0x00004F82,
-    0x00004F98,
-    0x00004FAF,
-    0x00004FC6,
-    0x00004FDF,
-    0x00004FF4,
-    0x00005010,
-    0x00005026,
-    0x00005044,
-    0x00005059,
-    0x00005072,
-    0x00005087,
-    0x000050A0,
-    0x000050B6,
-    0x000050D1,
-    0x000050ED,
-    0x00005100,
-    0x0000511D,
-    0x00005133,
-    0x00005156,
-    0x0000516A,
-    0x00005192,
-    0x000051AD,
-    0x000051C2,
-    0x000051D3,
-    0x000051E4,
-    0x000051F2,
-    0x00005205,
-    0x0000521D,
-    0x00005231,
-    0x00005248,
-    0x00005261,
-    0x00005276,
-    0x00005286,
-    0x0000529D,
-    0x000052B0,
-    0x000052CD,
-    0x000052DE,
-    0x000052F1,
-    0x00005306,
-    0x00005317,
-    0x0000532B,
-    0x00005344,
-    0x00005360,
-    0x00005373,
-    0x0000538F,
-    0x000053A3,
-    0x000053BF,
-    0x000053D3,
-    0x000053EA,
-    0x00005401,
-    0x00005420,
-    0x00005432,
-    0x00005443,
-    0x00005454,
-    0x0000546F,
-    0x00005482,
-    0x00005490,
-    0x000054A2,
-    0x000054B4,
-    0x000054CA,
-    0x000054DA,
-    0x000054F1,
-    0x0000550C,
-    0x0000551C,
-    0x0000552D,
-    0x0000553E,
-    0x00005557,
-    0x00005565,
-    0x00005574,
-    0x00005587,
-    0x00005596,
-    0x000055A6,
-    0x000055B7,
-    0x000055C7,
-    0x000055E1,
-    0x000055FB,
-    0x00005615,
-    0x0000562F,
-    0x00005649,
-    0x00005663,
-    0x0000567D,
-    0x00005697,
-    0x000056B1,
-    0x000056CB,
-    0x000056E5,
-    0x000056FF,
-    0x00005719,
-    0x00005733,
-    0x00005741,
-    0x0000574F,
-    0x0000575D,
-    0x00005773,
-    0x00005782,
-    0x00005795,
-    0x000057A5,
-    0x000057B5,
-    0x000057C8,
-    0x000057D9,
-    0x000057EE,
-    0x00005803,
-    0x00005813,
-    0x00005823,
-    0x00005833,
-    0x00005847,
-    0x0000585B,
-    0x0000586F,
-    0x00005881,
-    0x00005893,
-    0x000058A5,
-    0x000058B7,
-    0x000058C9,
-    0x000058DD,
-    0x000058F0,
-    0x0000590B,
-    0x00005926,
-    0x00005941,
-    0x0000595C,
-    0x00005975,
-    0x0000598E,
-    0x000059A0,
-    0x000059B2,
-    0x000059C4,
-    0x000059D6,
-    0x000059E8,
-    0x000059FA,
-    0x00005A0C,
-    0x00005A1E,
-    0x00005A30,
-    0x00005A42,
-    0x00005A54,
-    0x00005A66,
-    0x00005A78,
-    0x00005A8A,
-    0x00005A9C,
-    0x00005AAE,
-    0x00005AC0,
-    0x00005AD2,
-    0x00005AE4,
-    0x00005AF3,
-    0x00005B02,
-    0x00005B11,
-    0x00005B20,
-    0x00005B30,
-    0x00005B40,
-    0x00005B50,
-    0x00005B60,
-    0x00005B71,
-    0x00005B7E,
-    0x00005B8B,
-    0x00005B98,
-    0x00005BA5,
-    0x00005BB3,
-    0x00005BC1,
-    0x00005BCF,
-    0x00005BDD,
-    0x00005BEB,
-    0x00005BF9,
-    0x00005C07,
-    0x00005C15,
-    0x00005C23,
-    0x00005C36,
-    0x00005C47,
-    0x00005C58,
-    0x00005C69,
-    0x00005C80,
-    0x00005C97,
-    0x00005CAE,
-    0x00005CC7,
-    0x00005CDD,
-    0x00005CF3,
-    0x00005D09,
-    0x00005D1F,
-    0x00005D35,
-    0x00005D4A,
-    0x00005D5B,
-    0x00005D6C,
-    0x00005D7D,
-    0x00005D8E,
-    0x00005DA6,
-    0x00005DC5,
-    0x00005DD6,
-    0x00005DE6,
-    0x00005DF6,
-    0x00005E06,
-    0x00005E16,
-    0x00005E26,
-    0x00005E36,
-    0x00005E46,
-    0x00005E56,
-    0x00005E66,
-    0x00005E76,
-    0x00005E86,
-    0x00005E96,
-    0x00005EA6,
-    0x00005EB7,
-    0x00005ECC,
-    0x00005EE1,
-    0x00005EF6,
-    0x00005F0B,
-    0x00005F29,
-    0x00005F36,
-    0x00005F42,
-    0x00005F50,
-    0x00005F5E,
-    0x00005F78,
-    0x00005F85,
-    0x00005F95,
-    0x00005FA3,
-    0x00005FB1,
-    0x00005FBF,
-    0x00005FCD,
-    0x00005FDB,
-    0x00005FE9,
-    0x00005FF7,
-    0x00006005,
-    0x00006012,
-    0x00006021,
-    0x00006030,
-    0x0000603F,
-    0x0000604F,
-    0x00006062,
-    0x00006074,
-    0x00006093,
-    0x000060B2,
-    0x000060C4,
-    0x000060D4,
-    0x000060E8,
-    0x000060FA,
-    0x0000610E,
-    0x00006122,
-    0x00006134,
-    0x00006142,
-    0x00006156,
-    0x0000616F,
-    0x0000617E,
-    0x00006190,
-    0x000061A3,
-    0x000061B3,
-    0x000061C8,
-    0x000061DE,
-    0x000061F0,
-    0x00006200,
-    0x00006219,
-    0x0000622D,
-    0x00006241,
-    0x00006257,
-    0x0000626A,
-    0x0000627F,
-    0x00006298,
-    0x000062AB,
-    0x000062C6,
-    0x000062D4,
-    0x000062E7,
-    0x000062F8,
-    0x00006309,
-    0x0000631A,
-    0x0000632B,
-    0x0000633C,
-    0x00006349,
-    0x00006356,
-    0x00006368,
-    0x0000636B,
-    0x00006378,
-    0x00006387,
-    0x00006396,
-    0x000063A5,
-    0x000063B5,
-    0x000063C8,
-    0x000063DB,
-    0x000063EE,
-    0x00006401,
-    0x00006414,
-    0x00006425,
-    0x00006436,
-    0x00006447,
-    0x00006458,
-    0x00006469,
-    0x0000647A,
-    0x0000648B,
-    0x0000649C,
-    0x000064AA,
-    0x000064BA,
-    0x000064CE,
-    0x000064E2,
-    0x000064F6,
-    0x0000650A,
-    0x0000651E,
-    0x00006532,
-    0x00006546,
-    0x00006558,
-    0x00006565,
 };

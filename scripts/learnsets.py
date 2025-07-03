@@ -90,8 +90,8 @@ def write_tutor_learnsets(tutor_path, species_learnsets, species_dict):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--learnsets", default="data/moves/learnsets.json")
-    parser.add_argument("--tutormoves", default="data/moves/tutor_moves.json")
+    parser.add_argument("--learnsets", default="data/mon/learnsets.json")
+    parser.add_argument("--tutormoves", default="data/tutor/tutor_moves.json")
     parser.add_argument("--writetutormovelist", action="store_true")
     parser.add_argument("--writetutorlearnsets", action="store_true")
     args = parser.parse_args()
