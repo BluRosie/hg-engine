@@ -586,7 +586,6 @@ gAnimScrTable = 0x02234DE8;
 DrawFrameAndWindow2	= 0x0200E998 | 1;
 AddWindowParameterized = 0x0201D40C | 1;
 
-LoadLevelUpLearnset_HandleAlternateForm = 0x02071FC8 | 1;
 TryAppendMonMove = 0x0207137C | 1;
 
 BattleControllerPlayer_CalcExecutionOrder = 0x02249190 | 1;

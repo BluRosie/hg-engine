@@ -6,6 +6,8 @@
 // all the edits that should be necessary to change the level up moves to be u16 level, u16 move
 // also expand possible moves in learnset to be more than 21
 
+// TODO zebben go through this and figure out what's still needed
+
 .open "base/arm9.bin", 0x02000000
 
 // initialize box mon learnset - InitBoxMonMoveset

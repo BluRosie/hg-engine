@@ -1237,42 +1237,23 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
 }
 
 /**
- *  @brief load egg moves to dest and return amount of egg moves
+ *  @brief load egg moves to dest and return amount of egg moves. reads from data/EggLearnsets.c
  *
  *  @param pokemon PartyPokemon to grab egg moves for
  *  @param dest destination for the array of egg moves
  *  @return number of egg moves in dest
  */
-u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest)
-{
-    u16 n;
-    u16 *kowaza_list;
-    u16 offset;
-    u16 species;
-    u16 i;
+u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest) {
+    u16 species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
 
-    kowaza_list = sys_AllocMemory(HEAPID_MAIN_HEAP, NUM_EGG_MOVES_TOTAL*2);
-    ArchiveDataLoad(kowaza_list, ARC_EGG_MOVES, 0);
+    ArchiveDataLoadOfs(dest, ARC_EGG_MOVES, 0, species * EGG_MOVES_PER_MON * sizeof(u16), EGG_MOVES_PER_MON * sizeof(u16));
 
-    n = 0;
-    offset = 0;
-
-    species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
-    for (i = 0; i < NUM_EGG_MOVES_TOTAL; i++) {
-        if (species + 20000 == kowaza_list[i]) {
-            offset = i + 1;
-            break;
-        }
+    u8 count = 0;
+    while (count < EGG_MOVES_PER_MON && dest[count] != 0xFFFF) {
+        count++;
     }
-    for (i = 0; i < EGG_MOVES_PER_MON; i++) {
-        if (kowaza_list[offset + i] > 20000) {
-            break;
-        }
-        dest[i] = kowaza_list[offset + i];
-        n++;
-    }
-    sys_FreeMemoryEz(kowaza_list);
-    return n;
+
+    return count;
 }
 
 /**
@@ -2484,4 +2465,39 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
     default:
         break;
     }
+}
+
+/**
+ * @brief checks if a given mon can learn a specific TM or HM by index. reads from data/TMLearnsets.c
+ */
+BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u16 form = GetMonData(pp, MON_DATA_FORM, NULL);
+
+    debug_printf("[GetMonTMHMCompat] species %d form %d tmhm %d\n", species, form, tmhm);
+
+    if (species > MAX_SPECIES_INCLUDING_FORMS) {
+        return FALSE;
+    }
+
+    if (tmhm >= MAX_TMHM_MOVES) {
+        return FALSE;
+    }
+
+    // TODO zebben - should try to override the existing TM data if possible?
+    u32 buf[TM_LEARNSETS_BITFIELD_COUNT];
+    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * TM_LEARNSETS_BITFIELD_COUNT * sizeof(u32), TM_LEARNSETS_BITFIELD_COUNT * sizeof(u32));
+
+    return (buf[tmhm / 32] >> (tmhm % 32)) & 1;
+}
+
+/**
+ * @brief loads level up data for a mon. reads from data/LevelupLearnsets.c
+ */
+void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset) {
+    //debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] species %d form %d\n", species, form);
+    species = PokeOtherFormMonsNoGet(species, form);
+    //debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] species %d\n", species);
+
+    ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, 0, species * MAX_LEVELUP_MOVES * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
 }
