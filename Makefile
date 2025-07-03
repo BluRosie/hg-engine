@@ -271,7 +271,6 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	$(MAKE) move_narc
 	$(ARMIPS) armips/global.s
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
-	$(NARCHIVE) create $(FILESYS)/a/0/3/3 $(BUILD)/a033/ -nf
 	@echo "Making ROM..."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo "Done.  See output $(BUILDROM)."
@@ -433,8 +432,8 @@ move_narc: $(NARC_FILES)
 	$(ARMIPS) armips/data/babymons.s
 
 	@echo "tutor moves:"
-	$(PYTHON) scripts/learnsets.py --learnsets $(LEARNSETS_DATA) --tutormoves $(TUTORMOVES_DATA) --writetutormovelist
-	$(PYTHON) scripts/learnsets.py --learnsets $(LEARNSETS_DATA) --tutormoves $(TUTORMOVES_DATA) --writetutorlearnsets
+	$(PYTHON) scripts/tutor_learnset.py --writemovecostlist $(TUTORMOVES_DATA)
+	$(PYTHON) scripts/tutor_learnset.py --writetutorlearnsets $(TUTORMOVES_DATA) $(LEARNSETS_DATA)
 
 	@if test -s build/a028/8_00; then \
 		rm -rf build/a028/8_0 build/a028/8_1 build/a028/8_2 build/a028/8_3 build/a028/8_4 build/a028/8_5 build/a028/8_6 build/a028/8_7 build/a028/8_8 build/a028/8_9; \
