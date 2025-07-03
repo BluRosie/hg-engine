@@ -4,6 +4,7 @@ import os
 import re
 from collections import defaultdict, OrderedDict
 
+# TODO zebben rename this. does all learnsets not just TMs
 
 def parse_species_header(file_path):
     species_dict = {}
@@ -194,7 +195,7 @@ def print_usage():
     print("    python convert_tmlearnset.py to-txt <species.json> <moves.json> <output.txt> <species.h>")
 
 
-# TODO clean me up
+# TODO zebben clean me up
 if __name__ == "__main__":
     if len(sys.argv) < 5:
         print_usage()

@@ -1,5 +1,5 @@
 """
-Handles generating learnset codetables which are packed into NARC subfiles in codetables.mk
+Handles generating learnset codetables which are packed into NARC subfiles via codetables.mk
 
 Responsible for generating the following:
   data/TMLearnsets.c

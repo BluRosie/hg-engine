@@ -443,6 +443,7 @@
 #define NUM_HMS (ITEM_HM08 - ITEM_HM01 + 1)
 
 // tm learnset bitfield uses u32s
+// TODO zebben better spot for this? used in pokemon.c and LevelupLearnsets.c
 #define TM_LEARNSETS_BITFIELD_COUNT (MAX_TMHM_MOVES / 32)
 
 #define ITEM_EXPLORER_KIT    428
