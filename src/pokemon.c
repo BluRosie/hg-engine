@@ -1246,14 +1246,8 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
 u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest) {
     u16 species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
 
-    // load species offset
-    u32 offset;
-    ArchiveDataLoadOfs(&offset, ARC_EGG_MOVES, EGG_LEARNSET_OFFSETS, species * sizeof(u32), sizeof(u32));
+    ArchiveDataLoadOfs(dest, ARC_EGG_MOVES, EGG_LEARNSETS, species * EGG_MOVES_PER_MON * sizeof(u16), EGG_MOVES_PER_MON * sizeof(u16));
 
-    // load EGG_MOVES_PER_MON starting at the species offset
-    ArchiveDataLoadOfs(dest, ARC_EGG_MOVES, EGG_LEARNSETS, offset * sizeof(u16), EGG_MOVES_PER_MON * sizeof(u16));
-
-    // count the egg moves loaded
     u8 count = 0;
     while (count < EGG_MOVES_PER_MON && dest[count] != 0xFFFF) {
         count++;
@@ -2505,9 +2499,5 @@ void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u3
     species = PokeOtherFormMonsNoGet(species, form);
     debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] species %d\n", species);
 
-    u32 offset = 0;
-    ArchiveDataLoadOfs(&offset, ARC_LEVELUP_LEARNSETS, LEVELUP_LEARNSET_OFFSETS, species * sizeof(u32), sizeof(u32));
-    debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] offset %u\n", offset);
-
-    ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, LEVELUP_LEARNSETS, offset * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
+    ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, 0, species * MAX_LEVELUP_MOVES * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
 }

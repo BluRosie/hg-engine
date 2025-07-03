@@ -51,10 +51,6 @@
 #define CODE_ADDON_FORM_REVERSION_MAPPING 13
 #define CODE_ADDON_TM_LEARNSETS 14
 
-//a033 file indexes
-#define LEVELUP_LEARNSETS 0
-#define LEVELUP_LEARNSET_OFFSETS 1
-
 //a018 file indices for mega stuff
 #define MEGA_ICON_FIGHT_GFX (797)
 #define PRIMAL_REVERSION_OMEGA_GFX (799)

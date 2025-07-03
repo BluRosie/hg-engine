@@ -155,7 +155,17 @@
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
 
+// MAX_TMHM_MOVES is the maximum number of TMs and HMs in the game
+// determines size of per-species bitfields used for checking if a mon can learn a TM/HM
+// you can technically add more TMs though they render in the bag with an "HM" tag until it's fixed
+#define MAX_TMHM_MOVES 128
+
 // MAX_LEVELUP_MOVES is the maximum number of level up moves each mon can learn
+// determines size of per-species arrays of level up moves
 #define MAX_LEVELUP_MOVES 40
+
+// MAX_EGG_MOVES is the maximum number of egg moves each mon can inherit
+// determines size of per-species arrays of egg moves
+#define MAX_EGG_MOVES 16
 
 #endif
