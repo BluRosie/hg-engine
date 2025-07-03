@@ -58,10 +58,6 @@
 #define MEGA_ICON_SELECTED_GFX (803)
 #define MEGA_ICON_BLANK_GFX (805)
 
-//kowaza file indexes
-#define EGG_LEARNSETS 0
-#define EGG_LEARNSET_OFFSETS 1
-
 //heap IDs
 #define HEAPID_DEFAULT 0
 #define HEAPID_MAIN_HEAP 3

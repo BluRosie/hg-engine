@@ -1237,7 +1237,7 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
 }
 
 /**
- *  @brief load egg moves to dest and return amount of egg moves
+ *  @brief load egg moves to dest and return amount of egg moves. reads from data/EggLearnsets.c
  *
  *  @param pokemon PartyPokemon to grab egg moves for
  *  @param dest destination for the array of egg moves
@@ -1246,7 +1246,7 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
 u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest) {
     u16 species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
 
-    ArchiveDataLoadOfs(dest, ARC_EGG_MOVES, EGG_LEARNSETS, species * EGG_MOVES_PER_MON * sizeof(u16), EGG_MOVES_PER_MON * sizeof(u16));
+    ArchiveDataLoadOfs(dest, ARC_EGG_MOVES, 0, species * EGG_MOVES_PER_MON * sizeof(u16), EGG_MOVES_PER_MON * sizeof(u16));
 
     u8 count = 0;
     while (count < EGG_MOVES_PER_MON && dest[count] != 0xFFFF) {
@@ -2480,24 +2480,24 @@ BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
         return FALSE;
     }
 
-    if (tmhm >= MAX_NUM_TMHMS) {
+    if (tmhm >= MAX_TMHM_MOVES) {
         return FALSE;
     }
 
+    // TODO zebben - should try to override the existing TM data if possible?
     u32 buf[TM_LEARNSETS_BITFIELD_COUNT];
-    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * TM_LEARNSETS_ENTRY_SIZE, TM_LEARNSETS_ENTRY_SIZE);
+    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * TM_LEARNSETS_BITFIELD_COUNT * sizeof(u32), TM_LEARNSETS_BITFIELD_COUNT * sizeof(u32));
 
-    // check if the specific bit based on tm/hm num is set for the species
-    return (buf[tmhm / TM_LEARNSETS_BITS_PER_WORD] >> tmhm % TM_LEARNSETS_BITS_PER_WORD) & 1;
+    return (buf[tmhm / 32] >> (tmhm % 32)) & 1;
 }
 
 /**
  * @brief loads level up data for a mon. reads from data/LevelupLearnsets.c
  */
 void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset) {
-    debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] species %d form %d\n", species, form);
+    //debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] species %d form %d\n", species, form);
     species = PokeOtherFormMonsNoGet(species, form);
-    debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] species %d\n", species);
+    //debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] species %d\n", species);
 
     ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, 0, species * MAX_LEVELUP_MOVES * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
 }

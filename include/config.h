@@ -155,7 +155,7 @@
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
 
-// MAX_TMHM_MOVES is the maximum number of TMs and HMs in the game
+// MAX_TMHM_MOVES is the maximum number of TMs and HMs in the game AND MUST BE DIVISIBLE BY 32
 // determines size of per-species bitfields used for checking if a mon can learn a TM/HM
 // you can technically add more TMs though they render in the bag with an "HM" tag until it's fixed
 #define MAX_TMHM_MOVES 128
