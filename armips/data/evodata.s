@@ -912,7 +912,7 @@ evodata SPECIES_GEODUDE
     terminateevodata
 
 evodata SPECIES_GRAVELER
-    evolution EVO_TRADE, 0, SPECIES_GOLEM
+    evolution EVO_LEVEL, 40, SPECIES_GOLEM
     evolution EVO_STONE, ITEM_LINKING_CORD, SPECIES_GOLEM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1128,7 +1128,7 @@ evodata SPECIES_GASTLY
     terminateevodata
 
 evodata SPECIES_HAUNTER
-    evolution EVO_TRADE, 0, SPECIES_GENGAR
+    evolution EVO_LEVEL, 40, SPECIES_GENGAR
     evolution EVO_STONE, ITEM_LINKING_CORD, SPECIES_GENGAR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1236,7 +1236,7 @@ evodata SPECIES_ELECTRODE
     terminateevodata
 
 evodata SPECIES_EXEGGCUTE
-    evolution EVO_STONE, ITEM_LEAF_STONE, SPECIES_EXEGGUTOR
+    evolution EVO_LEVEL, 34, SPECIES_EXEGGUTOR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -1656,7 +1656,7 @@ evodata SPECIES_FLAREON
     terminateevodata
 
 evodata SPECIES_PORYGON
-    evolution EVO_TRADE_ITEM, ITEM_UP_GRADE, SPECIES_PORYGON2
+    evolution EVO_LEVEL, 30, SPECIES_PORYGON2
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2748,7 +2748,7 @@ evodata SPECIES_SKARMORY
     terminateevodata
 
 evodata SPECIES_HOUNDOUR
-    evolution EVO_LEVEL, 24, SPECIES_HOUNDOOM
+    evolution EVO_LEVEL, 34, SPECIES_HOUNDOOM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2808,7 +2808,7 @@ evodata SPECIES_DONPHAN
     terminateevodata
 
 evodata SPECIES_PORYGON2
-    evolution EVO_TRADE_ITEM, ITEM_DUBIOUS_DISC, SPECIES_PORYGON_Z
+    evolution EVO_LEVEL, 40, SPECIES_PORYGON_Z
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -6916,7 +6916,7 @@ evodata SPECIES_ROGGENROLA
     terminateevodata
 
 evodata SPECIES_BOLDORE
-    evolution EVO_TRADE, 0, SPECIES_GIGALITH
+    evolution EVO_LEVEL, 48, SPECIES_GIGALITH
     evolution EVO_STONE, ITEM_LINKING_CORD, SPECIES_GIGALITH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -7012,7 +7012,7 @@ evodata SPECIES_TIMBURR
     terminateevodata
 
 evodata SPECIES_GURDURR
-    evolution EVO_TRADE, 0, SPECIES_CONKELDURR
+    evolution EVO_LEVEL, 40, SPECIES_CONKELDURR
     evolution EVO_STONE, ITEM_LINKING_CORD, SPECIES_CONKELDURR
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -8656,7 +8656,7 @@ evodata SPECIES_FLABEBE
 terminateevodata
 
 evodata SPECIES_FLOETTE
-    evolution EVO_STONE, ITEM_SHINY_STONE, SPECIES_FLORGES
+    evolution EVO_LEVEL, 46, SPECIES_FLORGES
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -13677,7 +13677,7 @@ evodata SPECIES_GEODUDE_ALOLAN
 terminateevodata
 
 evodata SPECIES_GRAVELER_ALOLAN
-    evolutionwithform EVO_TRADE, 0, SPECIES_GOLEM, 1
+    evolutionwithform EVO_LEVEL, 40, SPECIES_GOLEM, 1
     evolutionwithform EVO_STONE, ITEM_LINKING_CORD, SPECIES_GOLEM, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -14937,7 +14937,7 @@ evodata SPECIES_FLABEBE_WHITE_FLOWER
 terminateevodata
 
 evodata SPECIES_FLOETTE_YELLOW_FLOWER
-    evolution EVO_STONE, ITEM_SHINY_STONE, SPECIES_FLORGES
+    evolution EVO_LEVEL, 46, SPECIES_FLORGES
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -14949,7 +14949,7 @@ evodata SPECIES_FLOETTE_YELLOW_FLOWER
 terminateevodata
 
 evodata SPECIES_FLOETTE_ORANGE_FLOWER
-    evolution EVO_STONE, ITEM_SHINY_STONE, SPECIES_FLORGES
+    evolution EVO_LEVEL, 46, SPECIES_FLORGES
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -14961,7 +14961,7 @@ evodata SPECIES_FLOETTE_ORANGE_FLOWER
 terminateevodata
 
 evodata SPECIES_FLOETTE_BLUE_FLOWER
-    evolution EVO_STONE, ITEM_SHINY_STONE, SPECIES_FLORGES
+    evolution EVO_LEVEL, 46, SPECIES_FLORGES
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -14973,7 +14973,7 @@ evodata SPECIES_FLOETTE_BLUE_FLOWER
 terminateevodata
 
 evodata SPECIES_FLOETTE_WHITE_FLOWER
-    evolution EVO_STONE, ITEM_SHINY_STONE, SPECIES_FLORGES
+    evolution EVO_LEVEL, 46, SPECIES_FLORGES
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
