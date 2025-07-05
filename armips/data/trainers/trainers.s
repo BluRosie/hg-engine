@@ -2624,11 +2624,11 @@ trainerdata 65, "Gina"
         level 21
         pokemon SPECIES_FLABEBE
         move MOVE_FAIRY_WIND
-        move MOVE_HIDDEN_POWER
+        move MOVE_HIDDEN_POWER // water
         move MOVE_GRASS_KNOT
         move MOVE_NONE
         ability ABILITY_FLOWER_VEIL
-        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 30, 30, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 126, 0, 252, 126
         nature NATURE_BOLD
         additionalflags 0
@@ -2640,11 +2640,11 @@ trainerdata 65, "Gina"
         level 21
         pokemon SPECIES_FLABEBE
         move MOVE_FAIRY_WIND
-        move MOVE_HIDDEN_POWER
+        move MOVE_HIDDEN_POWER // water
         move MOVE_GRASS_KNOT
         move MOVE_NONE
         ability ABILITY_FLOWER_VEIL
-        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 30, 30, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 126, 0, 252, 126
         nature NATURE_BOLD
         additionalflags 0
@@ -2735,7 +2735,7 @@ trainerdata 67, "Benny"
         move MOVE_SIGNAL_BEAM
         move MOVE_SWIFT
         move MOVE_NONE
-        ability ABILITY_ANALYTIC
+        ability ABILITY_STURDY
         setivs 31, 0, 31, 0, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 252, 0, 0, 0, 252, 0
         nature NATURE_SASSY
@@ -4420,7 +4420,7 @@ trainerdata 117, "Lola"
     endparty
 
 trainerdata 118, "Kate"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
@@ -4436,14 +4436,32 @@ trainerdata 118, "Kate"
         ivs 50
         abilityslot 0
         level 26
-        pokemon SPECIES_SHELLDER
+        pokemon SPECIES_PANSEAR
+        move MOVE_EMBER
+        move MOVE_BITE
+        move MOVE_YAWN
+        move MOVE_NONE
+        ability ABILITY_BLAZE
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 252, 0, 0, 252, 0
+        nature NATURE_HARDY
+        additionalflags 0
         ballseal 0
 
         // mon 1
         ivs 50
         abilityslot 0
-        level 28
-        pokemon SPECIES_CLOYSTER
+        level 26
+        pokemon SPECIES_SIMISEAR
+        move MOVE_EMBER
+        move MOVE_BITE
+        move MOVE_YAWN
+        move MOVE_NONE
+        ability ABILITY_BLAZE
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 252, 0, 0, 252, 0
+        nature NATURE_HARDY
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -4469,7 +4487,7 @@ trainerdata 119, "Fran"
     endparty
 
 trainerdata 120, "Irene"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
@@ -4485,14 +4503,32 @@ trainerdata 120, "Irene"
         ivs 50
         abilityslot 0
         level 22
-        pokemon SPECIES_GOLDEEN
+        pokemon SPECIES_KRABBY
+        move MOVE_METAL_CLAW
+        move MOVE_VICE_GRIP
+        move MOVE_LEER
+        move MOVE_NONE
+        ability ABILITY_SHEER_FORCE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 252, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        additionalflags 0
         ballseal 0
 
         // mon 1
         ivs 50
         abilityslot 0
         level 24
-        pokemon SPECIES_SEAKING
+        pokemon SPECIES_KRABBY
+        move MOVE_METAL_CLAW
+        move MOVE_VICE_GRIP
+        move MOVE_LEER
+        move MOVE_NONE
+        ability ABILITY_SHEER_FORCE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 252, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -14994,7 +15030,7 @@ trainerdata 416, "Jo & Zoe"
     endparty
 
 trainerdata 417, "Jenn"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
@@ -15010,14 +15046,32 @@ trainerdata 417, "Jenn"
         ivs 50
         abilityslot 0
         level 24
-        pokemon SPECIES_STARYU
+        pokemon SPECIES_PANPOUR
+        move MOVE_SCALD
+        move MOVE_BITE
+        move MOVE_AQUA_RING
+        move MOVE_COVET
+        ability ABILITY_TORRENT
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 252, 0, 0, 252, 0
+        nature NATURE_HARDY
+        additionalflags 0
         ballseal 0
 
         // mon 1
         ivs 50
         abilityslot 0
         level 26
-        pokemon SPECIES_STARMIE
+        pokemon SPECIES_SIMIPOUR
+        move MOVE_SCALD
+        move MOVE_BITE
+        move MOVE_AQUA_RING
+        move MOVE_COVET
+        ability ABILITY_TORRENT
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 252, 0, 0, 252, 0
+        nature NATURE_HARDY
+        additionalflags 0
         ballseal 0
     endparty
 

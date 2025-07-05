@@ -2096,49 +2096,49 @@ rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 5, 6, 5, 6, 6, 6, 5, 5, 5, 6, 5, 6
+walklevels 15, 15, 15, 15, 16, 16, 17, 17, 17, 18, 18, 18
 
 // morning encounter slots
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
+pokemon SPECIES_BEAUTIFLY
+pokemon SPECIES_NINCADA
+pokemon SPECIES_BEAUTIFLY
+pokemon SPECIES_NINCADA
+pokemon SPECIES_BEAUTIFLY
+pokemon SPECIES_BEAUTIFLY
+pokemon SPECIES_SCYTHER
+pokemon SPECIES_SCYTHER
+pokemon SPECIES_WOOBAT
 pokemon SPECIES_PARAS
-pokemon SPECIES_PARAS
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_WOOBAT
 pokemon SPECIES_PARAS
 
 // day encounter slots
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_METAPOD
-pokemon SPECIES_METAPOD
-pokemon SPECIES_METAPOD
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
+pokemon SPECIES_BEAUTIFLY
+pokemon SPECIES_BEAUTIFLY
+pokemon SPECIES_BEAUTIFLY
+pokemon SPECIES_BEAUTIFLY
+pokemon SPECIES_NINCADA
+pokemon SPECIES_NINCADA
+pokemon SPECIES_NINCADA
+pokemon SPECIES_NINCADA
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SCYTHER
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SCYTHER
 
 // night encounter slots
-pokemon SPECIES_ODDISH
-pokemon SPECIES_ODDISH
-pokemon SPECIES_ODDISH
-pokemon SPECIES_ODDISH
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
-pokemon SPECIES_PARAS
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
+pokemon SPECIES_SUNKERN
+pokemon SPECIES_SUNKERN
+pokemon SPECIES_SUNKERN
+pokemon SPECIES_SUNKERN
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SCYTHER
+pokemon SPECIES_SCYTHER
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SCYTHER
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SCYTHER
 
 // hoenn encounter slots
 pokemon SPECIES_SPOINK
@@ -2160,11 +2160,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
+encounter SPECIES_SLOWPOKE, 10, 10
+encounter SPECIES_SLOWPOKE, 10, 10
+encounter SPECIES_SLOWPOKE, 10, 10
+encounter SPECIES_KRABBY, 10, 10
+encounter SPECIES_KRABBY, 10, 10
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -2200,49 +2200,49 @@ rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 10, 11, 10, 11, 12, 12, 10, 10, 13, 10, 13, 10
+walklevels 15, 15, 16, 16, 17, 17, 17, 17, 18, 18, 19, 19
 
 // morning encounter slots
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_ABRA
-pokemon SPECIES_ABRA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DITTO
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DITTO
+pokemon SPECIES_BUDEW
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_BUDEW
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_BUDEW
+pokemon SPECIES_BUDEW
+pokemon SPECIES_HAPPINY
+pokemon SPECIES_HAPPINY
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_PORYGON
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_PORYGON
 
 // day encounter slots
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_ABRA
-pokemon SPECIES_ABRA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DITTO
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DITTO
+pokemon SPECIES_BUDEW
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_BUDEW
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_BUDEW
+pokemon SPECIES_BUDEW
+pokemon SPECIES_HAPPINY
+pokemon SPECIES_HAPPINY
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_PORYGON
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_PORYGON
 
 // night encounter slots
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_DROWZEE
-pokemon SPECIES_ABRA
-pokemon SPECIES_ABRA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DITTO
-pokemon SPECIES_RATTATA
-pokemon SPECIES_DITTO
+pokemon SPECIES_BUDEW
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_BUDEW
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_BUDEW
+pokemon SPECIES_BUDEW
+pokemon SPECIES_HAPPINY
+pokemon SPECIES_HAPPINY
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_PORYGON
+pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_PORYGON
 
 // hoenn encounter slots
 pokemon SPECIES_WHISMUR
@@ -2264,11 +2264,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_KRABBY, 10, 10
-encounter SPECIES_KRABBY, 10, 10
+encounter SPECIES_SLOWPOKE, 10, 10
+encounter SPECIES_SLOWPOKE, 10, 10
+encounter SPECIES_SLOWPOKE, 10, 10
+encounter SPECIES_GOLDEEN, 10, 10
+encounter SPECIES_GOLDEEN, 10, 10
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
