@@ -3648,6 +3648,11 @@ BOOL LONG_CALL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp
     //u32 species = sp->battlemon[defender].species;
     u32 ability = GetBattlerAbility(sp, defender);
 
+    if (CanActivateDamageReductionBerry(bw, sp, defender)) {
+        // the berry activated already
+        return FALSE;
+    }
+
     // if the user is about to die because of an opponent's rough skin, iron barbs, or rocky helmet, then do not proc knock off's item removal
         // abilities do 1/8th total hp as damage
     if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 8)
