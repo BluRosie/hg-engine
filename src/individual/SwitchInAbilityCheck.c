@@ -49,6 +49,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             {
                 if (sp->weather_check_flag == 0) {
                     switch (BattleWorkWeatherGet(bw)) {
+                        case 20:
                         case WEATHER_SYS_RAIN:
                         case WEATHER_SYS_HEAVY_RAIN:
                         case WEATHER_SYS_THUNDER:
@@ -61,6 +62,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             scriptnum = SUB_SEQ_OVERWORLD_HAIL;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
+                        case 21:
                         case WEATHER_SYS_SANDSTORM:
                             scriptnum = SUB_SEQ_OVERWORLD_SANDSTORM;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -221,7 +223,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
                         if (!(CanUndergoPrimalReversion(sp, client_no)) && (sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp)) {
                             switch (GetBattlerAbility(sp, client_no)) {
-                                case 20:
                                 case ABILITY_DRIZZLE:
                                     sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_RAIN_ANY) == 0) {
@@ -229,7 +230,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     }
                                     break;
-                                case 21:
                                 case ABILITY_SAND_STREAM:
                                     sp->battlemon[client_no].ability_activated_flag = 1;
                                     if ((sp->field_condition & WEATHER_SANDSTORM_ANY) == 0) {
