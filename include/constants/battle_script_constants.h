@@ -660,7 +660,6 @@
 #define ADD_STATUS_EFF_MORTAL_SPIN                     (189)
 #define ADD_STATUS_EFF_TIDY_UP                         (190)
 #define ADD_STATUS_EFF_BURN_AND_DRAIN_HEALTH           (191)
-#define ADD_STATUS_EFF_ATK_SP_ATK_SPEED_UP_DEF_SP_DEF_DOWN (192)
 
 
 // additional effect constants
