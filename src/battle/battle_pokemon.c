@@ -1159,7 +1159,7 @@ u32 LONG_CALL GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 a
  */
 u32 LONG_CALL GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move)
 {
-    return GetAdjustedMoveTypeBasics(sp, move, GetBattlerAbility(sp, client), sp->move_type);
+    return GetAdjustedMoveTypeBasics(sp, move, GetBattlerAbility(sp, client), GetDynamicMoveType(gBattleSystem, sp, client, move));
 }
 
 /**
