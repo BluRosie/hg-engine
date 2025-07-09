@@ -36,10 +36,14 @@
 #define NUMBER_OF_MON_TYPES 20
 
 // Type effectiveness
-#define TYPE_MUL_NO_EFFECT       0
-#define TYPE_MUL_NOT_EFFECTIVE   5
-#define TYPE_MUL_NORMAL          10
-#define TYPE_MUL_SUPER_EFFECTIVE 20
+#define TYPE_MUL_NO_EFFECT              0
+#define TYPE_MUL_TRIPLE_NOT_EFFECTIVE   3
+#define TYPE_MUL_DOUBLE_NOT_EFFECTIVE   4
+#define TYPE_MUL_NOT_EFFECTIVE          5
+#define TYPE_MUL_NORMAL                 10
+#define TYPE_MUL_SUPER_EFFECTIVE        20
+#define TYPE_MUL_DOUBLE_SUPER_EFFECTIVE 30
+#define TYPE_MUL_TRIPLE_SUPER_EFFECTIVE 40
 
 // Special type table IDs
 #define TYPE_FORESIGHT 0xFE
@@ -685,7 +689,7 @@ struct __attribute__((packed)) OneTurnEffect
     /* 0x30 */ int special_damager_bit;   /**< [don't use] No2Bit of special_damager */
     /* 0x34 */ int last_damage;           /**< [don't use] last damage that was taken.  still use OneSelfTurnEffect field */
     /* 0x38 */ int last_damager;          /**< [don't use] last battler that damaged this pokémon.  still use OneSelfTurnEffect field */
-    /* 0x3C */ int dameoshi_damage;
+    /* 0x3C */ int assuranceDamage;
 }; // size = 0x40
 
 /**
@@ -2804,6 +2808,7 @@ u32 LONG_CALL SanitizeClientForTeamAccess(void *bw, u32 client);
  */
 BOOL LONG_CALL DoesSideHave2Battlers(void *bw, u32 client);
 
+BOOL LONG_CALL ClientBelongsToPlayer(struct BattleSystem *bsys, int client);
 
 // defined in battle_item.c
 /**
@@ -3492,6 +3497,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
             ctx->clientLoopForSpreadMoves = SPREAD_MOVE_LOOP_MAX + 1;\
             if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
                 if (functionToBeCalled(bsys, ctx, ctx->defence_client)) {\
+                    ctx->wb_seq_no++;\
                     return;\
                 }\
             }\
@@ -3516,7 +3522,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                         numClientsChecked++;\
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client));\
                         if (failureSubscriptToRun) {\
-                            ctx->msg_work = BATTLER_ALLY(ctx->attack_client);\
+                            ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                             ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_ALLY(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
@@ -3530,7 +3536,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                         numClientsChecked++;\
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client));\
                         if (failureSubscriptToRun) {\
-                            ctx->msg_work = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);\
+                            ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);\
                             ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
@@ -3544,7 +3550,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                         numClientsChecked++;\
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client));\
                         if (failureSubscriptToRun) {\
-                            ctx->msg_work = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);\
+                            ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);\
                             ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
@@ -3570,7 +3576,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
             if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
                 int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);\
                 if (failureSubscriptToRun) {\
-                    ctx->msg_work = ctx->defence_client;\
+                    ctx->battlerIdTemp = ctx->defence_client;\
                     ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, failureSubscriptToRun);\
                     ctx->next_server_seq_no = ctx->server_seq_no;\
@@ -3733,5 +3739,51 @@ void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int buffer
 void LONG_CALL BufferItemNameWithIndefArticle(u32 *msgFmt, u32 fieldno, u32 itemId);
 
 int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
+
+int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag);
+
+BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
+
+BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client);
+/**
+ *  @brief check if knock off can remove the defender's held item
+ *         does not count sticky hold and substitute because those still allow knock off's base power increase
+ *
+ *  @param sp global battle structure
+ *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
+ */
+BOOL LONG_CALL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp);
+
+/**
+ * @brief checks if the move index is a move that will hit with double power if target is minimized
+ * @param move move index to check
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsMoveInMinimizeVulnerabilityMovesList(u16 move);
+
+// https://x.com/Sibuna_Switch/status/1753849078943723899
+// https://www.youtube.com/watch?v=bLS2WyCaDIM
+// TODO: come back here after implementing Raids
+#define I_AM_TERAPAGOS_AND_I_NEED_TO_KO_CARMINES_SINISTCHA(bsys, ctx, attacker) (FALSE)
+
+typedef struct TrainerData {
+    /*000*/ u8 trainerType;
+    /*001*/ u8 trainerClass;
+    /*002*/ u8 unk_2;
+    /*003*/ u8 npoke;
+    /*004*/ u16 items[4];
+    /*00C*/ u32 aiFlags;
+    /*010*/ u32 doubleBattle;
+} TrainerData;
+
+typedef struct Trainer {
+    struct TrainerData data;
+    /*014*/ u16 name[7 + 1];
+    // Used in the Frontier
+    /*024*/ PMS_DATA winMessage;
+    /*02C*/ PMS_DATA loseMessage;
+} Trainer; // size=0x34
+
+Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battlerId);
 
 #endif // BATTLE_H

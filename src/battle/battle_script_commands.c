@@ -103,7 +103,6 @@ BOOL BtlCmd_TryProtection(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TrySubstitute(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_TrySwapItems(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
-BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct *sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
@@ -112,6 +111,8 @@ u32 LoadCaptureSuccessSPAStarEmitter(u32 id);
 u32 LoadCaptureSuccessSPANumEmitters(u32 id);
 
 #ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpointer-sign"
 const u8 *BattleScrCmdNames[] =
 {
     "PlayEncounterAnimation",
@@ -378,6 +379,7 @@ const u8 *BattleScrCmdNames[] =
 };
 
 u32 cmdAddress = 0;
+#pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
 #define BASE_ENGINE_BTL_SCR_CMDS_MAX 0xFF
@@ -3578,7 +3580,7 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
     
-    int adrs = read_battle_script_param(ctx); // Unused, but still required as param
+    int UNUSED adrs = read_battle_script_param(ctx); // Unused, but still required as param
 
     if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT) {
         ctx->oneTurnFlag[ctx->attack_client].protectFlag = TRUE;
@@ -3770,39 +3772,6 @@ BOOL BtlCmd_CheckSubstitute(void *bsys, struct BattleStruct *ctx) {
 }
 
 /**
- *  @brief check if knock off can remove the defender's held item
- *         does not count sticky hold and substitute because those still allow knock off's base power increase
- *
- *  @param sp global battle structure
- *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
- */
-BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
-{
-    u32 attacker = sp->attack_client;
-    u32 defender = sp->defence_client;
-    u32 item = sp->battlemon[defender].item;
-    //u32 species = sp->battlemon[defender].species;
-    u32 ability = GetBattlerAbility(sp, defender);
-
-    // if the user is about to die because of an opponent's rough skin, iron barbs, or rocky helmet, then do not proc knock off's item removal
-        // abilities do 1/8th total hp as damage
-    if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 8)
-        // rocky helmet does 1/6th total hp as damage
-      || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 6))
-     && IsContactBeingMade(bw, sp)
-     && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)
-    {
-        return FALSE;
-    }
-
-    if (item != 0 && CanItemBeRemovedFromClient(sp, defender))
-    {
-        return TRUE;
-    }
-    return FALSE;
-}
-
-/**
  *  @brief calculate the amount of times a ball shakes
  *
  *  @param bw battle work structure
@@ -3984,64 +3953,6 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
     }
 
     return FALSE;
-}
-
-/**
- *  @brief check if a held item can be removed from the species it is attached to
- *
- *  @param species the species of the mon
- *  @param item the held item of the attacker
- *  @return TRUE if item can be removed, FALSE otherwise
- */
-BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
-{
-    // blanket item bans
-    if (IS_ITEM_MAIL(item) /*|| IS_ITEM_Z_CRYSTAL(item)*/)
-        return FALSE;
-
-    // then species-specific
-    switch (species) {
-    case SPECIES_ZAMAZENTA:
-        return item != ITEM_RUSTED_SHIELD;
-    case SPECIES_ZACIAN:
-        return item != ITEM_RUSTED_SWORD;
-    case SPECIES_GENESECT:
-        return !IS_ITEM_GENESECT_DRIVE(item);
-    case SPECIES_KYOGRE:
-        return item != ITEM_BLUE_ORB;
-    case SPECIES_GROUDON:
-        return item != ITEM_RED_ORB;
-    case SPECIES_GIRATINA:
-        return item != ITEM_GRISEOUS_ORB && item != ITEM_GRISEOUS_CORE;
-    case SPECIES_SILVALLY:
-        return !IS_ITEM_MEMORY(item);
-    case SPECIES_OGERPON:
-        return !IS_ITEM_MASK(item);
-    }
-
-    // then the other swathes of species
-    if ((IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
-     || (CheckMegaData(species, item)))
-        return FALSE;
-
-    return TRUE;
-}
-
-BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client)
-{
-    u32 species = ctx->battlemon[client].species;
-    u32 item = ctx->battlemon[client].item; // bypass klutz and friends probably
-    u32 form = ctx->battlemon[client].form_no;
-
-    // CheckMegaData will gladly tell you a galarian slowbro can't lose its slowbronite...  we have to take over
-    if (species == SPECIES_SLOWBRO && item == ITEM_SLOWBRONITE && form == 2)
-    {
-        return TRUE;
-    }
-    else
-    {
-        return CanItemBeRemovedFromSpecies(species, item);
-    }
 }
 
 /**

@@ -750,3 +750,5 @@ LoadOpenSPAToEmitter = 0x0201526C | 1;
 OpenSPAFileInHeap = 0x02015264 | 1;
 QueueEmitterWithCallback = 0x02015494 | 1;
 particleEmitCallback = 0x021E5C28 | 1;
+
+BattleSystem_GetTrainer = 0x0223A9F4 | 1;

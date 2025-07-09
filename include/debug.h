@@ -35,6 +35,9 @@
 // GUARANTEE_CAPTURES guarantees captures
 //#define GUARANTEE_CAPTURES
 
+// Uncomment this when you want to enable all gimmicks while testing
+#define DEBUG_ENABLE_ALL_GIMMICKS
+
 // DEBUG_SQRT prints debug information for the gpio sqrt function
 //#define DEBUG_SQRT
 
@@ -70,6 +73,9 @@
 
 // DEBUG_PRINT_HEAP_ALLOCATION allows for debug prints on memory allocation/free
 //#define DEBUG_PRINT_HEAP_ALLOCATION
+
+// DEBUG_DAMAGE_CALC shows debug information related to calculating damage.
+//#define DEBUG_DAMAGE_CALC
 
 //DEBUG_SPEED_CALC shows debug information related to calculating speed. It is very slow and laggy.
 // #define DEBUG_SPEED_CALC
