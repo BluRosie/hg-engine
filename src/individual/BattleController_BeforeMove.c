@@ -573,16 +573,17 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_PROTEAN_OR_LIBERO\n");
 #endif
-
+            u32 type = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index);
             if ((ctx->battlemon[ctx->attack_client].ability == ABILITY_PROTEAN || ctx->battlemon[ctx->attack_client].ability == ABILITY_LIBERO)
                 // if either type is not the move's type
-                && (ctx->battlemon[ctx->attack_client].type1 != ctx->moveTbl[ctx->current_move_index].type || ctx->battlemon[ctx->attack_client].type2 != ctx->moveTbl[ctx->current_move_index].type)
+                && (ctx->battlemon[ctx->attack_client].type1 != type || ctx->battlemon[ctx->attack_client].type2 != type)
                 // Protean should activate only once per switch-in if gen 9 behavior
                 && (ctx->battlemon[ctx->attack_client].ability_activated_flag == 0 || PROTEAN_GENERATION < 9)
                 // the move has to have power in order for it to change the type
                 && ctx->moveTbl[ctx->current_move_index].power != 0) {
-                ctx->battlemon[ctx->attack_client].type1 = ctx->moveTbl[ctx->current_move_index].type;
-                ctx->battlemon[ctx->attack_client].type2 = ctx->moveTbl[ctx->current_move_index].type;
+                
+                ctx->battlemon[ctx->attack_client].type1 = type;
+                ctx->battlemon[ctx->attack_client].type2 = type;
 #if PROTEAN_GENERATION >= 9
                 ctx->battlemon[ctx->attack_client].ability_activated_flag = 1;
 #endif
