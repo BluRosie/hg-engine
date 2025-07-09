@@ -648,7 +648,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     // Dynamax move Protect 0.25x place is same as Z-move Protect.
     // TODO: handle other protecting moves such as Quick Guard and Wide Guard
     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8319925
-    if ((MoveIsZMove(moveno) || MoveIsMaxMove(moveno)) && sp->oneTurnFlag[defender].mamoru_flag) {
+    if ((MoveIsZMove(moveno) || MoveIsMaxMove(moveno)) && sp->oneTurnFlag[defender].protectFlag) {
         damage = QMul_RoundDown(damage, UQ412__0_25);
     }
 

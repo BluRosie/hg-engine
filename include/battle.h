@@ -94,7 +94,7 @@
 #define MOVE_STATUS_FLAG_OHKO_HIT_NOHIT          (0x00001000)
 #define WAZA_STATUS_FLAG_NANIMOOKORAN            (0x00002000)
 #define MOVE_STATUS_FLAG_FURY_CUTTER_MISS        (0x00004000)
-#define WAZA_STATUS_FLAG_MAMORU_NOHIT            (0x00008000)
+#define MOVE_STATUS_FLAG_PROTECTED               (0x00008000)
 #define WAZA_STATUS_FLAG_KIE_NOHIT               (0x00010000)
 #define WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT        (0x00020000)
 #define MOVE_STATUS_FLAG_MISS_WONDER_GUARD       (0x00040000)
@@ -112,7 +112,7 @@
                                          MOVE_STATUS_FLAG_LEVITATE_MISS|\
                                          MOVE_STATUS_FLAG_OHKO_HIT_NOHIT|\
                                          MOVE_STATUS_FLAG_FURY_CUTTER_MISS|\
-                                         WAZA_STATUS_FLAG_MAMORU_NOHIT|\
+                                         MOVE_STATUS_FLAG_PROTECTED|\
                                          WAZA_STATUS_FLAG_KIE_NOHIT|\
                                          WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT|\
                                          MOVE_STATUS_FLAG_MISS_WONDER_GUARD|\
@@ -156,11 +156,14 @@
 #define BATTLE_TYPE_NPC_MULTI 0x40
 #define BATTLE_TYPE_BATTLE_TOWER 0x80
 #define BATTLE_TYPE_ROAMER 0x100
-#define BATTLE_TYPE_POKE_PARK 0x200
+#define BATTLE_TYPE_PAL_PARK 0x200
 #define BATTLE_TYPE_CATCHING_DEMO 0x400
 #define BATTLE_TYPE_BUG_CONTEST 0x1000
 
-#define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_POKE_PARK)
+#define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_PAL_PARK)
+
+// change the flow of the ball callback to make sure that critical captures only shake once then succeed.  if it shakes, it succeeds, though
+#define CRITICAL_CAPTURE_MASK (0x80)
 
 
 /**
@@ -660,7 +663,7 @@ struct __attribute__((packed)) OneTurnEffect
 {
     /* 0x00 */ u32 struggle_flag : 1;     /**< pokémon struggled this turn */
                u32 pp_dec_flag : 1;       /**< pp decreased this turn? */
-               u32 mamoru_flag : 1;
+               u32 protectFlag : 1;       /**< pokémon is currently protecting */
                u32 helping_hand_flag : 1; /**< pokémon is being aided by helping hand */
                u32 magic_cort_flag : 1;   /**< pokémon has magic coat active */
                u32 snatchFlag : 1;
@@ -675,7 +678,8 @@ struct __attribute__((packed)) OneTurnEffect
                u32 chargeProcessedFlag : 1;
                u32 numberOfKOs : 3;
                u32 pendingFocusPunchFlag : 1;
-               u32 : 11;
+               u32 gainedProtectFlagFromAlly : 1;
+               u32 : 10;
 
     /* 0x04 */ int physical_damage[4];    /**< [don't use] physical damage as indexed by battler.  Counter doesn't use this, use OneSelfTurnEffect's physical_damage (sp->oneSelfFlag[battler].physical_damage) */
     /* 0x14 */ int physical_damager;      /**< [don't use] last battler that physically damaged this pokémon.  Counter doesn't use this, use OneSelfTurnEffect's physical_damager (sp->oneSelfFlag[battler].physical_damager) */
@@ -740,7 +744,7 @@ struct __attribute__((packed)) battle_moveflag
                u32 encoredTurns : 3;         /**< duration of encore */
                u32 isCharged : 2;            /**< whether or not the pokémon is charged */
                u32 tauntTurns : 3;           /**< duration of taunt */
-               u32 protectSuccessTurns : 2;  /**< how many times protect has succeeded */
+               u32 protectSuccessTurns : 2;  /**< how many times protect has succeeded UNUSED see ctx->protectSuccessTurns[] */
                u32 perishSongTurns : 2;      /**< perish song count */
                u32 rolloutCount : 3;         /**< rollout count */
                u32 furyCutterCount : 3;      /**< fury cutter successes */
@@ -1294,7 +1298,7 @@ struct PACKED BattleStruct {
     /*0x3048*/ u32 waza_no_last;
     /*0x304C*/ u32 waza_no_keep[CLIENT_MAX];
 
-    /*0x305C*/ u16 waza_no_mamoru[CLIENT_MAX];
+    /*0x305C*/ u16 moveProtect[CLIENT_MAX];
     /*0x3064*/ u16 waza_no_hit[CLIENT_MAX];
     /*0x306C*/ u16 waza_no_hit_client[CLIENT_MAX];
     /*0x3074*/ u16 waza_no_hit_type[CLIENT_MAX];
@@ -1333,7 +1337,7 @@ struct PACKED BattleStruct {
     /*0x3144*/ int jingle_flag;
     /*0x3148*/ int server_queue_time_out;
     /*0x314C*/ u8 rec_select_flag[4];
-    /*0x3150*/ int client_working_count;
+    /*0x3150*/ int waitingBattlers;
     /*0x3154*/ u32 battle_progress_flag : 1;
                u32 : 31;
     /*0x3158*/ u8 log_hail_for_ice_face; // bitfield with 1 << client for if there was hail last turn
@@ -1345,8 +1349,10 @@ struct PACKED BattleStruct {
     /*0x315F*/ u8 magicBounceTracker; // if any client has already activated magic bounce, another can not activate
     /*0x3160*/ u8 binding_turns[4]; // turns left for bind
     /*0x3164*/ u8 entryHazardQueue[2][NUM_HAZARD_IDX];
-    /*0x316E*/ u8 hazardQueueTracker;
-    /*0x316F*/ u8 padding_316F[0x317E - 0x316F]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+    /*0x316E*/ u8 protectSuccessTurns[CLIENT_MAX]; // Only need to count up to 6
+    /*0x3172*/ u8 hazardQueueTracker:7;
+               u8 itemActivatedTracker:1; // if an item that isn't lost on activation has been activated for this hit (think rocky helmet)
+    /*0x3173*/ u8 padding_3173[0x317E - 0x3173]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
@@ -3377,6 +3383,13 @@ BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *
 */
 BOOL LONG_CALL IsMovePunchingMove(u16 move);
 
+/**
+ * @brief Checks if the move index is a wind move.
+ * @param move The move index to check.
+ * @return TRUE if the move is in the WindMovesTable, FALSE otherwise.
+ */
+BOOL LONG_CALL IsMoveWindMove(u16 move);
+
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
@@ -3592,7 +3605,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {\
                         numClientsChecked++;\
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client));\
-                        if (failureSubscriptToRun) {\
+                        if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_ALLY(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3604,7 +3617,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
                         numClientsChecked++;\
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client));\
-                        if (failureSubscriptToRun) {\
+                        if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3616,7 +3629,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
                         numClientsChecked++;\
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client));\
-                        if (failureSubscriptToRun) {\
+                        if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3640,10 +3653,20 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
             ctx->clientLoopForSpreadMoves = SPREAD_MOVE_LOOP_MAX + 1;\
             if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {\
                 int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);\
-                if (failureSubscriptToRun) {\
+                if (failureSubscriptToRun == 1) {\
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);\
                     ctx->server_seq_no = CONTROLLER_COMMAND_24;\
                     ST_ServerTotteokiCountCalc(bsys, ctx);\
+                    return;\
+                }\
+                if (failureSubscriptToRun > 1) {\
+                    ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;\
+                    ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;\
+                    ctx->msg_work = ctx->defence_client;\
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, failureSubscriptToRun);\
+                    ctx->next_server_seq_no = ctx->server_seq_no;\
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;\
+                    ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = MOVE_STATUS_NO_MORE_WORK;\
                     return;\
                 }\
             }\
@@ -3714,11 +3737,6 @@ void LONG_CALL BattleMessage_BufferTrainerName(struct BattleSystem *bsys, int bu
 void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int bufferIndex, int param);
 
 void LONG_CALL BufferItemNameWithIndefArticle(u32 *msgFmt, u32 fieldno, u32 itemId);
-
-/// @brief Returns a pre-calculated value of the shake chance
-/// @param input_value 
-/// @return shake chance
-unsigned int LONG_CALL get_shake_chance(int input_value);
 
 int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 

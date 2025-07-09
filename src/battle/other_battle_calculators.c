@@ -112,8 +112,29 @@ const u16 BulletproofMoveList[] =
     MOVE_SEED_BOMB,
     MOVE_SHADOW_BALL,
     MOVE_SLUDGE_BOMB,
+    MOVE_SYRUP_BOMB,
     MOVE_WEATHER_BALL,
     MOVE_ZAP_CANNON,
+};
+
+const u16 WindMovesTable[] = {
+    MOVE_AEROBLAST,
+    MOVE_AIR_CUTTER,
+    MOVE_BLEAKWIND_STORM,
+    MOVE_BLIZZARD,
+    MOVE_FAIRY_WIND,
+    MOVE_GUST,
+    MOVE_HEAT_WAVE,
+    MOVE_HURRICANE,
+    MOVE_ICY_WIND,
+    MOVE_PETAL_BLIZZARD,
+    MOVE_SANDSEAR_STORM,
+    MOVE_SANDSTORM,
+    MOVE_SPRINGTIDE_STORM,
+    MOVE_TAILWIND,
+    MOVE_TWISTER,
+    MOVE_WHIRLWIND,
+    MOVE_WILDBOLT_STORM,
 };
 
 // List of multi-strike moves
@@ -419,10 +440,10 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-58#post-8684263
 
     // Apply accuracy / evasion modifiers
-    u16 accuracy;
+    s16 accuracy;
     s8 temp;
     s8 stat_stage_acc, stat_stage_evasion;
-    int hold_effect;
+    int hold_effect, hold_effect_atk;
     u8 move_type UNUSED; // unused but will be needed
     u8 move_split;
     u16 atk_ability = GetBattlerAbility(sp, attacker);
@@ -471,7 +492,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         // thunder sucks in the sun
         && ((sp->moveTbl[move_no].effect == MOVE_EFFECT_THUNDER)
         // so does hurricane
-        || (sp->moveTbl[move_no].effect == MOVE_EFFECT_HURRICANE))) { 
+        || (sp->moveTbl[move_no].effect == MOVE_EFFECT_HURRICANE))) {
             accuracy = 50;
         }
     }
@@ -494,7 +515,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     }
 
     // 6.2 Abilities; order is determined by raw Speed with a non-RNG Speed tie.
-    
+
     SortRawSpeedNonRNGArray(bw, sp);
 
     for (i = 0; i < maxBattlers; i++) {
@@ -554,19 +575,24 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     for (i = 0; i < maxBattlers; i++) {
         if (defender == sp->rawSpeedNonRNGClientOrder[i]) {
             hold_effect = HeldItemHoldEffectGet(sp, defender);
-            // hold_effect_atk = HeldItemAtkGet(sp, defender, 0);
 
             // Bright Powder - 3686/4096
             // Lax Incense - 3686/4096
 
             if (hold_effect == HOLD_EFFECT_ACC_REDUCE) {
-                accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_9);
+                u32 multiplierFromItems = UQ412__1_0;
+                hold_effect_atk = HeldItemAtkGet(sp, defender, 0);
+                // alternate subtracting 0.099853515625 and 0.10009765625 starting with latter
+                for (int j = 0; j < hold_effect_atk; j += 10)
+                {
+                    multiplierFromItems -= (j & 1) ? UQ412__0_1 : UQ412__0_1_BUT_HIGHER;
+                }
+                accuracyModifier = QMul_RoundUp(accuracyModifier, multiplierFromItems);
             }
         }
 
         if (attacker == sp->rawSpeedNonRNGClientOrder[i]) {
             hold_effect = HeldItemHoldEffectGet(sp, attacker);
-            // hold_effect_atk = HeldItemAtkGet(sp, attacker, 0);
 
             // Wide Lens - 4505/4096
 
@@ -576,9 +602,20 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
             // Zoom Lens - 4915/4096
 
+            // Wide Lens - 4505/4096 (param 10 - 409)
+            // Zoom Lens - 4915/4096 (param 20 - 819)
             // TODO: We modified playerActions in `ServerBeforeActInternal`. Does it affect `IsMovingAfterClient`?
-            if ((hold_effect == HOLD_EFFECT_ACCURACY_UP_SLOWER) && (IsMovingAfterClient(sp, defender) == TRUE)) {
-                accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_2);
+
+            if (hold_effect == HOLD_EFFECT_ACCURACY_UP
+            || ((hold_effect == HOLD_EFFECT_ACCURACY_UP_SLOWER) && (IsMovingAfterClient(sp, defender) == TRUE))) {
+                u32 multiplierFromItems = UQ412__1_0;
+                hold_effect_atk = HeldItemAtkGet(sp, attacker, 0);
+                // alternate adding 0.099853515625 and 0.10009765625 starting with former
+                for (int j = 0; j < hold_effect_atk; j += 10)
+                {
+                    multiplierFromItems += (j & 1) ? UQ412__0_1_BUT_HIGHER : UQ412__0_1;
+                }
+                accuracyModifier = QMul_RoundUp(accuracyModifier, multiplierFromItems);
             }
         }
     }
@@ -766,7 +803,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
             speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
         }
     }
-    
+
     if ((ability1 == ABILITY_UNBURDEN)
     && (sp->battlemon[client1].moveeffect.knockOffFlag)
     && (sp->battlemon[client1].item == 0)) {
@@ -2376,6 +2413,16 @@ BOOL LONG_CALL IsMovePunchingMove(u16 move)
     return IsElementInArray(PunchingMovesTable, (u16 *)&move, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]));
 }
 
+/**
+ * @brief checks if the move index is a wind move
+ * @param move move index to check
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsMoveWindMove(u16 move)
+{
+    return IsElementInArray(WindMovesTable, (u16 *)&move, NELEMS(WindMovesTable), sizeof(WindMovesTable[0]));
+}
+
 
 /**
  * @brief checks if contact is being made, checking abilities and items
@@ -2949,7 +2996,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             nonSelectableMoves |= No2Bit(movePos);
         }
         if ((item == HOLD_EFFECT_CHOICE_ATK || item == HOLD_EFFECT_CHOICE_SPEED || item == HOLD_EFFECT_CHOICE_SPATK) && (struggleCheckFlags & STRUGGLE_CHECK_CHOICED)) {
-            if (BattleMon_GetMoveIndex(&ctx->battlemon[battlerId], ctx->battlemon[battlerId].moveeffect.moveNoChoice) == 4) {
+            if (BattleMon_GetMoveIndex(&ctx->battlemon[battlerId], ctx->battlemon[battlerId].moveeffect.moveNoChoice) == 4 && ctx->battlemon[battlerId].moveeffect.moveNoChoice != MOVE_STRUGGLE) {
                 ctx->battlemon[battlerId].moveeffect.moveNoChoice = 0;
             } else if (ctx->battlemon[battlerId].moveeffect.moveNoChoice && ctx->battlemon[battlerId].moveeffect.moveNoChoice != ctx->battlemon[battlerId].move[movePos]) {
                 nonSelectableMoves |= No2Bit(movePos);
@@ -3116,8 +3163,11 @@ int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys UNUSED, struct B
 /// @return whether the client has the type
 BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type) {
     GF_ASSERT(TYPE_NORMAL < type && type < TYPE_STELLAR);
-    struct BattlePokemon client = ctx->battlemon[battlerId];
-    return (client.type1 == type || client.type2 == type || client.type3 == type || client.is_currently_terastallized ? client.tera_type == type : FALSE);
+    struct BattlePokemon *client = &ctx->battlemon[battlerId];
+    return (client->type1 == type
+         || client->type2 == type
+         || client->type3 == type
+         || (client->is_currently_terastallized ? client->tera_type == type : FALSE));
 }
 
 
@@ -3303,276 +3353,6 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, MESSAGE_PARAM *msg) {
 u32 RollMetronomeMove(struct BattleSystem *bsys)
 {
     return (BattleRand(bsys) % NUM_OF_MOVES) + 1;
-}
-
-// fuck it be a coward and pre-calulate the values
-const u16 getShakeChancesLookupTable[] = {
-    [0]   = 0,
-    [1]   = 23186,
-    [2]   = 26405,
-    [3]   = 28490,
-    [4]   = 30070,
-    [5]   = 31355,
-    [6]   = 32447,
-    [7]   = 33395,
-    [8]   = 34243,
-    [9]   = 35007,
-    [10]  = 35705,
-    [11]  = 36348,
-    [12]  = 36949,
-    [13]  = 37506,
-    [14]  = 38032,
-    [15]  = 38529,
-    [16]  = 38994,
-    [17]  = 39441,
-    [18]  = 39868,
-    [19]  = 40275,
-    [20]  = 40659,
-    [21]  = 41038,
-    [22]  = 41393,
-    [23]  = 41740,
-    [24]  = 42074,
-    [25]  = 42400,
-    [26]  = 42710,
-    [27]  = 43018,
-    [28]  = 43310,
-    [29]  = 43598,
-    [30]  = 43876,
-    [31]  = 44143,
-    [32]  = 44406,
-    [33]  = 44664,
-    [34]  = 44918,
-    [35]  = 45160,
-    [36]  = 45397,
-    [37]  = 45636,
-    [38]  = 45862,
-    [39]  = 46083,
-    [40]  = 46305,
-    [41]  = 46522,
-    [42]  = 46733,
-    [43]  = 46937,
-    [44]  = 47143,
-    [45]  = 47343,
-    [46]  = 47535,
-    [47]  = 47730,
-    [48]  = 47917,
-    [49]  = 48098,
-    [50]  = 48288,
-    [51]  = 48462,
-    [52]  = 48638,
-    [53]  = 48815,
-    [54]  = 48984,
-    [55]  = 49155,
-    [56]  = 49317,
-    [57]  = 49490,
-    [58]  = 49645,
-    [59]  = 49802,
-    [60]  = 49960,
-    [61]  = 50118,
-    [62]  = 50268,
-    [63]  = 50419,
-    [64]  = 50571,
-    [65]  = 50715,
-    [66]  = 50868,
-    [67]  = 51004,
-    [68]  = 51150,
-    [69]  = 51286,
-    [70]  = 51424,
-    [71]  = 51562,
-    [72]  = 51701,
-    [73]  = 51831,
-    [74]  = 51972,
-    [75]  = 52103,
-    [76]  = 52224,
-    [77]  = 52357,
-    [78]  = 52480,
-    [79]  = 52613,
-    [80]  = 52737,
-    [81]  = 52852,
-    [82]  = 52977,
-    [83]  = 53102,
-    [84]  = 53218,
-    [85]  = 53335,
-    [86]  = 53451,
-    [87]  = 53569,
-    [88]  = 53687,
-    [89]  = 53794,
-    [90]  = 53913,
-    [91]  = 54022,
-    [92]  = 54130,
-    [93]  = 54240,
-    [94]  = 54350,
-    [95]  = 54460,
-    [96]  = 54571,
-    [97]  = 54671,
-    [98]  = 54782,
-    [99]  = 54883,
-    [100] = 54984,
-    [101] = 55086,
-    [102] = 55188,
-    [103] = 55290,
-    [104] = 55393,
-    [105] = 55496,
-    [106] = 55588,
-    [107] = 55692,
-    [108] = 55784,
-    [109] = 55877,
-    [110] = 55982,
-    [111] = 56075,
-    [112] = 56169,
-    [113] = 56263,
-    [114] = 56358,
-    [115] = 56441,
-    [116] = 56536,
-    [117] = 56631,
-    [118] = 56715,
-    [119] = 56811,
-    [120] = 56896,
-    [121] = 56992,
-    [122] = 57077,
-    [123] = 57162,
-    [124] = 57247,
-    [125] = 57333,
-    [126] = 57419,
-    [127] = 57505,
-    [128] = 57591,
-    [129] = 57678,
-    [130] = 57765,
-    [131] = 57840,
-    [132] = 57927,
-    [133] = 58002,
-    [134] = 58090,
-    [135] = 58165,
-    [136] = 58254,
-    [137] = 58330,
-    [138] = 58406,
-    [139] = 58482,
-    [140] = 58571,
-    [141] = 58648,
-    [142] = 58725,
-    [143] = 58802,
-    [144] = 58880,
-    [145] = 58957,
-    [146] = 59035,
-    [147] = 59100,
-    [148] = 59178,
-    [149] = 59257,
-    [150] = 59335,
-    [151] = 59401,
-    [152] = 59480,
-    [153] = 59546,
-    [154] = 59625,
-    [155] = 59692,
-    [156] = 59771,
-    [157] = 59838,
-    [158] = 59905,
-    [159] = 59985,
-    [160] = 60052,
-    [161] = 60119,
-    [162] = 60187,
-    [163] = 60254,
-    [164] = 60336,
-    [165] = 60404,
-    [166] = 60472,
-    [167] = 60540,
-    [168] = 60608,
-    [169] = 60677,
-    [170] = 60732,
-    [171] = 60800,
-    [172] = 60869,
-    [173] = 60938,
-    [174] = 61008,
-    [175] = 61063,
-    [176] = 61133,
-    [177] = 61202,
-    [178] = 61258,
-    [179] = 61328,
-    [180] = 61398,
-    [181] = 61455,
-    [182] = 61525,
-    [183] = 61581,
-    [184] = 61638,
-    [185] = 61709,
-    [186] = 61766,
-    [187] = 61837,
-    [188] = 61894,
-    [189] = 61951,
-    [190] = 62022,
-    [191] = 62080,
-    [192] = 62137,
-    [193] = 62195,
-    [194] = 62267,
-    [195] = 62325,
-    [196] = 62383,
-    [197] = 62441,
-    [198] = 62499,
-    [199] = 62557,
-    [200] = 62616,
-    [201] = 62674,
-    [202] = 62733,
-    [203] = 62791,
-    [204] = 62850,
-    [205] = 62909,
-    [206] = 62968,
-    [207] = 63027,
-    [208] = 63072,
-    [209] = 63131,
-    [210] = 63191,
-    [211] = 63250,
-    [212] = 63310,
-    [213] = 63355,
-    [214] = 63414,
-    [215] = 63474,
-    [216] = 63519,
-    [217] = 63580,
-    [218] = 63640,
-    [219] = 63685,
-    [220] = 63746,
-    [221] = 63806,
-    [222] = 63852,
-    [223] = 63913,
-    [224] = 63958,
-    [225] = 64019,
-    [226] = 64065,
-    [227] = 64126,
-    [228] = 64172,
-    [229] = 64234,
-    [230] = 64280,
-    [231] = 64326,
-    [232] = 64388,
-    [233] = 64434,
-    [234] = 64481,
-    [235] = 64543,
-    [236] = 64589,
-    [237] = 64636,
-    [238] = 64698,
-    [239] = 64745,
-    [240] = 64792,
-    [241] = 64839,
-    [242] = 64902,
-    [243] = 64949,
-    [244] = 64996,
-    [245] = 65043,
-    [246] = 65091,
-    [247] = 65138,
-    [248] = 65185,
-    [249] = 65249,
-    [250] = 65296,
-    [251] = 65344,
-    [252] = 65392,
-    [253] = 65440,
-    [254] = 65488,
-};
-
-/// @brief Returns a pre-calculated value of the shake chance
-/// @param input_value 
-/// @return shake chance
-unsigned int LONG_CALL get_shake_chance(int input_value) {
-    if (input_value == 255) {
-        return 65536;
-    }
-
-    return getShakeChancesLookupTable[input_value / 4096];
 }
 
 /**

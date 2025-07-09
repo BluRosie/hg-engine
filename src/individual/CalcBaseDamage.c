@@ -175,8 +175,8 @@ static const u8 StatBoostModifiersTemp[][2] = {
 
 
 
-int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED,
-                   u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical) {
+int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED,
+                   u32 field_cond, u16 pow UNUSED, u8 type UNUSED, u8 attacker, u8 defender, u8 critical) {
     u32 i = 0;
     u8 movetype;
     u8 movesplit;
@@ -298,7 +298,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
         return 0;
     }
-        
+
 
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE)
     && (sp->battlemon[defender].species == SPECIES_EISCUE)

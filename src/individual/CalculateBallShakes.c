@@ -18,6 +18,8 @@
 #include "../../include/constants/weather_numbers.h"
 #include "../../include/q412.h"
 
+u32 get_shake_chance(int input_value);
+
 extern u8 gSafariBallRateTable[13][2];
 
 u16 MoonBallSpecies[] =
@@ -45,16 +47,16 @@ u16 MoonBallSpecies[] =
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
- *  @return the amount of shakes a ball undergoes.  or'd with 0x80 for critical captures
+ *  @return the amount of shakes a ball undergoes.  or'd with CRITICAL_CAPTURE_MASK for critical captures
  */
-u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
+u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, struct BattleStruct *sp) {
     u32 i, speciesCatchRate, ballCaptureRatio, type1, type2, criticalCapture = FALSE;
-    u32 heavyBallMod = 0;
-    u32 a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, captureValueCoeffcient = 0, modifiedCatchRate = 0, badgePenalty = UQ412__1_0, statusModifier = 0, criticalCatchModifier = 0, speciesInDex = 0, criticalCatchRate = 0, shakeChecks = 4, shakeChance = 0;
+    u32 heavyBallMod = 0, modifiedCatchRate = 0;
+    u64 a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, captureValueCoeffcient = 0, badgePenalty = UQ412__1_0, statusModifier = 0, criticalCatchModifier = 0, speciesInDex = 0, criticalCatchRate = 0, shakeChecks = 4, shakeChance = 0;
     int badges, missingBadges;
     BOOL isCriticalCatch = FALSE;
 
-    if (BattleTypeGet(bw) & (BATTLE_TYPE_POKE_PARK | BATTLE_TYPE_CATCHING_DEMO)) // poke park and safari zone always succeed
+    if (BattleTypeGet(bw) & (BATTLE_TYPE_PAL_PARK | BATTLE_TYPE_CATCHING_DEMO)) // poke park and safari zone always succeed
     {
         return 4;
     }
@@ -78,7 +80,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     {
     case ITEM_MASTER_BALL:
         if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
-            return 1 | 0x80;
+            return 1 | CRITICAL_CAPTURE_MASK;
         }
         return 4;
     case ITEM_ULTRA_BALL:
@@ -112,7 +114,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     case ITEM_REPEAT_BALL:
         if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
             ballCaptureRatio = 0x3800;
-        }        
+        }
         break;
     case ITEM_TIMER_BALL:
         ballCaptureRatio = 1229 * sp->total_turn + 0x1000;
@@ -240,7 +242,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     debug_printf("Step 1: Calculate the HP modifier\n");
 #endif
 
-    a = (QMul_RoundDown((3 * sp->battlemon[sp->defence_client].maxhp - 2 * sp->battlemon[sp->defence_client].hp) * UQ412__1_0, UQ412__1_0) + QMul_RoundDown(1, UQ412__0_5));
+    a = (u64)(QMul_RoundDown(((3 * sp->battlemon[sp->defence_client].maxhp - 2 * sp->battlemon[sp->defence_client].hp) * UQ412__1_0) / (3 * sp->battlemon[sp->defence_client].maxhp), UQ412__1_0) + QMul_RoundDown(1, UQ412__0_5));
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("a: %d\n\n", a);
 #endif
@@ -263,7 +265,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
 #endif
         b = a;
     }
-    
+
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("b: %d\n\n", b);
 #endif
@@ -284,7 +286,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("Step 4: Multiply by the ball capture ratio with rounding\n");
 #endif
-    d = QMul_RoundUp(c, ballCaptureRatio);
+    d = QMul64_RoundUp(c, ballCaptureRatio);
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("d: %d\n\n", d);
 #endif
@@ -340,7 +342,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     debug_printf("badgePenalty in Q4.12 number format: %d\n", badgePenalty);
 #endif
     // TODO: some precision is lost here
-    e = ((d / UQ412__1_0) * badgePenalty) / (3 * sp->battlemon[sp->defence_client].maxhp);
+    e = ((d * badgePenalty) / UQ412__1_0);
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("e: %d\n\n", e);
 #endif
@@ -383,7 +385,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
         debug_printf("statusModifier: %d\n", statusModifier);
 #endif
-        g = QMul_RoundUp(f, statusModifier);
+        g = QMul64_RoundUp(f, statusModifier);
 
     } else {
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
@@ -408,14 +410,14 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     debug_printf("captureValueCoeffcient: %d\n", captureValueCoeffcient);
 #endif
 
-    modifiedCatchRate = QMul_RoundUp(g, captureValueCoeffcient);
+    modifiedCatchRate = (u32)QMul64_RoundUp(g, captureValueCoeffcient);
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("modifiedCatchRate: %d\n", modifiedCatchRate);
 #endif
 
     // If the MCR reaches the maximum value of 1044480, the game simply calculates whether a critical catch occurred so it can properly display 1 or 3 shakes. This can be overridden by SV's critical capture animation quirk.
-    if (modifiedCatchRate > 0xFF000) {
-        modifiedCatchRate = 0xFF000;
+    if (modifiedCatchRate > (255 * UQ412__1_0)) {
+        modifiedCatchRate = 255 * UQ412__1_0;
         i = 4;
     }
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
@@ -424,6 +426,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
 //=====End of Step 8=====
 
 //=====Step 9=====
+#ifdef IMPLEMENT_CRITICAL_CAPTURE
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("Step 9: Calculate the critical catch rate\n");
 #endif
@@ -468,15 +471,26 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
     } else {
         shakeChecks = 4;
     }
+#else
+#ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
+    debug_printf("Skipping steps 9 and 10 because critical captures are not implemented.\n");
+#endif
+#endif
 //=====End of Step 10=====
 
 //=====Step 11=====
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
-    debug_printf("Step 11: Determine the chance of a successful shake. This approximation does fully account for the double/float precision used by the game?\n");
+    debug_printf("Step 11: Determine the chance of a successful shake.  ");
+    debug_printf("This approximation does fully account for the double/float precision used by the game?\n");
 #endif
     shakeChance = get_shake_chance(modifiedCatchRate);
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
-    debug_printf("shakeChance: %d\n\n", shakeChance);
+    u32 shakeChanceCalculation = shakeChance * 10000 / 65536;
+    shakeChanceCalculation = shakeChanceCalculation * shakeChance / 65536;
+    shakeChanceCalculation = shakeChanceCalculation * shakeChance / 65536;
+    shakeChanceCalculation = shakeChanceCalculation * shakeChance / 65536;
+    debug_printf("shakeChance: %d\n", shakeChance);
+    debug_printf("  This is a %d.%d percent chance of capture.\n\n", shakeChanceCalculation / 100, shakeChanceCalculation % 100);
 #endif
 
     if (speciesCatchRate > 255)
@@ -489,7 +503,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
 #endif
             if (rand >= shakeChance) {
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
-                debug_printf("Check for shake #%d unsuccessful.\n", i);
+                debug_printf("  Check for shake #%d unsuccessful.\n", i);
 #endif
                 break;
             }
@@ -500,18 +514,17 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
             u32 friendship = 200;
             SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), MON_DATA_FRIENDSHIP, &friendship);
         }
-
+#ifdef IMPLEMENT_CRITICAL_CAPTURE
         if (criticalCapture) // succeeded the one chance it had
-            i = i | 0x80; // change the flow of the ball callback to make sure that critical captures only shake once then succeed.  if it shakes, it succeeds, though
-
-
+            i = i | CRITICAL_CAPTURE_MASK;
+#endif
     }
 //====End of Step 11=====
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("\nEnding ball business\n=================\n");
 #endif
 
-    if (sp->item_work == ITEM_FRIEND_BALL && (i & 0x7F) >= 4)  // 0x80 signifies critical capture, which is already caught above.  this code still necessary for the case that IMPLEMENT_CRITICAL_CAPTURE isn't defined
+    if (sp->item_work == ITEM_FRIEND_BALL && (i & ~CRITICAL_CAPTURE_MASK) >= 4) // this code still necessary for the case that IMPLEMENT_CRITICAL_CAPTURE isn't defined
     {
         u32 friendship = 200;
         SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), MON_DATA_FRIENDSHIP, &friendship);
@@ -519,15 +532,287 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp) {
 
 #ifdef GUARANTEE_CAPTURES
     if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
-        return 1 | 0x80;
+        return 1 | CRITICAL_CAPTURE_MASK;
     }
     return 4;
 #else
     // if the capture is successful, and the target species is already registered, use the critical capture animation, otherwise there should still be 0-3 shakes.
     // https://xcancel.com/Sibuna_Switch/status/1847665451809075315#m
+#ifdef IMPLEMENT_CRITICAL_CAPTURE
     if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
-        return (i == 4 || i == (1 | 0x80)) ? 1 | 0x80 : i;
+        return ((i == 4 || i == (1 | CRITICAL_CAPTURE_MASK)) ? (1 | CRITICAL_CAPTURE_MASK) : (i));
     }
-    return i == (0 | 0x80) ? 0 : i;
 #endif
+    return i & ~CRITICAL_CAPTURE_MASK; //(i == (0 | CRITICAL_CAPTURE_MASK) ? 0 : i);
+#endif
+}
+
+// fuck it be a coward and pre-calulate the values
+const u16 getShakeChancesLookupTable[] = {
+    [0]   = 0,
+    [1]   = 23186,
+    [2]   = 26405,
+    [3]   = 28490,
+    [4]   = 30070,
+    [5]   = 31355,
+    [6]   = 32447,
+    [7]   = 33395,
+    [8]   = 34243,
+    [9]   = 35007,
+    [10]  = 35705,
+    [11]  = 36348,
+    [12]  = 36949,
+    [13]  = 37506,
+    [14]  = 38032,
+    [15]  = 38529,
+    [16]  = 38994,
+    [17]  = 39441,
+    [18]  = 39868,
+    [19]  = 40275,
+    [20]  = 40659,
+    [21]  = 41038,
+    [22]  = 41393,
+    [23]  = 41740,
+    [24]  = 42074,
+    [25]  = 42400,
+    [26]  = 42710,
+    [27]  = 43018,
+    [28]  = 43310,
+    [29]  = 43598,
+    [30]  = 43876,
+    [31]  = 44143,
+    [32]  = 44406,
+    [33]  = 44664,
+    [34]  = 44918,
+    [35]  = 45160,
+    [36]  = 45397,
+    [37]  = 45636,
+    [38]  = 45862,
+    [39]  = 46083,
+    [40]  = 46305,
+    [41]  = 46522,
+    [42]  = 46733,
+    [43]  = 46937,
+    [44]  = 47143,
+    [45]  = 47343,
+    [46]  = 47535,
+    [47]  = 47730,
+    [48]  = 47917,
+    [49]  = 48098,
+    [50]  = 48288,
+    [51]  = 48462,
+    [52]  = 48638,
+    [53]  = 48815,
+    [54]  = 48984,
+    [55]  = 49155,
+    [56]  = 49317,
+    [57]  = 49490,
+    [58]  = 49645,
+    [59]  = 49802,
+    [60]  = 49960,
+    [61]  = 50118,
+    [62]  = 50268,
+    [63]  = 50419,
+    [64]  = 50571,
+    [65]  = 50715,
+    [66]  = 50868,
+    [67]  = 51004,
+    [68]  = 51150,
+    [69]  = 51286,
+    [70]  = 51424,
+    [71]  = 51562,
+    [72]  = 51701,
+    [73]  = 51831,
+    [74]  = 51972,
+    [75]  = 52103,
+    [76]  = 52224,
+    [77]  = 52357,
+    [78]  = 52480,
+    [79]  = 52613,
+    [80]  = 52737,
+    [81]  = 52852,
+    [82]  = 52977,
+    [83]  = 53102,
+    [84]  = 53218,
+    [85]  = 53335,
+    [86]  = 53451,
+    [87]  = 53569,
+    [88]  = 53687,
+    [89]  = 53794,
+    [90]  = 53913,
+    [91]  = 54022,
+    [92]  = 54130,
+    [93]  = 54240,
+    [94]  = 54350,
+    [95]  = 54460,
+    [96]  = 54571,
+    [97]  = 54671,
+    [98]  = 54782,
+    [99]  = 54883,
+    [100] = 54984,
+    [101] = 55086,
+    [102] = 55188,
+    [103] = 55290,
+    [104] = 55393,
+    [105] = 55496,
+    [106] = 55588,
+    [107] = 55692,
+    [108] = 55784,
+    [109] = 55877,
+    [110] = 55982,
+    [111] = 56075,
+    [112] = 56169,
+    [113] = 56263,
+    [114] = 56358,
+    [115] = 56441,
+    [116] = 56536,
+    [117] = 56631,
+    [118] = 56715,
+    [119] = 56811,
+    [120] = 56896,
+    [121] = 56992,
+    [122] = 57077,
+    [123] = 57162,
+    [124] = 57247,
+    [125] = 57333,
+    [126] = 57419,
+    [127] = 57505,
+    [128] = 57591,
+    [129] = 57678,
+    [130] = 57765,
+    [131] = 57840,
+    [132] = 57927,
+    [133] = 58002,
+    [134] = 58090,
+    [135] = 58165,
+    [136] = 58254,
+    [137] = 58330,
+    [138] = 58406,
+    [139] = 58482,
+    [140] = 58571,
+    [141] = 58648,
+    [142] = 58725,
+    [143] = 58802,
+    [144] = 58880,
+    [145] = 58957,
+    [146] = 59035,
+    [147] = 59100,
+    [148] = 59178,
+    [149] = 59257,
+    [150] = 59335,
+    [151] = 59401,
+    [152] = 59480,
+    [153] = 59546,
+    [154] = 59625,
+    [155] = 59692,
+    [156] = 59771,
+    [157] = 59838,
+    [158] = 59905,
+    [159] = 59985,
+    [160] = 60052,
+    [161] = 60119,
+    [162] = 60187,
+    [163] = 60254,
+    [164] = 60336,
+    [165] = 60404,
+    [166] = 60472,
+    [167] = 60540,
+    [168] = 60608,
+    [169] = 60677,
+    [170] = 60732,
+    [171] = 60800,
+    [172] = 60869,
+    [173] = 60938,
+    [174] = 61008,
+    [175] = 61063,
+    [176] = 61133,
+    [177] = 61202,
+    [178] = 61258,
+    [179] = 61328,
+    [180] = 61398,
+    [181] = 61455,
+    [182] = 61525,
+    [183] = 61581,
+    [184] = 61638,
+    [185] = 61709,
+    [186] = 61766,
+    [187] = 61837,
+    [188] = 61894,
+    [189] = 61951,
+    [190] = 62022,
+    [191] = 62080,
+    [192] = 62137,
+    [193] = 62195,
+    [194] = 62267,
+    [195] = 62325,
+    [196] = 62383,
+    [197] = 62441,
+    [198] = 62499,
+    [199] = 62557,
+    [200] = 62616,
+    [201] = 62674,
+    [202] = 62733,
+    [203] = 62791,
+    [204] = 62850,
+    [205] = 62909,
+    [206] = 62968,
+    [207] = 63027,
+    [208] = 63072,
+    [209] = 63131,
+    [210] = 63191,
+    [211] = 63250,
+    [212] = 63310,
+    [213] = 63355,
+    [214] = 63414,
+    [215] = 63474,
+    [216] = 63519,
+    [217] = 63580,
+    [218] = 63640,
+    [219] = 63685,
+    [220] = 63746,
+    [221] = 63806,
+    [222] = 63852,
+    [223] = 63913,
+    [224] = 63958,
+    [225] = 64019,
+    [226] = 64065,
+    [227] = 64126,
+    [228] = 64172,
+    [229] = 64234,
+    [230] = 64280,
+    [231] = 64326,
+    [232] = 64388,
+    [233] = 64434,
+    [234] = 64481,
+    [235] = 64543,
+    [236] = 64589,
+    [237] = 64636,
+    [238] = 64698,
+    [239] = 64745,
+    [240] = 64792,
+    [241] = 64839,
+    [242] = 64902,
+    [243] = 64949,
+    [244] = 64996,
+    [245] = 65043,
+    [246] = 65091,
+    [247] = 65138,
+    [248] = 65185,
+    [249] = 65249,
+    [250] = 65296,
+    [251] = 65344,
+    [252] = 65392,
+    [253] = 65440,
+    [254] = 65488,
+};
+
+/// @brief Returns a pre-calculated value of the shake chance
+/// @param input_value
+/// @return shake chance
+u32 get_shake_chance(int input_value) {
+    if (input_value == 255 * UQ412__1_0) {
+        return 65536;
+    }
+
+    return getShakeChancesLookupTable[input_value / UQ412__1_0];
 }

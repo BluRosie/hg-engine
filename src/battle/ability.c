@@ -125,6 +125,19 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
+    // Handle Wind Rider
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WIND_RIDER) == TRUE)
+    {
+        if ((IsMoveWindMove(sp->current_move_index)) && (attacker != defender)) {
+            scriptnum = SUB_SEQ_HANDLE_WIND_RIDER;
+            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
+            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->state_client = defender;
+            sp->battlerIdTemp = defender;
+            //scriptnum = SUB_SEQ_BOOST_STATS;
+        }
+    }
+	
     // Handle Lightning Rod
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE)
     {
@@ -265,17 +278,16 @@ u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
     };
 
     u8 max = 0;
-    u8 ret = 0;
+
     for (u8 i = 0; i < NELEMS(stats); i++)
     {
-        if (stats[i] > max)
+        if (stats[i] > stats[max])
         {
-            max = stats[i];
-            ret = i;
+            max = i;
         }
     }
 
-    return ret;
+    return max;
 }
 
 
@@ -875,7 +887,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     {
         sp->oneTurnFlag[sp->defence_client].magic_cort_flag = 0;
         sp->magicBounceTracker = TRUE;
-        sp->waza_no_mamoru[sp->attack_client] = 0;
+        sp->moveProtect[sp->attack_client] = 0;
         sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
         sp->waza_no_last = sp->moveNoTemp;
         sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
@@ -896,7 +908,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             sp->oneTurnFlag[client_no].snatchFlag=0;
             if ((sp->server_status_flag & (BATTLE_STATUS_NO_MOVE_SET)) == 0)
             {
-                sp->waza_no_mamoru[sp->attack_client] = 0;
+                sp->moveProtect[sp->attack_client] = 0;
                 sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
                 sp->waza_no_last = sp->moveNoTemp;
                 sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);

@@ -1034,6 +1034,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
     sp->binding_turns[client] = 0;
+    sp->protectSuccessTurns[client] = 0;
 
     if (gBattleSystem != NULL)
     {
@@ -1058,6 +1059,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
  *  @brief moves that soundproof blocks
  */
 u16 SoundProofMovesList[] = {
+    MOVE_ALLURING_VOICE,
     MOVE_BOOMBURST,
     MOVE_BUG_BUZZ,
     MOVE_CHATTER,
@@ -1078,6 +1080,7 @@ u16 SoundProofMovesList[] = {
     MOVE_OVERDRIVE,
     MOVE_PARTING_SHOT,
     MOVE_PERISH_SONG,
+    MOVE_PSYCHIC_NOISE,
     MOVE_RELIC_SONG,
     MOVE_ROAR,
     MOVE_ROUND,
