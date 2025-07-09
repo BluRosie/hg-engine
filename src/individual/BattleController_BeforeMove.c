@@ -589,7 +589,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PROTEAN_MESSAGE);
                 ctx->msg_work = ctx->battlemon[ctx->attack_client].type1;
                 ctx->battlerIdTemp = ctx->attack_client;
-                ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+                ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             } else {
