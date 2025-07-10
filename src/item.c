@@ -112,6 +112,8 @@ static const u16 sTMHMMoves[] = {
     MOVE_ROCK_SMASH,   // HM06
     MOVE_WATERFALL,    // HM07
     MOVE_ROCK_CLIMB,   // HM08
+
+    MOVE_ROAR_OF_TIME, // TM93
 };
 
 u16 GetItemIndex(u16 item, u16 type);
@@ -330,20 +332,138 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
  * @brief converts a TM or HM item ID to its corresponding TM/HM index
  */
 u8 ItemToTMHMId(u16 itemId) {
-    if (itemId < ITEM_TM01 || itemId > ITEM_HM08) {
-        return 0;
+    if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) {
+        return itemId - ITEM_TM01;
     }
 
-    return itemId - ITEM_TM01;
+    // TODO zebben
+    if (itemId >= ITEM_TM93) {
+        return 100 + (itemId - ITEM_TM93);
+    }
+
+    return 0;
 }
 
 /**
  * @brief converts a TM or HM index into the associated move
  */
 u16 TMHMGetMove(u16 itemId) {
-    if (itemId < ITEM_TM01 || itemId > ITEM_HM08) {
+    if (itemId < ITEM_TM01) {
         return MOVE_NONE;
     }
 
-    return sTMHMMoves[ItemToTMHMId(itemId)];
+    u8 tmHmId = ItemToTMHMId(itemId);
+    if (tmHmId > 100) {
+        return MOVE_ROAR_OF_TIME;
+    }
+
+    return sTMHMMoves[tmHmId];
+}
+
+BOOL MoveIsHM(u16 moveId) {
+    debug_printf("[MoveIsHM] moveId = %d\n", moveId);
+
+    u8 i;
+
+    for (i = 0; i < NUM_HMS; i++) {
+        if (sTMHMMoves[i + ITEM_HM01 - ITEM_TM01] == moveId) {
+            debug_printf("[MoveIsHM] is hm\n");
+            return TRUE;
+        }
+    }
+
+    debug_printf("[MoveIsHM] not hm\n");
+
+    return FALSE;
+}
+
+//u8 TMHMGetIndex(u16 itemId) {
+//    debug_printf("[TMHMGetIndex] itemId = %d\n", itemId);
+//
+//    if (itemId >= ITEM_HM01 && itemId <= ITEM_HM08) {
+//        debug_printf("[TMHMGetIndex] hm\n");
+//        return 92 + (itemId - ITEM_HM01);
+//    }
+//
+//    if (itemId >= ITEM_TM01 && itemId <= ITEM_TM92) {
+//        debug_printf("[TMHMGetIndex] vanilla tm\n");
+//        return itemId - ITEM_TM01;
+//    }
+//
+//    if (itemId == ITEM_TM93) {
+//        debug_printf("[TMHMGetIndex] tm expansion\n");
+//        return 100;
+//    }
+//
+//    debug_printf("[TMHMGetIndex] invalid\n");
+//    return 0;
+//}
+
+//u8 TMHMLabelFieldOverride(void *itemStruct) {
+//    debug_printf("[TMHMLabelFieldOverride]\n");
+//    u16 itemId = *(u16 *)itemStruct;
+//
+//    u16 move = TMHMGetMove(itemId);
+//    if (MoveIsHM(move)) {
+//        return 0;  // HM label
+//    } else {
+//        return 2;  // TM label
+//    }
+//}
+
+//u8 TMHMLabelFieldOverride(const void *buffer, u32 index) {
+//    debug_printf("[TMHMLabelFieldOverride] index %d\n", index);
+//    const u8 *b = (const u8 *)buffer;
+//    switch (index) {
+//        case 0:  return (u8)(*(u16 *)(b + 0));  // Truncated to u8
+//        case 1:  return b[2];
+//        case 2:  return b[3];
+//        case 3:  return b[4];
+//        case 4:  return b[5];
+//        case 5:  return b[6];
+//        case 6:  return b[7];
+//        case 7:  return (u8)(*(u16 *)(b + 8));
+//        case 8:  return (s8)b[10];
+//        case 9:  return b[11];
+//        case 10: return b[12];
+//        case 11: return b[13];
+//        default: return 0;
+//    }
+//}
+//u16 LONG_CALL TMHMLabelOverride(u16 moveId) {
+//    debug_printf("[TMHMLabelOverride] index %d\n", moveId);
+//    return MoveIsHM(moveId) ? 0 : 2;
+//}
+
+//BOOL LONG_CALL ShouldShowTMLabel(u16 itemId) {
+//    debug_printf("[ShouldShowTMLabel] itemId %d\n", itemId);
+//    u16 moveId = TMHMGetMove(itemId);
+//    debug_printf("[ShouldShowTMLabel] moveId %d\n", moveId);
+//    return !MoveIsHM(moveId);
+//}
+
+//BOOL LONG_CALL ShouldShowTMLabel(u8 tmHmId) {
+//    debug_printf("[ShouldShowTMLabel] tmHmId %d\n", tmHmId);
+//    if (tmHmId > 100) {
+//        return FALSE;
+//    }
+//    u16 move = sTMHMMoves[tmHmId];
+//    debug_printf("[ShouldShowTMLabel] move %d\n", move);
+//    return !MoveIsHM(move);
+//}
+
+//int TMHMLabelNumber(u16 itemId, int mode) {
+//    if (itemId >= ITEM_TM01 && itemId <= ITEM_TM92) {
+//        return itemId - ITEM_TM01 + 1;
+//    } else if (itemId >= ITEM_HM01 && itemId <= ITEM_HM08) {
+//        return itemId - ITEM_HM01 + 1;
+//    } else if (itemId >= ITEM_TM93) {
+//        return itemId - ITEM_TM93 + 92;
+//    }
+//    return 1; // fallback
+//}
+
+BOOL LONG_CALL IsItemTM(u16 itemId) {
+    debug_printf("[IsItemTM] itemId %d\n", itemId);
+    return (itemId >= ITEM_TM01 && itemId <= ITEM_TM92) || itemId == ITEM_TM93;
 }

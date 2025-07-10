@@ -122,6 +122,7 @@ u32 Bag_GetItemPocket(BAG_DATA *bag, u16 itemId, ITEM_SLOT **ppSlots, u32 *pCoun
         *pCount = NUM_BAG_MAIL;
         break;
     case POCKET_TMHMS:
+        debug_printf("[Bag_GetItemPocket] itemId %d is a TM/HM\n", itemId);
         *ppSlots = bag->TMsHMs;
         *pCount = NUM_BAG_TMS_HMS;
         break;

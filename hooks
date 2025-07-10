@@ -514,6 +514,7 @@ arm9 DestroyHeap_hook 0201AA24 3
 0012 load_max_move_num_metronome 022408AC 0
 
 arm9 ItemToTMHMId 0207804C 1
-arm9 TMHMGetMove 0x02078000 1
+arm9 TMHMGetMove 02078000 1
+arm9 MoveIsHM 02078024 1
 arm9 GetMonTMHMCompat 0207224C 2
 arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3

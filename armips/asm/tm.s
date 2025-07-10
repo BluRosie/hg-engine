@@ -14,15 +14,21 @@
 
 .close
 
-.open "base/overlay/overlay_0015.bin", 0x022012F8
+.open "base/overlay/overlay_0015.bin", 0x021F9380  ; correct base
 
-// Dont show quantity for TMs
-.org 0x02207531
-
+// Don't show quantity for TMs
+.org 0x021FF5B9
 .if REUSABLE_TMS == 1
 .byte 0xE0
 .else
 .byte 0xD3
 .endif
 
+
+//.org 0x021fe922
+//lsl r0,r0,#0x3
+
+.org 0x021FE926
+    bl 0x23dd048
+    nop
 .close
