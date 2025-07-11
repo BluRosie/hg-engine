@@ -445,3 +445,24 @@ BOOL IsPlayerOnLadder(void)
     u32 mapId = gFieldSysPtr->location->mapId;
     return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
 }
+
+void LONG_CALL RenderTMHMLabels(void *context, void *window, const u16 *args, u32 baseY) {
+    u16 itemId = args[0];
+    u16 labelId = args[1];
+
+    debug_printf("[RenderTMHMLabels] itemId = %d, labelId = %d, baseY = %d\n", itemId, labelId, baseY);
+    debug_printf("context = %p, window = %p\n", context, window);
+
+    void *printerCtx = *(void **)((u8 *)context + 0x2EC);
+    if (itemId < 420) {
+        debug_printf("[RenderTMHMLabels] item is TM\n");
+        sub_0200CE7C(printerCtx, 2, itemId - 0x147, 2, 2, window, 0, baseY + 5);
+
+        u32 labelArgs = ((u32)labelId << 16) | (baseY & 0xFFFF);
+        ov15_021FE8C4(printerCtx, labelArgs);
+    } else {
+        debug_printf("[RenderTMHMLabels] item is HM\n");
+        sub_0200CDF0(printerCtx, itemId - 0x1A3, 2, 1, window, 0x10, baseY + 5);
+        ov15_021FE9B0(printerCtx, window, 0x10, 0);
+    }
+}
