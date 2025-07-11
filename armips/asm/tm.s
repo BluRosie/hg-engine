@@ -28,7 +28,7 @@
 //.org 0x021fe922
 //lsl r0,r0,#0x3
 
-.org 0x021FE926
-    bl 0x23dd048
-    nop
+//.org 0x021FE926
+//    bl 0x23dd048
+//    nop
 .close
