@@ -446,6 +446,16 @@ BOOL IsPlayerOnLadder(void)
     return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
 }
 
+u16 LONG_CALL GetCustomTMNumber(u16 itemId) {
+    if (itemId >= ITEM_TM01 && itemId <= ITEM_TM92) {
+        return itemId - ITEM_TM01 + 1;
+    }
+    if (itemId == ITEM_TM93) {
+        return 93;
+    }
+    return 0;  // fallback to original
+}
+
 void LONG_CALL RenderTMHMLabels(void *context, void *window, const u16 *args, u32 baseY) {
     u16 itemId = args[0];
     u16 labelId = args[1];
@@ -453,16 +463,38 @@ void LONG_CALL RenderTMHMLabels(void *context, void *window, const u16 *args, u3
     debug_printf("[RenderTMHMLabels] itemId = %d, labelId = %d, baseY = %d\n", itemId, labelId, baseY);
     debug_printf("context = %p, window = %p\n", context, window);
 
-    void *printerCtx = *(void **)((u8 *)context + 0x2EC);
+    uintptr_t printerCtxAddr = 0;
+    memcpy(&printerCtxAddr, (u8 *)context + 0x2EC, sizeof(printerCtxAddr));
+    debug_printf("printerCtx = %p\n", (void *)printerCtxAddr);
+
+    if (printerCtxAddr < 0x02000000 || printerCtxAddr > 0x023FFFFF) {
+        debug_printf("printerCtx out of range — aborting\n");
+        return;
+    }
+
+    uintptr_t tileDataPtr = 0;
+    memcpy(&tileDataPtr, (void *)(printerCtxAddr + 4), sizeof(tileDataPtr));
+    if (tileDataPtr < 0x02000000 || tileDataPtr > 0x023FFFFF) {
+        debug_printf("tileDataPtr invalid: %08X — aborting\n", (u32)tileDataPtr);
+        return;
+    }
+
+    uintptr_t fontOffset = 0;
+    memcpy(&fontOffset, (void *)(tileDataPtr + 0x14), sizeof(fontOffset));
+    if (fontOffset < 0x02000000 || fontOffset > 0x023FFFFF) {
+        debug_printf("fontOffset invalid: %08X — aborting\n", (u32)fontOffset);
+        return;
+    }
+
     if (itemId < 420) {
         debug_printf("[RenderTMHMLabels] item is TM\n");
-        sub_0200CE7C(printerCtx, 2, itemId - 0x147, 2, 2, window, 0, baseY + 5);
+        sub_0200CE7C((void *)printerCtxAddr, 2, itemId - 0x147, 2, 2, window, 0, baseY + 5);
 
         u32 labelArgs = ((u32)labelId << 16) | (baseY & 0xFFFF);
-        ov15_021FE8C4(printerCtx, labelArgs);
+        ov15_021FE8C4((void *)printerCtxAddr, labelArgs);
     } else {
         debug_printf("[RenderTMHMLabels] item is HM\n");
-        sub_0200CDF0(printerCtx, itemId - 0x1A3, 2, 1, window, 0x10, baseY + 5);
-        ov15_021FE9B0(printerCtx, window, 0x10, 0);
+        sub_0200CDF0((void *)printerCtxAddr, itemId - 0x1A3, 2, 1, window, 0x10, baseY + 5);
+        ov15_021FE9B0((void *)printerCtxAddr, window, 0x10, 0);
     }
 }

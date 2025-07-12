@@ -379,5 +379,15 @@ BOOL MoveIsHM(u16 moveId) {
 
 BOOL LONG_CALL IsItemTM(u16 itemId) {
     debug_printf("[IsItemTM] itemId %d\n", itemId);
-    return (itemId >= ITEM_TM01 && itemId <= ITEM_TM92) || itemId == ITEM_TM93;
+    BOOL ret = (itemId >= ITEM_TM01 && itemId <= ITEM_TM92) || itemId == ITEM_TM93;
+    debug_printf("[IsItemTM] ret %d\n", ret);
+    return ret;
+}
+
+BOOL LONG_CALL GetTMNumber(u16 itemId) {
+    debug_printf("[GetTMNumber] itemId %d\n", itemId);
+    if (itemId >= ITEM_TM01 && itemId <= ITEM_TM92) {
+        return itemId - ITEM_TM01 + 1;
+    }
+    return  100;
 }
