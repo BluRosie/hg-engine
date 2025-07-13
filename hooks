@@ -498,7 +498,7 @@ arm9 sub_0207AFC4 0207AFC4 1
 #ifdef DEBUG_PRINT_HEAP_ALLOCATION
 
 #arm9 AllocFromHeapInternal_hook 0201AA3C 5
-arm9 FreeToHeap_hook 0201AB10 1
+arm9 FreeToHeap_hook 0201AB10 1F
 arm9 FreeToHeapExplicit_hook 0201ABC8 4
 
 #endif
@@ -519,9 +519,4 @@ arm9 MoveIsHM 02078024 1
 arm9 GetMonTMHMCompat 0207224C 2
 arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
 
-# callsite
-#0015 RenderTMHMLabels_hook 021ff5aa 4
-
-#0015 RenderTMHMLabels_hook 021FE914 4
-
-0015 IsItemTM_hook 021FE926 3
+0015 RenderTMHMLabels 021fe914 7

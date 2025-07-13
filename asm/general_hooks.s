@@ -107,27 +107,3 @@ mov pc, r1
 
 CanUseItemOnMonInParty_return_address:
 .word 0
-
-.global IsItemTM_hook
-IsItemTM_hook:
-    ldrh r0, [r7]             @ item ID → r0
-    ldr  r3, =IsItemTM
-    blx  r3
-    cmp  r0, #0
-    beq .hm_path
-
-    ldrh r0, [r7]             @ reload item ID for TM number
-    ldr  r3, =GetTMNumber
-    blx  r3                   @ r0 = TM number (e.g. 1 for TM01)
-    lsl  r0, r0, #0x10        @ label expects TMnum << 16
-    mov  r1, #2               @ label mode = TM
-    ldr  r3, =0x021FE932 | 1
-    bx   r3
-
-.hm_path:
-    mov  r0,#0x69
-    lsl  r0,r0,#0x2
-    ldrh r1, [r7]
-    ldr  r3, =0x021FE95E | 1
-    bx   r3
-.pool
