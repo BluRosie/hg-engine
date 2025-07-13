@@ -109,11 +109,10 @@ u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
 u32 LoadCaptureSuccessSPAStarEmitter(u32 id);
 u32 LoadCaptureSuccessSPANumEmitters(u32 id);
-
-// custom
-BOOL btl_scr_cmd_custom_01_strengthsapcalc(void* bw, struct BattleStruct* sp);
-BOOL btl_scr_cmd_custom_02_boltbeakdamagecalc(void* bw, struct BattleStruct* sp);
-BOOL btl_scr_cmd_custom_03_checktargetispartner(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_104_strengthsapcalc(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_105_boltbeakdamagecalc(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_106_checktargetispartner(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_107_tryemergencyexit(void* bw, struct BattleStruct* sp);
 
 #ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
 #pragma GCC diagnostic push
@@ -380,10 +379,11 @@ const u8 *BattleScrCmdNames[] =
     "AddEntryHazardToQueue",
     "RemoveEntryHazardFromQueue",
     "CheckProtectContactMoves",
-    // "YourCustomCommand",
     "StrengthSapCalc",
     "BoltBeakDamageCalc",
     "CheckTargetIsPartner",
+    "TryEmergencyExit",
+    // "YourCustomCommand",
 };
 
 u32 cmdAddress = 0;
@@ -429,10 +429,11 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x101 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_101_addentryhazardtoqueue,
     [0x102 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_102_removeentryhazardfromqueue,
     [0x103 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_103_checkprotectcontactmoves,
+    [0x104 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_104_strengthsapcalc,
+    [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_boltbeakdamagecalc,
+    [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_checktargetispartner,
+    [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_tryemergencyexit,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
-    [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_strengthsapcalc, // was 0xFD btl_scr_cmd_FD_strengthsapcalc
-    [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 2] = btl_scr_cmd_custom_02_boltbeakdamagecalc,
-    [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 3] = btl_scr_cmd_custom_03_checktargetispartner,
 };
 
 // entries before 0xFFFE are banned for mimic and metronome--after is just banned for metronome.  table ends with 0xFFFF
@@ -3327,7 +3328,7 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleSt
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_custom_01_strengthsapcalc(void* bw UNUSED, struct BattleStruct* sp) {
+BOOL btl_scr_cmd_104_strengthsapcalc(void* bw UNUSED, struct BattleStruct* sp) {
     IncrementBattleScriptPtr(sp, 1);
 
     s32 damage;
@@ -3354,7 +3355,7 @@ BOOL btl_scr_cmd_custom_01_strengthsapcalc(void* bw UNUSED, struct BattleStruct*
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_custom_02_boltbeakdamagecalc(void* bw, struct BattleStruct* sp) {
+BOOL btl_scr_cmd_105_boltbeakdamagecalc(void* bw, struct BattleStruct* sp) {
     IncrementBattleScriptPtr(sp, 1);
     int defender = sp->defence_client;
 
@@ -3377,7 +3378,7 @@ BOOL btl_scr_cmd_custom_02_boltbeakdamagecalc(void* bw, struct BattleStruct* sp)
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_custom_03_checktargetispartner(void* bw, struct BattleStruct* sp) {
+BOOL btl_scr_cmd_106_checktargetispartner(void* bw, struct BattleStruct* sp) {
     IncrementBattleScriptPtr(sp, 1);
     int adrs = read_battle_script_param(sp);
     int defender = sp->defence_client;
@@ -3390,6 +3391,25 @@ BOOL btl_scr_cmd_custom_03_checktargetispartner(void* bw, struct BattleStruct* s
     //    debug_printf("target is ally\n")
     }
     
+    return FALSE;
+}
+
+/**
+ *  @brief script command to check if the battle format isn't a trainer
+ *  
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_107_tryemergencyexit(void* bw, struct BattleStruct* sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    int adrs = read_battle_script_param(sp);
+        
+    if (BattleTypeGet(bw) != BATTLE_TYPE_TRAINER)
+    {
+        IncrementBattleScriptPtr(sp, adrs);
+    }
+
     return FALSE;
 }
 

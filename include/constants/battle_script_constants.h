@@ -458,16 +458,18 @@
 #define SUB_SEQ_HANDLE_WIND_RIDER                     (448)
 #define SUB_SEQ_HANDLE_CHARGE_BOOST                   (449)
 #define SUB_SEQ_SPIKY_SHIELD                          (450)
-
 #define SUB_SEQ_STRENGTH_SAP                          (451)
 #define SUB_SEQ_HEAL_PULSE                            (452)
 #define SUB_SEQ_POLLEN_PUFF_HEAL                      (453)
+
 #define MAX_BASE_SUBSCRIPT_NUM 453
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
 
 #define SUB_SEQ_COACHING                              (MAX_BASE_SUBSCRIPT_NUM + 13)
+
+#define SUB_SEQ_HANDLE_EMERGENCY_EXIT                 (MAX_BASE_SUBSCRIPT_NUM + 14)
 
 // add status effect constants--used in battle effect scripts to queue up a subscript through the table in src/moves.c
 
@@ -663,7 +665,6 @@
 #define ADD_STATUS_EFF_MORTAL_SPIN                     (189)
 #define ADD_STATUS_EFF_TIDY_UP                         (190)
 #define ADD_STATUS_EFF_BURN_AND_DRAIN_HEALTH           (191)
-// custom
 #define ADD_STATUS_EFF_STRENGTH_SAP                    (192)
 #define ADD_STATUS_EFF_HEAL_PULSE                      (193)
 #define ADD_STATUS_EFF_POLLEN_PUFF_HEAL                (194)
