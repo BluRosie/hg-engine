@@ -389,5 +389,8 @@ BOOL LONG_CALL GetTMNumber(u16 itemId) {
     if (itemId >= ITEM_TM01 && itemId <= ITEM_TM92) {
         return itemId - ITEM_TM01 + 1;
     }
-    return  100;
+    if (itemId == ITEM_TM93) {
+        return 741;
+    }
+    return 0;
 }

@@ -251,10 +251,10 @@ BAG_DATA *LONG_CALL Sav2_Bag_get(void *saveData);
 void *LONG_CALL BagView_New(u8 heap_id);
 void LONG_CALL BagView_SetItem(void *bagView, ITEM_SLOT *slots, u8 pocketId, u8 position);
 
-// these should probably be put elsewhere eventually
-void LONG_CALL sub_0200CE7C(void *msgPrinter, u8 glyphId, u32 num, u32 ndigits, u32 mode, void *window, u32 x, u32 y);
-void LONG_CALL ov15_021FE8C4(void *msgPrinter, u32 packedArgs);
-void LONG_CALL sub_0200CDF0(void *msgPrinter, u32 glyphId, u32 ndigits, u32 mode, void *window, s16 x, u16 y);
-void LONG_CALL ov15_021FE9B0(void *spriteIdOrHandle, void *drawTarget, u16 y, u32 unused);
+// agreed ^. these should probably be put elsewhere eventually?
+//void LONG_CALL sub_0200CE7C(void *msgPrinter, u8 glyphId, u32 num, u32 ndigits, u32 mode, void *window, u32 x, u32 y);
+//void LONG_CALL ov15_021FE8C4(void *msgPrinter, u32 packedArgs);
+//void LONG_CALL sub_0200CDF0(void *msgPrinter, u32 glyphId, u32 ndigits, u32 mode, void *window, s16 x, u16 y);
+//void LONG_CALL ov15_021FE9B0(void *spriteIdOrHandle, void *drawTarget, u16 y, u32 unused);
 
 #endif //POKEHEARTGOLD_BAG_H

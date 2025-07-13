@@ -14,7 +14,7 @@
 
 .close
 
-.open "base/overlay/overlay_0015.bin", 0x021F9380  ; correct base
+.open "base/overlay/overlay_0015.bin", 0x021F9380
 
 // Don't show quantity for TMs
 .org 0x021FF5B9

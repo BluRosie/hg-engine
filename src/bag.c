@@ -456,45 +456,45 @@ u16 LONG_CALL GetCustomTMNumber(u16 itemId) {
     return 0;  // fallback to original
 }
 
-void LONG_CALL RenderTMHMLabels(void *context, void *window, const u16 *args, u32 baseY) {
-    u16 itemId = args[0];
-    u16 labelId = args[1];
-
-    debug_printf("[RenderTMHMLabels] itemId = %d, labelId = %d, baseY = %d\n", itemId, labelId, baseY);
-    debug_printf("context = %p, window = %p\n", context, window);
-
-    uintptr_t printerCtxAddr = 0;
-    memcpy(&printerCtxAddr, (u8 *)context + 0x2EC, sizeof(printerCtxAddr));
-    debug_printf("printerCtx = %p\n", (void *)printerCtxAddr);
-
-    if (printerCtxAddr < 0x02000000 || printerCtxAddr > 0x023FFFFF) {
-        debug_printf("printerCtx out of range — aborting\n");
-        return;
-    }
-
-    uintptr_t tileDataPtr = 0;
-    memcpy(&tileDataPtr, (void *)(printerCtxAddr + 4), sizeof(tileDataPtr));
-    if (tileDataPtr < 0x02000000 || tileDataPtr > 0x023FFFFF) {
-        debug_printf("tileDataPtr invalid: %08X — aborting\n", (u32)tileDataPtr);
-        return;
-    }
-
-    uintptr_t fontOffset = 0;
-    memcpy(&fontOffset, (void *)(tileDataPtr + 0x14), sizeof(fontOffset));
-    if (fontOffset < 0x02000000 || fontOffset > 0x023FFFFF) {
-        debug_printf("fontOffset invalid: %08X — aborting\n", (u32)fontOffset);
-        return;
-    }
-
-    if (itemId < 420) {
-        debug_printf("[RenderTMHMLabels] item is TM\n");
-        sub_0200CE7C((void *)printerCtxAddr, 2, itemId - 0x147, 2, 2, window, 0, baseY + 5);
-
-        u32 labelArgs = ((u32)labelId << 16) | (baseY & 0xFFFF);
-        ov15_021FE8C4((void *)printerCtxAddr, labelArgs);
-    } else {
-        debug_printf("[RenderTMHMLabels] item is HM\n");
-        sub_0200CDF0((void *)printerCtxAddr, itemId - 0x1A3, 2, 1, window, 0x10, baseY + 5);
-        ov15_021FE9B0((void *)printerCtxAddr, window, 0x10, 0);
-    }
-}
+//void LONG_CALL RenderTMHMLabels(void *context, void *window, const u16 *args, u32 baseY) {
+//    u16 itemId = args[0];
+//    u16 labelId = args[1];
+//
+//    debug_printf("[RenderTMHMLabels] itemId = %d, labelId = %d, baseY = %d\n", itemId, labelId, baseY);
+//    debug_printf("context = %p, window = %p\n", context, window);
+//
+//    uintptr_t printerCtxAddr = 0;
+//    memcpy(&printerCtxAddr, (u8 *)context + 0x2EC, sizeof(printerCtxAddr));
+//    debug_printf("printerCtx = %p\n", (void *)printerCtxAddr);
+//
+//    if (printerCtxAddr < 0x02000000 || printerCtxAddr > 0x023FFFFF) {
+//        debug_printf("printerCtx out of range — aborting\n");
+//        return;
+//    }
+//
+//    uintptr_t tileDataPtr = 0;
+//    memcpy(&tileDataPtr, (void *)(printerCtxAddr + 4), sizeof(tileDataPtr));
+//    if (tileDataPtr < 0x02000000 || tileDataPtr > 0x023FFFFF) {
+//        debug_printf("tileDataPtr invalid: %08X — aborting\n", (u32)tileDataPtr);
+//        return;
+//    }
+//
+//    uintptr_t fontOffset = 0;
+//    memcpy(&fontOffset, (void *)(tileDataPtr + 0x14), sizeof(fontOffset));
+//    if (fontOffset < 0x02000000 || fontOffset > 0x023FFFFF) {
+//        debug_printf("fontOffset invalid: %08X — aborting\n", (u32)fontOffset);
+//        return;
+//    }
+//
+//    if (itemId < 420) {
+//        debug_printf("[RenderTMHMLabels] item is TM\n");
+//        sub_0200CE7C((void *)printerCtxAddr, 2, itemId - 0x147, 2, 2, window, 0, baseY + 5);
+//
+//        u32 labelArgs = ((u32)labelId << 16) | (baseY & 0xFFFF);
+//        ov15_021FE8C4((void *)printerCtxAddr, labelArgs);
+//    } else {
+//        debug_printf("[RenderTMHMLabels] item is HM\n");
+//        sub_0200CDF0((void *)printerCtxAddr, itemId - 0x1A3, 2, 1, window, 0x10, baseY + 5);
+//        ov15_021FE9B0((void *)printerCtxAddr, window, 0x10, 0);
+//    }
+//}
