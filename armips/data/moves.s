@@ -10604,7 +10604,7 @@ movedata MOVE_CATASTROPIKA, "Catastropika"
     movedescription MOVE_CATASTROPIKA, "---"
 
 movedata MOVE_SHORE_UP, "Shore Up"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_SHORE_UP
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GROUND

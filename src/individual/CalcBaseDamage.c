@@ -552,10 +552,11 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         }
         break;
     case MOVE_BOLT_BEAK:
-        // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8433978
-        break;
     case MOVE_FISHIOUS_REND:
         // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8433978
+        if (IsMovingAfterClient(sp, defender) == FALSE || sp->playerActions[sp->defence_client][3] == CONTROLLER_COMMAND_40) {
+            movepower *= 2;
+        }
         break;
     case MOVE_RISING_VOLTAGE:
         if ((sp->terrainOverlay.numberOfTurnsLeft > 0) && (sp->terrainOverlay.type == ELECTRIC_TERRAIN)) {

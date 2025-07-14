@@ -5,7 +5,6 @@
 _000:
     PrintAttackMessage 
     Wait 
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STAT_CHANGE_ATK, 0, _102
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
 
@@ -33,21 +32,10 @@ _042:
     // liq ooze check
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_DEFENDER, ABILITY_LIQUID_OOZE, _088
 
-    // healblock check
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HEAL_BLOCK_TURNS, 0, _075
-
     UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
     Call BATTLE_SUBSCRIPT_RECOVER_HP
     // {0} regained health!
     PrintMessage 184, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
-    Wait 
-    WaitButtonABTime 30
-    End 
-
-_075:
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_HEAL_BLOCK
-    // {0} was prevented from healing due to {1}!
-    PrintMessage 1054, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
     End 
@@ -61,10 +49,6 @@ _088:
     WaitButtonABTime 30
 
 _101:
-    End 
-
-_102:
-    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 
 
 _fullhealth:

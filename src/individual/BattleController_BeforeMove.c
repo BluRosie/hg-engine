@@ -3075,7 +3075,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
     if (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) {
         if (ctx->attack_client != ctx->defence_client) {
             switch (moveEffect) {
-                // TODO: Handle Electrify, Flower Shield, Forest's Curse, Trick-or-Treat, Magic Powder, Heal Pulse, Purify, Tar Shot, Topsy-Turvy
+                // TODO: Handle Electrify, Flower Shield, Forest's Curse, Trick-or-Treat, Magic Powder, Purify, Tar Shot, Topsy-Turvy
 
                 // List of effects tested: attempting to inflict a major status condition, Acupressure, Block / Mean Look / Spider Web / Octolock, Electrify / Quash, Flower Shield, Forest's Curse / Trick-or-Treat / Soak / Magic Powder, Gastro Acid, Guard Split / Power Split, Heal Pulse, Leech Seed, Lock-On, Mind Reader, Pain Split, Psycho Shift, Purify, Simple Beam, Tar Shot, Topsy-Turvy, Transform, Worry Seed
                 case MOVE_EFFECT_RANDOM_STAT_UP_2:
@@ -3090,6 +3090,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
                 case MOVE_EFFECT_AVERAGE_HP:
                 case MOVE_EFFECT_TRANSFER_STATUS:
                 case MOVE_EFFECT_SET_ABILITY_TO_SIMPLE:
+                case MOVE_EFFECT_HEAL_TARGET:
                     if (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_INFILTRATOR) {
                         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);
                         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
@@ -4026,6 +4027,7 @@ int BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys U
             }
             break;
         case MOVE_EFFECT_ATK_DEF_UP:
+        case MOVE_EFFECT_COACHING:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
                 result = 1;
             }

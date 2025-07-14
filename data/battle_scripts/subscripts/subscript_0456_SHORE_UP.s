@@ -1,0 +1,20 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    PrintAttackMessage 
+    Wait 
+    UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_MAXHP, BSCRIPT_VAR_HP_CALC
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SANDSTORM_ALL, _026
+    DivideVarByValue BSCRIPT_VAR_HP_CALC, 2
+    GoTo _031
+
+_026:
+    DivideVarByValue BSCRIPT_VAR_HP_CALC, 4
+    UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, 3
+
+_031:
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_ATTACKER
+    Call BATTLE_SUBSCRIPT_RECOVER_HP
+    End 

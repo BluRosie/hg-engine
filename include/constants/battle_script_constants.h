@@ -461,15 +461,15 @@
 #define SUB_SEQ_STRENGTH_SAP                          (451)
 #define SUB_SEQ_HEAL_PULSE                            (452)
 #define SUB_SEQ_POLLEN_PUFF_HEAL                      (453)
+#define SUB_SEQ_COACHING                              (454)
+#define SUB_SEQ_HANDLE_EMERGENCY_EXIT                 (455)
+#define SUB_SEQ_SHORE_UP                              (456)
 
-#define MAX_BASE_SUBSCRIPT_NUM 453
+#define MAX_BASE_SUBSCRIPT_NUM 456
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
 
-#define SUB_SEQ_COACHING                              (MAX_BASE_SUBSCRIPT_NUM + 13)
-
-#define SUB_SEQ_HANDLE_EMERGENCY_EXIT                 (MAX_BASE_SUBSCRIPT_NUM + 14)
 
 // add status effect constants--used in battle effect scripts to queue up a subscript through the table in src/moves.c
 
@@ -669,6 +669,7 @@
 #define ADD_STATUS_EFF_HEAL_PULSE                      (193)
 #define ADD_STATUS_EFF_POLLEN_PUFF_HEAL                (194)
 #define ADD_STATUS_EFF_COACHING                        (195)
+#define ADD_STATUS_EFF_SHORE_UP                        (196)
 
 
 // additional effect constants
