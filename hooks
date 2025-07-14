@@ -519,4 +519,4 @@ arm9 MoveIsHM 02078024 1
 arm9 GetMonTMHMCompat 0207224C 2
 arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
 
-0015 RenderTMHMLabels 021fe914 7
+0015 RenderTMHMLabels 021FE914 7

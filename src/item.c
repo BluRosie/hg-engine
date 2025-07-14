@@ -113,6 +113,7 @@ static const u16 sTMHMMoves[] = {
     MOVE_WATERFALL,    // HM07
     MOVE_ROCK_CLIMB,   // HM08
 
+    // custom TMs go here
     MOVE_ROAR_OF_TIME, // TM93
 };
 
@@ -353,10 +354,9 @@ u16 TMHMGetMove(u16 itemId) {
     }
 
     u8 tmHmId = ItemToTMHMId(itemId);
-    if (tmHmId > 100) {
-        return MOVE_ROAR_OF_TIME;
+    if (tmHmId >= sizeof(sTMHMMoves) + 1) {
+        return MOVE_NONE;
     }
-
     return sTMHMMoves[tmHmId];
 }
 
@@ -364,7 +364,6 @@ BOOL MoveIsHM(u16 moveId) {
     debug_printf("[MoveIsHM] moveId = %d\n", moveId);
 
     u8 i;
-
     for (i = 0; i < NUM_HMS; i++) {
         if (sTMHMMoves[i + ITEM_HM01 - ITEM_TM01] == moveId) {
             debug_printf("[MoveIsHM] is hm\n");
@@ -373,6 +372,5 @@ BOOL MoveIsHM(u16 moveId) {
     }
 
     debug_printf("[MoveIsHM] not hm\n");
-
     return FALSE;
 }

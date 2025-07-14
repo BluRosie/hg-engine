@@ -798,3 +798,4 @@ An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield
 An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield the Water type during battle.
 An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield the Fire type during battle.
 A peculiar metal that can make certain\nspecies of Pokémon evolve.\nIt is composed of many layers.
+TODO zebben

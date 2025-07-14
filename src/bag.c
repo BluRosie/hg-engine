@@ -183,8 +183,11 @@ BOOL Bag_AddItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id) {
         u32 pocket_id;
 
         pocket_id = Bag_GetItemPocket(bag, itemId, &slot, &count, heap_id);
-        if (pocket_id == POCKET_TMHMS || pocket_id == POCKET_BERRIES) {
+        if (pocket_id == POCKET_BERRIES) {
             SortPocket(slot, count);
+        }
+        if (pocket_id == POCKET_TMHMS) {
+            SortTMHMPocket(slot, count);
         }
     }
     return TRUE;
@@ -337,6 +340,27 @@ void SortPocket(ITEM_SLOT *slots, u32 count) {
     for (i = 0; i < count - 1; i++) {
         for (j = i + 1; j < count; j++) {
             if (slots[i].quantity == 0 || (slots[j].quantity != 0 && slots[i].id > slots[j].id)) {
+                SwapItemSlots(&slots[i], &slots[j]);
+            }
+        }
+    }
+}
+
+u8 TMHMPocketSortPrecedence(u16 itemId) {
+    if (itemId >= ITEM_HM01 && itemId <= ITEM_HM08) {
+        return 2;
+    }
+    return 1;
+}
+
+void SortTMHMPocket(ITEM_SLOT *slots, u32 count) {
+    u32 i, j;
+    for (i = 0; i < count - 1; i++) {
+        for (j = i + 1; j < count; j++) {
+            if (slots[i].quantity == 0 || (slots[j].quantity != 0 && (
+                TMHMPocketSortPrecedence(slots[i].id) > TMHMPocketSortPrecedence(slots[j].id) ||
+                (TMHMPocketSortPrecedence(slots[i].id) == TMHMPocketSortPrecedence(slots[j].id) && slots[i].id > slots[j].id)
+            ))) {
                 SwapItemSlots(&slots[i], &slots[j]);
             }
         }
