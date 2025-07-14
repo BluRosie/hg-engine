@@ -375,8 +375,14 @@
 #define MOVE_EFFECT_MORTAL_SPIN                             369
 #define MOVE_EFFECT_TIDY_UP                                 370
 #define MOVE_EFFECT_PROTECT_USER_SIDE                       371
+#define MOVE_EFFECT_STRENGTH_SAP							372
+#define MOVE_EFFECT_HEAL_TARGET								373
+#define MOVE_EFFECT_POLLEN_PUFF								374
+#define MOVE_EFFECT_COACHING								375
+#define MOVE_EFFECT_DOUBLE_POWER_IF_FASTER					376
+#define MOVE_EFFECT_SHORE_UP								377
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            371
+#define MAX_BASE_MOVE_EFFECT_NUM                            377
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)

@@ -259,6 +259,37 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 ret = TRUE;
             }
         break;
+        case ABILITY_WIMP_OUT:
+        case ABILITY_EMERGENCY_EXIT:
+            if
+                (
+                    (sp->battlemon[sp->defence_client].hp) // defender is alive after hit
+                    && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                    && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                    && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+                    && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
+                    // neither activate if the Pokémon gets attacked by a sheer force boosted move
+                    && !((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) && (sp->battlemon[sp->attack_client].sheer_force_flag == 1))
+                    // neither activate until the last hit of a multi-hit move
+                    && (sp->multiHitCount <= 1)
+                    && (sp->battlemon[sp->defence_client].hp <= (s32)(sp->battlemon[sp->defence_client].maxhp / 2))
+                    && (
+                        // checks if the pokémon has gone below half HP from the current damage instance
+                        // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
+                        ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].physical_damage)) > (s32)sp->battlemon[sp->defence_client].maxhp / 2) ||
+                        ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].special_damage)) > (s32)sp->battlemon[sp->defence_client].maxhp / 2)
+                        )
+                    )
+            {
+                u32 temp = sp->attack_client;                   // swap attacker and defender so subseq handles it correctly
+                sp->battlerIdTemp = sp->defence_client;
+                sp->attack_client = sp->defence_client;
+                sp->defence_client = temp;
+                sp->current_move_index = MOVE_U_TURN;
+                seq_no[0] = SUB_SEQ_HANDLE_EMERGENCY_EXIT;
+                ret = TRUE;
+            }
+        break;
         case ABILITY_ELECTROMORPHOSIS:
             if (/*(sp->battlemon[sp->defence_client].hp) // mon notably does not need to be alive for this ability to proc
                 && */((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage)))
