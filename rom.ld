@@ -750,6 +750,7 @@ OpenSPAFileInHeap = 0x02015264 | 1;
 QueueEmitterWithCallback = 0x02015494 | 1;
 particleEmitCallback = 0x021E5C28 | 1;
 
+/* tm expansion */
 sub_0200CE7C = 0x0200CE7C | 1;
 ov15_021FE8C4 = 0x021FE8C4 | 1;
 sub_0200CDF0 = 0x0200CDF0 | 1;

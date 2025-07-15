@@ -330,16 +330,15 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
 }
 
 /**
- * @brief converts a TM or HM item ID to its corresponding TM/HM index
+ * @brief converts a TM or HM index to its corresponding TM/HM index
  */
 u8 ItemToTMHMId(u16 itemId) {
     if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) {
         return itemId - ITEM_TM01;
     }
 
-    // TODO zebben
     if (itemId >= ITEM_TM93) {
-        return 100 + (itemId - ITEM_TM93);
+        return NUM_VANILLA_TMS + NUM_HMS + (itemId - ITEM_TM93);
     }
 
     return 0;
@@ -373,4 +372,15 @@ BOOL MoveIsHM(u16 moveId) {
 
     debug_printf("[MoveIsHM] not hm\n");
     return FALSE;
+}
+
+u16 GetTMNumber(u16 itemId) {
+    debug_printf("[GetTMNumber] itemId %d\n", itemId);
+    if (itemId >= ITEM_TM01 && itemId <= ITEM_TM92) {
+        return itemId - ITEM_TM01 + 1;
+    }
+    if (itemId >= ITEM_TM93) {
+        return ItemToTMHMId(itemId) - NUM_HMS + 1;
+    }
+    return 0;
 }

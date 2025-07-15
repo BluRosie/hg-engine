@@ -376,6 +376,30 @@ REQUIRED_DIRECTORIES += $(BATTLE_SUB_DIR) $(BATTLE_SUB_OBJ_DIR)
 clean_battle_scripts:
 	rm -rf $(MOVE_ANIM_SCRIPT_OUTPUT_DIR) $(MOVE_SEQ_NARC) $(BATTLE_SUB_NARC) $(BATTLE_EFF_NARC)
 
+BAGGFX_DIR := $(BUILD)/a015
+BAGGFX_NARC := $(BUILD_NARC)/a015.narc
+BAGGFX_TARGET := $(FILESYS)/a/0/1/5
+BAGGFX_DEPENDENCIES_DIR := data/graphics/bag
+
+BAGGFX_SRCS := $(wildcard $(BAGGFX_DEPENDENCIES_DIR)/*.png)
+BAGGFX_OBJS := $(patsubst $(BAGGFX_DEPENDENCIES_DIR)/%.png,$(BAGGFX_DIR)/5_%.NCGR,$(BAGGFX_SRCS))
+BAGGFX_OBJS += $(patsubst $(BAGGFX_CUSTOM_DIR)/%.png,$(BAGGFX_DIR)/A_%-01.NCGR,$(BAGGFX_CUSTOM_SRCS))
+
+$(BAGGFX_DIR)/5_%.NCGR:$(BAGGFX_DEPENDENCIES_DIR)/%.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(BAGGFX_DIR)/5_%-01.NCLR:$(BAGGFX_DEPENDENCIES_DIR)/%.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+$(BAGGFX_NARC): $(BAGGFX_OBJS) $(BAGGFX_PALS)
+	$(NARCHIVE) extract $(BAGGFX_TARGET) -o $(BAGGFX_DIR) -nf
+	for n in $$(seq 95 $$(expr $$(ls $(BAGGFX_DIR) | wc -l) - 1)); do rm -f $(BAGGFX_DIR)/5_$$n; done
+	for n in $$(seq 95 $$(expr $$(ls $(BAGGFX_DIR) | wc -l) - 1)); do rm -f $(BAGGFX_DIR)/5_$$(printf "%04d" $$n); done
+	$(NARCHIVE) create $@ $(BAGGFX_DIR) -nf
+
+NARC_FILES += $(BAGGFX_NARC)
+REQUIRED_DIRECTORIES += $(BAGGFX_DIR)
+
 ITEMGFX_DIR := $(BUILD)/a018
 ITEMGFX_NARC := $(BUILD_NARC)/a018.narc
 ITEMGFX_TARGET := $(FILESYS)/a/0/1/8

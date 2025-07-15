@@ -1,9 +1,11 @@
 #include "../include/config.h"
 #include "../include/constants/item.h"
+#include "../include/constants/file.h"
 #include "../include/bag.h"
 #include "../include/item.h"
 #include "../include/map_events_internal.h"
 #include "../include/save.h"
+#include "../include/sprite.h"
 #include "../include/script.h"
 
 
@@ -470,17 +472,6 @@ BOOL IsPlayerOnLadder(void)
     return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
 }
 
-u16 GetTMNumber(u16 itemId) {
-    debug_printf("[GetTMNumber] itemId %d\n", itemId);
-    if (itemId >= ITEM_TM01 && itemId <= ITEM_TM92) {
-        return itemId - ITEM_TM01 + 1;
-    }
-    if (itemId == ITEM_TM93) { // TODO
-        return 93;
-    }
-    return 0;
-}
-
 void LONG_CALL RenderTMHMLabels(void *context, void *window, const u16 *args, u32 baseY) {
     u16 itemId  = args[0];
     u16 labelId = args[1];
@@ -493,12 +484,11 @@ void LONG_CALL RenderTMHMLabels(void *context, void *window, const u16 *args, u3
         debug_printf("[RenderTMHMLabels] item is HM\n");
 
         sub_0200CDF0(msgPrinter, itemId - 0x1A3, 2, 1, window, 0x10, baseY + 5);
-        ov15_021FE9B0(context, window, 0x10);
+        ov15_021FE9B0(context, window, 37);
     } else {
         debug_printf("[RenderTMHMLabels] item is TM\n");
 
-        sub_0200CE7C(msgPrinter, 2, GetTMNumber(itemId), 3, 2, window, 0x10, baseY + 5);
-        u32 labelArgs = ((u32)labelId << 16) | (baseY & 0xFFFF);
-        ov15_021FE8C4(context, labelArgs);
+        sub_0200CDF0(msgPrinter, GetTMNumber(itemId), 3, 2, window, 0x18, baseY + 5);
+        ov15_021FE9B0(context, window, 95);
     }
 }
