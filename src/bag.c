@@ -483,7 +483,7 @@ void LONG_CALL RenderTMHMLabels(void *context, void *window, const u16 *args, u3
     if (MoveIsHM(move)) {
         debug_printf("[RenderTMHMLabels] item is HM\n");
 
-        sub_0200CDF0(msgPrinter, itemId - 0x1A3, 2, 1, window, 0x10, baseY + 5);
+        sub_0200CDF0(msgPrinter, itemId - 0x1A3, 2, 2, window, 0x18, baseY + 5);
         ov15_021FE9B0(context, window, 37);
     } else {
         debug_printf("[RenderTMHMLabels] item is TM\n");

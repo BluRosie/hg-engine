@@ -383,13 +383,9 @@ BAGGFX_DEPENDENCIES_DIR := data/graphics/bag
 
 BAGGFX_SRCS := $(wildcard $(BAGGFX_DEPENDENCIES_DIR)/*.png)
 BAGGFX_OBJS := $(patsubst $(BAGGFX_DEPENDENCIES_DIR)/%.png,$(BAGGFX_DIR)/5_%.NCGR,$(BAGGFX_SRCS))
-BAGGFX_OBJS += $(patsubst $(BAGGFX_CUSTOM_DIR)/%.png,$(BAGGFX_DIR)/A_%-01.NCGR,$(BAGGFX_CUSTOM_SRCS))
 
 $(BAGGFX_DIR)/5_%.NCGR:$(BAGGFX_DEPENDENCIES_DIR)/%.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
-
-$(BAGGFX_DIR)/5_%-01.NCLR:$(BAGGFX_DEPENDENCIES_DIR)/%.png
-	$(GFX) $< $@ -ir -bitdepth 4
 
 $(BAGGFX_NARC): $(BAGGFX_OBJS) $(BAGGFX_PALS)
 	$(NARCHIVE) extract $(BAGGFX_TARGET) -o $(BAGGFX_DIR) -nf

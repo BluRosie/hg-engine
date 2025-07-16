@@ -24,11 +24,12 @@
 .byte 0xD3
 .endif
 
+// TODO zebben this is not fine and it breaks the Key Item register icons in the UI
 // these should be safe but I don't yet know exactly what they are for
 //   both of these were hardcoded to 0x10 which was previously unused downstream.
 //   set to 0x25 now to match new function param
 .org 0x021FF626
-mov r2, #0x25
+mov r2, #0x5F
 .org 0x021FF608
 mov r2, #0x25
 
