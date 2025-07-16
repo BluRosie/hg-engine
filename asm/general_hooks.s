@@ -107,4 +107,3 @@ mov pc, r1
 
 CanUseItemOnMonInParty_return_address:
 .word 0
-

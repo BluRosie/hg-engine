@@ -24,14 +24,13 @@
 .byte 0xD3
 .endif
 
-// TODO zebben this is not fine and it breaks the Key Item register icons in the UI
-// these should be safe but I don't yet know exactly what they are for
-//   both of these were hardcoded to 0x10 which was previously unused downstream.
-//   set to 0x25 now to match new function param
+// setup registers properly since we hijacked r2 for custom sprite loading
 .org 0x021FF626
-mov r2, #0x5F
+mov r2, #0x25
 .org 0x021FF608
 mov r2, #0x25
+.org 0x021FE9F8
+mov r4, 0x10
 
 // replaces add r4,r2,#0x0
 // 0x10 is the only val vanilla passes here so we can hardcode it
@@ -43,6 +42,5 @@ mov r4, #0x10
 //   so we can load custom sprites
 .org 0x021FE99A
 mov r1, r2
-
 
 .close
