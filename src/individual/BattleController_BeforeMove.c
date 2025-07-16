@@ -1108,6 +1108,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 
             if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_POWERING_UP_MOVE_ONCE
                 && (BattleItemDataGet(ctx, ctx->battlemon[ctx->attack_client].item, 2) == ctx->move_type)
+                && (sp->current_move_index < MOVE_WATER_PLEDGE || sp->current_move_index > MOVE_GRASS_PLEDGE)
                 && IsAnyBattleMonHit(ctx))
             {
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE);
