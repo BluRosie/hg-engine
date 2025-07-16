@@ -51,8 +51,8 @@ u16 MoonBallSpecies[] =
  */
 u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, struct BattleStruct *sp) {
     u32 i, speciesCatchRate, ballCaptureRatio, type1, type2, criticalCapture = FALSE;
-    u32 heavyBallMod = 0;
-    u32 a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, captureValueCoeffcient = 0, modifiedCatchRate = 0, badgePenalty = UQ412__1_0, statusModifier = 0, criticalCatchModifier = 0, speciesInDex = 0, criticalCatchRate = 0, shakeChecks = 4, shakeChance = 0;
+    u32 heavyBallMod = 0, modifiedCatchRate = 0;
+    u64 a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, captureValueCoeffcient = 0, badgePenalty = UQ412__1_0, statusModifier = 0, criticalCatchModifier = 0, speciesInDex = 0, criticalCatchRate = 0, shakeChecks = 4, shakeChance = 0;
     int badges, missingBadges;
     BOOL isCriticalCatch = FALSE;
 
@@ -242,7 +242,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     debug_printf("Step 1: Calculate the HP modifier\n");
 #endif
 
-    a = (QMul_RoundDown(((3 * sp->battlemon[sp->defence_client].maxhp - 2 * sp->battlemon[sp->defence_client].hp) * UQ412__1_0) / (3 * sp->battlemon[sp->defence_client].maxhp), UQ412__1_0) + QMul_RoundDown(1, UQ412__0_5));
+    a = (u64)(QMul_RoundDown(((3 * sp->battlemon[sp->defence_client].maxhp - 2 * sp->battlemon[sp->defence_client].hp) * UQ412__1_0) / (3 * sp->battlemon[sp->defence_client].maxhp), UQ412__1_0) + QMul_RoundDown(1, UQ412__0_5));
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("a: %d\n\n", a);
 #endif
@@ -286,7 +286,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("Step 4: Multiply by the ball capture ratio with rounding\n");
 #endif
-    d = QMul_RoundUp(c, ballCaptureRatio);
+    d = QMul64_RoundUp(c, ballCaptureRatio);
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("d: %d\n\n", d);
 #endif
@@ -385,7 +385,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
         debug_printf("statusModifier: %d\n", statusModifier);
 #endif
-        g = QMul_RoundUp(f, statusModifier);
+        g = QMul64_RoundUp(f, statusModifier);
 
     } else {
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
@@ -410,7 +410,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     debug_printf("captureValueCoeffcient: %d\n", captureValueCoeffcient);
 #endif
 
-    modifiedCatchRate = QMul_RoundUp(g, captureValueCoeffcient);
+    modifiedCatchRate = (u32)QMul64_RoundUp(g, captureValueCoeffcient);
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("modifiedCatchRate: %d\n", modifiedCatchRate);
 #endif
@@ -485,7 +485,12 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #endif
     shakeChance = get_shake_chance(modifiedCatchRate);
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
-    debug_printf("shakeChance: %d\n\n", shakeChance);
+    u32 shakeChanceCalculation = shakeChance * 10000 / 65536;
+    shakeChanceCalculation = shakeChanceCalculation * shakeChance / 65536;
+    shakeChanceCalculation = shakeChanceCalculation * shakeChance / 65536;
+    shakeChanceCalculation = shakeChanceCalculation * shakeChance / 65536;
+    debug_printf("shakeChance: %d\n", shakeChance);
+    debug_printf("  This is a %d.%d percent chance of capture.\n\n", shakeChanceCalculation / 100, shakeChanceCalculation % 100);
 #endif
 
     if (speciesCatchRate > 255)
