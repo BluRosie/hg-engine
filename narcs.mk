@@ -487,11 +487,15 @@ BATTLEGFX_DEPENDENCIES_DIR := rawdata/battle_gfx
 BATTLEWEATHERGFX_DEPENDENCIES_DIR := rawdata/weather_icons
 BATTLEGFX_DEPENDENCIES := $(wildcard $(BATTLEGFX_DEPENDENCIES_DIR)/*) $(wildcard $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*)
 
-$(BATTLEGFX_NARC): $(BATTLEGFX_DEPENDENCIES)
+ITEM_STYLE_DEPENDENCIES := $(wildcard $(BATTLEGFX_DEPENDENCIES_DIR)/*) $(wildcard $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_hud.png)
+BATTLEGFX_DEPENDENCIES := $(filter-out $(ITEM_STYLE_DEPENDENCIES),$(BATTLEGFX_DEPENDENCIES))
+
+$(BATTLEGFX_NARC): $(BATTLEGFX_DEPENDENCIES) $(ITEM_STYLE_DEPENDENCIES)
 	$(NARCHIVE) extract $(BATTLEGFX_TARGET) -o $(BATTLEGFX_DIR) -nf
 	for n in $$(seq 346 $$(expr $$(ls $(BATTLEGFX_DIR) | wc -l) - 1)); do rm -f $(BATTLEGFX_DIR)/8_$$n; done
 	cp -r $(BATTLEGFX_DEPENDENCIES_DIR)/. $(BATTLEGFX_DIR)
-	for file in $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*.png; do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -bitdepth 8 -nopad -comp 10; done
+	for file in $(ITEM_STYLE_DEPENDENCIES); do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR -clobbersize -version101 -bitdepth 4; $(GFX) $$file $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -ir -bitdepth 4; done
+	for file in $(BATTLEGFX_DEPENDENCIES); do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -bitdepth 8 -nopad -comp 10; done
 	for file in $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_terrain.png; do $(GFX) $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR.lz; rm $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; done
 	$(NARCHIVE) create $@ $(BATTLEGFX_DIR) -nf
 

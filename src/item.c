@@ -7,7 +7,9 @@
 
 #define ITEM_DATA_MAX (ITEM_ENIGMA_STONE)
 #define ITEM_DATA_ENTRIES (513)
-#define NEW_ITEM_GFX (807)
+#define GFX_ITEM_DUMMY_ID (793)
+#define GFX_ITEM_RETURN_ID (795)
+#define NEW_ITEM_GFX (797)
 
 u16 GetItemIndex(u16 item, u16 type);
 void *GetItemArcData(u16 item, u16 type, u32 heap_id);
@@ -80,11 +82,11 @@ u16 GetItemIndex(u16 item, u16 type)
     case ITEM_GET_ICON_CGX:
         if (item == ITEM_DUMMY_ID)
         {
-            return 793;
+            return (GFX_ITEM_DUMMY_ID);
         }
         if (item == ITEM_RETURN_ID)
         {
-            return 795;
+            return (GFX_ITEM_RETURN_ID);
         }
         if (item > ITEM_DATA_MAX)
             ret = NEW_ITEM_GFX + (item - ITEM_DATA_MAX - 1) * 2;
@@ -95,11 +97,11 @@ u16 GetItemIndex(u16 item, u16 type)
     case ITEM_GET_ICON_PAL:
         if (item == ITEM_DUMMY_ID)
         {
-            return 794;
+            return (GFX_ITEM_DUMMY_ID+1);
         }
         if (item == ITEM_RETURN_ID)
         {
-            return 796;
+            return (GFX_ITEM_RETURN_ID+1);
         }
         if (item > ITEM_DATA_MAX)
             ret = NEW_ITEM_GFX+1 + (item - ITEM_DATA_MAX - 1) * 2;

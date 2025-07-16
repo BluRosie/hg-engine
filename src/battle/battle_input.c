@@ -22,7 +22,7 @@ void BGCallback_Waza_Extend(struct BI_PARAM *bip, int select_bg, int force_put);
 u32 GrabCancelXValue(void);
 void SwapOutBottomScreen(struct BI_PARAM *bip);
 
-void __attribute__((long_call)) BGCallback_Waza(struct BI_PARAM *bip, int select_bg, int force_put);
+void LONG_CALL BGCallback_Waza(struct BI_PARAM *bip, int select_bg, int force_put);
 
 
 
@@ -187,21 +187,21 @@ void Sub_PokeIconResourceLoad(struct BI_PARAM *bip)
     {
         if (CheckIsPrimalGroudon(bip))
         {
-            OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_OMEGA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+            OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_BATTLE_GFX, PRIMAL_REVERSION_OMEGA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
         }
         else if (CheckIsPrimalKyogre(bip))
         {
-            OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_ALPHA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+            OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_BATTLE_GFX, PRIMAL_REVERSION_ALPHA_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
         }
         else if (CheckIsMega(bip))
         {
-            OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, MEGA_ICON_FIGHT_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
+            OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_BATTLE_GFX, MEGA_ICON_FIGHT_GFX+1, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_PAL_TAG);
         }
     }
 
-    OAM_LoadResourceCellArc(csp, crp, ARC_ITEM_GFX_DATA, 1, 0, MEGA_ICON_CELL_TAG);
+    OAM_LoadResourceCellArc(csp, crp, ARC_BATTLE_GFX, 1, 0, MEGA_ICON_CELL_TAG);
 
-    OAM_LoadResourceCellAnmArc(csp, crp, ARC_ITEM_GFX_DATA, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
+    OAM_LoadResourceCellAnmArc(csp, crp, ARC_BATTLE_GFX, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
 
 
     // weather
@@ -317,7 +317,7 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
-        OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, MEGA_ICON_FIGHT_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
+        OAM_LoadResourceCharArc(csp, crp, ARC_BATTLE_GFX, MEGA_ICON_FIGHT_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
         if (bip->client_no != 0)
             template.x = 103;
         newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &template);
@@ -328,7 +328,7 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
-        OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_OMEGA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
+        OAM_LoadResourceCharArc(csp, crp, ARC_BATTLE_GFX, PRIMAL_REVERSION_OMEGA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
         if (bip->client_no != 0)
             template.x = 101;
         newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &template);
@@ -339,7 +339,7 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
-        OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, PRIMAL_REVERSION_ALPHA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
+        OAM_LoadResourceCharArc(csp, crp, ARC_BATTLE_GFX, PRIMAL_REVERSION_ALPHA_GFX, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_ICON_SPRITE_TAG);
         if (bip->client_no != 0)
             template.x = 101;
         newBS.MegaOAM = OAM_ObjectAdd_S(csp, crp, &template);
@@ -405,11 +405,11 @@ void LoadMegaButton(struct BI_PARAM *bip)
             iconindex = MEGA_ICON_SELECTED_GFX;
             palindex = MEGA_ICON_SELECTED_GFX+1;
         }
-        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, palindex, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_PAL_TAG);
-        OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, iconindex, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_SPRITE_TAG);
+        OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_BATTLE_GFX, palindex, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_PAL_TAG);
+        OAM_LoadResourceCharArc(csp, crp, ARC_BATTLE_GFX, iconindex, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_SPRITE_TAG);
 
-        OAM_LoadResourceCellArc(csp, crp, ARC_ITEM_GFX_DATA, 1, 0, MEGA_ICON_CELL_TAG);
-        OAM_LoadResourceCellAnmArc(csp, crp, ARC_ITEM_GFX_DATA, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
+        OAM_LoadResourceCellArc(csp, crp, ARC_BATTLE_GFX, 1, 0, MEGA_ICON_CELL_TAG);
+        OAM_LoadResourceCellAnmArc(csp, crp, ARC_BATTLE_GFX, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
         newBS.MegaButton = OAM_ObjectAdd_S(csp, crp, &MegaButtonTemplate);
         OAM_ObjectUpdate(newBS.MegaButton->act);
     }
@@ -474,8 +474,8 @@ BOOL CheckMegaButton(struct BI_PARAM *bip, int tp_ret)
     }
     else
         newBS.MegaIconLight = 1;
-    OAM_LoadResourceCharArc(csp, crp, ARC_ITEM_GFX_DATA, iconindex, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_SPRITE_TAG);
-    OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_ITEM_GFX_DATA, palindex, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_PAL_TAG);
+    OAM_LoadResourceCharArc(csp, crp, ARC_BATTLE_GFX, iconindex, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_SPRITE_TAG);
+    OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_BATTLE_GFX, palindex, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_PAL_TAG);
     OAM_ObjectUpdate(newBS.MegaButton->act);
     Snd_SePlay(1501);
     EffectTCB_Add(EFFECT_MegaTouch, bip); //315c4
@@ -698,10 +698,10 @@ u16 TerrainPlatformPlayerNCGR[] =
     [TERRAIN_BATTLE_CASTLE] = 171,
     [TERRAIN_BATTLE_HALL] = 173,
     [TERRAIN_GIRATINA] = 175,
-    [TERRAIN_ELECTRIC_TERRAIN] = 357,
-    [TERRAIN_MISTY_TERRAIN] = 357,
-    [TERRAIN_GRASSY_TERRAIN] = 357,
-    [TERRAIN_PSYCHIC_TERRAIN] = 357,
+    [TERRAIN_ELECTRIC_TERRAIN] = BATTLE_GFX_TRANSPARENT_TERRAIN,
+    [TERRAIN_MISTY_TERRAIN] = BATTLE_GFX_TRANSPARENT_TERRAIN,
+    [TERRAIN_GRASSY_TERRAIN] = BATTLE_GFX_TRANSPARENT_TERRAIN,
+    [TERRAIN_PSYCHIC_TERRAIN] = BATTLE_GFX_TRANSPARENT_TERRAIN,
 };
 
 // indices in a008 that determine the nclr's for both sides' platforms
@@ -731,10 +731,10 @@ u16 TerrainPlatformPalettes[][3] =
     [TERRAIN_BATTLE_CASTLE] = {61, 62, 63},
     [TERRAIN_BATTLE_HALL] = {64, 65, 66},
     [TERRAIN_GIRATINA] = {67, 68, 69},
-    [TERRAIN_ELECTRIC_TERRAIN] = {358, 358, 358},
-    [TERRAIN_MISTY_TERRAIN] = {358, 358, 358},
-    [TERRAIN_GRASSY_TERRAIN] = {358, 358, 358},
-    [TERRAIN_PSYCHIC_TERRAIN] = {358, 358, 358},
+    [TERRAIN_ELECTRIC_TERRAIN] = {(BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1)},
+    [TERRAIN_MISTY_TERRAIN] = {(BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1)},
+    [TERRAIN_GRASSY_TERRAIN] = {(BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1)},
+    [TERRAIN_PSYCHIC_TERRAIN] = {(BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1)},
 };
 
 BattleBGStorage NewBattleBgTable[] =
