@@ -1099,6 +1099,26 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
+        case BEFORE_MOVE_STATE_GEM_ACTIVATION:
+        {
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
+            debug_printf("In BEFORE_MOVE_STATE_GEM_ACTIVATION\n");
+#endif
+            ctx->wb_seq_no++;
+
+            if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_POWERING_UP_MOVE_ONCE
+                && (BattleItemDataGet(ctx, ctx->battlemon[ctx->attack_client].item, 2) == ctx->move_type)
+                && IsAnyBattleMonHit(ctx))
+            {
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->gemActivated = TRUE;
+                return;
+
+            }
+            FALLTHROUGH;
+        }
         case BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY\n");

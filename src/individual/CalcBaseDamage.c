@@ -19,6 +19,7 @@ struct PACKED sDamageCalc
     s16 hp;
     u16 maxhp;
     u16 dummy;
+    u32 item;
     int item_held_effect;
     int item_power;
 
@@ -193,11 +194,11 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     AttackingMon.type2 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL);
     DefendingMon.type2 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE2, NULL);
 
-    item = GetBattleMonItem(sp, attacker);
+    AttackingMon.item = GetBattleMonItem(sp, attacker);
     AttackingMon.item_held_effect = BattleItemDataGet(sp, item, 1);
     AttackingMon.item_power = BattleItemDataGet(sp, item, 2);
 
-    item = GetBattleMonItem(sp, defender);
+    DefendingMon.item = GetBattleMonItem(sp, defender);
     DefendingMon.item_held_effect = BattleItemDataGet(sp, item, 1);
     DefendingMon.item_power = BattleItemDataGet(sp, item, 2);
 
@@ -236,9 +237,18 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     movetype = GetAdjustedMoveType(sp, attacker, moveno);
     movepower = movepower * sp->damage_value / 10;
 
+    // handle gems + acrobatics
+    if (moveno == MOVE_ACROBATICS && AttackingMon.item == ITEM_NONE)  //put before technician
+        movepower = movepower * 2;
+
+    if (sp->gemActivated) //put before technician
+    {
+        movepower = (movepower * 13) / 10;
+    }
+    
     // handle charge
     if ((sp->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_CHARGE) && (movetype == TYPE_ELECTRIC))
-        movepower *= 2;
+        movepower = movepower * 2;
 
     // handle helping hand
     if (sp->oneTurnFlag[attacker].helping_hand_flag)
@@ -647,7 +657,6 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         if (AttackingMon.ability == ABILITY_GALVANIZE && movetype == TYPE_ELECTRIC && sp->moveTbl[moveno].type == TYPE_NORMAL) {
             movepower = movepower * 120 / 100;
         }
-
         // handle refrigerate - 20% boost if a normal type move was changed to an ice type move.  does not boost ice type moves themselves
         if (AttackingMon.ability == ABILITY_REFRIGERATE && movetype == TYPE_ICE && sp->moveTbl[moveno].type == TYPE_NORMAL) {
             movepower = movepower * 120 / 100;

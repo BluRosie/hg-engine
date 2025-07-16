@@ -1374,6 +1374,8 @@ struct PACKED BattleStruct {
                int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
+
+               BOOL gemActivated;
 };
 
 enum {
@@ -1849,6 +1851,7 @@ enum {
     BEFORE_MOVE_STATE_TRIGGER_STRONG_WINDS,
     BEFORE_MOVE_STATE_TERA_SHELL,
     BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY,
+    BEFORE_MOVE_STATE_GEM_ACTIVATION,
 
     BEFORE_MOVE_END,
 };
@@ -3731,5 +3734,8 @@ void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int buffer
 void LONG_CALL BufferItemNameWithIndefArticle(u32 *msgFmt, u32 fieldno, u32 itemId);
 
 int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
+
+
+BOOL LONG_CALL IsAnyBattleMonHit(struct BattleStruct* ctx);
 
 #endif // BATTLE_H
