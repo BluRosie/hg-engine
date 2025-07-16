@@ -7,6 +7,7 @@ _000:
     Wait 
     // {0} became fully charged due to its {1}!
     PrintMessage 1251, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_ATTACKER
+    //{0}’s {1}\nboosted the attack!
     //PrintMessage 1562, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
