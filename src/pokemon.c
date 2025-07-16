@@ -847,7 +847,8 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
     u32 reshiramBool = splicer_pos & RESHIRAM_MASK;
     splicer_pos &= JUST_SPLICER_POS_MASK;
 
-    if (wk->dat->item == ITEM_DNA_SPLICERS
+    // TODO: handle correct item
+    if (wk->dat->item == ITEM_DNA_SPLICERS_FUSE
      && (splicer_pos < 6))
     {
         void *saveData = SaveBlock2_get();
