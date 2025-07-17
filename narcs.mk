@@ -390,7 +390,6 @@ $(BAGGFX_DIR)/5_%.NCGR:$(BAGGFX_DEPENDENCIES_DIR)/%.png
 $(BAGGFX_NARC): $(BAGGFX_OBJS) $(BAGGFX_PALS)
 	$(NARCHIVE) extract $(BAGGFX_TARGET) -o $(BAGGFX_DIR) -nf
 	for n in $$(seq 95 $$(expr $$(ls $(BAGGFX_DIR) | wc -l) - 1)); do rm -f $(BAGGFX_DIR)/5_$$n; done
-	for n in $$(seq 95 $$(expr $$(ls $(BAGGFX_DIR) | wc -l) - 1)); do rm -f $(BAGGFX_DIR)/5_$$(printf "%04d" $$n); done
 	$(NARCHIVE) create $@ $(BAGGFX_DIR) -nf
 
 NARC_FILES += $(BAGGFX_NARC)

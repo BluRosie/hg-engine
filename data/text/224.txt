@@ -535,4 +535,3 @@ Lock Capsules
 Red Orbs
 Blue Orbs
 Enigma Stones
-TM93s

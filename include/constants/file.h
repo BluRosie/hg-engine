@@ -51,6 +51,11 @@
 #define CODE_ADDON_FORM_REVERSION_MAPPING 13
 #define CODE_ADDON_TM_LEARNSETS 14
 
+//a015 file indexes
+#define BAG_HM_ICON 37
+#define BAG_TM_ICON 95
+#define BAG_TR_ICON 96
+
 //a018 file indices for mega stuff
 #define MEGA_ICON_FIGHT_GFX (797)
 #define PRIMAL_REVERSION_OMEGA_GFX (799)

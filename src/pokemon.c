@@ -2470,11 +2470,9 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
 /**
  * @brief checks if a given mon can learn a specific TM or HM by index. reads from data/TMLearnsets.c
  */
-BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
+BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) { // TODO zebben rename?
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
     u16 form = GetMonData(pp, MON_DATA_FORM, NULL);
-
-    debug_printf("[GetMonTMHMCompat] species %d form %d tmhm %d\n", species, form, tmhm);
 
     if (species > MAX_SPECIES_INCLUDING_FORMS) {
         return FALSE;
@@ -2484,7 +2482,6 @@ BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
         return FALSE;
     }
 
-    // TODO zebben - should try to override the existing TM data if possible?
     u32 buf[TM_LEARNSETS_BITFIELD_COUNT];
     ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * TM_LEARNSETS_BITFIELD_COUNT * sizeof(u32), TM_LEARNSETS_BITFIELD_COUNT * sizeof(u32));
 
@@ -2495,9 +2492,5 @@ BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u8 tmhm) {
  * @brief loads level up data for a mon. reads from data/LevelupLearnsets.c
  */
 void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset) {
-    //debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] species %d form %d\n", species, form);
-    species = PokeOtherFormMonsNoGet(species, form);
-    //debug_printf("[LoadLevelUpLearnset_HandleAlternateForm] species %d\n", species);
-
-    ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, 0, species * MAX_LEVELUP_MOVES * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
+    ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, 0, PokeOtherFormMonsNoGet(species, form) * MAX_LEVELUP_MOVES * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
 }

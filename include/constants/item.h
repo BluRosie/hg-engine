@@ -439,11 +439,16 @@
 #define ITEM_HM07            426
 #define ITEM_HM08            427
 
-#define NUM_VANILLA_TMS (ITEM_TM92 - ITEM_TM01 + 1)
-#define NUM_HMS         (ITEM_HM08 - ITEM_HM01 + 1)
+#define NUM_TMS (ITEM_TM92 - ITEM_TM01 + 1)
+#define NUM_HMS (ITEM_HM08 - ITEM_HM01 + 1)
 
-// tm learnset bitfield uses u32s
-// TODO zebben better spot for this? used in pokemon.c and LevelupLearnsets.c
+#define IS_ITEM_HM(item) ((item >= ITEM_HM01 && item <= ITEM_HM08))
+#define IS_ITEM_VANILLA_TM(item) ((item >= ITEM_TM01 && item <= ITEM_TM92))
+#define IS_ITEM_EXPANSION_TM(item) ((item < 0)) // stub
+#define IS_ITEM_TM(item) ((IS_ITEM_VANILLA_TM(item) || IS_ITEM_EXPANDED_TM(item)))
+#define IS_ITEM_TR(item) ((item < 0)) // stub
+
+// bitfield uses u32s so divide by 32
 #define TM_LEARNSETS_BITFIELD_COUNT (MAX_TMHM_MOVES / 32)
 
 #define ITEM_EXPLORER_KIT    428
@@ -871,8 +876,6 @@
 #define ITEM_WELLSPRING_MASK    (ITEM_PIXIE_PLATE + 213)
 #define ITEM_HEARTHFLAME_MASK   (ITEM_PIXIE_PLATE + 214)
 #define ITEM_METAL_ALLOY        (ITEM_PIXIE_PLATE + 215)
-
-#define ITEM_TM93 (ITEM_PIXIE_PLATE + 216)
 
 #define MAX_BASE_ITEM_NUM ITEM_METAL_ALLOY
 

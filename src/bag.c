@@ -5,7 +5,6 @@
 #include "../include/item.h"
 #include "../include/map_events_internal.h"
 #include "../include/save.h"
-#include "../include/sprite.h"
 #include "../include/script.h"
 
 
@@ -124,7 +123,6 @@ u32 Bag_GetItemPocket(BAG_DATA *bag, u16 itemId, ITEM_SLOT **ppSlots, u32 *pCoun
         *pCount = NUM_BAG_MAIL;
         break;
     case POCKET_TMHMS:
-        debug_printf("[Bag_GetItemPocket] itemId %d is a TM/HM\n", itemId);
         *ppSlots = bag->TMsHMs;
         *pCount = NUM_BAG_TMS_HMS;
         break;
@@ -348,21 +346,24 @@ void SortPocket(ITEM_SLOT *slots, u32 count) {
     }
 }
 
-u8 TMHMPocketSortPrecedence(u16 itemId) {
-    if (itemId >= ITEM_HM01 && itemId <= ITEM_HM08) {
-        return 2;
+u8 GetTMHMPocketSortPrecedence(u16 itemId) {
+    if (ITEM_IS_HM(itemId)) {
+        return SORT_ORDER_HM;
     }
-    return 1;
+    if (ITEM_IS_TR(itemId)) {
+        return SORT_ORDER_TR;
+    }
+    return SORT_ORDER_TM;
 }
 
 void SortTMHMPocket(ITEM_SLOT *slots, u32 count) {
     u32 i, j;
     for (i = 0; i < count - 1; i++) {
         for (j = i + 1; j < count; j++) {
-            if (slots[i].quantity == 0 || (slots[j].quantity != 0 && (
-                TMHMPocketSortPrecedence(slots[i].id) > TMHMPocketSortPrecedence(slots[j].id) ||
-                (TMHMPocketSortPrecedence(slots[i].id) == TMHMPocketSortPrecedence(slots[j].id) && slots[i].id > slots[j].id)
-            ))) {
+            u8 iSortOrder = GetTMHMPocketSortPrecedence(slots[i].id);
+            u8 jSortOrder = GetTMHMPocketSortPrecedence(slots[j].id);
+            if (slots[i].quantity == 0 || (slots[j].quantity != 0 &&
+                (iSortOrder > jSortOrder || iSortOrder == jSortOrder && slots[i].id > slots[j].id))) {
                 SwapItemSlots(&slots[i], &slots[j]);
             }
         }
@@ -472,23 +473,40 @@ BOOL IsPlayerOnLadder(void)
     return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
 }
 
-void LONG_CALL RenderTMHMLabels(void *context, void *window, const u16 *args, u32 baseY) {
+/**
+ * @brief Gets the machine move number for a given item id
+ */
+int GetMachineMoveNumber(u16 itemId) {
+    if (IS_ITEM_HM(itemId)) {
+        return itemId - ITEM_HM01 + 1;
+    }
+    if (IS_ITEM_VANILLA_TM(itemId)) {
+        return itemId - ITEM_TM01 + 1;
+    }
+    if (IS_ITEM_EXPANSION_TM(itemId)) {
+        return 0;
+    }
+    return 0;
+}
+
+/**
+ *  @brief draws the label and number for a TM/HM/TR item in the bag
+ */
+void LONG_CALL Bag_DrawMachineMoveLabel(void *context, void *window, const u16 *args, u32 baseY) {
     u16 itemId  = args[0];
     u16 labelId = args[1];
 
-    debug_printf("[RenderTMHMLabels] itemId = %d\n", itemId);
+    int numDigits = 3;
+    int icon = BAG_TM_ICON;
+
+    if (IS_ITEM_HM(itemId)) {
+        icon = BAG_HM_ICON;
+        numDigits = 2;
+    } else if (IS_ITEM_TR(itemId)) {
+        icon = BAG_TR_ICON;
+    }
 
     void *msgPrinter = *(void **)((u8 *)context + 0x2EC);
-    u16 move = TMHMGetMove(itemId);
-    if (MoveIsHM(move)) {
-        debug_printf("[RenderTMHMLabels] item is HM\n");
-
-        sub_0200CDF0(msgPrinter, itemId - 0x1A3, 2, 2, window, 0x18, baseY + 5);
-        ov15_021FE9B0(context, window, 37);
-    } else {
-        debug_printf("[RenderTMHMLabels] item is TM\n");
-
-        sub_0200CDF0(msgPrinter, GetTMNumber(itemId), 3, 2, window, 0x18, baseY + 5);
-        ov15_021FE9B0(context, window, 95);
-    }
+    sub_0200CDF0(msgPrinter, GetMachineMoveNumber(itemId), numDigits, 2, window, 24, baseY + 5);
+    ov15_021FE9B0(context, window, icon);
 }

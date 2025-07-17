@@ -848,8 +848,6 @@
 // define your custom move effects below like this
 // .equ ITEM_CUSTOM_1, (MAX_BASE_ITEM_NUM + 1)
 
-.equ ITEM_TM93, (ITEM_PIXIE_PLATE + 216)
-
 
 
 .endif

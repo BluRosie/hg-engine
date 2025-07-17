@@ -798,4 +798,3 @@ Cornerstone Mask
 Wellspring Mask
 Hearthflame Mask
 Metal Alloy
-TM93
