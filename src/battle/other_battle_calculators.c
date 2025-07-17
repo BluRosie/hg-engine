@@ -3179,7 +3179,7 @@ void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleS
 
     int rawSpeedArray[4] = {0, 0, 0, 0};
 
-    for (int i = 0; i < client_set_max - 1; i++) {
+    for (int i = 0; i < client_set_max; i++) {
         ctx->rawSpeedNonRNGClientOrder[i] = ctx->turnOrder[i];
 
         // Get the original unmodified speed stat from the party
@@ -3447,6 +3447,54 @@ BOOL LONG_CALL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp
     if (item != 0 && CanItemBeRemovedFromClient(sp, defender))
     {
         return TRUE;
+    }
+    return FALSE;
+}
+
+
+
+BOOL LONG_CALL IsAnyBattleMonHit(struct BattleStruct* ctx)
+{
+    u8 i = 0;
+    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx)))
+    {
+        while (i <= SPREAD_MOVE_LOOP_MAX)
+        {
+            switch (i)
+            {
+            case SPREAD_MOVE_LOOP_ALLY:
+                i++;
+                if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client)))
+                {
+                    return TRUE;
+                }
+                FALLTHROUGH;
+
+            case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
+                i++;
+                if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)))
+                {
+                    return TRUE;
+                }
+                FALLTHROUGH;
+            case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
+                i++;
+                if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)))
+                {
+                    return TRUE;
+                }
+            }
+        }
+    }
+    else
+    {
+        if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client))
+        {
+            return TRUE;
+        }
     }
     return FALSE;
 }
