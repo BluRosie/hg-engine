@@ -606,11 +606,6 @@
 #define ITEM_DIANCITE         (ITEM_MEGA_STONES_START + 46)
 #define ITEM_PIXIE_PLATE      (ITEM_MEGA_STONES_START + 47)
 
-#define ITEM_MAX_MEGA_STONES  (ITEM_PIXIE_PLATE)
-
-//Item expansion
-#define ITEM_EXPANSION_START    (ITEM_PIXIE_PLATE + 1)
-
 //Generation V
 #define ITEM_ABSORB_BULB        (ITEM_PIXIE_PLATE + 1)
 #define ITEM_AIR_BALLOON        (ITEM_PIXIE_PLATE + 2)
@@ -870,8 +865,11 @@
 
 #define MAX_BASE_ITEM_NUM ITEM_METAL_ALLOY
 
-// define your custom move effects below like this
+// define your custom items below like this
+// update MAX_TOTAL_ITEM_NUM below that
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
+
+#define MAX_TOTAL_ITEM_NUM ITEM_METAL_ALLOY
 
 
 
@@ -881,8 +879,8 @@
 
 #define IS_ITEM_MASK(item) (item >= ITEM_CORNERSTONE_MASK && item <= ITEM_HEARTHFLAME_MASK)
 
-#define NUM_UNKNOWN_SLOTS 22 // used to adjust in data/itemdata.c
-#define NUM_UNKNOWN_SLOTS_EXPLORER_KIT (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
+#define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
+#define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
 
 #define NEW_ITEM_MAX ITEM_METAL_ALLOY
 
