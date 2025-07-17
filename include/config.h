@@ -108,13 +108,9 @@
 // this will change existing mons too!  if you want to change the odds of wild mons only, you will have to add a certain amount of pid rerolls to the AddWildPartyPokemon routine
 #define SHINY_ODDS 8
 
-// LEARNSET_TOTAL_MOVES is the amount of moves that each pokémon should be able to learn by level up
-#define LEARNSET_TOTAL_MOVES 41 // 40+terminate - currently driven by gallade
-
 // FRIENDSHIP_EVOLUTION_THRESHOLD defines the amount of friendship needed to evolve mons with friendship-related evolutions
 // modern generations have this value at 160, older ones at 220.  still max out at 255
 #define FRIENDSHIP_EVOLUTION_THRESHOLD 160
-
 
 // Friendship grants additional bonuses.
 // Comment out the line below to revert back to Gen 5- behaviour
@@ -161,8 +157,9 @@
 #define MAX_TMHM_MOVES 128
 
 // MAX_LEVELUP_MOVES is the maximum number of level up moves each mon can learn
-// determines size of per-species arrays of level up moves
-#define MAX_LEVELUP_MOVES 40
+// determines size of per-species arrays of level up moves.
+// currently driven by Gallade (40 moves + 1 terminate)
+#define MAX_LEVELUP_MOVES 41
 
 // MAX_EGG_MOVES is the maximum number of egg moves each mon can inherit
 // determines size of per-species arrays of egg moves

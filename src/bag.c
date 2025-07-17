@@ -347,10 +347,10 @@ void SortPocket(ITEM_SLOT *slots, u32 count) {
 }
 
 u8 GetTMHMPocketSortPrecedence(u16 itemId) {
-    if (ITEM_IS_HM(itemId)) {
+    if (IS_ITEM_HM(itemId)) {
         return SORT_ORDER_HM;
     }
-    if (ITEM_IS_TR(itemId)) {
+    if (IS_ITEM_TR(itemId)) {
         return SORT_ORDER_TR;
     }
     return SORT_ORDER_TM;

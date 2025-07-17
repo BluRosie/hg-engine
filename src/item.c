@@ -329,9 +329,10 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
 }
 
 /**
- * @brief converts a TM or HM index to its corresponding TM/HM index
+ * @brief converts an item id to its corresponding TM/HM/TR index
+ * @see   pret/pokeheartgold ItemToTMHMId
  */
-u8 ItemToTMHMId(u16 itemId) { // TODO zebben rename?
+u16 ItemToTMHMId(u16 itemId) { // TODO zebben rename?
     if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) {
         return itemId - ITEM_TM01;
     }

@@ -23,8 +23,8 @@ SNOW_WARNING_GENERATION equ GEN_LATEST
 // CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
 CRY_PSEUDOBANK_START equ 778
 
-// LEARNSET_TOTAL_MOVES is the amount of moves that each pokémon should be able to learn by level up
-LEARNSET_TOTAL_MOVES equ 41 // 40+terminate - currently driven by gallade
+// MAX_LEVELUP_MOVES is the amount of moves that each pokémon should be able to learn by level up
+MAX_LEVELUP_MOVES equ 41 // 40+terminate - currently driven by gallade
 
 // BATTLE_MODE_FORCE_SET defines whether or not players will be able to switch out mons when the opponent sends out their next mon. The player will be able to choose themselves like normal if the following is 0, 1 if the player will be forced to use "set"
 BATTLE_MODE_FORCE_SET equ 0

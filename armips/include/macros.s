@@ -1,7 +1,5 @@
 .loadtable "armips/include/utf-8.txt"
 
-// TODO zebben go through this and figure out what's still needed
-
 // level up learnset macros
 
 .macro levelup,species

@@ -271,6 +271,8 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	$(MAKE) move_narc
 	$(ARMIPS) armips/global.s
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
+	$(NARCHIVE) create $(FILESYS)/a/0/3/3 $(BUILD)/a033/ -nf
+	$(NARCHIVE) create $(FILESYS)/kowaza $(BUILD)/kowaza/ -nf
 	@echo "Making ROM..."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo "Done.  See output $(BUILDROM)."
