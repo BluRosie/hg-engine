@@ -165,4 +165,9 @@
 // determines size of per-species arrays of egg moves
 #define MAX_EGG_MOVES 16
 
+// UPDATED_MACHINE_MOVE_LABELS modernizes bag label rendering for machine moves (TMs, HMs, and TRs)
+// to more closely match later generations. Note that disabling this will break TMs > 99 rendering in the bag
+// Comment out the line below to disable this feature
+#define UPDATE_MACHINE_MOVE_LABELS
+
 #endif

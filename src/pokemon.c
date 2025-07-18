@@ -2468,8 +2468,9 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
 
 /**
  * @brief checks if a given mon can learn a specific TM or HM by index. reads from data/TMLearnsets.c
+ * @see   pret/pokeheartgold GetMonTMHMCompat
  */
-BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u16 tmhm) { // TODO zebben rename?
+BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex) {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
     u16 form = GetMonData(pp, MON_DATA_FORM, NULL);
 
@@ -2477,14 +2478,14 @@ BOOL GetMonTMHMCompat(struct PartyPokemon *pp, u16 tmhm) { // TODO zebben rename
         return FALSE;
     }
 
-    if (tmhm >= MAX_TMHM_MOVES) {
+    if (machineMoveIndex >= MAX_TMHM_MOVES) { // TODO computed
         return FALSE;
     }
 
     u32 buf[TM_LEARNSETS_BITFIELD_COUNT];
     ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * TM_LEARNSETS_BITFIELD_COUNT * sizeof(u32), TM_LEARNSETS_BITFIELD_COUNT * sizeof(u32));
 
-    return (buf[tmhm / 32] >> (tmhm % 32)) & 1;
+    return (buf[machineMoveIndex / 32] >> (machineMoveIndex % 32)) & 1;
 }
 
 /**

@@ -347,7 +347,7 @@ void SortPocket(ITEM_SLOT *slots, u32 count) {
 }
 
 u8 GetTMHMPocketSortPrecedence(u16 itemId) {
-    if (IS_ITEM_HM(itemId)) {
+    if (IS_ITEM_VANILLA_HM(itemId)) {
         return SORT_ORDER_HM;
     }
     if (IS_ITEM_TR(itemId)) {
@@ -477,13 +477,20 @@ BOOL IsPlayerOnLadder(void)
  * @brief Gets the machine move number for a given item id
  */
 int GetMachineMoveNumber(u16 itemId) {
-    if (IS_ITEM_HM(itemId)) {
+    if (IS_ITEM_VANILLA_HM(itemId)) {
         return itemId - ITEM_HM01 + 1;
     }
     if (IS_ITEM_VANILLA_TM(itemId)) {
         return itemId - ITEM_TM01 + 1;
     }
+    // TODO zebben once we have item ids
+    if (IS_ITEM_EXPANSION_HM(itemId)) {
+        return 0;
+    }
     if (IS_ITEM_EXPANSION_TM(itemId)) {
+        return 0;
+    }
+    if (IS_ITEM_TR(itemId)) {
         return 0;
     }
     return 0;
@@ -494,19 +501,31 @@ int GetMachineMoveNumber(u16 itemId) {
  */
 void LONG_CALL Bag_DrawMachineMoveLabel(void *context, void *window, const u16 *args, u32 baseY) {
     u16 itemId  = args[0];
-    u16 labelId = args[1];
+    u16 machineMoveNumber = GetMachineMoveNumber(itemId);
+    void *msgPrinter = *(void **)((u8 *)context + 0x2EC);
 
-    int numDigits = 3;
-    int icon = BAG_TM_ICON;
+#ifdef UPDATE_MACHINE_MOVE_LABELS
+    int numDigits = 2;
+    int icon = BAG_HM_ICON;
 
-    if (IS_ITEM_HM(itemId)) {
-        icon = BAG_HM_ICON;
-        numDigits = 2;
+    if (IS_ITEM_TM(itemId)) {
+        icon = BAG_TM_ICON;
+        numDigits = 3;
     } else if (IS_ITEM_TR(itemId)) {
         icon = BAG_TR_ICON;
     }
 
-    void *msgPrinter = *(void **)((u8 *)context + 0x2EC);
-    sub_0200CDF0(msgPrinter, GetMachineMoveNumber(itemId), numDigits, 2, window, 24, baseY + 5);
+    sub_0200CDF0(msgPrinter, machineMoveNumber, numDigits, 2, window, 24, baseY + 5);
     ov15_021FE9B0(context, window, icon);
+#else
+    if (IS_ITEM_HM(itemId)) {
+        sub_0200CDF0(msgPrinter, machineMoveNumber, 2, 1, window, 0x10, baseY + 5);
+        ov15_021FE9B0(context, window, BAG_HM_ICON);
+    } else {
+        u16 labelId = args[1];
+        sub_0200CE7C(msgPrinter, 2, machineMoveNumber, 2, 2, window, 0x0, baseY + 5);
+        u32 labelArgs = ((u32)labelId << 16) | (baseY & 0xFFFF);
+        ov15_021FE8C4(context, labelArgs);
+    }
+#endif
 }

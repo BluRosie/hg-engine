@@ -39,9 +39,6 @@
 
 .endif
 
-// TODO remove
-.include "armips/asm/custom/mart_items.s"
-
 // code addon list
 //.include "armips/data/hiddenabilities.s" // the hidden ability list, 7
 //.include "armips/data/baseexp.s" // the base experience list, 8

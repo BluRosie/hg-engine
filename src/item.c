@@ -332,7 +332,7 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
  * @brief converts an item id to its corresponding TM/HM/TR index
  * @see   pret/pokeheartgold ItemToTMHMId
  */
-u16 ItemToTMHMId(u16 itemId) { // TODO zebben rename?
+u16 ItemToMachineMoveIndex(u16 itemId) {
     if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) {
         return itemId - ITEM_TM01;
     }
@@ -341,14 +341,15 @@ u16 ItemToTMHMId(u16 itemId) { // TODO zebben rename?
 }
 
 /**
- * @brief converts a TM or HM index into the associated move
+ * @brief converts an item id to its corresponding TM/HM/TR move id
+ * @see   pret/pokeheartgold TMHMGetMove
  */
-u16 TMHMGetMove(u16 itemId) { // TODO zebben rename?
+u16 ItemToMachineMove(u16 itemId) {
     if (itemId < ITEM_TM01) {
         return MOVE_NONE;
     }
 
-    u8 tmHmId = ItemToTMHMId(itemId);
+    u16 tmHmId = ItemToMachineMoveIndex(itemId);
     if (tmHmId >= sizeof(sTMHMMoves) + 1) {
         return MOVE_NONE;
     }

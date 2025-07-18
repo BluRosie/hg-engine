@@ -442,11 +442,13 @@
 #define NUM_TMS (ITEM_TM92 - ITEM_TM01 + 1)
 #define NUM_HMS (ITEM_HM08 - ITEM_HM01 + 1)
 
-#define IS_ITEM_HM(item) ((item >= ITEM_HM01 && item <= ITEM_HM08))
-#define IS_ITEM_VANILLA_TM(item) ((item >= ITEM_TM01 && item <= ITEM_TM92))
-#define IS_ITEM_EXPANSION_TM(item) ((item < 0)) // stub
-#define IS_ITEM_TM(item) ((IS_ITEM_VANILLA_TM(item) || IS_ITEM_EXPANDED_TM(item)))
-#define IS_ITEM_TR(item) ((item < 0)) // stub
+#define IS_ITEM_VANILLA_HM(item)   ((item >= ITEM_HM01 && item <= ITEM_HM08))
+#define IS_ITEM_VANILLA_TM(item)   ((item >= ITEM_TM01 && item <= ITEM_TM92))
+#define IS_ITEM_EXPANSION_TM(item) ((item < 0)) // stub TODO zebben once we have item ids
+#define IS_ITEM_EXPANSION_HM(item) ((item < 0)) // stub
+#define IS_ITEM_TM(item)           ((IS_ITEM_VANILLA_TM(item) || IS_ITEM_EXPANSION_TM(item)))
+#define IS_ITEM_HM(item)           ((IS_ITEM_VANILLA_HM(item) || IS_ITEM_EXPANSION_HM(item)))
+#define IS_ITEM_TR(item)           ((item < 0)) // stub
 
 // bitfield uses u32s so divide by 32
 #define TM_LEARNSETS_BITFIELD_COUNT (MAX_TMHM_MOVES / 32)
