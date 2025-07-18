@@ -1244,17 +1244,14 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
  *  @return number of egg moves in dest
  */
 u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest) {
-    debug_printf("[LoadEggMoves] species: %d, form: %d\n", GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
     u16 species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
-    debug_printf("[LoadEggMoves] specieswithform: %d\n", species);
-
     ArchiveDataLoadOfs(dest, ARC_EGG_MOVES, 0, species * EGG_MOVES_PER_MON * sizeof(u16), EGG_MOVES_PER_MON * sizeof(u16));
-    debug_printf("[LoadEggMoves] loaded.\n");
+
     u8 count = 0;
     while (count < EGG_MOVES_PER_MON && dest[count] != 0xFFFF) {
         count++;
     }
-    debug_printf("[LoadEggMoves] count %s\n", count);
+
     return count;
 }
 
