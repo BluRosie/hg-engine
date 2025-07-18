@@ -6,8 +6,8 @@
 // uncomment the define to have the information written to 0x23DF000
 //#define DEBUG_ADJUSTED_ACCURACY
 
-// DEBUG_ADJUSTED_DAMAGE is used to debug the adjusted damage for testing abilities that affect damage output.
-//#define DEBUG_ADJUSTED_DAMAGE
+// DEBUG_DAMAGE_ROLLS is used to print all of the damage rolls
+//#define DEBUG_DAMAGE_ROLLS
 
 // DEBUG_HIDDEN_ABILITIES is used to debug hidden abilities by forcing all generated mons to have the hidden ability bit set.
 // uncomment the define to activate
