@@ -10,7 +10,7 @@
 #define ITEM_DATA_ENTRIES (513)
 #define NEW_ITEM_GFX (807)
 
-static const u16 sTMHMMoves[] = {
+static const u16 sMachineMoves[] = {
     MOVE_FOCUS_PUNCH,  // TM01
     MOVE_DRAGON_CLAW,  // TM02
     MOVE_WATER_PULSE,  // TM03
@@ -350,16 +350,16 @@ u16 ItemToMachineMove(u16 itemId) {
     }
 
     u16 tmHmId = ItemToMachineMoveIndex(itemId);
-    if (tmHmId >= sizeof(sTMHMMoves) + 1) {
+    if (tmHmId >= sizeof(sMachineMoves) + 1) {
         return MOVE_NONE;
     }
-    return sTMHMMoves[tmHmId];
+    return sMachineMoves[tmHmId];
 }
 
 BOOL MoveIsHM(u16 moveId) {
     u8 i;
     for (i = 0; i < NUM_HMS; i++) {
-        if (sTMHMMoves[i + ITEM_HM01 - ITEM_TM01] == moveId) {
+        if (sMachineMoves[i + ITEM_HM01 - ITEM_TM01] == moveId) {
             return TRUE;
         }
     }

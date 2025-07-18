@@ -450,9 +450,6 @@
 #define IS_ITEM_HM(item)           ((IS_ITEM_VANILLA_HM(item) || IS_ITEM_EXPANSION_HM(item)))
 #define IS_ITEM_TR(item)           ((item < 0)) // stub
 
-// bitfield uses u32s so divide by 32
-#define TM_LEARNSETS_BITFIELD_COUNT (MAX_TMHM_MOVES / 32)
-
 #define ITEM_EXPLORER_KIT    428
 #define ITEM_LOOT_SACK       429
 #define ITEM_RULE_BOOK       430

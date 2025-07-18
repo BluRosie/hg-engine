@@ -70,24 +70,24 @@ $(FORMREVERSION_BIN): $(FORMREVERSION_DEPENDENCIES)
 NARC_FILES += $(FORMREVERSION_BIN)
 
 
-TMLEARNSET_TARGET := $(BUILD)/a028/9_14
-TMLEARNSET_DEPENDENCIES := data/TMLearnsets.c
-TMLEARNSET_OBJS := $(patsubst data/%.c,build/%.o,$(TMLEARNSET_DEPENDENCIES))
-TMLEARNSET_BIN := $(patsubst data/%.c,build/%.bin,$(TMLEARNSET_DEPENDENCIES))
+MACHINELEARNSET_TARGET := $(BUILD)/a028/9_14
+MACHINELEARNSET_DEPENDENCIES := data/generated/MachineMoveLearnsets.c
+MACHINELEARNSET_OBJS := $(patsubst data/generated/%.c,build/%.o,$(MACHINELEARNSET_DEPENDENCIES))
+MACHINELEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(MACHINELEARNSET_DEPENDENCIES))
 
-$(TMLEARNSET_BIN): $(LEARNSETS_DATA)
+$(MACHINELEARNSET_BIN): $(LEARNSETS_DATA)
 	@echo "generating tm learnsets..."
-	$(PYTHON) scripts/build_learnsets.py --learnsets $(LEARNSETS_DATA) --tmout ${TMLEARNSET_DEPENDENCIES}
-	$(CC) $(CFLAGS) -c $(TMLEARNSET_DEPENDENCIES) -o $(TMLEARNSET_OBJS)
-	$(OBJCOPY) -O binary $(TMLEARNSET_OBJS) $@
+	$(PYTHON) scripts/build_learnsets.py --learnsets $(LEARNSETS_DATA) --machineout ${MACHINELEARNSET_DEPENDENCIES} --constsout
+	$(CC) $(CFLAGS) -c $(MACHINELEARNSET_DEPENDENCIES) -o $(MACHINELEARNSET_OBJS)
+	$(OBJCOPY) -O binary $(MACHINELEARNSET_OBJS) $@
 
-NARC_FILES += $(TMLEARNSET_BIN)
+NARC_FILES += $(MACHINELEARNSET_BIN)
 
 
 LEVELUPLEARNSET_TARGET := $(BUILD)/a033/0_0
-LEVELUPLEARNSET_DEPENDENCIES := data/LevelupLearnsets.c
-LEVELUPLEARNSET_OBJS := $(patsubst data/%.c,build/%.o,$(LEVELUPLEARNSET_DEPENDENCIES))
-LEVELUPLEARNSET_BIN := $(patsubst data/%.c,build/%.bin,$(LEVELUPLEARNSET_DEPENDENCIES))
+LEVELUPLEARNSET_DEPENDENCIES := data/generated/LevelupLearnsets.c
+LEVELUPLEARNSET_OBJS := $(patsubst data/generated/%.c,build/%.o,$(LEVELUPLEARNSET_DEPENDENCIES))
+LEVELUPLEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(LEVELUPLEARNSET_DEPENDENCIES))
 
 $(LEVELUPLEARNSET_BIN): $(LEARNSETS_DATA)
 	@echo "generating levelup moves..."
@@ -100,9 +100,9 @@ REQUIRED_DIRECTORIES += $(BUILD)/a033
 
 
 EGGLEARNSET_TARGET := $(BUILD)/a229/0_0
-EGGLEARNSET_DEPENDENCIES := data/EggLearnsets.c
-EGGLEARNSET_OBJS := $(patsubst data/%.c,build/%.o,$(EGGLEARNSET_DEPENDENCIES))
-EGGLEARNSET_BIN := $(patsubst data/%.c,build/%.bin,$(EGGLEARNSET_DEPENDENCIES))
+EGGLEARNSET_DEPENDENCIES := data/generated/EggLearnsets.c
+EGGLEARNSET_OBJS := $(patsubst data/generated/%.c,build/%.o,$(EGGLEARNSET_DEPENDENCIES))
+EGGLEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(EGGLEARNSET_DEPENDENCIES))
 
 $(EGGLEARNSET_BIN): $(LEARNSETS_DATA)
 	@echo "generating egg learnsets..."

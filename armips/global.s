@@ -1,5 +1,6 @@
 .include "armips/include/config.s"
 .include "armips/include/constants.s"
+.include "armips/include/generated/levelup.s"
 
 // standard assembler includes
 .include "asm/include/abilities.inc"

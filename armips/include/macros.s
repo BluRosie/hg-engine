@@ -88,17 +88,6 @@
     .close
 .endmacro
 
-.macro tmdata,num1,num2,num3,num4 // handled by a python script and armips/data/tmlearnset.txt
-	.halfword 0 // padding
-
-	.word num1
-	.word num2
-	.word num3
-	.word num4
-
-	.close
-.endmacro
-
 
 // evolution data macros
 

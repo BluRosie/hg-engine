@@ -18,6 +18,7 @@
 #include "../include/constants/sndseq.h"
 #include "../include/constants/species.h"
 #include "../include/constants/weather_numbers.h"
+#include "../include/constants/generated/learnsets.h"
 
 
 extern u32 word_to_store_form_at;
@@ -1237,7 +1238,7 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
 }
 
 /**
- *  @brief load egg moves to dest and return amount of egg moves. reads from data/EggLearnsets.c
+ *  @brief load egg moves to dest and return amount of egg moves. reads from data/generated/EggLearnsets.c
  *
  *  @param pokemon PartyPokemon to grab egg moves for
  *  @param dest destination for the array of egg moves
@@ -1245,10 +1246,10 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
  */
 u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest) {
     u16 species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
-    ArchiveDataLoadOfs(dest, ARC_EGG_MOVES, 0, species * EGG_MOVES_PER_MON * sizeof(u16), EGG_MOVES_PER_MON * sizeof(u16));
+    ArchiveDataLoadOfs(dest, ARC_EGG_MOVES, 0, species * MAX_EGG_MOVES * sizeof(u16), MAX_EGG_MOVES * sizeof(u16));
 
     u8 count = 0;
-    while (count < EGG_MOVES_PER_MON && dest[count] != 0xFFFF) {
+    while (count < MAX_EGG_MOVES && dest[count] != 0xFFFF) {
         count++;
     }
 
@@ -1610,7 +1611,7 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
 
     i=GetBoxMonGender(boxmon);
     SetBoxMonData(boxmon,MON_DATA_GENDER,(u8 *)&i);
-    FillInBoxMonLearnset(boxmon);
+    InitBoxMonMoveset(boxmon);
     BoxMonSetFastModeOff(boxmon,flag);
 }
 
@@ -2467,7 +2468,7 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
 }
 
 /**
- * @brief checks if a given mon can learn a specific TM or HM by index. reads from data/TMLearnsets.c
+ * @brief checks if a given mon can learn a specific TM or HM by index. reads from data/generated/MachineMoveLearnsets.c
  * @see   pret/pokeheartgold GetMonTMHMCompat
  */
 BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex) {
@@ -2478,18 +2479,18 @@ BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex) {
         return FALSE;
     }
 
-    if (machineMoveIndex >= MAX_TMHM_MOVES) { // TODO computed
+    if (machineMoveIndex >= MAX_MACHINE_MOVES) {
         return FALSE;
     }
 
-    u32 buf[TM_LEARNSETS_BITFIELD_COUNT];
-    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * TM_LEARNSETS_BITFIELD_COUNT * sizeof(u32), TM_LEARNSETS_BITFIELD_COUNT * sizeof(u32));
+    u32 buf[MACHINE_LEARNSETS_BITFIELD_COUNT];
+    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * MACHINE_LEARNSETS_BITFIELD_COUNT * sizeof(u32), MACHINE_LEARNSETS_BITFIELD_COUNT * sizeof(u32));
 
     return (buf[machineMoveIndex / 32] >> (machineMoveIndex % 32)) & 1;
 }
 
 /**
- * @brief loads level up data for a mon. reads from data/LevelupLearnsets.c
+ * @brief loads level up data for a mon. reads from data/generated/LevelupLearnsets.c
  */
 void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset) {
     ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, 0, PokeOtherFormMonsNoGet(species, form) * MAX_LEVELUP_MOVES * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));

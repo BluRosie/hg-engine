@@ -151,20 +151,6 @@
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
 
-// MAX_TMHM_MOVES is the maximum number of TMs and HMs in the game AND MUST BE DIVISIBLE BY 32
-// determines size of per-species bitfields used for checking if a mon can learn a TM/HM
-// you can technically add more TMs though they render in the bag with an "HM" tag until it's fixed
-#define MAX_TMHM_MOVES 128
-
-// MAX_LEVELUP_MOVES is the maximum number of level up moves each mon can learn
-// determines size of per-species arrays of level up moves.
-// currently driven by Gallade (40 moves + 1 terminate)
-#define MAX_LEVELUP_MOVES 41
-
-// MAX_EGG_MOVES is the maximum number of egg moves each mon can inherit
-// determines size of per-species arrays of egg moves
-#define MAX_EGG_MOVES 16
-
 // UPDATED_MACHINE_MOVE_LABELS modernizes bag label rendering for machine moves (TMs, HMs, and TRs)
 // to more closely match later generations. Note that disabling this will break TMs > 99 rendering in the bag
 // Comment out the line below to disable this feature

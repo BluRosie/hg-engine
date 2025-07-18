@@ -74,7 +74,6 @@ PokeSexGetMonsNo = 0x0206FFC8 |1;
 BoxMonSetFastModeOn = 0x0206DDD8 |1;
 BoxMonSetFastModeOff = 0x0206DE00 |1;
 SetBoxMonData = 0x0206ED70 |1;
-FillInBoxMonLearnset = 0x020712D8 |1;
 PokePersonalParaGet = 0x0206FBE8 |1;
 BoxMonInit = 0x0206DD0C |1;
 PokeLevelExpGet = 0x0206FD00 |1;
