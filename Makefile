@@ -143,6 +143,7 @@ TUTORMOVES_DATA := data/tutor/tutor_moves.json
 
 ## includes
 include data/graphics/pokegra.mk
+include data/graphics/itemgra.mk
 include data/itemdata/itemdata.mk
 include data/codetables.mk
 include narcs.mk

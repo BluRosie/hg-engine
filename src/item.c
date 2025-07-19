@@ -7,8 +7,9 @@
 #include "../include/constants/item.h"
 
 #define ITEM_DATA_MAX (ITEM_ENIGMA_STONE)
-#define ITEM_DATA_ENTRIES (513)
-#define NEW_ITEM_GFX (807)
+#define GFX_ITEM_DUMMY_ID ((MAX_TOTAL_ITEM_NUM+1) * 2 + 2)
+#define GFX_ITEM_RETURN_ID ((MAX_TOTAL_ITEM_NUM+2) * 2 + 4)
+#define NEW_ITEM_GFX (797)
 
 static const u16 sMachineMoves[] = {
     MOVE_FOCUS_PUNCH,  // TM01
@@ -178,40 +179,43 @@ u16 GetItemIndex(u16 item, u16 type)
         {
             break;
         }
-        if (item > ITEM_DATA_MAX)
-            ret = ITEM_DATA_ENTRIES + (item - ITEM_DATA_MAX); // each new item gets a new data entry--537 maps to 514 + (537-536) = 515+
-        else
-            ret = ItemDataIndex[item].arc_data;
+        ret = item;
+        //if (item > ITEM_DATA_MAX)
+        //    ret = ITEM_DATA_ENTRIES + (item - ITEM_DATA_MAX); // each new item gets a new data entry--537 maps to 514 + (537-536) = 515+
+        //else
+        //    ret = ItemDataIndex[item].arc_data;
         return ret;
 
     case ITEM_GET_ICON_CGX:
         if (item == ITEM_DUMMY_ID)
         {
-            return 793;
+            return (GFX_ITEM_DUMMY_ID);
         }
         if (item == ITEM_RETURN_ID)
         {
-            return 795;
+            return (GFX_ITEM_RETURN_ID);
         }
-        if (item > ITEM_DATA_MAX)
-            ret = NEW_ITEM_GFX + (item - ITEM_DATA_MAX - 1) * 2;
-        else
-            ret = ItemDataIndex[item].arc_cgx;
+        ret = item * 2 + 2;
+        //if (item > ITEM_DATA_MAX)
+        //    ret = NEW_ITEM_GFX + (item - ITEM_DATA_MAX - 1) * 2;
+        //else
+        //    ret = ItemDataIndex[item].arc_cgx;
         return ret;
 
     case ITEM_GET_ICON_PAL:
         if (item == ITEM_DUMMY_ID)
         {
-            return 794;
+            return (GFX_ITEM_DUMMY_ID+1);
         }
         if (item == ITEM_RETURN_ID)
         {
-            return 796;
+            return (GFX_ITEM_RETURN_ID+1);
         }
-        if (item > ITEM_DATA_MAX)
-            ret = NEW_ITEM_GFX+1 + (item - ITEM_DATA_MAX - 1) * 2;
-        else
-            ret = ItemDataIndex[item].arc_pal;
+        ret = item * 2 + 3;
+        //if (item > ITEM_DATA_MAX)
+        //    ret = NEW_ITEM_GFX+1 + (item - ITEM_DATA_MAX - 1) * 2;
+        //else
+        //    ret = ItemDataIndex[item].arc_pal;
         return ret;
 
     case ITEM_GET_AGB_NUM: // for pal park purposes
@@ -232,18 +236,18 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id)
 {
     int dataid, picid,palid;
 
-    if (item > ITEM_DATA_MAX)
-    {
-        dataid = ITEM_DATA_ENTRIES + (item - ITEM_DATA_MAX);
-        picid = NEW_ITEM_GFX + (item - ITEM_DATA_MAX - 1) * 2;
-        palid = NEW_ITEM_GFX+1 + (item - ITEM_DATA_MAX - 1) * 2;
-    }
-    else
-    {
-        dataid = ItemDataIndex[item].arc_data;
-        picid = ItemDataIndex[item].arc_cgx;
-        palid = ItemDataIndex[item].arc_pal;
-    }
+    //if (item > ITEM_DATA_MAX)
+    //{
+        dataid = item;
+        picid = item * 2 + 2;
+        palid = item * 2 + 3;
+    //}
+    //else
+    //{
+    //    dataid = ItemDataIndex[item].arc_data;
+    //    picid = ItemDataIndex[item].arc_cgx;
+    //    palid = ItemDataIndex[item].arc_pal;
+    //}
 
     switch (type)
     {
