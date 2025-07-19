@@ -68,3 +68,49 @@ $(FORMREVERSION_BIN): $(FORMREVERSION_DEPENDENCIES)
 	$(OBJCOPY) -O binary $(FORMREVERSION_OBJS) $@
 
 NARC_FILES += $(FORMREVERSION_BIN)
+
+
+MACHINELEARNSET_TARGET := $(BUILD)/a028/9_14
+MACHINELEARNSET_DEPENDENCIES := data/generated/MachineMoveLearnsets.c
+MACHINELEARNSET_OBJS := $(patsubst data/generated/%.c,build/%.o,$(MACHINELEARNSET_DEPENDENCIES))
+MACHINELEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(MACHINELEARNSET_DEPENDENCIES))
+
+$(MACHINELEARNSET_BIN): $(LEARNSETS_DATA)
+	@echo "generating tm learnsets..."
+	$(PYTHON) scripts/build_learnsets.py --learnsets $(LEARNSETS_DATA) --machineout ${MACHINELEARNSET_DEPENDENCIES} --constsout
+	$(CC) $(CFLAGS) -c $(MACHINELEARNSET_DEPENDENCIES) -o $(MACHINELEARNSET_OBJS)
+	$(OBJCOPY) -O binary $(MACHINELEARNSET_OBJS) $@
+
+NARC_FILES += $(MACHINELEARNSET_BIN)
+
+
+LEVELUPLEARNSET_TARGET := $(BUILD)/a033/0_0
+LEVELUPLEARNSET_DEPENDENCIES := data/generated/LevelupLearnsets.c
+LEVELUPLEARNSET_OBJS := $(patsubst data/generated/%.c,build/%.o,$(LEVELUPLEARNSET_DEPENDENCIES))
+LEVELUPLEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(LEVELUPLEARNSET_DEPENDENCIES))
+
+$(LEVELUPLEARNSET_BIN): $(LEARNSETS_DATA)
+	@echo "generating levelup moves..."
+	$(PYTHON) scripts/build_learnsets.py --learnsets $(LEARNSETS_DATA) --levelupout ${LEVELUPLEARNSET_DEPENDENCIES}
+	$(CC) $(CFLAGS) -c $(LEVELUPLEARNSET_DEPENDENCIES) -o $(LEVELUPLEARNSET_OBJS)
+	$(OBJCOPY) -O binary $(LEVELUPLEARNSET_OBJS) $@
+
+NARC_FILES += $(LEVELUPLEARNSET_BIN)
+REQUIRED_DIRECTORIES += $(BUILD)/a033
+
+
+EGGLEARNSET_TARGET := $(BUILD)/a229/0_0
+EGGLEARNSET_DEPENDENCIES := data/generated/EggLearnsets.c
+EGGLEARNSET_OBJS := $(patsubst data/generated/%.c,build/%.o,$(EGGLEARNSET_DEPENDENCIES))
+EGGLEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(EGGLEARNSET_DEPENDENCIES))
+
+$(EGGLEARNSET_BIN): $(LEARNSETS_DATA)
+	@echo "generating egg learnsets..."
+	$(PYTHON) scripts/build_learnsets.py --learnsets $(LEARNSETS_DATA) --eggout $(EGGLEARNSET_DEPENDENCIES)
+	$(CC) $(CFLAGS) -c $(EGGLEARNSET_DEPENDENCIES) -o $(EGGLEARNSET_OBJS)
+	$(OBJCOPY) -O binary $(EGGLEARNSET_OBJS) $@
+
+NARC_FILES += $(EGGLEARNSET_BIN)
+REQUIRED_DIRECTORIES += $(BUILD)/a229
+
+

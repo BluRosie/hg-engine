@@ -136,6 +136,11 @@ OBJS     := $(C_OBJS) $(ASM_OBJS)
 
 REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
+
+LEARNSETS_DATA := data/mon/learnsets.json
+TUTORMOVES_DATA := data/tutor/tutor_moves.json
+
+
 ## includes
 include data/graphics/pokegra.mk
 include data/graphics/itemgra.mk
@@ -267,6 +272,8 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	$(MAKE) move_narc
 	$(ARMIPS) armips/global.s
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
+	$(NARCHIVE) create $(FILESYS)/a/0/3/3 $(BUILD)/a033/ -nf
+	$(NARCHIVE) create $(FILESYS)/a/2/2/9 $(BUILD)/a229/ -nf
 	@echo "Making ROM..."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo "Done.  See output $(BUILDROM)."
@@ -336,15 +343,8 @@ move_narc: $(NARC_FILES)
 	@echo "pokedex sort lists:"
 	cp $(DEXSORT_NARC) $(DEXSORT_TARGET)
 
-	@echo "egg moves:"
-	cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET)
-	cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET_2)
-
 	@echo "evolution data:"
 	cp $(EVOS_NARC) $(EVOS_TARGET)
-
-	@echo "mon learnset data:"
-	cp $(LEARNSET_NARC) $(LEARNSET_TARGET)
 
 	@echo "regional dex order:"
 	cp $(REGIONALDEX_NARC) $(REGIONALDEX_TARGET)
@@ -374,6 +374,9 @@ move_narc: $(NARC_FILES)
 
 	@echo "battle sub effects:"
 	cp $(BATTLE_SUB_NARC) $(BATTLE_SUB_TARGET)
+
+	@echo "bag gfx:"
+	cp $(BAGGFX_NARC) $(BAGGFX_TARGET)
 
 	@echo "item gfx:"
 	cp $(ITEMGFX_NARC) $(ITEMGFX_TARGET)
@@ -434,10 +437,9 @@ move_narc: $(NARC_FILES)
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
 
-	@echo "tutor moves and tm moves:"
-	$(PYTHON) scripts/tm_learnset.py --writetmlist armips/data/tmlearnset.txt
-	$(PYTHON) scripts/tutor_learnset.py --writemovecostlist armips/data/tutordata.txt
-	$(PYTHON) scripts/tutor_learnset.py armips/data/tutordata.txt
+	@echo "tutor moves:"
+	$(PYTHON) scripts/tutor_learnset.py --writemovecostlist $(TUTORMOVES_DATA)
+	$(PYTHON) scripts/tutor_learnset.py --writetutorlearnsets $(TUTORMOVES_DATA) $(LEARNSETS_DATA)
 
 	@if test -s build/a028/8_00; then \
 		rm -rf build/a028/8_0 build/a028/8_1 build/a028/8_2 build/a028/8_3 build/a028/8_4 build/a028/8_5 build/a028/8_6 build/a028/8_7 build/a028/8_8 build/a028/8_9; \
@@ -467,6 +469,15 @@ move_narc: $(NARC_FILES)
 
 	@echo "form reversion mapping table:"
 	cp $(FORMREVERSION_BIN) $(FORMREVERSION_TARGET)
+
+	@echo "tm moves:"
+	cp $(MACHINELEARNSET_BIN) $(MACHINELEARNSET_TARGET)
+
+	@echo "levelup moves:"
+	cp $(LEVELUPLEARNSET_BIN) $(LEVELUPLEARNSET_TARGET)
+
+	@echo "egg moves:"
+	cp $(EGGLEARNSET_BIN) $(EGGLEARNSET_TARGET)
 
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:

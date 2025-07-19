@@ -10,7 +10,7 @@
 
 // initialize box mon learnset - InitBoxMonMoveset
 .org 0x020712E0
-    mov r1, #4*LEARNSET_TOTAL_MOVES
+    mov r1, #4*MAX_LEVELUP_MOVES
 
 .org 0x02071320
     ldr r1, [r0]
@@ -36,7 +36,7 @@
 
 // learn move on level up - MonTryLearnMoveOnLevelUp
 .org 0x0207153E
-    mov r1, #4*LEARNSET_TOTAL_MOVES
+    mov r1, #4*MAX_LEVELUP_MOVES
 
 .org 0x02071580
     lsl r0, r0, #2
@@ -63,7 +63,7 @@
 
 // load learnset table - Species_LoadLearnsetTable
 .org 0x02071908
-    mov r1, #4*LEARNSET_TOTAL_MOVES
+    mov r1, #4*MAX_LEVELUP_MOVES
 
 .org 0x02071926
     mov r1, r0 // move 0xFFFF into r1 to update mask
@@ -75,10 +75,10 @@
 
 // handle blackthorn tutors properly - GetEligibleLevelUpMoves
 .org 0x020917C4
-    mov r1, #4*LEARNSET_TOTAL_MOVES
+    mov r1, #4*MAX_LEVELUP_MOVES
 
 .org 0x020917CE
-    mov r1, #4*LEARNSET_TOTAL_MOVES
+    mov r1, #4*MAX_LEVELUP_MOVES
 
 .org 0x020917E6
     lsl r0, r0, #2 // multiply by 4 instead of 2
@@ -123,7 +123,7 @@ _moveLoop: // r1 is loop index, r6 is currMoveSet
     strh r1, [r4, r0]
 
 .org 0x02091858
-    cmp r0, #LEARNSET_TOTAL_MOVES
+    cmp r0, #MAX_LEVELUP_MOVES
 
 
 .close
