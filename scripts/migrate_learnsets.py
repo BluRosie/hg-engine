@@ -1,10 +1,9 @@
+import argparse
 import json
-import sys
-import os
 import re
+import os
 from collections import defaultdict, OrderedDict
 
-# TODO zebben rename this. does all learnsets not just TMs
 
 def parse_species_header(file_path):
     species_dict = {}
@@ -73,7 +72,7 @@ def parse_egg_moves(eggmove_file):
 
 
 def parse_tutor_data(tutor_file):
-    tutor_by_location_output = defaultdict(list)
+    flattened_tutors = []
     species_to_tutor_moves = defaultdict(list)
 
     current_location = None
@@ -89,19 +88,22 @@ def parse_tutor_data(tutor_file):
             header_match = re.match(r"(TUTOR_[A-Z_]+):\s+(MOVE_[A-Z0-9_]+)\s+(\d+)", line)
             if header_match:
                 current_location, current_move, current_cost = header_match.groups()
-                tutor_by_location_output[current_location].append({
+                tutor_name = current_location.replace("TUTOR_", "").title().replace("_", "")
+                flattened_tutors.append({
                     "Move": current_move,
-                    "Cost": int(current_cost)
+                    "Cost": int(current_cost),
+                    "Tutor": tutor_name
                 })
-            elif line.startswith("SPECIES_") and current_location:
+                continue
+
+            if line.startswith("SPECIES_") and current_move:
                 species = line
                 species_to_tutor_moves[species].append(current_move)
 
-    return tutor_by_location_output, species_to_tutor_moves
+    return flattened_tutors, species_to_tutor_moves
 
 
-
-def txt_to_json(input_file, species_output_file, moves_output_file, species_header_file, levelup_file, eggmove_file, tutor_file, tutor_output_file):
+def parse_tm_file(input_file):
     species_to_tms = defaultdict(list)
     tm_hm = {}
     current_tm = None
@@ -122,10 +124,28 @@ def txt_to_json(input_file, species_output_file, moves_output_file, species_head
                 species = stripped
                 species_to_tms[species].append(current_tm)
 
+    return tm_hm, species_to_tms
+
+
+def flatten_tutor_data(tutor_data_by_location):
+    flat_list = []
+    for location in tutor_data_by_location:
+        tutor_name = location.replace("TUTOR_", "").title().replace("_", "")
+        for entry in tutor_data_by_location[location]:
+            flat_list.append({
+                "Move": entry["Move"],
+                "Cost": entry["Cost"],
+                "Tutor": tutor_name
+            })
+    return flat_list
+
+
+def convert_to_json(tm_file, levelup_file, egg_file, tutor_file, species_header, out_learnsets, out_tutors):
+    tm_hm, species_to_tms = parse_tm_file(tm_file)
     levelup_data = parse_levelup_moves(levelup_file)
-    eggmove_data = parse_egg_moves(eggmove_file)
+    eggmove_data = parse_egg_moves(egg_file)
     tutor_data_by_location, species_to_tutor = parse_tutor_data(tutor_file)
-    ordered_species = parse_species_header(species_header_file)
+    ordered_species = parse_species_header(species_header)
     ordered_data = OrderedDict()
 
     for species in ordered_species:
@@ -137,90 +157,47 @@ def txt_to_json(input_file, species_output_file, moves_output_file, species_head
 
         ordered_data[species] = {
             "LevelMoves": levelup_data.get(species, []),
-            "TMMoves": sorted(set(tm_moves)),
+            "MachineMoves": sorted(set(tm_moves)),
             "EggMoves": eggmove_data.get(species, []),
             "TutorMoves": sorted(species_to_tutor.get(species, []))
         }
 
-    with open(species_output_file, "w") as f:
+    os.makedirs(os.path.dirname(out_learnsets), exist_ok=True)
+    with open(out_learnsets, "w") as f:
         json.dump(ordered_data, f, indent=2)
 
-    with open(moves_output_file, "w") as f:
-        json.dump(tm_hm, f, indent=2)
+    for tm_id in sort_tm_list(tm_hm):
+        move = tm_hm[tm_id]
+        prefix = tm_id[:2]
+        number = int(tm_id[2:])
+        comment = f"{prefix}{number:02}"
+        print(f"{move},".ljust(22) + f"// {comment}")
 
-    with open(tutor_output_file, "w") as f:
-        json.dump(tutor_data_by_location, f, indent=2)
-
-    print(f"Converted TXT → JSON")
-    print(f"  Species TM/Tutor data: {species_output_file}")
-    print(f"  TM/HM move names: {moves_output_file}")
-    print(f"  Tutor move locations: {tutor_output_file}")
-
-
-def json_to_txt(species_input_file, moves_input_file, output_file, species_header_file):
-    with open(species_input_file, "r") as f:
-        species_data = json.load(f)
-
-    with open(moves_input_file, "r") as f:
-        tm_hm = json.load(f)
-
-    species_order = parse_species_header(species_header_file)
-    tm_to_species = defaultdict(set)
-
-    for species, entry in species_data.items():
-        for tm in entry.get("TMMoves", []):
-            tm_to_species[tm].add(species)
-
-    tm_ids = sorted([tm for tm in tm_to_species if tm.startswith("TM")], key=lambda x: int(x[2:]))
-    hm_ids = sorted([tm for tm in tm_to_species if tm.startswith("HM")], key=lambda x: int(x[2:]))
-    sorted_tm_ids = tm_ids + hm_ids
-
-    with open(output_file, "w") as f:
-        for tm_id in sorted_tm_ids:
-            move_name = tm_hm.get(tm_id, "")
-            f.write(f"{tm_id}: {move_name}\n")
-            for species in species_order:
-                if species in tm_to_species[tm_id]:
-                    f.write(f"    {species}\n")
-            f.write("\n")
-
-    print(f"Converted JSON → TXT: {output_file}")
+    os.makedirs(os.path.dirname(out_tutors), exist_ok=True)
+    flattened_tutors, species_to_tutor = parse_tutor_data(tutor_file)
+    with open(out_tutors, "w") as f:
+        json.dump(flattened_tutors, f, indent=2)
 
 
-def print_usage():
-    print("Usage:")
-    print("  To convert TXT to JSON (3 files):")
-    print("    python convert_tmlearnset.py to-json <input.txt> <species.json> <moves.json> <species.h> <levelup_data.txt> <egg_moves.txt> <tutor_data.txt> <tutor_output.json>")
-    print("  To convert JSON back to TXT:")
-    print("    python convert_tmlearnset.py to-txt <species.json> <moves.json> <output.txt> <species.h>")
-
-
-# TODO zebben clean me up
 if __name__ == "__main__":
-    if len(sys.argv) < 5:
-        print_usage()
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Convert learnsets to new JSON format")
+    parser.add_argument("--tm", default="armips/data/tmlearnset.txt")
+    parser.add_argument("--levelup", default="armips/data/levelupdata.s")
+    parser.add_argument("--egg", default="armips/data/eggmoves.s")
+    parser.add_argument("--tutor", default="armips/data/tutordata.txt")
+    parser.add_argument("--species-header", default="include/constants/species.h")
 
-    mode = sys.argv[1]
+    parser.add_argument("--out-learnsets", default="data/mon/learnsets.json")
+    parser.add_argument("--out-tutors", default="data/tutor/tutor_moves.json")
 
-    if mode == "to-json":
-        if len(sys.argv) != 10:
-            print_usage()
-            sys.exit(1)
-        input_txt, species_json, moves_json, species_header, levelup_file, eggmove_file, tutor_file, tutor_output_file = sys.argv[2:10]
-        if not os.path.exists(input_txt):
-            print(f"Error: input file '{input_txt}' does not exist.")
-            sys.exit(1)
-        txt_to_json(input_txt, species_json, moves_json, species_header, levelup_file, eggmove_file, tutor_file, tutor_output_file)
+    args = parser.parse_args()
 
-    elif mode == "to-txt":
-        if len(sys.argv) != 6:
-            print_usage()
-            sys.exit(1)
-        species_json, moves_json, output_txt, species_header = sys.argv[2:6]
-        json_to_txt(species_json, moves_json, output_txt, species_header)
-
-    else:
-        print(f"Error: unknown mode '{mode}'")
-        print_usage()
-        sys.exit(1)
+    convert_to_json(
+        args.tm,
+        args.levelup,
+        args.egg,
+        args.tutor,
+        args.species_header,
+        args.out_learnsets,
+        args.out_tutors
+    )
