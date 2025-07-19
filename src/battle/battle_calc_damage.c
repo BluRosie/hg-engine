@@ -421,7 +421,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     // 6.9.14.2 Dig
     if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING
-        && sp->current_move_index == MOVE_DIG) {
+        && sp->current_move_index == MOVE_EARTHQUAKE) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
