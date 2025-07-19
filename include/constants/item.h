@@ -2562,6 +2562,8 @@
 #define ITEM_VIOLET_BOOK_SVID             2556
 #define ITEM_BRIARS_BOOK                  2557
 
+#define MAX_BASE_ITEM_NUM ITEM_BRIARS_BOOK
+
 // define your custom move effects below like this
 #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
 
@@ -2632,14 +2634,14 @@
 
 #else
 
-define NUM_BAG_ITEMS        165
-define NUM_BAG_MEDICINE      40
-define NUM_BAG_BALLS         24
-define NUM_BAG_TMS_HMS      101
-define NUM_BAG_BERRIES       64
-define NUM_BAG_MAIL          12
-define NUM_BAG_BATTLE_ITEMS  30
-define NUM_BAG_KEY_ITEMS     50
+#define NUM_BAG_ITEMS        165
+#define NUM_BAG_MEDICINE      40
+#define NUM_BAG_BALLS         24
+#define NUM_BAG_TMS_HMS      101
+#define NUM_BAG_BERRIES       64
+#define NUM_BAG_MAIL          12
+#define NUM_BAG_BATTLE_ITEMS  30
+#define NUM_BAG_KEY_ITEMS     50
 
 #endif
 
