@@ -1478,7 +1478,7 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
 #endif
 
     // Step 4.2. Chip Away / Sacred Sword
-    if ((moveno == MOVE_CHIP_AWAY) && (moveno == MOVE_SACRED_SWORD)) {
+    if ((moveno == MOVE_CHIP_AWAY) || (moveno == MOVE_SACRED_SWORD)) {
         DefendingMon.defstate = 0;
         DefendingMon.spdefstate = 0;
     }
@@ -1491,7 +1491,7 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
 #endif
 
     // Step 4.3. Psyshock / Psystrike / Secret Sword
-    if ((moveno == MOVE_PSYSHOCK) && (moveno == MOVE_PSYSTRIKE) && (moveno == MOVE_SECRET_SWORD)) {
+    if ((moveno == MOVE_PSYSHOCK) || (moveno == MOVE_PSYSTRIKE) || (moveno == MOVE_SECRET_SWORD)) {
         DefendingMon.sp_defense = DefendingMon.defense;
     }
 
