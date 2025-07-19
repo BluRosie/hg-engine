@@ -1585,7 +1585,7 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
 
             // handle Marvel Scale
             if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MARVEL_SCALE) == TRUE)
-            && (AttackingMon.condition)
+            && (DefendingMon.condition)
             && (movesplit == SPLIT_PHYSICAL)) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
             }
