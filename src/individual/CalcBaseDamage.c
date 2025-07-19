@@ -1506,8 +1506,8 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
 
     // Step 4.5. Critical hit
     if (critical > 1) {
-        DefendingMon.defstate = AttackingMon.defstate < 0 ? 0 : AttackingMon.defstate;
-        DefendingMon.spdefstate = AttackingMon.spdefstate < 0 ? 0 : AttackingMon.spdefstate;
+        DefendingMon.defstate = DefendingMon.defstate < 0 ? 0 : DefendingMon.defstate;
+        DefendingMon.spdefstate = DefendingMon.spdefstate < 0 ? 0 : DefendingMon.spdefstate;
     }
 
 #ifdef DEBUG_DAMAGE_CALC
