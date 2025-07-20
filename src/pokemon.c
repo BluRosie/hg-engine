@@ -2479,7 +2479,7 @@ BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex) {
         return FALSE;
     }
 
-    if (machineMoveIndex >= MAX_MACHINE_MOVES) {
+    if (machineMoveIndex > NUM_MACHINE_MOVES) {
         return FALSE;
     }
 

@@ -35,6 +35,7 @@ const u8 sPocketCountBytes[8] = {
 
 
 void SortPocket(ITEM_SLOT *slots, u32 count);
+void SortTMHMPocket(ITEM_SLOT *slots, u32 count);
 void PocketCompaction(ITEM_SLOT *slots, u32 count);
 
 u32 Sav2_Bag_sizeof(void) {
