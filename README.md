@@ -37,6 +37,8 @@
 
 *A more comprehensive list of features + a roadmap can be found by visiting the [hg-engine wiki](https://github.com/BluRosie/hg-engine/wiki).  Please read this README and the Wiki thoroughly before asking questions.*
 
+If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Setup Instructions (Linux with apt)
 1. In a Terminal window, run the following commands:
     * ```sudo apt-get install libpng-dev build-essential cmake python3-pip python3-venv git automake autoconf gcc-arm-none-eabi pkg-config```
