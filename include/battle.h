@@ -3030,7 +3030,7 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no);
  *  @param client battler whose stats to compare among themselves for beast boost
  *  @return the highest raw stat the the client has (excluding HP)
  */
-u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
+u8 LONG_CALL BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
 
 
 // defined in other_battle_calculators.c
