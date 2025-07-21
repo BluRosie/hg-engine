@@ -1,6 +1,7 @@
 import sys
 import os
 import struct
+import json
 
 dump = False
 
@@ -12,10 +13,10 @@ numToTutorName = {
 }
 
 tutorNameToNum = {
-    "TUTOR_TOP_LEFT": 0,
-    "TUTOR_TOP_RIGHT": 1,
-    "TUTOR_BOTTOM_RIGHT": 2,
-    "TUTOR_HEADBUTT": 3,
+    "TopLeft": 0,
+    "TopRight": 1,
+    "BottomRight": 2,
+    "Headbutt": 3,
 }
 
 def GrabSpeciesDict(speciesDict: dict):
@@ -63,35 +64,38 @@ fielddata/wazaoshie/waza_oshie.bin
 
 NUM_OF_ENTRIES = 52
 
-def tutordatabuilder(inputPath: str):
+def tutordatabuilder(tutorInputPath: str, learnsetInputPath: str):
     speciesDict = {}
     tutor_data = {}
     GrabSpeciesDict(speciesDict)
-    tutorId = -1 # -1 so that when it iterates on finding the first entry it equals 0
     # idea is to iterate through file and switch up tutor id when needed and such
-    with open(inputPath, 'r', encoding="UTF-8") as file:
-        for line in file:
-            if line.startswith('TUTOR'): # new tutor move entry
-                if tutorId >= (NUM_OF_ENTRIES):
-                    print('tutorId too high: {:2d} >= {:2d}{\nQuitting execution...'.format(tutorId, NUM_OF_ENTRIES))
-                    return
-                tutorId = tutorId + 1
-            elif line.strip().startswith('SPECIES'): # SPECIES entry in current tutorId
-                try:
-                    tutor_data[speciesDict[line.strip()]] |= (1 << tutorId)
-                except KeyError:
-                    tutor_data[speciesDict[line.strip()]] = (1 << tutorId)
-    tutorDataFile = open("base/root/fielddata/wazaoshie/waza_oshie.bin", "wb")
-    for elem in range(1, len(speciesDict)):
-        data_to_write = [0, 0]
-        try:
-            for i in range(0, 2):
-                data_to_write = struct.pack("<I", (tutor_data[elem] >> (32 * i)) & 0xFFFFFFFF)
+    with open(tutorInputPath, encoding="utf-8") as f:
+        tutor_entries = json.load(f)
+    move_index = {entry["Move"]: idx for idx, entry in enumerate(tutor_entries)}
+
+    with open(learnsetInputPath, encoding="utf-8") as f:
+        species_learnsets = json.load(f)
+
+    for species_name, learnset in species_learnsets.items():
+        if species_name not in speciesDict:
+            continue
+        bitfield = 0
+        for move in learnset.get("TutorMoves", []):
+            if move in move_index:
+                bitfield |= (1 << move_index[move])
+        tutor_data[speciesDict[species_name]] = bitfield
+
+    with open("base/root/fielddata/wazaoshie/waza_oshie.bin", "wb") as tutorDataFile:
+        for elem in range(1, len(speciesDict)):
+            data_to_write = [0, 0]
+            try:
+                for i in range(0, 2):
+                    data_to_write = struct.pack("<I", (tutor_data[elem] >> (32 * i)) & 0xFFFFFFFF)
+                    tutorDataFile.write(data_to_write)
+            except KeyError:
+                data_to_write = bytes([0, 0, 0, 0, 0, 0, 0, 0])
                 tutorDataFile.write(data_to_write)
-        except KeyError:
-            data_to_write = bytes([0, 0, 0, 0, 0, 0, 0, 0])
-            tutorDataFile.write(data_to_write)
-    tutorDataFile.close()
+
 
 def tutordatadumper(outputPath: str):
     speciesDict = {}
@@ -130,25 +134,34 @@ See SpeciesAndFormeToWazaOshieIndex in src/pokemon.c for more information.
     ovl1.close()
     output.close()
 
+
 def writemovestaughtbytutors(inputPath: str):
     movesDict = {}
     GrabMovesDict(movesDict)
-    ovl1 = open("base/overlay/overlay_0001.bin", "rb+")
-    tutorId = 0
-    with open(inputPath, 'r', encoding="UTF-8") as file:
-        for line in file:
-            if line.startswith('TUTOR'): # new tutor entry
-                if tutorId >= NUM_OF_ENTRIES:
-                    print('tutorId too high: {}\nQuitting execution...'.format(tutorId))
-                    return
-                currLine = line.split()
-                moveId = movesDict[currLine[1].strip()]
-                ovl1.seek(0x23AE0 + tutorId*4)
-                ovl1.write(struct.pack("<H", moveId))
-                ovl1.write(struct.pack("<B", int(currLine[2].strip())))
-                ovl1.write(struct.pack("<B", int(tutorNameToNum[currLine[0][0:len(currLine[0])-1].strip()])))
-                tutorId = tutorId + 1
-    ovl1.close()
+    with open(inputPath, encoding="utf-8") as f:
+        tutor_entries = json.load(f)
+
+    with open("base/overlay/overlay_0001.bin", "r+b") as ovl1:
+        for tutorId, tutorMove in enumerate(tutor_entries):
+            move = tutorMove["Move"]
+            cost = tutorMove["Cost"]
+            location = tutorMove["Tutor"]
+
+            if move not in movesDict:
+                print(f"Error: Move '{move}' not found in moves.h")
+                sys.exit(1)
+            if tutorId >= NUM_OF_ENTRIES:
+                print("Error: Too many tutor moves")
+                sys.exit(1)
+
+            move_id = movesDict[move]
+            location_id = tutorNameToNum[location]
+
+            ovl1.seek(0x23AE0 + tutorId * 4)
+            ovl1.write(struct.pack("<H", move_id))
+            ovl1.write(struct.pack("<B", cost))
+            ovl1.write(struct.pack("<B", location_id))
+
 
 if __name__ == '__main__':
     args = sys.argv[1:]
@@ -157,5 +170,5 @@ if __name__ == '__main__':
         tutordatadumper(args[1].strip())
     elif (len(args) == 2 and args[0].strip() == '--writemovecostlist'):
         writemovestaughtbytutors(args[1].strip())
-    elif (len(args) == 1):
-        tutordatabuilder(args[0].strip())
+    elif (len(args) == 3 and args[0].strip() == '--writetutorlearnsets'):
+        tutordatabuilder(args[1].strip(), args[2].strip())
