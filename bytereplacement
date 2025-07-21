@@ -450,3 +450,9 @@ arm9 080550D4 2C
 
 # change the string displayed when a mon learns a tm without having to overwrite a move
 arm9 020821B0 DB
+
+# nop out heal bell soundproof check on the user
+# notably not on the ally
+0012 02241172 00 00
+# nop out heal bell check for healing mons in the party using heal bell
+0012 022593A4 00 00 00 00
