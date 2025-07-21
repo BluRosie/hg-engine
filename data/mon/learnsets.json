@@ -58689,7 +58689,108 @@
     ]
   },
   "SPECIES_MIME_JR": {
-    "LevelMoves": [],
+    "LevelMoves": [
+      {
+        "Level": 1,
+        "Move": "MOVE_POUND"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_COPYCAT"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_BARRIER"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_CONFUSION"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_TICKLE"
+      },
+      {
+        "Level": 4,
+        "Move": "MOVE_COPYCAT"
+      },
+      {
+        "Level": 8,
+        "Move": "MOVE_MEDITATE"
+      },
+      {
+        "Level": 11,
+        "Move": "MOVE_DOUBLE_SLAP"
+      },
+      {
+        "Level": 12,
+        "Move": "MOVE_ENCORE"
+      },
+      {
+        "Level": 12,
+        "Move": "MOVE_CONFUSION"
+      },
+      {
+        "Level": 20,
+        "Move": "MOVE_PROTECT"
+      },
+      {
+        "Level": 23,
+        "Move": "MOVE_BATON_PASS"
+      },
+      {
+        "Level": 24,
+        "Move": "MOVE_MIMIC"
+      },
+      {
+        "Level": 26,
+        "Move": "MOVE_PSYBEAM"
+      },
+      {
+        "Level": 27,
+        "Move": "MOVE_RECYCLE"
+      },
+      {
+        "Level": 28,
+        "Move": "MOVE_ROLE_PLAY"
+      },
+      {
+        "Level": 29,
+        "Move": "MOVE_LIGHT_SCREEN"
+      },
+      {
+        "Level": 29,
+        "Move": "MOVE_REFLECT"
+      },
+      {
+        "Level": 29,
+        "Move": "MOVE_SUBSTITUTE"
+      },
+      {
+        "Level": 36,
+        "Move": "MOVE_TRICK"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_SUCKER_PUNCH"
+      },
+      {
+        "Level": 42,
+        "Move": "MOVE_SAFEGUARD"
+      },
+      {
+        "Level": 43,
+        "Move": "MOVE_PSYCHIC"
+      },
+      {
+        "Level": 44,
+        "Move": "MOVE_DAZZLING_GLEAM"
+      },
+      {
+        "Level": 52,
+        "Move": "MOVE_TEETER_DANCE"
+      }
+    ],
     "MachineMoves": [
       "MOVE_ATTRACT",
       "MOVE_BRICK_BREAK",
@@ -58737,7 +58838,20 @@
       "MOVE_TOXIC",
       "MOVE_TRICK_ROOM"
     ],
-    "EggMoves": [],
+    "EggMoves": [
+      "MOVE_FUTURE_SIGHT",
+      "MOVE_HYPNOSIS",
+      "MOVE_MIMIC",
+      "MOVE_PSYCH_UP",
+      "MOVE_FAKE_OUT",
+      "MOVE_TRICK",
+      "MOVE_CONFUSE_RAY",
+      "MOVE_WAKE_UP_SLAP",
+      "MOVE_TEETER_DANCE",
+      "MOVE_HEALING_WISH",
+      "MOVE_CHARM",
+      "MOVE_NASTY_PLOT"
+    ],
     "TutorMoves": [
       "MOVE_HEADBUTT",
       "MOVE_HELPING_HAND",
