@@ -2,7 +2,15 @@ import argparse
 import json
 import re
 import os
+import struct
 from collections import defaultdict, OrderedDict
+
+numToTutorName = {
+    0: "TUTOR_TOP_LEFT",
+    1: "TUTOR_TOP_RIGHT",
+    2: "TUTOR_BOTTOM_RIGHT",
+    3: "TUTOR_HEADBUTT",
+}
 
 
 def parse_species_header(file_path):
@@ -13,191 +21,220 @@ def parse_species_header(file_path):
             if len(line.split()) > 1:
                 test = line.split()[1].strip()
                 if 'SPECIES' in test and not '_START' in test and not '_SPECIES_H' in test and not '_NUM (' in line and not 'MAX_' in test:
-                    species_dict[test] = index
+                    species_dict[index] = test
                     index += 1
     return species_dict
 
 
-def sort_tm_list(tm_list):
-    tms = sorted([tm for tm in tm_list if tm.startswith("TM")], key=lambda x: int(x[2:]))
-    hms = sorted([tm for tm in tm_list if tm.startswith("HM")], key=lambda x: int(x[2:]))
-    return tms + hms
-
-
-def parse_levelup_moves(levelup_file):
-    species_moves = defaultdict(list)
-    current_species = None
-
-    with open(levelup_file, "r") as f:
+def parse_moves_header(file_path):
+    move_dict = {}
+    index = 0
+    with open(file_path) as f:
         for line in f:
-            stripped = line.strip()
-
-            if stripped.startswith("levelup SPECIES_"):
-                current_species = stripped.split()[1]
-            elif stripped.startswith("learnset") and current_species:
-                match = re.match(r"learnset\s+(MOVE_[A-Z0-9_]+),\s*(\d+)", stripped)
-                if match:
-                    move, level = match.groups()
-                    species_moves[current_species].append({
-                        "Level": int(level),
-                        "Move": move
-                    })
-            elif stripped.startswith("terminatelearnset"):
-                if current_species:
-                    species_moves[current_species].sort(key=lambda x: x["Level"])
-                current_species = None
-
-    return species_moves
+            if len(line.split()) > 1:
+                test = line.split()[1].strip()
+                if 'MOVE' in test and not '_START' in test and not '_MOVES_H' in test and not 'NUM_OF' in test:
+                    move_dict[index] = test
+                    index += 1
+    return move_dict
 
 
-def parse_egg_moves(eggmove_file):
-    species_eggmoves = defaultdict(list)
-    current_species = None
+def tm_data_dumper(speciesDict, movesDict):
+    tmArray = {}
+    output = {}
 
-    with open(eggmove_file, "r") as f:
-        for line in f:
-            stripped = line.strip()
-
-            if stripped.startswith("eggmoveentry SPECIES_"):
-                current_species = stripped.split(" ")[1]
-            elif stripped.startswith("eggmove") and current_species:
-                match = re.match(r"eggmove\s+(MOVE_[A-Z0-9_]+)", stripped)
-                if match:
-                    move = match.group(1)
-                    species_eggmoves[current_species].append(move)
-            elif not stripped:
-                current_species = None
-
-    return species_eggmoves
-
-
-def parse_tutor_data(tutor_file):
-    flattened_tutors = []
-    species_to_tutor_moves = defaultdict(list)
-
-    current_location = None
-    current_move = None
-    current_cost = None
-
-    with open(tutor_file, "r") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-
-            header_match = re.match(r"(TUTOR_[A-Z_]+):\s+(MOVE_[A-Z0-9_]+)\s+(\d+)", line)
-            if header_match:
-                current_location, current_move, current_cost = header_match.groups()
-                tutor_name = current_location.replace("TUTOR_", "").title().replace("_", "")
-                flattened_tutors.append({
-                    "Move": current_move,
-                    "Cost": int(current_cost),
-                    "Tutor": tutor_name
-                })
-                continue
-
-            if line.startswith("SPECIES_") and current_move:
-                species = line
-                species_to_tutor_moves[species].append(current_move)
-
-    return flattened_tutors, species_to_tutor_moves
+    for species in range(0, len(speciesDict)):
+        mondata = open("build/a002/mondata_{:04d}".format(species), "rb")
+        mondata.seek(0x1C)
+        tmArray[species] = 0
+        for i in range(0, 4):
+            tmArray[species] |= (struct.unpack("<I", mondata.read(4))[0] & 0xFFFFFFFF) << (32 * i)
+        mondata.close()
+    arm9 = open("base/arm9.bin", "rb+")
+    for i in range(0, 100):
+        arm9.seek(0x1000CC + i*2)
+        tmMove = struct.unpack("<H", arm9.read(2))[0]
+        key = movesDict[tmMove]
+        val = []
+        for species in range(0, len(speciesDict)):
+            if (tmArray[species] & (1 << i)):
+                val.append(speciesDict[species])
+        output[key] = val
+    arm9.close()
+    return output
 
 
-def parse_tm_file(input_file):
-    species_to_tms = defaultdict(list)
-    tm_hm = {}
-    current_tm = None
+def levelup_data_dumper(speciesDict, movesDict):
+    output = {}
 
-    with open(input_file, "r") as f:
-        for line in f:
-            stripped = line.strip()
-            if not stripped or not stripped.startswith(("TM", "HM", "SPECIES")):
-                continue
+    for species in range(len(speciesDict)):
+        filename = f"build/a033/learnset_{species:04d}"
+        if not os.path.isfile(filename):
+            continue
 
-            match = re.match(r"^(TM\d{3}|HM\d{3}):\s*(\S+)", stripped)
-            if match:
-                current_tm, move_name = match.groups()
-                tm_hm[current_tm] = move_name
-                continue
+        with open(filename, "rb") as f:
+            moves = []
+            while True:
+                peek = f.read(2)
+                if len(peek) < 2:
+                    break
+                if struct.unpack("<H", peek)[0] == 0xFFFF:
+                    break
 
-            if stripped.startswith("SPECIES_") and current_tm:
-                species = stripped
-                species_to_tms[species].append(current_tm)
+                rest = f.read(2)
+                if len(rest) < 2:
+                    break
 
-    return tm_hm, species_to_tms
+                raw = peek + rest
+                val = struct.unpack("<I", raw)[0]
+                move_id = val & 0xFFFF
+                level = val >> 16
+                move_name = movesDict.get(move_id, f"UNKNOWN_{move_id}")
+                moves.append({"Level": level, "Move": move_name})
 
-
-def flatten_tutor_data(tutor_data_by_location):
-    flat_list = []
-    for location in tutor_data_by_location:
-        tutor_name = location.replace("TUTOR_", "").title().replace("_", "")
-        for entry in tutor_data_by_location[location]:
-            flat_list.append({
-                "Move": entry["Move"],
-                "Cost": entry["Cost"],
-                "Tutor": tutor_name
-            })
-    return flat_list
+            if moves:
+                output[speciesDict[species]] = moves
+    return output
 
 
-def convert_to_json(tm_file, levelup_file, egg_file, tutor_file, species_header, out_learnsets, out_tutors):
-    tm_hm, species_to_tms = parse_tm_file(tm_file)
-    levelup_data = parse_levelup_moves(levelup_file)
-    eggmove_data = parse_egg_moves(egg_file)
-    tutor_data_by_location, species_to_tutor = parse_tutor_data(tutor_file)
-    ordered_species = parse_species_header(species_header)
-    ordered_data = OrderedDict()
+def eggmove_data_dumper(speciesDict, movesDict):
+    output = {}
 
-    for species in ordered_species:
-        tm_moves = [
-            tm_hm[tm_label]
-            for tm_label in sort_tm_list(species_to_tms.get(species, []))
-            if tm_label in tm_hm
-        ]
+    with open("build/kowaza/kowaza_0", "rb") as f:
+        raw = f.read()
+        data = list(struct.unpack("<{}H".format(len(raw) // 2), raw))
 
-        ordered_data[species] = {
-            "LevelMoves": levelup_data.get(species, []),
-            "MachineMoves": sorted(set(tm_moves)),
-            "EggMoves": eggmove_data.get(species, []),
-            "TutorMoves": sorted(species_to_tutor.get(species, []))
+    i = 0
+    while i < len(data):
+        val = data[i]
+        if val == 0xFFFF:
+            break
+
+        if val < 20000:
+            print(f"Unexpected header value {val} at index {i}")
+            break
+
+        species_id = val - 20000
+        species_name = speciesDict.get(species_id, f"UNKNOWN_SPECIES_{species_id}")
+        i += 1
+
+        moves = []
+        while i < len(data):
+            move = data[i]
+            if move >= 20000 or move == 0xFFFF:
+                break
+            move_name = movesDict.get(move, f"UNKNOWN_{move}")
+            moves.append(move_name)
+            i += 1
+
+        output[species_name] = moves
+
+        if i < len(data) and data[i] == 0xFFFF:
+            i += 1
+
+    return output
+
+
+def tutor_data_dumper(speciesDict, movesDict):
+    tutorArray = {}
+
+    with open("base/root/fielddata/wazaoshie/waza_oshie.bin", "rb") as f:
+        for species in range(1, len(speciesDict)):
+            f.seek((species - 1) * 8)
+            flags = 0
+            for i in range(2):
+                flags |= struct.unpack("<I", f.read(4))[0] << (32 * i)
+            tutorArray[species] = flags
+
+    tutorMoveMap = {}
+
+    with open("base/overlay/overlay_0001.bin", "rb") as f:
+        for i in range(52):
+            f.seek(0x23AE0 + i * 4)
+            tutorMove = struct.unpack("<H", f.read(2))[0]
+            cost = struct.unpack("<B", f.read(1))[0]
+            location = struct.unpack("<B", f.read(1))[0]
+
+            moveName = movesDict.get(tutorMove, f"UNKNOWN_{tutorMove}")
+
+            speciesList = []
+            for species in range(1, len(speciesDict)):
+                if tutorArray.get(species, 0) & (1 << i):
+                    speciesName = speciesDict.get(species, f"UNKNOWN_SPECIES_{species}")
+                    speciesList.append(speciesName)
+
+            tutorMoveMap[moveName] = speciesList
+    return tutorMoveMap
+
+
+def generate_learnset_outputs(species_header_path, moves_header_path, out_learnsets="data/mon/learnsets.json", out_tutors="data/tutor/tutor_moves.json"):
+
+    speciesDict = parse_species_header(species_header_path)
+    movesDict = parse_moves_header(moves_header_path)
+
+    levelup_data = levelup_data_dumper(speciesDict, movesDict)
+    tm_data = tm_data_dumper(speciesDict, movesDict)
+    egg_data = eggmove_data_dumper(speciesDict, movesDict)
+    tutor_data = tutor_data_dumper(speciesDict, movesDict)
+
+    species_to_tms = {name: [] for name in speciesDict.values()}
+    for move, species_list in tm_data.items():
+        for sp in species_list:
+            species_to_tms[sp].append(move)
+
+    species_to_tutors = {name: [] for name in speciesDict.values()}
+    for move, species_list in tutor_data.items():
+        for sp in species_list:
+            species_to_tutors[sp].append(move)
+
+    learnsets = {}
+    for sp in speciesDict.values():
+        learnsets[sp] = {
+            "LevelMoves": levelup_data.get(sp, []),
+            "MachineMoves": sorted(set(species_to_tms.get(sp, []))),
+            "EggMoves": egg_data.get(sp, []),
+            "TutorMoves": sorted(species_to_tutors.get(sp, [])),
         }
 
     os.makedirs(os.path.dirname(out_learnsets), exist_ok=True)
     with open(out_learnsets, "w") as f:
-        json.dump(ordered_data, f, indent=2)
+        json.dump(learnsets, f, indent=2)
 
-    for tm_id in sort_tm_list(tm_hm):
-        move = tm_hm[tm_id]
-        prefix = tm_id[:2]
-        number = int(tm_id[2:])
-        comment = f"{prefix}{number:02}"
-        print(f"{move},".ljust(22) + f"// {comment}")
+    tutor_moves = []
+    with open("base/overlay/overlay_0001.bin", "rb") as f:
+        for i in range(52):
+            f.seek(0x23AE0 + i * 4)
+            move_id = struct.unpack("<H", f.read(2))[0]
+            cost = struct.unpack("<B", f.read(1))[0]
+            location = struct.unpack("<B", f.read(1))[0]
+            move_name = movesDict.get(move_id, f"UNKNOWN_{move_id}")
+            tutor_name = numToTutorName.get(location, f"UNKNOWN_{location}")
+            tutor_moves.append({
+                "Move": move_name,
+                "Cost": cost,
+                "Tutor": tutor_name.replace("TUTOR_", "").title().replace("_", "")
+            })
 
     os.makedirs(os.path.dirname(out_tutors), exist_ok=True)
-    flattened_tutors, species_to_tutor = parse_tutor_data(tutor_file)
     with open(out_tutors, "w") as f:
-        json.dump(flattened_tutors, f, indent=2)
+        json.dump(tutor_moves, f, indent=2)
+
+    print("\nTM/HM Move List (TM001–HM08). Copy this into the sMachineMoves array in src/item.c if you changed the vals in your hack:\n")
+    with open("base/arm9.bin", "rb") as f:
+        for i in range(100):
+            f.seek(0x1000CC + i * 2)
+            move_id = struct.unpack("<H", f.read(2))[0]
+            move_name = movesDict.get(move_id, f"UNKNOWN_{move_id}")
+            if i < 92:
+                print(f"{move_name},".ljust(22) + f"// TM{i + 1:03}")
+            else:
+                print(f"{move_name},".ljust(22) + f"// HM{i + 1 - 92:02}")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Convert learnsets to new JSON format")
-    parser.add_argument("--tm", default="armips/data/tmlearnset.txt")
-    parser.add_argument("--levelup", default="armips/data/levelupdata.s")
-    parser.add_argument("--egg", default="armips/data/eggmoves.s")
-    parser.add_argument("--tutor", default="armips/data/tutordata.txt")
-    parser.add_argument("--species-header", default="include/constants/species.h")
-
-    parser.add_argument("--out-learnsets", default="data/mon/learnsets.json")
-    parser.add_argument("--out-tutors", default="data/tutor/tutor_moves.json")
-
-    args = parser.parse_args()
-
-    convert_to_json(
-        args.tm,
-        args.levelup,
-        args.egg,
-        args.tutor,
-        args.species_header,
-        args.out_learnsets,
-        args.out_tutors
+    generate_learnset_outputs(
+        species_header_path="include/constants/species.h",
+        moves_header_path="include/constants/moves.h",
+        out_learnsets="data/mon/learnsets.json",
+        out_tutors="data/tutor/tutor_moves.json"
     )
