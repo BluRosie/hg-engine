@@ -26,6 +26,8 @@ If you run into an issue with the project, open an [issue](https://github.com/Bl
 
 The best bug reports have enough information that we won't have to contact you for more information. We welcome all efforts to improve hg-engine, but would be very grateful if you completed as much of the checklist as possible in your bug report. This will help other contributiors fix your issue.
 
+If it is an issue that our implementation differs from how the game does it, it would be ideal to attach gameplay footage demonstrating the difference.  Footage from Scarlet/Violet (or any of the games since USUM) is the best, followed by the Japanese Pokémon Wiki ([ポケモンWiki](https://wiki.ポケモン.com/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8)).  From there, the preference would be Smogon Forums Research post, then a Showdown Replay, and finally the description from Bulbapedia.  Please mention if it's an overall battle engine or damage bug.
+
 Ideally, the issue entry details reproduction steps and the context under which the bug occurs.  Screenshots and even a save provided will immensely help in testing out and fixing the issue down the line.
 
 Commonly, the issue is initially reported via a Discord message.  It is talked about on the Discord channels in the Kingdom of DS Hacking or DS Modding Community, and then a link to the conversation is pasted in the Issue that is created on GitHub.  This is also acceptable for the time being.
@@ -48,7 +50,7 @@ Make sure to set up your own fork so that you have your own repository you can p
 #### 2. Set hg-engine as a remote
 This will designate the main `hg-engine` repository as a remote.
 ```bash
-git remote add hge https://github.com/BluRosie/hg-engine.git # You can replace RHH with anything you want. This tutorial assumes you used hge.
+git remote add hge https://github.com/BluRosie/hg-engine.git # You can replace hge with anything you want. This tutorial assumes you used hge.
 ```
 
 #### 3. Create a new branch
