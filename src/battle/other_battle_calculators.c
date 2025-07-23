@@ -1473,7 +1473,7 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
     u32 type1Effectiveness = TYPE_MUL_NORMAL;
     u32 type2Effectiveness = TYPE_MUL_NORMAL;
 
-    // TODO: handle Ring Target, Thousand Arrows, Freeze-Dry, Flying Press 
+    // TODO: handle Ring Target, Thousand Arrows, Freeze-Dry, Flying Press
 
     while (TypeEffectivenessTable[i][0] != TYPE_ENDTABLE) {
         if (TypeEffectivenessTable[i][0] == TYPE_FORESIGHT)  // handle foresight
