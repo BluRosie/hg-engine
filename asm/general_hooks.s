@@ -107,3 +107,25 @@ mov pc, r1
 
 CanUseItemOnMonInParty_return_address:
 .word 0
+
+.global RareCandyUse_hook
+RareCandyUse_hook:
+ldr r5, =RareCandyUse_return_address
+mov r6, lr
+str r6, [r5]
+
+add r1, #0x27
+strb r0, [r1]
+mov r0, #0x20
+pop {r3, r4, r5, pc}
+
+
+
+ldr r1, =RareCandyUse_return_address
+ldr r1, [r1]
+bx r1
+
+.pool
+
+RareCandyUse_return_address:
+.word 0
