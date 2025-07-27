@@ -2604,15 +2604,77 @@
 #define BAG_TMHM_QUANTITY_MAX                     99
 #endif
 
-#define POCKET_ITEMS        0
-#define POCKET_MEDICINE     1
-#define POCKET_BALLS        2
-#define POCKET_TMHMS        3
-#define POCKET_BERRIES      4
-#define POCKET_MAIL         5
-#define POCKET_BATTLE_ITEMS 6
-#define POCKET_KEY_ITEMS    7
-#define POCKETS_COUNT       8
+// HGSS Pockets
+
+#define POCKET_ITEMS                    0
+#define POCKET_MEDICINE                 1
+#define POCKET_BALLS                    2
+#define POCKET_TMHMS                    3
+#define POCKET_BERRIES                  4
+#define POCKET_MAIL                     5
+#define POCKET_BATTLE_ITEMS             6
+#define POCKET_KEY_ITEMS                7
+#define POCKETS_COUNT                   8
+
+#define ITEMPOCKET_HP_ITEMS             0
+#define ITEMPOCKET_POKEBALL             1
+#define POCKET_MEDICINE1                2
+#define ITEMPOCKET_BATTLE               3
+
+// Gen 5 Pockets
+
+#define POCKET_ITEMS_GEN_5              POCKET_ITEMS
+#define POCKET_MEDICINE_GEN_5           POCKET_MEDICINE
+#define POCKET_TMHMS_GEN_5              POCKET_TMHMS
+#define POCKET_BERRIES_GEN_5            POCKET_BERRIES
+#define POCKET_KEY_ITEMS_GEN_5          POCKET_KEY_ITEMS
+#define POCKET_FREESPACE_GEN_5          POCKET_ITEMS
+
+// Gen 6 Pockets
+
+#define POCKET_ITEMS_GEN_6              POCKET_ITEMS
+#define POCKET_MEDICINE_GEN_6           POCKET_MEDICINE
+#define POCKET_TMHMS_GEN_6              POCKET_TMHMS
+#define POCKET_BERRIES_GEN_6            POCKET_BERRIES
+#define POCKET_KEY_ITEMS_GEN_6          POCKET_KEY_ITEMS
+
+// Gen 7 Pockets
+
+#define POCKET_ROTOMPOWERS_GEN_7        POCKET_MEDICINE
+#define POCKET_MEDICINE_GEN_7           POCKET_MEDICINE
+#define POCKET_ITEMS_GEN_7              POCKET_ITEMS
+#define POCKET_TMS_GEN_7                POCKET_TMHMS
+#define POCKET_BERRIES_GEN_7            POCKET_BERRIES
+#define POCKET_KEY_ITEMS_GEN_7          POCKET_KEY_ITEMS
+#define POCKET_FREESPACE_GEN_7          POCKET_ITEMS
+#define POCKET_ZCRYSTALS_GEN_7          POCKET_ITEMS
+
+// Gen 8 Pockets
+
+#define POCKET_MEDICINE_GEN_8           POCKET_MEDICINE
+#define POCKET_BALLS_GEN_8              POCKET_BALLS
+#define POCKET_BATTLE_ITEMS_GEN_8       POCKET_ITEMS
+#define POCKET_BERRIES_GEN_8            POCKET_BERRIES
+#define POCKET_OTHERITEMS_GEN_8         POCKET_ITEMS
+#define POCKET_TMS_GEN_8                POCKET_TMHMS
+#define POCKET_TREASURES_GEN_8          POCKET_ITEMS
+#define POCKET_INGREDIENTS_GEN_8        POCKET_ITEMS
+#define POCKET_KEY_ITEMS_GEN_8          POCKET_KEY_ITEMS
+#define POCKET_EVERYDAYITEMS_PLA        POCKET_ITEMS
+#define POCKET_KEY_ITEMS_PLA            POCKET_KEY_ITEMS
+
+// Gen 9 Pockets
+
+#define POCKET_MEDICINE_GEN_9           POCKET_MEDICINE
+#define POCKET_BALLS_GEN_9              POCKET_BALLS
+#define POCKET_BATTLE_ITEMS_GEN_9       POCKET_ITEMS
+#define POCKET_BERRIES_GEN_9            POCKET_BERRIES
+#define POCKET_OTHERITEMS_GEN_9         POCKET_ITEMS
+#define POCKET_TMS_GEN_9                POCKET_TMHMS
+#define POCKET_TMMATERIALS_GEN_9        POCKET_ITEMS
+#define POCKET_TREASURES_GEN_9          POCKET_ITEMS
+#define POCKET_PICNICITEMS_GEN_9        POCKET_ITEMS
+#define POCKET_KEY_ITEMS_GEN_9          POCKET_KEY_ITEMS
 
 #define BATTLE_POCKET_NONE 0
 #define BATTLE_POCKET_POKE_BALLS 1
