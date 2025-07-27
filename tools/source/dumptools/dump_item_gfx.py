@@ -2,6 +2,7 @@ import os
 import struct
 import subprocess
 import sys
+import shutil
 
 """
 02100194 - item data table
@@ -80,6 +81,8 @@ ITEMGFX_DEPENDENCIES_DIR := data/graphics/item
 
 """)
     for item in range(0, len(itemDict)):
+        if (not os.path.exists(f'data/graphics/item/{itemDict[item]}.png')):
+            shutil.copy('data/graphics/item/unknown_7a.png', f'data/graphics/item/{itemDict[item]}.png')
         outputItem = item+2
         output.write(f"""$(ITEMGFX_DIR)/{outputItem:04}-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/{itemDict[item]}.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4

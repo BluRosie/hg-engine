@@ -207,17 +207,17 @@ If a Pokémon holds one of these Berries, its Sp. Def stat\nwill be boosted shou
 If a Pokémon holds one of these Berries, its critical-hit\nratio will be boosted should it find itself in a pinch.
 If a Pokémon holds one of these Berries, one of its stats\nwill be sharply boosted should it find itself in a pinch.
 If a Pokémon holds one of these Berries, it will be able\nto regain some HP if it is hit with a supereffective move.
-If a Pokémon holds one of these Berries, its accuracy will\nbe boosted should it find itself in a pinch—but only for\nthe next move it uses.
-If a Pokémon holds one of these Berries, it will be able\nto act faster should it find itself in a pinch—but only for\nthe next move it uses.
+If a Pokémon holds one of these Berries, its accuracy will\nbe boosted should it find itself in a pinch-but only for\nthe next move it uses.
+If a Pokémon holds one of these Berries, it will be able\nto act faster should it find itself in a pinch-but only for\nthe next move it uses.
 If a Pokémon holding this Berry is hit with a physical\nmove, the attacker will also take damage.
 If a Pokémon holding this Berry is hit with a special\nmove, the attacker will also take damage.
 An item to be held by a Pokémon. This glittery powder\ncasts a tricky glare that lowers the accuracy of opposing\nPokémon’s moves.
-An item to be held by a Pokémon. It will restore any\nlowered stat in battle—but only once.
+An item to be held by a Pokémon. It will restore any\nlowered stat in battle-but only once.
 An item to be held by a Pokémon. Holding this stiff,\nheavy brace reduces a Pokémon’s Speed in battle but\nallows its stats to grow more quickly.
 Turning on this special device will allow all the Pokémon\non your team to share in Exp. Points gained.
 An item to be held by a Pokémon. This light, sharp claw\nlets the holder move first occasionally.
 An item to be held by a Pokémon. The comforting chime\nof this bell calms the holder, making it friendly.
-An item to be held by a Pokémon. The holder will be\nable to shake off move-binding effects to move freely—\nbut only once.
+An item to be held by a Pokémon. The holder will be\nable to shake off move-binding effects to move freely-\nbut only once.
 An item to be held by a Pokémon. This curious\nheadband boosts the holder’s Attack stat but only\nallows the use of a single move.
 An item to be held by a Pokémon. It may cause the\ntarget to flinch whenever the holder successfully inflicts\ndamage on them with an attack.
 An item to be held by a Pokémon. It’s a shiny silver\npowder that boosts the power of the holder’s Bug-type\nmoves.
@@ -269,11 +269,11 @@ An item to be held by a Pokémon. This thick pair of\nglasses slightly boosts th
 An item to be held by a Pokémon. It’s a well-worn\nbelt that slightly boosts the power of the holder’s\nsupereffective moves.
 An item to be held by a Pokémon. When the holder\nuses protective moves like Light Screen or Reflect,\ntheir effects will last longer than usual.
 An item to be held by a Pokémon. It boosts the power\nof the holder’s moves, but the holder also loses a small\namount of HP with each attack it lands.
-An item to be held by a Pokémon. It allows the holder\nto immediately use a move that normally requires a turn\nto charge—but only once.
+An item to be held by a Pokémon. It allows the holder\nto immediately use a move that normally requires a turn\nto charge-but only once.
 An item to be held by a Pokémon. It’s a bizarre orb that\nexudes toxins when touched and will badly poison the\nholder during battle.
 An item to be held by a Pokémon. It’s a bizarre orb that\ngives off heat when touched and will afflict the holder\nwith a burn during battle.
 An item to be held by Ditto. Extremely fine yet hard,\nthis odd powder boosts Ditto’s Speed stat.
-An item to be held by a Pokémon. If the holder has full\nHP and it is hit with a move that should knock it out,\nit will endure with 1 HP—but only once.
+An item to be held by a Pokémon. If the holder has full\nHP and it is hit with a move that should knock it out,\nit will endure with 1 HP-but only once.
 An item to be held by a Pokémon. When the holder acts\nafter its target, its move will be more accurate than usual.
 An item to be held by a Pokémon. It boosts the power\nof a move that’s used repeatedly. Once the chain is\nbroken, the move’s power returns to normal.
 An item to be held by a Pokémon. It lowers the holder’s\nSpeed stat and makes the holder vulnerable to Ground-\ntype moves even if it is a Flying type or is levitating.
@@ -458,9 +458,9 @@ A ticket required for sailing on the high-speed ferry\nS.S. Aqua. It has a drawi
 A pass required for entering Pokémon Contests.\nIt has a drawing of an award ribbon on its front.
 A stone formed by boulders melting in intensely hot\nmagma, then hardening. Magma remains sealed inside it.
 A parcel entrusted into your care. You’re supposed to\ndeliver it to your childhood friend who left Twinleaf Town.
-A coupon to be exchanged for a Pokémon Watch—\nPokétch for short. Three coupons are needed.
-A coupon to be exchanged for a Pokémon Watch—\nPokétch for short. Three coupons are needed.
-A coupon to be exchanged for a Pokémon Watch—\nPokétch for short. Three coupons are needed.
+A coupon to be exchanged for a Pokémon Watch-\nPokétch for short. Three coupons are needed.
+A coupon to be exchanged for a Pokémon Watch-\nPokétch for short. Three coupons are needed.
+A coupon to be exchanged for a Pokémon Watch-\nPokétch for short. Three coupons are needed.
 The key to Team Galactic’s sinister warehouse located at\nthe edge of Veilstone City.
 A fantastic medicine dispensed by the pharmacy in\nCianwood City. It fully heals a Pokémon of any ailment.
 An amazing device that can record a battle between\nfriends or the battles at certain special battle facilities.
@@ -546,23 +546,23 @@ An item to be held by a Pokémon. This band boosts\nthe power of binding moves u
 An item to be held by a Pokémon. This single-use bulb\nboosts the Sp. Atk stat if the holder is damaged by a\nWater-type attack.
 An item to be held by a Pokémon. This single-use\nbattery boosts the Attack stat if the holder is damaged\nby an Electric-type attack.
 An item to be held by a Pokémon. If the holder is\ndamaged by an attack, it will be switched out of battle\nto be replaced by another Pokémon on your team.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of fire and will boost the power of a\nFire-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of water and will boost the power of a\nWater-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of electricity and will boost the power\nof an Electric-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of plants and will boost the power of\na Grass-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of ice and will boost the power of an\nIce-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of the fighting spirit and will boost the\npower of a Fighting-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of poison and will boost the power of\na Poison-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of the earth and will boost the power\nof a Ground-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of flight and will boost the power of a\nFlying-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of psychic energy and will boost the\npower of a Psychic-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of bugs and will boost the power of a\nBug-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of rock and will boost the power of a\nRock-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of ghosts and will boost the power of\na Ghost-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of dragons and will boost the power of\na Dragon-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of darkness and will boost the power\nof a Dark-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of steel and will boost the power of a\nSteel-type move—but only once.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of normalcy and will boost the power\nof a Normal-type move—but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of fire and will boost the power of a\nFire-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of water and will boost the power of a\nWater-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of electricity and will boost the power\nof an Electric-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of plants and will boost the power of\na Grass-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of ice and will boost the power of an\nIce-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of the fighting spirit and will boost the\npower of a Fighting-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of poison and will boost the power of\na Poison-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of the earth and will boost the power\nof a Ground-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of flight and will boost the power of a\nFlying-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of psychic energy and will boost the\npower of a Psychic-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of bugs and will boost the power of a\nBug-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of rock and will boost the power of a\nRock-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of ghosts and will boost the power of\na Ghost-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of dragons and will boost the power of\na Dragon-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of darkness and will boost the power\nof a Dark-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of steel and will boost the power of a\nSteel-type move-but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of normalcy and will boost the power\nof a Normal-type move-but only once.
 An item to be used on a Pokémon. This feather slightly\nincreases base points for a Pokémon’s HP stat.
 An item to be used on a Pokémon. This feather slightly\nincreases base points for a Pokémon’s Attack stat.
 An item to be used on a Pokémon. This feather slightly\nincreases base points for a Pokémon’s Defense stat.
@@ -713,7 +713,7 @@ A fossil from a prehistoric Pokémon that once lived\non the land. It looks like
 A ticket that was handmade by Looker. It’s\ndecorated with a liberal amount of glittery paint.
 A folding bike that enables a rider to get around\nmuch faster than with Running Shoes.
 A device that allows you to view the hologram clips\nyou have received at any time.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of fairies and will boost the power\nof a Fairy-type move—but only once.
+An item to be held by a Pokémon. This gem is imbued\nwith the essence of fairies and will boost the power\nof a Fairy-type move-but only once.
 This charm contains an unknown power that somehow\nenables a Pokémon carrying a Mega Stone to\nMega Evolve in battle.
 This glove contains an unknown power that somehow\nenables a Pokémon carrying a Mega Stone to\nMega Evolve in battle.
 This folding bike more than doubles your\nmovement speed.
@@ -1711,7 +1711,7 @@ A type of field provision that enhances the flavor of\nother foods it is mixed w
 A mysterious ball that can be thrown at wild Pokémon\nin order to catch them. These balls can be crafted by\nhand if you gather the necessary materials.
 A mysterious ball that provides a higher success rate\nfor catching Pokémon than a standard Poké Ball does.
 A mysterious ball that provides an even higher success\nrate for catching Pokémon than a Great Ball does.
-A ball that flies fast and true—ideal for catching nimble\nPokémon or Pokémon that fly high in the air.
+A ball that flies fast and true-ideal for catching nimble\nPokémon or Pokémon that fly high in the air.
 -\n-\n-
 -\n-\n-
 When thrown at the ground, these balls produce a loud\nnoise and scare off low-level Pokémon in the area,\nsending them running.
@@ -1744,8 +1744,8 @@ A mysterious charm that holds the power to protect\na person from being afflicte
 A fragment that was once part of a stone panel in the\nSolaceon Ruins. It has markings carved on it that appear\nto be some kind of writing.
 A favored food of Basculegion, a Pokémon that will bear\nyou on its back. This food is crafted in an unusual way,\nfrom ingredients gathered via equally unusual methods.
 A stab-bound journal that once had pages torn from it.\nAll the pages have been collected and restored.
-An improvement on the original Feather Ball design. A\nball that flies fast and true—ideal for catching nimble\nPokémon or Pokémon that fly high in the air.
-The ultimate iteration of the Feather Ball. A ball that\nflies fast and true—ideal for catching nimble Pokémon\nor Pokémon that fly high in the air.
+An improvement on the original Feather Ball design. A\nball that flies fast and true-ideal for catching nimble\nPokémon or Pokémon that fly high in the air.
+The ultimate iteration of the Feather Ball. A ball that\nflies fast and true-ideal for catching nimble Pokémon\nor Pokémon that fly high in the air.
 A ball that is too heavy to fly high or far, but it is highly\neffective if you manage to hit an unsuspecting Pokémon.
 An improvement on the original Heavy Ball design.\nA ball that is too heavy to fly high or far, but it is highly\neffective if you manage to hit an unsuspecting Pokémon.
 The ultimate iteration of the Heavy Ball. A ball that is\ntoo heavy to fly high or far, but it is highly effective if\nyou manage to hit an unsuspecting Pokémon.
@@ -1852,9 +1852,9 @@ N/A
 N/A
 N/A
 N/A
-—\n—\n—
-—\n—\n—
-—\n—\n—
+-\n-\n-
+-\n-\n-
+-\n-\n-
 A peculiar scroll that can make a certain species of\nPokémon evolve. Written upon it are the true secrets of\nthe path of darkness.
 A peculiar scroll that can make a certain species of\nPokémon evolve. Written upon it are the true secrets of\nthe path of water.
 N/A
@@ -1881,7 +1881,7 @@ On rare occasions, these shards form when a Tera\nPokémon falls in battle and i
 An item to be held by Pokémon with certain Abilities.\nThe energy that fills this capsule boosts the strength of\nthe Pokémon.
 An item to be held by a Pokémon. This cute and rather\nunique-looking shield protects the holder from having its\nAbility changed by others.
 An item to be held by a Pokémon. This clear, sparkling\namulet protects the holder from having its stats lowered\nby moves used against it or by other Pokémon’s Abilities.
-An item to be held by a Pokémon. This herb will allow\nthe holder to mirror an opponent’s stat increases to\nboost its own stats—but only once.
+An item to be held by a Pokémon. This herb will allow\nthe holder to mirror an opponent’s stat increases to\nboost its own stats-but only once.
 An item to be held by a Pokémon. This protective glove\nboosts the power of the holder’s punching moves and\nprevents direct contact with targets.
 An item to be held by a Pokémon. This hooded cloak\nconceals the holder, tricking the eyes of its enemies\nand protecting it from the additional effects of moves.
 An item to be held by a Pokémon. This loaded dice\nalways rolls a good number, and holding one can ensure\nthat the holder’s multistrike moves hit more times.
@@ -1900,14 +1900,14 @@ A very sweet condiment. Folks in Paldea seem to love\nthe varieties that really 
 A condiment offering very sweet and very tart flavor.\nIt goes well with more ingredients than you’d expect,\nmaking it a convenient go-to.
 A condiment that’s very sweet and likewise very sour.\nTake care when adding it to sandwiches, as the sweet\nside can overwhelm.
 A condiment with sour and bitter notes. It’s surprisingly\nuseful, as it makes a nice counterpoint to oilier foods.
-A condiment offering faint notes of sour and bitter\nflavors. The most prized varieties are the ones Smoliv\nlove the smell of—such oils’ quality is assured.
+A condiment offering faint notes of sour and bitter\nflavors. The most prized varieties are the ones Smoliv\nlove the smell of-such oils’ quality is assured.
 A very sour condiment. Vinegars derived from grapes are\npopular in Paldea. Highly effective when used to add\njust a light note of flavor.
 A legendary condiment told of only in books. Word has\nit that one taste of its sweet flavor stimulates the\ndigestive system and cures a lack of appetite.
 One of the condiments spoken of as legends. Its mellow\nsaltiness is said to be tremendously effective when it\ncomes to promoting health.
 This surpassingly sour condiment is said to be super\neffective in helping the eater recover from exhaustion.\nOnly a scant few people know it exists.
 A legendary condiment with a deeply bitter taste. It’s\nsaid to dramatically bolster a body’s immune defenses,\nthough that hasn’t been proven.
 The legendary condiment said to have the mightiest of\nall spicy flavors. It’s said that a single bite will kick the\nmetabolism into high gear immediately.
-This bitter-tasting ingredient is simple and\nstraightforward—just add it to all kinds of other\ningredients for a delightfully crunchy time.
+This bitter-tasting ingredient is simple and\nstraightforward-just add it to all kinds of other\ningredients for a delightfully crunchy time.
 This very tart ingredient has a lot of savory elements\nto it, making it popular with many Pokémon.
 A very tart ingredient. Some varieties are also very\nsweet, and these are prized above all others by the\npeople of Paldea.
 A tart and bitter ingredient. Using it together with rich-\ntasting ingredients in a sandwich will really make the\nmost of a cucumber’s fresh-veggie aroma.
@@ -1915,11 +1915,11 @@ This very sour ingredient is made by pickling veggies\nin a flavorful brine made
 This spicy veggie is indispensable to many sandwiches.\nIt goes well with rich ingredients.
 An ingredient with some sweetness to it. Its spiciness and\nfragrance are milder than those of other onions, making\nit a pleasant bite.
 An ingredient with some bitterness. When sliced, it adds\na nice accent to a sandwich.
-An ingredient with some bitterness—but its bitter notes\nand overall flavor are pleasantly mild compared to its\ngreen cousin.
+An ingredient with some bitterness-but its bitter notes\nand overall flavor are pleasantly mild compared to its\ngreen cousin.
 An ingredient with some bitterness. It’s not much\ndifferent from its red counterpart in flavor, but mixing\nthe colors makes a feast for the eyes.
-An ingredient with sweet notes—though its flavor is\nvery mild. The avocado’s richness, however, makes it\nsatisfying to eat.
+An ingredient with sweet notes-though its flavor is\nvery mild. The avocado’s richness, however, makes it\nsatisfying to eat.
 This very salty ingredient has been cooked just shy of\ncharred, making it burst with fragrance and tasty flavor.
-A very salty ingredient—and that very saltiness is what\nmakes it such a nice companion to veggies.
+A very salty ingredient-and that very saltiness is what\nmakes it such a nice companion to veggies.
 This ingredient is very salty like regular ham, but the\ndifference is prosciutto is not cooked after it is cured,\ngiving it a fun freshness.
 A very salty and spicy ingredient. This type of sausage\nhas particularly robust salty flavor, and the spicier\nvarieties are extra popular.
 A very salty and bitter ingredient. The balance between\nthe potent saltiness and the herbs’ bitterness make this\nsausage a pleasure.
@@ -1932,18 +1932,18 @@ A very salty ingredient and a popular dish in Paldea.\nIt’s undeniably filling
 An ingredient with a touch of sweetness. It’s unclear how\nwell this raw block of tofu will serve as a sandwich filling.
 An ingredient with a touch of sweetness. It’s unclear how\nwell this cooked rice will serve as a sandwich filling.
 A nice salty ingredient. It’s unclear how well these boiled\nnoodles will serve as a sandwich filling.
-This very tart ingredient—a soft salad that’s all about\npotatoes—pairs tremendously well with bread.
+This very tart ingredient-a soft salad that’s all about\npotatoes-pairs tremendously well with bread.
 A very salty ingredient. This thinly sliced cheese is\nperfect for adding to a sandwich.
 A very sweet ingredient. This go-to fruit is sweet and\nrich, and it’s beloved by many Pokémon.
 A very tart and sweet ingredient, popular for its ability\nto make a sandwich visually striking.
 This very sweet ingredient is sliced thin to make it easy\nto add into a sandwich.
 A very tart ingredient that has a light touch of sweetness\nas well. It goes well with rich ingredients.
 This very tart ingredient is a fruit of southern lands,\nand its color and texture are a thrill. It’s been cut into\nchunks to be easily manageable.
-A very spicy ingredient—so spicy as to leave no room\nfor ambivalence about it. You either like it or you don’t.
+A very spicy ingredient-so spicy as to leave no room\nfor ambivalence about it. You either like it or you don’t.
 A very spicy condiment. Its distinctive sharp sizzle in\nyour sinuses makes it a good match for rich fillings.
-A very spicy condiment. Just watch out—use too much\nof this potent seasoning, and it’ll cancel out the other\nflavors.
+A very spicy condiment. Just watch out-use too much\nof this potent seasoning, and it’ll cancel out the other\nflavors.
 This very spicy condiment seems close to horseradish at\nfirst, but you’ll find that it has a superb flavor all its own.
-A very bitter ingredient that stands out among veggies\nfor its quirky flavor. People tend to either like it or not\nlike it—they rarely sit on the fence.
+A very bitter ingredient that stands out among veggies\nfor its quirky flavor. People tend to either like it or not\nlike it-they rarely sit on the fence.
 A very bitter ingredient that’s quite versatile, as herbs\ngo. It’s fragrant and goes well with tomatoes.
 N/A
 N/A
@@ -2356,9 +2356,9 @@ A popular option among hikers. It’s made with titanium,\nso it doesn’t rust 
 A cup that’s as good for using at home as on a picnic.\nIt’s light, sturdy, and stacks well, so it’s a cinch to pack\nup and carry around.
 A cup that’s as good for using at home as on a picnic.\nIt’s light, sturdy, and stacks well, so it’s a cinch to pack\nup and carry around.
 A cup that’s as good for using at home as on a picnic.\nIt’s light, sturdy, and stacks well, so it’s a cinch to pack\nup and carry around.
-A cup sold with the Pink Bottle. The two don’t stack, so\nthey’re tough to pack—but they look good, so they’re\npopular with those who like to post picnic photos.
-A cup sold with the Blue Bottle. The two don’t stack, so\nthey’re tough to pack—but they look good, so they’re\npopular with those who like to post picnic photos.
-A cup sold with the Yellow Bottle. The two don’t stack,\nso they’re tough to pack—but they look good, so they’re\npopular with those who like to post picnic photos.
+A cup sold with the Pink Bottle. The two don’t stack, so\nthey’re tough to pack-but they look good, so they’re\npopular with those who like to post picnic photos.
+A cup sold with the Blue Bottle. The two don’t stack, so\nthey’re tough to pack-but they look good, so they’re\npopular with those who like to post picnic photos.
+A cup sold with the Yellow Bottle. The two don’t stack,\nso they’re tough to pack-but they look good, so they’re\npopular with those who like to post picnic photos.
 A cup for big-time Pokémon fans. Kids will happily drink\nout of it, making it a boon to parents.
 A cup for big-time Pokémon fans. Kids will happily drink\nout of it, making it a boon to parents.
 A cup for big-time Pokémon fans. Kids will happily drink\nout of it, making it a boon to parents.
@@ -2551,7 +2551,7 @@ On rare occasions, these shards form when a Tera\nPokémon falls in battle and i
 A Pecha Berry of the highest quality. It’s said that a\nPecha Berry tree carefully tended by an expert gardener\nwill produce just one of these Berries every few years.
 Blueberry Academy’s standard issue tablecloth, made\nwith the latest fiber-processing technology. It’s heat-\nresistant and so tough even a Razor Claw can’t tear it.
 A set of chairs that are ideal for picnicking. Their design\nwas inspired by the Blueberry Tablecloth.
-A device that synchronizes your mind and feelings\nwith your Pokémon’s so that you can work as one.\nIt’s still a prototype—hence its unrefined appearance.
+A device that synchronizes your mind and feelings\nwith your Pokémon’s so that you can work as one.\nIt’s still a prototype-hence its unrefined appearance.
 A rock that fell to earth from space. It’s slightly\nwarm to the touch. It allows a certain species of\nPokémon to change forms.
 A record of an expedition to the Great Crater of Paldea,\ngiven to you by Professor Sada. The book has the name\n“Sada” written on it in clumsy handwriting.
 A record of an expedition to the Great Crater of Paldea,\ngiven to you by Professor Turo. The book has the name\n“Turo” written on it in clumsy handwriting.
