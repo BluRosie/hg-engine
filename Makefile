@@ -138,6 +138,7 @@ REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
 ## includes
 include data/graphics/pokegra.mk
+include data/graphics/itemgra.mk
 include data/itemdata/itemdata.mk
 include data/codetables.mk
 include narcs.mk
