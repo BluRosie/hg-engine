@@ -3761,6 +3761,8 @@ BOOL LONG_CALL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp
 */
 BOOL LONG_CALL IsMoveInMinimizeVulnerabilityMovesList(u16 move);
 
+BOOL LONG_CALL IsMonValidAndHealthy(struct PartyPokemon *mon);
+
 // https://x.com/Sibuna_Switch/status/1753849078943723899
 // https://www.youtube.com/watch?v=bLS2WyCaDIM
 // TODO: come back here after implementing Raids
