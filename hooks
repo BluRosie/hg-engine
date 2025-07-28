@@ -514,5 +514,4 @@ arm9 DestroyHeap_hook 0201AA24 3
 # expand metronome move pool
 0012 load_max_move_num_metronome 022408AC 0
 
-# arm9 RareCandyUse_hook 02081EA0 6
 arm9 PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook 02081E54 0
