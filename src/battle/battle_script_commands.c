@@ -1917,6 +1917,7 @@ BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw UNUSED, struct BattleStruct
  */
 BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
 {
+    int species, form;
     struct PartyPokemon *mon;
 
     IncrementBattleScriptPtr(sp, 1);
@@ -1940,6 +1941,22 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
                 sp->beat_up_count++;
 
             }
+        }
+    }
+
+    for (int i = sp->multiHitCountTemp; i < partyCount; i++) {
+        mon = Battle_GetClientPartyMon(bw, sp->attack_client, i);
+        if (GetMonData(mon, MON_DATA_HP, 0) != 0 &&
+            GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != 0 &&
+            GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_EGG &&
+            GetMonData(mon, MON_DATA_STATUS, 0) == 0)
+            {
+
+            species = GetMonData(mon, MON_DATA_SPECIES, 0);
+            form = GetMonData(mon, MON_DATA_FORM, 0);
+            sp->damage_power = 5 + (PokeFormNoPersonalParaGet(species, form, PERSONAL_BASE_ATTACK) / 10);
+            break;
+
         }
     }
 
