@@ -1928,7 +1928,6 @@ BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
         sp->multiHitCount = 2;
         sp->loop_hit_check = 0xFD;
         sp->beat_up_count = 0;
-        sp->damage_power = 5 + (sp->battlemon[sp->attack_client].attack / 10);
 
         for (int i = 0; i < partyCount; i++) {
             mon = Battle_GetClientPartyMon(bw, sp->attack_client, i);

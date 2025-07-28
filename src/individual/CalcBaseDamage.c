@@ -572,7 +572,7 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         break;
     // Other
     case MOVE_BEAT_UP:
-        movepower = sp->damage_power;
+        movepower = 5 + (sp->battlemon[sp->attack_client].attack / 10);
         break;
     case MOVE_ECHOED_VOICE:
         // TODO
