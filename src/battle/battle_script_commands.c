@@ -1917,71 +1917,40 @@ BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw UNUSED, struct BattleStruct
  */
 BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
 {
-    int species, form, number_of_hits;
-    s32 newBaseDamage;
     struct PartyPokemon *mon;
 
     IncrementBattleScriptPtr(sp, 1);
 
     int partyCount = Battle_GetClientPartySize(bw, sp->attack_client);
 
+    // count the valid mons up front
     if (sp->multiHitCountTemp == 0) {
-
-        sp->multiHitCountTemp = 2;
+        sp->multiHitCount = 2;
         sp->loop_hit_check = 0xFD;
         sp->beat_up_count = 0;
-        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
+        sp->damage_power = 5 + (sp->battlemon[sp->attack_client].attack / 10);
 
-        while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, MON_DATA_HP, 0) == 0 ||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 ||
-                GetMonData(mon, MON_DATA_STATUS, 0) != 0))
+        for (int i = 0; i < partyCount; i++) {
+            mon = Battle_GetClientPartyMon(bw, sp->attack_client, i);
+            if (GetMonData(mon, MON_DATA_HP, 0) != 0 &&
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != 0 &&
+                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_EGG &&
+                GetMonData(mon, MON_DATA_STATUS, 0) == 0)
                 {
 
-            sp->beat_up_count++;
-            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
+                sp->beat_up_count++;
 
+            }
         }
     }
 
-    mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-    species = GetMonData(mon, MON_DATA_SPECIES, 0);
-    form = GetMonData(mon, MON_DATA_FORM, 0);
-
-    newBaseDamage = PokeFormNoPersonalParaGet(species, form, PERSONAL_BASE_ATTACK);
-    newBaseDamage /= 10;
-    sp->damage_power = 5;
-    sp->damage_power += newBaseDamage;
-
-    sp->beat_up_count++;
-    sp->multiHitCount = 2;
-    number_of_hits = sp->beat_up_count;
-
-    if (sp->beat_up_count < partyCount) {
-
-        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-
-        while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, MON_DATA_HP, 0) == 0 ||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0 ||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 ||
-                GetMonData(mon, MON_DATA_STATUS, 0) != 0))
-                {
-
-            sp->beat_up_count++;
-            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-
-            if (sp->beat_up_count >= partyCount) {
-                sp->multiHitCount = 1;
-                sp->multiHitCountTemp = number_of_hits;
-                break;
-            }
-
-        }
-    } else {
+    if (sp->multiHitCountTemp < sp->beat_up_count) {
+        sp->multiHitCountTemp++;
+        // end sequence right away if hit count is one
+        sp->multiHitCount = sp->beat_up_count == 1 ? 1 : 2;
+    } else if (sp->multiHitCountTemp != sp->beat_up_count) {
+        // let function run one more time after last count to trigger the final hit animation
         sp->multiHitCount = 1;
-        sp->multiHitCountTemp = number_of_hits;
     }
 
     return FALSE;
