@@ -134,8 +134,21 @@ int PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6(struct PLIST_WORK *wk) {
         return 0x20;
     }
     wk->dat->ret_mode = 0x0;
-    if (Bag_HasItem(wk->dat->myitem, ITEM_RARE_CANDY, 1, HEAP_ID_PARTY_MENU)) {
-        wk->dat->item = ITEM_RARE_CANDY;
+    if (Bag_HasItem(wk->dat->myitem, wk->dat->item, 1, HEAP_ID_PARTY_MENU)) {
+        ClearFrameAndWindow2(&wk->windows[34], TRUE);
+        PartyMenu_PrintMessageOnWindow32(wk, 32, TRUE);
+        return 0x4;
+    }
+    return 0x20;
+}
+
+/*
+ * @brief hooks into the ending of pokeheartgold PartyMenu_ItemUseFunc_WaitTextPrinterThenExit
+ * to allow for item reuse if not an evo item and the bag has more of the item
+ */
+int PartyMenu_ItemUseFunc_ReuseItem(struct PLIST_WORK *wk) {
+    wk->dat->ret_mode = 0;
+    if (GetItemData(wk->dat->item, ITEM_PARAM_EVOLUTION, HEAP_ID_PARTY_MENU) == 0 && Bag_HasItem(wk->dat->myitem, wk->dat->item, 1, HEAP_ID_PARTY_MENU)) {
         ClearFrameAndWindow2(&wk->windows[34], TRUE);
         PartyMenu_PrintMessageOnWindow32(wk, 32, TRUE);
         return 0x4;
