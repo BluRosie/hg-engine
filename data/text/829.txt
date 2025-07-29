@@ -1,2558 +1,2558 @@
 None
-Master Ball
-Ultra Ball
-Great Ball
-Poké Ball
-Safari Ball
-Net Ball
-Dive Ball
-Nest Ball
-Repeat Ball
-Timer Ball
-Luxury Ball
-Premier Ball
-Dusk Ball
-Heal Ball
-Quick Ball
-Cherish Ball
-Potion
-Antidote
-Burn Heal
-Ice Heal
-Awakening
-Paralyze Heal
-Full Restore
-Max Potion
-Hyper Potion
-Super Potion
-Full Heal
-Revive
-Max Revive
-bottle of Fresh Water
-bottle of Soda Pop
-can of Lemonade
-bottle of Moomoo Milk
-dose of Energy Powder
-Energy Root
-dose of Heal Powder
-Revival Herb
-Ether
-Max Ether
-Elixir
-Max Elixir
-Lava Cookie
-cup of Berry Juice
-bag of Sacred Ash
-bottle of HP Up
-bottle of Protein
-bottle of Iron
-bottle of Carbos
-bottle of Calcium
-Rare Candy
-bottle of PP Up
-bottle of Zinc
-bottle of PP Max
-Old Gateau
-Guard Spec.
-Dire Hit
-X Attack
-X Defense
-X Speed
-X Accuracy
-X Sp. Atk
-X Sp. Def
-Poké Doll
-Fluffy Tail
-Blue Flute
-Yellow Flute
-Red Flute
-Black Flute
-White Flute
-pile of Shoal Salt
-Shoal Shell
-Red Shard
-Blue Shard
-Yellow Shard
-Green Shard
-Super Repel
-Max Repel
-Escape Rope
-Repel
-Sun Stone
-Moon Stone
-Fire Stone
-Thunder Stone
-Water Stone
-Leaf Stone
-Tiny Mushroom
-Big Mushroom
-Pearl
-Big Pearl
-bag of Stardust
-Star Piece
-Nugget
-Heart Scale
-jar of Honey
-bag of Growth Mulch
-bag of Damp Mulch
-bag of Stable Mulch
-bag of Gooey Mulch
-Root Fossil
-Claw Fossil
-Helix Fossil
-Dome Fossil
-Old Amber
-Armor Fossil
-Skull Fossil
-Rare Bone
-Shiny Stone
-Dusk Stone
-Dawn Stone
-Oval Stone
-Odd Keystone
-Griseous Orb
-cup of Tea
-???
-Autograph
-Douse Drive
-Shock Drive
-Burn Drive
-Chill Drive
-???
-Pokémon Box Link
-Medicine Pocket
-TM Case
-Candy Jar
-Power-Up Pocket
-Clothing Trunk
-Catching Pocket
-Battle Pocket
-???
-???
-???
-???
-???
-Sweet Heart
-Adamant Orb
-Lustrous Orb
-piece of Greet Mail
-piece of Favored Mail
-piece of RSVP Mail
-piece of Thanks Mail
-piece of Inquiry Mail
-piece of Like Mail
-piece of Reply Mail
-piece of Bridge Mail S
-piece of Bridge Mail D
-piece of Bridge Mail T
-piece of Bridge Mail V
-piece of Bridge Mail M
-Cheri Berry
-Chesto Berry
-Pecha Berry
-Rawst Berry
-Aspear Berry
-Leppa Berry
-Oran Berry
-Persim Berry
-Lum Berry
-Sitrus Berry
-Figy Berry
-Wiki Berry
-Mago Berry
-Aguav Berry
-Iapapa Berry
-Razz Berry
-Bluk Berry
-Nanab Berry
-Wepear Berry
-Pinap Berry
-Pomeg Berry
-Kelpsy Berry
-Qualot Berry
-Hondew Berry
-Grepa Berry
-Tamato Berry
-Cornn Berry
-Magost Berry
-Rabuta Berry
-Nomel Berry
-Spelon Berry
-Pamtre Berry
-Watmel Berry
-Durin Berry
-Belue Berry
-Occa Berry
-Passho Berry
-Wacan Berry
-Rindo Berry
-Yache Berry
-Chople Berry
-Kebia Berry
-Shuca Berry
-Coba Berry
-Payapa Berry
-Tanga Berry
-Charti Berry
-Kasib Berry
-Haban Berry
-Colbur Berry
-Babiri Berry
-Chilan Berry
-Liechi Berry
-Ganlon Berry
-Salac Berry
-Petaya Berry
-Apicot Berry
-Lansat Berry
-Starf Berry
-Enigma Berry
-Micle Berry
-Custap Berry
-Jaboca Berry
-Rowap Berry
-bag of Bright Powder
-White Herb
-Macho Brace
-Exp. Share
-Quick Claw
-Soothe Bell
-Mental Herb
-Choice Band
-King’s Rock
-pile of Silver Powder
-Amulet Coin
-Cleanse Tag
-Soul Dew
-Deep Sea Tooth
-Deep Sea Scale
-Smoke Ball
-Everstone
-Focus Band
-Lucky Egg
-Scope Lens
-Metal Coat
-serving of Leftovers
-Dragon Scale
-Light Ball
-bag of Soft Sand
-Hard Stone
-Miracle Seed
-pair of Black Glasses
-Black Belt
-Magnet
-Mystic Water
-Sharp Beak
-Poison Barb
-piece of Never-Melt Ice
-Spell Tag
-Twisted Spoon
-piece of Charcoal
-Dragon Fang
-Silk Scarf
-Upgrade
-Shell Bell
-jar of Sea Incense
-jar of Lax Incense
-Lucky Punch
-bag of Metal Powder
-Thick Club
-Leek
-Red Scarf
-Blue Scarf
-Pink Scarf
-Green Scarf
-Yellow Scarf
-Wide Lens
-Muscle Band
-pair of Wise Glasses
-Expert Belt
-lump of Light Clay
-Life Orb
-Power Herb
-Toxic Orb
-Flame Orb
-bag of Quick Powder
-Focus Sash
-Zoom Lens
-Metronome
-Iron Ball
-Lagging Tail
-Destiny Knot
-blob of Black Sludge
-Icy Rock
-Smooth Rock
-Heat Rock
-Damp Rock
-Grip Claw
-Choice Scarf
-Sticky Barb
-Power Bracer
-Power Belt
-Power Lens
-Power Band
-Power Anklet
-Power Weight
-Shed Shell
-Big Root
-pair of Choice Specs
-Flame Plate
-Splash Plate
-Zap Plate
-Meadow Plate
-Icicle Plate
-Fist Plate
-Toxic Plate
-Earth Plate
-Sky Plate
-Mind Plate
-Insect Plate
-Stone Plate
-Spooky Plate
-Draco Plate
-Dread Plate
-Iron Plate
-jar of Odd Incense
-jar of Rock Incense
-jar of Full Incense
-jar of Wave Incense
-jar of Rose Incense
-jar of Luck Incense
-jar of Pure Incense
-Protector
-Electirizer
-Magmarizer
-Dubious Disc
-scrap of Reaper Cloth
-Razor Claw
-Razor Fang
-TM001
-TM002
-TM003
-TM004
-TM005
-TM006
-TM007
-TM008
-TM009
-TM010
-TM011
-TM012
-TM013
-TM014
-TM015
-TM016
-TM017
-TM018
-TM019
-TM020
-TM021
-TM022
-TM023
-TM024
-TM025
-TM026
-TM027
-TM028
-TM029
-TM030
-TM031
-TM032
-TM033
-TM034
-TM035
-TM036
-TM037
-TM038
-TM039
-TM040
-TM041
-TM042
-TM043
-TM044
-TM045
-TM046
-TM047
-TM048
-TM049
-TM050
-TM051
-TM052
-TM053
-TM054
-TM055
-TM056
-TM057
-TM058
-TM059
-TM060
-TM061
-TM062
-TM063
-TM064
-TM065
-TM066
-TM067
-TM068
-TM069
-TM070
-TM071
-TM072
-TM073
-TM074
-TM075
-TM076
-TM077
-TM078
-TM079
-TM080
-TM081
-TM082
-TM083
-TM084
-TM085
-TM086
-TM087
-TM088
-TM089
-TM090
-TM091
-TM092
-HM01
-HM02
-HM03
-HM04
-HM05
-HM06
-???
-???
-Explorer Kit
-Loot Sack
-Rule Book
-Poké Radar
-Point Card
-Guidebook
-Sticker Case
-Fashion Case
-Sticker Bag
-Pal Pad
-Works Key
-Old Charm
-Galactic Key
-Red Chain
-Town Map
-Vs. Seeker
-Coin Case
-Old Rod
-Good Rod
-Super Rod
-Sprayduck
-Poffin Case
-Bike
-Suite Key
-Oak’s Letter
-Lunar Feather
-Member Card
-Azure Flute
-S.S. Ticket
-Contest Pass
-Magma Stone
-Parcel
-Coupon 1
-Coupon 2
-Coupon 3
-Storage Key
-dose of Secret Medicine
-Vs. Recorder
-Gracidea
-Secret Key
-Apricorn Box
-Unown Report
-Berry Pots
-Dowsing Machine
-Blue Card
-Slowpoke Tail
-Clear Bell
-Card Key
-Basement Key
-Squirt Bottle
-Red Scale
-Lost Item
-Pass
-Machine Part
-Silver Feather
-Rainbow Feather
-Mystery Egg
-Red Apricorn
-Blue Apricorn
-Yellow Apricorn
-Green Apricorn
-Pink Apricorn
-White Apricorn
-Black Apricorn
-Fast Ball
-Level Ball
-Lure Ball
-Heavy Ball
-Love Ball
-Friend Ball
-Moon Ball
-Sport Ball
-Park Ball
-Photo Album
-GB Sounds
-Tidal Bell
-Rage Candy Bar
-Data Card 01
-Data Card 02
-Data Card 03
-Data Card 04
-Data Card 05
-Data Card 06
-Data Card 07
-Data Card 08
-Data Card 09
-Data Card 10
-Data Card 11
-Data Card 12
-Data Card 13
-Data Card 14
-Data Card 15
-Data Card 16
-Data Card 17
-Data Card 18
-Data Card 19
-Data Card 20
-Data Card 21
-Data Card 22
-Data Card 23
-Data Card 24
-Data Card 25
-Data Card 26
-Data Card 27
-Jade Orb
-Lock Capsule
-Red Orb
-Blue Orb
-Enigma Stone
-Prism Scale
-Eviolite
-Float Stone
-Rocky Helmet
-Air Balloon
-Red Card
-Ring Target
-Binding Band
-Absorb Bulb
-Cell Battery
-Eject Button
-Fire Gem
-Water Gem
-Electric Gem
-Grass Gem
-Ice Gem
-Fighting Gem
-Poison Gem
-Ground Gem
-Flying Gem
-Psychic Gem
-Bug Gem
-Rock Gem
-Ghost Gem
-Dragon Gem
-Dark Gem
-Steel Gem
-Normal Gem
-Health Feather
-Muscle Feather
-Resist Feather
-Genius Feather
-Clever Feather
-Swift Feather
-Pretty Feather
-Cover Fossil
-Plume Fossil
-Liberty Pass
-Pass Orb
-Dream Ball
-Poké Toy
-Prop Case
-Dragon Skull
-Balm Mushroom
-Big Nugget
-Pearl String
-Comet Shard
-Relic Copper
-Relic Silver
-Relic Gold
-Relic Vase
-Relic Band
-Relic Statue
-Relic Crown
-Casteliacone
-Dire Hit 2
-X Speed 2
-X Sp. Atk 2
-X Sp. Def 2
-X Defense 2
-X Attack 2
-X Accuracy 2
-X Speed 3
-X Sp. Atk 3
-X Sp. Def 3
-X Defense 3
-X Attack 3
-X Accuracy 3
-X Speed 6
-X Sp. Atk 6
-X Sp. Def 6
-X Defense 6
-X Attack 6
-X Accuracy 6
-Ability Urge
-Item Drop
-Item Urge
-Reset Urge
-Dire Hit 3
-Light Stone
-Dark Stone
-TM093
-TM094
-TM095
-Xtransceiver
-???
-Gram 1
-Gram 2
-Gram 3
-Xtransceiver
-Medal Box
-DNA Splicers
-DNA Splicers
-Permit
-Oval Charm
-Shiny Charm
-Plasma Card
-Grubby Hanky
-Colress Machine
-Dropped Item
-Dropped Item
-Reveal Glass
-Weakness Policy
-Assault Vest
-Holo Caster
-Prof’s Letter
-pair of Roller Skates
-Pixie Plate
-Ability Capsule
-dollop of Whipped Dream
-Sachet
-clump of Luminous Moss
-Snowball
-pair of Safety Goggles
-Poké Flute
-bag of Rich Mulch
-bag of Surprise Mulch
-bag of Boost Mulch
-bag of Amaze Mulch
-Gengarite
-Gardevoirite
-Ampharosite
-Venusaurite
-Charizardite X
-Blastoisinite
-Mewtwonite X
-Mewtwonite Y
-Blazikenite
-Medichamite
-Houndoominite
-Aggronite
-Banettite
-Tyranitarite
-Scizorite
-Pinsirite
-Aerodactylite
-Lucarionite
-Abomasite
-Kangaskhanite
-Gyaradosite
-Absolite
-Charizardite Y
-Alakazite
-Heracronite
-Mawilite
-Manectite
-Garchompite
-Latiasite
-Latiosite
-Roseli Berry
-Kee Berry
-Maranga Berry
-Sprinklotad
-TM096
-TM097
-TM098
-TM099
-TM100
-Power Plant Pass
-Mega Ring
-Intriguing Stone
-Common Stone
-Discount Coupon
-Elevator Key
-TMV Pass
-Honor of Kalos emblem
-Adventure Guide
-Strange Souvenir
-Lens Case
-Makeup Bag
-Travel Trunk
-Lumiose Galette
-Shalour Sable
-Jaw Fossil
-Sail Fossil
-Looker Ticket
-Bike
-Holo Caster
-Fairy Gem
-Mega Charm
-Mega Glove
-Mach Bike
-Acro Bike
-Wailmer Pail
-case of Devon Parts
-Soot Sack
-Basement Key
-Pokéblock Kit
-Letter
-Eon Ticket
-Scanner
-pair of Go-Goggles
-Meteorite
-Key to Room 1
-Key to Room 2
-Key to Room 4
-Key to Room 6
-Storage Key
-Devon Scope
-S.S. Ticket
-HM07
-set of Devon Scuba Gear
-Contest Costume
-Contest Costume
-Magma Suit
-Aqua Suit
-Pair of Tickets
-Mega Bracelet
-Mega Pendant
-pair of Mega Glasses
-Mega Anchor
-Mega Stickpin
-Mega Tiara
-Mega Anklet
-Meteorite
-Swampertite
-Sceptilite
-Sablenite
-Altarianite
-Galladite
-Audinite
-Metagrossite
-Sharpedonite
-Slowbronite
-Steelixite
-Pidgeotite
-Glalitite
-Diancite
-Prison Bottle
-Mega Cuff
-Cameruptite
-Lopunnite
-Salamencite
-Beedrillite
-Meteorite
-Meteorite
-Key Stone
-Meteorite Shard
-Eon Flute
-piece of Normalium Z
-piece of Firium Z
-piece of Waterium Z
-piece of Electrium Z
-piece of Grassium Z
-piece of Icium Z
-piece of Fightinium Z
-piece of Poisonium Z
-piece of Groundium Z
-piece of Flyinium Z
-piece of Psychium Z
-piece of Buginium Z
-piece of Rockium Z
-piece of Ghostium Z
-piece of Dragonium Z
-piece of Darkinium Z
-piece of Steelium Z
-piece of Fairium Z
-piece of Pikanium Z
-Bottle Cap
-Gold Bottle Cap
-Z-Ring
-piece of Decidium Z
-piece of Incinium Z
-piece of Primarium Z
-piece of Tapunium Z
-piece of Marshadium Z
-piece of Aloraichium Z
-piece of Snorlium Z
-piece of Eevium Z
-piece of Mewnium Z
-piece of Normalium Z
-piece of Firium Z
-piece of Waterium Z
-piece of Electrium Z
-piece of Grassium Z
-piece of Icium Z
-piece of Fightinium Z
-piece of Poisonium Z
-piece of Groundium Z
-piece of Flyinium Z
-piece of Psychium Z
-piece of Buginium Z
-piece of Rockium Z
-piece of Ghostium Z
-piece of Dragonium Z
-piece of Darkinium Z
-piece of Steelium Z
-piece of Fairium Z
-piece of Pikanium Z
-piece of Decidium Z
-piece of Incinium Z
-piece of Primarium Z
-piece of Tapunium Z
-piece of Marshadium Z
-piece of Aloraichium Z
-piece of Snorlium Z
-piece of Eevium Z
-piece of Mewnium Z
-piece of Pikashunium Z
-piece of Pikashunium Z
-???
-???
-???
-???
-Forage Bag
-Fishing Rod
-Professor’s Mask
-Festival Ticket
-Sparkling Stone
-Adrenaline Orb
-Zygarde Cube
-???
-Ice Stone
-Ride Pager
-Beast Ball
-Big Malasada
-jar of Red Nectar
-jar of Yellow Nectar
-jar of Pink Nectar
-jar of Purple Nectar
-Sun Flute
-Moon Flute
-???
-Enigmatic Card
-Silver Razz Berry
-Golden Razz Berry
-Silver Nanab Berry
-Golden Nanab Berry
-Silver Pinap Berry
-Golden Pinap Berry
-???
-???
-???
-???
-???
-Secret Key
-S.S. Ticket
-Silph Scope
-Parcel
-Card Key
-set of Gold Teeth
-Lift Key
-Terrain Extender
-set of Protective Pads
-Electric Seed
-Psychic Seed
-Misty Seed
-Grassy Seed
-Stretchy Spring
-Chalky Stone
-Marble
-Lone Earring
-piece of Beach Glass
-Gold Leaf
-Silver Leaf
-Polished Mud Ball
-Tropical Shell
-Leaf Letter
-Leaf Letter
-Small Bouquet
-???
-???
-???
-Lure
-Super Lure
-Max Lure
-bag of Pewter Crunchies
-Fighting Memory
-Flying Memory
-Poison Memory
-Ground Memory
-Rock Memory
-Bug Memory
-Ghost Memory
-Steel Memory
-Fire Memory
-Water Memory
-Grass Memory
-Electric Memory
-Psychic Memory
-Ice Memory
-Dragon Memory
-Dark Memory
-Fairy Memory
-piece of Solganium Z
-piece of Lunalium Z
-piece of Ultranecrozium Z
-piece of Mimikium Z
-piece of Lycanium Z
-piece of Kommonium Z
-piece of Solganium Z
-piece of Lunalium Z
-piece of Ultranecrozium Z
-piece of Mimikium Z
-piece of Lycanium Z
-piece of Kommonium Z
-Z-Power Ring
-Pink Petal
-Orange Petal
-Blue Petal
-Red Petal
-Green Petal
-Yellow Petal
-Purple Petal
-Rainbow Flower
-Surge Badge
-N-Solarizer
-N-Lunarizer
-N-Solarizer
-N-Lunarizer
-piece of Ilima’s Normalium Z
-Left Poké Ball
-Roto Hatch
-Roto Bargain
-Roto Prize Money
-Roto Exp. Points
-Roto Friendship
-Roto Encounter
-Roto Stealth
-Roto HP Restore
-Roto PP Restore
-Roto Boost
-Roto Catch
-Health Candy
-Mighty Candy
-Tough Candy
-Smart Candy
-Courage Candy
-Quick Candy
-Health Candy L
-Mighty Candy L
-Tough Candy L
-Smart Candy L
-Courage Candy L
-Quick Candy L
-Health Candy XL
-Mighty Candy XL
-Tough Candy XL
-Smart Candy XL
-Courage Candy XL
-Quick Candy XL
-Bulbasaur Candy
-Charmander Candy
-Squirtle Candy
-Caterpie Candy
-Weedle Candy
-Pidgey Candy
-Rattata Candy
-Spearow Candy
-Ekans Candy
-Pikachu Candy
-Sandshrew Candy
-Nidoran♀ Candy
-Nidoran♂ Candy
-Clefairy Candy
-Vulpix Candy
-Jigglypuff Candy
-Zubat Candy
-Oddish Candy
-Paras Candy
-Venonat Candy
-Diglett Candy
-Meowth Candy
-Psyduck Candy
-Mankey Candy
-Growlithe Candy
-Poliwag Candy
-Abra Candy
-Machop Candy
-Bellsprout Candy
-Tentacool Candy
-Geodude Candy
-Ponyta Candy
-Slowpoke Candy
-Magnemite Candy
-Farfetch’d Candy
-Doduo Candy
-Seel Candy
-Grimer Candy
-Shellder Candy
-Gastly Candy
-Onix Candy
-Drowzee Candy
-Krabby Candy
-Voltorb Candy
-Exeggcute Candy
-Cubone Candy
-Hitmonlee Candy
-Hitmonchan Candy
-Lickitung Candy
-Koffing Candy
-Rhyhorn Candy
-Chansey Candy
-Tangela Candy
-Kangaskhan Candy
-Horsea Candy
-Goldeen Candy
-Staryu Candy
-Mr. Mime Candy
-Scyther Candy
-Jynx Candy
-Electabuzz Candy
-Pinsir Candy
-Tauros Candy
-Magikarp Candy
-Lapras Candy
-Ditto Candy
-Eevee Candy
-Porygon Candy
-Omanyte Candy
-Kabuto Candy
-Aerodactyl Candy
-Snorlax Candy
-Articuno Candy
-Zapdos Candy
-Moltres Candy
-Dratini Candy
-Mewtwo Candy
-Mew Candy
-Meltan Candy
-Magmar Candy
-???
-???
-???
-???
-???
-???
-???
-???
-???
-???
-???
-???
-???
-???
-???
-???
-letter of Endorsement
-Pokémon Box Link
-Wishing Star
-Dynamax Band
-???
-???
-Fishing Rod
-Rotom Bike
-???
-???
-pack of Sausages
-Bob’s Food Tin
-Bach’s Food Tin
-Tin of Beans
-loaf of Bread
-bag of Pasta
-bag of Mixed Mushrooms
-pack of Smoke-Poke Tail
-Large Leek
-Fancy Apple
-bag of Brittle Bones
-Pack of Potatoes
-Pungent Root
-bag of Salad Mix
-pack of Fried Food
-Boiled Egg
-set of Camping Gear
-???
-???
-Rusted Sword
-Rusted Shield
-Fossilized Bird
-Fossilized Fish
-Fossilized Drake
-Fossilized Dino
-Strawberry Sweet
-Love Sweet
-Berry Sweet
-Clover Sweet
-Flower Sweet
-Star Sweet
-Ribbon Sweet
-Sweet Apple
-Tart Apple
-bottle of Throat Spray
-Eject Pack
-pair of Heavy-Duty Boots
-Blunder Policy
-voucher for Room Service
-Utility Umbrella
-Exp. Candy XS
-Exp. Candy S
-Exp. Candy M
-Exp. Candy L
-Exp. Candy XL
-Dynamax Candy
-TR00
-TR01
-TR02
-TR03
-TR04
-TR05
-TR06
-TR07
-TR08
-TR09
-TR10
-TR11
-TR12
-TR13
-TR14
-TR15
-TR16
-TR17
-TR18
-TR19
-TR20
-TR21
-TR22
-TR23
-TR24
-TR25
-TR26
-TR27
-TR28
-TR29
-TR30
-TR31
-TR32
-TR33
-TR34
-TR35
-TR36
-TR37
-TR38
-TR39
-TR40
-TR41
-TR42
-TR43
-TR44
-TR45
-TR46
-TR47
-TR48
-TR49
-TR50
-TR51
-TR52
-TR53
-TR54
-TR55
-TR56
-TR57
-TR58
-TR59
-TR60
-TR61
-TR62
-TR63
-TR64
-TR65
-TR66
-TR67
-TR68
-TR69
-TR70
-TR71
-TR72
-TR73
-TR74
-TR75
-TR76
-TR77
-TR78
-TR79
-TR80
-TR81
-TR82
-TR83
-TR84
-TR85
-TR86
-TR87
-TR88
-TR89
-TR90
-TR91
-TR92
-TR93
-TR94
-TR95
-TR96
-TR97
-TR98
-TR99
-TM00
-sprig of Lonely Mint
-sprig of Adamant Mint
-sprig of Naughty Mint
-sprig of Brave Mint
-sprig of Bold Mint
-sprig of Impish Mint
-sprig of Lax Mint
-sprig of Relaxed Mint
-sprig of Modest Mint
-sprig of Mild Mint
-sprig of Rash Mint
-sprig of Quiet Mint
-sprig of Calm Mint
-sprig of Gentle Mint
-sprig of Careful Mint
-sprig of Sassy Mint
-sprig of Timid Mint
-sprig of Hasty Mint
-sprig of Jolly Mint
-sprig of Naive Mint
-sprig of Serious Mint
-Wishing Piece
-Cracked Pot
-Chipped Pot
-set of Hi-tech Earbuds
-Fruit Bunch
-wheel of Moomoo Cheese
-bottle of Spice Mix
-pack of Fresh Cream
-box of Packaged Curry
-pack of Coconut Milk
-cup of Instant Noodles
-bag of Precooked Burger
-bottle of Gigantamix
-Wishing Chip
-Rotom Bike
-Catching Charm
-???
-Old Letter
-Band Autograph
-copy of Sonia’s Book
-???
-???
-???
-???
-???
-???
-Rotom Catalog
-★And458
-★And15
-★And337
-★And603
-★And390
-★Sgr6879
-★Sgr6859
-★Sgr6913
-★Sgr7348
-★Sgr7121
-★Sgr6746
-★Sgr7194
-★Sgr7337
-★Sgr7343
-★Sgr6812
-★Sgr7116
-★Sgr7264
-★Sgr7597
-★Del7882
-★Del7906
-★Del7852
-★Psc596
-★Psc361
-★Psc510
-★Psc437
-★Psc8773
-★Lep1865
-★Lep1829
-★Boo5340
-★Boo5506
-★Boo5435
-★Boo5602
-★Boo5733
-★Boo5235
-★Boo5351
-★Hya3748
-★Hya3903
-★Hya3418
-★Hya3482
-★Hya3845
-★Eri1084
-★Eri472
-★Eri1666
-★Eri897
-★Eri1231
-★Eri874
-★Eri1298
-★Eri1325
-★Eri984
-★Eri1464
-★Eri1393
-★Eri850
-★Tau1409
-★Tau1457
-★Tau1165
-★Tau1791
-★Tau1910
-★Tau1346
-★Tau1373
-★Tau1412
-★CMa2491
-★CMa2693
-★CMa2294
-★CMa2827
-★CMa2282
-★CMa2618
-★CMa2657
-★CMa2646
-★UMa4905
-★UMa4301
-★UMa5191
-★UMa5054
-★UMa4295
-★UMa4660
-★UMa4554
-★UMa4069
-★UMa3569
-★UMa3323
-★UMa4033
-★UMa4377
-★UMa4375
-★UMa4518
-★UMa3594
-★Vir5056
-★Vir4825
-★Vir4932
-★Vir4540
-★Vir4689
-★Vir5338
-★Vir4910
-★Vir5315
-★Vir5359
-★Vir5409
-★Vir5107
-★Ari617
-★Ari553
-★Ari546
-★Ari951
-★Ori1713
-★Ori2061
-★Ori1790
-★Ori1903
-★Ori1948
-★Ori2004
-★Ori1852
-★Ori1879
-★Ori1899
-★Ori1543
-★Cas21
-★Cas168
-★Cas403
-★Cas153
-★Cas542
-★Cas219
-★Cas265
-★Cnc3572
-★Cnc3208
-★Cnc3461
-★Cnc3449
-★Cnc3429
-★Cnc3627
-★Cnc3268
-★Cnc3249
-★Com4968
-★Crv4757
-★Crv4623
-★Crv4662
-★Crv4786
-★Aur1708
-★Aur2088
-★Aur1605
-★Aur2095
-★Aur1577
-★Aur1641
-★Aur1612
-★Pav7790
-★Cet911
-★Cet681
-★Cet188
-★Cet539
-★Cet804
-★Cep8974
-★Cep8162
-★Cep8238
-★Cep8417
-★Cen5267
-★Cen5288
-★Cen551
-★Cen5459
-★Cen5460
-★CMi2943
-★CMi2845
-★Equ8131
-★Vul7405
-★UMi424
-★UMi5563
-★UMi5735
-★UMi6789
-★Crt4287
-★Lyr7001
-★Lyr7178
-★Lyr7106
-★Lyr7298
-★Ara6585
-★Sco6134
-★Sco6527
-★Sco6553
-★Sco5953
-★Sco5984
-★Sco6508
-★Sco6084
-★Sco5944
-★Sco6630
-★Sco6027
-★Sco6247
-★Sco6252
-★Sco5928
-★Sco6241
-★Sco6165
-★Tri544
-★Leo3982
-★Leo4534
-★Leo4357
-★Leo4057
-★Leo4359
-★Leo4031
-★Leo3852
-★Leo3905
-★Leo3773
-★Gru8425
-★Gru8636
-★Gru8353
-★Lib5685
-★Lib5531
-★Lib5787
-★Lib5603
-★Pup3165
-★Pup3185
-★Pup3045
-★Cyg7924
-★Cyg7417
-★Cyg7796
-★Cyg8301
-★Cyg7949
-★Cyg7528
-★Oct7228
-★Col1956
-★Col2040
-★Col2177
-★Gem2990
-★Gem2891
-★Gem2421
-★Gem2473
-★Gem2216
-★Gem2777
-★Gem2650
-★Gem2286
-★Gem2484
-★Gem2930
-★Peg8775
-★Peg8781
-★Peg39
-★Peg8308
-★Peg8650
-★Peg8634
-★Peg8684
-★Peg8450
-★Peg8880
-★Peg8905
-★Oph6556
-★Oph6378
-★Oph6603
-★Oph6149
-★Oph6056
-★Oph6075
-★Ser5854
-★Ser7141
-★Ser5879
-★Her6406
-★Her6148
-★Her6410
-★Her6526
-★Her6117
-★Her6008
-★Per936
-★Per1017
-★Per1131
-★Per1228
-★Per834
-★Per941
-★Phe99
-★Phe338
-★Vel3634
-★Vel3485
-★Vel3734
-★Aqr8232
-★Aqr8414
-★Aqr8709
-★Aqr8518
-★Aqr7950
-★Aqr8499
-★Aqr8610
-★Aqr8264
-★Cru4853
-★Cru4730
-★Cru4763
-★Cru4700
-★Cru4656
-★PsA8728
-★TrA6217
-★Cap7776
-★Cap7754
-★Cap8278
-★Cap8322
-★Cap7773
-★Sge7479
-★Car2326
-★Car3685
-★Car3307
-★Car3699
-★Dra5744
-★Dra5291
-★Dra6705
-★Dra6536
-★Dra7310
-★Dra6688
-★Dra4434
-★Dra6370
-★Dra7462
-★Dra6396
-★Dra6132
-★Dra6636
-★CVn4915
-★CVn4785
-★CVn4846
-★Aql7595
-★Aql7557
-★Aql7525
-★Aql7602
-★Aql7235
-comb of Max Honey
-cluster of Max Mushrooms
-Galarica Twig
-Galarica Cuff
-Style Card
-Armor Pass
-Rotom Bike
-Rotom Bike
-Exp. Charm
-piece of Armorite Ore
-Mark Charm
-set of Reins of Unity
-set of Reins of Unity
-Galarica Wreath
-Legendary Clue 1
-Legendary Clue 2
-Legendary Clue 3
-Legendary Clue?
-Crown Pass
-Wooden Crown
-Radiant Petal
-tuft of White Mane Hair
-tuft of Black Mane Hair
-Iceroot Carrot
-Shaderoot Carrot
-piece of Dynite Ore
-bag of Carrot Seeds
-Ability Patch
-set of Reins of Unity
-Time Balm
-Space Balm
-Mysterious Balm
-Linking Cord
-Hometown Muffin
-Apricorn
-Jubilife Muffin
-dose of Aux Powerguard
-dose of Dire Hit
-Choice Dumpling
-serving of Twice-Spiced Radish
-Swap Snack
-Caster Fern leaf
-Seed of Mastery
-Poké Ball
-???
-piece of Eternal Ice
-Uxie’s Claw
-Azelf’s Fang
-Mesprit’s Plume
-Tumblestone
-Celestica Flute
-dose of Remedy
-dose of Fine Remedy
-comb of Dazzling Honey
-stalk of Hearty Grains
-pod of Plump Beans
-Springy Mushroom
-hunk of Crunchy Salt
-log of Wood
-bunch of King’s Leaf
-Marsh Balm
-Poké Ball recipe
-Great Ball recipe
-Ultra Ball recipe
-Feather Ball recipe
-Pokéshi Doll recipe
-???
-Smoke Bomb recipe
-Scatter Bang recipe
-Sticky Glob recipe
-Star Piece recipe
-Mushroom Cake recipe
-Bugwort bloom
-Honey Cake recipe
-Grain Cake recipe
-Bean Cake recipe
-Salt Cake recipe
-Potion recipe
-Super Potion recipe
-Hyper Potion recipe
-Max Potion recipe
-Full Restore recipe
-Remedy recipe
-Fine Remedy recipe
-Superb Remedy recipe
-Old Gateau recipe
-Jubilife Muffin recipe
-Full Heal recipe
-Revive recipe
-Max Revive recipe
-Max Ether recipe
-Max Elixir recipe
-Stealth Spray recipe
-???
-Aux Power recipe
-Aux Guard recipe
-Dire Hit recipe
-Aux Evasion recipe
-Aux Powerguard recipe
-Forest Balm
-Iron Chunk
-???
-Black Tumblestone
-Sky Tumblestone
-???
-Ball of Mud
-???
-Pop Pod
-Sootfoot Root
-Spoiled Apricorn
-Snowball
-Sticky Glob
-piece of Black Augurite
-Peat Block
-Stealth Spray
-Medicinal Leek
-Vivichoke
-Pep-Up Plant
-???
-???
-Tempting Charm B
-Tempting Charm P
-bunch of Swordcap
-scrap of Iron Barktongue
-bunch of Doppel Bonnets
-Direshroom
-Sand Radish
-Tempting Charm T
-Tempting Charm Y
-Candy Truffle
-ball of Cake-Lure Base
-Poké Ball
-Great Ball
-Ultra Ball
-Feather Ball
-???
-???
-Scatter Bang
-Smoke Bomb
-???
-???
-Pokéshi Doll
-Volcano Balm
-Mountain Balm
-Snow Balm
-Honey Cake
-Grain Cake
-Bean Cake
-Mushroom Cake
-Salt Cake
-Swap Snack recipe
-Choice Dumpling recipe
-Twice-Spiced Radish recipe
-Survival Charm R
-Survival Charm B
-Survival Charm P
-Survival Charm T
-Survival Charm Y
-Torn Journal
-Warding Charm R
-Warding Charm B
-Warding Charm P
-Warding Charm T
-Warding Charm Y
-Wall Fragment
-ball of Basculegion Food
-Old Journal
-Wing Ball
-Jet Ball
-Heavy Ball
-Leaden Ball
-Gigaton Ball
-Wing Ball recipe
-Jet Ball recipe
-Heavy Ball recipe
-Hopo Berry
-dose of Superb Remedy
-dose of Aux Power
-dose of Aux Guard
-dose of Aux Evasion
-sack of Grit Dust
-sack of Grit Gravel
-Grit Pebble
-Grit Rock
-dose of Secret Medicine
-Tempting Charm R
-Lost Satchel
-Lost Satchel
-Lost Satchel
-Lost Satchel
-Lost Satchel
-???
-Origin Ball
-???
-???
-???
-???
-piece of Origin Ore
-Adamant Crystal
-Lustrous Globe
-Griseous Core
-Blank Plate
-???
-Crafting Kit
-Leaden Ball recipe
-Gigaton Ball recipe
-Strange Ball
-Pokédex
-Old Verse 1
-Old Verse 2
-Old Verse 3
-Old Verse 4
-???
-Old Verse 5
-Old Verse 6
-Old Verse 7
-Old Verse 8
-Old Verse 9
-Old Verse 10
-Old Verse 11
-Old Verse 12
-Old Verse 13
-Old Verse 14
-Old Verse 15
-Old Verse 16
-Old Verse 17
-Old Verse 18
-Old Verse 19
-Old Verse 20
-Mysterious Shard S
-Mysterious Shard L
-Digger Drill
-Kanto Slate
-Johto Slate
-Soul Slate
-Rainbow Slate
-Squall Slate
-Oceanic Slate
-Tectonic Slate
-Stratospheric Slate
-Genome Slate
-Discovery Slate
-Distortion Slate
-DS Sounds
-
-
-
-
-
-Legend Plate
-Rotom Phone
-Sandwich from Mom
-Koraidon’s Poké Ball
-Miraidon’s Poké Ball
-Tera Orb
-Scarlet Book
-Violet Book
-Kofu’s Wallet
-
-
-
-
-
-Tiny Bamboo Shoot
-Big Bamboo Shoot
-
-
-
-
-
-
-
-
-
-
-
-
-
-Scroll of Darkness
-Scroll of Waters
-
-
-set of Malicious Armor
-Normal Tera Shard
-Fire Tera Shard
-Water Tera Shard
-Electric Tera Shard
-Grass Tera Shard
-Ice Tera Shard
-Fighting Tera Shard
-Poison Tera Shard
-Ground Tera Shard
-Flying Tera Shard
-Psychic Tera Shard
-Bug Tera Shard
-Rock Tera Shard
-Ghost Tera Shard
-Dragon Tera Shard
-Dark Tera Shard
-Steel Tera Shard
-Fairy Tera Shard
-capsule of Booster Energy
-Ability Shield
-Clear Amulet
-Mirror Herb
-Punching Glove
-Covert Cloak
-Loaded Dice
-
-Baguette
-bottle of Mayonnaise
-bottle of Ketchup
-bottle of Mustard
-pat of Butter
-jar of Peanut Butter
-bottle of Chili Sauce
-shaker of Salt
-shaker of Pepper
-jar of Yogurt
-bag of Whipped Cream
-tub of Cream Cheese
-jar of Jam
-crock of Marmalade
-cruet of Olive Oil
-cruet of Vinegar
-shaker of Sweet Herba Mystica
-shaker of Salty Herba Mystica
-shaker of Sour Herba Mystica
-shaker of Bitter Herba Mystica
-shaker of Spicy Herba Mystica
-helping of Lettuce
-helping of Tomato
-helping of Cherry Tomatoes
-helping of Cucumber
-helping of Pickle
-helping of Onion
-helping of Red Onion
-helping of Green Bell Pepper
-helping of Red Bell Pepper
-helping of Yellow Bell Pepper
-helping of Avocado
-helping of Bacon
-helping of Ham
-helping of Prosciutto
-helping of Chorizo
-helping of Herbed Sausage
-Hamburger patty
-helping of Klawf Sticks
-helping of Smoked Fillet
-Fried Fillet
-helping of Egg
-Potato Tortilla
-helping of Tofu
-helping of Rice
-helping of Noodles
-helping of Potato Salad
-helping of Cheese
-helping of Banana
-helping of Strawberry
-helping of Apple
-helping of Kiwi
-helping of Pineapple
-helping of Jalapeño
-tub of Horseradish
-shaker of Curry Powder
-tub of Wasabi
-bunch of Watercress
-bunch of Basil
-
-
-
-
-
-
-
-
-
-Venonat Fang
-bag of Diglett Dirt
-bag of Meowth Fur
-bag of Psyduck Down
-bag of Mankey Fur
-bag of Growlithe Fur
-Slowpoke Claw
-Magnemite Screw
-bag of Grimer Toxin
-Shellder Pearl
-bag of Gastly Gas
-bag of Drowzee Fur
-bag of Voltorb Sparks
-Scyther Claw
-bag of Tauros Hair
-bag of Magikarp Scales
-bag of Ditto Goo
-bag of Eevee Fur
-bag of Dratini Scales
-bag of Pichu Fur
-bag of Igglybuff Fluff
-bag of Mareep Wool
-Hoppip Leaf
-Sunkern Leaf
-Murkrow Bauble
-bag of Misdreavus Tears
-bag of Girafarig Fur
-Pineco Husk
-bag of Dunsparce Scales
-bag of Qwilfish Spines
-Heracross Claw
-Sneasel Claw
-Teddiursa Claw
-Delibird Parcel
-Houndour Fang
-Phanpy Nail
-bag of Stantler Hair
-Larvitar Claw
-Wingull Feather
-bag of Ralts Dust
-bag of Surskit Syrup
-bag of Shroomish Spores
-bag of Slakoth Fur
-bag of Makuhita Sweat
-bag of Azurill Fur
-Sableye Gem
-bag of Meditite Sweat
-bag of Gulpin Mucus
-bag of Numel Lava
-bag of Torkoal Coal
-Spoink Pearl
-Cacnea Needle
-bag of Swablu Fluff
-Zangoose Claw
-Seviper Fang
-bag of Barboach Slime
-Shuppet Scrap
-Tropius Leaf
-bag of Snorunt Fur
-bag of Luvdisc Scales
-bag of Bagon Scales
-Starly Feather
-Kricketot Shell
-Shinx Fang
-bag of Combee Honey
-bag of Pachirisu Fur
-bag of Buizel Fur
-bag of Shellos Mucus
-bag of Drifloon Gas
-bag of Stunky Fur
-Bronzor Fragment
-bag of Bonsly Tears
-bag of Happiny Dust
-Spiritomb Fragment
-bag of Gible Scales
-bag of Riolu Fur
-bag of Hippopotas Sand
-bag of Croagunk Poison
-bag of Finneon Scales
-bag of Snover Berries
-bag of Rotom Sparks
-Petilil Leaf
-Basculin Fang
-Sandile Claw
-bag of Zorua Fur
-Gothita Eyelash
-bag of Deerling Hair
-bag of Foongus Spores
-bag of Alomomola Mucus
-bag of Tynamo Slime
-bag of Axew Scales
-bag of Cubchoo Fur
-bag of Cryogonal Ice
-Pawniard Blade
-Rufflet Feather
-bag of Deino Scales
-bag of Larvesta Fuzz
-Fletchling Feather
-bag of Scatterbug Powder
-Litleo Tuft
-bag of Flabébé Pollen
-Skiddo Leaf
-bag of Skrelp Kelp
-Clauncher Claw
-bag of Hawlucha Down
-bag of Dedenne Fur
-bag of Goomy Goo
-Klefki Key
-bag of Bergmite Ice
-bag of Noibat Fur
-bag of Yungoos Fur
-Crabrawler Shell
-Oricorio Feather
-Rockruff Rock
-Mareanie Spike
-bag of Mudbray Mud
-Fomantis Leaf
-bag of Salandit Gas
-bag of Bounsweet Sweat
-bag of Oranguru Fur
-bag of Passimian Fur
-bag of Sandygast Sand
-Komala Claw
-Mimikyu Scrap
-Bruxish Tooth
-Chewtle Claw
-bag of Skwovet Fur
-bag of Arrokuda Scales
-Rookidee Feather
-bag of Toxel Sparks
-bag of Falinks Sweat
-bag of Cufant Tarnish
-bag of Rolycoly Coal
-bag of Silicobra Sand
-bag of Indeedee Fur
-bag of Pincurchin Spines
-bag of Snom Thread
-bag of Impidimp Hair
-bag of Applin Juice
-Sinistea Chip
-bag of Hatenna Dust
-Stonjourner Stone
-bag of Eiscue Down
-bag of Dreepy Powder
-
-
-
-bag of Lechonk Hair
-bag of Tarountula Thread
-Nymble Claw
-bag of Rellor Mud
-bag of Greavard Wax
-bag of Flittle Down
-bag of Wiglett Sand
-Dondozo Whisker
-Veluza Fillet
-bag of Finizen Mucus
-bag of Smoliv Oil
-Capsakid Seed
-bag of Tadbulb Mucus
-bag of Varoom Fume
-bag of Orthworm Tarnish
-bag of Tandemaus Fur
-bag of Cetoddle Grease
-bag of Frigibax Scales
-bag of Tatsugiri Scales
-bag of Cyclizar Scales
-bag of Pawmi Fur
-
-
-Wattrel Feather
-Bombirdier Feather
-Squawkabilly Feather
-bag of Flamigo Down
-Klawf Claw
-bag of Nacli Salt
-Glimmet Crystal
-bag of Shroodle Ink
-bag of Fidough Fur
-Maschiff Fang
-Bramblin Twig
-Gimmighoul Coin
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-bag of Tinkatink Hair
-bag of Charcadet Soot
-Toedscool Flaps
-bag of Wooper Slime
-TM100
-TM101
-TM102
-TM103
-TM104
-TM105
-TM106
-TM107
-TM108
-TM109
-TM110
-TM111
-TM112
-TM113
-TM114
-TM115
-TM116
-TM117
-TM118
-TM119
-TM120
-TM121
-TM122
-TM123
-TM124
-TM125
-TM126
-TM127
-TM128
-TM129
-TM130
-TM131
-TM132
-TM133
-TM134
-TM135
-TM136
-TM137
-TM138
-TM139
-TM140
-TM141
-TM142
-TM143
-TM144
-TM145
-TM146
-TM147
-TM148
-TM149
-TM150
-TM151
-TM152
-TM153
-TM154
-TM155
-TM156
-TM157
-TM158
-TM159
-TM160
-TM161
-TM162
-TM163
-TM164
-TM165
-TM166
-TM167
-TM168
-TM169
-TM170
-TM171
-TM172
-TM173
-TM174
-TM175
-TM176
-TM177
-TM178
-TM179
-TM180
-TM181
-TM182
-TM183
-TM184
-TM185
-TM186
-TM187
-TM188
-TM189
-TM190
-TM191
-TM192
-TM193
-TM194
-TM195
-TM196
-TM197
-TM198
-TM199
-TM200
-TM201
-TM202
-TM203
-TM204
-TM205
-TM206
-TM207
-TM208
-TM209
-TM210
-TM211
-TM212
-TM213
-TM214
-TM215
-TM216
-TM217
-TM218
-TM219
-TM220
-TM221
-TM222
-TM223
-TM224
-TM225
-TM226
-TM227
-TM228
-TM229
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Picnic Set
-
-Academy Bottle
-Academy Bottle
-Polka-Dot Bottle
-Striped Bottle
-Diamond Bottle
-Academy Cup
-Academy Cup
-Striped Cup
-Polka-Dot Cup
-Flower Pattern Cup
-Academy Tablecloth
-Academy Tablecloth
-Whimsical Tablecloth
-Leafy Tablecloth
-Spooky Tablecloth
-
-Academy Ball
-Academy Ball
-Marill Ball
-Yarn Ball
-Cyber Ball
-Gold Pick
-Silver Pick
-Red-Flag Pick
-Blue-Flag Pick
-Pika-Pika Pick
-Winking Pika Pick
-Vee-Vee Pick
-Smiling Vee Pick
-Blue Poké Ball Pick
-
-set of Auspicious Armor
-Leader’s Crest
-
-
-Pink Bottle
-Blue Bottle
-Yellow Bottle
-Steel Bottle (R)
-Steel Bottle (Y)
-Steel Bottle (B)
-Silver Bottle
-Barred Cup
-Diamond Pattern Cup
-Fire Pattern Cup
-Pink Cup
-Blue Cup
-Yellow Cup
-Pikachu Cup
-Eevee Cup
-Slowpoke Cup
-Silver Cup
-Exercise Ball
-Plaid Tablecloth (Y)
-Plaid Tablecloth (B)
-Plaid Tablecloth (R)
-B&W Grass Tablecloth
-Battle Tablecloth
-Monstrous Tablecloth
-Striped Tablecloth
-Diamond Tablecloth
-Polka-Dot Tablecloth
-Lilac Tablecloth
-Mint Tablecloth
-Peach Tablecloth
-Yellow Tablecloth
-Blue Tablecloth
-Pink Tablecloth
-Gold Bottle
-Bronze Bottle
-Gold Cup
-Bronze Cup
-Green Poké Ball Pick
-Red Poké Ball Pick
-Party Sparkler Pick
-Heroic Sword Pick
-Magical Star Pick
-Magical Heart Pick
-Parasol Pick
-Blue-Sky Flower Pick
-Sunset Flower Pick
-Sunrise Flower Pick
-Blue Dish
-Green Dish
-Orange Dish
-Red Dish
-White Dish
-Yellow Dish
-Fairy Feather
-Syrupy Apple
-Unremarkable Teacup
-Masterpiece Teacup
-Teal Mask
-Cornerstone Mask
-Wellspring Mask
-Hearthflame Mask
-Teal Style Card
-Crystal Cluster
-Health Mochi
-Muscle Mochi
-Resist Mochi
-Genius Mochi
-Clever Mochi
-Swift Mochi
-set of Simple Chairs
-set of Academy Chairs
-set of Academy Chairs
-set of Whimsical Chairs
-set of Leafy Chairs
-set of Spooky Chairs
-set of Plaid Chairs (Y)
-set of Plaid Chairs (B)
-set of Plaid Chairs (R)
-set of B&W Grass Chairs
-set of Battle Chairs
-set of Monstrous Chairs
-set of Striped Chairs
-set of Diamond Chairs
-set of Polka-Dot Chairs
-set of Lilac Chairs
-set of Mint Chairs
-set of Peach Chairs
-set of Yellow Chairs
-set of Blue Chairs
-set of Pink Chairs
-Ekans Fang
-Sandshrew Claw
-bag of Cleffa Fur
-bag of Vulpix Fur
-bag of Poliwag Slime
-Bellsprout Vine
-Geodude Fragment
-bag of Koffing Gas
-Munchlax Fang
-bag of Sentret Fur
-Hoothoot Feather
-bag of Spinarak Thread
-bag of Aipom Hair
-Yanma Spike
-Gligar Fang
-bag of Slugma Lava
-bag of Swinub Hair
-Poochyena Fang
-Lotad Leaf
-Seedot Stem
-Nosepass Fragment
-bag of Volbeat Fluid
-bag of Illumise Fluid
-Corphish Shell
-bag of Feebas Scales
-Duskull Fragment
-Chingling Fragment
-bag of Timburr Sweat
-Sewaddle Leaf
-Ducklett Feather
-bag of Litwick Soot
-Mienfoo Claw
-Vullaby Feather
-Carbink Jewel
-Phantump Twig
-bag of Grubbin Thread
-bag of Cutiefly Powder
-bag of Jangmo-o Scales
-bag of Cramorant Down
-Morpeko Snack
-bag of Poltchageist Powder
-Fresh-Start Mochi
-Roto-Stick
-Glimmering Charm
-hunk of Metal Alloy
-Indigo Style Card
-Oddish Leaf
-Tentacool Stinger
-bag of Doduo Down
-bag of Seel Fur
-Exeggcute Shell
-bag of Tyrogue Sweat
-Rhyhorn Fang
-bag of Horsea Ink
-bag of Elekid Fur
-bag of Magby Hair
-Lapras Teardrop
-Porygon Fragment
-bag of Chinchou Sparks
-bag of Snubbull Hair
-Skarmory Feather
-bag of Smeargle Paint
-bag of Plusle Fur
-bag of Minun Fur
-Trapinch Shell
-Beldum Claw
-Cranidos Spike
-Shieldon Claw
-bag of Blitzle Mane Hair
-Drilbur Claw
-bag of Cottonee Fluff
-bag of Scraggy Sweat
-bag of Minccino Fur
-bag of Solosis Gel
-bag of Joltik Thread
-Golett Shard
-bag of Espurr Fur
-bag of Inkay Ink
-Pikipek Feather
-bag of Dewpider Thread
-Comfey Flower
-Minior Shell
-bag of Milcery Cream
-bag of Duraludon Tarnish
-Articuno Treat
-Zapdos Treat
-Moltres Treat
-Raikou Treat
-Entei Treat
-Suicune Treat
-Lugia Treat
-Ho-Oh Treat
-Latias Treat
-Latios Treat
-Kyogre Treat
-Groudon Treat
-Rayquaza Treat
-Cobalion Treat
-Terrakion Treat
-Virizion Treat
-Reshiram Treat
-Zekrom Treat
-Kyurem Treat
-Solgaleo Treat
-Lunala Treat
-Necrozma Treat
-Kubfu Treat
-Glastrier Treat
-Spectrier Treat
-Indigo Disk
-Fiery Pick
-Stellar Tera Shard
-Mythical Pecha Berry
-Blueberry Tablecloth
-set of Blueberry Chairs
-Synchro Machine
-Meteorite
-Scarlet Book
-Violet Book
-copy of Briar’s Book
+a Master Ball
+an Ultra Ball
+a Great Ball
+a Poké Ball
+a Safari Ball
+a Net Ball
+a Dive Ball
+a Nest Ball
+a Repeat Ball
+a Timer Ball
+a Luxury Ball
+a Premier Ball
+a Dusk Ball
+a Heal Ball
+a Quick Ball
+a Cherish Ball
+a Potion
+an Antidote
+a Burn Heal
+an Ice Heal
+an Awakening
+a Paralyze Heal
+a Full Restore
+a Max Potion
+a Hyper Potion
+a Super Potion
+a Full Heal
+a Revive
+a Max Revive
+a bottle of Fresh Water
+a bottle of Soda Pop
+a can of Lemonade
+a bottle of Moomoo Milk
+a dose of Energy Powder
+an Energy Root
+a dose of Heal Powder
+a Revival Herb
+an Ether
+a Max Ether
+an Elixir
+a Max Elixir
+a Lava Cookie
+a cup of Berry Juice
+a bag of Sacred Ash
+a bottle of HP Up
+a bottle of Protein
+a bottle of Iron
+a bottle of Carbos
+a bottle of Calcium
+a Rare Candy
+a bottle of PP Up
+a bottle of Zinc
+a bottle of PP Max
+an Old Gateau
+a Guard Spec.
+a Dire Hit
+an X Attack
+an X Defense
+an X Speed
+an X Accuracy
+an X Sp. Atk
+an X Sp. Def
+a Poké Doll
+a Fluffy Tail
+a Blue Flute
+a Yellow Flute
+a Red Flute
+a Black Flute
+a White Flute
+a pile of Shoal Salt
+a Shoal Shell
+a Red Shard
+a Blue Shard
+a Yellow Shard
+a Green Shard
+a Super Repel
+a Max Repel
+an Escape Rope
+a Repel
+a Sun Stone
+a Moon Stone
+a Fire Stone
+a Thunder Stone
+a Water Stone
+a Leaf Stone
+a Tiny Mushroom
+a Big Mushroom
+a Pearl
+a Big Pearl
+a bag of Stardust
+a Star Piece
+a Nugget
+a Heart Scale
+a jar of Honey
+a bag of Growth Mulch
+a bag of Damp Mulch
+a bag of Stable Mulch
+a bag of Gooey Mulch
+a Root Fossil
+a Claw Fossil
+a Helix Fossil
+a Dome Fossil
+an Old Amber
+an Armor Fossil
+a Skull Fossil
+a Rare Bone
+a Shiny Stone
+a Dusk Stone
+a Dawn Stone
+an Oval Stone
+an Odd Keystone
+a Griseous Orb
+a cup of Tea
+???
+an Autograph
+a Douse Drive
+a Shock Drive
+a Burn Drive
+a Chill Drive
+???
+a Pokémon Box Link
+a Medicine Pocket
+a TM Case
+a Candy Jar
+a Power-Up Pocket
+a Clothing Trunk
+a Catching Pocket
+a Battle Pocket
+???
+???
+???
+???
+???
+a Sweet Heart
+an Adamant Orb
+a Lustrous Orb
+a piece of Greet Mail
+a piece of Favored Mail
+a piece of RSVP Mail
+a piece of Thanks Mail
+a piece of Inquiry Mail
+a piece of Like Mail
+a piece of Reply Mail
+a piece of Bridge Mail S
+a piece of Bridge Mail D
+a piece of Bridge Mail T
+a piece of Bridge Mail V
+a piece of Bridge Mail M
+a Cheri Berry
+a Chesto Berry
+a Pecha Berry
+a Rawst Berry
+an Aspear Berry
+a Leppa Berry
+an Oran Berry
+a Persim Berry
+a Lum Berry
+a Sitrus Berry
+a Figy Berry
+a Wiki Berry
+a Mago Berry
+an Aguav Berry
+an Iapapa Berry
+a Razz Berry
+a Bluk Berry
+a Nanab Berry
+a Wepear Berry
+a Pinap Berry
+a Pomeg Berry
+a Kelpsy Berry
+a Qualot Berry
+a Hondew Berry
+a Grepa Berry
+a Tamato Berry
+a Cornn Berry
+a Magost Berry
+a Rabuta Berry
+a Nomel Berry
+a Spelon Berry
+a Pamtre Berry
+a Watmel Berry
+a Durin Berry
+a Belue Berry
+an Occa Berry
+a Passho Berry
+a Wacan Berry
+a Rindo Berry
+a Yache Berry
+a Chople Berry
+a Kebia Berry
+a Shuca Berry
+a Coba Berry
+a Payapa Berry
+a Tanga Berry
+a Charti Berry
+a Kasib Berry
+a Haban Berry
+a Colbur Berry
+a Babiri Berry
+a Chilan Berry
+a Liechi Berry
+a Ganlon Berry
+a Salac Berry
+a Petaya Berry
+an Apicot Berry
+a Lansat Berry
+a Starf Berry
+an Enigma Berry
+a Micle Berry
+a Custap Berry
+a Jaboca Berry
+a Rowap Berry
+a bag of Bright Powder
+a White Herb
+a Macho Brace
+an Exp. Share
+a Quick Claw
+a Soothe Bell
+a Mental Herb
+a Choice Band
+a King’s Rock
+a pile of Silver Powder
+an Amulet Coin
+a Cleanse Tag
+a Soul Dew
+a Deep Sea Tooth
+a Deep Sea Scale
+a Smoke Ball
+an Everstone
+a Focus Band
+a Lucky Egg
+a Scope Lens
+a Metal Coat
+the serving of Leftovers
+a Dragon Scale
+a Light Ball
+a bag of Soft Sand
+a Hard Stone
+a Miracle Seed
+the pair of Black Glasses
+a Black Belt
+a Magnet
+a Mystic Water
+a Sharp Beak
+a Poison Barb
+a piece of Never-Melt Ice
+a Spell Tag
+a Twisted Spoon
+a piece of Charcoal
+a Dragon Fang
+a Silk Scarf
+an Upgrade
+a Shell Bell
+a jar of Sea Incense
+a jar of Lax Incense
+a Lucky Punch
+a bag of Metal Powder
+a Thick Club
+a Leek
+a Red Scarf
+a Blue Scarf
+a Pink Scarf
+a Green Scarf
+a Yellow Scarf
+a Wide Lens
+a Muscle Band
+the pair of Wise Glasses
+an Expert Belt
+a lump of Light Clay
+a Life Orb
+a Power Herb
+a Toxic Orb
+a Flame Orb
+a bag of Quick Powder
+a Focus Sash
+a Zoom Lens
+a Metronome
+an Iron Ball
+a Lagging Tail
+a Destiny Knot
+a blob of Black Sludge
+an Icy Rock
+a Smooth Rock
+a Heat Rock
+a Damp Rock
+a Grip Claw
+a Choice Scarf
+a Sticky Barb
+a Power Bracer
+a Power Belt
+a Power Lens
+a Power Band
+a Power Anklet
+a Power Weight
+a Shed Shell
+a Big Root
+the pair of Choice Specs
+a Flame Plate
+a Splash Plate
+a Zap Plate
+a Meadow Plate
+an Icicle Plate
+a Fist Plate
+a Toxic Plate
+an Earth Plate
+a Sky Plate
+a Mind Plate
+an Insect Plate
+a Stone Plate
+a Spooky Plate
+a Draco Plate
+a Dread Plate
+an Iron Plate
+a jar of Odd Incense
+a jar of Rock Incense
+a jar of Full Incense
+a jar of Wave Incense
+a jar of Rose Incense
+a jar of Luck Incense
+a jar of Pure Incense
+a Protector
+an Electirizer
+a Magmarizer
+a Dubious Disc
+a scrap of Reaper Cloth
+a Razor Claw
+a Razor Fang
+a TM001
+a TM002
+a TM003
+a TM004
+a TM005
+a TM006
+a TM007
+a TM008
+a TM009
+a TM010
+a TM011
+a TM012
+a TM013
+a TM014
+a TM015
+a TM016
+a TM017
+a TM018
+a TM019
+a TM020
+a TM021
+a TM022
+a TM023
+a TM024
+a TM025
+a TM026
+a TM027
+a TM028
+a TM029
+a TM030
+a TM031
+a TM032
+a TM033
+a TM034
+a TM035
+a TM036
+a TM037
+a TM038
+a TM039
+a TM040
+a TM041
+a TM042
+a TM043
+a TM044
+a TM045
+a TM046
+a TM047
+a TM048
+a TM049
+a TM050
+a TM051
+a TM052
+a TM053
+a TM054
+a TM055
+a TM056
+a TM057
+a TM058
+a TM059
+a TM060
+a TM061
+a TM062
+a TM063
+a TM064
+a TM065
+a TM066
+a TM067
+a TM068
+a TM069
+a TM070
+a TM071
+a TM072
+a TM073
+a TM074
+a TM075
+a TM076
+a TM077
+a TM078
+a TM079
+a TM080
+a TM081
+a TM082
+a TM083
+a TM084
+a TM085
+a TM086
+a TM087
+a TM088
+a TM089
+a TM090
+a TM091
+a TM092
+an HM01
+an HM02
+an HM03
+an HM04
+an HM05
+an HM06
+???
+???
+an Explorer Kit
+a Loot Sack
+a Rule Book
+a Poké Radar
+a Point Card
+a Guidebook
+a Sticker Case
+a Fashion Case
+a Sticker Bag
+a Pal Pad
+a Works Key
+an Old Charm
+a Galactic Key
+a Red Chain
+a Town Map
+a Vs. Seeker
+a Coin Case
+an Old Rod
+a Good Rod
+a Super Rod
+a Sprayduck
+a Poffin Case
+a Bike
+a Suite Key
+an Oak’s Letter
+a Lunar Feather
+a Member Card
+an Azure Flute
+an S.S. Ticket
+a Contest Pass
+a Magma Stone
+a Parcel
+a Coupon 1
+a Coupon 2
+a Coupon 3
+a Storage Key
+a dose of Secret Medicine
+a Vs. Recorder
+a Gracidea
+a Secret Key
+an Apricorn Box
+an Unown Report
+the Berry Pots
+a Dowsing Machine
+a Blue Card
+a Slowpoke Tail
+a Clear Bell
+a Card Key
+a Basement Key
+a Squirt Bottle
+a Red Scale
+a Lost Item
+a Pass
+a Machine Part
+a Silver Feather
+a Rainbow Feather
+a Mystery Egg
+a Red Apricorn
+a Blue Apricorn
+a Yellow Apricorn
+a Green Apricorn
+a Pink Apricorn
+a White Apricorn
+a Black Apricorn
+a Fast Ball
+a Level Ball
+a Lure Ball
+a Heavy Ball
+a Love Ball
+a Friend Ball
+a Moon Ball
+a Sport Ball
+a Park Ball
+a Photo Album
+the GB Sounds
+a Tidal Bell
+a Rage Candy Bar
+a Data Card 01
+a Data Card 02
+a Data Card 03
+a Data Card 04
+a Data Card 05
+a Data Card 06
+a Data Card 07
+a Data Card 08
+a Data Card 09
+a Data Card 10
+a Data Card 11
+a Data Card 12
+a Data Card 13
+a Data Card 14
+a Data Card 15
+a Data Card 16
+a Data Card 17
+a Data Card 18
+a Data Card 19
+a Data Card 20
+a Data Card 21
+a Data Card 22
+a Data Card 23
+a Data Card 24
+a Data Card 25
+a Data Card 26
+a Data Card 27
+a Jade Orb
+a Lock Capsule
+a Red Orb
+a Blue Orb
+an Enigma Stone
+a Prism Scale
+an Eviolite
+a Float Stone
+a Rocky Helmet
+an Air Balloon
+a Red Card
+a Ring Target
+a Binding Band
+an Absorb Bulb
+a Cell Battery
+an Eject Button
+a Fire Gem
+a Water Gem
+an Electric Gem
+a Grass Gem
+an Ice Gem
+a Fighting Gem
+a Poison Gem
+a Ground Gem
+a Flying Gem
+a Psychic Gem
+a Bug Gem
+a Rock Gem
+a Ghost Gem
+a Dragon Gem
+a Dark Gem
+a Steel Gem
+a Normal Gem
+a Health Feather
+a Muscle Feather
+a Resist Feather
+a Genius Feather
+a Clever Feather
+a Swift Feather
+a Pretty Feather
+a Cover Fossil
+a Plume Fossil
+a Liberty Pass
+a Pass Orb
+a Dream Ball
+a Poké Toy
+a Prop Case
+a Dragon Skull
+a Balm Mushroom
+a Big Nugget
+a Pearl String
+a Comet Shard
+a Relic Copper
+a Relic Silver
+a Relic Gold
+a Relic Vase
+a Relic Band
+a Relic Statue
+a Relic Crown
+a Casteliacone
+a Dire Hit 2
+an X Speed 2
+an X Sp. Atk 2
+an X Sp. Def 2
+an X Defense 2
+an X Attack 2
+an X Accuracy 2
+an X Speed 3
+an X Sp. Atk 3
+an X Sp. Def 3
+an X Defense 3
+an X Attack 3
+an X Accuracy 3
+an X Speed 6
+an X Sp. Atk 6
+an X Sp. Def 6
+an X Defense 6
+an X Attack 6
+an X Accuracy 6
+an Ability Urge
+an Item Drop
+an Item Urge
+a Reset Urge
+a Dire Hit 3
+a Light Stone
+a Dark Stone
+a TM093
+a TM094
+a TM095
+a Xtransceiver
+???
+a Gram 1
+a Gram 2
+a Gram 3
+a Xtransceiver
+a Medal Box
+the DNA Splicers
+the DNA Splicers
+a Permit
+an Oval Charm
+a Shiny Charm
+a Plasma Card
+a Grubby Hanky
+a Colress Machine
+a Dropped Item
+a Dropped Item
+a Reveal Glass
+a Weakness Policy
+an Assault Vest
+a Holo Caster
+a Prof’s Letter
+the pair of Roller Skates
+a Pixie Plate
+an Ability Capsule
+a dollop of Whipped Dream
+a Sachet
+a clump of Luminous Moss
+a Snowball
+the pair of Safety Goggles
+a Poké Flute
+a bag of Rich Mulch
+a bag of Surprise Mulch
+a bag of Boost Mulch
+a bag of Amaze Mulch
+a Gengarite
+a Gardevoirite
+an Ampharosite
+a Venusaurite
+a Charizardite X
+a Blastoisinite
+a Mewtwonite X
+a Mewtwonite Y
+a Blazikenite
+a Medichamite
+a Houndoominite
+an Aggronite
+a Banettite
+a Tyranitarite
+a Scizorite
+a Pinsirite
+an Aerodactylite
+a Lucarionite
+an Abomasite
+a Kangaskhanite
+a Gyaradosite
+an Absolite
+a Charizardite Y
+an Alakazite
+a Heracronite
+a Mawilite
+a Manectite
+a Garchompite
+a Latiasite
+a Latiosite
+a Roseli Berry
+a Kee Berry
+a Maranga Berry
+a Sprinklotad
+a TM096
+a TM097
+a TM098
+a TM099
+a TM100
+a Power Plant Pass
+a Mega Ring
+an Intriguing Stone
+a Common Stone
+a Discount Coupon
+an Elevator Key
+a TMV Pass
+an Honor of Kalos emblem
+an Adventure Guide
+a Strange Souvenir
+a Lens Case
+a Makeup Bag
+a Travel Trunk
+a Lumiose Galette
+a Shalour Sable
+a Jaw Fossil
+a Sail Fossil
+a Looker Ticket
+a Bike
+a Holo Caster
+a Fairy Gem
+a Mega Charm
+a Mega Glove
+a Mach Bike
+an Acro Bike
+a Wailmer Pail
+the case of Devon Parts
+a Soot Sack
+a Basement Key
+a Pokéblock Kit
+a Letter
+an Eon Ticket
+a Scanner
+the pair of Go-Goggles
+a Meteorite
+a Key to Room 1
+a Key to Room 2
+a Key to Room 4
+a Key to Room 6
+a Storage Key
+a Devon Scope
+an S.S. Ticket
+an HM07
+a set of Devon Scuba Gear
+a Contest Costume
+a Contest Costume
+a Magma Suit
+an Aqua Suit
+the Pair of Tickets
+a Mega Bracelet
+a Mega Pendant
+the pair of Mega Glasses
+a Mega Anchor
+a Mega Stickpin
+a Mega Tiara
+a Mega Anklet
+a Meteorite
+a Swampertite
+a Sceptilite
+a Sablenite
+an Altarianite
+a Galladite
+an Audinite
+a Metagrossite
+a Sharpedonite
+a Slowbronite
+a Steelixite
+a Pidgeotite
+a Glalitite
+a Diancite
+a Prison Bottle
+a Mega Cuff
+a Cameruptite
+a Lopunnite
+a Salamencite
+a Beedrillite
+a Meteorite
+a Meteorite
+a Key Stone
+a Meteorite Shard
+an Eon Flute
+a piece of Normalium Z
+a piece of Firium Z
+a piece of Waterium Z
+a piece of Electrium Z
+a piece of Grassium Z
+a piece of Icium Z
+a piece of Fightinium Z
+a piece of Poisonium Z
+a piece of Groundium Z
+a piece of Flyinium Z
+a piece of Psychium Z
+a piece of Buginium Z
+a piece of Rockium Z
+a piece of Ghostium Z
+a piece of Dragonium Z
+a piece of Darkinium Z
+a piece of Steelium Z
+a piece of Fairium Z
+a piece of Pikanium Z
+a Bottle Cap
+a Gold Bottle Cap
+a Z-Ring
+a piece of Decidium Z
+a piece of Incinium Z
+a piece of Primarium Z
+a piece of Tapunium Z
+a piece of Marshadium Z
+a piece of Aloraichium Z
+a piece of Snorlium Z
+a piece of Eevium Z
+a piece of Mewnium Z
+a piece of Normalium Z
+a piece of Firium Z
+a piece of Waterium Z
+a piece of Electrium Z
+a piece of Grassium Z
+a piece of Icium Z
+a piece of Fightinium Z
+a piece of Poisonium Z
+a piece of Groundium Z
+a piece of Flyinium Z
+a piece of Psychium Z
+a piece of Buginium Z
+a piece of Rockium Z
+a piece of Ghostium Z
+a piece of Dragonium Z
+a piece of Darkinium Z
+a piece of Steelium Z
+a piece of Fairium Z
+a piece of Pikanium Z
+a piece of Decidium Z
+a piece of Incinium Z
+a piece of Primarium Z
+a piece of Tapunium Z
+a piece of Marshadium Z
+a piece of Aloraichium Z
+a piece of Snorlium Z
+a piece of Eevium Z
+a piece of Mewnium Z
+a piece of Pikashunium Z
+a piece of Pikashunium Z
+???
+???
+???
+???
+a Forage Bag
+a Fishing Rod
+a Professor’s Mask
+a Festival Ticket
+a Sparkling Stone
+an Adrenaline Orb
+a Zygarde Cube
+???
+an Ice Stone
+a Ride Pager
+a Beast Ball
+a Big Malasada
+a jar of Red Nectar
+a jar of Yellow Nectar
+a jar of Pink Nectar
+a jar of Purple Nectar
+a Sun Flute
+a Moon Flute
+???
+an Enigmatic Card
+a Silver Razz Berry
+a Golden Razz Berry
+a Silver Nanab Berry
+a Golden Nanab Berry
+a Silver Pinap Berry
+a Golden Pinap Berry
+???
+???
+???
+???
+???
+a Secret Key
+an S.S. Ticket
+a Silph Scope
+a Parcel
+a Card Key
+a set of Gold Teeth
+a Lift Key
+a Terrain Extender
+the set of Protective Pads
+an Electric Seed
+a Psychic Seed
+a Misty Seed
+a Grassy Seed
+a Stretchy Spring
+a Chalky Stone
+a Marble
+a Lone Earring
+a piece of Beach Glass
+a Gold Leaf
+a Silver Leaf
+a Polished Mud Ball
+a Tropical Shell
+a Leaf Letter
+a Leaf Letter
+a Small Bouquet
+???
+???
+???
+a Lure
+a Super Lure
+a Max Lure
+a bag of Pewter Crunchies
+a Fighting Memory
+a Flying Memory
+a Poison Memory
+a Ground Memory
+a Rock Memory
+a Bug Memory
+a Ghost Memory
+a Steel Memory
+a Fire Memory
+a Water Memory
+a Grass Memory
+an Electric Memory
+a Psychic Memory
+an Ice Memory
+a Dragon Memory
+a Dark Memory
+a Fairy Memory
+a piece of Solganium Z
+a piece of Lunalium Z
+a piece of Ultranecrozium Z
+a piece of Mimikium Z
+a piece of Lycanium Z
+a piece of Kommonium Z
+a piece of Solganium Z
+a piece of Lunalium Z
+a piece of Ultranecrozium Z
+a piece of Mimikium Z
+a piece of Lycanium Z
+a piece of Kommonium Z
+a Z-Power Ring
+a Pink Petal
+an Orange Petal
+a Blue Petal
+a Red Petal
+a Green Petal
+a Yellow Petal
+a Purple Petal
+a Rainbow Flower
+a Surge Badge
+an N-Solarizer
+an N-Lunarizer
+an N-Solarizer
+an N-Lunarizer
+a piece of Ilima’s Normalium Z
+a Left Poké Ball
+a Roto Hatch
+a Roto Bargain
+a Roto Prize Money
+the Roto Exp. Points
+a Roto Friendship
+a Roto Encounter
+a Roto Stealth
+a Roto HP Restore
+a Roto PP Restore
+a Roto Boost
+a Roto Catch
+a Health Candy
+a Mighty Candy
+a Tough Candy
+a Smart Candy
+a Courage Candy
+a Quick Candy
+a Health Candy L
+a Mighty Candy L
+a Tough Candy L
+a Smart Candy L
+a Courage Candy L
+a Quick Candy L
+a Health Candy XL
+a Mighty Candy XL
+a Tough Candy XL
+a Smart Candy XL
+a Courage Candy XL
+a Quick Candy XL
+a Bulbasaur Candy
+a Charmander Candy
+a Squirtle Candy
+a Caterpie Candy
+a Weedle Candy
+a Pidgey Candy
+a Rattata Candy
+a Spearow Candy
+an Ekans Candy
+a Pikachu Candy
+a Sandshrew Candy
+a Nidoran♀ Candy
+a Nidoran♂ Candy
+a Clefairy Candy
+a Vulpix Candy
+a Jigglypuff Candy
+a Zubat Candy
+an Oddish Candy
+a Paras Candy
+a Venonat Candy
+a Diglett Candy
+a Meowth Candy
+a Psyduck Candy
+a Mankey Candy
+a Growlithe Candy
+a Poliwag Candy
+an Abra Candy
+a Machop Candy
+a Bellsprout Candy
+a Tentacool Candy
+a Geodude Candy
+a Ponyta Candy
+a Slowpoke Candy
+a Magnemite Candy
+a Farfetch’d Candy
+a Doduo Candy
+a Seel Candy
+a Grimer Candy
+a Shellder Candy
+a Gastly Candy
+an Onix Candy
+a Drowzee Candy
+a Krabby Candy
+a Voltorb Candy
+an Exeggcute Candy
+a Cubone Candy
+a Hitmonlee Candy
+a Hitmonchan Candy
+a Lickitung Candy
+a Koffing Candy
+a Rhyhorn Candy
+a Chansey Candy
+a Tangela Candy
+a Kangaskhan Candy
+a Horsea Candy
+a Goldeen Candy
+a Staryu Candy
+a Mr. Mime Candy
+a Scyther Candy
+a Jynx Candy
+an Electabuzz Candy
+a Pinsir Candy
+a Tauros Candy
+a Magikarp Candy
+a Lapras Candy
+a Ditto Candy
+an Eevee Candy
+a Porygon Candy
+an Omanyte Candy
+a Kabuto Candy
+an Aerodactyl Candy
+a Snorlax Candy
+an Articuno Candy
+a Zapdos Candy
+a Moltres Candy
+a Dratini Candy
+a Mewtwo Candy
+a Mew Candy
+a Meltan Candy
+a Magmar Candy
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+a letter of Endorsement
+a Pokémon Box Link
+a Wishing Star
+a Dynamax Band
+???
+???
+a Fishing Rod
+a Rotom Bike
+???
+???
+the pack of Sausages
+a Bob’s Food Tin
+a Bach’s Food Tin
+the Tin of Beans
+a loaf of Bread
+a bag of Pasta
+a bag of Mixed Mushrooms
+a pack of Smoke-Poke Tail
+a Large Leek
+a Fancy Apple
+a bag of Brittle Bones
+the Pack of Potatoes
+a Pungent Root
+a bag of Salad Mix
+a pack of Fried Food
+a Boiled Egg
+a set of Camping Gear
+???
+???
+a Rusted Sword
+a Rusted Shield
+a Fossilized Bird
+a Fossilized Fish
+a Fossilized Drake
+a Fossilized Dino
+a Strawberry Sweet
+a Love Sweet
+a Berry Sweet
+a Clover Sweet
+a Flower Sweet
+a Star Sweet
+a Ribbon Sweet
+a Sweet Apple
+a Tart Apple
+a bottle of Throat Spray
+an Eject Pack
+the pair of Heavy-Duty Boots
+a Blunder Policy
+a voucher for Room Service
+a Utility Umbrella
+an Exp. Candy XS
+an Exp. Candy S
+an Exp. Candy M
+an Exp. Candy L
+an Exp. Candy XL
+a Dynamax Candy
+a TR00
+a TR01
+a TR02
+a TR03
+a TR04
+a TR05
+a TR06
+a TR07
+a TR08
+a TR09
+a TR10
+a TR11
+a TR12
+a TR13
+a TR14
+a TR15
+a TR16
+a TR17
+a TR18
+a TR19
+a TR20
+a TR21
+a TR22
+a TR23
+a TR24
+a TR25
+a TR26
+a TR27
+a TR28
+a TR29
+a TR30
+a TR31
+a TR32
+a TR33
+a TR34
+a TR35
+a TR36
+a TR37
+a TR38
+a TR39
+a TR40
+a TR41
+a TR42
+a TR43
+a TR44
+a TR45
+a TR46
+a TR47
+a TR48
+a TR49
+a TR50
+a TR51
+a TR52
+a TR53
+a TR54
+a TR55
+a TR56
+a TR57
+a TR58
+a TR59
+a TR60
+a TR61
+a TR62
+a TR63
+a TR64
+a TR65
+a TR66
+a TR67
+a TR68
+a TR69
+a TR70
+a TR71
+a TR72
+a TR73
+a TR74
+a TR75
+a TR76
+a TR77
+a TR78
+a TR79
+a TR80
+a TR81
+a TR82
+a TR83
+a TR84
+a TR85
+a TR86
+a TR87
+a TR88
+a TR89
+a TR90
+a TR91
+a TR92
+a TR93
+a TR94
+a TR95
+a TR96
+a TR97
+a TR98
+a TR99
+a TM00
+a sprig of Lonely Mint
+a sprig of Adamant Mint
+a sprig of Naughty Mint
+a sprig of Brave Mint
+a sprig of Bold Mint
+a sprig of Impish Mint
+a sprig of Lax Mint
+a sprig of Relaxed Mint
+a sprig of Modest Mint
+a sprig of Mild Mint
+a sprig of Rash Mint
+a sprig of Quiet Mint
+a sprig of Calm Mint
+a sprig of Gentle Mint
+a sprig of Careful Mint
+a sprig of Sassy Mint
+a sprig of Timid Mint
+a sprig of Hasty Mint
+a sprig of Jolly Mint
+a sprig of Naive Mint
+a sprig of Serious Mint
+a Wishing Piece
+a Cracked Pot
+a Chipped Pot
+the set of Hi-tech Earbuds
+a Fruit Bunch
+a wheel of Moomoo Cheese
+a bottle of Spice Mix
+a pack of Fresh Cream
+a box of Packaged Curry
+a pack of Coconut Milk
+the cup of Instant Noodles
+a bag of Precooked Burger
+a bottle of Gigantamix
+a Wishing Chip
+a Rotom Bike
+a Catching Charm
+???
+an Old Letter
+a Band Autograph
+a copy of Sonia’s Book
+???
+???
+???
+???
+???
+???
+a Rotom Catalog
+an ★And458
+an ★And15
+an ★And337
+an ★And603
+an ★And390
+a ★Sgr6879
+a ★Sgr6859
+a ★Sgr6913
+a ★Sgr7348
+a ★Sgr7121
+a ★Sgr6746
+a ★Sgr7194
+a ★Sgr7337
+a ★Sgr7343
+a ★Sgr6812
+a ★Sgr7116
+a ★Sgr7264
+a ★Sgr7597
+a ★Del7882
+a ★Del7906
+a ★Del7852
+a ★Psc596
+a ★Psc361
+a ★Psc510
+a ★Psc437
+a ★Psc8773
+a ★Lep1865
+a ★Lep1829
+a ★Boo5340
+a ★Boo5506
+a ★Boo5435
+a ★Boo5602
+a ★Boo5733
+a ★Boo5235
+a ★Boo5351
+a ★Hya3748
+a ★Hya3903
+a ★Hya3418
+a ★Hya3482
+a ★Hya3845
+an ★Eri1084
+an ★Eri472
+an ★Eri1666
+an ★Eri897
+an ★Eri1231
+an ★Eri874
+an ★Eri1298
+an ★Eri1325
+an ★Eri984
+an ★Eri1464
+an ★Eri1393
+an ★Eri850
+a ★Tau1409
+a ★Tau1457
+a ★Tau1165
+a ★Tau1791
+a ★Tau1910
+a ★Tau1346
+a ★Tau1373
+a ★Tau1412
+a ★CMa2491
+a ★CMa2693
+a ★CMa2294
+a ★CMa2827
+a ★CMa2282
+a ★CMa2618
+a ★CMa2657
+a ★CMa2646
+an ★UMa4905
+an ★UMa4301
+an ★UMa5191
+an ★UMa5054
+an ★UMa4295
+an ★UMa4660
+an ★UMa4554
+an ★UMa4069
+an ★UMa3569
+an ★UMa3323
+an ★UMa4033
+an ★UMa4377
+an ★UMa4375
+an ★UMa4518
+an ★UMa3594
+a ★Vir5056
+a ★Vir4825
+a ★Vir4932
+a ★Vir4540
+a ★Vir4689
+a ★Vir5338
+a ★Vir4910
+a ★Vir5315
+a ★Vir5359
+a ★Vir5409
+a ★Vir5107
+an ★Ari617
+an ★Ari553
+an ★Ari546
+an ★Ari951
+an ★Ori1713
+an ★Ori2061
+an ★Ori1790
+an ★Ori1903
+an ★Ori1948
+an ★Ori2004
+an ★Ori1852
+an ★Ori1879
+an ★Ori1899
+an ★Ori1543
+a ★Cas21
+a ★Cas168
+a ★Cas403
+a ★Cas153
+a ★Cas542
+a ★Cas219
+a ★Cas265
+a ★Cnc3572
+a ★Cnc3208
+a ★Cnc3461
+a ★Cnc3449
+a ★Cnc3429
+a ★Cnc3627
+a ★Cnc3268
+a ★Cnc3249
+a ★Com4968
+a ★Crv4757
+a ★Crv4623
+a ★Crv4662
+a ★Crv4786
+an ★Aur1708
+an ★Aur2088
+an ★Aur1605
+an ★Aur2095
+an ★Aur1577
+an ★Aur1641
+an ★Aur1612
+a ★Pav7790
+a ★Cet911
+a ★Cet681
+a ★Cet188
+a ★Cet539
+a ★Cet804
+a ★Cep8974
+a ★Cep8162
+a ★Cep8238
+a ★Cep8417
+a ★Cen5267
+a ★Cen5288
+a ★Cen551
+a ★Cen5459
+a ★Cen5460
+a ★CMi2943
+a ★CMi2845
+an ★Equ8131
+a ★Vul7405
+an ★UMi424
+an ★UMi5563
+an ★UMi5735
+an ★UMi6789
+a ★Crt4287
+a ★Lyr7001
+a ★Lyr7178
+a ★Lyr7106
+a ★Lyr7298
+an ★Ara6585
+a ★Sco6134
+a ★Sco6527
+a ★Sco6553
+a ★Sco5953
+a ★Sco5984
+a ★Sco6508
+a ★Sco6084
+a ★Sco5944
+a ★Sco6630
+a ★Sco6027
+a ★Sco6247
+a ★Sco6252
+a ★Sco5928
+a ★Sco6241
+a ★Sco6165
+a ★Tri544
+a ★Leo3982
+a ★Leo4534
+a ★Leo4357
+a ★Leo4057
+a ★Leo4359
+a ★Leo4031
+a ★Leo3852
+a ★Leo3905
+a ★Leo3773
+a ★Gru8425
+a ★Gru8636
+a ★Gru8353
+a ★Lib5685
+a ★Lib5531
+a ★Lib5787
+a ★Lib5603
+a ★Pup3165
+a ★Pup3185
+a ★Pup3045
+a ★Cyg7924
+a ★Cyg7417
+a ★Cyg7796
+a ★Cyg8301
+a ★Cyg7949
+a ★Cyg7528
+an ★Oct7228
+a ★Col1956
+a ★Col2040
+a ★Col2177
+a ★Gem2990
+a ★Gem2891
+a ★Gem2421
+a ★Gem2473
+a ★Gem2216
+a ★Gem2777
+a ★Gem2650
+a ★Gem2286
+a ★Gem2484
+a ★Gem2930
+a ★Peg8775
+a ★Peg8781
+a ★Peg39
+a ★Peg8308
+a ★Peg8650
+a ★Peg8634
+a ★Peg8684
+a ★Peg8450
+a ★Peg8880
+a ★Peg8905
+an ★Oph6556
+an ★Oph6378
+an ★Oph6603
+an ★Oph6149
+an ★Oph6056
+an ★Oph6075
+a ★Ser5854
+a ★Ser7141
+a ★Ser5879
+a ★Her6406
+a ★Her6148
+a ★Her6410
+a ★Her6526
+a ★Her6117
+a ★Her6008
+a ★Per936
+a ★Per1017
+a ★Per1131
+a ★Per1228
+a ★Per834
+a ★Per941
+a ★Phe99
+a ★Phe338
+a ★Vel3634
+a ★Vel3485
+a ★Vel3734
+an ★Aqr8232
+an ★Aqr8414
+an ★Aqr8709
+an ★Aqr8518
+an ★Aqr7950
+an ★Aqr8499
+an ★Aqr8610
+an ★Aqr8264
+a ★Cru4853
+a ★Cru4730
+a ★Cru4763
+a ★Cru4700
+a ★Cru4656
+a ★PsA8728
+a ★TrA6217
+a ★Cap7776
+a ★Cap7754
+a ★Cap8278
+a ★Cap8322
+a ★Cap7773
+a ★Sge7479
+a ★Car2326
+a ★Car3685
+a ★Car3307
+a ★Car3699
+a ★Dra5744
+a ★Dra5291
+a ★Dra6705
+a ★Dra6536
+a ★Dra7310
+a ★Dra6688
+a ★Dra4434
+a ★Dra6370
+a ★Dra7462
+a ★Dra6396
+a ★Dra6132
+a ★Dra6636
+a ★CVn4915
+a ★CVn4785
+a ★CVn4846
+an ★Aql7595
+an ★Aql7557
+an ★Aql7525
+an ★Aql7602
+an ★Aql7235
+a comb of Max Honey
+the cluster of Max Mushrooms
+a Galarica Twig
+a Galarica Cuff
+a Style Card
+an Armor Pass
+a Rotom Bike
+a Rotom Bike
+an Exp. Charm
+a piece of Armorite Ore
+a Mark Charm
+a set of Reins of Unity
+a set of Reins of Unity
+a Galarica Wreath
+a Legendary Clue 1
+a Legendary Clue 2
+a Legendary Clue 3
+a Legendary Clue?
+a Crown Pass
+a Wooden Crown
+a Radiant Petal
+a tuft of White Mane Hair
+a tuft of Black Mane Hair
+an Iceroot Carrot
+a Shaderoot Carrot
+a piece of Dynite Ore
+a bag of Carrot Seeds
+an Ability Patch
+a set of Reins of Unity
+a Time Balm
+a Space Balm
+a Mysterious Balm
+a Linking Cord
+a Hometown Muffin
+an Apricorn
+a Jubilife Muffin
+a dose of Aux Powerguard
+a dose of Dire Hit
+a Choice Dumpling
+a serving of Twice-Spiced Radish
+a Swap Snack
+a Caster Fern leaf
+a Seed of Mastery
+a Poké Ball
+???
+a piece of Eternal Ice
+an Uxie’s Claw
+an Azelf’s Fang
+a Mesprit’s Plume
+a Tumblestone
+a Celestica Flute
+a dose of Remedy
+a dose of Fine Remedy
+a comb of Dazzling Honey
+the stalk of Hearty Grains
+the pod of Plump Beans
+a Springy Mushroom
+a hunk of Crunchy Salt
+a log of Wood
+a bunch of King’s Leaf
+a Marsh Balm
+a Poké Ball recipe
+a Great Ball recipe
+an Ultra Ball recipe
+a Feather Ball recipe
+a Pokéshi Doll recipe
+???
+a Smoke Bomb recipe
+a Scatter Bang recipe
+a Sticky Glob recipe
+a Star Piece recipe
+a Mushroom Cake recipe
+a Bugwort bloom
+a Honey Cake recipe
+a Grain Cake recipe
+a Bean Cake recipe
+a Salt Cake recipe
+a Potion recipe
+a Super Potion recipe
+a Hyper Potion recipe
+a Max Potion recipe
+a Full Restore recipe
+a Remedy recipe
+a Fine Remedy recipe
+a Superb Remedy recipe
+an Old Gateau recipe
+a Jubilife Muffin recipe
+a Full Heal recipe
+a Revive recipe
+a Max Revive recipe
+a Max Ether recipe
+a Max Elixir recipe
+a Stealth Spray recipe
+???
+an Aux Power recipe
+an Aux Guard recipe
+a Dire Hit recipe
+an Aux Evasion recipe
+an Aux Powerguard recipe
+a Forest Balm
+an Iron Chunk
+???
+a Black Tumblestone
+a Sky Tumblestone
+???
+a Ball of Mud
+???
+a Pop Pod
+a Sootfoot Root
+a Spoiled Apricorn
+a Snowball
+a Sticky Glob
+a piece of Black Augurite
+a Peat Block
+a Stealth Spray
+a Medicinal Leek
+a Vivichoke
+a Pep-Up Plant
+???
+???
+a Tempting Charm B
+a Tempting Charm P
+a bunch of Swordcap
+a scrap of Iron Barktongue
+the bunch of Doppel Bonnets
+a Direshroom
+a Sand Radish
+a Tempting Charm T
+a Tempting Charm Y
+a Candy Truffle
+a ball of Cake-Lure Base
+a Poké Ball
+a Great Ball
+an Ultra Ball
+a Feather Ball
+???
+???
+a Scatter Bang
+a Smoke Bomb
+???
+???
+a Pokéshi Doll
+a Volcano Balm
+a Mountain Balm
+a Snow Balm
+a Honey Cake
+a Grain Cake
+a Bean Cake
+a Mushroom Cake
+a Salt Cake
+a Swap Snack recipe
+a Choice Dumpling recipe
+a Twice-Spiced Radish recipe
+a Survival Charm R
+a Survival Charm B
+a Survival Charm P
+a Survival Charm T
+a Survival Charm Y
+a Torn Journal
+a Warding Charm R
+a Warding Charm B
+a Warding Charm P
+a Warding Charm T
+a Warding Charm Y
+a Wall Fragment
+a ball of Basculegion Food
+an Old Journal
+a Wing Ball
+a Jet Ball
+a Heavy Ball
+a Leaden Ball
+a Gigaton Ball
+a Wing Ball recipe
+a Jet Ball recipe
+a Heavy Ball recipe
+a Hopo Berry
+a dose of Superb Remedy
+a dose of Aux Power
+a dose of Aux Guard
+a dose of Aux Evasion
+a sack of Grit Dust
+a sack of Grit Gravel
+a Grit Pebble
+a Grit Rock
+a dose of Secret Medicine
+a Tempting Charm R
+a Lost Satchel
+a Lost Satchel
+a Lost Satchel
+a Lost Satchel
+a Lost Satchel
+???
+an Origin Ball
+???
+???
+???
+???
+a piece of Origin Ore
+an Adamant Crystal
+a Lustrous Globe
+a Griseous Core
+a Blank Plate
+???
+a Crafting Kit
+a Leaden Ball recipe
+a Gigaton Ball recipe
+a Strange Ball
+a Pokédex
+an Old Verse 1
+an Old Verse 2
+an Old Verse 3
+an Old Verse 4
+???
+an Old Verse 5
+an Old Verse 6
+an Old Verse 7
+an Old Verse 8
+an Old Verse 9
+an Old Verse 10
+an Old Verse 11
+an Old Verse 12
+an Old Verse 13
+an Old Verse 14
+an Old Verse 15
+an Old Verse 16
+an Old Verse 17
+an Old Verse 18
+an Old Verse 19
+an Old Verse 20
+a Mysterious Shard S
+a Mysterious Shard L
+a Digger Drill
+a Kanto Slate
+a Johto Slate
+a Soul Slate
+a Rainbow Slate
+a Squall Slate
+an Oceanic Slate
+a Tectonic Slate
+a Stratospheric Slate
+a Genome Slate
+a Discovery Slate
+a Distortion Slate
+the DS Sounds
+
+
+
+
+
+a Legend Plate
+a Rotom Phone
+a Sandwich from Mom
+a Koraidon’s Poké Ball
+a Miraidon’s Poké Ball
+a Tera Orb
+a Scarlet Book
+a Violet Book
+a Kofu’s Wallet
+
+
+
+
+
+a Tiny Bamboo Shoot
+a Big Bamboo Shoot
+
+
+
+
+
+
+
+
+
+
+
+
+
+a Scroll of Darkness
+the Scroll of Waters
+
+
+a set of Malicious Armor
+a Normal Tera Shard
+a Fire Tera Shard
+a Water Tera Shard
+an Electric Tera Shard
+a Grass Tera Shard
+an Ice Tera Shard
+a Fighting Tera Shard
+a Poison Tera Shard
+a Ground Tera Shard
+a Flying Tera Shard
+a Psychic Tera Shard
+a Bug Tera Shard
+a Rock Tera Shard
+a Ghost Tera Shard
+a Dragon Tera Shard
+a Dark Tera Shard
+a Steel Tera Shard
+a Fairy Tera Shard
+a capsule of Booster Energy
+an Ability Shield
+a Clear Amulet
+a Mirror Herb
+a Punching Glove
+a Covert Cloak
+a Loaded Dice
+
+a Baguette
+a bottle of Mayonnaise
+a bottle of Ketchup
+a bottle of Mustard
+a pat of Butter
+a jar of Peanut Butter
+a bottle of Chili Sauce
+a shaker of Salt
+a shaker of Pepper
+a jar of Yogurt
+a bag of Whipped Cream
+a tub of Cream Cheese
+a jar of Jam
+a crock of Marmalade
+a cruet of Olive Oil
+a cruet of Vinegar
+a shaker of Sweet Herba Mystica
+a shaker of Salty Herba Mystica
+a shaker of Sour Herba Mystica
+a shaker of Bitter Herba Mystica
+a shaker of Spicy Herba Mystica
+a helping of Lettuce
+a helping of Tomato
+the helping of Cherry Tomatoes
+a helping of Cucumber
+a helping of Pickle
+a helping of Onion
+a helping of Red Onion
+a helping of Green Bell Pepper
+a helping of Red Bell Pepper
+a helping of Yellow Bell Pepper
+a helping of Avocado
+a helping of Bacon
+a helping of Ham
+a helping of Prosciutto
+a helping of Chorizo
+a helping of Herbed Sausage
+a Hamburger patty
+the helping of Klawf Sticks
+a helping of Smoked Fillet
+a Fried Fillet
+a helping of Egg
+a Potato Tortilla
+a helping of Tofu
+a helping of Rice
+the helping of Noodles
+a helping of Potato Salad
+a helping of Cheese
+a helping of Banana
+a helping of Strawberry
+a helping of Apple
+a helping of Kiwi
+a helping of Pineapple
+a helping of Jalapeño
+a tub of Horseradish
+a shaker of Curry Powder
+a tub of Wasabi
+a bunch of Watercress
+a bunch of Basil
+
+
+
+
+
+
+
+
+
+a Venonat Fang
+a bag of Diglett Dirt
+a bag of Meowth Fur
+a bag of Psyduck Down
+a bag of Mankey Fur
+a bag of Growlithe Fur
+a Slowpoke Claw
+a Magnemite Screw
+a bag of Grimer Toxin
+a Shellder Pearl
+a bag of Gastly Gas
+a bag of Drowzee Fur
+a bag of Voltorb Sparks
+a Scyther Claw
+a bag of Tauros Hair
+a bag of Magikarp Scales
+a bag of Ditto Goo
+a bag of Eevee Fur
+a bag of Dratini Scales
+a bag of Pichu Fur
+a bag of Igglybuff Fluff
+a bag of Mareep Wool
+a Hoppip Leaf
+a Sunkern Leaf
+a Murkrow Bauble
+a bag of Misdreavus Tears
+a bag of Girafarig Fur
+a Pineco Husk
+a bag of Dunsparce Scales
+a bag of Qwilfish Spines
+a Heracross Claw
+a Sneasel Claw
+a Teddiursa Claw
+a Delibird Parcel
+a Houndour Fang
+a Phanpy Nail
+a bag of Stantler Hair
+a Larvitar Claw
+a Wingull Feather
+a bag of Ralts Dust
+a bag of Surskit Syrup
+a bag of Shroomish Spores
+a bag of Slakoth Fur
+a bag of Makuhita Sweat
+a bag of Azurill Fur
+a Sableye Gem
+a bag of Meditite Sweat
+a bag of Gulpin Mucus
+a bag of Numel Lava
+a bag of Torkoal Coal
+a Spoink Pearl
+a Cacnea Needle
+a bag of Swablu Fluff
+a Zangoose Claw
+a Seviper Fang
+a bag of Barboach Slime
+a Shuppet Scrap
+a Tropius Leaf
+a bag of Snorunt Fur
+a bag of Luvdisc Scales
+a bag of Bagon Scales
+a Starly Feather
+a Kricketot Shell
+a Shinx Fang
+a bag of Combee Honey
+a bag of Pachirisu Fur
+a bag of Buizel Fur
+a bag of Shellos Mucus
+a bag of Drifloon Gas
+a bag of Stunky Fur
+a Bronzor Fragment
+a bag of Bonsly Tears
+a bag of Happiny Dust
+a Spiritomb Fragment
+a bag of Gible Scales
+a bag of Riolu Fur
+a bag of Hippopotas Sand
+a bag of Croagunk Poison
+a bag of Finneon Scales
+a bag of Snover Berries
+a bag of Rotom Sparks
+a Petilil Leaf
+a Basculin Fang
+a Sandile Claw
+a bag of Zorua Fur
+a Gothita Eyelash
+a bag of Deerling Hair
+a bag of Foongus Spores
+a bag of Alomomola Mucus
+a bag of Tynamo Slime
+a bag of Axew Scales
+a bag of Cubchoo Fur
+a bag of Cryogonal Ice
+a Pawniard Blade
+a Rufflet Feather
+a bag of Deino Scales
+a bag of Larvesta Fuzz
+a Fletchling Feather
+a bag of Scatterbug Powder
+a Litleo Tuft
+a bag of Flabébé Pollen
+a Skiddo Leaf
+a bag of Skrelp Kelp
+a Clauncher Claw
+a bag of Hawlucha Down
+a bag of Dedenne Fur
+a bag of Goomy Goo
+a Klefki Key
+a bag of Bergmite Ice
+a bag of Noibat Fur
+a bag of Yungoos Fur
+a Crabrawler Shell
+an Oricorio Feather
+a Rockruff Rock
+a Mareanie Spike
+a bag of Mudbray Mud
+a Fomantis Leaf
+a bag of Salandit Gas
+a bag of Bounsweet Sweat
+a bag of Oranguru Fur
+a bag of Passimian Fur
+a bag of Sandygast Sand
+a Komala Claw
+a Mimikyu Scrap
+a Bruxish Tooth
+a Chewtle Claw
+a bag of Skwovet Fur
+a bag of Arrokuda Scales
+a Rookidee Feather
+a bag of Toxel Sparks
+a bag of Falinks Sweat
+a bag of Cufant Tarnish
+a bag of Rolycoly Coal
+a bag of Silicobra Sand
+a bag of Indeedee Fur
+a bag of Pincurchin Spines
+a bag of Snom Thread
+a bag of Impidimp Hair
+a bag of Applin Juice
+a Sinistea Chip
+a bag of Hatenna Dust
+a Stonjourner Stone
+a bag of Eiscue Down
+a bag of Dreepy Powder
+
+
+
+a bag of Lechonk Hair
+a bag of Tarountula Thread
+a Nymble Claw
+a bag of Rellor Mud
+a bag of Greavard Wax
+a bag of Flittle Down
+a bag of Wiglett Sand
+a Dondozo Whisker
+a Veluza Fillet
+a bag of Finizen Mucus
+a bag of Smoliv Oil
+a Capsakid Seed
+a bag of Tadbulb Mucus
+a bag of Varoom Fume
+a bag of Orthworm Tarnish
+a bag of Tandemaus Fur
+a bag of Cetoddle Grease
+a bag of Frigibax Scales
+a bag of Tatsugiri Scales
+a bag of Cyclizar Scales
+a bag of Pawmi Fur
+
+
+a Wattrel Feather
+a Bombirdier Feather
+a Squawkabilly Feather
+a bag of Flamigo Down
+a Klawf Claw
+a bag of Nacli Salt
+a Glimmet Crystal
+a bag of Shroodle Ink
+a bag of Fidough Fur
+a Maschiff Fang
+a Bramblin Twig
+a Gimmighoul Coin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a bag of Tinkatink Hair
+a bag of Charcadet Soot
+the Toedscool Flaps
+a bag of Wooper Slime
+a TM100
+a TM101
+a TM102
+a TM103
+a TM104
+a TM105
+a TM106
+a TM107
+a TM108
+a TM109
+a TM110
+a TM111
+a TM112
+a TM113
+a TM114
+a TM115
+a TM116
+a TM117
+a TM118
+a TM119
+a TM120
+a TM121
+a TM122
+a TM123
+a TM124
+a TM125
+a TM126
+a TM127
+a TM128
+a TM129
+a TM130
+a TM131
+a TM132
+a TM133
+a TM134
+a TM135
+a TM136
+a TM137
+a TM138
+a TM139
+a TM140
+a TM141
+a TM142
+a TM143
+a TM144
+a TM145
+a TM146
+a TM147
+a TM148
+a TM149
+a TM150
+a TM151
+a TM152
+a TM153
+a TM154
+a TM155
+a TM156
+a TM157
+a TM158
+a TM159
+a TM160
+a TM161
+a TM162
+a TM163
+a TM164
+a TM165
+a TM166
+a TM167
+a TM168
+a TM169
+a TM170
+a TM171
+a TM172
+a TM173
+a TM174
+a TM175
+a TM176
+a TM177
+a TM178
+a TM179
+a TM180
+a TM181
+a TM182
+a TM183
+a TM184
+a TM185
+a TM186
+a TM187
+a TM188
+a TM189
+a TM190
+a TM191
+a TM192
+a TM193
+a TM194
+a TM195
+a TM196
+a TM197
+a TM198
+a TM199
+a TM200
+a TM201
+a TM202
+a TM203
+a TM204
+a TM205
+a TM206
+a TM207
+a TM208
+a TM209
+a TM210
+a TM211
+a TM212
+a TM213
+a TM214
+a TM215
+a TM216
+a TM217
+a TM218
+a TM219
+a TM220
+a TM221
+a TM222
+a TM223
+a TM224
+a TM225
+a TM226
+a TM227
+a TM228
+a TM229
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a Picnic Set
+
+an Academy Bottle
+an Academy Bottle
+a Polka-Dot Bottle
+a Striped Bottle
+a Diamond Bottle
+an Academy Cup
+an Academy Cup
+a Striped Cup
+a Polka-Dot Cup
+a Flower Pattern Cup
+an Academy Tablecloth
+an Academy Tablecloth
+a Whimsical Tablecloth
+a Leafy Tablecloth
+a Spooky Tablecloth
+
+an Academy Ball
+an Academy Ball
+a Marill Ball
+a Yarn Ball
+a Cyber Ball
+a Gold Pick
+a Silver Pick
+a Red-Flag Pick
+a Blue-Flag Pick
+a Pika-Pika Pick
+a Winking Pika Pick
+a Vee-Vee Pick
+a Smiling Vee Pick
+a Blue Poké Ball Pick
+
+a set of Auspicious Armor
+a Leader’s Crest
+
+
+a Pink Bottle
+a Blue Bottle
+a Yellow Bottle
+a Steel Bottle (R)
+a Steel Bottle (Y)
+a Steel Bottle (B)
+a Silver Bottle
+a Barred Cup
+a Diamond Pattern Cup
+a Fire Pattern Cup
+a Pink Cup
+a Blue Cup
+a Yellow Cup
+a Pikachu Cup
+an Eevee Cup
+a Slowpoke Cup
+a Silver Cup
+an Exercise Ball
+a Plaid Tablecloth (Y)
+a Plaid Tablecloth (B)
+a Plaid Tablecloth (R)
+a B&W Grass Tablecloth
+a Battle Tablecloth
+a Monstrous Tablecloth
+a Striped Tablecloth
+a Diamond Tablecloth
+a Polka-Dot Tablecloth
+a Lilac Tablecloth
+a Mint Tablecloth
+a Peach Tablecloth
+a Yellow Tablecloth
+a Blue Tablecloth
+a Pink Tablecloth
+a Gold Bottle
+a Bronze Bottle
+a Gold Cup
+a Bronze Cup
+a Green Poké Ball Pick
+a Red Poké Ball Pick
+a Party Sparkler Pick
+a Heroic Sword Pick
+a Magical Star Pick
+a Magical Heart Pick
+a Parasol Pick
+a Blue-Sky Flower Pick
+a Sunset Flower Pick
+a Sunrise Flower Pick
+a Blue Dish
+a Green Dish
+an Orange Dish
+a Red Dish
+a White Dish
+a Yellow Dish
+a Fairy Feather
+a Syrupy Apple
+an Unremarkable Teacup
+a Masterpiece Teacup
+a Teal Mask
+a Cornerstone Mask
+a Wellspring Mask
+a Hearthflame Mask
+a Teal Style Card
+a Crystal Cluster
+a Health Mochi
+a Muscle Mochi
+a Resist Mochi
+a Genius Mochi
+a Clever Mochi
+a Swift Mochi
+the set of Simple Chairs
+the set of Academy Chairs
+the set of Academy Chairs
+the set of Whimsical Chairs
+the set of Leafy Chairs
+the set of Spooky Chairs
+a set of Plaid Chairs (Y)
+a set of Plaid Chairs (B)
+a set of Plaid Chairs (R)
+the set of B&W Grass Chairs
+the set of Battle Chairs
+the set of Monstrous Chairs
+the set of Striped Chairs
+the set of Diamond Chairs
+the set of Polka-Dot Chairs
+the set of Lilac Chairs
+the set of Mint Chairs
+the set of Peach Chairs
+the set of Yellow Chairs
+the set of Blue Chairs
+the set of Pink Chairs
+an Ekans Fang
+a Sandshrew Claw
+a bag of Cleffa Fur
+a bag of Vulpix Fur
+a bag of Poliwag Slime
+a Bellsprout Vine
+a Geodude Fragment
+a bag of Koffing Gas
+a Munchlax Fang
+a bag of Sentret Fur
+a Hoothoot Feather
+a bag of Spinarak Thread
+a bag of Aipom Hair
+a Yanma Spike
+a Gligar Fang
+a bag of Slugma Lava
+a bag of Swinub Hair
+a Poochyena Fang
+a Lotad Leaf
+a Seedot Stem
+a Nosepass Fragment
+a bag of Volbeat Fluid
+a bag of Illumise Fluid
+a Corphish Shell
+a bag of Feebas Scales
+a Duskull Fragment
+a Chingling Fragment
+a bag of Timburr Sweat
+a Sewaddle Leaf
+a Ducklett Feather
+a bag of Litwick Soot
+a Mienfoo Claw
+a Vullaby Feather
+a Carbink Jewel
+a Phantump Twig
+a bag of Grubbin Thread
+a bag of Cutiefly Powder
+a bag of Jangmo-o Scales
+a bag of Cramorant Down
+a Morpeko Snack
+a bag of Poltchageist Powder
+a Fresh-Start Mochi
+a Roto-Stick
+a Glimmering Charm
+a hunk of Metal Alloy
+an Indigo Style Card
+an Oddish Leaf
+a Tentacool Stinger
+a bag of Doduo Down
+a bag of Seel Fur
+an Exeggcute Shell
+a bag of Tyrogue Sweat
+a Rhyhorn Fang
+a bag of Horsea Ink
+a bag of Elekid Fur
+a bag of Magby Hair
+a Lapras Teardrop
+a Porygon Fragment
+a bag of Chinchou Sparks
+a bag of Snubbull Hair
+a Skarmory Feather
+a bag of Smeargle Paint
+a bag of Plusle Fur
+a bag of Minun Fur
+a Trapinch Shell
+a Beldum Claw
+a Cranidos Spike
+a Shieldon Claw
+a bag of Blitzle Mane Hair
+a Drilbur Claw
+a bag of Cottonee Fluff
+a bag of Scraggy Sweat
+a bag of Minccino Fur
+a bag of Solosis Gel
+a bag of Joltik Thread
+a Golett Shard
+a bag of Espurr Fur
+a bag of Inkay Ink
+a Pikipek Feather
+a bag of Dewpider Thread
+a Comfey Flower
+a Minior Shell
+a bag of Milcery Cream
+a bag of Duraludon Tarnish
+an Articuno Treat
+a Zapdos Treat
+a Moltres Treat
+a Raikou Treat
+an Entei Treat
+a Suicune Treat
+a Lugia Treat
+a Ho-Oh Treat
+a Latias Treat
+a Latios Treat
+a Kyogre Treat
+a Groudon Treat
+a Rayquaza Treat
+a Cobalion Treat
+a Terrakion Treat
+a Virizion Treat
+a Reshiram Treat
+a Zekrom Treat
+a Kyurem Treat
+a Solgaleo Treat
+a Lunala Treat
+a Necrozma Treat
+a Kubfu Treat
+a Glastrier Treat
+a Spectrier Treat
+an Indigo Disk
+a Fiery Pick
+a Stellar Tera Shard
+a Mythical Pecha Berry
+a Blueberry Tablecloth
+the set of Blueberry Chairs
+a Synchro Machine
+a Meteorite
+a Scarlet Book
+a Violet Book
+a copy of Briar’s Book
