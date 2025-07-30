@@ -105,6 +105,7 @@ BOOL BtlCmd_TrySubstitute(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_TrySwapItems(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct *sp);
+BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -4066,6 +4067,51 @@ BOOL btl_scr_cmd_104_tryincinerate(void* bw, struct BattleStruct* sp)
     else if (isItemGemOrBerry)
     {
         sp->mp.msg_id = BATTLE_MSG_ITEM_INCINERATED;
+        sp->mp.msg_tag = TAG_NICKNAME_ITEM;
+        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.msg_para[1] = item;
+        sp->battlemon[sp->defence_client].item = 0; //no recycle
+    }
+    else
+    {
+        IncrementBattleScriptPtr(sp, adrs);
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if pluck/bugbite cannot eat the berry
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    u32 adrs = read_battle_script_param(sp);
+    u32 adrs2 = read_battle_script_param(sp);
+    if (CanActivateDamageReductionBerry(bw, sp, sp->defence_client))
+    {
+        IncrementBattleScriptPtr(sp, adrs);
+        return FALSE;
+    }
+
+    u32 item = sp->battlemon[sp->defence_client].item;
+    BOOL isItemBerry = IS_ITEM_BERRY(item);
+    // sticky hold and substitute will keep the mon's held item
+    // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
+    if (isItemBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
+    {
+        sp->mp.msg_id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
+        sp->mp.msg_tag = TAG_NICKNAME;
+        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+    }
+    else if (isItemBerry && TryEatOpponentBerry(bw, sp, sp->defence_client)) //needs expansion for newer berries
+    {
+        sp->mp.msg_id = BATTLE_MSG_STOLE_BERRY;
         sp->mp.msg_tag = TAG_NICKNAME_ITEM;
         sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
         sp->mp.msg_para[1] = item;

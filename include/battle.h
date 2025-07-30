@@ -3786,4 +3786,7 @@ typedef struct Trainer {
 
 Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battlerId);
 
+
+BOOL LONG_CALL TryEatOpponentBerry(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
+
 #endif // BATTLE_H
