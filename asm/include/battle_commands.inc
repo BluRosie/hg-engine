@@ -1432,6 +1432,11 @@
     .long 259
     .endm
 
+    .macro TryIncinerate arg_0
+    .long 260
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
     .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 255
 
     // .macro YourCustomCommand
