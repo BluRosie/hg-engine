@@ -3976,7 +3976,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_X_SPECIAL] =
+[ITEM_X_SP_ATK] =
 {
     .price = 350,
     .holdEffect = 0,
@@ -19901,7 +19901,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM01] =
+[ITEM_TM001] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -19966,7 +19966,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM02] =
+[ITEM_TM002] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -20031,7 +20031,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM03] =
+[ITEM_TM003] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -20096,7 +20096,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM04] =
+[ITEM_TM004] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -20161,7 +20161,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM05] =
+[ITEM_TM005] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -20226,7 +20226,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM06] =
+[ITEM_TM006] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -20291,7 +20291,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM07] =
+[ITEM_TM007] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -20356,7 +20356,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM08] =
+[ITEM_TM008] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -20421,7 +20421,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM09] =
+[ITEM_TM009] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -20486,7 +20486,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM10] =
+[ITEM_TM010] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -20551,7 +20551,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM11] =
+[ITEM_TM011] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -20616,7 +20616,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM12] =
+[ITEM_TM012] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -20681,7 +20681,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM13] =
+[ITEM_TM013] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -20746,7 +20746,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM14] =
+[ITEM_TM014] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -20811,7 +20811,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM15] =
+[ITEM_TM015] =
 {
     .price = 7500,
     .holdEffect = 0,
@@ -20876,7 +20876,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM16] =
+[ITEM_TM016] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -20941,7 +20941,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM17] =
+[ITEM_TM017] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -21006,7 +21006,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM18] =
+[ITEM_TM018] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -21071,7 +21071,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM19] =
+[ITEM_TM019] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21136,7 +21136,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM20] =
+[ITEM_TM020] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -21201,7 +21201,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM21] =
+[ITEM_TM021] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -21266,7 +21266,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM22] =
+[ITEM_TM022] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21331,7 +21331,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM23] =
+[ITEM_TM023] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21396,7 +21396,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM24] =
+[ITEM_TM024] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21461,7 +21461,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM25] =
+[ITEM_TM025] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -21526,7 +21526,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM26] =
+[ITEM_TM026] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21591,7 +21591,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM27] =
+[ITEM_TM027] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -21656,7 +21656,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM28] =
+[ITEM_TM028] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -21721,7 +21721,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM29] =
+[ITEM_TM029] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21786,7 +21786,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM30] =
+[ITEM_TM030] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21851,7 +21851,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM31] =
+[ITEM_TM031] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21916,7 +21916,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM32] =
+[ITEM_TM032] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -21981,7 +21981,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM33] =
+[ITEM_TM033] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -22046,7 +22046,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM34] =
+[ITEM_TM034] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22111,7 +22111,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM35] =
+[ITEM_TM035] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22176,7 +22176,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM36] =
+[ITEM_TM036] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22241,7 +22241,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM37] =
+[ITEM_TM037] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -22306,7 +22306,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM38] =
+[ITEM_TM038] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -22371,7 +22371,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM39] =
+[ITEM_TM039] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -22436,7 +22436,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM40] =
+[ITEM_TM040] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22501,7 +22501,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM41] =
+[ITEM_TM041] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -22566,7 +22566,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM42] =
+[ITEM_TM042] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22631,7 +22631,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM43] =
+[ITEM_TM043] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -22696,7 +22696,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM44] =
+[ITEM_TM044] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22761,7 +22761,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM45] =
+[ITEM_TM045] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22826,7 +22826,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM46] =
+[ITEM_TM046] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -22891,7 +22891,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM47] =
+[ITEM_TM047] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22956,7 +22956,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM48] =
+[ITEM_TM048] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23021,7 +23021,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM49] =
+[ITEM_TM049] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -23086,7 +23086,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM50] =
+[ITEM_TM050] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -23151,7 +23151,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM51] =
+[ITEM_TM051] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23216,7 +23216,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM52] =
+[ITEM_TM052] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -23281,7 +23281,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM53] =
+[ITEM_TM053] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23346,7 +23346,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM54] =
+[ITEM_TM054] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23411,7 +23411,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM55] =
+[ITEM_TM055] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23476,7 +23476,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM56] =
+[ITEM_TM056] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23541,7 +23541,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM57] =
+[ITEM_TM057] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23606,7 +23606,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM58] =
+[ITEM_TM058] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23671,7 +23671,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM59] =
+[ITEM_TM059] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23736,7 +23736,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM60] =
+[ITEM_TM060] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23801,7 +23801,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM61] =
+[ITEM_TM061] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23866,7 +23866,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM62] =
+[ITEM_TM062] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23931,7 +23931,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM63] =
+[ITEM_TM063] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23996,7 +23996,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM64] =
+[ITEM_TM064] =
 {
     .price = 7500,
     .holdEffect = 0,
@@ -24061,7 +24061,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM65] =
+[ITEM_TM065] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -24126,7 +24126,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM66] =
+[ITEM_TM066] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -24191,7 +24191,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM67] =
+[ITEM_TM067] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -24256,7 +24256,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM68] =
+[ITEM_TM068] =
 {
     .price = 7500,
     .holdEffect = 0,
@@ -24321,7 +24321,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM69] =
+[ITEM_TM069] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -24386,7 +24386,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM70] =
+[ITEM_TM070] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -24451,7 +24451,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM71] =
+[ITEM_TM071] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -24516,7 +24516,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM72] =
+[ITEM_TM072] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -24581,7 +24581,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM73] =
+[ITEM_TM073] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -24646,7 +24646,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM74] =
+[ITEM_TM074] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -24711,7 +24711,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM75] =
+[ITEM_TM075] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -24776,7 +24776,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM76] =
+[ITEM_TM076] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -24841,7 +24841,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM77] =
+[ITEM_TM077] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -24906,7 +24906,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM78] =
+[ITEM_TM078] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -24971,7 +24971,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM79] =
+[ITEM_TM079] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25036,7 +25036,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM80] =
+[ITEM_TM080] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25101,7 +25101,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM81] =
+[ITEM_TM081] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25166,7 +25166,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM82] =
+[ITEM_TM082] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -25231,7 +25231,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM83] =
+[ITEM_TM083] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -25296,7 +25296,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM84] =
+[ITEM_TM084] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25361,7 +25361,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM85] =
+[ITEM_TM085] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25426,7 +25426,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM86] =
+[ITEM_TM086] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25491,7 +25491,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM87] =
+[ITEM_TM087] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -25556,7 +25556,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM88] =
+[ITEM_TM088] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25621,7 +25621,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM89] =
+[ITEM_TM089] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25686,7 +25686,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM90] =
+[ITEM_TM090] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -25751,7 +25751,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM91] =
+[ITEM_TM091] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25816,7 +25816,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM92] =
+[ITEM_TM092] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -26661,7 +26661,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_JOURNAL] =
+[ITEM_GUIDEBOOK] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26856,7 +26856,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SEAL_BAG] =
+[ITEM_STICKER_BAG] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27766,7 +27766,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BICYCLE] =
+[ITEM_BIKE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27961,7 +27961,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LUNAR_WING] =
+[ITEM_LUNAR_FEATHER] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28611,7 +28611,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STORAGE_KEY] =
+[ITEM_STORAGE_KEY_SINNOH] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29131,7 +29131,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DOWSING_MCHN] =
+[ITEM_DOWSING_MACHINE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29391,7 +29391,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CARD_KEY] =
+[ITEM_CARD_KEY_JOHTO] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29846,7 +29846,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SILVER_WING] =
+[ITEM_SILVER_FEATHER] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29911,7 +29911,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RAINBOW_WING] =
+[ITEM_RAINBOW_FEATHER] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -46486,7 +46486,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DNA_SPLICERS] =
+[ITEM_DNA_SPLICERS_FUSE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -46941,7 +46941,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_N_SOLARIZER] =
+[ITEM_N_SOLARIZER_FUSE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47006,7 +47006,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_N_LUNARIZER] =
+[ITEM_N_LUNARIZER_FUSE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47591,7 +47591,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_REINS_OF_UNITY] =
+[ITEM_REINS_OF_UNITY_FUSE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -48501,7 +48501,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SYLPH_SCOPE] =
+[ITEM_SILPH_SCOPE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -50481,6 +50481,71 @@ const ITEMDATA __data[] =
         .revive_all = FALSE,
         .level_up = FALSE,
         .evolve = TRUE,
+        .atk_stages = 0,
+        .def_stages = 0,
+        .spatk_stages = 0,
+        .spdef_stages = 0,
+        .speed_stages = 0,
+        .accuracy_stages = 0,
+        .critrate_stages = 0,
+        .pp_up = FALSE,
+        .pp_max = FALSE,
+        .pp_restore = FALSE,
+        .pp_restore_all = FALSE,
+        .hp_restore = FALSE,
+        .hp_ev_up = FALSE,
+        .atk_ev_up = FALSE,
+        .def_ev_up = FALSE,
+        .speed_ev_up = FALSE,
+        .spatk_ev_up = FALSE,
+        .spdef_ev_up = FALSE,
+        .friendship_mod_lo = FALSE,
+        .friendship_mod_med = FALSE,
+        .friendship_mod_hi = FALSE,
+        .hp_ev_up_param = 0,
+        .atk_ev_up_param = 0,
+        .def_ev_up_param = 0,
+        .speed_ev_up_param = 0,
+        .spatk_ev_up_param = 0,
+        .spdef_ev_up_param = 0,
+        .hp_restore_param = 0,
+        .pp_restore_param = 0,
+        .friendship_mod_lo_param =  0,
+        .friendship_mod_med_param = 0,
+        .friendship_mod_hi_param =  0,
+    },
+},
+
+[ITEM_BRIARS_BOOK] =
+{
+    .price = 0,
+    .holdEffect = 0,
+    .holdEffectParam = 0,
+    .pluckEffect = 0,
+    .flingEffect = 0,
+    .flingPower = 0,
+    .naturalGiftPower = 0,
+    .naturalGiftType = 31,
+    .prevent_toss = TRUE,
+    .selectable = FALSE,
+    .fieldPocket = POCKET_KEY_ITEMS_GEN_9,
+    .battlePocket = BATTLE_POCKET_NONE,
+    .fieldUseFunc = 0,
+    .battleUseFunc = 0,
+    .partyUse = 0,
+    .partyUseParam = {
+        .slp_heal = FALSE,
+        .psn_heal = FALSE,
+        .brn_heal = FALSE,
+        .frz_heal = FALSE,
+        .prz_heal = FALSE,
+        .cfs_heal = FALSE,
+        .inf_heal = FALSE,
+        .guard_spec = FALSE,
+        .revive = FALSE,
+        .revive_all = FALSE,
+        .level_up = FALSE,
+        .evolve = FALSE,
         .atk_stages = 0,
         .def_stages = 0,
         .spatk_stages = 0,
