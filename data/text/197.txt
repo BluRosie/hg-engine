@@ -1571,3 +1571,6 @@ The opposing {STRVAR_1 1, 0, 0} was hurt!
 {STRVAR_1 1, 0, 0}’ {STRVAR_1 8, 1, 0}\nwas burned up!
 The wild {STRVAR_1 1, 0, 0}’ {STRVAR_1 8, 1, 0}\nwas burned up!
 The opposing {STRVAR_1 1, 0, 0}’\n{STRVAR_1 8, 1, 0} was burned up!
+{STRVAR_1 1, 0, 0}’ item cannot be removed!
+The wild {STRVAR_1 1, 0, 0}’ item cannot be\nremoved!
+The opposing {STRVAR_1 1, 0, 0}’ item cannot be\nremoved!
