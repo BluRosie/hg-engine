@@ -92,7 +92,7 @@ BOOL btl_scr_cmd_101_addentryhazardtoqueue(void *bsys UNUSED, struct BattleStruc
 void BattleContext_RemoveEntryHazardFromQueue(struct BattleStruct *ctx, u32 side, u32 hazard);
 BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_104_tryincinerate(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_104_tryincinerate(void* bsys, struct BattleStruct* ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -4044,14 +4044,41 @@ BOOL BtlCmd_TrySwapItems(void* bw, struct BattleStruct *sp)
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_104_tryincinerate(void* bw UNUSED, struct BattleStruct* sp)
+BOOL btl_scr_cmd_104_tryincinerate(void* bw, struct BattleStruct* sp)
 {
     IncrementBattleScriptPtr(sp, 1);
 
-    int address = read_battle_script_param(sp);
-    int defenderItem = sp->battlemon[sp->defence_client].item;
-    if (!(IS_ITEM_BERRY(defenderItem) || IS_ITEM_GEM(defenderItem)))
-        IncrementBattleScriptPtr(sp, address);
+    u32 adrs = read_battle_script_param(sp);
+    if (CanActivateDamageReductionBerry(bw, sp, sp->defence_client))
+    {
+        IncrementBattleScriptPtr(sp, adrs);
+        return FALSE;
+    }
+
+    u32 item = sp->battlemon[sp->defence_client].item;
+	BOOL isItemGemOrBerry = (IS_ITEM_BERRY(item) || IS_ITEM_GEM(item));
+    // sticky hold and substitute will keep the mon's held item
+    // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
+    if (isItemGemOrBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
+    {
+        sp->mp.msg_id = BATTLE_MSG_ABILITY_MADE_MOVE_INEFFECTIVE;
+        sp->mp.msg_tag = TAG_NICKNAME_ABILITY_MOVE;
+        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.msg_para[1] = sp->battlemon[sp->defence_client].ability;
+        sp->mp.msg_para[2] = sp->current_move_index;
+    }
+    else if (isItemGemOrBerry)
+    {
+        sp->mp.msg_id = BATTLE_MSG_ITEM_INCINERATED;
+        sp->mp.msg_tag = TAG_NICKNAME_ITEM;
+        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.msg_para[1] = item;
+        sp->battlemon[sp->defence_client].item = 0; //no recycle
+    }
+    else
+    {
+        IncrementBattleScriptPtr(sp, adrs);
+    }
 
     return FALSE;
 }
