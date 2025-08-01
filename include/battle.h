@@ -1373,6 +1373,7 @@ struct PACKED BattleStruct {
                u32 moveStatusFlagForSpreadMoves[CLIENT_MAX];
                u32 damageForSpreadMoves[CLIENT_MAX]; // u32 or int?
                u8 clientLoopForSpreadMoves;
+               u8 clientLoopForAbility;
                BOOL boostedAccuracy;
                BOOL moveStolen;
                BOOL moveBounced;
