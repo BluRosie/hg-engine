@@ -813,6 +813,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 sp->server_seq_no = 22;
                 return;
             }
+            sp->clientLoopForSpreadMoves = 0;
             sp->swoam_seq_no++;
         }
         FALLTHROUGH;
@@ -910,6 +911,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 sp->server_seq_no = 22;
                 return;
             }
+            sp->clientLoopForSpreadMoves = 0;
             sp->swoam_seq_no++;
         }
         FALLTHROUGH;
