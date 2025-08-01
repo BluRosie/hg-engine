@@ -687,22 +687,22 @@ BOOL LONG_CALL MoveHitDefenderCottonDownCheckHelper(struct BattleStruct* sp, int
 BOOL LONG_CALL MoveHitDefenderCottonDownCheck(void* bw UNUSED, struct BattleStruct* sp, int* seq_no)
 {
     BOOL ret = FALSE;
-    switch (sp->clientLoopForSpreadMoves)
+    switch (sp->clientLoopForAbility)
     {
     case SPREAD_MOVE_LOOP_ALLY:
-        sp->clientLoopForSpreadMoves++;
+        sp->clientLoopForAbility++;
         ret = MoveHitDefenderCottonDownCheckHelper(sp, BATTLER_ALLY(sp->defence_client), seq_no);
         if (ret)
             break;
         FALLTHROUGH;
     case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
-        sp->clientLoopForSpreadMoves++;
+        sp->clientLoopForAbility++;
         ret = MoveHitDefenderCottonDownCheckHelper(sp, BATTLER_OPPONENT_SIDE_LEFT(sp->defence_client), seq_no);
         if (ret)
             break;
         FALLTHROUGH;
     case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
-        sp->clientLoopForSpreadMoves++;
+        sp->clientLoopForAbility++;
         ret = MoveHitDefenderCottonDownCheckHelper(sp, BATTLER_OPPONENT_SIDE_RIGHT(sp->defence_client), seq_no);
         break;
     default:
@@ -811,7 +811,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 sp->server_seq_no = 22;
                 return;
             }
-            sp->clientLoopForSpreadMoves = 0;
+            sp->clientLoopForAbility = 0;
             sp->swoam_seq_no++;
         }
         FALLTHROUGH;
@@ -909,7 +909,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
                 sp->server_seq_no = 22;
                 return;
             }
-            sp->clientLoopForSpreadMoves = 0;
+            sp->clientLoopForAbility = 0;
             sp->swoam_seq_no++;
         }
         FALLTHROUGH;
