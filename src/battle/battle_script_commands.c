@@ -4032,3 +4032,23 @@ BOOL BtlCmd_TrySwapItems(void* bw, struct BattleStruct *sp)
 
     return FALSE;
 }
+
+
+BOOL BtlCmd_PlayFaintAnimation(void* bw, struct BattleStruct* sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    BattleController_EmitPlayFaintAnimation(bw, sp, sp->fainting_client);
+
+    sp->server_status_flag  &= (MaskOfFlagNo(sp->fainting_client) << BATTLE_STATUS_FAINTED_SHIFT) ^  -1;
+    sp->server_status_flag2 |= MaskOfFlagNo(sp->fainting_client) << BATTLE_STATUS2_EXP_GAIN_SHIFT;
+    sp->playerActions[sp->fainting_client][0] = CONTROLLER_COMMAND_40;
+
+    if (IsClientEnemy(bw, sp->fainting_client))
+        sp->enemySideHasFaintedMonThisTurn = 1;
+    else
+		sp->playerSideHasFaintedMonThisTurn = 1;
+ 
+    InitFaintedWork(bw, sp, sp->fainting_client);
+    return FALSE;
+}

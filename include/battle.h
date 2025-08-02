@@ -1380,6 +1380,12 @@ struct PACKED BattleStruct {
                int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
+
+               u8 playerSideHasFaintedMonLastTurn : 1;
+               u8 enemySideHasFaintedMonLastTurn : 1;
+               u8 playerSideHasFaintedMonThisTurn : 1;
+               u8 enemySideHasFaintedMonThisTurn : 1;
+			   u8 : 4; //padding
 };
 
 enum {
@@ -3432,6 +3438,8 @@ BOOL LONG_CALL CheckTruant(struct BattleStruct *ctx, int battlerId);
 
 void LONG_CALL CopyBattleMonToPartyMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
+u32 LONG_CALL MaskOfFlagNo(int flagno);
+
 int LONG_CALL LowestFlagNo(u32 mask);
 
 int LONG_CALL Battler_GetRandomOpposingBattlerId(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
@@ -3785,5 +3793,9 @@ typedef struct Trainer {
 } Trainer; // size=0x34
 
 Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battlerId);
+
+
+void LONG_CALL BattleController_EmitPlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* ctx, int batlterId);
+void LONG_CALL InitFaintedWork(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
 
 #endif // BATTLE_H
