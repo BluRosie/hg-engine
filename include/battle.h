@@ -1385,7 +1385,7 @@ struct PACKED BattleStruct {
                u8 enemySideHasFaintedMonLastTurn : 1;
                u8 playerSideHasFaintedMonThisTurn : 1;
                u8 enemySideHasFaintedMonThisTurn : 1;
-			   u8 : 4; //padding
+               u8 : 4; //padding
 };
 
 enum {

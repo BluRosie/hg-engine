@@ -643,8 +643,8 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             break;
         case MOVE_RETALIATE:
             {
-				BOOL isEnemy = IsClientEnemy(bw, attacker);
-				BOOL teammateFaintedLastTurn = isEnemy ? sp->enemySideHasFaintedMonLastTurn : sp->playerSideHasFaintedMonLastTurn;
+                BOOL isEnemy = IsClientEnemy(bw, attacker);
+                BOOL teammateFaintedLastTurn = isEnemy ? sp->enemySideHasFaintedMonLastTurn : sp->playerSideHasFaintedMonLastTurn;
                 if (teammateFaintedLastTurn) {
                     basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
                 }
