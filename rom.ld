@@ -752,3 +752,8 @@ QueueEmitterWithCallback = 0x02015494 | 1;
 particleEmitCallback = 0x021E5C28 | 1;
 
 BattleSystem_GetTrainer = 0x0223A9F4 | 1;
+
+
+BattleController_EmitPlayFaintAnimation = 0x022635E8 | 1;
+InitFaintedWork = 0x022514C4 | 1;
+MaskOfFlagNo = 0x020726C0 | 1;
