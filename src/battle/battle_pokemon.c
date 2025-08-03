@@ -46,7 +46,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_FIGHTING, TYPE_NORMAL, 0x14 },
     { TYPE_FIGHTING, TYPE_FLYING, 0x05 },
     { TYPE_FIGHTING, TYPE_POISON, 0x05 },
-    { TYPE_FIGHTING, TYPE_STELLAR, 0x05 },
     { TYPE_FIGHTING, TYPE_ROCK, 0x14 },
     { TYPE_FIGHTING, TYPE_BUG, 0x05 },
     { TYPE_FIGHTING, TYPE_STEEL, 0x14 },
@@ -65,7 +64,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_FLYING, TYPE_GRASS, 0x14 },
     { TYPE_FLYING, TYPE_ELECTRIC, 0x05 },
     { TYPE_POISON, TYPE_POISON, 0x05 },
-    { TYPE_POISON, TYPE_STELLAR, 0x05 },
     { TYPE_POISON, TYPE_GROUND, 0x05 },
     { TYPE_POISON, TYPE_ROCK, 0x05 },
     { TYPE_POISON, TYPE_GHOST, 0x05 },
@@ -76,7 +74,6 @@ u8 TypeEffectivenessTable[][3] =
 
     { TYPE_POISON, TYPE_GRASS, 0x14 },
     { TYPE_GROUND, TYPE_POISON, 0x14 },
-    { TYPE_GROUND, TYPE_STELLAR, 0x14 },
     { TYPE_GROUND, TYPE_ROCK, 0x14 },
     { TYPE_GROUND, TYPE_BUG, 0x05 },
     { TYPE_GROUND, TYPE_STEEL, 0x14 },
@@ -93,7 +90,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_BUG, TYPE_FIGHTING, 0x05 },
     { TYPE_BUG, TYPE_FLYING, 0x05 },
     { TYPE_BUG, TYPE_POISON, 0x05 },
-    { TYPE_BUG, TYPE_STELLAR, 0x05 },
     { TYPE_BUG, TYPE_GHOST, 0x05 },
     { TYPE_BUG, TYPE_STEEL, 0x05 },
 
@@ -124,7 +120,6 @@ u8 TypeEffectivenessTable[][3] =
 #if FAIRY_TYPE_IMPLEMENTED == 1
     { TYPE_FAIRY, TYPE_FIGHTING, 0x14 },
     { TYPE_FAIRY, TYPE_POISON, 0x05 },
-    { TYPE_FAIRY, TYPE_STELLAR, 0x05 },
     { TYPE_FAIRY, TYPE_STEEL, 0x05 },
     { TYPE_FAIRY, TYPE_FIRE, 0x05 },
     { TYPE_FAIRY, TYPE_DRAGON, 0x14 },
@@ -147,7 +142,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_WATER, TYPE_DRAGON, 0x05 },
     { TYPE_GRASS, TYPE_FLYING, 0x05 },
     { TYPE_GRASS, TYPE_POISON, 0x05 },
-    { TYPE_GRASS, TYPE_STELLAR, 0x05 },
     { TYPE_GRASS, TYPE_GROUND, 0x14 },
     { TYPE_GRASS, TYPE_ROCK, 0x14 },
     { TYPE_GRASS, TYPE_BUG, 0x05 },
@@ -163,7 +157,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_ELECTRIC, TYPE_DRAGON, 0x05 },
     { TYPE_PSYCHIC, TYPE_FIGHTING, 0x14 },
     { TYPE_PSYCHIC, TYPE_POISON, 0x14 },
-    { TYPE_PSYCHIC, TYPE_STELLAR, 0x14 },
     { TYPE_PSYCHIC, TYPE_STEEL, 0x05 },
     { TYPE_PSYCHIC, TYPE_PSYCHIC, 0x05 },
     { TYPE_ICE, TYPE_FLYING, 0x14 },
@@ -198,24 +191,6 @@ u8 TypeEffectivenessTable[][3] =
 #if FAIRY_TYPE_IMPLEMENTED == 1
     { TYPE_DRAGON, TYPE_FAIRY, 0x00 },
 #endif
-    { TYPE_STELLAR, TYPE_NORMAL, 0x00 },
-    { TYPE_STELLAR, TYPE_FIGHTING, 0x00 },
-    { TYPE_STELLAR, TYPE_FLYING, 0x00 },
-    { TYPE_STELLAR, TYPE_POISON, 0x00 },
-    { TYPE_STELLAR, TYPE_GROUND, 0x00 },
-    { TYPE_STELLAR, TYPE_ROCK, 0x00 },
-    { TYPE_STELLAR, TYPE_BUG, 0x00 },
-    { TYPE_STELLAR, TYPE_GHOST, 0x00 },
-    { TYPE_STELLAR, TYPE_STEEL, 0x00 },
-    { TYPE_STELLAR, TYPE_FIRE, 0x00 },
-    { TYPE_STELLAR, TYPE_WATER, 0x00 },
-    { TYPE_STELLAR, TYPE_GRASS, 0x00 },
-    { TYPE_STELLAR, TYPE_ELECTRIC, 0x00 },
-    { TYPE_STELLAR, TYPE_ICE, 0x00 },
-    { TYPE_STELLAR, TYPE_DRAGON, 0x00 },
-    { TYPE_STELLAR, TYPE_DARK, 0x00 },
-    { TYPE_STELLAR, TYPE_FAIRY, 0x00 },
-    { TYPE_STELLAR, TYPE_STELLAR, 0x00 },
 
     { 0xFE, 0xFE, 0x00 },
     { TYPE_NORMAL, TYPE_GHOST, 0x00 },
@@ -1229,4 +1204,11 @@ BOOL LONG_CALL DoesSideHave2Battlers(void *bw, u32 client)
 
 BOOL LONG_CALL ClientBelongsToPlayer(struct BattleSystem *bsys, int client) {
     return BattleWork_GetTrainerIndex(bsys, client) == 0;
+}
+
+BOOL LONG_CALL IsMonValidAndHealthy(struct PartyPokemon *mon) {
+    return (GetMonData(mon, MON_DATA_HP, 0) != 0 &&
+        GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != 0 &&
+        GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_EGG &&
+        GetMonData(mon, MON_DATA_STATUS, 0) == 0);
 }
