@@ -49,7 +49,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_5f_trysleeptalk(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw, struct BattleStruct *sp);
-BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_7c_beat_up_hit_count(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_87_tryknockoff(void *bw, struct BattleStruct *sp);
 //s32 GetPokemonWeight(void *bw, struct BattleStruct *sp, u32 client);
 BOOL btl_scr_cmd_8c_lowkickdamagecalc(void *bw, struct BattleStruct *sp);
@@ -1909,79 +1909,30 @@ BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw UNUSED, struct BattleStruct
 }
 
 /**
- *  @brief script command to calculate the damage done by beat up
+ *  @brief script command to calculate the hits done by beat up.
+ *  damage is calculated in CalcBaseDamage
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_7c_beat_up_hit_count(void *bw, struct BattleStruct *sp)
 {
-    int species, form, number_of_hits;
-    s32 newBaseDamage;
     struct PartyPokemon *mon;
 
     IncrementBattleScriptPtr(sp, 1);
 
-    int partyCount = Battle_GetClientPartySize(bw, sp->attack_client);
-
     if (sp->multiHitCountTemp == 0) {
-
-        sp->multiHitCountTemp = 2;
         sp->loop_hit_check = 0xFD;
         sp->beat_up_count = 0;
-        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
+        sp->multiHitCount = 0;
 
-        while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, MON_DATA_HP, 0) == 0 ||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 ||
-                GetMonData(mon, MON_DATA_STATUS, 0) != 0))
-                {
-
-            sp->beat_up_count++;
-            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-
-        }
-    }
-
-    mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-    species = GetMonData(mon, MON_DATA_SPECIES, 0);
-    form = GetMonData(mon, MON_DATA_FORM, 0);
-
-    newBaseDamage = PokeFormNoPersonalParaGet(species, form, PERSONAL_BASE_ATTACK);
-    newBaseDamage /= 10;
-    sp->damage_power = 5;
-    sp->damage_power += newBaseDamage;
-
-    sp->beat_up_count++;
-    sp->multiHitCount = 2;
-    number_of_hits = sp->beat_up_count;
-
-    if (sp->beat_up_count < partyCount) {
-
-        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-
-        while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, MON_DATA_HP, 0) == 0 ||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0 ||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 ||
-                GetMonData(mon, MON_DATA_STATUS, 0) != 0))
-                {
-
-            sp->beat_up_count++;
-            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-
-            if (sp->beat_up_count >= partyCount) {
-                sp->multiHitCount = 1;
-                sp->multiHitCountTemp = number_of_hits;
-                break;
+        for (int i = 0; i < Battle_GetClientPartySize(bw, sp->attack_client); i++) {
+            mon = Battle_GetClientPartyMon(bw, sp->attack_client, i);
+            if (IsMonValidAndHealthy(mon)) {
+                sp->multiHitCount++;
             }
-
         }
-    } else {
-        sp->multiHitCount = 1;
-        sp->multiHitCountTemp = number_of_hits;
     }
 
     return FALSE;

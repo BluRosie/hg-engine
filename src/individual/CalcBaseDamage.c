@@ -572,7 +572,20 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         break;
     // Other
     case MOVE_BEAT_UP:
-        movepower = sp->damage_power;
+        for (int i = sp->beat_up_count; i < Battle_GetClientPartySize(bw, sp->attack_client); i++) {
+            struct PartyPokemon *mon = Battle_GetClientPartyMon(bw, sp->attack_client, i);
+            if ((IsMonValidAndHealthy(mon))) {
+
+                sp->beat_up_count = i + 1;
+                sp->multiHitCountTemp++;
+                int species = GetMonData(mon, MON_DATA_SPECIES, 0);
+                int form = GetMonData(mon, MON_DATA_FORM, 0);
+                movepower = 5 + (PokeFormNoPersonalParaGet(species, form, PERSONAL_BASE_ATTACK) / 10);
+                break;
+
+            }
+        }
+
         break;
     case MOVE_ECHOED_VOICE:
         // TODO

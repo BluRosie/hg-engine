@@ -99,7 +99,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 #02241F10
 0012 btl_scr_cmd_6f_fury_cutter_damage_calc 02241F10 3
 #02242710
-0012 btl_scr_cmd_7c_beat_up_damage_calc 0800AE50 3
+0012 btl_scr_cmd_7c_beat_up_hit_count 0800AE50 3
 #0224324C
 0012 btl_scr_cmd_8c_lowkickdamagecalc 0800B98C 3
 #02245008

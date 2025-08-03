@@ -1205,3 +1205,10 @@ BOOL LONG_CALL DoesSideHave2Battlers(void *bw, u32 client)
 BOOL LONG_CALL ClientBelongsToPlayer(struct BattleSystem *bsys, int client) {
     return BattleWork_GetTrainerIndex(bsys, client) == 0;
 }
+
+BOOL LONG_CALL IsMonValidAndHealthy(struct PartyPokemon *mon) {
+    return (GetMonData(mon, MON_DATA_HP, 0) != 0 &&
+        GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != 0 &&
+        GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_EGG &&
+        GetMonData(mon, MON_DATA_STATUS, 0) == 0);
+}
