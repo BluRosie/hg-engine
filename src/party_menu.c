@@ -1,6 +1,7 @@
 #include "../include/types.h"
 #include "../include/config.h"
 #include "../include/pokemon.h"
+#include "../include/bag.h"
 #include "../include/battle.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
@@ -128,7 +129,7 @@ void LONG_CALL sub_0207AFC4(struct PLIST_WORK *wk)
  */
 int PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6(struct PLIST_WORK *wk) {
     struct PartyPokemon *mon = Party_GetMonByIndex(wk->dat->pp, wk->pos);
-    wk->dat->after_mons = GetMonEvolution(wk->dat->pp, mon, EVOCTX_LEVELUP, EVO_NONE, &wk->dat->shinka_cond);
+    wk->dat->after_mons = GetMonEvolution(wk->dat->pp, mon, EVOCTX_LEVELUP, EVO_NONE, (int *)&wk->dat->shinka_cond);
     if (wk->dat->after_mons != SPECIES_NONE) {
         wk->dat->ret_mode = 0x9;
         return 0x20;
