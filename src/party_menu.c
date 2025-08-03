@@ -42,7 +42,7 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
 
             // here is where a custom check would go.  replace the below for loop with your own checks
 
-            for (i = 0; i < MAX_MON_MOVES; ++i) 
+            for (i = 0; i < MAX_MON_MOVES; ++i)
             {
                 move = GetMonData(pp, MON_DATA_MOVE1 + i, NULL);
                 if (move == MOVE_NONE)
@@ -73,7 +73,7 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
     }
 
 
-    
+
     return count;
 }
 
@@ -136,7 +136,7 @@ int PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6(struct PLIST_WORK *wk) {
     wk->dat->ret_mode = 0x0;
     if (Bag_HasItem(wk->dat->myitem, wk->dat->item, 1, HEAP_ID_PARTY_MENU)) {
         ClearFrameAndWindow2(&wk->windows[34], TRUE);
-        PartyMenu_PrintMessageOnWindow32(wk, 32, TRUE);
+        PartyMenu_PrintMessageOnWindow32(wk, 33, TRUE); // message index in 300.txt
         return 0x4;
     }
     return 0x20;
@@ -150,7 +150,7 @@ int PartyMenu_ItemUseFunc_ReuseItem(struct PLIST_WORK *wk) {
     wk->dat->ret_mode = 0;
     if (GetItemData(wk->dat->item, ITEM_PARAM_EVOLUTION, HEAP_ID_PARTY_MENU) == 0 && Bag_HasItem(wk->dat->myitem, wk->dat->item, 1, HEAP_ID_PARTY_MENU)) {
         ClearFrameAndWindow2(&wk->windows[34], TRUE);
-        PartyMenu_PrintMessageOnWindow32(wk, 32, TRUE);
+        PartyMenu_PrintMessageOnWindow32(wk, 33, TRUE); // message index in 300.txt
         return 0x4;
     }
     return 0x20;
