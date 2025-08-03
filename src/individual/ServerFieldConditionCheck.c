@@ -1894,10 +1894,10 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     sp->numberOfTurnsClientHasCurrentAbility[i] = sp->numberOfTurnsClientHasCurrentAbility[i] + 1;
                 }
 
-                sp->playerSideHasFaintedMonLastTurn = sp->playerSideHasFaintedMonThisTurn;
-                sp->enemySideHasFaintedMonLastTurn = sp->enemySideHasFaintedMonThisTurn;
-                sp->playerSideHasFaintedMonThisTurn = 0;
-                sp->enemySideHasFaintedMonThisTurn = 0;
+                sp->playerSideHasFaintedTeammateLastTurn = sp->playerSideHasFaintedTeammateThisTurn;
+                sp->enemySideHasFaintedTeammateLastTurn = sp->enemySideHasFaintedTeammateThisTurn;
+                sp->playerSideHasFaintedTeammateThisTurn = 0;
+                sp->enemySideHasFaintedTeammateThisTurn = 0;
 
                 ret = 2;
                 break;
