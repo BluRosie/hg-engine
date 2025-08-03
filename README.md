@@ -152,6 +152,7 @@ You will still have to `make clean` and `make clean_code` manually when changing
 * [**PokeDiamond decompilation projects (nitrogfx, msgenc)**][diamond]
 * [**Mikelan98, Nomura (ARM9 Expansion Subroutine )**][ARM9]
 * Rafael Vuijk (ndstool)
+* Come swing by the [Kingdom of DS Hacking](https://discord.gg/zAtqJDW2jC) or [DS Modding Community](https://discord.gg/YBtdN3aXfv) Discord servers for any help with this!
 
 [MONEXPAND]: https://github.com/BluRosie/hgss-monexpansion
 [CFRU]: https://github.com/Skeli789/Complete-Fire-Red-Upgrade

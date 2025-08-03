@@ -7,7 +7,7 @@ These contributions are assessed based on whether or not they are "in-scope" and
 
 The overall scope of the project is first and foremost battle engine overhauls.  `hg-engine` aims to be a battle engine that ports all of the features from later generations to that of HeartGold.
 
-From there, we also have quality of life improvements.  These are things like repels that automatically prompt usage of another one, 
+From there, we also have quality of life improvements.  These are things like repels that automatically prompt usage of another one,
 
 ## Bug Reports
 
@@ -22,7 +22,7 @@ The Issues list is somewhat of a TODO list that is worked through.
 
 ### How do I submit a bug report?
 
-If you run into an issue with the project, open an [issue](https://github.com/BluRosie/hg-engine/issues/new). 
+If you run into an issue with the project, open an [issue](https://github.com/BluRosie/hg-engine/issues/new).
 
 The best bug reports have enough information that we won't have to contact you for more information. We welcome all efforts to improve hg-engine, but would be very grateful if you completed as much of the checklist as possible in your bug report. This will help other contributiors fix your issue.
 
@@ -30,7 +30,7 @@ If it is an issue that our implementation differs from how the game does it, it 
 
 Ideally, the issue entry details reproduction steps and the context under which the bug occurs.  Screenshots and even a save provided will immensely help in testing out and fixing the issue down the line.
 
-Commonly, the issue is initially reported via a Discord message.  It is talked about on the Discord channels in the Kingdom of DS Hacking or DS Modding Community, and then a link to the conversation is pasted in the Issue that is created on GitHub.  This is also acceptable for the time being.
+Commonly, the issue is initially reported via a Discord message.  It is talked about on the Discord channels in the [Kingdom of DS Hacking](https://discord.gg/zAtqJDW2jC) or [DS Modding Community](https://discord.gg/YBtdN3aXfv), and then a link to the conversation is pasted in the Issue that is created on GitHub.  This is also acceptable for the time being.
 
 ### What happens after I submit a bug report?
 
@@ -75,7 +75,7 @@ git push --set-upstream origin newFeature
 ```
 
 #### 7. Open Pull Request
-Once your work is complete and pushed to the branch on Github, you can open a [pull request from your branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork), targeting the the main branch from `hg-engine`. Please fill out the pull request description as completely as possible. 
+Once your work is complete and pushed to the branch on Github, you can open a [pull request from your branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork), targeting the the main branch from `hg-engine`. Please fill out the pull request description as completely as possible.
 
 ### What happens after I submit a pull request?
 
