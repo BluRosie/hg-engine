@@ -1401,6 +1401,8 @@ struct PACKED BattleStruct {
                int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
+
+               BOOL gemBoostingMove;
 };
 
 enum {
@@ -1873,6 +1875,7 @@ enum {
     BEFORE_MOVE_STATE_MOVE_FAILURES_4_MULTIPLE_TARGETS,
     BEFORE_MOVE_STATE_MOVE_FAILURES_5,
     BEFORE_MOVE_STATE_AROMA_VEIL,
+    BEFORE_MOVE_STATE_GEM_ACTIVATION,
     BEFORE_MOVE_STATE_TRIGGER_STRONG_WINDS,
     BEFORE_MOVE_STATE_TERA_SHELL,
     BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY,
@@ -3806,6 +3809,13 @@ typedef struct Trainer {
 } Trainer; // size=0x34
 
 Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battlerId);
+
+/**
+ * @brief checks if the current move hits any oppsoing battler or ally
+ * @param sp global battle structure
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsAnyBattleMonHit(struct BattleStruct* ctx);
 
 int GetSanitisedType(int type);
 

@@ -1081,7 +1081,10 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             }
 
             // handle Gems
-            // TODO
+            if (sp->gemBoostingMove) {
+                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
+                continue;
+            }
 
             // handle Punching Glove
             if ((AttackingMon.item_held_effect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && IsElementInArray(PunchingMovesTable, (u16 *)&moveno, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]))) {

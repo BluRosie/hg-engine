@@ -37,6 +37,8 @@
 
 *A more comprehensive list of features + a roadmap can be found by visiting the [hg-engine wiki](https://github.com/BluRosie/hg-engine/wiki).  Please read this README and the Wiki thoroughly before asking questions.*
 
+If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Setup Instructions (Linux with apt)
 1. In a Terminal window, run the following commands:
     * ```sudo apt-get install libpng-dev build-essential cmake python3-pip python3-venv git automake autoconf gcc-arm-none-eabi pkg-config```
@@ -150,6 +152,7 @@ You will still have to `make clean` and `make clean_code` manually when changing
 * [**PokeDiamond decompilation projects (nitrogfx, msgenc)**][diamond]
 * [**Mikelan98, Nomura (ARM9 Expansion Subroutine )**][ARM9]
 * Rafael Vuijk (ndstool)
+* Come swing by the [Kingdom of DS Hacking](https://discord.gg/zAtqJDW2jC) or [DS Modding Community](https://discord.gg/YBtdN3aXfv) Discord servers for any help with this!
 
 [MONEXPAND]: https://github.com/BluRosie/hgss-monexpansion
 [CFRU]: https://github.com/Skeli789/Complete-Fire-Red-Upgrade
