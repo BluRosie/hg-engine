@@ -21,7 +21,7 @@
 #define TYPE_GHOST     7
 #define TYPE_STEEL     8
 #define TYPE_MYSTERY   9
-#define TYPE_FAIRY     9 // TODO: 17
+#define TYPE_FAIRY     9
 #define TYPE_FIRE     10
 #define TYPE_WATER    11
 #define TYPE_GRASS    12
@@ -31,7 +31,28 @@
 #define TYPE_DRAGON   16
 #define TYPE_DARK     17
 #define TYPE_TYPELESS 18
-#define TYPE_STELLAR  19 // TODO: 99
+#define TYPE_STELLAR  19
+
+#define TYPE_NORMAL_INTERNAL    0
+#define TYPE_FIGHTING_INTERNAL  1
+#define TYPE_FLYING_INTERNAL    2
+#define TYPE_POISON_INTERNAL    3
+#define TYPE_GROUND_INTERNAL    4
+#define TYPE_ROCK_INTERNAL      5
+#define TYPE_BUG_INTERNAL       6
+#define TYPE_GHOST_INTERNAL     7
+#define TYPE_STEEL_INTERNAL     8
+#define TYPE_FIRE_INTERNAL      9
+#define TYPE_WATER_INTERNAL    10
+#define TYPE_GRASS_INTERNAL    11
+#define TYPE_ELECTRIC_INTERNAL 12
+#define TYPE_PSYCHIC_INTERNAL  13
+#define TYPE_ICE_INTERNAL      14
+#define TYPE_DRAGON_INTERNAL   15
+#define TYPE_DARK_INTERNAL     16
+#define TYPE_FAIRY_INTERNAL    17
+#define TYPE_TYPELESS_INTERNAL 18
+#define TYPE_STELLAR_INTERNAL  99
 
 #define NUMBER_OF_MON_TYPES 20
 
@@ -3795,5 +3816,7 @@ Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battle
  * @return TRUE/FALSE
 */
 BOOL LONG_CALL IsAnyBattleMonHit(struct BattleStruct* ctx);
+
+int GetSanitisedType(int type);
 
 #endif // BATTLE_H
