@@ -647,19 +647,19 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
                 switch (attacker)
                 {
                 case BATTLER_PLAYER:
-                    if (sp->playerSideHasFaintedTeammateLastTurn == 1 || sp->playerSideHasFaintedTeammateLastTurn == 3)
+                    if (sp->playerSideHasFaintedTeammateLastTurn == TRAINER_1 || sp->playerSideHasFaintedTeammateLastTurn == TRAINER_BOTH)
                         teammateFaintedLastTurn = TRUE;
                     break;
                 case BATTLER_ENEMY:
-                    if (sp->enemySideHasFaintedTeammateLastTurn == 1 || sp->enemySideHasFaintedTeammateLastTurn == 3)
+                    if (sp->enemySideHasFaintedTeammateLastTurn == TRAINER_1 || sp->enemySideHasFaintedTeammateLastTurn == TRAINER_BOTH)
                         teammateFaintedLastTurn = TRUE;
                     break;
                 case BATTLER_PLAYER2:
-                    if (sp->playerSideHasFaintedTeammateLastTurn == 2 || sp->playerSideHasFaintedTeammateLastTurn == 3)
+                    if (sp->playerSideHasFaintedTeammateLastTurn == TRAINER_2 || sp->playerSideHasFaintedTeammateLastTurn == TRAINER_BOTH)
                         teammateFaintedLastTurn = TRUE;
                     break;
                 case BATTLER_ENEMY2:
-                    if (sp->enemySideHasFaintedTeammateLastTurn == 2 || sp->enemySideHasFaintedTeammateLastTurn == 3)
+                    if (sp->enemySideHasFaintedTeammateLastTurn == TRAINER_2 || sp->enemySideHasFaintedTeammateLastTurn == TRAINER_BOTH)
                         teammateFaintedLastTurn = TRUE;
                     break;
                 }

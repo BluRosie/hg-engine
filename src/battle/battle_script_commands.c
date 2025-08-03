@@ -4049,24 +4049,24 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
     switch (sp->fainting_client)
     {
     case BATTLER_PLAYER:
-        sp->playerSideHasFaintedTeammateThisTurn = 1;//0b01
+        sp->playerSideHasFaintedTeammateThisTurn = TRAINER_1;//0b01
         if (bsys->trainerId[BATTLER_PLAYER2] == 0) //Ally trainer does not exist => must be player, both pokemon slots see the fainted mate 
-            sp->playerSideHasFaintedTeammateThisTurn = 3;//0b11
+            sp->playerSideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     case BATTLER_ENEMY:
-        sp->enemySideHasFaintedTeammateThisTurn = 1;//0b01
+        sp->enemySideHasFaintedTeammateThisTurn = TRAINER_1;//0b01
         if (bsys->trainerId[BATTLER_ENEMY2] == 0) //Ally trainer does not exist => must be enemy trainer #1, both pokemon slots see the fainted mate 
-            sp->enemySideHasFaintedTeammateThisTurn = 3;//0b11
+            sp->enemySideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     case BATTLER_PLAYER2:
-        sp->playerSideHasFaintedTeammateThisTurn = 2;//0b10
+        sp->playerSideHasFaintedTeammateThisTurn = TRAINER_2;//0b10
         if (bsys->trainerId[BATTLER_PLAYER2] == 0)
-            sp->playerSideHasFaintedTeammateThisTurn = 3;//0b11
+            sp->playerSideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     case BATTLER_ENEMY2:
-        sp->enemySideHasFaintedTeammateThisTurn = 2;//0b10
+        sp->enemySideHasFaintedTeammateThisTurn = TRAINER_2;//0b10
         if (bsys->trainerId[BATTLER_ENEMY2] == 0)
-            sp->enemySideHasFaintedTeammateThisTurn = 3;//0b11
+            sp->enemySideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     }
 

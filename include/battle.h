@@ -3313,6 +3313,11 @@ typedef enum Terrain {
 #define BATTLER_ENEMY2  3
 #define BATTLER_MAX     4
 
+// For setting a Bitmask to flag trainer position on enemy/player side
+#define TRAINER_1     1 //0b01
+#define TRAINER_2     2 //0b10
+#define TRAINER_BOTH  3 //0b11
+
 /**
  *  @brief load in different battle bg and terrain
  *
