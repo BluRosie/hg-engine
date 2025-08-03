@@ -4041,34 +4041,34 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
 
     BattleController_EmitPlayFaintAnimation(bsys, sp, sp->fainting_client);
 
-    sp->server_status_flag  &= (MaskOfFlagNo(sp->fainting_client) << BATTLE_STATUS_FAINTED_SHIFT) ^  -1;
+    sp->server_status_flag &= (MaskOfFlagNo(sp->fainting_client) << BATTLE_STATUS_FAINTED_SHIFT) ^ -1;
     sp->server_status_flag2 |= MaskOfFlagNo(sp->fainting_client) << BATTLE_STATUS2_EXP_GAIN_SHIFT;
     sp->playerActions[sp->fainting_client][0] = CONTROLLER_COMMAND_40;
-    
-	//TrainerIDs in a 1on1 will be 0,xyz,0,0. In a 2on2 they will be 0,xyz,ghf,abc.
+
+    //TrainerIDs in a 1on1 will be 0,xyz,0,0. In a 2on2 they will be 0,xyz,ghf,abc.
     switch (sp->fainting_client)
     {
-        case BATTLER_PLAYER:
-            sp->playerSideHasFaintedTeammateThisTurn = 1;//0b01
-            if (bsys->trainerId[BATTLER_PLAYER2] == 0) //Ally trainer does not exist => must be player, both pokemon slots see the fainted mate 
-				sp->playerSideHasFaintedTeammateThisTurn = 3;//0b11
-            break;
-        case BATTLER_ENEMY:
-			sp->enemySideHasFaintedTeammateThisTurn = 1;//0b01
-            if (bsys->trainerId[BATTLER_ENEMY2] == 0) //Ally trainer does not exist => must be enemy trainer #1, both pokemon slots see the fainted mate 
-                sp->enemySideHasFaintedTeammateThisTurn = 3;//0b11
-            break;
-        case BATTLER_PLAYER2:
-            sp->playerSideHasFaintedTeammateThisTurn = 2;//0b10
-            if (bsys->trainerId[BATTLER_PLAYER2] == 0) 
-                sp->playerSideHasFaintedTeammateThisTurn = 3;//0b11
-            break;
-        case BATTLER_ENEMY2:
-            sp->enemySideHasFaintedTeammateThisTurn = 2;//0b10
-			if (bsys->trainerId[BATTLER_ENEMY2] == 0 || bsys->trainerId[BATTLER_ENEMY2] == bsys->trainerId[BATTLER_ENEMY])
-                sp->enemySideHasFaintedTeammateThisTurn = 3;//0b11
-            break;
-	}
+    case BATTLER_PLAYER:
+        sp->playerSideHasFaintedTeammateThisTurn = 1;//0b01
+        if (bsys->trainerId[BATTLER_PLAYER2] == 0) //Ally trainer does not exist => must be player, both pokemon slots see the fainted mate 
+            sp->playerSideHasFaintedTeammateThisTurn = 3;//0b11
+        break;
+    case BATTLER_ENEMY:
+        sp->enemySideHasFaintedTeammateThisTurn = 1;//0b01
+        if (bsys->trainerId[BATTLER_ENEMY2] == 0) //Ally trainer does not exist => must be enemy trainer #1, both pokemon slots see the fainted mate 
+            sp->enemySideHasFaintedTeammateThisTurn = 3;//0b11
+        break;
+    case BATTLER_PLAYER2:
+        sp->playerSideHasFaintedTeammateThisTurn = 2;//0b10
+        if (bsys->trainerId[BATTLER_PLAYER2] == 0)
+            sp->playerSideHasFaintedTeammateThisTurn = 3;//0b11
+        break;
+    case BATTLER_ENEMY2:
+        sp->enemySideHasFaintedTeammateThisTurn = 2;//0b10
+        if (bsys->trainerId[BATTLER_ENEMY2] == 0 || bsys->trainerId[BATTLER_ENEMY2] == bsys->trainerId[BATTLER_ENEMY])
+            sp->enemySideHasFaintedTeammateThisTurn = 3;//0b11
+        break;
+    }
 
     InitFaintedWork(bsys, sp, sp->fainting_client);
     return FALSE;

@@ -1380,8 +1380,8 @@ struct PACKED BattleStruct {
                int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
-
-			   u8 playerSideHasFaintedTeammateThisTurn : 2;// bitmask for Trainer on player side who has lost a Mon: either 0b01 (left), 0b10 (right), or 0b11 (both)
+               
+               u8 playerSideHasFaintedTeammateThisTurn : 2;// bitmask for Trainer on player side who has lost a Mon: either 0b01 (left), 0b10 (right), or 0b11 (both)
                u8 enemySideHasFaintedTeammateThisTurn : 2; // ..enemy side... either 0b01, 0b10, or 0b11
                u8 playerSideHasFaintedTeammateLastTurn : 2;
                u8 enemySideHasFaintedTeammateLastTurn : 2;
