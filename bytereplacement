@@ -456,3 +456,6 @@ arm9 020821B0 DB
 0012 02241172 00 00
 # nop out heal bell check for healing mons in the party using heal bell
 0012 022593A4 00 00 00 00
+
+# nop out selection of cancel when the item won't have an effect
+arm9 0207C3AC 00 00 00 00

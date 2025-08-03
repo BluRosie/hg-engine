@@ -1464,16 +1464,20 @@ u16 gf_p_rand(const u16 denominator)
 // TODO: Refactor this function
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag) {
     int i = 0;
-    u8 attacker_type_1 UNUSED = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL);
-    u8 attacker_type_2 UNUSED = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL);
+    u8 attacker_type_1 UNUSED = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL));
+    u8 attacker_type_2 UNUSED = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL));
     // https://xcancel.com/Sibuna_Switch/status/1827463371383328877#m
-    u8 defender_type_1 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL) & 0x1F;
-    u8 defender_type_2 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL) & 0x1F;
+    u8 defender_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL));
+    u8 defender_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL));
 
     u32 type1Effectiveness = TYPE_MUL_NORMAL;
     u32 type2Effectiveness = TYPE_MUL_NORMAL;
 
     // TODO: handle Ring Target, Thousand Arrows, Freeze-Dry, Flying Press
+
+    if (GetSanitisedType(move_type) == TYPE_STELLAR && !sp->battlemon[attack_client].is_currently_terastallized) {
+        return TYPE_MUL_NO_EFFECT;
+    }
 
     while (TypeEffectivenessTable[i][0] != TYPE_ENDTABLE) {
         if (TypeEffectivenessTable[i][0] == TYPE_FORESIGHT)  // handle foresight
@@ -1559,10 +1563,10 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
     move_type = GetAdjustedMoveType(sp, attack_client, move_no); // new normalize checks
     base_power = sp->moveTbl[move_no].power;
 
-    u8 attacker_type_1 = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL);
-    u8 attacker_type_2 = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL);
-    u8 defender_type_1 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL) & 0x1F;
-    u8 defender_type_2 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL) & 0x1F;
+    u8 attacker_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL));
+    u8 attacker_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL));
+    u8 defender_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL));
+    u8 defender_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL));
 
     if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((attacker_type_1 == move_type) || (attacker_type_2 == move_type)))
     {
@@ -1576,93 +1580,59 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
         }
     }
 
-    // if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_LEVITATE) == TRUE)
-    //  && (move_type == TYPE_GROUND)
-    //  && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) // iron ball halves speed and grounds
-    // {
-    //     flag[0] |= MOVE_STATUS_FLAG_LEVITATE_MISS;
-    //     sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
-    //     sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
-    // }
-    // else if ((sp->battlemon[defence_client].moveeffect.magnetRiseTurns)
-    //       && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
-    //       && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
-    //       && (move_type == TYPE_GROUND)
-    //       && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
-    // {
-    //     flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS;
-    //     sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
-    //     sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
-    // }
-    // else if ((eqp_d == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT) // has air balloon
-    //       && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
-    //       && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
-    //       && (move_type == TYPE_GROUND)
-    //       && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
-    // {
-    //     flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS; // reuse Magnet Rise message since they are the same
-    //     sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
-    //     sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
-    // }
-    // else if ((move_no == MOVE_SHEER_COLD) && (defender_type_1 == TYPE_ICE || defender_type_2 == TYPE_ICE))
-    // {
-    //     flag[0] |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
-    // }
-    // else
+    i = 0;
+    while (TypeEffectivenessTable[i][0] != TYPE_ENDTABLE)
     {
-        i = 0;
-        while (TypeEffectivenessTable[i][0] != TYPE_ENDTABLE)
+        if (TypeEffectivenessTable[i][0] == TYPE_FORESIGHT) // handle foresight
         {
-            if (TypeEffectivenessTable[i][0] == TYPE_FORESIGHT) // handle foresight
+            if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY) || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE))
             {
-                if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY) || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE))
-                {
-                    break;
-                }
-                else
-                {
-                    i++;
-                    continue;
-                }
+                break;
             }
-            if (TypeEffectivenessTable[i][0] == move_type)
+            else
             {
-                if (TypeEffectivenessTable[i][1] == defender_type_1)
-                {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
-                    && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
-                        && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
-                        && sp->field_condition & WEATHER_STRONG_WINDS
-                        && (TypeEffectivenessTable[i][2] == 20)
-                        && defender_type_1 == TYPE_FLYING))
-                    {
-                        damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
-                        if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
-                        {
-                            modifier *= 2;
-                        }
-                    }
-                }
-                if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2))
-                {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
-                    && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
-                        && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
-                        && sp->field_condition & WEATHER_STRONG_WINDS
-                        && (TypeEffectivenessTable[i][2] == 20)
-                        && defender_type_2 == TYPE_FLYING))
-                    {
-                        damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
-                        if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
-                        {
-                            modifier *= 2;
-                        }
-                    }
-                }
+                i++;
+                continue;
             }
-            i++;
         }
+        if (TypeEffectivenessTable[i][0] == move_type)
+        {
+            if (TypeEffectivenessTable[i][1] == defender_type_1)
+            {
+                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
+                && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+                    && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+                    && sp->field_condition & WEATHER_STRONG_WINDS
+                    && (TypeEffectivenessTable[i][2] == 20)
+                    && defender_type_1 == TYPE_FLYING))
+                {
+                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
+                    if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
+                    {
+                        modifier *= 2;
+                    }
+                }
+            }
+            if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2))
+            {
+                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
+                && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+                    && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+                    && sp->field_condition & WEATHER_STRONG_WINDS
+                    && (TypeEffectivenessTable[i][2] == 20)
+                    && defender_type_2 == TYPE_FLYING))
+                {
+                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
+                    if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
+                    {
+                        modifier *= 2;
+                    }
+                }
+            }
+        }
+        i++;
     }
+
 
     if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_WONDER_GUARD) == TRUE)
      && (ShouldDelayTurnEffectivenessChecking(sp, move_no)) // check supereffectiveness later, 2-turn move
@@ -3449,4 +3419,109 @@ BOOL LONG_CALL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp
         return TRUE;
     }
     return FALSE;
+}
+
+
+/**
+ * @brief checks if the current move hits any oppsoing battler or ally
+ * @param sp global battle structure
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsAnyBattleMonHit(struct BattleStruct* ctx)
+{
+    u8 i = 0;
+    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx)))
+    {
+        while (i <= SPREAD_MOVE_LOOP_MAX)
+        {
+            switch (i)
+            {
+            case SPREAD_MOVE_LOOP_ALLY:
+                i++;
+                if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client)))
+                {
+                    return TRUE;
+                }
+                FALLTHROUGH;
+
+            case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
+                i++;
+                if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)))
+                {
+                    return TRUE;
+                }
+                FALLTHROUGH;
+            case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
+                i++;
+                if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)))
+                {
+                    return TRUE;
+                }
+            }
+        }
+    }
+    else
+    {
+        if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client))
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+
+const u8 HGTypeToInternalType[] = {
+    [TYPE_NORMAL]   = TYPE_NORMAL_INTERNAL,
+    [TYPE_FIGHTING] = TYPE_FIGHTING_INTERNAL,
+    [TYPE_FLYING]   = TYPE_FLYING_INTERNAL,
+    [TYPE_POISON]   = TYPE_POISON_INTERNAL,
+    [TYPE_GROUND]   = TYPE_GROUND_INTERNAL,
+    [TYPE_ROCK]     = TYPE_ROCK_INTERNAL,
+    [TYPE_BUG]      = TYPE_BUG_INTERNAL,
+    [TYPE_GHOST]    = TYPE_GHOST_INTERNAL,
+    [TYPE_STEEL]    = TYPE_STEEL_INTERNAL,
+    [TYPE_FAIRY]    = TYPE_FAIRY_INTERNAL,
+    [TYPE_FIRE]     = TYPE_FIRE_INTERNAL,
+    [TYPE_WATER]    = TYPE_WATER_INTERNAL,
+    [TYPE_GRASS]    = TYPE_GRASS_INTERNAL,
+    [TYPE_ELECTRIC] = TYPE_ELECTRIC_INTERNAL,
+    [TYPE_PSYCHIC]  = TYPE_PSYCHIC_INTERNAL,
+    [TYPE_ICE]      = TYPE_ICE_INTERNAL,
+    [TYPE_DRAGON]   = TYPE_DRAGON_INTERNAL,
+    [TYPE_DARK]     = TYPE_DARK_INTERNAL,
+    [TYPE_TYPELESS] = TYPE_TYPELESS_INTERNAL,
+    [TYPE_STELLAR]  = TYPE_STELLAR_INTERNAL,
+
+};
+
+const u8 InternalTypeToHGType[] = {
+    [TYPE_NORMAL_INTERNAL]      = TYPE_NORMAL,
+    [TYPE_FIGHTING_INTERNAL]    = TYPE_FIGHTING,
+    [TYPE_FLYING_INTERNAL]      = TYPE_FLYING,
+    [TYPE_POISON_INTERNAL]      = TYPE_POISON,
+    [TYPE_GROUND_INTERNAL]      = TYPE_GROUND,
+    [TYPE_ROCK_INTERNAL]        = TYPE_ROCK,
+    [TYPE_BUG_INTERNAL]         = TYPE_BUG,
+    [TYPE_GHOST_INTERNAL]       = TYPE_GHOST,
+    [TYPE_STEEL_INTERNAL]       = TYPE_STEEL,
+    [TYPE_FAIRY_INTERNAL]       = TYPE_FAIRY,
+    [TYPE_FIRE_INTERNAL]        = TYPE_FIRE,
+    [TYPE_WATER_INTERNAL]       = TYPE_WATER,
+    [TYPE_GRASS_INTERNAL]       = TYPE_GRASS,
+    [TYPE_ELECTRIC_INTERNAL]    = TYPE_ELECTRIC,
+    [TYPE_PSYCHIC_INTERNAL]     = TYPE_PSYCHIC,
+    [TYPE_ICE_INTERNAL]         = TYPE_ICE,
+    [TYPE_DRAGON_INTERNAL]      = TYPE_DRAGON,
+    [TYPE_DARK_INTERNAL]        = TYPE_DARK,
+    [TYPE_TYPELESS_INTERNAL]    = TYPE_TYPELESS,
+    [TYPE_STELLAR_INTERNAL]     = TYPE_STELLAR,
+
+};
+
+int GetSanitisedType(int type) {
+    return InternalTypeToHGType[HGTypeToInternalType[type] & 0x1F];
 }

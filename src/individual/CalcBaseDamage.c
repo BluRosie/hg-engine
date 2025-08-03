@@ -572,7 +572,20 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         break;
     // Other
     case MOVE_BEAT_UP:
-        movepower = sp->damage_power;
+        for (int i = sp->beat_up_count; i < Battle_GetClientPartySize(bw, sp->attack_client); i++) {
+            struct PartyPokemon *mon = Battle_GetClientPartyMon(bw, sp->attack_client, i);
+            if ((IsMonValidAndHealthy(mon))) {
+
+                sp->beat_up_count = i + 1;
+                sp->multiHitCountTemp++;
+                int species = GetMonData(mon, MON_DATA_SPECIES, 0);
+                int form = GetMonData(mon, MON_DATA_FORM, 0);
+                movepower = 5 + (PokeFormNoPersonalParaGet(species, form, PERSONAL_BASE_ATTACK) / 10);
+                break;
+
+            }
+        }
+
         break;
     case MOVE_ECHOED_VOICE:
         // TODO
@@ -619,6 +632,12 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     // Z-move effects:
 
     // Move effects:
+
+    // handle Helping Hand (+5 priority)
+    // TODO: Handle multiple Helping Hand boosts
+    if (sp->oneTurnFlag[attacker].helping_hand_flag) {
+        basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
+    }
 
     switch (moveno) {
         case MOVE_FACADE:
@@ -682,12 +701,6 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     }
 
     // Effects relative to a particular slot of the field (Wish, Lunar Dance, Future Sight, etc.):
-
-    // handle Helping Hand
-    // TODO: Handle multiple Helping Hand boosts
-    if (sp->oneTurnFlag[attacker].helping_hand_flag) {
-        basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
-    }
 
     // handle Charge
     if ((sp->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_CHARGE)
@@ -1081,7 +1094,10 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             }
 
             // handle Gems
-            // TODO
+            if (sp->gemBoostingMove) {
+                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
+                continue;
+            }
 
             // handle Punching Glove
             if ((AttackingMon.item_held_effect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && IsElementInArray(PunchingMovesTable, (u16 *)&moveno, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]))) {

@@ -459,9 +459,11 @@
 #define SUB_SEQ_HANDLE_CHARGE_BOOST                   (449)
 #define SUB_SEQ_SPIKY_SHIELD                          (450)
 #define SUB_SEQ_HANDLE_ANGER_SHELL                    (451)
-#define SUB_SEQ_HANDLE_INCINERATE                     (452)
+#define SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE         (452)
+#define SUB_SEQ_HANDLE_INCINERATE                     (453)
 
-#define MAX_BASE_SUBSCRIPT_NUM 452
+
+#define MAX_BASE_SUBSCRIPT_NUM 453
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
