@@ -4065,7 +4065,7 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
         break;
     case BATTLER_ENEMY2:
         sp->enemySideHasFaintedTeammateThisTurn = 2;//0b10
-        if (bsys->trainerId[BATTLER_ENEMY2] == 0 || bsys->trainerId[BATTLER_ENEMY2] == bsys->trainerId[BATTLER_ENEMY])
+        if (bsys->trainerId[BATTLER_ENEMY2] == 0)
             sp->enemySideHasFaintedTeammateThisTurn = 3;//0b11
         break;
     }
