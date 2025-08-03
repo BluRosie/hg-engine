@@ -107,3 +107,17 @@ mov pc, r1
 
 CanUseItemOnMonInParty_return_address:
 .word 0
+
+.global PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook
+PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook:
+mov r0, r4
+bl PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6
+ldr r1, =0x02081ea6 | 1
+bx r1
+
+.global PartyMenu_ItemUseFunc_ReuseItem_hook
+PartyMenu_ItemUseFunc_ReuseItem_hook:
+mov r0, r4
+bl PartyMenu_ItemUseFunc_ReuseItem
+ldr r3, =0x02081398 | 1
+bx r3

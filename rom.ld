@@ -752,3 +752,4 @@ QueueEmitterWithCallback = 0x02015494 | 1;
 particleEmitCallback = 0x021E5C28 | 1;
 
 BattleSystem_GetTrainer = 0x0223A9F4 | 1;
+PartyMenu_PrintMessageOnWindow32 = 0x0207DAC4 | 1;
