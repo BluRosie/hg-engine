@@ -128,6 +128,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_TryFutureSight 02242570 3
 0012 BtlCmd_SetMultiHit 0223EC10 3
 0012 BtlCmd_GenerateEndOfBattleItem 022440A0 3
+0012 BtlCmd_PlayFaintAnimation 0223E290 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -516,3 +517,4 @@ arm9 DestroyHeap_hook 0201AA24 3
 
 arm9 PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook 02081E54 0
 arm9 PartyMenu_ItemUseFunc_ReuseItem_hook 0208138C 3
+
