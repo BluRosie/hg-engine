@@ -15438,6 +15438,69 @@
       "MOVE_X_SCISSOR"
     ]
   },
+  "SPECIES_KLEAVOR_LORD": {
+    "LevelMoves": [
+      {
+        "Level": 1,
+        "Move": "MOVE_QUICK_ATTACK"
+      },
+      {
+        "Level": 6,
+        "Move": "MOVE_SILVER_WIND"
+      },
+      {
+        "Level": 11,
+        "Move": "MOVE_AERIAL_ACE"
+      },
+      {
+        "Level": 14,
+        "Move": "MOVE_DOUBLE_HIT"
+      },
+      {
+        "Level": 14,
+        "Move": "MOVE_STEALTH_ROCK"
+      },
+      {
+        "Level": 18,
+        "Move": "MOVE_AIR_SLASH"
+      },
+      {
+        "Level": 25,
+        "Move": "MOVE_SWORDS_DANCE"
+      },
+      {
+        "Level": 29,
+        "Move": "MOVE_STONE_AXE"
+      },
+      {
+        "Level": 34,
+        "Move": "MOVE_X_SCISSOR"
+      },
+      {
+        "Level": 43,
+        "Move": "MOVE_CLOSE_COMBAT"
+      }
+    ],
+    "MachineMoves": [],
+    "EggMoves": [],
+    "TutorMoves": [
+      "MOVE_AERIAL_ACE",
+      "MOVE_CALM_MIND",
+      "MOVE_FALSE_SWIPE",
+      "MOVE_FOCUS_ENERGY",
+      "MOVE_GIGA_IMPACT",
+      "MOVE_HYPER_BEAM",
+      "MOVE_OMINOUS_WIND",
+      "MOVE_PSYCHO_CUT",
+      "MOVE_REST",
+      "MOVE_ROCK_SLIDE",
+      "MOVE_ROCK_SMASH",
+      "MOVE_STEALTH_ROCK",
+      "MOVE_STONE_EDGE",
+      "MOVE_SWIFT",
+      "MOVE_X_SCISSOR"
+    ]
+  },
   "SPECIES_URSALUNA": {
     "LevelMoves": [
       {
@@ -16888,6 +16951,68 @@
       "MOVE_WILD_CHARGE"
     ]
   },
+  "SPECIES_ARCANINE_LORD": {
+    "LevelMoves": [
+      {
+        "Level": 1,
+        "Move": "MOVE_TACKLE"
+      },
+      {
+        "Level": 5,
+        "Move": "MOVE_EMBER"
+      },
+      {
+        "Level": 9,
+        "Move": "MOVE_BITE"
+      },
+      {
+        "Level": 15,
+        "Move": "MOVE_FIRE_FANG"
+      },
+      {
+        "Level": 21,
+        "Move": "MOVE_ROCK_SLIDE"
+      },
+      {
+        "Level": 29,
+        "Move": "MOVE_CRUNCH"
+      },
+      {
+        "Level": 29,
+        "Move": "MOVE_RAGING_FURY"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_DOUBLE_EDGE"
+      },
+      {
+        "Level": 47,
+        "Move": "MOVE_FLARE_BLITZ"
+      }
+    ],
+    "MachineMoves": [],
+    "EggMoves": [],
+    "TutorMoves": [
+      "MOVE_AERIAL_ACE",
+      "MOVE_BULLDOZE",
+      "MOVE_FIRE_FANG",
+      "MOVE_FLAMETHROWER",
+      "MOVE_GIGA_IMPACT",
+      "MOVE_HYPER_BEAM",
+      "MOVE_IRON_HEAD",
+      "MOVE_IRON_TAIL",
+      "MOVE_OUTRAGE",
+      "MOVE_PLAY_ROUGH",
+      "MOVE_REST",
+      "MOVE_ROCK_SLIDE",
+      "MOVE_ROCK_SMASH",
+      "MOVE_SNARL",
+      "MOVE_STONE_EDGE",
+      "MOVE_SWIFT",
+      "MOVE_THUNDER_FANG",
+      "MOVE_WILD_CHARGE"
+    ]
+  },
   "SPECIES_VOLTORB_HISUIAN": {
     "LevelMoves": [
       {
@@ -16937,6 +17062,60 @@
     ]
   },
   "SPECIES_ELECTRODE_HISUIAN": {
+    "LevelMoves": [
+      {
+        "Level": 1,
+        "Move": "MOVE_THUNDER_SHOCK"
+      },
+      {
+        "Level": 5,
+        "Move": "MOVE_TACKLE"
+      },
+      {
+        "Level": 9,
+        "Move": "MOVE_THUNDER_WAVE"
+      },
+      {
+        "Level": 15,
+        "Move": "MOVE_SPARK"
+      },
+      {
+        "Level": 21,
+        "Move": "MOVE_ENERGY_BALL"
+      },
+      {
+        "Level": 29,
+        "Move": "MOVE_THUNDERBOLT"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_THUNDER"
+      },
+      {
+        "Level": 47,
+        "Move": "MOVE_CHLOROBLAST"
+      },
+      {
+        "Level": 47,
+        "Move": "MOVE_SELF_DESTRUCT"
+      }
+    ],
+    "MachineMoves": [],
+    "EggMoves": [],
+    "TutorMoves": [
+      "MOVE_CHARGE_BEAM",
+      "MOVE_ENERGY_BALL",
+      "MOVE_GIGA_IMPACT",
+      "MOVE_HYPER_BEAM",
+      "MOVE_ICE_BALL",
+      "MOVE_MAGICAL_LEAF",
+      "MOVE_REST",
+      "MOVE_SWIFT",
+      "MOVE_THUNDERBOLT",
+      "MOVE_WILD_CHARGE"
+    ]
+  },
+  "SPECIES_ELECTRODE_LORD": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -17234,6 +17413,81 @@
     ]
   },
   "SPECIES_LILLIGANT_HISUIAN": {
+    "LevelMoves": [
+      {
+        "Level": 0,
+        "Move": "MOVE_ROCK_SMASH"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_ABSORB"
+      },
+      {
+        "Level": 5,
+        "Move": "MOVE_LEAFAGE"
+      },
+      {
+        "Level": 9,
+        "Move": "MOVE_STUN_SPORE"
+      },
+      {
+        "Level": 15,
+        "Move": "MOVE_POISON_POWDER"
+      },
+      {
+        "Level": 21,
+        "Move": "MOVE_ENERGY_BALL"
+      },
+      {
+        "Level": 29,
+        "Move": "MOVE_SLEEP_POWDER"
+      },
+      {
+        "Level": 34,
+        "Move": "MOVE_DRAIN_PUNCH"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_LEAF_BLADE"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_RECOVER"
+      },
+      {
+        "Level": 42,
+        "Move": "MOVE_VICTORY_DANCE"
+      },
+      {
+        "Level": 47,
+        "Move": "MOVE_LEAF_STORM"
+      },
+      {
+        "Level": 53,
+        "Move": "MOVE_PETAL_DANCE"
+      },
+      {
+        "Level": 57,
+        "Move": "MOVE_CLOSE_COMBAT"
+      }
+    ],
+    "MachineMoves": [],
+    "EggMoves": [],
+    "TutorMoves": [
+      "MOVE_AERIAL_ACE",
+      "MOVE_BABY_DOLL_EYES",
+      "MOVE_DRAIN_PUNCH",
+      "MOVE_ENERGY_BALL",
+      "MOVE_FOCUS_ENERGY",
+      "MOVE_GIGA_IMPACT",
+      "MOVE_HYPER_BEAM",
+      "MOVE_MAGICAL_LEAF",
+      "MOVE_POISON_JAB",
+      "MOVE_REST",
+      "MOVE_ROCK_SMASH"
+    ]
+  },
+  "SPECIES_LILLIGANT_LADY": {
     "LevelMoves": [
       {
         "Level": 0,
@@ -17627,6 +17881,76 @@
     ]
   },
   "SPECIES_AVALUGG_HISUIAN": {
+    "LevelMoves": [
+      {
+        "Level": 0,
+        "Move": "MOVE_ROCK_SLIDE"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_TACKLE"
+      },
+      {
+        "Level": 5,
+        "Move": "MOVE_POWDER_SNOW"
+      },
+      {
+        "Level": 9,
+        "Move": "MOVE_ICE_SHARD"
+      },
+      {
+        "Level": 15,
+        "Move": "MOVE_BITE"
+      },
+      {
+        "Level": 21,
+        "Move": "MOVE_IRON_DEFENSE"
+      },
+      {
+        "Level": 29,
+        "Move": "MOVE_CRUNCH"
+      },
+      {
+        "Level": 29,
+        "Move": "MOVE_EARTH_POWER"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_BLIZZARD"
+      },
+      {
+        "Level": 37,
+        "Move": "MOVE_MOUNTAIN_GALE"
+      },
+      {
+        "Level": 47,
+        "Move": "MOVE_DOUBLE_EDGE"
+      }
+    ],
+    "MachineMoves": [],
+    "EggMoves": [],
+    "TutorMoves": [
+      "MOVE_BULLDOZE",
+      "MOVE_EARTH_POWER",
+      "MOVE_FLASH_CANNON",
+      "MOVE_GIGA_IMPACT",
+      "MOVE_HIGH_HORSEPOWER",
+      "MOVE_HYPER_BEAM",
+      "MOVE_ICE_BALL",
+      "MOVE_ICE_BEAM",
+      "MOVE_ICE_FANG",
+      "MOVE_ICY_WIND",
+      "MOVE_IRON_HEAD",
+      "MOVE_POWER_SHIFT",
+      "MOVE_REST",
+      "MOVE_ROCK_SLIDE",
+      "MOVE_ROCK_SMASH",
+      "MOVE_STEALTH_ROCK",
+      "MOVE_STONE_EDGE",
+      "MOVE_WATER_PULSE"
+    ]
+  },
+  "SPECIES_AVALUGG_LORD": {
     "LevelMoves": [
       {
         "Level": 0,

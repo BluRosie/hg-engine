@@ -77,7 +77,7 @@ MACHINELEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(MACHINELEARNS
 
 $(MACHINELEARNSET_BIN): $(LEARNSETS_DATA)
 	@echo "generating tm learnsets..."
-	$(PYTHON) scripts/build_learnsets.py --learnsets $(LEARNSETS_DATA) --machineout ${MACHINELEARNSET_DEPENDENCIES} --constsout
+	$(PYTHON) scripts/build_learnsets.py --machineout ${MACHINELEARNSET_DEPENDENCIES} --constsout
 	$(CC) $(CFLAGS) -c $(MACHINELEARNSET_DEPENDENCIES) -o $(MACHINELEARNSET_OBJS)
 	$(OBJCOPY) -O binary $(MACHINELEARNSET_OBJS) $@
 
@@ -91,7 +91,7 @@ LEVELUPLEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(LEVELUPLEARNS
 
 $(LEVELUPLEARNSET_BIN): $(LEARNSETS_DATA)
 	@echo "generating levelup moves..."
-	$(PYTHON) scripts/build_learnsets.py --learnsets $(LEARNSETS_DATA) --levelupout ${LEVELUPLEARNSET_DEPENDENCIES}
+	$(PYTHON) scripts/build_learnsets.py --levelupout ${LEVELUPLEARNSET_DEPENDENCIES}
 	$(CC) $(CFLAGS) -c $(LEVELUPLEARNSET_DEPENDENCIES) -o $(LEVELUPLEARNSET_OBJS)
 	$(OBJCOPY) -O binary $(LEVELUPLEARNSET_OBJS) $@
 	cp $@ $(LEVELUPLEARNSET_TARGET)
@@ -108,7 +108,7 @@ EGGLEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(EGGLEARNSET_DEPEN
 
 $(EGGLEARNSET_BIN): $(LEARNSETS_DATA)
 	@echo "generating egg learnsets..."
-	$(PYTHON) scripts/build_learnsets.py --learnsets $(LEARNSETS_DATA) --eggout $(EGGLEARNSET_DEPENDENCIES)
+	$(PYTHON) scripts/build_learnsets.py --eggout $(EGGLEARNSET_DEPENDENCIES)
 	$(CC) $(CFLAGS) -c $(EGGLEARNSET_DEPENDENCIES) -o $(EGGLEARNSET_OBJS)
 	$(OBJCOPY) -O binary $(EGGLEARNSET_OBJS) $@
 	cp $@ $(EGGLEARNSET_TARGET)

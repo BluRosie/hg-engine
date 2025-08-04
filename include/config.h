@@ -156,4 +156,14 @@
 // Comment out the line below to disable this feature
 #define UPDATE_MACHINE_MOVE_LABELS
 
+// TODO document
+// Level Up / Egg learnsets are inherited when non-empty
+// Tutor/Machine Moves are cumulative
+
+#define LEARNSET_FILE "sv"
+#define MACHINE_MOVE_INHERITANCE
+#define EGG_MOVE_INHERITANCE
+#define TUTOR_MOVE_INHERITANCE
+#define LEVELUP_MOVE_INHERITANCE
+
 #endif

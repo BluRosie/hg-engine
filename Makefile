@@ -137,7 +137,8 @@ OBJS     := $(C_OBJS) $(ASM_OBJS)
 REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
 
-LEARNSETS_DATA := data/mon/learnsets.json
+# TODO
+LEARNSETS_DATA := data/mon/learnsets/custom.json
 TUTORMOVES_DATA := data/tutor/tutor_moves.json
 
 
