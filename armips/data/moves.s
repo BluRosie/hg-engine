@@ -10620,7 +10620,7 @@ movedata MOVE_SHORE_UP, "Shore Up"
     movedescription MOVE_SHORE_UP, "The user restores its\nown HP by up to half\nits max HP.\nIt regains more HP\nin a sandstorm."
 
 movedatalongname MOVE_FIRST_IMPRESSION, "FirstImpression", "First Impression"
-    battleeffect MOVE_EFFECT_ALWAYS_FLINCH_FIRST_TURN_ONLY
+    battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
     basepower 90
     type TYPE_BUG
