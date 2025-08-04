@@ -133,7 +133,7 @@
 #define MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING              129
 #define MOVE_EFFECT_10_DAMAGE_FLAT                          130
 #define MOVE_EFFECT_UNUSED_131                              131
-#define MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN                   132
+#define MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER          132
 #define MOVE_EFFECT_UNUSED_133                              133
 #define MOVE_EFFECT_UNUSED_134                              134
 #define MOVE_EFFECT_RANDOM_TYPE_BASED_ON_IVS                135
