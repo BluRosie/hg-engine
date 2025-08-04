@@ -460,8 +460,10 @@
 #define SUB_SEQ_SPIKY_SHIELD                          (450)
 #define SUB_SEQ_HANDLE_ANGER_SHELL                    (451)
 #define SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE         (452)
+#define SUB_SEQ_HANDLE_INCINERATE                     (453)
 
-#define MAX_BASE_SUBSCRIPT_NUM 452
+
+#define MAX_BASE_SUBSCRIPT_NUM 453
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -662,6 +664,7 @@
 #define ADD_STATUS_EFF_MORTAL_SPIN                     (189)
 #define ADD_STATUS_EFF_TIDY_UP                         (190)
 #define ADD_STATUS_EFF_BURN_AND_DRAIN_HEALTH           (191)
+#define ADD_STATUS_EFF_INCINERATE                      (192)
 
 
 // additional effect constants

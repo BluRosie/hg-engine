@@ -747,6 +747,9 @@
 #define ITEM_DARK_GEM           (ITEM_PIXIE_PLATE + 115)
 #define ITEM_FAIRY_GEM          (ITEM_PIXIE_PLATE + 116)
 
+//Gems
+#define IS_ITEM_GEM(item) (item >= ITEM_NORMAL_GEM && item <= ITEM_FAIRY_GEM)
+
 //Memories
 #define IS_ITEM_MEMORY(item) (item >= ITEM_FIGHTING_MEMORY && item <= ITEM_FAIRY_MEMORY)
 
