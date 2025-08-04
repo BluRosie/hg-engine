@@ -666,6 +666,11 @@
 #define ADD_STATUS_EFF_BURN_AND_DRAIN_HEALTH           (191)
 #define ADD_STATUS_EFF_INCINERATE                      (192)
 
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (192)
+
+// define your custom subscripts below like this
+// #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)
+
 
 // additional effect constants
 #define ADD_STATUS_NONE (0)
