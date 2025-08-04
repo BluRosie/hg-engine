@@ -798,3 +798,6 @@ a {COLOR 255}CornerstoneMask{COLOR 0}
 a {COLOR 255}Wellspring Mask{COLOR 0}
 a {COLOR 255}HearthflameMask{COLOR 0}
 a {COLOR 255}Metal Alloy{COLOR 0}
+an {COLOR 255}Infinite Candy{COLOR 0}
+an {COLOR 255}Infinite Rejuv{COLOR 0}
+the {COLOR 255}Infinite Ashes{COLOR 0}

@@ -798,3 +798,6 @@ An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield
 An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield the Water type during battle.
 An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield the Fire type during battle.
 A peculiar metal that can make certain\nspecies of Pokémon evolve.\nIt is composed of many layers.
+A candy that is packed with energy.\nIt raises the level of a single Pokémon\nby one.
+A medicine that fully restores the HP\nand PP of a single Pokémon. It\nalso heals any status problems.
+It revives all fainted Pokémon.\nIn doing so, it also fully restores\ntheir HP and PP.
