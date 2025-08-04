@@ -70,28 +70,42 @@ $(FORMREVERSION_BIN): $(FORMREVERSION_DEPENDENCIES)
 NARC_FILES += $(FORMREVERSION_BIN)
 
 
-MACHINELEARNSET_TARGET := $(BUILD)/a028/9_14
+LEARNSETS_RESOLVED := $(BUILD)/learnsets.json
+TUTORMOVES_DATA := data/tutor/tutor_moves.json
 MACHINELEARNSET_DEPENDENCIES := data/generated/MachineMoveLearnsets.c
+LEVELUPLEARNSET_DEPENDENCIES := data/generated/LevelupLearnsets.c
+EGGLEARNSET_DEPENDENCIES := data/generated/EggLearnsets.c
+
+$(LEARNSETS_RESOLVED): data/mon/learnsets/custom.json include/config.h $(TUTORMOVES_DATA)
+	@echo "generating learnset data..."
+	$(PYTHON) scripts/build_learnsets.py \
+		--machineout $(MACHINELEARNSET_DEPENDENCIES) \
+		--levelupout $(LEVELUPLEARNSET_DEPENDENCIES) \
+		--eggout $(EGGLEARNSET_DEPENDENCIES) \
+		--constsout \
+		--dump $@
+
+	@echo "writing tutor moves..."
+	$(PYTHON) scripts/tutor_learnset.py --writemovecostlist $(TUTORMOVES_DATA)
+	$(PYTHON) scripts/tutor_learnset.py --writetutorlearnsets $(TUTORMOVES_DATA) $@
+
+MACHINELEARNSET_TARGET := $(BUILD)/a028/9_14
 MACHINELEARNSET_OBJS := $(patsubst data/generated/%.c,build/%.o,$(MACHINELEARNSET_DEPENDENCIES))
 MACHINELEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(MACHINELEARNSET_DEPENDENCIES))
 
-$(MACHINELEARNSET_BIN): $(LEARNSETS_DATA)
-	@echo "generating tm learnsets..."
-	$(PYTHON) scripts/build_learnsets.py --machineout ${MACHINELEARNSET_DEPENDENCIES} --constsout
+$(MACHINELEARNSET_BIN): $(MACHINELEARNSET_DEPENDENCIES) $(LEARNSETS_RESOLVED)
+	@echo "writing machine learnsets..."
 	$(CC) $(CFLAGS) -c $(MACHINELEARNSET_DEPENDENCIES) -o $(MACHINELEARNSET_OBJS)
 	$(OBJCOPY) -O binary $(MACHINELEARNSET_OBJS) $@
 
 NARC_FILES += $(MACHINELEARNSET_BIN)
 
-
 LEVELUPLEARNSET_TARGET := $(BUILD)/a033/0_0
-LEVELUPLEARNSET_DEPENDENCIES := data/generated/LevelupLearnsets.c
 LEVELUPLEARNSET_OBJS := $(patsubst data/generated/%.c,build/%.o,$(LEVELUPLEARNSET_DEPENDENCIES))
 LEVELUPLEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(LEVELUPLEARNSET_DEPENDENCIES))
 
-$(LEVELUPLEARNSET_BIN): $(LEARNSETS_DATA)
-	@echo "generating levelup moves..."
-	$(PYTHON) scripts/build_learnsets.py --levelupout ${LEVELUPLEARNSET_DEPENDENCIES}
+$(LEVELUPLEARNSET_BIN): $(LEVELUPLEARNSET_DEPENDENCIES) $(LEARNSETS_RESOLVED)
+	@echo "writing levelup moves..."
 	$(CC) $(CFLAGS) -c $(LEVELUPLEARNSET_DEPENDENCIES) -o $(LEVELUPLEARNSET_OBJS)
 	$(OBJCOPY) -O binary $(LEVELUPLEARNSET_OBJS) $@
 	cp $@ $(LEVELUPLEARNSET_TARGET)
@@ -100,15 +114,12 @@ $(LEVELUPLEARNSET_BIN): $(LEARNSETS_DATA)
 NARC_FILES += $(LEVELUPLEARNSET_BIN)
 REQUIRED_DIRECTORIES += $(BUILD)/a033
 
-
 EGGLEARNSET_TARGET := $(BUILD)/a229/0_0
-EGGLEARNSET_DEPENDENCIES := data/generated/EggLearnsets.c
 EGGLEARNSET_OBJS := $(patsubst data/generated/%.c,build/%.o,$(EGGLEARNSET_DEPENDENCIES))
 EGGLEARNSET_BIN := $(patsubst data/generated/%.c,build/%.bin,$(EGGLEARNSET_DEPENDENCIES))
 
-$(EGGLEARNSET_BIN): $(LEARNSETS_DATA)
-	@echo "generating egg learnsets..."
-	$(PYTHON) scripts/build_learnsets.py --eggout $(EGGLEARNSET_DEPENDENCIES)
+$(EGGLEARNSET_BIN): $(EGGLEARNSET_DEPENDENCIES) $(LEARNSETS_RESOLVED)
+	@echo "writing egg learnsets..."
 	$(CC) $(CFLAGS) -c $(EGGLEARNSET_DEPENDENCIES) -o $(EGGLEARNSET_OBJS)
 	$(OBJCOPY) -O binary $(EGGLEARNSET_OBJS) $@
 	cp $@ $(EGGLEARNSET_TARGET)
@@ -116,5 +127,4 @@ $(EGGLEARNSET_BIN): $(LEARNSETS_DATA)
 
 NARC_FILES += $(EGGLEARNSET_BIN)
 REQUIRED_DIRECTORIES += $(BUILD)/a229
-
 
