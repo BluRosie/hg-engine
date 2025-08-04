@@ -3340,7 +3340,7 @@ typedef enum Terrain {
 // For setting a Bitmask to flag trainer position on enemy/player side
 #define TRAINER_1     1 //0b01
 #define TRAINER_2     2 //0b10
-#define TRAINER_BOTH  3 //0b11
+#define TRAINER_BOTH  (TRAINER_1 & TRAINER_2)
 
 /**
  *  @brief load in different battle bg and terrain
