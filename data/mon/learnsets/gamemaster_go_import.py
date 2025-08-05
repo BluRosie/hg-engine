@@ -46,13 +46,13 @@ def process_gamemaster(monNames, gamemaster_path):
     with open(gamemaster_path, "r") as f:
         data = json.load(f)
 
-    outputData = {}
+    output = {}
 
     for monName in monNames:
         species_id = monName.replace("SPECIES_", "").lower()
         match = next((mon for mon in data["pokemon"] if mon["speciesId"] == species_id), None)
         if match:
-            outputData[monName] = {
+            output[monName] = {
                 "LevelMoves": [],
                 "PreEvoMoves": [],
                 "MachineMoves": [],
@@ -61,9 +61,13 @@ def process_gamemaster(monNames, gamemaster_path):
             }
             fast = map(sanitise_move_name, match.get("fastMoves", []))
             charged = map(sanitise_move_name, match.get("chargedMoves", []))
-            outputData[monName]["MachineMoves"] = sorted(set(fast) | set(charged))
+            legacy = map(sanitise_move_name, match.get("legacyMoves", []))
+            elite = map(sanitise_move_name, match.get("eliteMoves", []))
 
-    return outputData
+            all_moves = set(fast) | set(charged) | set(legacy) | set(elite)
+            output[monName]["MachineMoves"] = sorted(all_moves)
+
+    return output
 
 
 if __name__ == "__main__":
