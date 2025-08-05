@@ -176,9 +176,4 @@
 // commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
 #define LEVELUP_MOVE_INHERITANCE
 
-// LEVELUP_MACHINE_MOVE_FALLBACK allows for Machine Moves greater than the num provided to be learnable if in the mon's level up learnset
-// vanilla TM list in HGSS is 100 so setting to 100 means any other TM/HM/TR moves found in the level up learnset will be learnable via Machina Move as well
-// commenting this line out will disable the fallback behavior
-#define LEVELUP_MACHINE_MOVE_FALLBACK 100
-
 #endif

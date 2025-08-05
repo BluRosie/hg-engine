@@ -167,7 +167,7 @@ def tutor_data_dumper(speciesDict, movesDict):
     return tutorMoveMap
 
 
-def generate_learnset_outputs(species_header_path, moves_header_path, out_learnsets="data/mon/learnsets.json", out_tutors="data/tutor/tutor_moves.json"):
+def generate_learnset_outputs(species_header_path, moves_header_path, out_learnsets="data/mon/learnsets/custom.json", out_tutors="data/tutor/tutor_moves.json"):
 
     speciesDict = parse_species_header(species_header_path)
     movesDict = parse_moves_header(moves_header_path)
