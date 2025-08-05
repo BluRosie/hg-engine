@@ -43,15 +43,23 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
     // debug_printf("\naddeffect_param: %d\n", sp->addeffect_param);
 
+    // 6 steps up
+    if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6)
+    {
+        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6;
+        statchange = 6;
+        sp->temp_work = STATUS_EFF_UP;
+        // debug_printf("6 steps up\n");
+    }
     // 3 steps down
-    if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_3)
+    else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_3)
     {
         stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_3;
         statchange = -3;
         sp->temp_work = STATUS_EFF_DOWN;
         // debug_printf("3 steps down\n");
     }
-        //3 steps up
+    //3 steps up
     else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3)
     {
         stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
@@ -59,29 +67,28 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         sp->temp_work = STATUS_EFF_UP;
         // debug_printf("3 steps up\n");
     }
-
-        //2 steps down
+    //2 steps down
     else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_2)
     {
         stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_2;
         statchange = -2;
         sp->temp_work = STATUS_EFF_DOWN;
     }
-        //2 steps up
+    //2 steps up
     else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2)
     {
         stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2;
         statchange = 2;
         sp->temp_work = STATUS_EFF_UP;
     }
-        //1 step down
+    //1 step down
     else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN)
     {
         stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN;
         statchange = -1;
         sp->temp_work = STATUS_EFF_DOWN;
     }
-        //1 step up
+    //1 step up
     else
     {
         stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
