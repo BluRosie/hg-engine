@@ -662,6 +662,9 @@
 #define ADD_STATUS_EFF_MORTAL_SPIN                     (189)
 #define ADD_STATUS_EFF_TIDY_UP                         (190)
 #define ADD_STATUS_EFF_BURN_AND_DRAIN_HEALTH           (191)
+#define ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6         (192)
+#define ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP_6        (193)
+#define ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_6          (194)
 
 
 // additional effect constants
