@@ -376,7 +376,7 @@
 .equ MOVE_SUBSCRIPT_PTR_DEFENSE_UP_6_STAGES, 0xC1 // To add more +6 effects, copy the order & proximity of other stat stage change constants.
 .equ MOVE_SUBSCRIPT_PTR_SPEED_UP_6_STAGES, 0xC2 // Used for Steam Engine.
 
-.equ MAX_BASE_SUBSCRIPT_NUM, 0xBF
+.equ MAX_BASE_SUBSCRIPT_NUM, 0xC2
 
 // define your custom subscripts below like this
 //.equ MOVE_SUBSCRIPT_PTR_CUSTOM_1, (MAX_BASE_SUBSCRIPT_NUM + 1)
