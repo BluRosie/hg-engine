@@ -1,4 +1,4 @@
-a {COLOR 255}None{COLOR 0}
+None
 a {COLOR 255}Master Ball{COLOR 0}
 an {COLOR 255}Ultra Ball{COLOR 0}
 a {COLOR 255}Great Ball{COLOR 0}
