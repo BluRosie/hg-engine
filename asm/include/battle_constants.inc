@@ -373,12 +373,14 @@
 .equ MOVE_SUBSCRIPT_PTR_TIDY_UP, 0xBE
 .equ MOVE_SUBSCRIPT_PTR_BURN_AND_DRAIN_HEALTH, 0xBF
 .equ MOVE_SUBSCRIPT_PTR_INCINERATE, 0xC0
+.equ MOVE_SUBSCRIPT_PTR_ATTACK_UP_6_STAGES, 0xC1 // This constant and the one below are only used as spacers for Steam Engine.
+.equ MOVE_SUBSCRIPT_PTR_DEFENSE_UP_6_STAGES, 0xC2 // To add more +6 effects, copy the order & proximity of other stat stage change constants.
+.equ MOVE_SUBSCRIPT_PTR_SPEED_UP_6_STAGES, 0xC3 // Used for Steam Engine.
 
-.equ MAX_BASE_SUBSCRIPT_PTR_NUM, 0xC0
+.equ MAX_BASE_SUBSCRIPT_NUM, 0xC3
 
 // define your custom subscripts below like this
 //.equ MOVE_SUBSCRIPT_PTR_CUSTOM_1, (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)
-
 
 
 .equ FIELD_CONDITION_RAIN, 0x1
