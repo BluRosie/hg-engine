@@ -2,6 +2,67 @@ import pandas as pd
 import numpy as np
 from pprint import pprint
 
+DEFAULT_ITEM_VALUES = {
+    'Price': 0,
+    'EquipEffect': 0,
+    'EquipPower': 0,
+    'PluckEffect': 0,
+    'ThrowEffect': 0,
+    'ThrowPower': 0,
+    'NaturalGiftPower': 0,
+    'NaturalGiftType': 'TYPE_NORMAL',
+    'prevent_toss': 0,
+    'selectable': 0,
+    'FieldPocket': 'POCKET_ITEMS',
+    'battlePocket': 'BATTLE_POCKET_NONE',
+    'fieldUseFunc': 0,
+    'battleUseFunc': 0,
+    'partyUse': 0,
+    'WorkRecvSleep': 0,
+    'WorkRecvPoison': 0,
+    'WorkRecvBurn': 0,
+    'WorkRecvFreeze': 0,
+    'WorkRecvParalyze': 0,
+    'WorkRecvConfuse': 0,
+    'inf_heal': 0,
+    'guard_spec': 0,
+    'revive': 0,
+    'revive_all': 0,
+    'WorkLevel': 0,
+    'evolve': 0,
+    'WorkAttack': 0,
+    'WorkDefense': 0,
+    'WorkSpAttack': 0,
+    'spdef_stages': 0,
+    'WorkSpeed': 0,
+    'WorkAccuracy': 0,
+    'WorkCritical': 0,
+    'WorkPpUp': 0,
+    'WorkPpRcv': 0,
+    'hp_restore': 0,
+    'hp_ev_up': 0,
+    'atk_ev_up': 0,
+    'def_ev_up': 0,
+    'speed_ev_up': 0,
+    'spatk_ev_up': 0,
+    'spdef_ev_up': 0,
+    'friendship_mod_lo': 0,
+    'friendship_mod_med': 0,
+    'friendship_mod_hi': 0,
+    'WorkStatusHp': 0,
+    'WorkStatusAtk': 0,
+    'WorkStatusDef': 0,
+    'WorkStatusSpd': 0,
+    'WorkStatusSAtk': 0,
+    'WorkStatusSDef': 0,
+    'hp_restore_param': 0,
+    'pp_restore_param': 0,
+    'friendship_mod_lo_param': 0,
+    'friendship_mod_med_param': 0,
+    'friendship_mod_hi_param': 0
+}
+
+
 def fill_and_update_ids(df, id_column='Id', value_dict=None):
     """
     Fill missing IDs and update existing rows using dictionary data, including new columns.
@@ -34,24 +95,24 @@ def fill_and_update_ids(df, id_column='Id', value_dict=None):
     # Create new rows for missing IDs
     if np.any(missing_ids):
         new_rows_list = []
-        
+
         for missing_id in complete_ids[missing_ids]:
-            if value_dict and missing_id in value_dict:
-                new_row_data = value_dict[missing_id].copy()
-            else:
-                new_row_data = {}
-            
-            # Add Id to new row
+            # Start with default values for all known fields
+            new_row_data = DEFAULT_ITEM_VALUES.copy()
+
+            # Overwrite with specific values from itemdata.c if available
+            if value_dict:
+                item_name = lines[missing_id] if missing_id < len(lines) else None
+                if item_name and item_name in value_dict:
+                    new_row_data.update(value_dict[item_name])
+
+            # Add ID and leave other columns untouched (filled from DEFAULT_ITEM_VALUES)
             new_row_data[id_column] = missing_id
-            
-            # Add None for all other columns
-            for col in df.columns:
-                if col != id_column and col not in new_row_data:
-                    new_row_data[col] = None
-                    
+            new_row_data['ItemName'] = lines[missing_id] if missing_id < len(lines) else f'ITEM_{missing_id}'
+
             new_rows_list.append(new_row_data)
-        
-        # Create DataFrame from new rows and concatenate
+
+    # Create DataFrame from new rows and concatenate
         if new_rows_list:
             new_df = pd.DataFrame(new_rows_list)
             df = pd.concat([df, new_df], ignore_index=True)
@@ -219,7 +280,7 @@ def load_itemdata_to_dict():
                 case 'battleUseFunc':
                     data_dict['battleUseFunc'] = value
                 case 'partyUse':
-                    data_dict['battleUseFunc'] = value
+                    data_dict['partyUse'] = value
                 case 'slp_heal':
                     data_dict['WorkRecvSleep'] = value
                 case 'psn_heal':
@@ -306,6 +367,11 @@ def load_itemdata_to_dict():
                     data_dict['friendship_mod_med_param'] = value
                 case 'friendship_mod_hi_param':
                     data_dict['friendship_mod_hi_param'] = value
+                case 'level_up':
+                    data_dict['WorkLevel'] = value
+                case _:
+                    print(f"Unknown key: {key} with value: {value}")
+
 
     # Now data_dict contains the parsed data
     # pprint(item_data[:2])
