@@ -84,7 +84,7 @@ def fill_and_update_ids(df, id_column='Id', value_dict=None):
         lines = [line.split()[1].strip() for line in file if '#define ITEM_' in line and len(line.split()) >= 3 and 'ITEM_' in line.split()[1].strip()]
     
     max_id = max(df[id_column].max(), len(lines) - 1)
-    pprint(lines)
+    # pprint(lines)
     
     # Create full range of expected IDs
     complete_ids = np.arange(min_id, max_id + 1)
@@ -131,7 +131,10 @@ def fill_and_update_ids(df, id_column='Id', value_dict=None):
         
         # Apply updates to existing rows
         for item_name_, updates in existing_updates.items():
+            sv_price = df.loc[df['ItemName'] == item_name_, 'Price'].values[0]
             df.loc[df['ItemName'] == item_name_, list(updates.keys())] = list(updates.values())
+            if sv_price != '0':
+                df.loc[df['ItemName'] == item_name_, 'Price'] = sv_price
     
     # Add new columns from dictionary
     if value_dict:
@@ -146,81 +149,6 @@ def fill_and_update_ids(df, id_column='Id', value_dict=None):
     
     # Sort by Id
     return df.sort_values(id_column)
-
-# def fill_and_update_ids(df, id_column='Id', value_dict=None):
-#     """
-#     Fill missing IDs and update existing rows using dictionary data.
-    
-#     Args:
-#         df (pd.DataFrame): Input DataFrame
-#         id_column (str): Name of the ID column
-#         value_dict (dict): Dictionary containing updates for existing IDs and new values
-        
-#     Returns:
-#         pd.DataFrame: Updated DataFrame with filled missing IDs and updated values
-#     """
-#     print(df)
-#     # Get current min and max IDs
-#     min_id = 0
-#     max_id = df[id_column].max()
-    
-#     # Create full range of expected IDs
-#     complete_ids = np.arange(min_id, max_id + 1)
-    
-#     # Create mask of missing IDs
-#     missing_ids = ~np.isin(complete_ids, df[id_column])
-    
-    
-    
-#     # Create new rows for missing IDs
-#     if np.any(missing_ids):
-#         new_rows_list = []
-        
-#         for missing_id in complete_ids[missing_ids]:
-#             if value_dict and missing_id in value_dict:
-#                 new_row_data = value_dict[missing_id].copy()
-#             else:
-#                 new_row_data = {}
-            
-#             # Add Id to new row
-#             new_row_data[id_column] = missing_id
-            
-#             # Add None for all other columns
-#             for col in df.columns:
-#                 if col != id_column and col not in new_row_data:
-#                     new_row_data[col] = None
-                    
-#             new_rows_list.append(new_row_data)
-        
-#         # Create DataFrame from new rows and concatenate
-#         if new_rows_list:
-#             new_df = pd.DataFrame(new_rows_list)
-#             df = pd.concat([df, new_df], ignore_index=True)
-    
-#     # Sort in order to insert item definitions correctly
-#     df = df.sort_values(id_column)
-            
-#     # Read item definitions
-#     lines = []
-#     with open('include/constants/item.h', 'r') as file:
-#         lines = [line.split()[1].strip() for line in file if '#define ITEM_' in line and len(line.split()) >= 3]
-        
-#     df['ItemName'] = lines[:len(df)]
-
-#     pprint(df)        
-    
-#     # Process updates for existing IDs first
-#     if value_dict:
-#         # Find IDs that exist in both dataframe and dict
-#         existing_updates = {id_: data for id_, data in value_dict.items() 
-#                           if id_ in df[id_column].values}
-        
-#         # Apply updates to existing rows
-#         for id_, updates in existing_updates.items():
-#             df.loc[df[id_column] == id_, list(updates.keys())] = list(updates.values())
-    
-#     # Sort by Id
-#     return df.sort_values(id_column)
 
 def load_itemdata_to_dict():
     # Open the C array file
