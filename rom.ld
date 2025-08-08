@@ -760,6 +760,7 @@ ov01_0220305C = 0x0220305C | 1;
 ov01_021EDF78 = 0x021EDF78 | 1;
 ov01_021F6ABC = 0x021F6ABC | 1;
 ov01_021F6B20 = 0x021F6B20 | 1;
+ov01_021EDF00 = 0x021EDF00 | 1;
 SetupNativeScript = 0x0203FD58 | 1;
 BufferString = 0x0200BE3C | 1;
 BufferIntegerAsString = 0x0200BFCC | 1;
