@@ -2567,7 +2567,7 @@
 // define your custom move effects below like this
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
 
-#define MAX_TOTAL_ITEM_NUM ITEM_METAL_ALLOY
+#define MAX_TOTAL_ITEM_NUM ITEM_BRIARS_BOOK
 
 
 
@@ -2594,7 +2594,7 @@
 #define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
 #define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
 
-#define NEW_ITEM_MAX ITEM_METAL_ALLOY
+#define NEW_ITEM_MAX ITEM_BRIARS_BOOK
 
 #define BAG_SLOT_QUANTITY_MAX                    999
 
