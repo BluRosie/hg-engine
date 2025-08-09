@@ -5,7 +5,7 @@
 #include "../include/constants/file.h"
 #include "../include/constants/item.h"
 
-#define ITEM_DATA_MAX (ITEM_ENIGMA_STONE)
+#define ITEM_DATA_MAX (ITEM_BRIARS_BOOK)
 #define GFX_ITEM_DUMMY_ID ((MAX_TOTAL_ITEM_NUM+1) * 2 + 2)
 #define GFX_ITEM_RETURN_ID ((MAX_TOTAL_ITEM_NUM+2) * 2 + 4)
 #define NEW_ITEM_GFX (797)

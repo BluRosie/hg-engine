@@ -831,7 +831,7 @@
 #define ITEM_PIKANIUM_Z_BAG               825
 #define ITEM_DECIDIUM_Z_BAG               826
 #define ITEM_INCINIUM_Z_BAG               827
-#define ITEM_PRIMARIUM_Z_BAG              838
+#define ITEM_PRIMARIUM_Z_BAG              828
 #define ITEM_TAPUNIUM_Z_BAG               829
 #define ITEM_MARSHADIUM_Z_BAG             830
 #define ITEM_ALORAICHIUM_Z_BAG            831
