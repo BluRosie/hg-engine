@@ -186,7 +186,7 @@ void ItemMenuUseFunc_DNASplicers(struct ItemMenuUseData *data, const struct Item
 {
     FieldSystem *fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
     struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
-    env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_DNA_SPLICERS);
+    env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_DNA_SPLICERS_FUSE);
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
 
@@ -198,7 +198,7 @@ BOOL ItemFieldUseFunc_DNASplicers(struct ItemFieldUseData *data)
 
 void *_CreateDNASplicersWork(FieldSystem *fieldSystem)
 {
-    return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_DNA_SPLICERS);
+    return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_DNA_SPLICERS_FUSE);
 }
 
 void ItemMenuUseFunc_AbilityCapsule(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
