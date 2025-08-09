@@ -154,6 +154,29 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id)
     return NULL;
 }
 
+void LONG_CALL GetItemDescIntoString(String *dest, u16 itemId, u16 heapId) {
+    u32 narc;
+    if (IS_ITEM_GEN4(itemId)) {
+        narc = MSG_DATA_ITEM_DESCRIPTION_GEN4;
+    } else if (IS_ITEM_GEN5(itemId)) {
+        narc = MSG_DATA_ITEM_DESCRIPTION_GEN5;
+    } else if (IS_ITEM_GEN6(itemId)) {
+        narc = MSG_DATA_ITEM_DESCRIPTION_GEN6;
+    } else if (IS_ITEM_GEN7(itemId)) {
+        narc = MSG_DATA_ITEM_DESCRIPTION_GEN7;
+    } else if (IS_ITEM_GEN8(itemId)) {
+        narc = MSG_DATA_ITEM_DESCRIPTION_GEN8;
+    } else if (IS_ITEM_GEN9(itemId)) {
+        narc = MSG_DATA_ITEM_DESCRIPTION_GEN9;
+    } else {
+        narc = MSG_DATA_ITEM_DESCRIPTION_CUSTOM;
+    }
+
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, narc, heapId);
+    ReadMsgDataIntoString(msgData, itemId, dest);
+    DestroyMsgData(msgData);
+}
+
 void *LONG_CALL ItemDataTableLoad(int heapID)
 {
     int max;

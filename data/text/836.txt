@@ -1,0 +1,102 @@
+Prism Scale
+Eviolite
+Float Stone
+Rocky Helmet
+Air Balloon
+Red Card
+Ring Target
+Binding Band
+Absorb Bulb
+Cell Battery
+Eject Button
+Fire Gem
+Water Gem
+Electric Gem
+Grass Gem
+Ice Gem
+Fighting Gem
+Poison Gem
+Ground Gem
+Flying Gem
+Psychic Gem
+Bug Gem
+Rock Gem
+Ghost Gem
+Dragon Gem
+Dark Gem
+Steel Gem
+Normal Gem
+Health Feather
+Muscle Feather
+Resist Feather
+Genius Feather
+Clever Feather
+Swift Feather
+Pretty Feather
+Cover Fossil
+Plume Fossil
+Liberty Pass
+Pass Orb
+Dream Ball
+Poké Toy
+Prop Case
+Dragon Skull
+Balm Mushroom
+Big Nugget
+Pearl String
+Comet Shard
+Relic Copper
+Relic Silver
+Relic Gold
+Relic Vase
+Relic Band
+Relic Statue
+Relic Crown
+Casteliacone
+Dire Hit 2
+X Speed 2
+X Sp. Atk 2
+X Sp. Def 2
+X Defense 2
+X Attack 2
+X Accuracy 2
+X Speed 3
+X Sp. Atk 3
+X Sp. Def 3
+X Defense 3
+X Attack 3
+X Accuracy 3
+X Speed 6
+X Sp. Atk 6
+X Sp. Def 6
+X Defense 6
+X Attack 6
+X Accuracy 6
+Ability Urge
+Item Drop
+Item Urge
+Reset Urge
+Dire Hit 3
+Light Stone
+Dark Stone
+TM093
+TM094
+TM095
+Xtransceiver
+???
+Gram 1
+Gram 2
+Gram 3
+Xtransceiver
+Medal Box
+DNA Splicers
+DNA Splicers
+Permit
+Oval Charm
+Shiny Charm
+Plasma Card
+Grubby Hanky
+Colress Machine
+Dropped Item
+Dropped Item
+Reveal Glass

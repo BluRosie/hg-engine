@@ -1,0 +1,755 @@
+A letter of recommendation that you’ll need in order to\nparticipate in the Gym Challenge.
+A device that allows you to access the Pokémon storage\nsystem. There are some places where it won’t work.
+A stone found in the Galar region with a mysterious power.\nIt’s said that your dreams come true if you find one.
+A Wishing Star has been affixed to it. It lets out a light\nthat allows Pokémon to Dynamax when at a Power Spot.
+-\n-\n-
+-\n-\n-
+Use it by the water to fish up various kinds of Pokémon.
+This bike can be combined with the Pokémon Rotom to\nuse a turbo boost.
+-\n-\n-
+-\n-\n-
+One of the many ingredients that can be used for\ncooking at your camp. These sausages should be\nboiled before eating.
+One of the many ingredients that can be used for\ncooking at your camp. The tinned food that Bob sells\nis curiously popular in Galar.
+One of the many ingredients that can be used for\ncooking at your camp. The tinned food that Bach sells\nis curiously popular in Galar.
+One of the many ingredients that can be used for\ncooking at your camp. When simmered, the beans\nsuffuse a dish with their mild flavor.
+One of the many ingredients that can be used for\ncooking at your camp. An indispensable tool for\nmopping up that extra curry left on your plate.
+One of the many ingredients that can be used for\ncooking at your camp. These flour noodles make\nfor a surprisingly good match with curry.
+One of the many ingredients that can be used for\ncooking at your camp. The chewy texture of the\nmushrooms transforms any dish they’re added to.
+One of the many ingredients that can be used for\ncooking at your camp. When a Slowpoke’s tail falls off,\nit grows back quickly.
+One of the many ingredients that can be used for\ncooking at your camp. Whether this is the kind of\nvegetable stalk that Farfetch’d like is unknown.
+One of the many ingredients that can be used for\ncooking at your camp. An apple chosen above others.\nIt has spectacular form and a brilliant sheen.
+One of the many ingredients that can be used for\ncooking at your camp. The taste boiled off from the\nbones is sure to give a dish a light umami taste.
+One of the many ingredients that can be used for\ncooking at your camp. Potatoes help mellow out a spicy\ntaste, to make a dish more mild.
+One of the many ingredients that can be used for\ncooking at your camp. Though carelessly picked, these\nherbs can add a fragrant accent to a dish.
+One of the many ingredients that can be used for\ncooking at your camp. The assortment of vegetables\nlooks quite appealing and healthy.
+One of the many ingredients that can be used for\ncooking at your camp. It’s been a while since it was\nfried, so it’s gotten greasy.
+One of the many ingredients that can be used for\ncooking at your camp. Even just one boiled egg can\nreally enhance a dish.
+Everything you need to set up a tent and get cooking in\na Wild Area or at a camping spot.
+-\n-\n-
+-\n-\n-
+It is said that a hero used this sword to halt a terrible\ndisaster in ancient times. But it’s grown rusty and worn.
+It is said that a hero used this shield to halt a terrible\ndisaster in ancient times. But it’s grown rusty and worn.
+A fossil piece left behind by a prehistoric Pokémon that\nonce soared through the sky. What it looked like is\na mystery.
+A fossil piece left behind by a prehistoric Pokémon that\nonce lived in the sea. What it looked like is a mystery.
+A fossil piece left behind by a prehistoric Pokémon that\nonce roamed the land. What it looked like is a mystery.
+A fossil piece left behind by a prehistoric Pokémon that\nonce lived in the sea. What it looked like is a mystery.
+A strawberry-shaped sweet. When a Milcery holds this,\nit spins around happily.
+A heart-shaped sweet. When a Milcery holds this,\nit spins around happily.
+A berry-shaped sweet. When a Milcery holds this,\nit spins around happily.
+A clover-shaped sweet. When a Milcery holds this,\nit spins around happily.
+A flower-shaped sweet. When a Milcery holds this,\nit spins around happily.
+A star-shaped sweet. When a Milcery holds this, it spins\naround happily.
+A ribbon-shaped sweet. When a Milcery holds this,\nit spins around happily.
+A peculiar apple that can make a certain species of\nPokémon evolve. It’s exceptionally sweet.
+A peculiar apple that can make a certain species of\nPokémon evolve. It’s exceptionally tart.
+An item to be held by a Pokémon. If the holder uses\na sound-based move, this throat spray will boost its\nSp. Atk stat.
+An item to be held by a Pokémon. If the holder’s stats\nare lowered, it will be switched out of battle.
+An item to be held by a Pokémon. These boots protect\nthe holder from the effects of traps and the like set on\nthe battlefield.
+An item to be held by a Pokémon. If the holder misses\nwith a move due to low accuracy, this policy will sharply\nboost its Speed stat.
+An item to be held by a Pokémon. If Trick Room takes\neffect, this item will lower the holder’s Speed stat.
+An item to be held by a Pokémon. This sturdy umbrella\nprotects the holder from the effects of rain and harsh\nsunlight.
+A candy that is packed with energy. If consumed,\nit grants a Pokémon a very small number of Exp. Points.
+A candy that is packed with energy. If consumed,\nit grants a Pokémon a small number of Exp. Points.
+A candy that is packed with energy. If consumed,\nit grants a Pokémon a moderate number of Exp. Points.
+A candy that is packed with energy. If consumed,\nit grants a Pokémon a large number of Exp. Points.
+A candy that is packed with energy. If consumed,\nit grants a Pokémon a very large number of Exp. Points.
+A candy that is packed with energy. If consumed, it raises\nthe Dynamax Level of a Pokémon by one. A higher level\nmeans higher HP when Dynamaxed.
+A frenetic dance to uplift the fighting spirit.\nThis sharply raises the user’s Attack stat.
+The user drops onto the target with its full body\nweight. This may also leave the target with paralysis.
+The target is scorched with an intense blast of fire.\nThis may also leave the target with a burn.
+The target is blasted by a huge volume of water\nlaunched under great pressure.
+The user attacks everything around it by swamping\nits surroundings with a giant wave.
+The target is struck with an icy-cold beam of energy.\nThis may also leave the target frozen.
+A howling blizzard is summoned to strike opposing\nPokémon. This may also leave the opposing\nPokémon frozen.
+A powerful low kick that makes the target fall over.\nThe heavier the target, the greater the move’s power.
+A strong electric blast crashes down on the target.\nThis may also leave the target with paralysis.
+A wicked thunderbolt is dropped on the target to\ninflict damage. This may also leave the target\nwith paralysis.
+The user sets off an earthquake that strikes every\nPokémon around it.
+The target is hit by a strong telekinetic force.\nThis may also lower the target’s Sp. Def stat.
+The user relaxes and lightens its body to move\nfaster. This sharply raises the Speed stat.
+The user takes a deep breath and focuses so that\ncritical hits land more easily.
+The user waggles a finger and stimulates its brain\ninto randomly using nearly any move.
+The target is attacked with an intense blast of\nall-consuming fire. This may also leave the target\nwith a burn.
+The user charges at the target and may make\nit flinch.
+The user temporarily empties its mind to forget its\nconcerns. This sharply raises the user’s Sp. Def stat.
+The user drains the target’s blood. The user’s HP is\nrestored by half the damage taken by the target.
+The user strikes with a simultaneous three-beam attack.\nThis may also burn, freeze, or paralyze the target.
+The user creates a substitute for itself using some of\nits own HP. The substitute serves as the user’s decoy.
+An all-out attack that becomes more powerful the\nless HP the user has.
+Unsanitary sludge is hurled at the target. This may\nalso poison the target.
+The user lays a trap of spikes at the opposing\nteam’s feet. The trap hurts Pokémon that switch\ninto battle.
+The user rampages and attacks for two to three\nturns. The user then becomes confused.
+The user materializes an odd psychic wave to attack\nthe target. This attack does physical damage.
+The user endures any attack with at least 1 HP.\nIts chance of failing rises if it is used in succession.
+While it is asleep, the user randomly uses one of the\nmoves it knows.
+Using its tough and impressive horn, the user rams\ninto the target with no letup.
+The user switches places with a party Pokémon in\nwaiting and passes along any stat changes.
+The user compels the target to keep using the move\nit encored for three turns.
+The target is slammed with a steel-hard tail.\nThis may also lower the target’s Defense stat.
+The user crunches up the target with sharp fangs.\nThis may also lower the target’s Defense stat.
+The user hurls a shadowy blob at the target.\nThis may also lower the target’s Sp. Def stat.
+Two turns after this move is used, a hunk of psychic\nenergy attacks the target.
+The user attacks in an uproar for three turns.\nDuring that time, no Pokémon can fall asleep.
+The user attacks by exhaling hot breath on opposing\nPokémon. This may also leave those Pokémon with\na burn.
+The target is taunted into a rage that allows it to use\nonly attack moves for three turns.
+The user catches the target off guard and swaps its\nheld item with its own.
+The user attacks the target with great power.\nHowever, this also lowers the user’s Attack and\nDefense stats.
+The user employs its psychic power to exchange\nAbilities with the target.
+The user launches a kick that lands a critical hit\nmore easily. This may also leave the target with\na burn.
+The user lets loose a horribly echoing shout with\nthe power to inflict damage.
+The user attacks the target at full power. The attack’s\nrecoil harshly lowers the user’s Sp. Atk stat.
+The user absorbs a mystical power from space to\nraise its Defense and Sp. Def stats.
+The user attacks by shooting muddy water at opposing\nPokémon. This may also lower their accuracy.
+The user hardens its body’s surface like iron,\nsharply raising its Defense stat.
+The user slashes the target with huge sharp claws.
+The user tenses its muscles to bulk up its body,\nraising both its Attack and Defense stats.
+The user quietly focuses its mind and calms its\nspirit to raise its Sp. Atk and Sp. Def stats.
+The user handles a sharp leaf like a sword and\nattacks by cutting its target. Critical hits land\nmore easily.
+The user vigorously performs a mystic, powerful\ndance that raises its Attack and Speed stats.
+The user tackles the target with a high-speed spin.\nThe slower the user compared to the target, the\ngreater the move’s power.
+The user fights the target up close without guarding\nitself. This also lowers the user’s Defense and\nSp. Def stats.
+The user lays a trap of poison spikes at the feet of\nthe opposing team. The spikes will poison opposing\nPokémon that switch into battle.
+The user cloaks itself in fire and charges the target.\nThis also damages the user quite a lot. This attack\nmay leave the target with a burn.
+The user lets loose a blast of aura power from deep\nwithin its body at the target. This attack\nnever misses.
+The target is stabbed with a tentacle, arm, or the like\nsteeped in poison. This may also poison the target.
+The user releases a horrible aura imbued with dark\nthoughts. This may also make the target flinch.
+The user slams a barrage of hard-shelled seeds\ndown on the target from above.
+The user slashes at the target by crossing its\nscythes or claws as if they were a pair of scissors.
+The user generates a damaging sound wave by\nvibration. This may also lower the target’s\nSp. Def stat.
+The target is attacked with a shock wave generated\nby the user’s gaping mouth.
+The user attacks with a ray of light that sparkles as\nif it were made of gemstones.
+The user heightens its mental focus and unleashes\nits power. This may also lower the target’s\nSp. Def stat.
+The user draws power from nature and fires it at the\ntarget. This may also lower the target’s Sp. Def stat.
+The user tucks in its wings and charges from a low\naltitude. This also damages the user quite a lot.
+The user makes the ground under the target erupt\nwith power. This may also lower the target’s\nSp. Def stat.
+The user stimulates its brain by thinking bad\nthoughts. This sharply raises the user’s Sp. Atk stat.
+The user focuses its willpower to its head and\nattacks the target. This may also make the\ntarget flinch.
+The user gathers all its light energy and releases it\nall at once. This may also lower the target’s\nSp. Def stat.
+The user whips up a storm of leaves around the\ntarget. The attack’s recoil harshly lowers the user’s\nSp. Atk stat.
+The user violently whirls its vines, tentacles, or the\nlike to harshly lash the target.
+The user shoots filthy garbage at the target to\nattack. This may also poison the target.
+The user slams the target with its steel-hard head.\nThis may also make the target flinch.
+The user stabs the target from below with\nsharpened stones. Critical hits land more easily.
+The user lays a trap of levitating stones around the\nopposing team. The trap hurts opposing Pokémon\nthat switch into battle.
+The user snares the target with grass and trips it.\nThe heavier the target, the greater the\nmove’s power.
+The user strikes everything around it by swamping\nthe area with a giant sludge wave. This may also\npoison those hit.
+The user slams into the target with its heavy body.\nThe more the user outweighs the target, the greater\nthe move’s power.
+The user hurls an electric orb at the target. The\nfaster the user is than the target, the greater the\nmove’s power.
+The user turns the target’s power against it.\nThe higher the target’s Attack stat, the greater\nthe damage it deals.
+The user attacks the target with stored power.\nThe more the user’s stats are raised, the greater\nthe move’s power.
+The user teleports using a strange power and\nswitches places with one of its allies.
+The user shoots boiling hot water at its target.\nThis may also leave the target with a burn.
+The user is roused, and its Attack and Sp. Atk\nstats increase.
+The user shrouds itself in electricity and smashes\ninto its target. This also damages the user a little.
+The user crashes into its target while rotating its\nbody like a drill. Critical hits land more easily.
+The user slams its target with its flame-covered\nbody. The more the user outweighs the target, the\ngreater the move’s power.
+The user attacks by wrapping its opponent in a\nfierce wind that flies up into the sky. This may also\nconfuse the target.
+The user plays rough with the target and attacks it.\nThis may also lower the target’s Attack stat.
+Opposing Pokémon are drenched in an odd\npoisonous liquid. This lowers the Attack, Sp. Atk, and\nSpeed stats of a poisoned target.
+The user damages opposing Pokémon by emitting a\npowerful flash.
+The user swings both arms and hits the target.\nThe target’s stat changes don’t affect this\nattack’s damage.
+The user fiercely attacks the target using its\nentire body.
+The user attacks the target’s throat, and the\nresultant suffering prevents the target from using\nmoves that emit sound for two turns.
+The user attacks the enemy with a pollen puff that\nexplodes. If the target is an ally, it gives the ally a\npollen puff that restores its HP instead.
+The user bites the target with its psychic\ncapabilities. This can also destroy Light Screen\nand Reflect.
+The user slams into the target using a full-force\nblast of water. This may also lower the target’s\nDefense stat.
+The user attacks by slamming its body into the target.\nThe higher the user’s Defense, the more damage it can\ninflict on the target.
+The target is slugged by a punch thrown with\nmuscle-packed power.
+Having a Pokémon smell this mint can make its Attack\nstat grow stronger. However, its Defense stat may suffer.
+Having a Pokémon smell this mint can make its Attack\nstat grow stronger. However, its Sp. Atk stat may suffer.
+Having a Pokémon smell this mint can make its Attack\nstat grow stronger. However, its Sp. Def stat may suffer.
+Having a Pokémon smell this mint can make its Attack\nstat grow stronger. However, its Speed stat may suffer.
+Having a Pokémon smell this mint can make its Defense\nstat grow stronger. However, its Attack stat may suffer.
+Having a Pokémon smell this mint can make its Defense\nstat grow stronger. However, its Sp. Atk stat may suffer.
+Having a Pokémon smell this mint can make its Defense\nstat grow stronger. However, its Sp. Def stat may suffer.
+Having a Pokémon smell this mint can make its Defense\nstat grow stronger. However, its Speed stat may suffer.
+Having a Pokémon smell this mint can make its Sp. Atk\nstat grow stronger. However, its Attack stat may suffer.
+Having a Pokémon smell this mint can make its Sp. Atk\nstat grow stronger. However, its Defense stat may suffer.
+Having a Pokémon smell this mint can make its Sp. Atk\nstat grow stronger. However, its Sp. Def stat may suffer.
+Having a Pokémon smell this mint can make its Sp. Atk\nstat grow stronger. However, its Speed stat may suffer.
+Having a Pokémon smell this mint can make its Sp. Def\nstat grow stronger. However, its Attack stat may suffer.
+Having a Pokémon smell this mint can make its Sp. Def\nstat grow stronger. However, its Defense stat may suffer.
+Having a Pokémon smell this mint can make its Sp. Def\nstat grow stronger. However, its Sp. Atk stat may suffer.
+Having a Pokémon smell this mint can make its Sp. Def\nstat grow stronger. However, its Speed stat may suffer.
+Having a Pokémon smell this mint can make its Speed\nstat grow stronger. However, its Attack stat may suffer.
+Having a Pokémon smell this mint can make its Speed\nstat grow stronger. However, its Defense stat may suffer.
+Having a Pokémon smell this mint can make its Speed\nstat grow stronger. However, its Sp. Atk stat may suffer.
+Having a Pokémon smell this mint can make its Speed\nstat grow stronger. However, its Sp. Def stat may suffer.
+Having a Pokémon smell this mint will cause its Attack,\nDefense, Sp. Atk, Sp. Def, and Speed stats to grow at\nan equal rate.
+Throw one into a Pokémon Den to attract\na wild Dynamax Pokémon.
+A peculiar teapot that can make a certain species of\nPokémon evolve. It may be cracked, but tea poured\nfrom it is delicious.
+A peculiar teapot that can make a certain species of\nPokémon evolve. It may be chipped, but tea poured\nfrom it is delicious.
+Strange earbuds that allow you to freely control the\nvolume of various sounds.
+One of the many ingredients that can be used for\ncooking at your camp. The syrupy fruits give off a strong\ntropical feel.
+One of the many ingredients that can be used for\ncooking at your camp. Melted cheese can really give a\ncurry some richness.
+One of the many ingredients that can be used for\ncooking at your camp. There are over fifty spices\ncontained within this ingredient’s hot flavor.
+One of the many ingredients that can be used for\ncooking at your camp. Add some whipped cream to a\nspicy curry to give it some sweetness.
+One of the many ingredients that can be used for\ncooking at your camp. Using packaged curry helps\nmake sure there are no slipups when cooking.
+One of the many ingredients that can be used for\ncooking at your camp. The refined sweetness of this\ncoconut milk makes it quite popular.
+One of the many ingredients that can be used for\ncooking at your camp. It has a junk-food sort of taste,\nbut it goes well with curry.
+One of the many ingredients that can be used for\ncooking at your camp. If you’re unsure about what to\ncook, you can’t go wrong with some burger.
+One of the many ingredients that can be used for\ncooking at your camp. A mysterious spice. Even a tiny\nsprinkle is sure to make a curry gigantic.
+Toss a number of them into a Pokémon Den for the\nchance to attract a wild Dynamax Pokémon.
+This bike can be combined with the Pokémon Rotom to\nnot only do a turbo boost but also run on the water.
+Having one of these mysterious, unshakable charms\nmakes it more likely you’ll get a critical catch.
+-\n-\n-
+A letter entrusted to you by a girl, to be delivered to\na boy. Strangely, it looks old to you.
+It’s signed by all members of the Galar region’s most\ncharismatic band, the Maximizers.
+Professor Sonia’s published writings. Her new\ndiscoveries about the Galar region’s legends are\nrecorded in this enjoyable read.
+-\n-\n-
+-\n-\n-
+-\n-\n-
+-\n-\n-
+-\n-\n-
+-\n-\n-
+A catalog of devices that Rotom like. Use the catalog\nto have Rotom hop in and out of the various devices\nlisted within.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+An item that causes [VAR 0101(0000)] to appear from\nthe Watchtower Lair in the Wild Area until the end of\nthe day.
+Honey that Dynamax Vespiquen produces. Adding this\nhoney to Max Soup makes the taste very smooth. It also\nhas the same effect as a Max Revive.
+Mushrooms that have the power of changing Dynamax\nforms. They boost all stats of a Pokémon during battle.
+A twig from a species of tree called Galarica that grows\nin certain areas around the Galar region. It’s a material\nfor an accessory for a certain Pokémon.
+A cuff made from woven-together Galarica Twigs.\nGiving it to a Galarian Slowpoke makes the Pokémon\nvery happy.
+Having one of these cards increases the selection\navailable to you in boutiques and hair salons.
+A pass to go to the Isle of Armor. Show it to the rail\nstaff at Wedgehurst Station.
+This bike can do a turbo boost and run on the water\nusing Rotom’s power. It’s a sparkling white that\nshines brilliantly.
+This bike can do a turbo boost and run on the water\nusing Rotom’s power. It’s a glistening black that\nshines reddish-black.
+Having one of these charms increases the Exp. Points\nyour Pokémon get. It’s a strange, stretchy charm that\nencourages growth.
+Rare ore that can be obtained on the Isle of Armor.\nSomething good will happen if you give it to a collector\non the Isle of Armor.
+Having one of these mysterious and unique charms\nmakes it more likely you’ll encounter a Pokémon with\na mark.
+Reins that people presented to the king. They enhance\nCalyrex’s power over bountiful harvests and unite\nCalyrex with its beloved steed.
+Reins that people presented to the king. They enable\nthose who are connected to communicate with each\nother. The reins separate Calyrex and its beloved steed.
+A wreath made from woven-together Galarica Twigs.\nPlacing it on the head of a Galarian Slowpoke makes\nthe Pokémon very happy.
+A clue about the King of Bountiful Harvests. It’s written\nby Peony, and an old photo is attached to it.
+A clue about the legend of giants. It’s written\nby Peony and has unique drawings.
+A clue about the legend of bird Pokémon. It’s written\nby Peony and has a unique drawing.
+A mysterious clue that Peony seems to have dropped.\nThere’s a photo attached to it showing a shining hole\nopening above the Max Lair.
+A pass to go to the Crown Tundra. Show it to the rail\nstaff at Wedgehurst Station.
+A mysterious object made of wood. Part of it seems to\nbe chipped. Maybe it’s meant to be part of something.
+A single petal that the King of Bountiful Harvests\ngave you. It radiates faint light.
+Mane hair that belonged to the King of Bountiful\nHarvests’ beloved steed, Glastrier. The hair is strong\nand very flexible.
+Mane hair that belonged to the King of Bountiful\nHarvests’ beloved steed, Spectrier. The hair is very\nsmooth to the touch.
+Produce that the King of Bountiful Harvests’ beloved\nsteed likes to eat. It grew in a field covered in snow.
+Produce that the King of Bountiful Harvests’ beloved\nsteed likes to eat. It grew in a gloomy field.
+Mysterious ore that can be obtained in the Max Lair.\nSomething good will happen if you give it to a\ncollector in the Crown Tundra.
+Seeds to plant in a field. The kind of carrot you’ll get is\ndetermined by which field you plant the seeds in.
+A patch that can be used to change the regular Ability\nof a Pokémon to a rarer Ability.
+Cords that shine when you hold them up to the light.\nThe people of old times presented these to the King of\nBountiful Harvests to express their gratitude.
+A mysterious balm that somehow has the power to calm\nDialga in its frenzy.
+A mysterious balm that somehow has the power to calm\nPalkia in its frenzy.
+A mysterious balm to be used when battling Arceus.
+A string exuding a mysterious energy that makes you\nfeel a strange sense of connection. It’s loved by\ncertain Pokémon.
+A baked treat made from Berries and other ingredients,\nwhich is often eaten in regions such as Galar. It is\nbeloved by a surprising number of Pokémon.
+A fruit whose shell can be used to form the capsules of\nall manner of Poké Balls when crafting them from\nscratch. Its proper name is actually “Brown Apricorn.”
+A hidden gem gaining popularity in Jubilife Village and\nbeloved by Pokémon. This sweet treat can be fed to\na Pokémon to cure any status condition it may have.
+An item that sharply boosts the offensive and defensive\nstats of a Pokémon in battle. These effects disappear\nif the Pokémon leaves the battle.
+An item that sharply boosts the critical-hit ratio of\na Pokémon in battle. This effect disappears if the\nPokémon leaves the battle.
+A dumpling that will make a Pokémon become fixated on\na move in battle. The Pokémon will deal more damage\nwhen using that move but will take more damage as well.
+These pickled vegetables prime a Pokémon for battle.\nThe Pokémon takes a hard-hitting stance, which boosts\nthe damage dealt by its moves by 50 percent.
+When eaten, this curious snack temporarily swaps a\nPokémon’s offensive stats with its defensive stats.
+A fern used for crafting items made to be thrown.\nWhen these curled leaves are unfurled, they can serve\nas nature’s wrapping paper.
+A rare seed that can be given to the captain of the\nSecurity Corps to have a Pokémon master a move\nso it can be used in the agile style or strong style.
+-\n-\n-
+-\n-\n-
+A type of ice beloved by the Lord of the Tundra,\nAvalugg. This ice is said to be fragments of ancient\nAvalugg that lived long ago.
+Proof that you have completed the trial set by Uxie,\nthe Being of Knowledge that lives in Lake Acuity.\nThis item is needed to forge the Red Chain.
+Proof that you have completed the trial set by Azelf,\nthe Being of Willpower that lives in Lake Valor.\nThis item is needed to forge the Red Chain.
+Proof that you have completed the trial set by Mesprit,\nthe Being of Emotion that lives in Lake Verity.\nThis item is needed to forge the Red Chain.
+When combined with an Apricorn, this mysterious\ntumbled stone can draw out the properties required\nto forge a Poké Ball.
+A flute that can be used to call special Pokémon that\nare willing to bear you around the region. Its timbre is\neerie and mysterious.
+An herbal medicine that can restore 60 HP to a\nPokémon, just as a Potion does. Yet the bitter taste\nwill make the Pokémon less friendly toward you.
+An herbal medicine that can restore 100 HP to a\nPokémon, just as a Super Potion does. Yet the bitter taste\nwill make the Pokémon less friendly toward you.
+Honey that sparkles with an amber hue. It is beloved\nby bug Pokémon and Pokémon with fairylike charms,\nso they will gather wherever a comb of it is thrown.
+Beautiful stalks of rice bursting with life. Pokémon that\ndwell and wander among the fields love these grains and\nwill gather wherever the stalks are thrown.
+Large, juicy beans that grow in pods. These beans are\nbeloved by fish Pokémon, as well as bird Pokémon and\ntheir flying ilk, so throw one and they will gather around.
+A large and well-ripened mushroom. It is beloved by the\nmore monstrous Pokémon, as well as dragon Pokémon,\nso they will gather wherever one is thrown.
+Translucent crystals that are beloved by Pokémon\nbearing a resemblance to grass, plants, or minerals.\nThey will gather wherever a lump of this salt is thrown.
+A handy log of wood that can be used for anything,\nfrom crafting common goods needed for daily living\nto producing works of art.
+The king of herbs, glittering and brilliant. Combining\nthis herb with other materials needed to make medicines\nwill boost their efficacy.
+A mysterious balm that gives off a soothing scent.\nIt can be used to help calm the frenzy of the Lady of\nthe Ridge, Lilligant.
+A recipe for crafting Poké Balls from scratch.\nRequired materials: 1 Apricorn and 1 Tumblestone.
+A recipe for crafting Great Balls from scratch.\nRequired materials: 1 Apricorn, 1 Iron Chunk, and\n1 Tumblestone.
+A recipe for crafting Ultra Balls from scratch.\nRequired materials: 1 Apricorn, 2 Iron Chunks, and\n2 Tumblestones.
+A recipe for crafting Feather Balls from scratch.\nRequired materials: 1 Apricorn and 1 Sky Tumblestone.
+A recipe for crafting Pokéshi Dolls from scratch.\nRequired materials: 3 logs of Wood.
+-\n-\n-
+A recipe for crafting Smoke Bombs from scratch.\nRequired materials: 1 Caster Fern leaf and\n1 Sootfoot Root.
+A recipe for crafting Scatter Bangs from scratch.\nRequired materials: 1 Pop Pod and 1 Caster Fern leaf.
+A recipe for crafting Sticky Globs from scratch.\nRequired materials: 1 Spoiled Apricorn, 1 Ball of Mud,\nand 1 Caster Fern leaf.
+A recipe for crafting Star Pieces from scratch.\nRequired materials: 3 Red Shards, 3 Blue Shards,\n3 Green Shards, and 1 bag of Stardust.
+A recipe for crafting Mushroom Cakes from scratch.\nRequired materials: 1 Springy Mushroom and\n1 Cake-Lure Base.
+A wildflower that can be found growing across the Hisui\nregion. It does have medicinal properties, but it is\nso bitter that no wild Pokémon will eat it.
+A recipe for crafting Honey Cakes from scratch.\nRequired materials: 1 comb of Dazzling Honey and\n1 Cake-Lure Base.
+A recipe for crafting Grain Cakes from scratch.\nRequired materials: 1 stalk of Hearty Grains and\n1 Cake-Lure Base.
+A recipe for crafting Bean Cakes from scratch.\nRequired materials: 1 pod of Plump Beans and\n1 Cake-Lure Base.
+A recipe for crafting Salt Cakes from scratch.\nRequired materials: 1 hunk of Crunchy Salt and\n1 Cake-Lure Base.
+A recipe for crafting Potions from scratch.\nRequired materials: 1 Oran Berry and 1 Medicinal Leek.
+A recipe for crafting Super Potions from scratch.\nRequired materials: 1 Potion and 1 Pep-Up Plant.
+A recipe for crafting Hyper Potions from scratch.\nRequired materials: 1 Super Potion and 1 Vivichoke.
+A recipe for crafting Max Potions from scratch.\nRequired materials: 1 Sitrus Berry and 1 bunch of\nKing’s Leaf.
+A recipe for crafting Full Restores from scratch.\nRequired materials: 1 Max Potion and 1 Full Heal.
+A recipe for crafting Remedies from scratch.\nRequired materials: 2 Bugwort blooms.
+A recipe for crafting Fine Remedies from scratch.\nRequired materials: 1 Remedy and 1 Pep-Up Plant.
+A recipe for crafting Superb Remedies from scratch.\nRequired materials: 1 Fine Remedy and 1 Vivichoke.
+A recipe for crafting Old Gateaux from scratch.\nRequired materials: 1 pod of Plump Beans, 1 comb of\nDazzling Honey, 1 Sootfoot Root, and 1 Cake-Lure Base.
+A recipe for crafting Jubilife Muffins from scratch.\nRequired materials: 2 stalks of Hearty Grains,\n2 Hopo Berries, 1 Razz Berry, and 1 Cake-Lure Base.
+A recipe for crafting Full Heals from scratch.\nRequired materials: 1 Cheri Berry, 1 Pecha Berry,\n1 Rawst Berry, and 1 Aspear Berry.
+A recipe for crafting Revives from scratch.\nRequired materials: 1 Vivichoke and 2 Medicinal Leeks.
+A recipe for crafting Max Revives from scratch.\nRequired materials: 1 Revive and 2 bunches of\nKing’s Leaf.
+A recipe for crafting Max Ethers from scratch.\nRequired materials: 1 Leppa Berry and 2 Pep-Up Plants.
+A recipe for crafting Max Elixirs from scratch.\nRequired materials: 1 Max Ether and 2 bunches of\nKing’s Leaf.
+A recipe for crafting Stealth Sprays from scratch.\nRequired materials: 1 Hopo Berry and\n3 Bugwort blooms.
+-\n-\n-
+A recipe for crafting Aux Powers from scratch.\nRequired materials: 2 bunches of Swordcap and\n1 Pep-Up Plant.
+A recipe for crafting Aux Guards from scratch.\nRequired materials: 2 scraps of Iron Barktongue and\n1 Pep-Up Plant.
+A recipe for crafting Dire Hits from scratch.\nRequired materials: 2 Direshrooms and 1 Candy Truffle.
+A recipe for crafting Aux Evasions from scratch.\nRequired materials: 2 bunches of Doppel Bonnets and\n1 Candy Truffle.
+A recipe for crafting Aux Powerguards from scratch.\nRequired materials: 1 Aux Power, 1 Aux Guard, and\n1 bunch of King’s Leaf.
+A mysterious balm that gives off a soothing scent.\nIt can be used to help calm the frenzy of the Lord of\nthe Woods, Kleavor.
+A naturally occurring hunk of iron. Such ore is needed\nto make the requisite parts of numerous Poké Ball\nvarieties, such as the clasp that holds the ball shut.
+-\n-\n-
+When combined with an Apricorn, this mysterious\nblack stone can draw out the properties required\nto forge a Heavy Ball.
+When combined with an Apricorn, this mysterious\nsky-blue stone can draw out the properties required\nto forge a Feather Ball.
+-\n-\n-
+A ball of mud that has become stiff and hard. Hitting a\nPokémon with one may stun the Pokémon, creating an\nopening for you to act.
+-\n-\n-
+A sea vegetable used for crafting Scatter Bangs. If you\nwrap it up so that the air has no way to escape, then\ndeal it a sharp blow, it produces a loud popping noise.
+A tuber used for crafting Smoke Bombs. It can be\nmashed for use in cooking, but it can also be dried and\nground to produce a fine powder.
+An Apricorn that’s had its insides eaten. Hitting a\nPokémon with one may stun the Pokémon, creating an\nopening for you to act.
+A hard ball made of compressed snow. Hitting a\nPokémon with one may stun the Pokémon, creating an\nopening for you to act.
+A ball of some kind of sticky substance. Hitting a\nPokémon with one may stun the Pokémon, creating an\nopening for you to act.
+A glassy black stone that produces a sharp cutting\nedge when split. It’s loved by a certain Pokémon.
+A block of muddy material that can be used as fuel for\nburning when it is dried. It’s loved by a certain Pokémon.
+When used in the field, this spray muffles the sound of\nyour footsteps and makes wild Pokémon less likely to\nnotice you for a short time.
+Required for crafting medicinal compounds. This\nvegetable is found growing across the Hisui region\nand is also known as the wayfarer’s friend.
+Also called a morning-dew bud. It is used as a material\nfor crafting items that can restore vitality to a Pokémon\nthat has fainted.
+Extremely spicy but also highly nutritious. This herb is\nused as a material for crafting items that can restore PP\nto Pokémon or boost their stats.
+-\n-\n-
+-\n-\n-
+A mysterious charm that tends to be lost before any\nother item when you faint in the field. This type of charm\ncomes in five different colors.
+A mysterious charm that tends to be lost before any\nother item when you faint in the field. This type of charm\ncomes in five different colors.
+Mushrooms that, when consumed, cause the muscles\nto swell. They imbue the eater with strength and are\none of the materials needed for crafting Aux Powers.
+Mushrooms that, when consumed, make the body of\nthe eater grow tougher. They boost endurance and are\none of the materials needed for crafting Aux Guards.
+Mushrooms that, when consumed, make the eater feel\nnimble and agile as a fleeting shadow. They are one\nof the materials needed for crafting Aux Evasions.
+Mushrooms that, when consumed, sharpen the eater’s\nfocus. They make it easier to land critical hits and are\none of the materials needed for crafting Dire Hits.
+This bitter root, originally native to sandy beaches, can\nnow be raised even in frozen soil. It is pickled to make a\nsweet and spicy treat known as Twice-Spiced Radishes.
+A mysterious charm that tends to be lost before any\nother item when you faint in the field. This type of charm\ncomes in five different colors.
+A mysterious charm that tends to be lost before any\nother item when you faint in the field. This type of charm\ncomes in five different colors.
+A sweet-fleshed truffle that is packed full of mysterious\nenergy. It is one of the materials needed for crafting\nvarious items.
+A type of field provision that enhances the flavor of\nother foods it is mixed with.
+A mysterious ball that can be thrown at wild Pokémon\nin order to catch them. These balls can be crafted by\nhand if you gather the necessary materials.
+A mysterious ball that provides a higher success rate\nfor catching Pokémon than a standard Poké Ball does.
+A mysterious ball that provides an even higher success\nrate for catching Pokémon than a Great Ball does.
+A ball that flies fast and true-ideal for catching nimble\nPokémon or Pokémon that fly high in the air.
+-\n-\n-
+-\n-\n-
+When thrown at the ground, these balls produce a loud\nnoise and scare off low-level Pokémon in the area,\nsending them running.
+When thrown at the ground, these balls produce a cloud\nof fine powder that will reduce visibility in the area and\nkeep wild Pokémon from noticing you.
+-\n-\n-
+-\n-\n-
+A wooden toy carved in the image of a Pokémon. It can\nbe sold to the general store.
+A mysterious balm that gives off a soothing scent.\nIt can be used to help calm the frenzy of the Lord of\nthe Isles, Arcanine.
+A mysterious balm that gives off a soothing scent.\nIt can be used to help calm the frenzy of the Lord of\nthe Hollow, Electrode.
+A mysterious balm that gives off a soothing scent.\nIt can be used to help calm the frenzy of the Lord of\nthe Tundra, Avalugg.
+A cake made by combining honey with a Cake-Lure\nBase. These cakes are potently effective at attracting\nbug Pokémon and also those with fairylike charms.
+A cake made by combining grains with a Cake-Lure Base.\nThese cakes are potently effective at attracting Pokémon\nthat dwell and wander among the fields.
+A cake made by combining beans with a Cake-Lure\nBase. These cakes are potently effective at attracting fish\nPokémon, as well as bird Pokémon and their flying ilk.
+A cake made by combining mushrooms with a Cake-Lure\nBase. These cakes are potently effective at attracting the\nmore monstrous Pokémon, as well as dragon Pokémon.
+A cake made by combining salt with a Cake-Lure Base.\nThese cakes are potently effective at attracting Pokémon\nthat bear a resemblance to grass, plants, or minerals.
+A recipe for crafting Swap Snacks from scratch.\nRequired materials: 1 Candy Truffle, 1 Sootfoot Root,\n1 Springy Mushroom, and 1 Hopo Berry.
+A recipe for crafting Choice Dumplings from scratch.\nRequired materials: 3 Caster Fern leaves, 1 Direshroom,\n1 bunch of Swordcap, and 2 stalks of Hearty Grains.
+A recipe for crafting Twice-Spiced Radishes from scratch.\nRequired materials: 2 Sand Radishes, 2 hunks of Crunchy\nSalt, 2 pods of Plump Beans, and 2 bunches of King’s Leaf.
+A mysterious charm that holds the power to protect\na person from fainting while out in the field. This type\nof charm comes in five different colors.
+A mysterious charm that holds the power to protect\na person from fainting while out in the field. This type\nof charm comes in five different colors.
+A mysterious charm that holds the power to protect\na person from fainting while out in the field. This type\nof charm comes in five different colors.
+A mysterious charm that holds the power to protect\na person from fainting while out in the field. This type\nof charm comes in five different colors.
+A mysterious charm that holds the power to protect\na person from fainting while out in the field. This type\nof charm comes in five different colors.
+An old, stab-bound diary in a traditional style. It has\nbeen torn and is missing the latter half of its pages.
+A mysterious charm that holds the power to protect\na person from being afflicted with status conditions.\nThis type of charm comes in five different colors.
+A mysterious charm that holds the power to protect\na person from being afflicted with status conditions.\nThis type of charm comes in five different colors.
+A mysterious charm that holds the power to protect\na person from being afflicted with status conditions.\nThis type of charm comes in five different colors.
+A mysterious charm that holds the power to protect\na person from being afflicted with status conditions.\nThis type of charm comes in five different colors.
+A mysterious charm that holds the power to protect\na person from being afflicted with status conditions.\nThis type of charm comes in five different colors.
+A fragment that was once part of a stone panel in the\nSolaceon Ruins. It has markings carved on it that appear\nto be some kind of writing.
+A favored food of Basculegion, a Pokémon that will bear\nyou on its back. This food is crafted in an unusual way,\nfrom ingredients gathered via equally unusual methods.
+A stab-bound journal that once had pages torn from it.\nAll the pages have been collected and restored.
+An improvement on the original Feather Ball design. A\nball that flies fast and true-ideal for catching nimble\nPokémon or Pokémon that fly high in the air.
+The ultimate iteration of the Feather Ball. A ball that\nflies fast and true-ideal for catching nimble Pokémon\nor Pokémon that fly high in the air.
+A ball that is too heavy to fly high or far, but it is highly\neffective if you manage to hit an unsuspecting Pokémon.
+An improvement on the original Heavy Ball design.\nA ball that is too heavy to fly high or far, but it is highly\neffective if you manage to hit an unsuspecting Pokémon.
+The ultimate iteration of the Heavy Ball. A ball that is\ntoo heavy to fly high or far, but it is highly effective if\nyou manage to hit an unsuspecting Pokémon.
+A recipe for crafting Wing Balls from scratch.\nRequired materials: 1 Apricorn, 1 Sky Tumblestone,\nand 1 Iron Chunk.
+A recipe for crafting Jet Balls from scratch.\nRequired materials: 1 Apricorn, 2 Sky Tumblestones,\nand 2 Iron Chunks.
+A recipe for crafting Heavy Balls from scratch.\nRequired materials: 1 Apricorn and 1 Black Tumblestone.
+A Berry that can be fed to a Pokémon to restore its PP.\nIf a wild Pokémon eats one of these Berries, that\nPokémon’s reactions will be dulled.
+An herbal medicine that can restore 150 HP to a\nPokémon, just as a Hyper Potion does. Yet the bitter\ntaste will make the Pokémon less friendly toward you.
+An item that sharply boosts the offensive stats of a\nPokémon in battle. These effects disappear if the\nPokémon leaves the battle.
+An item that sharply boosts the defensive stats of a\nPokémon in battle. These effects disappear if the\nPokémon leaves the battle.
+An item that makes moves less likely to strike a\nPokémon in battle. This effect disappears if the\nPokémon leaves the battle.
+Mysterious dust that can raise the effort level for one of\na Pokémon’s stats. It can be used to raise effort levels\nonly up to level three, however.
+Mysterious gravel that can raise the effort level for one\nof a Pokémon’s stats. It can be used only if the effort\nlevel is at least level three and no greater than level five.
+A mysterious pebble that can raise the effort level for\none of a Pokémon’s stats. It can be used only if the effort\nlevel is at least level six and no greater than level eight.
+A mysterious rock that can raise the effort level for one\nof a Pokémon’s stats. It can be used only if the effort\nlevel has already reached level nine.
+An astonishing medicine that can instantly restore health\nto any Pokémon. It is produced by an apothecary in\nCianwood City.
+A mysterious charm that tends to be lost before any\nother item when you faint in the field. This type of charm\ncomes in five different colors.
+A satchel that someone dropped.
+A satchel that someone dropped.
+A satchel that someone dropped.
+A satchel that someone dropped.
+A satchel that someone dropped.
+-\n-\n-
+A singular and irreplicable Poké Ball that can be used\nto catch the frenzied Pokémon raging at the Temple\nof Sinnoh.
+-\n-\n-
+-\n-\n-
+-\n-\n-
+-\n-\n-
+An ore of mysterious power, spoken of in ancient myths\nand said to contain the power of almighty Sinnoh itself.
+An item to be held by Dialga. This large, glowing gem\nwells with power and allows the Pokémon to change\nform.
+An item to be held by Palkia. This large, glowing orb\nwells with power and allows the Pokémon to change\nform.
+An item to be held by Giratina. This large, glowing gem\nwells with power and allows the Pokémon to change\nform.
+A stone tablet imbued with the essence of normalcy.\nWhen used on a certain Pokémon, it allows that\nPokémon to gain the power of the Normal type.
+-\n-\n-
+A kit containing everything you might need for crafting,\neven when there is no workbench around. However, you\ncan only use the materials you have in your satchel.
+A recipe for crafting Leaden Balls from scratch.\nRequired materials: 1 Apricorn, 1 Black Tumblestone,\nand 1 Iron Chunk.
+A recipe for crafting Gigaton Balls from scratch.\nRequired materials: 1 Apricorn, 2 Black Tumblestones,\nand 2 Iron Chunks.
+-\n-\n-
+A volume for compiling the collected results of much\nPokémon research. Professor Laventon continually adds\nto it with each report made on new Pokémon species.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+-\n-\n-
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+Part of a series of old poems that have been unearthed\naround the Hisui region. Judging from the handwriting,\nit appears they were all written by the same person.
+A small shard that emanates an enigmatic power.\nInside the shard, you can see a pattern that looks like\nRamanas roses.
+A large shard that emanates an enigmatic power.\nInside the shard, you can see a pattern that looks like\nRamanas roses.
+A single-use drill to bore a hole in the wall for your\nSecret Base.
+A slate overflowing with enigmatic energy. You can feel\na strong connection between it and the Kanto Room at\nRamanas Park.
+A slate overflowing with enigmatic energy. You can feel\na strong connection between it and the Johto Room at\nRamanas Park.
+A slate overflowing with enigmatic energy. You can feel\na strong connection between it and the Soul Room at\nRamanas Park.
+A slate overflowing with enigmatic energy. You can feel\na strong connection between it and the Rainbow Room\nat Ramanas Park.
+A slate overflowing with enigmatic energy. You can feel\na strong connection between it and the Squall Room at\nRamanas Park.
+A slate overflowing with enigmatic energy. You can feel\na strong connection between it and the Oceanic Room\nat Ramanas Park.
+A slate overflowing with enigmatic energy. You can feel\na strong connection between it and the Tectonic Room\nat Ramanas Park.
+A slate overflowing with enigmatic energy. You can feel\na strong connection between it and the Stratospheric\nRoom at Ramanas Park.
+A slate overflowing with enigmatic energy. You can feel\na strong connection between it and the Genome Room\nat Ramanas Park.
+A slate overflowing with enigmatic energy. You can feel\na strong connection between it and the Discovery Room\nat Ramanas Park.
+A slate overflowing with enigmatic energy. You can feel\na strong connection between it and the Distortion Room\nat Ramanas Park.
+A music player that allows you to listen to nostalgic\nsongs. It’s operated with the flip of a single switch.
+-\n-\n-
+-\n-\n-
+-\n-\n-
+-\n-\n-
+-\n-\n-
+A stone tablet imbued with the essence of all creation.\nWhen used on a certain Pokémon, it allows that\nPokémon to gain the power of every type there is.

@@ -59,6 +59,10 @@ void LONG_CALL DestroyMsgData(MsgData * msgData);
 void LONG_CALL CopyU16ArrayToString(String *string, const u16 *src);
 void LONG_CALL CopyStringToU16Array(const String *string, u16 *dest, u32 n);
 void LONG_CALL SetStringAsPlaceholder(MessageFormat *msgFmt, u32 fieldno, const String *string, const MessageFormatAttrs *attrs);
-void LONG_CALL BufferItemNameFromNarc(MessageFormat *msgFmt, u32 fieldno, u32 itemId, u32 narc);
+void BufferItemNameFromNarc(MessageFormat *msgFmt, u32 fieldno, u32 itemId, u32 narc);
+void LONG_CALL BufferItemName(MessageFormat *msgFmt, u32 fieldno, u32 itemId);
+void LONG_CALL BufferItemNameWithArticle(MessageFormat *msgFmt, u32 fieldno, u32 itemId);
+void LONG_CALL BufferItemNamePlural(MessageFormat *msgFmt, u32 fieldno, u32 itemId);
+void LONG_CALL BufferItemNameGiveItem(MessageFormat *msgFmt, u32 fieldno, u32 itemId);
 
 #endif //POKEHEARTGOLD_MSGDATA_H

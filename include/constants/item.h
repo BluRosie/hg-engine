@@ -2591,6 +2591,14 @@
 
 #define IS_ITEM_MASK(item) (item >= ITEM_CORNERSTONE_MASK && item <= ITEM_HEARTHFLAME_MASK)
 
+#define IS_ITEM_GEN4(id)   ((id) <= ITEM_ENIGMA_STONE)
+#define IS_ITEM_GEN5(id)   ((id) > ITEM_ENIGMA_STONE && (id) <= ITEM_REVEAL_GLASS)
+#define IS_ITEM_GEN6(id)   ((id) > ITEM_REVEAL_GLASS && (id) <= ITEM_EON_FLUTE)
+#define IS_ITEM_GEN7(id)   ((id) > ITEM_EON_FLUTE && (id) <= ITEM_UNKNOWN_1073)
+#define IS_ITEM_GEN8(id)   ((id) > ITEM_UNKNOWN_1073 && (id) <= ITEM_LEGEND_PLATE)
+#define IS_ITEM_GEN9(id)   ((id) > ITEM_LEGEND_PLATE && (id) <= ITEM_BRIARS_BOOK)
+#define IS_ITEM_CUSTOM(id) ((id) > ITEM_BRIARS_BOOK)
+
 #define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
 #define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
 

@@ -1,4 +1,4 @@
-None
+???
 a {COLOR 255}Master Ball{COLOR 0}
 an {COLOR 255}Ultra Ball{COLOR 0}
 a {COLOR 255}Great Ball{COLOR 0}
@@ -28,30 +28,30 @@ a {COLOR 255}Super Potion{COLOR 0}
 a {COLOR 255}Full Heal{COLOR 0}
 a {COLOR 255}Revive{COLOR 0}
 a {COLOR 255}Max Revive{COLOR 0}
-a {COLOR 255}bottle of Fresh Water{COLOR 0}
-a {COLOR 255}bottle of Soda Pop{COLOR 0}
-a {COLOR 255}can of Lemonade{COLOR 0}
-a {COLOR 255}bottle of Moomoo Milk{COLOR 0}
-a {COLOR 255}dose of Energy Powder{COLOR 0}
+a {COLOR 255}Fresh Water{COLOR 0}
+a {COLOR 255}Soda Pop{COLOR 0}
+a {COLOR 255}Lemonade{COLOR 0}
+a {COLOR 255}Moomoo Milk{COLOR 0}
+an {COLOR 255}Energy Powder{COLOR 0}
 an {COLOR 255}Energy Root{COLOR 0}
-a {COLOR 255}dose of Heal Powder{COLOR 0}
+a {COLOR 255}Heal Powder{COLOR 0}
 a {COLOR 255}Revival Herb{COLOR 0}
 an {COLOR 255}Ether{COLOR 0}
 a {COLOR 255}Max Ether{COLOR 0}
 an {COLOR 255}Elixir{COLOR 0}
 a {COLOR 255}Max Elixir{COLOR 0}
 a {COLOR 255}Lava Cookie{COLOR 0}
-a {COLOR 255}cup of Berry Juice{COLOR 0}
-a {COLOR 255}bag of Sacred Ash{COLOR 0}
-a {COLOR 255}bottle of HP Up{COLOR 0}
-a {COLOR 255}bottle of Protein{COLOR 0}
-a {COLOR 255}bottle of Iron{COLOR 0}
-a {COLOR 255}bottle of Carbos{COLOR 0}
-a {COLOR 255}bottle of Calcium{COLOR 0}
+a {COLOR 255}Berry Juice{COLOR 0}
+a {COLOR 255}Sacred Ash{COLOR 0}
+an {COLOR 255}HP Up{COLOR 0}
+a {COLOR 255}Protein{COLOR 0}
+an {COLOR 255}Iron{COLOR 0}
+a {COLOR 255}Carbos{COLOR 0}
+a {COLOR 255}Calcium{COLOR 0}
 a {COLOR 255}Rare Candy{COLOR 0}
-a {COLOR 255}bottle of PP Up{COLOR 0}
-a {COLOR 255}bottle of Zinc{COLOR 0}
-a {COLOR 255}bottle of PP Max{COLOR 0}
+a {COLOR 255}PP Up{COLOR 0}
+a {COLOR 255}Zinc{COLOR 0}
+a {COLOR 255}PP Max{COLOR 0}
 an {COLOR 255}Old Gateau{COLOR 0}
 a {COLOR 255}Guard Spec.{COLOR 0}
 a {COLOR 255}Dire Hit{COLOR 0}
@@ -68,7 +68,7 @@ a {COLOR 255}Yellow Flute{COLOR 0}
 a {COLOR 255}Red Flute{COLOR 0}
 a {COLOR 255}Black Flute{COLOR 0}
 a {COLOR 255}White Flute{COLOR 0}
-a {COLOR 255}pile of Shoal Salt{COLOR 0}
+a {COLOR 255}Shoal Salt{COLOR 0}
 a {COLOR 255}Shoal Shell{COLOR 0}
 a {COLOR 255}Red Shard{COLOR 0}
 a {COLOR 255}Blue Shard{COLOR 0}
@@ -88,15 +88,15 @@ a {COLOR 255}Tiny Mushroom{COLOR 0}
 a {COLOR 255}Big Mushroom{COLOR 0}
 a {COLOR 255}Pearl{COLOR 0}
 a {COLOR 255}Big Pearl{COLOR 0}
-a {COLOR 255}bag of Stardust{COLOR 0}
+a {COLOR 255}Stardust{COLOR 0}
 a {COLOR 255}Star Piece{COLOR 0}
 a {COLOR 255}Nugget{COLOR 0}
 a {COLOR 255}Heart Scale{COLOR 0}
-a {COLOR 255}jar of Honey{COLOR 0}
-a {COLOR 255}bag of Growth Mulch{COLOR 0}
-a {COLOR 255}bag of Damp Mulch{COLOR 0}
-a {COLOR 255}bag of Stable Mulch{COLOR 0}
-a {COLOR 255}bag of Gooey Mulch{COLOR 0}
+a {COLOR 255}Honey{COLOR 0}
+a {COLOR 255}Growth Mulch{COLOR 0}
+a {COLOR 255}Damp Mulch{COLOR 0}
+a {COLOR 255}Stable Mulch{COLOR 0}
+a {COLOR 255}Gooey Mulch{COLOR 0}
 a {COLOR 255}Root Fossil{COLOR 0}
 a {COLOR 255}Claw Fossil{COLOR 0}
 a {COLOR 255}Helix Fossil{COLOR 0}
@@ -111,7 +111,7 @@ a {COLOR 255}Dawn Stone{COLOR 0}
 an {COLOR 255}Oval Stone{COLOR 0}
 an {COLOR 255}Odd Keystone{COLOR 0}
 a {COLOR 255}Griseous Orb{COLOR 0}
-a {COLOR 255}cup of Tea{COLOR 0}
+a {COLOR 255}Tea{COLOR 0}
 ???
 an {COLOR 255}Autograph{COLOR 0}
 a {COLOR 255}Douse Drive{COLOR 0}
@@ -135,18 +135,18 @@ a {COLOR 255}Battle Pocket{COLOR 0}
 a {COLOR 255}Sweet Heart{COLOR 0}
 an {COLOR 255}Adamant Orb{COLOR 0}
 a {COLOR 255}Lustrous Orb{COLOR 0}
-a {COLOR 255}piece of Greet Mail{COLOR 0}
-a {COLOR 255}piece of Favored Mail{COLOR 0}
-a {COLOR 255}piece of RSVP Mail{COLOR 0}
-a {COLOR 255}piece of Thanks Mail{COLOR 0}
-a {COLOR 255}piece of Inquiry Mail{COLOR 0}
-a {COLOR 255}piece of Like Mail{COLOR 0}
-a {COLOR 255}piece of Reply Mail{COLOR 0}
-a {COLOR 255}piece of Bridge Mail S{COLOR 0}
-a {COLOR 255}piece of Bridge Mail D{COLOR 0}
-a {COLOR 255}piece of Bridge Mail T{COLOR 0}
-a {COLOR 255}piece of Bridge Mail V{COLOR 0}
-a {COLOR 255}piece of Bridge Mail M{COLOR 0}
+a {COLOR 255}Greet Mail{COLOR 0}
+a {COLOR 255}Favored Mail{COLOR 0}
+a {COLOR 255}RSVP Mail{COLOR 0}
+a {COLOR 255}Thanks Mail{COLOR 0}
+an {COLOR 255}Inquiry Mail{COLOR 0}
+a {COLOR 255}Like Mail{COLOR 0}
+a {COLOR 255}Reply Mail{COLOR 0}
+a {COLOR 255}Bridge Mail S{COLOR 0}
+a {COLOR 255}Bridge Mail D{COLOR 0}
+a {COLOR 255}Bridge Mail T{COLOR 0}
+a {COLOR 255}Bridge Mail V{COLOR 0}
+a {COLOR 255}Bridge Mail M{COLOR 0}
 a {COLOR 255}Cheri Berry{COLOR 0}
 a {COLOR 255}Chesto Berry{COLOR 0}
 a {COLOR 255}Pecha Berry{COLOR 0}
@@ -211,7 +211,7 @@ a {COLOR 255}Micle Berry{COLOR 0}
 a {COLOR 255}Custap Berry{COLOR 0}
 a {COLOR 255}Jaboca Berry{COLOR 0}
 a {COLOR 255}Rowap Berry{COLOR 0}
-a {COLOR 255}bag of Bright Powder{COLOR 0}
+a {COLOR 255}Bright Powder{COLOR 0}
 a {COLOR 255}White Herb{COLOR 0}
 a {COLOR 255}Macho Brace{COLOR 0}
 an {COLOR 255}Exp. Share{COLOR 0}
@@ -220,7 +220,7 @@ a {COLOR 255}Soothe Bell{COLOR 0}
 a {COLOR 255}Mental Herb{COLOR 0}
 a {COLOR 255}Choice Band{COLOR 0}
 a {COLOR 255}King’s Rock{COLOR 0}
-a {COLOR 255}pile of Silver Powder{COLOR 0}
+a {COLOR 255}Silver Powder{COLOR 0}
 an {COLOR 255}Amulet Coin{COLOR 0}
 a {COLOR 255}Cleanse Tag{COLOR 0}
 a {COLOR 255}Soul Dew{COLOR 0}
@@ -232,30 +232,30 @@ a {COLOR 255}Focus Band{COLOR 0}
 a {COLOR 255}Lucky Egg{COLOR 0}
 a {COLOR 255}Scope Lens{COLOR 0}
 a {COLOR 255}Metal Coat{COLOR 0}
-the {COLOR 255}serving of Leftovers{COLOR 0}
+the {COLOR 255}Leftovers{COLOR 0}
 a {COLOR 255}Dragon Scale{COLOR 0}
 a {COLOR 255}Light Ball{COLOR 0}
-a {COLOR 255}bag of Soft Sand{COLOR 0}
+a {COLOR 255}Soft Sand{COLOR 0}
 a {COLOR 255}Hard Stone{COLOR 0}
 a {COLOR 255}Miracle Seed{COLOR 0}
-the {COLOR 255}pair of Black Glasses{COLOR 0}
+the {COLOR 255}Black Glasses{COLOR 0}
 a {COLOR 255}Black Belt{COLOR 0}
 a {COLOR 255}Magnet{COLOR 0}
 a {COLOR 255}Mystic Water{COLOR 0}
 a {COLOR 255}Sharp Beak{COLOR 0}
 a {COLOR 255}Poison Barb{COLOR 0}
-a {COLOR 255}piece of Never-Melt Ice{COLOR 0}
+a {COLOR 255}Never-Melt Ice{COLOR 0}
 a {COLOR 255}Spell Tag{COLOR 0}
 a {COLOR 255}Twisted Spoon{COLOR 0}
-a {COLOR 255}piece of Charcoal{COLOR 0}
+a {COLOR 255}Charcoal{COLOR 0}
 a {COLOR 255}Dragon Fang{COLOR 0}
 a {COLOR 255}Silk Scarf{COLOR 0}
 an {COLOR 255}Upgrade{COLOR 0}
 a {COLOR 255}Shell Bell{COLOR 0}
-a {COLOR 255}jar of Sea Incense{COLOR 0}
-a {COLOR 255}jar of Lax Incense{COLOR 0}
+a {COLOR 255}Sea Incense{COLOR 0}
+a {COLOR 255}Lax Incense{COLOR 0}
 a {COLOR 255}Lucky Punch{COLOR 0}
-a {COLOR 255}bag of Metal Powder{COLOR 0}
+a {COLOR 255}Metal Powder{COLOR 0}
 a {COLOR 255}Thick Club{COLOR 0}
 a {COLOR 255}Leek{COLOR 0}
 a {COLOR 255}Red Scarf{COLOR 0}
@@ -265,21 +265,21 @@ a {COLOR 255}Green Scarf{COLOR 0}
 a {COLOR 255}Yellow Scarf{COLOR 0}
 a {COLOR 255}Wide Lens{COLOR 0}
 a {COLOR 255}Muscle Band{COLOR 0}
-the {COLOR 255}pair of Wise Glasses{COLOR 0}
+the {COLOR 255}Wise Glasses{COLOR 0}
 an {COLOR 255}Expert Belt{COLOR 0}
-a {COLOR 255}lump of Light Clay{COLOR 0}
+a {COLOR 255}Light Clay{COLOR 0}
 a {COLOR 255}Life Orb{COLOR 0}
 a {COLOR 255}Power Herb{COLOR 0}
 a {COLOR 255}Toxic Orb{COLOR 0}
 a {COLOR 255}Flame Orb{COLOR 0}
-a {COLOR 255}bag of Quick Powder{COLOR 0}
+a {COLOR 255}Quick Powder{COLOR 0}
 a {COLOR 255}Focus Sash{COLOR 0}
 a {COLOR 255}Zoom Lens{COLOR 0}
 a {COLOR 255}Metronome{COLOR 0}
 an {COLOR 255}Iron Ball{COLOR 0}
 a {COLOR 255}Lagging Tail{COLOR 0}
 a {COLOR 255}Destiny Knot{COLOR 0}
-a {COLOR 255}blob of Black Sludge{COLOR 0}
+a {COLOR 255}Black Sludge{COLOR 0}
 an {COLOR 255}Icy Rock{COLOR 0}
 a {COLOR 255}Smooth Rock{COLOR 0}
 a {COLOR 255}Heat Rock{COLOR 0}
@@ -295,7 +295,7 @@ a {COLOR 255}Power Anklet{COLOR 0}
 a {COLOR 255}Power Weight{COLOR 0}
 a {COLOR 255}Shed Shell{COLOR 0}
 a {COLOR 255}Big Root{COLOR 0}
-the {COLOR 255}pair of Choice Specs{COLOR 0}
+the {COLOR 255}Choice Specs{COLOR 0}
 a {COLOR 255}Flame Plate{COLOR 0}
 a {COLOR 255}Splash Plate{COLOR 0}
 a {COLOR 255}Zap Plate{COLOR 0}
@@ -312,18 +312,18 @@ a {COLOR 255}Spooky Plate{COLOR 0}
 a {COLOR 255}Draco Plate{COLOR 0}
 a {COLOR 255}Dread Plate{COLOR 0}
 an {COLOR 255}Iron Plate{COLOR 0}
-a {COLOR 255}jar of Odd Incense{COLOR 0}
-a {COLOR 255}jar of Rock Incense{COLOR 0}
-a {COLOR 255}jar of Full Incense{COLOR 0}
-a {COLOR 255}jar of Wave Incense{COLOR 0}
-a {COLOR 255}jar of Rose Incense{COLOR 0}
-a {COLOR 255}jar of Luck Incense{COLOR 0}
-a {COLOR 255}jar of Pure Incense{COLOR 0}
+an {COLOR 255}Odd Incense{COLOR 0}
+a {COLOR 255}Rock Incense{COLOR 0}
+a {COLOR 255}Full Incense{COLOR 0}
+a {COLOR 255}Wave Incense{COLOR 0}
+a {COLOR 255}Rose Incense{COLOR 0}
+a {COLOR 255}Luck Incense{COLOR 0}
+a {COLOR 255}Pure Incense{COLOR 0}
 a {COLOR 255}Protector{COLOR 0}
 an {COLOR 255}Electirizer{COLOR 0}
 a {COLOR 255}Magmarizer{COLOR 0}
 a {COLOR 255}Dubious Disc{COLOR 0}
-a {COLOR 255}scrap of Reaper Cloth{COLOR 0}
+a {COLOR 255}Reaper Cloth{COLOR 0}
 a {COLOR 255}Razor Claw{COLOR 0}
 a {COLOR 255}Razor Fang{COLOR 0}
 a {COLOR 255}TM001{COLOR 0}
@@ -450,7 +450,7 @@ a {COLOR 255}Sprayduck{COLOR 0}
 a {COLOR 255}Poffin Case{COLOR 0}
 a {COLOR 255}Bike{COLOR 0}
 a {COLOR 255}Suite Key{COLOR 0}
-an {COLOR 255}Oak’s Letter{COLOR 0}
+{COLOR 255}Oak’s Letter{COLOR 0}
 a {COLOR 255}Lunar Feather{COLOR 0}
 a {COLOR 255}Member Card{COLOR 0}
 an {COLOR 255}Azure Flute{COLOR 0}
@@ -462,7 +462,7 @@ a {COLOR 255}Coupon 1{COLOR 0}
 a {COLOR 255}Coupon 2{COLOR 0}
 a {COLOR 255}Coupon 3{COLOR 0}
 a {COLOR 255}Storage Key{COLOR 0}
-a {COLOR 255}dose of Secret Medicine{COLOR 0}
+a {COLOR 255}Secret Medicine{COLOR 0}
 a {COLOR 255}Vs. Recorder{COLOR 0}
 a {COLOR 255}Gracidea{COLOR 0}
 a {COLOR 255}Secret Key{COLOR 0}

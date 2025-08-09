@@ -320,7 +320,7 @@ BOOL ScrCmd_BufferItemName(SCRIPTCONTEXT *ctx) {
     u8 idx = ScriptReadByte(ctx);
     u16 itemId = ScriptGetVar(ctx);
 
-    BufferItemNameFromNarc(*msgFmt, idx, itemId, MSG_DATA_GIVE_ITEM);
+    BufferItemNameGiveItem(*msgFmt, idx, itemId);
 
     return FALSE;
 }

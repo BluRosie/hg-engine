@@ -1,0 +1,537 @@
+None
+Master Ball
+Ultra Ball
+Great Ball
+Poké Ball
+Safari Ball
+Net Ball
+Dive Ball
+Nest Ball
+Repeat Ball
+Timer Ball
+Luxury Ball
+Premier Ball
+Dusk Ball
+Heal Ball
+Quick Ball
+Cherish Ball
+Potion
+Antidote
+Burn Heal
+Ice Heal
+Awakening
+Paralyze Heal
+Full Restore
+Max Potion
+Hyper Potion
+Super Potion
+Full Heal
+Revive
+Max Revive
+Fresh Water
+Soda Pop
+Lemonade
+Moomoo Milk
+Energy Powder
+Energy Root
+Heal Powder
+Revival Herb
+Ether
+Max Ether
+Elixir
+Max Elixir
+Lava Cookie
+Berry Juice
+Sacred Ash
+HP Up
+Protein
+Iron
+Carbos
+Calcium
+Rare Candy
+PP Up
+Zinc
+PP Max
+Old Gateau
+Guard Spec.
+Dire Hit
+X Attack
+X Defense
+X Speed
+X Accuracy
+X Sp. Atk
+X Sp. Def
+Poké Doll
+Fluffy Tail
+Blue Flute
+Yellow Flute
+Red Flute
+Black Flute
+White Flute
+Shoal Salt
+Shoal Shell
+Red Shard
+Blue Shard
+Yellow Shard
+Green Shard
+Super Repel
+Max Repel
+Escape Rope
+Repel
+Sun Stone
+Moon Stone
+Fire Stone
+Thunder Stone
+Water Stone
+Leaf Stone
+Tiny Mushroom
+Big Mushroom
+Pearl
+Big Pearl
+Stardust
+Star Piece
+Nugget
+Heart Scale
+Honey
+Growth Mulch
+Damp Mulch
+Stable Mulch
+Gooey Mulch
+Root Fossil
+Claw Fossil
+Helix Fossil
+Dome Fossil
+Old Amber
+Armor Fossil
+Skull Fossil
+Rare Bone
+Shiny Stone
+Dusk Stone
+Dawn Stone
+Oval Stone
+Odd Keystone
+Griseous Orb
+Tea
+???
+Autograph
+Douse Drive
+Shock Drive
+Burn Drive
+Chill Drive
+???
+Pokémon Box Link
+Medicine Pocket
+TM Case
+Candy Jar
+Power-Up Pocket
+Clothing Trunk
+Catching Pocket
+Battle Pocket
+???
+???
+???
+???
+???
+Sweet Heart
+Adamant Orb
+Lustrous Orb
+Greet Mail
+Favored Mail
+RSVP Mail
+Thanks Mail
+Inquiry Mail
+Like Mail
+Reply Mail
+Bridge Mail S
+Bridge Mail D
+Bridge Mail T
+Bridge Mail V
+Bridge Mail M
+Cheri Berry
+Chesto Berry
+Pecha Berry
+Rawst Berry
+Aspear Berry
+Leppa Berry
+Oran Berry
+Persim Berry
+Lum Berry
+Sitrus Berry
+Figy Berry
+Wiki Berry
+Mago Berry
+Aguav Berry
+Iapapa Berry
+Razz Berry
+Bluk Berry
+Nanab Berry
+Wepear Berry
+Pinap Berry
+Pomeg Berry
+Kelpsy Berry
+Qualot Berry
+Hondew Berry
+Grepa Berry
+Tamato Berry
+Cornn Berry
+Magost Berry
+Rabuta Berry
+Nomel Berry
+Spelon Berry
+Pamtre Berry
+Watmel Berry
+Durin Berry
+Belue Berry
+Occa Berry
+Passho Berry
+Wacan Berry
+Rindo Berry
+Yache Berry
+Chople Berry
+Kebia Berry
+Shuca Berry
+Coba Berry
+Payapa Berry
+Tanga Berry
+Charti Berry
+Kasib Berry
+Haban Berry
+Colbur Berry
+Babiri Berry
+Chilan Berry
+Liechi Berry
+Ganlon Berry
+Salac Berry
+Petaya Berry
+Apicot Berry
+Lansat Berry
+Starf Berry
+Enigma Berry
+Micle Berry
+Custap Berry
+Jaboca Berry
+Rowap Berry
+Bright Powder
+White Herb
+Macho Brace
+Exp. Share
+Quick Claw
+Soothe Bell
+Mental Herb
+Choice Band
+King’s Rock
+Silver Powder
+Amulet Coin
+Cleanse Tag
+Soul Dew
+Deep Sea Tooth
+Deep Sea Scale
+Smoke Ball
+Everstone
+Focus Band
+Lucky Egg
+Scope Lens
+Metal Coat
+Leftovers
+Dragon Scale
+Light Ball
+Soft Sand
+Hard Stone
+Miracle Seed
+Black Glasses
+Black Belt
+Magnet
+Mystic Water
+Sharp Beak
+Poison Barb
+Never-Melt Ice
+Spell Tag
+Twisted Spoon
+Charcoal
+Dragon Fang
+Silk Scarf
+Upgrade
+Shell Bell
+Sea Incense
+Lax Incense
+Lucky Punch
+Metal Powder
+Thick Club
+Leek
+Red Scarf
+Blue Scarf
+Pink Scarf
+Green Scarf
+Yellow Scarf
+Wide Lens
+Muscle Band
+Wise Glasses
+Expert Belt
+Light Clay
+Life Orb
+Power Herb
+Toxic Orb
+Flame Orb
+Quick Powder
+Focus Sash
+Zoom Lens
+Metronome
+Iron Ball
+Lagging Tail
+Destiny Knot
+Black Sludge
+Icy Rock
+Smooth Rock
+Heat Rock
+Damp Rock
+Grip Claw
+Choice Scarf
+Sticky Barb
+Power Bracer
+Power Belt
+Power Lens
+Power Band
+Power Anklet
+Power Weight
+Shed Shell
+Big Root
+Choice Specs
+Flame Plate
+Splash Plate
+Zap Plate
+Meadow Plate
+Icicle Plate
+Fist Plate
+Toxic Plate
+Earth Plate
+Sky Plate
+Mind Plate
+Insect Plate
+Stone Plate
+Spooky Plate
+Draco Plate
+Dread Plate
+Iron Plate
+Odd Incense
+Rock Incense
+Full Incense
+Wave Incense
+Rose Incense
+Luck Incense
+Pure Incense
+Protector
+Electirizer
+Magmarizer
+Dubious Disc
+Reaper Cloth
+Razor Claw
+Razor Fang
+TM001
+TM002
+TM003
+TM004
+TM005
+TM006
+TM007
+TM008
+TM009
+TM010
+TM011
+TM012
+TM013
+TM014
+TM015
+TM016
+TM017
+TM018
+TM019
+TM020
+TM021
+TM022
+TM023
+TM024
+TM025
+TM026
+TM027
+TM028
+TM029
+TM030
+TM031
+TM032
+TM033
+TM034
+TM035
+TM036
+TM037
+TM038
+TM039
+TM040
+TM041
+TM042
+TM043
+TM044
+TM045
+TM046
+TM047
+TM048
+TM049
+TM050
+TM051
+TM052
+TM053
+TM054
+TM055
+TM056
+TM057
+TM058
+TM059
+TM060
+TM061
+TM062
+TM063
+TM064
+TM065
+TM066
+TM067
+TM068
+TM069
+TM070
+TM071
+TM072
+TM073
+TM074
+TM075
+TM076
+TM077
+TM078
+TM079
+TM080
+TM081
+TM082
+TM083
+TM084
+TM085
+TM086
+TM087
+TM088
+TM089
+TM090
+TM091
+TM092
+HM01
+HM02
+HM03
+HM04
+HM05
+HM06
+???
+???
+Explorer Kit
+Loot Sack
+Rule Book
+Poké Radar
+Point Card
+Guidebook
+Sticker Case
+Fashion Case
+Sticker Bag
+Pal Pad
+Works Key
+Old Charm
+Galactic Key
+Red Chain
+Town Map
+Vs. Seeker
+Coin Case
+Old Rod
+Good Rod
+Super Rod
+Sprayduck
+Poffin Case
+Bike
+Suite Key
+Oak’s Letter
+Lunar Feather
+Member Card
+Azure Flute
+S.S. Ticket
+Contest Pass
+Magma Stone
+Parcel
+Coupon 1
+Coupon 2
+Coupon 3
+Storage Key
+Secret Medicine
+Vs. Recorder
+Gracidea
+Secret Key
+Apricorn Box
+Unown Report
+Berry Pots
+Dowsing Machine
+Blue Card
+Slowpoke Tail
+Clear Bell
+Card Key
+Basement Key
+Squirt Bottle
+Red Scale
+Lost Item
+Pass
+Machine Part
+Silver Feather
+Rainbow Feather
+Mystery Egg
+Red Apricorn
+Blue Apricorn
+Yellow Apricorn
+Green Apricorn
+Pink Apricorn
+White Apricorn
+Black Apricorn
+Fast Ball
+Level Ball
+Lure Ball
+Heavy Ball
+Love Ball
+Friend Ball
+Moon Ball
+Sport Ball
+Park Ball
+Photo Album
+GB Sounds
+Tidal Bell
+Rage Candy Bar
+Data Card 01
+Data Card 02
+Data Card 03
+Data Card 04
+Data Card 05
+Data Card 06
+Data Card 07
+Data Card 08
+Data Card 09
+Data Card 10
+Data Card 11
+Data Card 12
+Data Card 13
+Data Card 14
+Data Card 15
+Data Card 16
+Data Card 17
+Data Card 18
+Data Card 19
+Data Card 20
+Data Card 21
+Data Card 22
+Data Card 23
+Data Card 24
+Data Card 25
+Data Card 26
+Data Card 27
+Jade Orb
+Lock Capsule
+Red Orb
+Blue Orb
+Enigma Stone
