@@ -613,15 +613,18 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #endif
             u32 type = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index);
             if ((ctx->battlemon[ctx->attack_client].ability == ABILITY_PROTEAN || ctx->battlemon[ctx->attack_client].ability == ABILITY_LIBERO)
-                // if either type is not the move's type
-                && (ctx->battlemon[ctx->attack_client].type1 != type || ctx->battlemon[ctx->attack_client].type2 != type)
+                // If the type is not typeless (Struggle)
+                && (type != TYPE_TYPELESS)
+                // If any active type is not the move's type
+                && (!HasType(ctx, ctx->attack_client, type))
+                // Protean cannot activate if the client is Terastallized
+                && (!ctx->battlemon[ctx->attack_client].is_currently_terastallized)
                 // Protean should activate only once per switch-in if gen 9 behavior
-                && (ctx->battlemon[ctx->attack_client].ability_activated_flag == 0 || PROTEAN_GENERATION < 9)
-                // the move has to have power in order for it to change the type
-                && ctx->moveTbl[ctx->current_move_index].power != 0) {
-                
+                && (ctx->battlemon[ctx->attack_client].ability_activated_flag == 0 || PROTEAN_GENERATION < 9)) 
+            {
                 ctx->battlemon[ctx->attack_client].type1 = type;
                 ctx->battlemon[ctx->attack_client].type2 = type;
+                ctx->battlemon[ctx->attack_client].type3 = TYPE_TYPELESS;
 #if PROTEAN_GENERATION >= 9
                 ctx->battlemon[ctx->attack_client].ability_activated_flag = 1;
 #endif
@@ -2792,8 +2795,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     BOOL hasClearBodyOrFullMetalBodyOrWhiteSmoke = MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_CLEAR_BODY) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FULL_METAL_BODY) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_WHITE_SMOKE);
 
-    // TODO: Check correctness
-    BOOL hasFlowerVeil = MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FLOWER_VEIL) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, BATTLER_ALLY(defender), ABILITY_FLOWER_VEIL);
+    BOOL hasFlowerVeil = (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FLOWER_VEIL) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, BATTLER_ALLY(defender), ABILITY_FLOWER_VEIL)) && HasType(ctx, defender, TYPE_GRASS);
 
     int subscriptToRun = 0;
 
@@ -2923,8 +2925,8 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
     BOOL ShieldsDownCanActivate = (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_SHIELDS_DOWN) || (ctx->battlemon[defender].species == SPECIES_MINIOR && ctx->battlemon[defender].form_no == 1));
 
     // TODO: Check correctness
-    hasFlowerVeil = MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FLOWER_VEIL) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, BATTLER_ALLY(defender), ABILITY_FLOWER_VEIL);
-    hasPastelVeil = MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_PASTEL_VEIL) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, BATTLER_ALLY(defender), ABILITY_PASTEL_VEIL);
+    hasFlowerVeil = (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_FLOWER_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_FLOWER_VEIL)) && HasType(ctx, defender, TYPE_GRASS);
+    hasPastelVeil = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_PASTEL_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_PASTEL_VEIL);
 
     if (hasFlowerVeil) {
         switch (moveEffect) {
@@ -3338,8 +3340,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         case MOVE_CONVERSION: {
             // Handle type3
-            if (ctx->battlemon[ctx->defence_client].type1 == ctx->moveTbl[ctx->battlemon[ctx->defence_client].move[0]].type
-            && ctx->battlemon[ctx->defence_client].type1 == ctx->moveTbl[ctx->battlemon[ctx->defence_client].move[0]].type) {
+            if (HasType(ctx, ctx->defence_client, ctx->moveTbl[ctx->battlemon[ctx->defence_client].move[0]].type))
+            {
                 butItFailedFlag = TRUE;
             }
             break;

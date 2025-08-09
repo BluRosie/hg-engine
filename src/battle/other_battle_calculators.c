@@ -3134,10 +3134,11 @@ int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys UNUSED, struct B
 BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type) {
     GF_ASSERT(TYPE_NORMAL < type && type < TYPE_STELLAR);
     struct BattlePokemon *client = &ctx->battlemon[battlerId];
-    return (client->type1 == type
+    return ((!(client->is_currently_terastallized) // Only check the client's base types if they are not terastallized. 
+         && (client->type1 == type
          || client->type2 == type
-         || client->type3 == type
-         || (client->is_currently_terastallized ? client->tera_type == type : FALSE));
+         || client->type3 == type))
+         || (client->is_currently_terastallized && client->tera_type == type));
 }
 
 

@@ -251,9 +251,10 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 }
                 else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_FLOWER_VEIL) == TRUE
                        || MoldBreakerAbilityCheck(sp, sp->attack_client, BATTLER_ALLY(sp->state_client), ABILITY_FLOWER_VEIL) == TRUE) // any enemy has flower veil (accounting for mold breaker, otherwise would just CheckSideAbility)
-                      && (sp->battlemon[sp->state_client].type1 == TYPE_GRASS || sp->battlemon[sp->state_client].type2 == TYPE_GRASS)) // and target has grass type
+                       && HasType(sp, sp->state_client, TYPE_GRASS)) // and target has grass type
                 {
-                    // specifically for flower veil, we know that one of the Pokémon have flower veil.  we need to change the client that it prints the ability of to the flower veil client
+                    // The Pokémon with Flower Veil as an ability may not be the target of the move that triggers it. 
+                    // We need to make sure it prints the correct name and ability regardless by keeping track of the client with Flower Veil. 
                     u32 flower_veil_client;
 
                     flower_veil_client = (GetBattlerAbility(sp, sp->state_client) == ABILITY_FLOWER_VEIL) ? sp->state_client : BATTLER_ALLY(sp->state_client);
