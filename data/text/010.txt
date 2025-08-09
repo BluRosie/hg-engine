@@ -53,7 +53,7 @@ The {STRVAR_1 8, 0, 0} can’t be held.
                              
 Throw away how many\n{STRVAR_1 8, 0, 0}(s)?
 Threw away {STRVAR_1 51, 1, 0} {STRVAR_1 8, 0, 0}.
-Is it OK to throw away\n{STRVAR_1 52, 1, 0} {STRVAR_1 8, 0, 0}?
+Is it OK to throw away\n{STRVAR_1 52, 1, 0}?
                                          
 You can’t dismount your Bike here.
 Your Coins: {STRVAR_1 54, 0, 0}

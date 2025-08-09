@@ -1,0 +1,50 @@
+XXXXXXXXXXXXXXXXXXXX
+Please come again!
+Is that right?\nWell, come back anytime!
+Come back again!
+Is that right?\nWell, come back anytime!\fHee hee!
+Come back anytime!\nWell, not in the evening. We’re closed.
+Is there anything else I may do\nfor you? {YESNO 0}
+Do you need anything else? {YESNO 0}
+Do you need anything else?\nAnything at all? {YESNO 0}
+Do you need anything else?\nHee hee! {YESNO 0}
+Do you want anything else? {YESNO 0}
+You don’t have enough money.
+{STRVAR_1 8, 0, 0}? Certainly.\nHow many would you like?
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+OK, {STRVAR_1 51, 0, 0}. That’ll be\n${STRVAR_1 55, 1, 0}.
+Here you are.\nThanks for shopping with us.
+You don’t have enough room.
+CANCEL
+${STRVAR_1 53, 0, 0}
+{STRVAR_1 53, 0, 0}P
+You also get a Premier Ball as\nan added bonus.
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXX
+You placed the {STRVAR_1 10, 0, 0}\nin the Seal Case. {WAIT 1}
+The Seal Case is full.\nYou have no more room for Seals.
+You can’t buy any more today!
+You already have this!
+XXXXXX
+XXXXXX
+XXX
+Money
+${STRVAR_1 55, 0, 0}
+{STRVAR_1 55, 0, 0}P
+Athlete Pts.
+XXXXXXXXXXXXX
+In Bag:
+{STRVAR_1 52, 0, 0}
+XXXXXX
+${STRVAR_1 55, 0, 0}
+XX
+XXX
+XXXXXXX
+BUY
+{STRVAR_1 51, 0, 0}/{STRVAR_1 51, 1, 0}
+{STRVAR_1 50, 0, 0}
+{STRVAR_1 50, 1, 0}
+Would you like\n{STRVAR_1 8, 0, 0}?
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+You don’t have enough points!
+All right, here you go.\nCome back anytime! {WAIT 1}
