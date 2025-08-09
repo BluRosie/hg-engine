@@ -2,10 +2,8 @@
 #include "../include/message.h"
 #include "../include/types.h"
 #include "../include/constants/file.h"
+#include "../include/constants/item.h"
 
-/*
- * @brief Buffer the name of an item from a NARC
- */
 void BufferItemNameFromNarc(MessageFormat *msgFmt, u32 fieldno, u32 itemId, u32 narc) {
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, narc, msgFmt->heapId);
     if (msgData != NULL) {
@@ -36,7 +34,7 @@ void LONG_CALL BufferItemName(MessageFormat *msgFmt, u32 fieldno, u32 itemId) {
     BufferItemNameFromNarc(msgFmt, fieldno, itemId, narc);
 }
 
-void LONG_CALL BufferItemNameWithArticle(MessageFormat *msgFmt, u32 fieldno, u32 itemId) {
+void LONG_CALL BufferItemNameWithIndefArticle(MessageFormat *msgFmt, u32 fieldno, u32 itemId) {
     u32 narc;
     if (IS_ITEM_GEN4(itemId)) {
         narc = MSG_DATA_ITEM_NAME_ARTICLE_GEN4;

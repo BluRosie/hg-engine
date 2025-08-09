@@ -1,5 +1,6 @@
 #include "../include/types.h"
 #include "../include/item.h"
+#include "../include/message.h"
 #include "../include/script.h"
 #include "../include/config.h"
 #include "../include/constants/file.h"
