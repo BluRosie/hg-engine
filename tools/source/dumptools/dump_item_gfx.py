@@ -36,7 +36,7 @@ def GrabItemDict(itemDict: dict):
         for line in f:
             if len(line.split()) > 1:
                 test = line.split()[1].strip()
-                if '#define ITEM_' in line and "ITEM_" in line.split()[1] and not ")" in test and not "_START" in test:
+                if '#define ITEM_' in line and "ITEM_" in line.split()[1] and not ")" in test:
                     itemDict[itemEntry] = test.lower()[len("ITEM_"):]
                     itemEntry += 1
 
