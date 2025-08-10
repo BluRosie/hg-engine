@@ -5,7 +5,7 @@
 _000:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_EFFECT_CHANCE, 1
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_470
-    // {0}’s {1} is reacting to the Key Stone!
+    // {0}’s {1} is reacting to the {3}!
     PrintMessage 1276, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     Wait 
     WaitButtonABTime 30

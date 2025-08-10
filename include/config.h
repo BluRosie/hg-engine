@@ -79,6 +79,12 @@
 //#define UNCAP_CANDIES_FROM_LEVEL_CAP
 //#define ALLOW_LEVEL_CAP_EVOLVE
 
+// System flags that need to be enabled for the player to use the gimmick. If you want to change them, remember to change them in flags.s as well for consistency
+#define FLAG_MEGA_EVOLUTION_ENABLED 2518
+#define FLAG_Z_MOVE_ENABLED 2519
+#define FLAG_DYNAMAX_ENABLED 2520
+#define FLAG_TERASTALIZATION_ENABLED 2521
+
 // UPDATE_OVERWORLD_POISON will remove overworld poison if enabled
 // comment the line out below to retain overworld poison
 #define UPDATE_OVERWORLD_POISON

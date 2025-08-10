@@ -801,24 +801,29 @@
 .equ STATUS_FACADE_BOOST, 0xD8
 
 
-.equ TYPE_NORMAL, 0x0
-.equ TYPE_FIGHTING, 0x1
-.equ TYPE_FLYING, 0x2
-.equ TYPE_POISON, 0x3
-.equ TYPE_GROUND, 0x4
-.equ TYPE_ROCK, 0x5
-.equ TYPE_BUG, 0x6
-.equ TYPE_GHOST, 0x7
-.equ TYPE_STEEL, 0x8
-.equ TYPE_MYSTERY, 0x9
-.equ TYPE_FIRE, 0xA
-.equ TYPE_WATER, 0xB
-.equ TYPE_GRASS, 0xC
-.equ TYPE_ELECTRIC, 0xD
-.equ TYPE_PSYCHIC, 0xE
-.equ TYPE_ICE, 0xF
-.equ TYPE_DRAGON, 0x10
-.equ TYPE_DARK, 0x11
+.equ TYPE_NORMAL            , 0
+.equ TYPE_FIGHTING          , 1
+.equ TYPE_FLYING            , 2
+.equ TYPE_POISON            , 3
+.equ TYPE_GROUND            , 4
+.equ TYPE_ROCK              , 5
+.equ TYPE_BUG               , 6
+.equ TYPE_GHOST             , 7
+.equ TYPE_STEEL             , 8
+.equ TYPE_MYSTERY           , 9
+.equ TYPE_FAIRY             , 9 // TODO: 17
+.equ TYPE_FIRE              , 10
+.equ TYPE_WATER             , 11
+.equ TYPE_GRASS             , 12
+.equ TYPE_ELECTRIC          , 13
+.equ TYPE_PSYCHIC           , 14
+.equ TYPE_ICE               , 15
+.equ TYPE_DRAGON            , 16
+.equ TYPE_DARK              , 17
+.equ TYPE_TYPELESS          , 18
+.equ TYPE_STELLAR           , 19 // TODO: 99
+
+.equ NUMBER_OF_MON_TYPES    , 20
 
 
 .equ STATUS2_NONE, 0x0
@@ -1410,12 +1415,15 @@
 .equ BATTLE_SUBSCRIPT_HANDLE_TELEPATHY, 447
 .equ BATTLE_SUBSCRIPT_HANDLE_WIND_RIDER, 448
 .equ BATTLE_SUBSCRIPT_HANDLE_CHARGE_BOOST, 449
+.equ BATTLE_SUBSCRIPT_SPIKY_SHIELD, 450
+.equ BATTLE_SUBSCRIPT_HANDLE_ANGER_SHELL, 451
+.equ BATTLE_SUBSCRIPT_HANDLE_GEM_ACTIVATION_MESSAGE, 452
 
-.equ MAX_BASE_SUBSCRIPT_NUM, 449
+
+.equ MAX_BASE_SUBSCRIPT_NUM, 452
 
 // define your custom subscripts below like this
 // .equ MOVE_SUBSCRIPT_PTR_CUSTOM_1, (MAX_BASE_SUBSCRIPT_NUM + 1)
-
 
 
 .equ TERRAIN_PLAIN, 0x0
