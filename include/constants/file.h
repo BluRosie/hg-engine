@@ -99,6 +99,8 @@
 #define MSG_DATA_ITEM_NAME_PLURAL_GEN9    858
 #define MSG_DATA_ITEM_GIVE_ITEM_GEN9      859
 
+#define MSG_DATA_ITEM_FILE(base, gen) ((base) + (((gen) - GEN4) * 5))
+
 //heap IDs
 #define HEAPID_DEFAULT 0
 #define HEAPID_MAIN_HEAP 3
