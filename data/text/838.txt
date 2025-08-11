@@ -1,137 +1,137 @@
-An item to be held by a Pokémon. If the holder is hit\nwith a move it’s weak to, this policy sharply boosts its\nAttack and Sp. Atk stats.
-An item to be held by a Pokémon. This offensive vest\nboosts the holder’s Sp. Def stat but prevents the use of\nstatus moves.
-A device that allows you to view the hologram clips\nyou have received at any time.
-A letter that Professor Sycamore wrote to your\nmother. A faint but pleasant perfume seems to\ncling to the paper.
-Attaches roller skates to the bottom of your shoes,\nallowing you to glide quickly around and perform tricks.
-An item to be held by a Pokémon. This stone tablet is\nimbued with the essence of fairies and boosts the power\nof the holder’s Fairy-type moves.
-A capsule that allows a Pokémon to switch its current\nAbility to the other Ability its species can have.
-A soft and sweet treat made of fluffy, puffy, whipped,\nand whirled cream. It’s loved by a certain Pokémon.
-A sachet filled with fragrant perfumes that are just\nslightly overwhelming. Yet it’s loved by a certain\nPokémon.
-An item to be held by a Pokémon. This single-use\nluminous moss boosts the Sp. Def stat if the holder is\ndamaged by a Water-type move.
-An item to be held by a Pokémon. This single-use ball\nof snow boosts the Attack stat if the holder is damaged\nby an Ice-type move.
-An item to be held by a Pokémon. These goggles protect\nthe holder from both sandstorm damage and the effects\nof powders and spores.
-A flute that can play with such a beautiful tone that\neven sleeping Pokémon find themselves woken up.
-A fertilizer for growing Berries. However, it appears\nto be unsuitable for the soil in the Hoenn region and\nhas no effect.
-A fertilizer for growing Berries. However, it appears\nto be unsuitable for the soil in the Hoenn region and\nhas no effect.
-A fertilizer for growing Berries. However, it appears\nto be unsuitable for the soil in the Hoenn region and\nhas no effect.
-A fertilizer for growing Berries. However, it appears\nto be unsuitable for the soil in the Hoenn region and\nhas no effect.
-One of a variety of mysterious Mega Stones.\nHave Gengar hold it, and this stone will enable it to\nMega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Gardevoir hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Ampharos hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Venusaur hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Charizard hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Blastoise hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Mewtwo hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Mewtwo hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Blaziken hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Medicham hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Houndoom hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Aggron hold it, and this stone will enable it to\nMega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Banette hold it, and this stone will enable it to\nMega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Tyranitar hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Scizor hold it, and this stone will enable it to\nMega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Pinsir hold it, and this stone will enable it to\nMega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Aerodactyl hold it, and this stone will enable\nit to Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Lucario hold it, and this stone will enable it to\nMega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Abomasnow hold it, and this stone will enable\nit to Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Kangaskhan hold it, and this stone will enable\nit to Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Gyarados hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Absol hold it, and this stone will enable it to\nMega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Charizard hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Alakazam hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Heracross hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Mawile hold it, and this stone will enable it to\nMega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Manectric hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Garchomp hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Latias hold it, and this stone will enable it to\nMega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Latios hold it, and this stone will enable it to\nMega Evolve during battle.
-If a Pokémon holding this Berry is hit with a\nsupereffective Fairy-type move, the power of that\nmove will be weakened.
-If a Pokémon holding this Berry is hit with a physical\nmove, the holder’s Defense stat will be boosted.
-If a Pokémon holding this Berry is hit with a special\nmove, the holder’s Sp. Def stat will be boosted.
-A watering can shaped like a Lotad. It helps\npromote the healthy growth of any Berries planted\nin good, soft soil.
+An item to be held by a Pokémon. If\nthe holder is hit with a move it’s\nweak to, this policy sharply boosts\nits Attack and Sp. Atk stats.
+An item to be held by a Pokémon.\nThis offensive vest boosts the\nholder’s Sp. Def stat but prevents\nthe use of status moves.
+A device that allows you to view the\nhologram clips you have received at\nany time.
+A letter that Professor Sycamore\nwrote to your mother. A faint but\npleasant perfume seems to cling to\nthe paper.
+Attaches roller skates to the bottom\nof your shoes, allowing you to glide\nquickly around and perform tricks.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of fairies and boosts the\npower of the holder’s Fairy-type\nmoves.
+A capsule that allows a Pokémon to\nswitch its current Ability to the\nother Ability its species can have.
+A soft and sweet treat made of\nfluffy, puffy, whipped, and whirled\ncream. It’s loved by a certain\nPokémon.
+A sachet filled with fragrant\nperfumes that are just slightly\noverwhelming. Yet it’s loved by a\ncertain Pokémon.
+An item to be held by a Pokémon.\nThis single-use luminous moss boosts\nthe Sp. Def stat if the holder is\ndamaged by a Water-type move.
+An item to be held by a Pokémon.\nThis single-use ball of snow boosts\nthe Attack stat if the holder is\ndamaged by an Ice-type move.
+An item to be held by a Pokémon.\nThese goggles protect the holder\nfrom both sandstorm damage and the\neffects of powders and spores.
+A flute that can play with such a\nbeautiful tone that even sleeping\nPokémon find themselves woken up.
+A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\nhas no effect.
+A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\nhas no effect.
+A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\nhas no effect.
+A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\nhas no effect.
+One of a variety of mysterious Mega\nStones. Have Gengar hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Gardevoir hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Ampharos hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Venusaur hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Charizard hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Blastoise hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Mewtwo hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Mewtwo hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Blaziken hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Medicham hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Houndoom hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Aggron hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Banette hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Tyranitar hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Scizor hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Pinsir hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Aerodactyl hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Lucario hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Abomasnow hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Kangaskhan hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Gyarados hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Absol hold it, and this\nstone will enable it to Mega Evolve\nduring battle.
+One of a variety of mysterious Mega\nStones. Have Charizard hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Alakazam hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Heracross hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Mawile hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Manectric hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Garchomp hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Latias hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Latios hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+If a Pokémon holding this Berry is\nhit with a supereffective Fairy-type\nmove, the power of that move will be\nweakened.
+If a Pokémon holding this Berry is\nhit with a physical move, the\nholder’s Defense stat will be\nboosted.
+If a Pokémon holding this Berry is\nhit with a special move, the\nholder’s Sp. Def stat will be\nboosted.
+A watering can shaped like a Lotad.\nIt helps promote the healthy growth\nof any Berries planted in good, soft\nsoil.
 N/A
 N/A
 N/A
 N/A
-The user tells the target a secret, and the target\nloses its ability to concentrate. This lowers\nthe target’s Sp. Atk stat.
-This pass serves as an ID card for gaining access\nto the Power Plant that lies along Route 13.
-This ring contains an unknown power that somehow\nenables a Pokémon carrying a Mega Stone to\nMega Evolve in battle.
-A rather curious stone that might appear valuable\nto some. It’s all in the eye of the beholder.
-A perfectly normal stone that might appear to be\nvaluable to some. It’s all in the eye of the beholder.
-This special coupon allows you to buy items at a\ndiscount when you are shopping at a boutique.
-A card key that activates the elevator in Lysandre\nLabs. It is emblazoned with Team Flare’s logo.
-A commuter pass that allows the holder to ride the\nTMV between Lumiose City and Kiloude City at\nany time.
-A precious symbol that is awarded to individuals\nwho have done great things for the Kalos region.
-A mysterious and convenient notebook that contains\nall the advice a Trainer receives out on an adventure.
-An ornament depicting a mysterious Pokémon\nthat has been venerated as a guardian deity\nfor an extremely long time in the Alola region.
-A rather chic-looking case for carrying\ncontact lenses.
-A chic-looking case for carrying lipsticks.
-A light and yet incredibly effective trunk, which can\ncontain every last piece of clothing that can be bought.
-A popular treat in Lumiose City. It can be used to cure\nany status condition a Pokémon may have.
-Shalour City’s famous shortbread. It can be used to cure\nany status condition a Pokémon may have.
-A fossil from a prehistoric Pokémon that once lived\non the land. It looks as if it could be a piece of a\nlarge jaw.
-A fossil from a prehistoric Pokémon that once lived\non the land. It looks like the impression from a\nskin sail.
-A ticket that was handmade by Looker. It’s\ndecorated with a liberal amount of glittery paint.
-A folding bike that enables a rider to get around\nmuch faster than with Running Shoes.
-A device that allows you to view the hologram clips\nyou have received at any time.
-An item to be held by a Pokémon. This gem is imbued\nwith the essence of fairies and will boost the power\nof a Fairy-type move-but only once.
-This charm contains an unknown power that somehow\nenables a Pokémon carrying a Mega Stone to\nMega Evolve in battle.
-This glove contains an unknown power that somehow\nenables a Pokémon carrying a Mega Stone to\nMega Evolve in battle.
-This folding bike more than doubles your\nmovement speed.
-This folding bike allows you to perform actions\nsuch as wheelies and bunny hops.
-A watering can shaped like a Wailmer. It helps\npromote the healthy growth of any Berries planted\nin soil.
-A case that contains mechanical parts of some sort\nmade by the Devon Corporation.
-A sack used to gather and hold volcanic ash.
-The key to New Mauville, which was constructed\nbeneath Mauville City.
-A set containing a Berry Blender for making\nPokéblocks and a Pokéblock Case for\nstoring Pokéblocks.
-An extremely important letter to Steven from\nthe president of Devon Corporation.
-The ticket required for sailing on a ferry to the\nSouthern Island. Does Norman, the Petalburg Gym\nLeader, know a secret?!
+The user tells the target a secret,\nand the target loses its ability to\nconcentrate. This lowers the\ntarget’s Sp. Atk stat.
+This pass serves as an ID card for\ngaining access to the Power Plant\nthat lies along Route 13.
+This ring contains an unknown power\nthat somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\nin battle.
+A rather curious stone that might\nappear valuable to some. It’s all in\nthe eye of the beholder.
+A perfectly normal stone that might\nappear to be valuable to some. It’s\nall in the eye of the beholder.
+This special coupon allows you to\nbuy items at a discount when you are\nshopping at a boutique.
+A card key that activates the\nelevator in Lysandre Labs. It is\nemblazoned with Team Flare’s logo.
+A commuter pass that allows the\nholder to ride the TMV between\nLumiose City and Kiloude City at any\ntime.
+A precious symbol that is awarded to\nindividuals who have done great\nthings for the Kalos region.
+A mysterious and convenient notebook\nthat contains all the advice a\nTrainer receives out on an\nadventure.
+An ornament depicting a mysterious\nPokémon that has been venerated as a\nguardian deity for an extremely long\ntime in the Alola region.
+A rather chic-looking case for\ncarrying contact lenses.
+A chic-looking case for carrying\nlipsticks.
+A light and yet incredibly effective\ntrunk, which can contain every last\npiece of clothing that can be\nbought.
+A popular treat in Lumiose City. It\ncan be used to cure any status\ncondition a Pokémon may have.
+Shalour City’s famous shortbread. It\ncan be used to cure any status\ncondition a Pokémon may have.
+A fossil from a prehistoric Pokémon\nthat once lived on the land. It\nlooks as if it could be a piece of a\nlarge jaw.
+A fossil from a prehistoric Pokémon\nthat once lived on the land. It\nlooks like the impression from a\nskin sail.
+A ticket that was handmade by\nLooker. It’s decorated with a\nliberal amount of glittery paint.
+A folding bike that enables a rider\nto get around much faster than with\nRunning Shoes.
+A device that allows you to view the\nhologram clips you have received at\nany time.
+An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof fairies and will boost the power\nof a Fairy-type move-but only once.
+This charm contains an unknown power\nthat somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\nin battle.
+This glove contains an unknown power\nthat somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\nin battle.
+This folding bike more than doubles\nyour movement speed.
+This folding bike allows you to\nperform actions such as wheelies and\nbunny hops.
+A watering can shaped like a\nWailmer. It helps promote the\nhealthy growth of any Berries\nplanted in soil.
+A case that contains mechanical\nparts of some sort made by the Devon\nCorporation.
+A sack used to gather and hold\nvolcanic ash.
+The key to New Mauville, which was\nconstructed beneath Mauville City.
+A set containing a Berry Blender for\nmaking Pokéblocks and a Pokéblock\nCase for storing Pokéblocks.
+An extremely important letter to\nSteven from the president of Devon\nCorporation.
+The ticket required for sailing on a\nferry to the Southern Island. Does\nNorman, the Petalburg Gym Leader,\nknow a secret?!
 A device found inside Sea Mauville.
 Nifty goggles to protect eyes from\ndesert sandstorms.
-A meteorite originally found at Meteor Falls.\nYou got it at Mt. Chimney.
-A key that opens a door inside Sea Mauville.
-A key that opens a door inside Sea Mauville.
-A key that opens a door inside Sea Mauville.
-A key that opens a door inside Sea Mauville.
-A key that opens the storage hold inside\nSea Mauville.
-A special device made by Devon Corporation that\nsignals the presence of any unseen Pokémon.
-Ticket required for sailing on a ferry.
-Diving on the first turn, the user floats up and\nattacks on the next turn.
-A device made by Devon Corporation that provides\noxygen to users during the use of Dive.
-A very cool suit to be worn during the\nContest Spectacular.
-A very cute dress to be worn during the\nContest Spectacular.
-A suit made with the collective technological\nknow-how of Team Magma. It can withstand\nany impact.
-A suit made with the collective technological know-how\nof Team Aqua. It can withstand any impact.
-Tickets for two to the astronomical show being\nheld at the Mossdeep Space Center.
-This bracelet contains an unknown power that somehow\nenables a Pokémon carrying a Mega Stone to\nMega Evolve in battle.
-This necklace contains an unknown power that\nsomehow enables a Pokémon carrying a Mega Stone\nto Mega Evolve in battle.
-These glasses contain an unknown power that\nsomehow enables a Pokémon carrying a Mega Stone\nto Mega Evolve in battle.
-This anchor contains an unknown power that\nsomehow enables a Pokémon carrying a Mega Stone\nto Mega Evolve in battle.
-This stickpin contains an unknown power that\nsomehow enables a Pokémon carrying a Mega Stone\nto Mega Evolve in battle.
-This tiara contains an unknown power that somehow\nenables a Pokémon carrying a Mega Stone to\nMega Evolve in battle.
-This anklet contains an unknown power that somehow\nenables a Pokémon carrying a Mega Stone to\nMega Evolve in battle.
-A meteorite that you got at Mt. Chimney. It gives off\na faint glow.
-One of a variety of mysterious Mega Stones.\nHave Swampert hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Sceptile hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Sableye hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Altaria hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Gallade hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Audino hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Metagross hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Sharpedo hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Slowbro hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Steelix hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Pidgeot hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Glalie hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Diancie hold it, and this stone will enable it\nto Mega Evolve during battle.
-A bottle believed to have been used to seal away\nthe power of a certain Pokémon long, long ago.
-This cuff contains an unknown power that somehow\nenables a Pokémon carrying a Mega Stone to\nMega Evolve in battle.
-One of a variety of mysterious Mega Stones.\nHave Camerupt hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Lopunny hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Salamence hold it, and this stone will enable it\nto Mega Evolve during battle.
-One of a variety of mysterious Mega Stones.\nHave Beedrill hold it, and this stone will enable it\nto Mega Evolve during battle.
-A meteorite that you got at Mt. Chimney.\nIt continues to give off a faint glow and is slightly\nwarm to the touch.
-A meteorite that you got at Mt. Chimney.\nSome sort of pattern has risen to the surface,\nand it’s shining with rainbow-colored light.
-A stone filled with an unexplained power. It makes\nPokémon that battle with a Mega Stone\nMega Evolve.
-One of the fragments of a meteorite from\nGranite Cave. It’s faintly warm to the touch.
-A flute that can be used to summon Latios or Latias\nno matter where you are.
+A meteorite originally found at\nMeteor Falls. You got it at Mt.\nChimney.
+A key that opens a door inside Sea\nMauville.
+A key that opens a door inside Sea\nMauville.
+A key that opens a door inside Sea\nMauville.
+A key that opens a door inside Sea\nMauville.
+A key that opens the storage hold\ninside Sea Mauville.
+A special device made by Devon\nCorporation that signals the\npresence of any unseen Pokémon.
+Ticket required for sailing on a\nferry.
+Diving on the first turn, the user\nfloats up and attacks on the next\nturn.
+A device made by Devon Corporation\nthat provides oxygen to users during\nthe use of Dive.
+A very cool suit to be worn during\nthe Contest Spectacular.
+A very cute dress to be worn during\nthe Contest Spectacular.
+A suit made with the collective\ntechnological know-how of Team\nMagma. It can withstand any impact.
+A suit made with the collective\ntechnological know-how of Team Aqua.\nIt can withstand any impact.
+Tickets for two to the astronomical\nshow being held at the Mossdeep\nSpace Center.
+This bracelet contains an unknown\npower that somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\nin battle.
+This necklace contains an unknown\npower that somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\nin battle.
+These glasses contain an unknown\npower that somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\nin battle.
+This anchor contains an unknown\npower that somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\nin battle.
+This stickpin contains an unknown\npower that somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\nin battle.
+This tiara contains an unknown power\nthat somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\nin battle.
+This anklet contains an unknown\npower that somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\nin battle.
+A meteorite that you got at Mt.\nChimney. It gives off a faint glow.
+One of a variety of mysterious Mega\nStones. Have Swampert hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Sceptile hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Sableye hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Altaria hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Gallade hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Audino hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Metagross hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Sharpedo hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Slowbro hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Steelix hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Pidgeot hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Glalie hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Diancie hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+A bottle believed to have been used\nto seal away the power of a certain\nPokémon long, long ago.
+This cuff contains an unknown power\nthat somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\nin battle.
+One of a variety of mysterious Mega\nStones. Have Camerupt hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Lopunny hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Salamence hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+One of a variety of mysterious Mega\nStones. Have Beedrill hold it, and\nthis stone will enable it to Mega\nEvolve during battle.
+A meteorite that you got at Mt.\nChimney. It continues to give off a\nfaint glow and is slightly warm to\nthe touch.
+A meteorite that you got at Mt.\nChimney. Some sort of pattern has\nrisen to the surface, and it’s\nshining with rainbow-colored light.
+A stone filled with an unexplained\npower. It makes Pokémon that battle\nwith a Mega Stone Mega Evolve.
+One of the fragments of a meteorite\nfrom Granite Cave. It’s faintly warm\nto the touch.
+A flute that can be used to summon\nLatios or Latias no matter where you\nare.
