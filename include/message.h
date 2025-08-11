@@ -59,7 +59,7 @@ void LONG_CALL DestroyMsgData(MsgData * msgData);
 void LONG_CALL CopyU16ArrayToString(String *string, const u16 *src);
 void LONG_CALL CopyStringToU16Array(const String *string, u16 *dest, u32 n);
 void LONG_CALL SetStringAsPlaceholder(MessageFormat *msgFmt, u32 fieldno, const String *string, const MessageFormatAttrs *attrs);
-void BufferItemNameFromNarc(MessageFormat *msgFmt, u32 fieldno, u32 itemId, u32 narc);
+void BufferOffsetItemLineFromFile(MessageFormat *msgFmt, u32 fieldno, u32 itemId, u32 narc);
 void LONG_CALL BufferItemName(MessageFormat *msgFmt, u32 fieldno, u32 itemId);
 void LONG_CALL BufferItemNameWithIndefArticle(MessageFormat *msgFmt, u32 fieldno, u32 itemId);
 void LONG_CALL BufferItemNamePlural(MessageFormat *msgFmt, u32 fieldno, u32 itemId);

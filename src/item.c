@@ -156,56 +156,24 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id)
 }
 
 void LONG_CALL GetItemDescIntoString(String *dest, u16 itemId, u16 heapId) {
-    debug_printf("[GetItemDescIntoString] start\n");
-    u32 narc = 0;
-//    if (IS_ITEM_GEN4(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN4;
-//    } else if (IS_ITEM_GEN5(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN5;
-//    } else if (IS_ITEM_GEN6(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN6;
-//    } else if (IS_ITEM_GEN7(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN7;
-//    } else if (IS_ITEM_GEN8(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN8;
-//    } else if (IS_ITEM_GEN9(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN9;
-//    } else {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_CUSTOM;
-//    }
-
-//    debug_printf("[GetItemDescIntoString] narc %d\n", narc);
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, narc, heapId);
+    enum ItemGeneration gen = ITEM_GENERATION(itemId);
+    u32 fileId = (gen == CUSTOM)
+        ? MSG_DATA_ITEM_DESCRIPTION_CUSTOM
+        : MSG_DATA_ITEM_FILE(MSG_DATA_ITEM_DESCRIPTION_GEN4, gen);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, fileId, heapId);
     ReadMsgDataIntoString(msgData, itemId, dest);
     DestroyMsgData(msgData);
-    debug_printf("[GetItemDescIntoString] end\n");
 }
 
-void LONG_CALL GetItemNameIntoString(String *dest, u16 itemId, u16 heapId) {
-    debug_printf("[GetItemNameIntoString] start\n");
-    u32 narc = 0;
-//    if (IS_ITEM_GEN4(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN4;
-//    } else if (IS_ITEM_GEN5(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN5;
-//    } else if (IS_ITEM_GEN6(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN6;
-//    } else if (IS_ITEM_GEN7(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN7;
-//    } else if (IS_ITEM_GEN8(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN8;
-//    } else if (IS_ITEM_GEN9(itemId)) {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_GEN9;
-//    } else {
-//        narc = MSG_DATA_ITEM_DESCRIPTION_CUSTOM;
-//    }
-
-//    debug_printf("[GetItemNameIntoString] narc %d\n", narc);
-    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, narc, heapId);
-    ReadMsgDataIntoString(msgData, itemId, dest);
-    DestroyMsgData(msgData);
-    debug_printf("[GetItemNameIntoString] end\n");
-}
+//void LONG_CALL GetItemNameIntoString(String *dest, u16 itemId, u16 heapId) {
+//    enum ItemGeneration gen = ITEM_GENERATION(itemId);
+//    u32 fileId = (gen == CUSTOM)
+//        ? MSG_DATA_ITEM_NAME_CUSTOM
+//        : MSG_DATA_ITEM_FILE(MSG_DATA_ITEM_NAME_GEN4, gen);
+//    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, fileId, heapId);
+//    ReadMsgDataIntoString(msgData, itemId, dest);
+//    DestroyMsgData(msgData);
+//}
 
 void *LONG_CALL ItemDataTableLoad(int heapID)
 {

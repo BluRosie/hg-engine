@@ -1,1 +1,0 @@
-a {COLOR 255}pile of Custom Item{COLOR 0}
