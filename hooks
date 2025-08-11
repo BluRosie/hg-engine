@@ -514,8 +514,6 @@ arm9 DestroyHeap_hook 0201AA24 3
 0012 load_max_move_num_metronome 022408AC 0
 
 arm9 ScrCmd_BufferItemName 02048510 1
-# arm9 BufferItemName 0200C0CC 4
 arm9 BufferItemNameWithIndefArticle 0200C100 4
 arm9 BufferItemNamePlural 0200C134 4
 arm9 GetItemDescIntoString 02077D64 7
-# arm9 GetItemNameIntoString 02077D40 7

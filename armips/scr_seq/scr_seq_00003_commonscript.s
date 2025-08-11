@@ -90,8 +90,6 @@ scrdef scr_seq_0003_072_repels
 scrdef_end
 
 scr_seq_0003_002:
-    giveitem_no_check ITEM_BRIARS_BOOK, 1
-    giveitem_no_check ITEM_BRIARS_BOOK, 2
     play_se SEQ_SE_DP_SELECT
     lockall
     faceplayer

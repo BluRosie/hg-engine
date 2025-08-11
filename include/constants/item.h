@@ -2612,12 +2612,12 @@ enum ItemGeneration {
 
 #define ITEM_MSG_OFFSET(id) ( \
     (id) <= ITEM_ENIGMA_STONE ? (id) : \
-    (id) <= ITEM_REVEAL_GLASS ? ((id) - ITEM_ENIGMA_STONE - 1) : \
-    (id) <= ITEM_EON_FLUTE    ? ((id) - ITEM_REVEAL_GLASS - 1) : \
-    (id) <= ITEM_UNKNOWN_1073 ? ((id) - ITEM_EON_FLUTE - 1) : \
-    (id) <= ITEM_LEGEND_PLATE ? ((id) - ITEM_UNKNOWN_1073 - 1) : \
-    (id) <= ITEM_BRIARS_BOOK  ? ((id) - ITEM_LEGEND_PLATE - 1) : \
-                                ((id) - ITEM_BRIARS_BOOK - 1) )
+    (id) <= ITEM_REVEAL_GLASS ? ((id) - (ITEM_ENIGMA_STONE + 1)) : \
+    (id) <= ITEM_EON_FLUTE    ? ((id) - (ITEM_REVEAL_GLASS + 1)) : \
+    (id) <= ITEM_UNKNOWN_1073 ? ((id) - (ITEM_EON_FLUTE    + 1)) : \
+    (id) <= ITEM_LEGEND_PLATE ? ((id) - (ITEM_UNKNOWN_1073 + 1)) : \
+    (id) <= ITEM_BRIARS_BOOK  ? ((id) - (ITEM_LEGEND_PLATE + 1)) : \
+                                ((id) - (ITEM_BRIARS_BOOK  + 1)) )
 
 #define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
 #define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
