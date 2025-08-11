@@ -319,8 +319,6 @@ BOOL ScrCmd_BufferItemName(SCRIPTCONTEXT *ctx) {
     MessageFormat **msgFmt = FieldSysGetAttrAddr(ctx->fsys, 16);
     u8 idx = ScriptReadByte(ctx);
     u16 itemId = ScriptGetVar(ctx);
-
-    BufferItemNameFromNarc(*msgFmt, idx, itemId, MSG_DATA_GIVE_ITEM);
-
+    BufferItemNameGiveItem(*msgFmt, idx, itemId);
     return FALSE;
 }

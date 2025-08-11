@@ -1,5 +1,6 @@
 #include "../include/types.h"
 #include "../include/item.h"
+#include "../include/message.h"
 #include "../include/script.h"
 #include "../include/config.h"
 #include "../include/constants/file.h"
@@ -152,6 +153,17 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id)
         return ArchiveDataLoadMalloc(ARC_ITEM_GFX_DATA, palid, heap_id);
     }
     return NULL;
+}
+
+void LONG_CALL GetItemDescIntoString(String *dest, u16 itemId, u16 heapId) {
+    enum ItemGeneration gen = ITEM_GENERATION(itemId);
+    u32 fileId = (gen == CUSTOM)
+        ? MSG_DATA_ITEM_DESCRIPTION_CUSTOM
+        : MSG_DATA_ITEM_FILE(MSG_DATA_ITEM_DESCRIPTION_GEN4, gen);
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, fileId, heapId);
+    u32 offset = ITEM_MSG_OFFSET(itemId);
+    ReadMsgDataIntoString(msgData, offset, dest);
+    DestroyMsgData(msgData);
 }
 
 void *LONG_CALL ItemDataTableLoad(int heapID)
