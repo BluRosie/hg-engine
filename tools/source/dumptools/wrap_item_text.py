@@ -5,7 +5,7 @@ MAX_LINES = 3
 
 def wrap_line(text: str):
     original = text
-    text = text.rstrip("\n")
+    text = text.rstrip("\n").replace("\\n", " ").replace("\\r", " ")
 
     lines = []
     remaining = text.strip()
@@ -31,10 +31,24 @@ def wrap_line(text: str):
         remaining = remaining[break_at+1:]
         remaining = remaining.lstrip()
 
-    if len(lines) > MAX_LINES:
-        ok_flag = False
+    # if len(lines) > MAX_LINES:
+    #     ok_flag = False
+    
+    count = 0
+    wrapped = ""
+        
+    for line in lines:
+        if count == 0:
+            wrapped = line
+            count += 1
+            continue
+        if count < MAX_LINES:
+            wrapped = f"{wrapped}\\n{line}"
+            count += 1
+        else:
+            wrapped = f"{wrapped}\\r{line}"
+            count = 1
 
-    wrapped = "\\n".join(lines)
 
     if any(len(l) > MAX_WIDTH for l in lines):
         ok_flag = False
