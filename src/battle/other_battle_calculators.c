@@ -3084,10 +3084,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 #ifdef DEBUG_ENABLE_UNIMPLEMENTED_MOVES
 #else
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_UNIMPLEMENTED) {
-        msg->msg_tag = TAG_NICKNAME_MOVE;
-        // Reusing Disable for now
-        // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
-        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_DISABLED;
+        msg->msg_id = 0;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
@@ -3096,10 +3093,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 
 #if DISALLOW_DEXIT_GEN == 8
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_8) {
-        msg->msg_tag = TAG_NICKNAME_MOVE;
-        // Reusing Disable for now
-        // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
-        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_DISABLED;
+        msg->msg_id = 0;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
@@ -3108,10 +3102,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 
 #if DISALLOW_DEXIT_GEN >= 9
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_9) {
-        msg->msg_tag = TAG_NICKNAME_MOVE;
-        // Reusing Disable for now
-        // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
-        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_DISABLED;
+        msg->msg_id = 0;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
