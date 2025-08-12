@@ -3082,6 +3082,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
     } 
 
 #ifdef DEBUG_ENABLE_UNIMPLEMENTED_MOVES
+#else
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_UNIMPLEMENTED) {
         msg->msg_tag = TAG_NICKNAME_MOVE;
         // Reusing Disable for now
