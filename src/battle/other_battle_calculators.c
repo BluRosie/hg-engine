@@ -3086,7 +3086,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->msg_tag = TAG_NICKNAME_MOVE;
         // Reusing Disable for now
         // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
-        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_DISABLED;
+        msg->msg_id = 0; // empty message
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
