@@ -2994,6 +2994,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
         && (ctx->battlemon[battlerId].move[movePos] != MOVE_ME_FIRST)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
+    }
     return nonSelectableMoves;
 }
 
