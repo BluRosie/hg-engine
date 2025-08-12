@@ -27,8 +27,6 @@ struct PACKED sDamageCalc
 
     u16 ability;
     u8 sex;
-    u8 type1;
-    u8 type2;
 
     u32 speed;
 
@@ -265,10 +263,6 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     DefendingMon.ability = GetBattlerAbility(sp, defender);
     AttackingMon.sex = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SEX, NULL);
     DefendingMon.sex = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SEX, NULL);
-    AttackingMon.type1 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE1, NULL);
-    DefendingMon.type1 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE1, NULL);
-    AttackingMon.type2 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL);
-    DefendingMon.type2 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE2, NULL);
     AttackingMon.speed = sp->effectiveSpeed[attacker];
     DefendingMon.speed = sp->effectiveSpeed[defender];
     AttackingMon.weight = GetPokemonWeight(bw, sp, attacker);
@@ -1555,11 +1549,11 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
         if ((field_cond & WEATHER_SANDSTORM_ANY)
-        && ((DefendingMon.type1 == TYPE_ROCK) || (DefendingMon.type2 == TYPE_ROCK))) {
+        && HasType(sp, defender, TYPE_ROCK)) {
             sp_defense = QMul_RoundDown(sp_defense, UQ412__1_5);
         }
         if ((field_cond & WEATHER_SNOW_ANY)
-        && ((DefendingMon.type1 == TYPE_ICE) || (DefendingMon.type2 == TYPE_ICE))) {
+        && HasType(sp, defender, TYPE_ICE)) {
             defense = QMul_RoundDown(defense, UQ412__1_5);
         }
     }

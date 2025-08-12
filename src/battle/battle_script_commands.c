@@ -3340,18 +3340,15 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
     ctx->temp_work = 0;
     ctx->hp_calc_work = 0;
 
-    u32 type1 = BattlePokemonParamGet(ctx, battlerId, BATTLE_MON_DATA_TYPE1, NULL);
-    u32 type2 = BattlePokemonParamGet(ctx, battlerId, BATTLE_MON_DATA_TYPE2, NULL);
-
     int item = GetBattleMonItem(ctx, battlerId);
     int hold_effect = BattleItemDataGet(ctx, item, 1);
     int ability = GetBattlerAbility(ctx, battlerId);
 
     if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0 && CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0) {
         if (ctx->field_condition & WEATHER_SANDSTORM_ANY) {
-            if (type1 != TYPE_ROCK && type2 != TYPE_ROCK &&
-                type1 != TYPE_STEEL && type2 != TYPE_STEEL &&
-                type1 != TYPE_GROUND && type2 != TYPE_GROUND &&
+            if (!HasType(ctx, battlerId, TYPE_ROCK) &&
+                !HasType(ctx, battlerId, TYPE_STEEL) &&
+                !HasType(ctx, battlerId, TYPE_GROUND) &&
                 ctx->battlemon[battlerId].hp &&
                 ability != ABILITY_SAND_VEIL &&
                 ability != ABILITY_MAGIC_GUARD &&
@@ -3380,7 +3377,7 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
                     if (ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp) {
                         ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
                     }
-                } else if (type1 != TYPE_ICE && type2 != TYPE_ICE &&
+                } else if (!HasType(ctx, battlerId, TYPE_ICE) &&
                            ability != ABILITY_SNOW_CLOAK &&
                            ability != ABILITY_MAGIC_GUARD &&
                            ability != ABILITY_OVERCOAT &&

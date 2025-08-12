@@ -69,8 +69,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                         (sp->oneSelfFlag[sp->defence_client].special_damage))
                     && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                     && (sp->moveTbl[sp->current_move_index].power)
-                    && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) != movetype)
-                    && (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) != movetype)
+                    && (!HasType(sp, sp->defence_client, movetype))
                     && (sp->battlemon[sp->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0
                     && (sp->multiHitCount <= 1)) // don't activate until the last hit of a multi-hit move
                 {

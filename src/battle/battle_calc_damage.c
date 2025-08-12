@@ -103,8 +103,6 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     type = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
 
-    u8 attacker_type_1 = BattlePokemonParamGet(sp, sp->attack_client, BATTLE_MON_DATA_TYPE1, NULL);
-    u8 attacker_type_2 = BattlePokemonParamGet(sp, sp->attack_client, BATTLE_MON_DATA_TYPE2, NULL);
     u32 maxBattlers = BattleWorkClientSetMaxGet(bw);
     u32 moveEffectiveness;
     u32 flag = 0;
@@ -115,20 +113,20 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     u32 attacker = sp->attack_client;
     u32 defender = sp->defence_client;
     u32 finalModifier = UQ412__1_0;
-    u32 attackerAbility = GetBattlerAbility(sp, sp->attack_client);
-    u32 defenderAbility = GetBattlerAbility(sp, sp->defence_client);
+    u32 attackerAbility = GetBattlerAbility(sp, attacker);
+    u32 defenderAbility = GetBattlerAbility(sp, defender);
 
     u32 damage = 0;
 
     // Steps 1 - 5
     damage = CalcBaseDamage(bw,
                             sp,
-                            sp->current_move_index,
-                            sp->side_condition[IsClientEnemy(bw, sp->defence_client)],
+                            moveno,
+                            side_cond,
                             sp->field_condition,
                             sp->damage_power,
                             type,
-                            sp->attack_client, sp->defence_client, sp->critical);
+                            attacker, defender, sp->critical);
 
     //=====Step 6. General Damage Modifiers=====
 
@@ -276,7 +274,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     // 6.6 Same-Type Attack Bonus (STAB) Modifier
 
-    if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((attacker_type_1 == type) || (attacker_type_2 == type))) {
+    if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && HasType(sp, attacker, type)) {
         if (attackerAbility == ABILITY_ADAPTABILITY) {
 #ifdef DEBUG_DAMAGE_ROLLS
         for (int u = 0; u < 16; u++)
@@ -304,7 +302,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     // 6.7 Type Effectiveness Modifier
     // TODO: need to factor in Tera Shell
-    moveEffectiveness = GetTypeEffectiveness(bw, sp, sp->attack_client, sp->defence_client, type, &flag);
+    moveEffectiveness = GetTypeEffectiveness(bw, sp, attacker, defender, type, &flag);
     switch (moveEffectiveness) {
         case TYPE_MUL_NO_EFFECT:
             damage = 0;
@@ -387,7 +385,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     if (movesplit == SPLIT_PHYSICAL) {
         // burns halve physical damage.  this is ignored by guts and facade (as of gen 6)
-        if ((sp->battlemon[sp->attack_client].condition & STATUS_BURN) && (sp->battlemon[sp->attack_client].ability != ABILITY_GUTS) && (sp->current_move_index != MOVE_FACADE)) {
+        if ((sp->battlemon[attacker].condition & STATUS_BURN) && (attackerAbility != ABILITY_GUTS) && (moveno != MOVE_FACADE)) {
             damage = QMul_RoundDown(damage, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_ROLLS
             for (int u = 0; u < 16; u++)
@@ -415,26 +413,26 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     // 6.9.14.1 Minimize
     if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZED
         && !sp->battlemon[defender].is_currently_dynamaxed
-        && IsMoveInMinimizeVulnerabilityMovesList(sp->current_move_index)) {
+        && IsMoveInMinimizeVulnerabilityMovesList(moveno)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.2 Dig
     if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING
-        && sp->current_move_index == MOVE_EARTHQUAKE) {
+        && moveno == MOVE_EARTHQUAKE) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.3 Dive
     if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING
-        && (sp->current_move_index == MOVE_SURF || sp->current_move_index == MOVE_WHIRLPOOL)) {
+        && (moveno == MOVE_SURF || moveno == MOVE_WHIRLPOOL)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.4 Behemoth Blade/Behemoth Bash/Dynamax Cannon
     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8319925
     if ((sp->battlemon[defender].is_currently_dynamaxed)
-    && (sp->current_move_index == MOVE_BEHEMOTH_BLADE || sp->current_move_index == MOVE_BEHEMOTH_BASH ||sp->current_move_index == MOVE_DYNAMAX_CANNON)) {
+    && (moveno == MOVE_BEHEMOTH_BLADE || moveno == MOVE_BEHEMOTH_BASH || moveno == MOVE_DYNAMAX_CANNON)) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
@@ -444,7 +442,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
             case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
             case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
                 // 6.9.14.45 Collision Course/Electro Drift
-                if (sp->current_move_index == MOVE_COLLISION_COURSE || sp->current_move_index == MOVE_ELECTRO_DRIFT) {
+                if (moveno == MOVE_COLLISION_COURSE || moveno == MOVE_ELECTRO_DRIFT) {
                     finalModifier = QMul_RoundUp(finalModifier, UQ412__1_3333);
                 }
                 break;
@@ -466,8 +464,8 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     if ((movesplit == SPLIT_PHYSICAL)
     && ((side_cond & SIDE_STATUS_REFLECT) != 0)
     && (sp->critical == 1)
-    && (sp->moveTbl[sp->current_move_index].effect != MOVE_EFFECT_REMOVE_SCREENS)
-    && (sp->battlemon[sp->attack_client].ability != ABILITY_INFILTRATOR)) {
+    && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
+    && (sp->battlemon[attacker].ability != ABILITY_INFILTRATOR)) {
         if ((battle_type & BATTLE_TYPE_DOUBLE)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_6666);
         } else {
@@ -478,8 +476,8 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     if ((movesplit == SPLIT_SPECIAL)
     && ((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0)
     && (sp->critical == 1)
-    && (sp->moveTbl[sp->current_move_index].effect != MOVE_EFFECT_REMOVE_SCREENS)
-    && (sp->battlemon[sp->attack_client].ability != ABILITY_INFILTRATOR)) {
+    && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
+    && (attackerAbility != ABILITY_INFILTRATOR)) {
         if ((battle_type & BATTLE_TYPE_DOUBLE)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_6666);
         } else {
@@ -553,7 +551,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         }
 
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && (GetBattlerAbility(sp, defender) == ABILITY_FLUFFY)) {
+        && (defenderAbility == ABILITY_FLUFFY)) {
             // 6.9.6 Fluffy (contact moves)
             if (IsContactBeingMade(bw, sp)) {
                 finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
@@ -576,8 +574,8 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
         // 6.9.5 Multiscale / Shadow Shield
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && ((GetBattlerAbility(sp, defender) == ABILITY_MULTISCALE)
-        || (GetBattlerAbility(sp, defender) == ABILITY_SHADOW_SHIELD))
+        && ((defenderAbility == ABILITY_MULTISCALE)
+        || (defenderAbility == ABILITY_SHADOW_SHIELD))
         && (sp->battlemon[defender].hp == (s32)sp->battlemon[defender].maxhp)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
@@ -600,7 +598,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         // 6.9.15 Punk Rock
         // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8291673
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && (GetBattlerAbility(sp, defender) == ABILITY_PUNK_ROCK)
+        && (defenderAbility == ABILITY_PUNK_ROCK)
         && IsMoveSoundBased(moveno)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
@@ -628,8 +626,8 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     for (u32 i = 0; i < maxBattlers; i++) {
         // 6.9.9 Metronome (item)
         if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
-        && HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_BOOST_REPEATED) {
-            switch (sp->battlemon[sp->attack_client].moveeffect.metronomeTurns) {
+        && HeldItemHoldEffectGet(sp, attacker) == HOLD_EFFECT_BOOST_REPEATED) {
+            switch (sp->battlemon[attacker].moveeffect.metronomeTurns) {
                 case 0:
                     break;
                 case 1:
@@ -773,7 +771,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     debug_printf("\n=================\n\n\n\n\n");
 
 #ifdef DEBUG_DAMAGE_ROLLS
-    debug_printf("Unrolled damage: %d -- Battler %d hit battler %d for %d damage.\n", predamage[0], sp->attack_client, sp->defence_client, sp->damage);
+    debug_printf("Unrolled damage: %d -- Battler %d hit battler %d for %d damage.\n", predamage[0], attacker, defender, sp->damage);
     debug_printf("[Attacker] stats: ");
     for (s32 u = 0; u < 5; u++)
     {
