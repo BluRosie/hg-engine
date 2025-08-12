@@ -7,10 +7,6 @@ GEN_LATEST equ 9
 // the current implementation (with all gen 5 mons) uses ~9222/0x2406 bytes.  make sure this points to that much free space (probably allow for a little bit more than that)
 START_ADDRESS equ 0x0
 
-// DISALLOW_DEXIT_MOVES controls whether to disallow dexited moves in later generations.
-// Refer to GEN_LATEST for which generation will be chosen.
-DISALLOW_DEXIT_MOVES 0
-
 // FAIRY_TYPE_IMPLEMENTED defines whether or not the fairy type is to be implemented as type 9 or not.
 // if you do not want this change, then set it to 0
 FAIRY_TYPE_IMPLEMENTED equ 1
