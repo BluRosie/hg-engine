@@ -3083,22 +3083,8 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 
 #ifdef DEBUG_ENABLE_UNIMPLEMENTED_MOVES
 #else
-    else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_UNIMPLEMENTED) {
-        msg->msg_id = 0; // empty message
-        ret = FALSE;
-    }
-#endif
-
-#if DISALLOW_DEXIT_GEN == 8
-    else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_8) {
-        msg->msg_id = 0; // empty message
-        ret = FALSE;
-    }
-#endif
-
-#if DISALLOW_DEXIT_GEN >= 9
-    else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_9) {
-        msg->msg_id = 0; // empty message
+    else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSED_MOVE) {
+        msg->msg_id = 619; // empty message
         ret = FALSE;
     }
 #endif

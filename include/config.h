@@ -3,9 +3,6 @@
 
 #define GEN_LATEST 9
 
-// DISALLOW_DEXIT_GEN controls whether to disallow dexited moves in later generations. Choose any Generation below 8 for none.
-#define DISALLOW_DEXIT_GEN 0
-
 // FAIRY_TYPE_IMPLEMENTED should be used if you want to implement the fairy type and overwrite type 9 in this project
 // set FAIRY_TYPE_IMPLEMENTED to 0 if you do not want this to happen
 #define FAIRY_TYPE_IMPLEMENTED 1
