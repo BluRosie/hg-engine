@@ -100,7 +100,7 @@ def merge_learnsets(ordered_data, cutoff_gen, inherit_level, inherit_egg, inheri
 
     for gen_file, gen_data in ordered_data:
         gen_key = os.path.basename(gen_file)[:-5]  # remove .json extension
-        if gen_key != "custom":
+        if re.match(r"^\d{2}_", gen_key):
             gen_key = gen_key[3:]  # remove XX_ prefix
 
         for species, fields in gen_data.items():
