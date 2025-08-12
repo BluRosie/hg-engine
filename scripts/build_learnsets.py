@@ -140,7 +140,7 @@ def load_tutor_move_list(file_path):
     with open(file_path, encoding='utf-8') as f:
         for line in f:
             stripped = line.strip()
-            if stripped.startswith("static const TutorMove sTutorMoves[]"):
+            if stripped.startswith("TutorMove sTutorMoves[]"):
                 in_array = True
                 continue
             if in_array:

@@ -754,14 +754,3 @@ sub_0200CE7C = 0x0200CE7C | 1;
 ov15_021FE8C4 = 0x021FE8C4 | 1;
 sub_0200CDF0 = 0x0200CDF0 | 1;
 ov15_021FE9B0 = 0x021FE9B0 | 1;
-
-/* tutor move expansion */
-ov01_0220305C = 0x0220305C | 1;
-ov01_021EDF78 = 0x021EDF78 | 1;
-ov01_021F6ABC = 0x021F6ABC | 1;
-ov01_021F6B20 = 0x021F6B20 | 1;
-ov01_021EDF00 = 0x021EDF00 | 1;
-SetupNativeScript = 0x0203FD58 | 1;
-BufferString = 0x0200BE3C | 1;
-BufferIntegerAsString = 0x0200BFCC | 1;
-MoveTutorMenu_SetListItem = 0x021EDF9C | 1;

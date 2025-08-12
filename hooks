@@ -521,6 +521,4 @@ arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
 
 0015 Bag_DrawMachineMoveLabel 021FE914 7
 
-0001 ScrCmd_MoveTutorChooseMove 02202E68 1
-0001 ScrCmd_TutorMoveGetPrice 02202BD0 1
 0001 GetLearnableTutorMoves 02202D40 3

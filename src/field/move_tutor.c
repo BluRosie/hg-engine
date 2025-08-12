@@ -25,15 +25,13 @@
 #define MOVE_TUTOR_NPC_FRONTIER_BOTTOM_RIGHT 2
 #define MOVE_TUTOR_NPC_HEADBUTT              3
 
-#define MAX_TUTOR_MOVES_PER_PAGE 6
-
 typedef struct TutorMove {
     u16 move;
     u8 cost;
     u8 tutorNpc;
 } TutorMove;
 
-static const TutorMove sTutorMoves[] = {
+TutorMove sTutorMoves[] = {
     { MOVE_DIVE,          40, MOVE_TUTOR_NPC_FRONTIER_TOP_LEFT     },
     { MOVE_MUD_SLAP,      32, MOVE_TUTOR_NPC_FRONTIER_TOP_RIGHT    },
     { MOVE_FURY_CUTTER,   32, MOVE_TUTOR_NPC_FRONTIER_TOP_LEFT     },
@@ -88,34 +86,7 @@ static const TutorMove sTutorMoves[] = {
     { MOVE_HEADBUTT,      0,  MOVE_TUTOR_NPC_HEADBUTT              },
 };
 
-static u16 GetLearnableTutorMoves(struct PartyPokemon *mon, u32 moveTutorNpc, u16 dest[]);
-static BOOL MoveTutor_WaitAndClose(SCRIPTCONTEXT *ctx);
-
-void LONG_CALL ov01_021EDF00(void *menu);
-void LONG_CALL **ov01_021F6B20(FieldSystem *fieldSystem);
-BOOL LONG_CALL ov01_0220305C(SCRIPTCONTEXT *ctx);
-void LONG_CALL *ov01_021EDF78(FieldSystem *fieldSystem, u8 x, u8 y, u8 initCursorPos, u8 cancellable, u16 *ret_p, u32 *msgFmt, struct Window *window, MsgData *msgData);
-void LONG_CALL MoveTutorMenu_SetListItem(void *menu, int a1, int a2, int a3);
-void LONG_CALL ov01_021F6ABC(FieldSystem *fieldSystem, int a1, int a2, void *a3);
-void LONG_CALL SetupNativeScript(SCRIPTCONTEXT *ctx, ScrCmdFunc ptr);
-void LONG_CALL BufferString(u32 *messageFormat, u32 fieldno, const String *string, s32 a3, s32 a4, s32 a5);
-void LONG_CALL BufferIntegerAsString(u32 *messageFormat, u32 idx, s32 num, u32 numDigits, u8 strconvmode, BOOL whichCharset);
-
-BOOL ScrCmd_TutorMoveGetPrice(SCRIPTCONTEXT *ctx) {
-    u16 move = ScriptGetVar(ctx);
-    u16 *result = ScriptGetVarPointer(ctx);
-    for (u32 i = 0; i < NELEMS(sTutorMoves); i++) {
-        if (sTutorMoves[i].move == move) {
-            *result = sTutorMoves[i].cost;
-            return FALSE;
-        }
-    }
-    GF_ASSERT(FALSE);
-    *result = 0;
-    return FALSE;
-}
-
-static u16 GetLearnableTutorMoves(struct PartyPokemon *mon, u32 moveTutorNpc, u16 dest[]) {
+u16 LONG_CALL GetLearnableTutorMoves(struct PartyPokemon *mon, u32 moveTutorNpc, u8 dest[]) {
     int i;
     u16 currentMoves[MAX_MON_MOVES];
     for (i = 0; i < MAX_MON_MOVES; i++) {
@@ -148,89 +119,4 @@ static u16 GetLearnableTutorMoves(struct PartyPokemon *mon, u32 moveTutorNpc, u1
     }
 
     return numLearnableMoves;
-}
-
-static BOOL MoveTutor_WaitAndClose(SCRIPTCONTEXT *ctx) {
-    FieldSystem *fs = ctx->fsys;
-    void **menu = ov01_021F6B20(fs);
-    u16 *res = GetVarPointer(fs, ctx->data[0]);
-    if (*res == 0xEEEE) return FALSE;
-    debug_printf("Tutor result=0x%04X\n", *res);  // <-- watch for FFFD here
-    ov01_021EDF00(*menu);
-    return TRUE;
-}
-
-BOOL ScrCmd_MoveTutorChooseMove(SCRIPTCONTEXT *ctx) {
-    s32 i;
-    BOOL showNextButton;
-    u16 resultVarId;
-    MsgData *messageData;
-    u16 showAsTwoColumns;
-
-    FieldSystem *fieldSystem = ctx->fsys;
-    void **unk = ov01_021F6B20(fieldSystem);
-    u32 **messageFormat = FieldSysGetAttrAddr(fieldSystem, 16);
-    u16 slot = ScriptGetVar(ctx);
-    u16 moveTutorNpc = ScriptGetVar(ctx);
-    ScriptGetVar(ctx);
-    resultVarId = ScriptReadHalfword(ctx);
-    ctx->data[0] = resultVarId;
-    u16 *learnableMoves = sys_AllocMemory(32, NUM_TUTOR_MOVES * sizeof(u16));
-
-    struct PartyPokemon *mon = Party_GetMonByIndex(SaveData_GetPlayerPartyPtr(fieldSystem->savedata), slot);
-    s32 numLearnableMoves = GetLearnableTutorMoves(mon, moveTutorNpc, learnableMoves);
-
-    // handle pagination because for some reason hooking this function breaks vanilla pagination
-    u16 *pageNumPtr = GetVarPointer(fieldSystem, 0x8002);
-    if (*GetVarPointer(fieldSystem, 0x8003) == 0xFFFD) {
-        s32 pageCount = (numLearnableMoves + 5) / 6;
-        *pageNumPtr = (*pageNumPtr + 1) % pageCount;
-    } else {
-        *pageNumPtr = 0;
-    }
-
-    s32 numMovesToSkip;
-    if (numLearnableMoves <= 7) {
-        numMovesToSkip = 0;
-        showNextButton = FALSE;
-    } else if (numLearnableMoves > *pageNumPtr * 6) {
-        numMovesToSkip = *pageNumPtr * MAX_TUTOR_MOVES_PER_PAGE;
-        numLearnableMoves -= numMovesToSkip;
-        if (numLearnableMoves > 6) {
-            numLearnableMoves = MAX_TUTOR_MOVES_PER_PAGE;
-        }
-        showNextButton = TRUE;
-    } else {
-        numLearnableMoves = MAX_TUTOR_MOVES_PER_PAGE;
-        numMovesToSkip = 0;
-        showNextButton = FALSE;
-    }
-
-    u16 *result = GetVarPointer(fieldSystem, resultVarId);
-    struct Window *window = FieldSysGetAttrAddr(fieldSystem, SCRIPTENV_WINDOW);
-    *unk = ov01_021EDF78(fieldSystem, 1, 1, 0, 1, result, *messageFormat, window, ctx->msg_data);
-    messageData = NewMsgDataFromNarc(MSGDATA_LOAD_DIRECT, 27, 750, 32);
-    String *string = String_New(0x10, 32);
-    showAsTwoColumns = (numLearnableMoves + showNextButton >= 4) ? 1 : 0;
-    for (i = 0; i < numLearnableMoves; i++) {
-        ReadMsgDataIntoString(messageData, sTutorMoves[learnableMoves[i + numMovesToSkip]].move, string);
-        BufferString(*messageFormat, 0, string, 2, 1, 2);
-        BufferIntegerAsString(*messageFormat, 1, sTutorMoves[learnableMoves[i + numMovesToSkip]].cost, 2, 1, TRUE);
-        MoveTutorMenu_SetListItem(*unk, showAsTwoColumns, 0xFF, sTutorMoves[learnableMoves[i + numMovesToSkip]].move);
-    }
-
-    String_Delete(string);
-    DestroyMsgData(messageData);
-    if (showNextButton) {
-        MoveTutorMenu_SetListItem(*unk, 2, 0xFF, 0xFFFD);
-    }
-
-    MoveTutorMenu_SetListItem(*unk, 3, 0xFF, 0xFFFE);
-    ov01_021F6ABC(fieldSystem, 3, 7, GetVarPointer(fieldSystem, ctx->data[0]));
-    SetupNativeScript(ctx, ov01_0220305C);
-
-    u16 *unused = GetVarPointer(fieldSystem, ctx->data[0]); // yes, this is needed here to match
-    sys_FreeMemoryEz(learnableMoves);
-
-    return TRUE;
 }
