@@ -242,7 +242,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     debug_printf("Step 1: Calculate the HP modifier\n");
 #endif
 
-    a = (u64)(QMul_RoundDown(((3 * sp->battlemon[sp->defence_client].maxhp - 2 * sp->battlemon[sp->defence_client].hp) * UQ412__1_0) / (3 * sp->battlemon[sp->defence_client].maxhp), UQ412__1_0) + QMul_RoundDown(1, UQ412__0_5));
+    a = (u64)(QMul_RoundDown(((3 * sp->battlemon[sp->defence_client].maxhp - 2 * sp->battlemon[sp->defence_client].hp) * UQ412__1_0), UQ412__1_0) + QMul_RoundDown(1, UQ412__0_5));
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("a: %d\n\n", a);
 #endif
@@ -342,7 +342,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     debug_printf("badgePenalty in Q4.12 number format: %d\n", badgePenalty);
 #endif
     // TODO: some precision is lost here
-    e = ((d * badgePenalty) / UQ412__1_0);
+    e = ((d * badgePenalty) / UQ412__1_0) / (3 * sp->battlemon[sp->defence_client].maxhp);
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("e: %d\n\n", e);
 #endif

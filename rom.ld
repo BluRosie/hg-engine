@@ -749,6 +749,9 @@ OpenSPAFileInHeap = 0x02015264 | 1;
 QueueEmitterWithCallback = 0x02015494 | 1;
 particleEmitCallback = 0x021E5C28 | 1;
 
+BattleSystem_GetTrainer = 0x0223A9F4 | 1;
+PartyMenu_PrintMessageOnWindow32 = 0x0207DAC4 | 1;
+
 /* machine move expansion */
 sub_0200CE7C = 0x0200CE7C | 1;
 ov15_021FE8C4 = 0x021FE8C4 | 1;

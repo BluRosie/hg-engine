@@ -2,25 +2,29 @@
 
 // types
 
-.equ TYPE_NORMAL, 0
-.equ TYPE_FIGHTING, 1
-.equ TYPE_FLYING, 2
-.equ TYPE_POISON, 3
-.equ TYPE_GROUND, 4
-.equ TYPE_ROCK, 5
-.equ TYPE_BUG, 6
-.equ TYPE_GHOST, 7
-.equ TYPE_STEEL, 8
-.equ TYPE_MYSTERY, 9
-.equ TYPE_FAIRY, 9
-.equ TYPE_FIRE, 10
-.equ TYPE_WATER, 11
-.equ TYPE_GRASS, 12
-.equ TYPE_ELECTRIC, 13
-.equ TYPE_PSYCHIC, 14
-.equ TYPE_ICE, 15
-.equ TYPE_DRAGON, 16
-.equ TYPE_DARK, 17
+.equ TYPE_NORMAL            , 0
+.equ TYPE_FIGHTING          , 1
+.equ TYPE_FLYING            , 2
+.equ TYPE_POISON            , 3
+.equ TYPE_GROUND            , 4
+.equ TYPE_ROCK              , 5
+.equ TYPE_BUG               , 6
+.equ TYPE_GHOST             , 7
+.equ TYPE_STEEL             , 8
+.equ TYPE_MYSTERY           , 9
+.equ TYPE_FAIRY             , 9 // TODO: 17
+.equ TYPE_FIRE              , 10
+.equ TYPE_WATER             , 11
+.equ TYPE_GRASS             , 12
+.equ TYPE_ELECTRIC          , 13
+.equ TYPE_PSYCHIC           , 14
+.equ TYPE_ICE               , 15
+.equ TYPE_DRAGON            , 16
+.equ TYPE_DARK              , 17
+.equ TYPE_TYPELESS          , 18
+.equ TYPE_STELLAR           , 19 // TODO: 99
+
+.equ NUMBER_OF_MON_TYPES    , 20
 
 // body colors
 

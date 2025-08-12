@@ -507,5 +507,8 @@ BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, s
         ResetPartyPokemonAbility(encounterPartyPokemon);
         InitBoxMonMoveset(&encounterPartyPokemon->box);
     }
+
+    ChangeToBattleForm(encounterPartyPokemon);
+
     return PokeParty_Add(encounterBattleParam->poke_party[inTarget], encounterPartyPokemon);
 }
