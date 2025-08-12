@@ -451,9 +451,9 @@
 #define FLAG_KINGS_ROCK  (0x20)
 #define FLAG_KEEP_HP_BAR (0x40)
 #define FLAG_HIDE_SHADOW (0x80)
-#define FLAG_UNUSABLE_IN_GEN_8 (0xF0)
-#define FLAG_UNUSABLE_IN_GEN_9 (0xF1)
-#define FLAG_UNUSABLE_UNIMPLEMENTED (0xF2)
+#define FLAG_UNUSABLE_IN_GEN_8 (0x100)
+#define FLAG_UNUSABLE_IN_GEN_9 (0x200)
+#define FLAG_UNUSABLE_UNIMPLEMENTED (0x400)
 
 /**
  *  @brief macros to grab certain battlers relative to the one passed in
