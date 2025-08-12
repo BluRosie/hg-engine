@@ -2994,7 +2994,6 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
         && (ctx->battlemon[battlerId].move[movePos] != MOVE_ME_FIRST)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
-    }
     return nonSelectableMoves;
 }
 
@@ -3080,6 +3079,28 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_NO_PP;
         ret = FALSE;
     }
+#if DISALLOW_DEXIT_GEN < 8
+    else if (
+#if DISALLOW_DEXIT_GEN == 8
+    ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_8
+#endif
+#if DISALLOW_DEXIT_GEN >= 9
+    ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_9
+#endif
+    )
+#if DEBUG_NEEDS_TESTING == 0
+    || (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_UNIMPLEMENTED)
+#endif
+    {
+        msg->msg_tag = TAG_NICKNAME_MOVE;
+        // Reusing Disable for now
+        // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
+        msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_DISABLED;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
+        ret = FALSE;
+    }
+#endif
 
     return ret;
 }
