@@ -2,9 +2,10 @@
 Handles generating learnset codetables which are packed into NARC subfiles via codetables.mk
 
 Responsible for generating the following:
-  data/generated/MachineMoveLearnsets.c
-  data/generated/LevelupLearnsets.c
   data/generated/EggLearnsets.c
+  data/generated/LevelupLearnsets.c
+  data/generated/MachineMoveLearnsets.c
+  data/generated/TutorMoveLearnsets.c
 """
 
 import re
@@ -113,7 +114,7 @@ def merge_learnsets(ordered_data, cutoff_gen, inherit_level, inherit_egg, inheri
             if fields.get("LevelMoves") and (gen_key == cutoff_gen or inherit_level):
                 merged[species]["LevelMoves"] = fields.get("LevelMoves", [])
 
-            if fields.get("EggMoves") and (gen_key == cutoff_gen or inherit_level):
+            if fields.get("EggMoves") and (gen_key == cutoff_gen or inherit_egg):
                 merged[species]["EggMoves"] = fields.get("EggMoves", [])
 
             if gen_key == cutoff_gen or inherit_machine:
