@@ -39,11 +39,11 @@ def parse_moves_header(file_path):
     return move_dict
 
 
-def tm_data_dumper(speciesDict, movesDict):
+def tm_data_dumper(species_dict, moves_dict):
     tmArray = {}
     output = {}
 
-    for species in range(0, len(speciesDict)):
+    for species in range(0, len(species_dict)):
         mondata = open("build/a002/mondata_{:04d}".format(species), "rb")
         mondata.seek(0x1C)
         tmArray[species] = 0
@@ -54,20 +54,20 @@ def tm_data_dumper(speciesDict, movesDict):
     for i in range(0, 100):
         arm9.seek(0x1000CC + i*2)
         tmMove = struct.unpack("<H", arm9.read(2))[0]
-        key = movesDict[tmMove]
+        key = moves_dict[tmMove]
         val = []
-        for species in range(0, len(speciesDict)):
+        for species in range(0, len(species_dict)):
             if (tmArray[species] & (1 << i)):
-                val.append(speciesDict[species])
+                val.append(species_dict[species])
         output[key] = val
     arm9.close()
     return output
 
 
-def levelup_data_dumper(speciesDict, movesDict):
+def levelup_data_dumper(species_dict, moves_dict):
     output = {}
 
-    for species in range(len(speciesDict)):
+    for species in range(len(species_dict)):
         filename = f"build/a033/learnset_{species:04d}"
         if not os.path.isfile(filename):
             continue
@@ -89,15 +89,15 @@ def levelup_data_dumper(speciesDict, movesDict):
                 val = struct.unpack("<I", raw)[0]
                 move_id = val & 0xFFFF
                 level = val >> 16
-                move_name = movesDict.get(move_id, f"UNKNOWN_{move_id}")
+                move_name = moves_dict.get(move_id, f"UNKNOWN_{move_id}")
                 moves.append({"Level": level, "Move": move_name})
 
             if moves:
-                output[speciesDict[species]] = moves
+                output[species_dict[species]] = moves
     return output
 
 
-def eggmove_data_dumper(speciesDict, movesDict):
+def eggmove_data_dumper(species_dict, moves_dict):
     output = {}
 
     with open("build/kowaza/kowaza_0", "rb") as f:
@@ -115,7 +115,7 @@ def eggmove_data_dumper(speciesDict, movesDict):
             break
 
         species_id = val - 20000
-        species_name = speciesDict.get(species_id, f"UNKNOWN_SPECIES_{species_id}")
+        species_name = species_dict.get(species_id, f"UNKNOWN_SPECIES_{species_id}")
         i += 1
 
         moves = []
@@ -123,7 +123,7 @@ def eggmove_data_dumper(speciesDict, movesDict):
             move = data[i]
             if move >= 20000 or move == 0xFFFF:
                 break
-            move_name = movesDict.get(move, f"UNKNOWN_{move}")
+            move_name = moves_dict.get(move, f"UNKNOWN_{move}")
             moves.append(move_name)
             i += 1
 
@@ -135,11 +135,11 @@ def eggmove_data_dumper(speciesDict, movesDict):
     return output
 
 
-def tutor_data_dumper(speciesDict, movesDict):
+def tutor_data_dumper(species_dict, moves_dict):
     tutorArray = {}
 
     with open("base/root/fielddata/wazaoshie/waza_oshie.bin", "rb") as f:
-        for species in range(1, len(speciesDict)):
+        for species in range(1, len(species_dict)):
             f.seek((species - 1) * 8)
             flags = 0
             for i in range(2):
@@ -155,40 +155,40 @@ def tutor_data_dumper(speciesDict, movesDict):
             cost = struct.unpack("<B", f.read(1))[0]
             location = struct.unpack("<B", f.read(1))[0]
 
-            moveName = movesDict.get(tutorMove, f"UNKNOWN_{tutorMove}")
+            moveName = moves_dict.get(tutorMove, f"UNKNOWN_{tutorMove}")
 
             speciesList = []
-            for species in range(1, len(speciesDict)):
+            for species in range(1, len(species_dict)):
                 if tutorArray.get(species, 0) & (1 << i):
-                    speciesName = speciesDict.get(species, f"UNKNOWN_SPECIES_{species}")
+                    speciesName = species_dict.get(species, f"UNKNOWN_SPECIES_{species}")
                     speciesList.append(speciesName)
 
             tutorMoveMap[moveName] = speciesList
     return tutorMoveMap
 
 
-def generate_learnset_outputs(species_header_path, moves_header_path, out_learnsets="data/mon/learnsets/custom.json", out_tutors="data/tutor/tutor_moves.json"):
+def generate_learnset_outputs(species_header_path, moves_header_path, out_learnsets):
 
-    speciesDict = parse_species_header(species_header_path)
-    movesDict = parse_moves_header(moves_header_path)
+    species_dict = parse_species_header(species_header_path)
+    moves_dict = parse_moves_header(moves_header_path)
 
-    levelup_data = levelup_data_dumper(speciesDict, movesDict)
-    tm_data = tm_data_dumper(speciesDict, movesDict)
-    egg_data = eggmove_data_dumper(speciesDict, movesDict)
-    tutor_data = tutor_data_dumper(speciesDict, movesDict)
+    levelup_data = levelup_data_dumper(species_dict, moves_dict)
+    tm_data = tm_data_dumper(species_dict, moves_dict)
+    egg_data = eggmove_data_dumper(species_dict, moves_dict)
+    tutor_data = tutor_data_dumper(species_dict, moves_dict)
 
-    species_to_tms = {name: [] for name in speciesDict.values()}
+    species_to_tms = {name: [] for name in species_dict.values()}
     for move, species_list in tm_data.items():
         for sp in species_list:
             species_to_tms[sp].append(move)
 
-    species_to_tutors = {name: [] for name in speciesDict.values()}
+    species_to_tutors = {name: [] for name in species_dict.values()}
     for move, species_list in tutor_data.items():
         for sp in species_list:
             species_to_tutors[sp].append(move)
 
     learnsets = {}
-    for sp in speciesDict.values():
+    for sp in species_dict.values():
         learnsets[sp] = {
             "LevelMoves": levelup_data.get(sp, []),
             "MachineMoves": sorted(set(species_to_tms.get(sp, []))),
@@ -200,31 +200,23 @@ def generate_learnset_outputs(species_header_path, moves_header_path, out_learns
     with open(out_learnsets, "w") as f:
         json.dump(learnsets, f, indent=2)
 
-    tutor_moves = []
+    print("\nTutor Move List (for sTutorMoves array in src/field/move_tutor.c):\n")
     with open("base/overlay/overlay_0001.bin", "rb") as f:
         for i in range(52):
             f.seek(0x23AE0 + i * 4)
             move_id = struct.unpack("<H", f.read(2))[0]
             cost = struct.unpack("<B", f.read(1))[0]
             location = struct.unpack("<B", f.read(1))[0]
-            move_name = movesDict.get(move_id, f"UNKNOWN_{move_id}")
+            move_name = moves_dict.get(move_id, f"UNKNOWN_{move_id}")
             tutor_name = numToTutorName.get(location, f"UNKNOWN_{location}")
-            tutor_moves.append({
-                "Move": move_name,
-                "Cost": cost,
-                "Tutor": tutor_name.replace("TUTOR_", "").title().replace("_", "")
-            })
-
-    os.makedirs(os.path.dirname(out_tutors), exist_ok=True)
-    with open(out_tutors, "w") as f:
-        json.dump(tutor_moves, f, indent=2)
+            print(f"{{ {move_name}, {cost}, {tutor_name} }},")
 
     print("\nTM/HM Move List (TM001–HM08). Copy this into the sMachineMoves array in src/item.c if you changed the vals in your hack:\n")
     with open("base/arm9.bin", "rb") as f:
         for i in range(100):
             f.seek(0x1000CC + i * 2)
             move_id = struct.unpack("<H", f.read(2))[0]
-            move_name = movesDict.get(move_id, f"UNKNOWN_{move_id}")
+            move_name = moves_dict.get(move_id, f"UNKNOWN_{move_id}")
             if i < 92:
                 print(f"{move_name},".ljust(22) + f"// TM{i + 1:03}")
             else:
@@ -235,6 +227,5 @@ if __name__ == "__main__":
     generate_learnset_outputs(
         species_header_path="include/constants/species.h",
         moves_header_path="include/constants/moves.h",
-        out_learnsets="data/mon/learnsets.json",
-        out_tutors="data/tutor/tutor_moves.json"
+        out_learnsets="data/mon/learnsets/custom.json",
     )

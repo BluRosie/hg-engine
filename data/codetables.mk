@@ -71,7 +71,6 @@ NARC_FILES += $(FORMREVERSION_BIN)
 
 
 LEARNSETS_RESOLVED := $(BUILD)/learnsets.json
-TUTORMOVES_DATA := data/tutor/tutor_moves.json
 MACHINELEARNSET_DEPENDENCIES := data/generated/MachineMoveLearnsets.c
 TUTORLEARNSET_DEPENDENCIES := data/generated/TutorMoveLearnsets.c
 LEVELUPLEARNSET_DEPENDENCIES := data/generated/LevelupLearnsets.c
