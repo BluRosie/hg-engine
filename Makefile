@@ -463,6 +463,9 @@ move_narc: $(NARC_FILES)
 	@echo "machine moves:"
 	cp $(MACHINELEARNSET_BIN) $(MACHINELEARNSET_TARGET)
 
+	@echo "tutor moves:"
+	cp $(TUTORLEARNSET_BIN) $(TUTORLEARNSET_TARGET)
+
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:
 

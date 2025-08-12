@@ -2475,16 +2475,12 @@ BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex) {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
     u16 form = GetMonData(pp, MON_DATA_FORM, NULL);
 
-    if (species > MAX_SPECIES_INCLUDING_FORMS) {
-        return FALSE;
-    }
-
-    if (machineMoveIndex > NUM_MACHINE_MOVES) {
+    if (species > MAX_SPECIES_INCLUDING_FORMS || machineMoveIndex > NUM_MACHINE_MOVES) {
         return FALSE;
     }
 
     u32 buf[MACHINE_LEARNSETS_BITFIELD_COUNT];
-    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_TM_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * MACHINE_LEARNSETS_BITFIELD_COUNT * sizeof(u32), MACHINE_LEARNSETS_BITFIELD_COUNT * sizeof(u32));
+    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_MACHINE_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * MACHINE_LEARNSETS_BITFIELD_COUNT * sizeof(u32), MACHINE_LEARNSETS_BITFIELD_COUNT * sizeof(u32));
 
     return (buf[machineMoveIndex / 32] >> (machineMoveIndex % 32)) & 1;
 }
