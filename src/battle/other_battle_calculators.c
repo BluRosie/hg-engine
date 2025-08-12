@@ -3081,21 +3081,19 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         ret = FALSE;
     } else if (
 
+#if DEBUG_NEEDS_TESTING == 0
+    (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_UNIMPLEMENTED)
+#endif
+
 #if DISALLOW_DEXIT_GEN == 8
-    ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_8
+    || (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_8)
 #endif
 
 #if DISALLOW_DEXIT_GEN >= 9
-    ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_9
+    || (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_9)
 #endif
 
-    )
-
-#if DEBUG_NEEDS_TESTING == 0
-    || (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_UNIMPLEMENTED)
-#endif
-
-    {
+    ) {
 
 #if DISALLOW_DEXIT_GEN >= 8
         msg->msg_tag = TAG_NICKNAME_MOVE;
@@ -3108,7 +3106,6 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 #endif
 
     }
-
 
     return ret;
 }
