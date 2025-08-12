@@ -3084,7 +3084,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 #ifdef DEBUG_ENABLE_UNIMPLEMENTED_MOVES
 #else
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_UNIMPLEMENTED) {
-        msg->msg_id = 0;
+        msg->msg_id = 0; // empty message
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
@@ -3093,7 +3093,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 
 #if DISALLOW_DEXIT_GEN == 8
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_8) {
-        msg->msg_id = 0;
+        msg->msg_id = 0; // empty message
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
@@ -3102,7 +3102,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 
 #if DISALLOW_DEXIT_GEN >= 9
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSABLE_IN_GEN_9) {
-        msg->msg_id = 0;
+        msg->msg_id = 0; // empty message
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         msg->msg_para[1] = ctx->battlemon[battlerId].move[movePos];
         ret = FALSE;
