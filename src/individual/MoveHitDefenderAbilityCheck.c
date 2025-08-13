@@ -615,6 +615,20 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 ret = TRUE;
             }
             break;
+        case ABILITY_SAND_SPIT:
+            if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+                && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
+                    (sp->oneSelfFlag[sp->defence_client].special_damage)))
+            {
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->state_client = sp->defence_client;
+                sp->battlerIdTemp = sp->defence_client;
+                seq_no[0] = SUB_SEQ_SAND_STREAM;
+                ret = TRUE;
+            }
+            break;
         default:
             break;
     }
