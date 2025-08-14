@@ -1,6 +1,5 @@
 import json
 import requests
-import os
 import re
 
 GAMEMASTER_URL = "https://raw.githubusercontent.com/pvpoke/pvpoke/refs/heads/master/src/data/gamemaster.json"
