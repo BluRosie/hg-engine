@@ -1003,7 +1003,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].is_currently_terastallized = 0;
     sp->battlemon[client].is_currently_dynamaxed = 0;
     sp->battlemon[client].has_dynamaxed_before = 0;
-    sp->battlemon[client].type3 = 0;
+    sp->battlemon[client].type3 = TYPE_TYPELESS;
     sp->oneTurnFlag[client].parental_bond_flag = 0;
     sp->oneTurnFlag[client].parental_bond_is_active = 0;
 
