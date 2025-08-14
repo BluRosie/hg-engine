@@ -65,6 +65,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 if ((sp->battlemon[sp->defence_client].hp)
                     && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
                     && (sp->current_move_index != MOVE_STRUGGLE)
+                    && (movetype != TYPE_TYPELESS) // Revelation Dance
                     && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                         (sp->oneSelfFlag[sp->defence_client].special_damage))
                     && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
