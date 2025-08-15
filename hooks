@@ -313,8 +313,6 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 0007 LoadCaptureSuccessSPANumEmitters 02232630 1
 #endif
 
-0001 SpeciesAndFormeToWazaOshieIndex 02202C7C 2
-
 # need another hook for this one yeah yeah
 0012 ServerDoTypeCalcMod 02251D28
 0012 AITypeCalc 02252054
@@ -522,7 +520,5 @@ arm9 ItemToMachineMove 02078000 1
 arm9 MoveIsHM 02078024 1
 arm9 GetMonMachineMoveCompat 0207224C 2
 arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
-
 0015 Bag_DrawMachineMoveLabel 021FE914 7
-
 0001 GetLearnableTutorMoves 02202D40 3

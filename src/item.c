@@ -361,12 +361,14 @@ u16 ItemToMachineMove(u16 itemId) {
 }
 
 BOOL MoveIsHM(u16 moveId) {
-    u8 i;
-    for (i = 0; i < NUM_HMS; i++) {
+    for (u8 i = 0; i < NUM_HMS; i++) {
         if (sMachineMoves[i + ITEM_HM01 - ITEM_TM01] == moveId) {
+#if defined(REUSABLE_TMS) && defined(DELETABLE_HMS)
+            return FALSE;
+#else
             return TRUE;
+#endif
         }
     }
-
     return FALSE;
 }

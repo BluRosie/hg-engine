@@ -1985,48 +1985,6 @@ u32 CheckCanUseBallOnDoublesFromBag(struct BattleStruct *sp)
 }
 
 /**
- *  @brief grab tutor move index from species and form
- *
- *  @param species species index
- *  @param form form number
- *  @return index in fielddata/wazaoshie/waza_oshie.bin
- */
-u32 SpeciesAndFormeToWazaOshieIndex(u32 species, u32 form)
-{
-    u32 ret = species;
-    switch (species)
-    {
-    case SPECIES_DEOXYS:
-        if (form)
-            ret = 494 + form - 1;
-        break;
-    case SPECIES_WORMADAM:
-        if (form)
-            ret = 497 + form - 1;
-        break;
-    case SPECIES_GIRATINA:
-        if (form)
-            ret = 499 + form - 1;
-        break;
-    case SPECIES_SHAYMIN:
-        if (form)
-            ret = 500 + form - 1;
-        break;
-    case SPECIES_ROTOM:
-        if (form)
-            ret = 501 + form - 1;
-        break;
-    default:
-        if (form)
-            ret = PokeOtherFormMonsNoGet(species, form);
-        break;
-    }
-
-    ret--;
-    return ret;
-}
-
-/**
  *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
  *
  *  @return level cap from LEVEL_CAP_VARIABLE script variable or 100 if it's not set at all
