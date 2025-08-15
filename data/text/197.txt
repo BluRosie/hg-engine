@@ -1571,3 +1571,9 @@ The opposing {STRVAR_1 1, 0, 0} was hurt!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} was burned up!
+{STRVAR_1 1, 0, 0}’s item cannot be removed!
+The wild {STRVAR_1 1, 0, 0}’s item cannot be\nremoved!
+The opposing {STRVAR_1 1, 0, 0}’s item cannot be\nremoved!
