@@ -1428,6 +1428,10 @@
     CheckAbility CHECK_OPCODE_HAVE, \battlerCategory, ABILITY_COMPETITIVE, \label
     .endm
 
+    .macro CheckProtectContactMoves
+    .long 259
+    .endm
+
     .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 255
 
     // .macro YourCustomCommand

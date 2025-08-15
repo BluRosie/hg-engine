@@ -1,32 +1,5 @@
 .loadtable "armips/include/utf-8.txt"
 
-// level up learnset macros
-
-.macro levelup,species
-
-	.if species < 10
-		.create "build/a033/learnset_000" + tostring(species),0
-	.elseif species < 100
-		.create "build/a033/learnset_00" + tostring(species),0
-	.elseif species < 1000
-		.create "build/a033/learnset_0" + tostring(species),0
-	.else
-		.create "build/a033/learnset_" + tostring(species),0
-	.endif
-
-.endmacro
-
-.macro learnset,move,level
-    .word (level << 16 | move)
-.endmacro
-
-.macro terminatelearnset
-    .word 0xFFFF
-
-	.close
-.endmacro
-
-
 // mon data macros
 
 .macro mondata,species,name
@@ -115,17 +88,6 @@
     .close
 .endmacro
 
-.macro tmdata,num1,num2,num3,num4 // handled by a python script and armips/data/tmlearnset.txt
-	.halfword 0 // padding
-
-	.word num1
-	.word num2
-	.word num3
-	.word num4
-
-	.close
-.endmacro
-
 
 // evolution data macros
 
@@ -167,28 +129,6 @@
 
 	.close
 .endmacro
-
-
-// egg move macros
-
-.macro eggmove,move
-	.halfword move
-.endmacro
-
-.macro eggmoveentry,species
-	.if species == 1
-		.create "build/kowaza/kowaza_0",0
-	.endif
-
-	.halfword species+20000
-.endmacro
-
-.macro terminateeggmoves
-	.halfword 0xFFFF
-
-	.close
-.endmacro
-
 
 // baby mon macro
 

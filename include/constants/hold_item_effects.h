@@ -224,5 +224,6 @@
 #define HOLD_EFFECT_CORNERSTONE_MASK                   217
 #define HOLD_EFFECT_WELLSPRING_MASK                    218
 #define HOLD_EFFECT_HEARTHFLAME_MASK                   219
+#define HOLD_EFFECT_POWERING_UP_MOVE_ONCE              220
 
 #endif

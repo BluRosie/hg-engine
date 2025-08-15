@@ -47,6 +47,9 @@ arm9 020CA054 60 00 2D E9
 # expand move tutor heap
 arm9 0203DFF4 8A 02
 
+# allow for 255 moves in move tutor
+0001 02202C12 FF 29
+
 # pokewalker species limiters
 0112 021ED63C FF 7F 00 00
 0112 021ED668 FF 7F 00 00
@@ -450,3 +453,12 @@ arm9 080550D4 2C
 
 # change the string displayed when a mon learns a tm without having to overwrite a move
 arm9 020821B0 DB
+
+# nop out heal bell soundproof check on the user
+# notably not on the ally
+0012 02241172 00 00
+# nop out heal bell check for healing mons in the party using heal bell
+0012 022593A4 00 00 00 00
+
+# nop out selection of cancel when the item won't have an effect
+arm9 0207C3AC 00 00 00 00
