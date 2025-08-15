@@ -3258,7 +3258,7 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleSt
                 break;
         }
     }
-    
+
     return FALSE;
 }
 
@@ -3532,7 +3532,7 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 
 BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
-    
+
     int UNUSED adrs = read_battle_script_param(ctx); // Unused, but still required as param
 
     if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT) {
@@ -3568,8 +3568,8 @@ BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
 
     // Don't increase protectSuccessTurns at max
     // Mat Block and Crafty Shield don't increase the counter, Quick Guard and Wide Guard do.
-    if (ctx->protectSuccessTurns[ctx->attack_client] < 6 
-    && !(ctx->current_move_index == MOVE_MAT_BLOCK) 
+    if (ctx->protectSuccessTurns[ctx->attack_client] < 6
+    && !(ctx->current_move_index == MOVE_MAT_BLOCK)
     && !(ctx->current_move_index == MOVE_CRAFTY_SHIELD)) {
         ctx->protectSuccessTurns[ctx->attack_client]++;
     }
@@ -4043,7 +4043,7 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
     IncrementBattleScriptPtr(sp, 1);
 
     u32 adrs = read_battle_script_param(sp);
-    u32 adrs2 = read_battle_script_param(sp);
+    u32 adrs2 UNUSED = read_battle_script_param(sp);
     if (CanActivateDamageReductionBerry(bw, sp, sp->defence_client))
     {
         IncrementBattleScriptPtr(sp, adrs);

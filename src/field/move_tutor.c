@@ -100,7 +100,7 @@ u16 LONG_CALL GetLearnableTutorMoves(struct PartyPokemon *mon, u32 moveTutorNpc,
     ArchiveDataLoadOfs(tutorLearnset, ARC_CODE_ADDONS, CODE_ADDON_TUTOR_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * TUTOR_LEARNSETS_BITFIELD_COUNT  * sizeof(u32), TUTOR_LEARNSETS_BITFIELD_COUNT  * sizeof(u32));
 
     u16 numLearnableMoves = 0;
-    for (int j = 0; j < NELEMS(sTutorMoves); j++) {
+    for (u32 j = 0; j < NELEMS(sTutorMoves); j++) {
         BOOL canLearnMove = (tutorLearnset[j / 32] >> (j % 32)) & 1;
         if (canLearnMove && moveTutorNpc == sTutorMoves[j].tutorNpc) {
             for (i = 0; i < MAX_MON_MOVES; i++) {
