@@ -466,7 +466,7 @@
 #define MAX_BASE_SUBSCRIPT_NUM 453
 
 // define your custom subscripts below like this
-// #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
+// #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
 
 
 
