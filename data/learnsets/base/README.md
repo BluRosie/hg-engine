@@ -24,7 +24,7 @@ python3 scripts/build_learnsets.py --generate data/learnsets/learnsets.json --cu
 
 #### National Dex (Repo Default)
 
-Takes the latest available maingame learnsets for each mon. For example, Raticate would take it's BDSP level up learnset because it doesn't have learnsets for later gens. 
+Takes the latest available maingame learnsets for each mon. For example, Raticate would take its BDSP level up learnset because it doesn't have learnsets for later gens. 
 Note this ignores the Pokemon GO learnsets.
 
 ```bash

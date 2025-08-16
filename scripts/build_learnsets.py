@@ -348,7 +348,6 @@ if __name__ == "__main__":
     tutor_moves = load_tutor_move_list("src/field/move_tutor.c")
     species_dict = load_species_header("include/constants/species.h")
     moves_dict = load_moves_header("include/constants/moves.h")
-    form_to_base = load_form_to_species_mapping("data/FormToSpeciesMapping.c")
 
     if args.generate:
         ordered_learnsets = [
@@ -365,15 +364,13 @@ if __name__ == "__main__":
             args.inherit_tutor,
         )
 
-        for form_species, base_species in form_to_base.items():
-            if form_species not in merged_for_dump and base_species in merged_for_dump:
-                merged_for_dump[form_species] = dict(merged_for_dump[base_species])
-
         os.makedirs(os.path.dirname(args.generate), exist_ok=True)
         with open(args.generate, "w", encoding="utf-8") as f:
             json.dump(merged_for_dump, f, indent=2)
 
     if any([args.machineout, args.levelupout, args.eggout, args.tutorout, args.constsout]):
+        form_to_base = load_form_to_species_mapping("data/FormToSpeciesMapping.c")
+        
         if not args.learnsets:
             print(f"[ERROR]: {msg}")
             exit(1)
