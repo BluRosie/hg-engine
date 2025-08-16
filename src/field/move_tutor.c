@@ -3,7 +3,7 @@
 #include "../../include/battle.h"
 #include "../../include/config.h"
 #include "../../include/debug.h"
-#include "../../include/msgdata.h"
+#include "../../include/message.h"
 #include "../../include/party_menu.h"
 #include "../../include/pokemon.h"
 #include "../../include/rtc.h"

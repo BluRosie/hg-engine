@@ -2571,6 +2571,7 @@
 
 
 #define NUM_MEGA_STONES 48 // includes the pixie plate
+#define NUM_HMS         (ITEM_HM08 - ITEM_HM01 + 1)
 
 #define IS_ITEM_ARCEUS_PLATE(item) ((item >= ITEM_FLAME_PLATE && item <= ITEM_IRON_PLATE) || (item == ITEM_PIXIE_PLATE))
 
@@ -2582,6 +2583,8 @@
 
 #define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_BURN_DRIVE && item <= ITEM_SHOCK_DRIVE)
 
+#define IS_ITEM_GEM(item) (item >= ITEM_NORMAL_GEM && item <= ITEM_FAIRY_GEM)
+
 #define IS_ITEM_MEMORY(item) (item >= ITEM_FIGHTING_MEMORY && item <= ITEM_FAIRY_MEMORY)
 
 #define IS_ITEM_NATURE_MINT(item) (item >= ITEM_LONELY_MINT && item <= ITEM_SERIOUS_MINT)
@@ -2589,6 +2592,17 @@
 #define IS_ITEM_TERRAIN_SEED(item) (item >= ITEM_ELECTRIC_SEED && item <= ITEM_PSYCHIC_SEED)
 
 #define IS_ITEM_MASK(item) (item >= ITEM_CORNERSTONE_MASK && item <= ITEM_HEARTHFLAME_MASK)
+
+#define IS_ITEM_VANILLA_HM(item)   (((item) >= ITEM_HM01 && item <= ITEM_HM08))
+#define IS_ITEM_VANILLA_TM(item)   (((item) >= ITEM_TM001 && item <= ITEM_TM092))
+#define IS_ITEM_EXPANSION_TM(item) (((item) == ITEM_TM00) || \
+                                    ((item) >= ITEM_TM093 && item <= ITEM_TM095) || \
+                                    ((item) >= ITEM_TM096 && item <= ITEM_TM100) || \
+                                    ((item) >= ITEM_TM100_SV && item <= ITEM_TM229))
+#define IS_ITEM_EXPANSION_HM(item) (((item) == ITEM_HM07_ORAS))
+#define IS_ITEM_TM(item)           ((IS_ITEM_VANILLA_TM(item) || IS_ITEM_EXPANSION_TM(item)))
+#define IS_ITEM_HM(item)           ((IS_ITEM_VANILLA_HM(item) || IS_ITEM_EXPANSION_HM(item)))
+#define IS_ITEM_TR(item)           (((item) >= ITEM_TR00 && (item) <= ITEM_TR99))
 
 enum ItemGeneration {
     CUSTOM,

@@ -19,11 +19,12 @@ END_OF_FILE = """
 };
 """
 
+
 def process_csv(input_file, output_file='data/itemdata/itemdata.c'):
     try:
         # Read the input CSV
         # df = pd.read_csv(input_file)
-        df = pd.read_csv('data/itemdata/completed_itemdata.csv', dtype=object)
+        df = pd.read_csv(input_file, dtype=object)
         df.columns = df.columns.str.replace(' ', '')
         
         # We don't care about types
@@ -109,6 +110,7 @@ def process_csv(input_file, output_file='data/itemdata/itemdata.c'):
         
     except FileNotFoundError:
         print(f"Error: Could not find input file '{input_file}'")
+
 
 if __name__ == '__main__':
     process_csv('data/itemdata/itemdata.csv', 'data/itemdata/itemdata.c')

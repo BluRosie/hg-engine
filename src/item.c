@@ -349,9 +349,10 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
  * @see   pret/pokeheartgold ItemToTMHMId
  */
 u16 ItemToMachineMoveIndex(u16 itemId) {
-    if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08) {
-        return itemId - ITEM_TM01;
+    if (itemId >= ITEM_TM001 && itemId <= ITEM_HM08) {
+        return itemId - ITEM_TM001;
     }
+    // TODO zebben think of a better way to organize this
 
     return 0;
 }
@@ -361,7 +362,7 @@ u16 ItemToMachineMoveIndex(u16 itemId) {
  * @see   pret/pokeheartgold TMHMGetMove
  */
 u16 ItemToMachineMove(u16 itemId) {
-    if (itemId < ITEM_TM01) {
+    if (itemId < ITEM_TM001) {
         return MOVE_NONE;
     }
 
@@ -374,7 +375,7 @@ u16 ItemToMachineMove(u16 itemId) {
 
 BOOL MoveIsHM(u16 moveId) {
     for (u8 i = 0; i < NUM_HMS; i++) {
-        if (sMachineMoves[i + ITEM_HM01 - ITEM_TM01] == moveId) {
+        if (sMachineMoves[i + ITEM_HM01 - ITEM_TM001] == moveId) {
 #if defined(REUSABLE_TMS) && defined(DELETABLE_HMS)
             return FALSE;
 #else
