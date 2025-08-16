@@ -3810,6 +3810,8 @@ typedef struct Trainer {
 
 Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battlerId);
 
+BOOL LONG_CALL TryEatOpponentBerry(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
+
 /**
  * @brief checks if the current move hits any oppsoing battler or ally
  * @param sp global battle structure
@@ -3818,5 +3820,6 @@ Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battle
 BOOL LONG_CALL IsAnyBattleMonHit(struct BattleStruct* ctx);
 
 int GetSanitisedType(int type);
+
 
 #endif // BATTLE_H

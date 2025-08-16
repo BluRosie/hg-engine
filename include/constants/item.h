@@ -2570,7 +2570,6 @@
 #define MAX_TOTAL_ITEM_NUM ITEM_BRIARS_BOOK
 
 
-
 #define NUM_MEGA_STONES 48 // includes the pixie plate
 
 #define IS_ITEM_ARCEUS_PLATE(item) ((item >= ITEM_FLAME_PLATE && item <= ITEM_IRON_PLATE) || (item == ITEM_PIXIE_PLATE))
