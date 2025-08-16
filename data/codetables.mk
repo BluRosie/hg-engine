@@ -70,7 +70,7 @@ $(FORMREVERSION_BIN): $(FORMREVERSION_DEPENDENCIES)
 NARC_FILES += $(FORMREVERSION_BIN)
 
 
-LEARNSETS_INPUT = $(wildcard data/mon/learnsets/*.json)
+LEARNSETS_INPUT = data/learnsets/learnsets.json
 LEARNSETS_RESOLVED := $(BUILD)/learnsets.json
 MACHINELEARNSET_DEPENDENCIES := data/generated/MachineMoveLearnsets.c
 TUTORLEARNSET_DEPENDENCIES := data/generated/TutorMoveLearnsets.c
@@ -80,6 +80,7 @@ EGGLEARNSET_DEPENDENCIES := data/generated/EggLearnsets.c
 $(LEARNSETS_RESOLVED): $(LEARNSETS_INPUT) $(TUTORMOVES_DATA) include/config.h
 	@echo "generating learnset data..."
 	$(PYTHON) scripts/build_learnsets.py \
+		--learnsets $(LEARNSETS_INPUT) \
 		--machineout $(MACHINELEARNSET_DEPENDENCIES) \
 		--levelupout $(LEVELUPLEARNSET_DEPENDENCIES) \
 		--eggout $(EGGLEARNSET_DEPENDENCIES) \
