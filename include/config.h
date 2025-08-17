@@ -114,13 +114,9 @@
 // this will change existing mons too!  if you want to change the odds of wild mons only, you will have to add a certain amount of pid rerolls to the AddWildPartyPokemon routine
 #define SHINY_ODDS 8
 
-// LEARNSET_TOTAL_MOVES is the amount of moves that each pokémon should be able to learn by level up
-#define LEARNSET_TOTAL_MOVES 41 // 40+terminate - currently driven by gallade
-
 // FRIENDSHIP_EVOLUTION_THRESHOLD defines the amount of friendship needed to evolve mons with friendship-related evolutions
 // modern generations have this value at 160, older ones at 220.  still max out at 255
 #define FRIENDSHIP_EVOLUTION_THRESHOLD 160
-
 
 // Friendship grants additional bonuses.
 // Comment out the line below to revert back to Gen 5- behaviour
@@ -158,7 +154,35 @@
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
 #define REUSABLE_TMS
 
+// DELETABLE_HMS allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
+//#define DELETABLE_HMS
+
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
+
+// UPDATED_MACHINE_MOVE_LABELS modernizes bag label rendering for machine moves (TMs, HMs, and TRs)
+// to more closely match later generations. Note that disabling this will break TMs > 99 rendering in the bag
+// Comment out the line below to disable this feature
+#define UPDATE_MACHINE_MOVE_LABELS
+
+// LEARNSET_FILE tells the engine what file to use for learnsets
+// if you want custom learnsets, use "custom" and modify data/mon/learnsets/custom.json
+#define LEARNSET_FILE "sv"
+
+// MACHINE_MOVE_INHERITANCE allows MachineMoves learnsets to accumulate across generations before the specified LEARNSET_FILE
+// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
+#define MACHINE_MOVE_INHERITANCE
+
+// EGG_MOVE_INHERITANCE allows EggMoves learnsets to backfill from previous generations before the specified LEARNSET_FILE
+// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
+#define EGG_MOVE_INHERITANCE
+
+// TUTOR_MOVE_INHERITANCE allows TutorMoves learnsets to accumulate across generations before the specified LEARNSET_FILE
+// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
+#define TUTOR_MOVE_INHERITANCE
+
+// EGG_MOVE_INHERITANCE allows LevelMoves learnsets to backfill from previous generations before the specified LEARNSET_FILE
+// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
+#define LEVELUP_MOVE_INHERITANCE
 
 #endif

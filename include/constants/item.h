@@ -442,6 +442,14 @@
 #define NUM_TMS (ITEM_TM92 - ITEM_TM01 + 1)
 #define NUM_HMS (ITEM_HM08 - ITEM_HM01 + 1)
 
+#define IS_ITEM_VANILLA_HM(item)   ((item >= ITEM_HM01 && item <= ITEM_HM08))
+#define IS_ITEM_VANILLA_TM(item)   ((item >= ITEM_TM01 && item <= ITEM_TM92))
+#define IS_ITEM_EXPANSION_TM(item) ((item < 0)) // stub TODO zebben once we have item ids
+#define IS_ITEM_EXPANSION_HM(item) ((item < 0)) // stub
+#define IS_ITEM_TM(item)           ((IS_ITEM_VANILLA_TM(item) || IS_ITEM_EXPANSION_TM(item)))
+#define IS_ITEM_HM(item)           ((IS_ITEM_VANILLA_HM(item) || IS_ITEM_EXPANSION_HM(item)))
+#define IS_ITEM_TR(item)           ((item < 0)) // stub
+
 #define ITEM_EXPLORER_KIT    428
 #define ITEM_LOOT_SACK       429
 #define ITEM_RULE_BOOK       430
@@ -605,11 +613,6 @@
 #define ITEM_AUDINITE         (ITEM_MEGA_STONES_START + 45)
 #define ITEM_DIANCITE         (ITEM_MEGA_STONES_START + 46)
 #define ITEM_PIXIE_PLATE      (ITEM_MEGA_STONES_START + 47)
-
-#define ITEM_MAX_MEGA_STONES  (ITEM_PIXIE_PLATE)
-
-//Item expansion
-#define ITEM_EXPANSION_START    (ITEM_PIXIE_PLATE + 1)
 
 //Generation V
 #define ITEM_ABSORB_BULB        (ITEM_PIXIE_PLATE + 1)
@@ -873,9 +876,11 @@
 
 #define MAX_BASE_ITEM_NUM ITEM_METAL_ALLOY
 
-// define your custom move effects below like this
+// define your custom items below like this
+// update MAX_TOTAL_ITEM_NUM below that
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
 
+#define MAX_TOTAL_ITEM_NUM ITEM_METAL_ALLOY
 
 
 #define NUM_MEGA_STONES 48 // includes the pixie plate
@@ -884,8 +889,8 @@
 
 #define IS_ITEM_MASK(item) (item >= ITEM_CORNERSTONE_MASK && item <= ITEM_HEARTHFLAME_MASK)
 
-#define NUM_UNKNOWN_SLOTS 22 // used to adjust in data/itemdata.c
-#define NUM_UNKNOWN_SLOTS_EXPLORER_KIT (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
+#define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
+#define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
 
 #define NEW_ITEM_MAX ITEM_METAL_ALLOY
 

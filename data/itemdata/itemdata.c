@@ -7356,7 +7356,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ADAMANT_ORB - NUM_UNKNOWN_SLOTS] =
+[ITEM_ADAMANT_ORB] =
 {
     .price = 10000,
     .holdEffect = HOLD_EFFECT_DIALGA_BOOST,
@@ -7421,7 +7421,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LUSTROUS_ORB - NUM_UNKNOWN_SLOTS] =
+[ITEM_LUSTROUS_ORB] =
 {
     .price = 10000,
     .holdEffect = HOLD_EFFECT_PALKIA_BOOST,
@@ -7486,7 +7486,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GRASS_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_GRASS_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -7551,7 +7551,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FLAME_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_FLAME_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -7616,7 +7616,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BUBBLE_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_BUBBLE_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -7681,7 +7681,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLOOM_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_BLOOM_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -7746,7 +7746,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TUNNEL_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_TUNNEL_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -7811,7 +7811,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STEEL_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_STEEL_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -7876,7 +7876,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HEART_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_HEART_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -7941,7 +7941,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SNOW_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_SNOW_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -8006,7 +8006,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SPACE_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_SPACE_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -8071,7 +8071,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_AIR_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_AIR_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -8136,7 +8136,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MOSAIC_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_MOSAIC_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -8201,7 +8201,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BRICK_MAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_BRICK_MAIL] =
 {
     .price = 50,
     .holdEffect = 0,
@@ -8266,7 +8266,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHERI_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_CHERI_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PRZ_RESTORE,
@@ -8331,7 +8331,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHESTO_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_CHESTO_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_SLP_RESTORE,
@@ -8396,7 +8396,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PECHA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_PECHA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PSN_RESTORE,
@@ -8461,7 +8461,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RAWST_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_RAWST_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_BRN_RESTORE,
@@ -8526,7 +8526,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ASPEAR_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_ASPEAR_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_FRZ_RESTORE,
@@ -8591,7 +8591,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LEPPA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_LEPPA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PP_RESTORE,
@@ -8656,7 +8656,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ORAN_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_ORAN_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_HP_RESTORE,
@@ -8721,7 +8721,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PERSIM_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_PERSIM_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_CONFUSE_RESTORE,
@@ -8786,7 +8786,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LUM_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_LUM_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_STATUS_RESTORE,
@@ -8851,7 +8851,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SITRUS_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_SITRUS_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_HP_PCT_RESTORE,
@@ -8916,7 +8916,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FIGY_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_FIGY_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_HP_RESTORE_SPICY,
@@ -8981,7 +8981,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WIKI_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_WIKI_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_HP_RESTORE_DRY,
@@ -9046,7 +9046,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MAGO_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_MAGO_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_HP_RESTORE_SWEET,
@@ -9111,7 +9111,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_AGUAV_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_AGUAV_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_HP_RESTORE_BITTER,
@@ -9176,7 +9176,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_IAPAPA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_IAPAPA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_HP_RESTORE_SOUR,
@@ -9241,7 +9241,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RAZZ_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_RAZZ_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -9306,7 +9306,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLUK_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_BLUK_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -9371,7 +9371,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_NANAB_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_NANAB_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -9436,7 +9436,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WEPEAR_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_WEPEAR_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -9501,7 +9501,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PINAP_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_PINAP_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -9566,7 +9566,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POMEG_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_POMEG_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -9631,7 +9631,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_KELPSY_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_KELPSY_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -9696,7 +9696,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_QUALOT_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_QUALOT_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -9761,7 +9761,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HONDEW_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_HONDEW_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -9826,7 +9826,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GREPA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_GREPA_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -9891,7 +9891,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TAMATO_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_TAMATO_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -9956,7 +9956,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CORNN_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_CORNN_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -10021,7 +10021,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MAGOST_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_MAGOST_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -10086,7 +10086,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RABUTA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_RABUTA_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -10151,7 +10151,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_NOMEL_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_NOMEL_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -10216,7 +10216,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SPELON_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_SPELON_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -10281,7 +10281,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PAMTRE_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_PAMTRE_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -10346,7 +10346,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WATMEL_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_WATMEL_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -10411,7 +10411,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DURIN_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_DURIN_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -10476,7 +10476,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BELUE_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_BELUE_BERRY] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -10541,7 +10541,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_OCCA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_OCCA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_FIRE,
@@ -10606,7 +10606,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PASSHO_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_PASSHO_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_WATER,
@@ -10671,7 +10671,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WACAN_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_WACAN_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_ELECTRIC,
@@ -10736,7 +10736,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RINDO_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_RINDO_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_GRASS,
@@ -10801,7 +10801,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_YACHE_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_YACHE_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_ICE,
@@ -10866,7 +10866,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHOPLE_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_CHOPLE_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_FIGHT,
@@ -10931,7 +10931,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_KEBIA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_KEBIA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_POISON,
@@ -10996,7 +10996,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SHUCA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_SHUCA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_GROUND,
@@ -11061,7 +11061,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_COBA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_COBA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_FLYING,
@@ -11126,7 +11126,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PAYAPA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_PAYAPA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_PSYCHIC,
@@ -11191,7 +11191,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TANGA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_TANGA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_BUG,
@@ -11256,7 +11256,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHARTI_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_CHARTI_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_ROCK,
@@ -11321,7 +11321,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_KASIB_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_KASIB_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_GHOST,
@@ -11386,7 +11386,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HABAN_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_HABAN_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_DRAGON,
@@ -11451,7 +11451,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_COLBUR_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_COLBUR_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_DARK,
@@ -11516,7 +11516,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BABIRI_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_BABIRI_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_STEEL,
@@ -11581,7 +11581,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHILAN_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_CHILAN_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_NORMAL,
@@ -11646,7 +11646,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LIECHI_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_LIECHI_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PINCH_ATK_UP,
@@ -11711,7 +11711,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GANLON_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_GANLON_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PINCH_DEF_UP,
@@ -11776,7 +11776,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SALAC_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_SALAC_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PINCH_SPEED_UP,
@@ -11841,7 +11841,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PETAYA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_PETAYA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PINCH_SPATK_UP,
@@ -11906,7 +11906,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_APICOT_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_APICOT_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PINCH_SPDEF_UP,
@@ -11971,7 +11971,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LANSAT_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_LANSAT_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PINCH_CRITRATE_UP,
@@ -12036,7 +12036,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STARF_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_STARF_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PINCH_RANDOM_UP,
@@ -12101,7 +12101,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ENIGMA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_ENIGMA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_HP_RESTORE_SE,
@@ -12166,7 +12166,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MICLE_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_MICLE_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PINCH_ACC_UP,
@@ -12231,7 +12231,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CUSTAP_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_CUSTAP_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_PINCH_PRIORITY,
@@ -12296,7 +12296,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_JABOCA_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_JABOCA_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_RECOIL_PHYSICAL,
@@ -12361,7 +12361,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ROWAP_BERRY - NUM_UNKNOWN_SLOTS] =
+[ITEM_ROWAP_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_RECOIL_SPECIAL,
@@ -12426,7 +12426,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BRIGHT_POWDER - NUM_UNKNOWN_SLOTS] =
+[ITEM_BRIGHT_POWDER] =
 {
     .price = 10,
     .holdEffect = HOLD_EFFECT_ACC_REDUCE,
@@ -12491,7 +12491,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WHITE_HERB - NUM_UNKNOWN_SLOTS] =
+[ITEM_WHITE_HERB] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STATDOWN_RESTORE,
@@ -12556,7 +12556,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MACHO_BRACE - NUM_UNKNOWN_SLOTS] =
+[ITEM_MACHO_BRACE] =
 {
     .price = 3000,
     .holdEffect = HOLD_EFFECT_EVS_UP_SPEED_DOWN,
@@ -12621,7 +12621,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EXP_SHARE - NUM_UNKNOWN_SLOTS] =
+[ITEM_EXP_SHARE] =
 {
     .price = 3000,
     .holdEffect = HOLD_EFFECT_EXP_SHARE,
@@ -12686,7 +12686,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_QUICK_CLAW - NUM_UNKNOWN_SLOTS] =
+[ITEM_QUICK_CLAW] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_SOMETIMES_PRIORITY,
@@ -12751,7 +12751,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SOOTHE_BELL - NUM_UNKNOWN_SLOTS] =
+[ITEM_SOOTHE_BELL] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_FRIENDSHIP_UP,
@@ -12816,7 +12816,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MENTAL_HERB - NUM_UNKNOWN_SLOTS] =
+[ITEM_MENTAL_HERB] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_HEAL_INFATUATION,
@@ -12881,7 +12881,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHOICE_BAND - NUM_UNKNOWN_SLOTS] =
+[ITEM_CHOICE_BAND] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_CHOICE_ATK,
@@ -12946,7 +12946,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_KINGS_ROCK - NUM_UNKNOWN_SLOTS] =
+[ITEM_KINGS_ROCK] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_SOMETIMES_FLINCH,
@@ -13011,7 +13011,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SILVER_POWDER - NUM_UNKNOWN_SLOTS] =
+[ITEM_SILVER_POWDER] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_BUG,
@@ -13076,7 +13076,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_AMULET_COIN - NUM_UNKNOWN_SLOTS] =
+[ITEM_AMULET_COIN] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_MONEY_UP,
@@ -13141,7 +13141,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CLEANSE_TAG - NUM_UNKNOWN_SLOTS] =
+[ITEM_CLEANSE_TAG] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_ENCOUNTERS_DOWN,
@@ -13206,7 +13206,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SOUL_DEW - NUM_UNKNOWN_SLOTS] =
+[ITEM_SOUL_DEW] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_LATI_SPECIAL,
@@ -13271,7 +13271,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DEEP_SEA_TOOTH - NUM_UNKNOWN_SLOTS] =
+[ITEM_DEEP_SEA_TOOTH] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_CLAMPERL_SPATK,
@@ -13336,7 +13336,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DEEP_SEA_SCALE - NUM_UNKNOWN_SLOTS] =
+[ITEM_DEEP_SEA_SCALE] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_CLAMPERL_SPDEF,
@@ -13401,7 +13401,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SMOKE_BALL - NUM_UNKNOWN_SLOTS] =
+[ITEM_SMOKE_BALL] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_FLEE,
@@ -13466,7 +13466,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EVERSTONE - NUM_UNKNOWN_SLOTS] =
+[ITEM_EVERSTONE] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_NO_EVOLVE,
@@ -13531,7 +13531,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FOCUS_BAND - NUM_UNKNOWN_SLOTS] =
+[ITEM_FOCUS_BAND] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_MAYBE_ENDURE,
@@ -13596,7 +13596,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LUCKY_EGG - NUM_UNKNOWN_SLOTS] =
+[ITEM_LUCKY_EGG] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_EXP_UP,
@@ -13661,7 +13661,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SCOPE_LENS - NUM_UNKNOWN_SLOTS] =
+[ITEM_SCOPE_LENS] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_CRITRATE_UP,
@@ -13726,7 +13726,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_METAL_COAT - NUM_UNKNOWN_SLOTS] =
+[ITEM_METAL_COAT] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_STEEL,
@@ -13791,7 +13791,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LEFTOVERS - NUM_UNKNOWN_SLOTS] =
+[ITEM_LEFTOVERS] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_HP_RESTORE_GRADUAL,
@@ -13856,7 +13856,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DRAGON_SCALE - NUM_UNKNOWN_SLOTS] =
+[ITEM_DRAGON_SCALE] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_EVOLVE_SEADRA,
@@ -13921,7 +13921,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LIGHT_BALL - NUM_UNKNOWN_SLOTS] =
+[ITEM_LIGHT_BALL] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_PIKA_SPATK_UP,
@@ -13986,7 +13986,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SOFT_SAND - NUM_UNKNOWN_SLOTS] =
+[ITEM_SOFT_SAND] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_GROUND,
@@ -14051,7 +14051,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HARD_STONE - NUM_UNKNOWN_SLOTS] =
+[ITEM_HARD_STONE] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_ROCK,
@@ -14116,7 +14116,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MIRACLE_SEED - NUM_UNKNOWN_SLOTS] =
+[ITEM_MIRACLE_SEED] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_GRASS,
@@ -14181,7 +14181,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLACK_GLASSES - NUM_UNKNOWN_SLOTS] =
+[ITEM_BLACK_GLASSES] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_DARK,
@@ -14246,7 +14246,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLACK_BELT - NUM_UNKNOWN_SLOTS] =
+[ITEM_BLACK_BELT] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_FIGHT,
@@ -14311,7 +14311,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MAGNET - NUM_UNKNOWN_SLOTS] =
+[ITEM_MAGNET] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_ELECTRIC,
@@ -14376,7 +14376,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MYSTIC_WATER - NUM_UNKNOWN_SLOTS] =
+[ITEM_MYSTIC_WATER] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_WATER,
@@ -14441,7 +14441,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SHARP_BEAK - NUM_UNKNOWN_SLOTS] =
+[ITEM_SHARP_BEAK] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_FLYING,
@@ -14506,7 +14506,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POISON_BARB - NUM_UNKNOWN_SLOTS] =
+[ITEM_POISON_BARB] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_POISON,
@@ -14571,7 +14571,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_NEVER_MELT_ICE - NUM_UNKNOWN_SLOTS] =
+[ITEM_NEVER_MELT_ICE] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_ICE,
@@ -14636,7 +14636,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SPELL_TAG - NUM_UNKNOWN_SLOTS] =
+[ITEM_SPELL_TAG] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_GHOST,
@@ -14701,7 +14701,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TWISTED_SPOON - NUM_UNKNOWN_SLOTS] =
+[ITEM_TWISTED_SPOON] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_PSYCHIC,
@@ -14766,7 +14766,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHARCOAL - NUM_UNKNOWN_SLOTS] =
+[ITEM_CHARCOAL] =
 {
     .price = 9800,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_FIRE,
@@ -14831,7 +14831,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DRAGON_FANG - NUM_UNKNOWN_SLOTS] =
+[ITEM_DRAGON_FANG] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_DRAGON,
@@ -14896,7 +14896,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SILK_SCARF - NUM_UNKNOWN_SLOTS] =
+[ITEM_SILK_SCARF] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_NORMAL,
@@ -14961,7 +14961,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_UP_GRADE - NUM_UNKNOWN_SLOTS] =
+[ITEM_UP_GRADE] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_EVOLVE_PORYGON,
@@ -15026,7 +15026,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SHELL_BELL - NUM_UNKNOWN_SLOTS] =
+[ITEM_SHELL_BELL] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_HP_RESTORE_ON_DMG,
@@ -15091,7 +15091,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SEA_INCENSE - NUM_UNKNOWN_SLOTS] =
+[ITEM_SEA_INCENSE] =
 {
     .price = 9600,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_WATER,
@@ -15156,7 +15156,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LAX_INCENSE - NUM_UNKNOWN_SLOTS] =
+[ITEM_LAX_INCENSE] =
 {
     .price = 9600,
     .holdEffect = HOLD_EFFECT_ACC_REDUCE,
@@ -15221,7 +15221,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LUCKY_PUNCH - NUM_UNKNOWN_SLOTS] =
+[ITEM_LUCKY_PUNCH] =
 {
     .price = 10,
     .holdEffect = HOLD_EFFECT_CHANSEY_CRITRATE_UP,
@@ -15286,7 +15286,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_METAL_POWDER - NUM_UNKNOWN_SLOTS] =
+[ITEM_METAL_POWDER] =
 {
     .price = 10,
     .holdEffect = HOLD_EFFECT_DITTO_DEF_UP,
@@ -15351,7 +15351,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_THICK_CLUB - NUM_UNKNOWN_SLOTS] =
+[ITEM_THICK_CLUB] =
 {
     .price = 500,
     .holdEffect = HOLD_EFFECT_CUBONE_ATK_UP,
@@ -15416,7 +15416,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LEEK - NUM_UNKNOWN_SLOTS] =
+[ITEM_LEEK] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_FARFETCHD_CRITRATE_UP,
@@ -15481,7 +15481,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RED_SCARF - NUM_UNKNOWN_SLOTS] =
+[ITEM_RED_SCARF] =
 {
     .price = 100,
     .holdEffect = 0,
@@ -15546,7 +15546,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLUE_SCARF - NUM_UNKNOWN_SLOTS] =
+[ITEM_BLUE_SCARF] =
 {
     .price = 100,
     .holdEffect = 0,
@@ -15611,7 +15611,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PINK_SCARF - NUM_UNKNOWN_SLOTS] =
+[ITEM_PINK_SCARF] =
 {
     .price = 100,
     .holdEffect = 0,
@@ -15676,7 +15676,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GREEN_SCARF - NUM_UNKNOWN_SLOTS] =
+[ITEM_GREEN_SCARF] =
 {
     .price = 100,
     .holdEffect = 0,
@@ -15741,7 +15741,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_YELLOW_SCARF - NUM_UNKNOWN_SLOTS] =
+[ITEM_YELLOW_SCARF] =
 {
     .price = 100,
     .holdEffect = 0,
@@ -15806,7 +15806,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WIDE_LENS - NUM_UNKNOWN_SLOTS] =
+[ITEM_WIDE_LENS] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_ACCURACY_UP,
@@ -15871,7 +15871,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MUSCLE_BAND - NUM_UNKNOWN_SLOTS] =
+[ITEM_MUSCLE_BAND] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWER_UP_PHYS,
@@ -15936,7 +15936,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WISE_GLASSES - NUM_UNKNOWN_SLOTS] =
+[ITEM_WISE_GLASSES] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWER_UP_SPEC,
@@ -16001,7 +16001,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EXPERT_BELT - NUM_UNKNOWN_SLOTS] =
+[ITEM_EXPERT_BELT] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWER_UP_SE,
@@ -16066,7 +16066,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LIGHT_CLAY - NUM_UNKNOWN_SLOTS] =
+[ITEM_LIGHT_CLAY] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_EXTEND_SCREENS,
@@ -16131,7 +16131,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LIFE_ORB - NUM_UNKNOWN_SLOTS] =
+[ITEM_LIFE_ORB] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_HP_DRAIN_ON_ATK,
@@ -16196,7 +16196,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POWER_HERB - NUM_UNKNOWN_SLOTS] =
+[ITEM_POWER_HERB] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_CHARGE_SKIP,
@@ -16261,7 +16261,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TOXIC_ORB - NUM_UNKNOWN_SLOTS] =
+[ITEM_TOXIC_ORB] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_PSN_USER,
@@ -16326,7 +16326,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FLAME_ORB - NUM_UNKNOWN_SLOTS] =
+[ITEM_FLAME_ORB] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_BRN_USER,
@@ -16391,7 +16391,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_QUICK_POWDER - NUM_UNKNOWN_SLOTS] =
+[ITEM_QUICK_POWDER] =
 {
     .price = 10,
     .holdEffect = HOLD_EFFECT_DITTO_SPEED_UP,
@@ -16456,7 +16456,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FOCUS_SASH - NUM_UNKNOWN_SLOTS] =
+[ITEM_FOCUS_SASH] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_ENDURE,
@@ -16521,7 +16521,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ZOOM_LENS - NUM_UNKNOWN_SLOTS] =
+[ITEM_ZOOM_LENS] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_ACCURACY_UP_SLOWER,
@@ -16586,7 +16586,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_METRONOME - NUM_UNKNOWN_SLOTS] =
+[ITEM_METRONOME] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_REPEATED,
@@ -16651,7 +16651,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_IRON_BALL - NUM_UNKNOWN_SLOTS] =
+[ITEM_IRON_BALL] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_SPEED_DOWN_GROUNDED,
@@ -16716,7 +16716,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LAGGING_TAIL - NUM_UNKNOWN_SLOTS] =
+[ITEM_LAGGING_TAIL] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_PRIORITY_DOWN,
@@ -16781,7 +16781,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DESTINY_KNOT - NUM_UNKNOWN_SLOTS] =
+[ITEM_DESTINY_KNOT] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_RECIPROCATE_INFAT,
@@ -16846,7 +16846,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLACK_SLUDGE - NUM_UNKNOWN_SLOTS] =
+[ITEM_BLACK_SLUDGE] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_HP_RESTORE_PSN_TYPE,
@@ -16911,7 +16911,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ICY_ROCK - NUM_UNKNOWN_SLOTS] =
+[ITEM_ICY_ROCK] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_EXTEND_HAIL,
@@ -16976,7 +16976,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SMOOTH_ROCK - NUM_UNKNOWN_SLOTS] =
+[ITEM_SMOOTH_ROCK] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_EXTEND_SANDSTORM,
@@ -17041,7 +17041,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HEAT_ROCK - NUM_UNKNOWN_SLOTS] =
+[ITEM_HEAT_ROCK] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_EXTEND_SUN,
@@ -17106,7 +17106,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DAMP_ROCK - NUM_UNKNOWN_SLOTS] =
+[ITEM_DAMP_ROCK] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_EXTEND_RAIN,
@@ -17171,7 +17171,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GRIP_CLAW - NUM_UNKNOWN_SLOTS] =
+[ITEM_GRIP_CLAW] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_EXTEND_TRAPPING,
@@ -17236,7 +17236,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHOICE_SCARF - NUM_UNKNOWN_SLOTS] =
+[ITEM_CHOICE_SCARF] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_CHOICE_SPEED,
@@ -17301,7 +17301,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STICKY_BARB - NUM_UNKNOWN_SLOTS] =
+[ITEM_STICKY_BARB] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_DMG_USER_CONTACT_XFR,
@@ -17366,7 +17366,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POWER_BRACER - NUM_UNKNOWN_SLOTS] =
+[ITEM_POWER_BRACER] =
 {
     .price = 3000,
     .holdEffect = HOLD_EFFECT_LVLUP_ATK_EV_UP,
@@ -17431,7 +17431,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POWER_BELT - NUM_UNKNOWN_SLOTS] =
+[ITEM_POWER_BELT] =
 {
     .price = 3000,
     .holdEffect = HOLD_EFFECT_LVLUP_DEF_EV_UP,
@@ -17496,7 +17496,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POWER_LENS - NUM_UNKNOWN_SLOTS] =
+[ITEM_POWER_LENS] =
 {
     .price = 3000,
     .holdEffect = HOLD_EFFECT_LVLUP_SPATK_EV_UP,
@@ -17561,7 +17561,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POWER_BAND - NUM_UNKNOWN_SLOTS] =
+[ITEM_POWER_BAND] =
 {
     .price = 3000,
     .holdEffect = HOLD_EFFECT_LVLUP_SPDEF_EV_UP,
@@ -17626,7 +17626,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POWER_ANKLET - NUM_UNKNOWN_SLOTS] =
+[ITEM_POWER_ANKLET] =
 {
     .price = 3000,
     .holdEffect = HOLD_EFFECT_LVLUP_SPEED_EV_UP,
@@ -17691,7 +17691,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POWER_WEIGHT - NUM_UNKNOWN_SLOTS] =
+[ITEM_POWER_WEIGHT] =
 {
     .price = 3000,
     .holdEffect = HOLD_EFFECT_LVLUP_HP_EV_UP,
@@ -17756,7 +17756,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SHED_SHELL - NUM_UNKNOWN_SLOTS] =
+[ITEM_SHED_SHELL] =
 {
     .price = 100,
     .holdEffect = HOLD_EFFECT_SWITCH,
@@ -17821,7 +17821,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BIG_ROOT - NUM_UNKNOWN_SLOTS] =
+[ITEM_BIG_ROOT] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_LEECH_BOOST,
@@ -17886,7 +17886,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHOICE_SPECS - NUM_UNKNOWN_SLOTS] =
+[ITEM_CHOICE_SPECS] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_CHOICE_SPATK,
@@ -17951,7 +17951,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FLAME_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_FLAME_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_FIRE,
@@ -18016,7 +18016,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SPLASH_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_SPLASH_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_WATER,
@@ -18081,7 +18081,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ZAP_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_ZAP_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_ELECTRIC,
@@ -18146,7 +18146,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEADOW_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_MEADOW_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_GRASS,
@@ -18211,7 +18211,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ICICLE_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_ICICLE_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_ICE,
@@ -18276,7 +18276,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FIST_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_FIST_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_FIGHTING,
@@ -18341,7 +18341,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TOXIC_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_TOXIC_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_POISON,
@@ -18406,7 +18406,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EARTH_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_EARTH_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_GROUND,
@@ -18471,7 +18471,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SKY_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_SKY_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_FLYING,
@@ -18536,7 +18536,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MIND_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_MIND_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_PSYCHIC,
@@ -18601,7 +18601,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_INSECT_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_INSECT_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_BUG,
@@ -18666,7 +18666,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STONE_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_STONE_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_ROCK,
@@ -18731,7 +18731,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SPOOKY_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_SPOOKY_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_GHOST,
@@ -18796,7 +18796,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DRACO_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_DRACO_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_DRAGON,
@@ -18861,7 +18861,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DREAD_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_DREAD_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_DARK,
@@ -18926,7 +18926,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_IRON_PLATE - NUM_UNKNOWN_SLOTS] =
+[ITEM_IRON_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_STEEL,
@@ -18991,7 +18991,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ODD_INCENSE - NUM_UNKNOWN_SLOTS] =
+[ITEM_ODD_INCENSE] =
 {
     .price = 9600,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_PSYCHIC,
@@ -19056,7 +19056,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ROCK_INCENSE - NUM_UNKNOWN_SLOTS] =
+[ITEM_ROCK_INCENSE] =
 {
     .price = 9600,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_ROCK,
@@ -19121,7 +19121,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FULL_INCENSE - NUM_UNKNOWN_SLOTS] =
+[ITEM_FULL_INCENSE] =
 {
     .price = 9600,
     .holdEffect = HOLD_EFFECT_PRIORITY_DOWN,
@@ -19186,7 +19186,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WAVE_INCENSE - NUM_UNKNOWN_SLOTS] =
+[ITEM_WAVE_INCENSE] =
 {
     .price = 9600,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_WATER,
@@ -19251,7 +19251,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ROSE_INCENSE - NUM_UNKNOWN_SLOTS] =
+[ITEM_ROSE_INCENSE] =
 {
     .price = 9600,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_GRASS,
@@ -19316,7 +19316,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LUCK_INCENSE - NUM_UNKNOWN_SLOTS] =
+[ITEM_LUCK_INCENSE] =
 {
     .price = 9600,
     .holdEffect = HOLD_EFFECT_MONEY_UP,
@@ -19381,7 +19381,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PURE_INCENSE - NUM_UNKNOWN_SLOTS] =
+[ITEM_PURE_INCENSE] =
 {
     .price = 9600,
     .holdEffect = HOLD_EFFECT_ENCOUNTERS_DOWN,
@@ -19446,7 +19446,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PROTECTOR - NUM_UNKNOWN_SLOTS] =
+[ITEM_PROTECTOR] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_EVOLVE_RHYDON,
@@ -19511,7 +19511,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ELECTIRIZER - NUM_UNKNOWN_SLOTS] =
+[ITEM_ELECTIRIZER] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_EVOLVE_ELECTABUZZ,
@@ -19576,7 +19576,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MAGMARIZER - NUM_UNKNOWN_SLOTS] =
+[ITEM_MAGMARIZER] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_EVOLVE_MAGMAR,
@@ -19641,7 +19641,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DUBIOUS_DISC - NUM_UNKNOWN_SLOTS] =
+[ITEM_DUBIOUS_DISC] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_EVOLVE_PORYGON2,
@@ -19706,7 +19706,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_REAPER_CLOTH - NUM_UNKNOWN_SLOTS] =
+[ITEM_REAPER_CLOTH] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_EVOLVE_DUSCLOPS,
@@ -19771,7 +19771,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RAZOR_CLAW - NUM_UNKNOWN_SLOTS] =
+[ITEM_RAZOR_CLAW] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_CRITRATE_UP,
@@ -19836,7 +19836,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RAZOR_FANG - NUM_UNKNOWN_SLOTS] =
+[ITEM_RAZOR_FANG] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_SOMETIMES_FLINCH,
@@ -19901,7 +19901,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM01 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM01] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -19966,7 +19966,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM02 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM02] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -20031,7 +20031,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM03 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM03] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -20096,7 +20096,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM04 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM04] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -20161,7 +20161,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM05 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM05] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -20226,7 +20226,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM06 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM06] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -20291,7 +20291,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM07 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM07] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -20356,7 +20356,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM08 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM08] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -20421,7 +20421,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM09 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM09] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -20486,7 +20486,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM10 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM10] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -20551,7 +20551,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM11 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM11] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -20616,7 +20616,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM12 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM12] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -20681,7 +20681,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM13 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM13] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -20746,7 +20746,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM14 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM14] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -20811,7 +20811,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM15 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM15] =
 {
     .price = 7500,
     .holdEffect = 0,
@@ -20876,7 +20876,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM16 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM16] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -20941,7 +20941,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM17 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM17] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -21006,7 +21006,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM18 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM18] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -21071,7 +21071,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM19 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM19] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21136,7 +21136,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM20 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM20] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -21201,7 +21201,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM21 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM21] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -21266,7 +21266,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM22 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM22] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21331,7 +21331,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM23 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM23] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21396,7 +21396,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM24 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM24] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21461,7 +21461,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM25 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM25] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -21526,7 +21526,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM26 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM26] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21591,7 +21591,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM27 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM27] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -21656,7 +21656,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM28 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM28] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -21721,7 +21721,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM29 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM29] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21786,7 +21786,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM30 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM30] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21851,7 +21851,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM31 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM31] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -21916,7 +21916,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM32 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM32] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -21981,7 +21981,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM33 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM33] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -22046,7 +22046,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM34 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM34] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22111,7 +22111,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM35 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM35] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22176,7 +22176,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM36 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM36] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22241,7 +22241,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM37 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM37] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -22306,7 +22306,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM38 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM38] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -22371,7 +22371,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM39 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM39] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -22436,7 +22436,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM40 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM40] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22501,7 +22501,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM41 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM41] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -22566,7 +22566,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM42 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM42] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22631,7 +22631,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM43 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM43] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -22696,7 +22696,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM44 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM44] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22761,7 +22761,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM45 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM45] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22826,7 +22826,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM46 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM46] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -22891,7 +22891,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM47 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM47] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -22956,7 +22956,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM48 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM48] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23021,7 +23021,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM49 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM49] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -23086,7 +23086,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM50 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM50] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -23151,7 +23151,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM51 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM51] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23216,7 +23216,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM52 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM52] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -23281,7 +23281,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM53 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM53] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23346,7 +23346,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM54 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM54] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23411,7 +23411,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM55 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM55] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23476,7 +23476,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM56 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM56] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23541,7 +23541,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM57 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM57] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23606,7 +23606,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM58 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM58] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23671,7 +23671,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM59 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM59] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23736,7 +23736,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM60 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM60] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23801,7 +23801,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM61 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM61] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23866,7 +23866,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM62 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM62] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -23931,7 +23931,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM63 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM63] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -23996,7 +23996,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM64 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM64] =
 {
     .price = 7500,
     .holdEffect = 0,
@@ -24061,7 +24061,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM65 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM65] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -24126,7 +24126,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM66 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM66] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -24191,7 +24191,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM67 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM67] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -24256,7 +24256,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM68 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM68] =
 {
     .price = 7500,
     .holdEffect = 0,
@@ -24321,7 +24321,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM69 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM69] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -24386,7 +24386,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM70 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM70] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -24451,7 +24451,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM71 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM71] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -24516,7 +24516,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM72 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM72] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -24581,7 +24581,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM73 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM73] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -24646,7 +24646,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM74 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM74] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -24711,7 +24711,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM75 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM75] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -24776,7 +24776,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM76 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM76] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -24841,7 +24841,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM77 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM77] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -24906,7 +24906,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM78 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM78] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -24971,7 +24971,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM79 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM79] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25036,7 +25036,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM80 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM80] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25101,7 +25101,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM81 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM81] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25166,7 +25166,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM82 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM82] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -25231,7 +25231,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM83 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM83] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -25296,7 +25296,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM84 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM84] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25361,7 +25361,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM85 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM85] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25426,7 +25426,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM86 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM86] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25491,7 +25491,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM87 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM87] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -25556,7 +25556,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM88 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM88] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25621,7 +25621,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM89 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM89] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25686,7 +25686,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM90 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM90] =
 {
     .price = 2000,
     .holdEffect = 0,
@@ -25751,7 +25751,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM91 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM91] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -25816,7 +25816,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TM92 - NUM_UNKNOWN_SLOTS] =
+[ITEM_TM92] =
 {
     .price = 5500,
     .holdEffect = 0,
@@ -25881,7 +25881,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HM01 - NUM_UNKNOWN_SLOTS] =
+[ITEM_HM01] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -25946,7 +25946,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HM02 - NUM_UNKNOWN_SLOTS] =
+[ITEM_HM02] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26011,7 +26011,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HM03 - NUM_UNKNOWN_SLOTS] =
+[ITEM_HM03] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26076,7 +26076,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HM04 - NUM_UNKNOWN_SLOTS] =
+[ITEM_HM04] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26141,7 +26141,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HM05 - NUM_UNKNOWN_SLOTS] =
+[ITEM_HM05] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26206,7 +26206,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HM06 - NUM_UNKNOWN_SLOTS] =
+[ITEM_HM06] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26271,7 +26271,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HM07 - NUM_UNKNOWN_SLOTS] =
+[ITEM_HM07] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26336,7 +26336,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HM08 - NUM_UNKNOWN_SLOTS] =
+[ITEM_HM08] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26401,7 +26401,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LOOT_SACK - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LOOT_SACK] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26466,7 +26466,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RULE_BOOK - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RULE_BOOK] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26531,7 +26531,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POKE_RADAR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_POKE_RADAR] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26596,7 +26596,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POINT_CARD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_POINT_CARD] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26661,7 +26661,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_JOURNAL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_JOURNAL] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26726,7 +26726,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SEAL_CASE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SEAL_CASE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26791,7 +26791,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FASHION_CASE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FASHION_CASE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26856,7 +26856,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SEAL_BAG - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SEAL_BAG] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26921,7 +26921,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PAL_PAD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PAL_PAD] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -26986,7 +26986,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WORKS_KEY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_WORKS_KEY] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27051,7 +27051,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_OLD_CHARM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_OLD_CHARM] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27116,7 +27116,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GALACTIC_KEY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GALACTIC_KEY] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27181,7 +27181,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RED_CHAIN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RED_CHAIN] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27246,7 +27246,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TOWN_MAP - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_TOWN_MAP] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27311,7 +27311,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_VS_SEEKER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_VS_SEEKER] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27376,7 +27376,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_COIN_CASE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_COIN_CASE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27441,7 +27441,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_OLD_ROD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_OLD_ROD] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27506,7 +27506,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GOOD_ROD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GOOD_ROD] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27571,7 +27571,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SUPER_ROD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SUPER_ROD] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27636,7 +27636,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SPRAYDUCK - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SPRAYDUCK] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27701,7 +27701,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POFFIN_CASE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_POFFIN_CASE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27766,7 +27766,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BICYCLE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BICYCLE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27831,7 +27831,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SUITE_KEY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SUITE_KEY] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27896,7 +27896,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_OAKS_LETTER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_OAKS_LETTER] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -27961,7 +27961,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LUNAR_WING - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LUNAR_WING] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28026,7 +28026,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEMBER_CARD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MEMBER_CARD] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28091,7 +28091,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_AZURE_FLUTE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AZURE_FLUTE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28156,7 +28156,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SS_TICKET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SS_TICKET] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28221,7 +28221,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CONTEST_PASS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CONTEST_PASS] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28286,7 +28286,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MAGMA_STONE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MAGMA_STONE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28351,7 +28351,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PARCEL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PARCEL] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28416,7 +28416,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_COUPON_1 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_COUPON_1] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28481,7 +28481,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_COUPON_2 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_COUPON_2] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28546,7 +28546,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_COUPON_3 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_COUPON_3] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28611,7 +28611,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STORAGE_KEY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_STORAGE_KEY] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28676,7 +28676,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SECRET_MEDICINE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SECRET_MEDICINE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28741,7 +28741,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_VS_RECORDER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_VS_RECORDER] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28806,7 +28806,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GRACIDEA - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GRACIDEA] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28871,7 +28871,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SECRET_KEY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SECRET_KEY] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -28936,7 +28936,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_APRICORN_BOX - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_APRICORN_BOX] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29001,7 +29001,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_UNOWN_REPORT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_UNOWN_REPORT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29066,7 +29066,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BERRY_POTS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BERRY_POTS] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29131,7 +29131,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DOWSING_MCHN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DOWSING_MCHN] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29196,7 +29196,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLUE_CARD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLUE_CARD] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29261,7 +29261,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SLOWPOKE_TAIL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SLOWPOKE_TAIL] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29326,7 +29326,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CLEAR_BELL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CLEAR_BELL] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29391,7 +29391,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CARD_KEY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CARD_KEY] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29456,7 +29456,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BASEMENT_KEY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BASEMENT_KEY] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29521,7 +29521,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SQUIRT_BOTTLE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SQUIRT_BOTTLE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29586,7 +29586,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RED_SCALE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RED_SCALE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29651,7 +29651,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LOST_ITEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LOST_ITEM] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29716,7 +29716,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PASS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PASS] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29781,7 +29781,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MACHINE_PART - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MACHINE_PART] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29846,7 +29846,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SILVER_WING - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SILVER_WING] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29911,7 +29911,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RAINBOW_WING - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RAINBOW_WING] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -29976,7 +29976,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MYSTERY_EGG - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MYSTERY_EGG] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -30041,7 +30041,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RED_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RED_APRICORN] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30106,7 +30106,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_YELLOW_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_YELLOW_APRICORN] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30171,7 +30171,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLUE_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLUE_APRICORN] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30236,7 +30236,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GREEN_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GREEN_APRICORN] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30301,7 +30301,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PINK_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PINK_APRICORN] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30366,7 +30366,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WHITE_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_WHITE_APRICORN] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30431,7 +30431,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLACK_APRICORN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLACK_APRICORN] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -30496,7 +30496,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FAST_BALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FAST_BALL] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -30561,7 +30561,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LEVEL_BALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LEVEL_BALL] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -30626,7 +30626,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LURE_BALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LURE_BALL] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -30691,7 +30691,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HEAVY_BALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_HEAVY_BALL] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -30756,7 +30756,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LOVE_BALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LOVE_BALL] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -30821,7 +30821,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FRIEND_BALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FRIEND_BALL] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -30886,7 +30886,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MOON_BALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MOON_BALL] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -30951,7 +30951,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SPORT_BALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SPORT_BALL] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -31016,7 +31016,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PARK_BALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PARK_BALL] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31081,7 +31081,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PHOTO_ALBUM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PHOTO_ALBUM] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31146,7 +31146,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GB_SOUNDS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GB_SOUNDS] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31211,7 +31211,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TIDAL_BELL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_TIDAL_BELL] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31276,7 +31276,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RAGE_CANDY_BAR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RAGE_CANDY_BAR] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31341,7 +31341,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_01 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_01] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31406,7 +31406,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_02 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_02] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31471,7 +31471,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_03 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_03] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31536,7 +31536,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_04 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_04] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31601,7 +31601,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_05 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_05] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31666,7 +31666,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_06 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_06] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31731,7 +31731,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_07 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_07] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31796,7 +31796,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_08 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_08] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31861,7 +31861,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_09 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_09] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31926,7 +31926,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_10 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_10] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -31991,7 +31991,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_11 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_11] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32056,7 +32056,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_12 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_12] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32121,7 +32121,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_13 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_13] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32186,7 +32186,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_14 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_14] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32251,7 +32251,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_15 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_15] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32316,7 +32316,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_16 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_16] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32381,7 +32381,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_17 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_17] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32446,7 +32446,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_18 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_18] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32511,7 +32511,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_19 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_19] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32576,7 +32576,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_20 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_20] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32641,7 +32641,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_21 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_21] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32706,7 +32706,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_22 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_22] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32771,7 +32771,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_23 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_23] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32836,7 +32836,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_24 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_24] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32901,7 +32901,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_25 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_25] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -32966,7 +32966,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_26 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_26] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33031,7 +33031,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DATA_CARD_27 - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DATA_CARD_27] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33096,72 +33096,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_JADE_ORB - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
-{
-    .price = 0,
-    .holdEffect = 0,
-    .holdEffectParam = 0,
-    .pluckEffect = 0,
-    .flingEffect = 0,
-    .flingPower = 0,
-    .naturalGiftPower = 0,
-    .naturalGiftType = 31,
-    .prevent_toss = TRUE,
-    .selectable = FALSE,
-    .fieldPocket = POCKET_KEY_ITEMS,
-    .battlePocket = BATTLE_POCKET_NONE,
-    .fieldUseFunc = 0,
-    .battleUseFunc = 0,
-    .partyUse = 0,
-    .partyUseParam = {
-        .slp_heal = FALSE,
-        .psn_heal = FALSE,
-        .brn_heal = FALSE,
-        .frz_heal = FALSE,
-        .prz_heal = FALSE,
-        .cfs_heal = FALSE,
-        .inf_heal = FALSE,
-        .guard_spec = FALSE,
-        .revive = FALSE,
-        .revive_all = FALSE,
-        .level_up = FALSE,
-        .evolve = FALSE,
-        .atk_stages = 0,
-        .def_stages = 0,
-        .spatk_stages = 0,
-        .spdef_stages = 0,
-        .speed_stages = 0,
-        .accuracy_stages = 0,
-        .critrate_stages = 0,
-        .pp_up = FALSE,
-        .pp_max = FALSE,
-        .pp_restore = FALSE,
-        .pp_restore_all = FALSE,
-        .hp_restore = FALSE,
-        .hp_ev_up = FALSE,
-        .atk_ev_up = FALSE,
-        .def_ev_up = FALSE,
-        .speed_ev_up = FALSE,
-        .spatk_ev_up = FALSE,
-        .spdef_ev_up = FALSE,
-        .friendship_mod_lo = FALSE,
-        .friendship_mod_med = FALSE,
-        .friendship_mod_hi = FALSE,
-        .hp_ev_up_param = 0,
-        .atk_ev_up_param = 0,
-        .def_ev_up_param = 0,
-        .speed_ev_up_param = 0,
-        .spatk_ev_up_param = 0,
-        .spdef_ev_up_param = 0,
-        .hp_restore_param = 0,
-        .pp_restore_param = 0,
-        .friendship_mod_lo_param =  0,
-        .friendship_mod_med_param = 0,
-        .friendship_mod_hi_param =  0,
-    },
-},
-
-[ITEM_LOCK_CAPSULE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_JADE_ORB] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33226,7 +33161,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RED_ORB - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LOCK_CAPSULE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33291,7 +33226,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLUE_ORB - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RED_ORB] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33356,7 +33291,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ENIGMA_STONE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLUE_ORB] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33421,7 +33356,72 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_VENUSAURITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ENIGMA_STONE] =
+{
+    .price = 0,
+    .holdEffect = 0,
+    .holdEffectParam = 0,
+    .pluckEffect = 0,
+    .flingEffect = 0,
+    .flingPower = 0,
+    .naturalGiftPower = 0,
+    .naturalGiftType = 31,
+    .prevent_toss = TRUE,
+    .selectable = FALSE,
+    .fieldPocket = POCKET_KEY_ITEMS,
+    .battlePocket = BATTLE_POCKET_NONE,
+    .fieldUseFunc = 0,
+    .battleUseFunc = 0,
+    .partyUse = 0,
+    .partyUseParam = {
+        .slp_heal = FALSE,
+        .psn_heal = FALSE,
+        .brn_heal = FALSE,
+        .frz_heal = FALSE,
+        .prz_heal = FALSE,
+        .cfs_heal = FALSE,
+        .inf_heal = FALSE,
+        .guard_spec = FALSE,
+        .revive = FALSE,
+        .revive_all = FALSE,
+        .level_up = FALSE,
+        .evolve = FALSE,
+        .atk_stages = 0,
+        .def_stages = 0,
+        .spatk_stages = 0,
+        .spdef_stages = 0,
+        .speed_stages = 0,
+        .accuracy_stages = 0,
+        .critrate_stages = 0,
+        .pp_up = FALSE,
+        .pp_max = FALSE,
+        .pp_restore = FALSE,
+        .pp_restore_all = FALSE,
+        .hp_restore = FALSE,
+        .hp_ev_up = FALSE,
+        .atk_ev_up = FALSE,
+        .def_ev_up = FALSE,
+        .speed_ev_up = FALSE,
+        .spatk_ev_up = FALSE,
+        .spdef_ev_up = FALSE,
+        .friendship_mod_lo = FALSE,
+        .friendship_mod_med = FALSE,
+        .friendship_mod_hi = FALSE,
+        .hp_ev_up_param = 0,
+        .atk_ev_up_param = 0,
+        .def_ev_up_param = 0,
+        .speed_ev_up_param = 0,
+        .spatk_ev_up_param = 0,
+        .spdef_ev_up_param = 0,
+        .hp_restore_param = 0,
+        .pp_restore_param = 0,
+        .friendship_mod_lo_param =  0,
+        .friendship_mod_med_param = 0,
+        .friendship_mod_hi_param =  0,
+    },
+},
+
+[ITEM_VENUSAURITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33486,7 +33486,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHARIZARDITE_X - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CHARIZARDITE_X] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33551,7 +33551,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHARIZARDITE_Y - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CHARIZARDITE_Y] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33616,7 +33616,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLASTOISINITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLASTOISINITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33681,7 +33681,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BEEDRILLITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BEEDRILLITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33746,7 +33746,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PIDGEOTITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PIDGEOTITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33811,7 +33811,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ALAKAZITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ALAKAZITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33876,7 +33876,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SLOWBRONITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SLOWBRONITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -33941,7 +33941,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GENGARITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GENGARITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34006,7 +34006,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_KANGASKHANITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_KANGASKHANITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34071,7 +34071,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PINSIRITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PINSIRITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34136,7 +34136,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GYARADOSITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GYARADOSITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34201,7 +34201,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_AERODACTYLITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AERODACTYLITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34266,7 +34266,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEWTWONITE_X - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MEWTWONITE_X] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34331,7 +34331,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEWTWONITE_Y - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MEWTWONITE_Y] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34396,7 +34396,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_AMPHAROSITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AMPHAROSITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34461,7 +34461,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STEELIXITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_STEELIXITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34526,7 +34526,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SCIZORITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SCIZORITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34591,7 +34591,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HERACRONITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_HERACRONITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34656,7 +34656,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HOUNDOOMINITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_HOUNDOOMINITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34721,7 +34721,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TYRANITARITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_TYRANITARITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34786,7 +34786,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SCEPTILITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SCEPTILITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34851,7 +34851,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLAZIKENITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLAZIKENITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34916,7 +34916,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SWAMPERTITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SWAMPERTITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -34981,7 +34981,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GARDEVOIRITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GARDEVOIRITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35046,7 +35046,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SABLENITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SABLENITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35111,7 +35111,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MAWILITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MAWILITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35176,7 +35176,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_AGGRONITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AGGRONITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35241,7 +35241,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEDICHAMITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MEDICHAMITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35306,7 +35306,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MANECTITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MANECTITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35371,7 +35371,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SHARPEDONITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SHARPEDONITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35436,7 +35436,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CAMERUPTITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CAMERUPTITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35501,7 +35501,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ALTARIANITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ALTARIANITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35566,7 +35566,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BANETTITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BANETTITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35631,7 +35631,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ABSOLITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ABSOLITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35696,7 +35696,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GLALITITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GLALITITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35761,7 +35761,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SALAMENCITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SALAMENCITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35826,7 +35826,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_METAGROSSITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_METAGROSSITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35891,7 +35891,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LATIASITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LATIASITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -35956,7 +35956,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LATIOSITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LATIOSITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36021,7 +36021,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LOPUNNITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LOPUNNITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36086,7 +36086,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GARCHOMPITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GARCHOMPITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36151,7 +36151,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LUCARIONITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LUCARIONITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36216,7 +36216,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ABOMASITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ABOMASITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36281,7 +36281,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GALLADITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GALLADITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36346,7 +36346,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_AUDINITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AUDINITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36411,7 +36411,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DIANCITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DIANCITE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -36476,7 +36476,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PIXIE_PLATE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PIXIE_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_FAIRY,
@@ -36541,7 +36541,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ABSORB_BULB - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ABSORB_BULB] =
 {
     .price = 4000,
     .holdEffect = HOLD_EFFECT_BOOST_SPECIAL_ATTACK_ON_WATER_HIT,
@@ -36606,7 +36606,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_AIR_BALLOON - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AIR_BALLOON] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT,
@@ -36671,7 +36671,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BALM_MUSHROOM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BALM_MUSHROOM] =
 {
     .price = 7500,
     .holdEffect = 0,
@@ -36736,7 +36736,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BIG_NUGGET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BIG_NUGGET] =
 {
     .price = 10000,
     .holdEffect = 0,
@@ -36801,7 +36801,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BINDING_BAND - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BINDING_BAND] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_TRAPPING_DAMAGE_UP,
@@ -36866,7 +36866,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CASTELIACONE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CASTELIACONE] =
 {
     .price = 100,
     .holdEffect = 0,
@@ -36931,7 +36931,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CELL_BATTERY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CELL_BATTERY] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_ATK_ON_ELECTRIC_HIT,
@@ -36996,7 +36996,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_COMET_SHARD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_COMET_SHARD] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -37061,7 +37061,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DREAM_BALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DREAM_BALL] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -37126,7 +37126,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EJECT_BUTTON - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_EJECT_BUTTON] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_SWITCH_OUT_WHEN_HIT,
@@ -37191,7 +37191,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EVIOLITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_EVIOLITE] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_EVIOLITE,
@@ -37256,7 +37256,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FLOAT_STONE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FLOAT_STONE] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_HALVE_WEIGHT,
@@ -37321,7 +37321,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PEARL_STRING - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PEARL_STRING] =
 {
     .price = 20000,
     .holdEffect = 0,
@@ -37386,7 +37386,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PRISM_SCALE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PRISM_SCALE] =
 {
     .price = 2000,
     .holdEffect = HOLD_EFFECT_EVOLVE_FEEBAS,
@@ -37451,7 +37451,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RED_CARD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RED_CARD] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE,
@@ -37516,7 +37516,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RING_TARGET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RING_TARGET] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_LOSE_TYPE_IMMUNITIES,
@@ -37581,7 +37581,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ROCKY_HELMET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ROCKY_HELMET] =
 {
     .price = 4000,
     .holdEffect = HOLD_EFFECT_DAMAGE_ON_CONTACT,
@@ -37646,7 +37646,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SWEET_HEART - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SWEET_HEART] =
 {
     .price = 100,
     .holdEffect = 0,
@@ -37711,7 +37711,7 @@ const ITEMDATA __data[] =
 	},
 },
 
-[ITEM_ABILITY_CAPSULE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ABILITY_CAPSULE] =
 {
     .price = 10000,
     .holdEffect = 0,
@@ -37776,7 +37776,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ASSAULT_VEST - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ASSAULT_VEST] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES,
@@ -37841,7 +37841,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LUMINOUS_MOSS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LUMINOUS_MOSS] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_SPECIAL_DEFENSE_ON_WATER_HIT,
@@ -37906,7 +37906,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LUMIOSE_GALETTE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LUMIOSE_GALETTE] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -37971,7 +37971,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SACHET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SACHET] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_EVOLVE_SPRITZEE,
@@ -38036,7 +38036,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SAFETY_GOGGLES - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SAFETY_GOGGLES] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_SPORE_POWDER_IMMUNITY,
@@ -38101,7 +38101,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SHALOUR_SABLE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SHALOUR_SABLE] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -38166,7 +38166,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SNOWBALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SNOWBALL] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_ATK_ON_ICE_HIT,
@@ -38231,7 +38231,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WEAKNESS_POLICY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_WEAKNESS_POLICY] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_ATK_AND_SPATK_ON_SE,
@@ -38296,7 +38296,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WHIPPED_DREAM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_WHIPPED_DREAM] =
 {
     .price = 2100,
     .holdEffect = HOLD_EFFECT_EVOLVE_SWIRLIX,
@@ -38361,7 +38361,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ADRENALINE_ORB - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ADRENALINE_ORB] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_INTIMIDATE_BOOST_SPEED,
@@ -38426,7 +38426,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BEAST_BALL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BEAST_BALL] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -38491,7 +38491,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BIG_MALASADA - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BIG_MALASADA] =
 {
     .price = 350,
     .holdEffect = 0,
@@ -38556,7 +38556,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BOTTLE_CAP - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BOTTLE_CAP] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -38621,7 +38621,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GOLD_BOTTLE_CAP - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GOLD_BOTTLE_CAP] =
 {
     .price = 10000,
     .holdEffect = 0,
@@ -38686,7 +38686,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ELECTRIC_SEED - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ELECTRIC_SEED] =
 {
     .price = 20000, // Cost: 20000 Sell: 5000 
     .holdEffect = HOLD_EFFECT_BOOST_DEF_ON_ELECRIC_TERRAIN,
@@ -38751,7 +38751,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GRASSY_SEED - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GRASSY_SEED] =
 {
     .price = 20000, // Cost: 20000 Sell: 5000 
     .holdEffect = HOLD_EFFECT_BOOST_DEF_ON_GRASSY_TERRAIN,
@@ -38816,7 +38816,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MISTY_SEED - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MISTY_SEED] =
 {
     .price = 20000, // Cost: 20000 Sell: 5000 
     .holdEffect = HOLD_EFFECT_BOOST_SPDEF_ON_MISTY_TERRAIN,
@@ -38881,7 +38881,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PSYCHIC_SEED - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PSYCHIC_SEED] =
 {
     .price = 20000, // Cost: 20000 Sell: 5000 
     .holdEffect = HOLD_EFFECT_BOOST_SPDEF_ON_PSYCHIC_TERRAIN,
@@ -38946,7 +38946,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ICE_STONE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ICE_STONE] =
 {
     .price = 2100,
     .holdEffect = 0,
@@ -39011,7 +39011,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PROTECTIVE_PADS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PROTECTIVE_PADS] =
 {
     .price = 15000,
     .holdEffect = HOLD_EFFECT_PREVENT_CONTACT_EFFECTS,
@@ -39076,7 +39076,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TERRAIN_EXTENDER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_TERRAIN_EXTENDER] =
 {
     .price = 15000,
     .holdEffect = HOLD_EFFECT_EXTEND_TERRAIN,
@@ -39141,7 +39141,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ABILITY_PATCH - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ABILITY_PATCH] =
 {
     .price = 250000,
     .holdEffect = 0,
@@ -39206,7 +39206,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLACK_AUGURITE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLACK_AUGURITE] =
 {
     .price = 8000,
     .holdEffect = 0,
@@ -39271,7 +39271,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BERRY_SWEET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BERRY_SWEET] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -39336,7 +39336,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CLOVER_SWEET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CLOVER_SWEET] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -39401,7 +39401,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FLOWER_SWEET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FLOWER_SWEET] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -39466,7 +39466,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LOVE_SWEET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LOVE_SWEET] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -39531,7 +39531,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RIBBON_SWEET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RIBBON_SWEET] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -39596,7 +39596,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STAR_SWEET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_STAR_SWEET] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -39661,7 +39661,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STRAWBERRY_SWEET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_STRAWBERRY_SWEET] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -39726,7 +39726,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLUNDER_POLICY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLUNDER_POLICY] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_SPEED_ON_MISS,
@@ -39791,7 +39791,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHIPPED_POT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CHIPPED_POT] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -39856,7 +39856,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CRACKED_POT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CRACKED_POT] =
 {
     .price = 19000,
     .holdEffect = 0,
@@ -39921,7 +39921,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EJECT_PACK - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_EJECT_PACK] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP,
@@ -39986,7 +39986,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EXP_CANDY_S - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_EXP_CANDY_S] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -40051,7 +40051,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EXP_CANDY_M - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_EXP_CANDY_M] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -40116,7 +40116,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EXP_CANDY_L - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_EXP_CANDY_L] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -40181,7 +40181,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EXP_CANDY_XS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_EXP_CANDY_XS] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -40246,7 +40246,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EXP_CANDY_XL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_EXP_CANDY_XL] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -40311,7 +40311,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GALARICA_CUFF - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GALARICA_CUFF] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -40376,7 +40376,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GALARICA_TWIG - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GALARICA_TWIG] =
 {
     .price = 20,
     .holdEffect = 0,
@@ -40441,7 +40441,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GALARICA_WREATH - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GALARICA_WREATH] =
 {
     .price = 1500,
     .holdEffect = 0,
@@ -40506,7 +40506,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HEAVY_DUTY_BOOTS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_HEAVY_DUTY_BOOTS] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_IGNORE_ENTRY_HAZARDS,
@@ -40571,7 +40571,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LINKING_CORD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LINKING_CORD] =
 {
     .price = 8000,
     .holdEffect = 0,
@@ -40636,7 +40636,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MOOMOO_CHEESE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MOOMOO_CHEESE] =
 {
     .price = 2200,
     .holdEffect = 0,
@@ -40701,7 +40701,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PEAT_BLOCK - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PEAT_BLOCK] =
 {
     .price = 2100,
     .holdEffect = 0,
@@ -40766,7 +40766,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ROOM_SERVICE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ROOM_SERVICE] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_DROP_SPEED_IN_TRICK_ROOM,
@@ -40831,7 +40831,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RUSTED_SHIELD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RUSTED_SHIELD] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_TRANSFORM_ZAMAZENTA,
@@ -40896,7 +40896,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RUSTED_SWORD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RUSTED_SWORD] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_TRANSFORM_ZACIAN,
@@ -40961,7 +40961,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SWEET_APPLE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SWEET_APPLE] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -41026,7 +41026,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TART_APPLE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_TART_APPLE] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -41091,7 +41091,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_THROAT_SPRAY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_THROAT_SPRAY] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_SPATK_ON_SOUND_MOVE,
@@ -41156,7 +41156,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_UTILITY_UMBRELLA - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_UTILITY_UMBRELLA] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN,
@@ -41221,7 +41221,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ABILITY_SHIELD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ABILITY_SHIELD] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_PREVENT_ABILITY_CHANGES ,
@@ -41286,7 +41286,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_AUSPICIOUS_ARMOR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AUSPICIOUS_ARMOR] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -41351,7 +41351,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BOOSTER_ENERGY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BOOSTER_ENERGY] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_ACTIVATE_PARADOX_ABILITIES,
@@ -41416,7 +41416,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CLEAR_AMULET - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CLEAR_AMULET] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_PREVENT_STAT_DROPS,
@@ -41481,7 +41481,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_COVERT_CLOAK - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_COVERT_CLOAK] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_PREVENT_SECONDARY_EFFECTS,
@@ -41546,7 +41546,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GIMMIGHOUL_COIN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GIMMIGHOUL_COIN] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -41611,7 +41611,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LEADERS_CREST - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LEADERS_CREST] =
 {
     .price = 2100,
     .holdEffect = 0,
@@ -41676,7 +41676,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LOADED_DICE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LOADED_DICE] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_INCREASE_MULTI_STRIKE_MINIMUM,
@@ -41741,7 +41741,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MALICIOUS_ARMOR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MALICIOUS_ARMOR] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -41806,7 +41806,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MIRROR_HERB - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MIRROR_HERB] =
 {
     .price = 200, // Cost: 30000 Sell: 7500 
     .holdEffect = HOLD_EFFECT_COPY_STAT_INCREASE,
@@ -41871,7 +41871,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PUNCHING_GLOVE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PUNCHING_GLOVE] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG,
@@ -41936,7 +41936,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ROSELI_BERRY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ROSELI_BERRY] =
 {
     .price = 20,
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_FAIRY,
@@ -42001,7 +42001,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_KEE_BERRY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_KEE_BERRY] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_DEF_ON_PHYSICAL_HIT,
@@ -42066,7 +42066,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MARANGA_BERRY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MARANGA_BERRY] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_BOOST_SPDEF_ON_SPECIAL_HIT,
@@ -42131,7 +42131,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BURN_DRIVE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BURN_DRIVE] =
 {
     .price = 1000, // Cost: N/A, Sell: 500
     .holdEffect = HOLD_EFFECT_BURN_DRIVE,
@@ -42196,7 +42196,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CHILL_DRIVE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CHILL_DRIVE] =
 {
     .price = 1000, // Cost: N/A, Sell: 500
     .holdEffect = HOLD_EFFECT_CHILL_DRIVE,
@@ -42261,7 +42261,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DOUSE_DRIVE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DOUSE_DRIVE] =
 {
     .price = 1000, // Cost: N/A, Sell: 500
     .holdEffect = HOLD_EFFECT_DOUSE_DRIVE,
@@ -42326,7 +42326,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SHOCK_DRIVE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SHOCK_DRIVE] =
 {
     .price = 1000, // Cost: N/A, Sell: 500
     .holdEffect = HOLD_EFFECT_SHOCK_DRIVE,
@@ -42391,7 +42391,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_COVER_FOSSIL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_COVER_FOSSIL] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -42456,7 +42456,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PLUME_FOSSIL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PLUME_FOSSIL] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -42521,7 +42521,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_JAW_FOSSIL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_JAW_FOSSIL] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -42586,7 +42586,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SAIL_FOSSIL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SAIL_FOSSIL] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -42651,7 +42651,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FOSSILIZED_BIRD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FOSSILIZED_BIRD] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -42716,7 +42716,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FOSSILIZED_DINO - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FOSSILIZED_DINO] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -42781,7 +42781,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FOSSILIZED_DRAKE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FOSSILIZED_DRAKE] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -42846,7 +42846,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FOSSILIZED_FISH - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FOSSILIZED_FISH] =
 {
     .price = 1000,
     .holdEffect = 0,
@@ -42911,7 +42911,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_NORMAL_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_NORMAL_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -42976,7 +42976,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FIGHTING_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FIGHTING_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43041,7 +43041,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FLYING_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FLYING_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43106,7 +43106,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POISON_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_POISON_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43171,7 +43171,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GROUND_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GROUND_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43236,7 +43236,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ROCK_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ROCK_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43301,7 +43301,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BUG_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BUG_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43366,7 +43366,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GHOST_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GHOST_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43431,7 +43431,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STEEL_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_STEEL_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43496,7 +43496,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FIRE_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FIRE_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43561,7 +43561,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WATER_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_WATER_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43626,7 +43626,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GRASS_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GRASS_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43691,7 +43691,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ELECTRIC_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ELECTRIC_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43756,7 +43756,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PSYCHIC_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PSYCHIC_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43821,7 +43821,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ICE_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ICE_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43886,7 +43886,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DRAGON_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DRAGON_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -43951,7 +43951,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DARK_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DARK_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -44016,7 +44016,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FAIRY_GEM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FAIRY_GEM] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_POWERING_UP_MOVE_ONCE,
@@ -44081,7 +44081,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FIGHTING_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FIGHTING_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_FIGHTING_MEMORY,
@@ -44146,7 +44146,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FLYING_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FLYING_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_FLYING_MEMORY,
@@ -44211,7 +44211,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POISON_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_POISON_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_POISON_MEMORY,
@@ -44276,7 +44276,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GROUND_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GROUND_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_GROUND_MEMORY,
@@ -44341,7 +44341,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ROCK_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ROCK_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_ROCK_MEMORY,
@@ -44406,7 +44406,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BUG_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BUG_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_BUG_MEMORY,
@@ -44471,7 +44471,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GHOST_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GHOST_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_GHOST_MEMORY,
@@ -44536,7 +44536,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_STEEL_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_STEEL_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_STEEL_MEMORY,
@@ -44601,7 +44601,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FIRE_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FIRE_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_FIRE_MEMORY,
@@ -44666,7 +44666,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WATER_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_WATER_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_WATER_MEMORY,
@@ -44731,7 +44731,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GRASS_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GRASS_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_GRASS_MEMORY,
@@ -44796,7 +44796,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ELECTRIC_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ELECTRIC_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_ELECTRIC_MEMORY,
@@ -44861,7 +44861,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PSYCHIC_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PSYCHIC_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_PSYCHIC_MEMORY,
@@ -44926,7 +44926,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ICE_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ICE_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_ICE_MEMORY,
@@ -44991,7 +44991,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DRAGON_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DRAGON_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_DRAGON_MEMORY,
@@ -45056,7 +45056,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DARK_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DARK_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_DARK_MEMORY,
@@ -45121,7 +45121,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FAIRY_MEMORY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FAIRY_MEMORY] =
 {
     .price = 1000, // Cost: N/A Sell: 500
     .holdEffect = HOLD_EFFECT_FAIRY_MEMORY,
@@ -45186,7 +45186,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RED_NECTAR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RED_NECTAR] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -45251,7 +45251,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_YELLOW_NECTAR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_YELLOW_NECTAR] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -45316,7 +45316,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PINK_NECTAR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PINK_NECTAR] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -45381,7 +45381,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PURPLE_NECTAR - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PURPLE_NECTAR] =
 {
     .price = 300,
     .holdEffect = 0,
@@ -45446,7 +45446,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BLANK_PLATE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BLANK_PLATE] =
 {
     .price = 1000,
     .holdEffect = HOLD_EFFECT_ARCEUS_NORMAL,
@@ -45511,7 +45511,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LEGEND_PLATE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LEGEND_PLATE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -45576,7 +45576,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RELIC_COPPER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RELIC_COPPER] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -45641,7 +45641,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RELIC_SILVER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RELIC_SILVER] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -45706,7 +45706,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RELIC_GOLD - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RELIC_GOLD] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -45771,7 +45771,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RELIC_VASE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RELIC_VASE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -45836,7 +45836,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RELIC_BAND - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RELIC_BAND] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -45901,7 +45901,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RELIC_STATUE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RELIC_STATUE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -45966,7 +45966,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RELIC_CROWN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RELIC_CROWN] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -46031,7 +46031,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HEALTH_FEATHER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_HEALTH_FEATHER] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -46096,7 +46096,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MUSCLE_FEATHER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MUSCLE_FEATHER] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -46161,7 +46161,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RESIST_FEATHER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RESIST_FEATHER] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -46226,7 +46226,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GENIUS_FEATHER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GENIUS_FEATHER] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -46291,7 +46291,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CLEVER_FEATHER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CLEVER_FEATHER] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -46356,7 +46356,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SWIFT_FEATHER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SWIFT_FEATHER] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -46421,7 +46421,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PRETTY_FEATHER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PRETTY_FEATHER] =
 {
     .price = 200,
     .holdEffect = 0,
@@ -46486,7 +46486,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DNA_SPLICERS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DNA_SPLICERS] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -46551,7 +46551,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_REVEAL_GLASS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_REVEAL_GLASS] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -46616,7 +46616,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PRISON_BOTTLE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PRISON_BOTTLE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -46681,7 +46681,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CATCHING_CHARM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CATCHING_CHARM] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -46746,7 +46746,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_EXP_CHARM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_EXP_CHARM] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -46811,7 +46811,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_OVAL_CHARM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_OVAL_CHARM] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -46876,7 +46876,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SHINY_CHARM - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SHINY_CHARM] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -46941,7 +46941,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_N_SOLARIZER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_N_SOLARIZER] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47006,7 +47006,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_N_LUNARIZER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_N_LUNARIZER] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47071,7 +47071,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_POKEMON_BOX_LINK - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_POKEMON_BOX_LINK] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47136,7 +47136,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ZYGARDE_CUBE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ZYGARDE_CUBE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47201,7 +47201,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SUN_FLUTE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SUN_FLUTE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47266,7 +47266,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MOON_FLUTE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MOON_FLUTE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47331,7 +47331,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LIGHT_STONE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LIGHT_STONE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47396,7 +47396,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_DARK_STONE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_DARK_STONE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47461,7 +47461,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ICEROOT_CARROT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ICEROOT_CARROT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47526,7 +47526,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SHADEROOT_CARROT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SHADEROOT_CARROT] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47591,7 +47591,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_REINS_OF_UNITY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_REINS_OF_UNITY] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47656,7 +47656,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WOODEN_CROWN - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_WOODEN_CROWN] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47721,7 +47721,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ROTOM_CATALOG - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ROTOM_CATALOG] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -47786,7 +47786,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ADAMANT_CRYSTAL - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ADAMANT_CRYSTAL] =
 {
     .price = 10000,
     .holdEffect = HOLD_EFFECT_DIALGA_BOOST_AND_TRANSFORM,
@@ -47851,7 +47851,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LUSTROUS_GLOBE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LUSTROUS_GLOBE] =
 {
     .price = 200,
     .holdEffect = HOLD_EFFECT_PALKIA_BOOST_AND_TRANSFORM,
@@ -47916,7 +47916,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GRISEOUS_CORE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GRISEOUS_CORE] =
 {
     .price = 10000,
     .holdEffect = HOLD_EFFECT_GIRATINA_BOOST_AND_TRANSFORM,
@@ -47981,7 +47981,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SCROLL_OF_DARKNESS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SCROLL_OF_DARKNESS] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -48046,7 +48046,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SCROLL_OF_WATERS - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SCROLL_OF_WATERS] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -48111,7 +48111,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MEGA_RING - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MEGA_RING] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -48176,7 +48176,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_AUTOGRAPH - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_AUTOGRAPH] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -48241,7 +48241,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GOLD_TEETH - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GOLD_TEETH] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -48306,7 +48306,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_KEY_STONE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_KEY_STONE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -48371,7 +48371,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LIFT_KEY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LIFT_KEY] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -48436,7 +48436,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_PEWTER_CRUNCHIES - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_PEWTER_CRUNCHIES] =
 {
     .price = 500,
     .holdEffect = 0,
@@ -48501,7 +48501,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SYLPH_SCOPE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SYLPH_SCOPE] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -48566,7 +48566,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TEA - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_TEA] =
 {
     .price = 0,
     .holdEffect = 0,
@@ -48631,7 +48631,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LONELY_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LONELY_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -48696,7 +48696,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_ADAMANT_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_ADAMANT_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -48761,7 +48761,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_NAUGHTY_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_NAUGHTY_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -48826,7 +48826,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BRAVE_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BRAVE_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -48891,7 +48891,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_BOLD_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_BOLD_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -48956,7 +48956,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_IMPISH_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_IMPISH_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49021,7 +49021,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_LAX_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_LAX_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49086,7 +49086,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RELAXED_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RELAXED_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49151,7 +49151,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MODEST_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MODEST_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49216,7 +49216,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MILD_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MILD_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49281,7 +49281,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_RASH_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_RASH_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49346,7 +49346,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_QUIET_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_QUIET_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49411,7 +49411,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CALM_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CALM_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49476,7 +49476,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_GENTLE_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_GENTLE_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49541,7 +49541,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CAREFUL_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CAREFUL_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49606,7 +49606,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SASSY_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SASSY_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49671,7 +49671,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_TIMID_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_TIMID_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49736,7 +49736,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HASTY_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_HASTY_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49801,7 +49801,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_JOLLY_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_JOLLY_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49866,7 +49866,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_NAIVE_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_NAIVE_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49931,7 +49931,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SERIOUS_MINT - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SERIOUS_MINT] =
 {
     .price = 5000,
     .holdEffect = 0,
@@ -49996,7 +49996,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_FAIRY_FEATHER - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_FAIRY_FEATHER] =
 {
     .price = 1500,
     .holdEffect = HOLD_EFFECT_STRENGTHEN_FAIRY,
@@ -50061,7 +50061,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_SYRUPY_APPLE - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_SYRUPY_APPLE] =
 {
     .price = 500, // cost is 500, sell price is 550
     .holdEffect = 0,
@@ -50126,7 +50126,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_UNREMARKABLE_TEACUP - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_UNREMARKABLE_TEACUP] =
 {
     .price = 800,
     .holdEffect = 0,
@@ -50191,7 +50191,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_MASTERPIECE_TEACUP - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_MASTERPIECE_TEACUP] =
 {
     .price = 19000,
     .holdEffect = 0,
@@ -50256,7 +50256,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_CORNERSTONE_MASK - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_CORNERSTONE_MASK] =
 {
     .price = 0,
     .holdEffect = HOLD_EFFECT_CORNERSTONE_MASK,
@@ -50321,7 +50321,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_WELLSPRING_MASK - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_WELLSPRING_MASK] =
 {
     .price = 0,
     .holdEffect = HOLD_EFFECT_WELLSPRING_MASK,
@@ -50386,7 +50386,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_HEARTHFLAME_MASK - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_HEARTHFLAME_MASK] =
 {
     .price = 0,
     .holdEffect = HOLD_EFFECT_HEARTHFLAME_MASK,
@@ -50451,7 +50451,7 @@ const ITEMDATA __data[] =
     },
 },
 
-[ITEM_METAL_ALLOY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+[ITEM_METAL_ALLOY] =
 {
     .price = 3000,
     .holdEffect = 0,
@@ -50515,5 +50515,6 @@ const ITEMDATA __data[] =
         .friendship_mod_hi_param =  0,
     },
 },
+
 
 };

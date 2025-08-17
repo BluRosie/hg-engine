@@ -1432,7 +1432,7 @@
 .equ MAX_BASE_SUBSCRIPT_NUM, 456
 
 // define your custom subscripts below like this
-// .equ MOVE_SUBSCRIPT_PTR_CUSTOM_1, (MAX_BASE_SUBSCRIPT_NUM + 1)
+// .equ MOVE_SUBSCRIPT_PTR_CUSTOM_1, (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)
 
 
 .equ TERRAIN_PLAIN, 0x0

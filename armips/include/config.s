@@ -23,9 +23,6 @@ SNOW_WARNING_GENERATION equ GEN_LATEST
 // CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
 CRY_PSEUDOBANK_START equ 778
 
-// LEARNSET_TOTAL_MOVES is the amount of moves that each pokémon should be able to learn by level up
-LEARNSET_TOTAL_MOVES equ 41 // 40+terminate - currently driven by gallade
-
 // BATTLE_MODE_FORCE_SET defines whether or not players will be able to switch out mons when the opponent sends out their next mon. The player will be able to choose themselves like normal if the following is 0, 1 if the player will be forced to use "set"
 BATTLE_MODE_FORCE_SET equ 0
 
@@ -43,9 +40,6 @@ FAST_TEXT_PRINTING equ 0
 
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
 REUSABLE_TMS equ 1
-
-// DELETABLE_HMS Allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
-DELETABLE_HMS equ 0
 
 // NO_PARTNER_DOUBLE_BATTLES allows for setting trainers to double battles without setting up a partner trainer.  set to 0 to disable
 // note that the entry in `armips/data/trainers/trainertext.s` has to use `TEXT_DOUBLE_DEFEATED_IN_BATTLE_1`, but the overworld entries can remain the same.

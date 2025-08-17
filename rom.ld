@@ -74,7 +74,6 @@ PokeSexGetMonsNo = 0x0206FFC8 |1;
 BoxMonSetFastModeOn = 0x0206DDD8 |1;
 BoxMonSetFastModeOff = 0x0206DE00 |1;
 SetBoxMonData = 0x0206ED70 |1;
-FillInBoxMonLearnset = 0x020712D8 |1;
 PokePersonalParaGet = 0x0206FBE8 |1;
 BoxMonInit = 0x0206DD0C |1;
 PokeLevelExpGet = 0x0206FD00 |1;
@@ -587,7 +586,6 @@ gAnimScrTable = 0x02234DE8;
 DrawFrameAndWindow2	= 0x0200E998 | 1;
 AddWindowParameterized = 0x0201D40C | 1;
 
-LoadLevelUpLearnset_HandleAlternateForm = 0x02071FC8 | 1;
 TryAppendMonMove = 0x0207137C | 1;
 
 BattleControllerPlayer_CalcExecutionOrder = 0x02249190 | 1;
@@ -754,3 +752,9 @@ particleEmitCallback = 0x021E5C28 | 1;
 
 BattleSystem_GetTrainer = 0x0223A9F4 | 1;
 PartyMenu_PrintMessageOnWindow32 = 0x0207DAC4 | 1;
+
+/* machine move expansion */
+sub_0200CE7C = 0x0200CE7C | 1;
+ov15_021FE8C4 = 0x021FE8C4 | 1;
+sub_0200CDF0 = 0x0200CDF0 | 1;
+ov15_021FE9B0 = 0x021FE9B0 | 1;
