@@ -12055,9 +12055,9 @@ movedata MOVE_TAR_SHOT, "Tar Shot"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_TAR_SHOT, "---"
+    movedescription MOVE_TAR_SHOT, "The user pours tar on\nthe target, dropping\ntheir Speed stat.\nFire attacks deal\nmore damage."
 
 movedata MOVE_MAGIC_POWDER, "Magic Powder"
     battleeffect MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE
