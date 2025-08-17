@@ -145,7 +145,7 @@ May poison targets when\na Pokémon makes contact.
 Restores a little HP when\nwithdrawn from battle.
 Protects from\nDefense-lowering attacks.
 Boosts the Pokémon’s\nSpeed in a sandstorm.
-Makes status-changing moves\nmore likely to miss.
+Makes status moves more\nlikely to miss.
 Boosts move power when\nthe Pokémon moves last.
 Comes out disguised as\nthe Pokémon in back.
 It transforms itself into\nthe Pokémon it is facing.
@@ -241,7 +241,7 @@ This Pokémon’s\nmoves cannot be redirected.
 Bounces back\nstat-lowering effects.
 Catches prey via Surf or Dive\nand spits it out when hit.
 This Pokémon’s moves\ncannot be redirected.
-Boosts Speed drastically\nif hit by a Fire or Water move.
+Boosts Speed drastically\nif hit by Fire or Water.
 Powers up own sound moves.\nResists other sound moves.
 Creates a sandstorm\nwhen hit by an attack.
 Halves the damage\ntaken from special moves.
