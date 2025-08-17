@@ -13,6 +13,7 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/file.h"
 #include "../../include/overlay.h"
+#include "../../include/q412.h"
 
 
 extern const u8 StatBoostModifiers[][2];
@@ -111,8 +112,29 @@ const u16 BulletproofMoveList[] =
     MOVE_SEED_BOMB,
     MOVE_SHADOW_BALL,
     MOVE_SLUDGE_BOMB,
+    MOVE_SYRUP_BOMB,
     MOVE_WEATHER_BALL,
     MOVE_ZAP_CANNON,
+};
+
+const u16 WindMovesTable[] = {
+    MOVE_AEROBLAST,
+    MOVE_AIR_CUTTER,
+    MOVE_BLEAKWIND_STORM,
+    MOVE_BLIZZARD,
+    MOVE_FAIRY_WIND,
+    MOVE_GUST,
+    MOVE_HEAT_WAVE,
+    MOVE_HURRICANE,
+    MOVE_ICY_WIND,
+    MOVE_PETAL_BLIZZARD,
+    MOVE_SANDSEAR_STORM,
+    MOVE_SANDSTORM,
+    MOVE_SPRINGTIDE_STORM,
+    MOVE_TAILWIND,
+    MOVE_TWISTER,
+    MOVE_WHIRLWIND,
+    MOVE_WILDBOLT_STORM,
 };
 
 // List of multi-strike moves
@@ -384,97 +406,246 @@ const u16 PunchingMovesTable[] = {
     MOVE_WICKED_BLOW,
 };
 
-// TODO: Tidy up this
+#ifdef FANCY_PRINT_NICKNAME
+
+// Supports only A-z for now
+void LoadNicknameToCharArray(u16 nickname[], char buf[]) {
+    for (int j = 0; j < 11; j++) {
+        if (nickname[j] == 0xFFFF) {
+            buf[j] = '\0';
+            break;
+        }
+        if (nickname[j] == 0x01BE) {
+            buf[j] = '-';
+            continue;
+        }
+        if (nickname[j] == 0x01DE) {
+            buf[j] = ' ';
+            continue;
+        }
+        if (nickname[j] < 324) {
+            buf[j] = nickname[j] - 234;
+            continue;
+        } else {
+            buf[j] = nickname[j] - 228;
+            continue;
+        }
+    }
+}
+
+#endif
+
 // set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
-BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no)
-{
-    u16 accuracy;
+BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no) {
+    // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-58#post-8684263
+
+    // Apply accuracy / evasion modifiers
+    s16 accuracy;
     s8 temp;
     s8 stat_stage_acc, stat_stage_evasion;
-    int hold_effect = HeldItemHoldEffectGet(sp, defender);
-    int hold_effect_atk;
+    int hold_effect, hold_effect_atk;
     u8 move_type UNUSED; // unused but will be needed
     u8 move_split;
     u16 atk_ability = GetBattlerAbility(sp, attacker);
-
-    if (BattleTypeGet(bw) & BATTLE_TYPE_CATCHING_DEMO)
-    {
-        return FALSE;
-    }
-
-    // should take precedent over a move using an alternate accuracy calc, as this will still be called for those.
-    if (GetBattlerAbility(sp, defender) == ABILITY_TELEPATHY // defender has telepathy ability
-     && (attacker & 1) == (defender & 1) // attacker and defender are on the same side
-     && sp->moveTbl[move_no].power != 0) // move actually damages
-    {
-        sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
-        sp->oneTurnFlag[attacker].parental_bond_flag = 0;
-        sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
-        return FALSE;
-    }
-
-    if (atk_ability == ABILITY_PRANKSTER // prankster ability
-     && (sp->battlemon[defender].type1 == TYPE_DARK || sp->battlemon[defender].type2 == TYPE_DARK) // used on a dark type
-     && GetMoveSplit(sp, move_no) == SPLIT_STATUS // move is actually status
-     && (attacker & 1) != (defender & 1)) // used on an enemy
-    {
-        sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
-        sp->oneTurnFlag[attacker].parental_bond_flag = 0;
-        sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
-        return FALSE;
-    }
-
     int i;
+    int maxBattlers = BattleWorkClientSetMaxGet(bw);
+    int accuracyModifier = UQ412__1_0;
 
-    for (i = 0; i < (s32)NELEMS(PowderMovesList); i++) {
-        if (sp->current_move_index == PowderMovesList[i]) {
-            if
-            (
-                (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_GRASS) ||
-                (BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_GRASS) ||
-				(MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_OVERCOAT)) ||
-                (hold_effect == HOLD_EFFECT_SPORE_POWDER_IMMUNITY)
-            )
-            {
-                sp->waza_status_flag |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
-                sp->oneTurnFlag[attacker].parental_bond_flag = 0;
-                sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
-                return FALSE;
-            }
-        }
+    if (I_AM_TERAPAGOS_AND_I_NEED_TO_KO_CARMINES_SINISTCHA(bw, sp, attacker)) {
+        return FALSE;
+    }
+
+    if (BattleTypeGet(bw) & BATTLE_TYPE_CATCHING_DEMO) {
+        return FALSE;
+    }
+
+    if (sp->server_status_flag & SERVER_STATUS_FLAG_x20) {
+        return FALSE;
+    }
+
+    if (sp->server_status_flag & SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC) {
+        return FALSE;
     }
 
     move_type = GetAdjustedMoveType(sp, attacker, move_no);
     move_split = GetMoveSplit(sp, move_no);
 
+    // 4. Look up the move's "base accuracy". For example, Fire Blast's base accuracy is 85.
+
+    accuracy = sp->moveTbl[move_no].accuracy;
+
+    if (accuracy == 0) {
+        return FALSE;
+    }
+
+    // 5. If the move is a status move, has greater than 50% accuracy, and the target has Wonder Skin, or the move is Thunder / Hurricane and the weather is sun, set the move's accuracy to 50.
+
+    // handle wonder skin
+    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE)
+    && (GetMoveSplit(sp, move_no) == SPLIT_STATUS)) {
+        accuracy = accuracy > 50 ? 50 : accuracy;
+    }
+
+    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+    && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
+        if ((sp->field_condition & WEATHER_SUNNY_ANY)
+        // thunder sucks in the sun
+        && ((sp->moveTbl[move_no].effect == MOVE_EFFECT_THUNDER)
+        // so does hurricane
+        || (sp->moveTbl[move_no].effect == MOVE_EFFECT_HURRICANE))) {
+            accuracy = 50;
+        }
+    }
+
+    // 5.5 We handle Fog here because there is no vanilla Gen 5+ implementation
+
+    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+    && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
+        if (sp->field_condition & FIELD_STATUS_FOG) {
+            accuracy = accuracy * 6 / 10;
+        }
+    }
+
+    // 6. Chain the accuracy and evasion modifiers
+
+    // 6.1 Gravity
+
+    if (sp->field_condition & FIELD_STATUS_GRAVITY) {
+        accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_67);
+    }
+
+    // 6.2 Abilities; order is determined by raw Speed with a non-RNG Speed tie.
+
+    SortRawSpeedNonRNGArray(bw, sp);
+
+    for (i = 0; i < maxBattlers; i++) {
+
+        // Tangled Feet - 2048/4096
+
+        if ((defender == sp->rawSpeedNonRNGClientOrder[i])
+        && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TANGLED_FEET) == TRUE)
+        && (sp->battlemon[defender].condition2 & STATUS2_CONFUSION)) {
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_5);
+            continue;
+        }
+
+        // Hustle - 3277/4096
+
+        if ((attacker == sp->rawSpeedNonRNGClientOrder[i])
+        && (atk_ability == ABILITY_HUSTLE)
+        && (move_split == SPLIT_PHYSICAL)) {
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_8);
+            continue;
+        }
+
+        // Sand Veil- 3277/4096
+
+        if ((sp->field_condition & WEATHER_SANDSTORM_ANY)
+        && (defender == sp->rawSpeedNonRNGClientOrder[i])
+        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAND_VEIL)) {
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_8);
+            continue;
+        }
+
+        // Snow Cloak - 3277/4096
+        if ((sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))
+        && (defender == sp->rawSpeedNonRNGClientOrder[i])
+        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SNOW_CLOAK)) {
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_8);
+            continue;
+        }
+
+        // Compound Eyes - 5325/4096
+
+        if ((attacker == sp->rawSpeedNonRNGClientOrder[i])
+        && (atk_ability == ABILITY_COMPOUND_EYES)) {
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_3);
+        }
+
+        // Victory Star - 4506/4096 for each Victory Star
+
+        if (BATTLER_ALLY(attacker) == sp->rawSpeedNonRNGClientOrder[i]
+        && GetBattlerAbility(sp, sp->rawSpeedNonRNGClientOrder[i]) == ABILITY_VICTORY_STAR) {
+            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_1_BUT_HIGHER);
+        }
+    }
+
+    // 6.3 Items; order is determined by raw Speed with a non-RNG Speed tie.
+
+    for (i = 0; i < maxBattlers; i++) {
+        if (defender == sp->rawSpeedNonRNGClientOrder[i]) {
+            hold_effect = HeldItemHoldEffectGet(sp, defender);
+
+            // Bright Powder - 3686/4096
+            // Lax Incense - 3686/4096
+
+            if (hold_effect == HOLD_EFFECT_ACC_REDUCE) {
+                u32 multiplierFromItems = UQ412__1_0;
+                hold_effect_atk = HeldItemAtkGet(sp, defender, 0);
+                // alternate subtracting 0.099853515625 and 0.10009765625 starting with latter
+                for (int j = 0; j < hold_effect_atk; j += 10)
+                {
+                    multiplierFromItems -= (j & 1) ? UQ412__0_1 : UQ412__0_1_BUT_HIGHER;
+                }
+                accuracyModifier = QMul_RoundUp(accuracyModifier, multiplierFromItems);
+            }
+        }
+
+        if (attacker == sp->rawSpeedNonRNGClientOrder[i]) {
+            hold_effect = HeldItemHoldEffectGet(sp, attacker);
+
+            // Wide Lens - 4505/4096
+
+            if (hold_effect == HOLD_EFFECT_ACCURACY_UP) {
+                accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_1);
+            }
+
+            // Zoom Lens - 4915/4096
+
+            // Wide Lens - 4505/4096 (param 10 - 409)
+            // Zoom Lens - 4915/4096 (param 20 - 819)
+            // TODO: We modified playerActions in `ServerBeforeActInternal`. Does it affect `IsMovingAfterClient`?
+
+            if (hold_effect == HOLD_EFFECT_ACCURACY_UP
+            || ((hold_effect == HOLD_EFFECT_ACCURACY_UP_SLOWER) && (IsMovingAfterClient(sp, defender) == TRUE))) {
+                u32 multiplierFromItems = UQ412__1_0;
+                hold_effect_atk = HeldItemAtkGet(sp, attacker, 0);
+                // alternate adding 0.099853515625 and 0.10009765625 starting with former
+                for (int j = 0; j < hold_effect_atk; j += 10)
+                {
+                    multiplierFromItems += (j & 1) ? UQ412__0_1_BUT_HIGHER : UQ412__0_1;
+                }
+                accuracyModifier = QMul_RoundUp(accuracyModifier, multiplierFromItems);
+            }
+        }
+    }
+
+    // 7. Apply a modifier to the value from step 5) with the result of step 6). That is, pokeRound[(step 5 * step 6) / 4096], where pokeRound means do standard rounding, but round down on 0.5. The resulting value can be greater than 100.
+
+    accuracy = QMul_RoundDown(accuracy, accuracyModifier);
+
+    // Apply accuracy stat boosts / drops
+
+    // Determine the number of accuracy / evasion boosts. The number must be within 0-12. (0 = -6, 1 = -5, 6 = 0, 12 = +6, etc.)
+
     stat_stage_acc = sp->battlemon[attacker].states[STAT_ACCURACY] - 6;
+    GF_ASSERT(stat_stage_acc >= 0 && stat_stage_acc <= 12);
     stat_stage_evasion = 6 - sp->battlemon[defender].states[STAT_EVASION];
+    GF_ASSERT(stat_stage_evasion >= 0 && stat_stage_evasion <= 12);
 
-    // if (atk_ability == ABILITY_SIMPLE)
-    // {
-    //     stat_stage_acc *= 2;
-    // }
+    // 8. If the user has Keen Eye or Unaware, or the move is Sacred Sword / Chip Away / Darkest Lariat, or the target is identified (Odor Sleuth / Foresight / Miracle Eye) and has positive evasion boosts, set the target's evasion boosts to 6 (+0).
 
-    // if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SIMPLE) == TRUE)
-    // {
-    //     stat_stage_evasion *= 2;
-    // }
+    if ((atk_ability == ABILITY_ILLUMINATE || atk_ability == ABILITY_KEEN_EYE || atk_ability == ABILITY_UNAWARE || atk_ability == ABILITY_MINDS_EYE)
+    || (move_no == MOVE_SACRED_SWORD || move_no == MOVE_CHIP_AWAY || move_no == MOVE_DARKEST_LARIAT)
+    || (((sp->battlemon[defender].condition2 & STATUS2_FORESIGHT) || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MIRACLE_EYE)) && (stat_stage_evasion < 0))) {
+        stat_stage_evasion = 0;
+    }
 
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_UNAWARE) == TRUE)
-    {
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_UNAWARE) == TRUE) {
         stat_stage_acc = 0;
     }
 
-    if (atk_ability == ABILITY_UNAWARE || atk_ability == ABILITY_MINDS_EYE || atk_ability == ABILITY_KEEN_EYE || atk_ability == ABILITY_ILLUMINATE)
-    {
-        stat_stage_evasion = 0;
-    }
-
-    if (((sp->battlemon[defender].condition2 & STATUS2_FORESIGHT) || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MIRACLE_EYE))
-     && (stat_stage_evasion < 0))
-    {
-        stat_stage_evasion = 0;
-    }
+    // 9. Start with 6, then add all of the user's accuracy stat boosts / drops, and subtract all of the target's evasion stat boosts / drops.
 
     temp = 6 + stat_stage_evasion + stat_stage_acc;
 
@@ -487,83 +658,43 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
         temp = 12;
     }
 
-    accuracy = sp->moveTbl[move_no].accuracy;
-
-    if (accuracy == 0)
-    {
-        return FALSE;
-    }
-
-    if (sp->server_status_flag & SERVER_STATUS_FLAG_x20)
-    {
-        return FALSE;
-    }
-
-    if (sp->server_status_flag & SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC)
-    {
-        return FALSE;
-    }
+    // 10. Take the value of step 9 and compare to the following table. Multiply the result from step 7 by the numerator first, then divide by the denominator and floor the result. If the resulting value would be greater than 100, make it 100.
 
     accuracy *= sAccStatChanges[temp].numerator;
     accuracy /= sAccStatChanges[temp].denominator;
 
-    if (atk_ability == ABILITY_COMPOUND_EYES)
-    {
-        accuracy = accuracy * 13 / 10;
+    accuracy = accuracy > 100 ? 100 : accuracy;
+
+    // Final steps
+
+    // 11. If Micle Berry would boost the move's accuracy, pokeRound([step 10 * 4915]/4096).
+
+    if (sp->boostedAccuracy) {
+        accuracy = QMul_RoundDown(accuracy, UQ412__1_2);
     }
 
-    // handle wonder skin
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WONDER_SKIN) == TRUE) && (GetMoveSplit(sp, move_no) == SPLIT_STATUS))
-    {
-        accuracy = accuracy * 5 / 10;
+    // 12. If the percentage is above 100, make it 100.
+
+    accuracy = accuracy > 100 ? 100 : accuracy;
+
+    // 13. If the affection of the target is 4 hearts or more, subtract 10. You can't go below 0.
+    // https://bulbapedia.bulbagarden.net/wiki/Friendship
+
+#ifdef FRIENDSHIP_EFFECTS
+    if ((sp->battlemon[defender].friendship == 255)
+    && !(BattleTypeGet(bw) & BATTLE_TYPE_NO_EXPERIENCE)
+    && ClientBelongsToPlayer(bw, defender)) {
+        if (accuracy < 10) {
+            accuracy = 0;
+        } else {
+            accuracy -= 10;
+        }
     }
+#endif
 
-    // handle victory star
-    if ((GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_VICTORY_STAR && sp->battlemon[BATTLER_ALLY(attacker)].hp != 0)
-     || (atk_ability == ABILITY_VICTORY_STAR))
-    {
-        accuracy = accuracy * 11 / 10;
-    }
+    // 14. Roll a random number 0-99 inclusive. If the accuracy value is greater than that random number, the move hits. (That is, check if accuracy > rand(100)).
 
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TANGLED_FEET) == TRUE)
-     && (sp->battlemon[defender].condition2 & STATUS2_CONFUSION))
-    {
-        accuracy = accuracy * 5 / 10;
-    }
-
-    hold_effect = HeldItemHoldEffectGet(sp, defender);
-    hold_effect_atk = HeldItemAtkGet(sp, defender, 0);
-
-    if (hold_effect == HOLD_EFFECT_ACC_REDUCE)
-    {
-        accuracy = accuracy * (100 - hold_effect_atk) / 100;
-    }
-
-    hold_effect = HeldItemHoldEffectGet(sp, attacker);
-    hold_effect_atk = HeldItemAtkGet(sp, attacker, 0);
-
-    if (hold_effect == HOLD_EFFECT_ACCURACY_UP)
-    {
-        accuracy = accuracy * (100 + hold_effect_atk) / 100;
-    }
-
-    if ((hold_effect == HOLD_EFFECT_ACCURACY_UP_SLOWER) && (IsMovingAfterClient(sp, defender) == TRUE))
-    {
-        accuracy = accuracy * (100 + hold_effect_atk) / 100;
-    }
-
-    if (sp->boostedAccuracy)
-    {
-        accuracy = accuracy * 12 / 10;
-    }
-
-    if (sp->field_condition & FIELD_STATUS_GRAVITY)
-    {
-        accuracy = accuracy * 5 / 3;
-    }
-
-    if (((BattleRand(bw) % 100) + 1) > accuracy)
-    {
+    if (accuracy <= (BattleRand(bw) % 100)) {
         sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
         sp->oneTurnFlag[attacker].parental_bond_flag = 0;
         sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
@@ -586,280 +717,387 @@ const u8 DecreaseSpeedHoldEffects[] =
 };
 
 // return 0 if client1 moves first, 1 if client2 moves first, 2 if random roll between the two.
-u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag)
-{
+u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag) {
     u8 ret = 0;
     u32 speed1, speed2;
-    //u16 move1 = 0, move2 = 0;
     u8 hold_effect1;
-    //u8 hold_atk1;
     u8 hold_effect2;
-    //u8 hold_atk2;
     s8 priority1 = sp->clientPriority[client1];
     s8 priority2 = sp->clientPriority[client2];
     u8 quick_claw1 = sp->battlemon[client1].moveeffect.quickClawFlag || sp->battlemon[client1].moveeffect.custapBerryFlag;
     u8 quick_claw2 = sp->battlemon[client2].moveeffect.quickClawFlag || sp->battlemon[client2].moveeffect.custapBerryFlag;
     u8 move_last1 = 0, move_last2 = 0;
-    //int command1;
-    //int command2;
-    //int move_pos1;
-    //int move_pos2;
     int ability1;
     int ability2;
     int stat_stage_spd1;
     int stat_stage_spd2;
     u32 i;
 
-    // if one mon is fainted and the other isn't, then the alive one obviously goes first
-    if ((sp->battlemon[client1].hp == 0) && (sp->battlemon[client2].hp))
-    {
-        return 1;
-    }
-    if ((sp->battlemon[client1].hp) && (sp->battlemon[client2].hp == 0))
-    {
-        return 0;
-    }
-
-    // Potential After You or Quash present
-    if (sp->oneTurnFlag[client1].force_execution_order_flag != sp->oneTurnFlag[client2].force_execution_order_flag) {
-        switch (sp->oneTurnFlag[client1].force_execution_order_flag) {
-            case EXECUTION_ORDER_AFTER_YOU:
-                return 0;
-                break;
-            case EXECUTION_ORDER_QUASH:
-                return 1;
-                break;
-            default:
-                break;
-        }
-        switch (sp->oneTurnFlag[client2].force_execution_order_flag) {
-            case EXECUTION_ORDER_AFTER_YOU:
-                return 1;
-                break;
-            case EXECUTION_ORDER_QUASH:
-                return 0;
-                break;
-            default:
-                break;
-        }
-    }
+    u32 speedModifier1 = UQ412__1_0;
+    u32 speedModifier2 = UQ412__1_0;
 
     ability1 = GetBattlerAbility(sp, client1);
     ability2 = GetBattlerAbility(sp, client2);
 
     hold_effect1 = HeldItemHoldEffectGet(sp, client1);
-    //hold_atk1 = HeldItemAtkGet(sp, client1, 0);
     hold_effect2 = HeldItemHoldEffectGet(sp, client2);
-    //hold_atk2 = HeldItemAtkGet(sp, client2, 0);
 
     stat_stage_spd1 = sp->battlemon[client1].states[STAT_SPEED];
     stat_stage_spd2 = sp->battlemon[client2].states[STAT_SPEED];
 
-    // if (GetBattlerAbility(sp, client1) == ABILITY_SIMPLE)
-    // {
-    //     stat_stage_spd1 = 6 + ((stat_stage_spd1 - 6) * 2);
-    //     if (stat_stage_spd1 > 12)
-    //     {
-    //         stat_stage_spd1 = 12;
-    //     }
-    //     if (stat_stage_spd1 < 0)
-    //     {
-    //         stat_stage_spd1 = 0;
-    //     }
-    // }
-    // if (GetBattlerAbility(sp, client2) == ABILITY_SIMPLE)
-    // {
-    //     stat_stage_spd2 = 6 + ((stat_stage_spd2 - 6) * 2);
-    //     if (stat_stage_spd2 > 12)
-    //     {
-    //         stat_stage_spd2 = 12;
-    //     }
-    //     if (stat_stage_spd2 < 0)
-    //     {
-    //         stat_stage_spd2 = 0;
-    //     }
-    // }
+    // Begin calculating Speed Modifiers
 
-    speed1 = sp->battlemon[client1].speed * StatBoostModifiers[stat_stage_spd1][0] / StatBoostModifiers[stat_stage_spd1][1];
-    speed2 = sp->battlemon[client2].speed * StatBoostModifiers[stat_stage_spd2][0] / StatBoostModifiers[stat_stage_spd2][1];
+    // https://web.archive.org/web/20241226231016/https://www.trainertower.com/dawoblefets-damage-dissertation/
+    // NormalRound is QMul_RoundUp
+    // pokeRound is QMul_RoundDown
 
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)==0)
-     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)==0))
-    {
+#ifdef DEBUG_SPEED_CALC
+    char client1Nickname[12];
+    char client2Nickname[12];
+    LoadNicknameToCharArray(sp->battlemon[client1].nickname, client1Nickname);
+    LoadNicknameToCharArray(sp->battlemon[client2].nickname, client2Nickname);
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] client1: %s\n", client1Nickname);
+    debug_printf("[CalcSpeed] client2: %s\n", client2Nickname);
+#endif
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] %s's base speed: %d\n", client1Nickname, sp->battlemon[client1].speed);
+    debug_printf("[CalcSpeed] %s's base speed: %d\n", client2Nickname, sp->battlemon[client2].speed);
+#endif
+
+    speed1 = (sp->battlemon[client1].speed * StatBoostModifiers[stat_stage_spd1][0] / StatBoostModifiers[stat_stage_spd1][1]) % 65536;
+    speed2 = (sp->battlemon[client2].speed * StatBoostModifiers[stat_stage_spd2][0] / StatBoostModifiers[stat_stage_spd2][1]) % 65536;
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] %s's speed1 after stat changes: %d\n", client1Nickname, speed1);
+    debug_printf("[CalcSpeed] %s's speed2 after stat changes: %d\n", client2Nickname, speed2);
+#endif
+
+    // Step 1: 2x Abilities
+
+    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
+     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
         if (((ability1 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
          || ((ability1 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability1 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
-         || ((ability1 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))))
-        {
-            speed1 *= 2;
+         || ((ability1 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY)))) {
+            speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
         }
         if (((ability2 == ABILITY_SWIFT_SWIM) && (sp->field_condition & WEATHER_RAIN_ANY))
          || ((ability2 == ABILITY_CHLOROPHYLL) && (sp->field_condition & WEATHER_SUNNY_ANY))
          || ((ability2 == ABILITY_SAND_RUSH) && (sp->field_condition & WEATHER_SANDSTORM_ANY))
-         || ((ability2 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))))
-        {
-            speed2 *= 2;
+         || ((ability2 == ABILITY_SLUSH_RUSH) && (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY)))) {
+            speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
         }
     }
 
-    for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++)
-    {
-        if (BattleItemDataGet(sp, sp->battlemon[client1].item, 1) == DecreaseSpeedHoldEffects[i]) {
-            if (!(GetBattlerAbility(sp, client1) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
-            speed1 /= 2;
-            break;
-            }
+    if ((sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0)) {
+        if (ability1 == ABILITY_SURGE_SURFER) {
+            speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
         }
-    }
 
-    if ((ability1 == ABILITY_SURGE_SURFER) && (sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0))
-    {
-        speed1 *= 2;
-    }
-
-    if ((ability2 == ABILITY_SURGE_SURFER) && (sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0))
-    {
-        speed2 *= 2;
-    }
-
-    if (hold_effect1 == HOLD_EFFECT_CHOICE_SPEED)
-    {
-        speed1 = speed1 * 15 / 10;
-    }
-
-    if ((hold_effect1 == HOLD_EFFECT_DITTO_SPEED_UP) && (sp->battlemon[client1].species == SPECIES_DITTO))
-    {
-        speed1 *= 2;
-    }
-
-    if ((ability1 == ABILITY_QUICK_FEET) && (sp->battlemon[client1].condition & STATUS_ANY_PERSISTENT))
-    {
-        speed1 = speed1 * 15 / 10;
-    }
-    else
-    {
-        if (sp->battlemon[client1].condition & STATUS_PARALYSIS)
-        {
-            speed1 /= 2; // gen 7 on only halves speed for paralysis
+        if (ability2 == ABILITY_SURGE_SURFER) {
+            speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
         }
-    }
-
-    if ((ability1 == ABILITY_SLOW_START)
-     && ((sp->total_turn - sp->battlemon[client1].moveeffect.slowStartTurns) < 3))
-    {
-        speed1 /= 2;
     }
 
     if ((ability1 == ABILITY_UNBURDEN)
-     && (sp->battlemon[client1].moveeffect.knockOffFlag)
-     && (sp->battlemon[client1].item == 0))
-    {
-        speed1 *= 2;
+    && (sp->battlemon[client1].moveeffect.knockOffFlag)
+    && (sp->battlemon[client1].item == 0)) {
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
 
-    if (sp->tailwindCount[IsClientEnemy(bw, client1)]) // new tailwind handling
-    {
-        speed1 *= 2;
+    if ((ability2 == ABILITY_UNBURDEN)
+    && (sp->battlemon[client2].moveeffect.knockOffFlag)
+    && (sp->battlemon[client2].item == 0)) {
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
-    if (hold_effect1 == HOLD_EFFECT_PRIORITY_DOWN)
-    {
-        move_last1 = 1;
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 1: 2x Abilities\n");
+    debug_printf("[CalcSpeed] %s's speedModifier1: %d\n", client1Nickname, speedModifier1);
+    debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
+#endif
+
+    // Step 2: Quick Feet
+
+    if ((ability1 == ABILITY_QUICK_FEET) && (sp->battlemon[client1].condition & STATUS_ANY_PERSISTENT)) {
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__1_5);
     }
 
-    for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++)
-    {
-        if (BattleItemDataGet(sp, sp->battlemon[client2].item, 1) == DecreaseSpeedHoldEffects[i]) {
-            if (!(GetBattlerAbility(sp, client2) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
-                speed2 /= 2;
-            break;
+    if ((ability2 == ABILITY_QUICK_FEET) && (sp->battlemon[client2].condition & STATUS_ANY_PERSISTENT)) {
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__1_5);
+    }
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 2: Quick Feet\n");
+    debug_printf("[CalcSpeed] %s's speedModifier1: %d\n", client1Nickname, speedModifier1);
+    debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
+#endif
+
+    // Step 3: Slow Start
+
+    if ((ability1 == ABILITY_SLOW_START)
+    && ((sp->total_turn - sp->battlemon[client1].moveeffect.slowStartTurns) < 5)) {
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__0_5);
+    }
+
+    if ((ability2 == ABILITY_SLOW_START)
+    && ((sp->total_turn - sp->battlemon[client2].moveeffect.slowStartTurns) < 5)) {
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__0_5);
+    }
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 3: Slow Start\n");
+    debug_printf("[CalcSpeed] %s's speedModifier1: %d\n", client1Nickname, speedModifier1);
+    debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
+#endif
+
+    // Step 4: Quick Powder
+
+    if ((hold_effect1 == HOLD_EFFECT_DITTO_SPEED_UP) && (sp->battlemon[client1].species == SPECIES_DITTO)
+        // Not transformed
+        && !(sp->battlemon[client1].condition2 & STATUS2_TRANSFORMED)) {
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
+    }
+
+    if ((hold_effect2 == HOLD_EFFECT_DITTO_SPEED_UP)
+    && (sp->battlemon[client2].species == SPECIES_DITTO)
+    // Not transformed
+    && !(sp->battlemon[client2].condition2 & STATUS2_TRANSFORMED)) {
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
+    }
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 4: Quick Powder\n");
+    debug_printf("[CalcSpeed] %s's speedModifier1: %d\n", client1Nickname, speedModifier1);
+    debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
+#endif
+
+    // Step 5: Choice Scarf
+
+    if (hold_effect1 == HOLD_EFFECT_CHOICE_SPEED) {
+        speedModifier1= QMul_RoundUp(speedModifier1, UQ412__1_5);
+    }
+
+    if (hold_effect2 == HOLD_EFFECT_CHOICE_SPEED) {
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__1_5);
+    }
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 5: Choice Scarf\n");
+    debug_printf("[CalcSpeed] %s's speedModifier1: %d\n", client1Nickname, speedModifier1);
+    debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
+#endif
+
+    // Step 6: Iron Ball / Macho Brace / Power EV items
+
+    for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++) {
+        if (BattleItemDataGet(sp, sp->battlemon[client1].item, 1) == DecreaseSpeedHoldEffects[i]) {
+            if (!(GetBattlerAbility(sp, client1) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
+                speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__0_5);
+                break;
             }
         }
     }
 
-    if (hold_effect2 == HOLD_EFFECT_CHOICE_SPEED)
-    {
-        speed2 = speed2 * 15 / 10;
-    }
-
-    if ((hold_effect2 == HOLD_EFFECT_DITTO_SPEED_UP) && (sp->battlemon[client2].species == SPECIES_DITTO))
-    {
-        speed2 *= 2;
-    }
-
-    if ((ability2 == ABILITY_QUICK_FEET) && (sp->battlemon[client2].condition & STATUS_ANY_PERSISTENT))
-    {
-        speed2 = speed2 * 15 / 10;
-    }
-    else
-    {
-        if (sp->battlemon[client2].condition & STATUS_PARALYSIS)
-        {
-            speed2 /= 2; // gen 7 on only halves speed for paralysis
+    for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++) {
+        if (BattleItemDataGet(sp, sp->battlemon[client2].item, 1) == DecreaseSpeedHoldEffects[i]) {
+            if (!(GetBattlerAbility(sp, client2) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
+                speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__0_5);
+                break;
+            }
         }
     }
 
-    if ((ability2 == ABILITY_SLOW_START)
-     && ((sp->total_turn - sp->battlemon[client2].moveeffect.slowStartTurns) < 3))
-    {
-        speed2 /= 2;
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 6: Iron Ball / Macho Brace / Power EV items\n");
+    debug_printf("[CalcSpeed] %s's speedModifier1: %d\n", client1Nickname, speedModifier1);
+    debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
+#endif
+
+    // Step 7: Tailwind
+
+    if (sp->tailwindCount[IsClientEnemy(bw, client1)]) { // new tailwind handling
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
 
-    if ((ability2 == ABILITY_UNBURDEN)
-     && (sp->battlemon[client2].moveeffect.knockOffFlag)
-     && (sp->battlemon[client2].item == 0))
-    {
-        speed2 *= 2;
+    if (sp->tailwindCount[IsClientEnemy(bw, client2)]) { // new tailwind handling
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
-    if (sp->tailwindCount[IsClientEnemy(bw, client2)]) // new tailwind handling
-    {
-        speed2 *= 2;
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 7: Tailwind\n");
+    debug_printf("[CalcSpeed] %s's speedModifier1: %d\n", client1Nickname, speedModifier1);
+    debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
+#endif
+
+    // Step 8: Swamp
+
+    // TODO
+    if (FALSE) {
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__0_25);
     }
 
-    if (hold_effect2 == HOLD_EFFECT_PRIORITY_DOWN)
-    {
+    if (FALSE) {
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__0_25);
+    }
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 8: Swamp\n");
+    debug_printf("[CalcSpeed] %s's speedModifier1: %d\n", client1Nickname, speedModifier1);
+    debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
+#endif
+
+    // Step 9: Apply limit
+    // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-59#post-8704137
+
+    speedModifier1 = speedModifier1 < 410 ? 410 : speedModifier1;
+    speedModifier2 = speedModifier2 < 410 ? 410 : speedModifier2;
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 9: Apply limit\n");
+    debug_printf("[CalcSpeed] %s's speedModifier1: %d\n", client1Nickname, speedModifier1);
+    debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
+#endif
+
+    // Step 10: Apply the chained modifier to the starting speed
+
+    speed1 = QMul_RoundDown(speed1, speedModifier1);
+    speed2 = QMul_RoundDown(speed2, speedModifier2);
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 10: Apply the chained modifier to the starting speed\n");
+    debug_printf("[CalcSpeed] %s's speed1: %d\n", client1Nickname, speed1);
+    debug_printf("[CalcSpeed] %s's speed2: %d\n", client2Nickname, speed2);
+#endif
+
+    // Step 11: Paralysis
+
+    if ((ability1 != ABILITY_QUICK_FEET)
+    && sp->battlemon[client1].condition & STATUS_PARALYSIS) {
+        speed1 = QMul_RoundUp(speed1, UQ412__0_5);  // gen 7 on only halves speed for paralysis
+    }
+
+    if ((ability2 != ABILITY_QUICK_FEET)
+    && sp->battlemon[client2].condition & STATUS_PARALYSIS) {
+        speed2 = QMul_RoundUp(speed2, UQ412__0_5);  // gen 7 on only halves speed for paralysis
+    }
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 11: Paralysis\n");
+    debug_printf("[CalcSpeed] %s's speed1: %d\n", client1Nickname, speed1);
+    debug_printf("[CalcSpeed] %s's speed2: %d\n", client2Nickname, speed2);
+#endif
+
+    // Step 12: Apply limit
+
+    speed1 = speed1 % 65536;
+    speed1 = speed1 > 10000 ? 10000 : speed1;
+    speed2 = speed2 % 65536;
+    speed2 = speed2 > 10000 ? 10000 : speed2;
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 12: Apply limit\n");
+    debug_printf("[CalcSpeed] %s's speed1: %d\n", client1Nickname, speed1);
+    debug_printf("[CalcSpeed] %s's speed2: %d\n", client2Nickname, speed2);
+#endif
+
+    // Step 13: Speed calculations stop here for the purposes of Gyro Ball / Electro Ball
+
+    sp->effectiveSpeed[client1] = speed1;
+    sp->effectiveSpeed[client2] = speed2;
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 13: Speed calculations stop here for the purposes of Gyro Ball / Electro Ball\n");
+    debug_printf("[CalcSpeed] %s's speed1: %d\n", client1Nickname, speed1);
+    debug_printf("[CalcSpeed] %s's speed2: %d\n", client2Nickname, speed2);
+#endif
+
+    // Step 14: Trick Room
+
+    if (sp->field_condition & FIELD_STATUS_TRICK_ROOM) {
+        speed1 = 10000 - speed1;
+        speed2 = 10000 - speed2;
+    }
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 14: Trick Room\n");
+    debug_printf("[CalcSpeed] %s's speed1: %d\n", client1Nickname, speed1);
+    debug_printf("[CalcSpeed] %s's speed2: %d\n", client2Nickname, speed2);
+#endif
+
+    // Step 15: Apply Limit
+
+    speed1 = speed1 % 8192;
+    speed2 = speed2 % 8192;
+
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 15: Apply Limit\n");
+    debug_printf("[CalcSpeed] %s's speed1: %d\n", client1Nickname, speed1);
+    debug_printf("[CalcSpeed] %s's speed2: %d\n", client2Nickname, speed2);
+    debug_printf("[CalcSpeed] End of calculating Speed Modifiers\n");
+    debug_printf("\n=================\n");
+#endif
+
+    // End of calculating Speed Modifiers
+
+    // if one mon is fainted and the other isn't, then the alive one obviously goes first
+    if ((sp->battlemon[client1].hp == 0) && (sp->battlemon[client2].hp)) {
+        return 1;
+    }
+    if ((sp->battlemon[client1].hp) && (sp->battlemon[client2].hp == 0)) {
+        return 0;
+    }
+
+    // Potential After You or Quash present
+    if (sp->oneTurnFlag[client1].forceExecutionOrderFlag != sp->oneTurnFlag[client2].forceExecutionOrderFlag) {
+        switch (sp->oneTurnFlag[client1].forceExecutionOrderFlag) {
+            case EXECUTION_ORDER_AFTER_YOU:
+                return 0;
+                break;
+            case EXECUTION_ORDER_QUASH:
+                return 1;
+                break;
+            default:
+                break;
+        }
+        switch (sp->oneTurnFlag[client2].forceExecutionOrderFlag) {
+            case EXECUTION_ORDER_AFTER_YOU:
+                return 1;
+                break;
+            case EXECUTION_ORDER_QUASH:
+                return 0;
+                break;
+            default:
+                break;
+        }
+    }
+
+    if (hold_effect1 == HOLD_EFFECT_PRIORITY_DOWN) {
+        move_last1 = 1;
+    }
+
+    if (hold_effect2 == HOLD_EFFECT_PRIORITY_DOWN) {
         move_last2 = 1;
     }
-
-    sp->effectiveSpeed[client1]=speed1;
-    sp->effectiveSpeed[client2]=speed2;
-
-    // if (flag == 0)
-    // {
-    //     command1 = sp->playerActions[client1][3];
-    //     command2 = sp->playerActions[client2][3];
-    //     move_pos1 = sp->waza_no_pos[client1];
-    //     move_pos2 = sp->waza_no_pos[client2];
-    //
-    //     if(command1 == SELECT_FIGHT_COMMAND)
-    //     {
-    //         if(sp->oneTurnFlag[client1].struggle_flag)
-    //         {
-    //             move1 = MOVE_STRUGGLE;
-    //         }
-    //         else
-    //         {
-    //             move1 = BattlePokemonParamGet(sp, client1, BATTLE_MON_DATA_MOVE_1 + move_pos1, NULL);
-    //         }
-    //     }
-    //     if (command2 == SELECT_FIGHT_COMMAND)
-    //     {
-    //         if (sp->oneTurnFlag[client2].struggle_flag)
-    //         {
-    //             move2 = MOVE_STRUGGLE;
-    //         }
-    //         else
-    //         {
-    //             move2 = BattlePokemonParamGet(sp, client2, BATTLE_MON_DATA_MOVE_1 + move_pos2, NULL);
-    //         }
-    //     }
-    // }
-
-    /*if (sp->field_condition & FIELD_STATUS_TRICK_ROOM) {
-        speed1 = (10000 - speed1) % 8192;
-        speed2 = (10000 - speed2) % 8192;
-    }*/
 
     if (flag & CALCSPEED_FLAG_NO_PRIORITY)
     {
@@ -926,18 +1164,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         {
             ret = 0;
         }
-        else if (sp->field_condition & FIELD_STATUS_TRICK_ROOM)
-		{
-			if (speed1 > speed2)
-			{
-                ret = 1;
-            }
-            if ((speed1 == speed2) && (BattleRand(bw) & 1))
-			{
-                ret = 2;
-            }
-		}
-		else
+        else
         {
             if (speed1 < speed2)
             {
@@ -970,6 +1197,8 @@ void LONG_CALL DynamicSortClientExecutionOrder(void *bw, struct BattleStruct *sp
     int currentAttackerId = sp->executionIndex;
 
     maxBattlers = BattleWorkClientSetMaxGet(bw);
+
+    CalcPriorityAndQuickClawCustapBerry(bw, sp);
 
     // for (i = 0; i < maxBattlers; i++) {
     //     if (sp->attack_client == sp->executionOrder[i]) {
@@ -1128,11 +1357,11 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
 
 const u8 CriticalRateTable[] =
 {
-	0,
-	25,
-	50,
-	100,
-	100
+     24,
+     8,
+     2,
+     1,
+     1
 };
 
 // calculates the critical hit multiplier
@@ -1141,6 +1370,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     u16 temp;
     u16 item;
     int hold_effect;
+    u16 species;
     u32 defender_condition;
     u32 condition2;
     u32 move_effect;
@@ -1150,15 +1380,15 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     item = GetBattleMonItem(sp, attacker);
     hold_effect = BattleItemDataGet(sp, item, 1);
 
+    species = sp->battlemon[attacker].species;
     defender_condition = sp->battlemon[defender].condition;
     condition2 = sp->battlemon[attacker].condition2;
     move_effect = sp->battlemon[defender].effect_of_moves;
     ability = sp->battlemon[attacker].ability;
 
-    temp = (((condition2 & STATUS2_FOCUS_ENERGY) != 0) * 2)
-			+ (hold_effect == HOLD_EFFECT_CRITRATE_UP)
-			+ critical_count
-			+ (ability == ABILITY_SUPER_LUCK);
+    temp = (((condition2 & STATUS2_FOCUS_ENERGY) != 0) * 2) + (hold_effect == HOLD_EFFECT_CRITRATE_UP) + critical_count + (ability == ABILITY_SUPER_LUCK)
+         + (2 * ((hold_effect == HOLD_EFFECT_CHANSEY_CRITRATE_UP) && (species == SPECIES_CHANSEY)))
+         + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_FARFETCHD)));
 
     if (temp > 4)
     {
@@ -1167,17 +1397,16 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 
     if
     (
-        BattleRand(bw) % 100 < CriticalRateTable[temp]
+        BattleRand(bw) % CriticalRateTable[temp] == 0
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ALL))
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL)
     )
     {
         if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)
-		&& (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SHELL_ARMOR) == FALSE)
-		&& ((side_condition & SIDE_STATUS_LUCKY_CHANT) == 0)
-		&& ((move_effect & MOVE_EFFECT_NO_CRITICAL_HITS) == 0)
-		&& (ability != ABILITY_HUSTLE))
+         && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SHELL_ARMOR) == FALSE)
+         && ((side_condition & SIDE_STATUS_LUCKY_CHANT) == 0)
+         && ((move_effect & MOVE_EFFECT_NO_CRITICAL_HITS) == 0))
         {
             multiplier = 2;
         }
@@ -1232,16 +1461,25 @@ u16 gf_p_rand(const u16 denominator)
     }
 }
 
-// TODO: Refactor this function
-int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type) {
-    int i = 0;
-    u8 attacker_type_1 UNUSED = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL);
-    u8 attacker_type_2 UNUSED = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL);
-    u8 defender_type_1 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL);
-    u8 defender_type_2 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL);
+#define EFFECTIVENESS_SUPER_EFFECTIVE 20
 
-    u32 type1Effectiveness = 0;
-    u32 type2Effectiveness = 0;
+// TODO: Refactor this function
+int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag) {
+    int i = 0;
+    u8 attacker_type_1 UNUSED = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL));
+    u8 attacker_type_2 UNUSED = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL));
+    // https://xcancel.com/Sibuna_Switch/status/1827463371383328877#m
+    u8 defender_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL));
+    u8 defender_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL));
+
+    u32 type1Effectiveness = TYPE_MUL_NORMAL;
+    u32 type2Effectiveness = TYPE_MUL_NORMAL;
+
+    // TODO: handle Ring Target, Thousand Arrows, Freeze-Dry, Flying Press
+
+    if (GetSanitisedType(move_type) == TYPE_STELLAR && !sp->battlemon[attack_client].is_currently_terastallized) {
+        return TYPE_MUL_NO_EFFECT;
+    }
 
     while (TypeEffectivenessTable[i][0] != TYPE_ENDTABLE) {
         if (TypeEffectivenessTable[i][0] == TYPE_FORESIGHT)  // handle foresight
@@ -1255,13 +1493,44 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
         }
         if (TypeEffectivenessTable[i][0] == move_type) {
             if (TypeEffectivenessTable[i][1] == defender_type_1) {
-                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) && sp->field_condition & WEATHER_STRONG_WINDS && (TypeEffectivenessTable[i][2] == 20) && defender_type_1 == TYPE_FLYING)) {
+                if (
+					(
+						ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
+						&& !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+							&& !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+							&& sp->field_condition & WEATHER_STRONG_WINDS
+							&& (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE)
+							&& defender_type_1 == TYPE_FLYING
+						)
+					) || (
+						(sp->current_move_index == MOVE_FREEZE_DRY)
+						&& (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE)
+						&& defender_type_1 == TYPE_WATER
+					)
+				)
+				{
                     type1Effectiveness = TypeEffectivenessTable[i][2];
+                    TypeCheckCalc(sp, attack_client, type1Effectiveness, 42, 42, flag);
                 }
             }
             if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2)) {
-                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) && sp->field_condition & WEATHER_STRONG_WINDS && (TypeEffectivenessTable[i][2] == 20) && defender_type_2 == TYPE_FLYING)) {
+                if (
+					(
+						ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
+						&& !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+						&& !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+						&& sp->field_condition & WEATHER_STRONG_WINDS
+						&& (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE)
+						&& defender_type_2 == TYPE_FLYING)
+					) || (
+						(sp->current_move_index == MOVE_FREEZE_DRY)
+						&& (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE)
+						&& defender_type_2 == TYPE_WATER
+					)
+				)
+				{
                     type2Effectiveness = TypeEffectivenessTable[i][2];
+                    TypeCheckCalc(sp, attack_client, type1Effectiveness, 42, 42, flag);
                 }
             }
             // TODO: Handle type3, Tera Type
@@ -1273,6 +1542,9 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
     if (type1Effectiveness == TYPE_MUL_NO_EFFECT || type2Effectiveness == TYPE_MUL_NO_EFFECT) {
         return TYPE_MUL_NO_EFFECT;
     }
+    if (type1Effectiveness == TYPE_MUL_NOT_EFFECTIVE && type2Effectiveness == TYPE_MUL_NOT_EFFECTIVE) {
+        return TYPE_MUL_DOUBLE_NOT_EFFECTIVE;
+    }
     if ((type1Effectiveness == TYPE_MUL_SUPER_EFFECTIVE && type2Effectiveness == TYPE_MUL_NOT_EFFECTIVE)
     || (type2Effectiveness == TYPE_MUL_SUPER_EFFECTIVE && type1Effectiveness == TYPE_MUL_NOT_EFFECTIVE)) {
         return TYPE_MUL_NORMAL;
@@ -1282,6 +1554,9 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
     }
     if (type2Effectiveness == TYPE_MUL_NORMAL) {
         return type1Effectiveness;
+    }
+    if (type1Effectiveness == type2Effectiveness && type1Effectiveness == TYPE_MUL_SUPER_EFFECTIVE) {
+        return TYPE_MUL_DOUBLE_SUPER_EFFECTIVE;
     }
     return TYPE_MUL_NO_EFFECT;
 }
@@ -1299,14 +1574,13 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
  *  @param flag move status flags to mess around with
  *  @return modified damage
  */
+// TODO: neuter it in the future
 int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag)
 {
     int i;
     int modifier;
     u32 base_power;
-    u8  eqp_a;
     u8  eqp_d UNUSED;
-    u8  atk_a;
     u8  atk_d UNUSED; // not currently used but will be
 
     modifier = 1;
@@ -1314,18 +1588,16 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
     if (move_no == MOVE_STRUGGLE)
         return damage;
 
-    eqp_a = HeldItemHoldEffectGet(sp, attack_client);
-    atk_a = HeldItemAtkGet(sp, attack_client, ATK_CHECK_NORMAL);
     eqp_d = HeldItemHoldEffectGet(sp, defence_client);
     atk_d = HeldItemAtkGet(sp, defence_client, ATK_CHECK_NORMAL);
 
     move_type = GetAdjustedMoveType(sp, attack_client, move_no); // new normalize checks
     base_power = sp->moveTbl[move_no].power;
 
-    u8 attacker_type_1 = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL);
-    u8 attacker_type_2 = BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL);
-    u8 defender_type_1 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL);
-    u8 defender_type_2 = BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL);
+    u8 attacker_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL));
+    u8 attacker_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL));
+    u8 defender_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL));
+    u8 defender_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL));
 
     if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((attacker_type_1 == move_type) || (attacker_type_2 == move_type)))
     {
@@ -1339,93 +1611,75 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
         }
     }
 
-    // if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_LEVITATE) == TRUE)
-    //  && (move_type == TYPE_GROUND)
-    //  && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) // iron ball halves speed and grounds
-    // {
-    //     flag[0] |= MOVE_STATUS_FLAG_LEVITATE_MISS;
-    //     sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
-    //     sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
-    // }
-    // else if ((sp->battlemon[defence_client].moveeffect.magnetRiseTurns)
-    //       && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
-    //       && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
-    //       && (move_type == TYPE_GROUND)
-    //       && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
-    // {
-    //     flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS;
-    //     sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
-    //     sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
-    // }
-    // else if ((eqp_d == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT) // has air balloon
-    //       && ((sp->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
-    //       && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
-    //       && (move_type == TYPE_GROUND)
-    //       && (eqp_d != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
-    // {
-    //     flag[0] |= MOVE_STATUS_FLAG_MAGNET_RISE_MISS; // reuse Magnet Rise message since they are the same
-    //     sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
-    //     sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
-    // }
-    // else if ((move_no == MOVE_SHEER_COLD) && (defender_type_1 == TYPE_ICE || defender_type_2 == TYPE_ICE))
-    // {
-    //     flag[0] |= MOVE_STATUS_FLAG_NOT_EFFECTIVE;
-    // }
-    // else
+    i = 0;
+    while (TypeEffectivenessTable[i][0] != TYPE_ENDTABLE)
     {
-        i = 0;
-        while (TypeEffectivenessTable[i][0] != TYPE_ENDTABLE)
+        if (TypeEffectivenessTable[i][0] == TYPE_FORESIGHT) // handle foresight
         {
-            if (TypeEffectivenessTable[i][0] == TYPE_FORESIGHT) // handle foresight
+            if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY) || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE))
             {
-                if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY) || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE))
-                {
-                    break;
-                }
-                else
-                {
-                    i++;
-                    continue;
-                }
+                break;
             }
-            if (TypeEffectivenessTable[i][0] == move_type)
+            else
             {
-                if (TypeEffectivenessTable[i][1] == defender_type_1)
-                {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
-                    && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
-                        && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
-                        && sp->field_condition & WEATHER_STRONG_WINDS
-                        && (TypeEffectivenessTable[i][2] == 20)
-                        && defender_type_1 == TYPE_FLYING))
-                    {
-                        damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
-                        if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
-                        {
-                            modifier *= 2;
-                        }
-                    }
-                }
-                if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2))
-                {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
-                    && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
-                        && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
-                        && sp->field_condition & WEATHER_STRONG_WINDS
-                        && (TypeEffectivenessTable[i][2] == 20)
-                        && defender_type_2 == TYPE_FLYING))
-                    {
-                        damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
-                        if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
-                        {
-                            modifier *= 2;
-                        }
-                    }
-                }
+                i++;
+                continue;
             }
-            i++;
         }
+        if (TypeEffectivenessTable[i][0] == move_type)
+        {
+            if (TypeEffectivenessTable[i][1] == defender_type_1)
+            {
+                if (
+					ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
+					&& !(
+						!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+						&& !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+						&& sp->field_condition & WEATHER_STRONG_WINDS
+						&& (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE)
+						&& defender_type_1 == TYPE_FLYING
+					)
+				) || (
+					(sp->current_move_index == MOVE_FREEZE_DRY)
+					&& (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE)
+					&& defender_type_1 == TYPE_WATER
+				)
+                {
+                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
+                    if (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
+                    {
+                        modifier *= 2;
+                    }
+                }
+            }
+            if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2))
+            {
+                if (
+					ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
+					&& !(
+						!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+						&& !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+						&& sp->field_condition & WEATHER_STRONG_WINDS
+						&& (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE)
+						&& defender_type_2 == TYPE_FLYING
+					)
+				) || (
+					(sp->current_move_index == MOVE_FREEZE_DRY)
+					&& (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE)
+					&& defender_type_2 == TYPE_WATER
+				)
+                {
+                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
+                    if (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
+                    {
+                        modifier *= 2;
+                    }
+                }
+            }
+        }
+        i++;
     }
+
 
     if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_WONDER_GUARD) == TRUE)
      && (ShouldDelayTurnEffectivenessChecking(sp, move_no)) // check supereffectiveness later, 2-turn move
@@ -1441,32 +1695,6 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
         if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0)
          && ((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_NONE) == 0))
         {
-            if ((flag[0] & MOVE_STATUS_FLAG_SUPER_EFFECTIVE) && (base_power))
-            {
-                if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_FILTER) == TRUE) || (MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_SOLID_ROCK) == TRUE))
-                {
-                    damage = BattleDamageDivide(damage * 3, 4);
-                }
-                if (GetBattlerAbility(sp, defence_client) == ABILITY_PRISM_ARMOR)
-                {
-                    damage = BattleDamageDivide(damage * 3, 4);
-                }
-                if (GetBattlerAbility(sp, attack_client) == ABILITY_NEUROFORCE)
-                {
-                    damage = BattleDamageDivide(damage * 5, 4);
-                }
-                if (eqp_a == HOLD_EFFECT_POWER_UP_SE)
-                {
-                    damage = damage * (100 + atk_a) / 100;
-                }
-            }
-            if ((flag[0] & MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE) && (base_power))
-            {
-                if (GetBattlerAbility(sp, attack_client) == ABILITY_TINTED_LENS)
-                {
-                    damage *= 2;
-                }
-            }
         }
         else
         {
@@ -2058,17 +2286,43 @@ u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
     return sp->moveTbl[moveno].split;
 }
 
+const u16 MinimizeVulnerabilityMovesList[] = {
+    MOVE_BODY_SLAM,
+    MOVE_STOMP,
+    MOVE_SLEEP_POWDER,
+    MOVE_DRAGON_RUSH,
+    MOVE_STEAMROLLER,
+    MOVE_HEAT_CRASH,
+    MOVE_HEAVY_SLAM,
+    MOVE_FLYING_PRESS,
+    MOVE_MALICIOUS_MOONSAULT,
+    MOVE_SUPERCELL_SLAM
+};
+
+/**
+ * @brief checks if the move index is a move that will hit with double power if target is minimized
+ * @param move move index to check
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsMoveInMinimizeVulnerabilityMovesList(u16 move) {
+    return IsElementInArray(MinimizeVulnerabilityMovesList, (u16 *)&move, NELEMS(MinimizeVulnerabilityMovesList), sizeof(MinimizeVulnerabilityMovesList[0]));
+}
+
 BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, int battlerIdAttacker, int battlerIdTarget, int move) {
     if (sp->server_status_flag & BATTLE_STATUS_CHARGE_TURN) {
         return FALSE;
     }
 
-    if (sp->oneTurnFlag[battlerIdTarget].mamoru_flag
-        && sp->moveTbl[move].flag & (1 << 1)
-        && (move != MOVE_CURSE || CurseUserIsGhost(sp, move, battlerIdAttacker) == TRUE)
-        && (!CheckMoveIsChargeMove(sp, move) || sp->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)) {
-        UnlockBattlerOutOfCurrentMove(bw, sp, battlerIdAttacker);
-        sp->waza_status_flag |= WAZA_STATUS_FLAG_MAMORU_NOHIT;
+    // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-58#post-8684263
+
+    // Check if the move will hit with certainty
+
+    // 1. Check if user or target has No Guard, or if the user has sure-hit accuracy from Poison-type Toxic, or if the user has used Lock-On / Mind Reader.
+
+    // toxic when used by a poison type
+    if (move == MOVE_TOXIC
+        && (BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
+        || BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON)) {
         return FALSE;
     }
 
@@ -2081,20 +2335,6 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         return FALSE;
     }
 
-    if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-        if ((sp->field_condition & WEATHER_RAIN_ANY) && ((sp->moveTbl[move].effect == MOVE_EFFECT_THUNDER)
-         || (sp->moveTbl[move].effect == MOVE_EFFECT_HURRICANE)
-         || (sp->moveTbl[move].effect == MOVE_EFFECT_BLEAKWIND_STORM)
-         || (sp->moveTbl[move].effect == MOVE_EFFECT_WILDBOLT_STORM)
-         || (sp->moveTbl[move].effect == MOVE_EFFECT_SANDSEAR_STORM))) {
-            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-        }
-        // Blizzard is 100% accurate in Snow also
-        if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && sp->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
-            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-        }
-    }
-
     if (!(sp->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
         && sp->moveTbl[sp->current_move_index].target != RANGE_OPPONENT_SIDE
         && ((!(sp->server_status_flag & BATTLE_STATUS_HIT_FLY) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR)
@@ -2102,7 +2342,45 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
             || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIG) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
             || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIVE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING))) {
         sp->waza_status_flag |= WAZA_STATUS_FLAG_KIE_NOHIT;
+        return FALSE;
     }
+
+    // 2. Check if the move itself is sure-hit (accuracy 101, like Aerial Ace), or if the move was custom-set to be sure-hit: Pursuit and target is switching, Thunder / Hurricane in rain, Blizzard in hail, Stomp / Steamroller / Dragon Rush / Body Slam / Malicious Moonsault / Heavy Slam / Heat Crash / Flying Press vs. Minimize.
+    // TODO: modernise flow and Handle Pursuit
+
+    if (sp->moveTbl[move].accuracy == 0) {
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+    }
+
+    if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+    && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+        if ((sp->field_condition & WEATHER_RAIN_ANY)
+        && ((sp->moveTbl[move].effect == MOVE_EFFECT_THUNDER)
+        || (sp->moveTbl[move].effect == MOVE_EFFECT_HURRICANE)
+        || (sp->moveTbl[move].effect == MOVE_EFFECT_BLEAKWIND_STORM)
+        || (sp->moveTbl[move].effect == MOVE_EFFECT_WILDBOLT_STORM)
+        || (sp->moveTbl[move].effect == MOVE_EFFECT_SANDSEAR_STORM))) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+            return FALSE;
+        }
+        // Blizzard is 100% accurate in Snow also
+        if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && sp->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+            return FALSE;
+        }
+    }
+
+    if (sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZED
+        && !sp->battlemon[battlerIdTarget].is_currently_dynamaxed
+        && IsMoveInMinimizeVulnerabilityMovesList(move)) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+            return FALSE;
+    }
+
+    // 3. Check if the target has Telekinesis.
+
+    // TODO
+
     return FALSE;
 }
 
@@ -2164,6 +2442,16 @@ void LONG_CALL BattleController_MoveEnd(struct BattleSystem *bsys, struct Battle
 BOOL LONG_CALL IsMovePunchingMove(u16 move)
 {
     return IsElementInArray(PunchingMovesTable, (u16 *)&move, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]));
+}
+
+/**
+ * @brief checks if the move index is a wind move
+ * @param move move index to check
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsMoveWindMove(u16 move)
+{
+    return IsElementInArray(WindMovesTable, (u16 *)&move, NELEMS(WindMovesTable), sizeof(WindMovesTable[0]));
 }
 
 
@@ -2338,7 +2626,7 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
 void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     // debug_printf("In BattleController_LoopMultiHit\n");
     if (ctx->multiHitCountTemp != 0) {
-        if (ctx->fainting_client == BATTLER_NONE && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)) {
+        if (ctx->fainting_client == BATTLER_NONE && !(ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)) {
             if (--ctx->multiHitCount) {
                 ctx->loop_flag = 1;
                 ov12_02252D14(bsys, ctx);
@@ -2354,7 +2642,7 @@ void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct B
                 ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
             }
         } else {
-            if (ctx->fainting_client != BATTLER_NONE) {
+            if (ctx->fainting_client != BATTLER_NONE || ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
                 ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount + 1;
             } else {
                 ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount;
@@ -2386,8 +2674,6 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
         case MOVE_NATURAL_GIFT:
             type = GetNaturalGiftType(ctx, battlerId);
             break;
-		case MOVE_SECRET_POWER:
-        case MOVE_HIDDEN_POWER:
         case MOVE_JUDGMENT:
             switch (HeldItemHoldEffectGet(ctx, battlerId)) {
                 case HOLD_EFFECT_ARCEUS_FIGHTING:
@@ -2445,6 +2731,20 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
                 default:
                     type = TYPE_NORMAL;
                     break;
+            }
+            break;
+        case MOVE_HIDDEN_POWER:
+            type = (ctx->battlemon[battlerId].hp_iv & 1) |
+                   ((ctx->battlemon[battlerId].atk_iv & 1) << 1) |
+                   ((ctx->battlemon[battlerId].def_iv & 1) << 2) |
+                   ((ctx->battlemon[battlerId].spe_iv & 1) << 3) |
+                   ((ctx->battlemon[battlerId].spatk_iv & 1) << 4) |
+                   ((ctx->battlemon[battlerId].spdef_iv & 1) << 5);
+
+            type = (type * 15 / 63) + 1;
+
+            if (type >= TYPE_MYSTERY) {
+                type++;
             }
             break;
         case MOVE_WEATHER_BALL:
@@ -2732,7 +3032,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             nonSelectableMoves |= No2Bit(movePos);
         }
         if ((item == HOLD_EFFECT_CHOICE_ATK || item == HOLD_EFFECT_CHOICE_SPEED || item == HOLD_EFFECT_CHOICE_SPATK) && (struggleCheckFlags & STRUGGLE_CHECK_CHOICED)) {
-            if (BattleMon_GetMoveIndex(&ctx->battlemon[battlerId], ctx->battlemon[battlerId].moveeffect.moveNoChoice) == 4) {
+            if (BattleMon_GetMoveIndex(&ctx->battlemon[battlerId], ctx->battlemon[battlerId].moveeffect.moveNoChoice) == 4 && ctx->battlemon[battlerId].moveeffect.moveNoChoice != MOVE_STRUGGLE) {
                 ctx->battlemon[battlerId].moveeffect.moveNoChoice = 0;
             } else if (ctx->battlemon[battlerId].moveeffect.moveNoChoice && ctx->battlemon[battlerId].moveeffect.moveNoChoice != ctx->battlemon[battlerId].move[movePos]) {
                 nonSelectableMoves |= No2Bit(movePos);
@@ -2750,8 +3050,8 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             // Encore allows Gigaton Hammer to be used twice in a row, but on subsequent turns of the Encore the user will be forced to Struggle.
             if (!(ctx->battlemon[battlerId].moveeffect.encoredMove && ctx->battlemon[battlerId].moveeffect.encoredTurns == 3)) {
                 if (ctx->waza_no_old[battlerId] == ctx->battlemon[battlerId].move[movePos]) {
-					    for (u16 i = 0; i < NELEMS(CantUseTwiceList); i++) {
-							if (ctx->moveTbl[ctx->waza_no_old[battlerId]].effect == CantUseTwiceList[i]) {
+					for (u16 i = 0; i < NELEMS(CantUseTwiceList); i++) {
+						if (ctx->moveTbl[ctx->waza_no_old[battlerId]].effect == CantUseTwiceList[i]) {
 							nonSelectableMoves |= No2Bit(movePos);
 							break;
 						}
@@ -2904,8 +3204,11 @@ int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys UNUSED, struct B
 /// @return whether the client has the type
 BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type) {
     GF_ASSERT(TYPE_NORMAL < type && type < TYPE_STELLAR);
-    struct BattlePokemon client = ctx->battlemon[battlerId];
-    return (client.type1 == type || client.type2 == type || client.type3 == type || client.is_currently_terastallized ? client.tera_type == type : FALSE);
+    struct BattlePokemon *client = &ctx->battlemon[battlerId];
+    return (client->type1 == type
+         || client->type2 == type
+         || client->type3 == type
+         || (client->is_currently_terastallized ? client->tera_type == type : FALSE));
 }
 
 
@@ -2917,7 +3220,7 @@ void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleS
 
     int rawSpeedArray[4] = {0, 0, 0, 0};
 
-    for (int i = 0; i < client_set_max - 1; i++) {
+    for (int i = 0; i < client_set_max; i++) {
         ctx->rawSpeedNonRNGClientOrder[i] = ctx->turnOrder[i];
 
         // Get the original unmodified speed stat from the party
@@ -3087,9 +3390,216 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, MESSAGE_PARAM *msg) {
     HandleLoadOverlay(6, 2); // reload 6 so things are okay
 }
 
+// banlist is handled in original function, no need to include it here
+u32 RollMetronomeMove(struct BattleSystem *bsys)
+{
+    return (BattleRand(bsys) % NUM_OF_MOVES) + 1;
+}
+
+/**
+ *  @brief check if a held item can be removed from the species it is attached to
+ *
+ *  @param species the species of the mon
+ *  @param item the held item of the attacker
+ *  @return TRUE if item can be removed, FALSE otherwise
+ */
+BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
+{
+    // blanket item bans
+    if (IS_ITEM_MAIL(item) /*|| IS_ITEM_Z_CRYSTAL(item)*/)
+        return FALSE;
+
+    // then species-specific
+    switch (species) {
+    case SPECIES_ZAMAZENTA:
+        return item != ITEM_RUSTED_SHIELD;
+    case SPECIES_ZACIAN:
+        return item != ITEM_RUSTED_SWORD;
+    case SPECIES_GENESECT:
+        return !IS_ITEM_GENESECT_DRIVE(item);
+    case SPECIES_KYOGRE:
+        return item != ITEM_BLUE_ORB;
+    case SPECIES_GROUDON:
+        return item != ITEM_RED_ORB;
+    case SPECIES_GIRATINA:
+        return item != ITEM_GRISEOUS_ORB && item != ITEM_GRISEOUS_CORE;
+    case SPECIES_SILVALLY:
+        return !IS_ITEM_MEMORY(item);
+    case SPECIES_OGERPON:
+        return !IS_ITEM_MASK(item);
+    }
+
+    // then the other swathes of species
+    if ((IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
+     || (CheckMegaData(species, item)))
+        return FALSE;
+
+    return TRUE;
+}
+
+BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client)
+{
+    u32 species = ctx->battlemon[client].species;
+    u32 item = ctx->battlemon[client].item; // bypass klutz and friends probably
+    u32 form = ctx->battlemon[client].form_no;
+
+    // CheckMegaData will gladly tell you a galarian slowbro can't lose its slowbronite...  we have to take over
+    if (species == SPECIES_SLOWBRO && item == ITEM_SLOWBRONITE && form == 2)
+    {
+        return TRUE;
+    }
+    else
+    {
+        return CanItemBeRemovedFromSpecies(species, item);
+    }
+}
+
+/**
+ *  @brief check if knock off can remove the defender's held item
+ *         does not count sticky hold and substitute because those still allow knock off's base power increase
+ *
+ *  @param sp global battle structure
+ *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
+ */
+BOOL LONG_CALL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
+{
+    u32 attacker = sp->attack_client;
+    u32 defender = sp->defence_client;
+    u32 item = sp->battlemon[defender].item;
+    //u32 species = sp->battlemon[defender].species;
+    u32 ability = GetBattlerAbility(sp, defender);
+
+    if (CanActivateDamageReductionBerry(bw, sp, defender)) {
+        // the berry activated already
+        return FALSE;
+    }
+
+    // if the user is about to die because of an opponent's rough skin, iron barbs, or rocky helmet, then do not proc knock off's item removal
+        // abilities do 1/8th total hp as damage
+    if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 8)
+        // rocky helmet does 1/6th total hp as damage
+      || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 6))
+     && IsContactBeingMade(bw, sp)
+     && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)
+    {
+        return FALSE;
+    }
+
+    if (item != 0 && CanItemBeRemovedFromClient(sp, defender))
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+
+/**
+ * @brief checks if the current move hits any oppsoing battler or ally
+ * @param sp global battle structure
+ * @return TRUE/FALSE
+*/
+BOOL LONG_CALL IsAnyBattleMonHit(struct BattleStruct* ctx)
+{
+    u8 i = 0;
+    if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx)))
+    {
+        while (i <= SPREAD_MOVE_LOOP_MAX)
+        {
+            switch (i)
+            {
+            case SPREAD_MOVE_LOOP_ALLY:
+                i++;
+                if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client)))
+                {
+                    return TRUE;
+                }
+                FALLTHROUGH;
+
+            case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
+                i++;
+                if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)))
+                {
+                    return TRUE;
+                }
+                FALLTHROUGH;
+            case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
+                i++;
+                if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
+                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)))
+                {
+                    return TRUE;
+                }
+            }
+        }
+    }
+    else
+    {
+        if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client))
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+
+const u8 HGTypeToInternalType[] = {
+    [TYPE_NORMAL]   = TYPE_NORMAL_INTERNAL,
+    [TYPE_FIGHTING] = TYPE_FIGHTING_INTERNAL,
+    [TYPE_FLYING]   = TYPE_FLYING_INTERNAL,
+    [TYPE_POISON]   = TYPE_POISON_INTERNAL,
+    [TYPE_GROUND]   = TYPE_GROUND_INTERNAL,
+    [TYPE_ROCK]     = TYPE_ROCK_INTERNAL,
+    [TYPE_BUG]      = TYPE_BUG_INTERNAL,
+    [TYPE_GHOST]    = TYPE_GHOST_INTERNAL,
+    [TYPE_STEEL]    = TYPE_STEEL_INTERNAL,
+    [TYPE_FAIRY]    = TYPE_FAIRY_INTERNAL,
+    [TYPE_FIRE]     = TYPE_FIRE_INTERNAL,
+    [TYPE_WATER]    = TYPE_WATER_INTERNAL,
+    [TYPE_GRASS]    = TYPE_GRASS_INTERNAL,
+    [TYPE_ELECTRIC] = TYPE_ELECTRIC_INTERNAL,
+    [TYPE_PSYCHIC]  = TYPE_PSYCHIC_INTERNAL,
+    [TYPE_ICE]      = TYPE_ICE_INTERNAL,
+    [TYPE_DRAGON]   = TYPE_DRAGON_INTERNAL,
+    [TYPE_DARK]     = TYPE_DARK_INTERNAL,
+    [TYPE_TYPELESS] = TYPE_TYPELESS_INTERNAL,
+    [TYPE_STELLAR]  = TYPE_STELLAR_INTERNAL,
+
+};
+
+const u8 InternalTypeToHGType[] = {
+    [TYPE_NORMAL_INTERNAL]      = TYPE_NORMAL,
+    [TYPE_FIGHTING_INTERNAL]    = TYPE_FIGHTING,
+    [TYPE_FLYING_INTERNAL]      = TYPE_FLYING,
+    [TYPE_POISON_INTERNAL]      = TYPE_POISON,
+    [TYPE_GROUND_INTERNAL]      = TYPE_GROUND,
+    [TYPE_ROCK_INTERNAL]        = TYPE_ROCK,
+    [TYPE_BUG_INTERNAL]         = TYPE_BUG,
+    [TYPE_GHOST_INTERNAL]       = TYPE_GHOST,
+    [TYPE_STEEL_INTERNAL]       = TYPE_STEEL,
+    [TYPE_FAIRY_INTERNAL]       = TYPE_FAIRY,
+    [TYPE_FIRE_INTERNAL]        = TYPE_FIRE,
+    [TYPE_WATER_INTERNAL]       = TYPE_WATER,
+    [TYPE_GRASS_INTERNAL]       = TYPE_GRASS,
+    [TYPE_ELECTRIC_INTERNAL]    = TYPE_ELECTRIC,
+    [TYPE_PSYCHIC_INTERNAL]     = TYPE_PSYCHIC,
+    [TYPE_ICE_INTERNAL]         = TYPE_ICE,
+    [TYPE_DRAGON_INTERNAL]      = TYPE_DRAGON,
+    [TYPE_DARK_INTERNAL]        = TYPE_DARK,
+    [TYPE_TYPELESS_INTERNAL]    = TYPE_TYPELESS,
+    [TYPE_STELLAR_INTERNAL]     = TYPE_STELLAR,
+
+};
+
+int GetSanitisedType(int type) {
+    return InternalTypeToHGType[HGTypeToInternalType[type] & 0x1F];
+}
+
 void InitializeTurn(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     int battlerId;
-
+	
     for (battlerId = 0; battlerId < 4; battlerId++) {
         MIi_CpuClearFast(0, (u32 *)&ctx->oneTurnFlag[battlerId], sizeof(struct OneTurnEffect));
         MIi_CpuClearFast(0, (u32 *)&ctx->moveOutCheck[battlerId], sizeof(struct MoveOutCheck));

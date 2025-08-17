@@ -1229,10 +1229,10 @@ void BattleController_CheckFlinch(struct BattleSystem *bsys UNUSED, struct Battl
     if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_FLINCH) {
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_FLINCH;
         ctx->damage /= 2;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FAIL_FLINCHED);
 		ctx->next_server_seq_no = ctx->server_seq_no;
 		ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
     }
+    return FALSE;
 }
 
 void BattleController_CheckDisabled(struct BattleSystem *bsys, struct BattleStruct *ctx) {
@@ -1302,7 +1302,7 @@ void BattleController_CheckImprison(struct BattleSystem *bsys, struct BattleStru
     }
 }
 
-void BattleController_CheckConfusion(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
+void BattleController_CheckConfusion(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION) {
 		LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CONFUSED);
 		ctx->next_server_seq_no = ctx->server_seq_no;

@@ -15,7 +15,7 @@ FIVE_BADGES equ 4
 SEVEN_BADGES equ 5
 EIGHT_BADGES equ 6
 
-BLANK_ITEM equ BLANK_ITEM
+END_OF_LIST equ 0xFFFF
 
 /* General Poké Mart Table */
 .org 0x020FBF22
@@ -80,19 +80,19 @@ BLANK_ITEM equ BLANK_ITEM
 .org 0x020FBA54
 .halfword ITEM_AIR_MAIL
 .halfword ITEM_HEAL_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBA78
 .halfword ITEM_TUNNEL_MAIL
 .halfword ITEM_HEAL_BALL
 .halfword ITEM_NET_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBAB0
 .halfword ITEM_BLOOM_MAIL
 .halfword ITEM_HEAL_BALL
 .halfword ITEM_NET_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBBEA
 .halfword ITEM_POTION
@@ -106,7 +106,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_ICE_HEAL
 .halfword ITEM_AWAKENING
 .halfword ITEM_FULL_HEAL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBC1A
 .halfword ITEM_POKE_BALL
@@ -121,7 +121,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_FLAME_MAIL
 .halfword ITEM_BUBBLE_MAIL
 .halfword ITEM_SPACE_MAIL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBBB4
 .halfword ITEM_X_SPEED
@@ -132,7 +132,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_X_ACCURACY
 .halfword ITEM_X_SPECIAL
 .halfword ITEM_X_SP_DEF
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBAFA
 .halfword ITEM_PROTEIN
@@ -141,7 +141,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_ZINC
 .halfword ITEM_CARBOS
 .halfword ITEM_HP_UP
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBC34
 .halfword ITEM_TM70
@@ -156,26 +156,26 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_TM25
 .halfword ITEM_TM14
 .halfword ITEM_TM15
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBACA
 .halfword ITEM_HEAL_POWDER
 .halfword ITEM_ENERGYPOWDER
 .halfword ITEM_ENERGY_ROOT
 .halfword ITEM_REVIVAL_HERB
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBA60
 .halfword ITEM_AIR_MAIL
 .halfword ITEM_HEAL_BALL
 .halfword ITEM_NET_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBA88
 .halfword ITEM_HEART_MAIL
 .halfword ITEM_HEAL_BALL
 .halfword ITEM_NET_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBAD4
 .halfword ITEM_POTION
@@ -183,13 +183,13 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_HYPER_POTION
 .halfword ITEM_FULL_HEAL
 .halfword ITEM_REVIVE
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBA80
 .halfword ITEM_AIR_MAIL
 .halfword ITEM_NET_BALL
 .halfword ITEM_DUSK_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBB84
 .halfword ITEM_ULTRA_BALL
@@ -199,31 +199,31 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_FULL_RESTORE
 .halfword ITEM_REVIVE
 .halfword ITEM_FULL_HEAL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBAC0
 .halfword ITEM_AIR_MAIL
 .halfword ITEM_NEST_BALL
 .halfword ITEM_DUSK_BALL
 .halfword ITEM_QUICK_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBA70
 .halfword ITEM_AIR_MAIL
 .halfword ITEM_DUSK_BALL
 .halfword ITEM_QUICK_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBA98
 .halfword ITEM_SNOW_MAIL
 .halfword ITEM_DUSK_BALL
 .halfword ITEM_QUICK_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBA5A
 .halfword ITEM_AIR_MAIL
 .halfword ITEM_QUICK_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBC02
 .halfword ITEM_POTION
@@ -237,7 +237,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_ICE_HEAL
 .halfword ITEM_AWAKENING
 .halfword ITEM_FULL_HEAL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBC4E
 .halfword ITEM_POKE_BALL
@@ -252,7 +252,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_FLAME_MAIL
 .halfword ITEM_BUBBLE_MAIL
 .halfword ITEM_SPACE_MAIL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBC68
 .halfword ITEM_TM21
@@ -267,13 +267,13 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_TM55
 .halfword ITEM_TM72
 .halfword ITEM_TM79
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBA68
 .halfword ITEM_AIR_MAIL
 .halfword ITEM_TUNNEL_MAIL
 .halfword ITEM_BLOOM_MAIL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBBC6
 .halfword ITEM_X_SPEED
@@ -284,7 +284,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_X_ACCURACY
 .halfword ITEM_X_SPECIAL
 .halfword ITEM_X_SP_DEF
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBB08
 .halfword ITEM_PROTEIN
@@ -293,25 +293,25 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_ZINC
 .halfword ITEM_CARBOS
 .halfword ITEM_HP_UP
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBA90
 .halfword ITEM_STEEL_MAIL
 .halfword ITEM_DUSK_BALL
 .halfword ITEM_QUICK_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBAA0
 .halfword ITEM_STEEL_MAIL
 .halfword ITEM_NEST_BALL
 .halfword ITEM_QUICK_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBAA8
 .halfword ITEM_STEEL_MAIL
 .halfword ITEM_NET_BALL
 .halfword ITEM_HEAL_BALL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBB16
 .halfword ITEM_POKE_DOLL
@@ -320,13 +320,13 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_LEMONADE
 .halfword ITEM_REPEL
 .halfword ITEM_HEART_MAIL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBAB8
 .halfword ITEM_TINYMUSHROOM
 .halfword ITEM_POKE_BALL
 .halfword ITEM_POTION
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 .org 0x020FBBD8
 .halfword ITEM_GREAT_BALL
@@ -337,7 +337,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword ITEM_SUPER_REPEL
 .halfword ITEM_REVIVE
 .halfword ITEM_AIR_MAIL
-.halfword NO_ITEM
+.halfword END_OF_LIST
 
 /* Pokeathlon Dome */
 
@@ -354,7 +354,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 3000
 .halfword ITEM_RARE_CANDY
 .halfword 2000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBCF2
@@ -370,7 +370,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 2500
 .halfword ITEM_PP_UP
 .halfword 1000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBD2A
@@ -386,7 +386,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 2500
 .halfword ITEM_HEART_SCALE
 .halfword 1000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBD46
@@ -402,7 +402,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 2500
 .halfword ITEM_PP_UP
 .halfword 1000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBD62
@@ -418,7 +418,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 2500
 .halfword ITEM_NUGGET
 .halfword 500
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBD7E
@@ -434,7 +434,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 2500
 .halfword ITEM_RARE_CANDY
 .halfword 2000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBC82
@@ -450,7 +450,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 3000
 .halfword ITEM_HEART_SCALE
 .halfword 1000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBDB6
@@ -478,7 +478,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 3000
 .halfword ITEM_DAWN_STONE
 .halfword 3000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBDEA
@@ -506,7 +506,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 3000
 .halfword ITEM_DUSK_STONE
 .halfword 3000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBE1E
@@ -534,7 +534,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 3000
 .halfword ITEM_DAWN_STONE
 .halfword 3000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBE52
@@ -562,7 +562,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 3000
 .halfword ITEM_DAWN_STONE
 .halfword 3000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBE86
@@ -590,7 +590,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 3000
 .halfword ITEM_DUSK_STONE
 .halfword 3000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBEBA
@@ -618,7 +618,7 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 3000
 .halfword ITEM_DAWN_STONE
 .halfword 3000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0
 
 .org 0x020FBEEE
@@ -646,5 +646,5 @@ BLANK_ITEM equ BLANK_ITEM
 .halfword 3000
 .halfword ITEM_DAWN_STONE
 .halfword 3000
-.halfword NO_ITEM
+.halfword END_OF_LIST
 .halfword 0

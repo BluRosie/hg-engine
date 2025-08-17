@@ -857,7 +857,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     //    defense = defense / 2;
 
     damage = equivalentAttack * movepower;
-    damage *= (level / 5 + 2);
+    damage *= (level / 10 + 3);
 
     damage = damage / equivalentDefense;
     damage /= 50;

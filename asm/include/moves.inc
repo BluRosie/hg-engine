@@ -944,7 +944,9 @@
 
 // make.py doesn't support constants for now
 // define your new moves below like this
-// .equ MOVE_CUSTOM_MOVE_1, 924
+// .equ MOVE_CUSTOM_MOVE_1, (NUM_OF_CANONICAL_MOVES)
+// .equ MOVE_CUSTOM_MOVE_2, (NUM_OF_CANONICAL_MOVES + 1)
+// ...
 
 // null moves
 .equ MOVE_NIBBLE, 923

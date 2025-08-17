@@ -1445,6 +1445,10 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                 totalexp *= top;
                 totalexp /= bottom;
             }
+			
+			if (totalexp < base) {
+				totalexp = base;
+			}
 
             //debug_printf("[Task_DistributeExp_Extend] L = %d, Lp = %d, b = %d, top = %d, bottom = %d, exp = %d\n", level, Lp, base, top, bottom, totalexp);
 
@@ -3046,12 +3050,13 @@ BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bsys, struct BattleStruct *ctx) {
     //ctx->defence_client = ctx->attack_client;
     //ctx->battlerIdTemp = ctx->defence_client;
 	int power = ctx->moveTbl[ctx->current_move_index].power;
-	if (power < 20) {
-		power = 20;
+	if (power > 0) {
+		if (power < 20)
+			power = 20;
+		ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, power, 0, ctx->attack_client, ctx->attack_client, 1);
+		ctx->hp_calc_work = AdjustDamageForRoll(bsys, ctx, ctx->hp_calc_work);
+		ctx->hp_calc_work *= -1;
 	}
-    ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, power, 0, ctx->attack_client, ctx->attack_client, 1);
-    ctx->hp_calc_work *= -1;
-
     return FALSE;
 }
 

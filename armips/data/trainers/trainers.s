@@ -1464,7 +1464,7 @@ trainerdata 43, "Chow"
         // mon 2
         ivs 0
         abilityslot 0
-        level 8
+        level 5
         pokemon SPECIES_DUNSPARCE
         ballseal 0
     endparty

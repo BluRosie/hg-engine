@@ -2613,7 +2613,7 @@ mondata SPECIES_MAGIKARP, "Magikarp"
     mondexweight SPECIES_MAGIKARP, "22.0 lbs."
 
 mondata SPECIES_GYARADOS, "Gyarados"
-    basestats 80, 130, 80, 80, 30, 100
+    basestats 70, 130, 40, 80, 40, 40
     types TYPE_WATER, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
@@ -4133,7 +4133,7 @@ mondata SPECIES_FORRETRESS, "Forretress"
     mondexweight SPECIES_FORRETRESS, "277.3 lbs."
 
 mondata SPECIES_DUNSPARCE, "Dunsparce"
-    basestats 90, 70, 70, 30, 70, 70
+    basestats 100, 70, 70, 40, 60, 60 // 400
     types TYPE_NORMAL, TYPE_DRAGON
     catchrate 255
     baseexp 0 // defined in baseexp.s
