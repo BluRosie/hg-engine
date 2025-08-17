@@ -9132,7 +9132,7 @@ movedata MOVE_PHANTOM_FORCE, "Phantom Force"
     movedescription MOVE_PHANTOM_FORCE, "The user disappears,\nthen strikes the foe\non the second turn.\nIt hits even if the\nfoe protects itself."
 
 movedata MOVE_TRICK_OR_TREAT, "Trick-or-Treat"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_ADD_THIRD_TYPE_GHOST
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GHOST
@@ -9196,7 +9196,7 @@ movedatalongname MOVE_PARABOLIC_CHARGE, "ParabolicCharge", "Parabolic Charge"
     movedescription MOVE_PARABOLIC_CHARGE, "An energy-draining\nshockwave. The user’s\nHP is restored by\nhalf the damage taken\nby those hit."
 
 movedata MOVE_FORESTS_CURSE, "Forest’s Curse"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_ADD_THIRD_TYPE_GRASS
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
@@ -12060,7 +12060,7 @@ movedata MOVE_TAR_SHOT, "Tar Shot"
     movedescription MOVE_TAR_SHOT, "---"
 
 movedata MOVE_MAGIC_POWDER, "Magic Powder"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE
     pss SPLIT_STATUS
     basepower 0
     type TYPE_PSYCHIC

@@ -1469,10 +1469,10 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
     u8 attacker_type_3 UNUSED = sp->battlemon[attack_client].type3;
     u8 attacker_tera_type UNUSED = sp->battlemon[attack_client].tera_type;
     // https://xcancel.com/Sibuna_Switch/status/1827463371383328877#m
-    u8 defender_type_1 = sp->battlemon[defense_client].type1;
-    u8 defender_type_2 = sp->battlemon[defense_client].type2;
-    u8 defender_type_3 = sp->battlemon[defense_client].type3;
-    u8 defender_tera_type = sp->battlemon[defense_client].tera_type;
+    u8 defender_type_1 = sp->battlemon[defence_client].type1;
+    u8 defender_type_2 = sp->battlemon[defence_client].type2;
+    u8 defender_type_3 = sp->battlemon[defence_client].type3;
+    u8 defender_tera_type = sp->battlemon[defence_client].tera_type;
 
     u32 type1Effectiveness = TYPE_MUL_NORMAL;
     u32 type2Effectiveness = TYPE_MUL_NORMAL;
@@ -1521,7 +1521,7 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
                 if ((TypeEffectivenessTable[i][1] == defender_type_3) && (defender_type_3 != defender_type_1 && defender_type_3 != defender_type_2)) {
                     if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) && sp->field_condition & WEATHER_STRONG_WINDS && (TypeEffectivenessTable[i][2] == 20) && defender_type_3 == TYPE_FLYING)) {
                         type3Effectiveness = TypeEffectivenessTable[i][2];
-                        TypeCheckCalc(sp, attack_client, type3effectiveness, 42, 42, flag);
+                        TypeCheckCalc(sp, attack_client, type3Effectiveness, 42, 42, flag);
                     }
                 }
             }
@@ -1588,10 +1588,12 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
 
     u8 attacker_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL));
     u8 attacker_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL));
+    u8 attacker_type_3 = sp->battlemon[attack_client].type3;
     u8 defender_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL));
     u8 defender_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL));
+    u8 defender_type_3 = sp->battlemon[defence_client].type3;
 
-    if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((attacker_type_1 == move_type) || (attacker_type_2 == move_type)))
+    if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((attacker_type_1 == move_type) || (attacker_type_2 == move_type) || (attacker_type_3 == move_type)))
     {
         if (GetBattlerAbility(sp,attack_client) == ABILITY_ADAPTABILITY)
         {
@@ -1652,6 +1654,22 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                     }
                 }
             }
+            if ((TypeEffectivenessTable[i][1] == defender_type_3) && (defender_type_3 != defender_type_1) && (defender_type_3 != defender_type_2))
+            {
+                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
+                && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
+                    && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
+                    && sp->field_condition & WEATHER_STRONG_WINDS
+                    && (TypeEffectivenessTable[i][2] == 20)
+                    && defender_type_3 == TYPE_FLYING))
+                {
+                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
+                    if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
+                    {
+                        modifier *= 2;
+                    }
+                }
+            }
         }
         i++;
     }
@@ -1703,7 +1721,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
     item = HeldItemHoldEffectGet(sp, battlerId);
 
     // if shed shell or no experience or has run away or has ghost type then there is nothing stopping the battler from escaping
-    if (item == HOLD_EFFECT_FLEE || (battleType & BATTLE_TYPE_NO_EXPERIENCE) || GetBattlerAbility(sp, battlerId) == ABILITY_RUN_AWAY || BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_GHOST)) {
+    if (item == HOLD_EFFECT_FLEE || (battleType & BATTLE_TYPE_NO_EXPERIENCE) || GetBattlerAbility(sp, battlerId) == ABILITY_RUN_AWAY || HasType(sp, battlerId, TYPE_GHOST)) {
         return FALSE;
     }
 
@@ -1725,7 +1743,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
     battlerIdAbility = CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP);
     if (battlerIdAbility) {
         if (!(sp->field_condition & FIELD_STATUS_GRAVITY) && item != HOLD_EFFECT_SPEED_DOWN_GROUNDED) {
-            if (GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE && !sp->battlemon[battlerId].moveeffect.magnetRiseTurns && !BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_FLYING)) {
+            if (GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE && !sp->battlemon[battlerId].moveeffect.magnetRiseTurns && !HasType(sp, battlerId, TYPE_FLYING)) {
                if (msg == NULL) {
                     return TRUE;
                 }
@@ -1748,7 +1766,7 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM 
     }
 
     battlerIdAbility = CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_MAGNET_PULL);
-    if (battlerIdAbility && BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_STEEL)) {
+    if (battlerIdAbility && HasType(sp, battlerId, TYPE_STEEL)) {
         if (msg == NULL) {
             return TRUE;
         }
@@ -1784,7 +1802,7 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *sp, int battlerId) {
     BOOL ret = FALSE;
 
     // ghost types can switch from anything like they had shed skin
-    if (HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SWITCH || BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_GHOST)) {
+    if (HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SWITCH || HasType(sp, battlerId, TYPE_GHOST)) {
         return FALSE;
     }
 
@@ -1793,14 +1811,14 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *sp, int battlerId) {
     }
 
     if ((GetBattlerAbility(sp, battlerId) != ABILITY_SHADOW_TAG && CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_SHADOW_TAG))
-     || (BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_STEEL) && CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_MAGNET_PULL)))
+     || (HasType(sp, battlerId, TYPE_STEEL) && CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_MAGNET_PULL)))
     {
         ret = TRUE;
     }
 
     if (((GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE
        && sp->battlemon[battlerId].moveeffect.magnetRiseTurns == 0
-       && !BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_FLYING))
+       && !HasType(sp, battlerId, TYPE_FLYING))
       || HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SPEED_DOWN_GROUNDED
       || (sp->field_condition & FIELD_STATUS_GRAVITY))
      && CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP))
@@ -1834,7 +1852,7 @@ BOOL BattleTryRun(void *bw, struct BattleStruct *sp, int battlerId) {
     if (item == HOLD_EFFECT_FLEE) {
         sp->oneTurnFlag[battlerId].escape_flag = 1;
         ret = TRUE;
-    } else if (battleType & BATTLE_TYPE_NO_EXPERIENCE || BATTLE_MON_HAS_TYPE(sp, battlerId, TYPE_GHOST)) { // ghost types can always escape regardless of speed
+    } else if (battleType & BATTLE_TYPE_NO_EXPERIENCE || HasType(sp, battlerId, TYPE_GHOST)) { // ghost types can always escape regardless of speed
         ret = TRUE;
     } else if (GetBattlerAbility(sp, battlerId) == ABILITY_RUN_AWAY) {
         sp->oneTurnFlag[battlerId].escape_flag = 2;

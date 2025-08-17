@@ -1563,8 +1563,8 @@ Being hit by {STRVAR_1 8, 1, 0} charged the opposing\n{STRVAR_1 1, 0, 0} with po
 {STRVAR_1 1, 0, 0} was hurt!
 The wild {STRVAR_1 1, 0, 0} was hurt!
 The opposing {STRVAR_1 1, 0, 0} was hurt!
-{STRVAR_1 6, 0, 0} protected your team!
-{STRVAR_1 6, 0, 0} protected the opposing team!
+{STRVAR_1 6, 0, 0} protected\nyour team!
+{STRVAR_1 6, 0, 0} protected\nthe opposing team!
 {STRVAR_1 6, 1, 0} protected\n{STRVAR_1 1, 0, 0}!
 {STRVAR_1 6, 1, 0} protected\nthe wild {STRVAR_1 1, 0, 0}!
 {STRVAR_1 6, 1, 0} protected\nthe opposing {STRVAR_1 1, 0, 0}!
@@ -1577,3 +1577,12 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} was burned up!
 {STRVAR_1 1, 0, 0}’s item cannot be removed!
 The wild {STRVAR_1 1, 0, 0}’s item cannot be\nremoved!
 The opposing {STRVAR_1 1, 0, 0}’s item cannot be\nremoved!
+Grass type was added\nto {STRVAR_1 1, 0, 0}!
+Grass type was added\nto the wild {STRVAR_1 1, 0, 0}!
+Grass type was added\nto the opposing {STRVAR_1 1, 0, 0}!
+Ghost type was added\nto {STRVAR_1 1, 0, 0}!
+Ghost type was added\nto the wild {STRVAR_1 1, 0, 0}!
+Ghost type was added\nto the opposing {STRVAR_1 1, 0, 0}!
+{STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
+The wild {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
+The opposing {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!

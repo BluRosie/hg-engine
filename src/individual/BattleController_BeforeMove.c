@@ -3099,13 +3099,16 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
     if (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) {
         if (ctx->attack_client != ctx->defence_client) {
             switch (moveEffect) {
-                // TODO: Handle Electrify, Flower Shield, Forest's Curse, Trick-or-Treat, Magic Powder, Heal Pulse, Purify, Tar Shot, Topsy-Turvy
+                // TODO: Handle Electrify, Flower Shield, Heal Pulse, Purify, Tar Shot, Topsy-Turvy
 
                 // List of effects tested: attempting to inflict a major status condition, Acupressure, Block / Mean Look / Spider Web / Octolock, Electrify / Quash, Flower Shield, Forest's Curse / Trick-or-Treat / Soak / Magic Powder, Gastro Acid, Guard Split / Power Split, Heal Pulse, Leech Seed, Lock-On, Mind Reader, Pain Split, Psycho Shift, Purify, Simple Beam, Tar Shot, Topsy-Turvy, Transform, Worry Seed
                 case MOVE_EFFECT_RANDOM_STAT_UP_2:
                 case MOVE_EFFECT_PREVENT_ESCAPE:
                 case MOVE_EFFECT_QUASH:
                 case MOVE_EFFECT_CHANGE_TO_WATER_TYPE:
+                case MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE:
+                case MOVE_EFFECT_ADD_THIRD_TYPE_GRASS:
+                case MOVE_EFFECT_ADD_THIRD_TYPE_GHOST:
                 case MOVE_EFFECT_SUPRESS_ABILITY:
                 case MOVE_EFFECT_GUARD_SPLIT:
                 case MOVE_EFFECT_POWER_SPLIT:
@@ -3354,7 +3357,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_REFLECT_TYPE: {
-            if (IsPureType(ctx, ctx->defense_client, TYPE_TYPELESS)
+            if (IsPureType(ctx, ctx->defence_client, TYPE_TYPELESS)
             || ctx->battlemon[ctx->attack_client].is_currently_terastallized) {
                 butItFailedFlag = TRUE;
             }
@@ -3363,8 +3366,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         case MOVE_SOAK: {
             if (IsPureType(ctx, ctx->defence_client, TYPE_WATER)
             || ctx->battlemon[ctx->defence_client].is_currently_terastallized
-            || ctx->battlemon[ctx->defence_client].species == SPECIES_ARCEUS
-            || ctx->battlemon[ctx->defence_client].species == SPECIES_SILVALLY) {
+            || ctx->battlemon[ctx->defence_client].ability == ABILITY_MULTITYPE
+            || ctx->battlemon[ctx->defence_client].ability == ABILITY_RKS_SYSTEM) {
                 butItFailedFlag = TRUE;
             }
             break;
@@ -3372,8 +3375,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         case MOVE_MAGIC_POWDER: {
             if (IsPureType(ctx, ctx->defence_client, TYPE_PSYCHIC)
             || ctx->battlemon[ctx->defence_client].is_currently_terastallized
-            || ctx->battlemon[ctx->defence_client].species == SPECIES_ARCEUS
-            || ctx->battlemon[ctx->defence_client].species == SPECIES_SILVALLY) {
+            || ctx->battlemon[ctx->defence_client].ability == ABILITY_MULTITYPE
+            || ctx->battlemon[ctx->defence_client].ability == ABILITY_RKS_SYSTEM) {
                 butItFailedFlag = TRUE;
             }
             break;
@@ -3383,12 +3386,18 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             || ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
                 butItFailedFlag = TRUE;
             }
+            else {
+                ctx->battlemon[ctx->defence_client].type3 = TYPE_GHOST; // This is awful but I don't know where else to put this code. ~J
+            }
             break;
         }
         case MOVE_FORESTS_CURSE: {
             if (HasType(ctx, ctx->defence_client, TYPE_GRASS)
             || ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
                 butItFailedFlag = TRUE;
+            }
+            else {
+                ctx->battlemon[ctx->defence_client].type3 = TYPE_GRASS; // This is awful but I don't know where else to put this code. ~J
             }
             break;
         }
