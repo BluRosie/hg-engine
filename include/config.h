@@ -157,6 +157,9 @@
 // DELETABLE_HMS allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
 //#define DELETABLE_HMS
 
+// MART_EXPANSION allows for adding new items to marts and expanding inventory
+#define MART_EXPANSION
+
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
 
