@@ -92,3 +92,7 @@ tools/swav2swar.exe
 *.gbapal
 *.4bpp
 changelog
+
+/data/generated/
+/armips/include/generated/
+/include/constants/generated/

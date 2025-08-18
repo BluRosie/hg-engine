@@ -77,7 +77,7 @@ TUTORLEARNSET_DEPENDENCIES := data/generated/TutorMoveLearnsets.c
 LEVELUPLEARNSET_DEPENDENCIES := data/generated/LevelupLearnsets.c
 EGGLEARNSET_DEPENDENCIES := data/generated/EggLearnsets.c
 
-$(LEARNSETS_RESOLVED): $(LEARNSETS_INPUT) $(TUTORMOVES_DATA) include/config.h
+$(LEARNSETS_RESOLVED): $(LEARNSETS_INPUT)
 	@echo "generating learnset data..."
 	$(PYTHON) scripts/build_learnsets.py \
 		--learnsets $(LEARNSETS_INPUT) \
