@@ -1439,7 +1439,7 @@
 
     .macro AddThirdType arg_0
     .long 261
-    .long /arg_0
+    .long \arg_0
     .endm
 
     .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 261
