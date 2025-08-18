@@ -533,4 +533,4 @@ arm9 PartyMenu_LearnMoveToSlot 0208254C 3
 
 #ifdef MART_EXPANSION
 arm9 ScrCmd_MartBuy 02048060 1
-#endif // MART_EXPANSION
+#endif

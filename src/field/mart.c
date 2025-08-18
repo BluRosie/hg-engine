@@ -14,10 +14,10 @@ struct MartItem {
 
 struct BadgeMartItems {
     u16 item_id;
-    u16 required_badges;
+    u8 required_badges;
 };
 
-// note: limited to 64 for now
+// note: limited to 203 items (~34 pages)
 const struct BadgeMartItems sBadgeMart[] = {
     { ITEM_POKE_BALL,      0 },
     { ITEM_GREAT_BALL,     3 },
@@ -183,7 +183,7 @@ u16 sMahoganyPostRocketHideout[] = {
 };
 
 BOOL ScrCmd_MartBuy(SCRIPTCONTEXT *ctx) {
-    u16 items[64];
+    u16 items[NELEMS(sBadgeMart)];
     u8 badgeCount = 0;
     u8 index = 0;
 
@@ -201,8 +201,124 @@ BOOL ScrCmd_MartBuy(SCRIPTCONTEXT *ctx) {
     }
 
     items[index] = 0xFFFF;
-    InitMartUI(ctx->taskman, ctx->fsys, items, 0, 0, 0, 0); // this won't honor price overrides
+    InitMartUI(ctx->taskman, ctx->fsys, items, 0, 0, 0, 0); // this doesn't honor price overrides
     return TRUE;
 }
 
 #endif // MART_EXPANSION
+
+#ifdef POKEATHLON_SHOP_EXPANSION
+
+const struct MartItem sPokeathlonShopSunday[] = {
+    { ITEM_RED_APRICORN,   200  },
+    { ITEM_BLUE_APRICORN,  200  },
+    { ITEM_BLACK_APRICORN, 200  },
+    { ITEM_MOOMOO_MILK,    100  },
+    { ITEM_KINGS_ROCK,     3000 },
+    { ITEM_HEART_SCALE,    1000 },
+    { ITEM_FULL_RESTORE,   500  },
+    { ITEM_NUGGET,         500  },
+    { ITEM_SUN_STONE,      3000 },
+    { ITEM_FIRE_STONE,     2500 },
+    { ITEM_SHINY_STONE,    3000 },
+    { ITEM_DAWN_STONE,     3000 },
+    { 0xFFFF,              0    },
+};
+
+const struct MartItem sPokeathlonShopMonday[] = {
+    { ITEM_RED_APRICORN,   200  },
+    { ITEM_BLUE_APRICORN,  200  },
+    { ITEM_GREEN_APRICORN, 200  },
+    { ITEM_MOOMOO_MILK,    100  },
+    { ITEM_MOON_STONE,     3000 },
+    { ITEM_RARE_CANDY,     2000 },
+    { ITEM_FULL_RESTORE,   500  },
+    { ITEM_KINGS_ROCK,     3000 },
+    { ITEM_SUN_STONE,      3000 },
+    { ITEM_WATER_STONE,    2500 },
+    { ITEM_SHINY_STONE,    3000 },
+    { ITEM_DUSK_STONE,     3000 },
+    { 0xFFFF,              0    },
+};
+
+const struct MartItem sPokeathlonShopTuesday[] = {
+    { ITEM_YELLOW_APRICORN, 200  },
+    { ITEM_PINK_APRICORN,   200  },
+    { ITEM_WHITE_APRICORN,  200  },
+    { ITEM_MOOMOO_MILK,     100  },
+    { ITEM_FIRE_STONE,      2500 },
+    { ITEM_PP_UP,           1000 },
+    { ITEM_FULL_RESTORE,    500  },
+    { ITEM_METAL_COAT,      2500 },
+    { ITEM_WATER_STONE,     2500 },
+    { ITEM_LEAF_STONE,      2500 },
+    { ITEM_DUSK_STONE,      3000 },
+    { ITEM_DAWN_STONE,      3000 },
+    { 0xFFFF,               0    },
+};
+
+const struct MartItem sPokeathlonShopWednesday[] = {
+    { ITEM_BLUE_APRICORN,  200  },
+    { ITEM_PINK_APRICORN,  200  },
+    { ITEM_BLACK_APRICORN, 200  },
+    { ITEM_MOOMOO_MILK,    100  },
+    { ITEM_WATER_STONE,    2500 },
+    { ITEM_HEART_SCALE,    1000 },
+    { ITEM_FULL_RESTORE,   500  },
+    { ITEM_DRAGON_SCALE,   2500 },
+    { ITEM_THUNDER_STONE,  2500 },
+    { ITEM_MOON_STONE,     3000 },
+    { ITEM_SHINY_STONE,    3000 },
+    { ITEM_DAWN_STONE,     3000 },
+    { 0xFFFF,              0    },
+};
+
+const struct MartItem sPokeathlonShopThursday[] = {
+    { ITEM_YELLOW_APRICORN, 200  },
+    { ITEM_PINK_APRICORN,   200  },
+    { ITEM_WHITE_APRICORN,  200  },
+    { ITEM_MOOMOO_MILK,     100  },
+    { ITEM_THUNDER_STONE,   2500 },
+    { ITEM_PP_UP,           1000 },
+    { ITEM_FULL_RESTORE,    500  },
+    { ITEM_KINGS_ROCK,      3000 },
+    { ITEM_FIRE_STONE,      2500 },
+    { ITEM_LEAF_STONE,      2500 },
+    { ITEM_SHINY_STONE,     3000 },
+    { ITEM_DUSK_STONE,      3000 },
+    { 0xFFFF,               0    },
+};
+
+const struct MartItem sPokeathlonShopFriday[] = {
+    { ITEM_RED_APRICORN,    200  },
+    { ITEM_YELLOW_APRICORN, 200  },
+    { ITEM_GREEN_APRICORN,  200  },
+    { ITEM_MOOMOO_MILK,     100  },
+    { ITEM_METAL_COAT,      2500 },
+    { ITEM_NUGGET,          500  },
+    { ITEM_FULL_RESTORE,    500  },
+    { ITEM_DRAGON_SCALE,    2500 },
+    { ITEM_WATER_STONE,     2500 },
+    { ITEM_SUN_STONE,       3000 },
+    { ITEM_DUSK_STONE,      3000 },
+    { ITEM_DAWN_STONE,      3000 },
+    { 0xFFFF,               0    },
+};
+
+const struct MartItem sPokeathlonShopSaturday[] = {
+    { ITEM_GREEN_APRICORN,  200  },
+    { ITEM_WHITE_APRICORN,  200  },
+    { ITEM_BLACK_APRICORN,  200  },
+    { ITEM_MOOMOO_MILK,     100  },
+    { ITEM_LEAF_STONE,      2500 },
+    { ITEM_RARE_CANDY,      2000 },
+    { ITEM_FULL_RESTORE,    500  },
+    { ITEM_METAL_COAT,      2500 },
+    { ITEM_THUNDER_STONE,   2500 },
+    { ITEM_SHINY_STONE,     3000 },
+    { ITEM_DUSK_STONE,      3000 },
+    { ITEM_DAWN_STONE,      3000 },
+    { 0xFFFF,               0    },
+};
+
+#endif // POKEATHLON_SHOP_EXPANSION

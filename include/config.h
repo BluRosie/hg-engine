@@ -157,8 +157,11 @@
 // DELETABLE_HMS allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
 //#define DELETABLE_HMS
 
-// MART_EXPANSION allows for adding new items to marts and expanding inventory
+// MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION
+
+// POKEATHLON_EXPANSION allows for adding and modifying items to the Pokéathlon shop inventories
+//#define POKEATHLON_SHOP_EXPANSION
 
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
