@@ -3386,18 +3386,12 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             || ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
                 butItFailedFlag = TRUE;
             }
-            else {
-                ctx->battlemon[ctx->defence_client].type3 = TYPE_GHOST; // This is awful but I don't know where else to put this code. ~J
-            }
             break;
         }
         case MOVE_FORESTS_CURSE: {
             if (HasType(ctx, ctx->defence_client, TYPE_GRASS)
             || ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
                 butItFailedFlag = TRUE;
-            }
-            else {
-                ctx->battlemon[ctx->defence_client].type3 = TYPE_GRASS; // This is awful but I don't know where else to put this code. ~J
             }
             break;
         }
