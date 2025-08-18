@@ -1,7 +1,46 @@
+#include "../../include/debug.h"
+#include "../../include/pokemon.h"
+#include "../../include/save.h"
+#include "../../include/script.h"
 #include "../../include/types.h"
 #include "../../include/constants/item.h"
 
 #ifdef MART_EXPANSION
+
+struct MartItem {
+    u16 item_id;
+    u16 override_cost;
+};
+
+struct BadgeMartItems {
+    u16 item_id;
+    u16 required_badges;
+};
+
+// note: limited to 64 for now
+const struct BadgeMartItems sBadgeMart[] = {
+    { ITEM_POKE_BALL,      0 },
+    { ITEM_GREAT_BALL,     3 },
+    { ITEM_ULTRA_BALL,     5 },
+    { ITEM_POTION,         0 },
+    { ITEM_SUPER_POTION,   1 },
+    { ITEM_HYPER_POTION,   5 },
+    { ITEM_MAX_POTION,     7 },
+    { ITEM_FULL_RESTORE,   8 },
+    { ITEM_REVIVE,         3 },
+    { ITEM_ANTIDOTE,       0 },
+    { ITEM_PARALYZE_HEAL,  0 },
+    { ITEM_AWAKENING,      1 },
+    { ITEM_BURN_HEAL,      1 },
+    { ITEM_ICE_HEAL,       1 },
+    { ITEM_FULL_HEAL,      5 },
+    { ITEM_ESCAPE_ROPE,    1 },
+    { ITEM_REPEL,          1 },
+    { ITEM_SUPER_REPEL,    3 },
+    { ITEM_MAX_REPEL,      5 },
+};
+
+void LONG_CALL InitMartUI(void *taskManager, FieldSystem *fieldSystem, const u16 *items, int kind, int buySell, int decoWhich, struct MartItem *priceOverrides);
 
 u16 sCherrygroveCityMart[] = {
     ITEM_AIR_MAIL, ITEM_HEAL_BALL, 0xFFFF
@@ -15,35 +54,35 @@ u16 sAzaleaCityMart[] = {
     ITEM_BLOOM_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF
 };
 
-u16 sGoldenrodCityDepartmentHealing[] = {
+u16 sGoldenrodDepartmentUpper2F[] = {
     ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_REVIVE,
     ITEM_ANTIDOTE, ITEM_PARALYZE_HEAL, ITEM_BURN_HEAL, ITEM_ICE_HEAL, ITEM_AWAKENING,
     ITEM_FULL_HEAL, 0xFFFF
 };
 
-u16 sGoldenrodCityDepartmentTrainer[] = {
+u16 sGoldenrodDepartmentLower2F[] = {
     ITEM_POKE_BALL, ITEM_GREAT_BALL, ITEM_ULTRA_BALL, ITEM_ESCAPE_ROPE, ITEM_POKE_DOLL,
     ITEM_REPEL, ITEM_SUPER_REPEL, ITEM_MAX_REPEL, ITEM_GRASS_MAIL, ITEM_FLAME_MAIL,
     ITEM_BUBBLE_MAIL, ITEM_SPACE_MAIL, 0xFFFF
 };
 
-u16 sGoldenrodCityDepartmentX[] = {
+u16 sGoldenrodDepartment3F[] = {
     ITEM_X_SPEED, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_GUARD_SPEC, ITEM_DIRE_HIT,
     ITEM_X_ACCURACY, ITEM_X_SPECIAL, ITEM_X_SP_DEF, 0xFFFF
 };
 
-u16 sGoldenrodCityDepartmentVitamins[] = {
+u16 sGoldenrodDepartment4F[] = {
     ITEM_PROTEIN, ITEM_IRON, ITEM_CALCIUM, ITEM_ZINC, ITEM_CARBOS,
     ITEM_HP_UP, 0xFFFF
 };
 
-u16 sGoldenrodCityDepartmentTMs[] = {
+u16 sGoldenrodDepartment5F[] = {
     ITEM_TM70, ITEM_TM17, ITEM_TM54, ITEM_TM83, ITEM_TM16,
     ITEM_TM33, ITEM_TM22, ITEM_TM52, ITEM_TM38, ITEM_TM25,
     ITEM_TM14, ITEM_TM15, 0xFFFF
 };
 
-u16 sGoldenrodCityDepartmentHerbs[] = {
+u16 sGoldenrodHerbs[] = {
     ITEM_HEAL_POWDER, ITEM_ENERGY_POWDER, ITEM_ENERGY_ROOT, ITEM_REVIVAL_HERB, 0xFFFF
 };
 
@@ -60,16 +99,16 @@ u16 sCianwoodPharmacy[] = {
     0xFFFF
 };
 
-u16 sBlackthornMart[] = {
+u16 sBlackthornAndBattleFrontierMart[] = {
     ITEM_AIR_MAIL, ITEM_NET_BALL, ITEM_DUSK_BALL, 0xFFFF
 };
 
-u16 sEliteFourMart[] = {
+u16 sIndigoPlateau[] = {
     ITEM_ULTRA_BALL, ITEM_MAX_REPEL, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_FULL_RESTORE,
     ITEM_REVIVE, ITEM_FULL_HEAL, 0xFFFF
 };
 
-u16 sSafariZoneGateMart[] = {
+u16 sVermilionAndSafariMart[] = {
     ITEM_AIR_MAIL, ITEM_NEST_BALL, ITEM_DUSK_BALL, ITEM_QUICK_BALL, 0xFFFF
 };
 
@@ -85,34 +124,34 @@ u16 sCeruleanMart[] = {
     ITEM_AIR_MAIL, ITEM_QUICK_BALL, 0xFFFF
 };
 
-u16 sCeladonDepartmentHealing[] = {
+u16 sCeladonDepartmentUpper2F[] = {
     ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_REVIVE,
     ITEM_ANTIDOTE, ITEM_PARALYZE_HEAL, ITEM_BURN_HEAL, ITEM_ICE_HEAL, ITEM_AWAKENING,
     ITEM_FULL_HEAL, 0xFFFF
 };
 
-u16 sCeladonDepartmentTrainer[] = {
+u16 sCeladonDepartmentLower2F[] = {
     ITEM_POKE_BALL, ITEM_GREAT_BALL, ITEM_ULTRA_BALL, ITEM_ESCAPE_ROPE, ITEM_POKE_DOLL,
     ITEM_REPEL, ITEM_SUPER_REPEL, ITEM_MAX_REPEL, ITEM_GRASS_MAIL, ITEM_FLAME_MAIL,
     ITEM_BUBBLE_MAIL, ITEM_SPACE_MAIL, 0xFFFF
 };
 
-u16 sCeladonDepartmentTM[] = {
+u16 sCeladonDepartment3F[] = {
     ITEM_TM21, ITEM_TM27, ITEM_TM87, ITEM_TM78, ITEM_TM12,
     ITEM_TM41, ITEM_TM20, ITEM_TM28, ITEM_TM76, ITEM_TM55,
     ITEM_TM72, ITEM_TM79, 0xFFFF
 };
 
-u16 sCeladonDepartmentMail[] = {
+u16 sCeladonDepartment4F[] = {
     ITEM_AIR_MAIL, ITEM_TUNNEL_MAIL, ITEM_BLOOM_MAIL, 0xFFFF
 };
 
-u16 sCeladonDepartmentX[] = {
+u16 sCeladonDepartmentLeft5F[] = {
     ITEM_X_SPEED, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_GUARD_SPEC, ITEM_DIRE_HIT,
     ITEM_X_ACCURACY, ITEM_X_SPECIAL, ITEM_X_SP_DEF, 0xFFFF
 };
 
-u16 sCeladonDepartmentVitamins[] = {
+u16 sCeladonDepartmentRight5F[] = {
     ITEM_PROTEIN, ITEM_IRON, ITEM_CALCIUM, ITEM_ZINC, ITEM_CARBOS,
     ITEM_HP_UP, 0xFFFF
 };
@@ -142,5 +181,28 @@ u16 sMahoganyPostRocketHideout[] = {
     ITEM_GREAT_BALL, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_ANTIDOTE, ITEM_PARALYZE_HEAL,
     ITEM_SUPER_REPEL, ITEM_REVIVE, ITEM_AIR_MAIL, 0xFFFF
 };
+
+BOOL ScrCmd_MartBuy(SCRIPTCONTEXT *ctx) {
+    u16 items[64];
+    u8 badgeCount = 0;
+    u8 index = 0;
+
+    for (int i = 0; i < 16; i++) {
+        if (PlayerProfile_TestBadgeFlag(Sav2_PlayerData_GetProfileAddr(ctx->fsys->savedata), i) == TRUE) {
+            badgeCount++;
+        }
+    }
+
+    for (int i = 0; i < NELEMS(sBadgeMart); i++) {
+        if (badgeCount >= sBadgeMart[i].required_badges) {
+            items[index] = sBadgeMart[i].item_id;
+            index++;
+        }
+    }
+
+    items[index] = 0xFFFF;
+    InitMartUI(ctx->taskman, ctx->fsys, items, 0, 0, 0, 0); // this won't honor price overrides
+    return TRUE;
+}
 
 #endif // MART_EXPANSION
