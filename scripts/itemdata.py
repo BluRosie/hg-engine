@@ -20,7 +20,7 @@ END_OF_FILE = """
 """
 
 
-def process_csv(input_file, output_file='data/itemdata/itemdata.c'):
+def process_csv(input_file, output_file='build/itemdata/itemdata.c'):
     try:
         # Read the input CSV
         # df = pd.read_csv(input_file)
@@ -113,4 +113,4 @@ def process_csv(input_file, output_file='data/itemdata/itemdata.c'):
 
 
 if __name__ == '__main__':
-    process_csv('data/itemdata/itemdata.csv', 'data/itemdata/itemdata.c')
+    process_csv('data/itemdata/itemdata.csv', 'build/itemdata/itemdata.c')
