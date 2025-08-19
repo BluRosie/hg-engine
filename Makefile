@@ -286,6 +286,7 @@ restore_build: | restore all
 ####################### Clean #######################
 clean:
 	rm -rf $(BUILD) $(BASE) rom_gen.ld rom_gen_battle.ld
+	rm -rf $(shell find . -type d -name "generated")
 	@echo "Build artifacts removed."
 
 clean_tools:
@@ -426,6 +427,13 @@ move_narc: $(NARC_FILES)
 
 	@echo "trainer gfx:"
 	cp $(TRAINER_GFX_NARC) $(TRAINER_GFX_TARGET)
+
+	@echo "levelup learnset:"
+	cp $(LEVELUPLEARNSET_NARC) $(LEVELUPLEARNSET_TARGET)
+
+	@echo "egg moves:"
+	cp $(EGGLEARNSET_NARC) $(EGGLEARNSET_TARGET)
+
 
 
 	@echo "baby mons:"

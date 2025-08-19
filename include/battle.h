@@ -1445,13 +1445,15 @@ typedef struct {
 } PACKED TRAINER_DATA; // size: 52 bytes
 
 
+typedef struct MessageFormat MessageFormat;
+
 struct BattleSystem {
     /* 0x00 */ u32 *unk0;
     /* 0x04 */ void * /*BgConfig **/ bgConfig;
     /* 0x08 */ void * /*Window **/ window;
     /* 0x0C */ u32 *unkC;
     /* 0x10 */ u32 *unk10;
-    /* 0x14 */ u32 *msgFormat;
+    /* 0x14 */ MessageFormat *msgFormat;
     /* 0x18 */ void * /*String **/ msgBuffer;
     /* 0x1C */ u32 unk1C;
     /* 0x20 */ u32 unk20;
