@@ -4048,7 +4048,7 @@ BOOL btl_scr_cmd_105_addthirdtype(void* bw UNUSED, struct BattleStruct* sp)
     if (FAIRY_TYPE_IMPLEMENTED == 0 && type == TYPE_FAIRY) // revert fairy to normal if someone tries to add fairy with the flag disabled
         type = TYPE_NORMAL;
 
-    if (type <= 0 && type < NUMBER_OF_MON_TYPES) // proceed only if type ID is a valid, existing type
+    if (type >= 0 && type < NUMBER_OF_MON_TYPES) // proceed only if type ID is a valid, existing type
         sp->battlemon[sp->defence_client].type3 = type;
 
     return FALSE;
