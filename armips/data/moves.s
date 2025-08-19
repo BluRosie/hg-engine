@@ -12474,13 +12474,13 @@ movedata MOVE_CLANGOROUS_SOUL, "Clangorous Soul" //Unimplemented
     terminatedata
     movedescription MOVE_CLANGOROUS_SOUL, "---"
 
-movedata MOVE_BODY_PRESS, "Body Press"
+movedata MOVE_BODY_PRESS, "Flatten"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
-    basepower 80
-    type TYPE_FIGHTING
+    basepower 20
+    type TYPE_NORMAL
     accuracy 0
-    pp 10
+    pp 20
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
@@ -12488,7 +12488,7 @@ movedata MOVE_BODY_PRESS, "Body Press"
     appeal 0x00
     contesttype 0x00
     terminatedata
-    movedescription MOVE_BODY_PRESS, "The user attacks by\nslamming its body\ninto the target.\nThe higher the user’s\nDefense stat, the\ngreater the damage\nthis move deals."
+    movedescription MOVE_BODY_PRESS, "The user crash-lands\non top of the foe.\nThis uses the user's\nAttack stat as well as\nDefense stat."
 
 movedata MOVE_DECORATE, "Decorate" //Unimplemented
     battleeffect MOVE_EFFECT_HIT

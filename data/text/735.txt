@@ -16,3 +16,5 @@ Psychic
 Ice
 Dragon
 Dark
+???
+Stellar

@@ -78,10 +78,12 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                 // debug_printf("In SBA_RESET_FURY_CUTTER\n");
 
                 for (client_no = 0; client_no < client_set_max; client_no++) {
-                    if (((sp->battlemon[client_no].condition & 7) != 0)
-					|| (sp->moveTbl[GetBattlerSelectedMove(sp, client_no)].effect != MOVE_EFFECT_DOUBLE_POWER_EACH_TURN)
-					|| (ST_CheckIfInTruant(sp, client_no) != FALSE)
-					|| (sp->oneTurnFlag[client_no].struggle_flag != 0))
+                    if (
+						((sp->battlemon[client_no].condition & 7) != 0)
+						|| (sp->moveTbl[GetBattlerSelectedMove(sp, client_no)].effect != MOVE_EFFECT_DOUBLE_POWER_EACH_TURN)
+						|| (ST_CheckIfInTruant(sp, client_no) != FALSE)
+						|| (sp->oneTurnFlag[client_no].struggle_flag != 0)
+					)
                         sp->battlemon[client_no].moveeffect.furyCutterCount = 0;
                 }
                 sp->sba_seq_no++;
@@ -194,7 +196,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                         // 先逃走，然後才處理超級進化
 
                         // debug_printf("client %d: SELECT_ESCAPE_COMMAND\n", client_no);
-                        if ((BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) == 0)
+                        if ((BattleTypeGet(bw) & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_BUG_CONTEST | BATTLE_TYPE_PAL_PARK)) == 0)
                         {
                             BattleControllerPlayer_RunInput(bw, sp);
                             sp->next_server_seq_no = tempSequenceNumber;
@@ -241,7 +243,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                         // 先切換，然後才處理超級進化
 
                         // debug_printf("client %d: SELECT_POKEMON_COMMAND\n", client_no);
-                        if ((BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) == 0)
+                        if ((BattleTypeGet(bw) & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_BUG_CONTEST | BATTLE_TYPE_PAL_PARK)) == 0)
                         {
                             BattleControllerPlayer_PokemonInput(bw, sp);
                             sp->next_server_seq_no = tempSequenceNumber;
@@ -294,7 +296,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                         // 先使用道具，然後才處理超級進化
 
                         // debug_printf("client %d: SELECT_ITEM_COMMAND\n", client_no);
-                        if ((BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) == 0)
+                        if ((BattleTypeGet(bw) & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_BUG_CONTEST | BATTLE_TYPE_PAL_PARK)) == 0)
                         {
                             BattleControllerPlayer_ItemInput(bw, sp);
                             sp->next_server_seq_no = tempSequenceNumber;
@@ -435,7 +437,7 @@ static BOOL MegaEvolutionOrUltraBurst(struct BattleSystem *bsys, struct BattleSt
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_MEGA_EVOLUTION);  // load sequence 297 and execute
             }
             ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = 22;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
         }
         if (newBS.needMega[client_no] == MEGA_CHECK_APPER && ctx->battlemon[client_no].hp) {
@@ -444,7 +446,7 @@ static BOOL MegaEvolutionOrUltraBurst(struct BattleSystem *bsys, struct BattleSt
             if (seq) {
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq);
                 ctx->next_server_seq_no = ctx->server_seq_no;
-                ctx->server_seq_no = 22;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
             }
         }

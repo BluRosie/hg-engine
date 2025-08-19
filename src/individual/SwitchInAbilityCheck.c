@@ -669,7 +669,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             scriptnum = SUB_SEQ_BOOST_STATS;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
-                            }
+                        }
                     }
 
                     // Dauntless Shield
@@ -684,9 +684,49 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             scriptnum = SUB_SEQ_BOOST_STATS;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
-                            }
+                        }
                     }
 
+                    // TODO:  was not sure where to add these
+                    // Wind Power - charge the mon when tailwind activates/on switch in if tailwind is active
+                    //     - post-move effect handled in MoveHitDefenderAbilityCheck
+                    //     - ability_activated_flag is reset when tailwind runs out for these abilities in ServerFieldConditionCheck
+                    {
+                        if ((sp->battlemon[client_no].hp)
+                        // tailwind is active -- should catch if tailwind was just used as well
+                        && (sp->tailwindCount[IsClientEnemy(bw, client_no)] != 0)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_WIND_POWER)
+                        && (sp->battlemon[client_no].ability_activated_flag == 0))
+                        {
+                            sp->battlemon[client_no].ability_activated_flag = TRUE; // make sure to reset when clearing tailwind
+                            sp->battlerIdTemp = client_no;
+                            sp->waza_work = sp->current_move_index;
+                            scriptnum = SUB_SEQ_HANDLE_CHARGE_BOOST;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+
+                    // TODO:  was not sure where to add these
+                    // Wind Rider - speed the mon up when tailwind activates/on switch in if tailwind is active
+                    //     - ability_activated_flag is reset when tailwind runs out for these abilities in ServerFieldConditionCheck
+                    {
+                        if ((sp->battlemon[client_no].hp)
+                        // tailwind is active -- should catch if tailwind was just used as well
+                        && (sp->tailwindCount[IsClientEnemy(bw, client_no)] != 0)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_WIND_RIDER)
+                        && (sp->battlemon[client_no].ability_activated_flag == 0)) {
+                            sp->battlemon[client_no].ability_activated_flag = TRUE; // make sure to reset when clearing tailwind
+                            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
+                            sp->addeffect_type = ADD_STATUS_ABILITY;
+                            sp->state_client = client_no;
+                            sp->battlerIdTemp = client_no;
+                            sp->current_move_index = MOVE_TAILWIND;
+                            scriptnum = SUB_SEQ_BOOST_STATS;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
 
                     // Air Balloon is announced
                     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-9227933

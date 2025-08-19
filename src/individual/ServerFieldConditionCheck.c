@@ -686,14 +686,14 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 while (sp->scc_work < client_set_max) {
                     battlerId = sp->turnOrder[sp->scc_work];
 
-                    if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING)
-						&& (u32)sp->battlemon[battlerId].hp != sp->battlemon[battlerId].maxhp
-						&& sp->battlemon[battlerId].hp != 0) {
+                    if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING) && (u32)sp->battlemon[battlerId].hp != sp->battlemon[battlerId].maxhp && sp->battlemon[battlerId].hp != 0) {
                         if (sp->battlemon[battlerId].moveeffect.healBlockTurns) {
                             sp->battlerIdTemp = battlerId;
                             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_HEAL);
                         } else {
                             sp->battlerIdTemp = battlerId;
+                            sp->waza_work = MOVE_AQUA_RING;
+                            sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp, 16);
                             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_AQUA_RING_HEAL);
                         }
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -1400,6 +1400,16 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     sp->server_seq_no = 22;
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
                                     ret = 1;
+
+                                    // clear ability activated flag for wind power/rider
+                                    for (int index = side; index < client_set_max; index += 2)
+                                    {
+                                        u32 currAbility = GetBattlerAbility(sp, index);
+                                        if (currAbility == ABILITY_WIND_POWER || currAbility == ABILITY_WIND_RIDER)
+                                        {
+                                            sp->battlemon[index].ability_activated_flag = FALSE;
+                                        }
+                                    }
                                 }
                             }
                             sp->endTurnEventBlockSequenceNumber++;
@@ -1411,7 +1421,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             debugsyscall(buf);
 #endif
 
-                            /*if (sp->side_condition[side] & SIDE_STATUS_LUCKY_CHANT) {
+                            if (sp->side_condition[side] & SIDE_STATUS_LUCKY_CHANT) {
                                 sp->side_condition[side] -= (1 << 12);
                                 if ((sp->side_condition[side] & SIDE_STATUS_LUCKY_CHANT) == 0) {
                                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LUCKY_CHANT_END);
@@ -1420,7 +1430,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
                                     ret = 1;
                                 }
-                            }*/
+                            }
                             sp->endTurnEventBlockSequenceNumber++;
                             break;
                         }

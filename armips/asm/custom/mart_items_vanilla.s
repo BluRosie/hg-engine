@@ -50,7 +50,7 @@ END_OF_LIST equ 0xFFFF
 .halfword ITEM_ANTIDOTE
 .halfword ZERO_BADGES
 
-.halfword ITEM_PARLYZ_HEAL
+.halfword ITEM_PARALYZE_HEAL
 .halfword ZERO_BADGES
 
 .halfword ITEM_AWAKENING
@@ -101,7 +101,7 @@ END_OF_LIST equ 0xFFFF
 .halfword ITEM_MAX_POTION
 .halfword ITEM_REVIVE
 .halfword ITEM_ANTIDOTE
-.halfword ITEM_PARLYZ_HEAL
+.halfword ITEM_PARALYZE_HEAL
 .halfword ITEM_BURN_HEAL
 .halfword ITEM_ICE_HEAL
 .halfword ITEM_AWAKENING
@@ -160,7 +160,7 @@ END_OF_LIST equ 0xFFFF
 
 .org 0x020FBACA
 .halfword ITEM_HEAL_POWDER
-.halfword ITEM_ENERGYPOWDER
+.halfword ITEM_ENERGY_POWDER
 .halfword ITEM_ENERGY_ROOT
 .halfword ITEM_REVIVAL_HERB
 .halfword END_OF_LIST
@@ -232,7 +232,7 @@ END_OF_LIST equ 0xFFFF
 .halfword ITEM_MAX_POTION
 .halfword ITEM_REVIVE
 .halfword ITEM_ANTIDOTE
-.halfword ITEM_PARLYZ_HEAL
+.halfword ITEM_PARALYZE_HEAL
 .halfword ITEM_BURN_HEAL
 .halfword ITEM_ICE_HEAL
 .halfword ITEM_AWAKENING
@@ -323,7 +323,7 @@ END_OF_LIST equ 0xFFFF
 .halfword END_OF_LIST
 
 .org 0x020FBAB8
-.halfword ITEM_TINYMUSHROOM
+.halfword ITEM_TINY_MUSHROOM
 .halfword ITEM_POKE_BALL
 .halfword ITEM_POTION
 .halfword END_OF_LIST
@@ -333,7 +333,7 @@ END_OF_LIST equ 0xFFFF
 .halfword ITEM_SUPER_POTION
 .halfword ITEM_HYPER_POTION
 .halfword ITEM_ANTIDOTE
-.halfword ITEM_PARLYZ_HEAL
+.halfword ITEM_PARALYZE_HEAL
 .halfword ITEM_SUPER_REPEL
 .halfword ITEM_REVIVE
 .halfword ITEM_AIR_MAIL
@@ -344,9 +344,9 @@ END_OF_LIST equ 0xFFFF
 .org 0x020FBCD6
 .halfword ITEM_RED_APRICORN
 .halfword 200
-.halfword ITEM_BLU_APRICORN
+.halfword ITEM_BLUE_APRICORN
 .halfword 200
-.halfword ITEM_GRN_APRICORN
+.halfword ITEM_GREEN_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -358,11 +358,11 @@ END_OF_LIST equ 0xFFFF
 .halfword 0
 
 .org 0x020FBCF2
-.halfword ITEM_YLW_APRICORN
+.halfword ITEM_YELLOW_APRICORN
 .halfword 200
-.halfword ITEM_PNK_APRICORN
+.halfword ITEM_PINK_APRICORN
 .halfword 200
-.halfword ITEM_WHT_APRICORN
+.halfword ITEM_WHITE_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -374,11 +374,11 @@ END_OF_LIST equ 0xFFFF
 .halfword 0
 
 .org 0x020FBD2A
-.halfword ITEM_BLU_APRICORN
+.halfword ITEM_BLUE_APRICORN
 .halfword 200
-.halfword ITEM_PNK_APRICORN
+.halfword ITEM_PINK_APRICORN
 .halfword 200
-.halfword ITEM_BLK_APRICORN
+.halfword ITEM_BLACK_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -390,15 +390,15 @@ END_OF_LIST equ 0xFFFF
 .halfword 0
 
 .org 0x020FBD46
-.halfword ITEM_YLW_APRICORN
+.halfword ITEM_YELLOW_APRICORN
 .halfword 200
-.halfword ITEM_PNK_APRICORN
+.halfword ITEM_PINK_APRICORN
 .halfword 200
-.halfword ITEM_WHT_APRICORN
+.halfword ITEM_WHITE_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
-.halfword ITEM_THUNDERSTONE
+.halfword ITEM_THUNDER_STONE
 .halfword 2500
 .halfword ITEM_PP_UP
 .halfword 1000
@@ -408,9 +408,9 @@ END_OF_LIST equ 0xFFFF
 .org 0x020FBD62
 .halfword ITEM_RED_APRICORN
 .halfword 200
-.halfword ITEM_YLW_APRICORN
+.halfword ITEM_YELLOW_APRICORN
 .halfword 200
-.halfword ITEM_GRN_APRICORN
+.halfword ITEM_GREEN_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -422,11 +422,11 @@ END_OF_LIST equ 0xFFFF
 .halfword 0
 
 .org 0x020FBD7E
-.halfword ITEM_GRN_APRICORN
+.halfword ITEM_GREEN_APRICORN
 .halfword 200
-.halfword ITEM_WHT_APRICORN
+.halfword ITEM_WHITE_APRICORN
 .halfword 200
-.halfword ITEM_BLK_APRICORN
+.halfword ITEM_BLACK_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -440,9 +440,9 @@ END_OF_LIST equ 0xFFFF
 .org 0x020FBC82
 .halfword ITEM_RED_APRICORN
 .halfword 200
-.halfword ITEM_BLU_APRICORN
+.halfword ITEM_BLUE_APRICORN
 .halfword 200
-.halfword ITEM_BLK_APRICORN
+.halfword ITEM_BLACK_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -456,9 +456,9 @@ END_OF_LIST equ 0xFFFF
 .org 0x020FBDB6
 .halfword ITEM_RED_APRICORN
 .halfword 200
-.halfword ITEM_BLU_APRICORN
+.halfword ITEM_BLUE_APRICORN
 .halfword 200
-.halfword ITEM_BLK_APRICORN
+.halfword ITEM_BLACK_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -484,9 +484,9 @@ END_OF_LIST equ 0xFFFF
 .org 0x020FBDEA
 .halfword ITEM_RED_APRICORN
 .halfword 200
-.halfword ITEM_BLU_APRICORN
+.halfword ITEM_BLUE_APRICORN
 .halfword 200
-.halfword ITEM_GRN_APRICORN
+.halfword ITEM_GREEN_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -510,11 +510,11 @@ END_OF_LIST equ 0xFFFF
 .halfword 0
 
 .org 0x020FBE1E
-.halfword ITEM_YLW_APRICORN
+.halfword ITEM_YELLOW_APRICORN
 .halfword 200
-.halfword ITEM_PNK_APRICORN
+.halfword ITEM_PINK_APRICORN
 .halfword 200
-.halfword ITEM_WHT_APRICORN
+.halfword ITEM_WHITE_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -538,11 +538,11 @@ END_OF_LIST equ 0xFFFF
 .halfword 0
 
 .org 0x020FBE52
-.halfword ITEM_BLU_APRICORN
+.halfword ITEM_BLUE_APRICORN
 .halfword 200
-.halfword ITEM_PNK_APRICORN
+.halfword ITEM_PINK_APRICORN
 .halfword 200
-.halfword ITEM_BLK_APRICORN
+.halfword ITEM_BLACK_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -554,7 +554,7 @@ END_OF_LIST equ 0xFFFF
 .halfword 500
 .halfword ITEM_DRAGON_SCALE
 .halfword 2500
-.halfword ITEM_THUNDERSTONE
+.halfword ITEM_THUNDER_STONE
 .halfword 2500
 .halfword ITEM_MOON_STONE
 .halfword 3000
@@ -566,15 +566,15 @@ END_OF_LIST equ 0xFFFF
 .halfword 0
 
 .org 0x020FBE86
-.halfword ITEM_YLW_APRICORN
+.halfword ITEM_YELLOW_APRICORN
 .halfword 200
-.halfword ITEM_PNK_APRICORN
+.halfword ITEM_PINK_APRICORN
 .halfword 200
-.halfword ITEM_WHT_APRICORN
+.halfword ITEM_WHITE_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
-.halfword ITEM_THUNDERSTONE
+.halfword ITEM_THUNDER_STONE
 .halfword 2500
 .halfword ITEM_PP_UP
 .halfword 1000
@@ -596,9 +596,9 @@ END_OF_LIST equ 0xFFFF
 .org 0x020FBEBA
 .halfword ITEM_RED_APRICORN
 .halfword 200
-.halfword ITEM_YLW_APRICORN
+.halfword ITEM_YELLOW_APRICORN
 .halfword 200
-.halfword ITEM_GRN_APRICORN
+.halfword ITEM_GREEN_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -622,11 +622,11 @@ END_OF_LIST equ 0xFFFF
 .halfword 0
 
 .org 0x020FBEEE
-.halfword ITEM_GRN_APRICORN
+.halfword ITEM_GREEN_APRICORN
 .halfword 200
-.halfword ITEM_WHT_APRICORN
+.halfword ITEM_WHITE_APRICORN
 .halfword 200
-.halfword ITEM_BLK_APRICORN
+.halfword ITEM_BLACK_APRICORN
 .halfword 200
 .halfword ITEM_MOOMOO_MILK
 .halfword 100
@@ -638,7 +638,7 @@ END_OF_LIST equ 0xFFFF
 .halfword 500
 .halfword ITEM_METAL_COAT
 .halfword 2500
-.halfword ITEM_THUNDERSTONE
+.halfword ITEM_THUNDER_STONE
 .halfword 2500
 .halfword ITEM_SHINY_STONE
 .halfword 3000

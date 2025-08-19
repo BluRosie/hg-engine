@@ -25,6 +25,7 @@
 
 .include "armips/asm/tm.s" // make tms infinite
 .include "armips/asm/forget_hm.s" // allows hm to be forgotten
+.include "armips/asm/no_partner_double_battles.s" // allows no partner double battles
 
 .include "armips/asm/custom/skipinfo.s" // info tutorial skip
 .include "armips/asm/custom/tutorial.s" // edit tutorial rattata level

@@ -819,7 +819,7 @@ FLAG_UNK_31F                                              equ 799
 
 // Hidden items
 
-HIDDEN_ITEMS_FLAG_BASE                                    equ   800
+HIDDEN_ITEMS_FLAG_BASE                                    equ 800
 FLAG_HIDDENITEM_T20_POTION                                equ 800
 FLAG_HIDDENITEM_R29_R30_T21_NUGGET                        equ 801
 FLAG_HIDDENITEM_R30_POTION                                equ 802
@@ -1825,10 +1825,10 @@ FLAG_UNK_9D2                                              equ 2514
 FLAG_SYS_FLYPOINT_POKEATHLON                              equ 2515
 FLAG_SYS_FLYPOINT_MT_MOON                                 equ 2516
 FLAG_SYS_FLYPOINT_ROCK_TUNNEL                             equ 2517
-FLAG_UNK_9D6                                              equ 2518
-FLAG_UNK_9D7                                              equ 2519
-FLAG_UNK_9D8                                              equ 2520
-FLAG_UNK_9D9                                              equ 2521
+FLAG_MEGA_EVOLUTION_ENABLED                               equ 2518
+FLAG_Z_MOVE_ENABLED                                       equ 2519
+FLAG_DYNAMAX_ENABLED                                      equ 2520
+FLAG_TERASTALIZATION_ENABLED                              equ 2521
 FLAG_UNK_9DA                                              equ 2522
 FLAG_UNK_9DB                                              equ 2523
 FLAG_UNK_9DC                                              equ 2524
@@ -2030,7 +2030,7 @@ FLAG_UNK_A9F                                              equ 2719
 
 
 DAILY_FLAG_BASE                                           equ 2720
-NUM_DAILY_FLAGS                                           equ   192
+NUM_DAILY_FLAGS                                           equ 192
 
 
 FLAG_DAILY_GOT_HAIRCUT                                    equ 2720

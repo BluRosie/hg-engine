@@ -22,7 +22,7 @@
 
 // EXPERIENCE_FORMULA_GEN defines the experience formula you would like to use.  Gens 5, 7, and 8 consider the difference between the attacker's level and the fainted's level to scale the experience gained.
 // i.e. defining this as "5", "7", or "8" would use a scaled formula, whereas "6" and others would use the default formula.  There is a multiplier of 255 / 390 to not artificially inflate the experience given as well with higher base experience.
-#define EXPERIENCE_FORMULA_GEN 8
+#define EXPERIENCE_FORMULA_GEN GEN_LATEST
 
 // HIDDEN_ABILITIES defines whether or not Pokémon with their hidden ability bit set will receive their hidden abilities when being generated/changing form in battle.
 // commenting this line out essentially disables hidden abilities to maintain default behavior, while leaving this as-is will introduce hidden abilities and all of their handling.
@@ -45,7 +45,7 @@
 
 // IMPLEMENT_BDHCAM_ROUTINE defines whether or not the BDHCam routine (by Mikelan) will be built into the ROM.  this is necessary to get it shiftable because DSPRE writes it to a fixed location
 // uncommenting this line will include it in your ROM
-//#define IMPLEMENT_BDHCAM_ROUTINE
+#define IMPLEMENT_BDHCAM_ROUTINE
 
 // IMPLEMENT_TRANSPARENT_TEXTBOXES should be used if you want to implement transparent textboxes
 // uncommenting this line out will enable transparent textboxes
@@ -67,15 +67,23 @@
 
 // IMPLEMENT_NEW_EV_IV_VIEWER defines whether or not pressing L, R, or Select in the pokémon summaries will display EV's, IV's, or the raw stat
 // commenting this line out disables the building of the new EV/IV viewing system
-#define IMPLEMENT_NEW_EV_IV_VIEWER
+//#define IMPLEMENT_NEW_EV_IV_VIEWER
 
 // IMPLEMENT_LEVEL_CAP defines whether or not a configurable hard level cap system is built into the rom based on the value in LEVEL_CAP_VARIABLE
 // if the level is greater than or equal to LEVEL_CAP_VARIABLE, the pokémon will no longer gain experience
-// uncommenting IMPLEMENT_LEVEL_CAP enables the level cap system.  undefining LEVEL_CAP_VARIABLE will just cause compilation errors
+// uncommenting IMPLEMENT_LEVEL_CAP enables the level cap system.  make sure to also uncomment LEVEL_CAP_VARIABLE in the process
 // uncommenting UNCAP_CANDIES_FROM_LEVEL_CAP will allow for rare candies to not be capped by the level cap even with the level cap in place, like run & bun
-//#define IMPLEMENT_LEVEL_CAP
+// uncommenting ALLOW_LEVEL_CAP_EVOLVE will allow for rare candies to evolve pokemon already at the level cap that can evolve at that level already
+#define IMPLEMENT_LEVEL_CAP
 #define LEVEL_CAP_VARIABLE 0x416F
-//#define UNCAP_CANDIES_FROM_LEVEL_CAP
+#define UNCAP_CANDIES_FROM_LEVEL_CAP
+#define ALLOW_LEVEL_CAP_EVOLVE
+
+// System flags that need to be enabled for the player to use the gimmick. If you want to change them, remember to change them in flags.s as well for consistency
+#define FLAG_MEGA_EVOLUTION_ENABLED 2518
+#define FLAG_Z_MOVE_ENABLED 2519
+#define FLAG_DYNAMAX_ENABLED 2520
+#define FLAG_TERASTALIZATION_ENABLED 2521
 
 // UPDATE_OVERWORLD_POISON will remove overworld poison if enabled
 // comment the line out below to retain overworld poison
@@ -86,7 +94,7 @@
 #define DISABLE_END_OF_TURN_WEATHER_MESSAGE
 
 // IMPLEMENT_SEASONS currently implements season mechanics. Used for changing forms of Deerling and Sawsbuck.
-// Comment the line out to disable this functionality (Gen 6+) 
+// Comment the line out to disable this functionality (Gen 6+)
 //#define IMPLEMENT_SEASONS
 
 // IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS allows wild species to appear with different forms if it has multiple forms.
@@ -113,9 +121,10 @@
 // modern generations have this value at 160, older ones at 220.  still max out at 255
 #define FRIENDSHIP_EVOLUTION_THRESHOLD 160
 
+
 // Friendship grants additional bonuses.
 // Comment out the line below to revert back to Gen 5- behaviour
-//#define FRIENDSHIP_EFFECTS
+// #define FRIENDSHIP_EFFECTS
 
 // RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle (Gen 9)
 // comment out the line below to revert back to Gen 8- behavior
@@ -125,7 +134,7 @@
 #define AI_CAN_GRAB_ITEMS
 
 // PROTEAN_GENERATION defines the behavior that Protean should exhibit, where it either changes type every move (<=8) or changes type once per appearance in battle (>=9)
-#define PROTEAN_GENERATION 8
+#define PROTEAN_GENERATION GEN_LATEST
 
 // CORROSIVE_GAS_IMPLIED_BEHAVIOUR defines the behavior that Corrosive Gas should exhibit, where it either does it does not affect a Kyogre, a Groudon, or species holding their respective Mega Stones to not lose their Blue Orb, Red Orb, and Mega Stones respectively (TRUE), or affects species in the above cases (FALSE).
 #define CORROSIVE_GAS_IMPLIED_BEHAVIOUR TRUE

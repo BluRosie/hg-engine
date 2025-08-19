@@ -541,6 +541,62 @@ struct OVERWORLD_TAG
     u16 callback_params;
 };
 
+typedef struct MAP_EVENTS MAP_EVENTS;
+typedef struct FIELD_PLAYER_AVATAR FIELD_PLAYER_AVATAR;
+typedef struct LocalMapObject LocalMapObject;
+
+typedef struct Location {
+    int mapId;
+    int warpId;
+    int x;
+    int z;
+    int direction;
+} Location;
+
+typedef struct FollowMon {
+    LocalMapObject *mapObject;
+    u32 unk4;
+    u32 unk8;
+    u32 unkC;
+    u32 species;
+    u8 gender;
+    u8 unk15;
+    u8 active;
+    u8 shiny;
+    u16 forme;
+    u16 dummy;
+    u32 unk1C;
+} FollowMon;
+
+typedef struct FieldSystem {
+    /*  0x0 */ u8 unk0[0x8];
+    /*  0x8 */ void *bg_config;
+    /*  0xc */ void *savedata;//SAVEDATA* savedata;
+    /* 0x10 */ void *taskman;//TaskManager* taskman;
+    /* 0x14 */ MAP_EVENTS* map_events; // what we are here for
+    /* 0x18 */ u8 unk18[0x8];
+    /* 0x20 */ Location * location;
+    /* 0x24 */ u8 unk24[0xC];
+    /* 0x30 */ void */*MAPMATRIX**/ map_matrix;
+    /* 0x34 */ u8 unk34[0x8];
+    /* 0x3C */ void */*MapObjectMan**/ mapObjectMan;
+    /* 0x40 */ FIELD_PLAYER_AVATAR *playerAvatar;
+    /* 0x44 */ u8 unk44[0x8];
+    /* 0x4C */ void * fog_data;
+    /* 0x50 */ u8 unk50[0x5C];
+    /* 0xAC */ u32 unkAC;
+    /* 0xB0 */ u8 unkB0[0x4];
+    /* 0xB4 */ s64 unkB4;
+    /* 0xBC */ u8 unkBC[0x28];
+    /* 0xE4 */ FollowMon followMon;
+    //u8 unk104[4];
+    //void *unk108;//struct FieldSystemUnk108 *unk108;
+    //u8 filler_10C[8];
+    //void *unk114;//struct UnkFsysSub_114* unk114;
+    //void *bugContest;//BUGCONTEST* bugContest;
+    //u8 unk11C[0xC];
+} FieldSystem; // size: 0x128
+
 
 // frick new formes
 struct PLIST_DATA
@@ -552,7 +608,7 @@ struct PLIST_DATA
     /* 0x10 */ void *tvwk;
     /* 0x14 */ void *reg;
     /* 0x18 */ void *scwk;
-    /* 0x1C */ void *fsys;
+    /* 0x1C */ FieldSystem *fsys;
                void *padsmth;
     /* 0x20+4 */ u8 mode;
     /* 0x21+4 */ u8 type;
@@ -601,6 +657,16 @@ struct PLIST_WORK
     /* 0x660 */ void* /*Sprite **/ sprites[_PARTY_MENU_SPRITE_ID_MAX]; // 0x660
     /* 0x6D4 */ u8 padding_x6D4[0xC65-0x660-0x74];
     u8 pos;
+};
+
+struct IconFormChangeData {
+    int state;
+    int effectTimer;
+    int duration;
+    int species;
+    int fileId;
+    int partyMonIndex;
+    void *particleSystem; // SPLEmitter from pokeheartgold
 };
 
 
@@ -787,9 +853,8 @@ enum
 #define TRAINER_DATA_EXTRA_TYPE_SPEED 0x10
 #define TRAINER_DATA_EXTRA_TYPE_SP_ATK 0x20
 #define TRAINER_DATA_EXTRA_TYPE_SP_DEF 0x40
-#define TRAINER_DATA_EXTRA_TYPE_TYPES 0x80
-#define TRAINER_DATA_EXTRA_TYPE_PP_COUNTS 0x100
-#define TRAINER_DATA_EXTRA_TYPE_NICKNAME 0x200
+#define TRAINER_DATA_EXTRA_TYPE_PP_COUNTS 0x80
+#define TRAINER_DATA_EXTRA_TYPE_NICKNAME 0x100
 
 // kinda weird, specifically tracked in the RAM
 typedef struct WildEncounterWork
@@ -1066,14 +1131,6 @@ void LONG_CALL BoxMonInit(struct BoxPokemon *boxmon);
  *  @param bp BoxPokemon to check for a form change
  */
 void LONG_CALL GiratinaBoxPokemonFormChange(struct BoxPokemon *bp);
-
-/**
- *  @brief check if the gracidea flower can be used on a PartyPokemon
- *
- *  @param pp PartyPokemon to check for gracidea validity
- *  @return TRUE if the gracidea can be used on the PartyPokemon
- */
-BOOL LONG_CALL GrashideaFeasibleCheck(struct PartyPokemon *pp);
 
 /**
  *  @brief load in the party overlay
@@ -1773,6 +1830,21 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
 void LONG_CALL ClearMonMoves(struct PartyPokemon *pokemon);
 
 /**
+ *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
+ *
+ *  @return level cap from LEVEL_CAP_VARIABLE script variable
+ */
+u32 LONG_CALL GetLevelCap(void);
+
+/**
+ *  @brief check if the level is at or above the level cap defined in LEVEL_CAP_VARIABLE
+ *
+ *  @param level level to check
+ *  @return TRUE if level >= level cap; FALSE otherwise
+ */
+u32 LONG_CALL IsLevelAtLevelCap(u32 level);
+
+/**
  *  @brief grab the nature of a BoxPokemon factoring in the nature mint override field
  *
  *  @param boxMon BoxPokemon whose nature to grab
@@ -1816,68 +1888,8 @@ void LONG_CALL Daycare_GetBothBoxMonsPtr(Daycare *dayCare, struct BoxPokemon **b
 
 BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 moveIdx, u32 heapID);
 
-/**
- *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
- *
- *  @return level cap from LEVEL_CAP_VARIABLE script variable
- */
-u32 LONG_CALL GetLevelCap(void);
-
-/**
- *  @brief check if the level is at or above the level cap defined in LEVEL_CAP_VARIABLE
- *
- *  @param level level to check
- *  @return TRUE if level >= level cap; FALSE otherwise
- */
-u32 LONG_CALL IsLevelAtLevelCap(u32 level);
-
 void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemon *param, unsigned int expected_form, int *a3);
 
 void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp);
-
-void LONG_CALL CalcMonStats(struct PartyPokemon *mon);
-
-typedef struct BaseStats {
-    /* 0x00 */ u8 hp;
-    /* 0x01 */ u8 atk;
-    /* 0x02 */ u8 def;
-    /* 0x03 */ u8 speed;
-    /* 0x04 */ u8 spatk;
-    /* 0x05 */ u8 spdef;
-    /* 0x06 */ u8 types[2];
-    /* 0x08 */ u8 catchRate;
-    /* 0x09 */ u8 expYield;
-    /* 0x0A */ u16 hp_yield:2;
-    u16 atk_yield:2;
-    u16 def_yield:2;
-    u16 speed_yield:2;
-    /* 0x0B */ u16 spatk_yield:2;
-    u16 spdef_yield:2;
-    u16 padding_B_4:4;
-    /* 0x0C */ u16 item1;
-    /* 0x0E */ u16 item2;
-    /* 0x10 */ u8 genderRatio;
-    /* 0x11 */ u8 eggCycles;
-    /* 0x12 */ u8 friendship;
-    /* 0x13 */ u8 growthRate;
-    /* 0x14 */ u8 eggGroups[2];
-    /* 0x16 */ u8 abilities[2];
-    /* 0x18 */ u8 greatMarshRate;
-    /* 0x19 */ u8 color:7;
-    u8 flip:1;
-    u8 padding_1A[2];
-    /* 0x1C */ u32 tmhm_1;
-    /* 0x20 */ u32 tmhm_2;
-    /* 0x24 */ u32 tmhm_3;
-    /* 0x28 */ u32 tmhm_4;
-} BASE_STATS;
-
-BOOL LONG_CALL AcquireMonLock(struct PartyPokemon *mon);
-
-BOOL LONG_CALL ReleaseMonLock(struct PartyPokemon *mon, BOOL decrypt_result);
-
-void LONG_CALL LoadMonBaseStats_HandleAlternateForm(int species, int form, BASE_STATS *personal);
-
-u32 ChangePersonalityToNatureGenderAndAbility(u32 pid, u16 species, u8 nature, u8 gender, u8 ability, BOOL gen_mode);
 
 #endif

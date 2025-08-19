@@ -443,6 +443,12 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     u16 form_no;
     u16 moves[4];
 
+#ifndef DEBUG_ENABLE_ALL_GIMMICKS
+    if (!CheckScriptFlag(FLAG_MEGA_EVOLUTION_ENABLED)) {
+        return FALSE;
+    }
+#endif
+
     if (bip->client_no && newBS.playerWantMega) // if client number is not zero but the player has already queued up mega
     {
         return FALSE;

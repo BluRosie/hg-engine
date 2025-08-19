@@ -110,34 +110,6 @@ void ServerBeforeAct(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 /********************************************************************************************************************/
 /********************************************************************************************************************/
 
-enum {
-    SEQ_MEGA_CHECK = 0,
-    SEQ_SENSEI_CHECK,
-    SEQ_STATUS_CHECK,
-    SEQ_BADGE_CHECK,
-    SEQ_PP_CHECK,
-    SEQ_DEFENCE_CHECK,
-    SEQ_WAZAKOYUU_CHECK,
-    SEQ_DEFENCE_CHANGE_CHECK,
-    SEQ_PROTEAN_CHECK,
-    SEQ_STANCE_CHANGE_CHECK,
-    SEQ_PARENTAL_BOND_CHECK,
-};
-
-enum ObedienceCheckResult {
-    OBEY_CHECK_SUCCESS = 0,
-    OBEY_CHECK_DO_NOTHING,
-    OBEY_CHECK_DIFFERENT_MOVE,
-    OBEY_CHECK_HIT_SELF
-};
-
-enum {
-    CHECK_STATUS_LOOP_BACK = 0,
-    CHECK_STATUS_DISRUPT_MOVE, // wholly disrupt the move; attacker does not get a turn
-    CHECK_STATUS_GO_TO_SCRIPT, // execute a given script, then proceed with the chosen move
-    CHECK_STATUS_DONE,
-};
-
 // 08014ACC
 
 /**

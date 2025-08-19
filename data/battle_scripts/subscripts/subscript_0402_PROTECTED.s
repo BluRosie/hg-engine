@@ -6,8 +6,10 @@ _000:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30
-    // {0} protected itself!
-    PrintMessage 15, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
+    // {0} protected itself! or {1} protected {0}!
+    PrintBufferedMessage
+    // handle protect contact moves first
+    CheckProtectContactMoves
     Wait 
     WaitButtonABTime 30
     // now handle high jump kick

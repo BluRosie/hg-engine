@@ -27,19 +27,19 @@ typedef struct
 // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8684263
 const AccuracyStatChangeRatio sAccStatChanges[] =
 {
-	{3, 9},
-	{3, 8},
-	{3, 7},
-	{3, 6},
-	{3, 5},
-	{3, 4},
-	{3, 3},
-	{4, 3},
-	{5, 3},
-	{6, 3},
-	{7, 3},
-	{8, 3},
-	{9, 3}
+    {  6, 18 },
+    {  6, 16 },
+    {  6, 14 },
+    {  6, 12 },
+    {  6, 10 },
+    {  6,  8 },
+    {  6,  6 },
+    {  8,  6 },
+    { 10,  6 },
+    { 12,  6 },
+    { 14,  6 },
+    { 16,  6 },
+    { 18,  6 },
 };
 
 const u16 PowderMovesList[] = {
@@ -474,9 +474,9 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     accuracy = sp->moveTbl[move_no].accuracy;
 
-    if (accuracy == 0) {
+    /*if (accuracy == 0) {
         return FALSE;
-    }
+    }*/
 
     // 5. If the move is a status move, has greater than 50% accuracy, and the target has Wonder Skin, or the move is Thunder / Hurricane and the weather is sun, set the move's accuracy to 50.
 
@@ -695,9 +695,10 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     // 14. Roll a random number 0-99 inclusive. If the accuracy value is greater than that random number, the move hits. (That is, check if accuracy > rand(100)).
 
     if (accuracy <= (BattleRand(bw) % 100)) {
-        sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
+        //sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
         sp->oneTurnFlag[attacker].parental_bond_flag = 0;
         sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
+		return TRUE;
     }
 
     return FALSE;
@@ -2181,20 +2182,6 @@ void LONG_CALL getEquivalentAttackAndDefense(struct BattleStruct *sp, u16 attack
     }
 
     switch (moveno) {
-		case MOVE_FOUL_PLAY:
-            *equivalentAttack = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_ATK, NULL) 
-                              * StatBoostModifiers[sp->battlemon[defender].states[STAT_ATTACK]][0]
-                              / StatBoostModifiers[sp->battlemon[defender].states[STAT_ATTACK]][1];
-            break;
-		case MOVE_NIGHT_DAZE:
-            *equivalentAttack = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPATK, NULL) 
-                              * StatBoostModifiers[sp->battlemon[defender].states[STAT_SPATK]][0]
-                              / StatBoostModifiers[sp->battlemon[defender].states[STAT_SPATK]][1];
-            break;
-		case MOVE_CHIP_AWAY:
-        case MOVE_SACRED_SWORD:
-            *equivalentDefense = defenderDefense;
-            break;
         case MOVE_PSYSHOCK:
         case MOVE_PSYSTRIKE:
         case MOVE_SECRET_SWORD:
@@ -2348,9 +2335,9 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     // 2. Check if the move itself is sure-hit (accuracy 101, like Aerial Ace), or if the move was custom-set to be sure-hit: Pursuit and target is switching, Thunder / Hurricane in rain, Blizzard in hail, Stomp / Steamroller / Dragon Rush / Body Slam / Malicious Moonsault / Heavy Slam / Heat Crash / Flying Press vs. Minimize.
     // TODO: modernise flow and Handle Pursuit
 
-    if (sp->moveTbl[move].accuracy == 0) {
+    /*if (sp->moveTbl[move].accuracy == 0) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-    }
+    }*/
 
     if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
     && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
@@ -2989,11 +2976,6 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
     return GetAdjustedMoveTypeBasics(ctx, moveNo, GetBattlerAbility(ctx, battlerId), type);
 }
 
-const u16 CantUseTwiceList[] = {
-	MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY,
-	MOVE_EFFECT_PROTECT,
-};
-
 u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u32 nonSelectableMoves, u32 struggleCheckFlags) {
     // u8 buf[64];
     // sprintf(buf, "In StruggleCheck\n");
@@ -3049,13 +3031,8 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
         if (struggleCheckFlags & STRUGGLE_CHECK_GIGATON_HAMMER) {
             // Encore allows Gigaton Hammer to be used twice in a row, but on subsequent turns of the Encore the user will be forced to Struggle.
             if (!(ctx->battlemon[battlerId].moveeffect.encoredMove && ctx->battlemon[battlerId].moveeffect.encoredTurns == 3)) {
-                if (ctx->waza_no_old[battlerId] == ctx->battlemon[battlerId].move[movePos]) {
-					for (u16 i = 0; i < NELEMS(CantUseTwiceList); i++) {
-						if (ctx->moveTbl[ctx->waza_no_old[battlerId]].effect == CantUseTwiceList[i]) {
-							nonSelectableMoves |= No2Bit(movePos);
-							break;
-						}
-					}
+                if (ctx->waza_no_old[battlerId] == ctx->battlemon[battlerId].move[movePos] && ctx->waza_no_old[battlerId] == MOVE_GIGATON_HAMMER) {
+                    nonSelectableMoves |= No2Bit(movePos);
                 }
             }
         }
@@ -3595,26 +3572,4 @@ const u8 InternalTypeToHGType[] = {
 
 int GetSanitisedType(int type) {
     return InternalTypeToHGType[HGTypeToInternalType[type] & 0x1F];
-}
-
-void InitializeTurn(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    int battlerId;
-	
-    for (battlerId = 0; battlerId < 4; battlerId++) {
-        MIi_CpuClearFast(0, (u32 *)&ctx->oneTurnFlag[battlerId], sizeof(struct OneTurnEffect));
-        MIi_CpuClearFast(0, (u32 *)&ctx->moveOutCheck[battlerId], sizeof(struct MoveOutCheck));
-        ctx->battlemon[battlerId].condition2 &= ~STATUS2_FLINCH;
-        if (ctx->battlemon[battlerId].moveeffect.rechargeCount + 1 < ctx->total_turn) {
-            ctx->battlemon[battlerId].condition2 &= ~STATUS2_RECHARGE;
-        }
-        /*if ((ctx->battlemon[battlerId].condition & STATUS_SLEEP) && (ctx->battlemon[battlerId].condition2 & STATUS2_LOCKED_INTO_MOVE)) {
-            UnlockBattlerOutOfCurrentMove(bsys, ctx, battlerId);
-        }
-        if ((ctx->battlemon[battlerId].condition & STATUS_SLEEP) && (ctx->battlemon[battlerId].condition2 & STATUS2_RAMPAGE)) {
-            ctx->battlemon[battlerId].condition2 &= ~STATUS2_RAMPAGE;
-        }*/
-    }
-
-    ctx->scw[0].followMeFlag = 0;
-    ctx->scw[1].followMeFlag = 0;
 }

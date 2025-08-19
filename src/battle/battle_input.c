@@ -27,7 +27,7 @@ void __attribute__((long_call)) BGCallback_Waza(struct BI_PARAM *bip, int select
 
 
 // new battle structure with a few overlay 12 global things that can be accessed.
-struct newBattleStruct newBS = {0};
+struct newBattleStruct __attribute__((section (".data"))) newBS = {0};
 
 // icon sprite tags to keep track of things
 #define MEGA_ICON_SPRITE_TAG 22050

@@ -88,12 +88,12 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
 
     // 02252FB0
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SOUNDPROOF) == TRUE)
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SOUNDPROOF) == TRUE
+     && attacker != defender
+     && (sp->moveTbl[sp->current_move_index].target & (RANGE_USER)) == 0
+     && IsMoveSoundBased(sp->current_move_index))
     {
-        if (IsMoveSoundBased(sp->current_move_index))
-        {
-            scriptnum = SUB_SEQ_SOUNDPROOF;
-        }
+        scriptnum = SUB_SEQ_SOUNDPROOF;
     }
 
     // 02252FDC
@@ -120,9 +120,21 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // Handle Sap Sipper
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAP_SIPPER) == TRUE)
     {
-        if ((movetype == TYPE_GRASS) && (attacker != defender))
-        {
+        if ((movetype == TYPE_GRASS) && (attacker != defender)) {
             scriptnum = SUB_SEQ_HANDLE_SAP_SIPPER;
+        }
+    }
+
+    // Handle Wind Rider
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WIND_RIDER) == TRUE)
+    {
+        if ((IsMoveWindMove(sp->current_move_index)) && (attacker != defender)) {
+            scriptnum = SUB_SEQ_HANDLE_WIND_RIDER;
+            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
+            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->state_client = defender;
+            sp->battlerIdTemp = defender;
+            //scriptnum = SUB_SEQ_BOOST_STATS;
         }
     }
 
@@ -144,22 +156,32 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         }
     }
 
+    // Handle Telepathy
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TELEPATHY) == TRUE) {
+        if (((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+        && ((sp->moveTbl[sp->current_move_index].power))
+        && (attacker & 1) == (defender & 1) ) { // attacker and defender are on the same side
+            scriptnum = SUB_SEQ_HANDLE_TELEPATHY;
+        }
+    }
+
     // TODO: Confirm location in-game
     // Handle Well Baked Body
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE)
-    {
-        if ((movetype == TYPE_FIRE) && (attacker != defender))
-        {
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WELL_BAKED_BODY) == TRUE) {
+        if ((movetype == TYPE_FIRE)
+        && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+        && ((sp->moveTbl[sp->current_move_index].power) || (sp->current_move_index == MOVE_WILL_O_WISP))
+        && (attacker != defender)) {
             scriptnum = SUB_SEQ_ABSORB_AND_DEF_UP_2_STAGE;
         }
     }
 
     // TODO: Confirm location in-game
     // Handle Earth Eater
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE)
-    {
-        if ((movetype == TYPE_GROUND) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->moveTbl[sp->current_move_index].power))
-        {
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EARTH_EATER) == TRUE) {
+        if ((movetype == TYPE_GROUND)
+        && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+        && (sp->moveTbl[sp->current_move_index].power)) {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
             scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
         }
@@ -245,7 +267,7 @@ BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int va
  *  @param client battler whose stats to compare among themselves for beast boost
  *  @return the highest raw stat the the client has (excluding HP)
  */
-u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
+u8 LONG_CALL BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
 {
     u16 stats[] = {
             sp->battlemon[client].attack,
@@ -256,17 +278,16 @@ u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
     };
 
     u8 max = 0;
-    u8 ret = 0;
+
     for (u8 i = 0; i < NELEMS(stats); i++)
     {
-        if (stats[i] > max)
+        if (stats[i] > stats[max])
         {
-            max = stats[i];
-            ret = i;
+            max = i;
         }
     }
 
-    return ret;
+    return max;
 }
 
 
@@ -866,7 +887,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     {
         sp->oneTurnFlag[sp->defence_client].magic_cort_flag = 0;
         sp->magicBounceTracker = TRUE;
-        sp->waza_no_mamoru[sp->attack_client] = 0;
+        sp->moveProtect[sp->attack_client] = 0;
         sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
         sp->waza_no_last = sp->moveNoTemp;
         sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
@@ -887,7 +908,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             sp->oneTurnFlag[client_no].snatchFlag=0;
             if ((sp->server_status_flag & (BATTLE_STATUS_NO_MOVE_SET)) == 0)
             {
-                sp->waza_no_mamoru[sp->attack_client] = 0;
+                sp->moveProtect[sp->attack_client] = 0;
                 sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
                 sp->waza_no_last = sp->moveNoTemp;
                 sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
@@ -950,30 +971,4 @@ void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx
     }
 
     ctx->swoak_seq_no = 0; // reset according to the scriptures
-}
-
-BOOL LONG_CALL ServerIkariCheck(void*, struct BattleStruct *ctx) {
-    BOOL ret = FALSE;
-
-    if (ctx->defence_client == BATTLER_NONE) {
-        return ret;
-    }
-
-    if ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_RAGE)
-        && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)
-        && ctx->defence_client != ctx->attack_client
-        && ctx->battlemon[ctx->defence_client].hp != 0
-        && (ctx->oneSelfFlag[ctx->defence_client].physical_damage != 0 || ctx->oneSelfFlag[ctx->defence_client].special_damage != 0)
-        && ctx->battlemon[ctx->defence_client].states[STAT_ATTACK] < 12) {
-		ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
-		ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-		ctx->state_client = ctx->defence_client;
-		ctx->battlerIdTemp = ctx->defence_client;
-		LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
-		ctx->next_server_seq_no = ctx->server_seq_no;
-		ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-		ret = TRUE;
-    }
-
-    return ret;
 }
