@@ -348,7 +348,7 @@ void SortPocket(ITEM_SLOT *slots, u32 count) {
 }
 
 u8 GetTMHMPocketSortPrecedence(u16 itemId) {
-    if (IS_ITEM_VANILLA_HM(itemId)) {
+    if (IS_ITEM_HM(itemId)) {
         return SORT_ORDER_HM;
     }
     if (IS_ITEM_TR(itemId)) {
@@ -477,22 +477,35 @@ BOOL IsPlayerOnLadder(void)
 /**
  * @brief Gets the machine move number for a given item id
  */
-int GetMachineMoveNumber(u16 itemId) {
-    if (IS_ITEM_VANILLA_HM(itemId)) {
+u16 GetMachineMoveNumber(u16 itemId) {
+    // HMs
+    if (itemId == ITEM_HM07_ORAS) {
+        return 7;
+    }
+    if (itemId >= ITEM_HM01 && itemId <= ITEM_HM08) {
         return itemId - ITEM_HM01 + 1;
     }
-    if (IS_ITEM_VANILLA_TM(itemId)) {
+
+    // TMs
+    if (itemId >= ITEM_TM001 && itemId <= ITEM_TM092) {
         return itemId - ITEM_TM001 + 1;
     }
-    // TODO zebben think of a better way to organize this
-    if (IS_ITEM_EXPANSION_HM(itemId)) {
+    if (itemId == ITEM_TM00) {
         return 0;
     }
-    if (IS_ITEM_EXPANSION_TM(itemId)) {
-        return 0;
+    if (itemId >= ITEM_TM093 && itemId <= ITEM_TM095) {
+        return itemId - ITEM_TM093 + 93;
     }
-    if (IS_ITEM_TR(itemId)) {
-        return 0;
+    if (itemId >= ITEM_TM096 && itemId <= ITEM_TM100) {
+        return itemId - ITEM_TM096 + 96;
+    }
+    if (itemId >= ITEM_TM100_SV && itemId <= ITEM_TM229) {
+        return itemId - ITEM_TM100_SV + 100;
+    }
+
+    // TRs
+    if (itemId >= ITEM_TR00 && itemId <= ITEM_TR99) {
+        return itemId - ITEM_TR00;
     }
     return 0;
 }
