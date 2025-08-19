@@ -462,3 +462,6 @@ arm9 020821B0 DB
 
 # nop out selection of cancel when the item won't have an effect
 arm9 0207C3AC 00 00 00 00
+
+# expand heap 6 to 384 KB
+0015 021F93B6 65 22

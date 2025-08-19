@@ -2,6 +2,7 @@ import os
 import struct
 import subprocess
 import sys
+import shutil
 
 """
 02100194 - item data table
@@ -35,7 +36,7 @@ def GrabItemDict(itemDict: dict):
         for line in f:
             if len(line.split()) > 1:
                 test = line.split()[1].strip()
-                if '#define ITEM_' in line and "ITEM_" in line.split()[1] and not ")" in test and not "_START" in test:
+                if '#define ITEM_' in line and "ITEM_" in line.split()[1] and not ")" in test:
                     itemDict[itemEntry] = test.lower()[len("ITEM_"):]
                     itemEntry += 1
 
@@ -80,6 +81,8 @@ ITEMGFX_DEPENDENCIES_DIR := data/graphics/item
 
 """)
     for item in range(0, len(itemDict)):
+        if (not os.path.exists(f'data/graphics/item/{itemDict[item]}.png')):
+            shutil.copy('data/graphics/item/unknown_7a.png', f'data/graphics/item/{itemDict[item]}.png')
         outputItem = item+2
         output.write(f"""$(ITEMGFX_DIR)/{outputItem:04}-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/{itemDict[item]}.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4

@@ -733,7 +733,6 @@ BattleMessage_BufferFlavorPreference = 0x0223CEA8 | 1;
 BattleMessage_BufferTrainerClass = 0x0223CEB4 | 1;
 BattleMessage_BufferTrainerName = 0x0223CECC | 1;
 BattleMessage_BufferBoxName = 0x0223CEE4 | 1;
-BufferItemNameWithIndefArticle = 0x0200C100 | 1;
 
 _GetNpcTradeName = 0x02259C1C | 1;
 MonSetTrainerMemo = 0x0208F260 | 1;
@@ -752,6 +751,8 @@ particleEmitCallback = 0x021E5C28 | 1;
 
 BattleSystem_GetTrainer = 0x0223A9F4 | 1;
 PartyMenu_PrintMessageOnWindow32 = 0x0207DAC4 | 1;
+
+SetStringAsPlaceholder = 0x0200BDF8 | 1;
 
 /* machine move expansion */
 sub_0200CE7C = 0x0200CE7C | 1;
