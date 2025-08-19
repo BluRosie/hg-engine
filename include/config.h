@@ -165,24 +165,4 @@
 // Comment out the line below to disable this feature
 #define UPDATE_MACHINE_MOVE_LABELS
 
-// LEARNSET_FILE tells the engine what file to use for learnsets
-// if you want custom learnsets, use "custom" and modify data/mon/learnsets/custom.json
-#define LEARNSET_FILE "sv"
-
-// MACHINE_MOVE_INHERITANCE allows MachineMoves learnsets to accumulate across generations before the specified LEARNSET_FILE
-// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
-#define MACHINE_MOVE_INHERITANCE
-
-// EGG_MOVE_INHERITANCE allows EggMoves learnsets to backfill from previous generations before the specified LEARNSET_FILE
-// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
-#define EGG_MOVE_INHERITANCE
-
-// TUTOR_MOVE_INHERITANCE allows TutorMoves learnsets to accumulate across generations before the specified LEARNSET_FILE
-// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
-#define TUTOR_MOVE_INHERITANCE
-
-// EGG_MOVE_INHERITANCE allows LevelMoves learnsets to backfill from previous generations before the specified LEARNSET_FILE
-// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
-#define LEVELUP_MOVE_INHERITANCE
-
 #endif

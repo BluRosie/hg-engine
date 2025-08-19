@@ -76,25 +76,6 @@ def load_form_to_species_mapping(form_map_path):
     return form_map
 
 
-def load_config_header(config_path):
-    config = {}
-    define_pattern = re.compile(r"#define\s+(\w+)(\s+\"?.*?\"?)?$")
-
-    with open(config_path, "r") as f:
-        for line in f:
-            match = define_pattern.match(line.strip())
-            if match:
-                key = match.group(1)
-                val = match.group(2).strip() if match.group(2) else True
-
-                if isinstance(val, str) and val.startswith('"') and val.endswith('"'):
-                    val = val[1:-1]
-
-                config[key] = val
-
-    return config
-
-
 def merge_learnsets(ordered_data, cutoff_gen, inherit_level, inherit_egg, inherit_machine, inherit_tutor):
     merged = {}
 
@@ -178,6 +159,7 @@ def write_learnset_constants_header(num_machine_moves, max_num_levelup_moves, ma
 
 
 def write_machine_data(species_dict, species_learnsets, machine_moves, output_path):
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     max_species_index = max(species_dict.values())
     species_id_to_name = {v: k for k, v in species_dict.items()}
 
@@ -219,6 +201,7 @@ def write_machine_data(species_dict, species_learnsets, machine_moves, output_pa
 
 
 def write_levelup_data(species_dict, moves_dict, species_learnsets, max_num_levelup_moves, output_path):
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     species_id_to_name = {v: k for k, v in species_dict.items()}
     max_species_id = max(species_id_to_name.keys())
     col_len = 8
@@ -263,6 +246,7 @@ def write_levelup_data(species_dict, moves_dict, species_learnsets, max_num_leve
 
 
 def write_eggmove_data(species_dict, moves_dict, species_learnsets, max_num_egg_moves, output_path):
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     species_id_to_name = {v: k for k, v in species_dict.items()}
     max_species_id = max(species_id_to_name)
     col_len = 12
@@ -303,6 +287,7 @@ def write_eggmove_data(species_dict, moves_dict, species_learnsets, max_num_egg_
 
 
 def write_tutor_data(species_dict, moves_dict, species_learnsets, tutor_moves, output_path):
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     move_to_index = {
         move_name: idx
         for idx, move_name in enumerate(tutor_moves)
@@ -343,71 +328,105 @@ def write_tutor_data(species_dict, moves_dict, species_learnsets, tutor_moves, o
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+
+    # build
+    parser.add_argument("--learnsets")
     parser.add_argument("--machineout")
     parser.add_argument("--levelupout")
     parser.add_argument("--eggout")
     parser.add_argument("--tutorout")
     parser.add_argument("--constsout", action='store_true')
-    parser.add_argument("--dump", help="path to dump merged learnsets as JSON")
+    parser.add_argument("--dump")
+
+    # generate
+    parser.add_argument("--generate")
+    parser.add_argument("--cutoff", default="sv")
+    parser.add_argument("--inherit-level", action="store_true")
+    parser.add_argument("--inherit-egg", action="store_true")
+    parser.add_argument("--inherit-machine", action="store_true")
+    parser.add_argument("--inherit-tutor", action="store_true")
+
     args = parser.parse_args()
 
-    config = load_config_header("include/config.h")
     machine_moves = load_machine_move_list("src/item.c")
     tutor_moves = load_tutor_move_list("src/field/move_tutor.c")
     species_dict = load_species_header("include/constants/species.h")
     moves_dict = load_moves_header("include/constants/moves.h")
-    form_to_base = load_form_to_species_mapping("data/FormToSpeciesMapping.c")
 
-    ordered_learnsets = [
-        (file, json.load(open(file, encoding="utf-8")))
-        for file in sorted(glob.glob(os.path.join("data/mon/learnsets", "*.json")))
-    ]
+    if args.generate:
+        ordered_learnsets = [
+            (file, json.load(open(file, encoding="utf-8")))
+            for file in sorted(glob.glob(os.path.join("data/learnsets/base", "*.json")))
+        ]
 
-    species_learnsets = merge_learnsets(
-        ordered_learnsets,
-        config.get("LEARNSET_FILE", "sv"),
-        "LEVELUP_MOVE_INHERITANCE" in config,
-        "EGG_MOVE_INHERITANCE" in config,
-        "MACHINE_MOVE_INHERITANCE" in config,
-        "TUTOR_MOVE_INHERITANCE" in config,
-    )
+        merged_for_dump = merge_learnsets(
+            ordered_learnsets,
+            args.cutoff,
+            args.inherit_level,
+            args.inherit_egg,
+            args.inherit_machine,
+            args.inherit_tutor,
+        )
 
-    for form_species, base_species in form_to_base.items():
-        if form_species not in species_learnsets and base_species in species_learnsets:
-            species_learnsets[form_species] = dict(species_learnsets[base_species])
+        os.makedirs(os.path.dirname(args.generate), exist_ok=True)
+        with open(args.generate, "w", encoding="utf-8") as f:
+            json.dump(merged_for_dump, f, indent=2)
 
-    max_num_levelup_moves = max(
-        (len(data.get("LevelMoves", [])) + 1)  # +1 for terminator
-        for data in species_learnsets.values()
-    )
+    if any([args.machineout, args.levelupout, args.eggout, args.tutorout, args.constsout]):
+        form_to_base = load_form_to_species_mapping("data/FormToSpeciesMapping.c")
+        
+        if not args.learnsets:
+            print(f"[ERROR]: {msg}")
+            exit(1)
 
-    # move reminder limitation
-    if max_num_levelup_moves > (256/4):
-        print(f"[ERROR]: maximum number of level-up moves cannot exceed 64 ({max_num_levelup_moves})")
-        exit(1)
+        try:
+            with open(args.learnsets, "r", encoding="utf-8") as f:
+                species_learnsets = json.load(f)
+        except FileNotFoundError:
+            print(f"[ERROR]: learnsets file not found: {args.learnsets}")
+            exit(1)
 
-    max_num_egg_moves = max(
-        (len(data.get("EggMoves", [])) + 1)  # +1 for terminator
-        for data in species_learnsets.values()
-    )
+        for form_species, base_species in form_to_base.items():
+            if form_species not in species_learnsets and base_species in species_learnsets:
+                species_learnsets[form_species] = dict(species_learnsets[base_species])
 
-    if args.constsout:
-        write_learnset_constants_header(len(machine_moves), max_num_levelup_moves, max_num_egg_moves, len(tutor_moves), "include/constants/generated/learnsets.h")
-        write_learnset_constants_inc(max_num_levelup_moves, "armips/include/generated/levelup.s")
+        max_num_levelup_moves = max(
+            (len(data.get("LevelMoves", [])) + 1)  # +1 for terminator
+            for data in species_learnsets.values()
+        )
 
-    if args.machineout:
-        write_machine_data(species_dict, species_learnsets, machine_moves, args.machineout)
+        if max_num_levelup_moves > (256 / 4):
+            print(f"[ERROR]: maximum number of level-up moves cannot exceed 64 ({max_num_levelup_moves})")
+            exit(1)
 
-    if args.levelupout:
-        write_levelup_data(species_dict, moves_dict, species_learnsets, max_num_levelup_moves, args.levelupout)
+        max_num_egg_moves = max(
+            (len(data.get("EggMoves", [])) + 1)  # +1 for terminator
+            for data in species_learnsets.values()
+        )
 
-    if args.eggout:
-        write_eggmove_data(species_dict, moves_dict, species_learnsets, max_num_egg_moves, args.eggout)
+        if args.constsout:
+            write_learnset_constants_header(
+                len(machine_moves),
+                max_num_levelup_moves,
+                max_num_egg_moves,
+                len(tutor_moves),
+                "include/constants/generated/learnsets.h",
+            )
+            write_learnset_constants_inc(max_num_levelup_moves, "armips/include/generated/levelup.s")
 
-    if args.tutorout:
-        write_tutor_data(species_dict, moves_dict, species_learnsets, tutor_moves, args.tutorout)
+        if args.machineout:
+            write_machine_data(species_dict, species_learnsets, machine_moves, args.machineout)
 
-    if args.dump:
-        os.makedirs(os.path.dirname(args.dump), exist_ok=True)
-        with open(args.dump, "w", encoding="utf-8") as f:
-            json.dump(species_learnsets, f, indent=2)
+        if args.levelupout:
+            write_levelup_data(species_dict, moves_dict, species_learnsets, max_num_levelup_moves, args.levelupout)
+
+        if args.eggout:
+            write_eggmove_data(species_dict, moves_dict, species_learnsets, max_num_egg_moves, args.eggout)
+
+        if args.tutorout:
+            write_tutor_data(species_dict, moves_dict, species_learnsets, tutor_moves, args.tutorout)
+        
+        if args.dump:
+            os.makedirs(os.path.dirname(args.dump), exist_ok=True)
+            with open(args.dump, "w", encoding="utf-8") as f:
+                json.dump(species_learnsets, f, indent=2)
