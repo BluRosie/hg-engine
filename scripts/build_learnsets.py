@@ -159,6 +159,7 @@ def write_learnset_constants_header(num_machine_moves, max_num_levelup_moves, ma
 
 
 def write_machine_data(species_dict, species_learnsets, machine_moves, output_path):
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     max_species_index = max(species_dict.values())
     species_id_to_name = {v: k for k, v in species_dict.items()}
 
@@ -200,6 +201,7 @@ def write_machine_data(species_dict, species_learnsets, machine_moves, output_pa
 
 
 def write_levelup_data(species_dict, moves_dict, species_learnsets, max_num_levelup_moves, output_path):
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     species_id_to_name = {v: k for k, v in species_dict.items()}
     max_species_id = max(species_id_to_name.keys())
     col_len = 8
@@ -244,6 +246,7 @@ def write_levelup_data(species_dict, moves_dict, species_learnsets, max_num_leve
 
 
 def write_eggmove_data(species_dict, moves_dict, species_learnsets, max_num_egg_moves, output_path):
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     species_id_to_name = {v: k for k, v in species_dict.items()}
     max_species_id = max(species_id_to_name)
     col_len = 12
@@ -284,6 +287,7 @@ def write_eggmove_data(species_dict, moves_dict, species_learnsets, max_num_egg_
 
 
 def write_tutor_data(species_dict, moves_dict, species_learnsets, tutor_moves, output_path):
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     move_to_index = {
         move_name: idx
         for idx, move_name in enumerate(tutor_moves)
