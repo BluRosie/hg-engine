@@ -1,5 +1,6 @@
 #include "../include/config.h"
 #include "../include/constants/item.h"
+#include "../include/constants/file.h"
 #include "../include/bag.h"
 #include "../include/item.h"
 #include "../include/map_events_internal.h"
@@ -34,6 +35,7 @@ const u8 sPocketCountBytes[8] = {
 
 
 void SortPocket(ITEM_SLOT *slots, u32 count);
+void SortTMHMPocket(ITEM_SLOT *slots, u32 count);
 void PocketCompaction(ITEM_SLOT *slots, u32 count);
 
 u32 Sav2_Bag_sizeof(void) {
@@ -182,8 +184,11 @@ BOOL Bag_AddItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id) {
         u32 pocket_id;
 
         pocket_id = Bag_GetItemPocket(bag, itemId, &slot, &count, heap_id);
-        if (pocket_id == POCKET_TMHMS || pocket_id == POCKET_BERRIES) {
+        if (pocket_id == POCKET_BERRIES) {
             SortPocket(slot, count);
+        }
+        if (pocket_id == POCKET_TMHMS) {
+            SortTMHMPocket(slot, count);
         }
     }
     return TRUE;
@@ -342,6 +347,30 @@ void SortPocket(ITEM_SLOT *slots, u32 count) {
     }
 }
 
+u8 GetTMHMPocketSortPrecedence(u16 itemId) {
+    if (IS_ITEM_VANILLA_HM(itemId)) {
+        return SORT_ORDER_HM;
+    }
+    if (IS_ITEM_TR(itemId)) {
+        return SORT_ORDER_TR;
+    }
+    return SORT_ORDER_TM;
+}
+
+void SortTMHMPocket(ITEM_SLOT *slots, u32 count) {
+    u32 i, j;
+    for (i = 0; i < count - 1; i++) {
+        for (j = i + 1; j < count; j++) {
+            u8 iSortOrder = GetTMHMPocketSortPrecedence(slots[i].id);
+            u8 jSortOrder = GetTMHMPocketSortPrecedence(slots[j].id);
+            if (slots[i].quantity == 0 || (slots[j].quantity != 0 &&
+                (iSortOrder > jSortOrder || (iSortOrder == jSortOrder && slots[i].id > slots[j].id)))) {
+                SwapItemSlots(&slots[i], &slots[j]);
+            }
+        }
+    }
+}
+
 // returns a BAG_VIEW but we don't have to care about that
 void *CreateBagView(BAG_DATA *bag, const u8 *pockets, int heap_id) {
     int i;
@@ -443,4 +472,61 @@ BOOL IsPlayerOnLadder(void)
     u32 collision = GetMetatileBehaviorAt(gFieldSysPtr, gFieldSysPtr->location->x, gFieldSysPtr->location->z);
     u32 mapId = gFieldSysPtr->location->mapId;
     return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
+}
+
+/**
+ * @brief Gets the machine move number for a given item id
+ */
+int GetMachineMoveNumber(u16 itemId) {
+    if (IS_ITEM_VANILLA_HM(itemId)) {
+        return itemId - ITEM_HM01 + 1;
+    }
+    if (IS_ITEM_VANILLA_TM(itemId)) {
+        return itemId - ITEM_TM001 + 1;
+    }
+    // TODO zebben think of a better way to organize this
+    if (IS_ITEM_EXPANSION_HM(itemId)) {
+        return 0;
+    }
+    if (IS_ITEM_EXPANSION_TM(itemId)) {
+        return 0;
+    }
+    if (IS_ITEM_TR(itemId)) {
+        return 0;
+    }
+    return 0;
+}
+
+/**
+ *  @brief draws the label and number for a TM/HM/TR item in the bag
+ */
+void LONG_CALL Bag_DrawMachineMoveLabel(void *context, void *window, const u16 *args, u32 baseY) {
+    u16 itemId  = args[0];
+    u16 machineMoveNumber = GetMachineMoveNumber(itemId);
+    void *msgPrinter = *(void **)((u8 *)context + 0x2EC);
+
+#ifdef UPDATE_MACHINE_MOVE_LABELS
+    int numDigits = 2;
+    int icon = BAG_HM_ICON;
+
+    if (IS_ITEM_TM(itemId)) {
+        icon = BAG_TM_ICON;
+        numDigits = 3;
+    } else if (IS_ITEM_TR(itemId)) {
+        icon = BAG_TR_ICON;
+    }
+
+    sub_0200CDF0(msgPrinter, machineMoveNumber, numDigits, 2, window, 24, baseY + 5);
+    ov15_021FE9B0(context, window, icon);
+#else
+    if (IS_ITEM_HM(itemId)) {
+        sub_0200CDF0(msgPrinter, machineMoveNumber, 2, 1, window, 0x10, baseY + 5);
+        ov15_021FE9B0(context, window, BAG_HM_ICON);
+    } else {
+        u16 labelId = args[1];
+        sub_0200CE7C(msgPrinter, 2, machineMoveNumber, 2, 2, window, 0x0, baseY + 5);
+        u32 labelArgs = ((u32)labelId << 16) | (baseY & 0xFFFF);
+        ov15_021FE8C4(context, labelArgs);
+    }
+#endif
 }

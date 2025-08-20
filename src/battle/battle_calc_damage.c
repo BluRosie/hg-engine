@@ -543,7 +543,8 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         }
 
         // 6.9.3 Sniper
-        if ((attackerAbility == ABILITY_SNIPER) && (sp->critical > 1)) {
+        if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
+         && (attackerAbility == ABILITY_SNIPER) && (sp->critical > 1)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__1_5);
 #ifdef DEBUG_DAMAGE_CALC
             debug_printf("\n=================\n");

@@ -1450,13 +1450,15 @@ typedef struct {
 } PACKED TRAINER_DATA; // size: 52 bytes
 
 
+typedef struct MessageFormat MessageFormat;
+
 struct BattleSystem {
     /* 0x00 */ u32 *unk0;
     /* 0x04 */ void * /*BgConfig **/ bgConfig;
     /* 0x08 */ void * /*Window **/ window;
     /* 0x0C */ u32 *unkC;
     /* 0x10 */ u32 *unk10;
-    /* 0x14 */ u32 *msgFormat;
+    /* 0x14 */ MessageFormat *msgFormat;
     /* 0x18 */ void * /*String **/ msgBuffer;
     /* 0x1C */ u32 unk1C;
     /* 0x20 */ u32 unk20;
@@ -3772,8 +3774,6 @@ void LONG_CALL BattleMessage_BufferTrainerClass(struct BattleSystem *bsys, int b
 void LONG_CALL BattleMessage_BufferTrainerName(struct BattleSystem *bsys, int bufferIndex, int param);
 void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int bufferIndex, int param);
 
-void LONG_CALL BufferItemNameWithIndefArticle(u32 *msgFmt, u32 fieldno, u32 itemId);
-
 int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag);
@@ -3824,9 +3824,10 @@ typedef struct Trainer {
 
 Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battlerId);
 
-
+BOOL LONG_CALL TryEatOpponentBerry(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
 
 void LONG_CALL BattleController_EmitPlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* ctx, int batlterId);
+
 void LONG_CALL InitFaintedWork(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
 
 /**
