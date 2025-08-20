@@ -13,102 +13,6 @@
 #define NEW_ITEM_GFX (797)
 
 static const u16 sMachineMoves[] = {
-#ifdef REPLACE_VANILLA_TMS
-    // SV TM001..TM092
-    MOVE_TAKE_DOWN,        // TM001
-    MOVE_CHARM,            // TM002
-    MOVE_FAKE_TEARS,       // TM003
-    MOVE_AGILITY,          // TM004
-    MOVE_MUD_SLAP,         // TM005
-    MOVE_SCARY_FACE,       // TM006
-    MOVE_PROTECT,          // TM007
-    MOVE_FIRE_FANG,        // TM008
-    MOVE_THUNDER_FANG,     // TM009
-    MOVE_ICE_FANG,         // TM010
-    MOVE_WATER_PULSE,      // TM011
-    MOVE_LOW_KICK,         // TM012
-    MOVE_ACID_SPRAY,       // TM013
-    MOVE_ACROBATICS,       // TM014
-    MOVE_STRUGGLE_BUG,     // TM015
-    MOVE_PSYBEAM,          // TM016
-    MOVE_CONFUSE_RAY,      // TM017
-    MOVE_THIEF,            // TM018
-    MOVE_DISARMING_VOICE,  // TM019
-    MOVE_TRAILBLAZE,       // TM020
-    MOVE_POUNCE,           // TM021
-    MOVE_CHILLING_WATER,   // TM022
-    MOVE_CHARGE_BEAM,      // TM023
-    MOVE_FIRE_SPIN,        // TM024
-    MOVE_FACADE,           // TM025
-    MOVE_POISON_TAIL,      // TM026
-    MOVE_AERIAL_ACE,       // TM027
-    MOVE_BULLDOZE,         // TM028
-    MOVE_HEX,              // TM029
-    MOVE_SNARL,            // TM030
-    MOVE_METAL_CLAW,       // TM031
-    MOVE_SWIFT,            // TM032
-    MOVE_MAGICAL_LEAF,     // TM033
-    MOVE_ICY_WIND,         // TM034
-    MOVE_MUD_SHOT,         // TM035
-    MOVE_ROCK_TOMB,        // TM036
-    MOVE_DRAINING_KISS,    // TM037
-    MOVE_FLAME_CHARGE,     // TM038
-    MOVE_LOW_SWEEP,        // TM039
-    MOVE_AIR_CUTTER,       // TM040
-    MOVE_STORED_POWER,     // TM041
-    MOVE_NIGHT_SHADE,      // TM042
-    MOVE_FLING,            // TM043
-    MOVE_DRAGON_TAIL,      // TM044
-    MOVE_VENOSHOCK,        // TM045
-    MOVE_AVALANCHE,        // TM046
-    MOVE_ENDURE,           // TM047
-    MOVE_VOLT_SWITCH,      // TM048
-    MOVE_SUNNY_DAY,        // TM049
-    MOVE_RAIN_DANCE,       // TM050
-    MOVE_SANDSTORM,        // TM051
-    MOVE_SNOWSCAPE,        // TM052
-    MOVE_SMART_STRIKE,     // TM053
-    MOVE_PSYSHOCK,         // TM054
-    MOVE_DIG,              // TM055
-    MOVE_BULLET_SEED,      // TM056
-    MOVE_FALSE_SWIPE,      // TM057
-    MOVE_BRICK_BREAK,      // TM058
-    MOVE_ZEN_HEADBUTT,     // TM059
-    MOVE_U_TURN,           // TM060
-    MOVE_SHADOW_CLAW,      // TM061
-    MOVE_FOUL_PLAY,        // TM062
-    MOVE_PSYCHIC_FANGS,    // TM063
-    MOVE_BULK_UP,          // TM064
-    MOVE_AIR_SLASH,        // TM065
-    MOVE_BODY_SLAM,        // TM066
-    MOVE_FIRE_PUNCH,       // TM067
-    MOVE_THUNDER_PUNCH,    // TM068
-    MOVE_ICE_PUNCH,        // TM069
-    MOVE_SLEEP_TALK,       // TM070
-    MOVE_SEED_BOMB,        // TM071
-    MOVE_ELECTRO_BALL,     // TM072
-    MOVE_DRAIN_PUNCH,      // TM073
-    MOVE_REFLECT,          // TM074
-    MOVE_LIGHT_SCREEN,     // TM075
-    MOVE_ROCK_BLAST,       // TM076
-    MOVE_WATERFALL,        // TM077
-    MOVE_DRAGON_CLAW,      // TM078
-    MOVE_DAZZLING_GLEAM,   // TM079
-    MOVE_METRONOME,        // TM080
-    MOVE_GRASS_KNOT,       // TM081
-    MOVE_THUNDER_WAVE,     // TM082
-    MOVE_POISON_JAB,       // TM083
-    MOVE_STOMPING_TANTRUM, // TM084
-    MOVE_REST,             // TM085
-    MOVE_ROCK_SLIDE,       // TM086
-    MOVE_TAUNT,            // TM087
-    MOVE_SWORDS_DANCE,     // TM088
-    MOVE_BODY_PRESS,       // TM089
-    MOVE_SPIKES,           // TM090
-    MOVE_TOXIC_SPIKES,     // TM091
-    MOVE_IMPRISON,         // TM092
-#else
-    // vanilla TM list
     MOVE_FOCUS_PUNCH,      // TM001
     MOVE_DRAGON_CLAW,      // TM002
     MOVE_WATER_PULSE,      // TM003
@@ -201,7 +105,6 @@ static const u16 sMachineMoves[] = {
     MOVE_SUBSTITUTE,       // TM090
     MOVE_FLASH_CANNON,     // TM091
     MOVE_TRICK_ROOM,       // TM092
-#endif // REPLACE_VANILLA_TMS
 
     MOVE_CUT,              // HM01
     MOVE_FLY,              // HM02
@@ -604,8 +507,8 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id)
 void LONG_CALL GetItemDescIntoString(String *dest, u16 itemId, u16 heapId) {
     enum ItemGeneration gen = ITEM_GENERATION(itemId);
     u32 fileId = (gen == CUSTOM)
-        ? MSG_DATA_ITEM_DESCRIPTION_CUSTOM
-        : MSG_DATA_ITEM_FILE(MSG_DATA_ITEM_DESCRIPTION_GEN4, gen);
+            ? MSG_DATA_ITEM_DESCRIPTION_CUSTOM
+            : MSG_DATA_ITEM_FILE(MSG_DATA_ITEM_DESCRIPTION_GEN4, gen);
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, fileId, heapId);
     u32 offset = ITEM_MSG_OFFSET(itemId);
     ReadMsgDataIntoString(msgData, offset, dest);
