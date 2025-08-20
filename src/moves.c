@@ -208,6 +208,15 @@ u16 move_effect_to_subscripts[] =
     [ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6]     = SUB_SEQ_BOOST_STATS, // attack +6
     [ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP_6]    = SUB_SEQ_BOOST_STATS, // defense +6
     [ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_6]      = SUB_SEQ_BOOST_STATS, // speed +6
+    [ADD_STATUS_EFF_STRENGTH_SAP]                = SUB_SEQ_STRENGTH_SAP,
+    [ADD_STATUS_EFF_HEAL_PULSE]                  = SUB_SEQ_HEAL_PULSE,
+    [ADD_STATUS_EFF_POLLEN_PUFF_HEAL]            = SUB_SEQ_POLLEN_PUFF_HEAL,
+    [ADD_STATUS_EFF_COACHING]                    = SUB_SEQ_COACHING,
+    [ADD_STATUS_EFF_SHORE_UP]                    = SUB_SEQ_SHORE_UP,
+    [ADD_STATUS_EFF_LIFE_DEW]                    = SUB_SEQ_LIFE_DEW,
+    [ADD_STATUS_EFF_ENTRAINMENT]                 = SUB_SEQ_ENTRAINMENT,
+    [ADD_STATUS_EFF_HOWL]                        = SUB_SEQ_HOWL,
+    [ADD_STATUS_EFF_DECORATE]                    = SUB_SEQ_DECORATE,
 };
 
 

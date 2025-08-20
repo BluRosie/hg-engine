@@ -377,8 +377,18 @@
 #define MOVE_EFFECT_PROTECT_USER_SIDE                       371
 #define MOVE_EFFECT_INCINERATE                              372
 #define MOVE_EFFECT_FIRST_TURN_ONLY                         373
+#define MOVE_EFFECT_STRENGTH_SAP							374
+#define MOVE_EFFECT_HEAL_TARGET								375
+#define MOVE_EFFECT_POLLEN_PUFF								376
+#define MOVE_EFFECT_COACHING								377
+#define MOVE_EFFECT_DOUBLE_POWER_IF_FASTER					378
+#define MOVE_EFFECT_SHORE_UP								379
+#define MOVE_EFFECT_LIFE_DEW								380
+#define MOVE_EFFECT_ENTRAINMENT								381
+#define MOVE_EFFECT_HOWL							      	382
+#define MOVE_EFFECT_DECORATE								383
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            373
+#define MAX_BASE_MOVE_EFFECT_NUM                            383
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
 

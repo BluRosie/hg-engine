@@ -1437,7 +1437,21 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 255
+    .macro StrengthSapCalc
+    .long 261
+    .endm
+
+    .macro CheckTargetIsPartner arg_0
+    .long 262
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .macro TryEmergencyExit arg_0
+    .long 263
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 263
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)
