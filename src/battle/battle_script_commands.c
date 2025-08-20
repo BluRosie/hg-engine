@@ -112,9 +112,8 @@ u32 LoadCaptureSuccessSPA(u32 id);
 u32 LoadCaptureSuccessSPAStarEmitter(u32 id);
 u32 LoadCaptureSuccessSPANumEmitters(u32 id);
 BOOL btl_scr_cmd_105_strengthsapcalc(void* bw, struct BattleStruct* sp);
-BOOL btl_scr_cmd_106_boltbeakdamagecalc(void* bw, struct BattleStruct* sp);
-BOOL btl_scr_cmd_107_checktargetispartner(void* bw, struct BattleStruct* sp);
-BOOL btl_scr_cmd_108_tryemergencyexit(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_106_checktargetispartner(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_107_tryemergencyexit(void* bw, struct BattleStruct* sp);
 
 #ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
 #pragma GCC diagnostic push
@@ -383,7 +382,6 @@ const u8 *BattleScrCmdNames[] =
     "CheckProtectContactMoves",
     "TryIncinerate",
     "StrengthSapCalc",
-    "BoltBeakDamageCalc",
     "CheckTargetIsPartner",
     "TryEmergencyExit",
     // "YourCustomCommand",
@@ -434,9 +432,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x103 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_103_checkprotectcontactmoves,
     [0x104 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_104_tryincinerate,
     [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_strengthsapcalc,
-    [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_boltbeakdamagecalc,
-    [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_checktargetispartner,
-    [0x108 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_108_tryemergencyexit,
+    [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_checktargetispartner,
+    [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_tryemergencyexit,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -3302,36 +3299,13 @@ BOOL btl_scr_cmd_105_strengthsapcalc(void* bw UNUSED, struct BattleStruct* sp) {
 }
 
 /**
- *  @brief script command to calculate the damage for bolt beak / fishous rend
- *
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @return FALSE
- */
-BOOL btl_scr_cmd_106_boltbeakdamagecalc(void* bw, struct BattleStruct* sp) {
-    IncrementBattleScriptPtr(sp, 1);
-    int defender = sp->defence_client;
-
-    if (IsMovingAfterClient(sp, defender) == FALSE || sp->playerActions[sp->defence_client][3] == CONTROLLER_COMMAND_40) {
-        sp->damage_power = sp->moveTbl[sp->current_move_index].power * 2;
-    }
-    else {
-        sp->damage_power = sp->moveTbl[sp->current_move_index].power;
-    }
-
-    // debug_printf("boltbeak dmg: %d\n", sp->damage_power)
-
-    return FALSE;
-}
-
-/**
  *  @brief script command to check if the target is partner or not. 
  *  used for pollen puff because TryHelpingHand has unique conditions built in
  *  @param bw battle work structure
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_107_checktargetispartner(void* bw, struct BattleStruct* sp) {
+BOOL btl_scr_cmd_106_checktargetispartner(void* bw, struct BattleStruct* sp) {
     IncrementBattleScriptPtr(sp, 1);
     int adrs = read_battle_script_param(sp);
     int defender = sp->defence_client;
@@ -3354,7 +3328,7 @@ BOOL btl_scr_cmd_107_checktargetispartner(void* bw, struct BattleStruct* sp) {
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_108_tryemergencyexit(void* bw, struct BattleStruct* sp) {
+BOOL btl_scr_cmd_107_tryemergencyexit(void* bw, struct BattleStruct* sp) {
     IncrementBattleScriptPtr(sp, 1);
     int adrs = read_battle_script_param(sp);
         
