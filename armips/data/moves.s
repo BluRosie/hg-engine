@@ -5387,20 +5387,20 @@ movedata MOVE_BLOCK, "Block"
     movedescription MOVE_BLOCK, "The user blocks the\nfoe’s way with arms\nspread wide to\nprevent escape.\n"
 
 movedata MOVE_HOWL, "Howl"
-    battleeffect MOVE_EFFECT_ATK_UP
+    battleeffect MOVE_EFFECT_HOWL
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
     accuracy 0
     pp 40
     effectchance 0
-    target RANGE_USER
+    target RANGE_USER_SIDE
     priority 0
     flags FLAG_SNATCH
     appeal 0x0B
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_HOWL, "The user howls loudly\nto raise its spirit,\nboosting its Attack\nstat.\n"
+    movedescription MOVE_HOWL, "The user howls\nloudly to rouse\nitself and its\nallies. This boosts\ntheir Attack stats."
 
 movedata MOVE_DRAGON_CLAW, "Dragon Claw"
     battleeffect MOVE_EFFECT_HIT
@@ -7963,7 +7963,7 @@ movedata MOVE_SIMPLE_BEAM, "Simple Beam"
     movedescription MOVE_SIMPLE_BEAM, "The user’s\nmysterious psychic\nwave changes the\ntarget’s Ability to\nSimple."
 
 movedata MOVE_ENTRAINMENT, "Entrainment"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_ENTRAINMENT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -12492,7 +12492,7 @@ movedata MOVE_BODY_PRESS, "Body Press"
     movedescription MOVE_BODY_PRESS, "---"
 
 movedata MOVE_DECORATE, "Decorate"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_DECORATE
     pss SPLIT_STATUS
     basepower 0
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -12716,7 +12716,7 @@ movedata MOVE_STRANGE_STEAM, "Strange Steam"
     movedescription MOVE_STRANGE_STEAM, "The user attacks the\ntarget by emitting\nsteam.\nThis may also\nconfuse the target."
 
 movedata MOVE_LIFE_DEW, "Life Dew"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_LIFE_DEW
     pss SPLIT_STATUS
     basepower 0
     type TYPE_WATER
@@ -12729,7 +12729,7 @@ movedata MOVE_LIFE_DEW, "Life Dew"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_LIFE_DEW, "---"
+    movedescription MOVE_LIFE_DEW, "The user scatters\nwater around and\nrestores the HP of\nitself and its ally\nPokémon in battle."
 
 movedata MOVE_OBSTRUCT, "Obstruct"
     battleeffect MOVE_EFFECT_PROTECT
@@ -13045,7 +13045,7 @@ movedata MOVE_COACHING, "Coaching"
     effectchance 0
     target RANGE_ALLY
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

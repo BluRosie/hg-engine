@@ -381,8 +381,12 @@
 #define MOVE_EFFECT_COACHING								375
 #define MOVE_EFFECT_DOUBLE_POWER_IF_FASTER					376
 #define MOVE_EFFECT_SHORE_UP								377
+#define MOVE_EFFECT_LIFE_DEW								378
+#define MOVE_EFFECT_ENTRAINMENT								379
+#define MOVE_EFFECT_HOWL							      	380
+#define MOVE_EFFECT_DECORATE								381
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            377
+#define MAX_BASE_MOVE_EFFECT_NUM                            381
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)

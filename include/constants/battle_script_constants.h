@@ -464,8 +464,12 @@
 #define SUB_SEQ_COACHING                              (454)
 #define SUB_SEQ_HANDLE_EMERGENCY_EXIT                 (455)
 #define SUB_SEQ_SHORE_UP                              (456)
+#define SUB_SEQ_LIFE_DEW                              (457)
+#define SUB_SEQ_ENTRAINMENT                           (458)
+#define SUB_SEQ_HOWL                                  (459)
+#define SUB_SEQ_DECORATE                              (460)
 
-#define MAX_BASE_SUBSCRIPT_NUM 456
+#define MAX_BASE_SUBSCRIPT_NUM 460
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -658,7 +662,7 @@
 #define ADD_STATUS_EFF_DRAIN_THREE_QUARTERS            (182)
 #define ADD_STATUS_EFF_JAW_LOCK                        (183)
 #define ADD_STATUS_EFF_TOXIC_THREAD                    (184)
-#define ADD_STATUS_EFF_MAKE_IT_RAIN	                   (185)
+#define ADD_STATUS_EFF_MAKE_IT_RAIN                    (185)
 #define ADD_STATUS_EFF_ATK_SP_ATK_SPEED_DOWN           (186)
 #define ADD_STATUS_EFF_ATK_SP_ATK_DOWN                 (187)
 #define ADD_STATUS_EFF_TAKE_HEART                      (188)
@@ -670,6 +674,10 @@
 #define ADD_STATUS_EFF_POLLEN_PUFF_HEAL                (194)
 #define ADD_STATUS_EFF_COACHING                        (195)
 #define ADD_STATUS_EFF_SHORE_UP                        (196)
+#define ADD_STATUS_EFF_LIFE_DEW                        (197)
+#define ADD_STATUS_EFF_ENTRAINMENT                     (198)
+#define ADD_STATUS_EFF_HOWL                            (199)
+#define ADD_STATUS_EFF_DECORATE                        (200)
 
 
 // additional effect constants

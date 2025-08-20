@@ -2714,6 +2714,7 @@ int BattlerController_CheckSubstituteBlockingStatDropsOrDecorate(struct BattleSy
                 case MOVE_EFFECT_SPEED_DOWN_3:
                 case MOVE_EFFECT_SP_ATK_DOWN_3:
                 case MOVE_EFFECT_SP_DEF_DOWN_3:
+                case MOVE_EFFECT_DECORATE:
                     return SUB_SEQ_DOESNT_AFFECT;
                     break;
 
@@ -3758,7 +3759,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
 // Edit: should be done? Need to double check
 BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     switch (ctx->current_move_index) {
-        case MOVE_LIFE_DEW: {
+        // temporarily handled in the life dew subscript because otherwise it doesn't fallthrough on the ally
+        /* case MOVE_LIFE_DEW: {
             if (ctx->battlemon[defender].hp == (s32)ctx->battlemon[defender].maxhp) {
                 ctx->battlerIdTemp = defender;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL);
@@ -3768,7 +3770,7 @@ BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bs
                 return TRUE;
             }
             break;
-        }
+        } */
         case MOVE_CORROSIVE_GAS: {
             if (ctx->battlemon[defender].item == ITEM_NONE
 #if CORROSIVE_GAS_IMPLIED_BEHAVIOUR == TRUE
@@ -3976,6 +3978,7 @@ int BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys U
         case MOVE_EFFECT_ATK_UP:
         case MOVE_EFFECT_ATK_UP_2:
         case MOVE_EFFECT_ATK_UP_3:
+        // case MOVE_EFFECT_HOWL: needs a dedicated case checking both it & partner, temp handled in effect
         // case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION: //handled below
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12) {
                 result = 1;
@@ -4029,6 +4032,11 @@ int BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys U
         case MOVE_EFFECT_ATK_DEF_UP:
         case MOVE_EFFECT_COACHING:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
+                result = 1;
+            }
+            break;
+        case MOVE_EFFECT_DECORATE:
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
                 result = 1;
             }
             break;
