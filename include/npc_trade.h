@@ -2,7 +2,7 @@
 #define POKEHEARTGOLD_NPC_TRADE_H
 
 #include "pokemon.h"
-#include "msgdata.h"
+#include "message.h"
 
 
 #define OT_ID_PRESET 1

@@ -133,7 +133,7 @@
 #define MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING              129
 #define MOVE_EFFECT_10_DAMAGE_FLAT                          130
 #define MOVE_EFFECT_UNUSED_131                              131
-#define MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN                   132
+#define MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER          132
 #define MOVE_EFFECT_UNUSED_133                              133
 #define MOVE_EFFECT_UNUSED_134                              134
 #define MOVE_EFFECT_RANDOM_TYPE_BASED_ON_IVS                135
@@ -375,19 +375,20 @@
 #define MOVE_EFFECT_MORTAL_SPIN                             369
 #define MOVE_EFFECT_TIDY_UP                                 370
 #define MOVE_EFFECT_PROTECT_USER_SIDE                       371
-#define MOVE_EFFECT_STRENGTH_SAP							372
-#define MOVE_EFFECT_HEAL_TARGET								373
-#define MOVE_EFFECT_POLLEN_PUFF								374
-#define MOVE_EFFECT_COACHING								375
-#define MOVE_EFFECT_DOUBLE_POWER_IF_FASTER					376
-#define MOVE_EFFECT_SHORE_UP								377
-#define MOVE_EFFECT_LIFE_DEW								378
-#define MOVE_EFFECT_ENTRAINMENT								379
-#define MOVE_EFFECT_HOWL							      	380
-#define MOVE_EFFECT_DECORATE								381
+#define MOVE_EFFECT_INCINERATE                              372
+#define MOVE_EFFECT_FIRST_TURN_ONLY                         373
+#define MOVE_EFFECT_STRENGTH_SAP							374
+#define MOVE_EFFECT_HEAL_TARGET								375
+#define MOVE_EFFECT_POLLEN_PUFF								376
+#define MOVE_EFFECT_COACHING								377
+#define MOVE_EFFECT_DOUBLE_POWER_IF_FASTER					378
+#define MOVE_EFFECT_SHORE_UP								379
+#define MOVE_EFFECT_LIFE_DEW								380
+#define MOVE_EFFECT_ENTRAINMENT								381
+#define MOVE_EFFECT_HOWL							      	382
+#define MOVE_EFFECT_DECORATE								383
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            381
-
+#define MAX_BASE_MOVE_EFFECT_NUM                            383
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
 

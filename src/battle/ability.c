@@ -88,12 +88,12 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     }
 
     // 02252FB0
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SOUNDPROOF) == TRUE)
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SOUNDPROOF) == TRUE
+     && attacker != defender
+     && (sp->moveTbl[sp->current_move_index].target & (RANGE_USER)) == 0
+     && IsMoveSoundBased(sp->current_move_index))
     {
-        if (IsMoveSoundBased(sp->current_move_index))
-        {
-            scriptnum = SUB_SEQ_SOUNDPROOF;
-        }
+        scriptnum = SUB_SEQ_SOUNDPROOF;
     }
 
     // 02252FDC
@@ -137,7 +137,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
             //scriptnum = SUB_SEQ_BOOST_STATS;
         }
     }
-	
+
     // Handle Lightning Rod
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LIGHTNING_ROD) == TRUE)
     {
@@ -267,7 +267,7 @@ BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int va
  *  @param client battler whose stats to compare among themselves for beast boost
  *  @return the highest raw stat the the client has (excluding HP)
  */
-u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
+u8 LONG_CALL BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
 {
     u16 stats[] = {
             sp->battlemon[client].attack,

@@ -1,6 +1,7 @@
 #include "../include/types.h"
 #include "../include/config.h"
 #include "../include/pokemon.h"
+#include "../include/bag.h"
 #include "../include/battle.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
@@ -42,7 +43,7 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
 
             // here is where a custom check would go.  replace the below for loop with your own checks
 
-            for (i = 0; i < MAX_MON_MOVES; ++i) 
+            for (i = 0; i < MAX_MON_MOVES; ++i)
             {
                 move = GetMonData(pp, MON_DATA_MOVE1 + i, NULL);
                 if (move == MOVE_NONE)
@@ -73,7 +74,7 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
     }
 
 
-    
+
     return count;
 }
 
@@ -120,4 +121,38 @@ void LONG_CALL sub_0207AFC4(struct PLIST_WORK *wk)
     sub_0207D1C8(wk);
     PartyMenu_PrintMessageOnWindow33(wk, -1, TRUE);
     thunk_Sprite_SetPalIndex(wk->sprites[PARTY_MENU_SPRITE_ID_CURSOR], 1);
+}
+
+/*
+ * @brief hooks rare candy usage in the bag to allow for repeated use without returning to the bag between each
+ * thanks to yako for the for the format
+ */
+int PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6(struct PLIST_WORK *wk) {
+    struct PartyPokemon *mon = Party_GetMonByIndex(wk->dat->pp, wk->pos);
+    wk->dat->after_mons = GetMonEvolution(wk->dat->pp, mon, EVOCTX_LEVELUP, EVO_NONE, (int *)&wk->dat->shinka_cond);
+    if (wk->dat->after_mons != SPECIES_NONE) {
+        wk->dat->ret_mode = 0x9;
+        return 0x20;
+    }
+    wk->dat->ret_mode = 0x0;
+    if (Bag_HasItem(wk->dat->myitem, wk->dat->item, 1, HEAP_ID_PARTY_MENU)) {
+        ClearFrameAndWindow2(&wk->windows[34], TRUE);
+        PartyMenu_PrintMessageOnWindow32(wk, 33, TRUE); // message index in 300.txt
+        return 0x4;
+    }
+    return 0x20;
+}
+
+/*
+ * @brief hooks into the ending of pokeheartgold PartyMenu_ItemUseFunc_WaitTextPrinterThenExit
+ * to allow for item reuse if not an evo item and the bag has more of the item
+ */
+int PartyMenu_ItemUseFunc_ReuseItem(struct PLIST_WORK *wk) {
+    wk->dat->ret_mode = 0;
+    if (GetItemData(wk->dat->item, ITEM_PARAM_EVOLUTION, HEAP_ID_PARTY_MENU) == 0 && Bag_HasItem(wk->dat->myitem, wk->dat->item, 1, HEAP_ID_PARTY_MENU)) {
+        ClearFrameAndWindow2(&wk->windows[34], TRUE);
+        PartyMenu_PrintMessageOnWindow32(wk, 33, TRUE); // message index in 300.txt
+        return 0x4;
+    }
+    return 0x20;
 }
