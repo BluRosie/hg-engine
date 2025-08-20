@@ -1401,6 +1401,11 @@ struct PACKED BattleStruct {
                int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
+               
+               u8 playerSideHasFaintedTeammateThisTurn : 2;// bitmask for Trainer on player side who has lost a Mon: either 0b01 (left), 0b10 (right), or 0b11 (both)
+               u8 enemySideHasFaintedTeammateThisTurn : 2; // ..enemy side... either 0b01, 0b10, or 0b11
+               u8 playerSideHasFaintedTeammateLastTurn : 2;
+               u8 enemySideHasFaintedTeammateLastTurn : 2;
 
                BOOL gemBoostingMove;
 };
@@ -3334,6 +3339,11 @@ typedef enum Terrain {
 #define BATTLER_ENEMY2  3
 #define BATTLER_MAX     4
 
+// For setting a Bitmask to flag trainer position on enemy/player side
+#define TRAINER_1     1 //0b01
+#define TRAINER_2     2 //0b10
+#define TRAINER_BOTH  (TRAINER_1 & TRAINER_2)
+
 /**
  *  @brief load in different battle bg and terrain
  *
@@ -3457,6 +3467,8 @@ void LONG_CALL BattleControllerPlayer_RunInput(struct BattleSystem *bsys, struct
 BOOL LONG_CALL CheckTruant(struct BattleStruct *ctx, int battlerId);
 
 void LONG_CALL CopyBattleMonToPartyMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
+u32 LONG_CALL MaskOfFlagNo(int flagno);
 
 int LONG_CALL LowestFlagNo(u32 mask);
 
@@ -3813,6 +3825,10 @@ typedef struct Trainer {
 Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battlerId);
 
 BOOL LONG_CALL TryEatOpponentBerry(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
+
+void LONG_CALL BattleController_EmitPlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* ctx, int batlterId);
+
+void LONG_CALL InitFaintedWork(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
 
 /**
  * @brief checks if the current move hits any oppsoing battler or ally

@@ -661,7 +661,32 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             }
             break;
         case MOVE_RETALIATE:
-            // TODO
+            {
+                BOOL teammateFaintedLastTurn = FALSE;
+                switch (attacker)
+                {
+                case BATTLER_PLAYER:
+                    if (sp->playerSideHasFaintedTeammateLastTurn == TRAINER_1 || sp->playerSideHasFaintedTeammateLastTurn == TRAINER_BOTH)
+                        teammateFaintedLastTurn = TRUE;
+                    break;
+                case BATTLER_ENEMY:
+                    if (sp->enemySideHasFaintedTeammateLastTurn == TRAINER_1 || sp->enemySideHasFaintedTeammateLastTurn == TRAINER_BOTH)
+                        teammateFaintedLastTurn = TRUE;
+                    break;
+                case BATTLER_PLAYER2:
+                    if (sp->playerSideHasFaintedTeammateLastTurn == TRAINER_2 || sp->playerSideHasFaintedTeammateLastTurn == TRAINER_BOTH)
+                        teammateFaintedLastTurn = TRUE;
+                    break;
+                case BATTLER_ENEMY2:
+                    if (sp->enemySideHasFaintedTeammateLastTurn == TRAINER_2 || sp->enemySideHasFaintedTeammateLastTurn == TRAINER_BOTH)
+                        teammateFaintedLastTurn = TRUE;
+                    break;
+                }
+
+                if (teammateFaintedLastTurn) {
+                    basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
+                }
+            }
             break;
         case MOVE_FUSION_FLARE:
             // TODO
