@@ -208,6 +208,7 @@ u16 move_effect_to_subscripts[] =
     [ADD_STATUS_EFF_HEAL_PULSE]                  = SUB_SEQ_HEAL_PULSE,
     [ADD_STATUS_EFF_POLLEN_PUFF_HEAL]            = SUB_SEQ_POLLEN_PUFF_HEAL,
     [ADD_STATUS_EFF_COACHING]                    = SUB_SEQ_COACHING,
+    [ADD_STATUS_EFF_SHORE_UP]                    = SUB_SEQ_SHORE_UP,
     [ADD_STATUS_EFF_LIFE_DEW]                    = SUB_SEQ_LIFE_DEW,
     [ADD_STATUS_EFF_ENTRAINMENT]                 = SUB_SEQ_ENTRAINMENT,
     [ADD_STATUS_EFF_HOWL]                        = SUB_SEQ_HOWL,
