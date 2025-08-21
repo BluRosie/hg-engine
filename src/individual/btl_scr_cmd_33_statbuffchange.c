@@ -255,9 +255,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 {
                     // The Pokémon with Flower Veil as an ability may not be the target of the move that triggers it. 
                     // We need to make sure it prints the correct name and ability regardless by keeping track of the client with Flower Veil. 
-                    u32 flower_veil_client;
-
-                    flower_veil_client = (GetBattlerAbility(sp, sp->state_client) == ABILITY_FLOWER_VEIL) ? sp->state_client : BATTLER_ALLY(sp->state_client);
+                    u32 flower_veil_client = (GetBattlerAbility(sp, sp->state_client) == ABILITY_FLOWER_VEIL) ? sp->state_client : BATTLER_ALLY(sp->state_client);
 
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
