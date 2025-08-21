@@ -528,3 +528,6 @@ arm9 GetMonMachineMoveCompat 0207224C 2
 arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
 0015 Bag_DrawMachineMoveLabel 021FE914 7
 0001 GetLearnableTutorMoves 02202D40 3
+
+# expand heal blocked moves
+0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
