@@ -13,6 +13,7 @@
 #define NEW_ITEM_GFX (797)
 
 static const u16 sMachineMoves[] = {
+    // vanilla TMs
     MOVE_FOCUS_PUNCH,      // TM001
     MOVE_DRAGON_CLAW,      // TM002
     MOVE_WATER_PULSE,      // TM003
@@ -106,6 +107,7 @@ static const u16 sMachineMoves[] = {
     MOVE_FLASH_CANNON,     // TM091
     MOVE_TRICK_ROOM,       // TM092
 
+    // vanilla HMs
     MOVE_CUT,              // HM01
     MOVE_FLY,              // HM02
     MOVE_SURF,             // HM03
@@ -115,8 +117,10 @@ static const u16 sMachineMoves[] = {
     MOVE_WATERFALL,        // HM07
     MOVE_ROCK_CLIMB,       // HM08
 
+    // HM07 (ORAS)
     MOVE_DIVE,             // HM07_ORAS
 
+    // expansion TMs
     MOVE_MEGA_PUNCH,       // TM00
     MOVE_FLASH_CANNON,     // TM093
     MOVE_DARK_PULSE,       // TM094
@@ -362,6 +366,7 @@ static const u16 sMachineMoves[] = {
 
 u16 GetItemIndex(u16 item, u16 type);
 void *GetItemArcData(u16 item, u16 type, u32 heap_id);
+u16 ItemToMachineMove(u16 itemId);
 //void *LONG_CALL ItemDataTableLoad(int heapID);
 void ItemMenuUseFunc_RevealGlass(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
 BOOL ItemFieldUseFunc_RevealGlass(struct ItemFieldUseData *data);
@@ -524,6 +529,70 @@ void *LONG_CALL ItemDataTableLoad(int heapID)
     return ArchiveDataLoadMallocOfs(ARC_ITEM_DATA, 0, heapID, 0, sizeof(ITEMDATA) * max);//800757Ch
 }
 
+/**
+ * @brief converts an item id to its corresponding TM/HM/TR index within sMachineMoves
+ * @see   pret/pokeheartgold ItemToTMHMId
+ */
+u16 ItemToMachineMoveIndex(u16 itemId) {
+    if (itemId >= ITEM_TM001 && itemId <= ITEM_HM08) {
+        return (itemId - ITEM_TM001);
+    }
+    if (itemId == ITEM_HM07_ORAS) {
+        return 100;
+    }
+    if (itemId == ITEM_TM00) {
+        return 101;
+    }
+    if (itemId >= ITEM_TM093 && itemId <= ITEM_TM095) {
+        return itemId - ITEM_TM093 + 102;
+    }
+    if (itemId >= ITEM_TM096 && itemId <= ITEM_TM100) {
+        return itemId - ITEM_TM096 + 105;
+    }
+    if (itemId >= ITEM_TM100_SV && itemId <= ITEM_TM229) {
+        return itemId - ITEM_TM100_SV + 110;
+    }
+    if (itemId >= ITEM_TR00 && itemId <= ITEM_TR99) {
+        return itemId - ITEM_TR00 + 240;
+    }
+    
+    return 0;
+}
+
+/**
+ * @brief converts an item id to its corresponding TM/HM/TR move id
+ * @see   pret/pokeheartgold TMHMGetMove
+ */
+u16 ItemToMachineMove(u16 itemId) {
+    if (itemId < ITEM_TM001) {
+        return MOVE_NONE;
+    }
+
+    u16 index = ItemToMachineMoveIndex(itemId);
+    if (index >= sizeof(sMachineMoves) + 1) {
+        return MOVE_NONE;
+    }
+    return sMachineMoves[index];
+}
+
+BOOL ItemIsMachineMove(u16 itemId) {
+    debug_printf("ItemIsMachineMove\n");
+    return IS_ITEM_HM(itemId) || IS_ITEM_TM(itemId) || IS_ITEM_TR(itemId);
+}
+
+BOOL MoveIsHM(u16 moveId) {
+    for (u8 i = 0; i < NUM_HMS; i++) {
+        if (sMachineMoves[i + ITEM_HM01 - ITEM_TM001] == moveId) {
+#if defined(REUSABLE_TMS) && defined(DELETABLE_HMS)
+            return FALSE;
+#else
+            return TRUE;
+#endif
+        }
+    }
+    return FALSE;
+}
+
 void ItemMenuUseFunc_RevealGlass(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
 {
     FieldSystem *fieldSystem = data->taskManager->fieldSystem; //TaskManager_GetFieldSystem(data->taskManager);
@@ -584,72 +653,4 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
     struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, data->itemId);
     sub_0203C8F0(env, 0x0203CA9C | 1);
-}
-
-enum {
-    BASE_VANILLA   = 0,                                                // TM001..HM08 (vanilla)
-    BASE_HM07_ORAS = BASE_VANILLA + (ITEM_HM08 - ITEM_TM001 + 1),      // HM07_ORAS (single)
-    BASE_TM00      = BASE_HM07_ORAS + 1,                               // TM00 (single)
-    BASE_TM093     = BASE_TM00 + 1,                                    // TM093..TM095
-    BASE_TM096     = BASE_TM093 + (ITEM_TM095 - ITEM_TM093 + 1),       // TM096..TM100
-    BASE_TM100_SV  = BASE_TM096 + (ITEM_TM100 - ITEM_TM096 + 1),       // TM100_SV..TM229
-    BASE_TR00      = BASE_TM100_SV + (ITEM_TM229 - ITEM_TM100_SV + 1), // TR00..TR99
-};
-
-/**
- * @brief converts an item id to its corresponding TM/HM/TR index within sMachineMoves
- * @see   pret/pokeheartgold ItemToTMHMId
- */
-u16 ItemToMachineMoveIndex(u16 itemId) {
-    if (itemId >= ITEM_TM001 && itemId <= ITEM_HM08)
-        return (itemId - ITEM_TM001);
-
-    if (itemId == ITEM_HM07_ORAS)
-        return BASE_HM07_ORAS;
-
-    if (itemId == ITEM_TM00)
-        return BASE_TM00;
-
-    if (itemId >= ITEM_TM093 && itemId <= ITEM_TM095)
-        return (BASE_TM093 + (itemId - ITEM_TM093));
-
-    if (itemId >= ITEM_TM096 && itemId <= ITEM_TM100)
-        return (BASE_TM096 + (itemId - ITEM_TM096));
-
-    if (itemId >= ITEM_TM100_SV && itemId <= ITEM_TM229)
-        return (BASE_TM100_SV + (itemId - ITEM_TM100_SV));
-
-    if (itemId >= ITEM_TR00 && itemId <= ITEM_TR99)
-        return (BASE_TR00 + (itemId - ITEM_TR00));
-
-    return 0;
-}
-
-/**
- * @brief converts an item id to its corresponding TM/HM/TR move id
- * @see   pret/pokeheartgold TMHMGetMove
- */
-u16 ItemToMachineMove(u16 itemId) {
-    if (itemId < ITEM_TM001) {
-        return MOVE_NONE;
-    }
-
-    u16 index = ItemToMachineMoveIndex(itemId);
-    if (index >= sizeof(sMachineMoves) + 1) {
-        return MOVE_NONE;
-    }
-    return sMachineMoves[index];
-}
-
-BOOL MoveIsHM(u16 moveId) {
-    for (u8 i = 0; i < NUM_HMS; i++) {
-        if (sMachineMoves[i + ITEM_HM01 - ITEM_TM001] == moveId) {
-#if defined(REUSABLE_TMS) && defined(DELETABLE_HMS)
-            return FALSE;
-#else
-            return TRUE;
-#endif
-        }
-    }
-    return FALSE;
 }

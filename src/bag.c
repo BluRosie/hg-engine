@@ -507,6 +507,7 @@ u16 GetMachineMoveNumber(u16 itemId) {
     if (itemId >= ITEM_TR00 && itemId <= ITEM_TR99) {
         return itemId - ITEM_TR00;
     }
+    
     return 0;
 }
 
