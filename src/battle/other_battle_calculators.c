@@ -1475,6 +1475,7 @@ u8 LONG_CALL UpdateTypeEffectiveness(struct BattleStruct* sp, int defence_client
 // TODO: Refactor this function
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag) {
     int i = 0;
+    int aggregateEffectiveness = TYPE_MUL_NO_EFFECT;
     u8 attacker_type_1 UNUSED = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL));
     u8 attacker_type_2 UNUSED = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL));
     // https://xcancel.com/Sibuna_Switch/status/1827463371383328877#m
@@ -1483,8 +1484,10 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
 
     u32 type1Effectiveness = TYPE_MUL_NORMAL;
     u32 type2Effectiveness = TYPE_MUL_NORMAL;
+    u32 type3Effectiveness = TYPE_MUL_NORMAL;
+    u32 type4Effectiveness = TYPE_MUL_NORMAL;
 
-    // TODO: handle Ring Target, Thousand Arrows, Freeze-Dry, Flying Press
+    // TODO: handle Thousand Arrows
 
     if (GetSanitisedType(move_type) == TYPE_STELLAR && !sp->battlemon[attack_client].is_currently_terastallized) {
         return TYPE_MUL_NO_EFFECT;
@@ -1517,30 +1520,64 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
             }
             // TODO: Handle type3, Tera Type
         }
+        if (sp->current_move_index == MOVE_FLYING_PRESS && TypeEffectivenessTable[i][0] == TYPE_FLYING)
+        {
+            if (TypeEffectivenessTable[i][1] == defender_type_1)
+            {
+                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE)
+                {
+                    type3Effectiveness = TypeEffectivenessTable[i][2];
+                    TypeCheckCalc(sp, attack_client, type3Effectiveness, 42, 42, flag);
+                }
+            }
+            if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2))
+            {
+                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE)
+                {
+                    type4Effectiveness = TypeEffectivenessTable[i][2];
+                    TypeCheckCalc(sp, attack_client, type4Effectiveness, 42, 42, flag);
+                }
+            }
+        }
         i++;
     }
 
-    // TODO: Refactor!!!
-    if (type1Effectiveness == TYPE_MUL_NO_EFFECT || type2Effectiveness == TYPE_MUL_NO_EFFECT) {
-        return TYPE_MUL_NO_EFFECT;
+    switch (type1Effectiveness * type2Effectiveness * type3Effectiveness * type4Effectiveness)
+    {
+        case EFFECTIVENESS_MULT_QUADRUPLE_SUPER_EFFECTIVE:
+            aggregateEffectiveness = TYPE_MUL_QUADRUPLE_SUPER_EFFECTIVE;
+            break;
+        case EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE:
+            aggregateEffectiveness = TYPE_MUL_TRIPLE_SUPER_EFFECTIVE;
+            break;
+        case EFFECTIVENESS_MULT_DOUBLE_SUPER_EFFECTIVE:
+            aggregateEffectiveness = TYPE_MUL_DOUBLE_SUPER_EFFECTIVE;
+            break;
+        case EFFECTIVENESS_MULT_SUPER_EFFECTIVE:
+            aggregateEffectiveness = TYPE_MUL_SUPER_EFFECTIVE;
+            break;
+        case EFFECTIVENESS_MULT_NORMAL:
+            aggregateEffectiveness = TYPE_MUL_NORMAL;
+            break;
+        case EFFECTIVENESS_MULT_NOT_EFFECTIVE:
+            aggregateEffectiveness = TYPE_MUL_NOT_EFFECTIVE;
+            break;
+        case EFFECTIVENESS_MULT_DOUBLE_NOT_EFFECTIVE:
+            aggregateEffectiveness = TYPE_MUL_DOUBLE_NOT_EFFECTIVE;
+            break;
+        case EFFECTIVENESS_MULT_TRIPLE_NOT_EFFECTIVE:
+            aggregateEffectiveness = TYPE_MUL_TRIPLE_NOT_EFFECTIVE;
+            break;
+        case EFFECTIVENESS_MULT_QUADRUPLE_NOT_EFFECTIVE:
+            aggregateEffectiveness = TYPE_MUL_QUADRUPLE_NOT_EFFECTIVE;
+            break;
+        case 0:
+            aggregateEffectiveness = TYPE_MUL_NO_EFFECT;
+            break;
+        default:
+            break;
     }
-    if (type1Effectiveness == TYPE_MUL_NOT_EFFECTIVE && type2Effectiveness == TYPE_MUL_NOT_EFFECTIVE) {
-        return TYPE_MUL_DOUBLE_NOT_EFFECTIVE;
-    }
-    if ((type1Effectiveness == TYPE_MUL_SUPER_EFFECTIVE && type2Effectiveness == TYPE_MUL_NOT_EFFECTIVE)
-    || (type2Effectiveness == TYPE_MUL_SUPER_EFFECTIVE && type1Effectiveness == TYPE_MUL_NOT_EFFECTIVE)) {
-        return TYPE_MUL_NORMAL;
-    }
-    if (type1Effectiveness == TYPE_MUL_NORMAL) {
-        return type2Effectiveness;
-    }
-    if (type2Effectiveness == TYPE_MUL_NORMAL) {
-        return type1Effectiveness;
-    }
-    if (type1Effectiveness == type2Effectiveness && type1Effectiveness == TYPE_MUL_SUPER_EFFECTIVE) {
-        return TYPE_MUL_DOUBLE_SUPER_EFFECTIVE;
-    }
-    return TYPE_MUL_NO_EFFECT;
+    return aggregateEffectiveness;
 }
 
 /**
@@ -1642,6 +1679,23 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                     {
                         modifier *= 2;
                     }
+                }
+            }
+        }
+        if (sp->current_move_index == MOVE_FLYING_PRESS && TypeEffectivenessTable[i][0] == TYPE_FLYING)
+        {
+            if (TypeEffectivenessTable[i][1] == defender_type_1)
+            {
+                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE)
+                {
+                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
+                }
+            }
+            if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2))
+            {
+                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE)
+                {
+                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
                 }
             }
         }
