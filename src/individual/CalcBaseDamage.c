@@ -212,18 +212,6 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     }
 
     // https://web.archive.org/web/20241226231016/https://www.trainertower.com/dawoblefets-damage-dissertation/
-
-    switch (moveno) {
-        // handle body press - attack is derived from defense
-        case MOVE_BODY_PRESS:
-            AttackingMon.attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL) + BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_DEF, NULL);
-            AttackingMon.atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) + BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_DEF, NULL) - 12;
-            break;
-        default:
-            AttackingMon.attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
-            AttackingMon.atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
-            break;
-    }
     
     //AttackingMon.attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
     DefendingMon.attack = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_ATK, NULL);
@@ -286,6 +274,22 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     DefendingMon.item_power = BattleItemDataGet(sp, item, 2);
 
     movesplit = GetMoveSplit(sp, moveno);
+
+    switch (moveno) {
+        // handle body press - attack is derived from defense
+		case MOVE_BODY_PRESS:
+            AttackingMon.attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL) + BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_DEF, NULL);
+            AttackingMon.atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) + BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_DEF, NULL) - 12;
+            break;
+        case MOVE_FOUL_PLAY:
+            AttackingMon.attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL) + DefendingMon.attack;
+            AttackingMon.atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) + DefendingMon.atkstate - 12;
+            break;
+        default:
+            AttackingMon.attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
+            AttackingMon.atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
+            break;
+    }
 
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DISGUISE) == TRUE)
     && (sp->battlemon[defender].species == SPECIES_MIMIKYU)
@@ -1167,15 +1171,10 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
 #endif
 
     // Step 3.2. handle Foul Play
-    if (moveno == MOVE_FOUL_PLAY) {
+    /*if (moveno == MOVE_FOUL_PLAY) {
         AttackingMon.attack = DefendingMon.attack;
         AttackingMon.atkstate = DefendingMon.atkstate;
-    }
-	
-    if (moveno == MOVE_NIGHT_DAZE) {
-        AttackingMon.sp_attack = DefendingMon.sp_attack;
-        AttackingMon.spatkstate = DefendingMon.spatkstate;
-    }
+    }*/
 
 #ifdef DEBUG_DAMAGE_CALC
     debug_printf("\n=================\n");

@@ -1800,7 +1800,6 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         if (
 			(ctx->waitingBattlers == 1)
 			|| (ctx->protectSuccessTurns[ctx->attack_client] > 0)
-			)
 		) {
             ctx->server_seq_no = CONTROLLER_COMMAND_25;
             ctx->waza_status_flag |= MOVE_STATUS_FLAG_FAILED;
@@ -3747,7 +3746,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
 // TODO: implement new mechanics
 // Edit: should be done? Need to double check
 BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
-    switch (ctx->moveTbl[ctx->current_move_index]) {
+    switch (ctx->current_move_index) {
         case MOVE_LIFE_DEW: {
             if (ctx->battlemon[defender].hp == (s32)ctx->battlemon[defender].maxhp) {
                 ctx->battlerIdTemp = defender;

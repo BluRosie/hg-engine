@@ -1631,7 +1631,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
         {
             if (TypeEffectivenessTable[i][1] == defender_type_1)
             {
-                if (
+                if ((
 					ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
 					&& !(
 						!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
@@ -1644,7 +1644,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
 					(sp->current_move_index == MOVE_FREEZE_DRY)
 					&& (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE)
 					&& defender_type_1 == TYPE_WATER
-				)
+				))
                 {
                     damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
                     if (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
@@ -1655,7 +1655,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
             }
             if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2))
             {
-                if (
+                if ((
 					ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE
 					&& !(
 						!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
@@ -1668,7 +1668,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
 					(sp->current_move_index == MOVE_FREEZE_DRY)
 					&& (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE)
 					&& defender_type_2 == TYPE_WATER
-				)
+				))
                 {
                     damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
                     if (TypeEffectivenessTable[i][2] == EFFECTIVENESS_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere

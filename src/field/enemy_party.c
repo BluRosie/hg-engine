@@ -314,16 +314,6 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
                 offset += 2;
             }
 
-            // custom types field
-            if(additionalflags & TRAINER_DATA_EXTRA_TYPE_TYPES)
-            {
-                for(j = 0; j < 2; j++)
-                {
-                    types[j] = buf[offset];
-                    offset++;
-                }
-            }
-
             // move PP counts field
             if(additionalflags & TRAINER_DATA_EXTRA_TYPE_PP_COUNTS)
             {

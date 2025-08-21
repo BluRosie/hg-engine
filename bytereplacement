@@ -523,10 +523,21 @@ arm9 080550D4 2C
 
 #endif
 
-# _CreateTradeMon_hook setup
-0023 02259C40 60 B4 C0 46
-
 #ifdef DEBUG_PRINT_HEAP_ALLOCATION
 ## AllocFromHeapInternal func setup
 #arm9 0201AA38 60 B4 C0 46
 #endif
+
+
+
+# change the string displayed when a mon learns a tm without having to overwrite a move
+arm9 020821B0 DB
+
+# nop out heal bell soundproof check on the user
+# notably not on the ally
+0012 02241172 00 00
+# nop out heal bell check for healing mons in the party using heal bell
+0012 022593A4 00 00 00 00
+
+# nop out selection of cancel when the item won't have an effect
+arm9 0207C3AC 00 00 00 00

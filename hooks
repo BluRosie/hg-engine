@@ -503,8 +503,8 @@ arm9 sub_0207AFC4 0207AFC4 1
 
 0012 BattleSystem_BufferMessage 0223C754 2
 
-#02259C40(+4)  _CreateTradeMon	(npc_trade.o)
-0023 _CreateTradeMon_hook 02259C44 5
+# 02259C40  _CreateTradeMon	(npc_trade.o)
+0023 _CreateTradeMon 02259C40
 
 #ifdef DEBUG_PRINT_HEAP_ALLOCATION
 
@@ -520,6 +520,12 @@ arm9 CreateHeapInternal_hook 0201A92C 4
 arm9 DestroyHeap_hook 0201AA24 3
 
 #endif
+
+# expand metronome move pool
+0012 load_max_move_num_metronome 022408AC 0
+
+arm9 PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook 02081E54 0
+arm9 PartyMenu_ItemUseFunc_ReuseItem_hook 0208138C 3
 
 arm9 CalcMonStats 0206E27C 2
 0012 BtlCmd_TryProtection 022413B4 3
