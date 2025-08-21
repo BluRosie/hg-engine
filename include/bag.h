@@ -261,7 +261,7 @@ void LONG_CALL BagView_SetItem(void *bagView, ITEM_SLOT *slots, u8 pocketId, u8 
 void LONG_CALL sub_0200CE7C(void *msgPrinter, u8 glyphId, u32 num, u32 ndigits, u32 mode, void *window, u32 x, u32 y);
 void LONG_CALL ov15_021FE8C4(void *context, u32 packedArgs);
 // vanilla HM + new TM/TR rendering
-void LONG_CALL sub_0200CDF0(void *msgPrinter, u32 glyphId, u32 ndigits, u32 mode, void *window, s16 x, u16 y);
+void LONG_CALL PrintUIntOnWindow(void *messagePrinter, u32 num, u32 ndigits, u32 mode, void *window, u32 x, u32 y);
 void LONG_CALL ov15_021FE9B0(void *context, void *target, u16 y); // overriding param 3 for our sprite
 
 #endif //POKEHEARTGOLD_BAG_H

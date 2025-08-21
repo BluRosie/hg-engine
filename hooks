@@ -522,10 +522,11 @@ arm9 BufferItemNameWithIndefArticle 0200C100 4
 arm9 BufferItemNamePlural 0200C134 4
 arm9 GetItemDescIntoString 02077D64 7
 
+# arm9 ItemIsTMOrHM 0205BBB8 2
 arm9 ItemToMachineMoveIndex 0207804C 1
 arm9 ItemToMachineMove 02078000 1
 arm9 MoveIsHM 02078024 1
 arm9 GetMonMachineMoveCompat 0207224C 2
 arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
-0015 Bag_DrawMachineMoveLabel 021FE914 7
+0015 Bag_DrawMachineMoveLabel 021FE914 5
 0001 GetLearnableTutorMoves 02202D40 3

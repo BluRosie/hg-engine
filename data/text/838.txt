@@ -49,7 +49,7 @@ If a Pokémon holding this Berry is\nhit with a supereffective Fairy-type\nmove,
 If a Pokémon holding this Berry is\nhit with a physical move, the\nholder’s Defense stat will be\rboosted.
 If a Pokémon holding this Berry is\nhit with a special move, the\nholder’s Sp. Def stat will be\rboosted.
 A watering can shaped like a Lotad.\nIt helps promote the healthy growth\nof any Berries planted in good, soft\rsoil.
-The user's body generates an eerie\nimpulse. Exposing the target to it\nharshly lowers the target's Sp. Atk\rstat.
+The user’s body generates an eerie\nimpulse. Exposing the target to it\nharshly lowers the target’s Sp. Atk\rstat.
 The user soars, then strikes on the\nsecond turn. It can also be used for\nflying to any familiar town.
 The user employs its psychic power\nto exchange abilities with the foe.
 The foe slams the target with its\nsteel-hard head. It may also make\nthe target flinch.

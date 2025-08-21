@@ -762,5 +762,5 @@ SetStringAsPlaceholder = 0x0200BDF8 | 1;
 /* machine move expansion */
 sub_0200CE7C = 0x0200CE7C | 1;
 ov15_021FE8C4 = 0x021FE8C4 | 1;
-sub_0200CDF0 = 0x0200CDF0 | 1;
+PrintUIntOnWindow = 0x0200CDF0 | 1;
 ov15_021FE9B0 = 0x021FE9B0 | 1;

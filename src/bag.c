@@ -530,11 +530,11 @@ void LONG_CALL Bag_DrawMachineMoveLabel(void *context, void *window, const u16 *
         icon = BAG_TR_ICON;
     }
 
-    sub_0200CDF0(msgPrinter, machineMoveNumber, numDigits, 2, window, 24, baseY + 5);
+    PrintUIntOnWindow(msgPrinter, machineMoveNumber, numDigits, 2, window, 24, baseY + 5);
     ov15_021FE9B0(context, window, icon);
 #else
     if (IS_ITEM_HM(itemId)) {
-        sub_0200CDF0(msgPrinter, machineMoveNumber, 2, 1, window, 0x10, baseY + 5);
+        PrintUIntOnWindow(msgPrinter, machineMoveNumber, 2, 1, window, 0x10, baseY + 5);
         ov15_021FE9B0(context, window, BAG_HM_ICON);
     } else {
         u16 labelId = args[1];
