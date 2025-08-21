@@ -3573,3 +3573,51 @@ const u8 InternalTypeToHGType[] = {
 int GetSanitisedType(int type) {
     return InternalTypeToHGType[HGTypeToInternalType[type] & 0x1F];
 }
+
+BOOL LONG_CALL ServerIkariCheck(void*, struct BattleStruct *ctx) {
+    BOOL ret = FALSE;
+
+    if (ctx->defence_client == BATTLER_NONE) {
+        return ret;
+    }
+
+    if ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_RAGE)
+        && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)
+        && ctx->defence_client != ctx->attack_client
+        && ctx->battlemon[ctx->defence_client].hp != 0
+        && (ctx->oneSelfFlag[ctx->defence_client].physical_damage != 0 || ctx->oneSelfFlag[ctx->defence_client].special_damage != 0)
+        && ctx->battlemon[ctx->defence_client].states[STAT_ATTACK] < 12) {
+		ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
+		ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+		ctx->state_client = ctx->defence_client;
+		ctx->battlerIdTemp = ctx->defence_client;
+		LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
+		ctx->next_server_seq_no = ctx->server_seq_no;
+		ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+		ret = TRUE;
+    }
+
+    return ret;
+}
+
+void InitializeTurn(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    int battlerId;
+	
+    for (battlerId = 0; battlerId < 4; battlerId++) {
+        MIi_CpuClearFast(0, (u32 *)&ctx->oneTurnFlag[battlerId], sizeof(struct OneTurnEffect));
+        MIi_CpuClearFast(0, (u32 *)&ctx->moveOutCheck[battlerId], sizeof(struct MoveOutCheck));
+        ctx->battlemon[battlerId].condition2 &= ~STATUS2_FLINCH;
+        if (ctx->battlemon[battlerId].moveeffect.rechargeCount + 1 < ctx->total_turn) {
+            ctx->battlemon[battlerId].condition2 &= ~STATUS2_RECHARGE;
+        }
+        /*if ((ctx->battlemon[battlerId].condition & STATUS_SLEEP) && (ctx->battlemon[battlerId].condition2 & STATUS2_LOCKED_INTO_MOVE)) {
+            UnlockBattlerOutOfCurrentMove(bsys, ctx, battlerId);
+        }
+        if ((ctx->battlemon[battlerId].condition & STATUS_SLEEP) && (ctx->battlemon[battlerId].condition2 & STATUS2_RAMPAGE)) {
+            ctx->battlemon[battlerId].condition2 &= ~STATUS2_RAMPAGE;
+        }*/
+    }
+
+    ctx->scw[0].followMeFlag = 0;
+    ctx->scw[1].followMeFlag = 0;
+}

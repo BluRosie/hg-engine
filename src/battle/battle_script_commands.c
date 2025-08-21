@@ -4003,3 +4003,108 @@ BOOL BtlCmd_CheckEffectActivation(struct BattleSystem *bsys, struct BattleStruct
 
     return FALSE;
 }
+
+BOOL BtlCmd_CalcPunishmentPower(void *bsys UNUSED, struct BattleStruct *ctx) {
+    int stat, cnt;
+	
+    IncrementBattleScriptPtr(ctx, 1);
+
+    cnt = 0;
+    for (stat = 0; stat < 8; stat++) {
+        if (ctx->battlemon[ctx->defence_client].states[stat] > 6) {
+            cnt += ctx->battlemon[ctx->defence_client].states[stat] - 6;
+        }
+    }
+
+    ctx->damage_power = 40 + 20 * cnt;
+
+    return FALSE;
+}
+
+u16 sNaturePowerMoveTable[] =
+{
+	MOVE_EARTH_POWER, //TERRAIN_PLAIN
+	MOVE_EARTH_POWER, //TERRAIN_SAND
+	MOVE_ENERGY_BALL, //TERRAIN_GRASS
+	MOVE_ENERGY_BALL, //TERRAIN_PUDDLE
+	MOVE_POWER_GEM,  //TERRAIN_MOUNTAIN
+	MOVE_POWER_GEM, //TERRAIN_CAVE
+	MOVE_BLIZZARD, //TERRAIN_SNOW
+	MOVE_HYDRO_PUMP, //TERRAIN_WATER
+	MOVE_ICE_BEAM, //TERRAIN_ICE
+	MOVE_TRI_ATTACK, //TERRAIN_BUILDING
+	MOVE_MUD_BOMB, //TERRAIN_GREAT_MARSH unused
+	MOVE_AIR_SLASH, //TERRAIN_UNKNOWN unused
+	MOVE_TRI_ATTACK, //TERRAIN_OTHERS and beyond
+};
+
+BOOL BtlCmd_GetTerrainMove(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+	
+	switch (ctx->terrainOverlay.type)
+	{
+		case GRASSY_TERRAIN:
+			ctx->waza_work = MOVE_ENERGY_BALL;
+			break;
+		case ELECTRIC_TERRAIN:
+			ctx->waza_work = MOVE_THUNDERBOLT;
+			break;
+		case MISTY_TERRAIN:
+			ctx->waza_work = MOVE_MOONBLAST;
+			break;
+		case PSYCHIC_TERRAIN:
+			ctx->waza_work = MOVE_PSYCHIC;
+			break;
+		case TERRAIN_NONE:
+		default:
+			int terrain = bsys->terrain;
+			if (terrain > 12) {
+				terrain = 12;
+			}
+			ctx->waza_work = sNaturePowerMoveTable[terrain];
+			break;
+	}
+
+    return FALSE;
+}
+
+BOOL BtlCmd_CalcGyroBallPower(void *bsys UNUSED, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    ctx->damage_power = 25 * ctx->effectiveSpeed[ctx->defence_client] / ctx->effectiveSpeed[ctx->attack_client];
+	
+	if (ctx->damage_power < 40) {
+        ctx->damage_power = 40;
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_CUSTOM_storedpowerdamagecalc(void *bsys UNUSED, struct BattleStruct *ctx) {
+    int stat, cnt;
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    cnt = 0;
+    for (stat = 0; stat < 8; stat++) {
+        if (ctx->battlemon[ctx->attack_client].states[stat] > 6) {
+            cnt += ctx->battlemon[ctx->attack_client].states[stat] - 6;
+        }
+    }
+
+    ctx->damage_power = 40 + 20 * cnt;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_CUSTOM_electroballdamagecalc(void *bsys UNUSED, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    ctx->damage_power = 25 * ctx->effectiveSpeed[ctx->attack_client] / ctx->effectiveSpeed[ctx->defence_client];
+	
+	if (ctx->damage_power < 40) {
+        ctx->damage_power = 40;
+    }
+
+    return FALSE;
+}

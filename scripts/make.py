@@ -134,24 +134,45 @@ def GetSymbols() -> {str: int}:
     return ret
 
 
-def Hook(rom: _io.BufferedReader, space: int, hookAt: int, register=0):
+def Hook(rom: _io.BufferedReader, space: int, hookAt: int, register=0, memAddress=0):
     # Align 2
     if hookAt & 1:
         hookAt -= 1
 
     rom.seek(hookAt)
 
-    if (register > 7):
+    if (register > 7 and register != 0xFF):
         print("Register used to hook at " + str(space) + " is > 7 (r" + str(register) + " used).  Modulo'd by 8.")
-    register &= 7
+        register &= 7
 
-    if hookAt % 4:
-        data = bytes([0x01, 0x48 | register, 0x00 | (register << 3), 0x47, 0x0, 0x0])
-    else:
-        data = bytes([0x00, 0x48 | register, 0x00 | (register << 3), 0x47])
+    if (register != 0xFF):
+        if hookAt % 4:
+            data = bytes([0x01, 0x48 | register, 0x00 | (register << 3), 0x47, 0x0, 0x0])
+        else:
+            data = bytes([0x00, 0x48 | register, 0x00 | (register << 3), 0x47])
+        space += 1
+        data += (space.to_bytes(4, 'little'))
+    else: # register == 0xFF is an unspecified register
+        if (memAddress & 0x08000000):
+            print("Error:  Need to specify a memory address (02XXXXXX) for total function replacement instead of an absolute offset.")
+            sys.exit(1)
+        immediate = int((space - (memAddress + 0xE)) / 2)
+        immediateHigher = (immediate >> 11) & 0x3FF
+        immediateLower = immediate & 0x7FF
+        # requires 0x1C of space
+        # see documentation/testing_hook.s for the assembly here
+        data = bytes([0x60, 0xB4, 0x04, 0x4D, 0x76, 0x46, 0x2E, 0x60, 0x60, 0xBC,
+            # memAddress > space would result in negative immediate
+            # i suppose all higher bits would be set and this wouldn't be necessary, but this is a mind safety deal i fear
+            immediateHigher & 0xFF, (0xF0 | ((immediateHigher >> 8) & 0x3) | (0x4 if (memAddress+0xE) > space else 0)),
+            immediateLower & 0xFF, (0xF8 | ((immediateLower >> 8) & 0x7)),
+            0x01, 0x49, 0x09, 0x68, 0x8F, 0x46])
+        #print(f"bl construction: space = {space:08X}, hookAt = {hookAt:06X}, memAddress = {memAddress:08X}, immediate = {immediate:06X}, {immediateHigher:03X} {immediateLower:03X}")
+        #for i in range(0, len(data)):
+        #    print(f"{data[i]:02X}", end=' ')
+        #print("")
+        data += ((memAddress + 0x18).to_bytes(4, 'little'))
 
-    space += 1
-    data += (space.to_bytes(4, 'little'))
     rom.write(bytes(data))
 
 
@@ -318,7 +339,11 @@ def hook():
                 if line.strip().startswith('#') or line.strip() == '':
                     continue
 
-                files, symbol, address, register = line.split()
+                if (len(line.split()) == 4):
+                    files, symbol, address, register = line.split()
+                else:
+                    files, symbol, address = line.split()
+                    register = "255"
                 #offset = int(address, 16) - 0x08000000
                 try:
                     code = table[symbol]
@@ -333,7 +358,7 @@ def hook():
                     with open("base/overarm9.bin", 'rb+') as y9Table:
                         y9Table.seek((int(files)*0x20)+0x4) # read the overlay memory address for offset calculation
                         offset = int(address, 16) - struct.unpack_from("<I", y9Table.read(4))[0] if int(address, 16) & 0x02000000 else int(address, 16) - 0x08000000
-                Hook(rom2, code, offset, int(register))
+                Hook(rom2, code, offset, int(register), int(address, 16))
                 rom2.close()
 
 
@@ -385,10 +410,12 @@ def writeall():
                     if "ORIGIN" in line:
                         address = int(line.split()[4][len("0x"):], 0x10)
                         break
+            rom.seek(0, 2)
+            memSize = rom.tell()
             y9Table.seek(129*0x20) # seek address
             y9Table.write(struct.pack('<I', 129)) # id
             y9Table.write(struct.pack('<I', address)) # memaddress
-            y9Table.write(struct.pack('<I', os.path.getsize("base/overlay/overlay_0129.bin"))) # memsize
+            y9Table.write(struct.pack('<I', memSize)) # memsize
             y9Table.write(struct.pack('<I', 0)) # bsssize
             y9Table.write(struct.pack('<I', 0)) # initstart
             y9Table.write(struct.pack('<I', 0)) # initend

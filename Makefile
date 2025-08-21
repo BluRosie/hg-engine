@@ -3,19 +3,26 @@
 ROMNAME = rom.nds
 BUILDROM = test.nds
 
-DESIRED_GAMECODE := IPKE
-GAMECODE = $(shell dd bs=1 skip=12 count=4 if=$(ROMNAME) status=none)
-VALID_GAMECODE = $(shell echo $(GAMECODE) | grep -i -q $(DESIRED_GAMECODE); echo $$?)
-
 define n
 
 
 endef
 
 # Check if user cloned git repository correctly first thing to prevent excessive user enquiries
+# add an exception for the path to hg-engine that is normally in the docker container
+ifneq ($(shell pwd),/hg-engine)
 ifneq ($(shell git rev-parse --is-inside-work-tree 2>/dev/null), true)
 $(error Current directory is not a git repository. Please follow the instructions in the README: https://github.com/BluRosie/hg-engine)
 endif
+endif
+
+ifneq ($(shell pwd | grep -i 'onedrive'),)
+$(error "Do not put files into OneDrive.  Please clone the repository in a different folder." )
+endif
+
+DESIRED_GAMECODE := IPKE
+GAMECODE = $(shell dd bs=1 skip=12 count=4 if=$(ROMNAME) status=none)
+VALID_GAMECODE = $(shell echo $(GAMECODE) | grep -i -q $(DESIRED_GAMECODE); echo $$?)
 
 ifneq ($(VALID_GAMECODE), 0)
 # invalid rom detected based on gamecode.  this primarily catches other-language roms
@@ -72,12 +79,6 @@ endif
 
 .PHONY: clean all
 
-ifeq ($(MSYS2), 0)
-CSC := csc
-else
-CSC := mcs -pkg:dotnet
-endif
-
 default: all
 
 ifneq ($(PYTHON_VENV_VERSION), 0)
@@ -104,8 +105,6 @@ NDSTOOL := tools/ndstool
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
 O2NARC := tools/o2narc
 SDATTOOL := $(PYTHON) tools/SDATTool.py
-SWAV2SWAR_EXE := tools/swav2swar.exe
-SWAV2SWAR := mono $(SWAV2SWAR_EXE)
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
@@ -152,17 +151,13 @@ $(MSGENC): tools/source/msgenc/*
 
 TOOLS += $(MSGENC)
 
-$(SWAV2SWAR_EXE): tools/source/swav2swar/Principal.cs
-	cd tools ; $(CSC) /target:exe /out:swav2swar.exe "source/swav2swar/Principal.cs"
-
-TOOLS += $(SWAV2SWAR_EXE)
-
 $(NDSTOOL):
 ifeq (,$(wildcard $(NDSTOOL)))
 	rm -r -f tools/source/ndstool
 	cd tools/source ; git clone https://github.com/devkitPro/ndstool.git
 	cd tools/source/ndstool ; git checkout fa6b6d01881363eb2cd6e31d794f51440791f336
-	cd tools/source/ndstool ; find . -name '*.sh' -execdir chmod +x {} \;
+	@# do not need to account for subdirectories here because ndstool does not have any .sh in subdirs
+	cd tools/source/ndstool ; chmod +x *.sh
 	cd tools/source/ndstool ; ./autogen.sh
 	cd tools/source/ndstool ; ./configure && $(MAKE)
 	mv tools/source/ndstool/ndstool tools/ndstool
@@ -237,14 +232,12 @@ $(foreach folder, $(CODE_BUILD_DIRS), $(eval $(call FOLDER_CREATE_DEFINE,$(folde
 
 # generate .d dependency files that are included as part of compiling if it does not exist
 define SRC_OBJ_INC_DEFINE
-ifneq ($(shell test -e $(basename $1).d && echo 1),1)
 # this generates the objects as part of generating the dependency list which will just be massive files of rules
 $1: $2 $(CODE_BUILD_DIRS)
 	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
-	printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
-else
-include $(basename $1).d
-endif
+	@#printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
+
+-include $(basename $1).d
 endef
 $(foreach src, $(ALL_C_SRCS), $(eval $(call SRC_OBJ_INC_DEFINE,$(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o, $(src)),$(src))))
 
@@ -264,8 +257,8 @@ $(OUTPUT):$(LINK)
 all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	rm -rf $(BASE)
 	@mkdir -p $(REQUIRED_DIRECTORIES)
-	###The line below is because of junk files that macOS can create which will interrupt the build process###
-	find . -name '*.DS_Store' -execdir rm -f {} \;
+	@# find and delete macOS files that it creates for some reason
+	find . -name "*.DS_Store" -delete
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo "$(ROMNAME) Decompression successful!!"
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
@@ -291,6 +284,7 @@ restore_build: | restore all
 ####################### Clean #######################
 clean:
 	rm -rf $(BUILD) $(BASE) rom_gen.ld rom_gen_battle.ld
+	@echo "Build artifacts removed."
 
 clean_tools:
 	rm -rf $(TOOLS) $(VENV)

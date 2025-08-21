@@ -1992,7 +1992,7 @@ int LONG_CALL BattleWorkPokeCountGet(void*,int);
 BOOL LONG_CALL ServerCriticalMessage(void*,void*);
 BOOL LONG_CALL ServerWazaStatusMessage(void*,void*);
 BOOL LONG_CALL ST_ServerAddStatusCheck(void*,void*,int *seq_no);
-BOOL LONG_CALL ServerIkariCheck(void*,void*);
+BOOL LONG_CALL ServerIkariCheck(void*, struct BattleStruct *ctx);
 BOOL LONG_CALL ST_ServerWazaHitTokuseiCheck_Old(void*,void*,int *seq_no);
 int LONG_CALL ST_ServerWaruagakiCheck(void *bw, struct BattleStruct *sp, int client_no, int waza_bit, int check_bit);
 struct Save_DexData* LONG_CALL BattleWorkZukanWorkGet(void *bw);
