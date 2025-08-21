@@ -3776,6 +3776,8 @@ void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int buffer
 
 int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 
+u8 LONG_CALL UpdateTypeEffectivess(struct BattleStruct* sp, int defence_client, u8 defender_type, u8 defaultEffectivess);
+
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag);
 
 BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);

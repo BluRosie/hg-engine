@@ -1461,6 +1461,17 @@ u16 gf_p_rand(const u16 denominator)
     }
 }
 
+u8 LONG_CALL UpdateTypeEffectivess(struct BattleStruct* sp, int defence_client, u8 defender_type, u8 defaultEffectivess)
+{
+    u32 defenderItem = GetBattleMonItem(sp, defence_client);
+    if (sp->current_move_index == MOVE_FREEZE_DRY && defender_type == TYPE_WATER)
+        defaultEffectivess = TYPE_MUL_SUPER_EFFECTIVE;
+    if (defenderItem == ITEM_RING_TARGET && defaultEffectivess == TYPE_MUL_NO_EFFECT)
+        defaultEffectivess = TYPE_MUL_NORMAL;
+
+    return defaultEffectivess;
+}
+
 // TODO: Refactor this function
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag) {
     int i = 0;
@@ -1491,15 +1502,17 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
         }
         if (TypeEffectivenessTable[i][0] == move_type) {
             if (TypeEffectivenessTable[i][1] == defender_type_1) {
-                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) && sp->field_condition & WEATHER_STRONG_WINDS && (TypeEffectivenessTable[i][2] == 20) && defender_type_1 == TYPE_FLYING)) {
-                    type1Effectiveness = TypeEffectivenessTable[i][2];
+                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) && sp->field_condition & WEATHER_STRONG_WINDS && (TypeEffectivenessTable[i][2] == 20) && defender_type_1 == TYPE_FLYING))
+                {
+                    type1Effectiveness = UpdateTypeEffectivess(sp, defence_client, defender_type_1, TypeEffectivenessTable[i][2]);
                     TypeCheckCalc(sp, attack_client, type1Effectiveness, 42, 42, flag);
                 }
             }
             if ((TypeEffectivenessTable[i][1] == defender_type_2) && (defender_type_1 != defender_type_2)) {
-                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) && sp->field_condition & WEATHER_STRONG_WINDS && (TypeEffectivenessTable[i][2] == 20) && defender_type_2 == TYPE_FLYING)) {
-                    type2Effectiveness = TypeEffectivenessTable[i][2];
-                    TypeCheckCalc(sp, attack_client, type1Effectiveness, 42, 42, flag);
+                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, i) == TRUE && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) && sp->field_condition & WEATHER_STRONG_WINDS && (TypeEffectivenessTable[i][2] == 20) && defender_type_2 == TYPE_FLYING))
+                {
+                    type2Effectiveness = UpdateTypeEffectivess(sp, defence_client, defender_type_2, TypeEffectivenessTable[i][2]);
+                    TypeCheckCalc(sp, attack_client, type2Effectiveness, 42, 42, flag);
                 }
             }
             // TODO: Handle type3, Tera Type
@@ -1603,11 +1616,12 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                 && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
                     && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
                     && sp->field_condition & WEATHER_STRONG_WINDS
-                    && (TypeEffectivenessTable[i][2] == 20)
+                    && (TypeEffectivenessTable[i][2] == TYPE_MUL_SUPER_EFFECTIVE)
                     && defender_type_1 == TYPE_FLYING))
                 {
-                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
-                    if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
+                    u8 typeEffectiveness = UpdateTypeEffectivess(sp, defence_client, defender_type_1, TypeEffectivenessTable[i][2]);
+                    damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
+                    if (TypeEffectivenessTable[i][2] == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
                     {
                         modifier *= 2;
                     }
@@ -1619,11 +1633,12 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                 && !(!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
                     && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)
                     && sp->field_condition & WEATHER_STRONG_WINDS
-                    && (TypeEffectivenessTable[i][2] == 20)
+                    && (TypeEffectivenessTable[i][2] == TYPE_MUL_SUPER_EFFECTIVE)
                     && defender_type_2 == TYPE_FLYING))
                 {
-                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[i][2], damage, base_power, flag);
-                    if (TypeEffectivenessTable[i][2] == 20) // seems to be useless, modifier isn't used elsewhere
+                    u8 typeEffectiveness = UpdateTypeEffectivess(sp, defence_client, defender_type_2, TypeEffectivenessTable[i][2]);
+                    damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
+                    if (TypeEffectivenessTable[i][2] == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
                     {
                         modifier *= 2;
                     }
