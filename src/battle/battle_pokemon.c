@@ -73,6 +73,9 @@ u8 TypeEffectivenessTable[][3] =
 #endif
 
     { TYPE_POISON, TYPE_GRASS, 0x14 },
+#if TYPE_EFFECTIVENESS_GEN == 1
+    { TYPE_POISON, TYPE_BUG, 0x14 },
+#endif
     { TYPE_GROUND, TYPE_POISON, 0x14 },
     { TYPE_GROUND, TYPE_ROCK, 0x14 },
     { TYPE_GROUND, TYPE_BUG, 0x05 },
@@ -89,7 +92,11 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_ROCK, TYPE_ICE, 0x14 },
     { TYPE_BUG, TYPE_FIGHTING, 0x05 },
     { TYPE_BUG, TYPE_FLYING, 0x05 },
+#if TYPE_EFFECTIVENESS_GEN == 1
+    { TYPE_BUG, TYPE_POISON, 0x14 },
+#else
     { TYPE_BUG, TYPE_POISON, 0x05 },
+#endif
     { TYPE_BUG, TYPE_GHOST, 0x05 },
     { TYPE_BUG, TYPE_STEEL, 0x05 },
 
@@ -102,8 +109,13 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_BUG, TYPE_PSYCHIC, 0x14 },
     { TYPE_BUG, TYPE_DARK, 0x14 },
     { TYPE_GHOST, TYPE_GHOST, 0x14 },
+#if TYPE_EFFECTIVENESS_GEN > 1
     { TYPE_GHOST, TYPE_PSYCHIC, 0x14 },
+#endif
     { TYPE_GHOST, TYPE_DARK, 0x05 },
+#if TYPE_EFFECTIVENESS_GEN < 6
+    { TYPE_GHOST, TYPE_STEEL, 0x05 },
+#endif
     { TYPE_STEEL, TYPE_ROCK, 0x14 },
     { TYPE_STEEL, TYPE_STEEL, 0x05 },
 
@@ -162,7 +174,9 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_ICE, TYPE_FLYING, 0x14 },
     { TYPE_ICE, TYPE_GROUND, 0x14 },
     { TYPE_ICE, TYPE_STEEL, 0x05 },
+#if TYPE_EFFECTIVENESS_GEN > 1
     { TYPE_ICE, TYPE_FIRE, 0x05 },
+#endif
     { TYPE_ICE, TYPE_WATER, 0x05 },
     { TYPE_ICE, TYPE_GRASS, 0x14 },
     { TYPE_ICE, TYPE_ICE, 0x05 },
@@ -179,6 +193,9 @@ u8 TypeEffectivenessTable[][3] =
 
     { TYPE_DARK, TYPE_PSYCHIC, 0x14 },
     { TYPE_DARK, TYPE_DARK, 0x05 },
+#if TYPE_EFFECTIVENESS_GEN < 6
+    { TYPE_DARK, TYPE_STEEL, 0x05 },
+#endif
 
 // AI bugfix: move all of the immune type interactions to the end of the table so that the
 // immunities properly unset the super effective move effect flag (and a lanturn with thunderbolt
@@ -188,6 +205,9 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_GHOST, TYPE_NORMAL, 0x00 },
     { TYPE_ELECTRIC, TYPE_GROUND, 0x00 },
     { TYPE_PSYCHIC, TYPE_DARK, 0x00 },
+#if TYPE_EFFECTIVENESS_GEN == 1
+    { TYPE_GHOST, TYPE_PSYCHIC, 0x00 },
+#endif
 #if FAIRY_TYPE_IMPLEMENTED == 1
     { TYPE_DRAGON, TYPE_FAIRY, 0x00 },
 #endif
