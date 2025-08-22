@@ -11,6 +11,12 @@ START_ADDRESS equ 0x0
 // if you do not want this change, then set it to 0
 FAIRY_TYPE_IMPLEMENTED equ 1
 
+// TYPE_EFFECTIVENESS_GEN defines the type chart interactions you would like to use.
+// Defining this as 5 or lower will revert Steel to resisting Ghost- and Dark-type moves.
+// Defining this as 1 will additionally make Bug super-effective on Poison and vice-versa, Psychic immune to Ghost, and Ice neutral against Fire.
+// This will NOT disable Dark or Steel type, nor revert move types (e.g. Bite).
+TYPE_EFFECTIVENESS_GEN equ GEN_LATEST
+
 // SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
 // 9 or above: Snow
 // Otherwise: Hail
