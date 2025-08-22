@@ -3332,7 +3332,7 @@ BOOL btl_scr_cmd_107_tryemergencyexit(void* bw, struct BattleStruct* sp) {
     IncrementBattleScriptPtr(sp, 1);
     int adrs = read_battle_script_param(sp);
         
-    if (BattleTypeGet(bw) != BATTLE_TYPE_TRAINER)
+    if (!(BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_WIRELESS | BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG | BATTLE_TYPE_NPC_MULTI | BATTLE_TYPE_BATTLE_TOWER)))
     {
         IncrementBattleScriptPtr(sp, adrs);
     }

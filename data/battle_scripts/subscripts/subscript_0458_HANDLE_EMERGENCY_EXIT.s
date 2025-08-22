@@ -5,6 +5,8 @@
 _000:
     // if battle is wild, jumps to wild battle code
     TryEmergencyExit _026
+    // if nobody to replace, jump to fail
+    TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, TRUE, _031
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HP, 0, _031
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
     Wait 
@@ -15,8 +17,8 @@ _000:
 
 _026:
     PlaySound BATTLER_CATEGORY_MSG_TEMP, 1791
-    // Got away safely!
-    PrintMessage 781, TAG_NONE
+    // {1} fled from battle!
+    PrintMessage 469, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
     FadeOutBattle 
