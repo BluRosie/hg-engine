@@ -575,11 +575,6 @@ u16 ItemToMachineMove(u16 itemId) {
     return sMachineMoves[index];
 }
 
-BOOL ItemIsMachineMove(u16 itemId) {
-    debug_printf("ItemIsMachineMove\n");
-    return IS_ITEM_HM(itemId) || IS_ITEM_TM(itemId) || IS_ITEM_TR(itemId);
-}
-
 BOOL MoveIsHM(u16 moveId) {
     for (u8 i = 0; i < NUM_HMS; i++) {
         if (sMachineMoves[i + ITEM_HM01 - ITEM_TM001] == moveId) {
