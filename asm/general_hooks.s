@@ -124,16 +124,16 @@ bx r3
 
 .global Bag_RenderMachineMoveSlot_hook
 Bag_RenderMachineMoveSlot_hook:
-ldr r3, [sp, #0x28]   @ index
-sub sp, #8            @ keep 8-byte alignment
-str r3, [sp, #0]      @ 5th arg
-mov r0, r5            @ ctx
-mov r1, r6            @ window
-mov r3, r4            @ lst in r3
+ldr r3, [sp, #0x28]
+sub sp, #8
+str r3, [sp, #0]
+mov r0, r5
+mov r1, r6
+mov r3, r4
 bl  Bag_RenderMachineMoveSlot
-ldr r3, [r4, #0]    
+ldr r3, [r4, #0]
 cmp r0, #0
-add sp, #8 
+add sp, #8
 ldr r2, =0x021FF662 | 1
 bx  r2
 .pool
