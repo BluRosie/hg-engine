@@ -518,14 +518,15 @@ arm9 PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook 02081E54 0
 arm9 PartyMenu_ItemUseFunc_ReuseItem_hook 0208138C 3
 
 arm9 ScrCmd_BufferItemName 02048510 1
-arm9 BufferItemNameWithIndefArticle 0200C100 4
-arm9 BufferItemNamePlural 0200C134 4
-arm9 GetItemDescIntoString 02077D64 7
-
+arm9 BufferItemNameWithIndefArticle 0200C100 3
+arm9 BufferItemNamePlural 0200C134 3
+arm9 GetItemDescIntoString 02077D64 3
 arm9 ItemToMachineMoveIndex 0207804C 1
 arm9 ItemToMachineMove 02078000 1
 arm9 MoveIsHM 02078024 1
 arm9 GetMonMachineMoveCompat 0207224C 2
 arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
-0015 Bag_DrawMachineMoveLabel 021FE914 7
+0015 Bag_PrintMachineMoveLabel 021FE914
 0001 GetLearnableTutorMoves 02202D40 3
+arm9 PartyMenu_LearnMoveToSlot 0208254C 3
+0015 Bag_RenderMachineMoveSlot_hook 021FF586 3

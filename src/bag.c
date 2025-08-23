@@ -2,6 +2,7 @@
 #include "../include/constants/item.h"
 #include "../include/constants/file.h"
 #include "../include/bag.h"
+#include "../include/message.h"
 #include "../include/item.h"
 #include "../include/map_events_internal.h"
 #include "../include/save.h"
@@ -37,6 +38,13 @@ const u8 sPocketCountBytes[8] = {
 void SortPocket(ITEM_SLOT *slots, u32 count);
 void SortTMHMPocket(ITEM_SLOT *slots, u32 count);
 void PocketCompaction(ITEM_SLOT *slots, u32 count);
+static u16 GetMachineMoveNumber(u16 itemId);
+void LONG_CALL Bag_PrintMachineMoveLabel(BagContext *context, void *window, ITEM_SLOT *slot, u32 baseY);
+void LONG_CALL PrintUIntOnWindowWithGlyph(void *msgPrinter, u8 glyphId, u32 num, u32 ndigits, u32 mode, void *window, u32 x, u32 y);
+void LONG_CALL ov15_021FE8C4(BagContext *context, u32 packedArgs);
+void LONG_CALL PrintUIntOnWindow(void *messagePrinter, u32 num, u32 ndigits, u32 mode, void *window, u32 x, u32 y);
+void LONG_CALL Bag_RenderItemSlotIcon(BagContext *context, void *target, u16 y); // overriding param 3 for our sprite index
+void LONG_CALL PrintItemSlotQuantity(void *unk2F4, void *unk2F0, void *window, u16 quantity);
 
 u32 Sav2_Bag_sizeof(void) {
     return sizeof(BAG_DATA);
@@ -162,7 +170,13 @@ ITEM_SLOT *Bag_GetItemSlotForAdd(BAG_DATA *bag, u16 itemId, u16 quantity, int he
 
     pocket_id = Bag_GetItemPocket(bag, itemId, &slots, &count, heap_id);
     if (pocket_id == POCKET_TMHMS) {
-        return Pocket_GetItemSlotForAdd(slots, count, itemId, quantity, BAG_TMHM_QUANTITY_MAX);
+        u16 max = BAG_TMHM_QUANTITY_MAX;
+#ifdef REUSABLE_TMS
+        if (IS_ITEM_TM(itemId)) {
+            max = 1;
+        }
+#endif // REUSABLE_TMS
+        return Pocket_GetItemSlotForAdd(slots, count, itemId, quantity, max);
     } else {
         return Pocket_GetItemSlotForAdd(slots, count, itemId, quantity, BAG_SLOT_QUANTITY_MAX);
     }
@@ -348,7 +362,7 @@ void SortPocket(ITEM_SLOT *slots, u32 count) {
 }
 
 u8 GetTMHMPocketSortPrecedence(u16 itemId) {
-    if (IS_ITEM_VANILLA_HM(itemId)) {
+    if (IS_ITEM_HM(itemId)) {
         return SORT_ORDER_HM;
     }
     if (IS_ITEM_TR(itemId)) {
@@ -454,6 +468,93 @@ ITEM_SLOT *Bag_GetPocketSlotN(BAG_DATA *bag, u8 pocket, int n) {
 }
 
 
+/**
+ * @brief Gets the machine move number for a given item id
+ */
+static u16 GetMachineMoveNumber(u16 itemId) {
+    // HMs
+    if (itemId == ITEM_HM07_ORAS) {
+        return 7;
+    }
+    if (itemId >= ITEM_HM01 && itemId <= ITEM_HM08) {
+        return itemId - ITEM_HM01 + 1;
+    }
+
+    // TMs
+    if (itemId >= ITEM_TM001 && itemId <= ITEM_TM092) {
+        return itemId - ITEM_TM001 + 1;
+    }
+    if (itemId == ITEM_TM00) {
+        return 0;
+    }
+    if (itemId >= ITEM_TM093 && itemId <= ITEM_TM095) {
+        return itemId - ITEM_TM093 + 93;
+    }
+    if (itemId >= ITEM_TM096 && itemId <= ITEM_TM100) {
+        return itemId - ITEM_TM096 + 96;
+    }
+    if (itemId >= ITEM_TM100_SV && itemId <= ITEM_TM229) {
+        return itemId - ITEM_TM100_SV + 100;
+    }
+
+    // TRs
+    if (itemId >= ITEM_TR00 && itemId <= ITEM_TR99) {
+        return itemId - ITEM_TR00;
+    }
+    
+    return 0;
+}
+
+/**
+ * @brief handles drawing machine move item slots in the bag and decides if we should draw the quantity numbers or not on TMs
+ */
+void LONG_CALL Bag_RenderMachineMoveSlot(BagContext *context, void *window, void *msg, void *lst, int index) {
+    void *items = *(void **)lst;
+    ITEM_SLOT *slot = (ITEM_SLOT *)items + index;
+    AddTextPrinterParameterizedWithColor(window, 0, msg, 0, 0, 0xFF, 0x00010200, NULL);
+    Bag_PrintMachineMoveLabel(context, window, (const u16 *)slot, 0x10);
+#ifdef REUSABLE_TMS
+    BOOL showQuant = IS_ITEM_TR(slot->id);
+#else
+    BOOL showQuant = IS_ITEM_TM(slot->id) || IS_ITEM_TR(slot->id);
+#endif // REUSABLE_TMS
+    if (showQuant) {
+        PrintItemSlotQuantity(context->unk2F4, context->unk2F0, window, slot->quantity);
+    }
+}
+
+/**
+ * @brief render the label and number for a TM/HM/TR item in the bag
+ */
+void LONG_CALL Bag_PrintMachineMoveLabel(BagContext *context, void *window, ITEM_SLOT *slot, u32 baseY) {
+    u16 itemId = slot->id;
+    u16 machineMoveNumber = GetMachineMoveNumber(itemId);
+    void *msgPrinter = context->msgPrinter;
+
+#ifdef UPDATE_MACHINE_MOVE_LABELS
+    int numDigits = 2;
+    int icon = BAG_HM_ICON;
+
+    if (IS_ITEM_TM(itemId)) {
+        icon = BAG_TM_ICON;
+        numDigits = 3;
+    } else if (IS_ITEM_TR(itemId)) {
+        icon = BAG_TR_ICON;
+    }
+
+    PrintUIntOnWindow(msgPrinter, machineMoveNumber, numDigits, 2, window, 24, baseY + 5);
+    Bag_RenderItemSlotIcon(context, window, icon);
+#else
+    if (IS_ITEM_HM(itemId)) {
+        PrintUIntOnWindow(msgPrinter, machineMoveNumber, 2, 1, window, 0x10, baseY + 5);
+        Bag_RenderItemSlotIcon(context, window, BAG_HM_ICON);
+    } else {
+        PrintUIntOnWindowWithGlyph(msgPrinter, 2, machineMoveNumber, 2, 2, window, 0x0, baseY + 5); // No. XX
+        ov15_021FE8C4(context, ((u32)slot->quantity << 16) | (baseY & 0xFFFF)); // honestly idk what this is even doing
+    }
+#endif // UPDATE_MACHINE_MOVE_LABELS
+}
+
 
 // move these here so gFieldSysPtr works
 
@@ -472,61 +573,4 @@ BOOL IsPlayerOnLadder(void)
     u32 collision = GetMetatileBehaviorAt(gFieldSysPtr, gFieldSysPtr->location->x, gFieldSysPtr->location->z);
     u32 mapId = gFieldSysPtr->location->mapId;
     return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
-}
-
-/**
- * @brief Gets the machine move number for a given item id
- */
-int GetMachineMoveNumber(u16 itemId) {
-    if (IS_ITEM_VANILLA_HM(itemId)) {
-        return itemId - ITEM_HM01 + 1;
-    }
-    if (IS_ITEM_VANILLA_TM(itemId)) {
-        return itemId - ITEM_TM001 + 1;
-    }
-    // TODO zebben think of a better way to organize this
-    if (IS_ITEM_EXPANSION_HM(itemId)) {
-        return 0;
-    }
-    if (IS_ITEM_EXPANSION_TM(itemId)) {
-        return 0;
-    }
-    if (IS_ITEM_TR(itemId)) {
-        return 0;
-    }
-    return 0;
-}
-
-/**
- *  @brief draws the label and number for a TM/HM/TR item in the bag
- */
-void LONG_CALL Bag_DrawMachineMoveLabel(void *context, void *window, const u16 *args, u32 baseY) {
-    u16 itemId  = args[0];
-    u16 machineMoveNumber = GetMachineMoveNumber(itemId);
-    void *msgPrinter = *(void **)((u8 *)context + 0x2EC);
-
-#ifdef UPDATE_MACHINE_MOVE_LABELS
-    int numDigits = 2;
-    int icon = BAG_HM_ICON;
-
-    if (IS_ITEM_TM(itemId)) {
-        icon = BAG_TM_ICON;
-        numDigits = 3;
-    } else if (IS_ITEM_TR(itemId)) {
-        icon = BAG_TR_ICON;
-    }
-
-    sub_0200CDF0(msgPrinter, machineMoveNumber, numDigits, 2, window, 24, baseY + 5);
-    ov15_021FE9B0(context, window, icon);
-#else
-    if (IS_ITEM_HM(itemId)) {
-        sub_0200CDF0(msgPrinter, machineMoveNumber, 2, 1, window, 0x10, baseY + 5);
-        ov15_021FE9B0(context, window, BAG_HM_ICON);
-    } else {
-        u16 labelId = args[1];
-        sub_0200CE7C(msgPrinter, 2, machineMoveNumber, 2, 2, window, 0x0, baseY + 5);
-        u32 labelArgs = ((u32)labelId << 16) | (baseY & 0xFFFF);
-        ov15_021FE8C4(context, labelArgs);
-    }
-#endif
 }
