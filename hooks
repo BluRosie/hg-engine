@@ -527,7 +527,7 @@ arm9 ItemToMachineMove 02078000 1
 arm9 MoveIsHM 02078024 1
 arm9 GetMonMachineMoveCompat 0207224C 2
 arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
-0015 Bag_DrawMachineMoveLabel 021FE914 5
+0015 Bag_PrintMachineMoveLabel 021FE914 5
 0001 GetLearnableTutorMoves 02202D40 3
 arm9 PartyMenu_LearnMoveToSlot 0208254C 4
 0015 Bag_RenderMachineMoveSlot_hook 021FF586 3

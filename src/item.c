@@ -512,8 +512,8 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id)
 void LONG_CALL GetItemDescIntoString(String *dest, u16 itemId, u16 heapId) {
     enum ItemGeneration gen = ITEM_GENERATION(itemId);
     u32 fileId = (gen == CUSTOM)
-            ? MSG_DATA_ITEM_DESCRIPTION_CUSTOM
-            : MSG_DATA_ITEM_FILE(MSG_DATA_ITEM_DESCRIPTION_GEN4, gen);
+        ? MSG_DATA_ITEM_DESCRIPTION_CUSTOM
+        : MSG_DATA_ITEM_FILE(MSG_DATA_ITEM_DESCRIPTION_GEN4, gen);
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, fileId, heapId);
     u32 offset = ITEM_MSG_OFFSET(itemId);
     ReadMsgDataIntoString(msgData, offset, dest);

@@ -759,7 +759,7 @@ PartyMenu_PrintMessageOnWindow32 = 0x0207DAC4 | 1;
 
 SetStringAsPlaceholder = 0x0200BDF8 | 1;
 
-sub_0200CE7C = 0x0200CE7C | 1;
+PrintUIntOnWindowWithGlyph = 0x0200CE7C | 1;
 ov15_021FE8C4 = 0x021FE8C4 | 1;
 PrintUIntOnWindow = 0x0200CDF0 | 1;
 Bag_RenderItemSlotIcon = 0x021FE9B0 | 1;

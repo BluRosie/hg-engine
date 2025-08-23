@@ -38,6 +38,13 @@ const u8 sPocketCountBytes[8] = {
 void SortPocket(ITEM_SLOT *slots, u32 count);
 void SortTMHMPocket(ITEM_SLOT *slots, u32 count);
 void PocketCompaction(ITEM_SLOT *slots, u32 count);
+static u16 GetMachineMoveNumber(u16 itemId);
+void LONG_CALL Bag_PrintMachineMoveLabel(BagContext *context, void *window, ITEM_SLOT *slot, u32 baseY);
+void LONG_CALL PrintUIntOnWindowWithGlyph(void *msgPrinter, u8 glyphId, u32 num, u32 ndigits, u32 mode, void *window, u32 x, u32 y);
+void LONG_CALL ov15_021FE8C4(BagContext *context, u32 packedArgs);
+void LONG_CALL PrintUIntOnWindow(void *messagePrinter, u32 num, u32 ndigits, u32 mode, void *window, u32 x, u32 y);
+void LONG_CALL Bag_RenderItemSlotIcon(BagContext *context, void *target, u16 y); // overriding param 3 for our sprite index
+void LONG_CALL PrintItemSlotQuantity(void *unk2F4, void *unk2F0, void *window, u16 quantity);
 
 u32 Sav2_Bag_sizeof(void) {
     return sizeof(BAG_DATA);
@@ -461,30 +468,10 @@ ITEM_SLOT *Bag_GetPocketSlotN(BAG_DATA *bag, u8 pocket, int n) {
 }
 
 
-
-// move these here so gFieldSysPtr works
-
-u32 IsPlayerOnIce(u32 collision) // run to determine if the player is on ice
-{
-    if (collision == 32)
-        return TRUE;
-
-    return FALSE;
-}
-
-BOOL IsPlayerOnLadder(void)
-{
-    if (gFieldSysPtr == NULL)
-        return TRUE;
-    u32 collision = GetMetatileBehaviorAt(gFieldSysPtr, gFieldSysPtr->location->x, gFieldSysPtr->location->z);
-    u32 mapId = gFieldSysPtr->location->mapId;
-    return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
-}
-
 /**
  * @brief Gets the machine move number for a given item id
  */
-u16 GetMachineMoveNumber(u16 itemId) {
+static u16 GetMachineMoveNumber(u16 itemId) {
     // HMs
     if (itemId == ITEM_HM07_ORAS) {
         return 7;
@@ -519,12 +506,30 @@ u16 GetMachineMoveNumber(u16 itemId) {
 }
 
 /**
- *  @brief draws the label and number for a TM/HM/TR item in the bag
+ * @brief handles drawing machine move item slots in the bag and decides if we should draw the quantity numbers or not on TMs
  */
-void LONG_CALL Bag_DrawMachineMoveLabel(void *context, void *window, ITEM_SLOT *slot, u32 baseY) {
+void LONG_CALL Bag_RenderMachineMoveSlot(BagContext *context, void *window, void *msg, void *lst, int index) {
+    void *items = *(void **)lst;
+    ITEM_SLOT *slot = (ITEM_SLOT *)items + index;
+    AddTextPrinterParameterizedWithColor(window, 0, msg, 0, 0, 0xFF, 0x00010200, NULL);
+    Bag_PrintMachineMoveLabel(context, window, (const u16 *)slot, 0x10);
+#ifdef REUSABLE_TMS
+    BOOL showQuant = IS_ITEM_TR(slot->id);
+#else
+    BOOL showQuant = IS_ITEM_TM(slot->id) || IS_ITEM_TR(slot->id);
+#endif // REUSABLE_TMS
+    if (showQuant) {
+        PrintItemSlotQuantity(context->unk2F4, context->unk2F0, window, slot->quantity);
+    }
+}
+
+/**
+ * @brief render the label and number for a TM/HM/TR item in the bag
+ */
+void LONG_CALL Bag_PrintMachineMoveLabel(BagContext *context, void *window, ITEM_SLOT *slot, u32 baseY) {
     u16 itemId = slot->id;
     u16 machineMoveNumber = GetMachineMoveNumber(itemId);
-    void *msgPrinter = *(void **)((u8 *)context + 0x2EC);
+    void *msgPrinter = context->msgPrinter;
 
 #ifdef UPDATE_MACHINE_MOVE_LABELS
     int numDigits = 2;
@@ -544,26 +549,28 @@ void LONG_CALL Bag_DrawMachineMoveLabel(void *context, void *window, ITEM_SLOT *
         PrintUIntOnWindow(msgPrinter, machineMoveNumber, 2, 1, window, 0x10, baseY + 5);
         Bag_RenderItemSlotIcon(context, window, BAG_HM_ICON);
     } else {
-        sub_0200CE7C(msgPrinter, 2, machineMoveNumber, 2, 2, window, 0x0, baseY + 5);
-        ov15_021FE8C4(context, ((u32)slot->quantity << 16) | (baseY & 0xFFFF));
+        PrintUIntOnWindowWithGlyph(msgPrinter, 2, machineMoveNumber, 2, 2, window, 0x0, baseY + 5); // No. XX
+        ov15_021FE8C4(context, ((u32)slot->quantity << 16) | (baseY & 0xFFFF)); // honestly idk what this is even doing
     }
 #endif // UPDATE_MACHINE_MOVE_LABELS
 }
 
-// TODO zebben can maybe map a struct a bit better here and for Bag_DrawMachineMoveLabel
-void LONG_CALL Bag_RenderMachineMoveSlot(void *context, void *window, void *msg, void *lst, int index) {
-    void *items = *(void **)lst;
-    ITEM_SLOT *slot = (ITEM_SLOT *)items + index;
-    AddTextPrinterParameterizedWithColor(window, 0, msg, 0, 0, 0xFF, 0x00010200, NULL);
-    Bag_DrawMachineMoveLabel(context, window, (const u16 *)slot, 0x10);
-#ifdef REUSABLE_TMS
-    BOOL showQuant = IS_ITEM_TR(slot->id);
-#else
-    BOOL showQuant = IS_ITEM_TM(slot->id) || IS_ITEM_TR(slot->id);
-#endif // REUSABLE_TMS
-    if (showQuant) {
-        void *a2F4 = *(void **)((u8 *)context + 0x2F4);
-        void *a2F0 = *(void **)((u8 *)context + 0x2F0);
-        PrintItemSlotQuantity(a2F4, a2F0, window, slot->quantity);
-    }
+
+// move these here so gFieldSysPtr works
+
+u32 IsPlayerOnIce(u32 collision) // run to determine if the player is on ice
+{
+    if (collision == 32)
+        return TRUE;
+
+    return FALSE;
+}
+
+BOOL IsPlayerOnLadder(void)
+{
+    if (gFieldSysPtr == NULL)
+        return TRUE;
+    u32 collision = GetMetatileBehaviorAt(gFieldSysPtr, gFieldSysPtr->location->x, gFieldSysPtr->location->z);
+    u32 mapId = gFieldSysPtr->location->mapId;
+    return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
 }
