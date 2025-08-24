@@ -57,14 +57,26 @@
 #define NUMBER_OF_MON_TYPES 20
 
 // Type effectiveness
-#define TYPE_MUL_NO_EFFECT              0
-#define TYPE_MUL_TRIPLE_NOT_EFFECTIVE   3
-#define TYPE_MUL_DOUBLE_NOT_EFFECTIVE   4
-#define TYPE_MUL_NOT_EFFECTIVE          5
-#define TYPE_MUL_NORMAL                 10
-#define TYPE_MUL_SUPER_EFFECTIVE        20
-#define TYPE_MUL_DOUBLE_SUPER_EFFECTIVE 30
-#define TYPE_MUL_TRIPLE_SUPER_EFFECTIVE 40
+#define TYPE_MUL_NO_EFFECT                  0
+#define TYPE_MUL_QUADRUPLE_NOT_EFFECTIVE    2
+#define TYPE_MUL_TRIPLE_NOT_EFFECTIVE       3
+#define TYPE_MUL_DOUBLE_NOT_EFFECTIVE       4
+#define TYPE_MUL_NOT_EFFECTIVE              5
+#define TYPE_MUL_NORMAL                     10
+#define TYPE_MUL_SUPER_EFFECTIVE            20
+#define TYPE_MUL_DOUBLE_SUPER_EFFECTIVE     30
+#define TYPE_MUL_TRIPLE_SUPER_EFFECTIVE     40
+#define TYPE_MUL_QUADRUPLE_SUPER_EFFECTIVE  50
+
+#define EFFECTIVENESS_MULT_QUADRUPLE_NOT_EFFECTIVE      625
+#define EFFECTIVENESS_MULT_TRIPLE_NOT_EFFECTIVE         1250
+#define EFFECTIVENESS_MULT_DOUBLE_NOT_EFFECTIVE         2500
+#define EFFECTIVENESS_MULT_NOT_EFFECTIVE                5000
+#define EFFECTIVENESS_MULT_NORMAL                       10000
+#define EFFECTIVENESS_MULT_SUPER_EFFECTIVE              20000
+#define EFFECTIVENESS_MULT_DOUBLE_SUPER_EFFECTIVE       40000
+#define EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE       80000
+#define EFFECTIVENESS_MULT_QUADRUPLE_SUPER_EFFECTIVE    160000
 
 // Special type table IDs
 #define TYPE_FORESIGHT 0xFE
@@ -3775,6 +3787,8 @@ void LONG_CALL BattleMessage_BufferTrainerName(struct BattleSystem *bsys, int bu
 void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int bufferIndex, int param);
 
 int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
+
+u8 LONG_CALL UpdateTypeEffectiveness(struct BattleStruct* sp, int defence_client, u8 defender_type, u8 defaultEffectiveness);
 
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag);
 
