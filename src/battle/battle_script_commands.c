@@ -4145,7 +4145,6 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
 
     IncrementBattleScriptPtr(sp, 1);
     int side = read_battle_script_param(sp);
-    u32 adrs UNUSED = read_battle_script_param(sp);
 
     int battlerId = GrabClientFromBattleScriptParam(bsys, sp, side);
     debug_printf("side %d, battlerId %d\n", side, battlerId);

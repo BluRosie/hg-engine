@@ -1437,10 +1437,9 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro AbilityPopup arg_0, arg_1
+    .macro AbilityPopup arg_0
     .long 261
     .long \arg_0
-    .long (((\arg_1 - .) / 4) - 1)
     .endm
 
     .macro AbilityPopupWait
