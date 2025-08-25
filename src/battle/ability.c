@@ -435,19 +435,23 @@ u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int
 
     ret = FALSE;
 
-    if((GetBattlerAbility(sp, attacker) != ABILITY_MOLD_BREAKER) &&
-        (GetBattlerAbility(sp, attacker) != ABILITY_TERAVOLT) &&
-        (GetBattlerAbility(sp, attacker) != ABILITY_TURBOBLAZE))
-    {
-        if(GetBattlerAbility(sp,defender) == ability)
-        {
+    if ((GetBattlerAbility(sp, attacker) != ABILITY_MOLD_BREAKER) && (GetBattlerAbility(sp, attacker) != ABILITY_TERAVOLT) && (GetBattlerAbility(sp, attacker) != ABILITY_TURBOBLAZE) &&
+        // TODO: Probably need to check if the attacker is attacking
+        (!(GetBattlerAbility(sp, attacker) == ABILITY_MYCELIUM_MIGHT && sp->moveTbl[sp->current_move_index].split == SPLIT_STATUS))
+        && (sp->current_move_index != MOVE_SUNSTEEL_STRIKE)
+        && (sp->current_move_index != MOVE_MOONGEIST_BEAM)
+        && (sp->current_move_index != MOVE_PHOTON_GEYSER)
+        && (sp->current_move_index != MOVE_SEARING_SUNRAZE_SMASH)
+        && (sp->current_move_index != MOVE_MENACING_MOONRAZE_MAELSTROM)
+        && (sp->current_move_index != MOVE_LIGHT_THAT_BURNS_THE_SKY)
+        && (sp->current_move_index != MOVE_G_MAX_DRUM_SOLO)
+        && (sp->current_move_index != MOVE_G_MAX_FIREBALL)
+        && (sp->current_move_index != MOVE_G_MAX_HYDROSNIPE)) {
+        if (GetBattlerAbility(sp, defender) == ability) {
             ret = TRUE;
         }
-    }
-    else
-    {
-        if((GetBattlerAbility(sp, defender) == ability) && (sp->oneSelfFlag[attacker].moldBreakerFlag == 0))
-        {
+    } else {
+        if ((GetBattlerAbility(sp, defender) == ability) && (sp->oneSelfFlag[attacker].moldBreakerFlag == 0)) {
             sp->oneSelfFlag[attacker].moldBreakerFlag = 1;
             sp->server_status_flag |= SERVER_STATUS_FLAG_MOLD_BREAKER;
         }
