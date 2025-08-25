@@ -4155,7 +4155,11 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
 
     sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
     PaletteData_LoadNarc(palette, 38, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0, 0x20, 8 * 0x10); //NARC_a_0_3_8, sub_0200E3D8(), HEAP_ID_BATTLE, PLTTBUF_MAIN_BG
-    AddWindowParameterized(bgConfig, window, 2, 1 /*x*/, 0x7/*y*/, 14/*width*/, 5/*height*/, 11, 9 + 1);
+    if (side == 2)
+        AddWindowParameterized(bgConfig, window, 2, 16 /*x*/, 6/*y*/, 12/*width*/, 4/*height*/, 11, 9 + 1);
+    else
+        AddWindowParameterized(bgConfig, window, 2, 1 /*x*/, 12/*y*/, 12/*width*/, 4/*height*/, 11, 9 + 1);
+
     FillWindowPixelBuffer(window, 0xFF);
     debug_printf("DrawFrameAndWindow1\n");
     DrawFrameAndWindow1(window, FALSE, 1, 8);
