@@ -924,8 +924,8 @@ typedef struct
     u8  msg_tag;
     u16 msg_id;
     int msg_para[6];
-    int msg_keta;
-    int msg_client;
+    int numDigits;
+    int battlerId;
 } __attribute__((packed)) MESSAGE_PARAM;
 
 struct __attribute__((packed)) side_condition_work
@@ -3846,5 +3846,6 @@ void LONG_CALL sub_0200E5D4(void* window, BOOL dont_copy_to_vram);
 u8 LONG_CALL TextPrinterCheckActive(u8 printerId);
 u32 LONG_CALL sub_0200E3D8(void);
 void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem* bsys, void* data, MESSAGE_PARAM* msg);
+void LONG_CALL BattleSystem_BufferMessage(struct BattleSystem* bsys, MESSAGE_PARAM* msg);
 
 #endif // BATTLE_H

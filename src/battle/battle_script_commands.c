@@ -7,6 +7,7 @@
 #include "../../include/pokemon.h"
 #include "../../include/save.h"
 #include "../../include/window.h"
+#include "../../include/message.h"
 #include "../../include/constants/ability.h"
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
@@ -4156,7 +4157,7 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
     sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
     PaletteData_LoadNarc(palette, 38, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0, 0x20, 8 * 0x10); //NARC_a_0_3_8, sub_0200E3D8(), HEAP_ID_BATTLE, PLTTBUF_MAIN_BG
     if (side == 2)
-        AddWindowParameterized(bgConfig, window, 2, 16 /*x*/, 6/*y*/, 12/*width*/, 4/*height*/, 11, 9 + 1);
+        AddWindowParameterized(bgConfig, window, 2, 17 /*x*/, 6/*y*/, 12/*width*/, 4/*height*/, 11, 9 + 1);
     else
         AddWindowParameterized(bgConfig, window, 2, 1 /*x*/, 12/*y*/, 12/*width*/, 4/*height*/, 11, 9 + 1);
 
@@ -4168,8 +4169,9 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
     MESSAGE_PARAM mp;
     mp.msg_id = BATTLE_MSG_ABILITY_POPUP;
     mp.msg_tag = TAG_NICKNAME_ABILITY;
-    sp->mp.msg_para[0] = CreateNicknameTag(sp, battlerId);
-    sp->mp.msg_para[1] = sp->battlemon[battlerId].ability;
+    mp.msg_para[0] = CreateNicknameTag(sp, battlerId);
+    mp.msg_para[1] = sp->battlemon[battlerId].ability;
+    mp.battlerId = battlerId;
 
     debug_printf("BattleSystem_BufferMessage\n");
     BattleSystem_BufferMessage(bsys, &mp);
