@@ -4134,71 +4134,6 @@ void G2_SetBG0Priority(int priority) {
     reg_G2_BG0CNT = (u16)((reg_G2_BG0CNT & ~0x3) | (priority << 0));
 }
 
-void Task_AbilityPopup(SysTask* task, void* inData)
-{
-    debug_printf("Task_AbilityPopup\n");
-    struct tcb_skill_intp_work* data = inData;
-    debug_printf("Task_AbilityPopupbattle progress %d\n", data->sp->battle_progress_flag);
-    debug_printf("Task_AbilityPopup %d\n", data->work[6]);
-    struct BattleSystem* bsys = data->bw;
-    void* bgConfig = bsys->bgConfig;
-    struct Window* window = &bsys->window[1];
-    void* palette = bsys->palette;
-    
-    G2_SetBG0Priority(2);
-    SetBgPriority(1, 1);
-    SetBgPriority(2, 0);
-
-    //ov12_0223C224(bsys, 1); // sets healthbar priority to 1
-    debug_printf("check printer\n");
-    u8 printerActive = 0;
-    do
-    {
-        printerActive = TextPrinterCheckActive(data->work[0]);
-        debug_printf("printerActive %d\n", printerActive);
-    } while (printerActive == 0);
-    data->work[2] = 0;
-    
-
-    sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
-    PaletteData_LoadNarc(palette, 38, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0, 0x20, 8 * 0x10); //NARC_a_0_3_8, sub_0200E3D8(), HEAP_ID_BATTLE, PLTTBUF_MAIN_BG
-    AddWindowParameterized(bgConfig, window, 2, 1, 0x7, 14, 3, 11, 9 + 1);
-    FillWindowPixelBuffer(window, 0xFF);
-    debug_printf("DrawFrameAndWindow1\n");
-    DrawFrameAndWindow1(window, FALSE, 1, 8);
-
-    debug_printf("prepare message\n");
-    MESSAGE_PARAM mp; 
-    mp.msg_id = BATTLE_MSG_ABILITY_POPUP;
-    mp.msg_tag = TAG_NICKNAME_ABILITY;
-    data->sp->mp.msg_para[0] = CreateNicknameTag(data->sp, data->sp->defence_client);
-    data->sp->mp.msg_para[1] = data->sp->battlemon[data->sp->defence_client].ability;
-
-    debug_printf("print message\n");
-    ov12_0223C4E8(bsys, window, bsys->unkC, &mp, 0, 16 * 0, 0, 0, 0);
-    
-
-    debug_printf("sub_0200E5D4\n");
-    sub_0200E5D4(window, 0);
-    debug_printf("RemoveWindow\n");
-    RemoveWindow(window);
-
-    G2_SetBG0Priority(1);
-    SetBgPriority(1, 0);
-    SetBgPriority(2, 1);
-
-    debug_printf("ov12_0223C224\n");
-    //ov12_0223C224(bsys, 0);
-
-    debug_printf("free and destroy\n");
-    data->sp->tciw = NULL;
-    sys_FreeMemoryEz(inData);
-    DestroySysTask(task);
-    
-    //data->sp->battle_progress_flag = 0;
-    debug_printf("end,battle progress %d\n", data->sp->battle_progress_flag);
-}
-
 BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
 {
     debug_printf("btl_scr_cmd_105_abilitypopup %d\n", sp->battle_progress_flag);
@@ -4221,7 +4156,7 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
 
     sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
     PaletteData_LoadNarc(palette, 38, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0, 0x20, 8 * 0x10); //NARC_a_0_3_8, sub_0200E3D8(), HEAP_ID_BATTLE, PLTTBUF_MAIN_BG
-    AddWindowParameterized(bgConfig, window, 2, 1, 0x7, 14, 5, 11, 9 + 1);
+    AddWindowParameterized(bgConfig, window, 2, 1 /*x*/, 0x7/*y*/, 14/*width*/, 5/*height*/, 11, 9 + 1);
     FillWindowPixelBuffer(window, 0xFF);
     debug_printf("DrawFrameAndWindow1\n");
     DrawFrameAndWindow1(window, FALSE, 1, 8);
@@ -4233,34 +4168,9 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
     sp->mp.msg_para[0] = CreateNicknameTag(sp, battlerId);
     sp->mp.msg_para[1] = sp->battlemon[battlerId].ability;
 
-    mp.msg_tag = TAG_ITEM;
-    sp->mp.msg_para[0] = sp->battlemon[battlerId].item;
-
     debug_printf("print message\n");
     ov12_0223C4E8(bsys, window, bsys->unkC, &mp, 0, 16 * 0, 0, 0, 0);
 
-    /*
-    debug_printf("sub_0200E5D4\n");
-    sub_0200E5D4(window, 0);
-    debug_printf("RemoveWindow\n");
-    RemoveWindow(window);
-
-    G2_SetBG0Priority(1);
-    SetBgPriority(1, 0);
-    SetBgPriority(2, 1);
-    */
-
-    /*
-    sp->tciw = sys_AllocMemory(HEAPID_BATTLE_HEAP, sizeof(struct tcb_skill_intp_work));
-
-    sp->tciw->bw = bsys;
-    sp->tciw->sp = sp;
-    sp->tciw->seq_no = 0;
-    sp->tciw->work[6] = 0;
-    sp->battle_progress_flag = 1;
-    CreateSysTask(Task_AbilityPopup, sp->tciw, 0);
-
-    //IncrementBattleScriptPtr(sp, adrs);*/
     debug_printf("btl_scr_cmd_105_abilitypopup end\n");
     return FALSE;
 }
@@ -4283,14 +4193,6 @@ BOOL btl_scr_cmd_106_abilitypopupwait(void* bw, struct BattleStruct* sp)
     SetBgPriority(1, 0);
     SetBgPriority(2, 1);
 
-
-
-   /* if (sp->tciw == NULL) {
-        debug_printf("IncrementBattleScriptPtr\n");
-        IncrementBattleScriptPtr(sp, 1);
-        //sp->battle_progress_flag = 1;
-    }
-    */
     debug_printf("btl_scr_cmd_106_abilitypopupwait end\n");
     return FALSE;
 }
