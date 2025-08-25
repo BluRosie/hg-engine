@@ -1455,7 +1455,7 @@ typedef struct MessageFormat MessageFormat;
 struct BattleSystem {
     /* 0x00 */ u32 *unk0;
     /* 0x04 */ void * /*BgConfig **/ bgConfig;
-    /* 0x08 */ void * /*Window **/ window;
+    /* 0x08 */ struct Window* window;//void * /*Window **/ window;
     /* 0x0C */ u32 *unkC;
     /* 0x10 */ u32 *unk10;
     /* 0x14 */ MessageFormat *msgFormat;
@@ -3839,5 +3839,11 @@ BOOL LONG_CALL IsAnyBattleMonHit(struct BattleStruct* ctx);
 
 int GetSanitisedType(int type);
 
+u32 LONG_CALL ov12_0223C4E8(struct BattleSystem* bsys, void* window, void* data, MESSAGE_PARAM* msg, int x, int y, int flag, int width, int delay);
+void LONG_CALL ov12_0223C224(struct BattleSystem* bsys, int a1);
+void LONG_CALL sub_0200E398(void* bgConfig, u32 a1, u32 a2, u32 a3, u32 heapID);
+void LONG_CALL sub_0200E5D4(void* window, BOOL dont_copy_to_vram);
+u8 LONG_CALL TextPrinterCheckActive(u8 printerId);
+u32 LONG_CALL sub_0200E3D8(void);
 
 #endif // BATTLE_H

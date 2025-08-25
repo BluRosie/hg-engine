@@ -1437,6 +1437,16 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
+    .macro AbilityPopup arg_0, arg_1
+    .long 261
+    .long \arg_0
+    .long (((\arg_1 - .) / 4) - 1)
+    .endm
+
+    .macro AbilityPopupWait
+    .long 262
+    .endm
+
     .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 255
 
     // .macro YourCustomCommand

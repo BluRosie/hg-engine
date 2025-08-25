@@ -6,6 +6,7 @@
 #include "../../include/overlay.h"
 #include "../../include/pokemon.h"
 #include "../../include/save.h"
+#include "../../include/window.h"
 #include "../../include/constants/ability.h"
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
@@ -93,6 +94,8 @@ void BattleContext_RemoveEntryHazardFromQueue(struct BattleStruct *ctx, u32 side
 BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_104_tryincinerate(void* bsys, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_105_abilitypopup(void* bsys, struct BattleStruct* sp);
+BOOL btl_scr_cmd_106_abilitypopupwait(void* bsys, struct BattleStruct* sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -379,6 +382,8 @@ const u8 *BattleScrCmdNames[] =
     "RemoveEntryHazardFromQueue",
     "CheckProtectContactMoves",
     "TryIncinerate",
+    "AbilityPopup",
+    "AbilityPopupWait",
     // "YourCustomCommand",
 };
 
@@ -426,6 +431,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x102 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_102_removeentryhazardfromqueue,
     [0x103 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_103_checkprotectcontactmoves,
     [0x104 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_104_tryincinerate,
+    [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_abilitypopup,
+    [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_abilitypopupwait,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4114,5 +4121,176 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
     }
 
     InitFaintedWork(bsys, sp, sp->fainting_client);
+    return FALSE;
+}
+
+//No idea what this is
+#define HW_REG_BASE             0x04000000
+#define REG_BG0CNT_OFFSET 0x8
+#define REG_BG0CNT_ADDR (HW_REG_BASE + REG_BG0CNT_OFFSET)
+#define reg_G2_BG0CNT (*(vu16 *)REG_BG0CNT_ADDR)  // =0x4000008
+
+void G2_SetBG0Priority(int priority) {
+    reg_G2_BG0CNT = (u16)((reg_G2_BG0CNT & ~0x3) | (priority << 0));
+}
+
+void Task_AbilityPopup(SysTask* task, void* inData)
+{
+    debug_printf("Task_AbilityPopup\n");
+    struct tcb_skill_intp_work* data = inData;
+    debug_printf("Task_AbilityPopupbattle progress %d\n", data->sp->battle_progress_flag);
+    debug_printf("Task_AbilityPopup %d\n", data->work[6]);
+    struct BattleSystem* bsys = data->bw;
+    void* bgConfig = bsys->bgConfig;
+    struct Window* window = &bsys->window[1];
+    void* palette = bsys->palette;
+    
+    G2_SetBG0Priority(2);
+    SetBgPriority(1, 1);
+    SetBgPriority(2, 0);
+
+    //ov12_0223C224(bsys, 1); // sets healthbar priority to 1
+    debug_printf("check printer\n");
+    u8 printerActive = 0;
+    do
+    {
+        printerActive = TextPrinterCheckActive(data->work[0]);
+        debug_printf("printerActive %d\n", printerActive);
+    } while (printerActive == 0);
+    data->work[2] = 0;
+    
+
+    sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
+    PaletteData_LoadNarc(palette, 38, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0, 0x20, 8 * 0x10); //NARC_a_0_3_8, sub_0200E3D8(), HEAP_ID_BATTLE, PLTTBUF_MAIN_BG
+    AddWindowParameterized(bgConfig, window, 2, 1, 0x7, 14, 3, 11, 9 + 1);
+    FillWindowPixelBuffer(window, 0xFF);
+    debug_printf("DrawFrameAndWindow1\n");
+    DrawFrameAndWindow1(window, FALSE, 1, 8);
+
+    debug_printf("prepare message\n");
+    MESSAGE_PARAM mp; 
+    mp.msg_id = BATTLE_MSG_ABILITY_POPUP;
+    mp.msg_tag = TAG_NICKNAME_ABILITY;
+    data->sp->mp.msg_para[0] = CreateNicknameTag(data->sp, data->sp->defence_client);
+    data->sp->mp.msg_para[1] = data->sp->battlemon[data->sp->defence_client].ability;
+
+    debug_printf("print message\n");
+    ov12_0223C4E8(bsys, window, bsys->unkC, &mp, 0, 16 * 0, 0, 0, 0);
+    
+
+    debug_printf("sub_0200E5D4\n");
+    sub_0200E5D4(window, 0);
+    debug_printf("RemoveWindow\n");
+    RemoveWindow(window);
+
+    G2_SetBG0Priority(1);
+    SetBgPriority(1, 0);
+    SetBgPriority(2, 1);
+
+    debug_printf("ov12_0223C224\n");
+    //ov12_0223C224(bsys, 0);
+
+    debug_printf("free and destroy\n");
+    data->sp->tciw = NULL;
+    sys_FreeMemoryEz(inData);
+    DestroySysTask(task);
+    
+    //data->sp->battle_progress_flag = 0;
+    debug_printf("end,battle progress %d\n", data->sp->battle_progress_flag);
+}
+
+BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
+{
+    debug_printf("btl_scr_cmd_105_abilitypopup %d\n", sp->battle_progress_flag);
+
+    struct BattleSystem* bsys = bw;
+    struct Window* window = &bsys->window[1];
+    void* bgConfig = bsys->bgConfig;
+    void* palette = bsys->palette;
+
+    IncrementBattleScriptPtr(sp, 1);
+    int side = read_battle_script_param(sp);
+    u32 adrs UNUSED = read_battle_script_param(sp);
+
+    int battlerId = GrabClientFromBattleScriptParam(bsys, sp, side);
+    debug_printf("side %d, battlerId %d\n", side, battlerId);
+
+    G2_SetBG0Priority(2);
+    SetBgPriority(1, 1);
+    SetBgPriority(2, 0);
+
+    sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
+    PaletteData_LoadNarc(palette, 38, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0, 0x20, 8 * 0x10); //NARC_a_0_3_8, sub_0200E3D8(), HEAP_ID_BATTLE, PLTTBUF_MAIN_BG
+    AddWindowParameterized(bgConfig, window, 2, 1, 0x7, 14, 5, 11, 9 + 1);
+    FillWindowPixelBuffer(window, 0xFF);
+    debug_printf("DrawFrameAndWindow1\n");
+    DrawFrameAndWindow1(window, FALSE, 1, 8);
+    
+    debug_printf("prepare message\n");
+    MESSAGE_PARAM mp;
+    mp.msg_id = BATTLE_MSG_ABILITY_POPUP;
+    mp.msg_tag = TAG_NICKNAME_ABILITY;
+    sp->mp.msg_para[0] = CreateNicknameTag(sp, battlerId);
+    sp->mp.msg_para[1] = sp->battlemon[battlerId].ability;
+
+    mp.msg_tag = TAG_ITEM;
+    sp->mp.msg_para[0] = sp->battlemon[battlerId].item;
+
+    debug_printf("print message\n");
+    ov12_0223C4E8(bsys, window, bsys->unkC, &mp, 0, 16 * 0, 0, 0, 0);
+
+    /*
+    debug_printf("sub_0200E5D4\n");
+    sub_0200E5D4(window, 0);
+    debug_printf("RemoveWindow\n");
+    RemoveWindow(window);
+
+    G2_SetBG0Priority(1);
+    SetBgPriority(1, 0);
+    SetBgPriority(2, 1);
+    */
+
+    /*
+    sp->tciw = sys_AllocMemory(HEAPID_BATTLE_HEAP, sizeof(struct tcb_skill_intp_work));
+
+    sp->tciw->bw = bsys;
+    sp->tciw->sp = sp;
+    sp->tciw->seq_no = 0;
+    sp->tciw->work[6] = 0;
+    sp->battle_progress_flag = 1;
+    CreateSysTask(Task_AbilityPopup, sp->tciw, 0);
+
+    //IncrementBattleScriptPtr(sp, adrs);*/
+    debug_printf("btl_scr_cmd_105_abilitypopup end\n");
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_106_abilitypopupwait(void* bw, struct BattleStruct* sp)
+{
+    debug_printf("btl_scr_cmd_106_abilitypopupwait %p, %d\n", sp->tciw, sp->battle_progress_flag);
+    IncrementBattleScriptPtr(sp, 1);
+    sp->battle_progress_flag = 1;
+
+    struct BattleSystem* bsys = bw;
+    struct Window* window = &bsys->window[1];
+
+    debug_printf("sub_0200E5D4\n");
+    sub_0200E5D4(window, 0);
+    debug_printf("RemoveWindow\n");
+    RemoveWindow(window);
+
+    G2_SetBG0Priority(1);
+    SetBgPriority(1, 0);
+    SetBgPriority(2, 1);
+
+
+
+   /* if (sp->tciw == NULL) {
+        debug_printf("IncrementBattleScriptPtr\n");
+        IncrementBattleScriptPtr(sp, 1);
+        //sp->battle_progress_flag = 1;
+    }
+    */
+    debug_printf("btl_scr_cmd_106_abilitypopupwait end\n");
     return FALSE;
 }
