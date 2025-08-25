@@ -1613,7 +1613,7 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
                 if ((!flowerGiftAppliedForDefenseModifier)
                 && (field_cond & WEATHER_SUNNY_ANY)
-                && (DefendingMon.ability == ABILITY_FLOWER_GIFT)
+                && (MoldBreakerAbilityCheck(sp, attack, defender, ABILITY_FLOWER_GIFT))
                 && (movesplit == SPLIT_SPECIAL)) {
                     flowerGiftAppliedForDefenseModifier = TRUE;
                     defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
@@ -1644,11 +1644,11 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         if (BATTLER_ALLY(defender) == sp->rawSpeedNonRNGClientOrder[i]) {
             // handle weather boosts
             if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
-            && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
+                && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
                 if ((!flowerGiftAppliedForDefenseModifier)
-                && (field_cond & WEATHER_SUNNY_ANY)
-                && (GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_FLOWER_GIFT)
-                && (movesplit == SPLIT_SPECIAL)) {
+                    && (field_cond & WEATHER_SUNNY_ANY)
+                    && (MoldBreakerAbilityCheck(sp, attacker, BATTLER_ALLY(defender), ABILITY_FLOWER_GIFT))
+                    && (movesplit == SPLIT_SPECIAL)) {
                     flowerGiftAppliedForDefenseModifier = TRUE;
                     defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
                 }

@@ -526,7 +526,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
                     // 6.9.8 Solid Rock / Filter / Prism Armor
                     if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-                    && (defenderAbility == ABILITY_SOLID_ROCK || defenderAbility == ABILITY_FILTER || defenderAbility == ABILITY_PRISM_ARMOR)) {
+                        && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SOLID_ROCK) || MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FILTER) || defenderAbility == ABILITY_PRISM_ARMOR)) {
                         finalModifier = QMul_RoundUp(finalModifier, UQ412__0_75);
 #ifdef DEBUG_DAMAGE_CALC
                         debug_printf("\n=================\n");
@@ -537,7 +537,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
                     break;
                 default:
                     break;
-            }
+                }
         }
 
         // 6.9.3 Sniper
