@@ -592,6 +592,7 @@ sub_0200E398 = 0x0200E398 | 1;
 sub_0200E5D4 = 0x0200E5D4 | 1;
 TextPrinterCheckActive = 0x02020094 | 1;
 sub_0200E3D8 = 0x0200E3D8 | 1;
+BattleMessage_ExpandPlaceholders = 0x0223CEF4 | 1;
 
 TryAppendMonMove = 0x0207137C | 1;
 

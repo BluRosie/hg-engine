@@ -4171,8 +4171,15 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
     sp->mp.msg_para[0] = CreateNicknameTag(sp, battlerId);
     sp->mp.msg_para[1] = sp->battlemon[battlerId].ability;
 
-    debug_printf("print message\n");
-    ov12_0223C4E8(bsys, window, bsys->unkC, &mp, 0, 16 * 0, 0, 0, 0);
+    debug_printf("BattleSystem_BufferMessage\n");
+    BattleSystem_BufferMessage(bsys, &mp);
+    debug_printf("BattleMessage_ExpandPlaceholders\n");
+    BattleMessage_ExpandPlaceholders(bsys, bsys->unkC, &mp);
+    debug_printf("AddTextPrinterParameterized\n");
+    AddTextPrinterParameterized(window, 0, bsys->msgBuffer, 0, 0, 0, 0);
+
+    //debug_printf("print message\n");
+   // ov12_0223C4E8(bsys, window, bsys->unkC, &mp, 0, 16 * 0, 0, 0, 0);
 
     debug_printf("btl_scr_cmd_105_abilitypopup end\n");
     return FALSE;

@@ -3845,5 +3845,6 @@ void LONG_CALL sub_0200E398(void* bgConfig, u32 a1, u32 a2, u32 a3, u32 heapID);
 void LONG_CALL sub_0200E5D4(void* window, BOOL dont_copy_to_vram);
 u8 LONG_CALL TextPrinterCheckActive(u8 printerId);
 u32 LONG_CALL sub_0200E3D8(void);
+void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem* bsys, void* data, MESSAGE_PARAM* msg);
 
 #endif // BATTLE_H
