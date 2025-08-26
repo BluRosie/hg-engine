@@ -4137,12 +4137,10 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
     void* palette = bsys->palette;
 
     IncrementBattleScriptPtr(sp, 1);
-    int side = read_battle_script_param(sp);
 
-    //int battlerId = GrabClientFromBattleScriptParam(bsys, sp, side);
-    int battlerId = sp->battlerIdTemp;
+    int side = IsClientEnemy(bw, sp->battlerIdTemp);
 #ifdef DEBUG_ABILITY_POPUP
-    debug_printf("side %d, battlerId %d\n", side, battlerId);
+    debug_printf("side %d, battlerId %d\n", side, sp->battlerIdTemp);
 #endif
 
     G2_SetBG0Priority(2);
@@ -4151,7 +4149,7 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
 
     sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
     PaletteData_LoadNarc(palette, 38/*NARC_a_0_3_8*/, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0 /*PLTTBUF_MAIN_BG*/, 0x20, 8 * 0x10);
-    if (side % 2 == 0)
+    if (side != 0)
         AddWindowParameterized(bgConfig, window, 2, 16 /*x*/, 8/*y*/, 16/*width*/, 2/*height*/, 11, 9 + 1);
     else
         AddWindowParameterized(bgConfig, window, 2, 0 /*x*/, 10/*y*/, 16/*width*/, 2/*height*/, 11, 9 + 1);
@@ -4161,13 +4159,13 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
     MESSAGE_PARAM mp;
     mp.msg_id = BATTLE_MSG_ABILITY_POPUP;
     mp.msg_tag = TAG_NICKNAME_ABILITY;
-    mp.msg_para[0] = CreateNicknameTag(sp, battlerId);
-    mp.msg_para[1] = sp->battlemon[battlerId].ability;
-    mp.battlerId = battlerId;
+    mp.msg_para[0] = CreateNicknameTag(sp, sp->battlerIdTemp);
+    mp.msg_para[1] = sp->battlemon[sp->battlerIdTemp].ability;
+    mp.battlerId = sp->battlerIdTemp;
 
     BattleSystem_BufferMessage(bsys, &mp);
     BattleMessage_ExpandPlaceholders(bsys, bsys->unkC, &mp);
-    AddTextPrinterParameterized(window, 0, bsys->msgBuffer, (side % 2 == 0) ? 0 : 2, 0, 0, 0);
+    AddTextPrinterParameterized(window, 0, bsys->msgBuffer, (side != 0) ? 0 : 2, 0, 0, 0);
 #ifdef DEBUG_ABILITY_POPUP
     debug_printf("btl_scr_cmd_105_abilitypopup end\n");
 #endif

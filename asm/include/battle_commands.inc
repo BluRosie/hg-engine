@@ -1437,17 +1437,16 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro AbilityPopup arg_0
+    .macro AbilityPopup
     .long 261
-    .long \arg_0
     .endm
 
     .macro AbilityPopupRemove
     .long 262
     .endm
 
-    .macro AbilityPopupAnim side
-    AbilityPopup \side
+    .macro AbilityPopupAnim
+    AbilityPopup
     WaitButtonABTime 130
     AbilityPopupRemove
     .endm
