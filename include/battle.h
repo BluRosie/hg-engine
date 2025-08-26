@@ -1621,8 +1621,6 @@ enum
     BATTLE_MON_DATA_SLOW_START_COUNTER = 89,
 };
 
-#define BATTLE_MON_HAS_TYPE(sp, client, type) (sp->battlemon[client].type1 == type || sp->battlemon[client].type2 == type)
-
 #define MEGA_NEED 1
 #define MEGA_CHECK_APPER 2
 #define MEGA_NO_NEED 0

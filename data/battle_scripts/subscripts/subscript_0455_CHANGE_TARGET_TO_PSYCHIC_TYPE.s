@@ -1,0 +1,13 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_TYPE_1, TYPE_PSYCHIC
+    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_TYPE_2, TYPE_PSYCHIC
+    Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
+    // {0} transformed into the Psychic type!
+    PrintMessage 1585, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP
+    Wait 
+    WaitButtonABTime 30
+    End

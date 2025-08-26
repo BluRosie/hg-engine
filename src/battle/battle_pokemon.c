@@ -115,7 +115,6 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_STEEL, TYPE_WATER, 0x05 },
     { TYPE_STEEL, TYPE_ELECTRIC, 0x05 },
     { TYPE_STEEL, TYPE_ICE, 0x14 },
-    { TYPE_STEEL, TYPE_DARK, 0x0A },
 
 #if FAIRY_TYPE_IMPLEMENTED == 1
     { TYPE_FAIRY, TYPE_FIGHTING, 0x14 },
@@ -192,10 +191,10 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_DRAGON, TYPE_FAIRY, 0x00 },
 #endif
 
-    { 0xFE, 0xFE, 0x00 },
+    { TYPE_FORESIGHT, TYPE_FORESIGHT, 0x00 },
     { TYPE_NORMAL, TYPE_GHOST, 0x00 },
     { TYPE_FIGHTING, TYPE_GHOST, 0x00 },
-    { 0xFF, 0xFF, 0xFF },
+    { TYPE_ENDTABLE, TYPE_ENDTABLE, 0xFF },
 };
 
 /**
@@ -1003,7 +1002,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].is_currently_terastallized = 0;
     sp->battlemon[client].is_currently_dynamaxed = 0;
     sp->battlemon[client].has_dynamaxed_before = 0;
-    sp->battlemon[client].type3 = 0;
+    sp->battlemon[client].type3 = TYPE_TYPELESS;
     sp->oneTurnFlag[client].parental_bond_flag = 0;
     sp->oneTurnFlag[client].parental_bond_is_active = 0;
 
