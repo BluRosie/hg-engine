@@ -80,6 +80,9 @@
 //DEBUG_SPEED_CALC shows debug information related to calculating speed. It is very slow and laggy.
 // #define DEBUG_SPEED_CALC
 
+// DEBUG_ABILITY_POPUP shows debug information related to the Ability popup.
+//#define DEBUG_ABILITY_POPUP
+
 // FANCY_PRINT_NICKNAME defines in progress implementations that may not necessarily function.
 // #define FANCY_PRINT_NICKNAME
 

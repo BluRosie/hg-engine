@@ -1442,8 +1442,14 @@
     .long \arg_0
     .endm
 
-    .macro AbilityPopupWait
+    .macro AbilityPopupRemove
     .long 262
+    .endm
+
+    .macro AbilityPopupAnim side
+    AbilityPopup \side
+    WaitButtonABTime 130
+    AbilityPopupRemove
     .endm
 
     .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 255

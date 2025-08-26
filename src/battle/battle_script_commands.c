@@ -96,7 +96,7 @@ BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct Battle
 BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_104_tryincinerate(void* bsys, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_105_abilitypopup(void* bsys, struct BattleStruct* sp);
-BOOL btl_scr_cmd_106_abilitypopupwait(void* bsys, struct BattleStruct* sp);
+BOOL btl_scr_cmd_106_abilitypopupremove(void* bsys, struct BattleStruct* sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -384,7 +384,7 @@ const u8 *BattleScrCmdNames[] =
     "CheckProtectContactMoves",
     "TryIncinerate",
     "AbilityPopup",
-    "AbilityPopupWait",
+    "AbilityPopupRemove",
     // "YourCustomCommand",
 };
 
@@ -433,7 +433,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x103 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_103_checkprotectcontactmoves,
     [0x104 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_104_tryincinerate,
     [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_abilitypopup,
-    [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_abilitypopupwait,
+    [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_abilitypopupremove,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4125,20 +4125,12 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
     return FALSE;
 }
 
-//No idea what this is
-#define HW_REG_BASE             0x04000000
-#define REG_BG0CNT_OFFSET 0x8
-#define REG_BG0CNT_ADDR (HW_REG_BASE + REG_BG0CNT_OFFSET)
-#define reg_G2_BG0CNT (*(vu16 *)REG_BG0CNT_ADDR)  // =0x4000008
-
-void G2_SetBG0Priority(int priority) {
-    reg_G2_BG0CNT = (u16)((reg_G2_BG0CNT & ~0x3) | (priority << 0));
-}
 
 BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
 {
+#ifdef DEBUG_ABILITY_POPUP
     debug_printf("btl_scr_cmd_105_abilitypopup %d\n", sp->battle_progress_flag);
-
+#endif
     struct BattleSystem* bsys = bw;
     struct Window* window = &bsys->window[1];
     void* bgConfig = bsys->bgConfig;
@@ -4147,15 +4139,18 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
     IncrementBattleScriptPtr(sp, 1);
     int side = read_battle_script_param(sp);
 
-    int battlerId = GrabClientFromBattleScriptParam(bsys, sp, side);
+    //int battlerId = GrabClientFromBattleScriptParam(bsys, sp, side);
+    int battlerId = sp->battlerIdTemp;
+#ifdef DEBUG_ABILITY_POPUP
     debug_printf("side %d, battlerId %d\n", side, battlerId);
+#endif
 
     G2_SetBG0Priority(2);
     SetBgPriority(1, 1);
     SetBgPriority(2, 0);
 
     sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
-    PaletteData_LoadNarc(palette, 38, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0, 0x20, 8 * 0x10); //NARC_a_0_3_8, sub_0200E3D8(), HEAP_ID_BATTLE, PLTTBUF_MAIN_BG
+    PaletteData_LoadNarc(palette, 38/*NARC_a_0_3_8*/, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0 /*PLTTBUF_MAIN_BG*/, 0x20, 8 * 0x10);
     if (side % 2 == 0)
         AddWindowParameterized(bgConfig, window, 2, 16 /*x*/, 8/*y*/, 16/*width*/, 2/*height*/, 11, 9 + 1);
     else
@@ -4173,32 +4168,31 @@ BOOL btl_scr_cmd_105_abilitypopup(void* bw, struct BattleStruct* sp)
     BattleSystem_BufferMessage(bsys, &mp);
     BattleMessage_ExpandPlaceholders(bsys, bsys->unkC, &mp);
     AddTextPrinterParameterized(window, 0, bsys->msgBuffer, (side % 2 == 0) ? 0 : 2, 0, 0, 0);
-
-    //debug_printf("print message\n");
-   // ov12_0223C4E8(bsys, window, bsys->unkC, &mp, 0, 16 * 0, 0, 0, 0);
-
+#ifdef DEBUG_ABILITY_POPUP
     debug_printf("btl_scr_cmd_105_abilitypopup end\n");
+#endif
     return FALSE;
 }
 
-BOOL btl_scr_cmd_106_abilitypopupwait(void* bw, struct BattleStruct* sp)
+BOOL btl_scr_cmd_106_abilitypopupremove(void* bw, struct BattleStruct* sp)
 {
-    debug_printf("btl_scr_cmd_106_abilitypopupwait %p, %d\n", sp->tciw, sp->battle_progress_flag);
+#ifdef DEBUG_ABILITY_POPUP
+    debug_printf("btl_scr_cmd_106_abilitypopupremove %d\n", sp->battle_progress_flag);
+#endif
     IncrementBattleScriptPtr(sp, 1);
     sp->battle_progress_flag = 1;
 
     struct BattleSystem* bsys = bw;
     struct Window* window = &bsys->window[1];
 
-    debug_printf("sub_0200E5D4\n");
     sub_0200E5D4(window, 0);
-    debug_printf("RemoveWindow\n");
     RemoveWindow(window);
 
     G2_SetBG0Priority(1);
     SetBgPriority(1, 0);
     SetBgPriority(2, 1);
-
-    debug_printf("btl_scr_cmd_106_abilitypopupwait end\n");
+#ifdef DEBUG_ABILITY_POPUP
+    debug_printf("btl_scr_cmd_106_abilitypopupremove end %d\n", sp->battle_progress_flag);
+#endif
     return FALSE;
 }
