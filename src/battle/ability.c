@@ -419,6 +419,104 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, in
     return ret;
 }
 
+/// @brief Check if ability can be disabled by Mold Breaker
+/// @param ability
+/// @return `TRUE` or `FALSE`
+BOOL AbilityBreakable(int ability) {
+    switch (ability) {
+        case ABILITY_BATTLE_ARMOR:
+        case ABILITY_STURDY:
+        case ABILITY_DAMP:
+        case ABILITY_LIMBER:
+        case ABILITY_SAND_VEIL:
+        case ABILITY_VOLT_ABSORB:
+        case ABILITY_WATER_ABSORB:
+        case ABILITY_OBLIVIOUS:
+        case ABILITY_INSOMNIA:
+        case ABILITY_IMMUNITY:
+        case ABILITY_FLASH_FIRE:
+        case ABILITY_SHIELD_DUST:
+        case ABILITY_OWN_TEMPO:
+        case ABILITY_SUCTION_CUPS:
+        case ABILITY_WONDER_GUARD:
+        case ABILITY_LEVITATE:
+        case ABILITY_CLEAR_BODY:
+        case ABILITY_LIGHTNING_ROD:
+        case ABILITY_ILLUMINATE:
+        case ABILITY_INNER_FOCUS:
+        case ABILITY_MAGMA_ARMOR:
+        case ABILITY_WATER_VEIL:
+        case ABILITY_SOUNDPROOF:
+        case ABILITY_THICK_FAT:
+        case ABILITY_KEEN_EYE:
+        case ABILITY_HYPER_CUTTER:
+        case ABILITY_STICKY_HOLD:
+        case ABILITY_MARVEL_SCALE:
+        case ABILITY_VITAL_SPIRIT:
+        case ABILITY_WHITE_SMOKE:
+        case ABILITY_SHELL_ARMOR:
+        case ABILITY_TANGLED_FEET:
+        case ABILITY_MOTOR_DRIVE:
+        case ABILITY_SNOW_CLOAK:
+        case ABILITY_HEATPROOF:
+        case ABILITY_SIMPLE:
+        case ABILITY_DRY_SKIN:
+        case ABILITY_LEAF_GUARD:
+        case ABILITY_UNAWARE:
+        case ABILITY_FILTER:
+        case ABILITY_STORM_DRAIN:
+        case ABILITY_SOLID_ROCK:
+        case ABILITY_FLOWER_GIFT:
+        case ABILITY_CONTRARY:
+        case ABILITY_FRIEND_GUARD:
+        case ABILITY_HEAVY_METAL:
+        case ABILITY_LIGHT_METAL:
+        case ABILITY_MULTISCALE:
+        case ABILITY_TELEPATHY:
+        case ABILITY_OVERCOAT:
+        case ABILITY_BIG_PECKS:
+        case ABILITY_WONDER_SKIN:
+        case ABILITY_MAGIC_BOUNCE:
+        case ABILITY_SAP_SIPPER:
+        case ABILITY_AROMA_VEIL:
+        case ABILITY_FLOWER_VEIL:
+        case ABILITY_FUR_COAT:
+        case ABILITY_BULLETPROOF:
+        case ABILITY_SWEET_VEIL:
+        case ABILITY_GRASS_PELT:
+        case ABILITY_AURA_BREAK:
+        case ABILITY_WATER_BUBBLE:
+        case ABILITY_DISGUISE:
+        case ABILITY_QUEENLY_MAJESTY:
+        case ABILITY_FLUFFY:
+        case ABILITY_DAZZLING:
+        case ABILITY_MIRROR_ARMOR:
+        case ABILITY_PUNK_ROCK:
+        case ABILITY_ICE_SCALES:
+        case ABILITY_ICE_FACE:
+        case ABILITY_PASTEL_VEIL:
+        case ABILITY_THERMAL_EXCHANGE:
+        case ABILITY_PURIFYING_SALT:
+        case ABILITY_WELL_BAKED_BODY:
+        case ABILITY_WIND_RIDER:
+        case ABILITY_GUARD_DOG:
+        case ABILITY_GOOD_AS_GOLD:
+        case ABILITY_VESSEL_OF_RUIN:
+        case ABILITY_SWORD_OF_RUIN:
+        case ABILITY_TABLETS_OF_RUIN:
+        case ABILITY_BEADS_OF_RUIN:
+        case ABILITY_ARMOR_TAIL:
+        case ABILITY_EARTH_EATER:
+        case ABILITY_MINDS_EYE:
+        case ABILITY_TERA_SHELL:
+            return TRUE;
+            break;
+
+    default:
+        break;
+    }
+    return FALSE;
+}
 
 /**
  *  @brief check if an ability is present and account for mold breaker
@@ -434,6 +532,10 @@ u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int
     BOOL ret;
 
     ret = FALSE;
+
+    if ((attacker == defender) || !AbilityBreakable(ability)) {
+        return GetBattlerAbility(sp, defender) == ability;
+    }
 
     if ((GetBattlerAbility(sp, attacker) != ABILITY_MOLD_BREAKER) && (GetBattlerAbility(sp, attacker) != ABILITY_TERAVOLT) && (GetBattlerAbility(sp, attacker) != ABILITY_TURBOBLAZE) &&
         // TODO: Probably need to check if the attacker is attacking
@@ -451,7 +553,7 @@ u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int
             ret = TRUE;
         }
     } else {
-        if ((GetBattlerAbility(sp, defender) == ability) && (sp->oneSelfFlag[attacker].moldBreakerFlag == 0)) {
+        if ((GetBattlerAbility(sp, defender) == ability) && (sp->oneSelfFlag[attacker].moldBreakerFlag == 0) && AbilityBreakable(ability)) {
             sp->oneSelfFlag[attacker].moldBreakerFlag = 1;
             sp->server_status_flag |= SERVER_STATUS_FLAG_MOLD_BREAKER;
         }
@@ -941,6 +1043,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
     sp->server_seq_no = 31;
 }
 
+//TODO: some stack system because need the Magic Coat/Magic Bounce users to reflect the move individually
 /**
  *  @brief handle magic coat and snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
  *
@@ -964,7 +1067,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
      && (sp->oneTurnFlag[sp->defence_client].magic_cort_flag
       // if magic bounce then activate only if it hasn't already activated this move
-      || (GetBattlerAbility(sp, sp->defence_client) == ABILITY_MAGIC_BOUNCE && !sp->magicBounceTracker))
+      || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_MAGIC_BOUNCE) && !sp->magicBounceTracker))
      && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT))
     {
         sp->oneTurnFlag[sp->defence_client].magic_cort_flag = 0;

@@ -165,11 +165,11 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     //         ballRate = 40; // as of sword and shield
     //     break;
     case ITEM_HEAVY_BALL:
-        if (GetPokemonWeight(bw, sp, sp->defence_client) < 999) {
+        if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 999) {
             heavyBallMod = -20;
-        } else if (GetPokemonWeight(bw, sp, sp->defence_client) < 1999) {
+        } else if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 1999) {
             heavyBallMod = 0;
-        } else if (GetPokemonWeight(bw, sp, sp->defence_client) < 2999) {
+        } else if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 2999) {
             heavyBallMod = 20;
         } else {
             heavyBallMod = 30;

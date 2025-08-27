@@ -114,7 +114,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Defender has less than +6 stages to Special Attack
                 && ((sp->battlemon[sp->defence_client].states[STAT_SPATK] < 12)
                     // Or the defender has Contrary and more than -6 stages to Special Attack
-                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                    || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && (sp->battlemon[sp->defence_client].states[STAT_SPATK] > 0)))) {
                 sp->state_client     = sp->defence_client;
                 seq_no[0]            = SUB_SEQ_HANDLE_RAISE_SPECIAL_ATTACK_ON_HIT;
@@ -144,7 +144,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Defender has less than +6 stages to Attack
                 && ((sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
                     // Or the defender has Contrary and more than -6 stages to Attack
-                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                    || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)))) {
                 sp->state_client     = sp->defence_client;
                 seq_no[0]            = SUB_SEQ_HANDLE_RAISE_ATTACK_ON_HIT;
@@ -220,7 +220,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Defender has less than +6 stages to Defense
                 && ((sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
                     // Or the defender has Contrary and more than -6 stages to Defense
-                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                    || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] > 0)))) {
                 sp->state_client     = sp->defence_client;
                 seq_no[0]            = SUB_SEQ_HANDLE_RAISE_DEFENSE_ON_HIT;
@@ -239,7 +239,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Defender has less than +6 stages to Special Defense
                 && ((sp->battlemon[sp->defence_client].states[STAT_SPDEF] < 12)
                     // Or the defender has Contrary and more than -6 stages to Special Defense
-                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                    || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && (sp->battlemon[sp->defence_client].states[STAT_SPDEF] > 0)))) {
                 sp->state_client     = sp->defence_client;
                 seq_no[0]            = SUB_SEQ_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT;
@@ -255,7 +255,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Defender has less than +6 stages to Special Defense
                 && ((sp->battlemon[sp->defence_client].states[STAT_SPDEF] < 12)
                     // Or the defender has Contrary and more than -6 stages to Special Defense
-                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                    || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && (sp->battlemon[sp->defence_client].states[STAT_SPDEF] > 0)))) {
                 sp->state_client     = sp->defence_client;
                 seq_no[0]            = SUB_SEQ_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT;
@@ -274,7 +274,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Defender has less than +6 stages to Attack
                 && ((sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
                     // Or the defender has Contrary and more than -6 stages to Attack
-                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                    || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)))) {
                 sp->state_client     = sp->defence_client;
                 seq_no[0]            = SUB_SEQ_HANDLE_RAISE_ATTACK_ON_HIT;
@@ -294,7 +294,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 && (((sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
                      || (sp->battlemon[sp->defence_client].states[STAT_SPATK] < 12))
                     // Or the defender has Contrary and more than -6 stages to either of Attack or Special Attack
-                    || ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_CONTRARY)
+                    || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && ((sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)
                             || (sp->battlemon[sp->defence_client].states[STAT_SPATK] > 0))))) {
                 sp->state_client     = sp->defence_client;

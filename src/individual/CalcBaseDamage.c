@@ -265,8 +265,8 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     DefendingMon.sex = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SEX, NULL);
     AttackingMon.speed = sp->effectiveSpeed[attacker];
     DefendingMon.speed = sp->effectiveSpeed[defender];
-    AttackingMon.weight = GetPokemonWeight(bw, sp, attacker);
-    DefendingMon.weight = GetPokemonWeight(bw, sp, defender);
+    AttackingMon.weight = GetPokemonWeight(bw, sp, attacker, attacker);
+    DefendingMon.weight = GetPokemonWeight(bw, sp, attacker, defender);
     AttackingMon.happiness = sp->battlemon[attacker].friendship;
     DefendingMon.happiness = sp->battlemon[defender].friendship;
     AttackingMon.form = sp->battlemon[attacker].form_no;
@@ -996,7 +996,7 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
 
             // handle Punk Rock
             // TODO: confirm location
-            if (AttackingMon.ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(sp->current_move_index)) {
+            if (MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_PUNK_ROCK) && IsMoveSoundBased(sp->current_move_index)) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
             }
 
@@ -1334,7 +1334,7 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             }
 
             // handle Water Bubble
-            if ((AttackingMon.ability == ABILITY_WATER_BUBBLE) && (movetype == TYPE_WATER)) {
+            if (MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_WATER_BUBBLE) && (movetype == TYPE_WATER)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__2_0);
             }
 
@@ -1395,13 +1395,13 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             }
 
             // handle Water Bubble
-            if ((DefendingMon.ability == ABILITY_WATER_BUBBLE) && (movetype == TYPE_FIRE)) {
+            if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_BUBBLE) && (movetype == TYPE_FIRE)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__0_5);
             }
 
             // handle Purifying Salt
             // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9469856
-            if ((DefendingMon.ability == ABILITY_PURIFYING_SALT) && (movetype == TYPE_GHOST)) {
+            if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_PURIFYING_SALT)) && (movetype == TYPE_GHOST)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__0_5);
             }
         }
@@ -1475,7 +1475,7 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             break;
         case SPLIT_SPECIAL:
             // Handle Vessel of Ruin
-            // TODO: confirm location
+            // TODO: confirm location, Mold Breaker interactions
             // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9425737
             if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_VESSEL_OF_RUIN)) && (DefendingMon.ability != ABILITY_VESSEL_OF_RUIN)) {
                 if (((calculatedAttack * UQ412__0_75) & 0xFFFu) <= 0x800) {

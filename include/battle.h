@@ -2974,7 +2974,7 @@ BOOL LONG_CALL Link_QueueIsEmpty(struct BattleStruct *sp);
  *  @param client battler whose weight to grab
  *  @return battler's weight
  */
-s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, u32 client);
+s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, int attack_client, u32 client);
 
 /**
  *  @brief check if a held item can be removed from the species it is attached to

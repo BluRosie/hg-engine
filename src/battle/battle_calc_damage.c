@@ -552,7 +552,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         }
 
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && (defenderAbility == ABILITY_FLUFFY)) {
+        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLUFFY)) {
             // 6.9.6 Fluffy (contact moves)
             if (IsContactBeingMade(bw, sp)) {
                 finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
@@ -575,7 +575,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
         // 6.9.5 Multiscale / Shadow Shield
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && ((defenderAbility == ABILITY_MULTISCALE)
+        && ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MULTISCALE))
         || (defenderAbility == ABILITY_SHADOW_SHIELD))
         && (sp->battlemon[defender].hp == (s32)sp->battlemon[defender].maxhp)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
@@ -587,7 +587,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         }
 
         // 6.9.7 Friend Guard
-        if ((sp->rawSpeedNonRNGClientOrder[i] == BATTLER_ALLY(defender)) && (GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_FRIEND_GUARD)) {
+        if ((sp->rawSpeedNonRNGClientOrder[i] == BATTLER_ALLY(defender)) && MoldBreakerAbilityCheck(sp, attacker, BATTLER_ALLY(defender), ABILITY_FRIEND_GUARD)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_75);
 #ifdef DEBUG_DAMAGE_CALC
             debug_printf("\n=================\n");
@@ -599,7 +599,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         // 6.9.15 Punk Rock
         // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8291673
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && (defenderAbility == ABILITY_PUNK_ROCK)
+        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_PUNK_ROCK)
         && IsMoveSoundBased(moveno)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
