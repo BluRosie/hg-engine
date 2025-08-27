@@ -1466,9 +1466,10 @@ u16 gf_p_rand(const u16 denominator)
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag) {
     int typeTableEntryNo = 0; // Used to cycle through all (non-neutral) type interactions.
 
-    u8 defender_type_1 = sp->battlemon[defence_client].type1;
-    u8 defender_type_2 = sp->battlemon[defence_client].type2;
-    u8 defender_type_3 = sp->battlemon[defence_client].type3;
+    // https://xcancel.com/Sibuna_Switch/status/1827463371383328877#m
+    u8 defender_type_1 = GetSanitisedType(sp->battlemon[defence_client].type1);
+    u8 defender_type_2 = GetSanitisedType(sp->battlemon[defence_client].type2);
+    u8 defender_type_3 = GetSanitisedType(sp->battlemon[defence_client].type3);
     u8 defender_tera_type = sp->battlemon[defence_client].tera_type;
 
     u32 type1Effectiveness = TYPE_MUL_NORMAL;
