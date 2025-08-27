@@ -214,7 +214,7 @@ u8 TypeEffectivenessTable[][3] =
     { TYPE_FORESIGHT, TYPE_FORESIGHT, TYPE_MUL_NO_EFFECT },
     { TYPE_NORMAL, TYPE_GHOST, TYPE_MUL_NO_EFFECT },
     { TYPE_FIGHTING, TYPE_GHOST, TYPE_MUL_NO_EFFECT },
-    { 0xFF, 0xFF, 0xFF },
+    { TYPE_ENDTABLE, TYPE_ENDTABLE, 0xFF },
 };
 
 /**
@@ -1022,7 +1022,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].is_currently_terastallized = 0;
     sp->battlemon[client].is_currently_dynamaxed = 0;
     sp->battlemon[client].has_dynamaxed_before = 0;
-    sp->battlemon[client].type3 = 0;
+    sp->battlemon[client].type3 = TYPE_TYPELESS;
     sp->oneTurnFlag[client].parental_bond_flag = 0;
     sp->oneTurnFlag[client].parental_bond_is_active = 0;
 

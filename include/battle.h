@@ -448,7 +448,9 @@
 #define FLAG_MAGIC_COAT  (0x04)
 #define FLAG_SNATCH      (0x08)
 #define FLAG_MIRROR_MOVE (0x10)
-#define FLAG_KINGS_ROCK  (0x20)
+
+#define FLAG_UNUSED_MOVE (0x20) // encompasses FLAG_UNUSABLE_IN_GEN_8, FLAG_UNUSABLE_IN_GEN_9 and FLAG_UNUSABLE_UNIMPLEMENTED as they all share 1 bit
+
 #define FLAG_KEEP_HP_BAR (0x40)
 #define FLAG_HIDE_SHADOW (0x80)
 
@@ -1401,6 +1403,11 @@ struct PACKED BattleStruct {
                int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
+               
+               u8 playerSideHasFaintedTeammateThisTurn : 2;// bitmask for Trainer on player side who has lost a Mon: either 0b01 (left), 0b10 (right), or 0b11 (both)
+               u8 enemySideHasFaintedTeammateThisTurn : 2; // ..enemy side... either 0b01, 0b10, or 0b11
+               u8 playerSideHasFaintedTeammateLastTurn : 2;
+               u8 enemySideHasFaintedTeammateLastTurn : 2;
 
                BOOL gemBoostingMove;
 };
@@ -1445,13 +1452,15 @@ typedef struct {
 } PACKED TRAINER_DATA; // size: 52 bytes
 
 
+typedef struct MessageFormat MessageFormat;
+
 struct BattleSystem {
     /* 0x00 */ u32 *unk0;
     /* 0x04 */ void * /*BgConfig **/ bgConfig;
     /* 0x08 */ void * /*Window **/ window;
     /* 0x0C */ u32 *unkC;
     /* 0x10 */ u32 *unk10;
-    /* 0x14 */ u32 *msgFormat;
+    /* 0x14 */ MessageFormat *msgFormat;
     /* 0x18 */ void * /*String **/ msgBuffer;
     /* 0x1C */ u32 unk1C;
     /* 0x20 */ u32 unk20;
@@ -1613,8 +1622,6 @@ enum
     BATTLE_MON_FLASH_FIRE_ACTIVATED = 73,
     BATTLE_MON_DATA_SLOW_START_COUNTER = 89,
 };
-
-#define BATTLE_MON_HAS_TYPE(sp, client, type) (sp->battlemon[client].type1 == type || sp->battlemon[client].type2 == type)
 
 #define MEGA_NEED 1
 #define MEGA_CHECK_APPER 2
@@ -3332,6 +3339,11 @@ typedef enum Terrain {
 #define BATTLER_ENEMY2  3
 #define BATTLER_MAX     4
 
+// For setting a Bitmask to flag trainer position on enemy/player side
+#define TRAINER_1     1 //0b01
+#define TRAINER_2     2 //0b10
+#define TRAINER_BOTH  (TRAINER_1 & TRAINER_2)
+
 /**
  *  @brief load in different battle bg and terrain
  *
@@ -3455,6 +3467,8 @@ void LONG_CALL BattleControllerPlayer_RunInput(struct BattleSystem *bsys, struct
 BOOL LONG_CALL CheckTruant(struct BattleStruct *ctx, int battlerId);
 
 void LONG_CALL CopyBattleMonToPartyMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
+u32 LONG_CALL MaskOfFlagNo(int flagno);
 
 int LONG_CALL LowestFlagNo(u32 mask);
 
@@ -3760,8 +3774,6 @@ void LONG_CALL BattleMessage_BufferTrainerClass(struct BattleSystem *bsys, int b
 void LONG_CALL BattleMessage_BufferTrainerName(struct BattleSystem *bsys, int bufferIndex, int param);
 void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int bufferIndex, int param);
 
-void LONG_CALL BufferItemNameWithIndefArticle(u32 *msgFmt, u32 fieldno, u32 itemId);
-
 int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag);
@@ -3812,6 +3824,12 @@ typedef struct Trainer {
 
 Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battlerId);
 
+BOOL LONG_CALL TryEatOpponentBerry(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
+
+void LONG_CALL BattleController_EmitPlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* ctx, int batlterId);
+
+void LONG_CALL InitFaintedWork(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
+
 /**
  * @brief checks if the current move hits any oppsoing battler or ally
  * @param sp global battle structure
@@ -3820,5 +3838,6 @@ Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battle
 BOOL LONG_CALL IsAnyBattleMonHit(struct BattleStruct* ctx);
 
 int GetSanitisedType(int type);
+
 
 #endif // BATTLE_H

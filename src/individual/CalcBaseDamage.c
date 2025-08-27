@@ -27,8 +27,6 @@ struct PACKED sDamageCalc
 
     u16 ability;
     u8 sex;
-    u8 type1;
-    u8 type2;
 
     u32 speed;
 
@@ -265,10 +263,6 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     DefendingMon.ability = GetBattlerAbility(sp, defender);
     AttackingMon.sex = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SEX, NULL);
     DefendingMon.sex = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SEX, NULL);
-    AttackingMon.type1 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE1, NULL);
-    DefendingMon.type1 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE1, NULL);
-    AttackingMon.type2 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL);
-    DefendingMon.type2 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE2, NULL);
     AttackingMon.speed = sp->effectiveSpeed[attacker];
     DefendingMon.speed = sp->effectiveSpeed[defender];
     AttackingMon.weight = GetPokemonWeight(bw, sp, attacker);
@@ -661,7 +655,32 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             }
             break;
         case MOVE_RETALIATE:
-            // TODO
+            {
+                BOOL teammateFaintedLastTurn = FALSE;
+                switch (attacker)
+                {
+                case BATTLER_PLAYER:
+                    if (sp->playerSideHasFaintedTeammateLastTurn == TRAINER_1 || sp->playerSideHasFaintedTeammateLastTurn == TRAINER_BOTH)
+                        teammateFaintedLastTurn = TRUE;
+                    break;
+                case BATTLER_ENEMY:
+                    if (sp->enemySideHasFaintedTeammateLastTurn == TRAINER_1 || sp->enemySideHasFaintedTeammateLastTurn == TRAINER_BOTH)
+                        teammateFaintedLastTurn = TRUE;
+                    break;
+                case BATTLER_PLAYER2:
+                    if (sp->playerSideHasFaintedTeammateLastTurn == TRAINER_2 || sp->playerSideHasFaintedTeammateLastTurn == TRAINER_BOTH)
+                        teammateFaintedLastTurn = TRUE;
+                    break;
+                case BATTLER_ENEMY2:
+                    if (sp->enemySideHasFaintedTeammateLastTurn == TRAINER_2 || sp->enemySideHasFaintedTeammateLastTurn == TRAINER_BOTH)
+                        teammateFaintedLastTurn = TRUE;
+                    break;
+                }
+
+                if (teammateFaintedLastTurn) {
+                    basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
+                }
+            }
             break;
         case MOVE_FUSION_FLARE:
             // TODO
@@ -1555,11 +1574,11 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
     && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
         if ((field_cond & WEATHER_SANDSTORM_ANY)
-        && ((DefendingMon.type1 == TYPE_ROCK) || (DefendingMon.type2 == TYPE_ROCK))) {
+        && HasType(sp, defender, TYPE_ROCK)) {
             sp_defense = QMul_RoundDown(sp_defense, UQ412__1_5);
         }
         if ((field_cond & WEATHER_SNOW_ANY)
-        && ((DefendingMon.type1 == TYPE_ICE) || (DefendingMon.type2 == TYPE_ICE))) {
+        && HasType(sp, defender, TYPE_ICE)) {
             defense = QMul_RoundDown(defense, UQ412__1_5);
         }
     }

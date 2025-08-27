@@ -77,3 +77,8 @@ arm9 PokemonBattleMusic 080518D4
 
 # camouflage type table
 0012 sCamouflageTypeTable 0800CB60
+
+# move tutor moves
+0001 sTutorMoves 0220304C
+0001 sTutorMoves 02202C20
+0001 sTutorMoves+2 02202C24
