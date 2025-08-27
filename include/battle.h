@@ -448,7 +448,9 @@
 #define FLAG_MAGIC_COAT  (0x04)
 #define FLAG_SNATCH      (0x08)
 #define FLAG_MIRROR_MOVE (0x10)
-#define FLAG_KINGS_ROCK  (0x20)
+
+#define FLAG_UNUSED_MOVE (0x20) // encompasses FLAG_UNUSABLE_IN_GEN_8, FLAG_UNUSABLE_IN_GEN_9 and FLAG_UNUSABLE_UNIMPLEMENTED as they all share 1 bit
+
 #define FLAG_KEEP_HP_BAR (0x40)
 #define FLAG_HIDE_SHADOW (0x80)
 

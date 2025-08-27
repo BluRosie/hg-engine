@@ -3128,7 +3128,15 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         // There’s no PP left for this move!
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_NO_PP;
         ret = FALSE;
+    } 
+
+#ifdef DEBUG_ENABLE_UNIMPLEMENTED_MOVES
+#else
+    else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSED_MOVE) {
+        msg->msg_id = 619; // empty message
+        ret = FALSE;
     }
+#endif
 
     return ret;
 }
