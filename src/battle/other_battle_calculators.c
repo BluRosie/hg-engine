@@ -2315,7 +2315,8 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     if (move == MOVE_TOXIC
         && (BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
         || BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON)) {
-        return FALSE;
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        return TRUE;
     }
 
     if (!(sp->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE) //TODO: Is this flag a debug flag to ignore hit rates..?
@@ -2324,7 +2325,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
           || GetBattlerAbility(sp, battlerIdAttacker) == ABILITY_NO_GUARD
           || GetBattlerAbility(sp, battlerIdTarget) == ABILITY_NO_GUARD)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-        return FALSE;
+        return TRUE;
     }
 
     if (!(sp->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
@@ -2334,7 +2335,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
             || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIG) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
             || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIVE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING))) {
         sp->waza_status_flag |= WAZA_STATUS_FLAG_KIE_NOHIT;
-        return FALSE;
+        return TRUE;
     }
 
     // 2. Check if the move itself is sure-hit (accuracy 101, like Aerial Ace), or if the move was custom-set to be sure-hit: Pursuit and target is switching, Thunder / Hurricane in rain, Blizzard in hail, Stomp / Steamroller / Dragon Rush / Body Slam / Malicious Moonsault / Heavy Slam / Heat Crash / Flying Press vs. Minimize.
@@ -2342,6 +2343,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
 
     if (sp->moveTbl[move].accuracy == 0) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        return TRUE;
     }
 
     if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
@@ -2353,12 +2355,12 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         || (sp->moveTbl[move].effect == MOVE_EFFECT_WILDBOLT_STORM)
         || (sp->moveTbl[move].effect == MOVE_EFFECT_SANDSEAR_STORM))) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-            return FALSE;
+            return TRUE;
         }
         // Blizzard is 100% accurate in Snow also
         if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && sp->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-            return FALSE;
+            return TRUE;
         }
     }
 
@@ -2366,7 +2368,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         && !sp->battlemon[battlerIdTarget].is_currently_dynamaxed
         && IsMoveInMinimizeVulnerabilityMovesList(move)) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-            return FALSE;
+            return TRUE;
     }
 
     // 3. Check if the target has Telekinesis.
