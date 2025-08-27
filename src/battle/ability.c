@@ -689,21 +689,21 @@ BOOL LONG_CALL MoveHitDefenderCottonDownCheck(void* bw UNUSED, struct BattleStru
     BOOL ret = FALSE;
     switch (sp->clientLoopForAbility)
     {
-    case SPREAD_MOVE_LOOP_ALLY:
-        sp->clientLoopForAbility++;
-        ret = MoveHitDefenderCottonDownCheckHelper(sp, BATTLER_ALLY(sp->defence_client), seq_no);
-        if (ret)
-            break;
-        FALLTHROUGH;
-    case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
+    case SPREAD_ABILITY_LOOP_OPPONENT_LEFT:
         sp->clientLoopForAbility++;
         ret = MoveHitDefenderCottonDownCheckHelper(sp, BATTLER_OPPONENT_SIDE_LEFT(sp->defence_client), seq_no);
         if (ret)
             break;
         FALLTHROUGH;
-    case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
+    case SPREAD_ABILITY_LOOP_OPPONENT_RIGHT:
         sp->clientLoopForAbility++;
         ret = MoveHitDefenderCottonDownCheckHelper(sp, BATTLER_OPPONENT_SIDE_RIGHT(sp->defence_client), seq_no);
+        if (ret)
+            break;
+        FALLTHROUGH;
+    case SPREAD_ABILITY_LOOP_ALLY:
+        sp->clientLoopForAbility++;
+        ret = MoveHitDefenderCottonDownCheckHelper(sp, BATTLER_ALLY(sp->defence_client), seq_no);
         break;
     default:
         break;
