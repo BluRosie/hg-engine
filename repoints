@@ -87,8 +87,8 @@ arm9 PokemonBattleMusic 080518D4
 arm9 sCherrygroveCityMart 0210FA3C
 arm9 sVioletCityMart 0210FA40
 arm9 sAzaleaCityMart 0210FA44
-arm9 sGoldenrodDepartmentUpper2F 0210FA48
-arm9 sGoldenrodDepartmentLower2F 0210FA4C
+arm9 sGoldenrodDepartmentLower2F 0210FA48
+arm9 sGoldenrodDepartmentUpper2F 0210FA4C
 arm9 sGoldenrodDepartment3F 0210FA50
 arm9 sGoldenrodDepartment4F 0210FA54
 arm9 sGoldenrodDepartment5F 0210FA58
