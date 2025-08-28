@@ -1396,6 +1396,7 @@ struct PACKED BattleStruct {
                u32 moveStatusFlagForSpreadMoves[CLIENT_MAX];
                u32 damageForSpreadMoves[CLIENT_MAX]; // u32 or int?
                u8 clientLoopForSpreadMoves;
+               u8 clientLoopForAbility;
                BOOL boostedAccuracy;
                BOOL moveStolen;
                BOOL moveBounced;
@@ -1417,6 +1418,13 @@ enum {
     SPREAD_MOVE_LOOP_OPPONENT_LEFT,
     SPREAD_MOVE_LOOP_OPPONENT_RIGHT,
     SPREAD_MOVE_LOOP_MAX = SPREAD_MOVE_LOOP_OPPONENT_RIGHT
+};
+
+enum {
+    SPREAD_ABILITY_LOOP_OPPONENT_LEFT = 0,
+    SPREAD_ABILITY_LOOP_OPPONENT_RIGHT,
+    SPREAD_ABILITY_LOOP_ALLY,    
+    SPREAD_ABILITY_LOOP_MAX = SPREAD_ABILITY_LOOP_ALLY
 };
 
 typedef struct GROUND_WORK {
