@@ -4089,7 +4089,7 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
     {
         sp->mp.msg_id = BATTLE_MSG_STOLE_BERRY;
         sp->mp.msg_tag = TAG_NICKNAME_ITEM;
-        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->attack_client);
         sp->mp.msg_para[1] = item;
         sp->battlemon[sp->defence_client].item = 0; //no recycle
     }
