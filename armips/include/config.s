@@ -10,14 +10,13 @@ START_ADDRESS equ 0x0
 // DISALLOW_DEXIT_GEN controls whether to disallow selection of dexited moves in later generations. Choose any Generation below 8 for none. 0 will instead disable any unimplemented moves.
 DISALLOW_DEXIT_GEN equ 0
 
-// FAIRY_TYPE_IMPLEMENTED defines whether or not the fairy type is to be implemented as type 9 or not.
-// if you do not want this change, then set it to 0
+// FAIRY_TYPE_IMPLEMENTED defines whether or not the Fairy type is to be implemented as type 9 or not.
+// If you do not want this change, then set it to 0.
 FAIRY_TYPE_IMPLEMENTED equ 1
 
 // TYPE_EFFECTIVENESS_GEN defines the type chart interactions you would like to use.
-// Defining this as 5 or lower will revert Steel to resisting Ghost- and Dark-type moves.
-// Defining this as 1 will additionally make Bug super-effective on Poison and vice-versa, Psychic immune to Ghost, and Ice neutral against Fire.
-// This will NOT disable Dark or Steel type, nor revert move types (e.g. Bite).
+// Defining this as "5" or lower will revert Steel to resisting Ghost- and Dark-type moves.
+// Type chart changes prior to Gen 4 (e.g. Gen 1) are not included.
 TYPE_EFFECTIVENESS_GEN equ GEN_LATEST
 
 // SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
