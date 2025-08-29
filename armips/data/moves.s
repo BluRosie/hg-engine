@@ -9100,7 +9100,7 @@ movedata MOVE_STICKY_WEB, "Sticky Web"
     movedescription MOVE_STICKY_WEB, "The user weaves a web\naround the foe.\nIt lowers the foes\nSpeed upon switching\nin."
 
 movedata MOVE_FELL_STINGER, "Fell Stinger"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_FELL_STINGER
     pss SPLIT_PHYSICAL
     basepower 50
     type TYPE_BUG
@@ -9109,7 +9109,7 @@ movedata MOVE_FELL_STINGER, "Fell Stinger"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
