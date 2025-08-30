@@ -501,7 +501,7 @@ static u16 GetMachineMoveNumber(u16 itemId) {
     if (itemId >= ITEM_TR00 && itemId <= ITEM_TR99) {
         return itemId - ITEM_TR00;
     }
-    
+
     return 0;
 }
 
@@ -512,7 +512,7 @@ void LONG_CALL Bag_RenderMachineMoveSlot(BagContext *context, void *window, void
     void *items = *(void **)lst;
     ITEM_SLOT *slot = (ITEM_SLOT *)items + index;
     AddTextPrinterParameterizedWithColor(window, 0, msg, 0, 0, 0xFF, 0x00010200, NULL);
-    Bag_PrintMachineMoveLabel(context, window, (const u16 *)slot, 0x10);
+    Bag_PrintMachineMoveLabel(context, window, (const u16 *)(void *)slot, 0x10);
 #ifdef REUSABLE_TMS
     BOOL showQuant = IS_ITEM_TR(slot->id);
 #else

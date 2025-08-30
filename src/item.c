@@ -8,8 +8,8 @@
 #include "../include/constants/moves.h"
 
 #define ITEM_DATA_MAX (ITEM_BRIARS_BOOK)
-#define GFX_ITEM_DUMMY_ID ((MAX_TOTAL_ITEM_NUM+1) * 2 + 2)
-#define GFX_ITEM_RETURN_ID ((MAX_TOTAL_ITEM_NUM+2) * 2 + 4)
+#define GFX_ITEM_DUMMY_ID ((MAX_TOTAL_ITEM_NUM) * 2 + 2)
+#define GFX_ITEM_RETURN_ID ((MAX_TOTAL_ITEM_NUM+1) * 2 + 4)
 #define NEW_ITEM_GFX (797)
 
 static const u16 sMachineMoves[] = {
@@ -555,7 +555,7 @@ u16 ItemToMachineMoveIndex(u16 itemId) {
     if (itemId >= ITEM_TR00 && itemId <= ITEM_TR99) {
         return itemId - ITEM_TR00 + 240;
     }
-    
+
     return 0;
 }
 

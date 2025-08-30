@@ -15,7 +15,8 @@
 #include "../../include/overlay.h"
 #include "../../include/q412.h"
 
-
+// declaration needed for below
+BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
 extern const u8 StatBoostModifiers[][2];
 
 typedef struct
@@ -1483,32 +1484,32 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
     // [1]: Defending type
     // [2]: TYPE_MUL
     // TODO: handle Ring Target, Thousand Arrows, Freeze-Dry, Flying Press
-    while (TypeEffectivenessTable[typeTableEntryNo][0] != TYPE_ENDTABLE) 
+    while (TypeEffectivenessTable[typeTableEntryNo][0] != TYPE_ENDTABLE)
     {
         // Foresight is treated as a fake custom type near the bottom of the type effectiveness table.
         // If an entry with TYPE_FORESIGHT is read and the target is affected by the Foresight status (or the attacker has an ability to that effect), the table will stop being read before it detects that TYPE_GHOST is immune to TYPE_NORMAL or TYPE_FIGHTING.
         if (TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_FORESIGHT)
         {
-            if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT) 
-            || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY) 
-            || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE)) 
+            if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT)
+            || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY)
+            || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE))
             {
                 break;
-            } 
-            else 
+            }
+            else
             {
                 typeTableEntryNo++;
                 continue;
             }
         }
-        if (TypeEffectivenessTable[typeTableEntryNo][0] == move_type) 
+        if (TypeEffectivenessTable[typeTableEntryNo][0] == move_type)
         {
             if (sp->battlemon[defence_client].is_currently_terastallized)
             {
-                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_tera_type) 
+                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_tera_type)
                 {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo) 
-                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_tera_type)) 
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_tera_type))
                     {
                         type1Effectiveness = TypeEffectivenessTable[typeTableEntryNo][2];
                         TypeCheckCalc(sp, attack_client, type1Effectiveness, 42, 42, flag);
@@ -1517,28 +1518,28 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
             }
             else
             {
-                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1) 
+                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1)
                 {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo) 
-                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1)) 
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1))
                     {
                         type1Effectiveness = TypeEffectivenessTable[typeTableEntryNo][2];
                         TypeCheckCalc(sp, attack_client, type1Effectiveness, 42, 42, flag);
                     }
                 }
-                else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2)) 
+                else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2))
                 {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo) 
-                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2)) 
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2))
                     {
                         type2Effectiveness = TypeEffectivenessTable[typeTableEntryNo][2];
                         TypeCheckCalc(sp, attack_client, type2Effectiveness, 42, 42, flag);
                     }
                 }
-                else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3)) 
+                else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3))
                 {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo) 
-                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3)) 
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3))
                     {
                         type3Effectiveness = TypeEffectivenessTable[typeTableEntryNo][2];
                         TypeCheckCalc(sp, attack_client, type3Effectiveness, 42, 42, flag);
@@ -3128,7 +3129,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         // There’s no PP left for this move!
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_NO_PP;
         ret = FALSE;
-    } 
+    }
 
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSED_MOVE) {
 #ifdef DEBUG_ENABLE_UNIMPLEMENTED_MOVES
@@ -3192,7 +3193,7 @@ int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys UNUSED, struct B
 BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type) {
     GF_ASSERT(TYPE_NORMAL < type && type < TYPE_STELLAR);
     struct BattlePokemon *client = &ctx->battlemon[battlerId];
-    return ((!(client->is_currently_terastallized) // Only check the client's base types if they are not terastallized. 
+    return ((!(client->is_currently_terastallized) // Only check the client's base types if they are not terastallized.
          && (client->type1 == type
          || client->type2 == type
          || client->type3 == type))
