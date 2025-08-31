@@ -518,6 +518,36 @@ BOOL AbilityBreakable(int ability) {
     return FALSE;
 }
 
+u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int attackerAbility, int defenderAbility, int currentMoveIndex, int moveSplit, u32 ability)
+{
+    BOOL ret;
+
+    ret = FALSE;
+
+    if ((attacker == defender) || !AbilityBreakable(ability)) {
+        return defenderAbility == ability;
+    }
+
+    if ((attackerAbility != ABILITY_MOLD_BREAKER) && (attackerAbility != ABILITY_TERAVOLT) && (attackerAbility != ABILITY_TURBOBLAZE) &&
+        // TODO: Probably need to check if the attacker is attacking
+        (!(attackerAbility == ABILITY_MYCELIUM_MIGHT && moveSplit == SPLIT_STATUS))
+        && (currentMoveIndex != MOVE_SUNSTEEL_STRIKE)
+        && (currentMoveIndex != MOVE_MOONGEIST_BEAM)
+        && (currentMoveIndex != MOVE_PHOTON_GEYSER)
+        && (currentMoveIndex != MOVE_SEARING_SUNRAZE_SMASH)
+        && (currentMoveIndex != MOVE_MENACING_MOONRAZE_MAELSTROM)
+        && (currentMoveIndex != MOVE_LIGHT_THAT_BURNS_THE_SKY)
+        && (currentMoveIndex != MOVE_G_MAX_DRUM_SOLO)
+        && (currentMoveIndex != MOVE_G_MAX_FIREBALL)
+        && (currentMoveIndex != MOVE_G_MAX_HYDROSNIPE)) {
+        if (defenderAbility == ability) {
+            ret = TRUE;
+        }
+    }
+
+    return ret;
+}
+
 /**
  *  @brief check if an ability is present and account for mold breaker
  *
@@ -529,37 +559,7 @@ BOOL AbilityBreakable(int ability) {
  */
 u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, u32 ability)
 {
-    BOOL ret;
-
-    ret = FALSE;
-
-    if ((attacker == defender) || !AbilityBreakable(ability)) {
-        return GetBattlerAbility(sp, defender) == ability;
-    }
-
-    if ((GetBattlerAbility(sp, attacker) != ABILITY_MOLD_BREAKER) && (GetBattlerAbility(sp, attacker) != ABILITY_TERAVOLT) && (GetBattlerAbility(sp, attacker) != ABILITY_TURBOBLAZE) &&
-        // TODO: Probably need to check if the attacker is attacking
-        (!(GetBattlerAbility(sp, attacker) == ABILITY_MYCELIUM_MIGHT && sp->moveTbl[sp->current_move_index].split == SPLIT_STATUS))
-        && (sp->current_move_index != MOVE_SUNSTEEL_STRIKE)
-        && (sp->current_move_index != MOVE_MOONGEIST_BEAM)
-        && (sp->current_move_index != MOVE_PHOTON_GEYSER)
-        && (sp->current_move_index != MOVE_SEARING_SUNRAZE_SMASH)
-        && (sp->current_move_index != MOVE_MENACING_MOONRAZE_MAELSTROM)
-        && (sp->current_move_index != MOVE_LIGHT_THAT_BURNS_THE_SKY)
-        && (sp->current_move_index != MOVE_G_MAX_DRUM_SOLO)
-        && (sp->current_move_index != MOVE_G_MAX_FIREBALL)
-        && (sp->current_move_index != MOVE_G_MAX_HYDROSNIPE)) {
-        if (GetBattlerAbility(sp, defender) == ability) {
-            ret = TRUE;
-        }
-    } else {
-        if ((GetBattlerAbility(sp, defender) == ability) && (sp->oneSelfFlag[attacker].moldBreakerFlag == 0) && AbilityBreakable(ability)) {
-            sp->oneSelfFlag[attacker].moldBreakerFlag = 1;
-            sp->server_status_flag |= SERVER_STATUS_FLAG_MOLD_BREAKER;
-        }
-    }
-
-    return ret;
+    return MoldBreakerAbilityCheckInternal(attacker, defender, GetBattlerAbility(sp, attacker), GetBattlerAbility(sp, defender), sp->current_move_index, sp->moveTbl[sp->current_move_index].split, ability);
 }
 
 /**
