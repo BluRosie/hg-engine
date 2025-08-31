@@ -201,8 +201,13 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                         sp->defence_client_work = TraceClientGet(bw, sp, def1, def2);
 
-                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->defence_client_work != 0xFF) && (sp->battlemon[client_no].hp) && (sp->battlemon[client_no].item != ITEM_GRISEOUS_ORB) && (sp->battlemon[sp->defence_client_work].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_TRACE)) {
-                            sp->battlemon[client_no].ability_activated_flag = 1;
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0) 
+                            && (sp->defence_client_work != 0xFF) 
+                            && (sp->battlemon[client_no].hp) 
+                            && (sp->battlemon[client_no].item != ITEM_GRISEOUS_ORB) 
+                            && (sp->battlemon[sp->defence_client_work].hp) 
+                            && (GetBattlerAbility(sp, client_no) == ABILITY_TRACE))
+                        {
                             sp->battlerIdTemp = client_no;
                             scriptnum = SUB_SEQ_TRACE;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
