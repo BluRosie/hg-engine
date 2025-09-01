@@ -115,6 +115,7 @@ _checkStickyWeb:
 _checkIfShouldDoStealthRock:
     // Heavy-Duty Boots to ignore Stealth Rock when airborne
     CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _landingPad
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _landingPad
 
 _checkStealthRock:
     CheckStealthRock BATTLER_CATEGORY_SWITCHED_MON, _landingPad
