@@ -38,7 +38,7 @@ _checkIfShouldDoSpikes:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _landingPad
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_GRAVITY, _checkSpikes
     CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_SPEED_DOWN_GROUNDED, _checkSpikes
-    GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _checkSpikes
+    GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _checkSpikes
     GoTo _landingPad
 
 _checkSpikes:
@@ -58,7 +58,7 @@ _checkIfShouldDoTSpikes:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _landingPad
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_GRAVITY, _checkToxicSpikes
     CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_SPEED_DOWN_GROUNDED, _checkToxicSpikes
-    GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _checkToxicSpikes
+    GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _checkToxicSpikes
     GoTo _landingPad
 
 _checkToxicSpikes:
@@ -95,7 +95,7 @@ _checkIfShouldDoStickyWeb:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_CLEAR_BODY, _landingPad
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_FULL_METAL_BODY, _landingPad
     CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_SPEED_DOWN_GROUNDED, _checkStickyWeb
-    GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _checkStickyWeb
+    GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _checkStickyWeb
     GoTo _landingPad
     
 _checkStickyWeb:
