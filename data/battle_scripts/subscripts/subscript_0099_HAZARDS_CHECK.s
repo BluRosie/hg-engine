@@ -55,7 +55,6 @@ _checkSpikes:
 _checkIfShouldDoTSpikes:
     // Skip spikes damage if HDB, but still check TSpikes for grounded Poison types to clear it.
     //CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _landingPad
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _landingPad
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_GRAVITY, _checkToxicSpikes
     CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_SPEED_DOWN_GROUNDED, _checkToxicSpikes
     GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _checkToxicSpikes
