@@ -36,8 +36,6 @@ _checkIfShouldDoSpikes:
     // Skip spikes damage if HDB, but still check TSpikes for grounded Poison types to clear it.
     CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _landingPad
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _landingPad
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_GRAVITY, _checkSpikes
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_SPEED_DOWN_GROUNDED, _checkSpikes
     GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _checkSpikes
     GoTo _landingPad
 
@@ -55,8 +53,6 @@ _checkSpikes:
 _checkIfShouldDoTSpikes:
     // Skip spikes damage if HDB, but still check TSpikes for grounded Poison types to clear it.
     //CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _landingPad
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_GRAVITY, _checkToxicSpikes
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_SPEED_DOWN_GROUNDED, _checkToxicSpikes
     GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _checkToxicSpikes
     GoTo _landingPad
 
@@ -93,8 +89,6 @@ _checkIfShouldDoStickyWeb:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_WHITE_SMOKE, _landingPad
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_CLEAR_BODY, _landingPad
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_FULL_METAL_BODY, _landingPad
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_GRAVITY, _checkStickyWeb
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_SPEED_DOWN_GROUNDED, _checkStickyWeb
     GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _checkStickyWeb
     GoTo _landingPad
     
