@@ -47,7 +47,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                    u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
 {
 
-    struct DamageCalcStruct damageCalc;
+    struct DamageCalcStruct damageCalc = {0};
 
     damageCalc.maxBattlers = BattleWorkClientSetMaxGet(bw);
     damageCalc.attackerPartySize = Battle_GetClientPartySize(bw, attacker);
@@ -85,7 +85,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     damageCalc.moveFlag = sp->moveTbl[moveno].flag;
 
     for (u32 i = 0; i < damageCalc.maxBattlers; i++) {
-        struct sDamageCalc client;
+        struct sDamageCalc client = {0};
         client.attack = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_ATK, NULL);
         client.defense = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_DEF, NULL);
         client.sp_attack = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_SPATK, NULL);
@@ -128,11 +128,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
         damageCalc.clients[i] = client;
     }
-
-
-
-
-
 
     u32 ovyId, offset;
     int ret;
