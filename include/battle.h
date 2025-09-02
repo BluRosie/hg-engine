@@ -1965,9 +1965,9 @@ struct PACKED sDamageCalc
     s16 hp;
     u16 maxhp;
     u16 dummy;
-    int item;
-    int item_held_effect;
-    int item_power;
+    u16 item;
+    u16 item_held_effect;
+    u8  item_power;
 
     u32 condition;
     u32 condition2;

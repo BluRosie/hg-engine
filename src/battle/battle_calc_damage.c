@@ -84,7 +84,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     damageCalc.moveEffect = sp->moveTbl[moveno].effect;
     damageCalc.moveFlag = sp->moveTbl[moveno].flag;
 
-        for (u32 i = 0; i < damageCalc.maxBattlers; i++) {
+    for (u32 i = 0; i < damageCalc.maxBattlers; i++) {
         struct sDamageCalc client;
         client.attack = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_ATK, NULL);
         client.defense = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_DEF, NULL);

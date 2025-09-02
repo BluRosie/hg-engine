@@ -419,10 +419,12 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, in
     return ret;
 }
 
-/// @brief Check if ability can be disabled by Mold Breaker
-/// @param ability
-/// @return `TRUE` or `FALSE`
-BOOL AbilityBreakable(int ability) {
+/**
+ *  @brief Check if ability can be disabled by Mold Breaker
+ *  @param ability
+ *  @return `TRUE` or `FALSE`
+ */
+BOOL AbilityIsIgnoredByMoldBreaker (int ability) {
     switch (ability) {
         case ABILITY_BATTLE_ARMOR:
         case ABILITY_STURDY:
@@ -520,11 +522,9 @@ BOOL AbilityBreakable(int ability) {
 
 u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int attackerAbility, int defenderAbility, int currentMoveIndex, int moveSplit, u32 ability)
 {
-    BOOL ret;
+    BOOL ret = FALSE;
 
-    ret = FALSE;
-
-    if ((attacker == defender) || !AbilityBreakable(ability)) {
+    if ((attacker == defender) || !AbilityIsIgnoredByMoldBreaker(ability)) {
         return (u32)defenderAbility == ability;
     }
 
