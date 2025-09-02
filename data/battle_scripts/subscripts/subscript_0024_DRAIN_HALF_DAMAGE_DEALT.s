@@ -4,7 +4,7 @@
 
 Start:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_HIT_DAMAGE
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_HP_CALC, 0, EndScript
+    CompareVarToValue OPCODE_GT, BSCRIPT_VAR_HP_CALC, -1, EndScript
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 2
 
 CheckLeechBoost:
