@@ -2220,7 +2220,7 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
 BOOL BattleController_CheckProtect(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender) {
     if (ctx->oneTurnFlag[defender].protectFlag
      && ctx->moveTbl[ctx->current_move_index].flag & FLAG_PROTECT
-     && (!(GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_UNSEEN_FIST && IsContactBeingMade(bsys, ctx)))
+     && (!(GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_UNSEEN_FIST && IsContactBeingMade(GetBattlerAbility(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->defence_client), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag)))
      && (ctx->current_move_index != MOVE_CURSE || HasType(ctx, ctx->attack_client, TYPE_GHOST))
    /*&& (!CheckMoveIsChargeMove(ctx, ctx->current_move_index) || ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT)*/) {
         BOOL runProtectedSubseq = FALSE;
@@ -4241,7 +4241,7 @@ BOOL BattleController_CheckTeraShell(struct BattleSystem *bsys UNUSED, struct Ba
 }
 
 BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
-    if (CanActivateDamageReductionBerry(bsys, ctx, defender)) {
+    if (CanActivateDamageReductionBerry(ctx, defender)) {
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLAY_EAT_BERRY_ANIMATION);
         ctx->next_server_seq_no = ctx->server_seq_no;

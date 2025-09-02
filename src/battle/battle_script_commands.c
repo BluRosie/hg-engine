@@ -1968,7 +1968,7 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
         sp->mp.msg_tag = TAG_NICKNAME;
         sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
     }
-    else if (CanKnockOffApply(bw, sp))
+    else if (CanKnockOffApply(sp, sp->attack_client, sp->defence_client))
     {
         sp->mp.msg_id = BATTLE_MSG_MON_KNOCKED_OFF_ITEM;
         sp->mp.msg_tag = TAG_NICKNAME_NICKNAME_ITEM;
@@ -2430,7 +2430,7 @@ BOOL btl_scr_cmd_EA_ifcontactmove(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
     int address = read_battle_script_param(sp);
 
-    if (IsContactBeingMade(bw, sp)) {
+    if (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
         IncrementBattleScriptPtr(sp, address);
     }
     return FALSE;
@@ -2631,7 +2631,7 @@ BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw UNUSED, struct BattleSt
     IncrementBattleScriptPtr(sp, 1);
 
     int address = read_battle_script_param(sp);
-    if (!CanKnockOffApply(bw, sp))
+    if (!CanKnockOffApply(sp, sp->attack_client, sp->defence_client))
         IncrementBattleScriptPtr(sp, address);
 
     return FALSE;
@@ -3213,7 +3213,7 @@ BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct Battle
 BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
-    if (IsContactBeingMade(bsys, ctx)
+    if (IsContactBeingMade(GetBattlerAbility(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->defence_client), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag)
      && ctx->battlemon[ctx->attack_client].hp
      && ctx->oneTurnFlag[ctx->defence_client].gainedProtectFlagFromAlly == FALSE
      && (ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) == 0) {
@@ -4006,7 +4006,7 @@ BOOL btl_scr_cmd_104_tryincinerate(void* bw, struct BattleStruct* sp)
     IncrementBattleScriptPtr(sp, 1);
 
     u32 adrs = read_battle_script_param(sp);
-    if (CanActivateDamageReductionBerry(bw, sp, sp->defence_client))
+    if (CanActivateDamageReductionBerry(sp, sp->defence_client))
     {
         IncrementBattleScriptPtr(sp, adrs);
         return FALSE;
@@ -4074,7 +4074,7 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
 
     u32 adrs = read_battle_script_param(sp);
     u32 adrs2 UNUSED = read_battle_script_param(sp);
-    if (CanActivateDamageReductionBerry(bw, sp, sp->defence_client))
+    if (CanActivateDamageReductionBerry(sp, sp->defence_client))
     {
         IncrementBattleScriptPtr(sp, adrs);
         return FALSE;

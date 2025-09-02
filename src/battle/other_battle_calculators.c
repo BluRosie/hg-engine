@@ -2455,45 +2455,30 @@ BOOL LONG_CALL IsMoveWindMove(u16 move)
  * @param sp global battle structure
  * @return TRUE/FALSE
 */
-BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleStruct *sp) {
+BOOL LONG_CALL IsContactBeingMade(int attackerAbility, int attackerItemHoldEffect, int defenderItemHoldEffect, int moveno, u8 moveFlag)
+{
+    // HeldItemHoldEffectGet -> attackerItemHoldEffect
 
     // Attacker abilities
-    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_LONG_REACH
-        // Kept in case people add their own
-        // || GetBattlerAbility(sp, sp->attack_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_ATTACK
-        ) {
+    if (attackerAbility == ABILITY_LONG_REACH) {
             return FALSE;
-        }
-
-    // Defender abilities
-    // Kept in case people add their own
-    // if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_THAT_PREVENTS_CONTACT_DEFENCE
-    //     || GetBattlerAbility(sp, sp->defence_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_DEFENCE
-    //     ) {
-    //         return FALSE;
-    //     }
+    }
 
     // Check for items attacker
-    if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
-        // punching gloves prevents contact when attacking with punching moves
-        || (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
-            && IsMovePunchingMove(sp->current_move_index))
-        // Kept in case people add their own
-        // || HeldItemHoldEffectGet(sp, sp->attack_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_ATTACKER_CONTACT
-        ) {
+    if (attackerItemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
+        // Punching Gloves prevents contact when attacking with punching moves
+        || (attackerItemHoldEffect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
+            && IsMovePunchingMove(moveno))) {
             return FALSE;
     }
 
     // Check for items defender
-    if (HeldItemHoldEffectGet(sp, sp->defence_client) == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
-        // Kept in case people add their own
-        // || HeldItemHoldEffectGet(sp, sp->defence_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_DEFENDER_CONTACT
-        ) {
+    if (defenderItemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS) {
             return FALSE;
     }
 
     // Does the move make contact vanilla
-    if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
+    if (moveFlag & FLAG_CONTACT) {
         return TRUE;
     }
 
@@ -3277,7 +3262,7 @@ const int typeToBerryMapping[] = {
     [TYPE_DARK]     = ITEM_COLBUR_BERRY,
 };
 
-BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
+BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleStruct *ctx, int defender) {
     if ((ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
     && !(ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_OHKO_HIT)) {
         return typeToBerryMapping[ctx->move_type] == GetBattleMonItem(ctx, defender);
@@ -3318,6 +3303,7 @@ BOOL LONG_CALL AbilityNoTransform(int ability) {
     return FALSE;
 }
 
+// TODO: Just use this instead of the Mold Breaker one
 u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId) {
     if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_GASTRO_ACID) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
         return ABILITY_NONE;
@@ -3453,15 +3439,13 @@ BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client)
  *  @param sp global battle structure
  *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
  */
-BOOL LONG_CALL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
+BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker, int defender)
 {
-    u32 attacker = sp->attack_client;
-    u32 defender = sp->defence_client;
     u32 item = sp->battlemon[defender].item;
     //u32 species = sp->battlemon[defender].species;
     u32 ability = GetBattlerAbility(sp, defender);
 
-    if (CanActivateDamageReductionBerry(bw, sp, defender)) {
+    if (CanActivateDamageReductionBerry(sp, defender)) {
         // the berry activated already
         return FALSE;
     }
@@ -3471,7 +3455,7 @@ BOOL LONG_CALL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp
     if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 8)
         // rocky helmet does 1/6th total hp as damage
       || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 6))
-     && IsContactBeingMade(bw, sp)
+     && IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)
      && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)
     {
         return FALSE;

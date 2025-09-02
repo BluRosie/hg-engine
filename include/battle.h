@@ -1959,6 +1959,87 @@ enum {
 //     TRY_MOVE_END,
 // };
 
+struct PACKED sDamageCalc
+{
+    u16 species;
+    s16 hp;
+    u16 maxhp;
+    u16 dummy;
+    int item;
+    int item_held_effect;
+    int item_power;
+
+    u32 condition;
+    u32 condition2;
+
+    u16 ability;
+    u8 sex;
+
+    u32 speed;
+
+    u32 weight;
+
+    u16 happiness;
+
+    u32 attack;
+    u32 defense;
+    u32 sp_attack;
+    u32 sp_defense;
+    s8 atkstate;
+    s8 defstate;
+    s8 spatkstate;
+    s8 spdefstate;
+    u8 positiveStatBoosts;
+    u8 level;
+    u32 form;
+
+    u32 furyCutterCount;
+    u32 rolloutCount;
+    u32 stockpileCount;
+    u32 parentalBondFlag;
+    u32 assuranceDamage;
+    u32 helpingHandFlag;
+    u32 effectOfMoves;
+    u32 sheerForceFlag;
+
+    BOOL isGrounded;
+};
+
+struct PACKED DamageCalcStruct {
+    u32 maxBattlers;
+    int attackerPartySize;
+    struct PartyPokemon *attackerParty[6];
+    u8 attacker;
+    u8 defender;
+    u8 critical;
+    int moveno;
+    u8 movetype;
+    u8 movesplit;
+    u16 movepower;
+    int damage_power;
+    int damage_value;
+    u8 magnitude;
+    BOOL gemBoostingMove;
+    u8 rawSpeedNonRNGClientOrder[4];
+    BOOL noCloudNineAndAirLock;
+    BOOL fieldHasFairyAura;
+    BOOL fieldHasDarkAura;
+    BOOL fieldHasAuraBreak;
+    BOOL fieldHasVesselOfRuin;
+    BOOL fieldHasSwordOfRuin;
+    BOOL fieldHasTabletsOfRuin;
+    BOOL fieldHasBeadsOfRuin;
+    u32 field_cond;
+    u8 terrainOverlayType;
+    u8 terrainOverlayNumberOfTurnsLeft;
+    u8 playerSideHasFaintedTeammateLastTurn;
+    u8 enemySideHasFaintedTeammateLastTurn;
+    u8 originalMoveType;
+    u16 moveEffect;
+    u8 moveFlag;
+    struct sDamageCalc clients[4];
+};
+
 extern u8 TypeEffectivenessTable[][3];
 
 
@@ -3012,6 +3093,8 @@ int LONG_CALL SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
  */
 BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
 
+u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int attackerAbility, int defenderAbility, int currentMoveIndex, int moveSplit, u32 ability);
+
 /**
  *  @brief check if an ability is present and account for mold breaker
  *
@@ -3414,11 +3497,9 @@ BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx
 
 /**
  * @brief checks if contact is being made, checking abilities and items
- * @param bw battle work structure
- * @param sp global battle structure
  * @return TRUE/FALSE
 */
-BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw, struct BattleStruct *sp);
+BOOL LONG_CALL IsContactBeingMade(int attackerAbility, int attackerItemHoldEffect, int defenderItemHoldEffect, int moveno, u8 moveFlag);
 
 /**
  * @brief checks if the move index is a punching move
@@ -3756,7 +3837,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
 
 void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
+BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleStruct *ctx, int defender);
 
 BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
 
@@ -3796,7 +3877,7 @@ BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client);
  *  @param sp global battle structure
  *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
  */
-BOOL LONG_CALL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp);
+BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker, int defender);
 
 /**
  * @brief checks if the move index is a move that will hit with double power if target is minimized

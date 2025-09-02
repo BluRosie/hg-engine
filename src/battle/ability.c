@@ -319,7 +319,7 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && (IsContactBeingMade(bw, sp))
+                && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
                 && (CheckSubstitute(sp, sp->defence_client) == FALSE)
                 && (BattleRand(bw) % 10 < 3))
             {
@@ -525,7 +525,7 @@ u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int at
     ret = FALSE;
 
     if ((attacker == defender) || !AbilityBreakable(ability)) {
-        return defenderAbility == ability;
+        return (u32)defenderAbility == ability;
     }
 
     if ((attackerAbility != ABILITY_MOLD_BREAKER) && (attackerAbility != ABILITY_TERAVOLT) && (attackerAbility != ABILITY_TURBOBLAZE) &&
@@ -540,7 +540,7 @@ u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int at
         && (currentMoveIndex != MOVE_G_MAX_DRUM_SOLO)
         && (currentMoveIndex != MOVE_G_MAX_FIREBALL)
         && (currentMoveIndex != MOVE_G_MAX_HYDROSNIPE)) {
-        if (defenderAbility == ability) {
+        if ((u32)defenderAbility == ability) {
             ret = TRUE;
         }
     }
