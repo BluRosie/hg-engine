@@ -71,6 +71,21 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
             }
         }
 
+        if (ctx->current_move_index == MOVE_FELL_STINGER && ctx->battlemon[ctx->defence_client].hp == 0)
+        {
+            if (ctx->oneTurnFlag[ctx->defence_client].physical_damager == ctx->attack_client && ctx->oneTurnFlag[ctx->attack_client].endTurnMoveEffect == 0)
+            {  
+                ctx->oneTurnFlag[ctx->attack_client].endTurnMoveEffect = 1;
+                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
+                ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+                ctx->state_client = ctx->attack_client;
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
+        }
+
         // TODO: A rampage move that fails (Thrash, Outrage etc) will cancel except on the last turn
         if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS && !ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag) {
                 ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 1;

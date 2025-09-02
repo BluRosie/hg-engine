@@ -702,7 +702,8 @@ struct __attribute__((packed)) OneTurnEffect
                u32 numberOfKOs : 3;
                u32 pendingFocusPunchFlag : 1;
                u32 gainedProtectFlagFromAlly : 1;
-               u32 : 10;
+               u32 endTurnMoveEffect : 1;           /**< flag that signals to process a special move effect at end turn, such as Fell Stinger */
+               u32 : 9;
 
     /* 0x04 */ int physical_damage[4];    /**< [don't use] physical damage as indexed by battler.  Counter doesn't use this, use OneSelfTurnEffect's physical_damage (sp->oneSelfFlag[battler].physical_damage) */
     /* 0x14 */ int physical_damager;      /**< [don't use] last battler that physically damaged this pokémon.  Counter doesn't use this, use OneSelfTurnEffect's physical_damager (sp->oneSelfFlag[battler].physical_damager) */
@@ -1777,7 +1778,7 @@ enum
     SWOAK_SEQ_CHECK_DEFENDER_ITEM_ON_HIT,
     SWOAK_SEQ_THAW_ICE,
     SWOAK_SEQ_CHECK_HEALING_ITEMS,
-    SWOAK_SEQ_CLEAR_MAGIC_COAT,
+    SWOAK_SEQ_CLEAR_MAGIC_COAT
 };
 
 
