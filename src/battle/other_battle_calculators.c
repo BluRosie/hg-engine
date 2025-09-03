@@ -3384,7 +3384,7 @@ u32 RollMetronomeMove(struct BattleSystem *bsys)
 BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
 {
     // blanket item bans
-    if (IS_ITEM_MAIL(item) /*|| IS_ITEM_Z_CRYSTAL(item)*/)
+    if (IS_ITEM_MAIL(item) || IS_ITEM_Z_CRYSTAL(item))
         return FALSE;
 
     // then species-specific
@@ -3415,11 +3415,9 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
     return TRUE;
 }
 
-BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client)
+BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form)
 {
-    u32 species = ctx->battlemon[client].species;
-    u32 item = ctx->battlemon[client].item; // bypass klutz and friends probably
-    u32 form = ctx->battlemon[client].form_no;
+    // bypass klutz and friends probably
 
     // CheckMegaData will gladly tell you a galarian slowbro can't lose its slowbronite...  we have to take over
     if (species == SPECIES_SLOWBRO && item == ITEM_SLOWBRONITE && form == 2)
@@ -3442,8 +3440,9 @@ BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client)
 BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker, int defender)
 {
     u32 item = sp->battlemon[defender].item;
-    //u32 species = sp->battlemon[defender].species;
     u32 ability = GetBattlerAbility(sp, defender);
+    u32 species = sp->battlemon[defender].species;
+    u32 form = sp->battlemon[defender].form_no;
 
     if (CanActivateDamageReductionBerry(sp, defender)) {
         // the berry activated already
@@ -3461,7 +3460,7 @@ BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker, int defen
         return FALSE;
     }
 
-    if (item != 0 && CanItemBeRemovedFromClient(sp, defender))
+    if (item != 0 && CanItemBeRemovedFromClient(species, item, form))
     {
         return TRUE;
     }

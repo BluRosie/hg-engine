@@ -2581,6 +2581,8 @@
 
 #define IS_ITEM_MEGA_STONE(item) (item >= ITEM_GENGARITE && item <= ITEM_LATIOSITE) || (item >= ITEM_SWAMPERTITE && item <= ITEM_DIANCITE) || (item >= ITEM_CAMERUPTITE && item <= ITEM_BEEDRILLITE)
 
+#define IS_ITEM_Z_CRYSTAL(item) ((item >= ITEM_NORMALIUM_Z_HELD && item <= ITEM_PIKANIUM_Z_HELD) || (item >= ITEM_DECIDIUM_Z_HELD && item <= ITEM_MEWNIUM_Z_HELD) || (item == ITEM_PIKASHUNIUM_Z_HELD) || (item >= ITEM_MIMIKIUM_Z_ITEM && item <= ITEM_ULTRANECROZIUM_Z_ITEM))
+
 #define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_BURN_DRIVE && item <= ITEM_SHOCK_DRIVE)
 
 #define IS_ITEM_GEM(item) (item >= ITEM_NORMAL_GEM && item <= ITEM_FAIRY_GEM)

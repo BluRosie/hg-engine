@@ -55,6 +55,10 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         struct PartyPokemon *mon = Battle_GetClientPartyMon(bw, attacker, i);
         damageCalc.attackerParty[i] = mon;
     }
+    damageCalc.attacker = attacker;
+    damageCalc.defender = defender;
+    damageCalc.critical = critical;
+    damageCalc.moveno = moveno;
     damageCalc.movetype = GetAdjustedMoveType(sp, attacker, moveno);
     damageCalc.movesplit = GetMoveSplit(sp, moveno);
     damageCalc.movepower = sp->moveTbl[moveno].power;
@@ -73,6 +77,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     damageCalc.fieldHasSwordOfRuin = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_SWORD_OF_RUIN);
     damageCalc.fieldHasTabletsOfRuin = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_TABLETS_OF_RUIN);
     damageCalc.fieldHasBeadsOfRuin = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_BEADS_OF_RUIN);
+
+    damageCalc.field_cond = field_cond;
 
     damageCalc.terrainOverlayType = sp->terrainOverlay.type;
     damageCalc.terrainOverlayNumberOfTurnsLeft = sp->terrainOverlay.numberOfTurnsLeft;
