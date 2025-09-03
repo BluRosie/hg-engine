@@ -9260,7 +9260,7 @@ movedata MOVE_DISARMING_VOICE, "Disarming Voice"
     movedescription MOVE_DISARMING_VOICE, "Letting out a charming\ncry, the user does\nemotional damage to\nopposing Pokémon. This\nattack never misses."
 
 movedata MOVE_PARTING_SHOT, "Parting Shot"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PARTING_SHOT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_DARK
@@ -9269,7 +9269,7 @@ movedata MOVE_PARTING_SHOT, "Parting Shot"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
