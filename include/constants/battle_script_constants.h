@@ -465,15 +465,14 @@
 #define SUB_SEQ_HEAL_PULSE                            (455)
 #define SUB_SEQ_POLLEN_PUFF_HEAL                      (456)
 #define SUB_SEQ_COACHING                              (457)
-#define SUB_SEQ_HANDLE_EMERGENCY_EXIT                 (458)
-#define SUB_SEQ_SHORE_UP                              (459)
-#define SUB_SEQ_LIFE_DEW                              (460)
-#define SUB_SEQ_ENTRAINMENT                           (461)
-#define SUB_SEQ_HOWL                                  (462)
-#define SUB_SEQ_DECORATE                              (463)
+#define SUB_SEQ_SHORE_UP                              (458)
+#define SUB_SEQ_LIFE_DEW                              (459)
+#define SUB_SEQ_ENTRAINMENT                           (460)
+#define SUB_SEQ_HOWL                                  (461)
+#define SUB_SEQ_DECORATE                              (462)
 
 
-#define MAX_BASE_SUBSCRIPT_NUM 463
+#define MAX_BASE_SUBSCRIPT_NUM 462
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

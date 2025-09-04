@@ -1446,12 +1446,7 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro TryEmergencyExit arg_0
-    .long 263
-    .long (((\arg_0 - .) / 4) - 1)
-    .endm
-
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 263
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 262
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

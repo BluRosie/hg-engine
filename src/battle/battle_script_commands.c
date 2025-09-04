@@ -113,7 +113,6 @@ u32 LoadCaptureSuccessSPAStarEmitter(u32 id);
 u32 LoadCaptureSuccessSPANumEmitters(u32 id);
 BOOL btl_scr_cmd_105_strengthsapcalc(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_106_checktargetispartner(void* bw, struct BattleStruct* sp);
-BOOL btl_scr_cmd_107_tryemergencyexit(void* bw, struct BattleStruct* sp);
 
 #ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
 #pragma GCC diagnostic push
@@ -383,7 +382,6 @@ const u8 *BattleScrCmdNames[] =
     "TryIncinerate",
     "StrengthSapCalc",
     "CheckTargetIsPartner",
-    "TryEmergencyExit",
     // "YourCustomCommand",
 };
 
@@ -433,7 +431,6 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x104 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_104_tryincinerate,
     [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_strengthsapcalc,
     [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_checktargetispartner,
-    [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_tryemergencyexit,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -3318,25 +3315,6 @@ BOOL btl_scr_cmd_106_checktargetispartner(void* bw, struct BattleStruct* sp) {
     //    debug_printf("target is ally\n")
     }
     
-    return FALSE;
-}
-
-/**
- *  @brief script command to check if the battle format isn't a trainer
- *  
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @return FALSE
- */
-BOOL btl_scr_cmd_107_tryemergencyexit(void* bw, struct BattleStruct* sp) {
-    IncrementBattleScriptPtr(sp, 1);
-    int adrs = read_battle_script_param(sp);
-        
-    if (!(BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_WIRELESS | BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG | BATTLE_TYPE_NPC_MULTI | BATTLE_TYPE_BATTLE_TOWER)))
-    {
-        IncrementBattleScriptPtr(sp, adrs);
-    }
-
     return FALSE;
 }
 
