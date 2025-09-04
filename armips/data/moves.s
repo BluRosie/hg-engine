@@ -8043,7 +8043,7 @@ movedata MOVE_CHIP_AWAY, "Chip Away"
     movedescription MOVE_CHIP_AWAY, "An attack which is\nnot affected by the\ntarget’s stat\nchanges."
 
 movedata MOVE_CLEAR_SMOG, "Clear Smog"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_CLEAR_SMOG
     pss SPLIT_SPECIAL
     basepower 50
     type TYPE_POISON
@@ -8052,7 +8052,7 @@ movedata MOVE_CLEAR_SMOG, "Clear Smog"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

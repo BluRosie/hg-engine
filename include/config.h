@@ -165,4 +165,7 @@
 // Comment out the line below to disable this feature
 #define UPDATE_MACHINE_MOVE_LABELS
 
+//ENABLE_UNIMPLEMENTED_MOVES prevents moves, that are not implemented or not allowed in certain gens, from being used in battle
+//#define ENABLE_UNIMPLEMENTED_MOVES
+
 #endif

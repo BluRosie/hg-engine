@@ -382,8 +382,9 @@
 #define MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE                  376
 #define MOVE_EFFECT_FELL_STINGER                            377
 #define MOVE_EFFECT_PARTING_SHOT                            378
+#define MOVE_EFFECT_CLEAR_SMOG                              379
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            378
+#define MAX_BASE_MOVE_EFFECT_NUM                            379
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
 
