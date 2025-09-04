@@ -3066,7 +3066,7 @@ s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, int att
  */
 BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
 
-BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client);
+BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form);
 
 /**
  *  @brief check if a held item can be tricked or not depending on the items and species
@@ -3869,7 +3869,7 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
 
 BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
 
-BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client);
+BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form);
 /**
  *  @brief check if knock off can remove the defender's held item
  *         does not count sticky hold and substitute because those still allow knock off's base power increase
