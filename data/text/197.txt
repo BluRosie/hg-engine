@@ -1586,3 +1586,7 @@ Ghost type was added\nto the opposing {STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
 The wild {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
 The opposing {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
+Aurora Veil made your team\nstronger against physical and special moves!
+Aurora Veil made the opposing team\nstronger against physical and special moves!
+Aurora Veil made your team\nstronger against physical and special moves!
+Aurora Veil made the opposing team\nstronger against physical and special moves!

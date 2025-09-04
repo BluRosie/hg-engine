@@ -380,8 +380,9 @@
 #define MOVE_EFFECT_ADD_THIRD_TYPE_GRASS                    374
 #define MOVE_EFFECT_ADD_THIRD_TYPE_GHOST                    375
 #define MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE                  376
+#define MOVE_EFFECT_SET_AURORA_VEIL                         377
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            376
+#define MAX_BASE_MOVE_EFFECT_NUM                            377
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
 

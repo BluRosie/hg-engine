@@ -381,6 +381,7 @@ const u8 *BattleScrCmdNames[] =
     "CheckProtectContactMoves",
     "TryIncinerate",
     "AddThirdType",
+    "TryAuroraVeil",
     // "YourCustomCommand",
 };
 
@@ -429,6 +430,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x103 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_103_checkprotectcontactmoves,
     [0x104 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_104_tryincinerate,
     [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_addthirdtype,
+    [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_tryauroraveil,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4034,7 +4036,7 @@ BOOL btl_scr_cmd_104_tryincinerate(void* bw, struct BattleStruct* sp)
 }
 
 /**
- *  @brief script command to add type3 to a pokemon
+ *  @brief Script command to change a pokemon's type3 parameter.
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -4053,6 +4055,43 @@ BOOL btl_scr_cmd_105_addthirdtype(void* bw UNUSED, struct BattleStruct* sp)
     if (type >= 0 && type < NUMBER_OF_MON_TYPES) // proceed only if type ID is a valid, existing type
         sp->battlemon[sp->defence_client].type3 = type;
 
+    return FALSE;
+}
+
+/**
+ *  @brief Script command to set Aurora Veil, adapted from base game's reflect/light screen code.
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    int adrs = read_battle_script_param(sp);
+
+    int side = IsClientEnemy(bw, sp->attack_client);
+
+    if (sp->side_condition[side] & SIDE_CONDITION_AURORA_VEIL) {
+        IncrementBattleScriptPtr(sp, adrs);
+        sp->waza_status_flag |= 64; // What does this line do? ~J
+    } else {
+        sp->side_condition[side] |= SIDE_CONDITION_AURORA_VEIL;
+        sp->side_condition[side].auroraVeilTurns = 5;
+        sp->side_condition[side].auroraVeilBattler = sp->attack_client;
+        if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_EXTEND_SCREENS) {
+            // TODO: Expose and utilize GetHeldItemModifier(sp, sp->attack_client, 0) in place of a hardcoded value for light clay.
+            sp->side_condition[side].auroraVeilTurns += 3;
+        }
+
+        // TODO: Check if there is any difference in message between single and double battles.
+        // I don't think there is.
+        sp->mp.msg_id = BATTLE_MSG_AURORA_VEIL;
+        sp->mp.msg_tag = TAG_MOVE_SIDE;
+        sp->mp.msg_tag[0] = sp->current_move_index;
+        sp->mp.msg_tag[1] = sp->attack_client;
+    }
     return FALSE;
 }
 
