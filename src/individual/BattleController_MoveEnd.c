@@ -71,15 +71,36 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
             }
         }
 
-        if (ctx->current_move_index == MOVE_FELL_STINGER && ctx->battlemon[ctx->defence_client].hp == 0)
+        if (ctx->current_move_index == MOVE_FELL_STINGER)
         {
-            if (ctx->oneTurnFlag[ctx->defence_client].physical_damager == ctx->attack_client && ctx->oneTurnFlag[ctx->attack_client].endTurnMoveEffect == 0)
+            if ((ctx->battlemon[ctx->defence_client].hp == 0)
+                && (ctx->oneTurnFlag[ctx->attack_client].endTurnMoveEffect == 0))
             {  
                 ctx->oneTurnFlag[ctx->attack_client].endTurnMoveEffect = 1;
                 ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
                 ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
                 ctx->state_client = ctx->attack_client;
                 LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
+        }
+
+        if (ctx->current_move_index == MOVE_FLAME_BURST)
+        {
+            int ally = BATTLER_ALLY(ctx->defence_client);
+            if (ctx->battlemon[ally].hp
+                && (GetBattlerAbility(ctx, ally) != ABILITY_MAGIC_GUARD)
+                && (ctx->oneTurnFlag[ctx->attack_client].endTurnMoveEffect == 0))
+            {
+                ctx->oneTurnFlag[ctx->attack_client].endTurnMoveEffect = 1;
+                ctx->addeffect_param = ADD_STATUS_EFF_FLAME_BURST_HIT;
+                ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+                ctx->state_client = ally;
+                ctx->battlerIdTemp = ally;
+                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ally].maxhp * -1, 16);
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HANDLE_FLAME_BURST_HIT);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
