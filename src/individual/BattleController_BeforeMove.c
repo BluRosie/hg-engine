@@ -1953,6 +1953,9 @@ void BattleController_CheckBide(struct BattleSystem *bsys, struct BattleStruct *
 }
 
 BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+     if (ctx->defence_client == 0xFF) {
+        return FALSE;
+    }
     int attacker = ctx->attack_client;
     int defender = ctx->defence_client;
 
