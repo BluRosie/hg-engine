@@ -108,6 +108,7 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct *sp);
 BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp);
 BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* sp);
+BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -4176,5 +4177,25 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
     }
 
     InitFaintedWork(bsys, sp, sp->fainting_client);
+    return FALSE;
+}
+
+BOOL BtlCmd_TryBreakScreens(BattleSystem *bsys, BattleContext *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int adrs = read_battle_script_param(ctx);
+    int side = IsClientEnemy(bsys, sp->defense_client)
+
+    if ((ctx->side_condition[side] & SIDE_CONDITION_REFLECT) || (ctx->side_condition[side] & SIDE_CONDITION_LIGHT_SCREEN) || (ctx->side_condition[side] & SIDE_CONDITION_AURORA_VEIL)) {
+        ctx->side_condition[side] &= ~SIDE_CONDITION_REFLECT;
+        ctx->side_condition[side] &= ~SIDE_CONDITION_LIGHT_SCREEN;
+        ctx->side_condition[side] &= ~SIDE_CONDITION_AURORA_VEIL;
+        ctx->side_condition[side].reflectTurns = 0;
+        ctx->side_condition[side].lightScreenTurns = 0;
+        ctx->side_condition[side].auroraVeilTurns = 0;
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
     return FALSE;
 }

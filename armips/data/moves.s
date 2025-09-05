@@ -11164,7 +11164,7 @@ movedata MOVE_BRUTAL_SWING, "Brutal Swing"
     movedescription MOVE_BRUTAL_SWING, "The user swings its\nbody around violently\nto inflict damage on\neverything in its\nvicinity."
 
 movedata MOVE_AURORA_VEIL, "Aurora Veil"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_AURORA_VEIL
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ICE
@@ -11173,11 +11173,15 @@ movedata MOVE_AURORA_VEIL, "Aurora Veil"
     effectchance 0
     target RANGE_USER_SIDE
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_AURORA_VEIL, "---"
+.if SNOW_WARNING_GENERATION >= 9
+    movedescription MOVE_AURORA_VEIL, "This move reduces \ndamage from physical \nand special moves for \nfive turns. This can be \nused only when it is snowing."
+.else
+    movedescription MOVE_AURORA_VEIL, "This move reduces \ndamage from physical \nand special moves for \nfive turns. This can be \nused only in a hailstorm."
+.endif
 
 movedatalongname MOVE_SINISTER_ARROW_RAID, "Sinister Raid", "Sinister Arrow Raid"
     battleeffect MOVE_EFFECT_HIT
