@@ -221,14 +221,14 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     // TODO: the vanilla implementation is probably wrong
 
     if ((battle_type & BATTLE_TYPE_DOUBLE) &&
-        (sp->moveTbl[moveno].target == 0x4) &&
+        (sp->moveTbl[moveno].target == RANGE_ADJACENT_OPPONENTS) &&
         (CheckNumMonsHit(bw, sp, 1, defender) == 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 
     if ((battle_type & BATTLE_TYPE_DOUBLE) &&
-        (sp->moveTbl[moveno].target == 0x8) &&
-        (CheckNumMonsHit(bw, sp, 1, defender) >= 2)) {
+        (sp->moveTbl[moveno].target == RANGE_ALL_ADJACENT) &&
+        (CheckNumMonsHit(bw, sp, 0, defender) >= 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 
