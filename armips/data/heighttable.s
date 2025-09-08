@@ -823,7 +823,7 @@ heightentry SPECIES_SALANDIT, 0, 0, 1, 1
 heightentry SPECIES_SALAZZLE, 0, "null", 0, "null"
 heightentry SPECIES_STUFFUL, 0, 0, 0, 0
 heightentry SPECIES_BEWEAR, 0, 0, 0, 0
-heightentry SPECIES_BOUNSWEET, 16, "null", 0, "null"
+heightentry SPECIES_BOUNSWEET, 10, "null", 0, "null"
 heightentry SPECIES_STEENEE, 0, "null", 0, "null"
 heightentry SPECIES_TSAREENA, 6, "null", 0, "null"
 heightentry SPECIES_COMFEY, 0, 0, 0, 0
@@ -1138,7 +1138,7 @@ heightentry SPECIES_MEGA_LUCARIO, 0, 0, 0, 0
 heightentry SPECIES_MEGA_ABOMASNOW, 0, 0, 0, 0
 heightentry SPECIES_MEGA_GALLADE, 0, 0, 0, 0
 heightentry SPECIES_MEGA_AUDINO, 0, 0, 0, 0
-heightentry SPECIES_MEGA_DIANCIE, 7, 7, 0, 0
+heightentry SPECIES_MEGA_DIANCIE, 0, 0, 0, 0
 
 heightentry SPECIES_KYOGRE_PRIMAL, "null", 0, "null", 2
 heightentry SPECIES_GROUDON_PRIMAL, "null", 0, "null", 1
