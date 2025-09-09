@@ -235,7 +235,7 @@ $(foreach folder, $(CODE_BUILD_DIRS), $(eval $(call FOLDER_CREATE_DEFINE,$(folde
 # generate .d dependency files that are included as part of compiling if it does not exist
 define SRC_OBJ_INC_DEFINE
 # this generates the objects as part of generating the dependency list which will just be massive files of rules
-$1: $2 $(CODE_BUILD_DIRS)
+$1: $2 $(CODE_BUILD_DIRS) $(LEARNSETS_HEADER)
 	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
 	@#printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
 
@@ -286,6 +286,7 @@ restore_build: | restore all
 ####################### Clean #######################
 clean:
 	rm -rf $(BUILD) $(BASE) rom_gen.ld rom_gen_battle.ld
+	rm -rf $(shell find . -type d -name "generated")
 	@echo "Build artifacts removed."
 
 clean_tools:
@@ -426,6 +427,13 @@ move_narc: $(NARC_FILES)
 
 	@echo "trainer gfx:"
 	cp $(TRAINER_GFX_NARC) $(TRAINER_GFX_TARGET)
+
+	@echo "levelup learnset:"
+	cp $(LEVELUPLEARNSET_NARC) $(LEVELUPLEARNSET_TARGET)
+
+	@echo "egg moves:"
+	cp $(EGGLEARNSET_NARC) $(EGGLEARNSET_TARGET)
+
 
 
 	@echo "baby mons:"

@@ -227,5 +227,5 @@ if __name__ == "__main__":
     generate_learnset_outputs(
         species_header_path="include/constants/species.h",
         moves_header_path="include/constants/moves.h",
-        out_learnsets="data/mon/learnsets/custom.json",
+        out_learnsets="data/learnsets/learnsets.json",
     )

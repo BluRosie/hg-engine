@@ -50,7 +50,7 @@ u16 MoonBallSpecies[] =
  *  @return the amount of shakes a ball undergoes.  or'd with CRITICAL_CAPTURE_MASK for critical captures
  */
 u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, struct BattleStruct *sp) {
-    u32 i, speciesCatchRate, ballCaptureRatio, type1, type2, criticalCapture = FALSE;
+    u32 i, speciesCatchRate, ballCaptureRatio, criticalCapture = FALSE;
     u32 heavyBallMod = 0, modifiedCatchRate = 0;
     u64 a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, captureValueCoeffcient = 0, badgePenalty = UQ412__1_0, statusModifier = 0, criticalCatchModifier = 0, speciesInDex = 0, criticalCatchRate = 0, shakeChecks = 4, shakeChance = 0;
     int badges, missingBadges;
@@ -72,9 +72,6 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     }
 
     ballCaptureRatio = 0x1000;
-    type1 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, 0); // type 1
-    type2 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, 0); // type 2
-
 
     switch (sp->item_work)
     {
@@ -96,7 +93,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         ballCaptureRatio = 0x1000;
         break;
     case ITEM_NET_BALL:
-        if (type1 == TYPE_WATER || type2 == TYPE_WATER || type1 == TYPE_BUG || type2 == TYPE_BUG) {
+        if (HasType(sp, sp->defence_client, TYPE_WATER) || HasType(sp, sp->defence_client, TYPE_BUG)) {
             ballCaptureRatio = 0x3800;
         }
         break;
@@ -296,12 +293,31 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("Step 5: Calculate the badge penalty\n");
 #endif
+
+    u8 badgeLevel[] = {
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        100,
+    };
+
     struct PlayerProfile *profile = Sav2_PlayerData_GetProfileAddr(SaveBlock2_get());
     badges = profile->johtoBadges + profile->kantoBadges;
-    missingBadges = 8 - badges;
-    if (missingBadges < 0) {
-        missingBadges = 0;
+    badges = badges > 8 ? 8 : badges;
+    missingBadges = 0;
+    if (sp->battlemon[sp->defence_client].level + 5 > badgeLevel[badges]) {
+        for (int i = badges; i <= 8; i++) {
+            if (sp->battlemon[sp->defence_client].level > badgeLevel[i]) {
+                missingBadges++;
+            }
+        }
     }
+    
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("missingBadges: %d\n", missingBadges);
 #endif

@@ -7,6 +7,11 @@
 // set FAIRY_TYPE_IMPLEMENTED to 0 if you do not want this to happen
 #define FAIRY_TYPE_IMPLEMENTED 1
 
+// TYPE_EFFECTIVENESS_GEN defines the type chart interactions you would like to use.
+// Defining this as "5" or lower will revert Steel to resisting Ghost- and Dark-type moves.
+// Type chart changes prior to Gen 4 (e.g. Gen 1) are not included.
+#define TYPE_EFFECTIVENESS_GEN GEN_LATEST
+
 // START_ADDRESS should be the same as armips/include/config.h's START_ADDRESS so that hall of fame/pokéathlon overworlds work properly.
 // START_ADDRESS defines the file address within the synthetic overlay where you would like to place all of the code that this project uses.  this is largely the repointed tables that the code uses.
 // if START_ADDRESS is 0x10000, then the tables will be inserted at address 0x10000 of the synthetic overlay
@@ -157,6 +162,12 @@
 // DELETABLE_HMS allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
 //#define DELETABLE_HMS
 
+// MART_EXPANSION allows for adding and modifying items to the mart inventories
+#define MART_EXPANSION
+
+// POKEATHLON_EXPANSION allows for adding and modifying items to the Pokéathlon shop inventories
+//#define POKEATHLON_SHOP_EXPANSION
+
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
 
@@ -164,25 +175,5 @@
 // to more closely match later generations. Note that disabling this will break TMs > 99 rendering in the bag
 // Comment out the line below to disable this feature
 #define UPDATE_MACHINE_MOVE_LABELS
-
-// LEARNSET_FILE tells the engine what file to use for learnsets
-// if you want custom learnsets, use "custom" and modify data/mon/learnsets/custom.json
-#define LEARNSET_FILE "sv"
-
-// MACHINE_MOVE_INHERITANCE allows MachineMoves learnsets to accumulate across generations before the specified LEARNSET_FILE
-// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
-#define MACHINE_MOVE_INHERITANCE
-
-// EGG_MOVE_INHERITANCE allows EggMoves learnsets to backfill from previous generations before the specified LEARNSET_FILE
-// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
-#define EGG_MOVE_INHERITANCE
-
-// TUTOR_MOVE_INHERITANCE allows TutorMoves learnsets to accumulate across generations before the specified LEARNSET_FILE
-// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
-#define TUTOR_MOVE_INHERITANCE
-
-// EGG_MOVE_INHERITANCE allows LevelMoves learnsets to backfill from previous generations before the specified LEARNSET_FILE
-// commenting this line out will disable inheritance and only use the learnsets from the LEARNSET_FILE
-#define LEVELUP_MOVE_INHERITANCE
 
 #endif

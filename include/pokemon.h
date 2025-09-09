@@ -1883,4 +1883,10 @@ void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemo
 
 void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp);
 
+void LONG_CALL MonApplyFriendshipMod(struct PartyPokemon *mon, u8 kind, u16 location);
+
+u8 LONG_CALL GetMoveMaxPP(u16 moveId, u8 ppUps);
+
+void LONG_CALL ApplyMonMoodModifier(struct PartyPokemon *mon, int modifierId);
+
 #endif

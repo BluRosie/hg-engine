@@ -53,13 +53,13 @@ The {STRVAR_1 8, 0, 0} can’t be held.
                              
 Throw away how many\n{STRVAR_1 8, 0, 0}(s)?
 Threw away {STRVAR_1 51, 1, 0} {STRVAR_1 8, 0, 0}.
-Is it OK to throw away\n{STRVAR_1 52, 1, 0} {STRVAR_1 8, 0, 0}?
+Is it OK to throw away\n{STRVAR_1 52, 1, 0}?
                                          
 You can’t dismount your Bike here.
 Your Coins: {STRVAR_1 54, 0, 0}
-You booted up the TM.{WAIT 3}{WAIT 4}\n
-You booted up the TM.{WAIT 3}{WAIT 4}\n
-It contained\n{STRVAR_1 6, 0, 0}.\rTeach {STRVAR_1 6, 0, 0}\nto a Pokémon?
+Which Pokémon will you use it on?\n{WAIT 3}{WAIT 4}
+Which Pokémon will you use it on?\n{WAIT 3}{WAIT 4}
+Please choose a move that will be\nreplaced with {STRVAR_1 6, 0, 0}.
 You used the\n{STRVAR_1 8, 1, 0}.
 Since a Repel’s effects still linger,\nyou can’t use this now.
 You used the\n{STRVAR_1 8, 1, 0}.\rWild Pokémon will be lured.

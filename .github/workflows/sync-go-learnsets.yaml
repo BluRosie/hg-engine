@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PY_SCRIPT: tools/source/dumptools/gamemaster_go_import.py
-      FILE_TO_COMMIT: data/mon/learnsets/22_go.json
+      FILE_TO_COMMIT: data/learnsets/base/22_go.json
       COMMIT_MESSAGE: "chore: update Pokemon GO learnsets"
       PR_TITLE: "Update Pokemon GO learnsets"
       PR_BODY: "This PR was created automatically by the GitHub Actions workflow."

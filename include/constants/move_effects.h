@@ -133,7 +133,7 @@
 #define MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING              129
 #define MOVE_EFFECT_10_DAMAGE_FLAT                          130
 #define MOVE_EFFECT_UNUSED_131                              131
-#define MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN                   132
+#define MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER          132
 #define MOVE_EFFECT_UNUSED_133                              133
 #define MOVE_EFFECT_UNUSED_134                              134
 #define MOVE_EFFECT_RANDOM_TYPE_BASED_ON_IVS                135
@@ -377,8 +377,11 @@
 #define MOVE_EFFECT_PROTECT_USER_SIDE                       371
 #define MOVE_EFFECT_INCINERATE                              372
 #define MOVE_EFFECT_FIRST_TURN_ONLY                         373
+#define MOVE_EFFECT_ADD_THIRD_TYPE_GRASS                    374
+#define MOVE_EFFECT_ADD_THIRD_TYPE_GHOST                    375
+#define MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE                  376
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            373
+#define MAX_BASE_MOVE_EFFECT_NUM                            376
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
 

@@ -3,6 +3,8 @@
 #include "../../include/battle.h"
 #include "../../include/config.h"
 #include "../../include/debug.h"
+#include "../../include/constants/file.h"
+#include "../../include/message.h"
 #include "../../include/pokemon.h"
 #include "../../include/rtc.h"
 #include "../../include/save.h"
@@ -311,5 +313,13 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
             }
         }
     }
+    return FALSE;
+}
+
+BOOL ScrCmd_BufferItemName(SCRIPTCONTEXT *ctx) {
+    MessageFormat **msgFmt = FieldSysGetAttrAddr(ctx->fsys, 16);
+    u8 idx = ScriptReadByte(ctx);
+    u16 itemId = ScriptGetVar(ctx);
+    BufferItemNameGiveItem(*msgFmt, idx, itemId);
     return FALSE;
 }

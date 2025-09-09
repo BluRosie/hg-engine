@@ -251,28 +251,13 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 }
                 else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_FLOWER_VEIL) == TRUE
                        || MoldBreakerAbilityCheck(sp, sp->attack_client, BATTLER_ALLY(sp->state_client), ABILITY_FLOWER_VEIL) == TRUE) // any enemy has flower veil (accounting for mold breaker, otherwise would just CheckSideAbility)
-                      && (sp->battlemon[sp->state_client].type1 == TYPE_GRASS || sp->battlemon[sp->state_client].type2 == TYPE_GRASS)) // and target has grass type
+                       && HasType(sp, sp->state_client, TYPE_GRASS)) // and target has grass type
                 {
-                    // specifically for flower veil, we know that one of the Pokémon have flower veil.  we need to change the client that it prints the ability of to the flower veil client
-                    u32 flower_veil_client;
-
-                    flower_veil_client = (GetBattlerAbility(sp, sp->state_client) == ABILITY_FLOWER_VEIL) ? sp->state_client : BATTLER_ALLY(sp->state_client);
-
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
-                        sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
-                        sp->mp.msg_tag = TAG_NICKNAME_ABILITY_NICKNAME_ABILITY;
-                        sp->mp.msg_para[0] = CreateNicknameTag(sp, flower_veil_client);
-                        sp->mp.msg_para[1] = sp->battlemon[flower_veil_client].ability;
-                        sp->mp.msg_para[2] = CreateNicknameTag(sp, sp->attack_client);
-                        sp->mp.msg_para[3] = sp->battlemon[sp->attack_client].ability;
-                    }
-                    else
-                    {
-                        sp->mp.msg_id = BATTLE_MSG_PREVENTS_STAT_LOSS;
-                        sp->mp.msg_tag = TAG_NICKNAME_ABILITY;
-                        sp->mp.msg_para[0] = CreateNicknameTag(sp, flower_veil_client);
-                        sp->mp.msg_para[1] = sp->battlemon[flower_veil_client].ability;
+                        sp->mp.msg_id = BATTLE_MSG_FLOWER_VEIL_PETALS;
+                        sp->mp.msg_tag = TAG_NICKNAME;
+                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                     }
                     flag = 1;
                 }
