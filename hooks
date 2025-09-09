@@ -530,3 +530,7 @@ arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
 0001 GetLearnableTutorMoves 02202D40 3
 arm9 PartyMenu_LearnMoveToSlot 0208254C 3
 0015 Bag_RenderMachineMoveSlot_hook 021FF586 3
+
+#ifdef MART_EXPANSION
+arm9 ScrCmd_MartBuy 02048060 1
+#endif
