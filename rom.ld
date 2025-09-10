@@ -770,3 +770,12 @@ PartyMenu_GetCurrentMapSec = 0x020828EC | 1;
 AddTextPrinterParameterizedWithColor = 0x020200FC | 1;
 PrintItemSlotQuantity = 0x021FF66C | 1;
 Mon_UpdateRotomForm	= 0x02071EC0 | 1;
+
+LoadItemDataOrGfx = 0x02077CE8 | 1;
+GetItemAttr_PreloadedItemData = 0x02077DAC | 1;
+PartyMenu_ItemUseFunc_WaitTextPrinterThenExit = 0x02081378 | 1;
+PartyMenu_SetItemUseFuncFromBagSelection = 0x020812E8 | 1;
+PartyMenu_PrintMessageOnWindow34 = 0x0207DAEC | 1;
+PartyMenu_SelectMoveForPpRestoreOrPpUp = 0x02082654 | 1;
+PartyMenu_FormChangeScene_Begin = 0x0207CB54 | 1;
+/* TextPrinterCheckActive = 0x02020094 | 1; */
