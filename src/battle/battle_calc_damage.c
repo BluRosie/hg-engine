@@ -117,7 +117,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
         client.ability = GetBattlerAbility(sp, i);
         client.sex = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_SEX, NULL);
         client.speed = sp->effectiveSpeed[i];
-        client.weight = GetPokemonWeight(bw, sp, i, i);
+        client.weight = GetPokemonWeight(bw, sp, attacker, i);
         client.happiness = sp->battlemon[i].friendship;
         client.form = sp->battlemon[i].form_no;
         client.furyCutterCount = sp->battlemon[i].moveeffect.furyCutterCount;
