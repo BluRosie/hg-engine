@@ -6,10 +6,10 @@ import struct
 from collections import defaultdict, OrderedDict
 
 numToTutorName = {
-    0: "TUTOR_TOP_LEFT",
-    1: "TUTOR_TOP_RIGHT",
-    2: "TUTOR_BOTTOM_RIGHT",
-    3: "TUTOR_HEADBUTT",
+    0: "MOVE_TUTOR_NPC_FRONTIER_TOP_LEFT",
+    1: "MOVE_TUTOR_NPC_FRONTIER_TOP_RIGHT",
+    2: "MOVE_TUTOR_NPC_FRONTIER_BOTTOM_RIGHT",
+    3: "MOVE_TUTOR_NPC_HEADBUTT",
 }
 
 
