@@ -74,7 +74,6 @@ PokeSexGetMonsNo = 0x0206FFC8 |1;
 BoxMonSetFastModeOn = 0x0206DDD8 |1;
 BoxMonSetFastModeOff = 0x0206DE00 |1;
 SetBoxMonData = 0x0206ED70 |1;
-FillInBoxMonLearnset = 0x020712D8 |1;
 PokePersonalParaGet = 0x0206FBE8 |1;
 BoxMonInit = 0x0206DD0C |1;
 PokeLevelExpGet = 0x0206FD00 |1;
@@ -241,6 +240,7 @@ IncrementBattleScriptPtr = 0x02245508 | 1;
 CreateNicknameTag = 0x022522E0 | 1;
 JumpToMoveEffectScript = 0x02245518 | 1;
 BGCallback_Waza = 0x0226748C | 1;
+TryEatOpponentBerry = 0x02255A2C | 1;
 
 /* Trainer data expansion */
 gf_get_seed = 0x0201FD2C | 1;
@@ -586,7 +586,6 @@ gAnimScrTable = 0x02234DE8;
 DrawFrameAndWindow2	= 0x0200E998 | 1;
 AddWindowParameterized = 0x0201D40C | 1;
 
-LoadLevelUpLearnset_HandleAlternateForm = 0x02071FC8 | 1;
 TryAppendMonMove = 0x0207137C | 1;
 
 BattleControllerPlayer_CalcExecutionOrder = 0x02249190 | 1;
@@ -734,7 +733,6 @@ BattleMessage_BufferFlavorPreference = 0x0223CEA8 | 1;
 BattleMessage_BufferTrainerClass = 0x0223CEB4 | 1;
 BattleMessage_BufferTrainerName = 0x0223CECC | 1;
 BattleMessage_BufferBoxName = 0x0223CEE4 | 1;
-BufferItemNameWithIndefArticle = 0x0200C100 | 1;
 
 _GetNpcTradeName = 0x02259C1C | 1;
 MonSetTrainerMemo = 0x0208F260 | 1;
@@ -750,3 +748,27 @@ LoadOpenSPAToEmitter = 0x0201526C | 1;
 OpenSPAFileInHeap = 0x02015264 | 1;
 QueueEmitterWithCallback = 0x02015494 | 1;
 particleEmitCallback = 0x021E5C28 | 1;
+
+BattleSystem_GetTrainer = 0x0223A9F4 | 1;
+
+BattleController_EmitPlayFaintAnimation = 0x022635E8 | 1;
+InitFaintedWork = 0x022514C4 | 1;
+MaskOfFlagNo = 0x020726C0 | 1;
+
+PartyMenu_PrintMessageOnWindow32 = 0x0207DAC4 | 1;
+
+SetStringAsPlaceholder = 0x0200BDF8 | 1;
+
+PrintUIntOnWindowWithGlyph = 0x0200CE7C | 1;
+ov15_021FE8C4 = 0x021FE8C4 | 1;
+PrintUIntOnWindow = 0x0200CDF0 | 1;
+Bag_RenderItemSlotIcon = 0x021FE9B0 | 1;
+MonApplyFriendshipMod = 0x0206FE90 | 1;
+GetMoveMaxPP = 0x0207332C | 1;
+ApplyMonMoodModifier = 0x02097F0C | 1;
+PartyMenu_GetCurrentMapSec = 0x020828EC | 1;
+AddTextPrinterParameterizedWithColor = 0x020200FC | 1;
+PrintItemSlotQuantity = 0x021FF66C | 1;
+
+PlayerProfile_TestBadgeFlag = 0x02028F98 | 1;
+InitMartUI = 0x02256D34 | 1;

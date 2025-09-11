@@ -1,11 +1,14 @@
 ITEMDATA_NARC := $(BUILD_NARC)/itemdata.narc
 ITEMDATA_TARGET := $(FILESYS)/a/0/1/7
 ITEMDATA_BUILD := $(BUILD)/itemdata
-ITEMDATA_DEPENDENCIES := data/itemdata/itemdata.c
-ITEMDATA_OBJS := $(patsubst %.c,%.o,$(ITEMDATA_DEPENDENCIES))
+ITEMDATA_DEPENDENCIES := data/itemdata/itemdata.csv
+ITEMDATA_INTERMED := $(patsubst data/itemdata/%.csv,$(ITEMDATA_BUILD)/%.c,$(ITEMDATA_DEPENDENCIES))
+ITEMDATA_OBJS := $(patsubst data/itemdata/%.csv,$(ITEMDATA_BUILD)/%.o,$(ITEMDATA_DEPENDENCIES))
 
 $(ITEMDATA_NARC): $(ITEMDATA_DEPENDENCIES)
-	$(CC) $(CFLAGS) -c $< -o $(ITEMDATA_OBJS)
+	$(PYTHON) scripts/itemdata.py
+	$(CC) $(CFLAGS) -c $(ITEMDATA_INTERMED) -o $(ITEMDATA_OBJS)
 	$(O2NARC) $(ITEMDATA_OBJS) $@ -n -p 255
 
 NARC_FILES += $(ITEMDATA_NARC)
+REQUIRED_DIRECTORIES += $(ITEMDATA_BUILD)

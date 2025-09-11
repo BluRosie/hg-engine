@@ -3,6 +3,7 @@
 #include "../../include/battle.h"
 #include "../../include/item.h"
 #include "../../include/mega.h"
+#include "../../include/message.h"
 #include "../../include/pokemon.h"
 #include "../../include/constants/ability.h"
 #include "../../include/constants/battle_script_constants.h"
@@ -14,6 +15,14 @@
 #include "../../include/constants/move_effects.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/system_control.h"
+
+static int GetKeyStoneVariantFromTrainerClass(int trainerClass) {
+    switch (trainerClass) {
+        default:
+            return ITEM_KEY_STONE;
+            break;
+    }
+}
 
 void BattleSystem_BufferMessage(struct BattleSystem *bsys, MESSAGE_PARAM *msg) {
     // debug_printf("In BattleSystem_BufferMessage (overlay)\n");
@@ -75,6 +84,10 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, MESSAGE_PARAM *msg) {
             BufferItemNameWithIndefArticle(bsys->msgFormat, 1, msg->msg_para[1]);
         } else {
             BattleMessage_BufferItem(bsys, 1, msg->msg_para[1]);
+        }
+        if ((msg->msg_id - BATTLE_MSG_MEGA_EVOLUTION) < 3) {
+            Trainer *trainer = BattleSystem_GetTrainer(bsys, msg->msg_para[0]);
+            BattleMessage_BufferItem(bsys, 2, GetKeyStoneVariantFromTrainerClass(trainer->data.trainerClass));
         }
         break;
     case TAG_NICKNAME_POFFIN: // unused

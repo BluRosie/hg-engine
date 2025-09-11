@@ -1,0 +1,537 @@
+???
+The very best Poké Ball with the\nultimate level of performance. With\nit, you will catch any wild Pokémon\rwithout fail.
+An ultra-high-performance Poké Ball\nthat provides a higher success rate\nfor catching Pokémon than a Great\rBall.
+A good, high-performance Poké Ball\nthat provides a higher success rate\nfor catching Pokémon than a standard\rPoké Ball.
+A device for catching wild Pokémon.\nIt’s thrown like a ball at a\nPokémon, comfortably encapsulating\rits target.
+A special Poké Ball used in locales\nsuch as the Safari Zone in the Kanto\nregion and the Great Marsh in the\rSinnoh region.
+A somewhat different Poké Ball that\nis more effective when catching\nWater- or Bug-type Pokémon.
+A somewhat different Poké Ball that\nis more effective when catching\nPokémon in or on the water.
+A somewhat different Poké Ball that\nbecomes more effective the lower the\nlevel of the wild Pokémon.
+A somewhat different Poké Ball that\nis more effective when catching a\nPokémon of a species that you’ve\rcaught before.
+A somewhat different Poké Ball that\nbecomes more effective at catching\nPokémon the more turns that are\rtaken in battle.
+A particularly comfortable Poké Ball\nthat makes a wild Pokémon quickly\ngrow friendlier after being caught.
+A somewhat rare Poké Ball made to\ncommemorate a special occasion of\nsome sort.
+A somewhat different Poké Ball that\nis more effective when catching\nPokémon at night or in dark places,\rsuch as caves.
+A remedial Poké Ball that restores\nHP and eliminates status conditions\nfor a Pokémon caught with it.
+A somewhat different Poké Ball that\nis more effective at catching\nPokémon when used first thing in a\rbattle.
+A quite rare Poké Ball made to\ncommemorate a special occasion of\nsome sort.
+A spray-type medicine for treating\nwounds. It can be used to restore 20\nHP to a Pokémon.
+A spray-type medicine for treating\npoisoning. It can be used to lift\nthe effects of being poisoned from a\rPokémon.
+A spray-type medicine for treating\nburns. It can be used to cure a\nPokémon suffering from a burn.
+A spray-type medicine for treating\nfreezing. It can be used to thaw out\na Pokémon that has been frozen\rsolid.
+A spray-type medicine to wake the\nsleeping. It can be used to rouse a\nPokémon from the clutches of sleep.
+A spray-type medicine for treating\nparalysis. It can be used to free a\nPokémon that has been paralyzed.
+A medicine that can be used to fully\nrestore the max HP of a Pokémon and\ncure any status condition it may\rhave.
+A spray-type medicine for treating\nwounds. It can be used to fully\nrestore the max HP of a Pokémon.
+A spray-type medicine for treating\nwounds. It can be used to restore\n120 HP to a Pokémon.
+A spray-type medicine for treating\nwounds. It can be used to restore 60\nHP to a Pokémon.
+A spray-type medicine that is\nbroadly effective. It can be used to\ncure any status condition a Pokémon\rmay have.
+A medicine that can be used to\nrevive a Pokémon that has fainted.\nIt also restores half the Pokémon’s\rmax HP.
+A medicine that can be used to\nrevive a Pokémon that has fainted.\nIt also fully restores the Pokémon’s\rmax HP.
+Water with high mineral content. It\ncan be used to restore 30 HP to a\nPokémon.
+A highly carbonated soda drink. It\ncan be used to restore 50 HP to a\nPokémon.
+A very sweet and refreshing drink.\nIt can be used to restore 70 HP to a\nPokémon.
+A bottle of highly nutritious milk.\nIt can be used to restore 100 HP to\na Pokémon.
+A very bitter medicinal powder. It\ncan be used to restore 60 HP to a\nPokémon.
+A very bitter medicinal root. It can\nbe used to restore 120 HP to a\nPokémon.
+A very bitter medicinal powder. It\ncan be used to cure any status\ncondition a Pokémon may have.
+A very bitter medicinal herb. It can\nbe used to revive a Pokémon that has\nfainted. It also fully restores the\rPokémon’s max HP.
+A medicine that can be used to\nrestore 10 PP to a single move that\na Pokémon knows.
+A medicine that can be used to fully\nrestore the max PP of a single move\nthat a Pokémon knows.
+A medicine that can be used to\nrestore 10 PP to all four moves that\na Pokémon knows.
+A medicine that can be used to fully\nrestore the max PP of all four moves\nthat a Pokémon knows.
+Lavaridge Town’s local specialty. It\ncan be used to cure any status\ncondition a Pokémon may have.
+A 100 percent pure juice made from\nBerries. It can be used to restore\n20 HP to a Pokémon.
+Ash that can be used to revive all\nparty Pokémon that have fainted. It\nalso fully restores the Pokémon’s\rmax HP.
+A nutritious drink for Pokémon. This\ndrink increases base points for a\nPokémon’s HP stat.
+A nutritious drink for Pokémon. This\ndrink increases base points for a\nPokémon’s Attack stat.
+A nutritious drink for Pokémon. This\ndrink increases base points for a\nPokémon’s Defense stat.
+A nutritious drink for Pokémon. This\ndrink increases base points for a\nPokémon’s Speed stat.
+A nutritious drink for Pokémon. This\ndrink increases base points for a\nPokémon’s Sp. Atk stat.
+A candy that is packed with energy.\nIf consumed, it raises a Pokémon’s\nlevel by one.
+A medicine that can be used to\nslightly raise the max PP of a\nsingle move that a Pokémon knows.
+A nutritious drink for Pokémon. This\ndrink increases base points for a\nPokémon’s Sp. Def stat.
+A medicine that can be used to raise\nthe max PP of a single move that a\nPokémon knows as high as it can\rpossibly go.
+A hidden gem found in the Old\nChateau. It can be used to cure any\nstatus condition a Pokémon may have.
+An item that prevents Pokémon on\nyour side from having their stats\nlowered in battle for five turns.
+An item that can be used once to\nsharply boost the critical-hit ratio\nof a Pokémon in battle. This effect\rdisappears if the Pokémon leaves the\nbattle.
+An item that sharply boosts the\nAttack stat of a Pokémon in battle.\nThis effect disappears if the\rPokémon leaves the battle.
+An item that sharply boosts the\nDefense stat of a Pokémon in battle.\nThis effect disappears if the\rPokémon leaves the battle.
+An item that sharply boosts the\nSpeed stat of a Pokémon in battle.\nThis effect disappears if the\rPokémon leaves the battle.
+An item that sharply boosts a\nPokémon’s accuracy in battle. This\neffect disappears if the Pokémon\rleaves the battle.
+An item that sharply boosts the Sp.\nAtk stat of a Pokémon in battle.\nThis effect disappears if the\rPokémon leaves the battle.
+An item that sharply boosts the Sp.\nDef stat of a Pokémon in battle.\nThis effect disappears if the\rPokémon leaves the battle.
+A doll that attracts the attention\nof Pokémon. It guarantees escape\nfrom any battle with wild Pokémon.
+A toy that attracts the attention of\nPokémon. It guarantees escape from\nany battle with wild Pokémon.
+A flute made from blue glass. It\nawakens sleeping Pokémon.
+A flute made from yellow glass. It\nsnaps Pokémon out of confusion.
+A flute made from red glass. It\nsnaps Pokémon out of infatuation.
+A flute made from black glass. It\nmakes it easier to encounter\nhigh-level Pokémon in the place you\ruse it.
+A flute made from white glass. It\nmakes it easier to encounter\nlow-level Pokémon in the place you\ruse it.
+Salt that was found inside Shoal\nCave.
+A seashell that was found inside\nShoal Cave.
+A small red shard. It appears to be\na fragment of some sort of implement\nmade long ago.
+A small blue shard. It appears to be\na fragment of some sort of implement\nmade long ago.
+A small yellow shard. It appears to\nbe a fragment of some sort of\nimplement made long ago.
+A small green shard. It appears to\nbe a fragment of some sort of\nimplement made long ago.
+An item that prevents low-level wild\nPokémon from jumping out at you for\na time. It lasts longer than Repel.
+An item that prevents low-level wild\nPokémon from jumping out at you for\na time. It lasts longer than Super\rRepel.
+A long and durable rope. Use it to\nescape instantly from locations like\ncaves or dungeons. It can be used\rany number of times.
+An item that prevents low-level wild\nPokémon from jumping out at you for\na short time.
+A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt burns as red as the evening sun.
+A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt is dark like the night sky.
+A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt has a fiery orange heart.
+A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt has a distinct thunderbolt\rpattern.
+A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt is the clear blue of a deep pool.
+A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt has an unmistakable leaf pattern.
+A small and rare mushroom. It’s\nquite popular with a certain class\nof collectors.
+A large and rare mushroom. It’s\nextremely popular with a certain\nclass of collectors.
+A rather small pearl that has a nice\nsilvery sheen to it. It can be sold\nat a low price to shops.
+A rather large pearl that has a nice\nsilvery sheen to it. It can be sold\nat a high price to shops.
+Lovely red sand that flows between\nthe fingers with a loose, silky\nfeel. It can be sold at a low price\rto shops.
+A small shard of a beautiful gem\nthat gives off a distinctly red\nsparkle. It can be sold at a high\rprice to shops.
+A nugget of pure gold that gives off\na lustrous gleam. It can be sold at\na high price to shops.
+A pretty, heart-shaped scale that is\nextremely rare. Certain people are\ndelighted to be given one of these.
+Honey collected thanks to Pokémon’s\nefforts. It has a sweet aroma and\ncan be sold at a low price to shops.
+A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\rhas no effect.
+A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\rhas no effect.
+A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\rhas no effect.
+A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\rhas no effect.
+A fossil from a prehistoric Pokémon\nthat once lived in the sea. It looks\nas if it could be part of a plant’s\rroot.
+A fossil from a prehistoric Pokémon\nthat once lived in the sea. It\nappears to be a fragment of a claw.
+A fossil from a prehistoric Pokémon\nthat once lived in the sea. It might\nbe a piece of a seashell.
+A fossil from a prehistoric Pokémon\nthat once lived in the sea. It could\nbe a shell or carapace.
+A piece of amber that still contains\nthe genetic material of a\nprehistoric Pokémon. It’s clear with\ra tawny, reddish tint.
+A fossil from a prehistoric Pokémon\nthat once lived on the land. It\nlooks to be from some kind of\rprotective collar.
+A fossil from a prehistoric Pokémon\nthat once lived on the land. It\nappears as though it’s part of a\rhead.
+A rare bone that is extremely\nvaluable for the study of Pokémon\narcheology. It can be sold at a high\rprice to shops.
+A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt shines with a dazzling light.
+A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt holds dark shadows within it.
+A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt sparkles like a glittering eye.
+A peculiar stone that can make a\ncertain species of Pokémon evolve.\nIt is round and smooth.
+A vital item that is needed to keep\na stone tower from collapsing.\nVoices can be heard from it\roccasionally.
+A shining gem to be held by\nGiratina. It boosts the power of\nGiratina’s Dragon- and Ghost-type\rmoves.
+Aromatic tea that has a slightly\nbitter taste. It soothes a dry\nthroat.
+- - -
+The autograph you got from the\nVermilion City Gym Leader, Lt.\nSurge. He wrote, “Good luck!”
+A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast\nmove so it becomes Water type.
+A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast\nmove so it becomes Electric type.
+A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast\nmove so it becomes Fire type.
+A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast\nmove so it becomes Ice type.
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+A very light trunk that can carry\nclothing for you and your Pokémon.
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+A piece of cloyingly sweet\nchocolate. It can be used to restore\n20 HP to a Pokémon.
+A brightly shining gem to be held by\nDialga. It boosts the power of\nDialga’s Dragon- and Steel-type\rmoves.
+A beautifully shining gem to be held\nby Palkia. It boosts the power of\nPalkia’s Dragon- and Water-type\rmoves.
+Stationery designed to be easy to\nuse when writing someone for the\nfirst time. Have a Pokémon hold it\rfor delivery.
+Stationery designed to make it\neasier to write about your favorite\nthings. Have a Pokémon hold it for\rdelivery.
+Stationery designed to allow you to\nextend an invitation to the\nrecipient. Have a Pokémon hold it\rfor delivery.
+Stationery designed to make it easy\nfor you to express thanks. Have a\nPokémon hold it for delivery.
+Stationery designed to make it\neasier to pose a question about\nsomething. Have a Pokémon hold it\rfor delivery.
+Stationery designed to allow you to\nrecommend something to the reader.\nHave a Pokémon hold it for delivery.
+Stationery designed to make it easy\nto respond to a letter you received.\nHave a Pokémon hold it for delivery.
+Stationery featuring an illustration\nof a bridge that seems to pierce the\nsky. Have a Pokémon hold it for\rdelivery.
+Stationery featuring an illustration\nof a bright-red drawbridge. Have a\nPokémon hold it for delivery.
+Stationery featuring an illustration\nof a high-tension steel suspension\nbridge. Have a Pokémon hold it for\rdelivery.
+Stationery featuring an illustration\nof a vintage-looking brick bridge.\nHave a Pokémon hold it for delivery.
+Stationery featuring an illustration\nof a majestically arched bridge.\nHave a Pokémon hold it for delivery.
+If a Pokémon holds one of these\nBerries, it will be able to free\nitself from paralysis.
+If a Pokémon holds one of these\nBerries, it will be able to wake\nitself from sleep.
+If a Pokémon holds one of these\nBerries, it will be able to lift the\neffects of being poisoned from\ritself.
+If a Pokémon holds one of these\nBerries, it will be able to cure\nitself of a burn.
+If a Pokémon holds one of these\nBerries, it will be able to thaw\nitself after being frozen.
+If a Pokémon holds one of these\nBerries, it will be able to restore\n10 PP to a move.
+If a Pokémon holds one of these\nBerries, it will be able to restore\n10 HP to itself.
+If a Pokémon holds one of these\nBerries, it will be able to cure\nitself of confusion.
+If a Pokémon holds one of these\nBerries, it will be able to cure\nitself of any status condition it\rmay have.
+If a Pokémon holds one of these\nBerries, it will be able to restore\na small amount of HP to itself.
+If a Pokémon holds one of these\nBerries, it will be able to restore\nsome HP should it find itself in a\rpinch. But it will become confused\nif it hates the Berry’s taste.
+If a Pokémon holds one of these\nBerries, it will be able to restore\nsome HP should it find itself in a\rpinch. But it will become confused\nif it hates the Berry’s taste.
+If a Pokémon holds one of these\nBerries, it will be able to restore\nsome HP should it find itself in a\rpinch. But it will become confused\nif it hates the Berry’s taste.
+If a Pokémon holds one of these\nBerries, it will be able to restore\nsome HP should it find itself in a\rpinch. But it will become confused\nif it hates the Berry’s taste.
+If a Pokémon holds one of these\nBerries, it will be able to restore\nsome HP should it find itself in a\rpinch. But it will become confused\nif it hates the Berry’s taste.
+Used to make Pokéblocks that will\nenhance Coolness. Its red flesh is\nspicy if eaten.
+Used to make Pokéblocks that will\nenhance Beauty. Its blue flesh is\ndry if eaten.
+Used to make Pokéblocks that will\nenhance Cuteness. Its pink flesh is\nsweet if eaten.
+Used to make Pokéblocks that will\nenhance Cleverness. Its green flesh\nis bitter if eaten.
+Used to make Pokéblocks that will\nenhance Toughness. Its yellow flesh\nis sour if eaten.
+If a Pokémon is fed this Berry, it\nwill grow more friendly, but it will\nlose base points for its HP stat.
+If a Pokémon is fed this Berry, it\nwill grow more friendly, but it will\nlose base points for its Attack\rstat.
+If a Pokémon is fed this Berry, it\nwill grow more friendly, but it will\nlose base points for its Defense\rstat.
+If a Pokémon is fed this Berry, it\nwill grow more friendly, but it will\nlose base points for its Sp. Atk\rstat.
+If a Pokémon is fed this Berry, it\nwill grow more friendly, but it will\nlose base points for its Sp. Def\rstat.
+If a Pokémon is fed this Berry, it\nwill grow more friendly, but it will\nlose base points for its Speed stat.
+Used to make Pokéblocks that will\nenhance Beauty. This Berry is rare\nin other regions.
+Used to make Pokéblocks that will\nenhance Cuteness. This Berry is rare\nin other regions.
+Used to make Pokéblocks that will\nenhance Cleverness. This Berry is\nrare in other regions.
+Used to make Pokéblocks that will\nenhance Toughness. This Berry is\nrare in other regions.
+Used to make Pokéblocks that will\nenhance Cuteness. This Berry is rare\nin other regions.
+Used to make Pokéblocks that will\nenhance Beauty. This Berry is rare\nin other regions.
+Used to make Pokéblocks that will\nenhance Cleverness. This Berry is\nrare in other regions.
+Used to make Pokéblocks that will\nenhance Cleverness. This Berry is\nrare in other regions.
+Used to make Pokéblocks that will\nenhance Beauty. This Berry is rare\nin other regions.
+If a Pokémon holding this Berry is\nhit with a supereffective Fire-type\nmove, the power of that move will be\rweakened.
+If a Pokémon holding this Berry is\nhit with a supereffective Water-type\nmove, the power of that move will be\rweakened.
+If a Pokémon holding this Berry is\nhit with a supereffective\nElectric-type move, the power of\rthat move will be weakened.
+If a Pokémon holding this Berry is\nhit with a supereffective Grass-type\nmove, the power of that move will be\rweakened.
+If a Pokémon holding this Berry is\nhit with a supereffective Ice-type\nmove, the power of that move will be\rweakened.
+If a Pokémon holding this Berry is\nhit with a supereffective\nFighting-type move, the power of\rthat move will be weakened.
+If a Pokémon holding this Berry is\nhit with a supereffective\nPoison-type move, the power of that\rmove will be weakened.
+If a Pokémon holding this Berry is\nhit with a supereffective\nGround-type move, the power of that\rmove will be weakened.
+If a Pokémon holding this Berry is\nhit with a supereffective\nFlying-type move, the power of that\rmove will be weakened.
+If a Pokémon holding this Berry is\nhit with a supereffective\nPsychic-type move, the power of that\rmove will be weakened.
+If a Pokémon holding this Berry is\nhit with a supereffective Bug-type\nmove, the power of that move will be\rweakened.
+If a Pokémon holding this Berry is\nhit with a supereffective Rock-type\nmove, the power of that move will be\rweakened.
+If a Pokémon holding this Berry is\nhit with a supereffective Ghost-type\nmove, the power of that move will be\rweakened.
+If a Pokémon holding this Berry is\nhit with a supereffective\nDragon-type move, the power of that\rmove will be weakened.
+If a Pokémon holding this Berry is\nhit with a supereffective Dark-type\nmove, the power of that move will be\rweakened.
+If a Pokémon holding this Berry is\nhit with a supereffective Steel-type\nmove, the power of that move will be\rweakened.
+If a Pokémon holding this Berry is\nhit with a Normal-type move, the\npower of that move will be weakened.
+If a Pokémon holds one of these\nBerries, its Attack stat will be\nboosted should it find itself in a\rpinch.
+If a Pokémon holds one of these\nBerries, its Defense stat will be\nboosted should it find itself in a\rpinch.
+If a Pokémon holds one of these\nBerries, its Speed stat will be\nboosted should it find itself in a\rpinch.
+If a Pokémon holds one of these\nBerries, its Sp. Atk stat will be\nboosted should it find itself in a\rpinch.
+If a Pokémon holds one of these\nBerries, its Sp. Def stat will be\nboosted should it find itself in a\rpinch.
+If a Pokémon holds one of these\nBerries, its critical-hit ratio will\nbe boosted should it find itself in\ra pinch.
+If a Pokémon holds one of these\nBerries, one of its stats will be\nsharply boosted should it find\ritself in a pinch.
+If a Pokémon holds one of these\nBerries, it will be able to regain\nsome HP if it is hit with a\rsupereffective move.
+If a Pokémon holds one of these\nBerries, its accuracy will be\nboosted should it find itself in a\rpinch-but only for the next move it\nuses.
+If a Pokémon holds one of these\nBerries, it will be able to act\nfaster should it find itself in a\rpinch-but only for the next move it\nuses.
+If a Pokémon holding this Berry is\nhit with a physical move, the\nattacker will also take damage.
+If a Pokémon holding this Berry is\nhit with a special move, the\nattacker will also take damage.
+An item to be held by a Pokémon.\nThis glittery powder casts a tricky\nglare that lowers the accuracy of\ropposing Pokémon’s moves.
+An item to be held by a Pokémon. It\nwill restore any lowered stat in\nbattle-but only once.
+An item to be held by a Pokémon.\nHolding this stiff, heavy brace\nreduces a Pokémon’s Speed in battle\rbut allows its stats to grow more\nquickly.
+Turning on this special device will\nallow all the Pokémon on your team\nto share in Exp. Points gained.
+An item to be held by a Pokémon.\nThis light, sharp claw lets the\nholder move first occasionally.
+An item to be held by a Pokémon. The\ncomforting chime of this bell calms\nthe holder, making it friendly.
+An item to be held by a Pokémon. The\nholder will be able to shake off\nmove-binding effects to move freely-\rbut only once.
+An item to be held by a Pokémon.\nThis curious headband boosts the\nholder’s Attack stat but only allows\rthe use of a single move.
+An item to be held by a Pokémon. It\nmay cause the target to flinch\nwhenever the holder successfully\rinflicts damage on them with an\nattack.
+An item to be held by a Pokémon.\nIt’s a shiny silver powder that\nboosts the power of the holder’s\rBug-type moves.
+An item to be held by a Pokémon. It\ndoubles any prize money received as\nlong as the holder joins the battle\rat least once.
+An item to be held by a Pokémon. It\nhelps keep wild Pokémon away when\nthe holder is the head of the party.
+A wondrous orb to be held by Latios\nor Latias. It boosts the power of\ntheir Psychic- and Dragon-type\rmoves.
+An item to be held by Clamperl. This\nfang gleams a sharp silver and\nboosts Clamperl’s Sp. Atk stat.
+An item to be held by Clamperl. This\nscale shines with a faint pink and\nboosts Clamperl’s Sp. Def stat.
+An item to be held by a Pokémon. It\nenables the holder to flee from any\nwild Pokémon encounter without fail.
+An item to be held by a Pokémon. A\nPokémon holding this peculiar stone\nis prevented from evolving.
+An item to be held by a Pokémon.\nWhen the holder is hit with a move\nthat should knock it out, it may be\rable to endure with 1 HP.
+An item to be held by a Pokémon.\nIt’s an egg filled with happiness\nthat earns the holder extra Exp.\rPoints.
+An item to be held by a Pokémon.\nIt’s a lens for scoping out weak\npoints. It boosts the holder’s\rcritical-hit ratio.
+An item to be held by a Pokémon.\nIt’s a special metallic coating that\nboosts the power of the holder’s\rSteel-type moves.
+An item to be held by a Pokémon. The\nholder’s HP is slowly but steadily\nrestored throughout a battle.
+A very tough and inflexible scale.\nDragon-type Pokémon may be holding\nthis item when caught.
+An item to be held by Pikachu. It’s\na mysterious orb that boosts\nPikachu’s Attack and Sp. Atk stats.
+An item to be held by a Pokémon.\nIt’s a loose, silky sand that boosts\nthe power of the holder’s\rGround-type moves.
+An item to be held by a Pokémon.\nIt’s a durable stone that boosts the\npower of the holder’s Rock-type\rmoves.
+An item to be held by a Pokémon.\nIt’s a seed imbued with life-force\nthat boosts the power of the\rholder’s Grass-type moves.
+An item to be held by a Pokémon.\nIt’s a pair of shady- looking\nglasses that boost the power of the\rholder’s Dark-type moves.
+An item to be held by a Pokémon.\nThis belt helps with focus and\nboosts the power of the holder’s\rFighting-type moves.
+An item to be held by a Pokémon.\nIt’s a powerful magnet that boosts\nthe power of the holder’s\rElectric-type moves.
+An item to be held by a Pokémon.\nThis teardrop-shaped gem boosts the\npower of the holder’s Water-type\rmoves.
+An item to be held by a Pokémon.\nIt’s a long, sharp beak that boosts\nthe power of the holder’s\rFlying-type moves.
+An item to be held by a Pokémon.\nThis small poisonous barb boosts the\npower of the holder’s Poison-type\rmoves.
+An item to be held by a Pokémon.\nIt’s a heat-repelling piece of ice\nthat boosts the power of the\rholder’s Ice- type moves.
+An item to be held by a Pokémon.\nIt’s a sinister, eerie tag that\nboosts the power of the holder’s\rGhost-type moves.
+An item to be held by a Pokémon.\nThis spoon is imbued with\ntelekinetic energy and boosts the\rpower of the holder’s Psychic-type\nmoves.
+An item to be held by a Pokémon.\nIt’s a combustible fuel that boosts\nthe power of the holder’s Fire-type\rmoves.
+An item to be held by a Pokémon.\nThis hard, sharp fang boosts the\npower of the holder’s Dragon-type\rmoves.
+An item to be held by a Pokémon.\nIt’s a sumptuous scarf that boosts\nthe power of the holder’s\rNormal-type moves.
+A transparent device somehow filled\nwith all sorts of data. It was\nproduced by Silph Co.
+An item to be held by a Pokémon. The\nholder restores a little HP to\nitself every time it inflicts damage\rwith an attack.
+An item to be held by a Pokémon.\nThis incense has a curious aroma\nthat boosts the power of the\rholder’s Water-type moves.
+An item to be held by a Pokémon. The\ncurious aroma of this incense may\ncause moves to miss its holder.
+An item to be held by Chansey. This\nlucky boxing glove boosts the\ncritical-hit ratio of Chansey’s\rmoves.
+An item to be held by Ditto.\nExtremely fine yet hard, this odd\npowder boosts Ditto’s Defense stat.
+An item to be held by Cubone or\nMarowak. This hard bone of unknown\norigin boosts their Attack stat.
+An item to be held by Farfetch’d.\nThis very long and stiff stalk of\nleek boosts the critical-hit ratio\rof Farfetch’d’s moves.
+When a Pokémon holds this during a\ncontest, it looks even cooler than\nusual.
+When a Pokémon holds this during a\ncontest, it looks even more\nbeautiful than usual.
+When a Pokémon holds this during a\ncontest, it looks even cuter than\nusual.
+When a Pokémon holds this during a\ncontest, it looks even cleverer than\nusual.
+When a Pokémon holds this during a\ncontest, it looks even tougher than\nusual.
+An item to be held by a Pokémon.\nIt’s a magnifying lens that slightly\nboosts the accuracy of the holder’s\rmoves.
+An item to be held by a Pokémon.\nThis headband exudes strength,\nslightly boosting the power of the\rholder’s physical moves.
+An item to be held by a Pokémon.\nThis thick pair of glasses slightly\nboosts the power of the holder’s\rspecial moves.
+An item to be held by a Pokémon.\nIt’s a well-worn belt that slightly\nboosts the power of the holder’s\rsupereffective moves.
+An item to be held by a Pokémon.\nWhen the holder uses protective\nmoves like Light Screen or Reflect,\rtheir effects will last longer than\nusual.
+An item to be held by a Pokémon. It\nboosts the power of the holder’s\nmoves, but the holder also loses a\rsmall amount of HP with each attack\nit lands.
+An item to be held by a Pokémon. It\nallows the holder to immediately use\na move that normally requires a turn\rto charge-but only once.
+An item to be held by a Pokémon.\nIt’s a bizarre orb that exudes\ntoxins when touched and will badly\rpoison the holder during battle.
+An item to be held by a Pokémon.\nIt’s a bizarre orb that gives off\nheat when touched and will afflict\rthe holder with a burn during\nbattle.
+An item to be held by Ditto.\nExtremely fine yet hard, this odd\npowder boosts Ditto’s Speed stat.
+An item to be held by a Pokémon. If\nthe holder has full HP and it is hit\nwith a move that should knock it\rout, it will endure with 1 HP-but\nonly once.
+An item to be held by a Pokémon.\nWhen the holder acts after its\ntarget, its move will be more\raccurate than usual.
+An item to be held by a Pokémon. It\nboosts the power of a move that’s\nused repeatedly. Once the chain is\rbroken, the move’s power returns to\nnormal.
+An item to be held by a Pokémon. It\nlowers the holder’s Speed stat and\nmakes the holder vulnerable to\rGround- type moves even if it is a\nFlying type or is levitating.
+An item to be held by a Pokémon. A\ntail of something, this item is\ntremendously heavy and makes the\rholder move slower than usual.
+An item to be held by a Pokémon.\nShould the holder of this bright-red\nthread become infatuated, the\rPokémon it is infatuated with will\nbe similarly afflicted.
+An item to be held by a Pokémon. If\nthe holder is a Poison type, this\nsludge will gradually restore its\rHP. It damages any other type.
+An item to be held by a Pokémon.\nWhen the holder changes the weather\nto snow, the snow will persist for\rlonger than usual.
+An item to be held by a Pokémon.\nWhen the holder changes the weather\nto a sandstorm, the storm will\rpersist for longer than usual.
+An item to be held by a Pokémon.\nWhen the holder changes the weather\nto harsh sunlight, the sunlight will\rpersist for longer than usual.
+An item to be held by a Pokémon.\nWhen the holder changes the weather\nto rain, the rain will persist for\rlonger than usual.
+An item to be held by a Pokémon.\nWhen the holder uses moves that deal\ndamage over several turns, such as\rBind or Wrap, their effects will\nlast longer than usual.
+An item to be held by a Pokémon.\nThis curious scarf boosts the\nholder’s Speed stat but only allows\rthe use of a single move.
+An item to be held by a Pokémon. It\ndamages the holder every turn and\nmay latch on to Pokémon that make\rdirect contact with the holder.
+An item to be held by a Pokémon.\nHolding this bracer reduces a\nPokémon’s Speed in battle but allows\rits Attack stat to grow more\nquickly.
+An item to be held by a Pokémon.\nHolding this belt reduces a\nPokémon’s Speed in battle but allows\rits Defense stat to grow more\nquickly.
+An item to be held by a Pokémon.\nHolding this lens reduces a\nPokémon’s Speed in battle but allows\rits Sp. Atk stat to grow more\nquickly.
+An item to be held by a Pokémon.\nHolding this band reduces a\nPokémon’s Speed in battle but allows\rits Sp. Def stat to grow more\nquickly.
+An item to be held by a Pokémon.\nHolding this anklet reduces a\nPokémon’s Speed in battle but allows\rits Speed stat to grow more quickly.
+An item to be held by a Pokémon.\nHolding this weight reduces a\nPokémon’s Speed in battle but allows\rits HP stat to grow more quickly.
+An item to be held by a Pokémon.\nHard and sturdy, this discarded\ncarapace enables the holder to\rswitch out of battle without fail.
+An item to be held by a Pokémon.\nThis root boosts the amount of HP\nthe holder restores to itself when\rit uses HP-stealing moves.
+An item to be held by a Pokémon.\nThese curious glasses boost the\nholder’s Sp. Atk stat but only allow\rthe use of a single move.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of fire and boosts the power\rof the holder’s Fire-type moves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of water and boosts the\rpower of the holder’s Water-type\nmoves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of electricity and boosts\rthe power of the holder’s\nElectric-type moves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of plants and boosts the\rpower of the holder’s Grass-type\nmoves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of ice and boosts the power\rof the holder’s Ice-type moves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of the fighting spirit and\rboosts the power of the holder’s\nFighting-type moves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of poison and boosts the\rpower of the holder’s Poison-type\nmoves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of the earth and boosts the\rpower of the holder’s Ground-type\nmoves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of flight and boosts the\rpower of the holder’s Flying-type\nmoves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of psychic energy and boosts\rthe power of the holder’s\nPsychic-type moves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of bugs and boosts the power\rof the holder’s Bug-type moves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of rock and boosts the power\rof the holder’s Rock-type moves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of ghosts and boosts the\rpower of the holder’s Ghost-type\nmoves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of dragons and boosts the\rpower of the holder’s Dragon-type\nmoves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of darkness and boosts the\rpower of the holder’s Dark-type\nmoves.
+An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of steel and boosts the\rpower of the holder’s Steel-type\nmoves.
+An item to be held by a Pokémon.\nThis incense has a curious aroma\nthat boosts the power of the\rholder’s Psychic-type moves.
+An item to be held by a Pokémon.\nThis incense has a curious aroma\nthat boosts the power of the\rholder’s Rock-type moves.
+An item to be held by a Pokémon.\nThis incense has a curious aroma\nthat makes the holder move slower\rthan usual.
+An item to be held by a Pokémon.\nThis incense has a curious aroma\nthat boosts the power of the\rholder’s Water-type moves.
+An item to be held by a Pokémon.\nThis incense has a curious aroma\nthat boosts the power of the\rholder’s Grass-type moves.
+An item to be held by a Pokémon. It\ndoubles any prize money received as\nlong as the holder joins the battle\rat least once.
+An item to be held by a Pokémon. It\nhelps keep wild Pokémon away when\nthe holder is the head of the party.
+A protective item of some sort. It\nis extremely stiff and heavy. It’s\nloved by a certain Pokémon.
+A box packed with a tremendous\namount of electric energy. It’s\nloved by a certain Pokémon.
+A box packed with a tremendous\namount of magma energy. It’s loved\nby a certain Pokémon.
+A transparent device overflowing\nwith dubious data. It’s loved by a\ncertain Pokémon.
+A cloth imbued with horrifyingly\nstrong spiritual energy. It’s loved\nby a certain Pokémon.
+An item to be held by a Pokémon.\nThis sharply hooked claw boosts the\ncritical-hit ratio of the holder’s\rmoves.
+An item to be held by a Pokémon.\nThis sharply hooked fang may cause\nthe target to flinch whenever the\rholder successfully inflicts damage\non them with an attack.
+The user focuses its mind before\nlaunching this attack. It will fail if\nthe user is hit before it is used.
+Sharp, huge claws hook and slash\nthe foe quickly and with great\npower.
+The foe is hit with a pulsing blast\nof water. It may also confuse the\ntarget.
+The user quietly focuses its mind and\ncalms its spirit to raise its Sp. Atk\nand Sp. Def stats.
+The foe is scared off, to be replaced\nby another Pokémon in its party.\nIn the wild, the battle ends.
+A move that leaves the foe badly\npoisoned. This poison damage\nworsens every turn.
+Summons a hailstorm that lasts for\nfive turns. The hailstorm damages\nall types except Ice.
+The user tenses its muscles to bulk up\nits body, boosting both its Attack and\nDefense stats.
+The user forcefully shoots seeds at\nthe foe. Two to five seeds are shot in\nrapid succession.
+A variable move that changes type\nand power depending on the hidden\nability of the Pokémon using it.
+The user intensifies the sun for\nfive turns, powering up Fire-type\nmoves.
+The foe is taunted into a rage that\nallows it to use only attack moves for\ntwo to four turns.
+The foe is struck with an icy-cold\nbeam of energy. It may also freeze\nthe target solid.
+A howling blizzard is summoned to\nstrike the foe. It may also freeze\nthe target solid.
+The foe is attacked with a powerful\nbeam. The user must rest on the next\nturn to regain its energy.
+A wondrous wall of light is put up to\nsuppress damage from special attacks\nfor five turns.
+It enables the user to evade all\nattacks. Its chance of failing rises\nif it is used in succession.
+The user summons a heavy rain that\nfalls for five turns, powering up\nWater-type moves.
+A nutrient-draining attack. The user’s\nHP is restored by half the damage\ntaken by the target.
+The user creates a protective field\nthat prevents status problems like\npoison, paralysis, burn, and sleep.
+A full-power attack that grows more\npowerful the less the user likes its\nTrainer.
+A two-turn attack. The user gathers\nlight, then blasts a bundled beam on\nthe second turn.
+The foe is slammed with a sturdy\ntail of steel. It may also lower the\ntarget’s Defense stat if it hits.
+A strong electric blast is loosed at\nthe foe. It may also leave the foe\nparalyzed.
+A wicked thunderbolt is dropped on the\nfoe to inflict damage. It may also\nleave the target paralyzed.
+The user sets off an earthquake\nthat hits all the Pokémon in the\nbattle.
+A full-power attack that grows more\npowerful the more the user likes its\nTrainer.
+The user burrows, then attacks on the\nsecond turn. It can also be used to\nexit dungeons.
+The foe is hit by a strong telekinetic\nforce. It may also reduce the foe’s\nSp. Def stat.
+The user hurls a shadowy blob at the\nfoe. It may also lower the foe’s\nSp. Def stat.
+The user attacks with tough fists,\netc. It can also break any barrier\nsuch as Light Screen and Reflect.
+The user begins moving so quickly\nthat it creates illusory copies to\nraise its evasiveness.
+A wondrous wall of light is put up to\nsuppress damage from physical attacks\nfor five turns.
+The user strikes the foe with a quick\njolt of electricity. This attack cannot\nbe evaded.
+The foe is scorched with an intense\nblast of fire. The target may also be\nleft with a burn.
+Unsanitary sludge is hurled at\nthe foe. It may also poison the\ntarget.
+A five-turn sandstorm is summoned\nto hurt all combatants except the\nRock, Ground, and Steel types.
+The foe is attacked with an intense\nblast of all-consuming fire. It may\nalso leave the target with a burn.
+Large boulders are hurled at the foe\nto inflict damage. It lowers the foe’s\nSpeed.
+The user confounds the foe with speed,\nthen strikes. The attack lands without\nfail.
+The user torments and enrages the\nfoe, making it incapable of using the\nsame move twice in a row.
+An attack move that doubles its power\nif the user is poisoned, paralyzed, or\nhas a burn.
+An attack move with effects that\nvary depending on the user’s\nenvironment.
+The user goes to sleep for two\nturns. It fully restores the user’s HP\nand heals any status problem.
+If it is the opposite gender of the\nuser, the foe becomes infatuated\nand less likely to attack.
+The user attacks and steals the foe’s\nheld item simultaneously. It can’t\nsteal if the user holds an item.
+The foe is hit with wings of steel.\nIt may also raise the user’s Defense\nstat.
+The user employs its psychic power to\nexchange abilities with the foe.\n
+The user steals the effects of any\nhealing or status-changing move the\nfoe attempts to use.
+The user attacks the foe at full\npower using fiery energy. It also\nsharply reduces the user’s Sp. Atk.
+The user lands and rests its body.\nIt restores the user’s HP by up to\nhalf of its max HP.
+The user attacks at full power.\nIt may also lower the foe’s Sp. Def\nstat if it hits.
+The user draws power from nature and\nfires it at the foe. It may also lower\nthe target’s Sp. Def.
+A restrained attack that prevents the\nfoe from fainting. The target is left\nwith at least 1 HP.
+If the foe’s HP is down to under half,\nthis attack will hit with double the\npower.
+The user flings its held item at the\nfoe to attack. Its power and effects\ndepend on the item.
+The user attacks with an electric\ncharge. The user may use any remaining\nelectricity to raise its Sp. Atk stat.
+The user endures any attack, leaving\n1 HP. Its chance of failing rises if it\nis used in succession.
+The foe is attacked with a shock\nwave generated by the user’s gaping\nmouth.
+An energy-draining punch. The user’s\nHP is restored by half the damage\ntaken by the target.
+The user shoots a sinister, bluish\nwhite flame at the foe to inflict a\nburn.
+The foe is attacked with powdery\nscales blown by wind. It may also\nraise all the user’s stats.
+It prevents the foe from using its\nheld item. Its Trainer is also\nprevented from using items on it.
+The user explodes to inflict damage on\nall Pokémon in battle. The user faints\nupon using this move.
+The user slashes with a sharp claw\nmade from shadows. It has a high\ncritical-hit ratio.
+The user stores power, then attacks.\nIf the user can use this attack after\nthe foe, its power is doubled.
+The user recycles a single-use item\nthat has been used in battle so it can\nbe used again.
+The user charges the foe using every\nbit of its power. It must rest on the\nnext turn to recover.
+The user polishes its body to reduce\ndrag. It sharply raises the Speed\nstat.
+The user flashes a light that cuts the\nfoe’s accuracy. It can also be used to\nilluminate caves.
+The user stabs the foe with a\nsharpened stone from below. It has\na high critical-hit ratio.
+An attack move that inflicts double\nthe damage if the user has been hurt\nby the foe in the same turn.
+A weak electric charge is launched\nat the foe. It causes paralysis if it\nhits.
+The user tackles the foe from a\nhigh-speed spin. The slower the user,\nthe greater the damage.
+A frenetic dance to uplift the fighting\nspirit. It sharply raises the user’s\nAttack stat.
+The user lays a trap of levitating\nstones around the foe. The trap hurts\nfoes that switch into battle.
+The user hypnotizes itself into\ncopying any stat change made\nby the foe.
+If it is the opposite gender of the\nuser, the foe is charmed into sharply\nlowering its Sp. Atk stat.
+The user releases a horrible aura\nimbued with dark thoughts. It may also\nmake the target flinch.
+Large boulders are hurled at the foe\nto inflict damage. It may also make the\ntarget flinch.
+The user slashes at the foe by\ncrossing its scythes or claws as if\nthey were a pair of scissors.
+While it is asleep, the user\nrandomly uses one of the moves\nit knows.
+The user draws power from the Berry\nit is holding to attack. The Berry\ndetermines its type and power.
+The foe is stabbed with a tentacle or\narm steeped with poison. It may also\npoison the foe.
+An attack that works only on a\nsleeping foe. It absorbs half the\ndamage caused to heal the user’s HP.
+The user snares the foe with grass\nand trips it. The heavier the foe, the\ngreater the damage.
+The user enrages the foe into\nconfusion. However, it also sharply\nraises the foe’s Attack stat.
+The user pecks the foe. If the foe is\nholding a Berry, the user plucks it and\ngains its effect.
+After making its attack, the user\nrushes back to switch places with a\nparty Pokémon in waiting.
+The user makes a copy of itself using\nsome of its HP. The copy serves as\nthe user’s decoy.
+The user gathers all its light energy\nand releases it in one shot. It may\nalso lower the foe’s Sp. Def stat.
+The user creates a bizarre space in\nwhich slower Pokémon get to move\nfirst for five turns.
+The foe is cut with a scythe or a claw.\nIt can also be used to cut down thin\ntrees.
+The user soars, then strikes on the\nsecond turn. It can also be used to\nfly to any familiar town.
+It swamps the entire battlefield with\na giant wave. It can also be used\nto cross water.
+The foe is slugged with a punch thrown\nat maximum power. It can also be used\nto move boulders.
+Traps foes in a violent swirling\nwhirlpool. It can also be used to\ntraverse whirlpools.
+The user slugs the foe with a\nshattering punch. It can also smash\ncracked boulders.
+The user charges the foe at an\nawesome speed. It can also be used\nto climb a waterfall.
+A charging attack that may also leave\nthe foe confused. It can also be used\nto scale rocky walls.
+A bag filled with convenient tools\nfor exploring. It provides access to\nthe Underground in the Sinnoh\rregion.
+A sturdy, spacious bag that is used\nto carry any treasures or loot\nobtained in the coal mine.
+It lists the rules for holding\nbattles. For Link Battles, you may\nchoose which set of rules you wish\rto use.
+A tool that can search out Pokémon\nthat are hiding in the tall grass.\nIts battery is recharged as you\rwalk.
+A card that lists how many Battle\nPoints you have earned.
+A notebook that keeps a record of\nyour adventure so far.
+A case for storing Stickers that can\nbe applied to Ball Capsules.
+A wondrous, pretty case to store\nlots of colorful Props for your\nPokémon to wear in a musical.
+A tiny bag that can hold 10 Stickers\nfor decorating Ball Capsules.
+A convenient notepad that is used to\nregister your friends and keep a\nrecord of your gameplay.
+A large key for operating the doors\nof the Valley Windworks in the\ncanyon. It was held by a Team\rGalactic Grunt.
+An ancient good-luck charm made of\nPokémon bones to be taken to the\nelder of Celestic Town.
+A card key for disengaging the\nsecurity systems in the Galactic HQ.\nLosing it can result in punishment,\rapparently.
+A mythical chain that is said to\nbind the Legendary Pokémon that\ncreated the Sinnoh region.
+A very convenient map that can be\nviewed anytime. It even shows you\nyour present location in the region.
+A device that indicates Trainers who\nwant to battle. Its battery charges\nwhile you walk.
+A case for holding coins obtained at\nthe Game Corner. It can hold up to\n50,000 coins.
+An old and beat-up fishing rod. Use\nit at bodies of water to fish for\nPokémon.
+A new, good-quality fishing rod. Use\nit at bodies of water to fish for\nPokémon.
+An awesome, high-spec fishing rod.\nUse it at bodies of water to fish\nfor Pokémon.
+A watering can shaped like a\nPsyduck. It helps promote the\nhealthy growth of any Berries\rplanted in good, soft soil.
+A case for storing Poffins cooked\nfrom Berries.
+A folding bike that enables a rider\nto get around much faster than with\nRunning Shoes.
+A key to one of the suites at a\ncertain luxury hotel by a lake. For\nsome odd reason, it often\rdisappears.
+A letter from Professor Oak. Written\nin it is a request for you to go to\nRoute 224.
+A feather that glows like the moon.\nIt’s said to possess the power to\ndispel nightmares.
+A card needed for entering the inn\nin Canalave City. Oddly, the last\ndate marked on it was 50 years ago.
+A flute that puts out echoing sounds\nthat do not seem to be of this\nworld. No one knows who made it or\rwhen.
+A ticket required for sailing on the\nhigh-speed ferry S.S. Aqua. It has a\ndrawing of a ship on it.
+A pass required for entering Pokémon\nContests. It has a drawing of an\naward ribbon on its front.
+A stone formed by boulders melting\nin intensely hot magma, then\nhardening. Magma remains sealed\rinside it.
+A parcel entrusted into your care.\nYou’re supposed to deliver it to\nyour childhood friend who left\rTwinleaf Town.
+A coupon to be exchanged for a\nPokémon Watch- Pokétch for short.\nThree coupons are needed.
+A coupon to be exchanged for a\nPokémon Watch- Pokétch for short.\nThree coupons are needed.
+A coupon to be exchanged for a\nPokémon Watch- Pokétch for short.\nThree coupons are needed.
+The key to Team Galactic’s sinister\nwarehouse located at the edge of\nVeilstone City.
+A fantastic medicine dispensed by\nthe pharmacy in Cianwood City. It\nfully heals a Pokémon of any\railment.
+An amazing device that can record a\nbattle between friends or the\nbattles at certain special battle\rfacilities.
+A flower sometimes bundled into a\nbouquet to be given as an expression\nof gratitude on special occasions,\rsuch as birthdays and anniversaries.
+A high-tech key that has to be used\nat a specific location. It emits a\nspecial electronic signal to open a\rdoor.
+A handy box where you can store up\nto 99 of each kind of Apricorn.
+A report of all the discovered kinds\nof Unown.
+Portable containers that allow you\nto easily cultivate Berries anywhere\nand anytime.
+The latest device for showing the\nlocation of hidden items. It’s worn\non the head when in use.
+A card to save points for the\nBuena’s Password show.
+A very tasty tail of something. It\ncan be sold at a high price to\nshops.
+A very old-fashioned bell that makes\na gentle ringing sound.
+A card key that opens a shutter in\nthe Radio Tower.
+A key that opens a door in the\nGoldenrod Tunnel.
+A bottle used for watering plants in\nthe Berry Pots.
+A scale from a red Gyarados that\nappeared at the Lake of Rage. It\nglows red like a flame.
+The Mime Jr. doll that was lost by\nthe Copycat.
+A pass required for riding the\nMagnet Train. It allows you to ride\nwhenever and however much you’d\rlike.
+An important part of a machine that\nwas stolen from the Power Plant.
+A strange feather that gleams with a\nsilvery color.
+A strange feather that gleams in\nrainbow colors.
+An Egg obtained from Mr. Pokémon. It\nhas a mysterious pattern on it, and\nwhat is in the Egg is unknown.
+A red Apricorn. It has a pungent\nscent that assails the nostrils.
+A blue Apricorn. It has a slightly\ngrassy smell to it.
+A yellow Apricorn. It has a light,\nrefreshing scent.
+A green Apricorn. It has a\nmysterious and aromatic scent.
+A pink Apricorn. It has a pleasantly\nsweet scent.
+A white Apricorn. It doesn’t have\nany aroma at all.
+A black Apricorn. It has a smell\nthat cannot be captured in words.
+A somewhat different Poké Ball that\nis more effective when catching\nPokémon that are usually very quick\rto run away.
+A somewhat different Poké Ball that\nbecomes more effective the lower the\nlevel of the Pokémon compared to\ryour own Pokémon.
+A somewhat different Poké Ball that\nis more effective when catching\nPokémon in or on the water.
+A somewhat different Poké Ball that\nbecomes more effective the heavier\nthe Pokémon is.
+A somewhat different Poké Ball that\nis more effective when catching\nPokémon of the opposite gender to\ryour own Pokémon.
+A somewhat different Poké Ball that\nmakes a wild Pokémon more friendly\ntoward you immediately after it’s\rcaught.
+A somewhat different Poké Ball that\nis more effective when catching\nPokémon that can be evolved using a\rMoon Stone.
+A special Poké Ball that was used\nduring the Bug-Catching Contest in\nthe Johto region.
+A special Poké Ball used in the Pal\nPark.
+A nice photo album for storing all\nthe photos taken along your\nadventure.
+A music player that allows you to\nlisten to nostalgic songs. It’s\noperated with the flip of a single\rswitch.
+A very old-fashioned bell that makes\na gentle ringing sound.
+Mahogany Town’s famous candy. It can\nbe used to cure any status condition\na Pokémon may have.
+It holds Pokéathlon records. It is a\ncard that shows how many victories\nyou have had in the Pokéathlon.
+It holds Pokéathlon records. It is a\ncard that shows how many losses you\nhave had in the Pokéathlon.
+It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon dashed in the Pokéathlon.
+It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon jumped in the Pokéathlon.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Hurdle Dash.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Relay Run.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Pennant\rCapture.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Block Smash.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Disc Catch.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Snow Throw.
+It holds Pokéathlon records. It is a\ncard that shows how many points your\nPokémon scored in the Pokéathlon.
+It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon failed in the Pokéathlon.
+It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon impeded themselves.
+It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon tackled in the Pokéathlon.
+It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon fell down in the Pokéathlon.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Ring Drop.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Lamp Jump.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Circle Push.
+It holds Pokéathlon records. It is a\ncard that shows how many Link\nPokéathlon wins you have had.
+It holds Pokéathlon records. It is a\ncard that shows how many Link\nPokéathlon losses you have had.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nhave won a Pokéathlon event.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nhave lost a Pokéathlon event.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nswitched Pokémon in the Pokéathlon.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Goal Roll.
+It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon won individual prizes.
+It holds Pokéathlon records. It is a\ncard that shows how many times you\ninstructed your Pokémon.
+It holds Pokéathlon records. It is a\ncard that shows how much time you\nspent participating in the\rPokéathlon.
+A shiny green orb that is said to\nhave a deep connection to a legend\nof the Hoenn region.
+A sturdy Capsule that can only be\nopened with a special key.
+A shiny red orb that is said to have\na deep connection to a legend of the\nHoenn region.
+A shiny blue orb that is said to\nhave a deep connection to a legend\nof the Hoenn region.
+A crystal ball that was excavated\nfrom the ground. It is covered with\nbits of rock and earth, but it is\rstill very beautiful.

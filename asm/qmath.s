@@ -22,13 +22,13 @@ QMul_RoundDown:
     mov     r3, #1          @ store 2047 (0.5) in r3
     lsl     r3, r3, #11
     sub     r3, r3, #1
-    
+
     @ fall-through to core mul routine
 
 QMul:
     mov     r2, #1          @ store 4096 (1.0) in r2
     lsl     r2, r2, #12
-    
+
     cmp     r1, r2          @ if r1 == 4096, return early (identity)
     beq     QMul_Return
 

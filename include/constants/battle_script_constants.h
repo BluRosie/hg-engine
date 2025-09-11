@@ -457,11 +457,18 @@
 #define SUB_SEQ_HANDLE_TELEPATHY                      (447)
 #define SUB_SEQ_HANDLE_WIND_RIDER                     (448)
 #define SUB_SEQ_HANDLE_CHARGE_BOOST                   (449)
+#define SUB_SEQ_SPIKY_SHIELD                          (450)
+#define SUB_SEQ_HANDLE_ANGER_SHELL                    (451)
+#define SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE         (452)
+#define SUB_SEQ_HANDLE_INCINERATE                     (453)
+#define SUB_SEQ_ADD_THIRD_TYPE_GRASS                  (454)
+#define SUB_SEQ_ADD_THIRD_TYPE_GHOST                  (455)
+#define SUB_SEQ_CHANGE_TARGET_TO_PSYCHIC_TYPE         (456)
 
-#define MAX_BASE_SUBSCRIPT_NUM 449
+#define MAX_BASE_SUBSCRIPT_NUM 456
 
 // define your custom subscripts below like this
-// #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
+// #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
 
 
 
@@ -659,14 +666,25 @@
 #define ADD_STATUS_EFF_MORTAL_SPIN                     (189)
 #define ADD_STATUS_EFF_TIDY_UP                         (190)
 #define ADD_STATUS_EFF_BURN_AND_DRAIN_HEALTH           (191)
+#define ADD_STATUS_EFF_INCINERATE                      (192)
+#define ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6         (193) // This constant and the one below are only used as spacers for Steam Engine.
+#define ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP_6        (194) // To add more +6 effects, copy the order & proximity of other stat stage change constants.
+#define ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_6          (195) // Used for Steam Engine.
+#define ADD_STATUS_EFF_ADD_THIRD_TYPE_GRASS            (196)
+#define ADD_STATUS_EFF_ADD_THIRD_TYPE_GHOST            (197)
+#define ADD_STATUS_EFF_CHANGE_TARGET_TO_PSYCHIC_TYPE   (198)
 
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (198)
+
+// define your custom subscripts below like this
+// #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)
 
 // additional effect constants
 #define ADD_STATUS_NONE (0)
 #define ADD_STATUS_DIRECT (1)
 #define ADD_STATUS_INDIRECT (2)
 #define ADD_STATUS_ABILITY (3)
-#define ADD_STATUS_WAZA_KOUKA (4)
+#define ADD_STATUS_MOVE_EFFECT (4)
 #define ADD_STATUS_SOUBIITEM (5)
 #define ADD_STATUS_DOKUBISI (6)
 #define ADD_STATUS_IGNORE (7)

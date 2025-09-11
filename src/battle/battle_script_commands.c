@@ -49,9 +49,8 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_5f_trysleeptalk(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw, struct BattleStruct *sp);
-BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_7c_beat_up_hit_count(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_87_tryknockoff(void *bw, struct BattleStruct *sp);
-//s32 GetPokemonWeight(void *bw, struct BattleStruct *sp, u32 client);
 BOOL btl_scr_cmd_8c_lowkickdamagecalc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_d1_trynaturalcure(void *bw, struct BattleStruct *sp);
@@ -91,6 +90,9 @@ void BattleContext_AddEntryHazardToQueue(struct BattleStruct *ctx, u32 side, u32
 BOOL btl_scr_cmd_101_addentryhazardtoqueue(void *bsys UNUSED, struct BattleStruct *ctx);
 void BattleContext_RemoveEntryHazardFromQueue(struct BattleStruct *ctx, u32 side, u32 hazard);
 BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_104_tryincinerate(void* bsys, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_105_addthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -98,11 +100,13 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
 BOOL BtlCmd_TryWish(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_TryProtection(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TrySubstitute(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_TrySwapItems(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
-BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct *sp);
+BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp);
+BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* sp);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -110,6 +114,8 @@ u32 LoadCaptureSuccessSPAStarEmitter(u32 id);
 u32 LoadCaptureSuccessSPANumEmitters(u32 id);
 
 #ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpointer-sign"
 const u8 *BattleScrCmdNames[] =
 {
     "PlayEncounterAnimation",
@@ -371,10 +377,14 @@ const u8 *BattleScrCmdNames[] =
     "JumpToCurrentEntryHazard",
     "AddEntryHazardToQueue",
     "RemoveEntryHazardFromQueue",
+    "CheckProtectContactMoves",
+    "TryIncinerate",
+    "AddThirdType",
     // "YourCustomCommand",
 };
 
 u32 cmdAddress = 0;
+#pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
 #define BASE_ENGINE_BTL_SCR_CMDS_MAX 0xFF
@@ -415,6 +425,9 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x100 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_100_jumptocurrententryhazard,
     [0x101 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_101_addentryhazardtoqueue,
     [0x102 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_102_removeentryhazardfromqueue,
+    [0x103 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_103_checkprotectcontactmoves,
+    [0x104 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_104_tryincinerate,
+    [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_addthirdtype,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -1903,79 +1916,30 @@ BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw UNUSED, struct BattleStruct
 }
 
 /**
- *  @brief script command to calculate the damage done by beat up
+ *  @brief script command to calculate the hits done by beat up.
+ *  damage is calculated in CalcBaseDamage
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_7c_beat_up_damage_calc(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_7c_beat_up_hit_count(void *bw, struct BattleStruct *sp)
 {
-    int species, form, number_of_hits;
-    s32 newBaseDamage;
     struct PartyPokemon *mon;
 
     IncrementBattleScriptPtr(sp, 1);
 
-    int partyCount = Battle_GetClientPartySize(bw, sp->attack_client);
-
     if (sp->multiHitCountTemp == 0) {
-
-        sp->multiHitCountTemp = 2;
         sp->loop_hit_check = 0xFD;
         sp->beat_up_count = 0;
-        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
+        sp->multiHitCount = 0;
 
-        while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, MON_DATA_HP, 0) == 0 ||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 ||
-                GetMonData(mon, MON_DATA_STATUS, 0) != 0))
-                {
-
-            sp->beat_up_count++;
-            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-
-        }
-    }
-
-    mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-    species = GetMonData(mon, MON_DATA_SPECIES, 0);
-    form = GetMonData(mon, MON_DATA_FORM, 0);
-
-    newBaseDamage = PokeFormNoPersonalParaGet(species, form, PERSONAL_BASE_ATTACK);
-    newBaseDamage /= 10;
-    sp->damage_power = 5;
-    sp->damage_power += newBaseDamage;
-
-    sp->beat_up_count++;
-    sp->multiHitCount = 2;
-    number_of_hits = sp->beat_up_count;
-
-    if (sp->beat_up_count < partyCount) {
-
-        mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-
-        while(sp->beat_up_count != sp->sel_mons_no[sp->attack_client] &&
-                (GetMonData(mon, MON_DATA_HP, 0) == 0 ||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 0 ||
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == 494 ||
-                GetMonData(mon, MON_DATA_STATUS, 0) != 0))
-                {
-
-            sp->beat_up_count++;
-            mon = Battle_GetClientPartyMon(bw, sp->attack_client, sp->beat_up_count);
-
-            if (sp->beat_up_count >= partyCount) {
-                sp->multiHitCount = 1;
-                sp->multiHitCountTemp = number_of_hits;
-                break;
+        for (int i = 0; i < Battle_GetClientPartySize(bw, sp->attack_client); i++) {
+            mon = Battle_GetClientPartyMon(bw, sp->attack_client, i);
+            if (IsMonValidAndHealthy(mon)) {
+                sp->multiHitCount++;
             }
-
         }
-    } else {
-        sp->multiHitCount = 1;
-        sp->multiHitCountTemp = number_of_hits;
     }
 
     return FALSE;
@@ -2000,13 +1964,11 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
     // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
     if (sp->battlemon[sp->defence_client].item && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
     {
-        sp->mp.msg_id = BATTLE_MSG_ABILITY_MADE_MOVE_INEFFECTIVE;
-        sp->mp.msg_tag = TAG_NICKNAME_ABILITY_MOVE;
+        sp->mp.msg_id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
+        sp->mp.msg_tag = TAG_NICKNAME;
         sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
-        sp->mp.msg_para[1] = sp->battlemon[sp->defence_client].ability;
-        sp->mp.msg_para[2] = sp->current_move_index;
     }
-    else if (CanKnockOffApply(bw, sp))
+    else if (CanKnockOffApply(sp, sp->attack_client, sp->defence_client))
     {
         sp->mp.msg_id = BATTLE_MSG_MON_KNOCKED_OFF_ITEM;
         sp->mp.msg_tag = TAG_NICKNAME_NICKNAME_ITEM;
@@ -2041,20 +2003,26 @@ const u16 sLowKickWeightToPower[][2] =
  *  @param client battler whose weight to grab
  *  @return battler's weight
  */
-s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, u32 client)
+s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, int attack_client, u32 client)
 {
     s32 weight;
     u32 weightModifier = 1;
 
     weight = sp->battlemon[client].weight;
 
-    if (GetBattlerAbility(sp, client) == ABILITY_HEAVY_METAL)
-    {
-        weight *= 2;
-    }
-    else if (GetBattlerAbility(sp, client) == ABILITY_LIGHT_METAL)
-    {
-        weightModifier *= 2;
+    // Handle Heavy Ball (not attacking)
+    if (attack_client == -1) {
+        if (GetBattlerAbility(sp, client) == ABILITY_HEAVY_METAL) {
+            weight *= 2;
+        } else if (GetBattlerAbility(sp, client) == ABILITY_LIGHT_METAL) {
+            weightModifier *= 2;
+        }
+    } else {
+        if (MoldBreakerAbilityCheck(sp, attack_client, client, ABILITY_HEAVY_METAL)) {
+            weight *= 2;
+        } else if (MoldBreakerAbilityCheck(sp, attack_client, client, ABILITY_LIGHT_METAL)) {
+            weightModifier *= 2;
+        }
     }
 
     if (GetBattleMonItem(sp, client) == ITEM_FLOAT_STONE) {
@@ -2080,7 +2048,7 @@ BOOL btl_scr_cmd_8c_lowkickdamagecalc(void *bw, struct BattleStruct *sp)
 
     i = 0;
 
-    weight = GetPokemonWeight(bw, sp, sp->defence_client);
+    weight = GetPokemonWeight(bw, sp, sp->attack_client, sp->defence_client);
 
     while (sLowKickWeightToPower[i][0] != 0xFFFF)
     {
@@ -2252,7 +2220,7 @@ BOOL btl_scr_cmd_E2_heavyslamdamagecalc(void *bw, struct BattleStruct *sp)
     IncrementBattleScriptPtr(sp, 1);
 
     // grab the ratio of defense weight/attack weight as a % to 2 decimal places
-    ratio = (GetPokemonWeight(bw, sp, sp->defence_client) * 10000) / GetPokemonWeight(bw, sp, sp->attack_client);
+    ratio = (GetPokemonWeight(bw, sp, sp->attack_client, sp->defence_client) * 10000) / GetPokemonWeight(bw, sp, sp->attack_client, sp->attack_client);
 
     if (ratio <= 2000)      // < 20.00%
         sp->damage_power = 120;
@@ -2462,7 +2430,7 @@ BOOL btl_scr_cmd_EA_ifcontactmove(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
     int address = read_battle_script_param(sp);
 
-    if (IsContactBeingMade(bw, sp)) {
+    if (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
         IncrementBattleScriptPtr(sp, address);
     }
     return FALSE;
@@ -2663,7 +2631,7 @@ BOOL btl_scr_cmd_F3_canapplyknockoffdamageboost(void *bw UNUSED, struct BattleSt
     IncrementBattleScriptPtr(sp, 1);
 
     int address = read_battle_script_param(sp);
-    if (!CanKnockOffApply(bw, sp))
+    if (!CanKnockOffApply(sp, sp->attack_client, sp->defence_client))
         IncrementBattleScriptPtr(sp, address);
 
     return FALSE;
@@ -3242,6 +3210,67 @@ BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct Battle
     return FALSE;
 }
 
+BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (IsContactBeingMade(GetBattlerAbility(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->defence_client), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag)
+     && ctx->battlemon[ctx->attack_client].hp
+     && ctx->oneTurnFlag[ctx->defence_client].gainedProtectFlagFromAlly == FALSE
+     && (ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) == 0) {
+        switch (ctx->moveProtect[ctx->defence_client]) {
+            case MOVE_KINGS_SHIELD:
+                if (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] > 0) {
+                    // King's Shield lowers Attack by two stages in Generation 6 and 7.
+                    ctx->addeffect_param = (GEN_LATEST > 7) ? ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN : ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_2;
+                    ctx->state_client = ctx->attack_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+                }
+                break;
+            case MOVE_SPIKY_SHIELD:
+                if (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_MAGIC_GUARD) {
+                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp * -1, 8);
+                    ctx->battlerIdTemp = ctx->attack_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SPIKY_SHIELD);
+                }
+                break;
+            case MOVE_BANEFUL_BUNKER:
+                if (ctx->battlemon[ctx->attack_client].condition == 0) {
+                    ctx->addeffect_type = ADD_STATUS_MOVE_EFFECT;
+                    ctx->state_client = ctx->attack_client;
+                    // Swap atk client to defender so it checks the protect users ability for Corrosion
+                    ctx->attack_client = ctx->defence_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_APPLY_POISON);
+                }
+                break;
+            case MOVE_OBSTRUCT:
+                if (ctx->battlemon[ctx->attack_client].states[STAT_DEFENSE] > 0) {
+                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_DEFENSE_DOWN_2;
+                    ctx->state_client = ctx->attack_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+                }
+                break;
+            case MOVE_SILK_TRAP:
+                if (ctx->battlemon[ctx->attack_client].states[STAT_SPEED] > 0) {
+                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
+                    ctx->state_client = ctx->attack_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+                }
+                break;
+            case MOVE_BURNING_BULWARK:
+                if (ctx->battlemon[ctx->attack_client].condition == 0) {
+                    ctx->addeffect_type = ADD_STATUS_MOVE_EFFECT;
+                    ctx->state_client = ctx->attack_client;
+                    SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_APPLY_BURN);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    return FALSE;
+}
+
 /**
  *  @brief script command to calculate the amount of HP should a client recover by using Moonlight, Morning Sun, or Synthesis
  *
@@ -3264,7 +3293,8 @@ BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp) {
         // sprintf(buf, "Recover half\n");
         // debugsyscall(buf);
         sp->hp_calc_work = sp->battlemon[sp->attack_client].maxhp / 2;
-    } else if (sp->field_condition & WEATHER_SUNNY_ANY) {
+    } else if ((sp->current_move_index != MOVE_SHORE_UP && sp->field_condition & WEATHER_SUNNY_ANY)
+               ||(sp->current_move_index == MOVE_SHORE_UP && sp->field_condition & WEATHER_SANDSTORM_ANY)) {
         // sprintf(buf, "Recover 2/3\n");
         // debugsyscall(buf);
         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * 20, 30);
@@ -3320,18 +3350,15 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
     ctx->temp_work = 0;
     ctx->hp_calc_work = 0;
 
-    u32 type1 = BattlePokemonParamGet(ctx, battlerId, BATTLE_MON_DATA_TYPE1, NULL);
-    u32 type2 = BattlePokemonParamGet(ctx, battlerId, BATTLE_MON_DATA_TYPE2, NULL);
-
     int item = GetBattleMonItem(ctx, battlerId);
     int hold_effect = BattleItemDataGet(ctx, item, 1);
     int ability = GetBattlerAbility(ctx, battlerId);
 
     if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0 && CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0) {
         if (ctx->field_condition & WEATHER_SANDSTORM_ANY) {
-            if (type1 != TYPE_ROCK && type2 != TYPE_ROCK &&
-                type1 != TYPE_STEEL && type2 != TYPE_STEEL &&
-                type1 != TYPE_GROUND && type2 != TYPE_GROUND &&
+            if (!HasType(ctx, battlerId, TYPE_ROCK) &&
+                !HasType(ctx, battlerId, TYPE_STEEL) &&
+                !HasType(ctx, battlerId, TYPE_GROUND) &&
                 ctx->battlemon[battlerId].hp &&
                 ability != ABILITY_SAND_VEIL &&
                 ability != ABILITY_MAGIC_GUARD &&
@@ -3360,7 +3387,7 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
                     if (ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp) {
                         ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
                     }
-                } else if (type1 != TYPE_ICE && type2 != TYPE_ICE &&
+                } else if (!HasType(ctx, battlerId, TYPE_ICE) &&
                            ability != ABILITY_SNOW_CLOAK &&
                            ability != ABILITY_MAGIC_GUARD &&
                            ability != ABILITY_OVERCOAT &&
@@ -3510,6 +3537,54 @@ BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     return FALSE;
 }
 
+BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int UNUSED adrs = read_battle_script_param(ctx); // Unused, but still required as param
+
+    if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT) {
+        ctx->oneTurnFlag[ctx->attack_client].protectFlag = TRUE;
+        // Own protect moves should keep this flag off - incase protect user is slower than side protect user.
+        ctx->oneTurnFlag[ctx->attack_client].gainedProtectFlagFromAlly = FALSE;
+        ctx->mp.msg_id = BATTLE_MSG_PROTECT_ITSELF; // "{0} protected itself!"
+        ctx->mp.msg_tag = TAG_NICKNAME;
+        ctx->mp.msg_para[0] = CreateNicknameTag(ctx, ctx->attack_client);
+    }
+
+    if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT_USER_SIDE) {
+        ctx->oneTurnFlag[ctx->attack_client].protectFlag = TRUE;
+
+        // Only give gainedProtectFlagFromAlly flag when ally doesn't have protect flag
+        if (ctx->oneTurnFlag[BATTLER_ALLY(ctx->attack_client)].protectFlag == FALSE) {
+            ctx->oneTurnFlag[BATTLER_ALLY(ctx->attack_client)].protectFlag = TRUE;
+            ctx->oneTurnFlag[BATTLER_ALLY(ctx->attack_client)].gainedProtectFlagFromAlly = TRUE;
+        }
+
+        ctx->mp.msg_id = BATTLE_MSG_PROTECT_USER_SIDE; // "{0} protected [your/the opposing] team"
+        ctx->mp.msg_tag = TAG_MOVE_SIDE;
+        ctx->mp.msg_para[0] = ctx->current_move_index;
+        ctx->mp.msg_para[1] = IsClientEnemy(bsys, ctx->attack_client);
+    }
+
+    if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
+        ctx->oneTurnFlag[ctx->attack_client].prevent_one_hit_ko_ability = TRUE;
+        ctx->mp.msg_id = BATTLE_MSG_BRACED_ITSELF; // "{0} braced itself!"
+        ctx->mp.msg_tag = TAG_NICKNAME;
+        ctx->mp.msg_para[0] = CreateNicknameTag(ctx, ctx->attack_client);
+    }
+
+    // Don't increase protectSuccessTurns at max
+    // Mat Block and Crafty Shield don't increase the counter, Quick Guard and Wide Guard do.
+    if (ctx->protectSuccessTurns[ctx->attack_client] < 6
+    && !(ctx->current_move_index == MOVE_MAT_BLOCK)
+    && !(ctx->current_move_index == MOVE_CRAFTY_SHIELD)) {
+        ctx->protectSuccessTurns[ctx->attack_client]++;
+    }
+
+    return FALSE;
+}
+
+
 BOOL BtlCmd_TrySubstitute(void *bw UNUSED, struct BattleStruct *sp)
 {
     IncrementBattleScriptPtr(sp, 1);
@@ -3653,39 +3728,6 @@ BOOL BtlCmd_CheckSubstitute(void *bsys, struct BattleStruct *ctx) {
         IncrementBattleScriptPtr(ctx, adrs);
     }
 
-    return FALSE;
-}
-
-/**
- *  @brief check if knock off can remove the defender's held item
- *         does not count sticky hold and substitute because those still allow knock off's base power increase
- *
- *  @param sp global battle structure
- *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
- */
-BOOL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
-{
-    u32 attacker = sp->attack_client;
-    u32 defender = sp->defence_client;
-    u32 item = sp->battlemon[defender].item;
-    //u32 species = sp->battlemon[defender].species;
-    u32 ability = GetBattlerAbility(sp, defender);
-
-    // if the user is about to die because of an opponent's rough skin, iron barbs, or rocky helmet, then do not proc knock off's item removal
-        // abilities do 1/8th total hp as damage
-    if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 8)
-        // rocky helmet does 1/6th total hp as damage
-      || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 6))
-     && IsContactBeingMade(bw, sp)
-     && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)
-    {
-        return FALSE;
-    }
-
-    if (item != 0 && CanItemBeRemovedFromClient(sp, defender))
-    {
-        return TRUE;
-    }
     return FALSE;
 }
 
@@ -3874,64 +3916,6 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
 }
 
 /**
- *  @brief check if a held item can be removed from the species it is attached to
- *
- *  @param species the species of the mon
- *  @param item the held item of the attacker
- *  @return TRUE if item can be removed, FALSE otherwise
- */
-BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
-{
-    // blanket item bans
-    if (IS_ITEM_MAIL(item) /*|| IS_ITEM_Z_CRYSTAL(item)*/)
-        return FALSE;
-
-    // then species-specific
-    switch (species) {
-    case SPECIES_ZAMAZENTA:
-        return item != ITEM_RUSTED_SHIELD;
-    case SPECIES_ZACIAN:
-        return item != ITEM_RUSTED_SWORD;
-    case SPECIES_GENESECT:
-        return !IS_ITEM_GENESECT_DRIVE(item);
-    case SPECIES_KYOGRE:
-        return item != ITEM_BLUE_ORB;
-    case SPECIES_GROUDON:
-        return item != ITEM_RED_ORB;
-    case SPECIES_GIRATINA:
-        return item != ITEM_GRISEOUS_ORB && item != ITEM_GRISEOUS_CORE;
-    case SPECIES_SILVALLY:
-        return !IS_ITEM_MEMORY(item);
-    case SPECIES_OGERPON:
-        return !IS_ITEM_MASK(item);
-    }
-
-    // then the other swathes of species
-    if ((IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
-     || (CheckMegaData(species, item)))
-        return FALSE;
-
-    return TRUE;
-}
-
-BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client)
-{
-    u32 species = ctx->battlemon[client].species;
-    u32 item = ctx->battlemon[client].item; // bypass klutz and friends probably
-    u32 form = ctx->battlemon[client].form_no;
-
-    // CheckMegaData will gladly tell you a galarian slowbro can't lose its slowbronite...  we have to take over
-    if (species == SPECIES_SLOWBRO && item == ITEM_SLOWBRONITE && form == 2)
-    {
-        return TRUE;
-    }
-    else
-    {
-        return CanItemBeRemovedFromSpecies(species, item);
-    }
-}
-
-/**
  *  @brief check if a held item can be tricked or not depending on the items and species
  *
  *  @param attacker_item the held item of the attacker
@@ -4006,5 +3990,157 @@ BOOL BtlCmd_TrySwapItems(void* bw, struct BattleStruct *sp)
     else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE)
         IncrementBattleScriptPtr(sp, defence);
 
+    return FALSE;
+}
+
+
+/**
+ *  @brief script command to jump somewhere if incinerate cannot destroy the berry or gem
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_104_tryincinerate(void* bw UNUSED, struct BattleStruct* sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    u32 adrs = read_battle_script_param(sp);
+    if (CanActivateDamageReductionBerry(sp, sp->defence_client))
+    {
+        IncrementBattleScriptPtr(sp, adrs);
+        return FALSE;
+    }
+
+    u32 item = sp->battlemon[sp->defence_client].item;
+	BOOL isItemGemOrBerry = (IS_ITEM_BERRY(item) || IS_ITEM_GEM(item));
+    // sticky hold and substitute will keep the mon's held item
+    // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
+    if (isItemGemOrBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
+    {
+        sp->mp.msg_id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
+        sp->mp.msg_tag = TAG_NICKNAME;
+        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+    }
+    else if (isItemGemOrBerry)
+    {
+        sp->mp.msg_id = BATTLE_MSG_ITEM_INCINERATED;
+        sp->mp.msg_tag = TAG_NICKNAME_ITEM;
+        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.msg_para[1] = item;
+        sp->battlemon[sp->defence_client].item = 0; //no recycle
+    }
+    else
+    {
+        IncrementBattleScriptPtr(sp, adrs);
+    }
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to add type3 to a pokemon
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_105_addthirdtype(void* bw UNUSED, struct BattleStruct* sp)
+{
+    s32 type;
+
+    IncrementBattleScriptPtr(sp, 1);
+    type = read_battle_script_param(sp);
+
+    if (FAIRY_TYPE_IMPLEMENTED == 0 && type == TYPE_FAIRY) // revert fairy to normal if someone tries to add fairy with the flag disabled
+        type = TYPE_NORMAL;
+
+    if (type >= 0 && type < NUMBER_OF_MON_TYPES) // proceed only if type ID is a valid, existing type
+        sp->battlemon[sp->defence_client].type3 = type;
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to jump somewhere if pluck/bugbite cannot eat the berry
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    u32 adrs = read_battle_script_param(sp);
+    u32 adrs2 UNUSED = read_battle_script_param(sp);
+    if (CanActivateDamageReductionBerry(sp, sp->defence_client))
+    {
+        IncrementBattleScriptPtr(sp, adrs);
+        return FALSE;
+    }
+
+    u32 item = sp->battlemon[sp->defence_client].item;
+    BOOL isItemBerry = IS_ITEM_BERRY(item);
+    // sticky hold and substitute will keep the mon's held item
+    // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
+    if (isItemBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
+    {
+        sp->mp.msg_id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
+        sp->mp.msg_tag = TAG_NICKNAME;
+        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+    }
+    else if (isItemBerry && TryEatOpponentBerry(bw, sp, sp->defence_client)) //needs expansion for newer berries
+    {
+        sp->mp.msg_id = BATTLE_MSG_STOLE_BERRY;
+        sp->mp.msg_tag = TAG_NICKNAME_ITEM;
+        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->attack_client);
+        sp->mp.msg_para[1] = item;
+        sp->battlemon[sp->defence_client].item = 0; //no recycle
+    }
+    else
+    {
+        IncrementBattleScriptPtr(sp, adrs);
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    BattleController_EmitPlayFaintAnimation(bsys, sp, sp->fainting_client);
+
+    sp->server_status_flag &= (MaskOfFlagNo(sp->fainting_client) << BATTLE_STATUS_FAINTED_SHIFT) ^ -1;
+    sp->server_status_flag2 |= MaskOfFlagNo(sp->fainting_client) << BATTLE_STATUS2_EXP_GAIN_SHIFT;
+    sp->playerActions[sp->fainting_client][0] = CONTROLLER_COMMAND_40;
+
+    //TrainerIDs in a 1on1 will be 0,xyz,0,0. In a 2on2 they will be 0,xyz,ghf,abc.
+    switch (sp->fainting_client)
+    {
+    case BATTLER_PLAYER:
+        sp->playerSideHasFaintedTeammateThisTurn = TRAINER_1;//0b01
+        if (bsys->trainerId[BATTLER_PLAYER2] == 0) //Ally trainer does not exist => must be player, both pokemon slots see the fainted mate 
+            sp->playerSideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
+        break;
+    case BATTLER_ENEMY:
+        sp->enemySideHasFaintedTeammateThisTurn = TRAINER_1;//0b01
+        if (bsys->trainerId[BATTLER_ENEMY2] == 0) //Ally trainer does not exist => must be enemy trainer #1, both pokemon slots see the fainted mate 
+            sp->enemySideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
+        break;
+    case BATTLER_PLAYER2:
+        sp->playerSideHasFaintedTeammateThisTurn = TRAINER_2;//0b10
+        if (bsys->trainerId[BATTLER_PLAYER2] == 0)
+            sp->playerSideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
+        break;
+    case BATTLER_ENEMY2:
+        sp->enemySideHasFaintedTeammateThisTurn = TRAINER_2;//0b10
+        if (bsys->trainerId[BATTLER_ENEMY2] == 0)
+            sp->enemySideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
+        break;
+    }
+
+    InitFaintedWork(bsys, sp, sp->fainting_client);
     return FALSE;
 }

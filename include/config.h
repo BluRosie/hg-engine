@@ -7,6 +7,11 @@
 // set FAIRY_TYPE_IMPLEMENTED to 0 if you do not want this to happen
 #define FAIRY_TYPE_IMPLEMENTED 1
 
+// TYPE_EFFECTIVENESS_GEN defines the type chart interactions you would like to use.
+// Defining this as "5" or lower will revert Steel to resisting Ghost- and Dark-type moves.
+// Type chart changes prior to Gen 4 (e.g. Gen 1) are not included.
+#define TYPE_EFFECTIVENESS_GEN GEN_LATEST
+
 // START_ADDRESS should be the same as armips/include/config.h's START_ADDRESS so that hall of fame/pokéathlon overworlds work properly.
 // START_ADDRESS defines the file address within the synthetic overlay where you would like to place all of the code that this project uses.  this is largely the repointed tables that the code uses.
 // if START_ADDRESS is 0x10000, then the tables will be inserted at address 0x10000 of the synthetic overlay
@@ -79,6 +84,12 @@
 //#define UNCAP_CANDIES_FROM_LEVEL_CAP
 //#define ALLOW_LEVEL_CAP_EVOLVE
 
+// System flags that need to be enabled for the player to use the gimmick. If you want to change them, remember to change them in flags.s as well for consistency
+#define FLAG_MEGA_EVOLUTION_ENABLED 2518
+#define FLAG_Z_MOVE_ENABLED 2519
+#define FLAG_DYNAMAX_ENABLED 2520
+#define FLAG_TERASTALIZATION_ENABLED 2521
+
 // UPDATE_OVERWORLD_POISON will remove overworld poison if enabled
 // comment the line out below to retain overworld poison
 #define UPDATE_OVERWORLD_POISON
@@ -108,13 +119,9 @@
 // this will change existing mons too!  if you want to change the odds of wild mons only, you will have to add a certain amount of pid rerolls to the AddWildPartyPokemon routine
 #define SHINY_ODDS 8
 
-// LEARNSET_TOTAL_MOVES is the amount of moves that each pokémon should be able to learn by level up
-#define LEARNSET_TOTAL_MOVES 41 // 40+terminate - currently driven by gallade
-
 // FRIENDSHIP_EVOLUTION_THRESHOLD defines the amount of friendship needed to evolve mons with friendship-related evolutions
 // modern generations have this value at 160, older ones at 220.  still max out at 255
 #define FRIENDSHIP_EVOLUTION_THRESHOLD 160
-
 
 // Friendship grants additional bonuses.
 // Comment out the line below to revert back to Gen 5- behaviour
@@ -152,7 +159,21 @@
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
 #define REUSABLE_TMS
 
+// DELETABLE_HMS allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
+//#define DELETABLE_HMS
+
+// MART_EXPANSION allows for adding and modifying items to the mart inventories
+#define MART_EXPANSION
+
+// POKEATHLON_EXPANSION allows for adding and modifying items to the Pokéathlon shop inventories
+//#define POKEATHLON_SHOP_EXPANSION
+
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
+
+// UPDATED_MACHINE_MOVE_LABELS modernizes bag label rendering for machine moves (TMs, HMs, and TRs)
+// to more closely match later generations. Note that disabling this will break TMs > 99 rendering in the bag
+// Comment out the line below to disable this feature
+#define UPDATE_MACHINE_MOVE_LABELS
 
 #endif

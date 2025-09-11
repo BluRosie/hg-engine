@@ -618,7 +618,7 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!
 The wild {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
 The opposing {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
 It started to rain!
-(Unused)
+
 (Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its {STRVAR_1 13, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}!
@@ -1274,9 +1274,9 @@ x{STRVAR_1 51, 0, 0}
 ♀
 {ALN_RIGHT}Lv. {STRVAR_1 52, 1, 0}
 {STRVAR_1 3, 0, 0} got ${STRVAR_1 54, 1, 0} for winning!\nSent some to Mom!\r
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the Key Stone!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the {STRVAR_1 5, 2, 0}!
 The wild {STRVAR_1 1, 0, 0} set its\n{STRVAR_1 5, 1, 0} on its Looplet!
-The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the Key Stone!
+The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the {STRVAR_1 5, 2, 0}!
 {STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
@@ -1560,3 +1560,29 @@ The opposing {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémo
 Being hit by {STRVAR_1 8, 1, 0} charged\n{STRVAR_1 1, 0, 0} with power!
 Being hit by {STRVAR_1 8, 1, 0} charged the wild\n{STRVAR_1 1, 0, 0} with power!
 Being hit by {STRVAR_1 8, 1, 0} charged the opposing\n{STRVAR_1 1, 0, 0} with power!
+{STRVAR_1 1, 0, 0} was hurt!
+The wild {STRVAR_1 1, 0, 0} was hurt!
+The opposing {STRVAR_1 1, 0, 0} was hurt!
+{STRVAR_1 6, 0, 0} protected\nyour team!
+{STRVAR_1 6, 0, 0} protected\nthe opposing team!
+{STRVAR_1 6, 1, 0} protected\n{STRVAR_1 1, 0, 0}!
+{STRVAR_1 6, 1, 0} protected\nthe wild {STRVAR_1 1, 0, 0}!
+{STRVAR_1 6, 1, 0} protected\nthe opposing {STRVAR_1 1, 0, 0}!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
+The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} was burned up!
+{STRVAR_1 1, 0, 0}’s item cannot be removed!
+The wild {STRVAR_1 1, 0, 0}’s item cannot be\nremoved!
+The opposing {STRVAR_1 1, 0, 0}’s item cannot be\nremoved!
+Grass type was added\nto {STRVAR_1 1, 0, 0}!
+Grass type was added\nto the wild {STRVAR_1 1, 0, 0}!
+Grass type was added\nto the opposing {STRVAR_1 1, 0, 0}!
+Ghost type was added\nto {STRVAR_1 1, 0, 0}!
+Ghost type was added\nto the wild {STRVAR_1 1, 0, 0}!
+Ghost type was added\nto the opposing {STRVAR_1 1, 0, 0}!
+{STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
+The wild {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
+The opposing {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!

@@ -23,13 +23,13 @@ Saving a lot of data...\nDon’t turn off the power.
                      
                    
                               
-Obtained the {STRVAR_1 8, 0, 0}!
+Obtained {STRVAR_1 8, 0, 0}!
                          
 Too bad!\nThe Bag is full...
-{STRVAR_1 3, 0, 0} obtained\nthe {COLOR 2}{STRVAR_1 8, 1, 0}{COLOR 0}!
-{STRVAR_1 3, 0, 0} obtained\nthe {COLOR 1}{STRVAR_1 8, 1, 0}{COLOR 0}!
-{STRVAR_1 3, 0, 0} put the {STRVAR_1 8, 1, 0}\nin the {COLOR 2}{STRVAR_1 31, 2, 0}{COLOR 0} Pocket.
-{STRVAR_1 3, 0, 0} put the {STRVAR_1 8, 1, 0}\nin the {COLOR 2}{STRVAR_1 31, 2, 0}{COLOR 0} Pocket.
+{STRVAR_1 3, 0, 0} obtained\n{COLOR 2}{STRVAR_1 8, 1, 0}{COLOR 0}!
+{STRVAR_1 3, 0, 0} obtained\n{COLOR 1}{STRVAR_1 8, 1, 0}{COLOR 0}!
+{STRVAR_1 3, 0, 0} put {STRVAR_1 8, 1, 0}\nin the {COLOR 2}{STRVAR_1 31, 2, 0}{COLOR 0} Pocket.
+{STRVAR_1 3, 0, 0} put {STRVAR_1 8, 1, 0}\nin the {COLOR 2}{STRVAR_1 31, 2, 0}{COLOR 0} Pocket.
 {STRVAR_1 3, 0, 0} put away the\n{STRVAR_1 31, 1, 0} in the Fashion Case.
 {STRVAR_1 3, 0, 0} booted up the PC.\r
 Which PC should be accessed? {YESNO 0}
@@ -87,7 +87,7 @@ Hello, and welcome to\nthe Pokémon Center.\rWe restore your tired Pokémon\nto 
 {STRVAR_1 3, 0, 0} blew the Azure Flute.\r
 A glowing stairway appeared!
 The Azure Flute echoed hollowly...\rIt appears to be meaningless using\nthe Azure Flute here...
-{STRVAR_1 3, 0, 0} put the {STRVAR_1 8, 1, 0}\nin the {COLOR 2}{STRVAR_1 27, 2, 0}{COLOR 0} Pocket.\r
+{STRVAR_1 3, 0, 0} put {STRVAR_1 8, 1, 0}\nin the {COLOR 2}{STRVAR_1 27, 2, 0}{COLOR 0} Pocket.\r
 {STRVAR_1 3, 0, 0} put away the\n{STRVAR_1 31, 1, 0} in the Fashion Case.\r
                         
                                  

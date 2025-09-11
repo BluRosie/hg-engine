@@ -3,906 +3,2726 @@
 
 #include "../config.h"
 
-#define ITEM_NONE            0
-#define ITEM_MASTER_BALL     1
-#define ITEM_ULTRA_BALL      2
-#define ITEM_GREAT_BALL      3
-#define ITEM_POKE_BALL       4
-#define ITEM_SAFARI_BALL     5
-#define ITEM_NET_BALL        6
-#define ITEM_DIVE_BALL       7
-#define ITEM_NEST_BALL       8
-#define ITEM_REPEAT_BALL     9
-#define ITEM_TIMER_BALL      10
-#define ITEM_LUXURY_BALL     11
-#define ITEM_PREMIER_BALL    12
-#define ITEM_DUSK_BALL       13
-#define ITEM_HEAL_BALL       14
-#define ITEM_QUICK_BALL      15
-#define ITEM_CHERISH_BALL    16
-#define ITEM_POTION          17
-#define ITEM_ANTIDOTE        18
-#define ITEM_BURN_HEAL       19
-#define ITEM_ICE_HEAL        20
-#define ITEM_AWAKENING       21
-#define ITEM_PARALYZE_HEAL   22
-#define ITEM_FULL_RESTORE    23
-#define ITEM_MAX_POTION      24
-#define ITEM_HYPER_POTION    25
-#define ITEM_SUPER_POTION    26
-#define ITEM_FULL_HEAL       27
-#define ITEM_REVIVE          28
-#define ITEM_MAX_REVIVE      29
-#define ITEM_FRESH_WATER     30
-#define ITEM_SODA_POP        31
-#define ITEM_LEMONADE        32
-#define ITEM_MOOMOO_MILK     33
-#define ITEM_ENERGY_POWDER   34
-#define ITEM_ENERGY_ROOT     35
-#define ITEM_HEAL_POWDER     36
-#define ITEM_REVIVAL_HERB    37
-#define ITEM_ETHER           38
-#define ITEM_MAX_ETHER       39
-#define ITEM_ELIXIR          40
-#define ITEM_MAX_ELIXIR      41
-#define ITEM_LAVA_COOKIE     42
-#define ITEM_BERRY_JUICE     43
-#define ITEM_SACRED_ASH      44
-#define ITEM_HP_UP           45
-#define ITEM_PROTEIN         46
-#define ITEM_IRON            47
-#define ITEM_CARBOS          48
-#define ITEM_CALCIUM         49
-#define ITEM_RARE_CANDY      50
-#define ITEM_PP_UP           51
-#define ITEM_ZINC            52
-#define ITEM_PP_MAX          53
-#define ITEM_OLD_GATEAU      54
-#define ITEM_GUARD_SPEC      55
-#define ITEM_DIRE_HIT        56
-#define ITEM_X_ATTACK        57
-#define ITEM_X_DEFENSE       58
-#define ITEM_X_SPEED         59
-#define ITEM_X_ACCURACY      60
-#define ITEM_X_SPECIAL       61
-#define ITEM_X_SP_DEF        62
-#define ITEM_POKE_DOLL       63
-#define ITEM_FLUFFY_TAIL     64
-#define ITEM_BLUE_FLUTE      65
-#define ITEM_YELLOW_FLUTE    66
-#define ITEM_RED_FLUTE       67
-#define ITEM_BLACK_FLUTE     68
-#define ITEM_WHITE_FLUTE     69
-#define ITEM_SHOAL_SALT      70
-#define ITEM_SHOAL_SHELL     71
-#define ITEM_RED_SHARD       72
-#define ITEM_BLUE_SHARD      73
-#define ITEM_YELLOW_SHARD    74
-#define ITEM_GREEN_SHARD     75
-#define ITEM_SUPER_REPEL     76
-#define ITEM_MAX_REPEL       77
-#define ITEM_ESCAPE_ROPE     78
-#define ITEM_REPEL           79
-#define ITEM_SUN_STONE       80
-#define ITEM_MOON_STONE      81
-#define ITEM_FIRE_STONE      82
-#define ITEM_THUNDER_STONE   83
-#define ITEM_WATER_STONE     84
-#define ITEM_LEAF_STONE      85
-#define ITEM_TINY_MUSHROOM   86
-#define ITEM_BIG_MUSHROOM    87
-#define ITEM_PEARL           88
-#define ITEM_BIG_PEARL       89
-#define ITEM_STARDUST        90
-#define ITEM_STAR_PIECE      91
-#define ITEM_NUGGET          92
-#define ITEM_HEART_SCALE     93
-#define ITEM_HONEY           94
-#define ITEM_GROWTH_MULCH    95
-#define ITEM_DAMP_MULCH      96
-#define ITEM_STABLE_MULCH    97
-#define ITEM_GOOEY_MULCH     98
-#define ITEM_ROOT_FOSSIL     99
-#define ITEM_CLAW_FOSSIL     100
-#define ITEM_HELIX_FOSSIL    101
-#define ITEM_DOME_FOSSIL     102
-#define ITEM_OLD_AMBER       103
-#define ITEM_ARMOR_FOSSIL    104
-#define ITEM_SKULL_FOSSIL    105
-#define ITEM_RARE_BONE       106
-#define ITEM_SHINY_STONE     107
-#define ITEM_DUSK_STONE      108
-#define ITEM_DAWN_STONE      109
-#define ITEM_OVAL_STONE      110
-#define ITEM_ODD_KEYSTONE    111
-#define ITEM_GRISEOUS_ORB    112
-#define ITEM_UNKNOWN_71      113
-#define ITEM_UNKNOWN_72      114
-#define ITEM_UNKNOWN_73      115
-#define ITEM_UNKNOWN_74      116
-#define ITEM_UNKNOWN_75      117
-#define ITEM_UNKNOWN_76      118
-#define ITEM_UNKNOWN_77      119
-#define ITEM_UNKNOWN_78      120
-#define ITEM_UNKNOWN_79      121
-#define ITEM_UNKNOWN_7A      122
-#define ITEM_UNKNOWN_7B      123
-#define ITEM_UNKNOWN_7C      124
-#define ITEM_UNKNOWN_7D      125
-#define ITEM_UNKNOWN_7E      126
-#define ITEM_UNKNOWN_7F      127
-#define ITEM_UNKNOWN_80      128
-#define ITEM_UNKNOWN_81      129
-#define ITEM_UNKNOWN_82      130
-#define ITEM_UNKNOWN_83      131
-#define ITEM_UNKNOWN_84      132
-#define ITEM_UNKNOWN_85      133
-#define ITEM_UNKNOWN_86      134
-#define ITEM_ADAMANT_ORB     135
-#define ITEM_LUSTROUS_ORB    136
-#define ITEM_GRASS_MAIL      137
-#define ITEM_FLAME_MAIL      138
-#define ITEM_BUBBLE_MAIL     139
-#define ITEM_BLOOM_MAIL      140
-#define ITEM_TUNNEL_MAIL     141
-#define ITEM_STEEL_MAIL      142
-#define ITEM_HEART_MAIL      143
-#define ITEM_SNOW_MAIL       144
-#define ITEM_SPACE_MAIL      145
-#define ITEM_AIR_MAIL        146
-#define ITEM_MOSAIC_MAIL     147
-#define ITEM_BRICK_MAIL      148
-#define ITEM_CHERI_BERRY     149
-#define ITEM_CHESTO_BERRY    150
-#define ITEM_PECHA_BERRY     151
-#define ITEM_RAWST_BERRY     152
-#define ITEM_ASPEAR_BERRY    153
-#define ITEM_LEPPA_BERRY     154
-#define ITEM_ORAN_BERRY      155
-#define ITEM_PERSIM_BERRY    156
-#define ITEM_LUM_BERRY       157
-#define ITEM_SITRUS_BERRY    158
-#define ITEM_FIGY_BERRY      159
-#define ITEM_WIKI_BERRY      160
-#define ITEM_MAGO_BERRY      161
-#define ITEM_AGUAV_BERRY     162
-#define ITEM_IAPAPA_BERRY    163
-#define ITEM_RAZZ_BERRY      164
-#define ITEM_BLUK_BERRY      165
-#define ITEM_NANAB_BERRY     166
-#define ITEM_WEPEAR_BERRY    167
-#define ITEM_PINAP_BERRY     168
-#define ITEM_POMEG_BERRY     169
-#define ITEM_KELPSY_BERRY    170
-#define ITEM_QUALOT_BERRY    171
-#define ITEM_HONDEW_BERRY    172
-#define ITEM_GREPA_BERRY     173
-#define ITEM_TAMATO_BERRY    174
-#define ITEM_CORNN_BERRY     175
-#define ITEM_MAGOST_BERRY    176
-#define ITEM_RABUTA_BERRY    177
-#define ITEM_NOMEL_BERRY     178
-#define ITEM_SPELON_BERRY    179
-#define ITEM_PAMTRE_BERRY    180
-#define ITEM_WATMEL_BERRY    181
-#define ITEM_DURIN_BERRY     182
-#define ITEM_BELUE_BERRY     183
-#define ITEM_OCCA_BERRY      184
-#define ITEM_PASSHO_BERRY    185
-#define ITEM_WACAN_BERRY     186
-#define ITEM_RINDO_BERRY     187
-#define ITEM_YACHE_BERRY     188
-#define ITEM_CHOPLE_BERRY    189
-#define ITEM_KEBIA_BERRY     190
-#define ITEM_SHUCA_BERRY     191
-#define ITEM_COBA_BERRY      192
-#define ITEM_PAYAPA_BERRY    193
-#define ITEM_TANGA_BERRY     194
-#define ITEM_CHARTI_BERRY    195
-#define ITEM_KASIB_BERRY     196
-#define ITEM_HABAN_BERRY     197
-#define ITEM_COLBUR_BERRY    198
-#define ITEM_BABIRI_BERRY    199
-#define ITEM_CHILAN_BERRY    200
-#define ITEM_LIECHI_BERRY    201
-#define ITEM_GANLON_BERRY    202
-#define ITEM_SALAC_BERRY     203
-#define ITEM_PETAYA_BERRY    204
-#define ITEM_APICOT_BERRY    205
-#define ITEM_LANSAT_BERRY    206
-#define ITEM_STARF_BERRY     207
-#define ITEM_ENIGMA_BERRY    208
-#define ITEM_MICLE_BERRY     209
-#define ITEM_CUSTAP_BERRY    210
-#define ITEM_JABOCA_BERRY    211
-#define ITEM_ROWAP_BERRY     212
+#define ITEM_NONE                         0
+#define ITEM_MASTER_BALL                  1
+#define ITEM_ULTRA_BALL                   2
+#define ITEM_GREAT_BALL                   3
+#define ITEM_POKE_BALL                    4
+#define ITEM_SAFARI_BALL                  5
+#define ITEM_NET_BALL                     6
+#define ITEM_DIVE_BALL                    7
+#define ITEM_NEST_BALL                    8
+#define ITEM_REPEAT_BALL                  9
+#define ITEM_TIMER_BALL                   10
+#define ITEM_LUXURY_BALL                  11
+#define ITEM_PREMIER_BALL                 12
+#define ITEM_DUSK_BALL                    13
+#define ITEM_HEAL_BALL                    14
+#define ITEM_QUICK_BALL                   15
+#define ITEM_CHERISH_BALL                 16
+#define ITEM_POTION                       17
+#define ITEM_ANTIDOTE                     18
+#define ITEM_BURN_HEAL                    19
+#define ITEM_ICE_HEAL                     20
+#define ITEM_AWAKENING                    21
+#define ITEM_PARALYZE_HEAL                22
+#define ITEM_FULL_RESTORE                 23
+#define ITEM_MAX_POTION                   24
+#define ITEM_HYPER_POTION                 25
+#define ITEM_SUPER_POTION                 26
+#define ITEM_FULL_HEAL                    27
+#define ITEM_REVIVE                       28
+#define ITEM_MAX_REVIVE                   29
+#define ITEM_FRESH_WATER                  30
+#define ITEM_SODA_POP                     31
+#define ITEM_LEMONADE                     32
+#define ITEM_MOOMOO_MILK                  33
+#define ITEM_ENERGY_POWDER                34
+#define ITEM_ENERGY_ROOT                  35
+#define ITEM_HEAL_POWDER                  36
+#define ITEM_REVIVAL_HERB                 37
+#define ITEM_ETHER                        38
+#define ITEM_MAX_ETHER                    39
+#define ITEM_ELIXIR                       40
+#define ITEM_MAX_ELIXIR                   41
+#define ITEM_LAVA_COOKIE                  42
+#define ITEM_BERRY_JUICE                  43
+#define ITEM_SACRED_ASH                   44
+#define ITEM_HP_UP                        45
+#define ITEM_PROTEIN                      46
+#define ITEM_IRON                         47
+#define ITEM_CARBOS                       48
+#define ITEM_CALCIUM                      49
+#define ITEM_RARE_CANDY                   50
+#define ITEM_PP_UP                        51
+#define ITEM_ZINC                         52
+#define ITEM_PP_MAX                       53
+#define ITEM_OLD_GATEAU                   54
+#define ITEM_GUARD_SPEC                   55
+#define ITEM_DIRE_HIT                     56
+#define ITEM_X_ATTACK                     57
+#define ITEM_X_DEFENSE                    58
+#define ITEM_X_SPEED                      59
+#define ITEM_X_ACCURACY                   60
+#define ITEM_X_SP_ATK                     61 //Replaced X_SPECIAL
+#define ITEM_X_SP_DEF                     62
+#define ITEM_POKE_DOLL                    63
+#define ITEM_FLUFFY_TAIL                  64
+#define ITEM_BLUE_FLUTE                   65
+#define ITEM_YELLOW_FLUTE                 66
+#define ITEM_RED_FLUTE                    67
+#define ITEM_BLACK_FLUTE                  68
+#define ITEM_WHITE_FLUTE                  69
+#define ITEM_SHOAL_SALT                   70
+#define ITEM_SHOAL_SHELL                  71
+#define ITEM_RED_SHARD                    72
+#define ITEM_BLUE_SHARD                   73
+#define ITEM_YELLOW_SHARD                 74
+#define ITEM_GREEN_SHARD                  75
+#define ITEM_SUPER_REPEL                  76
+#define ITEM_MAX_REPEL                    77
+#define ITEM_ESCAPE_ROPE                  78
+#define ITEM_REPEL                        79
+#define ITEM_SUN_STONE                    80
+#define ITEM_MOON_STONE                   81
+#define ITEM_FIRE_STONE                   82
+#define ITEM_THUNDER_STONE                83
+#define ITEM_WATER_STONE                  84
+#define ITEM_LEAF_STONE                   85
+#define ITEM_TINY_MUSHROOM                86
+#define ITEM_BIG_MUSHROOM                 87
+#define ITEM_PEARL                        88
+#define ITEM_BIG_PEARL                    89
+#define ITEM_STARDUST                     90
+#define ITEM_STAR_PIECE                   91
+#define ITEM_NUGGET                       92
+#define ITEM_HEART_SCALE                  93
+#define ITEM_HONEY                        94
+#define ITEM_GROWTH_MULCH                 95
+#define ITEM_DAMP_MULCH                   96
+#define ITEM_STABLE_MULCH                 97
+#define ITEM_GOOEY_MULCH                  98
+#define ITEM_ROOT_FOSSIL                  99
+#define ITEM_CLAW_FOSSIL                  100
+#define ITEM_HELIX_FOSSIL                 101
+#define ITEM_DOME_FOSSIL                  102
+#define ITEM_OLD_AMBER                    103
+#define ITEM_ARMOR_FOSSIL                 104
+#define ITEM_SKULL_FOSSIL                 105
+#define ITEM_RARE_BONE                    106
+#define ITEM_SHINY_STONE                  107
+#define ITEM_DUSK_STONE                   108
+#define ITEM_DAWN_STONE                   109
+#define ITEM_OVAL_STONE                   110
+#define ITEM_ODD_KEYSTONE                 111
+#define ITEM_GRISEOUS_ORB                 112
+#define ITEM_TEA                          113 //Replaced UNKNOWN_71
+#define ITEM_UNKNOWN_72                   114
+#define ITEM_AUTOGRAPH                    115 //Replaced UNKNOWN_73
+#define ITEM_DOUSE_DRIVE                  116 //Replaced UNKNOWN_74
+#define ITEM_SHOCK_DRIVE                  117 //Replaced UNKNOWN_75
+#define ITEM_BURN_DRIVE                   118 //Replaced UNKNOWN_76
+#define ITEM_CHILL_DRIVE                  119 //Replaced UNKNOWN_77
+#define ITEM_UNKNOWN_78                   120
+#define ITEM_POKEMON_BOX                  121 //Replaced UNKNOWN_79
+#define ITEM_UNKNOWN_7A                   122
+#define ITEM_UNKNOWN_7B                   123
+#define ITEM_UNKNOWN_7C                   124
+#define ITEM_UNKNOWN_7D                   125
+#define ITEM_UNKNOWN_7E                   126
+#define ITEM_UNKNOWN_7F                   127
+#define ITEM_UNKNOWN_80                   128
+#define ITEM_UNKNOWN_81                   129
+#define ITEM_UNKNOWN_82                   130
+#define ITEM_UNKNOWN_83                   131
+#define ITEM_UNKNOWN_84                   132
+#define ITEM_UNKNOWN_85                   133
+#define ITEM_SWEET_HEART                  134 //Replaced UNKNOWN_86
+#define ITEM_ADAMANT_ORB                  135
+#define ITEM_LUSTROUS_ORB                 136
+#define ITEM_GRASS_MAIL                   137
+#define ITEM_FLAME_MAIL                   138
+#define ITEM_BUBBLE_MAIL                  139
+#define ITEM_BLOOM_MAIL                   140
+#define ITEM_TUNNEL_MAIL                  141
+#define ITEM_STEEL_MAIL                   142
+#define ITEM_HEART_MAIL                   143
+#define ITEM_SNOW_MAIL                    144
+#define ITEM_SPACE_MAIL                   145
+#define ITEM_AIR_MAIL                     146
+#define ITEM_MOSAIC_MAIL                  147
+#define ITEM_BRICK_MAIL                   148
+#define ITEM_CHERI_BERRY                  149
+#define ITEM_CHESTO_BERRY                 150
+#define ITEM_PECHA_BERRY                  151
+#define ITEM_RAWST_BERRY                  152
+#define ITEM_ASPEAR_BERRY                 153
+#define ITEM_LEPPA_BERRY                  154
+#define ITEM_ORAN_BERRY                   155
+#define ITEM_PERSIM_BERRY                 156
+#define ITEM_LUM_BERRY                    157
+#define ITEM_SITRUS_BERRY                 158
+#define ITEM_FIGY_BERRY                   159
+#define ITEM_WIKI_BERRY                   160
+#define ITEM_MAGO_BERRY                   161
+#define ITEM_AGUAV_BERRY                  162
+#define ITEM_IAPAPA_BERRY                 163
+#define ITEM_RAZZ_BERRY                   164
+#define ITEM_BLUK_BERRY                   165
+#define ITEM_NANAB_BERRY                  166
+#define ITEM_WEPEAR_BERRY                 167
+#define ITEM_PINAP_BERRY                  168
+#define ITEM_POMEG_BERRY                  169
+#define ITEM_KELPSY_BERRY                 170
+#define ITEM_QUALOT_BERRY                 171
+#define ITEM_HONDEW_BERRY                 172
+#define ITEM_GREPA_BERRY                  173
+#define ITEM_TAMATO_BERRY                 174
+#define ITEM_CORNN_BERRY                  175
+#define ITEM_MAGOST_BERRY                 176
+#define ITEM_RABUTA_BERRY                 177
+#define ITEM_NOMEL_BERRY                  178
+#define ITEM_SPELON_BERRY                 179
+#define ITEM_PAMTRE_BERRY                 180
+#define ITEM_WATMEL_BERRY                 181
+#define ITEM_DURIN_BERRY                  182
+#define ITEM_BELUE_BERRY                  183
+#define ITEM_OCCA_BERRY                   184
+#define ITEM_PASSHO_BERRY                 185
+#define ITEM_WACAN_BERRY                  186
+#define ITEM_RINDO_BERRY                  187
+#define ITEM_YACHE_BERRY                  188
+#define ITEM_CHOPLE_BERRY                 189
+#define ITEM_KEBIA_BERRY                  190
+#define ITEM_SHUCA_BERRY                  191
+#define ITEM_COBA_BERRY                   192
+#define ITEM_PAYAPA_BERRY                 193
+#define ITEM_TANGA_BERRY                  194
+#define ITEM_CHARTI_BERRY                 195
+#define ITEM_KASIB_BERRY                  196
+#define ITEM_HABAN_BERRY                  197
+#define ITEM_COLBUR_BERRY                 198
+#define ITEM_BABIRI_BERRY                 199
+#define ITEM_CHILAN_BERRY                 200
+#define ITEM_LIECHI_BERRY                 201
+#define ITEM_GANLON_BERRY                 202
+#define ITEM_SALAC_BERRY                  203
+#define ITEM_PETAYA_BERRY                 204
+#define ITEM_APICOT_BERRY                 205
+#define ITEM_LANSAT_BERRY                 206
+#define ITEM_STARF_BERRY                  207
+#define ITEM_ENIGMA_BERRY                 208
+#define ITEM_MICLE_BERRY                  209
+#define ITEM_CUSTAP_BERRY                 210
+#define ITEM_JABOCA_BERRY                 211
+#define ITEM_ROWAP_BERRY                  212
+#define ITEM_BRIGHT_POWDER                213
+#define ITEM_WHITE_HERB                   214
+#define ITEM_MACHO_BRACE                  215
+#define ITEM_EXP_SHARE                    216
+#define ITEM_QUICK_CLAW                   217
+#define ITEM_SOOTHE_BELL                  218
+#define ITEM_MENTAL_HERB                  219
+#define ITEM_CHOICE_BAND                  220
+#define ITEM_KINGS_ROCK                   221
+#define ITEM_SILVER_POWDER                222
+#define ITEM_AMULET_COIN                  223
+#define ITEM_CLEANSE_TAG                  224
+#define ITEM_SOUL_DEW                     225
+#define ITEM_DEEP_SEA_TOOTH               226
+#define ITEM_DEEP_SEA_SCALE               227
+#define ITEM_SMOKE_BALL                   228
+#define ITEM_EVERSTONE                    229
+#define ITEM_FOCUS_BAND                   230
+#define ITEM_LUCKY_EGG                    231
+#define ITEM_SCOPE_LENS                   232
+#define ITEM_METAL_COAT                   233
+#define ITEM_LEFTOVERS                    234
+#define ITEM_DRAGON_SCALE                 235
+#define ITEM_LIGHT_BALL                   236
+#define ITEM_SOFT_SAND                    237
+#define ITEM_HARD_STONE                   238
+#define ITEM_MIRACLE_SEED                 239
+#define ITEM_BLACK_GLASSES                240
+#define ITEM_BLACK_BELT                   241
+#define ITEM_MAGNET                       242
+#define ITEM_MYSTIC_WATER                 243
+#define ITEM_SHARP_BEAK                   244
+#define ITEM_POISON_BARB                  245
+#define ITEM_NEVER_MELT_ICE               246
+#define ITEM_SPELL_TAG                    247
+#define ITEM_TWISTED_SPOON                248
+#define ITEM_CHARCOAL                     249
+#define ITEM_DRAGON_FANG                  250
+#define ITEM_SILK_SCARF                   251
+#define ITEM_UP_GRADE                     252
+#define ITEM_SHELL_BELL                   253
+#define ITEM_SEA_INCENSE                  254
+#define ITEM_LAX_INCENSE                  255
+#define ITEM_LUCKY_PUNCH                  256
+#define ITEM_METAL_POWDER                 257
+#define ITEM_THICK_CLUB                   258
+#define ITEM_LEEK                         259
+#define ITEM_RED_SCARF                    260
+#define ITEM_BLUE_SCARF                   261
+#define ITEM_PINK_SCARF                   262
+#define ITEM_GREEN_SCARF                  263
+#define ITEM_YELLOW_SCARF                 264
+#define ITEM_WIDE_LENS                    265
+#define ITEM_MUSCLE_BAND                  266
+#define ITEM_WISE_GLASSES                 267
+#define ITEM_EXPERT_BELT                  268
+#define ITEM_LIGHT_CLAY                   269
+#define ITEM_LIFE_ORB                     270
+#define ITEM_POWER_HERB                   271
+#define ITEM_TOXIC_ORB                    272
+#define ITEM_FLAME_ORB                    273
+#define ITEM_QUICK_POWDER                 274
+#define ITEM_FOCUS_SASH                   275
+#define ITEM_ZOOM_LENS                    276
+#define ITEM_METRONOME                    277
+#define ITEM_IRON_BALL                    278
+#define ITEM_LAGGING_TAIL                 279
+#define ITEM_DESTINY_KNOT                 280
+#define ITEM_BLACK_SLUDGE                 281
+#define ITEM_ICY_ROCK                     282
+#define ITEM_SMOOTH_ROCK                  283
+#define ITEM_HEAT_ROCK                    284
+#define ITEM_DAMP_ROCK                    285
+#define ITEM_GRIP_CLAW                    286
+#define ITEM_CHOICE_SCARF                 287
+#define ITEM_STICKY_BARB                  288
+#define ITEM_POWER_BRACER                 289
+#define ITEM_POWER_BELT                   290
+#define ITEM_POWER_LENS                   291
+#define ITEM_POWER_BAND                   292
+#define ITEM_POWER_ANKLET                 293
+#define ITEM_POWER_WEIGHT                 294
+#define ITEM_SHED_SHELL                   295
+#define ITEM_BIG_ROOT                     296
+#define ITEM_CHOICE_SPECS                 297
+#define ITEM_FLAME_PLATE                  298
+#define ITEM_SPLASH_PLATE                 299
+#define ITEM_ZAP_PLATE                    300
+#define ITEM_MEADOW_PLATE                 301
+#define ITEM_ICICLE_PLATE                 302
+#define ITEM_FIST_PLATE                   303
+#define ITEM_TOXIC_PLATE                  304
+#define ITEM_EARTH_PLATE                  305
+#define ITEM_SKY_PLATE                    306
+#define ITEM_MIND_PLATE                   307
+#define ITEM_INSECT_PLATE                 308
+#define ITEM_STONE_PLATE                  309
+#define ITEM_SPOOKY_PLATE                 310
+#define ITEM_DRACO_PLATE                  311
+#define ITEM_DREAD_PLATE                  312
+#define ITEM_IRON_PLATE                   313
+#define ITEM_ODD_INCENSE                  314
+#define ITEM_ROCK_INCENSE                 315
+#define ITEM_FULL_INCENSE                 316
+#define ITEM_WAVE_INCENSE                 317
+#define ITEM_ROSE_INCENSE                 318
+#define ITEM_LUCK_INCENSE                 319
+#define ITEM_PURE_INCENSE                 320
+#define ITEM_PROTECTOR                    321
+#define ITEM_ELECTIRIZER                  322
+#define ITEM_MAGMARIZER                   323
+#define ITEM_DUBIOUS_DISC                 324
+#define ITEM_REAPER_CLOTH                 325
+#define ITEM_RAZOR_CLAW                   326
+#define ITEM_RAZOR_FANG                   327
+#define ITEM_TM001                        328 //Added a Zero to all TMS
+#define ITEM_TM002                        329
+#define ITEM_TM003                        330
+#define ITEM_TM004                        331
+#define ITEM_TM005                        332
+#define ITEM_TM006                        333
+#define ITEM_TM007                        334
+#define ITEM_TM008                        335
+#define ITEM_TM009                        336
+#define ITEM_TM010                        337
+#define ITEM_TM011                        338
+#define ITEM_TM012                        339
+#define ITEM_TM013                        340
+#define ITEM_TM014                        341
+#define ITEM_TM015                        342
+#define ITEM_TM016                        343
+#define ITEM_TM017                        344
+#define ITEM_TM018                        345
+#define ITEM_TM019                        346
+#define ITEM_TM020                        347
+#define ITEM_TM021                        348
+#define ITEM_TM022                        349
+#define ITEM_TM023                        350
+#define ITEM_TM024                        351
+#define ITEM_TM025                        352
+#define ITEM_TM026                        353
+#define ITEM_TM027                        354
+#define ITEM_TM028                        355
+#define ITEM_TM029                        356
+#define ITEM_TM030                        357
+#define ITEM_TM031                        358
+#define ITEM_TM032                        359
+#define ITEM_TM033                        360
+#define ITEM_TM034                        361
+#define ITEM_TM035                        362
+#define ITEM_TM036                        363
+#define ITEM_TM037                        364
+#define ITEM_TM038                        365
+#define ITEM_TM039                        366
+#define ITEM_TM040                        367
+#define ITEM_TM041                        368
+#define ITEM_TM042                        369
+#define ITEM_TM043                        370
+#define ITEM_TM044                        371
+#define ITEM_TM045                        372
+#define ITEM_TM046                        373
+#define ITEM_TM047                        374
+#define ITEM_TM048                        375
+#define ITEM_TM049                        376
+#define ITEM_TM050                        377
+#define ITEM_TM051                        378
+#define ITEM_TM052                        379
+#define ITEM_TM053                        380
+#define ITEM_TM054                        381
+#define ITEM_TM055                        382
+#define ITEM_TM056                        383
+#define ITEM_TM057                        384
+#define ITEM_TM058                        385
+#define ITEM_TM059                        386
+#define ITEM_TM060                        387
+#define ITEM_TM061                        388
+#define ITEM_TM062                        389
+#define ITEM_TM063                        390
+#define ITEM_TM064                        391
+#define ITEM_TM065                        392
+#define ITEM_TM066                        393
+#define ITEM_TM067                        394
+#define ITEM_TM068                        395
+#define ITEM_TM069                        396
+#define ITEM_TM070                        397
+#define ITEM_TM071                        398
+#define ITEM_TM072                        399
+#define ITEM_TM073                        400
+#define ITEM_TM074                        401
+#define ITEM_TM075                        402
+#define ITEM_TM076                        403
+#define ITEM_TM077                        404
+#define ITEM_TM078                        405
+#define ITEM_TM079                        406
+#define ITEM_TM080                        407
+#define ITEM_TM081                        408
+#define ITEM_TM082                        409
+#define ITEM_TM083                        410
+#define ITEM_TM084                        411
+#define ITEM_TM085                        412
+#define ITEM_TM086                        413
+#define ITEM_TM087                        414
+#define ITEM_TM088                        415
+#define ITEM_TM089                        416
+#define ITEM_TM090                        417
+#define ITEM_TM091                        418
+#define ITEM_TM092                        419
+#define ITEM_HM01                         420
+#define ITEM_HM02                         421
+#define ITEM_HM03                         422
+#define ITEM_HM04                         423
+#define ITEM_HM05                         424
+#define ITEM_HM06                         425
+#define ITEM_HM07                         426
+#define ITEM_HM08                         427
+#define ITEM_EXPLORER_KIT                 428
+#define ITEM_LOOT_SACK                    429
+#define ITEM_RULE_BOOK                    430
+#define ITEM_POKE_RADAR                   431
+#define ITEM_POINT_CARD                   432
+#define ITEM_GUIDEBOOK                    433 //Replaced JOURNAL
+#define ITEM_SEAL_CASE                    434
+#define ITEM_FASHION_CASE                 435
+#define ITEM_STICKER_BAG                  436 //Replaced SEAL_BAG
+#define ITEM_PAL_PAD                      437
+#define ITEM_WORKS_KEY                    438
+#define ITEM_OLD_CHARM                    439
+#define ITEM_GALACTIC_KEY                 440
+#define ITEM_RED_CHAIN                    441
+#define ITEM_TOWN_MAP                     442
+#define ITEM_VS_SEEKER                    443
+#define ITEM_COIN_CASE                    444
+#define ITEM_OLD_ROD                      445
+#define ITEM_GOOD_ROD                     446
+#define ITEM_SUPER_ROD                    447
+#define ITEM_SPRAYDUCK                    448
+#define ITEM_POFFIN_CASE                  449
+#define ITEM_BIKE                         450 //Replaced BICYCLE
+#define ITEM_SUITE_KEY                    451
+#define ITEM_OAKS_LETTER                  452
+#define ITEM_LUNAR_FEATHER                453 //Replaced LUNAR_WING
+#define ITEM_MEMBER_CARD                  454
+#define ITEM_AZURE_FLUTE                  455
+#define ITEM_SS_TICKET                    456
+#define ITEM_CONTEST_PASS                 457
+#define ITEM_MAGMA_STONE                  458
+#define ITEM_PARCEL                       459
+#define ITEM_COUPON_1                     460
+#define ITEM_COUPON_2                     461
+#define ITEM_COUPON_3                     462
+#define ITEM_STORAGE_KEY_SINNOH           463
+#define ITEM_SECRET_MEDICINE              464
+#define ITEM_VS_RECORDER                  465
+#define ITEM_GRACIDEA                     466
+#define ITEM_SECRET_KEY                   467
+#define ITEM_APRICORN_BOX                 468
+#define ITEM_UNOWN_REPORT                 469
+#define ITEM_BERRY_POTS                   470
+#define ITEM_DOWSING_MACHINE              471 //Replaced DOWSING_MCHN
+#define ITEM_BLUE_CARD                    472
+#define ITEM_SLOWPOKE_TAIL                473
+#define ITEM_CLEAR_BELL                   474
+#define ITEM_CARD_KEY_JOHTO               475
+#define ITEM_BASEMENT_KEY                 476
+#define ITEM_SQUIRT_BOTTLE                477
+#define ITEM_RED_SCALE                    478
+#define ITEM_LOST_ITEM                    479
+#define ITEM_PASS                         480
+#define ITEM_MACHINE_PART                 481
+#define ITEM_SILVER_FEATHER               482 //Replaced SILVER_WING
+#define ITEM_RAINBOW_FEATHER              483 //Replaced RAINBOW_WING
+#define ITEM_MYSTERY_EGG                  484
+#define ITEM_RED_APRICORN                 485
+#define ITEM_YELLOW_APRICORN              486 //Have to swap with BLUE_APRICORN
+#define ITEM_BLUE_APRICORN                487
+#define ITEM_GREEN_APRICORN               488
+#define ITEM_PINK_APRICORN                489
+#define ITEM_WHITE_APRICORN               490
+#define ITEM_BLACK_APRICORN               491
+#define ITEM_FAST_BALL                    492
+#define ITEM_LEVEL_BALL                   493
+#define ITEM_LURE_BALL                    494
+#define ITEM_HEAVY_BALL                   495
+#define ITEM_LOVE_BALL                    496
+#define ITEM_FRIEND_BALL                  497
+#define ITEM_MOON_BALL                    498
+#define ITEM_SPORT_BALL                   499
+#define ITEM_PARK_BALL                    500
+#define ITEM_PHOTO_ALBUM                  501
+#define ITEM_GB_SOUNDS                    502
+#define ITEM_TIDAL_BELL                   503
+#define ITEM_RAGE_CANDY_BAR               504
+#define ITEM_DATA_CARD_01                 505
+#define ITEM_DATA_CARD_02                 506
+#define ITEM_DATA_CARD_03                 507
+#define ITEM_DATA_CARD_04                 508
+#define ITEM_DATA_CARD_05                 509
+#define ITEM_DATA_CARD_06                 510
+#define ITEM_DATA_CARD_07                 511
+#define ITEM_DATA_CARD_08                 512
+#define ITEM_DATA_CARD_09                 513
+#define ITEM_DATA_CARD_10                 514
+#define ITEM_DATA_CARD_11                 515
+#define ITEM_DATA_CARD_12                 516
+#define ITEM_DATA_CARD_13                 517
+#define ITEM_DATA_CARD_14                 518
+#define ITEM_DATA_CARD_15                 519
+#define ITEM_DATA_CARD_16                 520
+#define ITEM_DATA_CARD_17                 521
+#define ITEM_DATA_CARD_18                 522
+#define ITEM_DATA_CARD_19                 523
+#define ITEM_DATA_CARD_20                 524
+#define ITEM_DATA_CARD_21                 525
+#define ITEM_DATA_CARD_22                 526
+#define ITEM_DATA_CARD_23                 527
+#define ITEM_DATA_CARD_24                 528
+#define ITEM_DATA_CARD_25                 529
+#define ITEM_DATA_CARD_26                 530
+#define ITEM_DATA_CARD_27                 531
+#define ITEM_JADE_ORB                     532
+#define ITEM_LOCK_CAPSULE                 533
+#define ITEM_RED_ORB                      534
+#define ITEM_BLUE_ORB                     535
+#define ITEM_ENIGMA_STONE                 536
+#define ITEM_PRISM_SCALE                  537
+#define ITEM_EVIOLITE                     538
+#define ITEM_FLOAT_STONE                  539
+#define ITEM_ROCKY_HELMET                 540
+#define ITEM_AIR_BALLOON                  541
+#define ITEM_RED_CARD                     542
+#define ITEM_RING_TARGET                  543
+#define ITEM_BINDING_BAND                 544
+#define ITEM_ABSORB_BULB                  545
+#define ITEM_CELL_BATTERY                 546
+#define ITEM_EJECT_BUTTON                 547
+#define ITEM_FIRE_GEM                     548
+#define ITEM_WATER_GEM                    549
+#define ITEM_ELECTRIC_GEM                 550
+#define ITEM_GRASS_GEM                    551
+#define ITEM_ICE_GEM                      552
+#define ITEM_FIGHTING_GEM                 553
+#define ITEM_POISON_GEM                   554
+#define ITEM_GROUND_GEM                   555
+#define ITEM_FLYING_GEM                   556
+#define ITEM_PSYCHIC_GEM                  557
+#define ITEM_BUG_GEM                      558
+#define ITEM_ROCK_GEM                     559
+#define ITEM_GHOST_GEM                    560
+#define ITEM_DRAGON_GEM                   561
+#define ITEM_DARK_GEM                     562
+#define ITEM_STEEL_GEM                    563
+#define ITEM_NORMAL_GEM                   564
+#define ITEM_HEALTH_FEATHER               565
+#define ITEM_MUSCLE_FEATHER               566
+#define ITEM_RESIST_FEATHER               567
+#define ITEM_GENIUS_FEATHER               568
+#define ITEM_CLEVER_FEATHER               569
+#define ITEM_SWIFT_FEATHER                570
+#define ITEM_PRETTY_FEATHER               571
+#define ITEM_COVER_FOSSIL                 572
+#define ITEM_PLUME_FOSSIL                 573
+#define ITEM_LIBERTY_PASS                 574
+#define ITEM_PASS_ORB                     575
+#define ITEM_DREAM_BALL                   576
+#define ITEM_POKE_TOY                     577
+#define ITEM_PROP_CASE                    578
+#define ITEM_DRAGON_SKULL                 579
+#define ITEM_BALM_MUSHROOM                580
+#define ITEM_BIG_NUGGET                   581
+#define ITEM_PEARL_STRING                 582
+#define ITEM_COMET_SHARD                  583
+#define ITEM_RELIC_COPPER                 584
+#define ITEM_RELIC_SILVER                 585
+#define ITEM_RELIC_GOLD                   586
+#define ITEM_RELIC_VASE                   587
+#define ITEM_RELIC_BAND                   588
+#define ITEM_RELIC_STATUE                 589
+#define ITEM_RELIC_CROWN                  590
+#define ITEM_CASTELIACONE                 591
+#define ITEM_DIRE_HIT_2                   592
+#define ITEM_X_SPEED_2                    593
+#define ITEM_X_SP_ATK_2                   594
+#define ITEM_X_SP_DEF_2                   595
+#define ITEM_X_DEFENSE_2                  596
+#define ITEM_X_ATTACK_2                   597
+#define ITEM_X_ACCURACY_2                 598
+#define ITEM_X_SPEED_3                    599
+#define ITEM_X_SP_ATK_3                   600
+#define ITEM_X_SP_DEF_3                   601
+#define ITEM_X_DEFENSE_3                  602
+#define ITEM_X_ATTACK_3                   603
+#define ITEM_X_ACCURACY_3                 604
+#define ITEM_X_SPEED_6                    605
+#define ITEM_X_SP_ATK_6                   606
+#define ITEM_X_SP_DEF_6                   607
+#define ITEM_X_DEFENSE_6                  608
+#define ITEM_X_ATTACK_6                   609
+#define ITEM_X_ACCURACY_6                 610
+#define ITEM_ABILITY_URGE                 611
+#define ITEM_ITEM_DROP                    612
+#define ITEM_ITEM_URGE                    613
+#define ITEM_RESET_URGE                   614
+#define ITEM_DIRE_HIT_3                   615
+#define ITEM_LIGHT_STONE                  616
+#define ITEM_DARK_STONE                   617
+#define ITEM_TM093                        618
+#define ITEM_TM094                        619
+#define ITEM_TM095                        620
+#define ITEM_XTRANSCEIVER_BW              621
+#define ITEM_UNKNOWN_622                  622
+#define ITEM_GRAM_1                       623
+#define ITEM_GRAM_2                       624
+#define ITEM_GRAM_3                       625
+#define ITEM_XTRANSCEIVER_BW2             626
+#define ITEM_MEDAL_BOX                    627
+#define ITEM_DNA_SPLICERS_FUSE            628
+#define ITEM_DNA_SPLICERS_UNFUSE          629
+#define ITEM_PERMIT                       630
+#define ITEM_OVAL_CHARM                   631
+#define ITEM_SHINY_CHARM                  632
+#define ITEM_PLASMA_CARD                  633
+#define ITEM_GRUBBY_HANKY                 634
+#define ITEM_COLRESS_MACHINE              635
+#define ITEM_DROPPED_ITEM_CURTIS          636
+#define ITEM_DROPPED_ITEM_YANCY           637
+#define ITEM_REVEAL_GLASS                 638
+#define ITEM_WEAKNESS_POLICY              639
+#define ITEM_ASSAULT_VEST                 640
+#define ITEM_HOLO_CASTER_MALE             641
+#define ITEM_PROFS_LETTER                 642
+#define ITEM_ROLLER_SKATES                643
+#define ITEM_PIXIE_PLATE                  644
+#define ITEM_ABILITY_CAPSULE              645
+#define ITEM_WHIPPED_DREAM                646
+#define ITEM_SACHET                       647
+#define ITEM_LUMINOUS_MOSS                648
+#define ITEM_SNOWBALL                     649
+#define ITEM_SAFETY_GOGGLES               650
+#define ITEM_POKE_FLUTE                   651
+#define ITEM_RICH_MULCH                   652
+#define ITEM_SURPRISE_MULCH               653
+#define ITEM_BOOST_MULCH                  654
+#define ITEM_AMAZE_MULCH                  655
+#define ITEM_GENGARITE                    656
+#define ITEM_GARDEVOIRITE                 657
+#define ITEM_AMPHAROSITE                  658
+#define ITEM_VENUSAURITE                  659
+#define ITEM_CHARIZARDITE_X               660
+#define ITEM_BLASTOISINITE                661
+#define ITEM_MEWTWONITE_X                 662
+#define ITEM_MEWTWONITE_Y                 663
+#define ITEM_BLAZIKENITE                  664
+#define ITEM_MEDICHAMITE                  665
+#define ITEM_HOUNDOOMINITE                666
+#define ITEM_AGGRONITE                    667
+#define ITEM_BANETTITE                    668
+#define ITEM_TYRANITARITE                 669
+#define ITEM_SCIZORITE                    670
+#define ITEM_PINSIRITE                    671
+#define ITEM_AERODACTYLITE                672
+#define ITEM_LUCARIONITE                  673
+#define ITEM_ABOMASITE                    674
+#define ITEM_KANGASKHANITE                675
+#define ITEM_GYARADOSITE                  676
+#define ITEM_ABSOLITE                     677
+#define ITEM_CHARIZARDITE_Y               678
+#define ITEM_ALAKAZITE                    679
+#define ITEM_HERACRONITE                  680
+#define ITEM_MAWILITE                     681
+#define ITEM_MANECTITE                    682
+#define ITEM_GARCHOMPITE                  683
+#define ITEM_LATIASITE                    684
+#define ITEM_LATIOSITE                    685
+#define ITEM_ROSELI_BERRY                 686
+#define ITEM_KEE_BERRY                    687
+#define ITEM_MARANGA_BERRY                688
+#define ITEM_SPRINKLOTAD                  689
+#define ITEM_TM096                        690
+#define ITEM_TM097                        691
+#define ITEM_TM098                        692
+#define ITEM_TM099                        693
+#define ITEM_TM100                        694
+#define ITEM_POWER_PLANT_PASS             695
+#define ITEM_MEGA_RING                    696
+#define ITEM_INTRIGUING_STONE             697
+#define ITEM_COMMON_STONE                 698
+#define ITEM_DISCOUNT_COUPON              699
+#define ITEM_ELEVATOR_KEY                 700
+#define ITEM_TMV_PASS                     701
+#define ITEM_HONOR_OF_KALOS               702
+#define ITEM_ADVENTURE_GUIDE              703
+#define ITEM_STRANGE_SOUVENIR             704
+#define ITEM_LENS_CASE                    705
+#define ITEM_MAKEUP_BAG                   706
+#define ITEM_TRAVEL_TRUNK                 707
+#define ITEM_LUMIOSE_GALETTE              708
+#define ITEM_SHALOUR_SABLE                709
+#define ITEM_JAW_FOSSIL                   710
+#define ITEM_SAIL_FOSSIL                  711
+#define ITEM_LOOKER_TICKET                712
+#define ITEM_BIKE_XY                      713
+#define ITEM_HOLO_CASTER_FEMALE           714
+#define ITEM_FAIRY_GEM                    715
+#define ITEM_MEGA_CHARM                   716
+#define ITEM_MEGA_GLOVE                   717
+#define ITEM_MACH_BIKE                    718
+#define ITEM_ACRO_BIKE                    719
+#define ITEM_WAILMER_PAIL                 720
+#define ITEM_DEVON_PARTS                  721
+#define ITEM_SOOT_SACK                    722
+#define ITEM_BASEMENT_KEY_ORAS            723
+#define ITEM_POKEBLOCK_KIT                724
+#define ITEM_LETTER                       725
+#define ITEM_EON_TICKET                   726
+#define ITEM_SCANNER                      727
+#define ITEM_GO_GOGGLES                   728
+#define ITEM_METEORITE_ORAS_DEFAULT       729
+#define ITEM_KEY_TO_ROOM_1                730
+#define ITEM_KEY_TO_ROOM_2                731
+#define ITEM_KEY_TO_ROOM_4                732
+#define ITEM_KEY_TO_ROOM_6                733
+#define ITEM_STORAGE_KEY_HOENN            734
+#define ITEM_DEVON_SCOPE                  735
+#define ITEM_SS_TICKET_ORAS               736
+#define ITEM_HM07_ORAS                    737
+#define ITEM_DEVON_SCUBA_GEAR             738
+#define ITEM_CONTEST_COSTUME_MALE         739
+#define ITEM_CONTEST_COSTUME_FEMALE       740
+#define ITEM_MAGMA_SUIT                   741
+#define ITEM_AQUA_SUIT                    742
+#define ITEM_PAIR_OF_TICKETS              743
+#define ITEM_MEGA_BRACELET                744
+#define ITEM_MEGA_PENDANT                 745
+#define ITEM_MEGA_GLASSES                 746
+#define ITEM_MEGA_ANCHOR                  747
+#define ITEM_MEGA_STICKPIN                748
+#define ITEM_MEGA_TIARA                   749
+#define ITEM_MEGA_ANKLET                  750
+#define ITEM_METEORITE_ORAS_SECOND        751
+#define ITEM_SWAMPERTITE                  752
+#define ITEM_SCEPTILITE                   753
+#define ITEM_SABLENITE                    754
+#define ITEM_ALTARIANITE                  755
+#define ITEM_GALLADITE                    756
+#define ITEM_AUDINITE                     757
+#define ITEM_METAGROSSITE                 758
+#define ITEM_SHARPEDONITE                 759
+#define ITEM_SLOWBRONITE                  760
+#define ITEM_STEELIXITE                   761
+#define ITEM_PIDGEOTITE                   762
+#define ITEM_GLALITITE                    763
+#define ITEM_DIANCITE                     764
+#define ITEM_PRISON_BOTTLE                765
+#define ITEM_MEGA_CUFF                    766
+#define ITEM_CAMERUPTITE                  767
+#define ITEM_LOPUNNITE                    768
+#define ITEM_SALAMENCITE                  769
+#define ITEM_BEEDRILLITE                  770
+#define ITEM_METEORITE_ORAS_THIRD         771
+#define ITEM_METEORITE_ORAS_FINAL         772
+#define ITEM_KEY_STONE                    773
+#define ITEM_METEORITE_SHARD              774
+#define ITEM_EON_FLUTE                    775
+#define ITEM_NORMALIUM_Z_HELD             776
+#define ITEM_FIRIUM_Z_HELD                777
+#define ITEM_WATERIUM_Z_HELD              778
+#define ITEM_ELECTRIUM_Z_HELD             779
+#define ITEM_GRASSIUM_Z_HELD              780
+#define ITEM_ICIUM_Z_HELD                 781
+#define ITEM_FIGHTINIUM_Z_HELD            782
+#define ITEM_POISONIUM_Z_HELD             783
+#define ITEM_GROUNDIUM_Z_HELD             784
+#define ITEM_FLYINIUM_Z_HELD              785
+#define ITEM_PSYCHIUM_Z_HELD              786
+#define ITEM_BUGINIUM_Z_HELD              787
+#define ITEM_ROCKIUM_Z_HELD               788
+#define ITEM_GHOSTIUM_Z_HELD              789
+#define ITEM_DRAGONIUM_Z_HELD             790
+#define ITEM_DARKINIUM_Z_HELD             791
+#define ITEM_STEELIUM_Z_HELD              792
+#define ITEM_FAIRIUM_Z_HELD               793
+#define ITEM_PIKANIUM_Z_HELD              794
+#define ITEM_BOTTLE_CAP                   795
+#define ITEM_GOLD_BOTTLE_CAP              796
+#define ITEM_Z_RING                       797
+#define ITEM_DECIDIUM_Z_HELD              798
+#define ITEM_INCINIUM_Z_HELD              799
+#define ITEM_PRIMARIUM_Z_HELD             800
+#define ITEM_TAPUNIUM_Z_HELD              801
+#define ITEM_MARSHADIUM_Z_HELD            802
+#define ITEM_ALORAICHIUM_Z_HELD           803
+#define ITEM_SNORLIUM_Z_HELD              804
+#define ITEM_EEVIUM_Z_HELD                805
+#define ITEM_MEWNIUM_Z_HELD               806
+#define ITEM_NORMALIUM_Z_BAG              807
+#define ITEM_FIRIUM_Z_BAG                 808
+#define ITEM_WATERIUM_Z_BAG               809
+#define ITEM_ELECTRIUM_Z_BAG              810
+#define ITEM_GRASSIUM_Z_BAG               811
+#define ITEM_ICIUM_Z_BAG                  812
+#define ITEM_FIGHTINIUM_Z_BAG             813
+#define ITEM_POISONIUM_Z_BAG              814
+#define ITEM_GROUNDIUM_Z_BAG              815
+#define ITEM_FLYINIUM_Z_BAG               816
+#define ITEM_PSYCHIUM_Z_BAG               817
+#define ITEM_BUGINIUM_Z_BAG               818
+#define ITEM_ROCKIUM_Z_BAG                819
+#define ITEM_GHOSTIUM_Z_BAG               820
+#define ITEM_DRAGONIUM_Z_BAG              821
+#define ITEM_DARKINIUM_Z_BAG              822
+#define ITEM_STEELIUM_Z_BAG               823
+#define ITEM_FAIRIUM_Z_BAG                824
+#define ITEM_PIKANIUM_Z_BAG               825
+#define ITEM_DECIDIUM_Z_BAG               826
+#define ITEM_INCINIUM_Z_BAG               827
+#define ITEM_PRIMARIUM_Z_BAG              828
+#define ITEM_TAPUNIUM_Z_BAG               829
+#define ITEM_MARSHADIUM_Z_BAG             830
+#define ITEM_ALORAICHIUM_Z_BAG            831
+#define ITEM_SNORLIUM_Z_BAG               832
+#define ITEM_EEVIUM_Z_BAG                 833
+#define ITEM_MEWNIUM_Z_BAG                834
+#define ITEM_PIKASHUNIUM_Z_HELD           835
+#define ITEM_PIKASHUNIUM_Z_BAG            836
+#define ITEM_UNKNOWN_837                  837
+#define ITEM_UNKNOWN_838                  838
+#define ITEM_UNKNOWN_839                  839
+#define ITEM_UNKNOWN_840                  840
+#define ITEM_FORAGE_BAG                   841
+#define ITEM_FISHING_ROD_SM               842
+#define ITEM_PROFESSORS_MASK              843
+#define ITEM_FESTIVAL_TICKET              844
+#define ITEM_SPARKLING_STONE              845
+#define ITEM_ADRENALINE_ORB               846
+#define ITEM_ZYGARDE_CUBE                 847
+#define ITEM_UNKNOWN_848                  848
+#define ITEM_ICE_STONE                    849
+#define ITEM_RIDE_PAGER                   850
+#define ITEM_BEAST_BALL                   851
+#define ITEM_BIG_MALASADA                 852
+#define ITEM_RED_NECTAR                   853
+#define ITEM_YELLOW_NECTAR                854
+#define ITEM_PINK_NECTAR                  855
+#define ITEM_PURPLE_NECTAR                856
+#define ITEM_SUN_FLUTE                    857
+#define ITEM_MOON_FLUTE                   858
+#define ITEM_UNKNOWN_859                  859
+#define ITEM_ENIGMATIC_CARD               860
+#define ITEM_SILVER_RAZZ_BERRY            861
+#define ITEM_GOLDEN_RAZZ_BERRY            862
+#define ITEM_SILVER_NANAB_BERRY           863
+#define ITEM_GOLDEN_NANAB_BERRY           864
+#define ITEM_SILVER_PINAP_BERRY           865
+#define ITEM_GOLDEN_PINAP_BERRY           866
+#define ITEM_UNKNOWN_867                  867
+#define ITEM_UNKNOWN_868                  868
+#define ITEM_UNKNOWN_869                  869
+#define ITEM_UNKNOWN_870                  870
+#define ITEM_UNKNOWN_871                  871
+#define ITEM_SECRET_KEY_LGPE              872
+#define ITEM_SS_TICKET_LGPE               873
+#define ITEM_SILPH_SCOPE                  874
+#define ITEM_PARCEL_LGPE                  875
+#define ITEM_CARD_KEY_KANTO               876
+#define ITEM_GOLD_TEETH                   877
+#define ITEM_LIFT_KEY                     878
+#define ITEM_TERRAIN_EXTENDER             879
+#define ITEM_PROTECTIVE_PADS              880
+#define ITEM_ELECTRIC_SEED                881
+#define ITEM_PSYCHIC_SEED                 882
+#define ITEM_MISTY_SEED                   883
+#define ITEM_GRASSY_SEED                  884
+#define ITEM_STRETCHY_SPRING              885
+#define ITEM_CHALKY_STONE                 886
+#define ITEM_MARBLE                       887
+#define ITEM_LONE_EARRING                 888
+#define ITEM_BEACH_GLASS                  889
+#define ITEM_GOLD_LEAF                    890
+#define ITEM_SILVER_LEAF                  891
+#define ITEM_POLISHED_MUD_BALL            892
+#define ITEM_TROPICAL_SHELL               893
+#define ITEM_LEAF_LETTER_1                894
+#define ITEM_LEAF_LETTER_2                895
+#define ITEM_SMALL_BOUQUET                896
+#define ITEM_UNKNOWN_897                  897
+#define ITEM_UNKNOWN_898                  898
+#define ITEM_UNKNOWN_899                  899
+#define ITEM_LURE                         900
+#define ITEM_SUPER_LURE                   901
+#define ITEM_MAX_LURE                     902
+#define ITEM_PEWTER_CRUNCHIES             903
+#define ITEM_FIGHTING_MEMORY              904
+#define ITEM_FLYING_MEMORY                905
+#define ITEM_POISON_MEMORY                906
+#define ITEM_GROUND_MEMORY                907
+#define ITEM_ROCK_MEMORY                  908
+#define ITEM_BUG_MEMORY                   909
+#define ITEM_GHOST_MEMORY                 910
+#define ITEM_STEEL_MEMORY                 911
+#define ITEM_FIRE_MEMORY                  912
+#define ITEM_WATER_MEMORY                 913
+#define ITEM_GRASS_MEMORY                 914
+#define ITEM_ELECTRIC_MEMORY              915
+#define ITEM_PSYCHIC_MEMORY               916
+#define ITEM_ICE_MEMORY                   917
+#define ITEM_DRAGON_MEMORY                918
+#define ITEM_DARK_MEMORY                  919
+#define ITEM_FAIRY_MEMORY                 920
+#define ITEM_SOLGANIUM_Z_BAG              921
+#define ITEM_LUNALIUM_Z_BAG               922
+#define ITEM_ULTRANECROZIUM_Z_BAG         923
+#define ITEM_MIMIKIUM_Z_ITEM              924
+#define ITEM_LYCANIUM_Z_ITEM              925
+#define ITEM_KOMMONIUM_Z_ITEM             926
+#define ITEM_SOLGANIUM_Z_ITEM             927
+#define ITEM_LUNALIUM_Z_ITEM              928
+#define ITEM_ULTRANECROZIUM_Z_ITEM        929
+#define ITEM_MIMIKIUM_Z_BAG               930
+#define ITEM_LYCANIUM_Z_BAG               931
+#define ITEM_KOMMONIUM_Z_BAG              932
+#define ITEM_Z_POWER_RING                 933
+#define ITEM_PINK_PETAL                   934
+#define ITEM_ORANGE_PETAL                 935
+#define ITEM_BLUE_PETAL                   936
+#define ITEM_RED_PETAL                    937
+#define ITEM_GREEN_PETAL                  938
+#define ITEM_YELLOW_PETAL                 939
+#define ITEM_PURPLE_PETAL                 940
+#define ITEM_RAINBOW_FLOWER               941
+#define ITEM_SURGE_BADGE                  942
+#define ITEM_N_SOLARIZER_FUSE             943
+#define ITEM_N_LUNARIZER_FUSE             944
+#define ITEM_N_SOLARIZER_UNFUSE           945
+#define ITEM_N_LUNARIZER_UNFUSE           946
+#define ITEM_ILIMAS_NORMALIUM_Z           947
+#define ITEM_LEFT_POKE_BALL               948
+#define ITEM_ROTO_HATCH                   949
+#define ITEM_ROTO_BARGAIN                 950
+#define ITEM_ROTO_PRIZE_MONEY             951
+#define ITEM_ROTO_EXP_POINTS              952
+#define ITEM_ROTO_FRIENDSHIP              953
+#define ITEM_ROTO_ENCOUNTER               954
+#define ITEM_ROTO_STEALTH                 955
+#define ITEM_ROTO_HP_RESTORE              956
+#define ITEM_ROTO_PP_RESTORE              957
+#define ITEM_ROTO_BOOST                   958
+#define ITEM_ROTO_CATCH                   959
+#define ITEM_HEALTH_CANDY                 960
+#define ITEM_MIGHTY_CANDY                 961
+#define ITEM_TOUGH_CANDY                  962
+#define ITEM_SMART_CANDY                  963
+#define ITEM_COURAGE_CANDY                964
+#define ITEM_QUICK_CANDY                  965
+#define ITEM_HEALTH_CANDY_L               966
+#define ITEM_MIGHTY_CANDY_L               967
+#define ITEM_TOUGH_CANDY_L                968
+#define ITEM_SMART_CANDY_L                969
+#define ITEM_COURAGE_CANDY_L              970
+#define ITEM_QUICK_CANDY_L                971
+#define ITEM_HEALTH_CANDY_XL              972
+#define ITEM_MIGHTY_CANDY_XL              973
+#define ITEM_TOUGH_CANDY_XL               974
+#define ITEM_SMART_CANDY_XL               975
+#define ITEM_COURAGE_CANDY_XL             976
+#define ITEM_QUICK_CANDY_XL               977
+#define ITEM_BULBASAUR_CANDY              978
+#define ITEM_CHARMANDER_CANDY             979
+#define ITEM_SQUIRTLE_CANDY               980
+#define ITEM_CATERPIE_CANDY               981
+#define ITEM_WEEDLE_CANDY                 982
+#define ITEM_PIDGEY_CANDY                 983
+#define ITEM_RATTATA_CANDY                984
+#define ITEM_SPEAROW_CANDY                985
+#define ITEM_EKANS_CANDY                  986
+#define ITEM_PIKACHU_CANDY                987
+#define ITEM_SANDSHREW_CANDY              988
+#define ITEM_NIDORAN_FEMALE_CANDY         989
+#define ITEM_NIDORAN_MALE_CANDY           990
+#define ITEM_CLEFAIRY_CANDY               991
+#define ITEM_VULPIX_CANDY                 992
+#define ITEM_JIGGLYPUFF_CANDY             993
+#define ITEM_ZUBAT_CANDY                  994
+#define ITEM_ODDISH_CANDY                 995
+#define ITEM_PARAS_CANDY                  996
+#define ITEM_VENONAT_CANDY                997
+#define ITEM_DIGLETT_CANDY                998
+#define ITEM_MEOWTH_CANDY                 999
+#define ITEM_PSYDUCK_CANDY                1000
+#define ITEM_MANKEY_CANDY                 1001
+#define ITEM_GROWLITHE_CANDY              1002
+#define ITEM_POLIWAG_CANDY                1003
+#define ITEM_ABRA_CANDY                   1004
+#define ITEM_MACHOP_CANDY                 1005
+#define ITEM_BELLSPROUT_CANDY             1006
+#define ITEM_TENTACOOL_CANDY              1007
+#define ITEM_GEODUDE_CANDY                1008
+#define ITEM_PONYTA_CANDY                 1009
+#define ITEM_SLOWPOKE_CANDY               1010
+#define ITEM_MAGNEMITE_CANDY              1011
+#define ITEM_FARFETCHD_CANDY              1012
+#define ITEM_DODUO_CANDY                  1013
+#define ITEM_SEEL_CANDY                   1014
+#define ITEM_GRIMER_CANDY                 1015
+#define ITEM_SHELLDER_CANDY               1016
+#define ITEM_GASTLY_CANDY                 1017
+#define ITEM_ONIX_CANDY                   1018
+#define ITEM_DROWZEE_CANDY                1019
+#define ITEM_KRABBY_CANDY                 1020
+#define ITEM_VOLTORB_CANDY                1021
+#define ITEM_EXEGGCUTE_CANDY              1022
+#define ITEM_CUBONE_CANDY                 1023
+#define ITEM_HITMONLEE_CANDY              1024
+#define ITEM_HITMONCHAN_CANDY             1025
+#define ITEM_LICKITUNG_CANDY              1026
+#define ITEM_KOFFING_CANDY                1027
+#define ITEM_RHYHORN_CANDY                1028
+#define ITEM_CHANSEY_CANDY                1029
+#define ITEM_TANGELA_CANDY                1030
+#define ITEM_KANGASKHAN_CANDY             1031
+#define ITEM_HORSEA_CANDY                 1032
+#define ITEM_GOLDEEN_CANDY                1033
+#define ITEM_STARYU_CANDY                 1034
+#define ITEM_MR_MIME_CANDY                1035
+#define ITEM_SCYTHER_CANDY                1036
+#define ITEM_JYNX_CANDY                   1037
+#define ITEM_ELECTABUZZ_CANDY             1038
+#define ITEM_PINSIR_CANDY                 1039
+#define ITEM_TAUROS_CANDY                 1040
+#define ITEM_MAGIKARP_CANDY               1041
+#define ITEM_LAPRAS_CANDY                 1042
+#define ITEM_DITTO_CANDY                  1043
+#define ITEM_EEVEE_CANDY                  1044
+#define ITEM_PORYGON_CANDY                1045
+#define ITEM_OMANYTE_CANDY                1046
+#define ITEM_KABUTO_CANDY                 1047
+#define ITEM_AERODACTYL_CANDY             1048
+#define ITEM_SNORLAX_CANDY                1049
+#define ITEM_ARTICUNO_CANDY               1050
+#define ITEM_ZAPDOS_CANDY                 1051
+#define ITEM_MOLTRES_CANDY                1052
+#define ITEM_DRATINI_CANDY                1053
+#define ITEM_MEWTWO_CANDY                 1054
+#define ITEM_MEW_CANDY                    1055
+#define ITEM_MELTAN_CANDY                 1056
+#define ITEM_MAGMAR_CANDY                 1057
+#define ITEM_UNKNOWN_1058                 1058
+#define ITEM_UNKNOWN_1059                 1059
+#define ITEM_UNKNOWN_1060                 1060
+#define ITEM_UNKNOWN_1061                 1061
+#define ITEM_UNKNOWN_1062                 1062
+#define ITEM_UNKNOWN_1063                 1063
+#define ITEM_UNKNOWN_1064                 1064
+#define ITEM_UNKNOWN_1065                 1065
+#define ITEM_UNKNOWN_1066                 1066
+#define ITEM_UNKNOWN_1067                 1067
+#define ITEM_UNKNOWN_1068                 1068
+#define ITEM_UNKNOWN_1069                 1069
+#define ITEM_UNKNOWN_1070                 1070
+#define ITEM_UNKNOWN_1071                 1071
+#define ITEM_UNKNOWN_1072                 1072
+#define ITEM_UNKNOWN_1073                 1073
+#define ITEM_ENDORSEMENT                  1074
+#define ITEM_POKEMON_BOX_LINK             1075
+#define ITEM_WISHING_STAR                 1076
+#define ITEM_DYNAMAX_BAND                 1077
+#define ITEM_UNKNOWN_1078                 1078
+#define ITEM_UNKNOWN_1079                 1079
+#define ITEM_FISHING_ROD_SWSH             1080
+#define ITEM_ROTOM_BIKE_LAND_MODE         1081
+#define ITEM_UNKNOWN_1082                 1082
+#define ITEM_UNKNOWN_1083                 1083
+#define ITEM_SAUSAGES                     1084
+#define ITEM_BOBS_FOOD_TIN                1085
+#define ITEM_BACHS_FOOD_TIN               1086
+#define ITEM_TIN_OF_BEANS                 1087
+#define ITEM_BREAD                        1088
+#define ITEM_PASTA                        1089
+#define ITEM_MIXED_MUSHROOMS              1090
+#define ITEM_SMOKE_POKE_TAIL              1091
+#define ITEM_LARGE_LEEK                   1092
+#define ITEM_FANCY_APPLE                  1093
+#define ITEM_BRITTLE_BONES                1094
+#define ITEM_PACK_OF_POTATOES             1095
+#define ITEM_PUNGENT_ROOT                 1096
+#define ITEM_SALAD_MIX                    1097
+#define ITEM_FRIED_FOOD                   1098
+#define ITEM_BOILED_EGG                   1099
+#define ITEM_CAMPING_GEAR                 1100
+#define ITEM_UNKNOWN_1101                 1101
+#define ITEM_UNKNOWN_1102                 1102
+#define ITEM_RUSTED_SWORD                 1103
+#define ITEM_RUSTED_SHIELD                1104
+#define ITEM_FOSSILIZED_BIRD              1105
+#define ITEM_FOSSILIZED_FISH              1106
+#define ITEM_FOSSILIZED_DRAKE             1107
+#define ITEM_FOSSILIZED_DINO              1108
+#define ITEM_STRAWBERRY_SWEET             1109
+#define ITEM_LOVE_SWEET                   1110
+#define ITEM_BERRY_SWEET                  1111
+#define ITEM_CLOVER_SWEET                 1112
+#define ITEM_FLOWER_SWEET                 1113
+#define ITEM_STAR_SWEET                   1114
+#define ITEM_RIBBON_SWEET                 1115
+#define ITEM_SWEET_APPLE                  1116
+#define ITEM_TART_APPLE                   1117
+#define ITEM_THROAT_SPRAY                 1118
+#define ITEM_EJECT_PACK                   1119
+#define ITEM_HEAVY_DUTY_BOOTS             1120
+#define ITEM_BLUNDER_POLICY               1121
+#define ITEM_ROOM_SERVICE                 1122
+#define ITEM_UTILITY_UMBRELLA             1123
+#define ITEM_EXP_CANDY_XS                 1124
+#define ITEM_EXP_CANDY_S                  1125
+#define ITEM_EXP_CANDY_M                  1126
+#define ITEM_EXP_CANDY_L                  1127
+#define ITEM_EXP_CANDY_XL                 1128
+#define ITEM_DYNAMAX_CANDY                1129
+#define ITEM_TR00                         1130
+#define ITEM_TR01                         1131
+#define ITEM_TR02                         1132
+#define ITEM_TR03                         1133
+#define ITEM_TR04                         1134
+#define ITEM_TR05                         1135
+#define ITEM_TR06                         1136
+#define ITEM_TR07                         1137
+#define ITEM_TR08                         1138
+#define ITEM_TR09                         1139
+#define ITEM_TR10                         1140
+#define ITEM_TR11                         1141
+#define ITEM_TR12                         1142
+#define ITEM_TR13                         1143
+#define ITEM_TR14                         1144
+#define ITEM_TR15                         1145
+#define ITEM_TR16                         1146
+#define ITEM_TR17                         1147
+#define ITEM_TR18                         1148
+#define ITEM_TR19                         1149
+#define ITEM_TR20                         1150
+#define ITEM_TR21                         1151
+#define ITEM_TR22                         1152
+#define ITEM_TR23                         1153
+#define ITEM_TR24                         1154
+#define ITEM_TR25                         1155
+#define ITEM_TR26                         1156
+#define ITEM_TR27                         1157
+#define ITEM_TR28                         1158
+#define ITEM_TR29                         1159
+#define ITEM_TR30                         1160
+#define ITEM_TR31                         1161
+#define ITEM_TR32                         1162
+#define ITEM_TR33                         1163
+#define ITEM_TR34                         1164
+#define ITEM_TR35                         1165
+#define ITEM_TR36                         1166
+#define ITEM_TR37                         1167
+#define ITEM_TR38                         1168
+#define ITEM_TR39                         1169
+#define ITEM_TR40                         1170
+#define ITEM_TR41                         1171
+#define ITEM_TR42                         1172
+#define ITEM_TR43                         1173
+#define ITEM_TR44                         1174
+#define ITEM_TR45                         1175
+#define ITEM_TR46                         1176
+#define ITEM_TR47                         1177
+#define ITEM_TR48                         1178
+#define ITEM_TR49                         1179
+#define ITEM_TR50                         1180
+#define ITEM_TR51                         1181
+#define ITEM_TR52                         1182
+#define ITEM_TR53                         1183
+#define ITEM_TR54                         1184
+#define ITEM_TR55                         1185
+#define ITEM_TR56                         1186
+#define ITEM_TR57                         1187
+#define ITEM_TR58                         1188
+#define ITEM_TR59                         1189
+#define ITEM_TR60                         1190
+#define ITEM_TR61                         1191
+#define ITEM_TR62                         1192
+#define ITEM_TR63                         1193
+#define ITEM_TR64                         1194
+#define ITEM_TR65                         1195
+#define ITEM_TR66                         1196
+#define ITEM_TR67                         1197
+#define ITEM_TR68                         1198
+#define ITEM_TR69                         1199
+#define ITEM_TR70                         1200
+#define ITEM_TR71                         1201
+#define ITEM_TR72                         1202
+#define ITEM_TR73                         1203
+#define ITEM_TR74                         1204
+#define ITEM_TR75                         1205
+#define ITEM_TR76                         1206
+#define ITEM_TR77                         1207
+#define ITEM_TR78                         1208
+#define ITEM_TR79                         1209
+#define ITEM_TR80                         1210
+#define ITEM_TR81                         1211
+#define ITEM_TR82                         1212
+#define ITEM_TR83                         1213
+#define ITEM_TR84                         1214
+#define ITEM_TR85                         1215
+#define ITEM_TR86                         1216
+#define ITEM_TR87                         1217
+#define ITEM_TR88                         1218
+#define ITEM_TR89                         1219
+#define ITEM_TR90                         1220
+#define ITEM_TR91                         1221
+#define ITEM_TR92                         1222
+#define ITEM_TR93                         1223
+#define ITEM_TR94                         1224
+#define ITEM_TR95                         1225
+#define ITEM_TR96                         1226
+#define ITEM_TR97                         1227
+#define ITEM_TR98                         1228
+#define ITEM_TR99                         1229
+#define ITEM_TM00                         1230
+#define ITEM_LONELY_MINT                  1231
+#define ITEM_ADAMANT_MINT                 1232
+#define ITEM_NAUGHTY_MINT                 1233
+#define ITEM_BRAVE_MINT                   1234
+#define ITEM_BOLD_MINT                    1235
+#define ITEM_IMPISH_MINT                  1236
+#define ITEM_LAX_MINT                     1237
+#define ITEM_RELAXED_MINT                 1238
+#define ITEM_MODEST_MINT                  1239
+#define ITEM_MILD_MINT                    1240
+#define ITEM_RASH_MINT                    1241
+#define ITEM_QUIET_MINT                   1242
+#define ITEM_CALM_MINT                    1243
+#define ITEM_GENTLE_MINT                  1244
+#define ITEM_CAREFUL_MINT                 1245
+#define ITEM_SASSY_MINT                   1246
+#define ITEM_TIMID_MINT                   1247
+#define ITEM_HASTY_MINT                   1248
+#define ITEM_JOLLY_MINT                   1249
+#define ITEM_NAIVE_MINT                   1250
+#define ITEM_SERIOUS_MINT                 1251
+#define ITEM_WISHING_PIECE                1252
+#define ITEM_CRACKED_POT                  1253
+#define ITEM_CHIPPED_POT                  1254
+#define ITEM_HI_TECH_EARBUDS              1255
+#define ITEM_FRUIT_BUNCH                  1256
+#define ITEM_MOOMOO_CHEESE                1257
+#define ITEM_SPICE_MIX                    1258
+#define ITEM_FRESH_CREAM                  1259
+#define ITEM_PACKAGED_CURRY               1260
+#define ITEM_COCONUT_MILK                 1261
+#define ITEM_INSTANT_NOODLES              1262
+#define ITEM_PRECOOKED_BURGER             1263
+#define ITEM_GIGANTAMIX                   1264
+#define ITEM_WISHING_CHIP                 1265
+#define ITEM_ROTOM_BIKE_WATER_MODE        1266
+#define ITEM_CATCHING_CHARM               1267
+#define ITEM_UNKNOWN_1268                 1268
+#define ITEM_OLD_LETTER                   1269
+#define ITEM_BAND_AUTOGRAPH               1270
+#define ITEM_SONIAS_BOOK                  1271
+#define ITEM_UNKNOWN_1272                 1272
+#define ITEM_UNKNOWN_1273                 1273
+#define ITEM_UNKNOWN_1274                 1274
+#define ITEM_UNKNOWN_1275                 1275
+#define ITEM_UNKNOWN_1276                 1276
+#define ITEM_UNKNOWN_1277                 1277
+#define ITEM_ROTOM_CATALOG                1278
+#define ITEM_AND458                       1279
+#define ITEM_AND15                        1280
+#define ITEM_AND337                       1281
+#define ITEM_AND603                       1282
+#define ITEM_AND390                       1283
+#define ITEM_SGR6879                      1284
+#define ITEM_SGR6859                      1285
+#define ITEM_SGR6913                      1286
+#define ITEM_SGR7348                      1287
+#define ITEM_SGR7121                      1288
+#define ITEM_SGR6746                      1289
+#define ITEM_SGR7194                      1290
+#define ITEM_SGR7337                      1291
+#define ITEM_SGR7343                      1292
+#define ITEM_SGR6812                      1293
+#define ITEM_SGR7116                      1294
+#define ITEM_SGR7264                      1295
+#define ITEM_SGR7597                      1296
+#define ITEM_DEL7882                      1297
+#define ITEM_DEL7906                      1298
+#define ITEM_DEL7852                      1299
+#define ITEM_PSC596                       1300
+#define ITEM_PSC361                       1301
+#define ITEM_PSC510                       1302
+#define ITEM_PSC437                       1303
+#define ITEM_PSC8773                      1304
+#define ITEM_LEP1865                      1305
+#define ITEM_LEP1829                      1306
+#define ITEM_BOO5340                      1307
+#define ITEM_BOO5506                      1308
+#define ITEM_BOO5435                      1309
+#define ITEM_BOO5602                      1310
+#define ITEM_BOO5733                      1311
+#define ITEM_BOO5235                      1312
+#define ITEM_BOO5351                      1313
+#define ITEM_HYA3748                      1314
+#define ITEM_HYA3903                      1315
+#define ITEM_HYA3418                      1316
+#define ITEM_HYA3482                      1317
+#define ITEM_HYA3845                      1318
+#define ITEM_ERI1084                      1319
+#define ITEM_ERI472                       1320
+#define ITEM_ERI1666                      1321
+#define ITEM_ERI897                       1322
+#define ITEM_ERI1231                      1323
+#define ITEM_ERI874                       1324
+#define ITEM_ERI1298                      1325
+#define ITEM_ERI1325                      1326
+#define ITEM_ERI984                       1327
+#define ITEM_ERI1464                      1328
+#define ITEM_ERI1393                      1329
+#define ITEM_ERI850                       1330
+#define ITEM_TAU1409                      1331
+#define ITEM_TAU1457                      1332
+#define ITEM_TAU1165                      1333
+#define ITEM_TAU1791                      1334
+#define ITEM_TAU1910                      1335
+#define ITEM_TAU1346                      1336
+#define ITEM_TAU1373                      1337
+#define ITEM_TAU1412                      1338
+#define ITEM_CMA2491                      1339
+#define ITEM_CMA2693                      1340
+#define ITEM_CMA2294                      1341
+#define ITEM_CMA2827                      1342
+#define ITEM_CMA2282                      1343
+#define ITEM_CMA2618                      1344
+#define ITEM_CMA2657                      1345
+#define ITEM_CMA2646                      1346
+#define ITEM_UMA4905                      1347
+#define ITEM_UMA4301                      1348
+#define ITEM_UMA5191                      1349
+#define ITEM_UMA5054                      1350
+#define ITEM_UMA4295                      1351
+#define ITEM_UMA4660                      1352
+#define ITEM_UMA4554                      1353
+#define ITEM_UMA4069                      1354
+#define ITEM_UMA3569                      1355
+#define ITEM_UMA3323                      1356
+#define ITEM_UMA4033                      1357
+#define ITEM_UMA4377                      1358
+#define ITEM_UMA4375                      1359
+#define ITEM_UMA4518                      1360
+#define ITEM_UMA3594                      1361
+#define ITEM_VIR5056                      1362
+#define ITEM_VIR4825                      1363
+#define ITEM_VIR4932                      1364
+#define ITEM_VIR4540                      1365
+#define ITEM_VIR4689                      1366
+#define ITEM_VIR5338                      1367
+#define ITEM_VIR4910                      1368
+#define ITEM_VIR5315                      1369
+#define ITEM_VIR5359                      1370
+#define ITEM_VIR5409                      1371
+#define ITEM_VIR5107                      1372
+#define ITEM_ARI617                       1373
+#define ITEM_ARI553                       1374
+#define ITEM_ARI546                       1375
+#define ITEM_ARI951                       1376
+#define ITEM_ORI1713                      1377
+#define ITEM_ORI2061                      1378
+#define ITEM_ORI1790                      1379
+#define ITEM_ORI1903                      1380
+#define ITEM_ORI1948                      1381
+#define ITEM_ORI2004                      1382
+#define ITEM_ORI1852                      1383
+#define ITEM_ORI1879                      1384
+#define ITEM_ORI1899                      1385
+#define ITEM_ORI1543                      1386
+#define ITEM_CAS21                        1387
+#define ITEM_CAS168                       1388
+#define ITEM_CAS403                       1389
+#define ITEM_CAS153                       1390
+#define ITEM_CAS542                       1391
+#define ITEM_CAS219                       1392
+#define ITEM_CAS265                       1393
+#define ITEM_CNC3572                      1394
+#define ITEM_CNC3208                      1395
+#define ITEM_CNC3461                      1396
+#define ITEM_CNC3449                      1397
+#define ITEM_CNC3429                      1398
+#define ITEM_CNC3627                      1399
+#define ITEM_CNC3268                      1400
+#define ITEM_CNC3249                      1401
+#define ITEM_COM4968                      1402
+#define ITEM_CRV4757                      1403
+#define ITEM_CRV4623                      1404
+#define ITEM_CRV4662                      1405
+#define ITEM_CRV4786                      1406
+#define ITEM_AUR1708                      1407
+#define ITEM_AUR2088                      1408
+#define ITEM_AUR1605                      1409
+#define ITEM_AUR2095                      1410
+#define ITEM_AUR1577                      1411
+#define ITEM_AUR1641                      1412
+#define ITEM_AUR1612                      1413
+#define ITEM_PAV7790                      1414
+#define ITEM_CET911                       1415
+#define ITEM_CET681                       1416
+#define ITEM_CET188                       1417
+#define ITEM_CET539                       1418
+#define ITEM_CET804                       1419
+#define ITEM_CEP8974                      1420
+#define ITEM_CEP8162                      1421
+#define ITEM_CEP8238                      1422
+#define ITEM_CEP8417                      1423
+#define ITEM_CEN5267                      1424
+#define ITEM_CEN5288                      1425
+#define ITEM_CEN551                       1426
+#define ITEM_CEN5459                      1427
+#define ITEM_CEN5460                      1428
+#define ITEM_CMI2943                      1429
+#define ITEM_CMI2845                      1430
+#define ITEM_EQU8131                      1431
+#define ITEM_VUL7405                      1432
+#define ITEM_UMI424                       1433
+#define ITEM_UMI5563                      1434
+#define ITEM_UMI5735                      1435
+#define ITEM_UMI6789                      1436
+#define ITEM_CRT4287                      1437
+#define ITEM_LYR7001                      1438
+#define ITEM_LYR7178                      1439
+#define ITEM_LYR7106                      1440
+#define ITEM_LYR7298                      1441
+#define ITEM_ARA6585                      1442
+#define ITEM_SCO6134                      1443
+#define ITEM_SCO6527                      1444
+#define ITEM_SCO6553                      1445
+#define ITEM_SCO5953                      1446
+#define ITEM_SCO5984                      1447
+#define ITEM_SCO6508                      1448
+#define ITEM_SCO6084                      1449
+#define ITEM_SCO5944                      1450
+#define ITEM_SCO6630                      1451
+#define ITEM_SCO6027                      1452
+#define ITEM_SCO6247                      1453
+#define ITEM_SCO6252                      1454
+#define ITEM_SCO5928                      1455
+#define ITEM_SCO6241                      1456
+#define ITEM_SCO6165                      1457
+#define ITEM_TRI544                       1458
+#define ITEM_LEO3982                      1459
+#define ITEM_LEO4534                      1460
+#define ITEM_LEO4357                      1461
+#define ITEM_LEO4057                      1462
+#define ITEM_LEO4359                      1463
+#define ITEM_LEO4031                      1464
+#define ITEM_LEO3852                      1465
+#define ITEM_LEO3905                      1466
+#define ITEM_LEO3773                      1467
+#define ITEM_GRU8425                      1468
+#define ITEM_GRU8636                      1469
+#define ITEM_GRU8353                      1470
+#define ITEM_LIB5685                      1471
+#define ITEM_LIB5531                      1472
+#define ITEM_LIB5787                      1473
+#define ITEM_LIB5603                      1474
+#define ITEM_PUP3165                      1475
+#define ITEM_PUP3185                      1476
+#define ITEM_PUP3045                      1477
+#define ITEM_CYG7924                      1478
+#define ITEM_CYG7417                      1479
+#define ITEM_CYG7796                      1480
+#define ITEM_CYG8301                      1481
+#define ITEM_CYG7949                      1482
+#define ITEM_CYG7528                      1483
+#define ITEM_OCT7228                      1484
+#define ITEM_COL1956                      1485
+#define ITEM_COL2040                      1486
+#define ITEM_COL2177                      1487
+#define ITEM_GEM2990                      1488
+#define ITEM_GEM2891                      1489
+#define ITEM_GEM2421                      1490
+#define ITEM_GEM2473                      1491
+#define ITEM_GEM2216                      1492
+#define ITEM_GEM2777                      1493
+#define ITEM_GEM2650                      1494
+#define ITEM_GEM2286                      1495
+#define ITEM_GEM2484                      1496
+#define ITEM_GEM2930                      1497
+#define ITEM_PEG8775                      1498
+#define ITEM_PEG8781                      1499
+#define ITEM_PEG39                        1500
+#define ITEM_PEG8308                      1501
+#define ITEM_PEG8650                      1502
+#define ITEM_PEG8634                      1503
+#define ITEM_PEG8684                      1504
+#define ITEM_PEG8450                      1505
+#define ITEM_PEG8880                      1506
+#define ITEM_PEG8905                      1507
+#define ITEM_OPH6556                      1508
+#define ITEM_OPH6378                      1509
+#define ITEM_OPH6603                      1510
+#define ITEM_OPH6149                      1511
+#define ITEM_OPH6056                      1512
+#define ITEM_OPH6075                      1513
+#define ITEM_SER5854                      1514
+#define ITEM_SER7141                      1515
+#define ITEM_SER5879                      1516
+#define ITEM_HER6406                      1517
+#define ITEM_HER6148                      1518
+#define ITEM_HER6410                      1519
+#define ITEM_HER6526                      1520
+#define ITEM_HER6117                      1521
+#define ITEM_HER6008                      1522
+#define ITEM_PER936                       1523
+#define ITEM_PER1017                      1524
+#define ITEM_PER1131                      1525
+#define ITEM_PER1228                      1526
+#define ITEM_PER834                       1527
+#define ITEM_PER941                       1528
+#define ITEM_PHE99                        1529
+#define ITEM_PHE338                       1530
+#define ITEM_VEL3634                      1531
+#define ITEM_VEL3485                      1532
+#define ITEM_VEL3734                      1533
+#define ITEM_AQR8232                      1534
+#define ITEM_AQR8414                      1535
+#define ITEM_AQR8709                      1536
+#define ITEM_AQR8518                      1537
+#define ITEM_AQR7950                      1538
+#define ITEM_AQR8499                      1539
+#define ITEM_AQR8610                      1540
+#define ITEM_AQR8264                      1541
+#define ITEM_CRU4853                      1542
+#define ITEM_CRU4730                      1543
+#define ITEM_CRU4763                      1544
+#define ITEM_CRU4700                      1545
+#define ITEM_CRU4656                      1546
+#define ITEM_PSA8728                      1547
+#define ITEM_TRA6217                      1548
+#define ITEM_CAP7776                      1549
+#define ITEM_CAP7754                      1550
+#define ITEM_CAP8278                      1551
+#define ITEM_CAP8322                      1552
+#define ITEM_CAP7773                      1553
+#define ITEM_SGE7479                      1554
+#define ITEM_CAR2326                      1555
+#define ITEM_CAR3685                      1556
+#define ITEM_CAR3307                      1557
+#define ITEM_CAR3699                      1558
+#define ITEM_DRA5744                      1559
+#define ITEM_DRA5291                      1560
+#define ITEM_DRA6705                      1561
+#define ITEM_DRA6536                      1562
+#define ITEM_DRA7310                      1563
+#define ITEM_DRA6688                      1564
+#define ITEM_DRA4434                      1565
+#define ITEM_DRA6370                      1566
+#define ITEM_DRA7462                      1567
+#define ITEM_DRA6396                      1568
+#define ITEM_DRA6132                      1569
+#define ITEM_DRA6636                      1570
+#define ITEM_CVN4915                      1571
+#define ITEM_CVN4785                      1572
+#define ITEM_CVN4846                      1573
+#define ITEM_AQL7595                      1574
+#define ITEM_AQL7557                      1575
+#define ITEM_AQL7525                      1576
+#define ITEM_AQL7602                      1577
+#define ITEM_AQL7235                      1578
+#define ITEM_MAX_HONEY                    1579
+#define ITEM_MAX_MUSHROOMS                1580
+#define ITEM_GALARICA_TWIG                1581
+#define ITEM_GALARICA_CUFF                1582
+#define ITEM_STYLE_CARD                   1583
+#define ITEM_ARMOR_PASS                   1584
+#define ITEM_ROTOM_BIKE_SPARKLING_WHITE   1585
+#define ITEM_ROTOM_BIKE_GLISTENING_BLACK  1586
+#define ITEM_EXP_CHARM                    1587
+#define ITEM_ARMORITE_ORE                 1588
+#define ITEM_MARK_CHARM                   1589
+#define ITEM_REINS_OF_UNITY_FUSE          1590
+#define ITEM_REINS_OF_UNITY_UNFUSE        1591
+#define ITEM_GALARICA_WREATH              1592
+#define ITEM_LEGENDARY_CLUE_1             1593
+#define ITEM_LEGENDARY_CLUE_2             1594
+#define ITEM_LEGENDARY_CLUE_3             1595
+#define ITEM_LEGENDARY_CLUE_UNKNOWN_1596  1596
+#define ITEM_CROWN_PASS                   1597
+#define ITEM_WOODEN_CROWN                 1598
+#define ITEM_RADIANT_PETAL                1599
+#define ITEM_WHITE_MANE_HAIR              1600
+#define ITEM_BLACK_MANE_HAIR              1601
+#define ITEM_ICEROOT_CARROT               1602
+#define ITEM_SHADEROOT_CARROT             1603
+#define ITEM_DYNITE_ORE                   1604
+#define ITEM_CARROT_SEEDS                 1605
+#define ITEM_ABILITY_PATCH                1606
+#define ITEM_REINS_OF_UNITY_NOT_SURE      1607
+#define ITEM_TIME_BALM                    1608
+#define ITEM_SPACE_BALM                   1609
+#define ITEM_MYSTERIOUS_BALM              1610
+#define ITEM_LINKING_CORD                 1611
+#define ITEM_HOMETOWN_MUFFIN              1612
+#define ITEM_APRICORN                     1613
+#define ITEM_JUBILIFE_MUFFIN              1614
+#define ITEM_AUX_POWERGUARD               1615
+#define ITEM_DIRE_HIT_PLA                  1616
+#define ITEM_CHOICE_DUMPLING              1617
+#define ITEM_TWICE_SPICED_RADISH          1618
+#define ITEM_SWAP_SNACK                   1619
+#define ITEM_CASTER_FERN                  1620
+#define ITEM_SEED_OF_MASTERY              1621
+#define ITEM_POKE_BALL_PLA_UNUSED         1622
+#define ITEM_UNKNOWN_1623                 1623
+#define ITEM_ETERNAL_ICE                  1624
+#define ITEM_UXIES_CLAW                   1625
+#define ITEM_AZELFS_FANG                  1626
+#define ITEM_MESPRITS_PLUME               1627
+#define ITEM_TUMBLESTONE                  1628
+#define ITEM_CELESTICA_FLUTE              1629
+#define ITEM_REMEDY                       1630
+#define ITEM_FINE_REMEDY                  1631
+#define ITEM_DAZZLING_HONEY               1632
+#define ITEM_HEARTY_GRAINS                1633
+#define ITEM_PLUMP_BEANS                  1634
+#define ITEM_SPRINGY_MUSHROOM             1635
+#define ITEM_CRUNCHY_SALT                 1636
+#define ITEM_WOOD                         1637
+#define ITEM_KINGS_LEAF                   1638
+#define ITEM_MARSH_BALM                   1639
+#define ITEM_POKE_BALL_RECIPE             1640
+#define ITEM_GREAT_BALL_RECIPE            1641
+#define ITEM_ULTRA_BALL_RECIPE            1642
+#define ITEM_FEATHER_BALL_RECIPE          1643
+#define ITEM_POKESHI_DOLL_RECIPE          1644
+#define ITEM_UNKNOWN_1645                 1645
+#define ITEM_SMOKE_BOMB_RECIPE            1646
+#define ITEM_SCATTER_BANG_RECIPE          1647
+#define ITEM_STICKY_GLOB_RECIPE           1648
+#define ITEM_STAR_PIECE_RECIPE            1649
+#define ITEM_MUSHROOM_CAKE_RECIPE         1650
+#define ITEM_BUGWORT_RECIPE               1651
+#define ITEM_HONEY_CAKE_RECIPE            1652
+#define ITEM_GRAIN_CAKE_RECIPE            1653
+#define ITEM_BEAN_CAKE_RECIPE             1654
+#define ITEM_SALT_CAKE_RECIPE             1655
+#define ITEM_POTION_RECIPE                1656
+#define ITEM_SUPER_POTION_RECIPE          1657
+#define ITEM_HYPER_POTION_RECIPE          1658
+#define ITEM_MAX_POTION_RECIPE            1659
+#define ITEM_FULL_RESTORE_RECIPE          1660
+#define ITEM_REMEDY_RECIPE                1661
+#define ITEM_FINE_REMEDY_RECIPE           1662
+#define ITEM_SUPERB_REMEDY_RECIPE         1663
+#define ITEM_OLD_GATEAU_RECIPE            1664
+#define ITEM_JUBILIFE_MUFFIN_RECIPE       1665
+#define ITEM_FULL_HEAL_RECIPE             1666
+#define ITEM_REVIVE_RECIPE                1667
+#define ITEM_MAX_REVIVE_RECIPE            1668
+#define ITEM_MAX_ETHER_RECIPE             1669
+#define ITEM_MAX_ELIXIR_RECIPE            1670
+#define ITEM_STEALTH_SPRAY_RECIPE         1671
+#define ITEM_UNKNOWN_1672                 1672
+#define ITEM_AUX_POWER_RECIPE             1673
+#define ITEM_AUX_GUARD_RECIPE_RECIPE      1674
+#define ITEM_DIRE_HIT_RECIPE              1675
+#define ITEM_AUX_EVASION_RECIPE           1676
+#define ITEM_AUX_POWERGUARD_RECIPE        1677
+#define ITEM_FOREST_BALM                  1678
+#define ITEM_IRON_CHUNK                   1679
+#define ITEM_UNKNOWN_1680                 1680
+#define ITEM_BLACK_TUMBLESTONE            1681
+#define ITEM_SKY_TUMBLESTONE              1682
+#define ITEM_UNKNOWN_1683                 1683
+#define ITEM_BALL_OF_MUD                  1684
+#define ITEM_UNKNOWN_1685                 1685
+#define ITEM_POP_POD                      1686
+#define ITEM_SOOTFOOT_ROOT                1687
+#define ITEM_SPOILED_APRICORN             1688
+#define ITEM_SNOWBALL_PLA                  1689
+#define ITEM_STICKY_GLOB                  1690
+#define ITEM_BLACK_AUGURITE               1691
+#define ITEM_PEAT_BLOCK                   1692
+#define ITEM_STEALTH_SPRAY                1693
+#define ITEM_MEDICINAL_LEEK               1694
+#define ITEM_VIVICHOKE                    1695
+#define ITEM_PEP_UP_PLANT                 1696
+#define ITEM_UNKNOWN_1697                 1697
+#define ITEM_UNKNOWN_1698                 1698
+#define ITEM_TEMPTING_CHARM_B             1699
+#define ITEM_TEMPTING_CHARM_P             1700
+#define ITEM_SWORDCAP                     1701
+#define ITEM_IRON_BARKTONGUE              1702
+#define ITEM_DOPPEL_BONNETS               1703
+#define ITEM_DIRESHROOM                   1704
+#define ITEM_SAND_RADISH                  1705
+#define ITEM_TEMPTING_CHARM_T             1706
+#define ITEM_TEMPTING_CHARM_Y             1707
+#define ITEM_CANDY_TRUFFLE                1708
+#define ITEM_CAKE_LURE_BASE               1709
+#define ITEM_POKE_BALL_PLA                1710
+#define ITEM_GREAT_BALL_PLA               1711
+#define ITEM_ULTRA_BALL_PLA               1712
+#define ITEM_FEATHER_BALL                 1713
+#define ITEM_UNKNOWN_1714                 1714
+#define ITEM_UNKNOWN_1715                 1715
+#define ITEM_SCATTER_BANG                 1716
+#define ITEM_SMOKE_BOMB                   1717
+#define ITEM_UNKNOWN_1718                 1718
+#define ITEM_UNKNOWN_1719                 1719
+#define ITEM_POKESHI_DOLL                 1720
+#define ITEM_VOLCANO_BALM                 1721
+#define ITEM_MOUNTAIN_BALM                1722
+#define ITEM_SNOW_BALM                    1723
+#define ITEM_HONEY_CAKE                   1724
+#define ITEM_GRAIN_CAKE                   1725
+#define ITEM_BEAN_CAKE                    1726
+#define ITEM_MUSHROOM_CAKE                1727
+#define ITEM_SALT_CAKE                    1728
+#define ITEM_SWAP_SNACK_RECIPE            1729
+#define ITEM_CHOICE_DUMPLING_RECIPE       1730
+#define ITEM_TWICE_SPICED_RADISH_RECIPE   1731
+#define ITEM_SURVIVAL_CHARM_R             1732
+#define ITEM_SURVIVAL_CHARM_B             1733
+#define ITEM_SURVIVAL_CHARM_P             1734
+#define ITEM_SURVIVAL_CHARM_T             1735
+#define ITEM_SURVIVAL_CHARM_Y             1736
+#define ITEM_TORN_JOURNAL                 1737
+#define ITEM_WARDING_CHARM_R              1738
+#define ITEM_WARDING_CHARM_B              1739
+#define ITEM_WARDING_CHARM_P              1740
+#define ITEM_WARDING_CHARM_T              1741
+#define ITEM_WARDING_CHARM_Y              1742
+#define ITEM_WALL_FRAGMENT                1743
+#define ITEM_BASCULEGION_FOOD             1744
+#define ITEM_OLD_JOURNAL                  1745
+#define ITEM_WING_BALL                    1746
+#define ITEM_JET_BALL                     1747
+#define ITEM_HEAVY_BALL_PLA               1748
+#define ITEM_LEADEN_BALL                  1749
+#define ITEM_GIGATON_BALL                 1750
+#define ITEM_WING_BALL_RECIPE             1751
+#define ITEM_JET_BALL_RECIPE              1752
+#define ITEM_HEAVY_BALL_RECIPE            1753
+#define ITEM_HOPO_BERRY                   1754
+#define ITEM_SUPERB_REMEDY                1755
+#define ITEM_AUX_POWER                    1756
+#define ITEM_AUX_GUARD                    1757
+#define ITEM_AUX_EVASION                  1758
+#define ITEM_GRIT_DUST                    1759
+#define ITEM_GRIT_GRAVEL                  1760
+#define ITEM_GRIT_PEBBLE                  1761
+#define ITEM_GRIT_ROCK                    1762
+#define ITEM_SECRET_MEDICINE_PLA          1763
+#define ITEM_TEMPTING_CHARM_R             1764
+#define ITEM_LOST_SATCHEL_1               1765
+#define ITEM_LOST_SATCHEL_2               1766
+#define ITEM_LOST_SATCHEL_3               1767
+#define ITEM_LOST_SATCHEL_4               1768
+#define ITEM_LOST_SATCHEL_5               1769
+#define ITEM_UNKNOWN_1770                 1770
+#define ITEM_ORIGIN_BALL                  1771
+#define ITEM_UNKNOWN_1772                 1772
+#define ITEM_UNKNOWN_1773                 1773
+#define ITEM_UNKNOWN_1774                 1774
+#define ITEM_UNKNOWN_1775                 1775
+#define ITEM_ORIGIN_ORE                   1776
+#define ITEM_ADAMANT_CRYSTAL              1777
+#define ITEM_LUSTROUS_GLOBE               1778
+#define ITEM_GRISEOUS_CORE                1779
+#define ITEM_BLANK_PLATE                  1780
+#define ITEM_UNKNOWN_1781                 1781
+#define ITEM_CRAFTING_KIT                 1782
+#define ITEM_LEADEN_BALL_RECIPE           1783
+#define ITEM_GIGATON_BALL_RECIPE          1784
+#define ITEM_STRANGE_BALL                 1785
+#define ITEM_POKEDEX                      1786
+#define ITEM_OLD_VERSE_1                  1787
+#define ITEM_OLD_VERSE_2                  1788
+#define ITEM_OLD_VERSE_3                  1789
+#define ITEM_OLD_VERSE_4                  1790
+#define ITEM_UNKNOWN_1791                 1791
+#define ITEM_OLD_VERSE_5                  1792
+#define ITEM_OLD_VERSE_6                  1793
+#define ITEM_OLD_VERSE_7                  1794
+#define ITEM_OLD_VERSE_8                  1795
+#define ITEM_OLD_VERSE_9                  1796
+#define ITEM_OLD_VERSE_10                 1797
+#define ITEM_OLD_VERSE_11                 1798
+#define ITEM_OLD_VERSE_12                 1799
+#define ITEM_OLD_VERSE_13                 1800
+#define ITEM_OLD_VERSE_14                 1801
+#define ITEM_OLD_VERSE_15                 1802
+#define ITEM_OLD_VERSE_16                 1803
+#define ITEM_OLD_VERSE_17                 1804
+#define ITEM_OLD_VERSE_18                 1805
+#define ITEM_OLD_VERSE_19                 1806
+#define ITEM_OLD_VERSE_20                 1807
+#define ITEM_MYSTERIOUS_SHARD_S           1808
+#define ITEM_MYSTERIOUS_SHARD_L           1809
+#define ITEM_DIGGER_DRILL                 1810
+#define ITEM_KANTO_SLATE                  1811
+#define ITEM_JOHTO_SLATE                  1812
+#define ITEM_SOUL_SLATE                   1813
+#define ITEM_RAINBOW_SLATE                1814
+#define ITEM_SQUALL_SLATE                 1815
+#define ITEM_OCEANIC_SLATE                1816
+#define ITEM_TECTONIC_SLATE               1817
+#define ITEM_STRATOSPHERIC_SLATE          1818
+#define ITEM_GENOME_SLATE                 1819
+#define ITEM_DISCOVERY_SLATE              1820
+#define ITEM_DISTORTION_SLATE             1821
+#define ITEM_DS_SOUNDS                    1822
+#define ITEM_NONE_1823                    1823
+#define ITEM_NONE_1824                    1824
+#define ITEM_NONE_1825                    1825
+#define ITEM_NONE_1826                    1826
+#define ITEM_NONE_1827                    1827
+#define ITEM_LEGEND_PLATE                 1828
+#define ITEM_ROTOM_PHONE                  1829
+#define ITEM_SANDWICH                     1830
+#define ITEM_KORAIDONS_POKE_BALL          1831
+#define ITEM_MIRAIDONS_POKE_BALL          1832
+#define ITEM_TERA_ORB                     1833
+#define ITEM_SCARLET_BOOK                 1834
+#define ITEM_VIOLET_BOOK                  1835
+#define ITEM_KOFUS_WALLET                 1836
+#define ITEM_NONE_1837                    1837
+#define ITEM_NONE_1838                    1838
+#define ITEM_NONE_1839                    1839
+#define ITEM_NONE_1840                    1840
+#define ITEM_NONE_1841                    1841
+#define ITEM_TINY_BAMBOO_SHOOT            1842
+#define ITEM_BIG_BAMBOO_SHOOT             1843
+#define ITEM_NONE_1844                    1844
+#define ITEM_NONE_1845                    1845
+#define ITEM_NONE_1846                    1846
+#define ITEM_NONE_1847                    1847
+#define ITEM_NONE_1848                    1848
+#define ITEM_NONE_1849                    1849
+#define ITEM_NONE_1850                    1850
+#define ITEM_NONE_1851                    1851
+#define ITEM_NONE_1852                    1852
+#define ITEM_NONE_1853                    1853
+#define ITEM_NONE_1854                    1854
+#define ITEM_NONE_1855                    1855
+#define ITEM_NONE_1856                    1856
+#define ITEM_SCROLL_OF_DARKNESS           1857
+#define ITEM_SCROLL_OF_WATERS             1858
+#define ITEM_NONE_1859                    1859
+#define ITEM_NONE_1860                    1860
+#define ITEM_MALICIOUS_ARMOR              1861
+#define ITEM_NORMAL_TERA_SHARD            1862
+#define ITEM_FIRE_TERA_SHARD              1863
+#define ITEM_WATER_TERA_SHARD             1864
+#define ITEM_ELECTRIC_TERA_SHARD          1865
+#define ITEM_GRASS_TERA_SHARD             1866
+#define ITEM_ICE_TERA_SHARD               1867
+#define ITEM_FIGHTING_TERA_SHARD          1868
+#define ITEM_POISON_TERA_SHARD            1869
+#define ITEM_GROUND_TERA_SHARD            1870
+#define ITEM_FLYING_TERA_SHARD            1871
+#define ITEM_PSYCHIC_TERA_SHARD           1872
+#define ITEM_BUG_TERA_SHARD               1873
+#define ITEM_ROCK_TERA_SHARD              1874
+#define ITEM_GHOST_TERA_SHARD             1875
+#define ITEM_DRAGON_TERA_SHARD            1876
+#define ITEM_DARK_TERA_SHARD              1877
+#define ITEM_STEEL_TERA_SHARD             1878
+#define ITEM_FAIRY_TERA_SHARD             1879
+#define ITEM_BOOSTER_ENERGY               1880
+#define ITEM_ABILITY_SHIELD               1881
+#define ITEM_CLEAR_AMULET                 1882
+#define ITEM_MIRROR_HERB                  1883
+#define ITEM_PUNCHING_GLOVE               1884
+#define ITEM_COVERT_CLOAK                 1885
+#define ITEM_LOADED_DICE                  1886
+#define ITEM_NONE_1887                    1887
+#define ITEM_BAGUETTE                     1888
+#define ITEM_MAYONNAISE                   1889
+#define ITEM_KETCHUP                      1890
+#define ITEM_MUSTARD                      1891
+#define ITEM_BUTTER                       1892
+#define ITEM_PEANUT_BUTTER                1893
+#define ITEM_CHILI_SAUCE                  1894
+#define ITEM_SALT                         1895
+#define ITEM_PEPPER                       1896
+#define ITEM_YOGURT                       1897
+#define ITEM_WHIPPED_CREAM                1898
+#define ITEM_CREAM_CHEESE                 1899
+#define ITEM_JAM                          1900
+#define ITEM_MARMALADE                    1901
+#define ITEM_OLIVE_OIL                    1902
+#define ITEM_VINEGAR                      1903
+#define ITEM_SWEET_HERBA_MYSTICA          1904
+#define ITEM_SALTY_HERBA_MYSTICA          1905
+#define ITEM_SOUR_HERBA_MYSTICA           1906
+#define ITEM_BITTER_HERBA_MYSTICA         1907
+#define ITEM_SPICY_HERBA_MYSTICA          1908
+#define ITEM_LETTUCE                      1909
+#define ITEM_TOMATO                       1910
+#define ITEM_CHERRY_TOMATOES              1911
+#define ITEM_CUCUMBER                     1912
+#define ITEM_PICKLE                       1913
+#define ITEM_ONION                        1914
+#define ITEM_RED_ONION                    1915
+#define ITEM_GREEN_BELL_PEPPER            1916
+#define ITEM_RED_BELL_PEPPER              1917
+#define ITEM_YELLOW_BELL_PEPPER           1918
+#define ITEM_AVOCADO                      1919
+#define ITEM_BACON                        1920
+#define ITEM_HAM                          1921
+#define ITEM_PROSCIUTTO                   1922
+#define ITEM_CHORIZO                      1923
+#define ITEM_HERBED_SAUSAGE               1924
+#define ITEM_HAMBURGER                    1925
+#define ITEM_KLAWF_STICK                  1926
+#define ITEM_SMOKED_FILLET                1927
+#define ITEM_FRIED_FILLET                 1928
+#define ITEM_EGG                          1929
+#define ITEM_POTATO_TORTILLA              1930
+#define ITEM_TOFU                         1931
+#define ITEM_RICE                         1932
+#define ITEM_NOODLES                      1933
+#define ITEM_POTATO_SALAD                 1934
+#define ITEM_CHEESE                       1935
+#define ITEM_BANANA                       1936
+#define ITEM_STRAWBERRY                   1937
+#define ITEM_APPLE                        1938
+#define ITEM_KIWI                         1939
+#define ITEM_PINEAPPLE                    1940
+#define ITEM_JALAPENO                     1941
+#define ITEM_HORSERADISH                  1942
+#define ITEM_CURRY_POWDER                 1943
+#define ITEM_WASABI                       1944
+#define ITEM_WATERCRESS                   1945
+#define ITEM_BASIL                        1946
+#define ITEM_NONE_1947                    1947
+#define ITEM_NONE_1948                    1948
+#define ITEM_NONE_1949                    1949
+#define ITEM_NONE_1950                    1950
+#define ITEM_NONE_1951                    1951
+#define ITEM_NONE_1952                    1952
+#define ITEM_NONE_1953                    1953
+#define ITEM_NONE_1954                    1954
+#define ITEM_NONE_1955                    1955
+#define ITEM_VENONAT_FANG                 1956
+#define ITEM_DIGLETT_DIRT                 1957
+#define ITEM_MEOWTH_FUR                   1958
+#define ITEM_PSYDUCK_DOWN                 1959
+#define ITEM_MANKEY_FUR                   1960
+#define ITEM_GROWLITHE_FUR                1961
+#define ITEM_SLOWPOKE_CLAW                1962
+#define ITEM_MAGNEMITE_SCREW              1963
+#define ITEM_GRIMER_TOXIN                 1964
+#define ITEM_SHELLDER_PEARL               1965
+#define ITEM_GASTLY_GAS                   1966
+#define ITEM_DROWZEE_FUR                  1967
+#define ITEM_VOLTORB_SPARKS               1968
+#define ITEM_SCYTHER_CLAW                 1969
+#define ITEM_TAUROS_HAIR                  1970
+#define ITEM_MAGIKARP_SCALES              1971
+#define ITEM_DITTO_GOO                    1972
+#define ITEM_EEVEE_FUR                    1973
+#define ITEM_DRATINI_SCALES               1974
+#define ITEM_PICHU_FUR                    1975
+#define ITEM_IGGLYBUFF_FLUFF              1976
+#define ITEM_MAREEP_WOOL                  1977
+#define ITEM_HOPPIP_LEAF                  1978
+#define ITEM_SUNKERN_LEAF                 1979
+#define ITEM_MURKROW_BAUBLE               1980
+#define ITEM_MISDREAVUS_TEARS             1981
+#define ITEM_GIRAFARIG_FUR                1982
+#define ITEM_PINECO_HUSK                  1983
+#define ITEM_DUNSPARCE_SCALES             1984
+#define ITEM_QWILFISH_SPINES              1985
+#define ITEM_HERACROSS_CLAW               1986
+#define ITEM_SNEASEL_CLAW                 1987
+#define ITEM_TEDDIURSA_CLAW               1988
+#define ITEM_DELIBIRD_PARCEL              1989
+#define ITEM_HOUNDOUR_FANG                1990
+#define ITEM_PHANPY_NAIL                  1991
+#define ITEM_STANTLER_HAIR                1992
+#define ITEM_LARVITAR_CLAW                1993
+#define ITEM_WINGULL_FEATHER              1994
+#define ITEM_RALTS_DUST                   1995
+#define ITEM_SURSKIT_SYRUP                1996
+#define ITEM_SHROOMISH_SPORES             1997
+#define ITEM_SLAKOTH_FUR                  1998
+#define ITEM_MAKUHITA_SWEAT               1999
+#define ITEM_AZURILL_FUR                  2000
+#define ITEM_SABLEYE_GEM                  2001
+#define ITEM_MEDITITE_SWEAT               2002
+#define ITEM_GULPIN_MUCUS                 2003
+#define ITEM_NUMEL_LAVA                   2004
+#define ITEM_TORKOAL_COAL                 2005
+#define ITEM_SPOINK_PEARL                 2006
+#define ITEM_CACNEA_NEEDLE                2007
+#define ITEM_SWABLU_FLUFF                 2008
+#define ITEM_ZANGOOSE_CLAW                2009
+#define ITEM_SEVIPER_FANG                 2010
+#define ITEM_BARBOACH_SLIME               2011
+#define ITEM_SHUPPET_SCRAP                2012
+#define ITEM_TROPIUS_LEAF                 2013
+#define ITEM_SNORUNT_FUR                  2014
+#define ITEM_LUVDISC_SCALES               2015
+#define ITEM_BAGON_SCALES                 2016
+#define ITEM_STARLY_FEATHER               2017
+#define ITEM_KRICKETOT_SHELL              2018
+#define ITEM_SHINX_FANG                   2019
+#define ITEM_COMBEE_HONEY                 2020
+#define ITEM_PACHIRISU_FUR                2021
+#define ITEM_BUIZEL_FUR                   2022
+#define ITEM_SHELLOS_MUCUS                2023
+#define ITEM_DRIFLOON_GAS                 2024
+#define ITEM_STUNKY_FUR                   2025
+#define ITEM_BRONZOR_FRAGMENT             2026
+#define ITEM_BONSLY_TEARS                 2027
+#define ITEM_HAPPINY_DUST                 2028
+#define ITEM_SPIRITOMB_FRAGMENT           2029
+#define ITEM_GIBLE_SCALES                 2030
+#define ITEM_RIOLU_FUR                    2031
+#define ITEM_HIPPOPOTAS_SAND              2032
+#define ITEM_CROAGUNK_POISON              2033
+#define ITEM_FINNEON_SCALES               2034
+#define ITEM_SNOVER_BERRIES               2035
+#define ITEM_ROTOM_SPARKS                 2036
+#define ITEM_PETILIL_LEAF                 2037
+#define ITEM_BASCULIN_FANG                2038
+#define ITEM_SANDILE_CLAW                 2039
+#define ITEM_ZORUA_FUR                    2040
+#define ITEM_GOTHITA_EYELASH              2041
+#define ITEM_DEERLING_HAIR                2042
+#define ITEM_FOONGUS_SPORES               2043
+#define ITEM_ALOMOMOLA_MUCUS              2044
+#define ITEM_TYNAMO_SLIME                 2045
+#define ITEM_AXEW_SCALES                  2046
+#define ITEM_CUBCHOO_FUR                  2047
+#define ITEM_CRYOGONAL_ICE                2048
+#define ITEM_PAWNIARD_BLADE               2049
+#define ITEM_RUFFLET_FEATHER              2050
+#define ITEM_DEINO_SCALES                 2051
+#define ITEM_LARVESTA_FUZZ                2052
+#define ITEM_FLETCHLING_FEATHER           2053
+#define ITEM_SCATTERBUG_POWDER            2054
+#define ITEM_LITLEO_TUFT                  2055
+#define ITEM_FLABEBE_POLLEN               2056
+#define ITEM_SKIDDO_LEAF                  2057
+#define ITEM_SKRELP_KELP                  2058
+#define ITEM_CLAUNCHER_CLAW               2059
+#define ITEM_HAWLUCHA_DOWN                2060
+#define ITEM_DEDENNE_FUR                  2061
+#define ITEM_GOOMY_GOO                    2062
+#define ITEM_KLEFKI_KEY                   2063
+#define ITEM_BERGMITE_ICE                 2064
+#define ITEM_NOIBAT_FUR                   2065
+#define ITEM_YUNGOOS_FUR                  2066
+#define ITEM_CRABRAWLER_SHELL             2067
+#define ITEM_ORICORIO_FEATHER             2068
+#define ITEM_ROCKRUFF_ROCK                2069
+#define ITEM_MAREANIE_SPIKE               2070
+#define ITEM_MUDBRAY_MUD                  2071
+#define ITEM_FOMANTIS_LEAF                2072
+#define ITEM_SALANDIT_GAS                 2073
+#define ITEM_BOUNSWEET_SWEAT              2074
+#define ITEM_ORANGURU_FUR                 2075
+#define ITEM_PASSIMIAN_FUR                2076
+#define ITEM_SANDYGAST_SAND               2077
+#define ITEM_KOMALA_CLAW                  2078
+#define ITEM_MIMIKYU_SCRAP                2079
+#define ITEM_BRUXISH_TOOTH                2080
+#define ITEM_CHEWTLE_CLAW                 2081
+#define ITEM_SKWOVET_FUR                  2082
+#define ITEM_ARROKUDA_SCALES              2083
+#define ITEM_ROOKIDEE_FEATHER             2084
+#define ITEM_TOXEL_SPARKS                 2085
+#define ITEM_FALINKS_SWEAT                2086
+#define ITEM_CUFANT_TARNISH               2087
+#define ITEM_ROLYCOLY_COAL                2088
+#define ITEM_SILICOBRA_SAND               2089
+#define ITEM_INDEEDEE_FUR                 2090
+#define ITEM_PINCURCHIN_SPINES            2091
+#define ITEM_SNOM_THREAD                  2092
+#define ITEM_IMPIDIMP_HAIR                2093
+#define ITEM_APPLIN_JUICE                 2094
+#define ITEM_SINISTEA_CHIP                2095
+#define ITEM_HATENNA_DUST                 2096
+#define ITEM_STONJOURNER_STONE            2097
+#define ITEM_EISCUE_DOWN                  2098
+#define ITEM_DREEPY_POWDER                2099
+#define ITEM_NONE_2100                    2100
+#define ITEM_NONE_2101                    2101
+#define ITEM_NONE_2102                    2102
+#define ITEM_LECHONK_HAIR                 2103
+#define ITEM_TAROUNTULA_THREAD            2104
+#define ITEM_NYMBLE_CLAW                  2105
+#define ITEM_RELLOR_MUD                   2106
+#define ITEM_GREAVARD_WAX                 2107
+#define ITEM_FLITTLE_DOWN                 2108
+#define ITEM_WIGLETT_SAND                 2109
+#define ITEM_DONDOZO_WHISKER              2110
+#define ITEM_VELUZA_FILLET                2111
+#define ITEM_FINIZEN_MUCUS                2112
+#define ITEM_SMOLIV_OIL                   2113
+#define ITEM_CAPSAKID_SEED                2114
+#define ITEM_TADBULB_MUCUS                2115
+#define ITEM_VAROOM_FUME                  2116
+#define ITEM_ORTHWORM_TARNISH             2117
+#define ITEM_TANDEMAUS_FUR                2118
+#define ITEM_CETODDLE_GREASE              2119
+#define ITEM_FRIGIBAX_SCALES              2120
+#define ITEM_TATSUGIRI_SCALES             2121
+#define ITEM_CYCLIZAR_SCALES              2122
+#define ITEM_PAWMI_FUR                    2123
+#define ITEM_NONE_2124                    2124
+#define ITEM_NONE_2125                    2125
+#define ITEM_WATTREL_FEATHER              2126
+#define ITEM_BOMBIRDIER_FEATHER           2127
+#define ITEM_SQUAWKABILLY_FEATHER         2128
+#define ITEM_FLAMIGO_DOWN                 2129
+#define ITEM_KLAWF_CLAW                   2130
+#define ITEM_NACLI_SALT                   2131
+#define ITEM_GLIMMET_CRYSTAL              2132
+#define ITEM_SHROODLE_INK                 2133
+#define ITEM_FIDOUGH_FUR                  2134
+#define ITEM_MASCHIFF_FANG                2135
+#define ITEM_BRAMBLIN_TWIG                2136
+#define ITEM_GIMMIGHOUL_COIN              2137
+#define ITEM_NONE_2138                    2138
+#define ITEM_NONE_2139                    2139
+#define ITEM_NONE_2140                    2140
+#define ITEM_NONE_2141                    2141
+#define ITEM_NONE_2142                    2142
+#define ITEM_NONE_2143                    2143
+#define ITEM_NONE_2144                    2144
+#define ITEM_NONE_2145                    2145
+#define ITEM_NONE_2146                    2146
+#define ITEM_NONE_2147                    2147
+#define ITEM_NONE_2148                    2148
+#define ITEM_NONE_2149                    2149
+#define ITEM_NONE_2150                    2150
+#define ITEM_NONE_2151                    2151
+#define ITEM_NONE_2152                    2152
+#define ITEM_NONE_2153                    2153
+#define ITEM_NONE_2154                    2154
+#define ITEM_NONE_2155                    2155
+#define ITEM_TINKATINK_HAIR               2156
+#define ITEM_CHARCADET_SOOT               2157
+#define ITEM_TOEDSCOOL_FLAPS              2158
+#define ITEM_WOOPER_SLIME                 2159
+#define ITEM_TM100_SV                     2160
+#define ITEM_TM101                        2161
+#define ITEM_TM102                        2162
+#define ITEM_TM103                        2163
+#define ITEM_TM104                        2164
+#define ITEM_TM105                        2165
+#define ITEM_TM106                        2166
+#define ITEM_TM107                        2167
+#define ITEM_TM108                        2168
+#define ITEM_TM109                        2169
+#define ITEM_TM110                        2170
+#define ITEM_TM111                        2171
+#define ITEM_TM112                        2172
+#define ITEM_TM113                        2173
+#define ITEM_TM114                        2174
+#define ITEM_TM115                        2175
+#define ITEM_TM116                        2176
+#define ITEM_TM117                        2177
+#define ITEM_TM118                        2178
+#define ITEM_TM119                        2179
+#define ITEM_TM120                        2180
+#define ITEM_TM121                        2181
+#define ITEM_TM122                        2182
+#define ITEM_TM123                        2183
+#define ITEM_TM124                        2184
+#define ITEM_TM125                        2185
+#define ITEM_TM126                        2186
+#define ITEM_TM127                        2187
+#define ITEM_TM128                        2188
+#define ITEM_TM129                        2189
+#define ITEM_TM130                        2190
+#define ITEM_TM131                        2191
+#define ITEM_TM132                        2192
+#define ITEM_TM133                        2193
+#define ITEM_TM134                        2194
+#define ITEM_TM135                        2195
+#define ITEM_TM136                        2196
+#define ITEM_TM137                        2197
+#define ITEM_TM138                        2198
+#define ITEM_TM139                        2199
+#define ITEM_TM140                        2200
+#define ITEM_TM141                        2201
+#define ITEM_TM142                        2202
+#define ITEM_TM143                        2203
+#define ITEM_TM144                        2204
+#define ITEM_TM145                        2205
+#define ITEM_TM146                        2206
+#define ITEM_TM147                        2207
+#define ITEM_TM148                        2208
+#define ITEM_TM149                        2209
+#define ITEM_TM150                        2210
+#define ITEM_TM151                        2211
+#define ITEM_TM152                        2212
+#define ITEM_TM153                        2213
+#define ITEM_TM154                        2214
+#define ITEM_TM155                        2215
+#define ITEM_TM156                        2216
+#define ITEM_TM157                        2217
+#define ITEM_TM158                        2218
+#define ITEM_TM159                        2219
+#define ITEM_TM160                        2220
+#define ITEM_TM161                        2221
+#define ITEM_TM162                        2222
+#define ITEM_TM163                        2223
+#define ITEM_TM164                        2224
+#define ITEM_TM165                        2225
+#define ITEM_TM166                        2226
+#define ITEM_TM167                        2227
+#define ITEM_TM168                        2228
+#define ITEM_TM169                        2229
+#define ITEM_TM170                        2230
+#define ITEM_TM171                        2231
+#define ITEM_TM172                        2232
+#define ITEM_TM173                        2233
+#define ITEM_TM174                        2234
+#define ITEM_TM175                        2235
+#define ITEM_TM176                        2236
+#define ITEM_TM177                        2237
+#define ITEM_TM178                        2238
+#define ITEM_TM179                        2239
+#define ITEM_TM180                        2240
+#define ITEM_TM181                        2241
+#define ITEM_TM182                        2242
+#define ITEM_TM183                        2243
+#define ITEM_TM184                        2244
+#define ITEM_TM185                        2245
+#define ITEM_TM186                        2246
+#define ITEM_TM187                        2247
+#define ITEM_TM188                        2248
+#define ITEM_TM189                        2249
+#define ITEM_TM190                        2250
+#define ITEM_TM191                        2251
+#define ITEM_TM192                        2252
+#define ITEM_TM193                        2253
+#define ITEM_TM194                        2254
+#define ITEM_TM195                        2255
+#define ITEM_TM196                        2256
+#define ITEM_TM197                        2257
+#define ITEM_TM198                        2258
+#define ITEM_TM199                        2259
+#define ITEM_TM200                        2260
+#define ITEM_TM201                        2261
+#define ITEM_TM202                        2262
+#define ITEM_TM203                        2263
+#define ITEM_TM204                        2264
+#define ITEM_TM205                        2265
+#define ITEM_TM206                        2266
+#define ITEM_TM207                        2267
+#define ITEM_TM208                        2268
+#define ITEM_TM209                        2269
+#define ITEM_TM210                        2270
+#define ITEM_TM211                        2271
+#define ITEM_TM212                        2272
+#define ITEM_TM213                        2273
+#define ITEM_TM214                        2274
+#define ITEM_TM215                        2275
+#define ITEM_TM216                        2276
+#define ITEM_TM217                        2277
+#define ITEM_TM218                        2278
+#define ITEM_TM219                        2279
+#define ITEM_TM220                        2280
+#define ITEM_TM221                        2281
+#define ITEM_TM222                        2282
+#define ITEM_TM223                        2283
+#define ITEM_TM224                        2284
+#define ITEM_TM225                        2285
+#define ITEM_TM226                        2286
+#define ITEM_TM227                        2287
+#define ITEM_TM228                        2288
+#define ITEM_TM229                        2289
+#define ITEM_NONE_2290                    2290
+#define ITEM_NONE_2291                    2291
+#define ITEM_NONE_2292                    2292
+#define ITEM_NONE_2293                    2293
+#define ITEM_NONE_2294                    2294
+#define ITEM_NONE_2295                    2295
+#define ITEM_NONE_2296                    2296
+#define ITEM_NONE_2297                    2297
+#define ITEM_NONE_2298                    2298
+#define ITEM_NONE_2299                    2299
+#define ITEM_NONE_2300                    2300
+#define ITEM_NONE_2301                    2301
+#define ITEM_NONE_2302                    2302
+#define ITEM_NONE_2303                    2303
+#define ITEM_NONE_2304                    2304
+#define ITEM_NONE_2305                    2305
+#define ITEM_NONE_2306                    2306
+#define ITEM_NONE_2307                    2307
+#define ITEM_NONE_2308                    2308
+#define ITEM_NONE_2309                    2309
+#define ITEM_NONE_2310                    2310
+#define ITEM_PICNIC_SET                   2311
+#define ITEM_NONE_2312                    2312
+#define ITEM_ACADEMY_BOTTLE_1             2313
+#define ITEM_ACADEMY_BOTTLE_2             2314
+#define ITEM_POLKA_DOT_BOTTLE             2315
+#define ITEM_STRIPED_BOTTLE               2316
+#define ITEM_DIAMOND_BOTTLE               2317
+#define ITEM_ACADEMY_CUP_1                2318
+#define ITEM_ACADEMY_CUP_2                2319
+#define ITEM_STRIPED_CUP                  2320
+#define ITEM_POLKA_DOT_CUP                2321
+#define ITEM_FLOWER_PATTERN_CUP           2322
+#define ITEM_ACADEMY_TABLECLOTH_1         2323
+#define ITEM_ACADEMY_TABLECLOTH_2         2324
+#define ITEM_WHIMSICAL_TABLECLOTH         2325
+#define ITEM_LEAFY_TABLECLOTH             2326
+#define ITEM_SPOOKY_TABLECLOTH            2327
+#define ITEM_NONE_2328                    2328
+#define ITEM_ACADEMY_BALL_1               2329
+#define ITEM_ACADEMY_BALL_2               2330
+#define ITEM_MARILL_BALL                  2331
+#define ITEM_YARN_BALL                    2332
+#define ITEM_CYBER_BALL                   2333
+#define ITEM_GOLD_PICK                    2334
+#define ITEM_SILVER_PICK                  2335
+#define ITEM_RED_FLAG_PICK                2336
+#define ITEM_BLUE_FLAG_PICK               2337
+#define ITEM_PIKA_PIKA_PICK               2338
+#define ITEM_WINKING_PIKA_PICK            2339
+#define ITEM_VEE_VEE_PICK                 2340
+#define ITEM_SMILING_VEE_PICK             2341
+#define ITEM_BLUE_POKE_BALL_PICK          2342
+#define ITEM_NONE_2343                    2343
+#define ITEM_AUSPICIOUS_ARMOR             2344
+#define ITEM_LEADERS_CREST                2345
+#define ITEM_NONE_2346                    2346
+#define ITEM_NONE_2347                    2347
+#define ITEM_PINK_BOTTLE                  2348
+#define ITEM_BLUE_BOTTLE                  2349
+#define ITEM_YELLOW_BOTTLE                2350
+#define ITEM_STEEL_BOTTLE_R               2351
+#define ITEM_STEEL_BOTTLE_Y               2352
+#define ITEM_STEEL_BOTTLE_B               2353
+#define ITEM_SILVER_BOTTLE                2354
+#define ITEM_BARRED_CUP                   2355
+#define ITEM_DIAMOND_PATTERN_CUP          2356
+#define ITEM_FIRE_PATTERN_CUP             2357
+#define ITEM_PINK_CUP                     2358
+#define ITEM_BLUE_CUP                     2359
+#define ITEM_YELLOW_CUP                   2360
+#define ITEM_PIKACHU_CUP                  2361
+#define ITEM_EEVEE_CUP                    2362
+#define ITEM_SLOWPOKE_CUP                 2363
+#define ITEM_SILVER_CUP                   2364
+#define ITEM_EXERCISE_BALL                2365
+#define ITEM_PLAID_TABLECLOTH_Y           2366
+#define ITEM_PLAID_TABLECLOTH_B           2367
+#define ITEM_PLAID_TABLECLOTH_R           2368
+#define ITEM_B_W_GRASS_TABLECLOTH         2369
+#define ITEM_BATTLE_TABLECLOTH            2370
+#define ITEM_MONSTROUS_TABLECLOTH         2371
+#define ITEM_STRIPED_TABLECLOTH           2372
+#define ITEM_DIAMOND_TABLECLOTH           2373
+#define ITEM_POLKA_DOT_TABLECLOTH         2374
+#define ITEM_LILAC_TABLECLOTH             2375
+#define ITEM_MINT_TABLECLOTH              2376
+#define ITEM_PEACH_TABLECLOTH             2377
+#define ITEM_YELLOW_TABLECLOTH            2378
+#define ITEM_BLUE_TABLECLOTH              2379
+#define ITEM_PINK_TABLECLOTH              2380
+#define ITEM_GOLD_BOTTLE                  2381
+#define ITEM_BRONZE_BOTTLE                2382
+#define ITEM_GOLD_CUP                     2383
+#define ITEM_BRONZE_CUP                   2384
+#define ITEM_GREEN_POKE_BALL_PICK         2385
+#define ITEM_RED_POKE_BALL_PICK           2386
+#define ITEM_PARTY_SPARKLER_PICK          2387
+#define ITEM_HEROIC_SWORD_PICK            2388
+#define ITEM_MAGICAL_STAR_PICK            2389
+#define ITEM_MAGICAL_HEART_PICK           2390
+#define ITEM_PARASOL_PICK                 2391
+#define ITEM_BLUE_SKY_FLOWER_PICK         2392
+#define ITEM_SUNSET_FLOWER_PICK           2393
+#define ITEM_SUNRISE_FLOWER_PICK          2394
+#define ITEM_BLUE_DISH                    2395
+#define ITEM_GREEN_DISH                   2396
+#define ITEM_ORANGE_DISH                  2397
+#define ITEM_RED_DISH                     2398
+#define ITEM_WHITE_DISH                   2399
+#define ITEM_YELLOW_DISH                  2400
+#define ITEM_FAIRY_FEATHER                2401
+#define ITEM_SYRUPY_APPLE                 2402
+#define ITEM_UNREMARKABLE_TEACUP          2403
+#define ITEM_MASTERPIECE_TEACUP           2404
+#define ITEM_TEAL_MASK                    2405
+#define ITEM_CORNERSTONE_MASK             2406
+#define ITEM_WELLSPRING_MASK              2407
+#define ITEM_HEARTHFLAME_MASK             2408
+#define ITEM_TEAL_STYLE_CARD              2409
+#define ITEM_CRYSTAL_CLUSTER              2410
+#define ITEM_HEALTH_MOCHI                 2411
+#define ITEM_MUSCLE_MOCHI                 2412
+#define ITEM_RESIST_MOCHI                 2413
+#define ITEM_GENIUS_MOCHI                 2414
+#define ITEM_CLEVER_MOCHI                 2415
+#define ITEM_SWIFT_MOCHI                  2416
+#define ITEM_SIMPLE_CHAIRS                2417
+#define ITEM_ACADEMY_CHAIRS_1             2418
+#define ITEM_ACADEMY_CHAIRS_2             2419
+#define ITEM_WHIMSICAL_CHAIRS             2420
+#define ITEM_LEAFY_CHAIRS                 2421
+#define ITEM_SPOOKY_CHAIRS                2422
+#define ITEM_PLAID_CHAIRS_Y               2423
+#define ITEM_PLAID_CHAIRS_B               2424
+#define ITEM_PLAID_CHAIRS_R               2425
+#define ITEM_B_W_GRASS_CHAIRS             2426
+#define ITEM_BATTLE_CHAIRS                2427
+#define ITEM_MONSTROUS_CHAIRS             2428
+#define ITEM_STRIPED_CHAIRS               2429
+#define ITEM_DIAMOND_CHAIRS               2430
+#define ITEM_POLKA_DOT_CHAIRS             2431
+#define ITEM_LILAC_CHAIRS                 2432
+#define ITEM_MINT_CHAIRS                  2433
+#define ITEM_PEACH_CHAIRS                 2434
+#define ITEM_YELLOW_CHAIRS                2435
+#define ITEM_BLUE_CHAIRS                  2436
+#define ITEM_PINK_CHAIRS                  2437
+#define ITEM_EKANS_FANG                   2438
+#define ITEM_SANDSHREW_CLAW               2439
+#define ITEM_CLEFFA_FUR                   2440
+#define ITEM_VULPIX_FUR                   2441
+#define ITEM_POLIWAG_SLIME                2442
+#define ITEM_BELLSPROUT_VINE              2443
+#define ITEM_GEODUDE_FRAGMENT             2444
+#define ITEM_KOFFING_GAS                  2445
+#define ITEM_MUNCHLAX_FANG                2446
+#define ITEM_SENTRET_FUR                  2447
+#define ITEM_HOOTHOOT_FEATHER             2448
+#define ITEM_SPINARAK_THREAD              2449
+#define ITEM_AIPOM_HAIR                   2450
+#define ITEM_YANMA_SPIKE                  2451
+#define ITEM_GLIGAR_FANG                  2452
+#define ITEM_SLUGMA_LAVA                  2453
+#define ITEM_SWINUB_HAIR                  2454
+#define ITEM_POOCHYENA_FANG               2455
+#define ITEM_LOTAD_LEAF                   2456
+#define ITEM_SEEDOT_STEM                  2457
+#define ITEM_NOSEPASS_FRAGMENT            2458
+#define ITEM_VOLBEAT_FLUID                2459
+#define ITEM_ILLUMISE_FLUID               2460
+#define ITEM_CORPHISH_SHELL               2461
+#define ITEM_FEEBAS_SCALES                2462
+#define ITEM_DUSKULL_FRAGMENT             2463
+#define ITEM_CHINGLING_FRAGMENT           2464
+#define ITEM_TIMBURR_SWEAT                2465
+#define ITEM_SEWADDLE_LEAF                2466
+#define ITEM_DUCKLETT_FEATHER             2467
+#define ITEM_LITWICK_SOOT                 2468
+#define ITEM_MIENFOO_CLAW                 2469
+#define ITEM_VULLABY_FEATHER              2470
+#define ITEM_CARBINK_JEWEL                2471
+#define ITEM_PHANTUMP_TWIG                2472
+#define ITEM_GRUBBIN_THREAD               2473
+#define ITEM_CUTIEFLY_POWDER              2474
+#define ITEM_JANGMO_O_SCALES              2475
+#define ITEM_CRAMORANT_DOWN               2476
+#define ITEM_MORPEKO_SNACK                2477
+#define ITEM_POLTCHAGEIST_POWDER          2478
+#define ITEM_FRESH_START_MOCHI            2479
+#define ITEM_ROTO_STICK                   2480
+#define ITEM_GLIMMERING_CHARM             2481
+#define ITEM_METAL_ALLOY                  2482
+#define ITEM_INDIGO_STYLE_CARD            2483
+#define ITEM_ODDISH_LEAF                  2484
+#define ITEM_TENTACOOL_STINGER            2485
+#define ITEM_DODUO_DOWN                   2486
+#define ITEM_SEEL_FUR                     2487
+#define ITEM_EXEGGCUTE_SHELL              2488
+#define ITEM_TYROGUE_SWEAT                2489
+#define ITEM_RHYHORN_FANG                 2490
+#define ITEM_HORSEA_INK                   2491
+#define ITEM_ELEKID_FUR                   2492
+#define ITEM_MAGBY_HAIR                   2493
+#define ITEM_LAPRAS_TEARDROP              2494
+#define ITEM_PORYGON_FRAGMENT             2495
+#define ITEM_CHINCHOU_SPARKS              2496
+#define ITEM_SNUBBULL_HAIR                2497
+#define ITEM_SKARMORY_FEATHER             2498
+#define ITEM_SMEARGLE_PAINT               2499
+#define ITEM_PLUSLE_FUR                   2500
+#define ITEM_MINUN_FUR                    2501
+#define ITEM_TRAPINCH_SHELL               2502
+#define ITEM_BELDUM_CLAW                  2503
+#define ITEM_CRANIDOS_SPIKE               2504
+#define ITEM_SHIELDON_CLAW                2505
+#define ITEM_BLITZLE_MANE_HAIR            2506
+#define ITEM_DRILBUR_CLAW                 2507
+#define ITEM_COTTONEE_FLUFF               2508
+#define ITEM_SCRAGGY_SWEAT                2509
+#define ITEM_MINCCINO_FUR                 2510
+#define ITEM_SOLOSIS_GEL                  2511
+#define ITEM_JOLTIK_THREAD                2512
+#define ITEM_GOLETT_SHARD                 2513
+#define ITEM_ESPURR_FUR                   2514
+#define ITEM_INKAY_INK                    2515
+#define ITEM_PIKIPEK_FEATHER              2516
+#define ITEM_DEWPIDER_THREAD              2517
+#define ITEM_COMFEY_FLOWER                2518
+#define ITEM_MINIOR_SHELL                 2519
+#define ITEM_MILCERY_CREAM                2520
+#define ITEM_DURALUDON_TARNISH            2521
+#define ITEM_ARTICUNO_TREAT               2522
+#define ITEM_ZAPDOS_TREAT                 2523
+#define ITEM_MOLTRES_TREAT                2524
+#define ITEM_RAIKOU_TREAT                 2525
+#define ITEM_ENTEI_TREAT                  2526
+#define ITEM_SUICUNE_TREAT                2527
+#define ITEM_LUGIA_TREAT                  2528
+#define ITEM_HO_OH_TREAT                  2529
+#define ITEM_LATIAS_TREAT                 2530
+#define ITEM_LATIOS_TREAT                 2531
+#define ITEM_KYOGRE_TREAT                 2532
+#define ITEM_GROUDON_TREAT                2533
+#define ITEM_RAYQUAZA_TREAT               2534
+#define ITEM_COBALION_TREAT               2535
+#define ITEM_TERRAKION_TREAT              2536
+#define ITEM_VIRIZION_TREAT               2537
+#define ITEM_RESHIRAM_TREAT               2538
+#define ITEM_ZEKROM_TREAT                 2539
+#define ITEM_KYUREM_TREAT                 2540
+#define ITEM_SOLGALEO_TREAT               2541
+#define ITEM_LUNALA_TREAT                 2542
+#define ITEM_NECROZMA_TREAT               2543
+#define ITEM_KUBFU_TREAT                  2544
+#define ITEM_GLASTRIER_TREAT              2545
+#define ITEM_SPECTRIER_TREAT              2546
+#define ITEM_INDIGO_DISK                  2547
+#define ITEM_FIERY_PICK                   2548
+#define ITEM_STELLAR_TERA_SHARD           2549
+#define ITEM_MYTHICAL_PECHA_BERRY         2550
+#define ITEM_BLUEBERRY_TABLECLOTH         2551
+#define ITEM_BLUEBERRY_CHAIRS             2552
+#define ITEM_SYNCHRO_MACHINE              2553
+#define ITEM_METEORITE_SV_DEOXYS          2554
+#define ITEM_SCARLET_BOOK_SVID            2555
+#define ITEM_VIOLET_BOOK_SVID             2556
+#define ITEM_BRIARS_BOOK                  2557
 
-#define IS_ITEM_BERRY(item) ((item >= ITEM_CHERI_BERRY && item <= ITEM_ROWAP_BERRY) || (item >= ITEM_ROSELI_BERRY && item <= ITEM_MARANGA_BERRY))
-#define IS_ITEM_MAIL(item) ((item >= ITEM_GRASS_MAIL && item <= ITEM_BRICK_MAIL))
-
-#define ITEM_BRIGHT_POWDER   213
-#define ITEM_WHITE_HERB      214
-#define ITEM_MACHO_BRACE     215
-#define ITEM_EXP_SHARE       216
-#define ITEM_QUICK_CLAW      217
-#define ITEM_SOOTHE_BELL     218
-#define ITEM_MENTAL_HERB     219
-#define ITEM_CHOICE_BAND     220
-#define ITEM_KINGS_ROCK      221
-#define ITEM_SILVER_POWDER   222
-#define ITEM_AMULET_COIN     223
-#define ITEM_CLEANSE_TAG     224
-#define ITEM_SOUL_DEW        225
-#define ITEM_DEEP_SEA_TOOTH  226
-#define ITEM_DEEP_SEA_SCALE  227
-#define ITEM_SMOKE_BALL      228
-#define ITEM_EVERSTONE       229
-#define ITEM_FOCUS_BAND      230
-#define ITEM_LUCKY_EGG       231
-#define ITEM_SCOPE_LENS      232
-#define ITEM_METAL_COAT      233
-#define ITEM_LEFTOVERS       234
-#define ITEM_DRAGON_SCALE    235
-#define ITEM_LIGHT_BALL      236
-#define ITEM_SOFT_SAND       237
-#define ITEM_HARD_STONE      238
-#define ITEM_MIRACLE_SEED    239
-#define ITEM_BLACK_GLASSES   240
-#define ITEM_BLACK_BELT      241
-#define ITEM_MAGNET          242
-#define ITEM_MYSTIC_WATER    243
-#define ITEM_SHARP_BEAK      244
-#define ITEM_POISON_BARB     245
-#define ITEM_NEVER_MELT_ICE  246
-#define ITEM_SPELL_TAG       247
-#define ITEM_TWISTED_SPOON   248
-#define ITEM_CHARCOAL        249
-#define ITEM_DRAGON_FANG     250
-#define ITEM_SILK_SCARF      251
-#define ITEM_UP_GRADE        252
-#define ITEM_SHELL_BELL      253
-#define ITEM_SEA_INCENSE     254
-#define ITEM_LAX_INCENSE     255
-#define ITEM_LUCKY_PUNCH     256
-#define ITEM_METAL_POWDER    257
-#define ITEM_THICK_CLUB      258
-#define ITEM_LEEK            259
-#define ITEM_RED_SCARF       260
-#define ITEM_BLUE_SCARF      261
-#define ITEM_PINK_SCARF      262
-#define ITEM_GREEN_SCARF     263
-#define ITEM_YELLOW_SCARF    264
-#define ITEM_WIDE_LENS       265
-#define ITEM_MUSCLE_BAND     266
-#define ITEM_WISE_GLASSES    267
-#define ITEM_EXPERT_BELT     268
-#define ITEM_LIGHT_CLAY      269
-#define ITEM_LIFE_ORB        270
-#define ITEM_POWER_HERB      271
-#define ITEM_TOXIC_ORB       272
-#define ITEM_FLAME_ORB       273
-#define ITEM_QUICK_POWDER    274
-#define ITEM_FOCUS_SASH      275
-#define ITEM_ZOOM_LENS       276
-#define ITEM_METRONOME       277
-#define ITEM_IRON_BALL       278
-#define ITEM_LAGGING_TAIL    279
-#define ITEM_DESTINY_KNOT    280
-#define ITEM_BLACK_SLUDGE    281
-#define ITEM_ICY_ROCK        282
-#define ITEM_SMOOTH_ROCK     283
-#define ITEM_HEAT_ROCK       284
-#define ITEM_DAMP_ROCK       285
-#define ITEM_GRIP_CLAW       286
-#define ITEM_CHOICE_SCARF    287
-#define ITEM_STICKY_BARB     288
-#define ITEM_POWER_BRACER    289
-#define ITEM_POWER_BELT      290
-#define ITEM_POWER_LENS      291
-#define ITEM_POWER_BAND      292
-#define ITEM_POWER_ANKLET    293
-#define ITEM_POWER_WEIGHT    294
-#define ITEM_SHED_SHELL      295
-#define ITEM_BIG_ROOT        296
-#define ITEM_CHOICE_SPECS    297
-
-#define IS_ITEM_ARCEUS_PLATE(item) ((item >= ITEM_FLAME_PLATE && item <= ITEM_IRON_PLATE) || (item == ITEM_PIXIE_PLATE))
-
-#define ITEM_FLAME_PLATE     298
-#define ITEM_SPLASH_PLATE    299
-#define ITEM_ZAP_PLATE       300
-#define ITEM_MEADOW_PLATE    301
-#define ITEM_ICICLE_PLATE    302
-#define ITEM_FIST_PLATE      303
-#define ITEM_TOXIC_PLATE     304
-#define ITEM_EARTH_PLATE     305
-#define ITEM_SKY_PLATE       306
-#define ITEM_MIND_PLATE      307
-#define ITEM_INSECT_PLATE    308
-#define ITEM_STONE_PLATE     309
-#define ITEM_SPOOKY_PLATE    310
-#define ITEM_DRACO_PLATE     311
-#define ITEM_DREAD_PLATE     312
-#define ITEM_IRON_PLATE      313
-#define ITEM_ODD_INCENSE     314
-#define ITEM_ROCK_INCENSE    315
-#define ITEM_FULL_INCENSE    316
-#define ITEM_WAVE_INCENSE    317
-#define ITEM_ROSE_INCENSE    318
-#define ITEM_LUCK_INCENSE    319
-#define ITEM_PURE_INCENSE    320
-#define ITEM_PROTECTOR       321
-#define ITEM_ELECTIRIZER     322
-#define ITEM_MAGMARIZER      323
-#define ITEM_DUBIOUS_DISC    324
-#define ITEM_REAPER_CLOTH    325
-#define ITEM_RAZOR_CLAW      326
-#define ITEM_RAZOR_FANG      327
-#define ITEM_TM01            328
-#define ITEM_TM02            329
-#define ITEM_TM03            330
-#define ITEM_TM04            331
-#define ITEM_TM05            332
-#define ITEM_TM06            333
-#define ITEM_TM07            334
-#define ITEM_TM08            335
-#define ITEM_TM09            336
-#define ITEM_TM10            337
-#define ITEM_TM11            338
-#define ITEM_TM12            339
-#define ITEM_TM13            340
-#define ITEM_TM14            341
-#define ITEM_TM15            342
-#define ITEM_TM16            343
-#define ITEM_TM17            344
-#define ITEM_TM18            345
-#define ITEM_TM19            346
-#define ITEM_TM20            347
-#define ITEM_TM21            348
-#define ITEM_TM22            349
-#define ITEM_TM23            350
-#define ITEM_TM24            351
-#define ITEM_TM25            352
-#define ITEM_TM26            353
-#define ITEM_TM27            354
-#define ITEM_TM28            355
-#define ITEM_TM29            356
-#define ITEM_TM30            357
-#define ITEM_TM31            358
-#define ITEM_TM32            359
-#define ITEM_TM33            360
-#define ITEM_TM34            361
-#define ITEM_TM35            362
-#define ITEM_TM36            363
-#define ITEM_TM37            364
-#define ITEM_TM38            365
-#define ITEM_TM39            366
-#define ITEM_TM40            367
-#define ITEM_TM41            368
-#define ITEM_TM42            369
-#define ITEM_TM43            370
-#define ITEM_TM44            371
-#define ITEM_TM45            372
-#define ITEM_TM46            373
-#define ITEM_TM47            374
-#define ITEM_TM48            375
-#define ITEM_TM49            376
-#define ITEM_TM50            377
-#define ITEM_TM51            378
-#define ITEM_TM52            379
-#define ITEM_TM53            380
-#define ITEM_TM54            381
-#define ITEM_TM55            382
-#define ITEM_TM56            383
-#define ITEM_TM57            384
-#define ITEM_TM58            385
-#define ITEM_TM59            386
-#define ITEM_TM60            387
-#define ITEM_TM61            388
-#define ITEM_TM62            389
-#define ITEM_TM63            390
-#define ITEM_TM64            391
-#define ITEM_TM65            392
-#define ITEM_TM66            393
-#define ITEM_TM67            394
-#define ITEM_TM68            395
-#define ITEM_TM69            396
-#define ITEM_TM70            397
-#define ITEM_TM71            398
-#define ITEM_TM72            399
-#define ITEM_TM73            400
-#define ITEM_TM74            401
-#define ITEM_TM75            402
-#define ITEM_TM76            403
-#define ITEM_TM77            404
-#define ITEM_TM78            405
-#define ITEM_TM79            406
-#define ITEM_TM80            407
-#define ITEM_TM81            408
-#define ITEM_TM82            409
-#define ITEM_TM83            410
-#define ITEM_TM84            411
-#define ITEM_TM85            412
-#define ITEM_TM86            413
-#define ITEM_TM87            414
-#define ITEM_TM88            415
-#define ITEM_TM89            416
-#define ITEM_TM90            417
-#define ITEM_TM91            418
-#define ITEM_TM92            419
-#define ITEM_HM01            420
-#define ITEM_HM02            421
-#define ITEM_HM03            422
-#define ITEM_HM04            423
-#define ITEM_HM05            424
-#define ITEM_HM06            425
-#define ITEM_HM07            426
-#define ITEM_HM08            427
-
-#define NUM_TMS (ITEM_TM92 - ITEM_TM01 + 1)
-#define NUM_HMS (ITEM_HM08 - ITEM_HM01 + 1)
-
-#define ITEM_EXPLORER_KIT    428
-#define ITEM_LOOT_SACK       429
-#define ITEM_RULE_BOOK       430
-#define ITEM_POKE_RADAR      431
-#define ITEM_POINT_CARD      432
-#define ITEM_JOURNAL         433
-#define ITEM_SEAL_CASE       434
-#define ITEM_FASHION_CASE    435
-#define ITEM_SEAL_BAG        436
-#define ITEM_PAL_PAD         437
-#define ITEM_WORKS_KEY       438
-#define ITEM_OLD_CHARM       439
-#define ITEM_GALACTIC_KEY    440
-#define ITEM_RED_CHAIN       441
-#define ITEM_TOWN_MAP        442
-#define ITEM_VS_SEEKER       443
-#define ITEM_COIN_CASE       444
-#define ITEM_OLD_ROD         445
-#define ITEM_GOOD_ROD        446
-#define ITEM_SUPER_ROD       447
-#define ITEM_SPRAYDUCK       448
-#define ITEM_POFFIN_CASE     449
-#define ITEM_BICYCLE         450
-#define ITEM_SUITE_KEY       451
-#define ITEM_OAKS_LETTER     452
-#define ITEM_LUNAR_WING      453
-#define ITEM_MEMBER_CARD     454
-#define ITEM_AZURE_FLUTE     455
-#define ITEM_SS_TICKET       456
-#define ITEM_CONTEST_PASS    457
-#define ITEM_MAGMA_STONE     458
-#define ITEM_PARCEL          459
-#define ITEM_COUPON_1        460
-#define ITEM_COUPON_2        461
-#define ITEM_COUPON_3        462
-#define ITEM_STORAGE_KEY     463
-#define ITEM_SECRET_MEDICINE 464
-#define ITEM_VS_RECORDER     465
-#define ITEM_GRACIDEA        466
-#define ITEM_SECRET_KEY      467
-#define ITEM_APRICORN_BOX    468
-#define ITEM_UNOWN_REPORT    469
-#define ITEM_BERRY_POTS      470
-#define ITEM_DOWSING_MCHN    471
-#define ITEM_BLUE_CARD       472
-#define ITEM_SLOWPOKE_TAIL   473
-#define ITEM_CLEAR_BELL      474
-#define ITEM_CARD_KEY        475
-#define ITEM_BASEMENT_KEY    476
-#define ITEM_SQUIRT_BOTTLE   477
-#define ITEM_RED_SCALE       478
-#define ITEM_LOST_ITEM       479
-#define ITEM_PASS            480
-#define ITEM_MACHINE_PART    481
-#define ITEM_SILVER_WING     482
-#define ITEM_RAINBOW_WING    483
-#define ITEM_MYSTERY_EGG     484
-#define ITEM_RED_APRICORN    485
-#define ITEM_YELLOW_APRICORN 486
-#define ITEM_BLUE_APRICORN   487
-#define ITEM_GREEN_APRICORN  488
-#define ITEM_PINK_APRICORN   489
-#define ITEM_WHITE_APRICORN  490
-#define ITEM_BLACK_APRICORN  491
-#define ITEM_FAST_BALL       492
-#define ITEM_LEVEL_BALL      493
-#define ITEM_LURE_BALL       494
-#define ITEM_HEAVY_BALL      495
-#define ITEM_LOVE_BALL       496
-#define ITEM_FRIEND_BALL     497
-#define ITEM_MOON_BALL       498
-#define ITEM_SPORT_BALL      499
-#define ITEM_PARK_BALL       500
-#define ITEM_PHOTO_ALBUM     501
-#define ITEM_GB_SOUNDS       502
-#define ITEM_TIDAL_BELL      503
-#define ITEM_RAGE_CANDY_BAR  504
-#define ITEM_DATA_CARD_01    505
-#define ITEM_DATA_CARD_02    506
-#define ITEM_DATA_CARD_03    507
-#define ITEM_DATA_CARD_04    508
-#define ITEM_DATA_CARD_05    509
-#define ITEM_DATA_CARD_06    510
-#define ITEM_DATA_CARD_07    511
-#define ITEM_DATA_CARD_08    512
-#define ITEM_DATA_CARD_09    513
-#define ITEM_DATA_CARD_10    514
-#define ITEM_DATA_CARD_11    515
-#define ITEM_DATA_CARD_12    516
-#define ITEM_DATA_CARD_13    517
-#define ITEM_DATA_CARD_14    518
-#define ITEM_DATA_CARD_15    519
-#define ITEM_DATA_CARD_16    520
-#define ITEM_DATA_CARD_17    521
-#define ITEM_DATA_CARD_18    522
-#define ITEM_DATA_CARD_19    523
-#define ITEM_DATA_CARD_20    524
-#define ITEM_DATA_CARD_21    525
-#define ITEM_DATA_CARD_22    526
-#define ITEM_DATA_CARD_23    527
-#define ITEM_DATA_CARD_24    528
-#define ITEM_DATA_CARD_25    529
-#define ITEM_DATA_CARD_26    530
-#define ITEM_DATA_CARD_27    531
-#define ITEM_JADE_ORB        532
-#define ITEM_LOCK_CAPSULE    533
-#define ITEM_RED_ORB         534
-#define ITEM_BLUE_ORB        535
-#define ITEM_ENIGMA_STONE    536
-
-#define ITEM_MEGA_STONES_START 537
-
-#define IS_ITEM_MEGA_STONE(item) (item >= ITEM_MEGA_STONES_START && item <= ITEM_DIANCITE)
-
-//Mega Stones
-#define ITEM_VENUSAURITE      (ITEM_MEGA_STONES_START)
-#define ITEM_CHARIZARDITE_X   (ITEM_MEGA_STONES_START + 1)
-#define ITEM_CHARIZARDITE_Y   (ITEM_MEGA_STONES_START + 2)
-#define ITEM_BLASTOISINITE    (ITEM_MEGA_STONES_START + 3)
-#define ITEM_BEEDRILLITE      (ITEM_MEGA_STONES_START + 4)
-#define ITEM_PIDGEOTITE       (ITEM_MEGA_STONES_START + 5)
-#define ITEM_ALAKAZITE        (ITEM_MEGA_STONES_START + 6)
-#define ITEM_SLOWBRONITE      (ITEM_MEGA_STONES_START + 7)
-#define ITEM_GENGARITE        (ITEM_MEGA_STONES_START + 8)
-#define ITEM_KANGASKHANITE    (ITEM_MEGA_STONES_START + 9)
-#define ITEM_PINSIRITE        (ITEM_MEGA_STONES_START + 10)
-#define ITEM_GYARADOSITE      (ITEM_MEGA_STONES_START + 11)
-#define ITEM_AERODACTYLITE    (ITEM_MEGA_STONES_START + 12)
-#define ITEM_MEWTWONITE_X     (ITEM_MEGA_STONES_START + 13)
-#define ITEM_MEWTWONITE_Y     (ITEM_MEGA_STONES_START + 14)
-#define ITEM_AMPHAROSITE      (ITEM_MEGA_STONES_START + 15)
-#define ITEM_STEELIXITE       (ITEM_MEGA_STONES_START + 16)
-#define ITEM_SCIZORITE        (ITEM_MEGA_STONES_START + 17)
-#define ITEM_HERACRONITE      (ITEM_MEGA_STONES_START + 18)
-#define ITEM_HOUNDOOMINITE    (ITEM_MEGA_STONES_START + 19)
-#define ITEM_TYRANITARITE     (ITEM_MEGA_STONES_START + 20)
-#define ITEM_SCEPTILITE       (ITEM_MEGA_STONES_START + 21)
-#define ITEM_BLAZIKENITE      (ITEM_MEGA_STONES_START + 22)
-#define ITEM_SWAMPERTITE      (ITEM_MEGA_STONES_START + 23)
-#define ITEM_GARDEVOIRITE     (ITEM_MEGA_STONES_START + 24)
-#define ITEM_SABLENITE        (ITEM_MEGA_STONES_START + 25)
-#define ITEM_MAWILITE         (ITEM_MEGA_STONES_START + 26)
-#define ITEM_AGGRONITE        (ITEM_MEGA_STONES_START + 27)
-#define ITEM_MEDICHAMITE      (ITEM_MEGA_STONES_START + 28)
-#define ITEM_MANECTITE        (ITEM_MEGA_STONES_START + 29)
-#define ITEM_SHARPEDONITE     (ITEM_MEGA_STONES_START + 30)
-#define ITEM_CAMERUPTITE      (ITEM_MEGA_STONES_START + 31)
-#define ITEM_ALTARIANITE      (ITEM_MEGA_STONES_START + 32)
-#define ITEM_BANETTITE        (ITEM_MEGA_STONES_START + 33)
-#define ITEM_ABSOLITE         (ITEM_MEGA_STONES_START + 34)
-#define ITEM_GLALITITE        (ITEM_MEGA_STONES_START + 35)
-#define ITEM_SALAMENCITE      (ITEM_MEGA_STONES_START + 36)
-#define ITEM_METAGROSSITE     (ITEM_MEGA_STONES_START + 37)
-#define ITEM_LATIASITE        (ITEM_MEGA_STONES_START + 38)
-#define ITEM_LATIOSITE        (ITEM_MEGA_STONES_START + 39)
-#define ITEM_LOPUNNITE        (ITEM_MEGA_STONES_START + 40)
-#define ITEM_GARCHOMPITE      (ITEM_MEGA_STONES_START + 41)
-#define ITEM_LUCARIONITE      (ITEM_MEGA_STONES_START + 42)
-#define ITEM_ABOMASITE        (ITEM_MEGA_STONES_START + 43)
-#define ITEM_GALLADITE        (ITEM_MEGA_STONES_START + 44)
-#define ITEM_AUDINITE         (ITEM_MEGA_STONES_START + 45)
-#define ITEM_DIANCITE         (ITEM_MEGA_STONES_START + 46)
-#define ITEM_PIXIE_PLATE      (ITEM_MEGA_STONES_START + 47)
-
-#define ITEM_MAX_MEGA_STONES  (ITEM_PIXIE_PLATE)
-
-//Item expansion
-#define ITEM_EXPANSION_START    (ITEM_PIXIE_PLATE + 1)
-
-//Generation V
-#define ITEM_ABSORB_BULB        (ITEM_PIXIE_PLATE + 1)
-#define ITEM_AIR_BALLOON        (ITEM_PIXIE_PLATE + 2)
-#define ITEM_BALM_MUSHROOM      (ITEM_PIXIE_PLATE + 3)
-#define ITEM_BIG_NUGGET         (ITEM_PIXIE_PLATE + 4)
-#define ITEM_BINDING_BAND       (ITEM_PIXIE_PLATE + 5)
-#define ITEM_CASTELIACONE       (ITEM_PIXIE_PLATE + 6)
-#define ITEM_CELL_BATTERY       (ITEM_PIXIE_PLATE + 7)
-#define ITEM_COMET_SHARD        (ITEM_PIXIE_PLATE + 8)
-#define ITEM_DREAM_BALL         (ITEM_PIXIE_PLATE + 9)
-#define ITEM_EJECT_BUTTON       (ITEM_PIXIE_PLATE + 10)
-#define ITEM_EVIOLITE           (ITEM_PIXIE_PLATE + 11)
-#define ITEM_FLOAT_STONE        (ITEM_PIXIE_PLATE + 12)
-#define ITEM_PEARL_STRING       (ITEM_PIXIE_PLATE + 13)
-#define ITEM_PRISM_SCALE        (ITEM_PIXIE_PLATE + 14)
-#define ITEM_RED_CARD           (ITEM_PIXIE_PLATE + 15)
-#define ITEM_RING_TARGET        (ITEM_PIXIE_PLATE + 16)
-#define ITEM_ROCKY_HELMET       (ITEM_PIXIE_PLATE + 17)
-#define ITEM_SWEET_HEART        (ITEM_PIXIE_PLATE + 18)
-
-//Generation VI
-#define ITEM_ABILITY_CAPSULE    (ITEM_PIXIE_PLATE + 19)
-#define ITEM_ASSAULT_VEST       (ITEM_PIXIE_PLATE + 20)
-#define ITEM_LUMINOUS_MOSS      (ITEM_PIXIE_PLATE + 21)
-#define ITEM_LUMIOSE_GALETTE    (ITEM_PIXIE_PLATE + 22)
-#define ITEM_SACHET             (ITEM_PIXIE_PLATE + 23)
-#define ITEM_SAFETY_GOGGLES     (ITEM_PIXIE_PLATE + 24)
-#define ITEM_SHALOUR_SABLE      (ITEM_PIXIE_PLATE + 25)
-#define ITEM_SNOWBALL           (ITEM_PIXIE_PLATE + 26)
-#define ITEM_WEAKNESS_POLICY    (ITEM_PIXIE_PLATE + 27)
-#define ITEM_WHIPPED_DREAM      (ITEM_PIXIE_PLATE + 28)
-
-//Generation VII
-#define ITEM_ADRENALINE_ORB     (ITEM_PIXIE_PLATE + 29)
-#define ITEM_BEAST_BALL         (ITEM_PIXIE_PLATE + 30)
-#define ITEM_BIG_MALASADA       (ITEM_PIXIE_PLATE + 31)
-#define ITEM_BOTTLE_CAP         (ITEM_PIXIE_PLATE + 32)
-#define ITEM_GOLD_BOTTLE_CAP    (ITEM_PIXIE_PLATE + 33)
-#define ITEM_ELECTRIC_SEED      (ITEM_PIXIE_PLATE + 34)
-#define ITEM_GRASSY_SEED        (ITEM_PIXIE_PLATE + 35)
-#define ITEM_MISTY_SEED         (ITEM_PIXIE_PLATE + 36)
-#define ITEM_PSYCHIC_SEED       (ITEM_PIXIE_PLATE + 37)
-#define ITEM_ICE_STONE          (ITEM_PIXIE_PLATE + 38)
-#define ITEM_PROTECTIVE_PADS    (ITEM_PIXIE_PLATE + 39)
-#define ITEM_TERRAIN_EXTENDER   (ITEM_PIXIE_PLATE + 40)
-
-//Generation VIII
-#define ITEM_ABILITY_PATCH      (ITEM_PIXIE_PLATE + 41)
-#define ITEM_BLACK_AUGURITE     (ITEM_PIXIE_PLATE + 42)
-#define ITEM_BERRY_SWEET        (ITEM_PIXIE_PLATE + 43)
-#define ITEM_CLOVER_SWEET       (ITEM_PIXIE_PLATE + 44)
-#define ITEM_FLOWER_SWEET       (ITEM_PIXIE_PLATE + 45)
-#define ITEM_LOVE_SWEET         (ITEM_PIXIE_PLATE + 46)
-#define ITEM_RIBBON_SWEET       (ITEM_PIXIE_PLATE + 47)
-#define ITEM_STAR_SWEET         (ITEM_PIXIE_PLATE + 48)
-#define ITEM_STRAWBERRY_SWEET   (ITEM_PIXIE_PLATE + 49)
-#define ITEM_BLUNDER_POLICY     (ITEM_PIXIE_PLATE + 50)
-#define ITEM_CHIPPED_POT        (ITEM_PIXIE_PLATE + 51)
-#define ITEM_CRACKED_POT        (ITEM_PIXIE_PLATE + 52)
-#define ITEM_EJECT_PACK         (ITEM_PIXIE_PLATE + 53)
-#define ITEM_EXP_CANDY_S        (ITEM_PIXIE_PLATE + 54)
-#define ITEM_EXP_CANDY_M        (ITEM_PIXIE_PLATE + 55)
-#define ITEM_EXP_CANDY_L        (ITEM_PIXIE_PLATE + 56)
-#define ITEM_EXP_CANDY_XS       (ITEM_PIXIE_PLATE + 57)
-#define ITEM_EXP_CANDY_XL       (ITEM_PIXIE_PLATE + 58)
-#define ITEM_GALARICA_CUFF      (ITEM_PIXIE_PLATE + 59)
-#define ITEM_GALARICA_TWIG      (ITEM_PIXIE_PLATE + 60)
-#define ITEM_GALARICA_WREATH    (ITEM_PIXIE_PLATE + 61)
-#define ITEM_HEAVY_DUTY_BOOTS   (ITEM_PIXIE_PLATE + 62)
-#define ITEM_LINKING_CORD       (ITEM_PIXIE_PLATE + 63)
-#define ITEM_MOOMOO_CHEESE      (ITEM_PIXIE_PLATE + 64)
-#define ITEM_PEAT_BLOCK         (ITEM_PIXIE_PLATE + 65)
-#define ITEM_ROOM_SERVICE       (ITEM_PIXIE_PLATE + 66)
-#define ITEM_RUSTED_SHIELD      (ITEM_PIXIE_PLATE + 67)
-#define ITEM_RUSTED_SWORD       (ITEM_PIXIE_PLATE + 68)
-#define ITEM_SWEET_APPLE        (ITEM_PIXIE_PLATE + 69)
-#define ITEM_TART_APPLE         (ITEM_PIXIE_PLATE + 70)
-#define ITEM_THROAT_SPRAY       (ITEM_PIXIE_PLATE + 71)
-#define ITEM_UTILITY_UMBRELLA   (ITEM_PIXIE_PLATE + 72)
-
-//Generation IX
-#define ITEM_ABILITY_SHIELD     (ITEM_PIXIE_PLATE + 73)
-#define ITEM_AUSPICIOUS_ARMOR   (ITEM_PIXIE_PLATE + 74)
-#define ITEM_BOOSTER_ENERGY     (ITEM_PIXIE_PLATE + 75)
-#define ITEM_CLEAR_AMULET       (ITEM_PIXIE_PLATE + 76)
-#define ITEM_COVERT_CLOAK       (ITEM_PIXIE_PLATE + 77)
-#define ITEM_GIMMIGHOUL_COIN    (ITEM_PIXIE_PLATE + 78)
-#define ITEM_LEADERS_CREST      (ITEM_PIXIE_PLATE + 79)
-#define ITEM_LOADED_DICE        (ITEM_PIXIE_PLATE + 80)
-#define ITEM_MALICIOUS_ARMOR    (ITEM_PIXIE_PLATE + 81)
-#define ITEM_MIRROR_HERB        (ITEM_PIXIE_PLATE + 82)
-#define ITEM_PUNCHING_GLOVE     (ITEM_PIXIE_PLATE + 83)
-
-//Berries
-#define ITEM_ROSELI_BERRY       (ITEM_PIXIE_PLATE + 84)
-#define ITEM_KEE_BERRY          (ITEM_PIXIE_PLATE + 85)
-#define ITEM_MARANGA_BERRY      (ITEM_PIXIE_PLATE + 86)
-
-//Drives
-#define ITEM_BURN_DRIVE         (ITEM_PIXIE_PLATE + 87)
-#define ITEM_CHILL_DRIVE        (ITEM_PIXIE_PLATE + 88)
-#define ITEM_DOUSE_DRIVE        (ITEM_PIXIE_PLATE + 89)
-#define ITEM_SHOCK_DRIVE        (ITEM_PIXIE_PLATE + 90)
-
-#define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_BURN_DRIVE && item <= ITEM_SHOCK_DRIVE)
-
-//Fossils
-#define ITEM_COVER_FOSSIL       (ITEM_PIXIE_PLATE + 91)
-#define ITEM_PLUME_FOSSIL       (ITEM_PIXIE_PLATE + 92)
-#define ITEM_JAW_FOSSIL         (ITEM_PIXIE_PLATE + 93)
-#define ITEM_SAIL_FOSSIL        (ITEM_PIXIE_PLATE + 94)
-#define ITEM_FOSSILIZED_BIRD    (ITEM_PIXIE_PLATE + 95)
-#define ITEM_FOSSILIZED_DINO    (ITEM_PIXIE_PLATE + 96)
-#define ITEM_FOSSILIZED_DRAKE   (ITEM_PIXIE_PLATE + 97)
-#define ITEM_FOSSILIZED_FISH    (ITEM_PIXIE_PLATE + 98)
-
-//Gems
-#define ITEM_NORMAL_GEM         (ITEM_PIXIE_PLATE + 99)
-#define ITEM_FIGHTING_GEM       (ITEM_PIXIE_PLATE + 100)
-#define ITEM_FLYING_GEM         (ITEM_PIXIE_PLATE + 101)
-#define ITEM_POISON_GEM         (ITEM_PIXIE_PLATE + 102)
-#define ITEM_GROUND_GEM         (ITEM_PIXIE_PLATE + 103)
-#define ITEM_ROCK_GEM           (ITEM_PIXIE_PLATE + 104)
-#define ITEM_BUG_GEM            (ITEM_PIXIE_PLATE + 105)
-#define ITEM_GHOST_GEM          (ITEM_PIXIE_PLATE + 106)
-#define ITEM_STEEL_GEM          (ITEM_PIXIE_PLATE + 107)
-#define ITEM_FIRE_GEM           (ITEM_PIXIE_PLATE + 108)
-#define ITEM_WATER_GEM          (ITEM_PIXIE_PLATE + 109)
-#define ITEM_GRASS_GEM          (ITEM_PIXIE_PLATE + 110)
-#define ITEM_ELECTRIC_GEM       (ITEM_PIXIE_PLATE + 111)
-#define ITEM_PSYCHIC_GEM        (ITEM_PIXIE_PLATE + 112)
-#define ITEM_ICE_GEM            (ITEM_PIXIE_PLATE + 113)
-#define ITEM_DRAGON_GEM         (ITEM_PIXIE_PLATE + 114)
-#define ITEM_DARK_GEM           (ITEM_PIXIE_PLATE + 115)
-#define ITEM_FAIRY_GEM          (ITEM_PIXIE_PLATE + 116)
-
-//Memories
-#define IS_ITEM_MEMORY(item) (item >= ITEM_FIGHTING_MEMORY && item <= ITEM_FAIRY_MEMORY)
-
-#define ITEM_FIGHTING_MEMORY    (ITEM_PIXIE_PLATE + 117)
-#define ITEM_FLYING_MEMORY      (ITEM_PIXIE_PLATE + 118)
-#define ITEM_POISON_MEMORY      (ITEM_PIXIE_PLATE + 119)
-#define ITEM_GROUND_MEMORY      (ITEM_PIXIE_PLATE + 120)
-#define ITEM_ROCK_MEMORY        (ITEM_PIXIE_PLATE + 121)
-#define ITEM_BUG_MEMORY         (ITEM_PIXIE_PLATE + 122)
-#define ITEM_GHOST_MEMORY       (ITEM_PIXIE_PLATE + 123)
-#define ITEM_STEEL_MEMORY       (ITEM_PIXIE_PLATE + 124)
-#define ITEM_FIRE_MEMORY        (ITEM_PIXIE_PLATE + 125)
-#define ITEM_WATER_MEMORY       (ITEM_PIXIE_PLATE + 126)
-#define ITEM_GRASS_MEMORY       (ITEM_PIXIE_PLATE + 127)
-#define ITEM_ELECTRIC_MEMORY    (ITEM_PIXIE_PLATE + 128)
-#define ITEM_PSYCHIC_MEMORY     (ITEM_PIXIE_PLATE + 129)
-#define ITEM_ICE_MEMORY         (ITEM_PIXIE_PLATE + 130)
-#define ITEM_DRAGON_MEMORY      (ITEM_PIXIE_PLATE + 131)
-#define ITEM_DARK_MEMORY        (ITEM_PIXIE_PLATE + 132)
-#define ITEM_FAIRY_MEMORY       (ITEM_PIXIE_PLATE + 133)
-
-//Nectars
-#define ITEM_RED_NECTAR         (ITEM_PIXIE_PLATE + 134)
-#define ITEM_YELLOW_NECTAR      (ITEM_PIXIE_PLATE + 135)
-#define ITEM_PINK_NECTAR        (ITEM_PIXIE_PLATE + 136)
-#define ITEM_PURPLE_NECTAR      (ITEM_PIXIE_PLATE + 137)
-
-//Plates
-#define ITEM_BLANK_PLATE        (ITEM_PIXIE_PLATE + 138)
-#define ITEM_LEGEND_PLATE       (ITEM_PIXIE_PLATE + 139)
-
-//Relic Items
-#define ITEM_RELIC_COPPER       (ITEM_PIXIE_PLATE + 140)
-#define ITEM_RELIC_SILVER       (ITEM_PIXIE_PLATE + 141)
-#define ITEM_RELIC_GOLD         (ITEM_PIXIE_PLATE + 142)
-#define ITEM_RELIC_VASE         (ITEM_PIXIE_PLATE + 143)
-#define ITEM_RELIC_BAND         (ITEM_PIXIE_PLATE + 144)
-#define ITEM_RELIC_STATUE       (ITEM_PIXIE_PLATE + 145)
-#define ITEM_RELIC_CROWN        (ITEM_PIXIE_PLATE + 146)
-
-//Wings
-#define ITEM_HEALTH_FEATHER     (ITEM_PIXIE_PLATE + 147)
-#define ITEM_MUSCLE_FEATHER     (ITEM_PIXIE_PLATE + 148)
-#define ITEM_RESIST_FEATHER     (ITEM_PIXIE_PLATE + 149)
-#define ITEM_GENIUS_FEATHER     (ITEM_PIXIE_PLATE + 150)
-#define ITEM_CLEVER_FEATHER     (ITEM_PIXIE_PLATE + 151)
-#define ITEM_SWIFT_FEATHER      (ITEM_PIXIE_PLATE + 152)
-#define ITEM_PRETTY_FEATHER     (ITEM_PIXIE_PLATE + 153)
-
-//Key Items
-#define ITEM_DNA_SPLICERS       (ITEM_PIXIE_PLATE + 154)
-#define ITEM_REVEAL_GLASS       (ITEM_PIXIE_PLATE + 155)
-#define ITEM_PRISON_BOTTLE      (ITEM_PIXIE_PLATE + 156)
-#define ITEM_CATCHING_CHARM     (ITEM_PIXIE_PLATE + 157)
-#define ITEM_EXP_CHARM          (ITEM_PIXIE_PLATE + 158)
-#define ITEM_OVAL_CHARM         (ITEM_PIXIE_PLATE + 159)
-#define ITEM_SHINY_CHARM        (ITEM_PIXIE_PLATE + 160)
-#define ITEM_N_SOLARIZER        (ITEM_PIXIE_PLATE + 161)
-#define ITEM_N_LUNARIZER        (ITEM_PIXIE_PLATE + 162)
-#define ITEM_POKEMON_BOX_LINK   (ITEM_PIXIE_PLATE + 163)
-#define ITEM_ZYGARDE_CUBE       (ITEM_PIXIE_PLATE + 164)
-#define ITEM_SUN_FLUTE          (ITEM_PIXIE_PLATE + 165)
-#define ITEM_MOON_FLUTE         (ITEM_PIXIE_PLATE + 166)
-#define ITEM_LIGHT_STONE        (ITEM_PIXIE_PLATE + 167)
-#define ITEM_DARK_STONE         (ITEM_PIXIE_PLATE + 168)
-#define ITEM_ICEROOT_CARROT     (ITEM_PIXIE_PLATE + 169)
-#define ITEM_SHADEROOT_CARROT   (ITEM_PIXIE_PLATE + 170)
-#define ITEM_REINS_OF_UNITY     (ITEM_PIXIE_PLATE + 171)
-#define ITEM_WOODEN_CROWN       (ITEM_PIXIE_PLATE + 172)
-#define ITEM_ROTOM_CATALOG      (ITEM_PIXIE_PLATE + 173)
-#define ITEM_ADAMANT_CRYSTAL    (ITEM_PIXIE_PLATE + 174)
-#define ITEM_LUSTROUS_GLOBE     (ITEM_PIXIE_PLATE + 175)
-#define ITEM_GRISEOUS_CORE      (ITEM_PIXIE_PLATE + 176)
-#define ITEM_SCROLL_OF_DARKNESS (ITEM_PIXIE_PLATE + 177)
-#define ITEM_SCROLL_OF_WATERS   (ITEM_PIXIE_PLATE + 178)
-#define ITEM_MEGA_RING          (ITEM_PIXIE_PLATE + 179)
-
-//Lets Go Pikachu
-#define ITEM_AUTOGRAPH          (ITEM_PIXIE_PLATE + 180)
-#define ITEM_GOLD_TEETH         (ITEM_PIXIE_PLATE + 181)
-#define ITEM_KEY_STONE          (ITEM_PIXIE_PLATE + 182)
-#define ITEM_LIFT_KEY           (ITEM_PIXIE_PLATE + 183)
-#define ITEM_PEWTER_CRUNCHIES   (ITEM_PIXIE_PLATE + 184)
-#define ITEM_SYLPH_SCOPE        (ITEM_PIXIE_PLATE + 185)
-#define ITEM_TEA                (ITEM_PIXIE_PLATE + 186)
-
-//Mints
-#define IS_ITEM_NATURE_MINT(item) (item >= ITEM_LONELY_MINT && item <= ITEM_SERIOUS_MINT)
-
-#define ITEM_LONELY_MINT        (ITEM_PIXIE_PLATE + 187)
-#define ITEM_ADAMANT_MINT       (ITEM_PIXIE_PLATE + 188)
-#define ITEM_NAUGHTY_MINT       (ITEM_PIXIE_PLATE + 189)
-#define ITEM_BRAVE_MINT         (ITEM_PIXIE_PLATE + 190)
-#define ITEM_BOLD_MINT          (ITEM_PIXIE_PLATE + 191)
-#define ITEM_IMPISH_MINT        (ITEM_PIXIE_PLATE + 192)
-#define ITEM_LAX_MINT           (ITEM_PIXIE_PLATE + 193)
-#define ITEM_RELAXED_MINT       (ITEM_PIXIE_PLATE + 194)
-#define ITEM_MODEST_MINT        (ITEM_PIXIE_PLATE + 195)
-#define ITEM_MILD_MINT          (ITEM_PIXIE_PLATE + 196)
-#define ITEM_RASH_MINT          (ITEM_PIXIE_PLATE + 197)
-#define ITEM_QUIET_MINT         (ITEM_PIXIE_PLATE + 198)
-#define ITEM_CALM_MINT          (ITEM_PIXIE_PLATE + 199)
-#define ITEM_GENTLE_MINT        (ITEM_PIXIE_PLATE + 200)
-#define ITEM_CAREFUL_MINT       (ITEM_PIXIE_PLATE + 201)
-#define ITEM_SASSY_MINT         (ITEM_PIXIE_PLATE + 202)
-#define ITEM_TIMID_MINT         (ITEM_PIXIE_PLATE + 203)
-#define ITEM_HASTY_MINT         (ITEM_PIXIE_PLATE + 204)
-#define ITEM_JOLLY_MINT         (ITEM_PIXIE_PLATE + 205)
-#define ITEM_NAIVE_MINT         (ITEM_PIXIE_PLATE + 206)
-#define ITEM_SERIOUS_MINT       (ITEM_PIXIE_PLATE + 207)
-
-//Gen IX DLC
-#define ITEM_FAIRY_FEATHER      (ITEM_PIXIE_PLATE + 208)
-#define ITEM_SYRUPY_APPLE       (ITEM_PIXIE_PLATE + 209)
-#define ITEM_UNREMARKABLE_TEACUP (ITEM_PIXIE_PLATE + 210)
-#define ITEM_MASTERPIECE_TEACUP (ITEM_PIXIE_PLATE + 211)
-#define ITEM_CORNERSTONE_MASK   (ITEM_PIXIE_PLATE + 212)
-#define ITEM_WELLSPRING_MASK    (ITEM_PIXIE_PLATE + 213)
-#define ITEM_HEARTHFLAME_MASK   (ITEM_PIXIE_PLATE + 214)
-#define ITEM_METAL_ALLOY        (ITEM_PIXIE_PLATE + 215)
-
-#define MAX_BASE_ITEM_NUM ITEM_METAL_ALLOY
+#define MAX_BASE_ITEM_NUM ITEM_BRIARS_BOOK
 
 // define your custom move effects below like this
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
 
+#define MAX_TOTAL_ITEM_NUM ITEM_BRIARS_BOOK
 
 
 #define NUM_MEGA_STONES 48 // includes the pixie plate
+#define NUM_HMS         (ITEM_HM08 - ITEM_HM01 + 1) // intentionally do not include HM07_ORAS (Dive)
+
+#define IS_ITEM_ARCEUS_PLATE(item) ((item >= ITEM_FLAME_PLATE && item <= ITEM_IRON_PLATE) || (item == ITEM_PIXIE_PLATE))
+
+#define IS_ITEM_BERRY(item) ((item >= ITEM_CHERI_BERRY && item <= ITEM_ROWAP_BERRY) || (item >= ITEM_ROSELI_BERRY && item <= ITEM_MARANGA_BERRY))
+
+#define IS_ITEM_MAIL(item) ((item >= ITEM_GRASS_MAIL && item <= ITEM_BRICK_MAIL))
+
+#define IS_ITEM_MEGA_STONE(item) (item >= ITEM_GENGARITE && item <= ITEM_LATIOSITE) || (item >= ITEM_SWAMPERTITE && item <= ITEM_DIANCITE) || (item >= ITEM_CAMERUPTITE && item <= ITEM_BEEDRILLITE)
+
+#define IS_ITEM_Z_CRYSTAL(item) ((item >= ITEM_NORMALIUM_Z_HELD && item <= ITEM_PIKANIUM_Z_HELD) || (item >= ITEM_DECIDIUM_Z_HELD && item <= ITEM_MEWNIUM_Z_HELD) || (item == ITEM_PIKASHUNIUM_Z_HELD) || (item >= ITEM_MIMIKIUM_Z_ITEM && item <= ITEM_ULTRANECROZIUM_Z_ITEM))
+
+#define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_BURN_DRIVE && item <= ITEM_SHOCK_DRIVE)
+
+#define IS_ITEM_GEM(item) (item >= ITEM_NORMAL_GEM && item <= ITEM_FAIRY_GEM)
+
+#define IS_ITEM_MEMORY(item) (item >= ITEM_FIGHTING_MEMORY && item <= ITEM_FAIRY_MEMORY)
+
+#define IS_ITEM_NATURE_MINT(item) (item >= ITEM_LONELY_MINT && item <= ITEM_SERIOUS_MINT)
 
 #define IS_ITEM_TERRAIN_SEED(item) (item >= ITEM_ELECTRIC_SEED && item <= ITEM_PSYCHIC_SEED)
 
 #define IS_ITEM_MASK(item) (item >= ITEM_CORNERSTONE_MASK && item <= ITEM_HEARTHFLAME_MASK)
 
-#define NUM_UNKNOWN_SLOTS 22 // used to adjust in data/itemdata.c
-#define NUM_UNKNOWN_SLOTS_EXPLORER_KIT (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
+#define IS_ITEM_TM(item) \
+    ((item) == ITEM_TM00 || \
+     ((item) >= ITEM_TM001 && (item) <= ITEM_TM092) || \
+     ((item) >= ITEM_TM093 && (item) <= ITEM_TM095) || \
+     ((item) >= ITEM_TM096 && (item) <= ITEM_TM100) || \
+     ((item) >= ITEM_TM100_SV && (item) <= ITEM_TM229))
 
-#define NEW_ITEM_MAX ITEM_METAL_ALLOY
+#define IS_ITEM_HM(item) \
+    (((item) >= ITEM_HM01 && (item) <= ITEM_HM08) || \
+     (item) == ITEM_HM07_ORAS)
 
-#define BAG_SLOT_QUANTITY_MAX                    999
+#define IS_ITEM_TR(item) \
+    ((item) >= ITEM_TR00 && (item) <= ITEM_TR99)
 
-#ifdef REUSABLE_TMS
-#define BAG_TMHM_QUANTITY_MAX                      1
-#else
-#define BAG_TMHM_QUANTITY_MAX                     99
-#endif
+enum ItemGeneration {
+    CUSTOM,
+    GEN4,
+    GEN5,
+    GEN6,
+    GEN7,
+    GEN8,
+    GEN9
+};
 
-#define POCKET_ITEMS        0
-#define POCKET_MEDICINE     1
-#define POCKET_BALLS        2
-#define POCKET_TMHMS        3
-#define POCKET_BERRIES      4
-#define POCKET_MAIL         5
-#define POCKET_BATTLE_ITEMS 6
-#define POCKET_KEY_ITEMS    7
-#define POCKETS_COUNT       8
+#define ITEM_GENERATION(id) ( \
+    (id) <= ITEM_ENIGMA_STONE ? GEN4 : \
+    (id) <= ITEM_REVEAL_GLASS ? GEN5 : \
+    (id) <= ITEM_EON_FLUTE    ? GEN6 : \
+    (id) <= ITEM_UNKNOWN_1073 ? GEN7 : \
+    (id) <= ITEM_LEGEND_PLATE ? GEN8 : \
+    (id) <= ITEM_BRIARS_BOOK  ? GEN9 : \
+                                CUSTOM )
+
+#define ITEM_MSG_OFFSET(id) ( \
+    (id) <= ITEM_ENIGMA_STONE ? (id) : \
+    (id) <= ITEM_REVEAL_GLASS ? ((id) - (ITEM_ENIGMA_STONE + 1)) : \
+    (id) <= ITEM_EON_FLUTE    ? ((id) - (ITEM_REVEAL_GLASS + 1)) : \
+    (id) <= ITEM_UNKNOWN_1073 ? ((id) - (ITEM_EON_FLUTE    + 1)) : \
+    (id) <= ITEM_LEGEND_PLATE ? ((id) - (ITEM_UNKNOWN_1073 + 1)) : \
+    (id) <= ITEM_BRIARS_BOOK  ? ((id) - (ITEM_LEGEND_PLATE + 1)) : \
+                                ((id) - (ITEM_BRIARS_BOOK  + 1)) )
+
+#define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
+#define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
+
+#define NEW_ITEM_MAX ITEM_BRIARS_BOOK
+
+#define BAG_SLOT_QUANTITY_MAX 999
+#define BAG_TMHM_QUANTITY_MAX 99
+
+// HGSS Pockets
+
+#define POCKET_ITEMS                    0
+#define POCKET_MEDICINE                 1
+#define POCKET_BALLS                    2
+#define POCKET_TMHMS                    3
+#define POCKET_BERRIES                  4
+#define POCKET_MAIL                     5
+#define POCKET_BATTLE_ITEMS             6
+#define POCKET_KEY_ITEMS                7
+#define POCKETS_COUNT                   8
+
+#define ITEMPOCKET_HP_ITEMS             0
+#define ITEMPOCKET_POKEBALL             1
+#define POCKET_MEDICINE1                2
+#define ITEMPOCKET_BATTLE               3
+
+// Gen 5 Pockets
+
+#define POCKET_ITEMS_GEN_5              POCKET_ITEMS
+#define POCKET_MEDICINE_GEN_5           POCKET_MEDICINE
+#define POCKET_TMHMS_GEN_5              POCKET_TMHMS
+#define POCKET_BERRIES_GEN_5            POCKET_BERRIES
+#define POCKET_KEY_ITEMS_GEN_5          POCKET_KEY_ITEMS
+#define POCKET_FREESPACE_GEN_5          POCKET_ITEMS
+
+// Gen 6 Pockets
+
+#define POCKET_ITEMS_GEN_6              POCKET_ITEMS
+#define POCKET_MEDICINE_GEN_6           POCKET_MEDICINE
+#define POCKET_TMHMS_GEN_6              POCKET_TMHMS
+#define POCKET_BERRIES_GEN_6            POCKET_BERRIES
+#define POCKET_KEY_ITEMS_GEN_6          POCKET_KEY_ITEMS
+
+// Gen 7 Pockets
+
+#define POCKET_ROTOMPOWERS_GEN_7        POCKET_MEDICINE
+#define POCKET_MEDICINE_GEN_7           POCKET_MEDICINE
+#define POCKET_ITEMS_GEN_7              POCKET_ITEMS
+#define POCKET_TMS_GEN_7                POCKET_TMHMS
+#define POCKET_BERRIES_GEN_7            POCKET_BERRIES
+#define POCKET_KEY_ITEMS_GEN_7          POCKET_KEY_ITEMS
+#define POCKET_FREESPACE_GEN_7          POCKET_ITEMS
+#define POCKET_ZCRYSTALS_GEN_7          POCKET_ITEMS
+
+// Gen 8 Pockets
+
+#define POCKET_MEDICINE_GEN_8           POCKET_MEDICINE
+#define POCKET_BALLS_GEN_8              POCKET_BALLS
+#define POCKET_BATTLE_ITEMS_GEN_8       POCKET_ITEMS
+#define POCKET_BERRIES_GEN_8            POCKET_BERRIES
+#define POCKET_OTHERITEMS_GEN_8         POCKET_ITEMS
+#define POCKET_TMS_GEN_8                POCKET_TMHMS
+#define POCKET_TREASURES_GEN_8          POCKET_ITEMS
+#define POCKET_INGREDIENTS_GEN_8        POCKET_ITEMS
+#define POCKET_KEY_ITEMS_GEN_8          POCKET_KEY_ITEMS
+#define POCKET_EVERYDAYITEMS_PLA        POCKET_ITEMS
+#define POCKET_KEY_ITEMS_PLA            POCKET_KEY_ITEMS
+
+// Gen 9 Pockets
+
+#define POCKET_MEDICINE_GEN_9           POCKET_MEDICINE
+#define POCKET_BALLS_GEN_9              POCKET_BALLS
+#define FPOCKET_BALL                    POCKET_BALLS_GEN_9
+#define POCKET_BATTLE_ITEMS_GEN_9       POCKET_ITEMS
+#define POCKET_BERRIES_GEN_9            POCKET_BERRIES
+#define POCKET_OTHERITEMS_GEN_9         POCKET_ITEMS
+#define FPOCKET_OTHER                   POCKET_OTHERITEMS_GEN_9
+#define POCKET_TMS_GEN_9                POCKET_TMHMS
+#define FPOCKET_WAZA                    POCKET_TMS_GEN_9
+#define POCKET_TMMATERIALS_GEN_9        POCKET_ITEMS
+#define FPOCKET_MATERIAL                POCKET_TMMATERIALS_GEN_9
+#define POCKET_TREASURES_GEN_9          POCKET_ITEMS
+#define FPOCKET_TREASURE                POCKET_TREASURES_GEN_9
+#define POCKET_PICNICITEMS_GEN_9        POCKET_ITEMS
+#define FPOCKET_PICNIC                  POCKET_PICNICITEMS_GEN_9
+#define POCKET_KEY_ITEMS_GEN_9          POCKET_KEY_ITEMS
+#define FPOCKET_EVENT                   POCKET_KEY_ITEMS_GEN_9
 
 #define BATTLE_POCKET_NONE 0
 #define BATTLE_POCKET_POKE_BALLS 1
@@ -910,6 +2730,9 @@
 #define BATTLE_POCKET_HP_RESTORE 4
 #define BATTLE_POCKET_STATUS_HEALERS 8
 #define BATTLE_POCKET_PP_RESTORE 16
+
+
+#define TUIBAMU_NONE 0
 
 
 #ifdef ITEM_POCKET_EXPANSION

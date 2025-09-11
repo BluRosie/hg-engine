@@ -2,7 +2,7 @@
 #include "../include/config.h"
 #include "../include/debug.h"
 #include "../include/constants/species.h"
-#include "../include/msgdata.h"
+#include "../include/message.h"
 #include "../include/pokemon.h"
 #include "../include/pokemon_storage_system.h"
 #include "../include/save.h"

@@ -148,6 +148,41 @@ memcpy:
     pop {pc}
     .size memcpy, . - memcpy
 
+    .force_thumb
+    .syntax unified
+    .global __aeabi_lmul
+    .thumb_func
+    .type __aeabi_lmul,function
+__aeabi_lmul:
+    push {lr}
+    blx 0x020F2948
+    pop {pc}
+    .size __aeabi_lmul, . - __aeabi_lmul
+
+    .force_thumb
+    .syntax unified
+    .global __aeabi_uldivmod
+    .thumb_func
+    .type __aeabi_uldivmod,function
+__aeabi_uldivmod:
+    push {lr}
+    blx 0x020F2900
+    pop {pc}
+    .size __aeabi_uldivmod, . - __aeabi_uldivmod
+
+    .force_thumb
+    .syntax unified
+    .global __aeabi_ldivmod
+    .thumb_func
+    .type __aeabi_ldivmod,function
+__aeabi_ldivmod:
+    push {lr}
+    blx 0x020F2750
+    pop {pc}
+    .size __aeabi_ldivmod, . - __aeabi_ldivmod
+
+
+
 .global debugsyscall
 debugsyscall:
 swi 0xFC

@@ -1,0 +1,537 @@
+None
+{COLOR 255}Master Balls{COLOR 0}
+{COLOR 255}Ultra Balls{COLOR 0}
+{COLOR 255}Great Balls{COLOR 0}
+{COLOR 255}Poké Balls{COLOR 0}
+{COLOR 255}Safari Balls{COLOR 0}
+{COLOR 255}Net Balls{COLOR 0}
+{COLOR 255}Dive Balls{COLOR 0}
+{COLOR 255}Nest Balls{COLOR 0}
+{COLOR 255}Repeat Balls{COLOR 0}
+{COLOR 255}Timer Balls{COLOR 0}
+{COLOR 255}Luxury Balls{COLOR 0}
+{COLOR 255}Premier Balls{COLOR 0}
+{COLOR 255}Dusk Balls{COLOR 0}
+{COLOR 255}Heal Balls{COLOR 0}
+{COLOR 255}Quick Balls{COLOR 0}
+{COLOR 255}Cherish Balls{COLOR 0}
+{COLOR 255}Potions{COLOR 0}
+{COLOR 255}Antidotes{COLOR 0}
+{COLOR 255}Burn Heals{COLOR 0}
+{COLOR 255}Ice Heals{COLOR 0}
+{COLOR 255}Awakenings{COLOR 0}
+{COLOR 255}Paralyze Heals{COLOR 0}
+{COLOR 255}Full Restores{COLOR 0}
+{COLOR 255}Max Potions{COLOR 0}
+{COLOR 255}Hyper Potions{COLOR 0}
+{COLOR 255}Super Potions{COLOR 0}
+{COLOR 255}Full Heals{COLOR 0}
+{COLOR 255}Revives{COLOR 0}
+{COLOR 255}Max Revives{COLOR 0}
+{COLOR 255}bottles of Fresh Water{COLOR 0}
+{COLOR 255}bottles of Soda Pop{COLOR 0}
+{COLOR 255}cans of Lemonade{COLOR 0}
+{COLOR 255}bottles of Moomoo Milk{COLOR 0}
+{COLOR 255}doses of Energy Powder{COLOR 0}
+{COLOR 255}Energy Roots{COLOR 0}
+{COLOR 255}doses of Heal Powder{COLOR 0}
+{COLOR 255}Revival Herbs{COLOR 0}
+{COLOR 255}Ethers{COLOR 0}
+{COLOR 255}Max Ethers{COLOR 0}
+{COLOR 255}Elixirs{COLOR 0}
+{COLOR 255}Max Elixirs{COLOR 0}
+{COLOR 255}Lava Cookies{COLOR 0}
+{COLOR 255}cups of Berry Juice{COLOR 0}
+{COLOR 255}bags of Sacred Ash{COLOR 0}
+{COLOR 255}bottles of HP Up{COLOR 0}
+{COLOR 255}bottles of Protein{COLOR 0}
+{COLOR 255}bottles of Iron{COLOR 0}
+{COLOR 255}bottles of Carbos{COLOR 0}
+{COLOR 255}bottles of Calcium{COLOR 0}
+{COLOR 255}Rare Candies{COLOR 0}
+{COLOR 255}bottles of PP Up{COLOR 0}
+{COLOR 255}bottles of Zinc{COLOR 0}
+{COLOR 255}bottles of PP Max{COLOR 0}
+{COLOR 255}Old Gateaux{COLOR 0}
+{COLOR 255}Guard Specs.{COLOR 0}
+{COLOR 255}Dire Hits{COLOR 0}
+{COLOR 255}X Attacks{COLOR 0}
+{COLOR 255}X Defenses{COLOR 0}
+{COLOR 255}X Speeds{COLOR 0}
+{COLOR 255}X Accuracies{COLOR 0}
+{COLOR 255}X Sp. Atks{COLOR 0}
+{COLOR 255}X Sp. Defs{COLOR 0}
+{COLOR 255}Poké Dolls{COLOR 0}
+{COLOR 255}Fluffy Tails{COLOR 0}
+{COLOR 255}Blue Flutes{COLOR 0}
+{COLOR 255}Yellow Flutes{COLOR 0}
+{COLOR 255}Red Flutes{COLOR 0}
+{COLOR 255}Black Flutes{COLOR 0}
+{COLOR 255}White Flutes{COLOR 0}
+{COLOR 255}piles of Shoal Salt{COLOR 0}
+{COLOR 255}Shoal Shells{COLOR 0}
+{COLOR 255}Red Shards{COLOR 0}
+{COLOR 255}Blue Shards{COLOR 0}
+{COLOR 255}Yellow Shards{COLOR 0}
+{COLOR 255}Green Shards{COLOR 0}
+{COLOR 255}Super Repels{COLOR 0}
+{COLOR 255}Max Repels{COLOR 0}
+{COLOR 255}Escape Ropes{COLOR 0}
+{COLOR 255}Repels{COLOR 0}
+{COLOR 255}Sun Stones{COLOR 0}
+{COLOR 255}Moon Stones{COLOR 0}
+{COLOR 255}Fire Stones{COLOR 0}
+{COLOR 255}Thunder Stones{COLOR 0}
+{COLOR 255}Water Stones{COLOR 0}
+{COLOR 255}Leaf Stones{COLOR 0}
+{COLOR 255}Tiny Mushrooms{COLOR 0}
+{COLOR 255}Big Mushrooms{COLOR 0}
+{COLOR 255}Pearls{COLOR 0}
+{COLOR 255}Big Pearls{COLOR 0}
+{COLOR 255}bags of Stardust{COLOR 0}
+{COLOR 255}Star Pieces{COLOR 0}
+{COLOR 255}Nuggets{COLOR 0}
+{COLOR 255}Heart Scales{COLOR 0}
+{COLOR 255}jars of Honey{COLOR 0}
+{COLOR 255}bags of Growth Mulch{COLOR 0}
+{COLOR 255}bags of Damp Mulch{COLOR 0}
+{COLOR 255}bags of Stable Mulch{COLOR 0}
+{COLOR 255}bags of Gooey Mulch{COLOR 0}
+{COLOR 255}Root Fossils{COLOR 0}
+{COLOR 255}Claw Fossils{COLOR 0}
+{COLOR 255}Helix Fossils{COLOR 0}
+{COLOR 255}Dome Fossils{COLOR 0}
+{COLOR 255}Old Ambers{COLOR 0}
+{COLOR 255}Armor Fossils{COLOR 0}
+{COLOR 255}Skull Fossils{COLOR 0}
+{COLOR 255}Rare Bones{COLOR 0}
+{COLOR 255}Shiny Stones{COLOR 0}
+{COLOR 255}Dusk Stones{COLOR 0}
+{COLOR 255}Dawn Stones{COLOR 0}
+{COLOR 255}Oval Stones{COLOR 0}
+{COLOR 255}Odd Keystones{COLOR 0}
+{COLOR 255}Griseous Orbs{COLOR 0}
+{COLOR 255}cups of Tea{COLOR 0}
+???
+{COLOR 255}Autographs{COLOR 0}
+{COLOR 255}Douse Drives{COLOR 0}
+{COLOR 255}Shock Drives{COLOR 0}
+{COLOR 255}Burn Drives{COLOR 0}
+{COLOR 255}Chill Drives{COLOR 0}
+???
+{COLOR 255}Pokémon Box Links{COLOR 0}
+{COLOR 255}Medicine Pockets{COLOR 0}
+{COLOR 255}TM Cases{COLOR 0}
+{COLOR 255}Candy Jars{COLOR 0}
+{COLOR 255}Power-Up Pockets{COLOR 0}
+{COLOR 255}Clothing Trunks{COLOR 0}
+{COLOR 255}Catching Pockets{COLOR 0}
+{COLOR 255}Battle Pockets{COLOR 0}
+???
+???
+???
+???
+???
+{COLOR 255}Sweet Hearts{COLOR 0}
+{COLOR 255}Adamant Orbs{COLOR 0}
+{COLOR 255}Lustrous Orbs{COLOR 0}
+{COLOR 255}pieces of Greet Mail{COLOR 0}
+{COLOR 255}pieces of Favored Mail{COLOR 0}
+{COLOR 255}pieces of RSVP Mail{COLOR 0}
+{COLOR 255}pieces of Thanks Mail{COLOR 0}
+{COLOR 255}pieces of Inquiry Mail{COLOR 0}
+{COLOR 255}pieces of Like Mail{COLOR 0}
+{COLOR 255}pieces of Reply Mail{COLOR 0}
+{COLOR 255}pieces of Bridge Mail S{COLOR 0}
+{COLOR 255}pieces of Bridge Mail D{COLOR 0}
+{COLOR 255}pieces of Bridge Mail T{COLOR 0}
+{COLOR 255}pieces of Bridge Mail V{COLOR 0}
+{COLOR 255}pieces of Bridge Mail M{COLOR 0}
+{COLOR 255}Cheri Berries{COLOR 0}
+{COLOR 255}Chesto Berries{COLOR 0}
+{COLOR 255}Pecha Berries{COLOR 0}
+{COLOR 255}Rawst Berries{COLOR 0}
+{COLOR 255}Aspear Berries{COLOR 0}
+{COLOR 255}Leppa Berries{COLOR 0}
+{COLOR 255}Oran Berries{COLOR 0}
+{COLOR 255}Persim Berries{COLOR 0}
+{COLOR 255}Lum Berries{COLOR 0}
+{COLOR 255}Sitrus Berries{COLOR 0}
+{COLOR 255}Figy Berries{COLOR 0}
+{COLOR 255}Wiki Berries{COLOR 0}
+{COLOR 255}Mago Berries{COLOR 0}
+{COLOR 255}Aguav Berries{COLOR 0}
+{COLOR 255}Iapapa Berries{COLOR 0}
+{COLOR 255}Razz Berries{COLOR 0}
+{COLOR 255}Bluk Berries{COLOR 0}
+{COLOR 255}Nanab Berries{COLOR 0}
+{COLOR 255}Wepear Berries{COLOR 0}
+{COLOR 255}Pinap Berries{COLOR 0}
+{COLOR 255}Pomeg Berries{COLOR 0}
+{COLOR 255}Kelpsy Berries{COLOR 0}
+{COLOR 255}Qualot Berries{COLOR 0}
+{COLOR 255}Hondew Berries{COLOR 0}
+{COLOR 255}Grepa Berries{COLOR 0}
+{COLOR 255}Tamato Berries{COLOR 0}
+{COLOR 255}Cornn Berries{COLOR 0}
+{COLOR 255}Magost Berries{COLOR 0}
+{COLOR 255}Rabuta Berries{COLOR 0}
+{COLOR 255}Nomel Berries{COLOR 0}
+{COLOR 255}Spelon Berries{COLOR 0}
+{COLOR 255}Pamtre Berries{COLOR 0}
+{COLOR 255}Watmel Berries{COLOR 0}
+{COLOR 255}Durin Berries{COLOR 0}
+{COLOR 255}Belue Berries{COLOR 0}
+{COLOR 255}Occa Berries{COLOR 0}
+{COLOR 255}Passho Berries{COLOR 0}
+{COLOR 255}Wacan Berries{COLOR 0}
+{COLOR 255}Rindo Berries{COLOR 0}
+{COLOR 255}Yache Berries{COLOR 0}
+{COLOR 255}Chople Berries{COLOR 0}
+{COLOR 255}Kebia Berries{COLOR 0}
+{COLOR 255}Shuca Berries{COLOR 0}
+{COLOR 255}Coba Berries{COLOR 0}
+{COLOR 255}Payapa Berries{COLOR 0}
+{COLOR 255}Tanga Berries{COLOR 0}
+{COLOR 255}Charti Berries{COLOR 0}
+{COLOR 255}Kasib Berries{COLOR 0}
+{COLOR 255}Haban Berries{COLOR 0}
+{COLOR 255}Colbur Berries{COLOR 0}
+{COLOR 255}Babiri Berries{COLOR 0}
+{COLOR 255}Chilan Berries{COLOR 0}
+{COLOR 255}Liechi Berries{COLOR 0}
+{COLOR 255}Ganlon Berries{COLOR 0}
+{COLOR 255}Salac Berries{COLOR 0}
+{COLOR 255}Petaya Berries{COLOR 0}
+{COLOR 255}Apicot Berries{COLOR 0}
+{COLOR 255}Lansat Berries{COLOR 0}
+{COLOR 255}Starf Berries{COLOR 0}
+{COLOR 255}Enigma Berries{COLOR 0}
+{COLOR 255}Micle Berries{COLOR 0}
+{COLOR 255}Custap Berries{COLOR 0}
+{COLOR 255}Jaboca Berries{COLOR 0}
+{COLOR 255}Rowap Berries{COLOR 0}
+{COLOR 255}bags of Bright Powder{COLOR 0}
+{COLOR 255}White Herbs{COLOR 0}
+{COLOR 255}Macho Braces{COLOR 0}
+{COLOR 255}Exp. Shares{COLOR 0}
+{COLOR 255}Quick Claws{COLOR 0}
+{COLOR 255}Soothe Bells{COLOR 0}
+{COLOR 255}Mental Herbs{COLOR 0}
+{COLOR 255}Choice Bands{COLOR 0}
+{COLOR 255}King’s Rocks{COLOR 0}
+{COLOR 255}piles of Silver Powder{COLOR 0}
+{COLOR 255}Amulet Coins{COLOR 0}
+{COLOR 255}Cleanse Tags{COLOR 0}
+{COLOR 255}Soul Dews{COLOR 0}
+{COLOR 255}Deep Sea Teeth{COLOR 0}
+{COLOR 255}Deep Sea Scales{COLOR 0}
+{COLOR 255}Smoke Balls{COLOR 0}
+{COLOR 255}Everstones{COLOR 0}
+{COLOR 255}Focus Bands{COLOR 0}
+{COLOR 255}Lucky Eggs{COLOR 0}
+{COLOR 255}Scope Lenses{COLOR 0}
+{COLOR 255}Metal Coats{COLOR 0}
+{COLOR 255}servings of Leftovers{COLOR 0}
+{COLOR 255}Dragon Scales{COLOR 0}
+{COLOR 255}Light Balls{COLOR 0}
+{COLOR 255}bags of Soft Sand{COLOR 0}
+{COLOR 255}Hard Stones{COLOR 0}
+{COLOR 255}Miracle Seeds{COLOR 0}
+{COLOR 255}pairs of Black Glasses{COLOR 0}
+{COLOR 255}Black Belts{COLOR 0}
+{COLOR 255}Magnets{COLOR 0}
+{COLOR 255}Mystic Waters{COLOR 0}
+{COLOR 255}Sharp Beaks{COLOR 0}
+{COLOR 255}Poison Barbs{COLOR 0}
+{COLOR 255}pieces of Never-Melt Ice{COLOR 0}
+{COLOR 255}Spell Tags{COLOR 0}
+{COLOR 255}Twisted Spoons{COLOR 0}
+{COLOR 255}pieces of Charcoal{COLOR 0}
+{COLOR 255}Dragon Fangs{COLOR 0}
+{COLOR 255}Silk Scarves{COLOR 0}
+{COLOR 255}Upgrades{COLOR 0}
+{COLOR 255}Shell Bells{COLOR 0}
+{COLOR 255}jars of Sea Incense{COLOR 0}
+{COLOR 255}jars of Lax Incense{COLOR 0}
+{COLOR 255}Lucky Punches{COLOR 0}
+{COLOR 255}bags of Metal Powder{COLOR 0}
+{COLOR 255}Thick Clubs{COLOR 0}
+{COLOR 255}Leeks{COLOR 0}
+{COLOR 255}Red Scarves{COLOR 0}
+{COLOR 255}Blue Scarves{COLOR 0}
+{COLOR 255}Pink Scarves{COLOR 0}
+{COLOR 255}Green Scarves{COLOR 0}
+{COLOR 255}Yellow Scarves{COLOR 0}
+{COLOR 255}Wide Lenses{COLOR 0}
+{COLOR 255}Muscle Bands{COLOR 0}
+{COLOR 255}pairs of Wise Glasses{COLOR 0}
+{COLOR 255}Expert Belts{COLOR 0}
+{COLOR 255}lumps of Light Clay{COLOR 0}
+{COLOR 255}Life Orbs{COLOR 0}
+{COLOR 255}Power Herbs{COLOR 0}
+{COLOR 255}Toxic Orbs{COLOR 0}
+{COLOR 255}Flame Orbs{COLOR 0}
+{COLOR 255}bags of Quick Powder{COLOR 0}
+{COLOR 255}Focus Sashes{COLOR 0}
+{COLOR 255}Zoom Lenses{COLOR 0}
+{COLOR 255}Metronomes{COLOR 0}
+{COLOR 255}Iron Balls{COLOR 0}
+{COLOR 255}Lagging Tails{COLOR 0}
+{COLOR 255}Destiny Knots{COLOR 0}
+{COLOR 255}blobs of Black Sludge{COLOR 0}
+{COLOR 255}Icy Rocks{COLOR 0}
+{COLOR 255}Smooth Rocks{COLOR 0}
+{COLOR 255}Heat Rocks{COLOR 0}
+{COLOR 255}Damp Rocks{COLOR 0}
+{COLOR 255}Grip Claws{COLOR 0}
+{COLOR 255}Choice Scarves{COLOR 0}
+{COLOR 255}Sticky Barbs{COLOR 0}
+{COLOR 255}Power Bracers{COLOR 0}
+{COLOR 255}Power Belts{COLOR 0}
+{COLOR 255}Power Lenses{COLOR 0}
+{COLOR 255}Power Bands{COLOR 0}
+{COLOR 255}Power Anklets{COLOR 0}
+{COLOR 255}Power Weights{COLOR 0}
+{COLOR 255}Shed Shells{COLOR 0}
+{COLOR 255}Big Roots{COLOR 0}
+{COLOR 255}pairs of Choice Specs{COLOR 0}
+{COLOR 255}Flame Plates{COLOR 0}
+{COLOR 255}Splash Plates{COLOR 0}
+{COLOR 255}Zap Plates{COLOR 0}
+{COLOR 255}Meadow Plates{COLOR 0}
+{COLOR 255}Icicle Plates{COLOR 0}
+{COLOR 255}Fist Plates{COLOR 0}
+{COLOR 255}Toxic Plates{COLOR 0}
+{COLOR 255}Earth Plates{COLOR 0}
+{COLOR 255}Sky Plates{COLOR 0}
+{COLOR 255}Mind Plates{COLOR 0}
+{COLOR 255}Insect Plates{COLOR 0}
+{COLOR 255}Stone Plates{COLOR 0}
+{COLOR 255}Spooky Plates{COLOR 0}
+{COLOR 255}Draco Plates{COLOR 0}
+{COLOR 255}Dread Plates{COLOR 0}
+{COLOR 255}Iron Plates{COLOR 0}
+{COLOR 255}jars of Odd Incense{COLOR 0}
+{COLOR 255}jars of Rock Incense{COLOR 0}
+{COLOR 255}jars of Full Incense{COLOR 0}
+{COLOR 255}jars of Wave Incense{COLOR 0}
+{COLOR 255}jars of Rose Incense{COLOR 0}
+{COLOR 255}jars of Luck Incense{COLOR 0}
+{COLOR 255}jars of Pure Incense{COLOR 0}
+{COLOR 255}Protectors{COLOR 0}
+{COLOR 255}Electirizers{COLOR 0}
+{COLOR 255}Magmarizers{COLOR 0}
+{COLOR 255}Dubious Discs{COLOR 0}
+{COLOR 255}scraps of Reaper Cloth{COLOR 0}
+{COLOR 255}Razor Claws{COLOR 0}
+{COLOR 255}Razor Fangs{COLOR 0}
+{COLOR 255}TM001s{COLOR 0}
+{COLOR 255}TM002s{COLOR 0}
+{COLOR 255}TM003s{COLOR 0}
+{COLOR 255}TM004s{COLOR 0}
+{COLOR 255}TM005s{COLOR 0}
+{COLOR 255}TM006s{COLOR 0}
+{COLOR 255}TM007s{COLOR 0}
+{COLOR 255}TM008s{COLOR 0}
+{COLOR 255}TM009s{COLOR 0}
+{COLOR 255}TM010s{COLOR 0}
+{COLOR 255}TM011s{COLOR 0}
+{COLOR 255}TM012s{COLOR 0}
+{COLOR 255}TM013s{COLOR 0}
+{COLOR 255}TM014s{COLOR 0}
+{COLOR 255}TM015s{COLOR 0}
+{COLOR 255}TM016s{COLOR 0}
+{COLOR 255}TM017s{COLOR 0}
+{COLOR 255}TM018s{COLOR 0}
+{COLOR 255}TM019s{COLOR 0}
+{COLOR 255}TM020s{COLOR 0}
+{COLOR 255}TM021s{COLOR 0}
+{COLOR 255}TM022s{COLOR 0}
+{COLOR 255}TM023s{COLOR 0}
+{COLOR 255}TM024s{COLOR 0}
+{COLOR 255}TM025s{COLOR 0}
+{COLOR 255}TM026s{COLOR 0}
+{COLOR 255}TM027s{COLOR 0}
+{COLOR 255}TM028s{COLOR 0}
+{COLOR 255}TM029s{COLOR 0}
+{COLOR 255}TM030s{COLOR 0}
+{COLOR 255}TM031s{COLOR 0}
+{COLOR 255}TM032s{COLOR 0}
+{COLOR 255}TM033s{COLOR 0}
+{COLOR 255}TM034s{COLOR 0}
+{COLOR 255}TM035s{COLOR 0}
+{COLOR 255}TM036s{COLOR 0}
+{COLOR 255}TM037s{COLOR 0}
+{COLOR 255}TM038s{COLOR 0}
+{COLOR 255}TM039s{COLOR 0}
+{COLOR 255}TM040s{COLOR 0}
+{COLOR 255}TM041s{COLOR 0}
+{COLOR 255}TM042s{COLOR 0}
+{COLOR 255}TM043s{COLOR 0}
+{COLOR 255}TM044s{COLOR 0}
+{COLOR 255}TM045s{COLOR 0}
+{COLOR 255}TM046s{COLOR 0}
+{COLOR 255}TM047s{COLOR 0}
+{COLOR 255}TM048s{COLOR 0}
+{COLOR 255}TM049s{COLOR 0}
+{COLOR 255}TM050s{COLOR 0}
+{COLOR 255}TM051s{COLOR 0}
+{COLOR 255}TM052s{COLOR 0}
+{COLOR 255}TM053s{COLOR 0}
+{COLOR 255}TM054s{COLOR 0}
+{COLOR 255}TM055s{COLOR 0}
+{COLOR 255}TM056s{COLOR 0}
+{COLOR 255}TM057s{COLOR 0}
+{COLOR 255}TM058s{COLOR 0}
+{COLOR 255}TM059s{COLOR 0}
+{COLOR 255}TM060s{COLOR 0}
+{COLOR 255}TM061s{COLOR 0}
+{COLOR 255}TM062s{COLOR 0}
+{COLOR 255}TM063s{COLOR 0}
+{COLOR 255}TM064s{COLOR 0}
+{COLOR 255}TM065s{COLOR 0}
+{COLOR 255}TM066s{COLOR 0}
+{COLOR 255}TM067s{COLOR 0}
+{COLOR 255}TM068s{COLOR 0}
+{COLOR 255}TM069s{COLOR 0}
+{COLOR 255}TM070s{COLOR 0}
+{COLOR 255}TM071s{COLOR 0}
+{COLOR 255}TM072s{COLOR 0}
+{COLOR 255}TM073s{COLOR 0}
+{COLOR 255}TM074s{COLOR 0}
+{COLOR 255}TM075s{COLOR 0}
+{COLOR 255}TM076s{COLOR 0}
+{COLOR 255}TM077s{COLOR 0}
+{COLOR 255}TM078s{COLOR 0}
+{COLOR 255}TM079s{COLOR 0}
+{COLOR 255}TM080s{COLOR 0}
+{COLOR 255}TM081s{COLOR 0}
+{COLOR 255}TM082s{COLOR 0}
+{COLOR 255}TM083s{COLOR 0}
+{COLOR 255}TM084s{COLOR 0}
+{COLOR 255}TM085s{COLOR 0}
+{COLOR 255}TM086s{COLOR 0}
+{COLOR 255}TM087s{COLOR 0}
+{COLOR 255}TM088s{COLOR 0}
+{COLOR 255}TM089s{COLOR 0}
+{COLOR 255}TM090s{COLOR 0}
+{COLOR 255}TM091s{COLOR 0}
+{COLOR 255}TM092s{COLOR 0}
+{COLOR 255}HM01s{COLOR 0}
+{COLOR 255}HM02s{COLOR 0}
+{COLOR 255}HM03s{COLOR 0}
+{COLOR 255}HM04s{COLOR 0}
+{COLOR 255}HM05s{COLOR 0}
+{COLOR 255}HM06s{COLOR 0}
+???
+???
+{COLOR 255}Explorer Kits{COLOR 0}
+{COLOR 255}Loot Sacks{COLOR 0}
+{COLOR 255}Rule Books{COLOR 0}
+{COLOR 255}Poké Radars{COLOR 0}
+{COLOR 255}Point Cards{COLOR 0}
+{COLOR 255}Guidebooks{COLOR 0}
+{COLOR 255}Sticker Cases{COLOR 0}
+{COLOR 255}Fashion Cases{COLOR 0}
+{COLOR 255}Sticker Bags{COLOR 0}
+{COLOR 255}Pal Pads{COLOR 0}
+{COLOR 255}Works Keys{COLOR 0}
+{COLOR 255}Old Charms{COLOR 0}
+{COLOR 255}Galactic Keys{COLOR 0}
+{COLOR 255}Red Chains{COLOR 0}
+{COLOR 255}Town Maps{COLOR 0}
+{COLOR 255}Vs. Seekers{COLOR 0}
+{COLOR 255}Coin Cases{COLOR 0}
+{COLOR 255}Old Rods{COLOR 0}
+{COLOR 255}Good Rods{COLOR 0}
+{COLOR 255}Super Rods{COLOR 0}
+{COLOR 255}Sprayducks{COLOR 0}
+{COLOR 255}Poffin Cases{COLOR 0}
+{COLOR 255}Bikes{COLOR 0}
+{COLOR 255}Suite Keys{COLOR 0}
+{COLOR 255}Oak’s Letters{COLOR 0}
+{COLOR 255}Lunar Feathers{COLOR 0}
+{COLOR 255}Member Cards{COLOR 0}
+{COLOR 255}Azure Flutes{COLOR 0}
+{COLOR 255}S.S. Tickets{COLOR 0}
+{COLOR 255}Contest Passes{COLOR 0}
+{COLOR 255}Magma Stones{COLOR 0}
+{COLOR 255}Parcels{COLOR 0}
+{COLOR 255}Coupon 1s{COLOR 0}
+{COLOR 255}Coupon 2s{COLOR 0}
+{COLOR 255}Coupon 3s{COLOR 0}
+{COLOR 255}Storage Keys{COLOR 0}
+{COLOR 255}doses of Secret Medicine{COLOR 0}
+{COLOR 255}Vs. Recorders{COLOR 0}
+{COLOR 255}Gracideas{COLOR 0}
+{COLOR 255}Secret Keys{COLOR 0}
+{COLOR 255}Apricorn Boxes{COLOR 0}
+{COLOR 255}Unown Reports{COLOR 0}
+{COLOR 255}Berry Pots{COLOR 0}
+{COLOR 255}Dowsing Machines{COLOR 0}
+{COLOR 255}Blue Cards{COLOR 0}
+{COLOR 255}Slowpoke Tails{COLOR 0}
+{COLOR 255}Clear Bells{COLOR 0}
+{COLOR 255}Card Keys{COLOR 0}
+{COLOR 255}Basement Keys{COLOR 0}
+{COLOR 255}Squirt Bottles{COLOR 0}
+{COLOR 255}Red Scales{COLOR 0}
+{COLOR 255}Lost Items{COLOR 0}
+{COLOR 255}Passes{COLOR 0}
+{COLOR 255}Machine Parts{COLOR 0}
+{COLOR 255}Silver Feathers{COLOR 0}
+{COLOR 255}Rainbow Feathers{COLOR 0}
+{COLOR 255}Mystery Eggs{COLOR 0}
+{COLOR 255}Red Apricorns{COLOR 0}
+{COLOR 255}Blue Apricorns{COLOR 0}
+{COLOR 255}Yellow Apricorns{COLOR 0}
+{COLOR 255}Green Apricorns{COLOR 0}
+{COLOR 255}Pink Apricorns{COLOR 0}
+{COLOR 255}White Apricorns{COLOR 0}
+{COLOR 255}Black Apricorns{COLOR 0}
+{COLOR 255}Fast Balls{COLOR 0}
+{COLOR 255}Level Balls{COLOR 0}
+{COLOR 255}Lure Balls{COLOR 0}
+{COLOR 255}Heavy Balls{COLOR 0}
+{COLOR 255}Love Balls{COLOR 0}
+{COLOR 255}Friend Balls{COLOR 0}
+{COLOR 255}Moon Balls{COLOR 0}
+{COLOR 255}Sport Balls{COLOR 0}
+{COLOR 255}Park Balls{COLOR 0}
+{COLOR 255}Photo Albums{COLOR 0}
+{COLOR 255}GB Sounds{COLOR 0}
+{COLOR 255}Tidal Bells{COLOR 0}
+{COLOR 255}Rage Candy Bars{COLOR 0}
+{COLOR 255}Data Card 01s{COLOR 0}
+{COLOR 255}Data Card 02s{COLOR 0}
+{COLOR 255}Data Card 03s{COLOR 0}
+{COLOR 255}Data Card 04s{COLOR 0}
+{COLOR 255}Data Card 05s{COLOR 0}
+{COLOR 255}Data Card 06s{COLOR 0}
+{COLOR 255}Data Card 07s{COLOR 0}
+{COLOR 255}Data Card 08s{COLOR 0}
+{COLOR 255}Data Card 09s{COLOR 0}
+{COLOR 255}Data Card 10s{COLOR 0}
+{COLOR 255}Data Card 11s{COLOR 0}
+{COLOR 255}Data Card 12s{COLOR 0}
+{COLOR 255}Data Card 13s{COLOR 0}
+{COLOR 255}Data Card 14s{COLOR 0}
+{COLOR 255}Data Card 15s{COLOR 0}
+{COLOR 255}Data Card 16s{COLOR 0}
+{COLOR 255}Data Card 17s{COLOR 0}
+{COLOR 255}Data Card 18s{COLOR 0}
+{COLOR 255}Data Card 19s{COLOR 0}
+{COLOR 255}Data Card 20s{COLOR 0}
+{COLOR 255}Data Card 21s{COLOR 0}
+{COLOR 255}Data Card 22s{COLOR 0}
+{COLOR 255}Data Card 23s{COLOR 0}
+{COLOR 255}Data Card 24s{COLOR 0}
+{COLOR 255}Data Card 25s{COLOR 0}
+{COLOR 255}Data Card 26s{COLOR 0}
+{COLOR 255}Data Card 27s{COLOR 0}
+{COLOR 255}Jade Orbs{COLOR 0}
+{COLOR 255}Lock Capsules{COLOR 0}
+{COLOR 255}Red Orbs{COLOR 0}
+{COLOR 255}Blue Orbs{COLOR 0}
+{COLOR 255}Enigma Stones{COLOR 0}

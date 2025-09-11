@@ -241,7 +241,9 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         ctx->damageForSpreadMoves[i] = 0;
     }
     ctx->clientLoopForSpreadMoves = 0;
+    ctx->clientLoopForAbility = 0;
     ctx->boostedAccuracy = FALSE;
+    ctx->gemBoostingMove = FALSE;
 
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 
