@@ -337,19 +337,340 @@ void LONG_CALL PartyMenu_SetItemUseFuncFromBagSelection(struct PartyMenu *partyM
 void LONG_CALL PartyMenu_PrintMessageOnWindow34(struct PartyMenu *partyMenu, int msgId, BOOL drawFrame);
 void LONG_CALL PartyMenu_SelectMoveForPpRestoreOrPpUp(struct PartyMenu *partyMenu, BOOL isPpRestore);
 void LONG_CALL PartyMenu_FormChangeScene_Begin(struct PartyMenu *partyMenu);
-static void PartyMenu_ShowRotomCatalogList(PartyMenu *partyMenu);
-// int LONG_CALL TextPrinterCheckActive(int printerId);
 
-// int PartyMenu_ItemUseFunc_WaitTextPrinterThenExit(struct PartyMenu *partyMenu) {
-//     if (TextPrinterCheckActive(partyMenu->textPrinterId)) {
-//         return 5;
-//     } else {
-//         partyMenu->args->selectedAction = 0;
-//         return 32;
-//     }
+void LONG_CALL PartyMenu_DeleteContextMenuAndList(struct PartyMenu *partyMenu);
+void LONG_CALL ListMenuItems_AddItem(struct LISTMENUITEM *items, String *string, int value);
+struct LISTMENUITEM *LONG_CALL ListMenuItems_New(u32 n, int heapID);
+u32 LONG_CALL GetPartyMenuContextMenuActionFunc(int index);
+void LONG_CALL sub_0207E54C(struct PartyMenu *partyMenu, int numItems, int selection, int state);
+struct PartyMenuContextMenuCursor *LONG_CALL PartyMenu_CreateContextMenuCursor(struct PartyMenu *partyMenu, const struct PartyMenuContextMenu *template, int selection, int heapID, int state);
+
+// idk
+void LONG_CALL sub_0207E068(struct PartyMenu *partyMenu);
+
+// this just shows the held item on top screen lol. worthless
+void LONG_CALL PartyMenu_SetTopScreenSelectionPanelVisibility(struct PartyMenu *partyMenu, BOOL show);
+
+// window shit idk if needed
+void LONG_CALL ClearWindowTilemapAndScheduleTransfer(struct Window *window);
+void LONG_CALL sub_0200E5D4(struct Window *window, BOOL dont_copy_to_vram);
+
+// msg data
+String *LONG_CALL NewString_ReadMsgData(MsgData *msgData, s32 strno);
+
+static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu);
+
+static int PartyMenu_AddTextToList(struct PartyMenu *partyMenu, int bank, int msgIdx, int slot)
+{
+    String *dst = partyMenu->contextMenuStrings[slot];
+    MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, bank, partyMenu->msgFormat->heapId);
+    ReadMsgDataIntoString(msgData, msgIdx, dst);
+    DestroyMsgData(msgData);
+
+    ListMenuItems_AddItem(partyMenu->listMenuItems, dst, slot);
+}
+
+static u8 sRotomPage = 0;
+
+// static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu)  {
+//     // // big doubt
+//     // sub_0200E5D4(&partyMenu->windows[36], TRUE);
+//     // ClearWindowTilemapAndScheduleTransfer(&partyMenu->windows[36]);
+
+//     // // doubt
+//     // ClearFrameAndWindow2(&partyMenu->windows[32], TRUE);
+//     // ClearFrameAndWindow2(&partyMenu->windows[33], TRUE);
+//     // ClearFrameAndWindow2(&partyMenu->windows[35], TRUE);
+
+//     // gets rid of the little backdrop text box from prev screen
+//     ClearFrameAndWindow2(&partyMenu->windows[36], TRUE);
+
+//     // idk 
+//     sub_0207E068(partyMenu);
+
+//     // TODO proper msg
+//     PartyMenu_PrintMessageOnWindow332(partyMenu, 39, TRUE);
+
+//     u8 numRotomFormes = 6;
+
+
+
+//     u8 numItems = numRotomFormes+1;
+//     partyMenu->listMenuItems = ListMenuItems_New(numItems, HEAP_ID_PARTY_MENU);
+//     PartyMenu_AddTextToList(partyMenu, 300, 220, 0);
+//     PartyMenu_AddTextToList(partyMenu, 300, 221, 1);
+//     PartyMenu_AddTextToList(partyMenu, 300, 222, 2);
+//     PartyMenu_AddTextToList(partyMenu, 300, 223, 3);
+//     PartyMenu_AddTextToList(partyMenu, 300, 224, 4);
+//     PartyMenu_AddTextToList(partyMenu, 300, 225, 5);
+//     PartyMenu_AddTextToList(partyMenu, 300, 226, 6);
+//     ListMenuItems_AddItem(partyMenu->listMenuItems, partyMenu->contextMenuStrings[PARTY_MON_CONTEXT_MENU_QUIT], GetPartyMenuContextMenuActionFunc(PARTY_MON_CONTEXT_MENU_QUIT));
+
+//     struct PartyMenuContextMenu contextMenu;
+//     contextMenu.items = partyMenu->listMenuItems;
+//     contextMenu.window = &partyMenu->windows[35];
+//     contextMenu.unk_08 = 0;
+//     contextMenu.unk_09 = 1;
+//     contextMenu.numItems = numItems;
+//     contextMenu.unk_0B_0 = 0;
+//     contextMenu.unk_0B_4 = 0;
+//     contextMenu.scrollEnabled = numItems > 4;
+
+//     sub_0207E54C(partyMenu, numItems, 0, 1);
+//     partyMenu->contextMenuCursor = PartyMenu_CreateContextMenuCursor(partyMenu, &contextMenu, 0, HEAP_ID_PARTY_MENU, 1);
+
+
+//     // ClearFrameAndWindow2(&partyMenu->windows[36], TRUE);
+
+//     // // idk 
+//     // sub_0207E068(partyMenu);
+
+//     // // if (partyMenu->contextMenuCursor || partyMenu->listMenuItems) {
+//     //     // PartyMenu_DeleteContextMenuAndList(partyMenu);
+//     // // }
+
+//     // // TODO proper msg
+//     // PartyMenu_PrintMessageOnWindow332(partyMenu, 39, TRUE);
+
+//     // u8 numRotomFormes = 6;
+//     // u8 numItems = numRotomFormes+1;
+//     // partyMenu->listMenuItems = ListMenuItems_New(numItems, HEAP_ID_PARTY_MENU);
+
+//     // PartyMenu_AddTextToList(partyMenu, 300, 220, 0);
+//     // PartyMenu_AddTextToList(partyMenu, 300, 221, 1);
+//     // PartyMenu_AddTextToList(partyMenu, 300, 222, 2);
+//     // PartyMenu_AddTextToList(partyMenu, 300, 223, 3);
+//     // ListMenuItems_AddItem(partyMenu->listMenuItems, partyMenu->contextMenuStrings[PARTY_MON_CONTEXT_MENU_QUIT], GetPartyMenuContextMenuActionFunc(PARTY_MON_CONTEXT_MENU_QUIT));
+//     // PartyMenu_AddTextToList(partyMenu, 300, 223, 4);
+//     // PartyMenu_AddTextToList(partyMenu, 300, 224, 5);
+//     // PartyMenu_AddTextToList(partyMenu, 300, 225, 6);
+
+
+//     // struct PartyMenuContextMenu contextMenu;
+//     // contextMenu.items = partyMenu->listMenuItems;
+//     // contextMenu.window = &partyMenu->windows[35];
+//     // contextMenu.unk_08 = 0;
+//     // contextMenu.unk_09 = 1;
+//     // contextMenu.numItems = numItems + 1;
+//     // contextMenu.unk_0B_0 = 0;
+//     // contextMenu.unk_0B_4 = 0;
+//     // contextMenu.scrollEnabled = FALSE;
+
+//     // sub_0207E54C(partyMenu, numItems, 0, 1);
+//     // partyMenu->contextMenuCursor = PartyMenu_CreateContextMenuCursor(partyMenu, &contextMenu, 0, HEAP_ID_PARTY_MENU, 1);
 // }
 
-int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu) {
+// static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu)
+// {
+//     // Clear any existing submenu/buttons and tiny backdrop from the prior screen
+//     // PartyMenu_DeleteContextMenuAndList(partyMenu); // important!
+//     ClearFrameAndWindow2(&partyMenu->windows[PARTY_MENU_WINDOW_ID_36], TRUE);
+
+//     // Top labels (nickname/held item) like the stock submenus do
+//     sub_0207E068(partyMenu);
+
+//     // Header text above the right column (Window 33)
+//     // pick a proper msg id here; stock uses msg_0300_00039 ("Use item") for Item submenu
+//     PartyMenu_PrintMessageOnWindow33(partyMenu, 39, FALSE);
+
+//     // Build list: 6 forms + Quit (example message ids shown)
+//     const u8 numRotomFormes = 6;
+//     const u8 numItems = numRotomFormes + 1;
+
+//     partyMenu->listMenuItems = ListMenuItems_New(numItems, HEAP_ID_PARTY_MENU);
+
+//     // Replace these with the actual message IDs you want for the six forms
+//     PartyMenu_AddTextToList(partyMenu, 300, 220, 0);
+//     PartyMenu_AddTextToList(partyMenu, 300, 221, 1);
+//     PartyMenu_AddTextToList(partyMenu, 300, 222, 2);
+//     PartyMenu_AddTextToList(partyMenu, 300, 223, 3);
+//     PartyMenu_AddTextToList(partyMenu, 300, 224, 4);
+//     PartyMenu_AddTextToList(partyMenu, 300, 225, 5);
+
+//     // Quit/cancel row uses the existing action func
+//     ListMenuItems_AddItem(
+//         partyMenu->listMenuItems,
+//         partyMenu->contextMenuStrings[PARTY_MON_CONTEXT_MENU_QUIT],
+//         GetPartyMenuContextMenuActionFunc(PARTY_MON_CONTEXT_MENU_QUIT));
+
+//     // Right-column submenu template (Window 35, state=1)
+//     PartyMenuContextMenu contextMenu;
+//     contextMenu.items = partyMenu->listMenuItems;
+//     contextMenu.window = &partyMenu->windows[PARTY_MENU_WINDOW_ID_35];
+//     contextMenu.unk_08 = 0;
+//     contextMenu.unk_09 = 1;           // stock submenus use 1 here
+//     contextMenu.numItems = numItems;
+//     contextMenu.unk_0B_0 = 0;
+//     contextMenu.unk_0B_4 = 0;
+//     contextMenu.scrollEnabled = (numItems > 4);
+
+//     // Draw right-column buttons and create cursor for input
+//     sub_0207E54C(partyMenu, numItems, 0, /*state*/1);
+//     partyMenu->contextMenuCursor =
+//         PartyMenu_CreateContextMenuCursor(partyMenu, &contextMenu, 0, HEAP_ID_PARTY_MENU, /*state*/1);
+// }
+
+// void FillWindowPixelBuffer2(struct Window *window, u8 fillValue);
+// u32 LONG_CALL FontID_String_GetCenterAlignmentX(u8 fontId, String *string, u32 letterSpacing, u32 windowWidth);
+// u8 LONG_CALL GetWindowWidth(struct Window *window);
+// u32 LONG_CALL getButtonColorDepressed(int selection);
+// u32 LONG_CALL getButtonColorRaised(int selection);
+// void LONG_CALL ScheduleWindowCopyToVram(struct Window *window);
+
+// #define MAKE_TEXT_COLOR(fg, sh, bg) ((((fg) & 0xFF) << 16) | (((sh) & 0xFF) << 8) | (((bg) & 0xFF) << 0))
+// #define TEXT_SPEED_INSTANT    0    // Transfers to VRAM
+// #define TEXT_SPEED_NOTRANSFER 0xFF // Defers VRAM transfer
+
+// static const s8 sButtonWindowIDs[][2][8] = {
+//     {
+//      { 0, -1, -1, -1, -1, -1, -1, -1 },
+//      { 7, -1, -1, -1, -1, -1, -1, -1 },
+//      },
+//     {
+//      { 0, 7, -1, -1, -1, -1, -1, -1 },
+//      { 8, 7, -1, -1, -1, -1, -1, -1 },
+//      },
+//     {
+//      { 0, 1, 7, -1, -1, -1, -1, -1 },
+//      { 8, 9, 7, -1, -1, -1, -1, -1 },
+//      },
+//     {
+//      { 0, 1, 2, 7, -1, -1, -1, -1 },
+//      { 8, 9, 10, 7, -1, -1, -1, -1 },
+//      },
+//     {
+//      { 0, 1, 2, 7, 3, -1, -1, -1 },
+//      { 8, 9, 10, 11, 7, -1, -1, -1 },
+//      },
+//     {
+//      { 0, 1, 2, 7, 3, 4, -1, -1 },
+//      { 0, 1, 2, 3, 4, 8, -1, -1 },
+//      },
+//     {
+//      { 0, 1, 2, 7, 3, 4, 5, -1 },
+//      { 0, 1, 2, 3, 4, 5, 8, -1 },
+//      },
+//     {
+//      { 0, 1, 2, 7, 3, 4, 5, 6 },
+//      { 0, 1, 2, 7, 3, 4, 5, 6 },
+//      },
+// };
+
+// needs armhook to maintain all params
+// void PartyMenu_PrintContextMenuItemText(struct PartyMenu *partyMenu, struct PartyMenuContextMenu *contextMenu, int numItems, int selection, int state, BOOL depressed) {
+//     debug_printf("1\n");
+//     u32 color;
+//     u32 y;
+//     u32 x = 0;
+//     u32 fillValue;
+//     u8 windowId;
+
+//     windowId = sButtonWindowIDs[numItems - 1][state][selection];
+//     debug_printf("2\n");
+//     if (windowId == 7) {
+//         debug_printf("3.1\n");
+//         if (depressed == FALSE) {
+//             fillValue = 4;
+//             color = MAKE_TEXT_COLOR(14, 15, 4);
+//         } else {
+//             fillValue = 11;
+//             color = MAKE_TEXT_COLOR(14, 15, 11);
+//         }
+//         y = 4;
+//         x = FontID_String_GetCenterAlignmentX(4, contextMenu->items[selection].text, 0, GetWindowWidth(&partyMenu->contextMenuButtonWindows[windowId]) * 8);
+//         debug_printf("3.2\n");
+//     } else {
+//         debug_printf("4.1\n");
+//         if (depressed == FALSE) {
+//             fillValue = 4;
+//             color = getButtonColorRaised(selection);
+//         } else {
+//             fillValue = 11;
+//             color = getButtonColorDepressed(selection);
+//         }
+//         y = 0;
+//         debug_printf("4.2\n");
+//     }
+//     debug_printf("5\n");
+//     FillWindowPixelBuffer2(&partyMenu->contextMenuButtonWindows[windowId], fillValue);
+//     debug_printf("6\n");
+//     AddTextPrinterParameterizedWithColor(&partyMenu->contextMenuButtonWindows[windowId], 4, contextMenu->items[selection].text, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
+//     debug_printf("7\n");
+//     ScheduleWindowCopyToVram(&partyMenu->contextMenuButtonWindows[windowId]);
+//     debug_printf("8\n");
+// }
+
+static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu) {
+
+    ClearFrameAndWindow2(&partyMenu->windows[32], TRUE);
+    
+    // no border with this atm
+    // PartyMenu_PrintMessageOnWindow33(partyMenu, 39, FALSE);
+ 
+    sub_0207E068(partyMenu);
+
+    // 3 0
+    // 4 1
+    // 5 2
+    const u16 msgIds[] = { 223, // refrigerator
+                           224, // electric fan
+                           225, // lawn mower
+                           220, // light bulb
+                           221, // microwave oven
+                           222  // washing machine
+                         };
+    const int numForms = sizeof(msgIds)/sizeof(msgIds[0]);
+    const int numItems = numForms + 1; // + Quit
+
+    partyMenu->listMenuItems = ListMenuItems_New(numItems, HEAP_ID_PARTY_MENU);
+
+    // TODO these need associated handlers (good luck?)
+
+    String *s;
+    u8 counter = 0;
+
+    s = NewString_ReadMsgData(partyMenu->msgData, msgIds[counter]);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, counter);
+    counter++;
+    s = NewString_ReadMsgData(partyMenu->msgData, msgIds[counter]);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, counter);
+    counter++;
+    s = NewString_ReadMsgData(partyMenu->msgData, msgIds[counter]);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, counter);
+    counter++;
+
+    // quit button has to come in 4th slot
+    ListMenuItems_AddItem(partyMenu->listMenuItems, partyMenu->contextMenuStrings[PARTY_MON_CONTEXT_MENU_QUIT], GetPartyMenuContextMenuActionFunc(PARTY_MON_CONTEXT_MENU_QUIT));
+
+    s = NewString_ReadMsgData(partyMenu->msgData, msgIds[counter]);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, counter);
+    counter++;
+    s = NewString_ReadMsgData(partyMenu->msgData, msgIds[counter]);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, counter);
+    counter++;
+    s = NewString_ReadMsgData(partyMenu->msgData, msgIds[counter]);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, counter);
+    counter++;
+
+    String_Delete(s);
+
+    PartyMenuContextMenu ctx = {
+        .items = partyMenu->listMenuItems,
+        .window = &partyMenu->windows[36],
+        .unk_08 = 0,
+        .unk_09 = 1,
+        .numItems = numItems,
+        .unk_0B_0 = 0,
+        .unk_0B_4 = 1,
+        .scrollEnabled = (numItems > 4),
+    };
+
+    sub_0207E54C(partyMenu, numItems, 0, /*state=*/0);
+    partyMenu->contextMenuCursor = PartyMenu_CreateContextMenuCursor(partyMenu, &ctx, 0, HEAP_ID_PARTY_MENU, /*state=*/0);
+}
+
+int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
+{
     struct ItemData *itemData = LoadItemDataOrGfx(partyMenu->args->itemId, 0, HEAP_ID_PARTY_MENU);
 
     if (partyMenu->args->itemId == ITEM_GRACIDEA && Mon_CanUseGracidea(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex)) == TRUE) {
@@ -359,15 +680,14 @@ int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu) {
         return 31;
     }
 
-    // Rotom Catalog entry
-    // if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG) {
-    //     struct PartyPokemon *mon = Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex);
-    //     if (GetMonData(mon, MON_DATA_SPECIES, NULL) == SPECIES_ROTOM) {
-    //         PartyMenu_ShowRotomCatalogList(partyMenu);
-    //         sys_FreeMemoryEz(itemData);
-    //         return 15; // subcontext driver
-    //     }
-    // }
+    if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG && CanUseRotomCatalog(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex))) {
+        debug_printf("rotom babay\n");
+        PartyMenu_ShowRotomCatalogList(partyMenu);
+        sys_FreeMemoryEz(itemData);
+        // partyMenu->itemUseCallback = PartyMenu_ItemUseFunc_WaitTextPrinterThenExit;
+        // PartyMenu_FormChangeScene_Begin(partyMenu);
+        return 2;
+    }
 
     if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_UP) || GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_MAX)) {
         sys_FreeMemoryEz(itemData);
