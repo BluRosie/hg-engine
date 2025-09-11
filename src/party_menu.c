@@ -382,9 +382,10 @@ void LONG_CALL PartyMonContextMenuAction_RotomCatalog(struct PartyMenu *partyMen
     if (sel <= 6) {
         form = sPartyMenuRotomCatalogFormOrder[sel];
     }
-        partyMenu->args->species = form == 0 ? SPECIES_ROTOM : SPECIES_SHAYMIN_SKY + form; // TODO better way?
+    partyMenu->args->species = PokeOtherFormMonsNoGet(SPECIES_ROTOM, form);
     Mon_UpdateRotomForm(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex), form, 0);
     PartyMenu_FormChangeScene_Begin(partyMenu);
+    PartyMenu_DeleteContextMenuAndList(partyMenu);
     *pState = 31;
 }
 
@@ -427,7 +428,7 @@ static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu) {
     ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
 
     String_Delete(s);
-    
+
     struct PartyMenuContextMenu contextMenu;
     contextMenu.items = partyMenu->listMenuItems;
     contextMenu.window = &partyMenu->windows[36];
@@ -457,8 +458,6 @@ int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
         debug_printf("rotom babay\n");
         PartyMenu_ShowRotomCatalogList(partyMenu);
         sys_FreeMemoryEz(itemData);
-        // partyMenu->itemUseCallback = PartyMenu_ItemUseFunc_WaitTextPrinterThenExit;
-        // PartyMenu_FormChangeScene_Begin(partyMenu);
         return 2;
     }
 
