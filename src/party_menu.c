@@ -5,6 +5,7 @@
 #include "../include/pokemon.h"
 #include "../include/message.h"
 #include "../include/types.h"
+#include "../include/window.h"
 #include "../include/constants/file.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
@@ -364,6 +365,34 @@ void LONG_CALL sub_0207E068(struct PartyMenu *partyMenu);
 // msg data
 String *LONG_CALL NewString_ReadMsgData(MsgData *msgData, s32 strno);
 
+// TODO remove meeeeeeeeeee?
+typedef struct WindowTemplate {
+    u8 bgId;
+    u8 left;
+    u8 top;
+    u8 width;
+    u8 height;
+    u8 palette;
+    u16 baseTile;
+} WindowTemplate;
+
+static const WindowTemplate sButtonWindowTemplates[] = {
+    { 0, 0x11, 0x04, 0x0E, 0x02, 0x02, 0x0260 },
+    { 0, 0x11, 0x08, 0x0E, 0x02, 0x02, 0x027C },
+    { 0, 0x11, 0x0C, 0x0E, 0x02, 0x02, 0x0298 },
+    { 0, 0x01, 0x03, 0x0E, 0x02, 0x02, 0x02B4 },
+    { 0, 0x01, 0x07, 0x0E, 0x02, 0x02, 0x02D0 },
+    { 0, 0x01, 0x0B, 0x0E, 0x02, 0x02, 0x02EC },
+    { 0, 0x01, 0x0F, 0x0E, 0x02, 0x02, 0x0308 },
+    { 0, 0x1A, 0x14, 0x05, 0x03, 0x02, 0x0324 },
+    { 0, 0x11, 0x03, 0x0E, 0x02, 0x02, 0x0260 },
+    { 0, 0x11, 0x07, 0x0E, 0x02, 0x02, 0x027C },
+    { 0, 0x11, 0x0B, 0x0E, 0x02, 0x02, 0x0298 },
+    { 0, 0x11, 0x0F, 0x0E, 0x02, 0x02, 0x02B4 },
+};
+
+void LONG_CALL sub_0207E358(struct PartyMenu *partyMenu, struct PartyMenuContextMenu *contextMenu, int numItems, int selection, int state);
+
 // mirrors the button layout
 u8 sPartyMenuRotomCatalogFormOrder[] = {
     3, 
@@ -436,11 +465,23 @@ static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu) {
     contextMenu.unk_09 = 1;
     contextMenu.numItems = numItems;
     contextMenu.unk_0B_0 = 0;
-    contextMenu.unk_0B_4 = 0;
+    contextMenu.unk_0B_4 = 1; // <-- setting this tells our layout writer to not do the field move coloring and offset
     contextMenu.scrollEnabled = numItems > 4;
 
-    sub_0207E54C(partyMenu, numItems, 0, /*state=*/0);
     partyMenu->contextMenuCursor = PartyMenu_CreateContextMenuCursor(partyMenu, &contextMenu, 0, HEAP_ID_PARTY_MENU, /*state=*/0);
+
+    // we have to reframe the window to line up the right column with the left
+    // can't do the other way because
+    for (int id=0; id<=2; ++id) {
+        WindowTemplate tmp = sButtonWindowTemplates[id];
+        RemoveWindow(&partyMenu->contextMenuButtonWindows[id]);
+        tmp.top -= 1;
+        AddWindow(partyMenu->bgConfig, &partyMenu->contextMenuButtonWindows[id], &tmp);
+        FillWindowPixelBuffer(&partyMenu->contextMenuButtonWindows[id], 4);
+    }
+
+    sub_0207E54C(partyMenu, numItems, 0, /*state=*/0);
+    sub_0207E358(partyMenu, &contextMenu, numItems, 0, 0);
 }
 
 int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
@@ -451,7 +492,7 @@ int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
         partyMenu->args->species = SPECIES_SHAYMIN_SKY;
         sys_FreeMemoryEz(itemData);
         PartyMenu_FormChangeScene_Begin(partyMenu);
-        return 31;
+        return 31; // TODO pull the enum in
     }
 
     if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG && CanUseRotomCatalog(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex))) {
@@ -490,4 +531,176 @@ int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
     }
     sys_FreeMemoryEz(itemData);
     return 5;
+}
+
+u32 LONG_CALL FontID_String_GetCenterAlignmentX(u8 fontId, String *string, u32 letterSpacing, u32 windowWidth);
+u8 LONG_CALL GetWindowWidth(struct Window *window);
+u32 LONG_CALL getButtonColorDepressed(int selection);
+u32 LONG_CALL getButtonColorRaised(int selection);
+void LONG_CALL ScheduleWindowCopyToVram(struct Window *window);
+
+#define MAKE_TEXT_COLOR(fg, sh, bg) ((((fg) & 0xFF) << 16) | (((sh) & 0xFF) << 8) | (((bg) & 0xFF) << 0))
+#define TEXT_SPEED_INSTANT    0    // Transfers to VRAM
+#define TEXT_SPEED_NOTRANSFER 0xFF // Defers VRAM transfer
+
+// TODO could maybe extern this if we don't end up touching it
+static const s8 sButtonWindowIDs[][2][8] = {
+    {
+     { 0, -1, -1, -1, -1, -1, -1, -1 },
+     { 7, -1, -1, -1, -1, -1, -1, -1 },
+     },
+    {
+     { 0, 7, -1, -1, -1, -1, -1, -1 },
+     { 8, 7, -1, -1, -1, -1, -1, -1 },
+     },
+    {
+     { 0, 1, 7, -1, -1, -1, -1, -1 },
+     { 8, 9, 7, -1, -1, -1, -1, -1 },
+     },
+    {
+     { 0, 1, 2, 7, -1, -1, -1, -1 },
+     { 8, 9, 10, 7, -1, -1, -1, -1 },
+     },
+    {
+     { 0, 1, 2, 7, 3, -1, -1, -1 },
+     { 8, 9, 10, 11, 7, -1, -1, -1 },
+     },
+    {
+     { 0, 1, 2, 7, 3, 4, -1, -1 },
+     { 0, 1, 2, 3, 4, 8, -1, -1 },
+     },
+    {
+     { 0, 1, 2, 7, 3, 4, 5, -1 },
+     { 0, 1, 2, 3, 4, 5, 8, -1 },
+     },
+    {
+     { 0, 1, 2, 7, 3, 4, 5, 6 },
+     { 0, 1, 2, 7, 3, 4, 5, 6 },
+     },
+};
+
+// takes care of the blue text
+void LONG_CALL PartyMenu_PrintContextMenuItemText(struct PartyMenu *partyMenu, struct PartyMenuContextMenu *contextMenu, int numItems, int selection, int state, BOOL depressed)
+{
+    u32 color;
+    u32 y;
+    u32 x = 0;
+    u32 fillValue;
+    u8 windowId;
+
+    windowId = sButtonWindowIDs[numItems - 1][state][selection];
+
+    if (windowId == 7) {
+        if (depressed == FALSE) {
+            fillValue = 4;
+            color = MAKE_TEXT_COLOR(14, 15, 4);
+        } else {
+            fillValue = 11;
+            color = MAKE_TEXT_COLOR(14, 15, 11);
+        }
+        y = 4;
+        x = FontID_String_GetCenterAlignmentX(4, contextMenu->items[selection].text, 0, GetWindowWidth(&partyMenu->contextMenuButtonWindows[windowId]) * 8);
+    } else {
+        y = 0;
+        if (contextMenu->unk_0B_4 == 1) {
+            // use the normal white colored text instead of blue field move text
+            if (depressed == FALSE) {
+                fillValue = 4;
+                color = MAKE_TEXT_COLOR(14, 15, 4);
+            } else {
+                fillValue = 11;
+                color = MAKE_TEXT_COLOR(14, 15, 11);
+            }
+            // shift the text down a frame so it lines up with the right column
+            // if (windowId == 0 || windowId == 1 || windowId == 2) {
+            //     y = ;
+            // }
+        } else {
+            if (depressed == FALSE) {
+                fillValue = 4;
+                color = getButtonColorRaised(selection);
+            } else {
+                fillValue = 11;
+                color = getButtonColorDepressed(selection);
+            }
+        }
+    }
+    FillWindowPixelBuffer(&partyMenu->contextMenuButtonWindows[windowId], fillValue);
+    AddTextPrinterParameterizedWithColor(&partyMenu->contextMenuButtonWindows[windowId], 4, contextMenu->items[selection].text, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
+    ScheduleWindowCopyToVram(&partyMenu->contextMenuButtonWindows[windowId]);
+}
+
+// TODO - extern
+static const u8 sButtonRects[][4] = {
+    // x, y, width, height
+    { 0x10, 0x03, 0x10, 0x04 },
+    { 0x10, 0x07, 0x10, 0x04 },
+    { 0x10, 0x0B, 0x10, 0x04 },
+    { 0x00, 0x02, 0x10, 0x04 },
+    { 0x00, 0x06, 0x10, 0x04 },
+    { 0x00, 0x0A, 0x10, 0x04 },
+    { 0x00, 0x0E, 0x10, 0x04 },
+    { 0x19, 0x13, 0x07, 0x05 },
+    { 0x10, 0x02, 0x10, 0x04 },
+    { 0x10, 0x06, 0x10, 0x04 },
+    { 0x10, 0x0A, 0x10, 0x04 },
+    { 0x10, 0x0E, 0x10, 0x04 },
+};
+
+static const u16 sButtonFrameTileOffsets[] = {
+    0, 2, 6, 8, 3, 5, 1, 7
+};
+
+void LONG_CALL LoadRectToBgTilemapRect(void *bgConfig, u8 bgId, const void *buffer, u8 destX, u8 destY, u8 width, u8 height);
+void LONG_CALL FillBgTilemapRect(void *bgConfig, u8 bgId, u16 fillValue, u8 x, u8 y, u8 width, u8 height, u8 mode);
+
+#define TILEMAP_FILL_KEEP_PAL 16 // Do not replace the selected palette index
+#define TILEMAP_FILL_OVWT_PAL 17 // Fill value includes palette
+
+// takes care of the layout
+void LONG_CALL sub_0207E3A8(struct PartyMenu *partyMenu, int numItems, int selection, int state, int frameType) {
+    u16 tiles[8];
+    s8 id = sButtonWindowIDs[numItems - 1][state][selection];
+
+    // start from vanilla rect
+    u8 r[4]; const u8 *rect = sButtonRects[id];
+    r[0]=rect[0]; r[1]=rect[1]; r[2]=rect[2]; r[3]=rect[3];
+
+    // align-left: nudge left right down one tile
+    if (partyMenu->contextMenuCursor && partyMenu->contextMenuCursor->menu.unk_0B_4 && (id == 0 || id == 1 || id == 2)) {
+        r[1] -= 1;
+    }
+
+    u32 tileStart = (frameType == 0 ? 0x2000 : frameType == 1 ? 0x2009 : 0x2012) + 10;
+    for (u16 i = 0; i < 8; ++i) tiles[i] = tileStart + sButtonFrameTileOffsets[i];
+
+    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[0], r[0], r[1], 1, 1);
+    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[1], r[0] + r[2] - 1, r[1], 1, 1);
+    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[2], r[0], r[1] + r[3] - 1, 1, 1);
+    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[3], r[0] + r[2] - 1, r[1] + r[3] - 1, 1, 1);
+    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[4], r[0], r[1] + 1, 1, r[3] - 2, TILEMAP_FILL_OVWT_PAL);
+    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[5], r[0] + r[2] - 1, r[1] + 1, 1, r[3] - 2, TILEMAP_FILL_OVWT_PAL);
+    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[6], r[0] + 1, r[1], r[2] - 2, 1, TILEMAP_FILL_OVWT_PAL);
+    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[7], r[0] + 1, r[1] + r[3] - 1, r[2] - 2, 1, TILEMAP_FILL_OVWT_PAL);
+}
+
+void LONG_CALL PartyMenu_ShowContextMenu(struct PartyMenu *partyMenu, int numItems, int state) {
+    debug_printf("AYUP\n");
+    GF_ASSERT(numItems <= 8);
+    for (int i = 0; i < numItems; ++i) {
+        u8 id = sButtonWindowIDs[numItems - 1][state][i];
+        const WindowTemplate *src = &sButtonWindowTemplates[id];
+
+        if (partyMenu->contextMenuCursor && partyMenu->contextMenuCursor->menu.unk_0B_4 && (id == 3 || id == 4 || id == 5))
+        {
+            debug_printf("modifying...\n");;
+            WindowTemplate tmp = *src;
+            tmp.top += 1; // shift down 1 tile to match right column
+            AddWindow(partyMenu->bgConfig, &partyMenu->contextMenuButtonWindows[id], &tmp);
+        } else {
+            AddWindow(partyMenu->bgConfig, &partyMenu->contextMenuButtonWindows[id], src);
+        }
+
+        FillWindowPixelBuffer(&partyMenu->contextMenuButtonWindows[id], 4);
+    }
 }

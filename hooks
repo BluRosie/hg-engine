@@ -531,3 +531,6 @@ arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
 arm9 PartyMenu_LearnMoveToSlot 0208254C 3
 0015 Bag_RenderMachineMoveSlot_hook 021FF586 3
 arm9 PartyMenu_HandleUseItemOnMon 0207C288 1
+arm9 PartyMenu_PrintContextMenuItemText 0207E28C
+arm9 sub_0207E3A8 0207E3A8
+# arm9 PartyMenu_ShowContextMenu 0207E17C 3

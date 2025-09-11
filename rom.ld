@@ -787,3 +787,13 @@ sub_0207E54C = 0x0207E54C | 1;
 PartyMenu_CreateContextMenuCursor = 0x0207E590 | 1;
 sub_0207E068 = 0x0207E068 | 1;
 NewString_ReadMsgData = 0x0200BBA0 | 1;
+
+FontID_String_GetCenterAlignmentX = 0x020030A0 | 1;
+GetWindowWidth = 0x0201EE90 | 1;
+getButtonColorDepressed = 0x0207E264 | 1;
+getButtonColorRaised = 0x0207E278 | 1;
+ScheduleWindowCopyToVram = 0x0201D5C8 | 1;
+
+LoadRectToBgTilemapRect = 0x0201C4C4 | 1;
+FillBgTilemapRect = 0x0201C8C4 | 1;
+sub_0207E358 = 0x0207E358 | 1;
