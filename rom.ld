@@ -785,17 +785,5 @@ ListMenuItems_New = 0x02014918 | 1;
 GetPartyMenuContextMenuActionFunc = 0x0207F42C | 1;
 sub_0207E54C = 0x0207E54C | 1;
 PartyMenu_CreateContextMenuCursor = 0x0207E590 | 1;
-sub_0200E5D4 = 0x0200E5D4 | 1;
-ClearWindowTilemapAndScheduleTransfer = 0x0201D8E4 | 1;
-PartyMenu_SetTopScreenSelectionPanelVisibility = 0x02079224 | 1;
 sub_0207E068 = 0x0207E068 | 1;
 NewString_ReadMsgData = 0x0200BBA0 | 1;
-
-/*
-FontID_String_GetCenterAlignmentX = 0x020030A0 | 1;
-GetWindowWidth = 0x0201EE90 | 1;
-getButtonColorDepressed = 0x0207E264 | 1;
-getButtonColorRaised = 0x0207E278 | 1;
-ScheduleWindowCopyToVram = 0x020F62F0 | 1;
-FillWindowPixelBuffer2 = 0x0201D978 | 1;
-*/
