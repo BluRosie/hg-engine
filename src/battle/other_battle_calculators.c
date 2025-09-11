@@ -636,7 +636,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     // 8. If the user has Keen Eye or Unaware, or the move is Sacred Sword / Chip Away / Darkest Lariat, or the target is identified (Odor Sleuth / Foresight / Miracle Eye) and has positive evasion boosts, set the target's evasion boosts to 6 (+0).
 
-    if ((atk_ability == ABILITY_ILLUMINATE || atk_ability == ABILITY_KEEN_EYE || atk_ability == ABILITY_UNAWARE || atk_ability == ABILITY_MINDS_EYE)
+    if ((MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_ILLUMINATE) || MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_KEEN_EYE) || MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_UNAWARE) || MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_MINDS_EYE))
     || (move_no == MOVE_SACRED_SWORD || move_no == MOVE_CHIP_AWAY || move_no == MOVE_DARKEST_LARIAT)
     || (((sp->battlemon[defender].condition2 & STATUS2_FORESIGHT) || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MIRACLE_EYE)) && (stat_stage_evasion < 0))) {
         stat_stage_evasion = 0;
@@ -1466,9 +1466,10 @@ u16 gf_p_rand(const u16 denominator)
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag) {
     int typeTableEntryNo = 0; // Used to cycle through all (non-neutral) type interactions.
 
-    u8 defender_type_1 = sp->battlemon[defence_client].type1;
-    u8 defender_type_2 = sp->battlemon[defence_client].type2;
-    u8 defender_type_3 = sp->battlemon[defence_client].type3;
+    // https://xcancel.com/Sibuna_Switch/status/1827463371383328877#m
+    u8 defender_type_1 = GetSanitisedType(sp->battlemon[defence_client].type1);
+    u8 defender_type_2 = GetSanitisedType(sp->battlemon[defence_client].type2);
+    u8 defender_type_3 = GetSanitisedType(sp->battlemon[defence_client].type3);
     u8 defender_tera_type = sp->battlemon[defence_client].tera_type;
 
     u32 type1Effectiveness = TYPE_MUL_NORMAL;
@@ -2314,7 +2315,8 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     if (move == MOVE_TOXIC
         && (BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
         || BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON)) {
-        return FALSE;
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        return TRUE;
     }
 
     if (!(sp->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE) //TODO: Is this flag a debug flag to ignore hit rates..?
@@ -2323,7 +2325,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
           || GetBattlerAbility(sp, battlerIdAttacker) == ABILITY_NO_GUARD
           || GetBattlerAbility(sp, battlerIdTarget) == ABILITY_NO_GUARD)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-        return FALSE;
+        return TRUE;
     }
 
     if (!(sp->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
@@ -2333,7 +2335,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
             || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIG) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
             || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIVE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING))) {
         sp->waza_status_flag |= WAZA_STATUS_FLAG_KIE_NOHIT;
-        return FALSE;
+        return TRUE;
     }
 
     // 2. Check if the move itself is sure-hit (accuracy 101, like Aerial Ace), or if the move was custom-set to be sure-hit: Pursuit and target is switching, Thunder / Hurricane in rain, Blizzard in hail, Stomp / Steamroller / Dragon Rush / Body Slam / Malicious Moonsault / Heavy Slam / Heat Crash / Flying Press vs. Minimize.
@@ -2341,6 +2343,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
 
     if (sp->moveTbl[move].accuracy == 0) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        return TRUE;
     }
 
     if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
@@ -2352,12 +2355,12 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         || (sp->moveTbl[move].effect == MOVE_EFFECT_WILDBOLT_STORM)
         || (sp->moveTbl[move].effect == MOVE_EFFECT_SANDSEAR_STORM))) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-            return FALSE;
+            return TRUE;
         }
         // Blizzard is 100% accurate in Snow also
         if (sp->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && sp->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-            return FALSE;
+            return TRUE;
         }
     }
 
@@ -2365,7 +2368,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         && !sp->battlemon[battlerIdTarget].is_currently_dynamaxed
         && IsMoveInMinimizeVulnerabilityMovesList(move)) {
             sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
-            return FALSE;
+            return TRUE;
     }
 
     // 3. Check if the target has Telekinesis.
@@ -2452,45 +2455,30 @@ BOOL LONG_CALL IsMoveWindMove(u16 move)
  * @param sp global battle structure
  * @return TRUE/FALSE
 */
-BOOL LONG_CALL IsContactBeingMade(struct BattleSystem *bw UNUSED, struct BattleStruct *sp) {
+BOOL LONG_CALL IsContactBeingMade(int attackerAbility, int attackerItemHoldEffect, int defenderItemHoldEffect, int moveno, u8 moveFlag)
+{
+    // HeldItemHoldEffectGet -> attackerItemHoldEffect
 
     // Attacker abilities
-    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_LONG_REACH
-        // Kept in case people add their own
-        // || GetBattlerAbility(sp, sp->attack_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_ATTACK
-        ) {
+    if (attackerAbility == ABILITY_LONG_REACH) {
             return FALSE;
-        }
-
-    // Defender abilities
-    // Kept in case people add their own
-    // if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_THAT_PREVENTS_CONTACT_DEFENCE
-    //     || GetBattlerAbility(sp, sp->defence_client) == OTHER_ABILITY_THAT_PREVENTS_CONTACT_DEFENCE
-    //     ) {
-    //         return FALSE;
-    //     }
+    }
 
     // Check for items attacker
-    if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
-        // punching gloves prevents contact when attacking with punching moves
-        || (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
-            && IsMovePunchingMove(sp->current_move_index))
-        // Kept in case people add their own
-        // || HeldItemHoldEffectGet(sp, sp->attack_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_ATTACKER_CONTACT
-        ) {
+    if (attackerItemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
+        // Punching Gloves prevents contact when attacking with punching moves
+        || (attackerItemHoldEffect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
+            && IsMovePunchingMove(moveno))) {
             return FALSE;
     }
 
     // Check for items defender
-    if (HeldItemHoldEffectGet(sp, sp->defence_client) == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
-        // Kept in case people add their own
-        // || HeldItemHoldEffectGet(sp, sp->defence_client) != OTHER_HOLD_EFFECT_THAT_PREVENTS_DEFENDER_CONTACT
-        ) {
+    if (defenderItemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS) {
             return FALSE;
     }
 
     // Does the move make contact vanilla
-    if (sp->moveTbl[sp->current_move_index].flag & FLAG_CONTACT) {
+    if (moveFlag & FLAG_CONTACT) {
         return TRUE;
     }
 
@@ -3274,7 +3262,7 @@ const int typeToBerryMapping[] = {
     [TYPE_DARK]     = ITEM_COLBUR_BERRY,
 };
 
-BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
+BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleStruct *ctx, int defender) {
     if ((ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
     && !(ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_OHKO_HIT)) {
         return typeToBerryMapping[ctx->move_type] == GetBattleMonItem(ctx, defender);
@@ -3315,6 +3303,7 @@ BOOL LONG_CALL AbilityNoTransform(int ability) {
     return FALSE;
 }
 
+// TODO: Just use this instead of the Mold Breaker one
 u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId) {
     if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_GASTRO_ACID) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
         return ABILITY_NONE;
@@ -3395,7 +3384,7 @@ u32 RollMetronomeMove(struct BattleSystem *bsys)
 BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
 {
     // blanket item bans
-    if (IS_ITEM_MAIL(item) /*|| IS_ITEM_Z_CRYSTAL(item)*/)
+    if (IS_ITEM_MAIL(item) || IS_ITEM_Z_CRYSTAL(item))
         return FALSE;
 
     // then species-specific
@@ -3426,11 +3415,9 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
     return TRUE;
 }
 
-BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client)
+BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form)
 {
-    u32 species = ctx->battlemon[client].species;
-    u32 item = ctx->battlemon[client].item; // bypass klutz and friends probably
-    u32 form = ctx->battlemon[client].form_no;
+    // bypass klutz and friends probably
 
     // CheckMegaData will gladly tell you a galarian slowbro can't lose its slowbronite...  we have to take over
     if (species == SPECIES_SLOWBRO && item == ITEM_SLOWBRONITE && form == 2)
@@ -3450,15 +3437,14 @@ BOOL LONG_CALL CanItemBeRemovedFromClient(struct BattleStruct *ctx, u32 client)
  *  @param sp global battle structure
  *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
  */
-BOOL LONG_CALL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp)
+BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker, int defender)
 {
-    u32 attacker = sp->attack_client;
-    u32 defender = sp->defence_client;
     u32 item = sp->battlemon[defender].item;
-    //u32 species = sp->battlemon[defender].species;
     u32 ability = GetBattlerAbility(sp, defender);
+    u32 species = sp->battlemon[defender].species;
+    u32 form = sp->battlemon[defender].form_no;
 
-    if (CanActivateDamageReductionBerry(bw, sp, defender)) {
+    if (CanActivateDamageReductionBerry(sp, defender)) {
         // the berry activated already
         return FALSE;
     }
@@ -3468,13 +3454,13 @@ BOOL LONG_CALL CanKnockOffApply(struct BattleSystem *bw, struct BattleStruct *sp
     if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 8)
         // rocky helmet does 1/6th total hp as damage
       || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 6))
-     && IsContactBeingMade(bw, sp)
+     && IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)
      && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)
     {
         return FALSE;
     }
 
-    if (item != 0 && CanItemBeRemovedFromClient(sp, defender))
+    if (item != 0 && CanItemBeRemovedFromClient(species, item, form))
     {
         return TRUE;
     }
