@@ -183,19 +183,20 @@ u16 sMahoganyPostRocketHideout[] = {
 };
 
 BOOL ScrCmd_MartBuy(SCRIPTCONTEXT *ctx) {
-    u16 unused = ScriptGetVar(ctx);
+    u16 unused UNUSED = ScriptGetVar(ctx);
     
     u16 items[NELEMS(sBadgeMart) + 1];
     u8 badgeCount = 0;
     u8 index = 0;
+    u32 i;
 
-    for (int i = 0; i < 16; i++) {
+    for (i = 0; i < 16; i++) {
         if (PlayerProfile_TestBadgeFlag(Sav2_PlayerData_GetProfileAddr(ctx->fsys->savedata), i) == TRUE) {
             badgeCount++;
         }
     }
 
-    for (int i = 0; i < NELEMS(sBadgeMart); i++) {
+    for (i = 0; i < NELEMS(sBadgeMart); i++) {
         if (badgeCount >= sBadgeMart[i].required_badges) {
             items[index] = sBadgeMart[i].item_id;
             index++;
