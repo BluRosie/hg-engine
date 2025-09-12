@@ -533,4 +533,4 @@ arm9 PartyMenu_LearnMoveToSlot 0208254C 3
 arm9 PartyMenu_HandleUseItemOnMon 0207C288 1
 arm9 PartyMenu_PrintContextMenuItemText 0207E28C
 arm9 sub_0207E3A8 0207E3A8
-# arm9 PartyMenu_ShowContextMenu 0207E17C 3
+arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3

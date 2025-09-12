@@ -11,6 +11,20 @@
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 
+extern const u16 sButtonFrameTileOffsets[];
+extern const u8 sButtonRects[][4];
+extern const WindowTemplate sButtonWindowTemplates[];
+extern const s8 sButtonWindowIDs[][2][8];
+
+// mirrors the button layout
+static const u8 sPartyMenuRotomCatalogFormOrder[] = {3, 4, 5, /*quit*/ 0, 0, 1, 2};
+
+u32 LONG_CALL getButtonColorDepressed(int selection);
+u32 LONG_CALL getButtonColorRaised(int selection);
+void LONG_CALL PartyMonContextMenuAction_RotomCatalog(struct PartyMenu *partyMenu, int *pState);
+void LONG_CALL PartyMonContextMenuAction_QuitToBag(struct PartyMenu *partyMenu, int *pState);
+static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu);
+
 u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
 {
     struct PartyPokemon *pp = Party_GetMonByIndex(wk->dat->pp, wk->pos);
@@ -74,8 +88,6 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
         buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
         ++count;
     }
-
-
 
     return count;
 }
@@ -179,233 +191,8 @@ void PartyMenu_LearnMoveToSlot(struct PLIST_WORK *partyMenu, struct PartyPokemon
     }
 }
 
-typedef struct PartyMenuArgs {
-    struct Party *party;
-    BAG_DATA *bag;
-    void *mailbox;
-    void *options;
-    void *unk_10;
-    void *linkBattleRuleset;
-    void *fieldMoveCheckData;
-    FieldSystem *fieldSystem;
-    void *menuInputStatePtr;
-    u8 context;
-    u8 unk_25;
-    u8 partySlot;
-    u8 selectedAction;
-    u16 itemId;
-    u16 moveId;
-    u8 selectedMoveIdx;
-    u8 unk_2D;
-    u8 contestStat;
-    u8 contestLevel;
-    u8 selectedOrder[6];
-    u8 minMonsToSelect : 4;
-    u8 maxMonsToSelect : 4;
-    u8 maxLevel;
-    int levelUpMoveSearchState;
-    u16 species;
-    int evoMethod;
-} PartyMenuArgs;
-
-typedef struct LISTMENUITEM {
-    String *text;
-    s32 value;
-} LISTMENUITEM;
-
-typedef struct PartyMenuMonsDrawState {
-    String *nickname; // 828
-    u16 species;      // 82C
-    u16 hp;           // 82E
-    u16 maxHp;        // 830
-    u16 level;        // 832
-    u16 heldItem;     // 834
-    u16 status : 12;  // 836
-    u16 dontPrintGenderSymbol : 1;
-    u16 gender : 2;
-    u16 isContestCompatible : 1;
-    u8 isEgg;                     // 838
-    u8 form;                      // 839
-    u16 capsule;                  // 83A
-    s8 unk_14;                    // 83C
-    s8 unk_15;                    // 83D
-    s16 iconX;                    // 83E
-    s16 iconY;                    // 840
-    s16 statusIconX;              // 842
-    s16 statusIconY;              // 844
-    s16 heldItemX;                // 846
-    s16 heldItemY;                // 848
-    u8 filler_22[2];              // alignment padding
-    void *iconSprite;           // 84C
-    void *mainScreenIconSprite; // 850
-    u8 unk_2C;                    // 854
-    u8 active;                    // 855
-} PartyMenuMonsDrawState;
-
-typedef struct PartyMenuContextMenu {
-    LISTMENUITEM *items;
-    struct Window *window;
-    u8 unk_08;
-    u8 unk_09;
-    u8 numItems;
-    u8 unk_0B_0 : 4;
-    u8 unk_0B_4 : 2;
-    u8 scrollEnabled : 2;
-} PartyMenuContextMenu;
-
-typedef struct PartyMenuContextMenuCursor {
-    u8 prevSelection;
-    u8 selection;
-    u8 numItems;
-    u8 state;
-    struct PartyMenuContextMenu menu;
-} PartyMenuContextMenuCursor;
-
-typedef struct UnkStruct_02020654 {
-    u8 unk_0;
-    u8 unk_1;
-    u8 unk_2;
-    u8 unk_3;
-    u8 unk_4;
-    u8 unk_5;
-    u8 unk_6;
-    u8 unk_7;
-} UnkStruct_02020654;
-
-typedef struct PartyMenuSwapMonsData {
-    u16 bg2Tilemaps[2][0x60];
-    u16 bg1Tilemaps[2][0x60];
-    u8 slots[2];
-    u8 directions[2];
-    u8 active;
-    u8 state;
-    u8 xOffset;
-} PartyMenuSwapMonsData;
-
-typedef struct PartyMenuContextButtonAnimData {
-    PartyMenuContextMenu *template;
-    u8 numItems;
-    u8 selection;
-    u8 autoAnimTimer : 4;
-    u8 buttonAnimState : 4;
-    u8 state;
-    int followUpState;
-    BOOL active;
-} PartyMenuContextButtonAnimData;
-
-struct PartyMenu {
-    void *bgConfig;
-    struct Window windows[_PARTY_MENU_WINDOW_ID_MAX];
-    struct Window levelUpStatsWindow[1];       // 0x284
-    struct Window contextMenuButtonWindows[8]; // 0x294
-    u16 unk_314[6 * 0x10];
-    u16 unk_3D4[6 * 0x10];
-    u16 unk_494[6 * 0x10];
-    u16 hpBarPalettes[0x80];
-    PartyMenuArgs *args; // 0x654
-    /* 0x658 */ void* /*SpriteSystem **/ spriteRenderer;
-    /* 0x65C */ void* /*SpriteManager **/ spriteGfxHandler;
-    /* 0x660 */ void* /*Sprite **/ sprites[_PARTY_MENU_SPRITE_ID_MAX]; // 0x660
-    void *unk_6D4[PARTY_MENU_SPRITE_ID_MAX];
-    void *mainScreenStatusSprites[29]; // 0x748
-    void *msgPrinter;          // 0x7bc
-    MsgData *msgData;                    // 0x7c0
-    MessageFormat *msgFormat;            // 0x7c4
-    String *formattedStrBuf;             // 0x7c8
-    String *unformattedStrBuf;
-    String *contextMenuStrings[20];      // 0x7d0
-    LISTMENUITEM *listMenuItems;         // 0x820
-    struct PartyMenuContextMenuCursor *contextMenuCursor;
-    struct PartyMenuMonsDrawState monsDrawState[6]; // 0x828
-    const struct UnkStruct_02020654 *unk_948;
-    PartyMenuSwapMonsData swapMonsData;
-    int (*itemUseCallback)(struct PartyMenu *);
-    int (*yesCallback)(struct PartyMenu *); // 0xc58
-    int (*noCallback)(struct PartyMenu *);  // 0xc5c
-    u8 unk_C60;
-    u8 unk_C61;
-    u8 afterTextPrinterState;
-    u8 softboiledDonorSlot : 6;
-    u8 secondCursorActive : 1;
-    u8 cancelDisabled : 1;
-    u8 textPrinterId;
-    u8 partyMonIndex; // 0xc65 (pos)
-    u8 unk_C66;
-    u8 levelUpLearnMovesLoopState;
-    u16 levelUpStatsTmp[6];
-    struct Save_DexData *pokedex; // 0xc74
-    int topScreenPanelYPos;
-    BOOL topScreenPanelShow;
-    void *iconFormChange; // C80
-    void *gf3dVramMan;           // C84
-    void *yesNoPrompt;
-    u8 filler_C8C[4];
-    struct PartyMenuContextButtonAnimData contextMenuButtonAnim;
-    u8 filler_CA0[0x8];
-}; // CA8
-
-int LONG_CALL PartyMenu_ItemUseFunc_WaitTextPrinterThenExit(struct PartyMenu *partyMenu);
-void LONG_CALL PartyMenu_SetItemUseFuncFromBagSelection(struct PartyMenu *partyMenu);
-void LONG_CALL PartyMenu_PrintMessageOnWindow34(struct PartyMenu *partyMenu, int msgId, BOOL drawFrame);
-void LONG_CALL PartyMenu_SelectMoveForPpRestoreOrPpUp(struct PartyMenu *partyMenu, BOOL isPpRestore);
-void LONG_CALL PartyMenu_FormChangeScene_Begin(struct PartyMenu *partyMenu);
-
-// might need this later on cleanup?
-void LONG_CALL PartyMenu_DeleteContextMenuAndList(struct PartyMenu *partyMenu);
-
-void LONG_CALL ListMenuItems_AddItem(struct LISTMENUITEM *items, String *string, int value);
-struct LISTMENUITEM *LONG_CALL ListMenuItems_New(u32 n, int heapID);
-u32 LONG_CALL GetPartyMenuContextMenuActionFunc(int index);
-void LONG_CALL sub_0207E54C(struct PartyMenu *partyMenu, int numItems, int selection, int state);
-struct PartyMenuContextMenuCursor *LONG_CALL PartyMenu_CreateContextMenuCursor(struct PartyMenu *partyMenu, const struct PartyMenuContextMenu *template, int selection, int heapID, int state);
-
-// still not sure what this does
-void LONG_CALL sub_0207E068(struct PartyMenu *partyMenu);
-
-// msg data
-String *LONG_CALL NewString_ReadMsgData(MsgData *msgData, s32 strno);
-
-// TODO remove meeeeeeeeeee?
-typedef struct WindowTemplate {
-    u8 bgId;
-    u8 left;
-    u8 top;
-    u8 width;
-    u8 height;
-    u8 palette;
-    u16 baseTile;
-} WindowTemplate;
-
-static const WindowTemplate sButtonWindowTemplates[] = {
-    { 0, 0x11, 0x04, 0x0E, 0x02, 0x02, 0x0260 },
-    { 0, 0x11, 0x08, 0x0E, 0x02, 0x02, 0x027C },
-    { 0, 0x11, 0x0C, 0x0E, 0x02, 0x02, 0x0298 },
-    { 0, 0x01, 0x03, 0x0E, 0x02, 0x02, 0x02B4 },
-    { 0, 0x01, 0x07, 0x0E, 0x02, 0x02, 0x02D0 },
-    { 0, 0x01, 0x0B, 0x0E, 0x02, 0x02, 0x02EC },
-    { 0, 0x01, 0x0F, 0x0E, 0x02, 0x02, 0x0308 },
-    { 0, 0x1A, 0x14, 0x05, 0x03, 0x02, 0x0324 },
-    { 0, 0x11, 0x03, 0x0E, 0x02, 0x02, 0x0260 },
-    { 0, 0x11, 0x07, 0x0E, 0x02, 0x02, 0x027C },
-    { 0, 0x11, 0x0B, 0x0E, 0x02, 0x02, 0x0298 },
-    { 0, 0x11, 0x0F, 0x0E, 0x02, 0x02, 0x02B4 },
-};
-
-void LONG_CALL sub_0207E358(struct PartyMenu *partyMenu, struct PartyMenuContextMenu *contextMenu, int numItems, int selection, int state);
-
-// mirrors the button layout
-u8 sPartyMenuRotomCatalogFormOrder[] = {
-    3, 
-    4, 
-    5, 
-    0, // QUIT button
-    0, 
-    1, 
-    2
-};
-
-void LONG_CALL PartyMonContextMenuAction_RotomCatalog(struct PartyMenu *partyMenu, int *pState);
-void LONG_CALL PartyMonContextMenuAction_RotomCatalog(struct PartyMenu *partyMenu, int *pState) {
+void LONG_CALL PartyMonContextMenuAction_RotomCatalog(struct PartyMenu *partyMenu, int *pState)
+{
     u8 form = 0;
     u8 sel = partyMenu->contextMenuButtonAnim.selection;
     if (sel <= 6) {
@@ -413,30 +200,35 @@ void LONG_CALL PartyMonContextMenuAction_RotomCatalog(struct PartyMenu *partyMen
     }
     partyMenu->args->species = PokeOtherFormMonsNoGet(SPECIES_ROTOM, form);
     Mon_UpdateRotomForm(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex), form, 0);
+    // TODO eventually expand PartyMenu_FormChangeScene_Begin with animations for Rotom
     PartyMenu_FormChangeScene_Begin(partyMenu);
     PartyMenu_DeleteContextMenuAndList(partyMenu);
-    *pState = 31;
+    *pState = PARTY_MENU_STATE_FORM_CHANGE_ANIM;
 }
 
-static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu);
+void LONG_CALL PartyMonContextMenuAction_QuitToBag(struct PartyMenu *partyMenu, int *pState)
+{
+    // clean up submenu UI elements
+    ClearFrameAndWindow2(&partyMenu->windows[PARTY_MENU_WINDOW_ID_33], TRUE);
+    PartyMenu_DeleteContextMenuAndList(partyMenu);
+    PartyMenu_DisableMainScreenBlend_AfterYesNo();
 
-static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu) {
+    // fully quit out rather than just quitting the submenu
+    partyMenu->args->selectedAction = PARTY_MENU_ACTION_RETURN_0;
+    *pState = PARTY_MENU_STATE_BEGIN_EXIT;
+}
+
+static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu)
+{
 
     ClearFrameAndWindow2(&partyMenu->windows[32], TRUE);
     sub_0207E068(partyMenu);
-    
-    // no border with this atm
-    // PartyMenu_PrintMessageOnWindow33(partyMenu, 39, FALSE);
+    PartyMenu_PrintMessageOnWindow32(partyMenu, 220, TRUE);
 
-    const int numForms = 6;
-    const int numItems = numForms + 1; // + QUIT
-
+    const int numItems = 6 + 1; // num rotom forms + QUIT
     partyMenu->listMenuItems = ListMenuItems_New(numItems, HEAP_ID_PARTY_MENU);
 
     String *s;
-
-    s = NewString_ReadMsgData(partyMenu->msgData, 220);
-    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
 
     s = NewString_ReadMsgData(partyMenu->msgData, 221);
     ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
@@ -444,16 +236,19 @@ static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu) {
     s = NewString_ReadMsgData(partyMenu->msgData, 222);
     ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
 
-    // quit button has to come in 4th slot
-    ListMenuItems_AddItem(partyMenu->listMenuItems, partyMenu->contextMenuStrings[PARTY_MON_CONTEXT_MENU_QUIT], GetPartyMenuContextMenuActionFunc(PARTY_MON_CONTEXT_MENU_QUIT));
-
     s = NewString_ReadMsgData(partyMenu->msgData, 223);
     ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
+
+    // quit button in 4th slot
+    ListMenuItems_AddItem(partyMenu->listMenuItems, partyMenu->contextMenuStrings[PARTY_MON_CONTEXT_MENU_QUIT], (u32)PartyMonContextMenuAction_QuitToBag);
 
     s = NewString_ReadMsgData(partyMenu->msgData, 224);
     ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
 
     s = NewString_ReadMsgData(partyMenu->msgData, 225);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
+
+    s = NewString_ReadMsgData(partyMenu->msgData, 226);
     ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
 
     String_Delete(s);
@@ -465,19 +260,18 @@ static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu) {
     contextMenu.unk_09 = 1;
     contextMenu.numItems = numItems;
     contextMenu.unk_0B_0 = 0;
-    contextMenu.unk_0B_4 = 1; // <-- setting this tells our layout writer to not do the field move coloring and offset
+    contextMenu.unk_0B_4 = 0;
     contextMenu.scrollEnabled = numItems > 4;
 
     partyMenu->contextMenuCursor = PartyMenu_CreateContextMenuCursor(partyMenu, &contextMenu, 0, HEAP_ID_PARTY_MENU, /*state=*/0);
 
-    // we have to reframe the window to line up the right column with the left
-    // can't do the other way because
-    for (int id=0; id<=2; ++id) {
-        WindowTemplate tmp = sButtonWindowTemplates[id];
-        RemoveWindow(&partyMenu->contextMenuButtonWindows[id]);
-        tmp.top -= 1;
-        AddWindow(partyMenu->bgConfig, &partyMenu->contextMenuButtonWindows[id], &tmp);
-        FillWindowPixelBuffer(&partyMenu->contextMenuButtonWindows[id], 4);
+    // reframe the window to line up the columns. remove the first 3 windows and recreate one tile down
+    for (int i = 0; i < 3; i++) {
+        WindowTemplate template = sButtonWindowTemplates[i];
+        RemoveWindow(&partyMenu->contextMenuButtonWindows[i]);
+        template.top -= 1;
+        AddWindow(partyMenu->bgConfig, &partyMenu->contextMenuButtonWindows[i], &template);
+        FillWindowPixelBuffer(&partyMenu->contextMenuButtonWindows[i], 4);
     }
 
     sub_0207E54C(partyMenu, numItems, 0, /*state=*/0);
@@ -492,25 +286,25 @@ int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
         partyMenu->args->species = SPECIES_SHAYMIN_SKY;
         sys_FreeMemoryEz(itemData);
         PartyMenu_FormChangeScene_Begin(partyMenu);
-        return 31; // TODO pull the enum in
+        return PARTY_MENU_STATE_FORM_CHANGE_ANIM;
     }
 
     if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG && CanUseRotomCatalog(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex))) {
         debug_printf("rotom babay\n");
         PartyMenu_ShowRotomCatalogList(partyMenu);
         sys_FreeMemoryEz(itemData);
-        return 2;
+        return PARTY_MENU_STATE_HANDLE_CONTEXT_MENU_INPUT;
     }
 
     if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_UP) || GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_MAX)) {
         sys_FreeMemoryEz(itemData);
         PartyMenu_SelectMoveForPpRestoreOrPpUp(partyMenu, 0);
-        return 6;
+        return PARTY_MENU_STATE_SELECT_MOVE;
     }
     if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_RECOVERY) && !GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_ALL_PP_RECOVERY)) {
         sys_FreeMemoryEz(itemData);
         PartyMenu_SelectMoveForPpRestoreOrPpUp(partyMenu, 1);
-        return 6;
+        return PARTY_MENU_STATE_SELECT_MOVE;
     }
 
     if (CanUseItemOnMonInParty(partyMenu->args->party, partyMenu->args->itemId, partyMenu->partyMonIndex, 0, HEAP_ID_PARTY_MENU) == TRUE) {
@@ -520,7 +314,7 @@ int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
             partyMenu->args->species = GetMonEvolution(NULL, mon, EVOCTX_ITEM_USE, partyMenu->args->itemId, &partyMenu->args->evoMethod);
             partyMenu->args->selectedAction = 8;
             sys_FreeMemoryEz(itemData);
-            return 32;
+            return PARTY_MENU_STATE_BEGIN_EXIT;
         } else {
             PartyMenu_SetItemUseFuncFromBagSelection(partyMenu);
         }
@@ -530,56 +324,9 @@ int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
         partyMenu->itemUseCallback = PartyMenu_ItemUseFunc_WaitTextPrinterThenExit;
     }
     sys_FreeMemoryEz(itemData);
-    return 5;
+    return PARTY_MENU_STATE_ITEM_USE_CB;
 }
 
-u32 LONG_CALL FontID_String_GetCenterAlignmentX(u8 fontId, String *string, u32 letterSpacing, u32 windowWidth);
-u8 LONG_CALL GetWindowWidth(struct Window *window);
-u32 LONG_CALL getButtonColorDepressed(int selection);
-u32 LONG_CALL getButtonColorRaised(int selection);
-void LONG_CALL ScheduleWindowCopyToVram(struct Window *window);
-
-#define MAKE_TEXT_COLOR(fg, sh, bg) ((((fg) & 0xFF) << 16) | (((sh) & 0xFF) << 8) | (((bg) & 0xFF) << 0))
-#define TEXT_SPEED_INSTANT    0    // Transfers to VRAM
-#define TEXT_SPEED_NOTRANSFER 0xFF // Defers VRAM transfer
-
-// TODO could maybe extern this if we don't end up touching it
-static const s8 sButtonWindowIDs[][2][8] = {
-    {
-     { 0, -1, -1, -1, -1, -1, -1, -1 },
-     { 7, -1, -1, -1, -1, -1, -1, -1 },
-     },
-    {
-     { 0, 7, -1, -1, -1, -1, -1, -1 },
-     { 8, 7, -1, -1, -1, -1, -1, -1 },
-     },
-    {
-     { 0, 1, 7, -1, -1, -1, -1, -1 },
-     { 8, 9, 7, -1, -1, -1, -1, -1 },
-     },
-    {
-     { 0, 1, 2, 7, -1, -1, -1, -1 },
-     { 8, 9, 10, 7, -1, -1, -1, -1 },
-     },
-    {
-     { 0, 1, 2, 7, 3, -1, -1, -1 },
-     { 8, 9, 10, 11, 7, -1, -1, -1 },
-     },
-    {
-     { 0, 1, 2, 7, 3, 4, -1, -1 },
-     { 0, 1, 2, 3, 4, 8, -1, -1 },
-     },
-    {
-     { 0, 1, 2, 7, 3, 4, 5, -1 },
-     { 0, 1, 2, 3, 4, 5, 8, -1 },
-     },
-    {
-     { 0, 1, 2, 7, 3, 4, 5, 6 },
-     { 0, 1, 2, 7, 3, 4, 5, 6 },
-     },
-};
-
-// takes care of the blue text
 void LONG_CALL PartyMenu_PrintContextMenuItemText(struct PartyMenu *partyMenu, struct PartyMenuContextMenu *contextMenu, int numItems, int selection, int state, BOOL depressed)
 {
     u32 color;
@@ -601,8 +348,7 @@ void LONG_CALL PartyMenu_PrintContextMenuItemText(struct PartyMenu *partyMenu, s
         y = 4;
         x = FontID_String_GetCenterAlignmentX(4, contextMenu->items[selection].text, 0, GetWindowWidth(&partyMenu->contextMenuButtonWindows[windowId]) * 8);
     } else {
-        y = 0;
-        if (contextMenu->unk_0B_4 == 1) {
+        if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG) {
             // use the normal white colored text instead of blue field move text
             if (depressed == FALSE) {
                 fillValue = 4;
@@ -611,10 +357,6 @@ void LONG_CALL PartyMenu_PrintContextMenuItemText(struct PartyMenu *partyMenu, s
                 fillValue = 11;
                 color = MAKE_TEXT_COLOR(14, 15, 11);
             }
-            // shift the text down a frame so it lines up with the right column
-            // if (windowId == 0 || windowId == 1 || windowId == 2) {
-            //     y = ;
-            // }
         } else {
             if (depressed == FALSE) {
                 fillValue = 4;
@@ -624,83 +366,81 @@ void LONG_CALL PartyMenu_PrintContextMenuItemText(struct PartyMenu *partyMenu, s
                 color = getButtonColorDepressed(selection);
             }
         }
+        y = 0;
     }
     FillWindowPixelBuffer(&partyMenu->contextMenuButtonWindows[windowId], fillValue);
     AddTextPrinterParameterizedWithColor(&partyMenu->contextMenuButtonWindows[windowId], 4, contextMenu->items[selection].text, x, y, TEXT_SPEED_NOTRANSFER, color, NULL);
     ScheduleWindowCopyToVram(&partyMenu->contextMenuButtonWindows[windowId]);
 }
 
-// TODO - extern
-static const u8 sButtonRects[][4] = {
-    // x, y, width, height
-    { 0x10, 0x03, 0x10, 0x04 },
-    { 0x10, 0x07, 0x10, 0x04 },
-    { 0x10, 0x0B, 0x10, 0x04 },
-    { 0x00, 0x02, 0x10, 0x04 },
-    { 0x00, 0x06, 0x10, 0x04 },
-    { 0x00, 0x0A, 0x10, 0x04 },
-    { 0x00, 0x0E, 0x10, 0x04 },
-    { 0x19, 0x13, 0x07, 0x05 },
-    { 0x10, 0x02, 0x10, 0x04 },
-    { 0x10, 0x06, 0x10, 0x04 },
-    { 0x10, 0x0A, 0x10, 0x04 },
-    { 0x10, 0x0E, 0x10, 0x04 },
-};
-
-static const u16 sButtonFrameTileOffsets[] = {
-    0, 2, 6, 8, 3, 5, 1, 7
-};
-
-void LONG_CALL LoadRectToBgTilemapRect(void *bgConfig, u8 bgId, const void *buffer, u8 destX, u8 destY, u8 width, u8 height);
-void LONG_CALL FillBgTilemapRect(void *bgConfig, u8 bgId, u16 fillValue, u8 x, u8 y, u8 width, u8 height, u8 mode);
-
-#define TILEMAP_FILL_KEEP_PAL 16 // Do not replace the selected palette index
-#define TILEMAP_FILL_OVWT_PAL 17 // Fill value includes palette
-
-// takes care of the layout
-void LONG_CALL sub_0207E3A8(struct PartyMenu *partyMenu, int numItems, int selection, int state, int frameType) {
+void LONG_CALL sub_0207E3A8(struct PartyMenu *partyMenu, int numItems, int selection, int state, int frameType)
+{
     u16 tiles[8];
     s8 id = sButtonWindowIDs[numItems - 1][state][selection];
 
-    // start from vanilla rect
-    u8 r[4]; const u8 *rect = sButtonRects[id];
-    r[0]=rect[0]; r[1]=rect[1]; r[2]=rect[2]; r[3]=rect[3];
+    // shallow copy vanilla rectangle
+    u8 tempRect[4]; 
+    const u8 *rect = sButtonRects[id];
+    tempRect[0]=rect[0]; 
+    tempRect[1]=rect[1]; 
+    tempRect[2]=rect[2]; 
+    tempRect[3]=rect[3];
 
-    // align-left: nudge left right down one tile
-    if (partyMenu->contextMenuCursor && partyMenu->contextMenuCursor->menu.unk_0B_4 && (id == 0 || id == 1 || id == 2)) {
-        r[1] -= 1;
+    // nudge down one tile to line up columns
+    if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG) {
+        if (id == 0 || id == 1 || id == 2) {
+            tempRect[1] -= 1;
+        }
     }
 
-    u32 tileStart = (frameType == 0 ? 0x2000 : frameType == 1 ? 0x2009 : 0x2012) + 10;
-    for (u16 i = 0; i < 8; ++i) tiles[i] = tileStart + sButtonFrameTileOffsets[i];
+    u32 tileStart;
+    if (frameType == 0) {
+        tileStart = 0x2000;
+    } else if (frameType == 1) {
+        tileStart = 0x2009;
+    } else {
+        tileStart = 0x2012;
+    }
+    tileStart += 10;
+    for (int i = 0; i < 8; ++i) { // MAX_BUTTONS_IN_PARTY_MENU ?
+        tiles[i] = tileStart + sButtonFrameTileOffsets[i];
+    }
 
-    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[0], r[0], r[1], 1, 1);
-    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[1], r[0] + r[2] - 1, r[1], 1, 1);
-    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[2], r[0], r[1] + r[3] - 1, 1, 1);
-    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[3], r[0] + r[2] - 1, r[1] + r[3] - 1, 1, 1);
-    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[4], r[0], r[1] + 1, 1, r[3] - 2, TILEMAP_FILL_OVWT_PAL);
-    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[5], r[0] + r[2] - 1, r[1] + 1, 1, r[3] - 2, TILEMAP_FILL_OVWT_PAL);
-    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[6], r[0] + 1, r[1], r[2] - 2, 1, TILEMAP_FILL_OVWT_PAL);
-    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[7], r[0] + 1, r[1] + r[3] - 1, r[2] - 2, 1, TILEMAP_FILL_OVWT_PAL);
+    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[0], tempRect[0], tempRect[1], 1, 1);
+    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[1], tempRect[0] + tempRect[2] - 1, tempRect[1], 1, 1);
+    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[2], tempRect[0], tempRect[1] + tempRect[3] - 1, 1, 1);
+    LoadRectToBgTilemapRect(partyMenu->bgConfig, 0, &tiles[3], tempRect[0] + tempRect[2] - 1, tempRect[1] + tempRect[3] - 1, 1, 1);
+    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[4], tempRect[0], tempRect[1] + 1, 1, tempRect[3] - 2, TILEMAP_FILL_OVWT_PAL);
+    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[5], tempRect[0] + tempRect[2] - 1, tempRect[1] + 1, 1, tempRect[3] - 2, TILEMAP_FILL_OVWT_PAL);
+    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[6], tempRect[0] + 1, tempRect[1], tempRect[2] - 2, 1, TILEMAP_FILL_OVWT_PAL);
+    FillBgTilemapRect(partyMenu->bgConfig, 0, tiles[7], tempRect[0] + 1, tempRect[1] + tempRect[3] - 1, tempRect[2] - 2, 1, TILEMAP_FILL_OVWT_PAL);
 }
 
-void LONG_CALL PartyMenu_ShowContextMenu(struct PartyMenu *partyMenu, int numItems, int state) {
-    debug_printf("AYUP\n");
-    GF_ASSERT(numItems <= 8);
-    for (int i = 0; i < numItems; ++i) {
-        u8 id = sButtonWindowIDs[numItems - 1][state][i];
-        const WindowTemplate *src = &sButtonWindowTemplates[id];
+void LONG_CALL PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj(struct PartyMenu *partyMenu, PartyMenuContextMenuCursor *cursor, int followUpState)
+{
+    int followUpStateTmp = followUpState;
 
-        if (partyMenu->contextMenuCursor && partyMenu->contextMenuCursor->menu.unk_0B_4 && (id == 3 || id == 4 || id == 5))
-        {
-            debug_printf("modifying...\n");;
-            WindowTemplate tmp = *src;
-            tmp.top += 1; // shift down 1 tile to match right column
-            AddWindow(partyMenu->bgConfig, &partyMenu->contextMenuButtonWindows[id], &tmp);
-        } else {
-            AddWindow(partyMenu->bgConfig, &partyMenu->contextMenuButtonWindows[id], src);
+    // intercept cancel signals sent from the B button to properly route to the Quit button for specific items
+    u8 idx = cursor->numItems - 1;
+    if (partyMenu->args && partyMenu->args->itemId == ITEM_ROTOM_CATALOG && followUpState == LIST_CANCEL) {
+        for (int i = 0; i < cursor->numItems; i++) {
+            if ((u32)cursor->menu.items[i].value == (u32)PartyMonContextMenuAction_QuitToBag) {
+                idx = i; 
+                break; 
+            }
         }
-
-        FillWindowPixelBuffer(&partyMenu->contextMenuButtonWindows[id], 4);
+        cursor->selection = idx;
+        followUpStateTmp = cursor->menu.items[idx].value;
     }
+
+    PartyMenuContextButtonAnimData *animData = &partyMenu->contextMenuButtonAnim;
+
+    animData->autoAnimTimer = 0;
+    animData->buttonAnimState = 0;
+    animData->template = &cursor->menu;
+    animData->numItems = cursor->numItems;
+    animData->selection = cursor->selection;
+    animData->state = cursor->state;
+    animData->followUpState = followUpStateTmp;
+    animData->active = TRUE;
 }
