@@ -159,10 +159,13 @@ def validate_abilities(trainer, party):
     return validate_single_field(trainer, party, "TRAINER_DATA_TYPE_ABILITY", "ability")
 
 
-def validate_field_order(trainer, party):
+def validate_fields_overall(trainer, party):
     errors = []
+    required_fields = [
+        "ivs", "abilityslot", "level", "ballseal"
+    ]
     correct_field_order = [
-        "ivs", "abilityslot", "level", "pokemon", "item",
+        "ivs", "abilityslot", "level", "pokemon", "monwithform", "item",
         "move1", "move2", "move3", "move4",
         "ability", "setivs", "setevs", "nature",
         "shinylock", "additionalflags", "status",
@@ -183,6 +186,12 @@ def validate_field_order(trainer, party):
             errors.append(f"ERROR: {trainer['name']} (id: {trainer['id']} mon {i}: field order is incorrect.")
             errors.append(f"  found order: {[f for f, _ in actual_order]}")
             errors.append(f"  expected order (if present): {correct_field_order}")
+
+        missing = [f for f in required_fields if f not in mon]
+        if "pokemon" not in mon and "monwithform" not in mon:
+            missing.append("pokemon/monwithform")
+        if missing:
+            errors.append(f"ERROR: {trainer['name']} (id: {trainer['id']}) mon {i}: missing required fields {missing}")
     return errors
 
 
@@ -229,7 +238,7 @@ def validate_trainers(trainers, print_team):
         errors.extend(validate_single_field(trainer, party, "TRAINER_DATA_TYPE_NATURE_SET", "nature"))
         errors.extend(validate_single_field(trainer, party, "TRAINER_DATA_TYPE_SHINY_LOCK", "shinylock"))
         errors.extend(validate_additional_flags(trainer, party))
-        errors.extend(validate_field_order(trainer, party))
+        errors.extend(validate_fields_overall(trainer, party))
 
         # Party size validation
         if len(party) != trainer["nummons"]:
