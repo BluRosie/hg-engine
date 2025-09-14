@@ -285,6 +285,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     debug_printf("Step 3: Account for the species catch rate\n");
 #endif
 
+    // https://xcancel.com/Sibuna_Switch/status/1551411751803043840
     c = (speciesCatchRate + heavyBallMod) * b;
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("c: %d\n\n", c);
