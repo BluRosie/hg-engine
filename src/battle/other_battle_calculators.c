@@ -1525,7 +1525,7 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
                     if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_tera_type))
                     {
-                        type1Effectiveness = UpdateTypeEffectiveness(sp, defence_client, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        type1Effectiveness = UpdateTypeEffectiveness(sp, defence_client, defender_tera_type, TypeEffectivenessTable[typeTableEntryNo][2]);
                         TypeCheckCalc(sp, attack_client, type1Effectiveness, 42, 42, flag);
                     }
                 }
