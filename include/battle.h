@@ -356,7 +356,7 @@
 #define SIDE_STATUS_TOXIC_SPIKES (0x400)
 #define SIDE_STATUS_STICKY_WEB (0x800)
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
-#define SIDE_STATUS_AURORA_VEIL (0x8000) // What is this numbering scheme? ~J
+#define SIDE_STATUS_AURORA_VEIL (0x8000)
 
 /**
  *  @brief self status flags that apply to BattleStruct's oneSelfFlag[battler].status_flag
