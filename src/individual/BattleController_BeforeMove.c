@@ -3685,7 +3685,9 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_AURORA_VEIL: {
-            // TODO
+            if (ctx->side_condition[IsClientEnemy(bsys, ctx->attack_client)] & SIDE_STATUS_AURORA_VEIL) {
+                butItFailedFlag = TRUE;
+            }
             break;
         }
         case MOVE_GRASSY_TERRAIN: {

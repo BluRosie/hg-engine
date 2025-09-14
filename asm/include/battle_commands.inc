@@ -1442,7 +1442,12 @@
     .long \arg_0
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 261
+    .macro TryAuroraVeil arg_0
+    .long 262
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 262
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

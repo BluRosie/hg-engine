@@ -90,7 +90,9 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         ballCaptureRatio = 0x1000;
         break;
     case ITEM_SAFARI_BALL:
-        ballCaptureRatio = 0x1000;
+        if (BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) {
+            ballCaptureRatio = 0x1800;
+        }
         break;
     case ITEM_NET_BALL:
         if (HasType(sp, sp->defence_client, TYPE_WATER) || HasType(sp, sp->defence_client, TYPE_BUG)) {
@@ -160,10 +162,11 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             }
         }
         break;
-    // case ITEM_LURE_BALL:
-    //     if (Battle_IsFishingEncounter(bw))
-    //         ballRate = 40; // as of sword and shield
-    //     break;
+    case ITEM_LURE_BALL:
+        if (Battle_IsFishingEncounter(bw)) {
+            ballCaptureRatio = 0x4000; // as of sword and shield
+        }
+        break;
     case ITEM_HEAVY_BALL:
         if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 999) {
             heavyBallMod = -20;
@@ -202,7 +205,9 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         }
         break;
     case ITEM_SPORT_BALL:
-        ballCaptureRatio = 0x1000;
+        if (BattleTypeGet(bw) & BATTLE_TYPE_BUG_CONTEST) {
+            ballCaptureRatio = 0x1800;
+        }
         break;
     //case ITEM_PARK_BALL:
     //

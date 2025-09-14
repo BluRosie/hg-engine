@@ -358,6 +358,7 @@
 #define SIDE_STATUS_TOXIC_SPIKES (0x400)
 #define SIDE_STATUS_STICKY_WEB (0x800)
 #define SIDE_STATUS_LUCKY_CHANT (0x7000)
+#define SIDE_STATUS_AURORA_VEIL (0x8000)
 
 /**
  *  @brief self status flags that apply to BattleStruct's oneSelfFlag[battler].status_flag
@@ -938,6 +939,9 @@ struct __attribute__((packed)) side_condition_work
     u32     reflectCount            : 3;
     u32     lightScreenBattler      : 2;
     u32     lightScreenCount        : 3;
+    u32     auroraVeilBattler       : 2;
+    u32     auroraVeilCount         : 3;
+
     u32     mistBattler             : 2;
     u32     mistCount               : 3;
     u32     safeguardBattler        : 2;
@@ -950,7 +954,7 @@ struct __attribute__((packed)) side_condition_work
 
     u32     spikesLayers            : 2;
     u32     toxicSpikesLayers       : 2;
-    u32                             :28;
+    u32                             :23;
 };
 
 struct __attribute__((packed)) BattleAIWorkTable

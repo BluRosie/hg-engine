@@ -546,10 +546,9 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     // Effects relative to a particular side of the field
     // 6.9.1 Screens
-    // TODO: handle Aurora Veil
     // handle Reflect
     if ((movesplit == SPLIT_PHYSICAL)
-    && ((side_cond & SIDE_STATUS_REFLECT) != 0)
+    && ((side_cond & SIDE_STATUS_REFLECT) != 0 || (side_cond & SIDE_STATUS_AURORA_VEIL) != 0)
     && (sp->critical == 1)
     && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
     && (sp->battlemon[attacker].ability != ABILITY_INFILTRATOR)) {
@@ -561,7 +560,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     }
     // handle Light Screen
     if ((movesplit == SPLIT_SPECIAL)
-    && ((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0)
+    && ((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0 || (side_cond & SIDE_STATUS_AURORA_VEIL) != 0)
     && (sp->critical == 1)
     && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
     && (attackerAbility != ABILITY_INFILTRATOR)) {
