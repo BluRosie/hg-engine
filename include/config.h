@@ -165,9 +165,4 @@
 // Comment out the line below to disable this feature
 #define UPDATE_MACHINE_MOVE_LABELS
 
-// MODERNIZE_BALL_BEHAVIORS causes balls that were changed due to missing functionality in new games to use their new behavior.
-// This includes Safari & Sport Balls (now match Pokeballs) and Lure Balls (now match Dive Balls).
-// Remove comments from the line below to enable this feature.
-// #define MODERNIZE_BALL_BEHAVIORS
-
 #endif
