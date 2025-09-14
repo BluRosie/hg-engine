@@ -464,8 +464,11 @@
 #define SUB_SEQ_ADD_THIRD_TYPE_GRASS                  (454)
 #define SUB_SEQ_ADD_THIRD_TYPE_GHOST                  (455)
 #define SUB_SEQ_CHANGE_TARGET_TO_PSYCHIC_TYPE         (456)
+#define SUB_SEQ_HANDLE_PARTING_SHOT                   (457)
+#define SUB_SEQ_HANDLE_CLEAR_SMOG                     (458)
+#define SUB_SEQ_HANDLE_FLAME_BURST_HIT                (459)
 
-#define MAX_BASE_SUBSCRIPT_NUM 456
+#define MAX_BASE_SUBSCRIPT_NUM 459
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -673,8 +676,11 @@
 #define ADD_STATUS_EFF_ADD_THIRD_TYPE_GRASS            (196)
 #define ADD_STATUS_EFF_ADD_THIRD_TYPE_GHOST            (197)
 #define ADD_STATUS_EFF_CHANGE_TARGET_TO_PSYCHIC_TYPE   (198)
+#define ADD_STATUS_EFF_PARTING_SHOT                    (199)
+#define ADD_STATUS_EFF_CLEAR_SMOG                      (200)
+#define ADD_STATUS_EFF_FLAME_BURST_HIT                 (201)
 
-#define MAX_BASE_SUBSCRIPT_PTR_NUM (198)
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (201)
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)

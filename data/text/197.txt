@@ -1586,3 +1586,6 @@ Ghost type was added\nto the opposing {STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
 The wild {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
 The opposing {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
+The bursting flame hit {STRVAR_1 1, 0, 0}!
+The bursting flame hit the wild\n{STRVAR_1 1, 0, 0}!
+The bursting flame hit the\nopposing {STRVAR_1 1, 0, 0}!
