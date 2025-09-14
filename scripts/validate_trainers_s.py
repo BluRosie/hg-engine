@@ -13,6 +13,7 @@ def parse_trainers(file_path):
     in_party = False
     current_mon = []
     mon_list = []
+    key_counts = None
 
     for line in lines:
         stripped = line.split("//")[0].strip()
@@ -32,9 +33,20 @@ def parse_trainers(file_path):
                     "party": []
                 }
                 in_trainerdata = True
+                key_counts = {}
             continue
 
         if in_trainerdata:
+            key = stripped.split()[0]
+            key_counts[key] = key_counts.get(key, 0) + 1
+            if key == "item":
+                if key_counts[key] > 4:
+                    print(f"ERROR: trainerdata id {trainer_id} ({trainer['name']}): too many '{key}' entries (max 4)")
+                    sys.exit(1)
+            elif key_counts[key] > 1:
+                print(f"ERROR: trainerdata id {trainer_id} ({trainer['name']}): duplicate '{key}' not allowed")
+                sys.exit(1)
+
             if stripped.startswith("trainermontype"):
                 trainer["trainermontype"] = stripped.split("trainermontype")[1].strip()
             elif stripped.startswith("nummons"):
@@ -43,15 +55,18 @@ def parse_trainers(file_path):
                     trainer["nummons"] = int(match.group(1))
                 else:
                     print(f"encountered unexpected 'nummons' value for trainer {trainer_id}")
+                    sys.exit(1)
             elif stripped == "endentry":
                 trainers[trainer_id] = trainer
                 trainer = {}
                 in_trainerdata = False
+                key_counts = None
             continue
 
         if stripped.startswith("party"):
             if in_party:
                 print(f"encountered unexpected 'party' tag before closure with 'endparty'. inspect your trainers.s file before trainer {trainer_id}")
+                sys.exit(1)
 
             match = re.match(r'party\s+(\d+)', stripped)
             if match:
@@ -99,6 +114,7 @@ def parse_trainers(file_path):
             else:
                 if not current_mon:
                     print(f"encountered unexpected line {stripped}. inspect your trainers.s file at trainer {trainer_id}. 'ivs' should be the first attribute listed for each pokémon")
+                    sys.exit(1)
                 current_mon.append(stripped)
 
     return list(trainers.values())
