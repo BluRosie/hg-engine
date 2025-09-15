@@ -1462,13 +1462,12 @@ u16 gf_p_rand(const u16 denominator)
     }
 }
 
-u8 LONG_CALL UpdateTypeEffectiveness(struct BattleStruct *sp, int defence_client, u8 defender_type, u8 defaultEffectiveness)
+u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u32 held_effect, u8 defender_type, u8 defaultEffectiveness)
 {
-    u32 defenderItem = GetBattleMonItem(sp, defence_client);
-    if (sp->current_move_index == MOVE_FREEZE_DRY && defender_type == TYPE_WATER) {
+    if (move_no == MOVE_FREEZE_DRY && defender_type == TYPE_WATER) {
         defaultEffectiveness = TYPE_MUL_SUPER_EFFECTIVE;
     }
-    if (defenderItem == ITEM_RING_TARGET && defaultEffectiveness == TYPE_MUL_NO_EFFECT) {
+    if (held_effect == HOLD_EFFECT_LOSE_TYPE_IMMUNITIES && defaultEffectiveness == TYPE_MUL_NO_EFFECT) {
         defaultEffectiveness = TYPE_MUL_NORMAL;
     }
 
@@ -1484,6 +1483,7 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
     u8 defender_type_2 = GetSanitisedType(sp->battlemon[defence_client].type2);
     u8 defender_type_3 = GetSanitisedType(sp->battlemon[defence_client].type3);
     u8 defender_tera_type = sp->battlemon[defence_client].tera_type;
+    u32 item_held_effect = BattleItemDataGet(sp, GetBattleMonItem(sp, defence_client), 1);
 
     u32 type1Effectiveness = TYPE_MUL_NORMAL;
     u32 type2Effectiveness = TYPE_MUL_NORMAL;
@@ -1525,7 +1525,7 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
                     if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_tera_type))
                     {
-                        type1Effectiveness = UpdateTypeEffectiveness(sp, defence_client, defender_tera_type, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        type1Effectiveness = UpdateTypeEffectiveness(sp->current_move_index, item_held_effect, defender_tera_type, TypeEffectivenessTable[typeTableEntryNo][2]);
                         TypeCheckCalc(sp, attack_client, type1Effectiveness, 42, 42, flag);
                     }
                 }
@@ -1537,7 +1537,7 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
                     if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1))
                     {
-                        type1Effectiveness = UpdateTypeEffectiveness(sp, defence_client, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        type1Effectiveness = UpdateTypeEffectiveness(sp->current_move_index, item_held_effect, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
                         TypeCheckCalc(sp, attack_client, type1Effectiveness, 42, 42, flag);
                     }
                 }
@@ -1546,7 +1546,7 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
                     if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2))
                     {
-                        type2Effectiveness = UpdateTypeEffectiveness(sp, defence_client, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        type2Effectiveness = UpdateTypeEffectiveness(sp->current_move_index, item_held_effect, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
                         TypeCheckCalc(sp, attack_client, type2Effectiveness, 42, 42, flag);
                     }
                 }
@@ -1555,7 +1555,7 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
                     if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3))
                     {
-                        type3Effectiveness = UpdateTypeEffectiveness(sp, defence_client, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        type3Effectiveness = UpdateTypeEffectiveness(sp->current_move_index, item_held_effect, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
                         TypeCheckCalc(sp, attack_client, type3Effectiveness, 42, 42, flag);
                     }
                 }
@@ -1628,6 +1628,8 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
     u8 defender_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL));
     u8 defender_type_3 = sp->battlemon[defence_client].type3;
 
+    u32 item_held_effect = BattleItemDataGet(sp, GetBattleMonItem(sp, defence_client), 1);
+
     if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((attacker_type_1 == move_type) || (attacker_type_2 == move_type) || (attacker_type_3 == move_type)))
     {
         if (GetBattlerAbility(sp,attack_client) == ABILITY_ADAPTABILITY)
@@ -1664,7 +1666,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                 if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
                 && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1))
                 {
-                    u8 typeEffectiveness = UpdateTypeEffectiveness(sp, defence_client, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
+                    u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, item_held_effect, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
                     damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
                     if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
                     {
@@ -1677,7 +1679,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                 if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
                 && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2))
                 {
-                    u8 typeEffectiveness = UpdateTypeEffectiveness(sp, defence_client, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
+                    u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, item_held_effect, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
                     damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
                     if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
                     {
@@ -1690,7 +1692,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                 if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
                 && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3))
                 {
-                    u8 typeEffectiveness = UpdateTypeEffectiveness(sp, defence_client, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
+                    u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, item_held_effect, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
                     damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
                     if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
                     {
