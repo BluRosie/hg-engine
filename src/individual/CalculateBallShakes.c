@@ -165,10 +165,15 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             }
         }
         break;
-#ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
     case ITEM_LURE_BALL:
+#ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
         if (Battle_IsFishingEncounter(bw)) {
             ballCaptureRatio = 0x4000; // as of sword and shield
+        }
+        break;
+#else
+        if (BattleWorkGroundIDGet(bw) == 7) { // if the battle is happening with a water background
+            ballCaptureRatio = 0x3800;
         }
         break;
 #endif
