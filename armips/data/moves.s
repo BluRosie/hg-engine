@@ -11164,7 +11164,7 @@ movedata MOVE_BRUTAL_SWING, "Brutal Swing"
     movedescription MOVE_BRUTAL_SWING, "The user swings its\nbody around violently\nto inflict damage on\neverything in its\nvicinity."
 
 movedata MOVE_AURORA_VEIL, "Aurora Veil"
-    battleeffect MOVE_EFFECT_AURORA_VEIL
+    battleeffect MOVE_EFFECT_SET_AURORA_VEIL
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ICE

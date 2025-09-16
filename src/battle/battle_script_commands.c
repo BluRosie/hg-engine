@@ -93,6 +93,7 @@ BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct Battle
 BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_104_tryincinerate(void* bsys, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_105_addthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -4079,24 +4080,24 @@ BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* sp)
 
     int side = IsClientEnemy(bw, sp->attack_client);
 
-    if (sp->side_condition[side] & SIDE_CONDITION_AURORA_VEIL) {
+    if (sp->side_condition[side] & SIDE_STATUS_AURORA_VEIL) {
         IncrementBattleScriptPtr(sp, adrs);
         sp->waza_status_flag |= 64; // What does this line do? ~J
     } else {
-        sp->side_condition[side] |= SIDE_CONDITION_AURORA_VEIL;
-        sp->side_condition[side].auroraVeilTurns = 5;
-        sp->side_condition[side].auroraVeilBattler = sp->attack_client;
+        sp->side_condition[side] |= SIDE_STATUS_AURORA_VEIL;
+        sp->scw[side].auroraVeilCount = 5;
+        sp->scw[side].auroraVeilBattler = sp->attack_client;
         if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_EXTEND_SCREENS) {
             // TODO: Expose and utilize GetHeldItemModifier(sp, sp->attack_client, 0) in place of a hardcoded value for light clay.
-            sp->side_condition[side].auroraVeilTurns += 3;
+            sp->scw[side].auroraVeilCount += 3;
         }
 
         // TODO: Check if there is any difference in message between single and double battles.
         // I don't think there is.
         sp->mp.msg_id = BATTLE_MSG_AURORA_VEIL;
         sp->mp.msg_tag = TAG_MOVE_SIDE;
-        sp->mp.msg_tag[0] = sp->current_move_index;
-        sp->mp.msg_tag[1] = sp->attack_client;
+        sp->mp.msg_para[0] = sp->current_move_index;
+        sp->mp.msg_para[1] = sp->attack_client;
     }
     return FALSE;
 }
@@ -4185,19 +4186,19 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
     return FALSE;
 }
 
-BOOL BtlCmd_TryBreakScreens(BattleSystem *bsys, BattleContext *ctx) {
+BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
     int adrs = read_battle_script_param(ctx);
-    int side = IsClientEnemy(bsys, sp->defense_client)
+    int side = IsClientEnemy(bsys, ctx->defence_client);
 
-    if ((ctx->side_condition[side] & SIDE_CONDITION_REFLECT) || (ctx->side_condition[side] & SIDE_CONDITION_LIGHT_SCREEN) || (ctx->side_condition[side] & SIDE_CONDITION_AURORA_VEIL)) {
-        ctx->side_condition[side] &= ~SIDE_CONDITION_REFLECT;
-        ctx->side_condition[side] &= ~SIDE_CONDITION_LIGHT_SCREEN;
-        ctx->side_condition[side] &= ~SIDE_CONDITION_AURORA_VEIL;
-        ctx->side_condition[side].reflectTurns = 0;
-        ctx->side_condition[side].lightScreenTurns = 0;
-        ctx->side_condition[side].auroraVeilTurns = 0;
+    if ((ctx->side_condition[side] & SIDE_STATUS_REFLECT) || (ctx->side_condition[side] & SIDE_STATUS_LIGHT_SCREEN) || (ctx->side_condition[side] & SIDE_STATUS_AURORA_VEIL)) {
+        ctx->side_condition[side] &= ~SIDE_STATUS_REFLECT;
+        ctx->side_condition[side] &= ~SIDE_STATUS_LIGHT_SCREEN;
+        ctx->side_condition[side] &= ~SIDE_STATUS_AURORA_VEIL;
+        ctx->scw[side].reflectCount = 0;
+        ctx->scw[side].lightScreenCount = 0;
+        ctx->scw[side].auroraVeilCount = 0;
     } else {
         IncrementBattleScriptPtr(ctx, adrs);
     }

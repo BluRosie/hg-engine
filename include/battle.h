@@ -939,8 +939,6 @@ struct __attribute__((packed)) side_condition_work
     u32     reflectCount            : 3;
     u32     lightScreenBattler      : 2;
     u32     lightScreenCount        : 3;
-    u32     auroraVeilBattler       : 2;
-    u32     auroraVeilCount         : 3;
 
     u32     mistBattler             : 2;
     u32     mistCount               : 3;
@@ -954,6 +952,8 @@ struct __attribute__((packed)) side_condition_work
 
     u32     spikesLayers            : 2;
     u32     toxicSpikesLayers       : 2;
+    u32     auroraVeilBattler       : 2;
+    u32     auroraVeilCount         : 3;
     u32                             :23;
 };
 
