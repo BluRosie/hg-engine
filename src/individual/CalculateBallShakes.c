@@ -173,7 +173,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         break;
 #else
         if (BattleWorkGroundIDGet(bw) == 7) { // if the battle is happening with a water background
-            ballCaptureRatio = 0x3800;
+            ballCaptureRatio = 0x4000;
         }
         break;
 #endif
@@ -214,8 +214,8 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             ballCaptureRatio = 0x4000;
         }
         break;
-    case ITEM_SPORT_BALL:
 #ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
+    case ITEM_SPORT_BALL:
         if (BattleTypeGet(bw) & BATTLE_TYPE_BUG_CONTEST) {
             ballCaptureRatio = 0x1800;
         }
