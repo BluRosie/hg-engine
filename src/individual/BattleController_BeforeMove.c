@@ -4257,6 +4257,7 @@ BOOL BattleController_CheckTeraShell(struct BattleSystem *bsys UNUSED, struct Ba
 
 BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     if (CanActivateDamageReductionBerry(ctx, defender)) {
+        ctx->item_work = GetBattleMonItem(ctx, defender);
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLAY_EAT_BERRY_ANIMATION);
         ctx->next_server_seq_no = ctx->server_seq_no;
