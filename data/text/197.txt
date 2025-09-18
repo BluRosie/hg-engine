@@ -1590,6 +1590,3 @@ Aurora Veil made your team\nstronger against physical and special moves!
 Aurora Veil made the opposing team\nstronger against physical and special moves!
 Aurora Veil made your team\nstronger against physical and special moves!
 Aurora Veil made the opposing team\nstronger against physical and special moves!
-{STRVAR_1 1, 0, 0} had its HP restored.
-The wild {STRVAR_1 1, 0, 0} had its HP\nrestored.
-The opposing {STRVAR_1 1, 0, 0} had its HP\nrestored.

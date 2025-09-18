@@ -14,7 +14,7 @@ _handleCheekPouch:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // {0} had its HP restored.
-    PrintMessage 1592, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
+    PrintMessage 1396, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
 
