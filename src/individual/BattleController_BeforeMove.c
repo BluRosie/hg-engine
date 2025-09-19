@@ -705,6 +705,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
             if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)
                 ctx->server_status_flag |= BATTLE_STATUS_CRASH_DAMAGE;
+            ctx->wb_seq_no++;
             FALLTHROUGH;
         }
         // TODO implement new mechanics
