@@ -42,14 +42,14 @@ def dump_moves(narc):
 		moves_armip += f'    terminatedata\n'
 		moves_armip += MOVE_ENTRIES[idx][1]
 		moves_armip += "\n"
-	moves_armip += get_remaining_lines("../armips/data/moves.s", len(narc), "movedata")
+	moves_armip += get_remaining_lines("armips/data/moves.s", len(narc), "movedata")
 
 	return moves_armip
 
 
 # gets move data not present in narc from armips/data/moves.s
 def get_move_entries(indexed_moves):
-	with open("../armips/data/moves.s", 'r') as f:
+	with open("armips/data/moves.s", 'r') as f:
 		content = f.readlines()
 
 	move_entries = {}

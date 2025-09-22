@@ -42,12 +42,12 @@ def dump_mondata(narc):
 		mondata_armip += DEX_ENTRIES[idx][1]
 		mondata_armip += "\n\n"
 
-	mondata_armip += get_remaining_lines("../armips/data/mondata.s", len(narc), "mondata")
+	mondata_armip += get_remaining_lines("armips/data/mondata.s", len(narc), "mondata")
 
 	return mondata_armip
 
 def get_mon_dex_entries(indexed_mons):
-	with open("../armips/data/mondata.s", 'r', encoding="utf-8") as f:
+	with open("armips/data/mondata.s", 'r', encoding="utf-8") as f:
 		content = f.readlines()
 
 	dex_entries = {}

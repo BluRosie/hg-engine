@@ -410,10 +410,10 @@ class DictWrapper:
             print(f"{key} not found in dict, returning {key} as value")
             return key
 
-MONS = parse_inc_file("../asm/include/species.inc")
-ITEMS = parse_inc_file("../asm/include/items.inc")
-MOVES = parse_inc_file("../asm/include/moves.inc")
-MOVE_EFFECTS = parse_inc_file("../asm/include/move_effects.inc")
-ABILITIES = parse_inc_file("../asm/include/abilities.inc")
-CONSTANTS = parse_inc_file("../armips/include/constants.s")
-MOVE_MACROS = DictWrapper(parse_inc_file("../armips/include/movemacros.s"))
+MONS = parse_inc_file("asm/include/species.inc")
+ITEMS = parse_inc_file("asm/include/items.inc")
+MOVES = parse_inc_file("asm/include/moves.inc")
+MOVE_EFFECTS = parse_inc_file("asm/include/move_effects.inc")
+ABILITIES = parse_inc_file("asm/include/abilities.inc")
+CONSTANTS = parse_inc_file("armips/include/constants.s")
+MOVE_MACROS = DictWrapper(parse_inc_file("armips/include/movemacros.s"))
