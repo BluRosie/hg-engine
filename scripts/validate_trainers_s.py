@@ -16,7 +16,7 @@ def parse_trainers(file_path):
     key_counts = None
 
     for line in lines:
-        stripped = line.split("//")[0].strip()
+        stripped = line.split("//")[0].strip().lower()
 
         if not stripped:
             continue
@@ -48,7 +48,7 @@ def parse_trainers(file_path):
                 sys.exit(1)
 
             if stripped.startswith("trainermontype"):
-                trainer["trainermontype"] = stripped.split("trainermontype")[1].strip()
+                trainer["trainermontype"] = stripped.split("trainermontype")[1].strip().upper()
             elif stripped.startswith("nummons"):
                 match = re.search(r'nummons\s+.*?(\b[0-6]\b)', stripped)
                 if match:
