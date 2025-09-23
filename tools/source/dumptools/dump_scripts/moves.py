@@ -34,7 +34,7 @@ def dump_moves(narc):
 		moves_armip += f'    accuracy {move["accuracy"]}\n'
 		moves_armip += f'    pp {move["pp"]}\n'
 		moves_armip += f'    effectchance {move["effect_chance"]}\n'
-		moves_armip += f'    target {MOVE_MACROS["MOVE"][move["target"]]}\n'
+		moves_armip += f'    target {MOVE_MACROS["MOVEDATA"][move["target"]]}\n'
 		moves_armip += f'    priority {move["priority"]}\n'
 		moves_armip += f'    flags {get_flags(move["properties"])}\n'
 		moves_armip += f'    appeal 0x{move["appeal"]:02x}\n'

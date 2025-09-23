@@ -94,7 +94,7 @@ def get_enc_macro(species_id, enc_type, is_expanded):
 
 
 def get_enc_entries():
-	with open("../armips/data/encounters.s", 'r') as f:
+	with open("armips/data/encounters.s", 'r') as f:
 		content = f.readlines()
 
 	enc_entries = []

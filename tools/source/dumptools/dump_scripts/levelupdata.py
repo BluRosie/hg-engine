@@ -22,6 +22,6 @@ def dump_levelupdata(narc):
 				levelupdata_armip += "    terminatelearnset\n\n\n"
 				break
 
-	levelupdata_armip += get_remaining_lines("../armips/data/levelupdata.s", len(narc), "levelup")
+	levelupdata_armip += get_remaining_lines("armips/data/levelupdata.s", len(narc), "levelup")
 
 	return levelupdata_armip

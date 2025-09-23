@@ -24,7 +24,7 @@ def dump_evodata(narc):
 		
 		evodata_armip += "terminateevodata\n\n"
 
-	evodata_armip += get_remaining_lines("../armips/data/evodata.s", len(narc), "evodata")
+	evodata_armip += get_remaining_lines("armips/data/evodata.s", len(narc), "evodata")
 
 	return evodata_armip
 
