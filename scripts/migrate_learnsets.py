@@ -12,6 +12,8 @@ numToTutorName = {
     3: "MOVE_TUTOR_NPC_HEADBUTT",
 }
 
+gNewFormat = False
+
 
 def parse_species_header(file_path):
     species_dict = {}
@@ -67,10 +69,13 @@ def tm_data_dumper(species_dict, moves_dict):
 def levelup_data_dumper(species_dict, moves_dict):
     output = {}
 
+    filename = "build/a033/learnset_0"
+
     for species in range(len(species_dict)):
-        filename = f"build/a033/learnset_{species:04d}"
-        if not os.path.isfile(filename):
-            continue
+        if (not gNewFormat):
+            filename = f"build/a033/learnset_{species:04d}"
+            if not os.path.isfile(filename):
+                continue
 
         with open(filename, "rb") as f:
             moves = []
@@ -171,6 +176,10 @@ def generate_learnset_outputs(species_header_path, moves_header_path, out_learns
 
     species_dict = parse_species_header(species_header_path)
     moves_dict = parse_moves_header(moves_header_path)
+
+    if os.path.exists("build/a028/8_14"):
+        # the rom is in the new format!  this is a single file in a033 now!
+        gNewFormat = True
 
     levelup_data = levelup_data_dumper(species_dict, moves_dict)
     tm_data = tm_data_dumper(species_dict, moves_dict)
