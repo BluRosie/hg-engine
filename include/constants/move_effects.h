@@ -394,8 +394,9 @@
 #define MOVE_EFFECT_FELL_STINGER                            388
 #define MOVE_EFFECT_PARTING_SHOT                            389
 #define MOVE_EFFECT_CLEAR_SMOG                              390
+#define MOVE_EFFECT_ION_DELUGE                              391
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            390
+#define MAX_BASE_MOVE_EFFECT_NUM                            391
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
