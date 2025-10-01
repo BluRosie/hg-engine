@@ -9164,7 +9164,7 @@ movedata MOVE_NOBLE_ROAR, "Noble Roar"
     movedescription MOVE_NOBLE_ROAR, "Letting out a noble\nroar, the user\nintimidates the target\nand lowers its Attack\nand Sp. Atk stats."
 
 movedata MOVE_ION_DELUGE, "Ion Deluge"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_ION_DELUGE
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ELECTRIC
@@ -9173,11 +9173,11 @@ movedata MOVE_ION_DELUGE, "Ion Deluge"
     effectchance 0
     target RANGE_FIELD
     priority 1
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_ION_DELUGE, "---"
+    movedescription MOVE_ION_DELUGE, "The user disperses\nelectrically charged particles,\nwhich changes Normal-type moves\nto Electric-type moves."
 
 movedatalongname MOVE_PARABOLIC_CHARGE, "ParabolicCharge", "Parabolic Charge"
     battleeffect MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT
