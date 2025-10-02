@@ -132,7 +132,7 @@ _FrontierTauntMessages:
     PrintTrainerMessage BATTLER_CATEGORY_ENEMY_SLOT_2, TRAINER_MESSAGE_WIN
     Wait 
     WaitButtonABTime 60
-    GoTo _248
+    GoTo _FrontierEndScript
 
 _IntoFrontierEnd:
     WaitButtonABTime 30
