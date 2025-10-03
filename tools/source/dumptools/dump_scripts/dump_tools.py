@@ -255,10 +255,10 @@ def get_remaining_lines(file_path, original_rom_mon_count, keyword):
     mon_count = 0
     
     for index, line in enumerate(content):
-        if keyword in line:
+        if keyword in line and not "terminate" in line:
             mon_count += 1
             
-            if original_rom_mon_count == mon_count:
+            if (original_rom_mon_count + 1) == mon_count:
                 return "".join(content[index:])
 
     return ""

@@ -50,9 +50,9 @@ if __name__ == "__main__":
 
 	# Dump Learnsets
 
-	levelupdata_narc = dump_narc(rom, "a/0/3/3", (EXPANDED_LEARNSET_NARC_FORMAT if EXPANDED else LEARNSET_NARC_FORMAT))
-	with open('./dumped_armips/levelupdata.s', 'w', encoding="utf-8") as file:
-		file.write(dump_levelupdata(levelupdata_narc))
+#	levelupdata_narc = dump_narc(rom, "a/0/3/3", (EXPANDED_LEARNSET_NARC_FORMAT if EXPANDED else LEARNSET_NARC_FORMAT))
+#	with open('./dumped_armips/levelupdata.s', 'w', encoding="utf-8") as file:
+#		file.write(dump_levelupdata(levelupdata_narc))
 
 	# Dump Trainers
 
