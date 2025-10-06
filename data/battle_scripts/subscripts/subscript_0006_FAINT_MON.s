@@ -2,8 +2,10 @@
 
 .data
 
-_000:
+_Start:
+    // Increment game record for number of Pokemon we have defeated.
     IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_ENEMY, 42
+    // Increment game record for number of our Pokemon who have fainted.
     IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_PLAYER, 97
     PlayFaintAnimation 
     Wait 
@@ -13,7 +15,8 @@ _000:
     Wait 
     WaitButtonABTime 30
     Call BATTLE_SUBSCRIPT_TRY_CLEAR_PRIMAL_WEATHERS_FAINTING
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_NO_EXP_GAINED, _025
+    // This line seemingly does nothing.
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_NO_EXP_GAINED, _End
 
-_025:
+_End:
     End 
