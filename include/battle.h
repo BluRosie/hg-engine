@@ -594,7 +594,7 @@
 #define BATTLE_STATUS_HIT_DIVE                      (1 << 4)
 #define BATTLE_STATUS_CHARGE_TURN                   (1 << 5)
 #define BATTLE_STATUS_NO_BLINK                      (1 << 6)
-#define BATTLE_STATUS_SYNCRONIZE                    (1 << 7)
+#define BATTLE_STATUS_SYNCHRONIZE                   (1 << 7)
 #define BATTLE_STATUS_BATON_PASS                    (1 << 8)
 #define BATTLE_STATUS_CHARGE_MOVE_HIT               (1 << 9)
 #define BATTLE_STATUS_FLAT_HIT_RATE                 (1 << 10)
