@@ -31,10 +31,11 @@ PERSONAL_NARC_FORMAT = [[1, "base_hp"],
 [1, "ability_2"],
 [1, "flee"],
 [3, "color"],
-[4, "tm_1-32"],
-[4, "tm_33-64"],
-[4, "tm_65-92+hm_1-4"],
-[4, "hm_5-8"]]
+#[4, "tm_1-32"],
+#[4, "tm_33-64"],
+#[4, "tm_65-92+hm_1-4"],
+#[4, "hm_5-8"]
+]
 
 MOVE_NARC_FORMAT = [
 [2, "effect"],
@@ -75,15 +76,15 @@ for n in range(0, 9):
     EXPANDED_EVO_NARC_FORMAT.append([2, f'target_{n}'])
 
 TRDATA_NARC_FORMAT = [[1, "flags"],
-    [1, "class"],
-    [1, "battle_type"],
+    [2, "class"], # now 2 bytes
+    #[1, "battle_type"],
     [1, "num_pokemon"],
     [2, "item_1"],
     [2, "item_2"],
     [2, "item_3"],
     [2, "item_4"],
     [4, "ai"],
-    [1, "battle_type_2"]]
+    [1, "battle_type"]]
 
 TRPOK_NARC_FORMAT = [[1, "ivs"],
     [1, "ability"],
@@ -123,7 +124,9 @@ TRPOK_NARC_FORMAT = [[1, "ivs"],
     [1, "move_1_pp"],
     [1, "move_2_pp"],
     [1, "move_3_pp"],
-    [1, "move_4_pp"]]
+    [1, "move_4_pp"],
+    [2, "ballseal"],
+]
 
 ENCOUNTER_NARC_FORMAT = [
     [1, "walking_rate"],
@@ -193,7 +196,7 @@ def dump_narc(rom, narc_path, narc_format):
     return parsed_narc_data
 
 def dump_trpok_narc(rom, narc_path, trdata_narc):
-    parsed_narc_data = []
+    parsed_narc_data = {}
 
     # get narc from rom
     narc_data = rom.files[rom.filenames[narc_path]]
@@ -201,8 +204,7 @@ def dump_trpok_narc(rom, narc_path, trdata_narc):
 
     # use supplied format to parse each file in narc
     for idx, data in enumerate(narc.files):
-        
-        flags = bin(trdata_narc[idx]["flags"])[2:].zfill(8).reverse()
+        flags = bin(trdata_narc[idx]["flags"])[2:].zfill(8)
         num_pokemon = trdata_narc[idx]["num_pokemon"]
         narc_format = copy.deepcopy(TRPOK_NARC_FORMAT)
         
@@ -224,18 +226,39 @@ def dump_trpok_narc(rom, narc_path, trdata_narc):
                 for stat in ["hp", "atk", "def", "spd", "spatk", "spdef"]:
                     narc_format.remove([1, f'{stat}_{value_type}']) 
         
-        if flags[2] == '0':           
+        if flags[2] == '0':
             narc_format.remove([1, "nature"])
 
-        if flags[1] == '0':           
+        if flags[1] == '0':
             narc_format.remove([1, "shiny_lock"])
-        
-        additional_flags = {}
-        
-        if flags[0] == '0':         
-            narc_format = narc_format[:-13]
 
-        parsed_narc_data.append(read_narc_data(data, narc_format))
+        # for the moment, i do not care about any extra fields.        
+        if flags[0] == '0':
+            narc_format.remove([4, "additional_flags"])
+            narc_format.remove([4, "status"])
+            narc_format.remove([2, "hp"])
+            narc_format.remove([2, "atk"])
+            narc_format.remove([2, "def"])
+            narc_format.remove([2, "spd"])
+            narc_format.remove([2, "spatk"])
+            narc_format.remove([2, "spdef"])
+            narc_format.remove([1, "type_1"])
+            narc_format.remove([1, "type_2"])
+            narc_format.remove([1, "move_1_pp"])
+            narc_format.remove([1, "move_2_pp"])
+            narc_format.remove([1, "move_3_pp"])
+            narc_format.remove([1, "move_4_pp"])
+        else:
+            sys.exit("Additional flags not currently implemented in the dumper!  Quit.")
+
+        #parsed_narc_data.append(read_narc_data(data, narc_format))
+        totalSizePerMon = 0
+        for i in range(0, len(narc_format)):
+            totalSizePerMon += narc_format[i][0]
+        parsed_narc_data[idx] = {}
+        for i in range(0, num_pokemon):
+            parsed_narc_data[idx][i] = read_narc_data(data, narc_format)
+            data = data[totalSizePerMon:]
     return parsed_narc_data
 
 def get_form(species_id, is_expanded):
