@@ -46,7 +46,8 @@ def tm_data_dumper(species_dict, moves_dict):
     output = {}
 
     for species in range(0, len(species_dict)):
-        mondata = open("build/a002/mondata_{:04d}".format(species), "rb")
+        filename = f"build/a002/mondata_{species:04d}" if len(species_dict) > 1000 else "build/a002/mondata_{species:03d}"
+        mondata = open(filename, "rb")
         mondata.seek(0x1C)
         tmArray[species] = 0
         for i in range(0, 4):
@@ -73,7 +74,7 @@ def levelup_data_dumper(species_dict, moves_dict):
 
     for species in range(len(species_dict)):
         if (not gNewFormat):
-            filename = f"build/a033/learnset_{species:04d}"
+            filename = f"build/a033/learnset_{species:04d}" if len(species_dict) > 1000 else f"build/a033/learnset_{species:03d}"
             if not os.path.isfile(filename):
                 continue
 
@@ -177,10 +178,6 @@ def generate_learnset_outputs(species_header_path, moves_header_path, out_learns
     species_dict = parse_species_header(species_header_path)
     moves_dict = parse_moves_header(moves_header_path)
 
-    if os.path.exists("build/a028/8_14"):
-        # the rom is in the new format!  this is a single file in a033 now!
-        gNewFormat = True
-
     levelup_data = levelup_data_dumper(species_dict, moves_dict)
     tm_data = tm_data_dumper(species_dict, moves_dict)
     egg_data = eggmove_data_dumper(species_dict, moves_dict)
@@ -233,8 +230,14 @@ def generate_learnset_outputs(species_header_path, moves_header_path, out_learns
 
 
 if __name__ == "__main__":
-    generate_learnset_outputs(
-        species_header_path="include/constants/species.h",
-        moves_header_path="include/constants/moves.h",
-        out_learnsets="data/learnsets/learnsets.json",
-    )
+    if os.path.exists("build/a033/learnset_0"):
+        # the rom is in the new format!  this is a single file in a033 now!
+        print("Dumped ROM is already in new format!\nNothing to be done for learnsets.")
+    elif os.path.isfile("build/a002/mondata_000"):
+        print("Vanilla format not supported by this script, please just edit the learnset JSON for the moment.")
+    else:
+        generate_learnset_outputs(
+            species_header_path="include/constants/species.h",
+            moves_header_path="include/constants/moves.h",
+            out_learnsets="data/learnsets/learnsets.json",
+        )

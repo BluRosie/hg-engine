@@ -1,5 +1,6 @@
 import sys
 import os
+import pprint
 
 # Helper methods for reading narcs and parsing .inc files
 from dump_scripts.dump_tools import *
@@ -10,6 +11,7 @@ from dump_scripts.moves import dump_moves
 from dump_scripts.encounters import dump_encounters
 from dump_scripts.evodata import dump_evodata
 from dump_scripts.levelupdata import dump_levelupdata
+from dump_scripts.trainerdata import dump_trainerdata
 
 
 if __name__ == "__main__":    
@@ -50,14 +52,16 @@ if __name__ == "__main__":
 
 	# Dump Learnsets
 
-	levelupdata_narc = dump_narc(rom, "a/0/3/3", (EXPANDED_LEARNSET_NARC_FORMAT if EXPANDED else LEARNSET_NARC_FORMAT))
-	with open('./dumped_armips/levelupdata.s', 'w', encoding="utf-8") as file:
-		file.write(dump_levelupdata(levelupdata_narc))
+#	levelupdata_narc = dump_narc(rom, "a/0/3/3", (EXPANDED_LEARNSET_NARC_FORMAT if EXPANDED else LEARNSET_NARC_FORMAT))
+#	with open('./dumped_armips/levelupdata.s', 'w', encoding="utf-8") as file:
+#		file.write(dump_levelupdata(levelupdata_narc))
 
 	# Dump Trainers
 
-	# trdata_narc = dump_narc(rom, "a/0/5/5", TRDATA_NARC_FORMAT)
-	# trpok_narc = dump_trpok_narc(rom, "a/0/5/6", trdata_narc)
+	trdata_narc = dump_narc(rom, "a/0/5/5", TRDATA_NARC_FORMAT)
+	trpok_narc = dump_trpok_narc(rom, "a/0/5/6", trdata_narc)
+	with open('./dumped_armips/trainers.s', 'w', encoding="utf-8") as file:
+		file.write(dump_trainerdata(trdata_narc, trpok_narc))
 
 
 

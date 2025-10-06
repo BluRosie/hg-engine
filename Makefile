@@ -474,20 +474,17 @@ move_narc: $(NARC_FILES)
 	@echo "tutor moves:"
 	cp $(TUTORLEARNSET_BIN) $(TUTORLEARNSET_TARGET)
 
-<<<<<<< Updated upstream
-# the goal here is to extract the required narcs to the proper folders for the dump scripts to work.
-# learnsets are covered by script migration
-dumprom: $(VENV_ACTIVATE)
-# dump human overworlds
-	
-
-=======
 
 DUMP_SCRIPT_LOCATION := tools/source/dumptools
 # the goal here is to extract the required narcs to the proper folders for the dump scripts to work.
 # learnsets are covered by script migration
 dumprom: $(VENV_ACTIVATE)
+	$(MAKE) clean
 	chmod +x $(DUMP_SCRIPT_LOCATION)/*.sh
+
+# dump mondata, encounters, evos, moves
+	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
+
 	./$(DUMP_SCRIPT_LOCATION)/dumprom.sh
 	mkdir -p $(BUILD) $(BUILD_NARC) $(BUILD)/a028/
 # dump human overworlds
@@ -502,11 +499,10 @@ dumprom: $(VENV_ACTIVATE)
 	cp $(LEVELUPLEARNSET_TARGET) $(BUILD_NARC)/learnset
 	$(NARCHIVE) extract $(BUILD_NARC)/learnset -o $(LEVELUPLEARNSET_DIR)
 # kowaza:  needed by migrate_learnsets.py
-
-	$(PYTHON) scripts/migrate_learnsets.py
-#	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
-	rm -rf $(BUILD)/a028/
->>>>>>> Stashed changes
+	cp $(EGGLEARNSET_TARGET) $(BUILD_NARC)/kowaza
+	$(NARCHIVE) extract $(BUILD_NARC)/kowaza -o $(BUILD)/kowaza
+	$(PYTHON) tools/source/dumptools/migrate_learnsets.py
+	rm -rf $(BUILD)
 
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:

@@ -14,7 +14,7 @@ def dump_mondata(narc):
 	mondata_armip += ".include \"asm/include/abilities.inc\"\n"
 	mondata_armip += ".include \"asm/include/items.inc\"\n"
 	mondata_armip += ".include \"asm/include/species.inc\"\n\n\n"
-	mondata_armip += "// all the mon personal data.  tm learnsets are specifically in tmlearnset.txt\n"
+	mondata_armip += "// all the mon personal data.  all learnset data is in data/learnsets, including tm's\n"
 	mondata_armip += "// basestats and evyields fields are formatted as such:  hp atk def speed spatk spdef\n\n\n"
 
 	for idx, mon in enumerate(narc):
