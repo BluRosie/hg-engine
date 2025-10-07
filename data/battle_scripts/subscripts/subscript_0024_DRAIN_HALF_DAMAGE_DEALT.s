@@ -2,23 +2,24 @@
 
 .data
 
-Start:
+_Start:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_HIT_DAMAGE
-    CompareVarToValue OPCODE_GT, BSCRIPT_VAR_HP_CALC, -1, EndScript
+    CompareVarToValue OPCODE_GT, BSCRIPT_VAR_HP_CALC, -1, _End
+    // DivideVarByValue floors to 1, so we are not risking a heal for 0 HP.
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 2
 
-CheckLeechBoost:
-    CheckItemHoldEffect CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, HOLD_EFFECT_LEECH_BOOST, DrainHealth
+_CheckLeechBoost:
+    CheckItemHoldEffect CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, HOLD_EFFECT_LEECH_BOOST, _DrainHealth
     GetItemEffectParam BATTLER_CATEGORY_ATTACKER, BSCRIPT_VAR_CALC_TEMP
-    UpdateVar OPCODE_ADD, BSCRIPT_VAR_CALC_TEMP, 0x00000064
+    UpdateVar OPCODE_ADD, BSCRIPT_VAR_CALC_TEMP, 100
     UpdateVarFromVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_CALC_TEMP
     UpdateVar OPCODE_DIV, BSCRIPT_VAR_HP_CALC, 100
 
-DrainHealth:
+_DrainHealth:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_ATTACKER
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_DEFENDER, ABILITY_LIQUID_OOZE, DamageInstead
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HEAL_BLOCK_TURNS, 0, PreventHealing
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_DEFENDER, ABILITY_LIQUID_OOZE, _DamageInstead
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HEAL_BLOCK_TURNS, 0, _PreventHealing
     UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // {0} had its energy drained!
@@ -27,7 +28,8 @@ DrainHealth:
     WaitButtonABTime 30
     End 
 
-PreventHealing:
+// Generation VI: This code should be inaccessible as Heal Block now prevents the use of drain moves entirely.
+_PreventHealing:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_HEAL_BLOCK
     // {0} was prevented from healing due to {1}!
     PrintMessage 1054, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
@@ -35,13 +37,13 @@ PreventHealing:
     WaitButtonABTime 30
     End 
 
-DamageInstead:
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MAGIC_GUARD, EndScript
+_DamageInstead:
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MAGIC_GUARD, _End
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // It sucked up the liquid ooze!
     PrintMessage 720, TAG_NONE
     Wait 
     WaitButtonABTime 30
 
-EndScript:
+_End:
     End 

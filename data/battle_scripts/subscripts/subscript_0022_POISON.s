@@ -3,7 +3,8 @@
 .data
 
 _Start:
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _RegularChecks
+    // Ensure that the effect does not come from a hazard (important for Mold Breaker).
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _CheckIgnorableAbilities
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_IMMUNITY, _AbilityBlock
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_COMATOSE, _AbilityBlock
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_PURIFYING_SALT, _AbilityBlock
@@ -13,7 +14,7 @@ _Start:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _AbilityBlock
     GoTo _CheckIfSkipAttackMessage
 
-_RegularChecks:
+_CheckIgnorableAbilities:
     CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_IMMUNITY, _AbilityBlock
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_ABILITY, ABILITY_COMATOSE, _AbilityBlock
     CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_PURIFYING_SALT, _AbilityBlock
@@ -55,13 +56,12 @@ _CheckIfSkipAttackMessage:
     Wait
 
 _CheckForSubstitute:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _CheckIfAlreadyPoisoned
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _CheckPoisonImmunities
     CheckSubstitute BATTLER_CATEGORY_SIDE_EFFECT_MON, _MoveFailed
 
-_CheckIfAlreadyPoisoned:
+_CheckPoisonImmunities:
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_POISON, _AlreadyPoisoned
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_BAD_POISON, _AlreadyPoisoned
-    // Also check type immunities.
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_CORROSION, _CheckMoveAnimationSkips
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_POISON, _CannotBePoisoned
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_POISON, _CannotBePoisoned
@@ -160,7 +160,7 @@ _CheckInfiltrator:
 _CheckInfiltrator_MoveEffect:
     // Infiltrator bypasses Safeguard but only on moves that are used (which allows us to check the attacker directly).
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_ABILITY, ABILITY_INFILTRATOR, _BypassSafeguard
-    GoTo _End
+    End
 
 _HandleSafeguard:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _End

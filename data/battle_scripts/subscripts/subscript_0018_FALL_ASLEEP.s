@@ -6,7 +6,7 @@ _Start:
     // Check for disobedience.
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DISOBEDIENCE, _SetSleep
     // Ensure that the effect comes from a move (important for Mold Breaker).
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_MOVE_EFFECT, _CheckAbilities
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_MOVE_EFFECT, _CheckIgnorableAbilities
     // Check for abilities that would prevent sleep.
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_INSOMNIA, _AbilityBlock
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_VITAL_SPIRIT, _AbilityBlock
@@ -27,7 +27,7 @@ _CheckForExistingStatus:
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_NONE, _CheckIfPartialFail
     GoTo _SetSleep
 
-_CheckAbilities:
+_CheckIgnorableAbilities:
     // Check for abilities that would prevent sleep, unless they would be ignored by Mold Breaker.
     CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_INSOMNIA, _AbilityBlock
     CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_VITAL_SPIRIT, _AbilityBlock
