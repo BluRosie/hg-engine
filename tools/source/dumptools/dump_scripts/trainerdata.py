@@ -42,7 +42,7 @@ def dump_trainerdata(trdata_narc, trpok_narc, is_expanded):
     names = get_trainer_names()
     for idx, trainer in enumerate(trdata_narc):
         flags = trdata_narc[idx]["flags"]
-        trMonTypeFlags = "TRAINER_DATA_TYPE_NONE" if flags == 0 else flags_to_string(flags, TRAINER_PARTY_MON_FLAG_DEFINES)
+        trMonTypeFlags = "TRAINER_DATA_TYPE_NOTHING" if flags == 0 else flags_to_string(flags, TRAINER_PARTY_MON_FLAG_DEFINES)
         trainerdata_armips += f'trainerdata {idx}, "{names[int(idx)]}"\n'
         trainerdata_armips += f'    trainermontype {trMonTypeFlags}\n'
         trainerdata_armips += f'    trainerclass {CONSTANTS["TRAINERCLASS"][trdata_narc[idx]["class"]]}\n'
@@ -65,15 +65,15 @@ def dump_trainerdata(trdata_narc, trpok_narc, is_expanded):
                 trainerdata_armips += f'        monwithform {MONS["SPECIES"][trpok_narc[idx][monPartyIdx]["species_id"]]}\n'
             else:
                 trainerdata_armips += f'        pokemon {MONS["SPECIES"][trpok_narc[idx][monPartyIdx]["species_id"]]}\n'
+            # item
+            if flags & 0x2:
+                trainerdata_armips += f'        item {ITEMS["ITEM"][trpok_narc[idx][monPartyIdx]["item_id"]]}\n'
             # toggled fields!  moves
             if flags & 0x1:
                 trainerdata_armips += f'        move {MOVES["MOVE"][trpok_narc[idx][monPartyIdx]["move_1"]]}\n'
                 trainerdata_armips += f'        move {MOVES["MOVE"][trpok_narc[idx][monPartyIdx]["move_2"]]}\n'
                 trainerdata_armips += f'        move {MOVES["MOVE"][trpok_narc[idx][monPartyIdx]["move_3"]]}\n'
                 trainerdata_armips += f'        move {MOVES["MOVE"][trpok_narc[idx][monPartyIdx]["move_4"]]}\n'
-            # item
-            if flags & 0x2:
-                trainerdata_armips += f'        item {ITEMS["ITEM"][trpok_narc[idx][monPartyIdx]["item_id"]]}\n'
             # custom ability
             if flags & 0x4:
                 trainerdata_armips += f'        ability {ABILITIES["ABILITY"][trpok_narc[idx][monPartyIdx]["custom_ability"]]}\n'
