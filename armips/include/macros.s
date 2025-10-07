@@ -85,6 +85,11 @@
 
 .macro colorflip,color,flip
 	.byte (color | flip << 7)
+	.halfword 0 // padding
+    .word 0
+    .word 0
+    .word 0
+    .word 0
     .close
 .endmacro
 
