@@ -127,277 +127,7 @@
 .equ OVERWORLD_BOUNCE_MED, 0x10
 .equ OVERWORLD_BOUNCE_SLOW, 0x11
 
-// pokedex data constants
-.equ DEX_END_AREA_DATA, 0x0
-
-// special areas:
-.equ DEX_SPROUT_TOWER, 0x1
-.equ DEX_RUINS_OF_ALPH, 0x2
-.equ DEX_UNION_CAVE, 0x3
-.equ DEX_SLOWPOKE_WELL, 0x4
-.equ DEX_ILEX_FOREST, 0x5
-.equ DEX_NATIONAL_PARK, 0x6
-.equ DEX_BURNED_TOWER, 0x7
-.equ DEX_BELL_TOWER, 0x8
-.equ DEX_WHIRL_ISLANDS, 0x9
-.equ DEX_MT_MORTAR, 0xA
-.equ DEX_ICE_PATH, 0xB
-.equ DEX_DRAGONS_DEN, 0xC
-.equ DEX_DARK_CAVE, 0xD
-.equ DEX_MT_MOON, 0xE
-.equ DEX_SEAFOAM_ISLANDS, 0xF
-.equ DEX_MT_SILVER_CAVE, 0x10
-.equ DEX_CLIFF_EDGE_GATE, 0x11
-.equ DEX_CLIFF_CAVE, 0x12
-.equ DEX_OLIVINE_CITY_SPECIAL, 0x13 // appears in the bottom right though
-.equ DEX_ROCK_TUNNEL, 0x14
-.equ DEX_VICTORY_ROAD, 0x15
-.equ DEX_TOHJO_FALLS, 0x16
-.equ DEX_DIGLETTS_CAVE, 0x17
-.equ DEX_VIRIDIAN_FOREST, 0x18
-.equ DEX_CERULEAN_CAVE, 0x19
-/*.equ DEX_FARAWAY_PLACE_KANTO, 0x1A // no flashing but in kanto
-.equ DEX_SAFFRON_CITY, 0x1B // in top right corner of johto
-.equ DEX_FARAWAY_PLACE_2, 0x1C // no flashing but in kanto
-.equ DEX_SAFFRON_CITY_2, 0x1D // no flashing but in kanto*/
-
-// cities/routes and the like:
-.equ DEX_NEW_BARK_TOWN, 0x1
-.equ DEX_ROUTE_29, 0x2
-.equ DEX_CHERRYGROVE_CITY, 0x3
-.equ DEX_ROUTE_30, 0x4
-.equ DEX_ROUTE_31, 0x5
-.equ DEX_VIOLET_CITY, 0x6
-.equ DEX_ROUTE_32, 0x7
-.equ DEX_ROUTE_33, 0x8
-.equ DEX_ROUTE_34, 0x9
-.equ DEX_ROUTE_35, 0xA
-.equ DEX_ROUTE_36, 0xB
-.equ DEX_ROUTE_37, 0xC
-.equ DEX_ECRUTEAK_CITY, 0xD
-.equ DEX_ROUTE_38, 0xE
-.equ DEX_ROUTE_39, 0xF
-.equ DEX_OLIVINE_CITY, 0x10
-.equ DEX_ROUTE_40, 0x11
-.equ DEX_ROUTE_41, 0x12
-.equ DEX_CIANWOOD_CITY, 0x13
-.equ DEX_ROUTE_42, 0x14
-.equ DEX_ROUTE_43, 0x15
-.equ DEX_LAKE_OF_RAGE, 0x16
-.equ DEX_ROUTE_44, 0x17
-.equ DEX_BLACKTHORN_CITY, 0x18
-.equ DEX_ROUTE_45, 0x19
-.equ DEX_ROUTE_46, 0x1A
-.equ DEX_ROUTE_47, 0x1B
-.equ DEX_MT_SILVER, 0x1C
-.equ DEX_ROUTE_12, 0x1D
-.equ DEX_ROUTE_19, 0x1E
-.equ DEX_ROUTE_20, 0x1F
-.equ DEX_PALLET_TOWN, 0x20
-.equ DEX_VIRIDIAN_CITY, 0x21
-.equ DEX_CERULEAN_CITY, 0x22
-.equ DEX_VERMILION_CITY, 0x23
-.equ DEX_CELADON_CITY, 0x24
-.equ DEX_FUCHSIA_CITY, 0x25
-.equ DEX_CINNABAR_CITY, 0x26
-.equ DEX_ROUTE_48, 0x27
-.equ DEX_ROUTE_26, 0x28
-.equ DEX_ROUTE_27, 0x29
-.equ DEX_ROUTE_28, 0x2A
-.equ DEX_ROUTE_1, 0x2B
-.equ DEX_ROUTE_2, 0x2C
-.equ DEX_ROUTE_3, 0x2D
-.equ DEX_ROUTE_4, 0x2E
-.equ DEX_ROUTE_5, 0x2F
-.equ DEX_ROUTE_6, 0x30
-.equ DEX_ROUTE_7, 0x31
-.equ DEX_ROUTE_8, 0x32
-.equ DEX_ROUTE_9, 0x33
-.equ DEX_ROUTE_10, 0x34
-.equ DEX_ROUTE_11, 0x35
-.equ DEX_ROUTE_13, 0x36
-.equ DEX_ROUTE_14, 0x37
-.equ DEX_ROUTE_15, 0x38
-.equ DEX_ROUTE_16, 0x39
-.equ DEX_ROUTE_17, 0x3A
-.equ DEX_ROUTE_18, 0x3B
-.equ DEX_ROUTE_21, 0x3C
-.equ DEX_ROUTE_22, 0x3D
-.equ DEX_ROUTE_24, 0x3E
-.equ DEX_ROUTE_25, 0x3F
-.equ DEX_ROUTE_2_2, 0x40 // same as above route 2
-.equ DEX_PEWTER_CITY, 0x41
-.equ DEX_AZALEA_TOWN, 0x42
-.equ DEX_SAFARI_ZONE_GATE, 0x43
-.equ DEX_ROUTE_16_2, 0x44 // same as above route 16
-/*.equ DEX_FARAWAY_PLACE_JOHTO, // johto faraway place, no blinking
-.equ DEX_ROUTE_1_2, // route 1 no blinking*/
-
-// these constants used for organization i guess
-.equ DEX_MORNING, 0
-.equ DEX_DAY, 1
-.equ DEX_NIGHT, 2
-.equ DEX_SPECIAL, 3 // like headbutt trees (blink the area red)
-
-// tm constants
-
-.equ TM001, 1 << 0
-.equ TM002, 1 << 1
-.equ TM003, 1 << 2
-.equ TM004, 1 << 3
-.equ TM005, 1 << 4
-.equ TM006, 1 << 5
-.equ TM007, 1 << 6
-.equ TM008, 1 << 7
-.equ TM009, 1 << 8
-.equ TM010, 1 << 9
-.equ TM011, 1 << 10
-.equ TM012, 1 << 11
-.equ TM013, 1 << 12
-.equ TM014, 1 << 13
-.equ TM015, 1 << 14
-.equ TM016, 1 << 15
-.equ TM017, 1 << 16
-.equ TM018, 1 << 17
-.equ TM019, 1 << 18
-.equ TM020, 1 << 19
-.equ TM021, 1 << 20
-.equ TM022, 1 << 21
-.equ TM023, 1 << 22
-.equ TM024, 1 << 23
-.equ TM025, 1 << 24
-.equ TM026, 1 << 25
-.equ TM027, 1 << 26
-.equ TM028, 1 << 27
-.equ TM029, 1 << 28
-.equ TM030, 1 << 29
-.equ TM031, 1 << 30
-.equ TM032, 1 << 31
-.equ TM033, 1 << 0
-.equ TM034, 1 << 1
-.equ TM035, 1 << 2
-.equ TM036, 1 << 3
-.equ TM037, 1 << 4
-.equ TM038, 1 << 5
-.equ TM039, 1 << 6
-.equ TM040, 1 << 7
-.equ TM041, 1 << 8
-.equ TM042, 1 << 9
-.equ TM043, 1 << 10
-.equ TM044, 1 << 11
-.equ TM045, 1 << 12
-.equ TM046, 1 << 13
-.equ TM047, 1 << 14
-.equ TM048, 1 << 15
-.equ TM049, 1 << 16
-.equ TM050, 1 << 17
-.equ TM051, 1 << 18
-.equ TM052, 1 << 19
-.equ TM053, 1 << 20
-.equ TM054, 1 << 21
-.equ TM055, 1 << 22
-.equ TM056, 1 << 23
-.equ TM057, 1 << 24
-.equ TM058, 1 << 25
-.equ TM059, 1 << 26
-.equ TM060, 1 << 27
-.equ TM061, 1 << 28
-.equ TM062, 1 << 29
-.equ TM063, 1 << 30
-.equ TM064, 1 << 31
-.equ TM065, 1 << 0
-.equ TM066, 1 << 1
-.equ TM067, 1 << 2
-.equ TM068, 1 << 3
-.equ TM069, 1 << 4
-.equ TM070, 1 << 5
-.equ TM071, 1 << 6
-.equ TM072, 1 << 7
-.equ TM073, 1 << 8
-.equ TM074, 1 << 9
-.equ TM075, 1 << 10
-.equ TM076, 1 << 11
-.equ TM077, 1 << 12
-.equ TM078, 1 << 13
-.equ TM079, 1 << 14
-.equ TM080, 1 << 15
-.equ TM081, 1 << 16
-.equ TM082, 1 << 17
-.equ TM083, 1 << 18
-.equ TM084, 1 << 19
-.equ TM085, 1 << 20
-.equ TM086, 1 << 21
-.equ TM087, 1 << 22
-.equ TM088, 1 << 23
-.equ TM089, 1 << 24
-.equ TM090, 1 << 25
-.equ TM091, 1 << 26
-.equ TM092, 1 << 27
-.equ HM001, 1 << 28
-.equ HM002, 1 << 29
-.equ HM003, 1 << 30
-.equ HM004, 1 << 31
-.equ HM005, 1 << 0
-.equ HM006, 1 << 1
-.equ HM007, 1 << 2
-.equ HM008, 1 << 3
-
-// tutor field constants
-
-.equ TUTOR_DIVE, 1 << 0
-.equ TUTOR_MUD_SLAP, 1 << 1
-.equ TUTOR_FURY_CUTTER, 1 << 2
-.equ TUTOR_ICY_WIND, 1 << 3
-.equ TUTOR_ROLLOUT, 1 << 4
-.equ TUTOR_THUNDER_PUNCH, 1 << 5
-.equ TUTOR_FIRE_PUNCH, 1 << 6
-.equ TUTOR_SUPERPOWER, 1 << 7
-.equ TUTOR_ICE_PUNCH, 1 << 8
-.equ TUTOR_IRON_HEAD, 1 << 9
-.equ TUTOR_AQUA_TAIL, 1 << 10
-.equ TUTOR_OMINOUS_WIND, 1 << 11
-.equ TUTOR_GASTRO_ACID, 1 << 12
-.equ TUTOR_SNORE, 1 << 13
-.equ TUTOR_SPITE, 1 << 14
-.equ TUTOR_AIR_CUTTER, 1 << 15
-.equ TUTOR_HELPING_HAND, 1 << 16
-.equ TUTOR_ENDEAVOR, 1 << 17
-.equ TUTOR_OUTRAGE, 1 << 18
-.equ TUTOR_ANCIENT_POWER, 1 << 19
-.equ TUTOR_SYNTHESIS, 1 << 20
-.equ TUTOR_SIGNAL_BEAM, 1 << 21
-.equ TUTOR_ZEN_HEADBUTT, 1 << 22
-.equ TUTOR_VACUUM_WAVE, 1 << 23
-.equ TUTOR_EARTH_POWER, 1 << 24
-.equ TUTOR_GUNK_SHOT, 1 << 25
-.equ TUTOR_TWISTER, 1 << 26
-.equ TUTOR_SEED_BOMB, 1 << 27
-.equ TUTOR_IRON_DEFENSE, 1 << 28
-.equ TUTOR_MAGNET_RISE, 1 << 29
-.equ TUTOR_LAST_RESORT, 1 << 30
-.equ TUTOR_BOUNCE, 1 << 31
-.equ TUTOR_TRICK, 1 << 0
-.equ TUTOR_HEAT_WAVE, 1 << 1
-.equ TUTOR_KNOCK_OFF, 1 << 2
-.equ TUTOR_SUCKER_PUNCH, 1 << 3
-.equ TUTOR_SWIFT, 1 << 4
-.equ TUTOR_UPROAR, 1 << 5
-.equ TUTOR_SUPER_FANG, 1 << 6
-.equ TUTOR_PAIN_SPLIT, 1 << 7
-.equ TUTOR_STRING_SHOT, 1 << 8
-.equ TUTOR_TAILWIND, 1 << 9
-.equ TUTOR_GRAVITY, 1 << 10
-.equ TUTOR_WORRY_SEED, 1 << 11
-.equ TUTOR_MAGIC_COAT, 1 << 12
-.equ TUTOR_ROLE_PLAY, 1 << 13
-.equ TUTOR_HEAL_BELL, 1 << 14
-.equ TUTOR_LOW_KICK, 1 << 15
-.equ TUTOR_SKY_ATTACK, 1 << 16
-.equ TUTOR_BLOCK, 1 << 17
-.equ TUTOR_BUG_BITE, 1 << 18
-.equ TUTOR_HEADBUTT, 1 << 19
-
-// trainer classes
+// trainer classes - placed up here for proper parsing using the dump scripts
 
 .equ TRAINERCLASS_PKMN_TRAINER_ETHAN,     0
 .equ TRAINERCLASS_PKMN_TRAINER_LYRA,      1
@@ -528,6 +258,171 @@
 .equ TRAINERCLASS_PKMN_TRAINER_DAWN_DP,   126
 .equ TRAINERCLASS_PKMN_TRAINER_LUCAS_PT,  127
 .equ TRAINERCLASS_PKMN_TRAINER_DAWN_PT,   128
+
+// pokedex data constants
+.equ DEX_END_AREA_DATA, 0x0
+
+// special areas:
+.equ DEX_SPROUT_TOWER, 0x1
+.equ DEX_RUINS_OF_ALPH, 0x2
+.equ DEX_UNION_CAVE, 0x3
+.equ DEX_SLOWPOKE_WELL, 0x4
+.equ DEX_ILEX_FOREST, 0x5
+.equ DEX_NATIONAL_PARK, 0x6
+.equ DEX_BURNED_TOWER, 0x7
+.equ DEX_BELL_TOWER, 0x8
+.equ DEX_WHIRL_ISLANDS, 0x9
+.equ DEX_MT_MORTAR, 0xA
+.equ DEX_ICE_PATH, 0xB
+.equ DEX_DRAGONS_DEN, 0xC
+.equ DEX_DARK_CAVE, 0xD
+.equ DEX_MT_MOON, 0xE
+.equ DEX_SEAFOAM_ISLANDS, 0xF
+.equ DEX_MT_SILVER_CAVE, 0x10
+.equ DEX_CLIFF_EDGE_GATE, 0x11
+.equ DEX_CLIFF_CAVE, 0x12
+.equ DEX_OLIVINE_CITY_SPECIAL, 0x13 // appears in the bottom right though
+.equ DEX_ROCK_TUNNEL, 0x14
+.equ DEX_VICTORY_ROAD, 0x15
+.equ DEX_TOHJO_FALLS, 0x16
+.equ DEX_DIGLETTS_CAVE, 0x17
+.equ DEX_VIRIDIAN_FOREST, 0x18
+.equ DEX_CERULEAN_CAVE, 0x19
+/*.equ DEX_FARAWAY_PLACE_KANTO, 0x1A // no flashing but in kanto
+.equ DEX_SAFFRON_CITY, 0x1B // in top right corner of johto
+.equ DEX_FARAWAY_PLACE_2, 0x1C // no flashing but in kanto
+.equ DEX_SAFFRON_CITY_2, 0x1D // no flashing but in kanto*/
+
+// cities/routes and the like:
+.equ DEX_NEW_BARK_TOWN, 0x1
+.equ DEX_ROUTE_29, 0x2
+.equ DEX_CHERRYGROVE_CITY, 0x3
+.equ DEX_ROUTE_30, 0x4
+.equ DEX_ROUTE_31, 0x5
+.equ DEX_VIOLET_CITY, 0x6
+.equ DEX_ROUTE_32, 0x7
+.equ DEX_ROUTE_33, 0x8
+.equ DEX_ROUTE_34, 0x9
+.equ DEX_ROUTE_35, 0xA
+.equ DEX_ROUTE_36, 0xB
+.equ DEX_ROUTE_37, 0xC
+.equ DEX_ECRUTEAK_CITY, 0xD
+.equ DEX_ROUTE_38, 0xE
+.equ DEX_ROUTE_39, 0xF
+.equ DEX_OLIVINE_CITY, 0x10
+.equ DEX_ROUTE_40, 0x11
+.equ DEX_ROUTE_41, 0x12
+.equ DEX_CIANWOOD_CITY, 0x13
+.equ DEX_ROUTE_42, 0x14
+.equ DEX_ROUTE_43, 0x15
+.equ DEX_LAKE_OF_RAGE, 0x16
+.equ DEX_ROUTE_44, 0x17
+.equ DEX_BLACKTHORN_CITY, 0x18
+.equ DEX_ROUTE_45, 0x19
+.equ DEX_ROUTE_46, 0x1A
+.equ DEX_ROUTE_47, 0x1B
+.equ DEX_MT_SILVER, 0x1C
+.equ DEX_ROUTE_12, 0x1D
+.equ DEX_ROUTE_19, 0x1E
+.equ DEX_ROUTE_20, 0x1F
+.equ DEX_PALLET_TOWN, 0x20
+.equ DEX_VIRIDIAN_CITY, 0x21
+.equ DEX_CERULEAN_CITY, 0x22
+.equ DEX_VERMILION_CITY, 0x23
+.equ DEX_CELADON_CITY, 0x24
+.equ DEX_FUCHSIA_CITY, 0x25
+.equ DEX_CINNABAR_CITY, 0x26
+.equ DEX_ROUTE_48, 0x27
+.equ DEX_ROUTE_26, 0x28
+.equ DEX_ROUTE_27, 0x29
+.equ DEX_ROUTE_28, 0x2A
+.equ DEX_ROUTE_1, 0x2B
+.equ DEX_ROUTE_2, 0x2C
+.equ DEX_ROUTE_3, 0x2D
+.equ DEX_ROUTE_4, 0x2E
+.equ DEX_ROUTE_5, 0x2F
+.equ DEX_ROUTE_6, 0x30
+.equ DEX_ROUTE_7, 0x31
+.equ DEX_ROUTE_8, 0x32
+.equ DEX_ROUTE_9, 0x33
+.equ DEX_ROUTE_10, 0x34
+.equ DEX_ROUTE_11, 0x35
+.equ DEX_ROUTE_13, 0x36
+.equ DEX_ROUTE_14, 0x37
+.equ DEX_ROUTE_15, 0x38
+.equ DEX_ROUTE_16, 0x39
+.equ DEX_ROUTE_17, 0x3A
+.equ DEX_ROUTE_18, 0x3B
+.equ DEX_ROUTE_21, 0x3C
+.equ DEX_ROUTE_22, 0x3D
+.equ DEX_ROUTE_24, 0x3E
+.equ DEX_ROUTE_25, 0x3F
+.equ DEX_ROUTE_2_2, 0x40 // same as above route 2
+.equ DEX_PEWTER_CITY, 0x41
+.equ DEX_AZALEA_TOWN, 0x42
+.equ DEX_SAFARI_ZONE_GATE, 0x43
+.equ DEX_ROUTE_16_2, 0x44 // same as above route 16
+
+// these constants used for organization i guess
+.equ DEX_MORNING, 0
+.equ DEX_DAY, 1
+.equ DEX_NIGHT, 2
+.equ DEX_SPECIAL, 3 // like headbutt trees (blink the area red)
+
+// tutor field constants
+
+.equ TUTOR_DIVE, 1 << 0
+.equ TUTOR_MUD_SLAP, 1 << 1
+.equ TUTOR_FURY_CUTTER, 1 << 2
+.equ TUTOR_ICY_WIND, 1 << 3
+.equ TUTOR_ROLLOUT, 1 << 4
+.equ TUTOR_THUNDER_PUNCH, 1 << 5
+.equ TUTOR_FIRE_PUNCH, 1 << 6
+.equ TUTOR_SUPERPOWER, 1 << 7
+.equ TUTOR_ICE_PUNCH, 1 << 8
+.equ TUTOR_IRON_HEAD, 1 << 9
+.equ TUTOR_AQUA_TAIL, 1 << 10
+.equ TUTOR_OMINOUS_WIND, 1 << 11
+.equ TUTOR_GASTRO_ACID, 1 << 12
+.equ TUTOR_SNORE, 1 << 13
+.equ TUTOR_SPITE, 1 << 14
+.equ TUTOR_AIR_CUTTER, 1 << 15
+.equ TUTOR_HELPING_HAND, 1 << 16
+.equ TUTOR_ENDEAVOR, 1 << 17
+.equ TUTOR_OUTRAGE, 1 << 18
+.equ TUTOR_ANCIENT_POWER, 1 << 19
+.equ TUTOR_SYNTHESIS, 1 << 20
+.equ TUTOR_SIGNAL_BEAM, 1 << 21
+.equ TUTOR_ZEN_HEADBUTT, 1 << 22
+.equ TUTOR_VACUUM_WAVE, 1 << 23
+.equ TUTOR_EARTH_POWER, 1 << 24
+.equ TUTOR_GUNK_SHOT, 1 << 25
+.equ TUTOR_TWISTER, 1 << 26
+.equ TUTOR_SEED_BOMB, 1 << 27
+.equ TUTOR_IRON_DEFENSE, 1 << 28
+.equ TUTOR_MAGNET_RISE, 1 << 29
+.equ TUTOR_LAST_RESORT, 1 << 30
+.equ TUTOR_BOUNCE, 1 << 31
+.equ TUTOR_TRICK, 1 << 0
+.equ TUTOR_HEAT_WAVE, 1 << 1
+.equ TUTOR_KNOCK_OFF, 1 << 2
+.equ TUTOR_SUCKER_PUNCH, 1 << 3
+.equ TUTOR_SWIFT, 1 << 4
+.equ TUTOR_UPROAR, 1 << 5
+.equ TUTOR_SUPER_FANG, 1 << 6
+.equ TUTOR_PAIN_SPLIT, 1 << 7
+.equ TUTOR_STRING_SHOT, 1 << 8
+.equ TUTOR_TAILWIND, 1 << 9
+.equ TUTOR_GRAVITY, 1 << 10
+.equ TUTOR_WORRY_SEED, 1 << 11
+.equ TUTOR_MAGIC_COAT, 1 << 12
+.equ TUTOR_ROLE_PLAY, 1 << 13
+.equ TUTOR_HEAL_BELL, 1 << 14
+.equ TUTOR_LOW_KICK, 1 << 15
+.equ TUTOR_SKY_ATTACK, 1 << 16
+.equ TUTOR_BLOCK, 1 << 17
+.equ TUTOR_BUG_BITE, 1 << 18
+.equ TUTOR_HEADBUTT, 1 << 19
 
 // trainer data flags
 

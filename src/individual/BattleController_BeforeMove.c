@@ -705,6 +705,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
             if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)
                 ctx->server_status_flag |= BATTLE_STATUS_CRASH_DAMAGE;
+            ctx->wb_seq_no++;
             FALLTHROUGH;
         }
         // TODO implement new mechanics
@@ -4257,6 +4258,7 @@ BOOL BattleController_CheckTeraShell(struct BattleSystem *bsys UNUSED, struct Ba
 
 BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     if (CanActivateDamageReductionBerry(ctx, defender)) {
+        ctx->item_work = GetBattleMonItem(ctx, defender);
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLAY_EAT_BERRY_ANIMATION);
         ctx->next_server_seq_no = ctx->server_seq_no;
