@@ -5,7 +5,7 @@
 _Start:
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HEAL_BLOCK_TURNS, 0, _PreventHealing
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_HIT_DAMAGE
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_HP_CALC, 0, _037
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_HP_CALC, 0, _DrainHealth
     // DivideVarByValue floors to 1, so we are not risking a heal for 0 HP.
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 2
 
@@ -19,6 +19,8 @@ _CheckLeechBoost:
 _DrainHealth:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_ATTACKER
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
+    // Generation V: Dream Eater is now affected by Liquid Ooze.
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_DEFENDER, ABILITY_LIQUID_OOZE, _DamageInstead
     UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // {0}’s dream was eaten!
@@ -34,4 +36,15 @@ _PreventHealing:
     PrintMessage 1054, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
-    End 
+    End
+
+_DamageInstead:
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MAGIC_GUARD, _End
+    Call BATTLE_SUBSCRIPT_UPDATE_HP
+    // It sucked up the liquid ooze!
+    PrintMessage 720, TAG_NONE
+    Wait 
+    WaitButtonABTime 30
+
+_End:
+    End

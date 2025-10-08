@@ -22,7 +22,8 @@ _CheckBurnImmunities_Textless:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_FIRE, _End
     // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_NONE, _End
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_SIDE_CONDITION_STAT_CHANGE, SIDE_CONDITION_SAFEGUARD, _End
+    // Generation V: Safeguard no longer prevents status conditions inflicted by held items.
+    // CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_SIDE_CONDITION_STAT_CHANGE, SIDE_CONDITION_SAFEGUARD, _End
     GoTo _CheckForItemAnimation
 
 _CheckIgnorableAbilities:

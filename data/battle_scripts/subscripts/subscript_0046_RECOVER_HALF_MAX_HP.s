@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     PrintAttackMessage 
     Wait 
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_MAXHP, BSCRIPT_VAR_HP_CALC

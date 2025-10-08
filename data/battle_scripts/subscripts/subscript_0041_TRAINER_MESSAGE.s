@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     TrainerSlideIn BATTLER_CATEGORY_ENEMY, BATTLER_TYPE_SOLO_ENEMY
     Wait 
     PrintBufferedTrainerMessage BATTLER_CATEGORY_ENEMY

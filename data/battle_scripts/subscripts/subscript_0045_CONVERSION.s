@@ -2,8 +2,8 @@
 
 .data
 
-_000:
-    TryConversion _012
+_Start:
+    TryConversion _MoveFailed
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
     // {0} transformed into the {1} type!
     PrintMessage 178, TAG_NICKNAME_TYPE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
@@ -11,6 +11,6 @@ _000:
     WaitButtonABTime 30
     End 
 
-_012:
+_MoveFailed:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 

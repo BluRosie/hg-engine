@@ -3,7 +3,8 @@
 .data
 
 _Start:
-    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS2, STATUS2_BIDE, _StillActive
+    // If we are ready to unleash energy, the volatile status will have already been cleared by now.
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS2, STATUS2_BIDE, _StoringEnergy
     // {0} unleashed energy!
     PrintMessage 335, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 
@@ -19,7 +20,7 @@ _MoveFailed:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK
     End 
 
-_StillActive:
+_StoringEnergy:
     // {0} is storing energy!
     PrintMessage 332, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 
