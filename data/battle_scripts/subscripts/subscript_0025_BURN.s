@@ -17,6 +17,7 @@ _Start:
 
 _CheckBurnImmunities_Textless:
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_BURN, _End
+    // Fire-types cannot be burned.
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_FIRE, _End
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_FIRE, _End
     // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
@@ -73,6 +74,7 @@ _CheckForSubstitute:
 
 _CheckBurnImmunities:
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_BURN, _AlreadyBurned
+    // Fire-types cannot be burned.
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_FIRE, _CannotBeBurned
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_FIRE, _CannotBeBurned
     // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
@@ -166,7 +168,7 @@ _ImmuneDueToAbility:
 _CheckInfiltrator:
     // Infiltrator bypasses Safeguard but only on moves that are used (which allows us to check the attacker directly).
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_ABILITY, ABILITY_INFILTRATOR, _BypassSafeguard
-    GoTo _PostInfiltratorCheck
+    GoTo _SafeguardMessage
 
 _CheckInfiltrator_MoveEffect:
     // Infiltrator bypasses Safeguard but only on moves that are used (which allows us to check the attacker directly).
@@ -178,7 +180,7 @@ _HandleSafeguard:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_MOVE_EFFECT, _CheckInfiltrator_MoveEffect
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _End
 
-_PostInfiltratorCheck:
+_SafeguardMessage:
     WaitButtonABTime 30
     // {0} is protected by Safeguard!
     PrintMessage 200, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON

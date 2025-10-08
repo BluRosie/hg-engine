@@ -2,18 +2,21 @@
 
 .data
 
-_000:
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HEAL_BLOCK_TURNS, 0, _059
+_Start:
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HEAL_BLOCK_TURNS, 0, _PreventHealing
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_HIT_DAMAGE
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_HP_CALC, 0, _037
+    // DivideVarByValue floors to 1, so we are not risking a heal for 0 HP.
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 2
-    CheckItemHoldEffect CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, HOLD_EFFECT_LEECH_BOOST, _037
+
+_CheckLeechBoost:
+    CheckItemHoldEffect CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, HOLD_EFFECT_LEECH_BOOST, _DrainHealth
     GetItemEffectParam BATTLER_CATEGORY_ATTACKER, BSCRIPT_VAR_CALC_TEMP
-    UpdateVar OPCODE_ADD, BSCRIPT_VAR_CALC_TEMP, 0x00000064
+    UpdateVar OPCODE_ADD, BSCRIPT_VAR_CALC_TEMP, 100
     UpdateVarFromVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_CALC_TEMP
     UpdateVar OPCODE_DIV, BSCRIPT_VAR_HP_CALC, 100
 
-_037:
+_DrainHealth:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_ATTACKER
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
@@ -24,7 +27,8 @@ _037:
     WaitButtonABTime 30
     End 
 
-_059:
+// Generation VI: This code should be inaccessible as Heal Block now prevents the use of drain moves entirely.
+_PreventHealing:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_HEAL_BLOCK
     // {0} was prevented from healing due to {1}!
     PrintMessage 1054, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
