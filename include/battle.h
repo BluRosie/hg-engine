@@ -3845,7 +3845,7 @@ void LONG_CALL SortRawSpeedNonRNGArray(struct BattleSystem *bsys, struct BattleS
 
 BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleStruct *ctx, int defender);
 
-BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
+BOOL LONG_CALL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
 
 /// @brief Check if ability can't be suppressed by Gastro Acid or affected by Mummy. See notes for DisabledByNeutralizingGas.
 /// @param ability

@@ -3,8 +3,6 @@
 .data
 
 Start:
-    TryAuroraVeil EndScript
+    TryAuroraVeil
     Call BATTLE_SUBSCRIPT_ANIMATION_PREPARED_MESSAGE
-
-EndScript:
     End 

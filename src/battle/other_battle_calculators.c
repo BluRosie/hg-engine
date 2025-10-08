@@ -3272,7 +3272,7 @@ BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleStruct *ctx, int def
     return FALSE;
 }
 
-BOOL IsPureType(struct BattleStruct *ctx, int battlerId, int type) {
+BOOL LONG_CALL IsPureType(struct BattleStruct *ctx, int battlerId, int type) {
     GF_ASSERT(TYPE_NORMAL < type && type < TYPE_STELLAR);
     struct BattlePokemon client = ctx->battlemon[battlerId];
     return (client.is_currently_terastallized ? client.tera_type == type : (client.type1 == type && client.type2 == type && client.type3 == TYPE_TYPELESS));

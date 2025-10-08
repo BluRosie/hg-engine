@@ -94,6 +94,7 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys, struct BattleStruct *c
 BOOL btl_scr_cmd_104_tryincinerate(void* bsys, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_105_addthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -383,6 +384,7 @@ const u8 *BattleScrCmdNames[] =
     "TryIncinerate",
     "AddThirdType",
     "TryAuroraVeil",
+    "ClearAuroraVeil",
     // "YourCustomCommand",
 };
 
@@ -390,7 +392,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0xFF
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x107
 
 const btl_scr_cmd_func NewBattleScriptCmdTable[] =
 {
@@ -432,6 +434,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x104 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_104_tryincinerate,
     [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_addthirdtype,
     [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_tryauroraveil,
+    [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_clearauroraveil,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4076,29 +4079,44 @@ BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* sp)
 {
     IncrementBattleScriptPtr(sp, 1);
 
-    int adrs = read_battle_script_param(sp);
-
+    // Fail conditions are handled in BattleController_BeforeMove.c
+    // int adrs = read_battle_script_param(sp);
     int side = IsClientEnemy(bw, sp->attack_client);
 
-    if (sp->side_condition[side] & SIDE_STATUS_AURORA_VEIL) {
-        IncrementBattleScriptPtr(sp, adrs);
-        sp->waza_status_flag |= 64; // What does this line do? ~J
-    } else {
-        sp->side_condition[side] |= SIDE_STATUS_AURORA_VEIL;
-        sp->scw[side].auroraVeilCount = 5;
-        sp->scw[side].auroraVeilBattler = sp->attack_client;
-        if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_EXTEND_SCREENS) {
-            // TODO: Expose and utilize GetHeldItemModifier(sp, sp->attack_client, 0) in place of a hardcoded value for light clay.
-            sp->scw[side].auroraVeilCount += 3;
-        }
-
-        // TODO: Check if there is any difference in message between single and double battles.
-        // I don't think there is.
-        sp->mp.msg_id = BATTLE_MSG_AURORA_VEIL;
-        sp->mp.msg_tag = TAG_MOVE_SIDE;
-        sp->mp.msg_para[0] = sp->current_move_index;
-        sp->mp.msg_para[1] = sp->attack_client;
+    sp->side_condition[side] |= SIDE_STATUS_AURORA_VEIL;
+    sp->scw[side].auroraVeilCount = 5;
+    sp->scw[side].auroraVeilBattler = sp->attack_client;
+    if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_EXTEND_SCREENS) {
+        sp->scw[side].auroraVeilCount += HeldItemAtkGet(sp, sp->attack_client, 0);
     }
+
+    // TODO: Check if there is any difference in message between single and double battles.
+    // I don't think there is.
+    sp->mp.msg_id = BATTLE_MSG_AURORA_VEIL;
+    sp->mp.msg_tag = TAG_MOVE_SIDE;
+    sp->mp.msg_para[0] = sp->current_move_index;
+    sp->mp.msg_para[1] = sp->attack_client;
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to clear Aurora Veil, currently only used for Defog (other moves use TryBreakScreens)
+ *
+ *  @param bsys
+ *  @param ctx
+ *  @return FALSE
+ */
+
+BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int side = IsClientEnemy(bsys, ctx->defence_client);
+
+    ctx->side_condition[side] &= ~SIDE_STATUS_AURORA_VEIL;
+    ctx->scw[side].auroraVeilCount = 0;
+
     return FALSE;
 }
 

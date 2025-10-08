@@ -498,8 +498,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         movepower = 60;
         break;
     case MOVE_MAGNITUDE:
-        // TODO: check correctness
-        movepower = magnitude;
+        movepower = damage_power;
         break;
     case MOVE_PRESENT:
         movepower = damage_power;
