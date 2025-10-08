@@ -249,7 +249,8 @@ def dump_trpok_narc(rom, narc_path, trdata_narc):
             narc_format.remove([1, "move_3_pp"])
             narc_format.remove([1, "move_4_pp"])
         else:
-            sys.exit("Additional flags not currently implemented in the dumper!  Quit.")
+            print("Additional flags not currently implemented in the dumper!  Quit.")
+            sys.exit(0)
 
         #parsed_narc_data.append(read_narc_data(data, narc_format))
         totalSizePerMon = 0

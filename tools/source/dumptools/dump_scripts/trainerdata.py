@@ -91,7 +91,8 @@ def dump_trainerdata(trdata_narc, trpok_narc, is_expanded):
             if flags & 0x40:
                 trainerdata_armips += f'        shinylock {trpok_narc[idx][monPartyIdx]["shiny_lock"]}\n'
             if flags & 0x80:
-                sys.exit("Additional flags not currently implemented in the dumper!  Quit.")
+                print("Additional flags not currently implemented in the dumper!  Quit.")
+                sys.exit(0)
             trainerdata_armips += f'        ballseal {trpok_narc[idx][monPartyIdx]["ballseal"]}\n'
             if monPartyIdx != len(trpok_narc[idx])-1:
                 trainerdata_armips += '\n'
