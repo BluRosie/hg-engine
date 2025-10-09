@@ -58,35 +58,44 @@ def parse_moves_descriptions(moves_s: Path):
 
 def parse_moves_types(moves_s: Path):
     """
-    Capture TYPE_* from movedata blocks.
+    Capture TYPE_* from both `movedata` and `movedatalongname` blocks.
     Prefer TYPE_FAIRY when multiple appear on the same 'type' line.
     """
     moves_to_type = {}   # MOVE_* -> TYPE_*
     current_move = None
     current_type = None
     TYPE_TOKEN_RE = re.compile(r'\bTYPE_[A-Za-z0-9_]+')
+    START_RE = re.compile(r'^\s*(movedata|movedatalongname)\s+(\w+)\s*,')
 
     with moves_s.open(encoding="utf-8") as f:
         for raw in f:
             line = raw.strip()
             if not line or line.startswith("//"):
                 continue
-            if line.startswith("movedata"):
-                m = re.match(r'movedata\s+(\w+),', line)
-                if m:
-                    current_move = m.group(1)
-                    current_type = None
-            elif line.startswith("type") and current_move:
+
+            # start of a move block (supports both macros)
+            m = START_RE.match(line)
+            if m:
+                current_move = m.group(2)
+                current_type = None
+                continue
+
+            # pick up type lines inside a block (handles ternary, parens, etc.)
+            if current_move and line.startswith("type"):
                 types = TYPE_TOKEN_RE.findall(line)
                 if types:
                     current_type = "TYPE_FAIRY" if "TYPE_FAIRY" in types else types[0]
-            elif line.startswith("terminatedata") and current_move:
-                if current_type:
+                continue
+
+            # end of block
+            if line.startswith("terminatedata") and current_move:
+                if current_move and current_type:
                     moves_to_type[current_move] = current_type
                 current_move = None
                 current_type = None
 
     return moves_to_type
+
 
 
 def load_machine_move_list(file_path: Path):
@@ -305,19 +314,19 @@ def type_token_to_basename(type_token: str) -> str:
     return type_token.split('_', 1)[1].lower()
 
 
-def write_icons(canonical_list, move_to_type, base_dir: Path, out_dir: Path, skip_hms=True):
+def write_sprites(canonical_list, move_to_type, base_dir: Path, out_dir: Path):
     out_dir.mkdir(parents=True, exist_ok=True)
     copied = 0
     skipped = 0
     for kind, number, idx, move in canonical_list:
-        if skip_hms and kind == 'HM':
-            continue
         tkn = move_to_type.get(move)
         if not tkn:
+            print(f"skipped no TYPE {kind} {number}")
             skipped += 1
             continue
         src = base_dir / f"{type_token_to_basename(tkn)}.png"
         if not src.exists():
+            print(f"skipped no BASE {kind} {number}")
             skipped += 1
             continue
 
@@ -325,7 +334,10 @@ def write_icons(canonical_list, move_to_type, base_dir: Path, out_dir: Path, ski
             dst = out_dir / ("tm00.png" if number == 0 else f"tm{int(number):03d}.png")
         elif kind == 'TR':
             dst = out_dir / f"tr{int(number):02d}.png"
+        elif kind == 'HM':
+            dst = out_dir / f"tr{int(number):02d}.png"
         else:
+            print(f"skipped {kind} {number}")
             skipped += 1
             continue
 
@@ -345,8 +357,6 @@ def update_descriptions(args):
 
     wrote = 0
     skipped = 0
-
-    print(f"[descriptions] moves_with_desc={len(move_desc)} machines={len(machine_moves)} mapped_items={len(index_to_item)}")
 
     for idx, move in enumerate(machine_moves):
         info = index_to_item.get(idx)
@@ -377,24 +387,23 @@ def update_descriptions(args):
     return 0
 
 
-def update_icons(args):
+def update_sprites(args):
     move_to_type = parse_moves_types(args.moves)
     machine_moves = load_machine_move_list(args.machines)
     canon = build_canonical_lookup(machine_moves)
     # Always include HMs now
-    copied, skipped = write_icons(
+    copied, skipped = write_sprites(
         canon,
         move_to_type,
-        base_dir=args.base_icons,
-        out_dir=args.out,
-        skip_hms=False
+        base_dir=args.base_sprites,
+        out_dir=args.out
     )
-    print(f"[icons] copied={copied} skipped={skipped}")
+    print(f"[sprites] copied={copied} skipped={skipped}")
     return 0
 
 
 def build_parser():
-    parser = argparse.ArgumentParser(description="Unified TM/TR/HM tools (descriptions + icons)")
+    parser = argparse.ArgumentParser(description="Unified TM/TR/HM tools (descriptions + sprites)")
 
     # input
     parser.add_argument("--moves", default="armips/data/moves.s", type=Path, help="Path to moves.s")
@@ -403,11 +412,11 @@ def build_parser():
 
     # output
     parser.add_argument("--text-root", default="data/text", type=Path, help="Root where <file_id>.txt files live")
-    parser.add_argument("--base-icons", default="data/graphics/item/base", type=Path, help="Base type icons directory (fire.png, bug.png, etc.)")
-    parser.add_argument("--out", default="data/graphics/item", type=Path, help="Output directory for generated icons")
+    parser.add_argument("--base-sprites", default="data/graphics/item/base", type=Path, help="Base type sprites directory (fire.png, bug.png, etc.)")
+    parser.add_argument("--out", default="data/graphics/item", type=Path, help="Output directory for generated sprites")
 
     parser.add_argument("--descriptions", action="store_true", help="Write item descriptions from movedescription lines")
-    parser.add_argument("--icons", action="store_true", help="Generate TM/TR/HM icons based on move types")
+    parser.add_argument("--sprites", action="store_true", help="Generate TM/TR/HM sprites based on move types")
 
     parser.add_argument("--dry-run", action="store_true", help="Show actions without writing/copying")
 
@@ -419,11 +428,11 @@ if __name__ == "__main__":
     args = p.parse_args()
 
     # Require at least one action
-    if not (args.descriptions or args.icons):
-        print("[ERROR] Specify at least one of --descriptions or --icons")
+    if not (args.descriptions or args.sprites):
+        print("[ERROR] Specify at least one of --descriptions or --sprites")
         exit(1)
 
     if args.descriptions:
         update_descriptions(args)
-    if args.icons:
-        update_icons(args)
+    if args.sprites:
+        update_sprites(args)
