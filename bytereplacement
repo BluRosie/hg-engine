@@ -472,3 +472,12 @@ arm9 0207C3AC 00 00 00 00
 0015 021FE99A 11 46
 0015 021FE9B8 10 24
 0015 021FE9F8 10 24
+
+# skip the yes/no prompt for tm usage
+0015 021FB918 11 E0 C0 46 C0 46 C0 46 C0 46 C0 46 C0 46
+# skip the boot up tm messages
+0015 021FB850 75 E0
+0015 021FB8AC 47 E0
+# skip the tm teach confirmation on the mon screen
+arm9 0208222A 20 1C 24 4B 98 47 70 BD
+arm9 02082420 01 22
