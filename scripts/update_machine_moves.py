@@ -12,13 +12,15 @@ MSG_DATA_ITEM_DESCRIPTION = {
     4: 830, 5: 834, 6: 838, 7: 842, 8: 846, 9: 850, CUSTOM: 221
 }
 
+
 def parse_moves_descriptions(moves_s: Path):
     """
-    Parse single-line movedescription entries and replace literal '\n' sequences with spaces.
+    Parse single-line movedescription entries, replace literal '\n' sequences with spaces,
+    and convert straight apostrophes (') to typographic ones (’).
     We deliberately do NOT unescape backslashes while scanning, so '\n' stays as two
     characters and can be replaced cleanly afterwards.
     """
-    descs = {}  # MOVE_* -> text with '\n' replaced by spaces
+    descs = {}  # MOVE_*
     prefix = re.compile(r'^\s*movedescription\s+(\w+)\s*,\s*')
 
     with moves_s.open(encoding="utf-8") as f:
@@ -44,8 +46,10 @@ def parse_moves_descriptions(moves_s: Path):
                 i += 1
 
             text = "".join(buf)
-            # Replace literal '\n' sequences with a space
+            # Replace literal '\n' sequences with spaces
             text = text.replace(r'\n', " ")
+            # Replace straight apostrophes with typographic ones
+            text = text.replace("'", "’")
 
             descs[move] = text
 
