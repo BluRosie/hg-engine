@@ -32,7 +32,7 @@ Choose a Pokémon.\r
 Move to where?
 Give to which Pokémon?
 Use on which Pokémon?
-Teach which Pokémon?
+Use on which Pokémon?
 Choose Pokémon and confirm.
 
 Use on which Pokémon?
