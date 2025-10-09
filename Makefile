@@ -506,7 +506,7 @@ dumprom: $(VENV_ACTIVATE)
 
 
 update_machine_moves: $(VENV_ACTIVATE)
-	$(PYTHON) scripts/update_machine_moves.py --descriptions --icons
+	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
 	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/830.txt data/text/830.txt
 	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/834.txt data/text/834.txt
 	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/838.txt data/text/838.txt
