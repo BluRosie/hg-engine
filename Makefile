@@ -482,9 +482,6 @@ dumprom: $(VENV_ACTIVATE)
 	$(MAKE) clean
 	chmod +x $(DUMP_SCRIPT_LOCATION)/*.sh
 
-# dump mondata, encounters, evos, moves
-	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
-
 	./$(DUMP_SCRIPT_LOCATION)/dumprom.sh
 	mkdir -p $(BUILD) $(BUILD_NARC) $(BUILD)/a028/
 # dump human overworlds
@@ -503,6 +500,9 @@ dumprom: $(VENV_ACTIVATE)
 	$(NARCHIVE) extract $(BUILD_NARC)/kowaza -o $(BUILD)/kowaza
 	$(PYTHON) tools/source/dumptools/migrate_learnsets.py
 	rm -rf $(BUILD)
+
+# dump mondata, encounters, evos, moves
+	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
 
 
 update_machine_moves: $(VENV_ACTIVATE)
