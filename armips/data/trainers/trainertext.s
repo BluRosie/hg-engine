@@ -323,14 +323,9 @@ _0218: // Trainer 50
     trainertextentry  50, TEXT_DEFEATED_IN_OVERWORLD, "Even though you’re a rookie Trainer,\nyou’re not bothered by these heights\fat all... You’re really something!\n"
 
 _0224: // Trainer 10
-    trainertextentry  10, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "Amy: Hey, are you challenging the\nLeader? No way!\r"
-    trainertextentry  10, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "Amy: Oh, goodness!"
-    trainertextentry  10, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_1, "Amy: You’re really strong!"
-    trainertextentry  10, TEXT_DOUBLE_ONLY_1_POKEMON_1, "Amy: You have only one Pokémon?\nThat’s kind of lonely..."
-    trainertextentry  10, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_2, "Mimi: If you insist, we’ll be\nyour opponents.\r"
-    trainertextentry  10, TEXT_DOUBLE_DEFEATED_IN_BATTLE_2, "Mimi: I’m feeling a bit dizzy...\n"
-    trainertextentry  10, TEXT_DOUBLE_DEFEATED_IN_OVERWORLD_2, "Mimi: Our bug Pokémon lost! Oh, what\na shame.\n"
-    trainertextentry  10, TEXT_DOUBLE_ONLY_1_POKEMON_2, "Mimi: It’s a little unfair to battle\nsomeone who has only one Pokémon.\n"
+    trainertextentry  10, TEXT_NOTICE_IN_OVERWORLD, "I can’t believe how ridiculously high\nthis is! But from up here, you can tell\fwhat it feels like to be a bird Pokémon!\rLet me see if you’re good enough to\nface Falkner!\r"
+    trainertextentry  10, TEXT_DEFEATED_IN_BATTLE, "This can’t be true!\n"
+    trainertextentry  10, TEXT_DEFEATED_IN_OVERWORLD, "Even though you’re a rookie Trainer,\nyou’re not bothered by these heights\fat all... You’re really something!\n"
 
 _0244: // Trainer 67
     trainertextentry  67, TEXT_NOTICE_IN_OVERWORLD, "Bug Pokémon evolve young. So they get\nstronger that much faster.\r"
@@ -510,7 +505,7 @@ _03DC: // Trainer 701
 _03E8: // Trainer 261
     trainertextentry 261, TEXT_LAST_MON_SENT_OUT, "Heh heh heh... You’re unprepared\nfor this. We’ll knock you down!\n"
     trainertextentry 261, TEXT_LAST_MON_CRITICAL, "Perhaps I’m the one who was\nunprepared?\n"
-    trainertextentry 261, TEXT_DEFEATED_IN_BATTLE, "This is the real power of Johto...\n"
+    trainertextentry 261, TEXT_DEFEATED_IN_BATTLE, "Just as I expected! No wonder you’ve\nbecome the Champion...\n"
 
 _03F4: // Trainer 253
     trainertextentry 253, TEXT_LAST_MON_SENT_OUT, "Ah ha ha! It itches! It itches!\n"
@@ -2661,9 +2656,9 @@ _1878: // Trainer 238
     trainertextentry 238, TEXT_DEFEATED_IN_BATTLE, "Mmmmph... I just woke up.\nI couldn’t focus...\n"
 
 _187C: // Trainer 700
-    trainertextentry 700, TEXT_LAST_MON_SENT_OUT, "What in the world was that? Don’t tell\nme some inexperienced kid can\fpossibly be that strong!\n"
-    trainertextentry 700, TEXT_LAST_MON_CRITICAL, "What was that?\n"
-    trainertextentry 700, TEXT_DEFEATED_IN_BATTLE, "What in the world are you?\n"
+    trainertextentry 700, TEXT_LAST_MON_SENT_OUT, "Heh heh heh... You’re unprepared\nfor this. We’ll knock you down!\n"
+    trainertextentry 700, TEXT_LAST_MON_CRITICAL, "Perhaps I’m the one who was\nunprepared?\n"
+    trainertextentry 700, TEXT_DEFEATED_IN_BATTLE, "Just as I expected! No wonder you’ve\nbecome the Champion...\n"
 
 _1888: // Trainer 303
     trainertextentry 303, TEXT_DEFEATED_IN_BATTLE, "Tweet!\n"
