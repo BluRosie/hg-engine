@@ -79,9 +79,9 @@ When used, it removes any stat\nchanges of an ally Pokémon.
 Can be used many times to greatly\nboost a Pokémon’s critical-hit\nratio. These effects disappear if\rthe Pokémon leaves the battle.
 Reshiram’s body was destroyed and\nchanged into this stone. It is said\nto be waiting for the emergence of a\rhero.
 Zekrom’s body was destroyed and\nchanged into this stone. It is said\nto be waiting for the emergence of a\rhero.
-N/A
-N/A
-N/A
+The user gathers all its light\nenergy and releases it at once. It\nmay also lower the foe’s Sp. Def\rstat.
+The user releases a horrible aura\nimbued with dark thoughts. It may\nalso make the target flinch.
+A blood-draining attack. The user’s\nHP is restored by half the damage\ntaken by the target.
 A high-tech transceiver with a\ncamera function. It allows up to\nfour-way calls.
 A rare stone.
 An important letter that Wingull\ndelivers.

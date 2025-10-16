@@ -77,7 +77,7 @@ PYTHON = $(PYTHON_NO_VENV)
 VENV_ACTIVATE =
 endif
 
-.PHONY: clean all
+.PHONY: clean all dumprom
 
 default: all
 
@@ -473,6 +473,47 @@ move_narc: $(NARC_FILES)
 
 	@echo "tutor moves:"
 	cp $(TUTORLEARNSET_BIN) $(TUTORLEARNSET_TARGET)
+
+
+DUMP_SCRIPT_LOCATION := tools/source/dumptools
+# the goal here is to extract the required narcs to the proper folders for the dump scripts to work.
+# learnsets are covered by script migration
+dumprom: $(VENV_ACTIVATE)
+	$(MAKE) clean
+	chmod +x $(DUMP_SCRIPT_LOCATION)/*.sh
+
+	./$(DUMP_SCRIPT_LOCATION)/dumprom.sh
+	mkdir -p $(BUILD) $(BUILD_NARC) $(BUILD)/a028/
+# dump human overworlds
+	#./$(DUMP_SCRIPT_LOCATION)/dump_human_overworlds.sh
+# dump everything covered by this script
+	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
+# mondata:  needed by migrate_learnsets.py
+	cp $(MONDATA_TARGET) $(BUILD_NARC)/mondata
+	$(NARCHIVE) extract $(BUILD_NARC)/mondata -o $(MONDATA_DIR)
+	rm $(BUILD_NARC)/mondata
+# learnsets:  needed by migrate_learnsets.py
+	cp $(LEVELUPLEARNSET_TARGET) $(BUILD_NARC)/learnset
+	$(NARCHIVE) extract $(BUILD_NARC)/learnset -o $(LEVELUPLEARNSET_DIR)
+# kowaza:  needed by migrate_learnsets.py
+	cp $(EGGLEARNSET_TARGET) $(BUILD_NARC)/kowaza
+	$(NARCHIVE) extract $(BUILD_NARC)/kowaza -o $(BUILD)/kowaza
+	$(PYTHON) tools/source/dumptools/migrate_learnsets.py
+	rm -rf $(BUILD)
+
+# dump mondata, encounters, evos, moves
+	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
+
+
+update_machine_moves: $(VENV_ACTIVATE)
+	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/830.txt data/text/830.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/834.txt data/text/834.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/838.txt data/text/838.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/846.txt data/text/846.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/850.txt data/text/850.txt
+	@echo "Updated item descriptions and sprites. Double check formatting"
+
 
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:

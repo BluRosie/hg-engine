@@ -1437,16 +1437,29 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro StrengthSapCalc
+    .macro AddThirdType arg_0
     .long 261
+    .long \arg_0
+    .endm
+
+    .macro TryAuroraVeil
+    .long 262
+    .endm
+
+    .macro ClearAuroraVeil
+    .long 263
+    .endm
+
+    .macro StrengthSapCalc
+    .long 264
     .endm
 
     .macro CheckTargetIsPartner arg_0
-    .long 262
+    .long 265
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 262
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 265
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

@@ -111,7 +111,7 @@ $(ITEMGFX_DIR)/{len(itemDict)+3:04}-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/return.p
 $(ITEMGFX_DIR)/{len(itemDict)+3:04}-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/return.png
 	$(GFX) $< $@ -ir -bitdepth 4
 
-ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/dummy.png
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/return.png
 ITEMGFX_OBJS += $(ITEMGFX_DIR)/{len(itemDict)+3:04}-00.NCGR
 ITEMGFX_PALS += $(ITEMGFX_DIR)/{len(itemDict)+3:04}-01.NCLR
 

@@ -83,6 +83,9 @@
 // FANCY_PRINT_NICKNAME defines in progress implementations that may not necessarily function.
 // #define FANCY_PRINT_NICKNAME
 
+// DEBUG_ENABLE_UNIMPLEMENTED_MOVES shows debug information if a chosen move is not implemented/dexited
+//#define DEBUG_ENABLE_UNIMPLEMENTED_MOVES
+
 // NOCASH_GBA_PRINT swaps from desmume prints with the syscall to NO$GBA-style prints for use with i.e. melonDS
 #define NOCASH_GBA_PRINT
 

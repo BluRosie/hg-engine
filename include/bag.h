@@ -48,6 +48,13 @@ typedef struct BagData {
     u16 registeredItems[2];                        // IDs of registered key items
 } BAG_DATA;
 
+typedef struct BagContext {
+    /* 0x000 */ u8 padding_000[0x2EC];  
+    /* 0x2EC */ void *msgPrinter;
+    /* 0x2F0 */ void *unk2F0;
+    /* 0x2F4 */ void *unk2F4;
+} BagContext;
+
 typedef enum TMHMPocketSortPrecedence {
     SORT_ORDER_TM,
     SORT_ORDER_TR,
@@ -256,12 +263,5 @@ BAG_DATA *LONG_CALL Sav2_Bag_get(void *saveData);
 // fuck BAG_VIEW
 void *LONG_CALL BagView_New(u8 heap_id);
 void LONG_CALL BagView_SetItem(void *bagView, ITEM_SLOT *slots, u8 pocketId, u8 position);
-
-// vanilla TM rendering
-void LONG_CALL sub_0200CE7C(void *msgPrinter, u8 glyphId, u32 num, u32 ndigits, u32 mode, void *window, u32 x, u32 y);
-void LONG_CALL ov15_021FE8C4(void *context, u32 packedArgs);
-// vanilla HM + new TM/TR rendering
-void LONG_CALL sub_0200CDF0(void *msgPrinter, u32 glyphId, u32 ndigits, u32 mode, void *window, s16 x, u16 y);
-void LONG_CALL ov15_021FE9B0(void *context, void *target, u16 y); // overriding param 3 for our sprite
 
 #endif //POKEHEARTGOLD_BAG_H

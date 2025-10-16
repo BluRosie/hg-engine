@@ -7,9 +7,17 @@ GEN_LATEST equ 9
 // the current implementation (with all gen 5 mons) uses ~9222/0x2406 bytes.  make sure this points to that much free space (probably allow for a little bit more than that)
 START_ADDRESS equ 0x0
 
-// FAIRY_TYPE_IMPLEMENTED defines whether or not the fairy type is to be implemented as type 9 or not.
-// if you do not want this change, then set it to 0
+// DISALLOW_DEXIT_GEN controls whether to disallow selection of dexited moves in later generations. Choose any Generation below 8 for none. 0 will instead disable any unimplemented moves.
+DISALLOW_DEXIT_GEN equ 0
+
+// FAIRY_TYPE_IMPLEMENTED defines whether or not the Fairy type is to be implemented as type 9 or not.
+// If you do not want this change, then set it to 0.
 FAIRY_TYPE_IMPLEMENTED equ 1
+
+// TYPE_EFFECTIVENESS_GEN defines the type chart interactions you would like to use.
+// Defining this as "5" or lower will revert Steel to resisting Ghost- and Dark-type moves.
+// Type chart changes prior to Gen 4 (e.g. Gen 1) are not included.
+TYPE_EFFECTIVENESS_GEN equ GEN_LATEST
 
 // SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
 // 9 or above: Snow
@@ -37,9 +45,6 @@ BATTLES_UNCAPPED_FRAME_RATE equ 0
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
 FAST_TEXT_PRINTING equ 0
-
-// REUSABLE_TMS will make TMs infinite and hide the quantity number.
-REUSABLE_TMS equ 1
 
 // NO_PARTNER_DOUBLE_BATTLES allows for setting trainers to double battles without setting up a partner trainer.  set to 0 to disable
 // note that the entry in `armips/data/trainers/trainertext.s` has to use `TEXT_DOUBLE_DEFEATED_IN_BATTLE_1`, but the overworld entries can remain the same.

@@ -1442,8 +1442,23 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             sprintf(buf, "In SECOND_EVENT_BLOCK_AURORA_VEIL_DISSIPATING\n");
                             debugsyscall(buf);
 #endif
-                            if (FALSE) {
+
+                            if (sp->side_condition[side] & SIDE_STATUS_AURORA_VEIL) {
+#ifdef DEBUG_ENDTURN_LOGIC
+                                sprintf(buf, "\n\nAurora Veil side %d, turns left %d\n\n", side, sp->scw[side].auroraVeilCount);
+                                debugsyscall(buf);
+#endif
+                                if (--sp->scw[side].auroraVeilCount == 0) {
+                                    sp->side_condition[side] &= ~(SIDE_STATUS_AURORA_VEIL);
+                                    sp->waza_work = MOVE_AURORA_VEIL;
+                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAR_OFF);
+                                    sp->next_server_seq_no = sp->server_seq_no;
+                                    sp->server_seq_no = 22;
+                                    sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
+                                    ret = 1;
+                                }
                             }
+                            
                             sp->endTurnEventBlockSequenceNumber++;
                             break;
                         }
@@ -1893,6 +1908,11 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     sp->battlemon[i].moveeffect.custapBerryFlag = 0;
                     sp->numberOfTurnsClientHasCurrentAbility[i] = sp->numberOfTurnsClientHasCurrentAbility[i] + 1;
                 }
+
+                sp->playerSideHasFaintedTeammateLastTurn = sp->playerSideHasFaintedTeammateThisTurn;
+                sp->enemySideHasFaintedTeammateLastTurn = sp->enemySideHasFaintedTeammateThisTurn;
+                sp->playerSideHasFaintedTeammateThisTurn = 0;
+                sp->enemySideHasFaintedTeammateThisTurn = 0;
 
                 ret = 2;
                 break;
