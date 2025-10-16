@@ -537,7 +537,7 @@ trainerdata 10, "Rayan"
         // mon 4
         ivs 250
         abilityslot 0
-        level 83
+        level 82
         pokemon SPECIES_ORANGURU
         item ITEM_COLBUR_BERRY
         move MOVE_TRICK_ROOM
@@ -569,7 +569,7 @@ trainerdata 11, "Ilyes"
         // mon 0
         ivs 200
         abilityslot 0
-        level 83
+        level 82
         pokemon SPECIES_SABLEYE
         item ITEM_LEFTOVERS
         move MOVE_WILL_O_WISP
@@ -587,7 +587,7 @@ trainerdata 11, "Ilyes"
         // mon 1
         ivs 200
         abilityslot 0
-        level 82
+        level 81
         pokemon SPECIES_MISMAGIUS
         item ITEM_TANGA_BERRY
         move MOVE_SHADOW_BALL
@@ -641,7 +641,7 @@ trainerdata 11, "Ilyes"
         // mon 4
         ivs 250
         abilityslot 0
-        level 83
+        level 82
         pokemon SPECIES_MIMIKYU
         item ITEM_ASSAULT_VEST
         move MOVE_PLAY_ROUGH
@@ -834,7 +834,7 @@ trainerdata 17, "Mathis"
         // mon 0
         ivs 200
         abilityslot 0
-        level 84
+        level 83
         pokemon SPECIES_ELECTIVIRE
         item ITEM_CHOICE_BAND
         move MOVE_THUNDER_PUNCH
@@ -852,7 +852,7 @@ trainerdata 17, "Mathis"
         // mon 1
         ivs 200
         abilityslot 0
-        level 84
+        level 83
         pokemon SPECIES_GRENINJA
         item ITEM_LIFE_ORB
         move MOVE_WATER_SHURIKEN
@@ -870,7 +870,7 @@ trainerdata 17, "Mathis"
         // mon 2
         ivs 200
         abilityslot 0
-        level 83
+        level 82
         pokemon SPECIES_INFERNAPE
         item ITEM_FOCUS_SASH
         move MOVE_FLAMETHROWER
@@ -888,7 +888,7 @@ trainerdata 17, "Mathis"
         // mon 3
         ivs 250
         abilityslot 0
-        level 84
+        level 83
         pokemon SPECIES_SCIZOR
         item ITEM_OCCA_BERRY
         move MOVE_BULLET_PUNCH
@@ -906,7 +906,7 @@ trainerdata 17, "Mathis"
         // mon 4
         ivs 250
         abilityslot 0
-        level 83
+        level 82
         pokemon SPECIES_GENGAR
         item ITEM_WISE_GLASSES
         move MOVE_SHADOW_BALL
@@ -1606,10 +1606,10 @@ trainerdata 35, "Clair"
         ballseal 0
     endparty
 
-trainerdata 36, "Joyce"
-    trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass TRAINERCLASS_ACE_TRAINER_F
-    nummons 2
+trainerdata 36, "Mohamed"
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK 
+    trainerclass TRAINERCLASS_BLACK_BELT
+    nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -1620,25 +1620,93 @@ trainerdata 36, "Joyce"
 
     party 36
         // mon 0
-        ivs 50
+        ivs 200
         abilityslot 0
-        level 36
-        pokemon SPECIES_PIKACHU
-        move MOVE_QUICK_ATTACK
-        move MOVE_DOUBLE_TEAM
-        move MOVE_THUNDERBOLT
-        move MOVE_THUNDER_WAVE
+        level 85
+        pokemon SPECIES_DONPHAN
+        item ITEM_CUSTAP_BERRY
+        move MOVE_EARTHQUAKE
+        move MOVE_ICE_SHARD
+        move MOVE_STONE_EDGE
+        move MOVE_ENDEAVOR
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
         ballseal 0
 
         // mon 1
-        ivs 50
+        ivs 200
         abilityslot 0
-        level 36
-        pokemon SPECIES_BLASTOISE
+        level 85
+        pokemon SPECIES_HAWLUCHA
+        item ITEM_FOCUS_SASH
+        move MOVE_ACROBATICS
+        move MOVE_CLOSE_COMBAT
+        move MOVE_SWORDS_DANCE
+        move MOVE_X_SCISSOR
+        ability ABILITY_UNBURDEN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        ballseal 0
+
+        // mon 2
+        ivs 200
+        abilityslot 0
+        level 84
+        pokemon SPECIES_FLOATZEL
+        item ITEM_LIFE_ORB
+        move MOVE_AQUA_JET
+        move MOVE_SURGING_STRIKES
+        move MOVE_POWER_UP_PUNCH
         move MOVE_BITE
-        move MOVE_AQUA_TAIL
-        move MOVE_SURF
-        move MOVE_RAIN_DANCE
+        ability ABILITY_TECHNICIAN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        ballseal 0
+
+        // mon 3
+        ivs 250
+        abilityslot 0
+        level 84
+        monwithform SPECIES_ARCANINE, 1
+        item ITEM_CHOICE_BAND
+        move MOVE_FLARE_BLITZ
+        move MOVE_HEAD_SMASH
+        move MOVE_SUPERPOWER
+        move MOVE_WILD_CHARGE
+        ability ABILITY_CORROSION
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0 // mon will be forced shiny
+        ballseal 0
+
+        // mon 4
+        ivs 250
+        abilityslot 0
+        level 86
+        pokemon SPECIES_TORTERRA
+        item ITEM_YACHE_BERRY
+        move MOVE_WOOD_HAMMER
+        move MOVE_HEADLONG_RUSH
+        move MOVE_HEAD_SMASH
+        move MOVE_SHELL_SMASH
+        ability ABILITY_ROCK_HEAD
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0 // mon will be forced shiny
         ballseal 0
     endparty
 
@@ -2133,9 +2201,9 @@ trainerdata 54, "Troy"
         ballseal 0
     endparty
 
-trainerdata 55, "Neal"
+trainerdata 55, "Benjamin"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_SAGE
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
@@ -2154,9 +2222,9 @@ trainerdata 55, "Neal"
         ballseal 0
     endparty
 
-trainerdata 56, "Gordon"
+trainerdata 56, "Lucas"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_YOUNGSTER
+    trainerclass TRAINERCLASS_FIREBREATHER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
@@ -2296,7 +2364,7 @@ trainerdata 61, "Remy"
         // mon 0
         ivs 200
         abilityslot 0
-        level 84
+        level 86
         pokemon SPECIES_OBSTAGOON
         item ITEM_FLAME_ORB
         move MOVE_FACADE
@@ -2314,7 +2382,7 @@ trainerdata 61, "Remy"
         // mon 1
         ivs 200
         abilityslot 0
-        level 84
+        level 86
         pokemon SPECIES_WAILORD
         item ITEM_MYSTIC_WATER
         move MOVE_WATER_SPOUT
@@ -2332,7 +2400,7 @@ trainerdata 61, "Remy"
         // mon 2
         ivs 200
         abilityslot 0
-        level 83
+        level 87
         pokemon SPECIES_TROPIUS
         item ITEM_YACHE_BERRY
         move MOVE_ENERGY_BALL
@@ -2350,7 +2418,7 @@ trainerdata 61, "Remy"
         // mon 3
         ivs 250
         abilityslot 0
-        level 84
+        level 85
         pokemon SPECIES_KROOKODILE
         item ITEM_CHOICE_BAND
         move MOVE_EARTHQUAKE
@@ -2368,7 +2436,7 @@ trainerdata 61, "Remy"
         // mon 4
         ivs 250
         abilityslot 0
-        level 83
+        level 86
         pokemon SPECIES_FLYGON
         item ITEM_LIFE_ORB
         move MOVE_DRAGON_PULSE
