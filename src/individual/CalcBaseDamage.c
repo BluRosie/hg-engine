@@ -169,7 +169,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     u16 movepower = damageCalc->movepower;
     int damage_power = damageCalc->damage_power;
     int damage_value = damageCalc->damage_value;
-    u8 magnitude = damageCalc->magnitude;
+    //u8 magnitude = damageCalc->magnitude;
     BOOL gemBoostingMove = damageCalc->gemBoostingMove;
     BOOL noCloudNineAndAirLock = damageCalc->noCloudNineAndAirLock;
     BOOL fieldHasFairyAura = damageCalc->fieldHasFairyAura;
@@ -202,7 +202,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         return 9999;
     }
 
-    // https://web.archive.org/web/20241226231016/https://www.trainertower.com/dawoblefets-damage-dissertation/    
+    // https://web.archive.org/web/20241226231016/https://www.trainertower.com/dawoblefets-damage-dissertation/
 
     if ((MoldBreakerAbilityCheckInternal(attacker, defender, AttackingMon.ability, DefendingMon.ability, moveno, movesplit, ABILITY_DISGUISE) == TRUE)
     && (DefendingMon.species == SPECIES_MIMIKYU)
@@ -227,10 +227,10 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         return 0;
     }
 
-    
+
     //=====Step 1. Custom BP=====
 
-    // TODO: Check if there are any moves not ported yet 
+    // TODO: Check if there are any moves not ported yet
     // if (pow == 0) {
     //     debug_printf("First case\n");
     //     movepower = sp->moveTbl[moveno].power;
@@ -516,7 +516,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     // Commenting this should be fine
     // sp->damage_power = movepower;
 
-    // TODO: Check if there are any moves not ported yet 
+    // TODO: Check if there are any moves not ported yet
     // movepower = movepower * sp->damage_value / 10;
 
 #ifdef DEBUG_DAMAGE_CALC
@@ -622,7 +622,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
             }
             break;
-        
+
 
         default:
             break;
@@ -773,25 +773,25 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                     basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
                     continue;
                 }
-        
+
                 // handle Pixilate - 20% boost if a Normal type move was changed to a Fairy type move. Does not boost Fairy type moves themselves
                 if (AttackingMon.ability == ABILITY_PIXILATE && movetype == TYPE_FAIRY && originalMoveType == TYPE_NORMAL) {
                     basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
                     continue;
                 }
-        
+
                 // handle Galvanize - 20% boost if a Normal type move was changed to an Electric type move. Does not boost Electric type moves themselves
                 if (AttackingMon.ability == ABILITY_GALVANIZE && movetype == TYPE_ELECTRIC && originalMoveType == TYPE_NORMAL) {
                     basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
                     continue;
                 }
-        
+
                 // handle Refrigerate - 20% boost if a Normal type move was changed to an Ice type move. Does not boost Ice type moves themselves
                 if (AttackingMon.ability == ABILITY_REFRIGERATE && movetype == TYPE_ICE && originalMoveType == TYPE_NORMAL) {
                     basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
                     continue;
                 }
-        
+
                 // handle Normalize - 20% boost if a Normal type move is used (and it changes types to Normal too)
                 if (AttackingMon.ability == ABILITY_NORMALIZE && movetype == TYPE_NORMAL) {
                     basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
@@ -824,7 +824,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
                 continue;
             }
-            
+
             // Sand Force boosts damage in sand for certain move types
             if ((AttackingMon.ability == ABILITY_SAND_FORCE)
             && (field_cond & WEATHER_SANDSTORM_ANY)
@@ -915,7 +915,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
             }
         }
-        
+
         if (BATTLER_ALLY(attacker) == damageCalc->rawSpeedNonRNGClientOrder[i]) {
             // Handle Battery
             if ((AttackingMonAlly.ability == ABILITY_BATTERY)
@@ -998,7 +998,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             }
 
             // handle Lustrous Globe
-            if ((AttackingMon.item_held_effect == HOLD_EFFECT_PALKIA_BOOST_AND_TRANSFORM) 
+            if ((AttackingMon.item_held_effect == HOLD_EFFECT_PALKIA_BOOST_AND_TRANSFORM)
             && ((movetype == TYPE_DRAGON) || (movetype == TYPE_WATER))
             && (AttackingMon.species == SPECIES_PALKIA)) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
@@ -1057,9 +1057,9 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 continue;
             }
         }
-        
+
     }
-    
+
     // Stall (the ability):
 
     // Apply the chained modifier to the starting base power. That is, multiply the starting base power by the chained base power modifiers, divide by 4096, and pokeRound the result. If the base power would now be less than 1, make it 1. Finally, if the base power is greater than 65,535, make it the the current base power modulo 65,536 (BP % 65536).
@@ -1320,12 +1320,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if ((AttackingMon.item_held_effect == HOLD_EFFECT_CHOICE_ATK) && (movesplit == SPLIT_PHYSICAL)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
             }
-            
+
             // handle Choice Specs
             if ((AttackingMon.item_held_effect == HOLD_EFFECT_CHOICE_SPATK) && (movesplit == SPLIT_SPECIAL)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
             }
-    
+
             // handle Thick Club
             if ((AttackingMon.item_held_effect == HOLD_EFFECT_CUBONE_ATK_UP)
             && ((AttackingMon.species == SPECIES_CUBONE) || (AttackingMon.species == SPECIES_MAROWAK))
@@ -1646,7 +1646,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             GF_ASSERT(movesplit != SPLIT_STATUS);
             break;
     }
-    
+
 #ifdef DEBUG_DAMAGE_CALC
     debug_printf("\n=================\n");
     debug_printf("[CalcBaseDamage] Step 4.9. Sword of Ruin/Beads of Ruin\n");

@@ -13,7 +13,11 @@ def dump_encounters(narc, is_expanded):
 	encs_armip += "// Some are labeled ???, these are most likely not used.\n\n"
 
 	for idx, enc in enumerate(narc):
-		encs_armip += f"{ENC_ENTRIES[idx]}\n"
+		if idx >= len(ENC_ENTRIES):
+			# if more encounter data files than expected?
+			encs_armip += f"encounterdata {idx}\n"
+		else:
+			encs_armip += f"{ENC_ENTRIES[idx]}\n"
 
 		encs_armip += f'walkrate {enc["walking_rate"]}\n'
 		encs_armip += f'surfrate {enc["surf_rate"]}\n'
