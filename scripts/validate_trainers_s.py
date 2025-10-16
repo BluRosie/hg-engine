@@ -122,7 +122,7 @@ def parse_trainers(file_path):
 
 def mon_additional_flag_check(trainer, mon, mon_index, flag, key):
     has_additionalflags_flag = "additionalflags" in mon
-    has_flag = has_additionalflags_flag and flag in mon["additionalflags"]
+    has_flag = has_additionalflags_flag and flag.lower() in mon["additionalflags"]
     has_val = key in mon
 
     if has_flag and not has_val:
