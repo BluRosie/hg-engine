@@ -3868,6 +3868,7 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
     u16 species, item;
     u8 ability, lvl;
     struct PartyPokemon *mon;
+    u32 quantityPickedUp = 0, partyIndex = 0, itemPickedUp = ITEM_NONE;
 
     IncrementBattleScriptPtr(sp, 1);
 
@@ -3897,6 +3898,9 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
                     break;
                 }
             }
+            quantityPickedUp++;
+            partyIndex = i;
+            itemPickedUp = item;
         }
         if (ability == ABILITY_HONEY_GATHER
             && species != SPECIES_NONE
@@ -3904,7 +3908,7 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
             && item == ITEM_NONE) {
             j   = 0;
             k   = 10;
-            lvl = GetMonData(mon, MON_DATA_LEVEL, 0);
+            lvl = GetMonData(mon, MON_DATA_LEVEL, NULL);
             while (lvl > k) {
                 j++;
                 k += 10;
@@ -3913,10 +3917,28 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
             GF_ASSERT(j < 10);
 
             if ((BattleRand(bw) % 100) < sHoneyGatherChanceTable[j]) {
-                j = ITEM_HONEY;
-                SetMonData(mon, MON_DATA_HELD_ITEM, &j);
+                item = ITEM_HONEY;
+                SetMonData(mon, MON_DATA_HELD_ITEM, &item);
+                quantityPickedUp++;
+                partyIndex = i;
+                itemPickedUp = ITEM_HONEY;
             }
         }
+    }
+
+    sp->calc_work = quantityPickedUp;
+
+    if (quantityPickedUp > 1)
+    {
+        sp->mp.msg_id = BATTLE_MSG_GENERIC_PICKED_UP_ITEM;
+        sp->mp.msg_tag = TAG_NONE;
+    }
+    else if (quantityPickedUp > 0) // aka == 1
+    {
+        sp->mp.msg_id = BATTLE_MSG_PICKED_UP_ITEM;
+        sp->mp.msg_tag = TAG_NICKNAME_ITEM;
+        sp->mp.msg_para[0] = (partyIndex << 8) | 0;
+        sp->mp.msg_para[1] = itemPickedUp;
     }
 
     return FALSE;
@@ -4180,12 +4202,12 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
     {
     case BATTLER_PLAYER:
         sp->playerSideHasFaintedTeammateThisTurn = TRAINER_1;//0b01
-        if (bsys->trainerId[BATTLER_PLAYER2] == 0) //Ally trainer does not exist => must be player, both pokemon slots see the fainted mate 
+        if (bsys->trainerId[BATTLER_PLAYER2] == 0) //Ally trainer does not exist => must be player, both pokemon slots see the fainted mate
             sp->playerSideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     case BATTLER_ENEMY:
         sp->enemySideHasFaintedTeammateThisTurn = TRAINER_1;//0b01
-        if (bsys->trainerId[BATTLER_ENEMY2] == 0) //Ally trainer does not exist => must be enemy trainer #1, both pokemon slots see the fainted mate 
+        if (bsys->trainerId[BATTLER_ENEMY2] == 0) //Ally trainer does not exist => must be enemy trainer #1, both pokemon slots see the fainted mate
             sp->enemySideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     case BATTLER_PLAYER2:
