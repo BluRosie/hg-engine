@@ -381,8 +381,19 @@
 #define MOVE_EFFECT_ADD_THIRD_TYPE_GHOST                    375
 #define MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE                  376
 #define MOVE_EFFECT_SET_AURORA_VEIL                         377
+#define MOVE_EFFECT_STRENGTH_SAP							378
+#define MOVE_EFFECT_HEAL_TARGET								379
+#define MOVE_EFFECT_POLLEN_PUFF								380
+#define MOVE_EFFECT_COACHING								381
+#define MOVE_EFFECT_DOUBLE_POWER_IF_FASTER					382
+#define MOVE_EFFECT_SHORE_UP								383
+#define MOVE_EFFECT_LIFE_DEW								384
+#define MOVE_EFFECT_ENTRAINMENT								385
+#define MOVE_EFFECT_HOWL							      	386
+#define MOVE_EFFECT_DECORATE								387
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            377
+#define MAX_BASE_MOVE_EFFECT_NUM                            387
+
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
 
