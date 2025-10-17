@@ -9216,7 +9216,7 @@ trainerdata 261, "Blue"
         move MOVE_HURRICANE
         move MOVE_BOOMBURST
         move MOVE_VOLT_SWITCH
-        move MOVE_THUNDER
+        move MOVE_FOCUS_BLAST
         ability ABILITY_NO_GUARD
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -24276,7 +24276,7 @@ trainerdata 700, "Blue"
         pokemon SPECIES_GYARADOS
         item ITEM_WACAN_BERRY
         move MOVE_AQUA_TAIL
-        move MOVE_BOUNCE
+        move MOVE_ICE_FANG
         move MOVE_EARTHQUAKE
         move MOVE_DRAGON_DANCE
         ability ABILITY_MOXIE
