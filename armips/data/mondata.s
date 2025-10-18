@@ -10652,7 +10652,7 @@ mondata SPECIES_ROTOM_FAN, "-----"
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
-    abilities ABILITY_LEVITATE, ABILITY_NONE
+    abilities ABILITY_MOTOR_DRIVE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
     mondexentry SPECIES_ROTOM_FAN, "-----"
@@ -18863,7 +18863,7 @@ mondata SPECIES_BARRASKEWDA, "Baraskewda"
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
-    abilities ABILITY_SWIFT_SWIM, ABILITY_NONE
+    abilities ABILITY_SWIFT_SWIM, ABILITY_PROPELLER_TAIL
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_BARRASKEWDA, "Its jaw that’s as sharp as a spear and\nas strong as steel. It spins its tail fins\nto surge forward at over 100 knots."
@@ -19409,7 +19409,7 @@ mondata SPECIES_FROSMOTH, "Frosmoth"
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
-    abilities ABILITY_SHIELD_DUST, ABILITY_NONE
+    abilities ABILITY_SHIELD_DUST, ABILITY_ICE_SCALES
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     mondexentry SPECIES_FROSMOTH, "Icy scales fall from its wings\nlike snow as it flies over fields\nand mountains."
