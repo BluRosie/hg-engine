@@ -124,45 +124,45 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 
 // morning encounter slots
     pokemon SPECIES_DONPHAN
-    pokemon SPECIES_URSARING
-    pokemon SPECIES_HARIYAMA
-    pokemon SPECIES_PANGORO
+    pokemon SPECIES_KANGASKHAN
+    pokemon SPECIES_MEDICHAM
+    pokemon SPECIES_GALLADE
+    pokemon SPECIES_PRIMEAPE
+    pokemon SPECIES_SCRAFTY
+    pokemon SPECIES_DONPHAN
     pokemon SPECIES_KANGASKHAN
     pokemon SPECIES_PRIMEAPE
     pokemon SPECIES_MEDICHAM
-    pokemon SPECIES_BISHARP
-    pokemon SPECIES_MIENSHAO
     pokemon SPECIES_SCRAFTY
-    pokemon SPECIES_GRIMMSNARL
-    pokemon SPECIES_GALLADE
+    pokemon SPECIES_SCRAFTY
 
 // day encounter slots
-    pokemon SPECIES_DONPHAN
     pokemon SPECIES_URSARING
-    pokemon SPECIES_HARIYAMA
-    pokemon SPECIES_PANGORO
-    pokemon SPECIES_KANGASKHAN
     pokemon SPECIES_PRIMEAPE
-    pokemon SPECIES_MEDICHAM
     pokemon SPECIES_BISHARP
-    pokemon SPECIES_MIENSHAO
-    pokemon SPECIES_SCRAFTY
     pokemon SPECIES_GRIMMSNARL
-    pokemon SPECIES_GALLADE
+    pokemon SPECIES_KANGASKHAN
+    pokemon SPECIES_SCRAFTY
+    pokemon SPECIES_PRIMEAPE
+    pokemon SPECIES_URSARING
+    pokemon SPECIES_BISHARP
+    pokemon SPECIES_SCRAFTY
+    pokemon SPECIES_BISHARP
+    pokemon SPECIES_SCRAFTY
 
 // night encounter slots
-    pokemon SPECIES_DONPHAN
-    pokemon SPECIES_URSARING
     pokemon SPECIES_HARIYAMA
     pokemon SPECIES_PANGORO
+    pokemon SPECIES_MIENSHAO
     pokemon SPECIES_KANGASKHAN
     pokemon SPECIES_PRIMEAPE
-    pokemon SPECIES_MEDICHAM
-    pokemon SPECIES_BISHARP
-    pokemon SPECIES_MIENSHAO
     pokemon SPECIES_SCRAFTY
-    pokemon SPECIES_GRIMMSNARL
-    pokemon SPECIES_GALLADE
+    pokemon SPECIES_PANGORO
+    pokemon SPECIES_HARIYAMA
+    pokemon SPECIES_MIENSHAO
+    pokemon SPECIES_MIENSHAO
+    pokemon SPECIES_MIENSHAO
+    pokemon SPECIES_MIENSHAO
 
 // hoenn encounter slots
     pokemon SPECIES_PLUSLE
@@ -173,10 +173,10 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_SHINX
 
 // surf encounters
-    encounter SPECIES_KINGLER, 80, 84
-    encounter SPECIES_CRAWDAUNT, 80, 84
-    encounter SPECIES_POLIWRATH, 80, 84
     encounter SPECIES_FLOATZEL, 80, 84
+    encounter SPECIES_POLIWRATH, 80, 84
+    encounter SPECIES_GOLISOPOD, 80, 84
+    encounter SPECIES_GOLISOPOD, 80, 84
     encounter SPECIES_GOLISOPOD, 80, 84
 
 // rock smash encounters
@@ -184,25 +184,25 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
+    encounter SPECIES_QWILFISH, 80, 84
+    encounter SPECIES_KINGLER, 80, 84
+    encounter SPECIES_CRAWDAUNT, 80, 84
+    encounter SPECIES_CRAWDAUNT, 80, 84
+    encounter SPECIES_CRAWDAUNT, 80, 84
 
 // good rod encounters
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-
-// super rod encounters
     encounter SPECIES_WHISCASH, 80, 84
     encounter SPECIES_GYARADOS, 80, 84
-    encounter SPECIES_QWILFISH, 80, 84
+    encounter SPECIES_CRAWDAUNT, 80, 84
+    encounter SPECIES_CRAWDAUNT, 80, 84
+    encounter SPECIES_CRAWDAUNT, 80, 84
+
+// super rod encounters
     encounter SPECIES_GOREBYSS, 80, 84
     encounter SPECIES_HUNTAIL, 80, 84
+    encounter SPECIES_WHISCASH, 80, 84
+    encounter SPECIES_WHISCASH, 80, 84
+    encounter SPECIES_WHISCASH, 80, 84
 
 // swarm grass
     pokemon SPECIES_PIDGEY
@@ -227,45 +227,45 @@ superrodrate 75
 walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 
 // morning encounter slots
-    pokemon SPECIES_RHYPERIOR
-    pokemon SPECIES_CROBAT
-    pokemon SPECIES_MAGNEZONE
-    pokemon SPECIES_STEELIX
-    monwithform SPECIES_GOLEM, 1
-    pokemon SPECIES_AGGRON
-    pokemon SPECIES_KLINKLANG
+    pokemon SPECIES_RHYDON
+    pokemon SPECIES_STEELIX     
     pokemon SPECIES_KLEFKI
-    pokemon SPECIES_TYRANITAR
-    pokemon SPECIES_EXCADRILL
+    pokemon SPECIES_RHYDON
+    pokemon SPECIES_KLEFKI
+    pokemon SPECIES_STEELIX
+    pokemon SPECIES_RHYPERIOR
+    pokemon SPECIES_STEELIX
     pokemon SPECIES_METAGROSS
-    pokemon SPECIES_HAXORUS
+    pokemon SPECIES_METAGROSS
+    pokemon SPECIES_METAGROSS
+    pokemon SPECIES_METAGROSS
 
 // day encounter slots
-    pokemon SPECIES_RHYPERIOR
-    pokemon SPECIES_CROBAT
     pokemon SPECIES_MAGNEZONE
-    pokemon SPECIES_STEELIX
+    pokemon SPECIES_AGGRON
+    monwithform SPECIES_GOLEM, 1
+    pokemon SPECIES_MAGNEZONE
     monwithform SPECIES_GOLEM, 1
     pokemon SPECIES_AGGRON
-    pokemon SPECIES_KLINKLANG
-    pokemon SPECIES_KLEFKI
-    pokemon SPECIES_TYRANITAR
+    monwithform SPECIES_GOLEM, 1
+    pokemon SPECIES_MAGNEZONE
     pokemon SPECIES_EXCADRILL
-    pokemon SPECIES_METAGROSS
-    pokemon SPECIES_HAXORUS
+    pokemon SPECIES_EXCADRILL
+    pokemon SPECIES_EXCADRILL
+    pokemon SPECIES_EXCADRILL
 
 // night encounter slots
-    pokemon SPECIES_RHYPERIOR
     pokemon SPECIES_CROBAT
-    pokemon SPECIES_MAGNEZONE
-    pokemon SPECIES_STEELIX
-    monwithform SPECIES_GOLEM, 1
-    pokemon SPECIES_AGGRON
     pokemon SPECIES_KLINKLANG
-    pokemon SPECIES_KLEFKI
+    pokemon SPECIES_CROBAT
+    pokemon SPECIES_KLINKLANG
+    pokemon SPECIES_CROBAT
+    pokemon SPECIES_KLINKLANG
+    pokemon SPECIES_CROBAT
     pokemon SPECIES_TYRANITAR
-    pokemon SPECIES_EXCADRILL
-    pokemon SPECIES_METAGROSS
+    pokemon SPECIES_TYRANITAR
+    pokemon SPECIES_HAXORUS
+    pokemon SPECIES_TYRANITAR
     pokemon SPECIES_HAXORUS
 
 // hoenn encounter slots
@@ -278,8 +278,8 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 
 // surf encounters
     encounter SPECIES_KINGDRA, 80, 84
-    encounter SPECIES_BARBARACLE, 80, 84
     encounter SPECIES_MILOTIC, 80, 84
+    encounter SPECIES_DRACOVISH, 80, 84
     encounter SPECIES_DRACOVISH, 80, 84
     encounter SPECIES_DRACOVISH, 80, 84
 
@@ -288,25 +288,25 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
+    encounter SPECIES_CLAWITZER, 80, 84
+    encounter SPECIES_RELICANTH, 80, 84
+    encounter SPECIES_BARBARACLE, 80, 84
+    encounter SPECIES_BARBARACLE, 80, 84
+    encounter SPECIES_BARBARACLE, 80, 84
 
 // good rod encounters
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
-    encounter SPECIES_KRABBY, 80, 84
+    encounter SPECIES_MILOTIC, 80, 84
+    encounter SPECIES_CLAWITZER, 80, 84
+    encounter SPECIES_RELICANTH, 80, 84
+    encounter SPECIES_RELICANTH, 80, 84
+    encounter SPECIES_RELICANTH, 80, 84
 
 // super rod encounters
-    encounter SPECIES_RELICANTH, 80, 84
-    encounter SPECIES_CLAWITZER, 80, 84
+    encounter SPECIES_BASCULEGION, 80, 84
     encounter SPECIES_EELEKTROSS, 80, 84
-    encounter SPECIES_BASCULEGION, 80, 84
-    encounter SPECIES_BASCULEGION, 80, 84
+    encounter SPECIES_KINGDRA, 80, 84
+    encounter SPECIES_KINGDRA, 80, 84
+    encounter SPECIES_KINGDRA, 80, 84
 
 // swarm grass
     pokemon SPECIES_NONE
@@ -331,46 +331,46 @@ superrodrate 75
 walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 
 // morning encounter slots
-    pokemon SPECIES_STARAPTOR
     pokemon SPECIES_PIDGEOT
-    pokemon SPECIES_SWELLOW
+    pokemon SPECIES_SWELLOW       
+    pokemon SPECIES_STARAPTOR     
+    pokemon SPECIES_CORVIKNIGHT   
+    pokemon SPECIES_HAWLUCHA      
+    pokemon SPECIES_NOIVERN       
+    pokemon SPECIES_PIDGEOT    
+    pokemon SPECIES_SWELLOW       
+    pokemon SPECIES_STARAPTOR    
+    pokemon SPECIES_CORVIKNIGHT   
+    pokemon SPECIES_STARAPTOR     
     pokemon SPECIES_CORVIKNIGHT
-    pokemon SPECIES_BRAVIARY
-    pokemon SPECIES_MANDIBUZZ
-    pokemon SPECIES_HAWLUCHA
-    pokemon SPECIES_NOIVERN
-    pokemon SPECIES_SKARMORY
-    pokemon SPECIES_TOGEKISS
-    pokemon SPECIES_GLISCOR
-    pokemon SPECIES_FLYGON
 
 // day encounter slots
-    pokemon SPECIES_STARAPTOR
-    pokemon SPECIES_PIDGEOT
-    pokemon SPECIES_SWELLOW
-    pokemon SPECIES_CORVIKNIGHT
     pokemon SPECIES_BRAVIARY
-    pokemon SPECIES_MANDIBUZZ
     pokemon SPECIES_HAWLUCHA
-    pokemon SPECIES_NOIVERN
+    pokemon SPECIES_TOGEKISS
+    pokemon SPECIES_SKARMORY
+    pokemon SPECIES_STARAPTOR
+    pokemon SPECIES_GLISCOR
+    pokemon SPECIES_BRAVIARY
+    pokemon SPECIES_HAWLUCHA
+    pokemon SPECIES_TOGEKISS
     pokemon SPECIES_SKARMORY
     pokemon SPECIES_TOGEKISS
-    pokemon SPECIES_GLISCOR
-    pokemon SPECIES_FLYGON
+    pokemon SPECIES_SKARMORY
 
 // night encounter slots
-    pokemon SPECIES_STARAPTOR
-    pokemon SPECIES_PIDGEOT
-    pokemon SPECIES_SWELLOW
-    pokemon SPECIES_CORVIKNIGHT
-    pokemon SPECIES_BRAVIARY
     pokemon SPECIES_MANDIBUZZ
-    pokemon SPECIES_HAWLUCHA
-    pokemon SPECIES_NOIVERN
-    pokemon SPECIES_SKARMORY
-    pokemon SPECIES_TOGEKISS
-    pokemon SPECIES_GLISCOR
     pokemon SPECIES_FLYGON
+    pokemon SPECIES_NOIVERN
+    pokemon SPECIES_GLISCOR
+    pokemon SPECIES_SKARMORY
+    pokemon SPECIES_CORVIKNIGHT
+    pokemon SPECIES_MANDIBUZZ
+    pokemon SPECIES_FLYGON
+    pokemon SPECIES_NOIVERN
+    pokemon SPECIES_GLISCOR
+    pokemon SPECIES_NOIVERN
+    pokemon SPECIES_GLISCOR
 
 // hoenn encounter slots
     pokemon SPECIES_WHISMUR
@@ -545,38 +545,38 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_MAMOSWINE
     monwithform SPECIES_SANDSLASH, 1
     monwithform SPECIES_NINETALES, 1
-    pokemon SPECIES_FROSLASS
     pokemon SPECIES_GLALIE
     pokemon SPECIES_AVALUGG
-    pokemon SPECIES_AURORUS
-    pokemon SPECIES_MR_RIME
-    pokemon SPECIES_ARCTOZOLT
+    pokemon SPECIES_ABOMASNOW
+    pokemon SPECIES_BEARTIC
+    pokemon SPECIES_WEAVILE
+    monwithform SPECIES_NINETALES, 1
 
 // day encounter slots
-    pokemon SPECIES_ABOMASNOW
     pokemon SPECIES_BEARTIC
-    pokemon SPECIES_WEAVILE
     pokemon SPECIES_MAMOSWINE
-    monwithform SPECIES_SANDSLASH, 1
-    monwithform SPECIES_NINETALES, 1
+    pokemon SPECIES_ABOMASNOW
     pokemon SPECIES_FROSLASS
+    monwithform SPECIES_NINETALES, 1
     pokemon SPECIES_GLALIE
     pokemon SPECIES_AVALUGG
     pokemon SPECIES_AURORUS
-    pokemon SPECIES_MR_RIME
-    pokemon SPECIES_ARCTOZOLT
+    pokemon SPECIES_BEARTIC
+    pokemon SPECIES_ABOMASNOW
+    pokemon SPECIES_FROSLASS
+    pokemon SPECIES_AURORUS
 
 // night encounter slots
-    pokemon SPECIES_ABOMASNOW
-    pokemon SPECIES_BEARTIC
     pokemon SPECIES_WEAVILE
     pokemon SPECIES_MAMOSWINE
     monwithform SPECIES_SANDSLASH, 1
-    monwithform SPECIES_NINETALES, 1
+    pokemon SPECIES_MR_RIME
+    pokemon SPECIES_ARCTOZOLT
     pokemon SPECIES_FROSLASS
     pokemon SPECIES_GLALIE
     pokemon SPECIES_AVALUGG
-    pokemon SPECIES_AURORUS
+    pokemon SPECIES_WEAVILE
+    pokemon SPECIES_MAMOSWINE
     pokemon SPECIES_MR_RIME
     pokemon SPECIES_ARCTOZOLT
 
@@ -592,33 +592,33 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     encounter SPECIES_CLOYSTER, 80, 84
     encounter SPECIES_LAPRAS, 80, 84
     encounter SPECIES_CRABOMINABLE, 80, 84
-    encounter SPECIES_ARCTOVISH, 80, 84
-    encounter SPECIES_ARCTOVISH, 80, 84
+    encounter SPECIES_CRABOMINABLE, 80, 84
+    encounter SPECIES_CRABOMINABLE, 80, 84
 
 // rock smash encounters
     encounter SPECIES_NONE, 0, 0
     encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
+    encounter SPECIES_DEWGONG, 80, 84
+    encounter SPECIES_WISHIWASHI, 80, 84
+    encounter SPECIES_LAPRAS, 80, 84
+    encounter SPECIES_LAPRAS, 80, 84
+    encounter SPECIES_LAPRAS, 80, 84
 
 // good rod encounters
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
+    encounter SPECIES_CLOYSTER, 80, 84
+    encounter SPECIES_DEWGONG, 80, 84
+    encounter SPECIES_LAPRAS, 80, 84
+    encounter SPECIES_LAPRAS, 80, 84
+    encounter SPECIES_LAPRAS, 80, 84
 
 // super rod encounters
-    encounter SPECIES_DEWGONG, 80, 84
     encounter SPECIES_WALREIN, 80, 84
     encounter SPECIES_WISHIWASHI, 80, 84
-    encounter SPECIES_WISHIWASHI, 80, 84
-    encounter SPECIES_WISHIWASHI, 80, 84
+    encounter SPECIES_ARCTOVISH, 80, 84
+    encounter SPECIES_ARCTOVISH, 80, 84
+    encounter SPECIES_ARCTOVISH, 80, 84
 
 // swarm grass
     pokemon SPECIES_NONE
@@ -645,43 +645,43 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 // morning encounter slots
     pokemon SPECIES_SHIFTRY
     pokemon SPECIES_AUDINO
-    pokemon SPECIES_LUXRAY
     pokemon SPECIES_LEAVANNY
+    pokemon SPECIES_LUXRAY
     monwithform SPECIES_EXEGGUTOR, 1
-    pokemon SPECIES_HONCHKROW
-    pokemon SPECIES_EMOLGA
     pokemon SPECIES_ALAKAZAM
+    pokemon SPECIES_HONCHKROW
     pokemon SPECIES_AMPHAROS
+    pokemon SPECIES_SHIFTRY
+    pokemon SPECIES_AUDINO
+    pokemon SPECIES_ALAKAZAM
+    pokemon SPECIES_HONCHKROW
+
+// day encounter slots
+    pokemon SPECIES_LEAVANNY
+    pokemon SPECIES_AUDINO
+    pokemon SPECIES_AMPHAROS
+    pokemon SPECIES_LUXRAY
     monwithform SPECIES_LILLIGANT, 1
     pokemon SPECIES_PORYGON_Z
     pokemon SPECIES_GARDEVOIR
-
-// day encounter slots
-    pokemon SPECIES_SHIFTRY
-    pokemon SPECIES_AUDINO
-    pokemon SPECIES_LUXRAY
-    pokemon SPECIES_LEAVANNY
     monwithform SPECIES_EXEGGUTOR, 1
-    pokemon SPECIES_HONCHKROW
-    pokemon SPECIES_EMOLGA
-    pokemon SPECIES_ALAKAZAM
-    pokemon SPECIES_AMPHAROS
-    monwithform SPECIES_LILLIGANT, 1
+    pokemon SPECIES_LEAVANNY
+    pokemon SPECIES_AUDINO
     pokemon SPECIES_PORYGON_Z
     pokemon SPECIES_GARDEVOIR
 
 // night encounter slots
+    pokemon SPECIES_LUXRAY
+    pokemon SPECIES_HONCHKROW
     pokemon SPECIES_SHIFTRY
     pokemon SPECIES_AUDINO
-    pokemon SPECIES_LUXRAY
-    pokemon SPECIES_LEAVANNY
-    monwithform SPECIES_EXEGGUTOR, 1
-    pokemon SPECIES_HONCHKROW
-    pokemon SPECIES_EMOLGA
     pokemon SPECIES_ALAKAZAM
+    pokemon SPECIES_GARDEVOIR
     pokemon SPECIES_AMPHAROS
     monwithform SPECIES_LILLIGANT, 1
-    pokemon SPECIES_PORYGON_Z
+    pokemon SPECIES_LUXRAY
+    pokemon SPECIES_HONCHKROW
+    pokemon SPECIES_ALAKAZAM
     pokemon SPECIES_GARDEVOIR
 
 // hoenn encounter slots
@@ -696,33 +696,33 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     encounter SPECIES_AZUMARILL, 80, 84
     encounter SPECIES_SLOWBRO, 80, 84
     encounter SPECIES_STARMIE, 80, 84
-    encounter SPECIES_MASQUERAIN, 80, 84
-    encounter SPECIES_SWAMPERT, 80, 84
+    encounter SPECIES_STARMIE, 80, 84
+    encounter SPECIES_STARMIE, 80, 84
 
 // rock smash encounters
     encounter SPECIES_NONE, 0, 0
     encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
+    encounter SPECIES_SEAKING, 80, 84
+    encounter SPECIES_LUVDISC, 80, 84
+    encounter SPECIES_OCTILLERY, 80, 84
+    encounter SPECIES_OCTILLERY, 80, 84
+    encounter SPECIES_OCTILLERY, 80, 84
 
 // good rod encounters
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
-    encounter SPECIES_NONE, 80, 84
+    encounter SPECIES_OCTILLERY, 80, 84
+    encounter SPECIES_SEAKING, 80, 84
+    encounter SPECIES_SHARPEDO, 80, 84
+    encounter SPECIES_SHARPEDO, 80, 84
+    encounter SPECIES_SHARPEDO, 80, 84
 
 // super rod encounters
-    encounter SPECIES_SEAKING, 80, 84
-    encounter SPECIES_OCTILLERY, 80, 84
-    encounter SPECIES_LUVDISC, 80, 84
     encounter SPECIES_SHARPEDO, 80, 84
     encounter SPECIES_BARRASKEWDA, 80, 84
+    encounter SPECIES_STARMIE, 80, 84
+    encounter SPECIES_STARMIE, 80, 84
+    encounter SPECIES_STARMIE, 80, 84
 
 // swarm grass
     pokemon SPECIES_RATTATA
@@ -800,32 +800,32 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     encounter SPECIES_PELIPPER, 80, 84
     encounter SPECIES_SWANNA, 80, 84
     encounter SPECIES_CRAMORANT, 80, 84
-    encounter SPECIES_POLITOED, 80, 84
-    encounter SPECIES_PRIMARINA, 80, 84
+    encounter SPECIES_CRAMORANT, 80, 84
+    encounter SPECIES_CRAMORANT, 80, 84
 
 // rock smash encounters
     encounter SPECIES_NONE, 0, 0
     encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
+    encounter SPECIES_BASCULIN, 82, 86
+    encounter SPECIES_LUMINEON, 82, 86
+    encounter SPECIES_ALOMOMOLA, 82, 86
+    encounter SPECIES_ALOMOMOLA, 82, 86
+    encounter SPECIES_ALOMOMOLA, 82, 86
 
 // good rod encounters
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
+    encounter SPECIES_POLITOED, 82, 86
+    encounter SPECIES_PRIMARINA, 82, 86
+    encounter SPECIES_LUMINEON, 82, 86
+    encounter SPECIES_LUMINEON, 82, 86
+    encounter SPECIES_LUMINEON, 82, 86
 
 // super rod encounters
     encounter SPECIES_ALOMOMOLA, 80, 84
     encounter SPECIES_MANTINE, 80, 84
-    encounter SPECIES_LUMINEON, 80, 84
-    encounter SPECIES_BASCULIN, 80, 84
+    encounter SPECIES_PHIONE, 80, 84
+    encounter SPECIES_PHIONE, 80, 84
     encounter SPECIES_PHIONE, 80, 84
 
 // swarm grass
@@ -853,44 +853,44 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 // morning encounter slots
     pokemon SPECIES_BRELOOM
     pokemon SPECIES_ROSERADE
-    pokemon SPECIES_NIDOKING
-    pokemon SPECIES_NIDOQUEEN
-    monwithform SPECIES_MUK, 1
+    pokemon SPECIES_ESCAVALIER
+    pokemon SPECIES_ACCELGOR
     monwithform SPECIES_SLOWBRO, 2
+    pokemon SPECIES_TOXICROAK
+    pokemon SPECIES_BRELOOM
+    pokemon SPECIES_ROSERADE
     pokemon SPECIES_ESCAVALIER
     pokemon SPECIES_ACCELGOR
     pokemon SPECIES_TOXICROAK
-    pokemon SPECIES_DRAPION
-    pokemon SPECIES_TOXTRICITY
-    pokemon SPECIES_REUNICLUS
+    monwithform SPECIES_SLOWBRO, 2
 
 // day encounter slots
-    pokemon SPECIES_BRELOOM
+    pokemon SPECIES_NIDOKING
+    pokemon SPECIES_NIDOQUEEN
+    monwithform SPECIES_MUK, 1
+    pokemon SPECIES_DRAPION
+    pokemon SPECIES_TOXTRICITY
     pokemon SPECIES_ROSERADE
     pokemon SPECIES_NIDOKING
     pokemon SPECIES_NIDOQUEEN
     monwithform SPECIES_MUK, 1
-    monwithform SPECIES_SLOWBRO, 2
-    pokemon SPECIES_ESCAVALIER
-    pokemon SPECIES_ACCELGOR
-    pokemon SPECIES_TOXICROAK
     pokemon SPECIES_DRAPION
     pokemon SPECIES_TOXTRICITY
-    pokemon SPECIES_REUNICLUS
+    pokemon SPECIES_ROSERADE
 
 // night encounter slots
-    pokemon SPECIES_BRELOOM
-    pokemon SPECIES_ROSERADE
-    pokemon SPECIES_NIDOKING
-    pokemon SPECIES_NIDOQUEEN
-    monwithform SPECIES_MUK, 1
-    monwithform SPECIES_SLOWBRO, 2
-    pokemon SPECIES_ESCAVALIER
-    pokemon SPECIES_ACCELGOR
-    pokemon SPECIES_TOXICROAK
-    pokemon SPECIES_DRAPION
     pokemon SPECIES_TOXTRICITY
     pokemon SPECIES_REUNICLUS
+    pokemon SPECIES_NIDOQUEEN
+    pokemon SPECIES_NIDOKING
+    pokemon SPECIES_DRAPION
+    pokemon SPECIES_TOXICROAK
+    pokemon SPECIES_TOXTRICITY
+    pokemon SPECIES_REUNICLUS
+    pokemon SPECIES_NIDOQUEEN
+    pokemon SPECIES_NIDOKING
+    pokemon SPECIES_DRAPION
+    pokemon SPECIES_TOXICROAK
 
 // hoenn encounter slots
     pokemon SPECIES_WHISMUR
@@ -901,36 +901,36 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_BIDOOF
 
 // surf encounters
-    encounter SPECIES_QUAGSIRE, 80, 84
     encounter SPECIES_LUDICOLO, 80, 84
+    encounter SPECIES_QUAGSIRE, 80, 84
     encounter SPECIES_GASTRODON, 80, 84
-    encounter SPECIES_SEISMITOAD, 80, 84
-    encounter SPECIES_TOXAPEX, 80, 84
+    encounter SPECIES_GASTRODON, 80, 84
+    encounter SPECIES_GASTRODON, 80, 84
 
 // rock smash encounters
     encounter SPECIES_NONE, 0, 0
     encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
+    encounter SPECIES_LANTURN, 82, 86
+    encounter SPECIES_SEISMITOAD, 82, 86
+    encounter SPECIES_TENTACRUEL, 82, 86
+    encounter SPECIES_TENTACRUEL, 82, 86
+    encounter SPECIES_TENTACRUEL, 82, 86
 
 // good rod encounters
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
-    encounter SPECIES_NONE, 82, 86
+    encounter SPECIES_TENTACRUEL, 82, 86
+    encounter SPECIES_ARAQUANID, 82, 86
+    encounter SPECIES_LANTURN, 82, 86
+    encounter SPECIES_LANTURN, 82, 86
+    encounter SPECIES_LANTURN, 82, 86
 
 // super rod encounters
-    encounter SPECIES_TENTACRUEL, 80, 84
-    encounter SPECIES_LANTURN, 80, 84
     encounter SPECIES_JELLICENT, 80, 84
-    encounter SPECIES_ARAQUANID, 80, 84
     encounter SPECIES_DRAGALGE, 80, 84
+    encounter SPECIES_TOXAPEX, 80, 84
+    encounter SPECIES_TOXAPEX, 80, 84
+    encounter SPECIES_TOXAPEX, 80, 84
 
 // swarm grass
     pokemon SPECIES_BELLSPROUT
@@ -1374,43 +1374,43 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_RAPIDASH
     pokemon SPECIES_TALONFLAME
     pokemon SPECIES_SANDACONDA
-    pokemon SPECIES_DRIFBLIM
     pokemon SPECIES_PYROAR
-    monwithform SPECIES_MAROWAK, 1
-    pokemon SPECIES_KROOKODILE
-    pokemon SPECIES_PROBOPASS
     pokemon SPECIES_MUDSDALE
+    pokemon SPECIES_PROBOPASS
+    monwithform SPECIES_MAROWAK, 1
     pokemon SPECIES_SALAZZLE
-    pokemon SPECIES_LYCANROC
-    pokemon SPECIES_GARCHOMP
+    pokemon SPECIES_RAPIDASH
+    pokemon SPECIES_TALONFLAME
+    monwithform SPECIES_MAROWAK, 1
+    pokemon SPECIES_SALAZZLE
 
 // day encounter slots
-    pokemon SPECIES_RAPIDASH
-    pokemon SPECIES_TALONFLAME
-    pokemon SPECIES_SANDACONDA
-    pokemon SPECIES_DRIFBLIM
+    pokemon SPECIES_MUDSDALE
     pokemon SPECIES_PYROAR
-    monwithform SPECIES_MAROWAK, 1
+    pokemon SPECIES_TALONFLAME
+    pokemon SPECIES_LYCANROC
+    pokemon SPECIES_SANDACONDA
     pokemon SPECIES_KROOKODILE
+    pokemon SPECIES_RAPIDASH
     pokemon SPECIES_PROBOPASS
     pokemon SPECIES_MUDSDALE
-    pokemon SPECIES_SALAZZLE
+    pokemon SPECIES_PYROAR
     pokemon SPECIES_LYCANROC
-    pokemon SPECIES_GARCHOMP
+    pokemon SPECIES_KROOKODILE
 
 // night encounter slots
-    pokemon SPECIES_RAPIDASH
-    pokemon SPECIES_TALONFLAME
-    pokemon SPECIES_SANDACONDA
     pokemon SPECIES_DRIFBLIM
-    pokemon SPECIES_PYROAR
     monwithform SPECIES_MAROWAK, 1
-    pokemon SPECIES_KROOKODILE
-    pokemon SPECIES_PROBOPASS
-    pokemon SPECIES_MUDSDALE
-    pokemon SPECIES_SALAZZLE
     pokemon SPECIES_LYCANROC
     pokemon SPECIES_GARCHOMP
+    pokemon SPECIES_SALAZZLE
+    pokemon SPECIES_KROOKODILE
+    pokemon SPECIES_DRIFBLIM
+    pokemon SPECIES_MUDSDALE
+    monwithform SPECIES_MAROWAK, 1
+    pokemon SPECIES_LYCANROC
+    pokemon SPECIES_GARCHOMP
+    pokemon SPECIES_SALAZZLE
 
 // hoenn encounter slots
     pokemon SPECIES_UNOWN
@@ -1477,44 +1477,44 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 // morning encounter slots
     pokemon SPECIES_BEEDRILL
     pokemon SPECIES_LEDIAN
-    pokemon SPECIES_VIKAVOLT
-    pokemon SPECIES_PINSIR
-    pokemon SPECIES_HERACROSS
+    pokemon SPECIES_SCYTHER
     pokemon SPECIES_GALVANTULA
+    pokemon SPECIES_VIKAVOLT
     pokemon SPECIES_FORRETRESS
-    pokemon SPECIES_FERROTHORN
+    pokemon SPECIES_BEEDRILL
+    pokemon SPECIES_LEDIAN
     pokemon SPECIES_SCIZOR
-    pokemon SPECIES_YANMEGA
-    pokemon SPECIES_TREVENANT
-    pokemon SPECIES_HATTERENE
+    pokemon SPECIES_FORRETRESS
+    pokemon SPECIES_VIKAVOLT
+    pokemon SPECIES_HERACROSS
 
 // day encounter slots
-    pokemon SPECIES_BEEDRILL
-    pokemon SPECIES_LEDIAN
-    pokemon SPECIES_VIKAVOLT
     pokemon SPECIES_PINSIR
     pokemon SPECIES_HERACROSS
     pokemon SPECIES_GALVANTULA
     pokemon SPECIES_FORRETRESS
-    pokemon SPECIES_FERROTHORN
-    pokemon SPECIES_SCIZOR
     pokemon SPECIES_YANMEGA
-    pokemon SPECIES_TREVENANT
-    pokemon SPECIES_HATTERENE
+    pokemon SPECIES_SCYTHER
+    pokemon SPECIES_PINSIR
+    pokemon SPECIES_HERACROSS
+    pokemon SPECIES_GALVANTULA
+    pokemon SPECIES_FORRETRESS
+    pokemon SPECIES_YANMEGA
+    pokemon SPECIES_FERROTHORN
 
 // night encounter slots
-    pokemon SPECIES_BEEDRILL
-    pokemon SPECIES_LEDIAN
-    pokemon SPECIES_VIKAVOLT
-    pokemon SPECIES_PINSIR
-    pokemon SPECIES_HERACROSS
-    pokemon SPECIES_GALVANTULA
-    pokemon SPECIES_FORRETRESS
-    pokemon SPECIES_FERROTHORN
-    pokemon SPECIES_SCIZOR
-    pokemon SPECIES_YANMEGA
     pokemon SPECIES_TREVENANT
     pokemon SPECIES_HATTERENE
+    pokemon SPECIES_FERROTHORN
+    pokemon SPECIES_VIKAVOLT
+    pokemon SPECIES_YANMEGA
+    pokemon SPECIES_BEEDRILL
+    pokemon SPECIES_TREVENANT
+    pokemon SPECIES_HATTERENE
+    pokemon SPECIES_FERROTHORN
+    pokemon SPECIES_VIKAVOLT
+    pokemon SPECIES_HATTERENE
+    pokemon SPECIES_VIKAVOLT
 
 // hoenn encounter slots
     pokemon SPECIES_ABSOL
@@ -1580,45 +1580,45 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 
 // morning encounter slots
     pokemon SPECIES_BANETTE
-    pokemon SPECIES_BRONZONG
-    pokemon SPECIES_RUNERIGUS
     pokemon SPECIES_SABLEYE
-    pokemon SPECIES_SPIRITOMB
-    pokemon SPECIES_MIMIKYU
+    pokemon SPECIES_RUNERIGUS
+    pokemon SPECIES_BRONZONG
     pokemon SPECIES_GOTHITELLE
     pokemon SPECIES_PALOSSAND
-    pokemon SPECIES_POLTEAGEIST
-    pokemon SPECIES_CURSOLA
-    pokemon SPECIES_BEHEEYEM
-    pokemon SPECIES_MALAMAR
+    pokemon SPECIES_BANETTE
+    pokemon SPECIES_SABLEYE
+    pokemon SPECIES_RUNERIGUS
+    pokemon SPECIES_BRONZONG
+    pokemon SPECIES_GOTHITELLE
+    pokemon SPECIES_PALOSSAND
 
 // day encounter slots
-    pokemon SPECIES_BANETTE
     pokemon SPECIES_BRONZONG
-    pokemon SPECIES_RUNERIGUS
-    pokemon SPECIES_SABLEYE
-    pokemon SPECIES_SPIRITOMB
-    pokemon SPECIES_MIMIKYU
     pokemon SPECIES_GOTHITELLE
-    pokemon SPECIES_PALOSSAND
     pokemon SPECIES_POLTEAGEIST
-    pokemon SPECIES_CURSOLA
     pokemon SPECIES_BEHEEYEM
-    pokemon SPECIES_MALAMAR
+    pokemon SPECIES_PALOSSAND
+    pokemon SPECIES_SPIRITOMB
+    pokemon SPECIES_BRONZONG
+    pokemon SPECIES_GOTHITELLE
+    pokemon SPECIES_POLTEAGEIST
+    pokemon SPECIES_BEHEEYEM
+    pokemon SPECIES_PALOSSAND
+    pokemon SPECIES_SPIRITOMB
 
 // night encounter slots
-    pokemon SPECIES_BANETTE
-    pokemon SPECIES_BRONZONG
-    pokemon SPECIES_RUNERIGUS
-    pokemon SPECIES_SABLEYE
-    pokemon SPECIES_SPIRITOMB
     pokemon SPECIES_MIMIKYU
-    pokemon SPECIES_GOTHITELLE
-    pokemon SPECIES_PALOSSAND
-    pokemon SPECIES_POLTEAGEIST
+    pokemon SPECIES_SPIRITOMB
     pokemon SPECIES_CURSOLA
-    pokemon SPECIES_BEHEEYEM
+    pokemon SPECIES_POLTEAGEIST
     pokemon SPECIES_MALAMAR
+    pokemon SPECIES_RUNERIGUS
+    pokemon SPECIES_MIMIKYU
+    pokemon SPECIES_SPIRITOMB
+    pokemon SPECIES_CURSOLA
+    pokemon SPECIES_POLTEAGEIST
+    pokemon SPECIES_MALAMAR
+    pokemon SPECIES_RUNERIGUS
 
 // hoenn encounter slots
     pokemon SPECIES_ABSOL
@@ -1685,44 +1685,44 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 // morning encounter slots
     pokemon SPECIES_GOLURK
     pokemon SPECIES_MISMAGIUS
+    pokemon SPECIES_DUSCLOPS
     pokemon SPECIES_MAWILE
-    pokemon SPECIES_CHANDELURE
-    monwithform SPECIES_TYPHLOSION, 1
-    pokemon SPECIES_DUSKNOIR
     pokemon SPECIES_DECIDUEYE
-    pokemon SPECIES_GENGAR
-    pokemon SPECIES_AEGISLASH
-    pokemon SPECIES_ZOROARK
-    pokemon SPECIES_HYDREIGON
-    pokemon SPECIES_DRAGAPULT
+    monwithform SPECIES_TYPHLOSION, 1
+    pokemon SPECIES_GOLURK
+    pokemon SPECIES_MISMAGIUS
+    pokemon SPECIES_DUSCLOPS
+    pokemon SPECIES_MAWILE
+    pokemon SPECIES_DECIDUEYE
+    monwithform SPECIES_TYPHLOSION, 1
 
 // day encounter slots
-    pokemon SPECIES_GOLURK
+    pokemon SPECIES_MAWILE
+    pokemon SPECIES_CHANDELURE
+    pokemon SPECIES_GENGAR
+    pokemon SPECIES_DECIDUEYE
+    pokemon SPECIES_AEGISLASH
     pokemon SPECIES_MISMAGIUS
     pokemon SPECIES_MAWILE
     pokemon SPECIES_CHANDELURE
-    monwithform SPECIES_TYPHLOSION, 1
-    pokemon SPECIES_DUSKNOIR
-    pokemon SPECIES_DECIDUEYE
     pokemon SPECIES_GENGAR
+    pokemon SPECIES_DECIDUEYE
     pokemon SPECIES_AEGISLASH
-    pokemon SPECIES_ZOROARK
-    pokemon SPECIES_HYDREIGON
-    pokemon SPECIES_DRAGAPULT
+    pokemon SPECIES_MISMAGIUS
 
 // night encounter slots
-    pokemon SPECIES_GOLURK
-    pokemon SPECIES_MISMAGIUS
-    pokemon SPECIES_MAWILE
-    pokemon SPECIES_CHANDELURE
-    monwithform SPECIES_TYPHLOSION, 1
-    pokemon SPECIES_DUSKNOIR
-    pokemon SPECIES_DECIDUEYE
-    pokemon SPECIES_GENGAR
-    pokemon SPECIES_AEGISLASH
     pokemon SPECIES_ZOROARK
+    pokemon SPECIES_GENGAR
+    pokemon SPECIES_CHANDELURE
     pokemon SPECIES_HYDREIGON
     pokemon SPECIES_DRAGAPULT
+    pokemon SPECIES_AEGISLASH
+    pokemon SPECIES_ZOROARK
+    pokemon SPECIES_GENGAR
+    pokemon SPECIES_CHANDELURE
+    pokemon SPECIES_HYDREIGON
+    pokemon SPECIES_DRAGAPULT
+    pokemon SPECIES_AEGISLASH
 
 // hoenn encounter slots
     pokemon SPECIES_ABSOL
@@ -1787,46 +1787,46 @@ superrodrate 75
 walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 
 // morning encounter slots
-    pokemon SPECIES_ABSOL
     pokemon SPECIES_ALTARIA
+    pokemon SPECIES_ABSOL
     monwithform SPECIES_ORICORIO, 3
     pokemon SPECIES_LOPUNNY
     pokemon SPECIES_SAWK
     pokemon SPECIES_THROH
-    pokemon SPECIES_GRENINJA
-    pokemon SPECIES_LUCARIO
-    pokemon SPECIES_SALAMENCE
-    pokemon SPECIES_DRAGONITE
-    pokemon SPECIES_KOMMO_O
-    pokemon SPECIES_URSHIFU
+    pokemon SPECIES_ALTARIA
+    pokemon SPECIES_ABSOL
+    monwithform SPECIES_ORICORIO, 3
+    pokemon SPECIES_LOPUNNY
+    pokemon SPECIES_SAWK
+    pokemon SPECIES_THROH
 
 // day encounter slots
-    pokemon SPECIES_ABSOL
-    pokemon SPECIES_ALTARIA
-    monwithform SPECIES_ORICORIO, 3
-    pokemon SPECIES_LOPUNNY
-    pokemon SPECIES_SAWK
-    pokemon SPECIES_THROH
     pokemon SPECIES_GRENINJA
     pokemon SPECIES_LUCARIO
-    pokemon SPECIES_SALAMENCE
-    pokemon SPECIES_DRAGONITE
-    pokemon SPECIES_KOMMO_O
-    pokemon SPECIES_URSHIFU
+    pokemon SPECIES_SAWK
+    pokemon SPECIES_THROH
+    pokemon SPECIES_LOPUNNY
+    pokemon SPECIES_ALTARIA
+    pokemon SPECIES_GRENINJA
+    pokemon SPECIES_LUCARIO
+    pokemon SPECIES_SAWK
+    pokemon SPECIES_THROH
+    pokemon SPECIES_LOPUNNY
+    pokemon SPECIES_ALTARIA
 
 // night encounter slots
     pokemon SPECIES_ABSOL
-    pokemon SPECIES_ALTARIA
-    monwithform SPECIES_ORICORIO, 3
-    pokemon SPECIES_LOPUNNY
-    pokemon SPECIES_SAWK
-    pokemon SPECIES_THROH
-    pokemon SPECIES_GRENINJA
-    pokemon SPECIES_LUCARIO
     pokemon SPECIES_SALAMENCE
     pokemon SPECIES_DRAGONITE
     pokemon SPECIES_KOMMO_O
     pokemon SPECIES_URSHIFU
+    pokemon SPECIES_GRENINJA
+    pokemon SPECIES_ABSOL
+    pokemon SPECIES_SALAMENCE
+    pokemon SPECIES_DRAGONITE
+    pokemon SPECIES_KOMMO_O
+    pokemon SPECIES_URSHIFU
+    pokemon SPECIES_GRENINJA
 
 // hoenn encounter slots
     pokemon SPECIES_PLUSLE
