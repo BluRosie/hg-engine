@@ -662,11 +662,11 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_AMPHAROS
     pokemon SPECIES_LUXRAY
     monwithform SPECIES_LILLIGANT, 1
-    pokemon SPECIES_PORYGON_Z
+    pokemon SPECIES_PORYGON2
     pokemon SPECIES_GARDEVOIR
     monwithform SPECIES_EXEGGUTOR, 1
     pokemon SPECIES_LEAVANNY
-    pokemon SPECIES_AUDINO
+    pokemon SPECIES_PORYGON_Z
     pokemon SPECIES_PORYGON_Z
     pokemon SPECIES_GARDEVOIR
 
@@ -1691,10 +1691,10 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     monwithform SPECIES_TYPHLOSION, 1
     pokemon SPECIES_GOLURK
     pokemon SPECIES_MISMAGIUS
-    pokemon SPECIES_DUSCLOPS
+    pokemon SPECIES_DUSKNOIR
     pokemon SPECIES_MAWILE
     pokemon SPECIES_DECIDUEYE
-    monwithform SPECIES_TYPHLOSION, 1
+    pokemon SPECIES_MAWILE
 
 // day encounter slots
     pokemon SPECIES_MAWILE

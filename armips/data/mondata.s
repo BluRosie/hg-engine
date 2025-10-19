@@ -6589,7 +6589,7 @@ mondata SPECIES_MINUN, "Minun"
 
 mondata SPECIES_VOLBEAT, "Volbeat"
     basestats 65, 73, 75, 85, 47, 85
-    types TYPE_BUG, TYPE_BUG
+    types TYPE_BUG, TYPE_ELECTRIC
     catchrate 150
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -6610,7 +6610,7 @@ mondata SPECIES_VOLBEAT, "Volbeat"
 
 mondata SPECIES_ILLUMISE, "Illumise"
     basestats 65, 47, 75, 85, 73, 85
-    types TYPE_BUG, TYPE_BUG
+    types TYPE_BUG, TYPE_FAIRY
     catchrate 150
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
@@ -7029,7 +7029,7 @@ mondata SPECIES_SWABLU, "Swablu"
 
 
 mondata SPECIES_ALTARIA, "Altaria"
-    basestats 75, 70, 90, 80, 70, 105
+    basestats 75, 75, 90, 80, 85, 105
     types TYPE_DRAGON, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
@@ -16280,7 +16280,7 @@ mondata SPECIES_DECIDUEYE, "Decidueye"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
-    abilities ABILITY_OVERGROW, ABILITY_NONE
+    abilities ABILITY_OVERGROW, ABILITY_LONG_REACH
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_DECIDUEYE, "Although basically cool and cautious,\nwhen it’s caught by surprise, it’s\nseized by panic."
@@ -18989,7 +18989,7 @@ mondata SPECIES_GRAPPLOCT, "Grapploct"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_HUMAN_LIKE
-    abilities ABILITY_LIMBER, ABILITY_NONE
+    abilities ABILITY_LIMBER, ABILITY_TECHNICIAN
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     mondexentry SPECIES_GRAPPLOCT, "Searching for an opponent to test its\nskills against, it emerges onto land. Once\nthe battle is over, it returns to the sea."
@@ -19241,7 +19241,7 @@ mondata SPECIES_SIRFETCHD, "Sirfetch’d"
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FIELD
-    abilities ABILITY_STEADFAST, ABILITY_NONE
+    abilities ABILITY_STEADFAST, ABILITY_SCRAPPY
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     mondexentry SPECIES_SIRFETCHD, "After deflecting attacks with its hard\nleaf shield, it strikes back with its sharp\nleek stalk. "
@@ -19367,7 +19367,7 @@ mondata SPECIES_PINCURCHIN, "Pincurchin"
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
-    abilities ABILITY_LIGHTNING_ROD, ABILITY_NONE
+    abilities ABILITY_LIGHTNING_ROD, ABILITY_ELECTRIC_SURGE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     mondexentry SPECIES_PINCURCHIN, "It feeds on seaweed, using its teeth\nto scrape it off rocks. Electric current\nflows from the tips of its spines."
