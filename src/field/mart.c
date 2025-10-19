@@ -34,8 +34,7 @@ const struct BadgeMartItems sBadgeMart[] = {
     { ITEM_DUSK_STONE,     0 },
     { ITEM_DAWN_STONE,     0 },
     { ITEM_OVAL_STONE,     0 },
-    { ITEM_SUN_STONE,      0 },   
-    { ITEM_EVIOLITE,       0 },    
+    { ITEM_SUN_STONE,      0 },     
 };
 
 void LONG_CALL InitMartUI(void *taskManager, FieldSystem *fieldSystem, const u16 *items, int kind, int buySell, int decoWhich, const struct MartItem *priceOverrides);
