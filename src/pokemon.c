@@ -762,6 +762,11 @@ u32 CanUseAbilityPatch(struct PartyPokemon *pp)
     return (hidden_ability != 0);
 }
 
+u32 CanUseRotomCatalog(struct PartyPokemon *pp)
+{
+    return (GetMonData(pp, MON_DATA_SPECIES, NULL) == SPECIES_ROTOM);
+}
+
 
 u32 ALIGN4 partyMenuSignal = 0;
 
@@ -952,6 +957,24 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
         SET_MON_NATURE_OVERRIDE(pp, nature)
         RecalcPartyPokemonStats(pp);
         Bag_TakeItem(bag, wk->dat->item, 1, 11);
+        sys_FreeMemoryEz(dat);
+        PokeList_FormDemoOverlayLoad(wk);
+        return TRUE;
+    }
+
+    // handle rotom catalog
+
+    if (wk->dat->item == ITEM_ROTOM_CATALOG && CanUseRotomCatalog(pp))
+    {
+        int form = GetMonData(pp, MON_DATA_FORM, NULL);
+        form++;
+        if (form > 5) {
+            form = 0;
+        }
+        partyMenuSignal = 188; // signal to change the message to this index
+        Mon_UpdateRotomForm(pp, form, 0);
+        wk->dat->after_mons = form;
+        SetPokemonGet(SaveData_GetDexPtr(SaveBlock2_get()), pp);
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
         return TRUE;
@@ -1308,6 +1331,12 @@ BOOL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 m
     {
         return TRUE;
     }
+
+    if (itemID == ITEM_ROTOM_CATALOG)
+    {
+        return CanUseRotomCatalog(mon);
+    }
+
 #if defined(IMPLEMENT_LEVEL_CAP) && defined(UNCAP_CANDIES_FROM_LEVEL_CAP)
     int currentLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
     if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID))
