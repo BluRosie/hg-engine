@@ -466,12 +466,19 @@
 #define SUB_SEQ_CHANGE_TARGET_TO_PSYCHIC_TYPE         (456)
 #define SUB_SEQ_AURORA_VEIL                           (457)
 #define SUB_SEQ_CHEEK_POUCH                           (458)
+#define SUB_SEQ_STRENGTH_SAP                          (459)
+#define SUB_SEQ_HEAL_PULSE                            (460)
+#define SUB_SEQ_POLLEN_PUFF_HEAL                      (461)
+#define SUB_SEQ_COACHING                              (462)
+#define SUB_SEQ_LIFE_DEW                              (463)
+#define SUB_SEQ_ENTRAINMENT                           (464)
+#define SUB_SEQ_HOWL                                  (465)
+#define SUB_SEQ_DECORATE                              (466)
 
-#define MAX_BASE_SUBSCRIPT_NUM 458
+#define MAX_BASE_SUBSCRIPT_NUM 466
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
-
 
 
 // add status effect constants--used in battle effect scripts to queue up a subscript through the table in src/moves.c
@@ -661,7 +668,7 @@
 #define ADD_STATUS_EFF_DRAIN_THREE_QUARTERS            (182)
 #define ADD_STATUS_EFF_JAW_LOCK                        (183)
 #define ADD_STATUS_EFF_TOXIC_THREAD                    (184)
-#define ADD_STATUS_EFF_MAKE_IT_RAIN	                   (185)
+#define ADD_STATUS_EFF_MAKE_IT_RAIN                    (185)
 #define ADD_STATUS_EFF_ATK_SP_ATK_SPEED_DOWN           (186)
 #define ADD_STATUS_EFF_ATK_SP_ATK_DOWN                 (187)
 #define ADD_STATUS_EFF_TAKE_HEART                      (188)
@@ -676,8 +683,16 @@
 #define ADD_STATUS_EFF_ADD_THIRD_TYPE_GHOST            (197)
 #define ADD_STATUS_EFF_CHANGE_TARGET_TO_PSYCHIC_TYPE   (198)
 #define ADD_STATUS_EFF_AURORA_VEIL                     (199)
+#define ADD_STATUS_EFF_STRENGTH_SAP                    (200)
+#define ADD_STATUS_EFF_HEAL_PULSE                      (201)
+#define ADD_STATUS_EFF_POLLEN_PUFF_HEAL                (202)
+#define ADD_STATUS_EFF_COACHING                        (203)
+#define ADD_STATUS_EFF_LIFE_DEW                        (204)
+#define ADD_STATUS_EFF_ENTRAINMENT                     (205)
+#define ADD_STATUS_EFF_HOWL                            (206)
+#define ADD_STATUS_EFF_DECORATE                        (207)
 
-#define MAX_BASE_SUBSCRIPT_PTR_NUM (199)
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (204)
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)

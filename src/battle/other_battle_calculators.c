@@ -2966,6 +2966,47 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
     return GetAdjustedMoveTypeBasics(ctx, moveNo, GetBattlerAbility(ctx, battlerId), type);
 }
 
+const u16 HealBlockUnusableMoves[] = {
+    MOVE_RECOVER,
+    MOVE_SOFT_BOILED,
+    MOVE_REST,
+    MOVE_MILK_DRINK,
+    MOVE_MORNING_SUN,
+    MOVE_SYNTHESIS,
+    MOVE_MOONLIGHT,
+    MOVE_SWALLOW,
+    MOVE_HEAL_ORDER,
+    MOVE_SLACK_OFF,
+    MOVE_ROOST,
+    MOVE_LUNAR_DANCE,
+    MOVE_HEALING_WISH,
+    MOVE_WISH,
+    MOVE_HEAL_PULSE,
+    MOVE_FLORAL_HEALING,
+    MOVE_LIFE_DEW,
+    MOVE_LUNAR_BLESSING,
+//  MOVE_POLLEN_PUFF, should be here but can also target enemies when heal blocked so 
+};
+
+BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId, int moveNo) {
+    int i;
+    BOOL ret = FALSE;
+
+    if (ctx->battlemon[battlerId].moveeffect.healBlockTurns) 
+    {
+        for (i = 0; i < NELEMS(HealBlockUnusableMoves); i++) 
+        {
+            if (HealBlockUnusableMoves[i] == moveNo) 
+            {
+                ret = TRUE;
+                break;
+            }
+        }
+    }
+
+    return ret;
+}
+
 u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u32 nonSelectableMoves, u32 struggleCheckFlags) {
     // u8 buf[64];
     // sprintf(buf, "In StruggleCheck\n");

@@ -535,3 +535,6 @@ arm9 PartyMenu_LearnMoveToSlot 0208254C 3
 #ifdef MART_EXPANSION
 arm9 ScrCmd_MartBuy 02048060 1
 #endif
+
+# expand heal blocked moves
+0012 BattleContext_CheckMoveHealBlocked 02252DF8 1

@@ -95,6 +95,8 @@ BOOL btl_scr_cmd_104_tryincinerate(void* bsys, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_105_addthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_108_strengthsapcalc(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -385,6 +387,8 @@ const u8 *BattleScrCmdNames[] =
     "AddThirdType",
     "TryAuroraVeil",
     "ClearAuroraVeil",
+    "StrengthSapCalc",
+    "CheckTargetIsPartner",
     // "YourCustomCommand",
 };
 
@@ -435,6 +439,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_addthirdtype,
     [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_tryauroraveil,
     [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_clearauroraveil,
+    [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_108_strengthsapcalc,
+    [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_109_checktargetispartner,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -3275,6 +3281,56 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleSt
         }
     }
 
+    return FALSE;
+}
+
+/**
+ *  @brief script command to calculate Strength Sap healing
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_108_strengthsapcalc(void* bw UNUSED, struct BattleStruct* sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    s32 damage;
+    u16 attack;
+    s8 atkstate;
+
+    attack = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_ATK, NULL);
+    atkstate = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_STATE_ATK, NULL);
+
+    damage = attack * StatBoostModifiers[atkstate][0];
+    damage /= StatBoostModifiers[atkstate][1];
+
+    sp->hp_calc_work = -damage;
+
+//    debug_printf("strengthsap: %d\n", damage);
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to check if the target is partner or not. 
+ *  used for pollen puff because TryHelpingHand has unique conditions built in
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    int adrs = read_battle_script_param(sp);
+    int defender = sp->defence_client;
+    int attacker = sp->attack_client;
+
+    if (defender == BATTLER_ALLY(attacker))
+    {
+        sp->battlerIdTemp = sp->defence_client; // corrects the full health msg
+        IncrementBattleScriptPtr(sp, adrs);
+    //    debug_printf("target is ally\n")
+    }
+    
     return FALSE;
 }
 
