@@ -169,4 +169,6 @@ struct TrainerMusic sTrainerEncounterMusicParam[] = // cues which music sequence
     {.class = TRAINERCLASS_EXECUTIVE_ARCHER, .music1 = SEQ_GS_EYE_ROCKET, .music2 = SEQ_GS_EYE_ROCKET},
     {.class = TRAINERCLASS_EXECUTIVE_PROTON, .music1 = SEQ_GS_EYE_ROCKET, .music2 = SEQ_GS_EYE_ROCKET},
     {.class = TRAINERCLASS_EXECUTIVE_PETREL, .music1 = SEQ_GS_EYE_ROCKET, .music2 = SEQ_GS_EYE_ROCKET},
+    {.class = TRAINERCLASS_BUG_CATCHER_F, .music1 = SEQ_GS_EYE_J_SHOUNEN, .music2 = SEQ_GS_EYE_J_SHOUNEN},
+    {.class = TRAINERCLASS_SHRINE_MAIDEN, .music1 = SEQ_GS_EYE_BOUZU, .music2 = SEQ_GS_EYE_BOUZU},
 };

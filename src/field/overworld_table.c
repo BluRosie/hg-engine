@@ -7,6 +7,7 @@
 #define OVERWORLD_SIZE_SMALL_NO_SHADOW 0x4E26
 #define OVERWORLD_SIZE_LARGE 0x5208
 
+
 /*
  *  if you would like to add new overworlds, go to
  *  https://ds-pokemon-hacking.github.io/docs/generation-iv/guides/hgss-new_overworlds/
@@ -1676,6 +1677,10 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     { .tag = 1795, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_IRON_CROWN
     { .tag = 1796, .gfx =  297, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TERAPAGOS
     { .tag = 1797, .gfx = 1547, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_PECHARUNT
+    NEW_NPC_ENTRY(0), // Bug Catcher F
+    NEW_NPC_ENTRY(1), // Shrine Maiden
+    NEW_NPC_ENTRY(2), // Rei
+    NEW_NPC_ENTRY(3), // Mystery Egg
     { 0xFFFF, 0, 0},
 };
 
