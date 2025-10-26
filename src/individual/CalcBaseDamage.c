@@ -315,6 +315,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     case MOVE_WATER_SPOUT:
         movepower = (150 * AttackingMon.hp) / AttackingMon.maxhp;
         break;
+    case MOVE_REVERSAL:
     case MOVE_FLAIL:
         p = (48 * AttackingMon.hp) / AttackingMon.maxhp;
         if (p >= 32) {
@@ -1096,6 +1097,9 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     if (moveno == MOVE_FOUL_PLAY) {
         AttackingMon.attack = DefendingMon.attack;
         AttackingMon.atkstate = DefendingMon.atkstate;
+    } else if (moveno == MOVE_BODY_PRESS) {
+        AttackingMon.attack = AttackingMon.defense;
+        AttackingMon.atkstate = AttackingMon.defstate;
     }
 
 #ifdef DEBUG_DAMAGE_CALC
