@@ -1161,7 +1161,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
         ST_ServerTotteokiCountCalc(bsys, ctx);              // 801B570h
     }
     ST_ServerMetronomeBeforeCheck(bsys, ctx);  // 801ED20h
-
+   
     return;
 }
 
@@ -2388,8 +2388,6 @@ BOOL BattleController_CheckAbilityFailures2(struct BattleSystem *bsys UNUSED, st
             ctx->battlemon[ctx->attack_client].effect_of_moves &= ~(MOVE_EFFECT_FLAG_SEMI_INVULNERABLE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
             ctx->battlerIdTemp = defender;
-            ctx->defence_client = defender;
-            ctx->defence_client_temp = defender;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, scriptNum);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
