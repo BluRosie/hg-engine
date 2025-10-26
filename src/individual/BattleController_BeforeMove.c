@@ -1161,7 +1161,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
         ST_ServerTotteokiCountCalc(bsys, ctx);              // 801B570h
     }
     ST_ServerMetronomeBeforeCheck(bsys, ctx);  // 801ED20h
-   
+
     return;
 }
 

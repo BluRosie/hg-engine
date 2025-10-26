@@ -3640,7 +3640,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
         }\
     }\
     ctx->clientLoopForSpreadMoves = 0;\
-    }
+}
 
 // if all clients fail, then print fail message, otherwise no message is shown
 #define LoopCheckFunctionForSpreadMove_StatFailureSuccessCheck(bsys, ctx, functionToBeCalled) \
@@ -3720,7 +3720,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
         }\
     }\
     ctx->clientLoopForSpreadMoves = 0;\
-    }
+}
 
 // if it's a spread move, same as above, otherwise go straight to effect and have statbuffchange do the fail message stuff instead
 #define LoopCheckFunctionForSpreadMove_StatFailureSuccessCheck_StatChanges(bsys, ctx, functionToBeCalled) \
@@ -3808,7 +3808,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
         }\
     }\
     ctx->clientLoopForSpreadMoves = 0;\
-    }
+}
 
 #define LoopCheckFunctionForSpreadMove_RawSpeedWithNonRNGTie(bsys, ctx, functionToBeCalled) \
 {\
