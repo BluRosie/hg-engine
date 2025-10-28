@@ -1519,7 +1519,7 @@ trainerdata 24, "Valente"
         item ITEM_TERRAIN_EXTENDER
         move MOVE_SPIKES
         move MOVE_TOXIC_SPIKES
-        move MOVE_DISCHARGE
+        move MOVE_THUNDER
         move MOVE_MEMENTO
         ability ABILITY_ELECTRIC_SURGE
         ball ITEM_POKE_BALL
