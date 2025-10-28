@@ -1376,6 +1376,8 @@
 #define SEQ_2379                             2379
 #define SEQ_2380                             2380
 #define SEQ_2381                             2381
+#define SEQ_2382                             2382
+#define SEQ_2383                             2383
 
 //Sounds marked BANK, WAVE, PLAYER, GROUP not ported over from pokeheartgold/include/constants/sndseq.h
 
@@ -1425,6 +1427,7 @@ enum {
     ANIM_MUSIC_COMBO_JOHTO_WILD_THEME,
     ANIM_MUSIC_COMBO_KIMONO_GIRL,
     ANIM_MUSIC_COMBO_RED,
+    ANIM_MUSIC_COMBO_ELDER,
 };
 
 #endif //POKEHEARTGOLD_CONSTANTS_SNDSEQ_H

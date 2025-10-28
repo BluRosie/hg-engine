@@ -3324,9 +3324,9 @@ trainerdata 64, "Ian"
         ballseal 0
     endparty
 
-trainerdata 65, "Gina"
+trainerdata 65, "Yuuka"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_PICNICKER
+    trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -3612,9 +3612,9 @@ trainerdata 73, "Theo"
         ballseal 0
     endparty
 
-trainerdata 74, "Ivan"
+trainerdata 74, "Momiji"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_CAMPER
+    trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
