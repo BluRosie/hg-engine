@@ -2844,7 +2844,7 @@ movedata MOVE_CONVERSION_2, "Conversion 2"
 movedata MOVE_AEROBLAST, "Aeroblast"
     battleeffect MOVE_EFFECT_HIGH_CRITICAL
     pss SPLIT_SPECIAL
-    basepower 100
+    basepower 120
     type TYPE_FLYING
     accuracy 100
     pp 5
@@ -3082,11 +3082,11 @@ movedata MOVE_SPIKES, "Spikes"
     movedescription MOVE_SPIKES, "The user lays a trap\nof spikes at the\nfoe’s feet. The trap\nhurts foes that\nswitch into battle."
 
 movedata MOVE_ZAP_CANNON, "Zap Cannon"
-    battleeffect MOVE_EFFECT_PARALYZE_HIT
+    battleeffect MOVE_EFFECT_RECOIL_PARALYZE_HIT
     pss SPLIT_SPECIAL
-    basepower 120
+    basepower 150
     type TYPE_ELECTRIC
-    accuracy 50
+    accuracy 100
     pp 5
     effectchance 100
     target RANGE_SINGLE_TARGET
