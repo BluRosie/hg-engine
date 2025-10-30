@@ -8292,7 +8292,7 @@ movedata MOVE_RETALIATE, "Retaliate"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -9836,7 +9836,7 @@ movedata MOVE_HOLD_BACK, "Hold Back"
     movedescription MOVE_HOLD_BACK, "The user holds back\nwhen it attacks, and\nthe target is left\nwith at least 1 HP."
 
 movedata MOVE_INFESTATION, "Infestation"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_BIND_HIT
     pss SPLIT_SPECIAL
     basepower 20
     type TYPE_BUG
@@ -9845,7 +9845,7 @@ movedata MOVE_INFESTATION, "Infestation"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

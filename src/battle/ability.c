@@ -272,11 +272,11 @@ BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int va
 u8 LONG_CALL BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
 {
     u16 stats[] = {
-            sp->battlemon[client].speed,
-            sp->battlemon[client].spdef,
-            sp->battlemon[client].spatk,
-            sp->battlemon[client].defense,
-            sp->battlemon[client].attack
+        sp->battlemon[client].attack,
+        sp->battlemon[client].defense,
+        sp->battlemon[client].speed,
+        sp->battlemon[client].spatk, 
+        sp->battlemon[client].spdef
     };
 
     u8 max = 0;
