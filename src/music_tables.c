@@ -54,6 +54,7 @@ u16 MainMusicComboTable[][2] =
     [ANIM_MUSIC_COMBO_RED] = {0x2E, SEQ_GS_VS_CHAMP},
     // (***END OF VANILLA ENTRIES***)
     [ANIM_MUSIC_COMBO_ELDER] = {0xFFFF, SEQ_2382},
+    [ANIM_MUSIC_COMBO_BUCK] = {0xFFFF, SEQ_2384},
 };
 
 // format is one byte for trainer class, then one byte for combo (combo increments by 4 because each combo is four bytes long)
@@ -94,6 +95,7 @@ u8 TrainerClassToMusicCombo[][2] =
     {TRAINERCLASS_PKMN_TRAINER_RED, ANIM_MUSIC_COMBO_RED*4},
     // (***END OF VANILLA ENTRIES***)
     {TRAINERCLASS_ELDER, ANIM_MUSIC_COMBO_ELDER*4},
+    {TRAINERCLASS_PKMN_TRAINER_BUCK, ANIM_MUSIC_COMBO_BUCK*4},
 };
 
 struct MonBattleMusic

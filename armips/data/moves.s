@@ -1534,7 +1534,7 @@ movedata MOVE_HYPNOSIS, "Hypnosis"
     pss SPLIT_STATUS
     basepower 0
     type TYPE_PSYCHIC
-    accuracy 60
+    accuracy 80
     pp 20
     effectchance 0
     target RANGE_SINGLE_TARGET
@@ -3710,7 +3710,7 @@ movedata MOVE_IRON_TAIL, "Iron Tail"
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_STEEL
-    accuracy 85
+    accuracy 100
     pp 15
     effectchance 30
     target RANGE_SINGLE_TARGET
@@ -7116,7 +7116,7 @@ movedata MOVE_MAGNET_BOMB, "Magnet Bomb"
 movedata MOVE_STONE_EDGE, "Stone Edge"
     battleeffect MOVE_EFFECT_HIGH_CRITICAL
     pss SPLIT_PHYSICAL
-    basepower 90
+    basepower 95
     type TYPE_ROCK
     accuracy 100
     pp 5
