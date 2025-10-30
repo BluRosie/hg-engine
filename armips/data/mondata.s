@@ -2095,7 +2095,7 @@ mondata SPECIES_KRABBY, "Krabby"
 
 mondata SPECIES_KINGLER, "Kingler"
     basestats 55, 130, 115, 75, 50, 50
-    types TYPE_WATER, TYPE_WATER
+    types TYPE_WATER, TYPE_STEEL
     catchrate 60
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0
