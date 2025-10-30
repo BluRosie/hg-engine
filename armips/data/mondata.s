@@ -4909,7 +4909,7 @@ mondata SPECIES_DONPHAN, "Donphan"
 
 mondata SPECIES_PORYGON2, "Porygon2"
     basestats 85, 80, 90, 60, 105, 95
-    types TYPE_NORMAL, TYPE_NORMAL
+    types TYPE_NORMAL, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0

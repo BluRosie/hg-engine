@@ -3122,7 +3122,7 @@ trainerdata 60, "Riad"
     endparty
 
 trainerdata 61, "Remy"
-    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK 
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS 
     trainerclass TRAINERCLASS_SUPER_NERD
     nummons 5
     item ITEM_NONE
@@ -3150,6 +3150,8 @@ trainerdata 61, "Remy"
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
+        additionalflags TRAINER_DATA_EXTRA_TYPE_STATUS
+        status 16           
         ballseal 0
 
         // mon 1
@@ -3168,6 +3170,7 @@ trainerdata 61, "Remy"
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
+        additionalflags 0       
         ballseal 0
 
         // mon 2
@@ -3186,6 +3189,7 @@ trainerdata 61, "Remy"
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_HASTY
         shinylock 0
+        additionalflags 0    
         ballseal 0
 
         // mon 3
@@ -3204,6 +3208,7 @@ trainerdata 61, "Remy"
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
+        additionalflags 0    
         ballseal 0
 
         // mon 4
@@ -3222,6 +3227,7 @@ trainerdata 61, "Remy"
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0 // mon will be forced shiny
+        additionalflags 0    
         ballseal 0
     endparty
 

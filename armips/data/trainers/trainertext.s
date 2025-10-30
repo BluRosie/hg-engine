@@ -106,6 +106,11 @@ _0000: // Trainer 0
        // Trainer 709
        // Trainer 710
        // Trainer 711
+
+    trainertextentry  11, TEXT_NOTICE_IN_OVERWORLD, "You shouldn’t let your guard down just\n’cause I don’t look tough!\r"
+    trainertextentry  11, TEXT_DEFEATED_IN_BATTLE, "Gosh...\nI thought you were weak...\n"
+    trainertextentry  11, TEXT_DEFEATED_IN_OVERWORLD, "Who do you think are stronger--\nboys or girls?\n"
+       
     trainertextentry 495, TEXT_LAST_MON_CRITICAL, "...Humph!\nYou’re doing OK for someone weak.\n"
     trainertextentry 495, TEXT_DEFEATED_IN_BATTLE, "...Humph!\nAre you happy you won?\n"
     trainertextentry 495, TEXT_PLAYER_LOSES, "...Humph!\nThat was a waste of time.\n"
