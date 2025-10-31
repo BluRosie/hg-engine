@@ -47446,7 +47446,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_WATER_PULSE"
+        "Move": "MOVE_TICKLE"
       },
       {
         "Level": 1,
@@ -47470,7 +47470,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_WATER_SPORT"
+        "Move": "MOVE_MIRROR_COAT"
       },
       {
         "Level": 1,
@@ -47486,7 +47486,7 @@
       },
       {
         "Level": 7,
-        "Move": "MOVE_REFRESH"
+        "Move": "MOVE_WEATHER_BALL"
       },
       {
         "Level": 10,
@@ -47534,17 +47534,17 @@
       },
       {
         "Level": 45,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_CHARM"
       },
       {
         "Level": 48,
-        "Move": "MOVE_HYDRO_PUMP"
+        "Move": "MOVE_ALLURING_VOICE"
       }
     ],
     "MachineMoves": [
       "MOVE_ATTRACT",
       "MOVE_AVALANCHE",
-      "MOVE_BLIZZARD",
+      "MOVE_ICY_WIND",
       "MOVE_BRINE",
       "MOVE_CAPTIVATE",
       "MOVE_DOUBLE_TEAM",
@@ -47552,8 +47552,8 @@
       "MOVE_ENDURE",
       "MOVE_FACADE",
       "MOVE_FRUSTRATION",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HAIL",
+      "MOVE_FLIP_TURN",
+      "MOVE_DAZZLING_GLEAM",
       "MOVE_HIDDEN_POWER",
       "MOVE_HYPER_BEAM",
       "MOVE_ICE_BEAM",
@@ -47562,7 +47562,7 @@
       "MOVE_NATURAL_GIFT",
       "MOVE_PROTECT",
       "MOVE_PSYCH_UP",
-      "MOVE_RAIN_DANCE",
+      "MOVE_SCALD",
       "MOVE_REST",
       "MOVE_RETURN",
       "MOVE_SAFEGUARD",

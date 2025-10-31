@@ -2311,7 +2311,7 @@ movedata MOVE_SKY_ATTACK, "Sky Attack"
     appeal 0x06
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_SKY_ATTACK, "A second-turn attack\nmove with a high\ncritical-hit ratio.\nIt may also make the\ntarget flinch."
+    movedescription MOVE_SKY_ATTACK, "A second-turn attack\nmove with a high\ncritical-hit ratio.\nThe user also takes\nterrible damage."
 
 movedata MOVE_TRANSFORM, "Transform"
     battleeffect MOVE_EFFECT_TRANSFORM
@@ -3095,7 +3095,7 @@ movedata MOVE_ZAP_CANNON, "Zap Cannon"
     appeal 0x04
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_ZAP_CANNON, "The user fires an\nelectric blast like a\ncannon to inflict\ndamage and cause\nparalysis."
+    movedescription MOVE_ZAP_CANNON, "The user fires an\nelectric blast like a\ncannon to inflict\ndamage and cause\nparalysis.\nThe user also takes\nserious damage."
 
 movedata MOVE_FORESIGHT, "Foresight"
     battleeffect MOVE_EFFECT_IGNORE_EVASION_REMOVE_GHOST_IMMUNE
@@ -3607,7 +3607,7 @@ movedata MOVE_MEGAHORN, "Megahorn"
     appeal 0x12
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_MEGAHORN, "Using its tough\nand impressive\nhorn, the user\nrams into the foe \nwith no letup.\n"
+    movedescription MOVE_MEGAHORN, "Using its tough\nand impressive\nhorn, the user\nrams into the foe \nwith no letup.\nThe user also takes\nserious damage."
 
 movedata MOVE_DRAGON_BREATH, "Dragon Breath"
     battleeffect MOVE_EFFECT_PARALYZE_HIT
@@ -4439,7 +4439,7 @@ movedata MOVE_SUPERPOWER, "Superpower"
     appeal 0x12
     contesttype CONTEST_TOUGH
     terminatedata
-    movedescription MOVE_SUPERPOWER, "The user attacks the\nfoe with great power.\nHowever, it also\nlowers the user’s\nAttack and Defense."
+    movedescription MOVE_SUPERPOWER, "The user attacks the\nfoe with great power.\nThe user also takes\nserious damage."
 
 movedata MOVE_MAGIC_COAT, "Magic Coat"
     battleeffect MOVE_EFFECT_MAGIC_COAT
@@ -4935,7 +4935,7 @@ movedata MOVE_BLAST_BURN, "Blast Burn"
     appeal 0x16
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_BLAST_BURN, "The foe is razed by\na fiery explosion.\nThe user must rest\non the next turn,\nhowever."
+    movedescription MOVE_BLAST_BURN, "The foe is razed by\na fiery explosion.\nThe user also takes\nterrible damage."
 
 movedata MOVE_HYDRO_CANNON, "Hydro Cannon"
     battleeffect MOVE_EFFECT_RECOIL_HALF
@@ -4951,7 +4951,7 @@ movedata MOVE_HYDRO_CANNON, "Hydro Cannon"
     appeal 0x16
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_HYDRO_CANNON, "The foe is hit with\na watery blast.\nThe user must rest\non the next turn,\nhowever."
+    movedescription MOVE_HYDRO_CANNON, "The foe is hit with\na watery blast.\nThe user also takes\nterrible damage."
 
 movedata MOVE_METEOR_MASH, "Meteor Mash"
     battleeffect MOVE_EFFECT_RAISE_ATTACK_HIT
@@ -5063,7 +5063,7 @@ movedata MOVE_OVERHEAT, "Overheat"
     appeal 0x16
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_OVERHEAT, "The user attacks the\nfoe at full power.\nThe attack’s recoil\nsharply reduces the\nuser’s Sp. Atk stat."
+    movedescription MOVE_OVERHEAT, "The user attacks the\nfoe at full power.\nIt also damages the\nuser by a fairly large\namount, however."
 
 movedata MOVE_ODOR_SLEUTH, "Odor Sleuth"
     battleeffect MOVE_EFFECT_IGNORE_EVASION_REMOVE_GHOST_IMMUNE
@@ -5431,7 +5431,7 @@ movedata MOVE_FRENZY_PLANT, "Frenzy Plant"
     appeal 0x16
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_FRENZY_PLANT, "The foe is slammed\nwith an enormous\ntree.\nThe user can’t move\non the next turn."
+    movedescription MOVE_FRENZY_PLANT, "The foe is slammed\nwith an enormous\ntree.\nThe user also takes\nterrible damage."
 
 movedata MOVE_BULK_UP, "Bulk Up"
     battleeffect MOVE_EFFECT_ATK_DEF_UP
@@ -5687,7 +5687,7 @@ movedata MOVE_PSYCHO_BOOST, "Psycho Boost"
     appeal 0x16
     contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_PSYCHO_BOOST, "The user attacks the\nfoe at full power.\nThe attack’s recoil\nsharply reduces the\nuser’s Sp. Atk stat."
+    movedescription MOVE_PSYCHO_BOOST, "The user attacks the\nfoe at full power.\nThe user also takes\nterrible damage."
 
 movedata MOVE_ROOST, "Roost"
     battleeffect MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE
@@ -6599,7 +6599,7 @@ movedata MOVE_FOCUS_BLAST, "Focus Blast"
     appeal 0x11
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_FOCUS_BLAST, "The user heightens\nits mental focus and\nunleashes its power.\nIt may also lower the\ntarget’s Sp. Def."
+    movedescription MOVE_FOCUS_BLAST, "The user heightens\nits mental focus and\nunleashes its power.\nThe user also takes\nserious damage."
 
 movedata MOVE_ENERGY_BALL, "Energy Ball"
     battleeffect MOVE_EFFECT_LOWER_SP_DEF_HIT
@@ -6967,7 +6967,7 @@ movedata MOVE_DRACO_METEOR, "Draco Meteor"
     appeal 0x16
     contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_DRACO_METEOR, "Comets are summoned\ndown from the sky.\nThe attack’s recoil\nsharply reduces the\nuser’s Sp. Atk stat."
+    movedescription MOVE_DRACO_METEOR, "Comets are summoned\ndown from the sky.\nIt also damages the\nuser by a fairly large\namount, however."
 
 movedata MOVE_DISCHARGE, "Discharge"
     battleeffect MOVE_EFFECT_PARALYZE_HIT
@@ -7015,7 +7015,7 @@ movedata MOVE_LEAF_STORM, "Leaf Storm"
     appeal 0x16
     contesttype CONTEST_CUTE
     terminatedata
-    movedescription MOVE_LEAF_STORM, "A storm of sharp\nleaves is whipped up.\nThe attack’s recoil\nsharply reduces the\nuser’s Sp. Atk stat."
+    movedescription MOVE_LEAF_STORM, "A storm of sharp\nleaves is whipped up.\nIt also damages the\nuser by a fairly large\namount, however."
 
 movedata MOVE_POWER_WHIP, "Power Whip"
     battleeffect MOVE_EFFECT_RECOIL_THIRD
@@ -7031,7 +7031,7 @@ movedata MOVE_POWER_WHIP, "Power Whip"
     appeal 0x05
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_POWER_WHIP, "The user violently\nwhirls its vines or\ntentacles to harshly\nlash the foe.\n"
+    movedescription MOVE_POWER_WHIP, "The user violently\nwhirls its vines or\ntentacles to harshly\nlash the foe.\nThe user also takes\nserious damage."
 
 movedata MOVE_ROCK_WRECKER, "Rock Wrecker"
     battleeffect MOVE_EFFECT_RECOIL_HALF
@@ -7047,7 +7047,7 @@ movedata MOVE_ROCK_WRECKER, "Rock Wrecker"
     appeal 0x16
     contesttype CONTEST_TOUGH
     terminatedata
-    movedescription MOVE_ROCK_WRECKER, "The user launches a\nhuge boulder at the\nfoe to attack.\nIt must rest on the\nnext turn, however."
+    movedescription MOVE_ROCK_WRECKER, "The user launches a\nhuge boulder at the\nfoe to attack.\nThe user also takes\nterrible damage."
 
 movedata MOVE_CROSS_POISON, "Cross Poison"
     battleeffect MOVE_EFFECT_HIGH_CRITICAL_POISON_HIT
@@ -7079,7 +7079,7 @@ movedata MOVE_GUNK_SHOT, "Gunk Shot"
     appeal 0x05
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_GUNK_SHOT, "The user shoots\nfilthy garbage at the\nfoe to attack.\nIt may also poison\nthe target."
+    movedescription MOVE_GUNK_SHOT, "The user shoots\nfilthy garbage at the\nfoe to attack.\nThe user also takes\nserious damage."
 
 movedata MOVE_IRON_HEAD, "Iron Head"
     battleeffect MOVE_EFFECT_FLINCH_HIT
@@ -13479,7 +13479,7 @@ movedata MOVE_HEADLONG_RUSH, "Headlong Rush"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_HEADLONG_RUSH, "The user smashes into\nthe target in a\nfull-body tackle. This\nalso lowers the user’s\nDefense and Sp. Def."
+    movedescription MOVE_HEADLONG_RUSH, "The user smashes into\nthe target in a\nfull-body tackle. \nThe user also takes\nserious damage."
 
 movedata MOVE_BARB_BARRAGE, "Barb Barrage"
     battleeffect MOVE_EFFECT_POISON_HIT_DOUBLE_POWER_ON_POISONED

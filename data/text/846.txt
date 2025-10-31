@@ -54,107 +54,107 @@ A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nmodera
 A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nlarge number of Exp. Points.
 A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nvery large number of Exp. Points.
 A candy that is packed with energy.\nIf consumed, it raises the Dynamax\nLevel of a Pokémon by one. A higher\rlevel means higher HP when\nDynamaxed.
-A frenetic dance to uplift the\nfighting spirit. This sharply raises\nthe user’s Attack stat.
-The user drops onto the target with\nits full body weight. This may also\nleave the target with paralysis.
-The target is scorched with an\nintense blast of fire. This may also\nleave the target with a burn.
-The target is blasted by a huge\nvolume of water launched under great\npressure.
-The user attacks everything around\nit by swamping its surroundings with\na giant wave.
-The target is struck with an\nicy-cold beam of energy. This may\nalso leave the target frozen.
-A howling blizzard is summoned to\nstrike opposing Pokémon. This may\nalso leave the opposing Pokémon\rfrozen.
-A powerful low kick that makes the\ntarget fall over. The heavier the\ntarget, the greater the move’s\rpower.
-A strong electric blast crashes down\non the target. This may also leave\nthe target with paralysis.
-A wicked thunderbolt is dropped on\nthe target to inflict damage. This\nmay also leave the target with\rparalysis.
-The user sets off an earthquake that\nstrikes every Pokémon around it.
-The target is hit by a strong\ntelekinetic force. This may also\nlower the target’s Sp. Def stat.
-The user relaxes and lightens its\nbody to move faster. This sharply\nraises the Speed stat.
-The user takes a deep breath and\nfocuses so that critical hits land\nmore easily.
-The user waggles a finger and\nstimulates its brain into randomly\nusing nearly any move.
-The target is attacked with an\nintense blast of all-consuming fire.\nThis may also leave the target with\ra burn.
-The user charges at the target and\nmay make it flinch.
-The user temporarily empties its\nmind to forget its concerns. This\nsharply raises the user’s Sp. Def\rstat.
-The user drains the target’s blood.\nThe user’s HP is restored by half\nthe damage taken by the target.
-The user strikes with a simultaneous\nthree-beam attack. This may also\nburn, freeze, or paralyze the\rtarget.
-The user creates a substitute for\nitself using some of its own HP. The\nsubstitute serves as the user’s\rdecoy.
+A frenetic dance to uplift the\nfighting spirit. It sharply raises\nthe user’s Attack stat.
+The user drops onto the foe with its\nfull body weight. It may leave the\nfoe paralyzed.
+The foe is scorched with an intense\nblast of fire. The target may also\nbe left with a burn.
+The foe is blasted by a huge volume\nof water launched under great\npressure.
+It swamps the entire battlefield\nwith a giant wave. It can also be\nused for crossing water.
+The foe is struck with an icy-cold\nbeam of energy. It may also freeze\nthe target solid.
+A howling blizzard is summoned to\nstrike the foe. It may also freeze\nthe target solid.
+A powerful low kick that makes the\nfoe fall over. It inflicts greater\ndamage on heavier foes.
+A strong electric blast is loosed at\nthe foe. It may also leave the foe\nparalyzed.
+A wicked thunderbolt is dropped on\nthe foe to inflict damage. It may\nalso leave the target paralyzed.
+The user sets off an earthquake that\nhits all the Pokémon in the battle.
+The foe is hit by a strong\ntelekinetic force. It may also\nreduce the foe’s Sp. Def stat.
+The user relaxes and lightens its\nbody to move faster. It sharply\nboosts the Speed stat.
+The user takes a deep breath and\nfocuses to raise the critical-hit\nratio of its attacks.
+The user waggles a finger and\nstimulates the brain into randomly\nusing nearly any move.
+The foe is attacked with an intense\nblast of all-consuming fire. It may\nalso leave the target with a burn.
+The user charges at the foe rapidly,\nand may make it flinch. It can also\nbe used to climb a waterfall.
+The user temporarily empties its\nmind to forget its concerns. It\nsharply raises the user’s Sp. Def\rstat.
+A blood-draining attack. The user’s\nHP is restored by half the damage\ntaken by the target.
+The user strikes with a simultaneous\nthree- beam attack. May also\nparalyze, burn, or freeze the\rtarget.
+The user makes a copy of itself\nusing some of its HP. The copy\nserves as the user’s decoy.
 An all-out attack that becomes more\npowerful the less HP the user has.
-Unsanitary sludge is hurled at the\ntarget. This may also poison the\ntarget.
-The user lays a trap of spikes at\nthe opposing team’s feet. The trap\nhurts Pokémon that switch into\rbattle.
-The user rampages and attacks for\ntwo to three turns. The user then\nbecomes confused.
-The user materializes an odd psychic\nwave to attack the target. This\nattack does physical damage.
+The user attacks by hurling filthy\nsludge at the foe. It may also\npoison the target.
+The user lays a trap of spikes at\nthe foe’s feet. The trap hurts foes\nthat switch into battle.
+The user rampages and attacks for\ntwo to three turns. However, it then\nbecomes confused.
+An odd psychic wave attacks the\ntarget. This attack does physical\ndamage.
 The user endures any attack with at\nleast 1 HP. Its chance of failing\nrises if it is used in succession.
 While it is asleep, the user\nrandomly uses one of the moves it\nknows.
-Using its tough and impressive horn,\nthe user rams into the target with\nno letup.
-The user switches places with a\nparty Pokémon in waiting and passes\nalong any stat changes.
-The user compels the target to keep\nusing the move it encored for three\nturns.
-The target is slammed with a\nsteel-hard tail. This may also lower\nthe target’s Defense stat.
-The user crunches up the target with\nsharp fangs. This may also lower the\ntarget’s Defense stat.
-The user hurls a shadowy blob at the\ntarget. This may also lower the\ntarget’s Sp. Def stat.
-Two turns after this move is used, a\nhunk of psychic energy attacks the\ntarget.
-The user attacks in an uproar for\nthree turns. During that time, no\nPokémon can fall asleep.
-The user attacks by exhaling hot\nbreath on opposing Pokémon. This may\nalso leave those Pokémon with a\rburn.
-The target is taunted into a rage\nthat allows it to use only attack\nmoves for three turns.
-The user catches the target off\nguard and swaps its held item with\nits own.
-The user attacks the target with\ngreat power. However, this also\nlowers the user’s Attack and Defense\rstats.
-The user employs its psychic power\nto exchange Abilities with the\ntarget.
-The user launches a kick that lands\na critical hit more easily. This may\nalso leave the target with a burn.
+Using its tough and impressive horn,\nthe user rams into the foe  with no\nletup. The user also takes serious\rdamage.
+The user switches places with a\nparty Pokémon in waiting, passing\nalong any stat changes.
+The user compels the foe to keep\nusing only the move it last used for\nthree to seven turns.
+The foe is slammed with a steel-hard\ntail. It may also lower the target’s\nDefense stat.
+The user crunches up the foe with\nsharp fangs. It may also lower the\ntarget’s Defense stat.
+The user hurls a shadowy blob at the\nfoe. It may also lower the foe’s Sp.\nDef stat.
+Two turns after this move is used,\nthe foe is attacked with a hunk of\npsychic energy.
+The user attacks in an uproar for\ntwo to five turns. Over that time,\nno one can fall asleep.
+The user exhales a heated breath on\nthe foe to attack. It may also leave\nthe target with a burn.
+The foe is taunted into a rage that\nallows it to use only attack moves\nfor two to four turns.
+The user catches the foe off guard\nand swaps the foe’s held item with\nits own.
+The user attacks the foe with great\npower. The user also takes serious\ndamage.
+The user employs its psychic power\nto exchange abilities with the foe.
+The user launches a kick with a high\ncritical-hit ratio. It may also\nleave the target with a burn.
 The user lets loose a horribly\nechoing shout with the power to\ninflict damage.
-The user attacks the target at full\npower. The attack’s recoil harshly\nlowers the user’s Sp. Atk stat.
+The user attacks the foe at full\npower. It also damages the user by a\nfairly large amount, however.
 The user absorbs a mystical power\nfrom space to raise its Defense and\nSp. Def stats.
-The user attacks by shooting muddy\nwater at opposing Pokémon. This may\nalso lower their accuracy.
+The user attacks by shooting out\nmuddy water. It may also lower the\nfoe’s accuracy.
 The user hardens its body’s surface\nlike iron, sharply raising its\nDefense stat.
-The user slashes the target with\nhuge sharp claws.
-The user tenses its muscles to bulk\nup its body, raising both its Attack\nand Defense stats.
+The user slashes the foe with huge,\nsharp claws.
+The user tenses its muscles to bulk\nup its body, boosting both its\nAttack and Defense stats.
 The user quietly focuses its mind\nand calms its spirit to raise its\nSp. Atk and Sp. Def stats.
-The user handles a sharp leaf like a\nsword and attacks by cutting its\ntarget. Critical hits land more\reasily.
-The user vigorously performs a\nmystic, powerful dance that raises\nits Attack and Speed stats.
-The user tackles the target with a\nhigh-speed spin. The slower the user\ncompared to the target, the greater\rthe move’s power.
-The user fights the target up close\nwithout guarding itself. This also\nlowers the user’s Defense and Sp.\rDef stats.
-The user lays a trap of poison\nspikes at the feet of the opposing\nteam. The spikes will poison\ropposing Pokémon that switch into\nbattle.
-The user cloaks itself in fire and\ncharges the target. This also\ndamages the user quite a lot. This\rattack may leave the target with a\nburn.
-The user lets loose a blast of aura\npower from deep within its body at\nthe target. This attack never\rmisses.
-The target is stabbed with a\ntentacle, arm, or the like steeped\nin poison. This may also poison the\rtarget.
-The user releases a horrible aura\nimbued with dark thoughts. This may\nalso make the target flinch.
-The user slams a barrage of\nhard-shelled seeds down on the\ntarget from above.
-The user slashes at the target by\ncrossing its scythes or claws as if\nthey were a pair of scissors.
-The user generates a damaging sound\nwave by vibration. This may also\nlower the target’s Sp. Def stat.
-The target is attacked with a shock\nwave generated by the user’s gaping\nmouth.
+The foe is slashed with a sharp\nleaf. It has a high critical-hit\nratio.
+The user vigorously performs a\nmystic, powerful dance that boosts\nits Attack and Speed stats.
+The user tackles the foe with a\nhigh-speed spin. The slower the\nuser, the greater the damage.
+The user fights the foe up close\nwithout guarding itself. It also\ncuts the user’s Defense and Sp. Def.
+The user lays a trap of poison\nspikes at the foe’s feet. They\npoison foes that switch into battle.
+The user cloaks itself in fire and\ncharges at the foe. The user\nsustains serious damage, too.
+The user looses a blast of aura\npower from deep within its body.\nThis move is certain to hit.
+The foe is stabbed with a tentacle\nor arm steeped in poison. It may\nalso poison the foe.
+The user releases a horrible aura\nimbued with dark thoughts. It may\nalso make the target flinch.
+The user slams a barrage of hard-\nshelled seeds down on the foe from\nabove.
+The user slashes at the foe by\ncrossing its scythes or claws as if\nthey were a pair of scissors.
+The user vibrates its wings to\ngenerate a damaging sound wave. It\nmay also lower the foe’s Sp. Def\rstat.
+The foe is attacked with a shock\nwave generated by the user’s gaping\nmouth.
 The user attacks with a ray of light\nthat sparkles as if it were made of\ngemstones.
-The user heightens its mental focus\nand unleashes its power. This may\nalso lower the target’s Sp. Def\rstat.
-The user draws power from nature and\nfires it at the target. This may\nalso lower the target’s Sp. Def\rstat.
-The user tucks in its wings and\ncharges from a low altitude. This\nalso damages the user quite a lot.
-The user makes the ground under the\ntarget erupt with power. This may\nalso lower the target’s Sp. Def\rstat.
-The user stimulates its brain by\nthinking bad thoughts. This sharply\nraises the user’s Sp. Atk stat.
-The user focuses its willpower to\nits head and attacks the target.\nThis may also make the target\rflinch.
-The user gathers all its light\nenergy and releases it all at once.\nThis may also lower the target’s Sp.\rDef stat.
-The user whips up a storm of leaves\naround the target. The attack’s\nrecoil harshly lowers the user’s Sp.\rAtk stat.
-The user violently whirls its vines,\ntentacles, or the like to harshly\nlash the target.
-The user shoots filthy garbage at\nthe target to attack. This may also\npoison the target.
-The user slams the target with its\nsteel-hard head. This may also make\nthe target flinch.
-The user stabs the target from below\nwith sharpened stones. Critical hits\nland more easily.
-The user lays a trap of levitating\nstones around the opposing team. The\ntrap hurts opposing Pokémon that\rswitch into battle.
-The user snares the target with\ngrass and trips it. The heavier the\ntarget, the greater the move’s\rpower.
-The user strikes everything around\nit by swamping the area with a giant\nsludge wave. This may also poison\rthose hit.
-The user slams into the target with\nits heavy body. The more the user\noutweighs the target, the greater\rthe move’s power.
-The user hurls an electric orb at\nthe target. The faster the user is\nthan the target, the greater the\rmove’s power.
-The user turns the target’s power\nagainst it. The higher the target’s\nAttack stat, the greater the damage\rit deals.
-The user attacks the target with\nstored power. The more the user’s\nstats are raised, the greater the\rmove’s power.
+The user heightens its mental focus\nand unleashes its power. The user\nalso takes serious damage.
+The user draws power from nature and\nfires it at the foe. It may also\nlower the target’s Sp. Def.
+The user tucks in its wings and\ncharges from a low altitude. The\nuser also takes serious damage.
+The user makes the ground under the\nfoe erupt with power. It may also\nlower the target’s Sp. Def.
+The user stimulates its brain by\nthinking bad thoughts. It sharply\nraises the user’s Sp. Atk.
+The user focuses its willpower to\nits head and rams the foe. It may\nalso make the target flinch.
+The user gathers all its light\nenergy and releases it at once. It\nmay also lower the foe’s Sp. Def\rstat.
+A storm of sharp leaves is whipped\nup. It also damages the user by a\nfairly large amount, however.
+The user violently whirls its vines\nor tentacles to harshly lash the\nfoe. The user also takes serious\rdamage.
+The user shoots filthy garbage at\nthe foe to attack. The user also\ntakes serious damage.
+The foe slams the target with its\nsteel-hard head. It may also make\nthe target flinch.
+The user stabs the foe with a\nsharpened stone. It has a high\ncritical-hit ratio.
+The user lays a trap of levitating\nstones around the foe. The trap\nhurts foes that switch into battle.
+The user snares the foe with grass\nand trips it. The heavier the foe,\nthe greater the damage.
+The area around the user is swamped\nby a giant sludge wave. It may also\npoison those hit.
+The user slams into the target. The\ngreater the weight difference, the\ngreater the damage.
+The user hurls an electric orb. The\nfaster the user is than the foe, the\ngreater the damage.
+The user turns the target’s power\nagainst it. Power increases with the\nfoe’s Attack stat.
+The user attacks with a stored power\nthat grows with each raised stat.
 The user teleports using a strange\npower and switches places with one\nof its allies.
-The user shoots boiling hot water at\nits target. This may also leave the\ntarget with a burn.
-The user is roused, and its Attack\nand Sp. Atk stats increase.
-The user shrouds itself in\nelectricity and smashes into its\ntarget. This also damages the user a\rlittle.
-The user crashes into its target\nwhile rotating its body like a\ndrill. Critical hits land more\reasily.
-The user slams its target with its\nflame-covered body. The more the\nuser outweighs the target, the\rgreater the move’s power.
-The user attacks by wrapping its\nopponent in a fierce wind that flies\nup into the sky. This may also\rconfuse the target.
-The user plays rough with the target\nand attacks it. This may also lower\nthe target’s Attack stat.
-Opposing Pokémon are drenched in an\nodd poisonous liquid. This lowers\nthe Attack, Sp. Atk, and Speed stats\rof a poisoned target.
+Boiling water is shot at the foe. It\nmay also cause a burn.
+The user rouses itself to raise its\nAttack and Sp. Atk stats.
+The user throws an electrified\ntackle. It hurts the user a little.
+The user rotates its body like a\ndrill. It has a high critical-hit\nratio.
+The user slams down with fire. The\nmore the user outweighs the foe, the\ngreater the damage.
+The user attacks by wrapping its\nopponent in a fierce wind. This may\nalso confuse the target.
+The user attacks by playing rough\nwith the target. This may also lower\nthe target’s Attack stat.
+---
 The user damages opposing Pokémon by\nemitting a powerful flash.
-The user swings both arms and hits\nthe target. The target’s stat\nchanges don’t affect this attack’s\rdamage.
+---
 The user fiercely attacks the target\nusing its entire body.
-The user attacks the target’s\nthroat, and the resultant suffering\nprevents the target from using moves\rthat emit sound for two turns.
-The user attacks the enemy with a\npollen puff that explodes. If the\ntarget is an ally, it gives the ally\ra pollen puff that restores its HP\ninstead.
+The user attacks the target’s\nthroat, preventing the target from\nusing sound-based moves for two\rturns.
+---
 The user bites the target with its\npsychic capabilities. This can also\ndestroy Light Screen and Reflect.
-The user slams into the target using\na full-force blast of water. This\nmay also lower the target’s Defense\rstat.
-The user attacks by slamming its\nbody into the target. The higher the\nuser’s Defense, the more damage it\rcan inflict on the target.
-The target is slugged by a punch\nthrown with muscle-packed power.
+---
+---
+The foe is slugged by a punch thrown\nwith muscle-packed power.
 Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Defense stat may\rsuffer.
 Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Sp. Atk stat may\rsuffer.
 Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Sp. Def stat may\rsuffer.
@@ -203,306 +203,306 @@ Professor Sonia’s published\nwritings. Her new discoveries about\nthe Galar re
 - - -
 - - -
 A catalog of devices that Rotom\nlike. Use the catalog to have Rotom\nhop in and out of the various\rdevices listed within.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
-An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
+An item that causes Pokémon to\nappear from the Watchtower Lair in\nthe Wild Area until the end of the\rday.
 Honey that Dynamax Vespiquen\nproduces. Adding this honey to Max\nSoup makes the taste very smooth. It\ralso has the same effect as a Max\nRevive.
 Mushrooms that have the power of\nchanging Dynamax forms. They boost\nall stats of a Pokémon during\rbattle.
 A twig from a species of tree called\nGalarica that grows in certain areas\naround the Galar region. It’s a\rmaterial for an accessory for a\ncertain Pokémon.
