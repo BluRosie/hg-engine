@@ -2,9 +2,9 @@
 
 .data
 
-_000:
-    TryReflect _003
+_Start:
+    TryReflect _Start
     Call BATTLE_SUBSCRIPT_ANIMATION_PREPARED_MESSAGE
 
-_003:
+_End:
     End 

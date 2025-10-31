@@ -2,11 +2,11 @@
 
 .data
 
-_000:
+_Start:
     PrintAttackMessage 
     Wait 
-    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _043
-    TrySubstitute _036
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _AlreadyHasSubstitute
+    TrySubstitute _NotEnoughHP
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_SUBSTITUTE_IN
     Wait 
     UpdateMonData OPCODE_FLAG_ON, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE
@@ -19,18 +19,18 @@ _000:
     WaitButtonABTime 30
     End 
 
-_036:
+_NotEnoughHP:
     WaitButtonABTime 30
     // It was too weak to make a substitute!
     PrintMessage 819, TAG_NONE
-    GoTo _049
+    GoTo _Cleanup
 
-_043:
+_AlreadyHasSubstitute:
     WaitButtonABTime 30
     // {0} already has a substitute!
     PrintMessage 351, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
 
-_049:
+_Cleanup:
     Wait 
     WaitButtonABTime 30
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK

@@ -10,6 +10,7 @@ _Start:
     // Check for abilities that would prevent sleep.
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_INSOMNIA, _AbilityBlock
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_VITAL_SPIRIT, _AbilityBlock
+    // Sweet Veil should redirect to _AbilityBlock if for some reason BeforeMove.c isn't doing enough.
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_ABILITY, ABILITY_COMATOSE, _AbilityBlock
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_PURIFYING_SALT, _AbilityBlock
     // Skip Leaf Guard check if weather is suppressed.

@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     PrintBufferedMessage 
     Wait 
     WaitButtonABTime 30

@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} must recharge!
     PrintMessage 360, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 

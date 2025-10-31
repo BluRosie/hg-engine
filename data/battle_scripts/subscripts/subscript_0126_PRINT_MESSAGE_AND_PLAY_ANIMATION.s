@@ -2,14 +2,14 @@
 
 .data
 
-_000:
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _009
+_Start:
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _BufferedMessage
     PrintAttackMessage 
     Wait 
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
 
-_009:
+_BufferedMessage:
     PrintBufferedMessage 
     Wait 
     WaitButtonABTime 30

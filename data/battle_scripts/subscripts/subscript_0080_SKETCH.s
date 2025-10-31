@@ -2,9 +2,9 @@
 
 .data
 
-_000:
-    CheckSubstitute BATTLER_CATEGORY_DEFENDER, _015
-    TrySketch _015
+_Start:
+    CheckSubstitute BATTLER_CATEGORY_DEFENDER, _MoveFailed
+    TrySketch _MoveFailed
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
     // {0} sketched {1}!
     PrintMessage 385, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
@@ -12,6 +12,6 @@ _000:
     WaitButtonABTime 30
     End 
 
-_015:
+_MoveFailed:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 

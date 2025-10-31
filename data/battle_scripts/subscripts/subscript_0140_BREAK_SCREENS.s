@@ -2,19 +2,19 @@
 
 .data
 
-_000:
-    TryBreakScreens _015
+_Start:
+    TryBreakScreens _NoScreensToBreak
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_EFFECT_CHANCE, 1
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
     // It shattered the barrier!
     PrintMessage 606, TAG_NONE
     Wait 
     WaitButtonABTime 30
-    GoTo _022
+    GoTo _End
 
-_015:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_DID_NOT_HIT, _022
+_NoScreensToBreak:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_DID_NOT_HIT, _End
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
 
-_022:
+_End:
     End 
