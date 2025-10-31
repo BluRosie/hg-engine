@@ -3139,7 +3139,7 @@ trainerdata 61, "Remy"
         abilityslot 0
         level 86
         pokemon SPECIES_OBSTAGOON
-        item ITEM_FLAME_ORB
+        item ITEM_SALAC_BERRY
         move MOVE_FACADE
         move MOVE_GUNK_SHOT
         move MOVE_THROAT_CHOP
