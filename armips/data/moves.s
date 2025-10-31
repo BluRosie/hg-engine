@@ -430,7 +430,7 @@ movedata MOVE_JUMP_KICK, "Jump Kick"
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_FIGHTING
-    accuracy 100
+    accuracy 90
     pp 10
     effectchance 0
     target RANGE_SINGLE_TARGET
@@ -2190,7 +2190,7 @@ movedata MOVE_HIGH_JUMP_KICK, "High Jump Kick"
     pss SPLIT_PHYSICAL
     basepower 130
     type TYPE_FIGHTING
-    accuracy 100
+    accuracy 90
     pp 10
     effectchance 0
     target RANGE_SINGLE_TARGET
@@ -13710,7 +13710,7 @@ movedata MOVE_AXE_KICK, "Axe Kick"
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_FIGHTING
-    accuracy 100
+    accuracy 90
     pp 10
     effectchance 30
     target RANGE_SINGLE_TARGET
