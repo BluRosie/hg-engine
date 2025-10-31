@@ -3213,7 +3213,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         case MOVE_WORRY_SEED: {
             if (AbilityCantSupress(GetBattlerAbility(ctx, ctx->defence_client))
-            || GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_TRUANT) {
+            || GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_TRUANT
+            || GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_INSOMNIA) {
                 butItFailedFlag = TRUE;
             }
             break;
