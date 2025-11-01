@@ -1600,7 +1600,7 @@ trainerdata 22, "Adam"
         ivs 200
         abilityslot 0
         level 82
-        pokemon SPECIES_SCREAM_TAIL
+        pokemon SPECIES_METAGROSS
         item ITEM_HEAT_ROCK
         move MOVE_SUNNY_DAY
         move MOVE_FIRE_BLAST
@@ -24829,7 +24829,7 @@ trainerdata 671, "Buck"
         move MOVE_ROCK_WRECKER
         move MOVE_SUPERPOWER
         move MOVE_RECOVER
-        move MOVE_PROTECT
+        move MOVE_EARTHQUAKE
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
