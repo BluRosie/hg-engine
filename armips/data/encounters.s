@@ -658,7 +658,7 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 
 // day encounter slots
     pokemon SPECIES_LEAVANNY
-    pokemon SPECIES_AUDINO
+    pokemon SPECIES_EMOLGA
     pokemon SPECIES_AMPHAROS
     pokemon SPECIES_LUXRAY
     monwithform SPECIES_LILLIGANT, 1
@@ -674,7 +674,7 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_LUXRAY
     pokemon SPECIES_HONCHKROW
     pokemon SPECIES_SHIFTRY
-    pokemon SPECIES_AUDINO
+    pokemon SPECIES_EMOLGA
     pokemon SPECIES_ALAKAZAM
     pokemon SPECIES_GARDEVOIR
     pokemon SPECIES_AMPHAROS
@@ -879,13 +879,13 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_ROSERADE
 
 // night encounter slots
-    pokemon SPECIES_TOXTRICITY
+    monwithform SPECIES_TOXTRICITY,1
     pokemon SPECIES_REUNICLUS
     pokemon SPECIES_NIDOQUEEN
     pokemon SPECIES_NIDOKING
     pokemon SPECIES_DRAPION
     pokemon SPECIES_TOXICROAK
-    pokemon SPECIES_TOXTRICITY
+    monwithform SPECIES_TOXTRICITY, 1
     pokemon SPECIES_REUNICLUS
     pokemon SPECIES_NIDOQUEEN
     pokemon SPECIES_NIDOKING
@@ -1395,20 +1395,20 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_PROBOPASS
     pokemon SPECIES_MUDSDALE
     pokemon SPECIES_PYROAR
-    pokemon SPECIES_LYCANROC
+    monwithform SPECIES_LYCANROC, 2
     pokemon SPECIES_KROOKODILE
 
 // night encounter slots
     pokemon SPECIES_DRIFBLIM
     monwithform SPECIES_MAROWAK, 1
-    pokemon SPECIES_LYCANROC
+    monwithform SPECIES_LYCANROC, 1
     pokemon SPECIES_GARCHOMP
     pokemon SPECIES_SALAZZLE
     pokemon SPECIES_KROOKODILE
     pokemon SPECIES_DRIFBLIM
     pokemon SPECIES_MUDSDALE
     monwithform SPECIES_MAROWAK, 1
-    pokemon SPECIES_LYCANROC
+    monwithform SPECIES_LYCANROC, 1
     pokemon SPECIES_GARCHOMP
     pokemon SPECIES_SALAZZLE
 
