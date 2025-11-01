@@ -8281,6 +8281,7 @@ movedata MOVE_REFLECT_TYPE, "Reflect Type"
     terminatedata
     movedescription MOVE_REFLECT_TYPE, "The user reflects\nthe target’s type,\nmaking it the same\ntype as the target."
 
+movedata MOVE_RETALIATE, "Retaliate"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
     basepower 70
@@ -9831,6 +9832,7 @@ movedata MOVE_HOLD_BACK, "Hold Back"
     terminatedata
     movedescription MOVE_HOLD_BACK, "The user holds back\nwhen it attacks, and\nthe target is left\nwith at least 1 HP."
 
+movedata MOVE_INFESTATION, "Infestation"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_SPECIAL
     basepower 20
