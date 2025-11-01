@@ -6,7 +6,6 @@
 .include "armips/include/config.s"
 .include "armips/include/movemacros.s"
 
-.include "asm/include/debug.inc"
 .include "asm/include/moves.inc"
 .include "asm/include/move_effects.inc"
 
@@ -8282,7 +8281,6 @@ movedata MOVE_REFLECT_TYPE, "Reflect Type"
     terminatedata
     movedescription MOVE_REFLECT_TYPE, "The user reflects\nthe target’s type,\nmaking it the same\ntype as the target."
 
-movedata MOVE_RETALIATE, "Retaliate"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
     basepower 70
@@ -8292,15 +8290,10 @@ movedata MOVE_RETALIATE, "Retaliate"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-<<<<<<< HEAD
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KEEP_HP_BAR
-=======
-    flags FLAG_KEEP_HP_BAR | FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
->>>>>>> upstream/main
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_RETALIATE, "If an ally fainted\nin the previous\nturn, this attack’s\ndamage increases."
 
 movedata MOVE_FINAL_GAMBIT, "Final Gambit"
     battleeffect MOVE_EFFECT_HIT
@@ -9838,8 +9831,7 @@ movedata MOVE_HOLD_BACK, "Hold Back"
     terminatedata
     movedescription MOVE_HOLD_BACK, "The user holds back\nwhen it attacks, and\nthe target is left\nwith at least 1 HP."
 
-movedata MOVE_INFESTATION, "Infestation"
-    battleeffect MOVE_EFFECT_BIND_HIT
+    battleeffect MOVE_EFFECT_HIT
     pss SPLIT_SPECIAL
     basepower 20
     type TYPE_BUG
@@ -9848,15 +9840,10 @@ movedata MOVE_INFESTATION, "Infestation"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-<<<<<<< HEAD
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
-=======
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
->>>>>>> upstream/main
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_INFESTATION, "The target is infested\nand attacked for four\nto five turns.\nThe target can't flee\nduring this time."
 
 movedata MOVE_POWER_UP_PUNCH, "Power-Up Punch"
     battleeffect MOVE_EFFECT_RAISE_ATTACK_HIT
