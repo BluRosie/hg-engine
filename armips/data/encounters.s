@@ -1700,13 +1700,13 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_MAWILE
     pokemon SPECIES_CHANDELURE
     pokemon SPECIES_GENGAR
-    pokemon SPECIES_DECIDUEYE
+    monwithform SPECIES_DECIDUEYE, 1
     pokemon SPECIES_AEGISLASH
     pokemon SPECIES_MISMAGIUS
     pokemon SPECIES_MAWILE
     pokemon SPECIES_CHANDELURE
     pokemon SPECIES_GENGAR
-    pokemon SPECIES_DECIDUEYE
+    monwithform SPECIES_DECIDUEYE, 1
     pokemon SPECIES_AEGISLASH
     pokemon SPECIES_MISMAGIUS
 
@@ -1825,7 +1825,7 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_SALAMENCE
     pokemon SPECIES_DRAGONITE
     pokemon SPECIES_KOMMO_O
-    pokemon SPECIES_URSHIFU
+    monwithform SPECIES_URSHIFU, 1
     pokemon SPECIES_GRENINJA
 
 // hoenn encounter slots

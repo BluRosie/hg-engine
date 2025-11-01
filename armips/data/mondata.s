@@ -9613,7 +9613,7 @@ mondata SPECIES_FINNEON, "Finneon"
 
 mondata SPECIES_LUMINEON, "Lumineon"
     basestats 69, 69, 76, 91, 69, 86
-    types TYPE_WATER, TYPE_WATER
+    types TYPE_WATER, TYPE_FAIRY
     catchrate 75
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 0, 0

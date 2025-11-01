@@ -1164,7 +1164,7 @@
     ],
     "MachineMoves": [
       "MOVE_ATTRACT",
-      "MOVE_AVALANCHE",
+      "MOVE_AURA_SPHERE",
       "MOVE_BLIZZARD",
       "MOVE_BRICK_BREAK",
       "MOVE_BRINE",
@@ -1206,7 +1206,8 @@
       "MOVE_SWAGGER",
       "MOVE_TOXIC",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -2904,7 +2905,7 @@
       "MOVE_REST",
       "MOVE_RETURN",
       "MOVE_ROCK_SMASH",
-      "MOVE_SAFEGUARD",
+      "MOVE_AURA_SPHERE",
       "MOVE_SECRET_POWER",
       "MOVE_SHOCK_WAVE",
       "MOVE_SLEEP_TALK",
@@ -3606,7 +3607,9 @@
       "MOVE_TORMENT",
       "MOVE_TOXIC",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -4004,7 +4007,9 @@
       "MOVE_TORMENT",
       "MOVE_TOXIC",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -4671,7 +4676,8 @@
       "MOVE_SUNNY_DAY",
       "MOVE_SWAGGER",
       "MOVE_TOXIC",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -7283,7 +7289,8 @@
       "MOVE_THUNDER",
       "MOVE_THUNDERBOLT",
       "MOVE_TOXIC",
-      "MOVE_U_TURN"
+      "MOVE_U_TURN",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -7925,7 +7932,9 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -8296,7 +8305,9 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_AURA_SPHERE",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -9349,7 +9360,9 @@
       "MOVE_THIEF",
       "MOVE_TOXIC",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_SLUDGE_WAVE",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -10272,7 +10285,9 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -11207,7 +11222,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -12172,7 +12188,9 @@
       "MOVE_TORMENT",
       "MOVE_TOXIC",
       "MOVE_TRICK_ROOM",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_AURA_SPHERE",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -12919,7 +12937,8 @@
       "MOVE_TOXIC",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -13922,7 +13941,7 @@
       "MOVE_NATURAL_GIFT",
       "MOVE_POISON_JAB",
       "MOVE_PROTECT",
-      "MOVE_RAIN_DANCE",
+      "MOVE_AURA_SPHERE",
       "MOVE_REST",
       "MOVE_RETURN",
       "MOVE_ROCK_CLIMB",
@@ -14135,7 +14154,7 @@
       "MOVE_STONE_EDGE",
       "MOVE_STRENGTH",
       "MOVE_SUBSTITUTE",
-      "MOVE_SUNNY_DAY",
+      "MOVE_AURA_SPHERE",
       "MOVE_SWAGGER",
       "MOVE_SWORDS_DANCE",
       "MOVE_TAUNT",
@@ -15887,7 +15906,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -16155,7 +16175,9 @@
       "MOVE_TRICK_ROOM",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_PSYSHOCK",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -18807,7 +18829,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -19988,7 +20011,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
-      "MOVE_WATER_PULSE"
+      "MOVE_WATER_PULSE",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -21101,7 +21125,8 @@
       "MOVE_SUNNY_DAY",
       "MOVE_SWAGGER",
       "MOVE_TOXIC",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -24286,7 +24311,8 @@
       "MOVE_THUNDER",
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -25052,7 +25078,9 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -26226,7 +26254,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -26377,7 +26406,8 @@
       "MOVE_SWAGGER",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -28367,7 +28397,9 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_SLUDGE_WAVE",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [
       "MOVE_FLAIL",
@@ -30204,7 +30236,10 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE",
+      "MOVE_SLUDGE_WAVE",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -30418,7 +30453,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [
       "MOVE_TWISTER",
@@ -30994,7 +31030,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -31373,7 +31410,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -33457,7 +33495,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
       "MOVE_TORMENT",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -34884,7 +34923,7 @@
       "MOVE_STONE_EDGE",
       "MOVE_STRENGTH",
       "MOVE_SUBSTITUTE",
-      "MOVE_SUNNY_DAY",
+      "MOVE_AURA_SPHERE",
       "MOVE_SWAGGER",
       "MOVE_SWORDS_DANCE",
       "MOVE_THIEF",
@@ -35378,7 +35417,10 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE",
+      "MOVE_SLUDGE_WAVE",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -36653,7 +36695,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -37129,7 +37172,8 @@
       "MOVE_TORMENT",
       "MOVE_TOXIC",
       "MOVE_WILL_O_WISP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -38137,7 +38181,7 @@
       "MOVE_SLEEP_TALK",
       "MOVE_SNATCH",
       "MOVE_SUBSTITUTE",
-      "MOVE_SUNNY_DAY",
+      "MOVE_AURA_SPHERE",
       "MOVE_SWAGGER",
       "MOVE_TAUNT",
       "MOVE_THIEF",
@@ -38146,7 +38190,8 @@
       "MOVE_TORMENT",
       "MOVE_TOXIC",
       "MOVE_TRICK_ROOM",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -41658,12 +41703,13 @@
       "MOVE_SLEEP_TALK",
       "MOVE_STRENGTH",
       "MOVE_SUBSTITUTE",
-      "MOVE_SUNNY_DAY",
+      "MOVE_AURA_SPHERE",
       "MOVE_SWAGGER",
       "MOVE_TAUNT",
       "MOVE_THIEF",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -43164,7 +43210,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -46526,7 +46573,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -47574,7 +47622,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -49619,7 +49668,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -49796,7 +49846,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -49905,7 +49956,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -50036,7 +50088,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [
       "MOVE_MAGNITUDE",
@@ -50160,7 +50213,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [
       "MOVE_SPLASH",
@@ -50884,7 +50938,8 @@
       "MOVE_SUBSTITUTE",
       "MOVE_SUNNY_DAY",
       "MOVE_SWAGGER",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -53136,7 +53191,7 @@
       "MOVE_STONE_EDGE",
       "MOVE_STRENGTH",
       "MOVE_SUBSTITUTE",
-      "MOVE_SUNNY_DAY",
+      "MOVE_AURA_SPHERE",
       "MOVE_SWAGGER",
       "MOVE_SWORDS_DANCE",
       "MOVE_TAUNT",
@@ -56168,7 +56223,9 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -56639,7 +56696,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -57410,14 +57468,15 @@
       "MOVE_SOLAR_BEAM",
       "MOVE_STRENGTH",
       "MOVE_SUBSTITUTE",
-      "MOVE_SUNNY_DAY",
+      "MOVE_AURA_SPHERE",
       "MOVE_SWAGGER",
       "MOVE_THUNDER",
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
       "MOVE_U_TURN",
-      "MOVE_WATER_PULSE"
+      "MOVE_WATER_PULSE",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -58560,7 +58619,8 @@
       "MOVE_SUNNY_DAY",
       "MOVE_SWAGGER",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -60142,7 +60202,7 @@
       "MOVE_STONE_EDGE",
       "MOVE_STRENGTH",
       "MOVE_SUBSTITUTE",
-      "MOVE_SUNNY_DAY",
+      "MOVE_AURA_SPHERE",
       "MOVE_SWAGGER",
       "MOVE_SWORDS_DANCE",
       "MOVE_TOXIC",
@@ -61002,7 +61062,8 @@
       "MOVE_THIEF",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -61022,7 +61083,8 @@
       "MOVE_SUCKER_PUNCH",
       "MOVE_SUPER_FANG",
       "MOVE_THUNDER_PUNCH",
-      "MOVE_VACUUM_WAVE"
+      "MOVE_VACUUM_WAVE",
+      "MOVE_AURA_SPHERE"
     ]
   },
   "SPECIES_CARNIVINE": {
@@ -61364,7 +61426,9 @@
       "MOVE_U_TURN",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN",
+      "MOVE_DAZZLING_GLEAM"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -61731,7 +61795,8 @@
       "MOVE_SWAGGER",
       "MOVE_SWORDS_DANCE",
       "MOVE_TOXIC",
-      "MOVE_WATER_PULSE"
+      "MOVE_WATER_PULSE",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -62864,7 +62929,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -63015,7 +63081,9 @@
       "MOVE_SWAGGER",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_WATER_PULSE"
+      "MOVE_WATER_PULSE",
+      "MOVE_AURA_SPHERE",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -63626,7 +63694,7 @@
       "MOVE_STONE_EDGE",
       "MOVE_STRENGTH",
       "MOVE_SUBSTITUTE",
-      "MOVE_SUNNY_DAY",
+      "MOVE_ACROBATICS",
       "MOVE_SWAGGER",
       "MOVE_SWORDS_DANCE",
       "MOVE_TAUNT",
@@ -63961,7 +64029,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -64199,7 +64268,9 @@
       "MOVE_TOXIC",
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_AURA_SPHERE",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -70934,7 +71005,8 @@
       "MOVE_THIEF",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -72865,7 +72937,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [
       "MOVE_AMNESIA",
@@ -73584,7 +73657,9 @@
       "MOVE_SURF",
       "MOVE_SWAGGER",
       "MOVE_TOXIC",
-      "MOVE_WATER_PULSE"
+      "MOVE_WATER_PULSE",
+      "MOVE_AURA_SPHERE",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -77792,7 +77867,8 @@
       "MOVE_THIEF",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_U_TURN"
+      "MOVE_U_TURN",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -78432,7 +78508,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -78881,7 +78958,9 @@
       "MOVE_THUNDER",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_AURA_SPHERE",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -79089,7 +79168,8 @@
       "MOVE_SWAGGER",
       "MOVE_TOXIC",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -80557,7 +80637,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -80687,7 +80768,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [
       "MOVE_ENDURE",
@@ -82026,7 +82108,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -83482,7 +83565,8 @@
       "MOVE_SUBSTITUTE",
       "MOVE_SWAGGER",
       "MOVE_TOXIC",
-      "MOVE_U_TURN"
+      "MOVE_U_TURN",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -83888,7 +83972,7 @@
       "MOVE_STONE_EDGE",
       "MOVE_STRENGTH",
       "MOVE_SUBSTITUTE",
-      "MOVE_SUNNY_DAY",
+      "MOVE_AURA_SPHERE",
       "MOVE_SWAGGER",
       "MOVE_SWORDS_DANCE",
       "MOVE_TAUNT",
@@ -85325,7 +85409,8 @@
       "MOVE_TAUNT",
       "MOVE_THIEF",
       "MOVE_TOXIC",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [
       "MOVE_BODY_SLAM",
@@ -85863,7 +85948,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_U_TURN"
+      "MOVE_U_TURN",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -88399,7 +88485,9 @@
       "MOVE_THIEF",
       "MOVE_TOXIC",
       "MOVE_TRICK_ROOM",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_AURA_SPHERE",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -88750,7 +88838,8 @@
       "MOVE_TOXIC",
       "MOVE_U_TURN",
       "MOVE_WATERFALL",
-      "MOVE_WATER_PULSE"
+      "MOVE_WATER_PULSE",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -91978,7 +92067,8 @@
       "MOVE_THUNDERBOLT",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -92263,7 +92353,8 @@
       "MOVE_TOXIC",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -92501,7 +92592,10 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE",
+      "MOVE_SLUDGE_WAVE",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -92746,7 +92840,10 @@
       "MOVE_TOXIC",
       "MOVE_U_TURN",
       "MOVE_WATERFALL",
-      "MOVE_WATER_PULSE"
+      "MOVE_WATER_PULSE",
+      "MOVE_AURA_SPHERE",
+      "MOVE_SLUDGE_WAVE",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -94494,7 +94591,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [
       "MOVE_SWITCHEROO",
@@ -94764,7 +94862,8 @@
       "MOVE_TOXIC",
       "MOVE_TRICK_ROOM",
       "MOVE_WILL_O_WISP",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -95584,7 +95683,8 @@
       "MOVE_TOXIC",
       "MOVE_U_TURN",
       "MOVE_WATER_PULSE",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -97126,7 +97226,8 @@
       "MOVE_TORMENT",
       "MOVE_TOXIC",
       "MOVE_U_TURN",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -97464,7 +97565,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -99196,7 +99298,8 @@
       "MOVE_U_TURN",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [
       "MOVE_MUDDY_WATER",
@@ -100573,7 +100676,8 @@
       "MOVE_THUNDER_WAVE",
       "MOVE_TORMENT",
       "MOVE_TOXIC",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -101656,7 +101760,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -102549,7 +102654,8 @@
       "MOVE_SWAGGER",
       "MOVE_TAUNT",
       "MOVE_TOXIC",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [
       "MOVE_WIDE_GUARD",
@@ -103528,7 +103634,8 @@
       "MOVE_SWORDS_DANCE",
       "MOVE_TAUNT",
       "MOVE_TOXIC",
-      "MOVE_X_SCISSOR"
+      "MOVE_X_SCISSOR",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -109499,7 +109606,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -109686,7 +109794,8 @@
       "MOVE_THUNDER",
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -110190,7 +110299,8 @@
       "MOVE_SUBSTITUTE",
       "MOVE_TOXIC",
       "MOVE_TRICK_ROOM",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -110442,7 +110552,8 @@
       "MOVE_SWORDS_DANCE",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -110723,7 +110834,8 @@
       "MOVE_THIEF",
       "MOVE_THUNDER_WAVE",
       "MOVE_TORMENT",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -111329,7 +111441,9 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_AURA_SPHERE",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -113649,7 +113763,8 @@
       "MOVE_SWORDS_DANCE",
       "MOVE_TAUNT",
       "MOVE_TOXIC",
-      "MOVE_U_TURN"
+      "MOVE_U_TURN",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -114643,7 +114758,8 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_FLIP_TURN"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -118057,7 +118173,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_BELLIBOLT": {
+  "SPECIES_BELLOLT": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -132486,7 +132602,8 @@
       "MOVE_SLEEP_TALK",
       "MOVE_SUBSTITUTE",
       "MOVE_SWAGGER",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -133596,7 +133713,8 @@
       "MOVE_THUNDER",
       "MOVE_THUNDERBOLT",
       "MOVE_TORMENT",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -133740,7 +133858,8 @@
       "MOVE_SWORDS_DANCE",
       "MOVE_THIEF",
       "MOVE_TOXIC",
-      "MOVE_TRICK_ROOM"
+      "MOVE_TRICK_ROOM",
+      "MOVE_PSYSHOCK"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -135581,7 +135700,10 @@
       "MOVE_TOXIC",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE",
+      "MOVE_PSYSHOCK",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -150944,7 +151066,8 @@
       "MOVE_THUNDER",
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -152240,7 +152363,8 @@
       "MOVE_TOXIC",
       "MOVE_U_TURN",
       "MOVE_WATERFALL",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -153334,7 +153458,8 @@
       "MOVE_SUNNY_DAY",
       "MOVE_SWAGGER",
       "MOVE_TOXIC",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -153778,7 +153903,8 @@
       "MOVE_SUNNY_DAY",
       "MOVE_SWAGGER",
       "MOVE_SWORDS_DANCE",
-      "MOVE_TOXIC"
+      "MOVE_TOXIC",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -154569,7 +154695,8 @@
       "MOVE_SWORDS_DANCE",
       "MOVE_TAUNT",
       "MOVE_TOXIC",
-      "MOVE_U_TURN"
+      "MOVE_U_TURN",
+      "MOVE_AURA_SPHERE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -155359,7 +155486,8 @@
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
-      "MOVE_WILL_O_WISP"
+      "MOVE_WILL_O_WISP",
+      "MOVE_SLUDGE_WAVE"
     ],
     "EggMoves": [],
     "TutorMoves": []
