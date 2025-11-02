@@ -2640,8 +2640,6 @@ enum ItemGeneration {
 #define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
 #define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
 
-#define NEW_ITEM_MAX ITEM_BRIARS_BOOK
-
 #define BAG_SLOT_QUANTITY_MAX 999
 #define BAG_TMHM_QUANTITY_MAX 99
 
