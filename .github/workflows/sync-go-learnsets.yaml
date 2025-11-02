@@ -11,6 +11,7 @@ on:
 
 jobs:
   run-and-pr:
+    if: ${{ github.repository == 'BluRosie/hg-engine' }}
     runs-on: ubuntu-latest
     env:
       PY_SCRIPT: tools/source/dumptools/gamemaster_go_import.py
