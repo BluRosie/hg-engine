@@ -3307,6 +3307,9 @@ BOOL LONG_CALL AbilityNoTransform(int ability) {
 
 // TODO: Just use this instead of the Mold Breaker one
 u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId) {
+    u32 ability = ctx->battlemon[battlerId].ability;
+    //debug_printf("[GetBattlerAbility] Client %d ability is %d (0x%02X).\n", battlerId, ability, ability);
+    //debug_printf("[GetBattlerAbility]   bytes at offset 0x26: %02X %02X\n", ((u8 *)&ctx->battlemon[battlerId])[0x26], ((u8 *)&ctx->battlemon[battlerId])[0x27]);
     if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_GASTRO_ACID) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
         return ABILITY_NONE;
     } else if ((ctx->field_condition & FIELD_STATUS_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
@@ -3316,7 +3319,7 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId) {
     } else if (AbilityNoTransform(ctx->battlemon[battlerId].ability) && (ctx->battlemon[battlerId].condition2 & STATUS2_TRANSFORMED)) {
         return ABILITY_NONE;
     } else {
-        return ctx->battlemon[battlerId].ability;
+        return ability;
     }
 }
 

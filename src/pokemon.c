@@ -504,6 +504,7 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     ability_swapped = GET_BOX_MON_SWAP_ABILITY_SLOT_BIT(boxmon);
     mons_no = PokeOtherFormMonsNoGet(mons_no, form);
     hiddenability = GetMonHiddenAbilityAlreadySanitized(mons_no);
+    debug_printf("Abilities: %d, %d, %d\n", ability1, ability2, hiddenability);
 
     if (has_hidden_ability && hiddenability != 0)
     {
@@ -534,6 +535,88 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     }
 
     BoxMonSetFastModeOff(boxmon, fastMode);
+}
+
+struct BoxMonSubstructs {
+    PokemonDataBlockA *blockA;
+    PokemonDataBlockB *blockB;
+    PokemonDataBlockC *blockC;
+    PokemonDataBlockD *blockD;
+};
+
+/**
+ *  @brief edited fields in SetBoxMonData.  can add new fields here and edit existing ones
+ *
+ *  @param blocks unencrypted data blocks from BoxPokemon structure
+ *  @param field MON_DATA_* constant to set
+ *  @param data pointer to set data from
+ *  @return signal to the hook that it shouldn't return to vanilla handling
+ */
+BOOL SetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *data)
+{
+    u32 ret = FALSE;
+    PokemonDataBlockA *blockA = blocks->blockA;
+    PokemonDataBlockB *blockB UNUSED = blocks->blockB;
+    PokemonDataBlockC *blockC UNUSED = blocks->blockC;
+    PokemonDataBlockD *blockD UNUSED = blocks->blockD;
+    switch (field)
+    {
+    case MON_DATA_ABILITY:
+    {
+        u16 ability = *((u16 *)data);
+        blockA->ability = ability & 0xFF;
+        blockA->abilityMSB = (ability >> 8) & 0x01;
+        debug_printf("Ability to set %d, LSB %d, MSb %d\n", ability, blockA->ability, blockA->abilityMSB);
+        ret = TRUE;
+        break;
+    }
+    case MON_DATA_EXPERIENCE:
+    {
+        u32 experience = *((u32 *)data);
+        blockA->exp = experience;
+        ret = TRUE;
+        break;
+    }
+    }
+    return ret;
+}
+
+/**
+ *  @brief edited fields in GetBoxMonData.  can add new fields here and edit existing ones
+ *
+ *  @param blocks unencrypted data blocks from BoxPokemon structure
+ *  @param field MON_DATA_* constant to retrieve
+ *  @param data pointer to return data in (if necessary as a structure)
+ *  @param retBool pointer to signal to the hook that it shouldn't return to vanilla handling
+ *  @return result of GetBoxMonData if one of these fields applies and return data is containable in variable
+ */
+u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *data UNUSED, BOOL *retBool)
+{
+    u32 ret = 0;
+    PokemonDataBlockA *blockA = blocks->blockA;
+    PokemonDataBlockB *blockB UNUSED = blocks->blockB;
+    PokemonDataBlockC *blockC UNUSED = blocks->blockC;
+    PokemonDataBlockD *blockD UNUSED = blocks->blockD;
+    *retBool = FALSE;
+    switch (field)
+    {
+    case MON_DATA_ABILITY:
+    {
+        debug_printf("Ability returned: %d\n", (blockA->abilityMSB << 8) | (blockA->ability));
+        ret = (blockA->abilityMSB << 8) | (blockA->ability);
+        *retBool = TRUE;
+        break;
+    }
+    case MON_DATA_EXPERIENCE:
+    {
+        ret = blockA->exp;
+        *retBool = TRUE;
+        debug_printf("Experience returned: %d\n", ret);
+        break;
+    }
+    }
+    //debug_printf("Modified GetBoxMonData called...\n    blocks %08X,\n    field %d,\n    data %08X,\n    retBool %08X\n", blocks, field, data, retBool);
+    return ret;
 }
 
 /**

@@ -819,7 +819,7 @@ struct __attribute__((packed)) battle_moveflag
  *
  *  not encrypted or anything, has a number of fields pertaining to each mon on the field
  */
-struct __attribute__((packed)) BattlePokemon
+struct BattlePokemon
 {
     /* 0x00 */ u16 species;                  /**< species */
     /* 0x02 */ u16 attack;                   /**< raw attack stat */
@@ -883,7 +883,7 @@ struct __attribute__((packed)) BattlePokemon
     /* 0x83 */ u8 get_ball;                  /**< caught ball */
     /* 0x84 */ u32 effect_of_moves;          /**< move effect trackers (see MOVE_EFFECT_* constants) */ // moveEffectFlags
     /* 0x88 */ u32 effect_of_moves_temp;     /**< storage for effect_of_moves */
-    /* 0x8c */ struct __attribute__((packed)) battle_moveflag moveeffect;   // unk88
+    /* 0x8c */ struct battle_moveflag moveeffect;   // unk88
 }; // size = 0xc0
 
 typedef struct {
@@ -1197,7 +1197,7 @@ typedef struct OnceOnlyAbilityFlags {
  *
  *  tracks everything about battle state.  consider it a "battle global" structure
  */
-struct PACKED BattleStruct {
+struct BattleStruct {
     /*0x0*/ u8 com_seq_no[CLIENT_MAX];
     /*0x4*/ u8 ret_seq_no[CLIENT_MAX];
     /*0x8*/ int server_seq_no;

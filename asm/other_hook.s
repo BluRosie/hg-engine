@@ -723,6 +723,73 @@ AllocFromHeapInternal_return_address:
 .word 0
 
 
+
+.global GetBoxMonData_EditedCases_hook
+GetBoxMonData_EditedCases_hook:
+sub sp, #0x14
+
+mov r3, sp
+str r5, [r3, #0x0] // blockA
+str r6, [r3, #0x4] // blockB
+str r7, [r3, #0x8] // blockC
+str r0, [r3, #0xC] // blockD
+ldr r1, [r3, #(0x14+0x4)] // field from before sp adjust
+ldr r2, [r3, #(0x14+0x8)] // data from before sp adjust
+mov r0, r3
+add r3, #0x10 // retBool
+bl GetBoxMonData_EditedCases // (blocks, field, data, retBool)
+ldr r1, [sp, #0x10]
+cmp r1, #1
+bne _retBoolFalse
+
+// if retBoot is not false, jump to return function
+add sp, #0x14
+mov r4, r0
+ldr r0, =0x0206EC36|1
+bx r0
+
+_retBoolFalse:
+// get blockD back in r1
+ldr r1, [sp, #0xC]
+
+add sp, #0x14
+
+// mov r1, r0 // blockD
+ldr r0, [sp, #0x4] // field as stored in stack
+ldr r2, =0x0206E6EA | 1
+bx r2
+
+.pool
+
+
+.global SetBoxMonData_EditedCases_hook
+SetBoxMonData_EditedCases_hook:
+sub sp, #0x10
+mov r0, sp
+str r7, [r0, #0x0] // blockA
+str r5, [r0, #0x4] // blockB
+ldr r1, [r0, #(0x10+0x8)]
+str r1, [r0, #0x8] // blockC
+str r6, [r0, #0xC] // blockD
+ldr r1, [r0, #(0x10+0x4)] // field
+mov r2, r4 // data
+
+bl SetBoxMonData_EditedCases // (blocks, field, data)
+cmp r0, #1
+bne _vanillaBoxMonHandling
+add sp, #0x10
+ldr r0, =0x0206F554 | 1
+bx r0
+
+_vanillaBoxMonHandling:
+add sp, #0x10
+ldr r0, [sp, #0x4] // field
+ldr r1, =0x0206EE30 | 1
+bx r1
+
+.pool
+
+
 .data
 
 .align 2
