@@ -2,13 +2,14 @@
 
 .data
 
-_000:
-    CheckEffectActivation _003
+// Called by Thunder Fang.
+_Start:
+    CheckEffectActivation _CheckFlinch
     Call BATTLE_SUBSCRIPT_PARALYZE
 
-_003:
-    CheckEffectActivation _007
+_CheckFlinch:
+    CheckEffectActivation _End
     Call BATTLE_SUBSCRIPT_FLINCH_MON
 
-_007:
+_End:
     End 

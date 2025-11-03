@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Recover, Soft-Boiled, Milk Drink, Slack Off and Heal Order.
 _Start:
     PrintAttackMessage 
     Wait 

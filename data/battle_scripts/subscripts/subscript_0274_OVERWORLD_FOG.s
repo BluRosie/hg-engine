@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// This script is unused in vanilla as overworld fog does not exist in Johto.
+_Start:
     PlayBattleAnimation BATTLER_CATEGORY_PLAYER, BATTLE_ANIMATION_WEATHER_FOG
     Wait 
     // Fog crept up as thick as soup!

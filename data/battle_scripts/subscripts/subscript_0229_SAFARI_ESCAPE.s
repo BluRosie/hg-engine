@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} is watching carefully!
     PrintGlobalMessage 849, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     Wait 

@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Jump Kick, High Jump Kick, Supercell Slam and Axe Kick.
 _Start:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MAGIC_GUARD, _End
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_CRASH_DAMAGE, _End

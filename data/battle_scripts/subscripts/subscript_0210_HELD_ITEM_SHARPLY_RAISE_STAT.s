@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Starf Berry.
+_Start:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
     Wait 
     WaitButtonABTime 15
@@ -15,9 +16,10 @@ _000:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_TEMP_DATA, 18
     UpdateVarFromVar OPCODE_ADD, BSCRIPT_VAR_TEMP_DATA, BSCRIPT_VAR_MESSAGE
     UpdateMonData OPCODE_ADD, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_TEMP, 2
-    CompareMonDataToValue OPCODE_LTE, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_TEMP, 12, _042
+    CompareMonDataToValue OPCODE_LTE, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_TEMP, 12, _Cleanup
+    // If the stat stage would be raised above the maximum, clamp it down.
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_TEMP, 12
 
-_042:
+_Cleanup:
     Call BATTLE_SUBSCRIPT_PLUCK_CHECK
     End 

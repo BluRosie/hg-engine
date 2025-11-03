@@ -2,11 +2,11 @@
 
 .data
 
-_000:
-    CalcExpGain _005
+_Start:
+    CalcExpGain _End
     StartGetExpTask 
     WaitGetExpTask 
     Dummy2A 4294967292
 
-_005:
+_End:
     End 

@@ -2,140 +2,141 @@
 
 .data
 
-_000:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_IGNORE_TYPE_IMMUNITY|BATTLE_STATUS_IGNORE_TYPE_EFFECTIVENESS, _338
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_ONE_HIT_KO, _338
-    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_NORMALIZE, _020
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, 0x00000000
-    GoTo _097
+_Start:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_IGNORE_TYPE_IMMUNITY|BATTLE_STATUS_IGNORE_TYPE_EFFECTIVENESS, _End
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_ONE_HIT_KO, _End
+    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_NORMALIZE, _CheckRefrigerate
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, TYPE_NORMAL
+    GoTo _CheckBerry
 
-_020:
-    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_REFRIGERATE, _036
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _095
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, 0x0000000F
-    GoTo _097
+_CheckRefrigerate:
+    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_REFRIGERATE, _CheckAerilate
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _GetMoveType
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, TYPE_ICE
+    GoTo _CheckBerry
 
-_036:
-    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_AERILATE, _052
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _095
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, 0x00000002
-    GoTo _097
+_CheckAerilate:
+    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_AERILATE, _CheckGalvanize
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _GetMoveType
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, TYPE_FLYING
+    GoTo _CheckBerry
 
-_052:
-    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_GALVANIZE, _068
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _095
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, 0x0000000D
-    GoTo _097
+_CheckGalvanize:
+    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_GALVANIZE, _CheckPixilate
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _GetMoveType
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, TYPE_ELECTRIC
+    GoTo _CheckBerry
 
-_068:
+_CheckPixilate:
     CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_PIXILATE, _084
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _095
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, 0x0000000D
-    GoTo _097
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _GetMoveType
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, TYPE_FAIRY
+    GoTo _CheckBerry
 
 _084:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _095
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _GetMoveType
     UpdateVarFromVar OPCODE_GET, BSCRIPT_VAR_MOVE_TYPE, BSCRIPT_VAR_CALC_TEMP
-    GoTo _097
+    GoTo _CheckBerry
 
-_095:
+_GetMoveType:
     GetCurrentMoveData MOVEATTRIBUTE_TYPE
 
-_097:
+_CheckBerry:
     GetItemHoldEffect BATTLER_CATEGORY_MSG_TEMP, BSCRIPT_VAR_TEMP_DATA
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 35, _197
-    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SUPER_EFFECTIVE, _338
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 19, _204
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 20, _211
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 21, _218
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 22, _225
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 23, _232
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 24, _239
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 25, _246
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 26, _253
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 27, _260
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 28, _267
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 29, _274
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 30, _281
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 31, _288
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 32, _295
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 33, _302
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 148, _309
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 34, _316
-    GoTo _338
+    // Normal-type damage reduction occurs regardless of move effectiveness.
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 35, _HandleChilanBerry
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SUPER_EFFECTIVE, _End
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 19, _HandleOccaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 20, _HandlePasshoBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 21, _HandleWacanBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 22, _HandleRindoBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 23, _HandleYacheBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 24, _HandleChopleBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 25, _HandleKebiaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 26, _HandleShucaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 27, _HandleCobaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 28, _HandlePayapaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 29, _HandleTangaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 30, _HandleChartiBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 31, _HandleKasibBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 32, _HandleHabanBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 33, _HandleColburBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 148, _HandleRoseliBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 34, _HandleBabiriBerry
+    GoTo _End
 
-_197:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000000, _321
-    GoTo _338
+_HandleChilanBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_NORMAL, _ReduceDamage
+    GoTo _End
 
-_204:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x0000000A, _321
-    GoTo _338
+_HandleOccaBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_FIRE, _ReduceDamage
+    GoTo _End
 
-_211:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x0000000B, _321
-    GoTo _338
+_HandlePasshoBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_WATER, _ReduceDamage
+    GoTo _End
 
-_218:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x0000000D, _321
-    GoTo _338
+_HandleWacanBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_ELECTRIC, _ReduceDamage
+    GoTo _End
 
-_225:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x0000000C, _321
-    GoTo _338
+_HandleRindoBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_GRASS, _ReduceDamage
+    GoTo _End
 
-_232:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x0000000F, _321
-    GoTo _338
+_HandleYacheBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_ICE, _ReduceDamage
+    GoTo _End
 
-_239:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000001, _321
-    GoTo _338
+_HandleChopleBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_FIGHTING, _ReduceDamage
+    GoTo _End
 
-_246:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000003, _321
-    GoTo _338
+_HandleKebiaBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_POISON, _ReduceDamage
+    GoTo _End
 
-_253:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000004, _321
-    GoTo _338
+_HandleShucaBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_GROUND, _ReduceDamage
+    GoTo _End
 
-_260:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000002, _321
-    GoTo _338
+_HandleCobaBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_FLYING, _ReduceDamage
+    GoTo _End
 
-_267:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x0000000E, _321
-    GoTo _338
+_HandlePayapaBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_PSYCHIC, _ReduceDamage
+    GoTo _End
 
-_274:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000006, _321
-    GoTo _338
+_HandleTangaBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_BUG, _ReduceDamage
+    GoTo _End
 
-_281:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000005, _321
-    GoTo _338
+_HandleChartiBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_ROCK, _ReduceDamage
+    GoTo _End
 
-_288:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000007, _321
-    GoTo _338
+_HandleKasibBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_GHOST, _ReduceDamage
+    GoTo _End
 
-_295:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000010, _321
-    GoTo _338
+_HandleHabanBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_DRAGON, _ReduceDamage
+    GoTo _End
 
-_302:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000011, _321
-    GoTo _338
+_HandleColburBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_DARK, _ReduceDamage
+    GoTo _End
 
-_309:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000009, _321
-    GoTo _338
+_HandleRoseliBerry:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, TYPE_FAIRY, _ReduceDamage
+    GoTo _End
 
-_316:
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_CALC_TEMP, 0x00000008, _338
+_HandleBabiriBerry:
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_CALC_TEMP, TYPE_STEEL, _End
 
-_321:
-
-_338:
+_ReduceDamage:
+    // Unused.
+_End:
     End 

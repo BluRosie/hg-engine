@@ -2,13 +2,14 @@
 
 .data
 
-_000:
+// Called by Power Herb.
+_Start:
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
-    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_ATTACKER, BMON_DATA_MOVE_EFFECT, MOVE_EFFECT_FLAG_SEMI_INVULNERABLE, _011
+    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_ATTACKER, BMON_DATA_MOVE_EFFECT, MOVE_EFFECT_FLAG_SEMI_INVULNERABLE, _SecondTurn
     ToggleVanish BATTLER_CATEGORY_ATTACKER, TRUE
 
-_011:
+_SecondTurn:
     PrintBufferedMessage 
     Wait 
     WaitButtonABTime 30

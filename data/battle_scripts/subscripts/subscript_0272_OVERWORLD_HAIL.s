@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     PlayBattleAnimation BATTLER_CATEGORY_PLAYER, BATTLE_ANIMATION_WEATHER_HAIL
     Wait 
     // It’s hailing!

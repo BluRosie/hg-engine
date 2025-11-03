@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_RAIN
     // The rain stopped.
     PrintMessage 803, TAG_NONE

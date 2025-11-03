@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     PlayBattleAnimation BATTLER_CATEGORY_DEFENDER, BATTLE_ANIMATION_STAT_BOOST
     Wait
     // {0}’s rage is building!

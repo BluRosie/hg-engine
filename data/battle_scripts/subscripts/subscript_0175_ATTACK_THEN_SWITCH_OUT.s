@@ -2,22 +2,28 @@
 
 .data
 
-_000:
-    CheckBlackOut BATTLER_CATEGORY_DEFENDER, _179
-    TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, TRUE, _179
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SHADOW_FORCE, _019
-    TriggerAbilityOnHit _015
+// Called by U-Turn, Volt Switch, Flip Turn and Eject Button.
+_Start:
+    // Check if the battle is over as a result of this move/effect.
+    CheckBlackOut BATTLER_CATEGORY_DEFENDER, _End
+    TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, TRUE, _End
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SHADOW_FORCE, _CheckDestinyBond
+    TriggerAbilityOnHit _CheckHeldItem
     CallFromVar BSCRIPT_VAR_TEMP_DATA
 
-_015:
-    TriggerHeldItemOnPivotMove _019
+_CheckHeldItem:
+    TriggerHeldItemOnPivotMove _CheckDestinyBond
     CallFromVar BSCRIPT_VAR_TEMP_DATA
 
-_019:
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HP, 0, _086
-    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_DEFENDER, BMON_DATA_STATUS2, STATUS2_DESTINY_BOND, _086
-    IfSameSide BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_DEFENDER, _086
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HP, 0, _086
+_CheckDestinyBond:
+    // Check if the target fainted.
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HP, 0, _CheckGrudge
+    // Check if the target had Destiny Bond active.
+    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_DEFENDER, BMON_DATA_STATUS2, STATUS2_DESTINY_BOND, _CheckGrudge
+    // Skip the effect if the target was defeated by an ally.
+    IfSameSide BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_DEFENDER, _CheckGrudge
+    // Skip the effect if the attacker has already fainted due to another effect, such as Life Orb or Rough Skin.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HP, 0, _CheckGrudge
     // {0} took {1} down with it!
     PrintMessage 391, TAG_NICKNAME_NICKNAME, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_ATTACKER
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HP, BSCRIPT_VAR_HP_CALC
@@ -36,30 +42,33 @@ _019:
     IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_PLAYER, 97
     Call BATTLE_SUBSCRIPT_TRY_CLEAR_PRIMAL_WEATHERS_FAINTING
 
-_086:
+_CheckGrudge:
     UpdateVarFromVar OPCODE_GET, BSCRIPT_VAR_BATTLER_FAINTED, BSCRIPT_VAR_LAST_BATTLER_ID
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_FAINTED, BSCRIPT_VAR_BATTLER_TARGET
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HP, 0, _110
-    TryGrudge _110
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HP, 0, _BeginSwitchOut
+    TryGrudge _BeginSwitchOut
     // {0}’s {1} lost all its PP due to the grudge!
     PrintMessage 568, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
 
-_110:
+_BeginSwitchOut:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_FAINTED, BSCRIPT_VAR_LAST_BATTLER_ID
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HP, 0, _179
+    // Don't bother with the rest if the attacker has fainted.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HP, 0, _End
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SWITCH, BSCRIPT_VAR_BATTLER_ATTACKER
     // {0} went back to {1}!
     PrintMessage 1067, TAG_NICKNAME_TRNAME, BATTLER_CATEGORY_SWITCHED_MON, BATTLER_CATEGORY_SWITCHED_MON
     Wait 
     WaitButtonABTime 30
     Call BATTLE_SUBSCRIPT_PURSUIT
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HP, 0, _179
-    TryRestoreStatusOnSwitch BATTLER_CATEGORY_ATTACKER, _148
+    // Don't bother with the rest if the attacker has fainted.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HP, 0, _End
+    // Check Natural Cure.
+    TryRestoreStatusOnSwitch BATTLER_CATEGORY_ATTACKER, _FinishSwitchOut
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS, STATUS_NONE
 
-_148:
+_FinishSwitchOut:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_EFFECT_CHANCE, 1
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
@@ -73,5 +82,5 @@ _148:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_ATTACKER_SELF_TURN_STATUS_FLAGS, SELF_TURN_FLAG_CLEAR
     GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
 
-_179:
+_End:
     End 

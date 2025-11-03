@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Liechi, Ganlon, Salac, Petaya, and Apicot Berry.
+_Start:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
     Wait 
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_PARAM, MOVE_SUBSCRIPT_PTR_QUARTER_RECOIL

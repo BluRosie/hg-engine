@@ -2,6 +2,6 @@
 
 .data
 
-_000:
+_Start:
     Call BATTLE_SUBSCRIPT_FAINT_MON
     End 

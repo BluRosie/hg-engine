@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Figy, Wiki, Mago, Aguav and Iapapa Berry.
+_Start:
     Call BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE
     // For {1}, the {0} was {2}!
     PrintMessage 594, TAG_ITEM_NICKNAME_FLAVOR, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP

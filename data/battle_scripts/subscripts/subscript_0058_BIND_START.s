@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Bind, Wrap, Fire Spin, Clamp, Sand Tomb and Magma Storm.
 _Start:
     CheckSubstitute BATTLER_CATEGORY_SIDE_EFFECT_MON, _End
     SetBindingTurns _End

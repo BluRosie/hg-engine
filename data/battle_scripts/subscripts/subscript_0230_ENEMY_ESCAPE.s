@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     PlaySound BATTLER_CATEGORY_ATTACKER, 1791
     // The wild {0} fled!
     PrintGlobalMessage 784, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER

@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} avoided the attack!
     PrintMessage 24, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     Wait 

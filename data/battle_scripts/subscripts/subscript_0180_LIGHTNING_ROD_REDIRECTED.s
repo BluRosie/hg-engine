@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Lightning Rod and Storm Drain.
+_Start:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 15

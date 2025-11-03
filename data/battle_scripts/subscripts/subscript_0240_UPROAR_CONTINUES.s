@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} is making an uproar!
     PrintMessage 311, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 

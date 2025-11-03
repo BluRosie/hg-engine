@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} calmed down.
     PrintMessage 314, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 

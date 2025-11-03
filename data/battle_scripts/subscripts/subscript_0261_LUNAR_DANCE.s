@@ -2,9 +2,10 @@
 
 .data
 
-_000:
+_Start:
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HP, 0
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, 32767
+    // Set your damage to the magic number that kills you instantly.
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, SELF_KO_DAMAGE
     UpdateHealthBar BATTLER_CATEGORY_ATTACKER
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
     TryFaintMon BATTLER_CATEGORY_ATTACKER
@@ -13,8 +14,9 @@ _000:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_EXP_GAIN
     Call BATTLE_SUBSCRIPT_GRANT_EXP
 
-_026:
-    TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, TRUE, _127
+_ReplacementLoop:
+    // Try to open the party list.
+    TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, TRUE, _End
     ShowParty 
     WaitMonSelection 
     SwitchAndUpdateMon BATTLER_CATEGORY_SWITCHED_MON
@@ -23,18 +25,23 @@ _026:
     PokemonSendOut BATTLER_CATEGORY_SWITCHED_MON
     WaitTime 72
     HealthbarSlideIn BATTLER_CATEGORY_SWITCHED_MON
-    Wait 
+    Wait
+    // Check for any fainting on switch-in due to hazards.
     Call BATTLE_SUBSCRIPT_HAZARDS_CHECK
-    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_FAINTED, _065
+    // If not, our dance will be received.
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_FAINTED, _DanceReceived
     Call BATTLE_SUBSCRIPT_FAINT_MON
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_EXP_GAIN
     Call BATTLE_SUBSCRIPT_GRANT_EXP
-    TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, TRUE, _127
-    GoTo _026
+    // If this happens, try to open the party list again.
+    TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, TRUE, _End
+    GoTo _ReplacementLoop
 
-_065:
+// TODO: Update to Generation VIII mechanics.
+_DanceReceived:
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS, STATUS_NONE
     SetHealthbarStatus BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_NONE
+    // Restore the PP of all moves.
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_MAX_PP_1, BSCRIPT_VAR_CALC_TEMP
     UpdateMonDataFromVar OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_CUR_PP_1, BSCRIPT_VAR_CALC_TEMP
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_MAX_PP_2, BSCRIPT_VAR_CALC_TEMP
@@ -49,5 +56,5 @@ _065:
     BufferMessage 1006, TAG_NONE
     Call BATTLE_SUBSCRIPT_WISH_HEAL
 
-_127:
+_End:
     End 
