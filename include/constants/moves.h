@@ -472,7 +472,7 @@
 
 #define MOVE_468 468
 #define MOVE_469 469
-#define MOVE_470 470
+#define MOVE_MEGA_EVOLVE 470
 
 // Gen 5 moves
 #define MOVE_HONE_CLAWS 471
