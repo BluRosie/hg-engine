@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
     // {0} stole {1}’s {2}!
@@ -12,11 +12,10 @@ _000:
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HELD_ITEM, BSCRIPT_VAR_TEMP_DATA
     UpdateMonDataFromVar OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HELD_ITEM, BSCRIPT_VAR_TEMP_DATA
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HELD_ITEM, ITEM_NONE
-    GoTo _037
+    End
+    // TODO: Investigate unreachable code.
     // {0}’s {1} made {2} ineffective!
     PrintMessage 714, TAG_NICKNAME_ABILITY_MOVE, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
-
-_037:
-    End 
+    End

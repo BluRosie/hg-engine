@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Heal Pulse.
+_Start:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30

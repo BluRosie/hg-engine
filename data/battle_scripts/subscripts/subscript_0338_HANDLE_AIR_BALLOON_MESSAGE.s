@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_TARGET, BSCRIPT_VAR_MSG_BATTLER_TEMP
     // {0} floats in the air with its {1}!
     PrintMessage 1370, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER

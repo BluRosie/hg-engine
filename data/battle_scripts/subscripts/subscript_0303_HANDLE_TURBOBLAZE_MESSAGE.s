@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} is radiating a blazing aura!
     PrintMessage 1297, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     Wait 

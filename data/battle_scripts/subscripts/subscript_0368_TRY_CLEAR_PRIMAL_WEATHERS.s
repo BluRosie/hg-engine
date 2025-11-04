@@ -2,35 +2,35 @@
 
 .data
 
-_000:
-    CanClearPrimalWeather 1, _006, _020, _034, _050
+_Start:
+    CanClearPrimalWeather 1, _CheckDesolateLand, _CheckPrimordialSea, _CheckDeltaStream, _End
     End 
 
-_006:
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_ABILITY, ABILITY_DESOLATE_LAND, _050
+_CheckDesolateLand:
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_ABILITY, ABILITY_DESOLATE_LAND, _End
     // The harsh sunlight faded.
     PrintMessage 1444, TAG_NONE
     Wait 
     WaitButtonABTime 30
-    GoTo _046
+    GoTo _ClearWeather
 
-_020:
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_ABILITY, ABILITY_PRIMORDIAL_SEA, _050
+_CheckPrimordialSea:
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_ABILITY, ABILITY_PRIMORDIAL_SEA, _End
     // The heavy rain has lifted!
     PrintMessage 1448, TAG_NONE
     Wait 
     WaitButtonABTime 30
-    GoTo _046
+    GoTo _ClearWeather
 
-_034:
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_ABILITY, ABILITY_DELTA_STREAM, _050
+_CheckDeltaStream:
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_ABILITY, ABILITY_DELTA_STREAM, _End
     // The mysterious strong winds have dissipated!
     PrintMessage 1452, TAG_NONE
     Wait 
     WaitButtonABTime 30
 
-_046:
+_ClearWeather:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_WEATHER
 
-_050:
+_End:
     End 

@@ -28,12 +28,12 @@ _CheckGalvanize:
     GoTo _CheckBerry
 
 _CheckPixilate:
-    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_PIXILATE, _084
+    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_PIXILATE, _AdjustMoveType
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _GetMoveType
     UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, TYPE_FAIRY
     GoTo _CheckBerry
 
-_084:
+_AdjustMoveType:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MOVE_TYPE, TYPE_NORMAL, _GetMoveType
     UpdateVarFromVar OPCODE_GET, BSCRIPT_VAR_MOVE_TYPE, BSCRIPT_VAR_CALC_TEMP
     GoTo _CheckBerry
@@ -138,5 +138,6 @@ _HandleBabiriBerry:
 
 _ReduceDamage:
     // Unused.
+    
 _End:
     End 

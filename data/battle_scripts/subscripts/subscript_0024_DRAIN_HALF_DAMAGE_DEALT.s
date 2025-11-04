@@ -2,7 +2,7 @@
 
 .data
 
-// Called by Absorb, Mega Drain, Giga Drain, Bitter Blade, Drain Punch, Horn Leech, Leech Life and Parabolic Charge.
+// Called by Absorb, Mega Drain, Giga Drain, Bitter Blade, Drain Punch, Horn Leech, Leech Life, Parabolic Charge and Matcha Gotcha.
 _Start:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_HIT_DAMAGE
     CompareVarToValue OPCODE_GT, BSCRIPT_VAR_HP_CALC, -1, _End

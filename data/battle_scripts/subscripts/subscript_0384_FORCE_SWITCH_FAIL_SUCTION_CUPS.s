@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} is anchored in place with its suction cups!
     BufferMessage 659, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_MSG_TEMP
     PrintAttackMessage 
