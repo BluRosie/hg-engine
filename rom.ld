@@ -772,5 +772,3 @@ PrintItemSlotQuantity = 0x021FF66C | 1;
 
 PlayerProfile_TestBadgeFlag = 0x02028F98 | 1;
 InitMartUI = 0x02256D34 | 1;
-
-BattleSystem_GetParty = 0x0223A7F4 | 1;

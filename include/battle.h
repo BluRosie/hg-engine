@@ -3938,6 +3938,5 @@ int GetSanitisedType(int type);
 
 BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
 
-struct Party *LONG_CALL BattleSystem_GetParty(struct BattleSystem *bw, int battlerId);
 
 #endif // BATTLE_H
