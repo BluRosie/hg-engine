@@ -62,7 +62,8 @@ _CheckIfWonderGuard:
 
 _CheckIfNoEffect:
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_EFFECT, _CheckIfSturdy
-    IncrementGameStat BATTLER_CATEGORY_ATTACKER, BATTLER_TYPE_SOLO_PLAYER, 96
+    // If the attacker was the player, increment the relevant game record.
+    IncrementGameStat BATTLER_CATEGORY_ATTACKER, BATTLER_TYPE_SOLO_PLAYER, GAME_STAT_INEFFECTIVE_MOVES
     // It doesn’t affect {0}...
     PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     GoTo _DefaultMessage

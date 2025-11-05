@@ -13,7 +13,8 @@ _Start:
     FadeOutBattle 
     Wait 
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_OUTCOME, BATTLE_RESULT_PLAYER_FLED
-    IncrementGameStat BATTLER_CATEGORY_ATTACKER, BATTLER_TYPE_SOLO_ENEMY, 100
+    // If the user was a wild Pokemon, increment the relevant game record.
+    IncrementGameStat BATTLER_CATEGORY_ATTACKER, BATTLER_TYPE_SOLO_ENEMY, GAME_STAT_WILD_MON_FLED
     End 
 
 _MoveFailed:

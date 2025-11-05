@@ -21,8 +21,10 @@ _Start:
     PrintMessage 30, TAG_NICKNAME, BATTLER_CATEGORY_FAINTED_MON
     Wait
     WaitButtonABTime 30
-    IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_ENEMY, 42
-    IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_PLAYER, 97
+    // If the opponent's Pokemon fainted, increment the relevant game record.
+    IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_ENEMY, GAME_STAT_OPPONENT_MON_FAINTED
+    // If it was the player's Pokemon, increment this game record instead.
+    IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_PLAYER, GAME_STAT_PLAYER_MON_FAINTED
     UpdateVarFromVar OPCODE_GET, BSCRIPT_VAR_LAST_BATTLER_ID, BSCRIPT_VAR_BATTLER_FAINTED
 
 _CheckGrudge:

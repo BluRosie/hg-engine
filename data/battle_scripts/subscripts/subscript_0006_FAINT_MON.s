@@ -3,10 +3,10 @@
 .data
 
 _Start:
-    // Increment game record for number of Pokemon we have defeated.
-    IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_ENEMY, 42
-    // Increment game record for number of our Pokemon who have fainted.
-    IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_PLAYER, 97
+    // If the opponent's Pokemon fainted, increment the relevant game record.
+    IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_ENEMY, GAME_STAT_OPPONENT_MON_FAINTED
+    // If it was the player's Pokemon, increment this game record instead.
+    IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_PLAYER, GAME_STAT_PLAYER_MON_FAINTED
     PlayFaintAnimation 
     Wait 
     HealthbarSlideOut BATTLER_CATEGORY_FAINTED_MON

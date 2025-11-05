@@ -2,6 +2,7 @@
 
 .data
 
-_000:
-    IncrementGameStat BATTLER_CATEGORY_ATTACKER, BATTLER_TYPE_SOLO_PLAYER, 80
+_Start:
+    // If used by the player, increment the relevant game record.
+    IncrementGameStat BATTLER_CATEGORY_ATTACKER, BATTLER_TYPE_SOLO_PLAYER, EXPLOSIONS
     GoToEffectScript 
