@@ -1417,6 +1417,12 @@ struct PACKED BattleStruct {
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
                BOOL gemBoostingMove;
+               
+               u32 playerSideDeaths:7; // for Last Respects and Supreme Overlord; damage caps at 5050 for Last Respects, so 101 deaths
+               u32 enemySideDeaths:7; // for Last Respects and Supreme Overlord; damage caps at 5050 for Last Respects, so 101 deaths
+               u32 player2SideDeaths:7; // in case someone adds a partner trainer with this move/ability I suppose
+               u32 enemy2SideDeaths:7; // ^
+               u32 paddingDeaths:4;
 };
 
 enum {

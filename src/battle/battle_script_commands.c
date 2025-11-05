@@ -4221,6 +4221,44 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
             sp->enemySideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     }
+    
+    // check whether or not to increase the deaths counter for Supreme Overlord and Last Respects
+    {
+        if (sp->battlemon[attack_client].ability == ABILITY_SUPREME_OVERLORD) { // do not increase deaths counter if the attacker has Supreme Overlord
+            break;
+        }
+        switch (sp->attack_client)
+        {
+        case BATTLER_PLAYER:
+            if ((sp->playerSideDeaths + 1) > 101) {
+                sp->playerSideDeaths == 101;
+            }
+            else {
+                sp->playerSideDeaths++;
+            }
+        case BATTLER_ENEMY:
+            if ((sp->enemySideDeaths + 1) > 101) {
+                sp->enemySideDeaths == 101;
+            }
+            else {
+                sp->enemySideDeaths++;
+            }
+        case BATTLER_PLAYER2:
+            if ((sp->player2SideDeaths + 1) > 101) {
+                sp->player2SideDeaths == 101;
+            }
+            else {
+                sp->player2SideDeaths++;
+            }
+        case BATTLER_ENEMY2:
+            if ((sp->enemy2SideDeaths + 1) > 101) {
+                sp->enemy2SideDeaths == 101;
+            }
+            else {
+                sp->enemy2SideDeaths++;
+            }
+        }
+    }
 
     InitFaintedWork(bsys, sp, sp->fainting_client);
     return FALSE;

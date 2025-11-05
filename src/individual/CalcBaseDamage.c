@@ -920,15 +920,29 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if (AttackingMon.ability == ABILITY_SUPREME_OVERLORD)
             {
                 // debug_printf("Attacking Mon Ability = Supreme Overlord\n");
-                u32 partyCount = BattleWorkPokeCountGet(bw, IsClientEnemy(bw, sp->attack_client));
                 u32 modifier;
                 u8 faintedPokemon = 0;
-                for (int i = 0; i < partyCount; i++) {
-                    struct PartyPokemon *party = BattleSystem_GetParty(bw, sp->attack_client);
-                    struct Pokemon *mon = Party_GetMonByIndex(party, i);
-                    if ((GetMonData(mon, MON_DATA_HP, NULL) == 0) && (GetMonData(mon, MON_DATA_IS_EGG, NULL) == FALSE)) {
-                        faintedPokemon++;
-                    }
+                // u32 partyCount = BattleWorkPokeCountGet(bw, IsClientEnemy(bw, sp->attack_client));
+                // for (int i = 0; i < partyCount; i++) {
+                //     struct PartyPokemon *party = BattleSystem_GetParty(bw, sp->attack_client);
+                //     struct Pokemon *mon = Party_GetMonByIndex(party, i);
+                //     if ((GetMonData(mon, MON_DATA_HP, NULL) == 0) && (GetMonData(mon, MON_DATA_IS_EGG, NULL) == FALSE)) {
+                //         faintedPokemon++;
+                //     }
+                // }
+                switch (sp->attack_client) {
+                    case BATTLER_PLAYER:
+                        faintedPokemon = sp->playerSideDeaths;
+                        break;
+                    case BATTLER_ENEMY:
+                        faintedPokemon = sp->enemySideDeaths;
+                        break;
+                    case BATTLER_PLAYER2:
+                        faintedPokemon = sp->player2SideDeaths;
+                        break;
+                    case BATTLER_ENEMY2:
+                        faintedPokemon = sp->enemy2SideDeaths;
+                        break;
                 }
                 // debug_printf("Fainted Pokemon: %d\n", faintedPokemon);
                 switch (faintedPokemon) {
@@ -936,7 +950,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                         modifier = UQ412__1_0;
                         break;
                     case 1:
-                        modifier = UQ412__1_1;
+                        modifier = UQ412__1_1_BUT_HIGHER;
                         break;
                     case 2:
                         modifier = UQ412__1_2;
@@ -947,11 +961,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                     case 4:
                         modifier = UQ412__1_4;
                         break;
-                    case 5:
+                    case 5 ... 101:
                         modifier = UQ412__1_5;
-                        break;
-                    default:
-                        modifier = UQ412__1_0;
                         break;
                 }
                 basePowerModifier = QMul_RoundDown(basePowerModifier, modifier);
