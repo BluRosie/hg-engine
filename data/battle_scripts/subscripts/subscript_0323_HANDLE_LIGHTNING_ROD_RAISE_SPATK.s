@@ -24,5 +24,4 @@ _StageMaxMessage:
     PrintMessage 638, TAG_NICKNAME_ABILITY_MOVE, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
-    End 
-    End 
+    End

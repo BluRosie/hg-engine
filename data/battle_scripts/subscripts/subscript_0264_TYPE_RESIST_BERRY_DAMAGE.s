@@ -2,6 +2,7 @@
 
 .data
 
+// This script is no longer used-- the damage reduction effect is now handled under Resist Berries in src/battle/battle_calc_damage.c.
 _Start:
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_IGNORE_TYPE_IMMUNITY|BATTLE_STATUS_IGNORE_TYPE_EFFECTIVENESS, _End
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_ONE_HIT_KO, _End
@@ -44,25 +45,25 @@ _GetMoveType:
 _CheckBerry:
     GetItemHoldEffect BATTLER_CATEGORY_MSG_TEMP, BSCRIPT_VAR_TEMP_DATA
     // Normal-type damage reduction occurs regardless of move effectiveness.
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 35, _HandleChilanBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_NORMAL, _HandleChilanBerry
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SUPER_EFFECTIVE, _End
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 19, _HandleOccaBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 20, _HandlePasshoBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 21, _HandleWacanBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 22, _HandleRindoBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 23, _HandleYacheBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 24, _HandleChopleBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 25, _HandleKebiaBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 26, _HandleShucaBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 27, _HandleCobaBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 28, _HandlePayapaBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 29, _HandleTangaBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 30, _HandleChartiBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 31, _HandleKasibBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 32, _HandleHabanBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 33, _HandleColburBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 148, _HandleRoseliBerry
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 34, _HandleBabiriBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_FIRE, _HandleOccaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_WATER, _HandlePasshoBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_ELECTRIC, _HandleWacanBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_GRASS, _HandleRindoBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_ICE, _HandleYacheBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_FIGHT, _HandleChopleBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_POISON, _HandleKebiaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_GROUND, _HandleShucaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_FLYING, _HandleCobaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_PSYCHIC, _HandlePayapaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_BUG, _HandleTangaBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_ROCK, _HandleChartiBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_GHOST, _HandleKasibBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_DRAGON, _HandleHabanBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_DARK, _HandleColburBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_FAIRY, _HandleRoseliBerry
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_SE_STEEL, _HandleBabiriBerry
     GoTo _End
 
 _HandleChilanBerry:
