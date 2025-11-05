@@ -916,8 +916,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
             }
 
-            // handle Supreme Lord (Overlord)
-            if (AttackingMon.ability == ABILITY_SUPREME_LORD)
+            // handle Supreme Overlord
+            if (AttackingMon.ability == ABILITY_SUPREME_OVERLORD)
             {
                 #ifdef DEBUG_SUPREME_OVERLORD
                 debug_printf("Attacking Mon Ability = Supreme Overlord\n");
