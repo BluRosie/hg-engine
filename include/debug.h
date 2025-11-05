@@ -86,6 +86,9 @@
 // DEBUG_ENABLE_UNIMPLEMENTED_MOVES shows debug information if a chosen move is not implemented/dexited
 //#define DEBUG_ENABLE_UNIMPLEMENTED_MOVES
 
+// DEBUG_SUPREME_OVERLORD shows debug information for fainted/dead mons for each client
+// #define DEBUG_SUPREME_OVERLORD
+
 // NOCASH_GBA_PRINT swaps from desmume prints with the syscall to NO$GBA-style prints for use with i.e. melonDS
 #define NOCASH_GBA_PRINT
 
