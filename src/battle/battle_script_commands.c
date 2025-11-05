@@ -3891,16 +3891,19 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
                 if (sPickupWeightTable[j] > rnd) {
                     item = sPickupTable1[lvl + j];
                     SetMonData(mon, MON_DATA_HELD_ITEM, &item);
+                    quantityPickedUp++;
+                    partyIndex = i;
+                    itemPickedUp = item;
                     break;
                 } else if (rnd >= 98 && rnd <= 99) {
                     item = sPickupTable2[lvl + (99 - rnd)];
                     SetMonData(mon, MON_DATA_HELD_ITEM, &item);
+                    quantityPickedUp++;
+                    partyIndex = i;
+                    itemPickedUp = item;
                     break;
                 }
             }
-            quantityPickedUp++;
-            partyIndex = i;
-            itemPickedUp = item;
         }
         if (ability == ABILITY_HONEY_GATHER
             && species != SPECIES_NONE
@@ -4221,41 +4224,63 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
             sp->enemySideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     }
-    
+    #ifdef DEBUG_SUPREME_OVERLORD
+        debug_printf("Now checking if need to increase the death counter for Supreme Overlord\n");
+        debug_printf("Enemy 1 team deaths: %d\n", sp->enemySideDeaths);
+        debug_printf("Enemy 2 team deaths %d\n", sp->enemy2SideDeaths);
+        debug_printf("Player 1 team deaths %d\n", sp->playerSideDeaths);
+        debug_printf("Player 2 team deaths %d\n", sp->player2SideDeaths);
+    #endif 
     // check whether or not to increase the deaths counter for Supreme Overlord and Last Respects
     {
-        if (sp->battlemon[attack_client].ability == ABILITY_SUPREME_OVERLORD) { // do not increase deaths counter if the attacker has Supreme Overlord
-            break;
+        if (sp->battlemon[sp->attack_client].ability == ABILITY_SUPREME_OVERLORD) { // do not increase deaths counter if the attacker has Supreme Overlord
+        #ifdef DEBUG_SUPREME_OVERLORD
+            debug_printf("Attacker has Supreme Overlord, do not increment death counter\n");
+        #endif
+            InitFaintedWork(bsys, sp, sp->fainting_client);
+            return FALSE;
         }
         switch (sp->attack_client)
         {
         case BATTLER_PLAYER:
-            if ((sp->playerSideDeaths + 1) > 101) {
-                sp->playerSideDeaths == 101;
-            }
-            else {
-                sp->playerSideDeaths++;
+            {
+                if (sp->playerSideDeaths + 1 > MAX_CLIENT_DEATHS) {
+                    sp->playerSideDeaths = MAX_CLIENT_DEATHS;
+                }
+                else {
+                    sp->playerSideDeaths++;
+                }
+                break;
             }
         case BATTLER_ENEMY:
-            if ((sp->enemySideDeaths + 1) > 101) {
-                sp->enemySideDeaths == 101;
-            }
-            else {
-                sp->enemySideDeaths++;
+            {
+                if (sp->enemySideDeaths + 1 > MAX_CLIENT_DEATHS) {
+                    sp->enemySideDeaths = MAX_CLIENT_DEATHS;
+                }
+                else {
+                    sp->enemySideDeaths++;
+                }
+                break;
             }
         case BATTLER_PLAYER2:
-            if ((sp->player2SideDeaths + 1) > 101) {
-                sp->player2SideDeaths == 101;
-            }
-            else {
-                sp->player2SideDeaths++;
+            {
+                if (sp->player2SideDeaths + 1 > MAX_CLIENT_DEATHS) {
+                    sp->player2SideDeaths = MAX_CLIENT_DEATHS;
+                }
+                else {
+                    sp->player2SideDeaths++;
+                }
+                break;
             }
         case BATTLER_ENEMY2:
-            if ((sp->enemy2SideDeaths + 1) > 101) {
-                sp->enemy2SideDeaths == 101;
-            }
-            else {
-                sp->enemy2SideDeaths++;
+            {
+                if (sp->enemy2SideDeaths + 1 > MAX_CLIENT_DEATHS) {
+                    sp->enemy2SideDeaths = MAX_CLIENT_DEATHS;
+                }
+                else {
+                    sp->enemy2SideDeaths++;
+                }
+                break;
             }
         }
     }

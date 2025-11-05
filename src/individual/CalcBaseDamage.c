@@ -916,11 +916,13 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
             }
 
-            // handle Supreme Overlord
-            if (AttackingMon.ability == ABILITY_SUPREME_OVERLORD)
+            // handle Supreme Lord (Overlord)
+            if (AttackingMon.ability == ABILITY_SUPREME_LORD)
             {
-                // debug_printf("Attacking Mon Ability = Supreme Overlord\n");
-                u32 modifier;
+                #ifdef DEBUG_SUPREME_OVERLORD
+                debug_printf("Attacking Mon Ability = Supreme Overlord\n");
+                #endif
+                u32 modifier = 0;
                 u8 faintedPokemon = 0;
                 // u32 partyCount = BattleWorkPokeCountGet(bw, IsClientEnemy(bw, sp->attack_client));
                 // for (int i = 0; i < partyCount; i++) {
@@ -944,7 +946,9 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                         faintedPokemon = sp->enemy2SideDeaths;
                         break;
                 }
-                // debug_printf("Fainted Pokemon: %d\n", faintedPokemon);
+                #ifdef DEBUG_SUPREME_OVERLORD
+                debug_printf("Fainted Pokemon: %d\n", faintedPokemon);
+                #endif 
                 switch (faintedPokemon) {
                     case 0:
                         modifier = UQ412__1_0;
