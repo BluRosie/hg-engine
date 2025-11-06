@@ -4233,14 +4233,15 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
     #endif 
     // check whether or not to increase the deaths counter for Supreme Overlord and Last Respects
     {
-        if (sp->battlemon[sp->attack_client].ability == ABILITY_SUPREME_OVERLORD) { // do not increase deaths counter if the attacker has Supreme Overlord
-        #ifdef DEBUG_SUPREME_OVERLORD
-            debug_printf("Attacker has Supreme Overlord, do not increment death counter\n");
-        #endif
-            InitFaintedWork(bsys, sp, sp->fainting_client);
-            return FALSE;
+        // if it's a double battle with no npc partner and the fainting mon or the fainting mon's partner has Supreme Overlord, do not increase the counter. 
+        // Is this necessary?
+        if (BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) {
+            if (sp->battlemon[sp->fainting_client].ability == ABILITY_SUPREME_OVERLORD || sp->battlemon[BattleWorkPartnerClientNoGet(bsys, sp->fainting_client)].ability == ABILITY_SUPREME_OVERLORD) {
+                InitFaintedWork(bsys, sp, sp->fainting_client);
+                return FALSE;
+            }
         }
-        switch (sp->attack_client)
+        switch (sp->fainting_client)
         {
         case BATTLER_PLAYER:
             {

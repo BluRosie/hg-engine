@@ -969,7 +969,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                         modifier = UQ412__1_5;
                         break;
                 }
-                basePowerModifier = QMul_RoundDown(basePowerModifier, modifier);
+                basePowerModifier = QMul_RoundUp(basePowerModifier, modifier);
             }
         }
 
