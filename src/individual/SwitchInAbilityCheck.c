@@ -16,6 +16,7 @@
 
 static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client);
 static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client);
+BOOL HasFaintedTeammates(struct BattleStruct *sp, u32 client);
 
 extern struct ILLUSION_STRUCT gIllusionStruct;
 
@@ -747,6 +748,19 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         sp->battlemon[client_no].air_balloon_flag = 1;
                     }
 
+                    // Supreme Overlord
+                    {
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_SUPREME_OVERLORD)) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
+                            if (HasFaintedTeammates(sp, client_no)) {
+                                sp->battlerIdTemp = client_no;
+                                scriptnum = SUB_SEQ_HANDLE_SUPREME_OVERLORD_MESSAGE;
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                break;
+                            }
+                        }
+                    }
+
                     // Need to trigger script
                     if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
                         break;
@@ -1049,5 +1063,36 @@ static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
         return TRUE;
     }
 
+    return FALSE;
+}
+
+/**
+ *  @brief see if the client has any fainted teammates
+ *
+ *  @param sp global battle structure
+ *  @param client battler to check if they have any fainted teammates
+ *  @return TRUE if there are fainted teammates
+ */
+BOOL HasFaintedTeammates(struct BattleStruct *sp, u32 client)
+{
+    int faintedPokemon = 0;
+    switch (client)
+    {
+        case BATTLER_PLAYER:
+            faintedPokemon = sp->playerSideDeaths;
+            break;
+        case BATTLER_ENEMY:
+            faintedPokemon = sp->enemySideDeaths;
+            break;
+        case BATTLER_PLAYER2:
+            faintedPokemon = sp->player2SideDeaths;
+            break;
+        case BATTLER_ENEMY2:
+            faintedPokemon = sp->enemy2SideDeaths;
+            break;
+    }
+    if (faintedPokemon > 0) {
+        return TRUE;
+    }
     return FALSE;
 }

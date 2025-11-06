@@ -915,6 +915,56 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if (movetype == TYPE_STEEL && AttackingMon.ability == ABILITY_STEELY_SPIRIT) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
             }
+
+            // handle Supreme Overlord
+            if (AttackingMon.ability == ABILITY_SUPREME_OVERLORD)
+            {
+                #ifdef DEBUG_SUPREME_OVERLORD
+                debug_printf("Attacking Mon Ability = Supreme Overlord\n");
+                #endif
+                u32 modifier = 0;
+                u8 faintedPokemon = 0;
+
+                // cannot use HasFaintedTeammates because that is in a different overlay
+                switch (sp->attack_client) {
+                    case BATTLER_PLAYER:
+                        faintedPokemon = sp->playerSideDeaths;
+                        break;
+                    case BATTLER_ENEMY:
+                        faintedPokemon = sp->enemySideDeaths;
+                        break;
+                    case BATTLER_PLAYER2:
+                        faintedPokemon = sp->player2SideDeaths;
+                        break;
+                    case BATTLER_ENEMY2:
+                        faintedPokemon = sp->enemy2SideDeaths;
+                        break;
+                }
+                #ifdef DEBUG_SUPREME_OVERLORD
+                debug_printf("Fainted Pokemon: %d\n", faintedPokemon);
+                #endif 
+                switch (faintedPokemon) {
+                    case 0:
+                        modifier = UQ412__1_0;
+                        break;
+                    case 1:
+                        modifier = UQ412__1_1_BUT_HIGHER;
+                        break;
+                    case 2:
+                        modifier = UQ412__1_2;
+                        break;
+                    case 3:
+                        modifier = UQ412__1_3;
+                        break;
+                    case 4:
+                        modifier = UQ412__1_4;
+                        break;
+                    case 5 ... MAX_CLIENT_DEATHS:
+                        modifier = UQ412__1_5;
+                        break;
+                }
+                basePowerModifier = QMul_RoundUp(basePowerModifier, modifier);
+            }
         }
 
         if (BATTLER_ALLY(attacker) == damageCalc->rawSpeedNonRNGClientOrder[i]) {

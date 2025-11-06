@@ -649,6 +649,9 @@
 #define STRUGGLE_CHECK_GIGATON_HAMMER       (1 << 11)
 #define STRUGGLE_CHECK_ASSAULT_VEST         (1 << 12)
 
+// Supreme Overlord and Last Respects
+#define MAX_CLIENT_DEATHS                   (101) // Last Respects damage caps at 5050, so 101 deaths
+
 /**
  *  @brief msg work specifically for statuses
  */
@@ -1417,6 +1420,11 @@ struct PACKED BattleStruct {
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
                BOOL gemBoostingMove;
+               
+               u8 playerSideDeaths; // for Last Respects and Supreme Overlord; MAX_CLIENT_DEATHS
+               u8 enemySideDeaths; // for Last Respects and Supreme Overlord; MAX_CLIENT_DEATHS
+               u8 player2SideDeaths; // in case someone adds a partner trainer with this move/ability I suppose
+               u8 enemy2SideDeaths; // ^
 };
 
 enum {
@@ -3938,5 +3946,6 @@ int GetSanitisedType(int type);
 
 BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
 
+struct Party *LONG_CALL BattleSystem_GetParty(struct BattleSystem *bw, int battlerId);
 
 #endif // BATTLE_H
