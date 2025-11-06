@@ -924,14 +924,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 #endif
                 u32 modifier = 0;
                 u8 faintedPokemon = 0;
-                // u32 partyCount = BattleWorkPokeCountGet(bw, IsClientEnemy(bw, sp->attack_client));
-                // for (int i = 0; i < partyCount; i++) {
-                //     struct PartyPokemon *party = BattleSystem_GetParty(bw, sp->attack_client);
-                //     struct Pokemon *mon = Party_GetMonByIndex(party, i);
-                //     if ((GetMonData(mon, MON_DATA_HP, NULL) == 0) && (GetMonData(mon, MON_DATA_IS_EGG, NULL) == FALSE)) {
-                //         faintedPokemon++;
-                //     }
-                // }
+
+                // cannot use HasFaintedTeammates because that is in a different overlay
                 switch (sp->attack_client) {
                     case BATTLER_PLAYER:
                         faintedPokemon = sp->playerSideDeaths;
