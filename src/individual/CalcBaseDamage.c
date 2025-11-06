@@ -965,7 +965,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                     case 4:
                         modifier = UQ412__1_4;
                         break;
-                    case 5 ... 101:
+                    case 5 ... MAX_CLIENT_DEATHS:
                         modifier = UQ412__1_5;
                         break;
                 }

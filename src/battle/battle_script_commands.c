@@ -4194,14 +4194,17 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
 {
     IncrementBattleScriptPtr(sp, 1);
 
-    BattleController_EmitPlayFaintAnimation(bsys, sp, sp->fainting_client);
+    u32 faintingClient = sp->fainting_client;
+    u32 faintingClientPartner = BattleWorkPartnerClientNoGet(bsys, faintingClient);
 
-    sp->server_status_flag &= (MaskOfFlagNo(sp->fainting_client) << BATTLE_STATUS_FAINTED_SHIFT) ^ -1;
-    sp->server_status_flag2 |= MaskOfFlagNo(sp->fainting_client) << BATTLE_STATUS2_EXP_GAIN_SHIFT;
-    sp->playerActions[sp->fainting_client][0] = CONTROLLER_COMMAND_40;
+    BattleController_EmitPlayFaintAnimation(bsys, sp, faintingClient);
+
+    sp->server_status_flag &= (MaskOfFlagNo(faintingClient) << BATTLE_STATUS_FAINTED_SHIFT) ^ -1;
+    sp->server_status_flag2 |= MaskOfFlagNo(faintingClient) << BATTLE_STATUS2_EXP_GAIN_SHIFT;
+    sp->playerActions[faintingClient][0] = CONTROLLER_COMMAND_40;
 
     //TrainerIDs in a 1on1 will be 0,xyz,0,0. In a 2on2 they will be 0,xyz,ghf,abc.
-    switch (sp->fainting_client)
+    switch (faintingClient)
     {
     case BATTLER_PLAYER:
         sp->playerSideHasFaintedTeammateThisTurn = TRAINER_1;//0b01
@@ -4225,7 +4228,7 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
         break;
     }
     #ifdef DEBUG_SUPREME_OVERLORD
-        debug_printf("Now checking if need to increase the death counter for Supreme Overlord\n");
+        debug_printf("Now checking if need to increase the death counter for Supreme Overlord and Last Respects\n");
         debug_printf("Enemy 1 team deaths: %d\n", sp->enemySideDeaths);
         debug_printf("Enemy 2 team deaths %d\n", sp->enemy2SideDeaths);
         debug_printf("Player 1 team deaths %d\n", sp->playerSideDeaths);
@@ -4236,12 +4239,11 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
         // if it's a double battle with no npc partner and the fainting mon or the fainting mon's partner has Supreme Overlord, do not increase the counter. 
         // Is this necessary?
         if (BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) {
-            if (sp->battlemon[sp->fainting_client].ability == ABILITY_SUPREME_OVERLORD || sp->battlemon[BattleWorkPartnerClientNoGet(bsys, sp->fainting_client)].ability == ABILITY_SUPREME_OVERLORD) {
-                InitFaintedWork(bsys, sp, sp->fainting_client);
-                return FALSE;
+            if (sp->battlemon[faintingClient].ability == ABILITY_SUPREME_OVERLORD || sp->battlemon[faintingClientPartner].ability == ABILITY_SUPREME_OVERLORD) {
+                goto _InitFaintedWork;
             }
         }
-        switch (sp->fainting_client)
+        switch (faintingClient)
         {
         case BATTLER_PLAYER:
             {
@@ -4286,7 +4288,8 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
         }
     }
 
-    InitFaintedWork(bsys, sp, sp->fainting_client);
+_InitFaintedWork:
+    InitFaintedWork(bsys, sp, faintingClient);
     return FALSE;
 }
 
