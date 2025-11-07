@@ -20,7 +20,7 @@ _HandleRegularPursuit:
     CalcCrit 
     CalcDamage 
     // Handled in CalcDamage already.
-    // TODO: apply the effectiveness flag
+    // TODO: Apply the effectiveness flag.
     // ApplyTypeEffectiveness
     // Make sure the animation and attack message show.
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_ATTACK_MESSAGE
@@ -135,7 +135,7 @@ _ExperienceLoop:
     UpdateVarFromVar OPCODE_GET, BSCRIPT_VAR_MOVE_NO_TEMP, BSCRIPT_VAR_MOVE_NO_CUR
 
 _Cleanup:
-    // Fix bug where pursuit on the rightside client was preventing the next attack message/move animation from playing
+    // Fixes a bug where Pursuit on the rightside client was preventing the next attack message/move animation from playing.
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_ATTACK_MESSAGE
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF
     End 

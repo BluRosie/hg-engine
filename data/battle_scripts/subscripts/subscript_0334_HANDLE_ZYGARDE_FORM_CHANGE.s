@@ -2,8 +2,8 @@
 
 .data
 
-_000:
-    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _016
+_Start:
+    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _CompleteZygardeForm
     // Temporarily remove the visual effect of Substitute to show the form change.
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_SUB_OUT
     Wait 
@@ -12,7 +12,7 @@ _000:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_SUB_IN
     Wait 
 
-_016:
+_CompleteZygardeForm:
     // You sense the presence of many!
     PrintMessage 1360, TAG_NONE
     Wait 

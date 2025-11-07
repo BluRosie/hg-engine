@@ -6,7 +6,7 @@ _Start:
     CalcExpGain _End
     StartGetExpTask 
     WaitGetExpTask 
-    Dummy2A 4294967292
+    Dummy2A 4294967292 //0xFFFFFFFC
 
 _End:
     End 
