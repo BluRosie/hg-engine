@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Wake-Up Slap.
 _Start:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HP, 0, _End
     UpdateMonData OPCODE_FLAG_OFF, BATTLER_CATEGORY_DEFENDER, BMON_DATA_STATUS, STATUS_SLEEP

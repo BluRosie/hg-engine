@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Guard Swap.
 _Start:
     // Swap Defense stages.
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STAT_CHANGE_DEF, BSCRIPT_VAR_CALC_TEMP

@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Fly, Dig, Dive, Bounce, Phantom Force, Shadow Force and Sky Drop.
 _Start:
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 

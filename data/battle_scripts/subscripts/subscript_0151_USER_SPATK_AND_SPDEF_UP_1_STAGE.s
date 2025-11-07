@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Calm Mind.
 _Start:
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STAT_CHANGE_SPATK, 12, _RaiseStats
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STAT_CHANGE_SPDEF, 12, _StageMaxMessage

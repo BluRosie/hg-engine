@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Power Swap.
 _Start:
     // Swap Attack stages.
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STAT_CHANGE_ATK, BSCRIPT_VAR_CALC_TEMP

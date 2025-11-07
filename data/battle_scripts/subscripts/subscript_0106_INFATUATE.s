@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Attract, Cute Charm, Destiny Knot and G-Max Cuddle.
 _Start:
     CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_OBLIVIOUS, _ImmuneDueToAbility
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SEMI_INVULNERABLE|MOVE_STATUS_MISSED, _MoveFailed

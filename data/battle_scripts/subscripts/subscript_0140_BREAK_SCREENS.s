@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Brick Break, Psychic Fangs and Raging Bull.
 _Start:
     TryBreakScreens _NoScreensToBreak
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_EFFECT_CHANCE, 1

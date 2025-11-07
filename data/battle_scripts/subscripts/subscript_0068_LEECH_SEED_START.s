@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Leech Seed and Sappy Seed.
 _Start:
     CheckSubstitute BATTLER_CATEGORY_DEFENDER, _MoveFailed
     // Grass-types cannot be seeded.

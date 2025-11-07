@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Gastro Acid.
 _Start:
     CheckSubstitute BATTLER_CATEGORY_DEFENDER, _MoveFailed
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_MOVE_EFFECT, MOVE_EFFECT_FLAG_ABILITY_SUPPRESSED, _MoveFailed

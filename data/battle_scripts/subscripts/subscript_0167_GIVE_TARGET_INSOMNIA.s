@@ -2,6 +2,7 @@
 
 .data
 
+// Called by Worry Seed.
 _Start:
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SEMI_INVULNERABLE|MOVE_STATUS_MISSED, _MoveFailed
     CheckSubstitute BATTLER_CATEGORY_DEFENDER, _MoveFailed
