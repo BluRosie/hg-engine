@@ -22,23 +22,23 @@ _Start:
 _Trainer1v1Message:
     // Player defeated {0} {1}!
     PrintMessage 839, TAG_TRCLASS_TRNAME, BATTLER_CATEGORY_ENEMY_SLOT_1, BATTLER_CATEGORY_ENEMY_SLOT_1
-    Wait 
+    Wait
     WaitButtonABTime 15
     TrainerSlideIn BATTLER_CATEGORY_ENEMY_SLOT_1, BATTLER_TYPE_SOLO_ENEMY
     Wait 
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_DOUBLES, _Trainer2v2Message
     PrintTrainerMessage BATTLER_CATEGORY_ENEMY_SLOT_1, TRAINER_MESSAGE_LOSE
-    Wait 
+    Wait
     WaitButtonABTime 60
     GoTo _CheckPrizeMoney
 
 _Trainer2v2Message:
     PrintTrainerMessage BATTLER_CATEGORY_ENEMY_SLOT_1, TRAINER_MESSAGE_LOSE_1
-    Wait 
+    Wait
     WaitButtonABTime 60
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_FRONTIER, _CheckPrizeMoney
     PrintTrainerMessage BATTLER_CATEGORY_ENEMY_SLOT_1, TRAINER_MESSAGE_LOSE_2
-    Wait 
+    Wait
     WaitButtonABTime 60
     GoTo _CheckPrizeMoney
 
@@ -48,21 +48,21 @@ _TrainerMultiMessageLink:
 _TrainerMultiMessage:
     // Player beat {0} {1} and {2} {3}!
     PrintMessage 953, TAG_TRCLASS_TRNAME_TRCLASS_TRNAME, BATTLER_CATEGORY_ENEMY_SLOT_1, BATTLER_CATEGORY_ENEMY_SLOT_1, BATTLER_CATEGORY_ENEMY_SLOT_2, BATTLER_CATEGORY_ENEMY_SLOT_2
-    Wait 
+    Wait
     WaitButtonABTime 15
     TrainerSlideIn BATTLER_CATEGORY_ENEMY_SLOT_1, BATTLER_TYPE_SOLO_ENEMY
-    Wait 
+    Wait
     PrintTrainerMessage BATTLER_CATEGORY_ENEMY_SLOT_1, TRAINER_MESSAGE_LOSE
-    Wait 
+    Wait
     WaitButtonABTime 30
     TrainerSlideOut BATTLER_CATEGORY_ENEMY_SLOT_1
-    Wait 
+    Wait
     TrainerSlideIn BATTLER_CATEGORY_ENEMY_SLOT_2, BATTLER_TYPE_SOLO_ENEMY
-    Wait 
+    Wait
     PrintTrainerMessage BATTLER_CATEGORY_ENEMY_SLOT_2, TRAINER_MESSAGE_LOSE
-    Wait 
+    Wait
     WaitButtonABTime 60
-    SetLinkBattleResult 
+    SetLinkBattleResult
 
 _CheckPrizeMoney:
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_FRONTIER, _Cleanup
@@ -86,7 +86,7 @@ _CheckBonusRewards:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MESSAGE, 0, _Cleanup
     // {0} picked up ${1}!
     PrintMessage 341, TAG_TRNAME_NUM, BATTLER_CATEGORY_PLAYER, BATTLER_CATEGORY_MSG_TEMP
-    Wait 
+    Wait
     WaitButtonABTime 60
 
 _Cleanup:
@@ -96,4 +96,4 @@ _Cleanup:
 
 _LinkWin:
     Call BATTLE_SUBSCRIPT_LINK_WIN_LOSE
-    End 
+    End

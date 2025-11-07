@@ -482,9 +482,6 @@ dumprom: $(VENV_ACTIVATE)
 	$(MAKE) clean
 	chmod +x $(DUMP_SCRIPT_LOCATION)/*.sh
 
-# dump mondata, encounters, evos, moves
-	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
-
 	./$(DUMP_SCRIPT_LOCATION)/dumprom.sh
 	mkdir -p $(BUILD) $(BUILD_NARC) $(BUILD)/a028/
 # dump human overworlds
@@ -503,6 +500,20 @@ dumprom: $(VENV_ACTIVATE)
 	$(NARCHIVE) extract $(BUILD_NARC)/kowaza -o $(BUILD)/kowaza
 	$(PYTHON) tools/source/dumptools/migrate_learnsets.py
 	rm -rf $(BUILD)
+
+# dump mondata, encounters, evos, moves
+	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
+
+
+update_machine_moves: $(VENV_ACTIVATE)
+	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/830.txt data/text/830.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/834.txt data/text/834.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/838.txt data/text/838.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/846.txt data/text/846.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/850.txt data/text/850.txt
+	@echo "Updated item descriptions and sprites. Double check formatting"
+
 
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:

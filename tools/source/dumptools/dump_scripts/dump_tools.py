@@ -167,7 +167,7 @@ for n in range(0,4):
 def read_narc_data(data, narc_format):
     stream = io.BytesIO(data)
     file = {}
-    
+
     #USE THE FORMAT LIST TO PARSE BYTES
     for entry in narc_format:
         if (len(entry) == 4):
@@ -176,7 +176,7 @@ def read_narc_data(data, narc_format):
             file[entry[3]] = (work & (0xFFFFFFFF ^ ((1 << entry[1])-1))) >> entry[1]
         else:
             file[entry[1]] = read_bytes(stream, entry[0])
-        
+
     return file
 
 def read_bytes(stream, n):
@@ -184,7 +184,7 @@ def read_bytes(stream, n):
 
 def dump_narc(rom, narc_path, narc_format):
     parsed_narc_data = []
-    
+
     # get narc from rom
     narc_data = rom.files[rom.filenames[narc_path]]
     narc = ndspy.narc.NARC(narc_data)
@@ -194,6 +194,14 @@ def dump_narc(rom, narc_path, narc_format):
         parsed_narc_data.append(read_narc_data(data, narc_format))
 
     return parsed_narc_data
+
+def signed_byte(value):
+    retVal = value
+    if (value > 255):
+        print("Value not valid for bytes!")
+    if (value > 127):
+        retVal = (value - 256)
+    return retVal
 
 def dump_trpok_narc(rom, narc_path, trdata_narc):
     parsed_narc_data = {}
@@ -207,7 +215,7 @@ def dump_trpok_narc(rom, narc_path, trdata_narc):
         flags = bin(trdata_narc[idx]["flags"])[2:].zfill(8)
         num_pokemon = trdata_narc[idx]["num_pokemon"]
         narc_format = copy.deepcopy(TRPOK_NARC_FORMAT)
-        
+
         if flags[7] == '0':
             for n in range(1,5):
                 narc_format.remove([2, f"move_{n}"])
@@ -224,15 +232,15 @@ def dump_trpok_narc(rom, narc_path, trdata_narc):
         if flags[3] == '0':
             for value_type in ["iv", "ev"]:
                 for stat in ["hp", "atk", "def", "spd", "spatk", "spdef"]:
-                    narc_format.remove([1, f'{stat}_{value_type}']) 
-        
+                    narc_format.remove([1, f'{stat}_{value_type}'])
+
         if flags[2] == '0':
             narc_format.remove([1, "nature"])
 
         if flags[1] == '0':
             narc_format.remove([1, "shiny_lock"])
 
-        # for the moment, i do not care about any extra fields.        
+        # for the moment, i do not care about any extra fields.
         if flags[0] == '0':
             narc_format.remove([4, "additional_flags"])
             narc_format.remove([4, "status"])
@@ -249,7 +257,8 @@ def dump_trpok_narc(rom, narc_path, trdata_narc):
             narc_format.remove([1, "move_3_pp"])
             narc_format.remove([1, "move_4_pp"])
         else:
-            sys.exit("Additional flags not currently implemented in the dumper!  Quit.")
+            print("Additional flags not currently implemented in the dumper!  Quit.")
+            sys.exit(0)
 
         #parsed_narc_data.append(read_narc_data(data, narc_format))
         totalSizePerMon = 0
@@ -264,23 +273,18 @@ def dump_trpok_narc(rom, narc_path, trdata_narc):
 def get_form(species_id, is_expanded):
     max_mons = 2048 if is_expanded else 1024
 
-    if species_id < max_mons:
-        return [1, species_id]
-    else:
-        form = species_id // max_mons
-        base_form_id = raw[f'target_{n}'] - (max_mons * form)
-        return [form + 1, base_form_id]
+    return species_id // max_mons
 
 def get_remaining_lines(file_path, original_rom_mon_count, keyword):
     with open(file_path, 'r', encoding="utf-8") as f:
         content = f.readlines()
 
     mon_count = 0
-    
+
     for index, line in enumerate(content):
         if keyword in line and not "terminate" in line:
             mon_count += 1
-            
+
             if (original_rom_mon_count + 1) == mon_count:
                 return "".join(content[index:])
 
@@ -299,7 +303,7 @@ def remove_comments(content: str) -> str:
             line = line[:line.index('//')]
         lines.append(line)
     content = '\n'.join(lines)
-    
+
     # Remove multi-line comments
     in_comment = False
     result = []
@@ -317,14 +321,14 @@ def remove_comments(content: str) -> str:
                 i += 2
                 continue
         i += 1
-    
+
     return ''.join(result)
 
 def parse_inc_file(file_path: str) -> Dict[str, Dict[int, str]]:
     """
     Parse an assembly include file and create a hierarchical dictionary of variables.
     Variables are grouped by their prefix (text before first underscore).
-            
+
     Returns:
         Dictionary with structure:
         {
@@ -342,30 +346,30 @@ def parse_inc_file(file_path: str) -> Dict[str, Dict[int, str]]:
     variables: Dict[str, str] = {}
     # Store the final hierarchical mapping
     result: Dict[str, Dict[int, str]] = defaultdict(dict)
-    
+
     def get_prefix(var_name: str) -> str:
         """Extract prefix before first underscore, or whole name if no underscore"""
         parts = var_name.split('_')
         return parts[0] if len(parts) > 1 else var_name
-    
+
     # Remove comments and empty lines
     content = remove_comments(file_content)
     lines = [line.strip() for line in content.splitlines()]
     lines = [line for line in lines if line]
-    
+
     def evaluate_expression(expr: str) -> int:
         """Evaluate an expression containing variables and basic arithmetic"""
         # Replace all known variables with their values
         for var_name, var_value in evaluated_vars.items():
             if var_name in expr:
                 expr = expr.replace(var_name, str(var_value))
-        
+
         try:
             # Evaluate the resulting expression
             return int(eval(expr))
         except:
             raise ValueError(f"Unable to evaluate expression: {expr}")
-    
+
     # First pass: collect ALL variable definitions
     for line in lines:
         # Handle both .equ prefix and infix equ formats
@@ -383,38 +387,47 @@ def parse_inc_file(file_path: str) -> Dict[str, Dict[int, str]]:
                 var_name = parts[0].strip()
                 var_value = parts[1].strip().strip('()')
                 variables[var_name] = var_value
-    
+
     # Second pass: evaluate all expressions
     evaluated_vars: Dict[str, int] = {}
     while variables:
         progress = False
         remaining_vars = variables.copy()
-        
+
         for var_name, var_value in remaining_vars.items():
             try:
                 # Try to evaluate the expression
                 value = evaluate_expression(var_value)
                 evaluated_vars[var_name] = value
-                
+
                 # Add to result dictionary under appropriate prefix
 
                 # if file_path == "../asm/include/species.inc":
                 #     print(var_value, value, var_name)
-                
+
                 # special case for species.inc
                 if "_START" not in var_name or file_path != "../asm/include/species.inc":
                     prefix = get_prefix(var_name)
                     result[prefix][value] = var_name
-                
+
                 del variables[var_name]
                 progress = True
             except:
                 continue
-        
+
         if not progress and variables:
             raise ValueError("Unable to resolve all variable dependencies")
 
     return dict(result)
+
+def flags_to_string(flags, defines):
+    retStr = []
+    for i in range(0, len(defines)):
+        if (flags & 1 << i):
+            retStr.append(defines[i])
+    if len(retStr) == 0:
+        return "0"
+    return " | ".join(retStr)
 
 class DictWrapper:
     def __init__(self, dictionary):
@@ -425,7 +438,7 @@ class DictWrapper:
                 self.dict[key] = DictWrapper(value)
             else:
                 self.dict[key] = value
-        
+
     def __getitem__(self, key):
         try:
             return self.dict[key]

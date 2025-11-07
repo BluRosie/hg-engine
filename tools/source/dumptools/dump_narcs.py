@@ -5,7 +5,7 @@ import pprint
 # Helper methods for reading narcs and parsing .inc files
 from dump_scripts.dump_tools import *
 
-# Scripts for dumping parsed narcs to armips 
+# Scripts for dumping parsed narcs to armips
 from dump_scripts.mondata import dump_mondata
 from dump_scripts.moves import dump_moves
 from dump_scripts.encounters import dump_encounters
@@ -14,19 +14,19 @@ from dump_scripts.levelupdata import dump_levelupdata
 from dump_scripts.trainerdata import dump_trainerdata
 
 
-if __name__ == "__main__":    
+if __name__ == "__main__":
 	with open(sys.argv[1], 'rb') as f:
 		rom = ndspy.rom.NintendoDSRom(f.read())
 
 	os.makedirs("dumped_armips", exist_ok=True)
 
 	# Dump mondata
-	
+
 	mondata_narc = dump_narc(rom, "a/0/0/2", PERSONAL_NARC_FORMAT)
 	EXPANDED = len(mondata_narc) > 508
-	
+
 	if EXPANDED:
-		print("HG Engine Rom detected") 
+		print("HG Engine Rom detected")
 
 
 	with open('./dumped_armips/mondata.s', 'w', encoding="utf-8") as file:
@@ -61,7 +61,7 @@ if __name__ == "__main__":
 	trdata_narc = dump_narc(rom, "a/0/5/5", TRDATA_NARC_FORMAT)
 	trpok_narc = dump_trpok_narc(rom, "a/0/5/6", trdata_narc)
 	with open('./dumped_armips/trainers.s', 'w', encoding="utf-8") as file:
-		file.write(dump_trainerdata(trdata_narc, trpok_narc))
+		file.write(dump_trainerdata(trdata_narc, trpok_narc, EXPANDED))
 
 
 
@@ -70,15 +70,3 @@ if __name__ == "__main__":
 
 # ['a/0/5/5', 'trdata'],
 # ['a/0/5/6', 'trpok'],
-
-
-
-
-
-
-
-
-
-
-
-
