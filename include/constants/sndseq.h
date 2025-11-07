@@ -1379,6 +1379,7 @@
 #define SEQ_2382                             2382
 #define SEQ_2383                             2383
 #define SEQ_2384                             2384
+#define SEQ_2385                             2385
 
 //Sounds marked BANK, WAVE, PLAYER, GROUP not ported over from pokeheartgold/include/constants/sndseq.h
 

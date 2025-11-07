@@ -538,14 +538,12 @@ _0424: // Trainer 257
     trainertextentry 257, TEXT_DEFEATED_IN_BATTLE, "...!!!\nSo... So strong!\n"
 
 _0430: // Trainer 258
-    trainertextentry 258, TEXT_LAST_MON_SENT_OUT, "What will happen after this?\nI already know.\n"
-    trainertextentry 258, TEXT_LAST_MON_CRITICAL, "Was the future I saw...wrong?\n"
-    trainertextentry 258, TEXT_DEFEATED_IN_BATTLE, "I get it...\n"
+    trainertextentry 258, TEXT_DEFEATED_IN_BATTLE, "...!\n"
+    trainertextentry 258, TEXT_PLAYER_LOSES, "...\n"
 
 _043C: // Trainer 259
-    trainertextentry 259, TEXT_LAST_MON_SENT_OUT, "I’ll show you the spirit of this\ncave Gym!\n"
-    trainertextentry 259, TEXT_LAST_MON_CRITICAL, "We can still do it!\n"
-    trainertextentry 259, TEXT_DEFEATED_IN_BATTLE, "My spirit has not been defeated!\n"
+    trainertextentry 259, TEXT_DEFEATED_IN_BATTLE, "...!\n"
+    trainertextentry 259, TEXT_PLAYER_LOSES, "...\n"
 
 _0448: // Trainer 727
     trainertextentry 727, TEXT_LAST_MON_SENT_OUT, "Heh heh heh... You’re unprepared\nfor this. We’ll knock you down!\n"
@@ -1255,10 +1253,9 @@ _0AF8: // Trainer 417
     trainertextentry 417, TEXT_DEFEATED_IN_OVERWORLD, "Jenn: Don’t get cocky! My sister Kate\nis tough!\n"
 
 _0B04: // Trainer 65
-    trainertextentry  65, TEXT_NOTICE_IN_OVERWORLD, "Are you a Trainer? Let’s have a\npractice battle.\r"
-    trainertextentry  65, TEXT_DEFEATED_IN_BATTLE, "Oh, no!\nI just can’t win...\n"
-    trainertextentry  65, TEXT_DEFEATED_IN_OVERWORLD, "You’re too strong to be a\npractice partner.\n"
-    trainertextentry  65, TEXT_REMATCH_IN_OVERWORLD, "You’re here! You’re here! I’ve never\nhad a practice partner before!\r"
+    trainertextentry  65, TEXT_NOTICE_IN_OVERWORLD, "Flowers bloom... and wilt.\nYou and I are no different.\r"
+    trainertextentry  65, TEXT_DEFEATED_IN_BATTLE, "Even a wilted flower\ncan bloom again.\n"
+    trainertextentry  65, TEXT_DEFEATED_IN_OVERWORLD, "Stay close to the sun.\nIt suits you.\n"
 
 _0B14: // Trainer 6
     trainertextentry   6, TEXT_NOTICE_IN_OVERWORLD, "What’s with you?\nWhat are you doing?\r"
@@ -1282,9 +1279,9 @@ _0B3C: // Trainer 72
     trainertextentry  72, TEXT_DEFEATED_IN_OVERWORLD, "Some Pokémon flee right away.\nTry catching them with Kurt’s Fast Ball.\rWhenever I find a Wht. Apricorn,\nI take it to Kurt. He turns it into a\fcustom Ball.\n"
 
 _0B48: // Trainer 74
-    trainertextentry  74, TEXT_NOTICE_IN_OVERWORLD, "I’ve been getting Pokémon data off my\nradio. I think I’m good.\r"
-    trainertextentry  74, TEXT_DEFEATED_IN_BATTLE, "I give up!\n"
-    trainertextentry  74, TEXT_DEFEATED_IN_OVERWORLD, "Music on the radio changes the moods of\nwild Pokémon.\n"
+    trainertextentry  74, TEXT_NOTICE_IN_OVERWORLD, "You've climbed far, outsider.\nThis path is under my watch.\r"
+    trainertextentry  74, TEXT_DEFEATED_IN_BATTLE, "Your resolve... it's stronger\nthan I expected.\n"
+    trainertextentry  74, TEXT_DEFEATED_IN_OVERWORLD, "You fought well.\nMay the mountain guide you.\n"
 
 _0B54: // Trainer 75
     trainertextentry  75, TEXT_NOTICE_IN_OVERWORLD, "I’m gonna show my girlfriend I’m\nhot stuff!\r"
