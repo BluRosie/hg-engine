@@ -14,7 +14,7 @@ def dump_levelupdata(narc):
 
 	for idx, levelup in enumerate(narc):
 		levelupdata_armip += f'levelup {MONS["SPECIES"][idx]}\n'
-		
+
 		for n in range(0,max_moves):
 			if levelup[f"move_id_{n}"] != 0xFFFF and levelup[f"move_id_{n}"] != 0 and levelup[f"lvl_learned_{n}"] <= 100:
 				levelupdata_armip += f'    learnset {MOVES["MOVE"][levelup[f"move_id_{n}"]]}, {levelup[f"lvl_learned_{n}"]}\n'

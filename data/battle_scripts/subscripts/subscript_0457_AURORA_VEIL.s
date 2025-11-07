@@ -3,8 +3,6 @@
 .data
 
 _Start:
-    TryAuroraVeil _End
+    TryAuroraVeil
     Call BATTLE_SUBSCRIPT_ANIMATION_PREPARED_MESSAGE
-
-_End:
     End 

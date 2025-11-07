@@ -94,6 +94,7 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys, struct BattleStruct *c
 BOOL btl_scr_cmd_104_tryincinerate(void* bsys, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_105_addthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -383,6 +384,7 @@ const u8 *BattleScrCmdNames[] =
     "TryIncinerate",
     "AddThirdType",
     "TryAuroraVeil",
+    "ClearAuroraVeil",
     // "YourCustomCommand",
 };
 
@@ -390,7 +392,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0xFF
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x107
 
 const btl_scr_cmd_func NewBattleScriptCmdTable[] =
 {
@@ -432,6 +434,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x104 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_104_tryincinerate,
     [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_addthirdtype,
     [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_tryauroraveil,
+    [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_clearauroraveil,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -3865,6 +3868,7 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
     u16 species, item;
     u8 ability, lvl;
     struct PartyPokemon *mon;
+    u32 quantityPickedUp = 0, partyIndex = 0, itemPickedUp = ITEM_NONE;
 
     IncrementBattleScriptPtr(sp, 1);
 
@@ -3894,6 +3898,9 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
                     break;
                 }
             }
+            quantityPickedUp++;
+            partyIndex = i;
+            itemPickedUp = item;
         }
         if (ability == ABILITY_HONEY_GATHER
             && species != SPECIES_NONE
@@ -3901,7 +3908,7 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
             && item == ITEM_NONE) {
             j   = 0;
             k   = 10;
-            lvl = GetMonData(mon, MON_DATA_LEVEL, 0);
+            lvl = GetMonData(mon, MON_DATA_LEVEL, NULL);
             while (lvl > k) {
                 j++;
                 k += 10;
@@ -3910,10 +3917,28 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
             GF_ASSERT(j < 10);
 
             if ((BattleRand(bw) % 100) < sHoneyGatherChanceTable[j]) {
-                j = ITEM_HONEY;
-                SetMonData(mon, MON_DATA_HELD_ITEM, &j);
+                item = ITEM_HONEY;
+                SetMonData(mon, MON_DATA_HELD_ITEM, &item);
+                quantityPickedUp++;
+                partyIndex = i;
+                itemPickedUp = ITEM_HONEY;
             }
         }
+    }
+
+    sp->calc_work = quantityPickedUp;
+
+    if (quantityPickedUp > 1)
+    {
+        sp->mp.msg_id = BATTLE_MSG_GENERIC_PICKED_UP_ITEM;
+        sp->mp.msg_tag = TAG_NONE;
+    }
+    else if (quantityPickedUp > 0) // aka == 1
+    {
+        sp->mp.msg_id = BATTLE_MSG_PICKED_UP_ITEM;
+        sp->mp.msg_tag = TAG_NICKNAME_ITEM;
+        sp->mp.msg_para[0] = (partyIndex << 8) | 0;
+        sp->mp.msg_para[1] = itemPickedUp;
     }
 
     return FALSE;
@@ -4076,29 +4101,44 @@ BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* sp)
 {
     IncrementBattleScriptPtr(sp, 1);
 
-    int adrs = read_battle_script_param(sp);
-
+    // Fail conditions are handled in BattleController_BeforeMove.c
+    // int adrs = read_battle_script_param(sp);
     int side = IsClientEnemy(bw, sp->attack_client);
 
-    if (sp->side_condition[side] & SIDE_STATUS_AURORA_VEIL) {
-        IncrementBattleScriptPtr(sp, adrs);
-        sp->waza_status_flag |= 64; // What does this line do? ~J
-    } else {
-        sp->side_condition[side] |= SIDE_STATUS_AURORA_VEIL;
-        sp->scw[side].auroraVeilCount = 5;
-        sp->scw[side].auroraVeilBattler = sp->attack_client;
-        if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_EXTEND_SCREENS) {
-            // TODO: Expose and utilize GetHeldItemModifier(sp, sp->attack_client, 0) in place of a hardcoded value for light clay.
-            sp->scw[side].auroraVeilCount += 3;
-        }
-
-        // TODO: Check if there is any difference in message between single and double battles.
-        // I don't think there is.
-        sp->mp.msg_id = BATTLE_MSG_AURORA_VEIL;
-        sp->mp.msg_tag = TAG_MOVE_SIDE;
-        sp->mp.msg_para[0] = sp->current_move_index;
-        sp->mp.msg_para[1] = sp->attack_client;
+    sp->side_condition[side] |= SIDE_STATUS_AURORA_VEIL;
+    sp->scw[side].auroraVeilCount = 5;
+    sp->scw[side].auroraVeilBattler = sp->attack_client;
+    if (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_EXTEND_SCREENS) {
+        sp->scw[side].auroraVeilCount += HeldItemAtkGet(sp, sp->attack_client, 0);
     }
+
+    // TODO: Check if there is any difference in message between single and double battles.
+    // I don't think there is.
+    sp->mp.msg_id = BATTLE_MSG_AURORA_VEIL;
+    sp->mp.msg_tag = TAG_MOVE_SIDE;
+    sp->mp.msg_para[0] = sp->current_move_index;
+    sp->mp.msg_para[1] = sp->attack_client;
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to clear Aurora Veil, currently only used for Defog (other moves use TryBreakScreens)
+ *
+ *  @param bsys
+ *  @param ctx
+ *  @return FALSE
+ */
+
+BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int side = IsClientEnemy(bsys, ctx->defence_client);
+
+    ctx->side_condition[side] &= ~SIDE_STATUS_AURORA_VEIL;
+    ctx->scw[side].auroraVeilCount = 0;
+
     return FALSE;
 }
 
@@ -4162,12 +4202,12 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
     {
     case BATTLER_PLAYER:
         sp->playerSideHasFaintedTeammateThisTurn = TRAINER_1;//0b01
-        if (bsys->trainerId[BATTLER_PLAYER2] == 0) //Ally trainer does not exist => must be player, both pokemon slots see the fainted mate 
+        if (bsys->trainerId[BATTLER_PLAYER2] == 0) //Ally trainer does not exist => must be player, both pokemon slots see the fainted mate
             sp->playerSideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     case BATTLER_ENEMY:
         sp->enemySideHasFaintedTeammateThisTurn = TRAINER_1;//0b01
-        if (bsys->trainerId[BATTLER_ENEMY2] == 0) //Ally trainer does not exist => must be enemy trainer #1, both pokemon slots see the fainted mate 
+        if (bsys->trainerId[BATTLER_ENEMY2] == 0) //Ally trainer does not exist => must be enemy trainer #1, both pokemon slots see the fainted mate
             sp->enemySideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     case BATTLER_PLAYER2:
