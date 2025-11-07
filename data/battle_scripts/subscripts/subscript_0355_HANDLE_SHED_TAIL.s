@@ -7,8 +7,6 @@ _Start:
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _SubstituteExists
     // Fail if there are no Pokemon to swap to.
     TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, TRUE, _MoveFailed
-    // ???
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SHADOW_FORCE, _PlayAnimation
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_MAXHP, BSCRIPT_VAR_HP_CALC
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 2
     // Fail if we lack the necessary HP to sacrifice.
