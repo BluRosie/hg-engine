@@ -18,7 +18,7 @@ _SpeedMaxMessage:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_MESSAGE, 3
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MESSAGE, STAT_SPEED
     // {STRVAR_1 1, 0, 0}'s {STRVAR_1 13, 1, 0} won't go higher!
     PrintMessage 142, TAG_NICKNAME_STAT, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_MSG_TEMP
     Wait 
