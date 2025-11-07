@@ -2,7 +2,8 @@
 
 .data
 
-// Reverts Giratina to Altered Forme in combat under unknown circumstances.
+// Reverts Giratina to Altered Forme when outside of the Distortion World and not holding a Griseous Orb.
+// Called in src/individual/BattleFormChangeCheck.c.
 _Start:
     // Recalculate Giratina's stats for the current form.
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_RECALC_MON_STATS

@@ -842,6 +842,7 @@ void LONG_CALL BattleFormChange(int client, int form_no, void* bw, struct Battle
 
     sp->battlemon[client].type1 = GetMonData(pp2, MON_DATA_TYPE_1, NULL);
     sp->battlemon[client].type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
+    sp->battlemon[client].type3 = TYPE_TYPELESS;
     sp->battlemon[client].ability_activated_flag = FALSE;
 
     // need to update weight as well
