@@ -6,11 +6,13 @@ import struct
 from collections import defaultdict, OrderedDict
 
 numToTutorName = {
-    0: "TUTOR_TOP_LEFT",
-    1: "TUTOR_TOP_RIGHT",
-    2: "TUTOR_BOTTOM_RIGHT",
-    3: "TUTOR_HEADBUTT",
+    0: "MOVE_TUTOR_NPC_FRONTIER_TOP_LEFT",
+    1: "MOVE_TUTOR_NPC_FRONTIER_TOP_RIGHT",
+    2: "MOVE_TUTOR_NPC_FRONTIER_BOTTOM_RIGHT",
+    3: "MOVE_TUTOR_NPC_HEADBUTT",
 }
+
+gNewFormat = False
 
 
 def parse_species_header(file_path):
@@ -44,7 +46,8 @@ def tm_data_dumper(species_dict, moves_dict):
     output = {}
 
     for species in range(0, len(species_dict)):
-        mondata = open("build/a002/mondata_{:04d}".format(species), "rb")
+        filename = f"build/a002/mondata_{species:04d}" if len(species_dict) > 1000 else "build/a002/mondata_{species:03d}"
+        mondata = open(filename, "rb")
         mondata.seek(0x1C)
         tmArray[species] = 0
         for i in range(0, 4):
@@ -67,10 +70,13 @@ def tm_data_dumper(species_dict, moves_dict):
 def levelup_data_dumper(species_dict, moves_dict):
     output = {}
 
+    filename = "build/a033/learnset_0"
+
     for species in range(len(species_dict)):
-        filename = f"build/a033/learnset_{species:04d}"
-        if not os.path.isfile(filename):
-            continue
+        if (not gNewFormat):
+            filename = f"build/a033/learnset_{species:04d}" if len(species_dict) > 1000 else f"build/a033/learnset_{species:03d}"
+            if not os.path.isfile(filename):
+                continue
 
         with open(filename, "rb") as f:
             moves = []
@@ -224,8 +230,14 @@ def generate_learnset_outputs(species_header_path, moves_header_path, out_learns
 
 
 if __name__ == "__main__":
-    generate_learnset_outputs(
-        species_header_path="include/constants/species.h",
-        moves_header_path="include/constants/moves.h",
-        out_learnsets="data/learnsets/learnsets.json",
-    )
+    if os.path.exists("build/a033/learnset_0"):
+        # the rom is in the new format!  this is a single file in a033 now!
+        print("Dumped ROM is already in new format!\nNothing to be done for learnsets.")
+    elif os.path.isfile("build/a002/mondata_000"):
+        print("Vanilla format not supported by this script, please just edit the learnset JSON for the moment.")
+    else:
+        generate_learnset_outputs(
+            species_header_path="include/constants/species.h",
+            moves_header_path="include/constants/moves.h",
+            out_learnsets="data/learnsets/learnsets.json",
+        )

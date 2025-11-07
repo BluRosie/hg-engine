@@ -669,7 +669,7 @@ $(TRAINER_GFX_DIR)/8_%-03.NANR:$(TRAINER_GFX_DEPENDENCIES_DIR)/%_anim.json
 	$(GFX) $< $@
 
 $(TRAINER_GFX_DIR)/8_%-04.NCGR:$(TRAINER_GFX_DEPENDENCIES_DIR)/%_enc.png
-	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4 -scanfronttoback -mwidth 20
+	$(GFX) $< $@ -bitdepth 4 -scanned -mwidth 20
 
 $(TRAINER_GFX_NARC): $(TRAINER_GFX_DEPENDENCIES) $(TRAINER_GFX_OBJS)
 	$(NARCHIVE) create $@ $(TRAINER_GFX_DIR) -nf

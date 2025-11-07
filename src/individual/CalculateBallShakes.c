@@ -61,6 +61,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         return 4;
     }
 
+    // location does not need to be adjusted because speciesCatchRate is not used until heavyBallMod is
     if (sp->item_work == ITEM_SAFARI_BALL)
     {
         speciesCatchRate = PokePersonalParaGet(sp->battlemon[sp->defence_client].species, PERSONAL_CATCH_RATE);
@@ -89,11 +90,13 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     case ITEM_POKE_BALL:
         ballCaptureRatio = 0x1000;
         break;
+#ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
     case ITEM_SAFARI_BALL:
         if (BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) {
             ballCaptureRatio = 0x1800;
         }
         break;
+#endif
     case ITEM_NET_BALL:
         if (HasType(sp, sp->defence_client, TYPE_WATER) || HasType(sp, sp->defence_client, TYPE_BUG)) {
             ballCaptureRatio = 0x3800;
@@ -163,16 +166,23 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         }
         break;
     case ITEM_LURE_BALL:
+#ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
         if (Battle_IsFishingEncounter(bw)) {
             ballCaptureRatio = 0x4000; // as of sword and shield
         }
         break;
+#else
+        if (BattleWorkGroundIDGet(bw) == 7) { // if the battle is happening with a water background
+            ballCaptureRatio = 0x4000;
+        }
+        break;
+#endif
     case ITEM_HEAVY_BALL:
-        if (GetPokemonWeight(bw, sp, sp->defence_client) < 999) {
+        if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 999) {
             heavyBallMod = -20;
-        } else if (GetPokemonWeight(bw, sp, sp->defence_client) < 1999) {
+        } else if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 1999) {
             heavyBallMod = 0;
-        } else if (GetPokemonWeight(bw, sp, sp->defence_client) < 2999) {
+        } else if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 2999) {
             heavyBallMod = 20;
         } else {
             heavyBallMod = 30;
@@ -204,11 +214,13 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             ballCaptureRatio = 0x4000;
         }
         break;
+#ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
     case ITEM_SPORT_BALL:
         if (BattleTypeGet(bw) & BATTLE_TYPE_BUG_CONTEST) {
             ballCaptureRatio = 0x1800;
         }
         break;
+#endif
     //case ITEM_PARK_BALL:
     //
     //    break;
@@ -278,6 +290,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     debug_printf("Step 3: Account for the species catch rate\n");
 #endif
 
+    // https://xcancel.com/Sibuna_Switch/status/1551411751803043840
     c = (speciesCatchRate + heavyBallMod) * b;
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("c: %d\n\n", c);

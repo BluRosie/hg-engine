@@ -769,3 +769,6 @@ ApplyMonMoodModifier = 0x02097F0C | 1;
 PartyMenu_GetCurrentMapSec = 0x020828EC | 1;
 AddTextPrinterParameterizedWithColor = 0x020200FC | 1;
 PrintItemSlotQuantity = 0x021FF66C | 1;
+
+PlayerProfile_TestBadgeFlag = 0x02028F98 | 1;
+InitMartUI = 0x02256D34 | 1;
