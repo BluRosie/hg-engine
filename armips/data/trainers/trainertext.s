@@ -1253,9 +1253,9 @@ _0AF8: // Trainer 417
     trainertextentry 417, TEXT_DEFEATED_IN_OVERWORLD, "Jenn: Don’t get cocky! My sister Kate\nis tough!\n"
 
 _0B04: // Trainer 65
-    trainertextentry  65, TEXT_NOTICE_IN_OVERWORLD, "Flowers bloom... and wilt.\nYou and I are no different.\r"
-    trainertextentry  65, TEXT_DEFEATED_IN_BATTLE, "Even a wilted flower\ncan bloom again.\n"
-    trainertextentry  65, TEXT_DEFEATED_IN_OVERWORLD, "Stay close to the sun.\nIt suits you.\n"
+    trainertextentry  65, TEXT_NOTICE_IN_OVERWORLD, "Flowers bloom... and wilt. You and I \nare no different.\r"
+    trainertextentry  65, TEXT_DEFEATED_IN_BATTLE, "Even a wilted flower can bloom again.\r"
+    trainertextentry  65, TEXT_DEFEATED_IN_OVERWORLD, "Stay close to the sun. It suits you.\r"
 
 _0B14: // Trainer 6
     trainertextentry   6, TEXT_NOTICE_IN_OVERWORLD, "What’s with you?\nWhat are you doing?\r"
@@ -1279,14 +1279,14 @@ _0B3C: // Trainer 72
     trainertextentry  72, TEXT_DEFEATED_IN_OVERWORLD, "Some Pokémon flee right away.\nTry catching them with Kurt’s Fast Ball.\rWhenever I find a Wht. Apricorn,\nI take it to Kurt. He turns it into a\fcustom Ball.\n"
 
 _0B48: // Trainer 74
-    trainertextentry  74, TEXT_NOTICE_IN_OVERWORLD, "You've climbed far, outsider.\nThis path is under my watch.\r"
-    trainertextentry  74, TEXT_DEFEATED_IN_BATTLE, "Your resolve... it's stronger\nthan I expected.\n"
-    trainertextentry  74, TEXT_DEFEATED_IN_OVERWORLD, "You fought well.\nMay the mountain guide you.\n"
+    trainertextentry  74, TEXT_NOTICE_IN_OVERWORLD, "You've climbed far, outsider. This path \nis under my watch.\r"
+    trainertextentry  74, TEXT_DEFEATED_IN_BATTLE, "Your resolve... it's stronger than I \nexpected.\r"
+    trainertextentry  74, TEXT_DEFEATED_IN_OVERWORLD, "You fought well. May the mountain guide \nyou.\r"
 
 _0B54: // Trainer 75
     trainertextentry  75, TEXT_NOTICE_IN_OVERWORLD, "I’m gonna show my girlfriend I’m\nhot stuff!\r"
-    trainertextentry  75, TEXT_DEFEATED_IN_BATTLE, "I wish you would have lost for me...\n"
-    trainertextentry  75, TEXT_DEFEATED_IN_OVERWORLD, "I was humiliated in front of\nmy girlfriend...\n"
+    trainertextentry  75, TEXT_DEFEATED_IN_BATTLE, "I wish you would have lost for me...\r"
+    trainertextentry  75, TEXT_DEFEATED_IN_OVERWORLD, "I was humiliated in front of\nmy girlfriend...\r"
 
 _0B60: // Trainer 388
     trainertextentry 388, TEXT_NOTICE_IN_OVERWORLD, "I’m practicing my fire breathing.\r"
