@@ -427,10 +427,6 @@ u16 GetItemIndex(u16 item, u16 type)
             break;
         }
         ret = item;
-        //if (item > MAX_TOTAL_ITEM_NUM)
-        //    ret = ITEM_DATA_ENTRIES + (item - MAX_TOTAL_ITEM_NUM); // each new item gets a new data entry--537 maps to 514 + (537-536) = 515+
-        //else
-        //    ret = ItemDataIndex[item].arc_data;
         return ret;
 
     case ITEM_GET_ICON_CGX:
@@ -443,10 +439,6 @@ u16 GetItemIndex(u16 item, u16 type)
             return (GFX_ITEM_RETURN_ID);
         }
         ret = item * 2 + 2;
-        //if (item > MAX_TOTAL_ITEM_NUM)
-        //    ret = NEW_ITEM_GFX + (item - MAX_TOTAL_ITEM_NUM - 1) * 2;
-        //else
-        //    ret = ItemDataIndex[item].arc_cgx;
         return ret;
 
     case ITEM_GET_ICON_PAL:
@@ -459,10 +451,6 @@ u16 GetItemIndex(u16 item, u16 type)
             return (GFX_ITEM_RETURN_ID+1);
         }
         ret = item * 2 + 3;
-        //if (item > MAX_TOTAL_ITEM_NUM)
-        //    ret = NEW_ITEM_GFX+1 + (item - MAX_TOTAL_ITEM_NUM - 1) * 2;
-        //else
-        //    ret = ItemDataIndex[item].arc_pal;
         return ret;
 
     case ITEM_GET_AGB_NUM: // for pal park purposes
@@ -483,18 +471,9 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id)
 {
     int dataid, picid,palid;
 
-    //if (item > MAX_TOTAL_ITEM_NUM)
-    //{
-        dataid = item;
-        picid = item * 2 + 2;
-        palid = item * 2 + 3;
-    //}
-    //else
-    //{
-    //    dataid = ItemDataIndex[item].arc_data;
-    //    picid = ItemDataIndex[item].arc_cgx;
-    //    palid = ItemDataIndex[item].arc_pal;
-    //}
+    dataid = item;
+    picid = item * 2 + 2;
+    palid = item * 2 + 3;
 
     switch (type)
     {
