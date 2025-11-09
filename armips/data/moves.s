@@ -13041,11 +13041,7 @@ movedata MOVE_COACHING, "Coaching"
     effectchance 0
     target RANGE_ALLY
     priority 0
-<<<<<<< HEAD
-    flags FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_MIRROR_MOVE
-=======
     flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
->>>>>>> upstream/main
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
