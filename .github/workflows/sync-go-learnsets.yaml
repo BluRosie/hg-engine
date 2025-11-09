@@ -11,6 +11,7 @@ on:
 
 jobs:
   run-and-pr:
+    if: ${{ github.repository == 'BluRosie/hg-engine' }}
     runs-on: ubuntu-latest
     env:
       PY_SCRIPT: tools/source/dumptools/gamemaster_go_import.py
@@ -33,18 +34,27 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            pip install requests
-          fi
+          python -m pip install requests
 
-      - name: Run script
+      - name: Run script (from its directory)
+        working-directory: tools/source/dumptools
+        env:
+          # (Optional) make the output name overrideable in the future
+          OUTPUT_FILE_LOCAL: 22_go.json
         run: |
-          if [ ! -f "${PY_SCRIPT}" ]; then
-            echo "ERROR: ${PY_SCRIPT} not found"; exit 1
+          if [ ! -f "${PY_SCRIPT##*/}" ]; then
+            echo "ERROR: ${PY_SCRIPT} not found at $(pwd)"; exit 1
           fi
-          python "${PY_SCRIPT}"
+          # Run with the same interpreter we installed deps into
+          python "${PY_SCRIPT##*/}"
+          # Sanity check: ensure the script produced the file we expect
+          test -f "${OUTPUT_FILE_LOCAL}" || { echo "ERROR: ${OUTPUT_FILE_LOCAL} not produced"; exit 1; }
+
+      - name: Place output where we commit it
+        run: |
+          mkdir -p "$(dirname "${FILE_TO_COMMIT}")"
+          cp tools/source/dumptools/22_go.json "${FILE_TO_COMMIT}"
+
 
       - name: Create a unique branch name
         run: |

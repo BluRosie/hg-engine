@@ -212,6 +212,14 @@ u16 move_effect_to_subscripts[] =
     [ADD_STATUS_EFF_ADD_THIRD_TYPE_GHOST]           = SUB_SEQ_ADD_THIRD_TYPE_GHOST,
     [ADD_STATUS_EFF_CHANGE_TARGET_TO_PSYCHIC_TYPE]  = SUB_SEQ_CHANGE_TARGET_TO_PSYCHIC_TYPE,
     [ADD_STATUS_EFF_AURORA_VEIL]                    = SUB_SEQ_AURORA_VEIL,
+    [ADD_STATUS_EFF_STRENGTH_SAP]                   = SUB_SEQ_STRENGTH_SAP,
+    [ADD_STATUS_EFF_HEAL_PULSE]                     = SUB_SEQ_HEAL_PULSE,
+    [ADD_STATUS_EFF_POLLEN_PUFF_HEAL]               = SUB_SEQ_POLLEN_PUFF_HEAL,
+    [ADD_STATUS_EFF_COACHING]                       = SUB_SEQ_COACHING,
+    [ADD_STATUS_EFF_LIFE_DEW]                       = SUB_SEQ_LIFE_DEW,
+    [ADD_STATUS_EFF_ENTRAINMENT]                    = SUB_SEQ_ENTRAINMENT,
+    [ADD_STATUS_EFF_HOWL]                           = SUB_SEQ_HOWL,
+    [ADD_STATUS_EFF_DECORATE]                       = SUB_SEQ_DECORATE,
 };
 
 
