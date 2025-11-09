@@ -7,7 +7,6 @@
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 
-#define ITEM_DATA_MAX (ITEM_BRIARS_BOOK)
 #define GFX_ITEM_DUMMY_ID ((MAX_TOTAL_ITEM_NUM) * 2 + 2)
 #define GFX_ITEM_RETURN_ID ((MAX_TOTAL_ITEM_NUM+1) * 2 + 4)
 #define NEW_ITEM_GFX (797)
@@ -428,10 +427,6 @@ u16 GetItemIndex(u16 item, u16 type)
             break;
         }
         ret = item;
-        //if (item > ITEM_DATA_MAX)
-        //    ret = ITEM_DATA_ENTRIES + (item - ITEM_DATA_MAX); // each new item gets a new data entry--537 maps to 514 + (537-536) = 515+
-        //else
-        //    ret = ItemDataIndex[item].arc_data;
         return ret;
 
     case ITEM_GET_ICON_CGX:
@@ -444,10 +439,6 @@ u16 GetItemIndex(u16 item, u16 type)
             return (GFX_ITEM_RETURN_ID);
         }
         ret = item * 2 + 2;
-        //if (item > ITEM_DATA_MAX)
-        //    ret = NEW_ITEM_GFX + (item - ITEM_DATA_MAX - 1) * 2;
-        //else
-        //    ret = ItemDataIndex[item].arc_cgx;
         return ret;
 
     case ITEM_GET_ICON_PAL:
@@ -460,10 +451,6 @@ u16 GetItemIndex(u16 item, u16 type)
             return (GFX_ITEM_RETURN_ID+1);
         }
         ret = item * 2 + 3;
-        //if (item > ITEM_DATA_MAX)
-        //    ret = NEW_ITEM_GFX+1 + (item - ITEM_DATA_MAX - 1) * 2;
-        //else
-        //    ret = ItemDataIndex[item].arc_pal;
         return ret;
 
     case ITEM_GET_AGB_NUM: // for pal park purposes
@@ -471,7 +458,7 @@ u16 GetItemIndex(u16 item, u16 type)
         {
             break;
         }
-        if (item > ITEM_DATA_MAX)
+        if (item > MAX_TOTAL_ITEM_NUM)
             ret = 0;
         else
             ret = ItemDataIndex[item].agb_id;
@@ -484,18 +471,9 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id)
 {
     int dataid, picid,palid;
 
-    //if (item > ITEM_DATA_MAX)
-    //{
-        dataid = item;
-        picid = item * 2 + 2;
-        palid = item * 2 + 3;
-    //}
-    //else
-    //{
-    //    dataid = ItemDataIndex[item].arc_data;
-    //    picid = ItemDataIndex[item].arc_cgx;
-    //    palid = ItemDataIndex[item].arc_pal;
-    //}
+    dataid = item;
+    picid = item * 2 + 2;
+    palid = item * 2 + 3;
 
     switch (type)
     {
@@ -524,7 +502,7 @@ void *LONG_CALL ItemDataTableLoad(int heapID)
 {
     int max;
 
-    max = GetItemIndex(NEW_ITEM_MAX, ITEM_GET_DATA);
+    max = GetItemIndex(MAX_TOTAL_ITEM_NUM, ITEM_GET_DATA);
 
     return ArchiveDataLoadMallocOfs(ARC_ITEM_DATA, 0, heapID, 0, sizeof(ITEMDATA) * max);//800757Ch
 }

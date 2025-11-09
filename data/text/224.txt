@@ -1,1 +1,1 @@
-{COLOR 255}piles of Custom Item{COLOR 0}
+{COLOR 255}Custom Items{COLOR 0}
