@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} sprang up!
     BufferMessage 232, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     GoToEffectScript 

@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} became cloaked in a harsh light!
     // BufferMessage 220, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     GoToEffectScript 
