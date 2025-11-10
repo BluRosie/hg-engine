@@ -566,7 +566,9 @@ BOOL SetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void 
         u16 ability = *((u16 *)data);
         blockA->ability = ability & 0xFF;
         blockA->abilityMSB = (ability >> 8) & 0x01;
-        debug_printf("Ability to set %d, LSB %d, MSb %d\n", ability, blockA->ability, blockA->abilityMSB);
+#ifdef DEBUG_BOXMONDATA_EDITED_CASES
+        debug_printf("[SetBoxMonData] Ability to set %d, LSB %d, MSb %d\n", ability, blockA->ability, blockA->abilityMSB);
+#endif
         ret = TRUE;
         break;
     }
@@ -574,6 +576,9 @@ BOOL SetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void 
     {
         u32 experience = *((u32 *)data);
         blockA->exp = experience;
+#ifdef DEBUG_BOXMONDATA_EDITED_CASES
+        debug_printf("[SetBoxMonData] Experience to set %d\n", blockA->exp);
+#endif
         ret = TRUE;
         break;
     }
@@ -602,7 +607,9 @@ u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *
     {
     case MON_DATA_ABILITY:
     {
+#ifdef DEBUG_BOXMONDATA_EDITED_CASES
         debug_printf("Ability returned: %d\n", (blockA->abilityMSB << 8) | (blockA->ability));
+#endif
         ret = (blockA->abilityMSB << 8) | (blockA->ability);
         *retBool = TRUE;
         break;
@@ -611,11 +618,15 @@ u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *
     {
         ret = blockA->exp;
         *retBool = TRUE;
+#ifdef DEBUG_BOXMONDATA_EDITED_CASES
         debug_printf("Experience returned: %d\n", ret);
+#endif
         break;
     }
     }
-    //debug_printf("Modified GetBoxMonData called...\n    blocks %08X,\n    field %d,\n    data %08X,\n    retBool %08X\n", blocks, field, data, retBool);
+#ifdef DEBUG_BOXMONDATA_EDITED_CASES
+    debug_printf("Modified GetBoxMonData called...\n    blocks %08X,\n    field %d,\n    data %08X,\n    retBool %08X\n", blocks, field, data, retBool);
+#endif
     return ret;
 }
 
