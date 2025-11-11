@@ -391,8 +391,9 @@
 #define MOVE_EFFECT_ENTRAINMENT								385
 #define MOVE_EFFECT_HOWL							      	386
 #define MOVE_EFFECT_DECORATE								387
+#define MOVE_EFFECT_END_TERRAIN                             388
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            387
+#define MAX_BASE_MOVE_EFFECT_NUM                            388
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)

@@ -129,10 +129,10 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
     }
 
-    // debug_printf("statchange: %d\n", statchange);
-    // debug_printf("stattochange: %d\n", stattochange);
+     // debug_printf("statchange: %d\n", statchange);
+     // debug_printf("stattochange: %d\n", stattochange);
 
-    if (statchange > 0)
+    if (statchange != 0)
     {
         if (battlemon->states[STAT_ATTACK + stattochange] == 12)
         {
@@ -186,6 +186,9 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             {
                 switch (statchange)
                 {
+                case -1:
+                    sp->mp.msg_id = BATTLE_MSG_ITEM_LOWERED_STAT;
+                    break;
                 case 1:
                     sp->mp.msg_id = BATTLE_MSG_ITEM_RAISED_STAT;
                     break;
