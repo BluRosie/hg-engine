@@ -1600,17 +1600,17 @@ trainerdata 22, "Adam"
         ivs 200
         abilityslot 0
         level 82
-        pokemon SPECIES_METAGROSS
-        item ITEM_HEAT_ROCK
-        move MOVE_SUNNY_DAY
-        move MOVE_FIRE_BLAST
+        pokemon SPECIES_TAPU_FINI
+        item ITEM_LEFTOVERS
         move MOVE_CALM_MIND
-        move MOVE_PSYCHIC
-        ability ABILITY_PROTOSYNTHESIS
+        move MOVE_SCALD
+        move MOVE_MOONBLAST
+        move MOVE_ICE_BEAM
+        ability ABILITY_MISTY_SURGE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_MODEST
+        nature NATURE_BOLD
         shinylock 0
         ballseal 0
 
@@ -24805,17 +24805,17 @@ trainerdata 671, "Buck"
         ivs 200
         abilityslot 0
         level 87
-        pokemon SPECIES_DUSKNOIR
-        item ITEM_SITRUS_BERRY
-        move MOVE_SNARL
-        move MOVE_SHADOW_SNEAK
-        move MOVE_ICE_PUNCH
-        move MOVE_WILL_O_WISP
-        ability ABILITY_IRON_FIST
+        pokemon SPECIES_TERRAKION
+        item ITEM_LIFE_ORB
+        move MOVE_SUPERPOWER
+        move MOVE_STONE_EDGE
+        move MOVE_EARTHQUAKE
+        move MOVE_IRON_HEAD
+        ability ABILITY_JUSTIFIED
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_BRAVE
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0

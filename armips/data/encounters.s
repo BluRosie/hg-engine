@@ -165,12 +165,12 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_MIENSHAO
 
 // hoenn encounter slots
-    pokemon SPECIES_PLUSLE
-    pokemon SPECIES_MINUN
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-    pokemon SPECIES_SHINX
-    pokemon SPECIES_SHINX
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
 
 // surf encounters
     encounter SPECIES_FLOATZEL, 80, 84
@@ -205,7 +205,7 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     encounter SPECIES_WHISCASH, 80, 84
 
 // swarm grass
-    pokemon SPECIES_PIDGEY
+    pokemon SPECIES_NONE
 // swarm surf
     pokemon SPECIES_NONE
 // swarm good rod
@@ -311,11 +311,11 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 // swarm grass
     pokemon SPECIES_NONE
 // swarm surf
-    pokemon SPECIES_TENTACOOL
+    pokemon SPECIES_NONE
 // swarm good rod
-    pokemon SPECIES_STARYU
+    pokemon SPECIES_NONE
 // swarm super rod
-    pokemon SPECIES_MAGIKARP
+    pokemon SPECIES_NONE
 
 .close
 
@@ -373,53 +373,53 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     pokemon SPECIES_GLISCOR
 
 // hoenn encounter slots
-    pokemon SPECIES_WHISMUR
-    pokemon SPECIES_LINOONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-    pokemon SPECIES_BUIZEL
-    pokemon SPECIES_BIDOOF
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
 
 // surf encounters
-    encounter SPECIES_POLIWAG, 15, 25
-    encounter SPECIES_POLIWAG, 10, 20
-    encounter SPECIES_POLIWHIRL, 15, 25
-    encounter SPECIES_POLIWHIRL, 15, 25
-    encounter SPECIES_POLIWHIRL, 32, 32
+    encounter SPECIES_NONE, 15, 25
+    encounter SPECIES_NONE, 10, 20
+    encounter SPECIES_NONE, 15, 25
+    encounter SPECIES_NONE, 15, 25
+    encounter SPECIES_NONE, 32, 32
 
 // rock smash encounters
     encounter SPECIES_NONE, 0, 0
     encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-    encounter SPECIES_MAGIKARP, 10, 10
-    encounter SPECIES_MAGIKARP, 10, 10
-    encounter SPECIES_MAGIKARP, 10, 10
-    encounter SPECIES_POLIWAG, 10, 10
-    encounter SPECIES_POLIWAG, 10, 10
+    encounter SPECIES_NONE, 10, 10
+    encounter SPECIES_NONE, 10, 10
+    encounter SPECIES_NONE, 10, 10
+    encounter SPECIES_NONE, 10, 10
+    encounter SPECIES_NONE, 10, 10
 
 // good rod encounters
-    encounter SPECIES_MAGIKARP, 20, 20
-    encounter SPECIES_POLIWAG, 20, 20
-    encounter SPECIES_POLIWAG, 20, 20
-    encounter SPECIES_POLIWAG, 20, 20
-    encounter SPECIES_POLIWAG, 20, 20
+    encounter SPECIES_NONE, 20, 20
+    encounter SPECIES_NONE, 20, 20
+    encounter SPECIES_NONE, 20, 20
+    encounter SPECIES_NONE, 20, 20
+    encounter SPECIES_NONE, 20, 20
 
 // super rod encounters
-    encounter SPECIES_POLIWAG, 40, 40
-    encounter SPECIES_POLIWAG, 40, 40
-    encounter SPECIES_MAGIKARP, 40, 40
-    encounter SPECIES_POLIWAG, 40, 40
-    encounter SPECIES_MAGIKARP, 40, 40
+    encounter SPECIES_NONE, 40, 40
+    encounter SPECIES_NONE, 40, 40
+    encounter SPECIES_NONE, 40, 40
+    encounter SPECIES_NONE, 40, 40
+    encounter SPECIES_NONE, 40, 40
 
 // swarm grass
-    pokemon SPECIES_PIDGEY
+    pokemon SPECIES_NONE
 // swarm surf
-    pokemon SPECIES_POLIWAG
+    pokemon SPECIES_NONE
 // swarm good rod
-    pokemon SPECIES_POLIWAG
+    pokemon SPECIES_NONE
 // swarm super rod
-    pokemon SPECIES_MAGIKARP
+    pokemon SPECIES_NONE
 
 .close
 
@@ -435,95 +435,95 @@ superrodrate 75
 walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
 
 // morning encounter slots
-    pokemon SPECIES_PIDGEY
-    pokemon SPECIES_CATERPIE
-    pokemon SPECIES_PIDGEY
-    pokemon SPECIES_CATERPIE
-    pokemon SPECIES_BELLSPROUT
-    pokemon SPECIES_BELLSPROUT
-    pokemon SPECIES_METAPOD
-    pokemon SPECIES_METAPOD
-    pokemon SPECIES_CATERPIE
-    pokemon SPECIES_METAPOD
-    pokemon SPECIES_CATERPIE
-    pokemon SPECIES_METAPOD
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
 
 // day encounter slots
-    pokemon SPECIES_PIDGEY
-    pokemon SPECIES_CATERPIE
-    pokemon SPECIES_PIDGEY
-    pokemon SPECIES_CATERPIE
-    pokemon SPECIES_BELLSPROUT
-    pokemon SPECIES_BELLSPROUT
-    pokemon SPECIES_METAPOD
-    pokemon SPECIES_METAPOD
-    pokemon SPECIES_CATERPIE
-    pokemon SPECIES_METAPOD
-    pokemon SPECIES_CATERPIE
-    pokemon SPECIES_METAPOD
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
 
 // night encounter slots
-    pokemon SPECIES_SPINARAK
-    pokemon SPECIES_RATTATA
-    pokemon SPECIES_SPINARAK
-    pokemon SPECIES_RATTATA
-    pokemon SPECIES_BELLSPROUT
-    pokemon SPECIES_BELLSPROUT
-    pokemon SPECIES_RATTATA
-    pokemon SPECIES_RATTATA
-    pokemon SPECIES_HOOTHOOT
-    pokemon SPECIES_HOOTHOOT
-    pokemon SPECIES_HOOTHOOT
-    pokemon SPECIES_HOOTHOOT
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
 
 // hoenn encounter slots
-    pokemon SPECIES_WHISMUR
-    pokemon SPECIES_LINOONE
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-    pokemon SPECIES_BUIZEL
-    pokemon SPECIES_BIDOOF
+    pokemon SPECIES_NONE
+    pokemon SPECIES_NONE
 
 // surf encounters
-    encounter SPECIES_POLIWAG, 15, 25
-    encounter SPECIES_POLIWAG, 10, 20
-    encounter SPECIES_POLIWHIRL, 15, 25
-    encounter SPECIES_POLIWHIRL, 15, 25
-    encounter SPECIES_POLIWHIRL, 32, 32
+    encounter SPECIES_NONE, 15, 25
+    encounter SPECIES_NONE, 10, 20
+    encounter SPECIES_NONE, 15, 25
+    encounter SPECIES_NONE, 15, 25
+    encounter SPECIES_NONE, 32, 32
 
 // rock smash encounters
     encounter SPECIES_NONE, 0, 0
     encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-    encounter SPECIES_MAGIKARP, 10, 10
-    encounter SPECIES_MAGIKARP, 10, 10
-    encounter SPECIES_MAGIKARP, 10, 10
-    encounter SPECIES_POLIWAG, 10, 10
-    encounter SPECIES_POLIWAG, 10, 10
+    encounter SPECIES_NONE, 10, 10
+    encounter SPECIES_NONE, 10, 10
+    encounter SPECIES_NONE, 10, 10
+    encounter SPECIES_NONE, 10, 10
+    encounter SPECIES_NONE, 10, 10
 
 // good rod encounters
-    encounter SPECIES_MAGIKARP, 20, 20
-    encounter SPECIES_POLIWAG, 20, 20
-    encounter SPECIES_POLIWAG, 20, 20
-    encounter SPECIES_POLIWAG, 20, 20
-    encounter SPECIES_POLIWAG, 20, 20
+    encounter SPECIES_NONE, 20, 20
+    encounter SPECIES_NONE, 20, 20
+    encounter SPECIES_NONE, 20, 20
+    encounter SPECIES_NONE, 20, 20
+    encounter SPECIES_NONE, 20, 20
 
 // super rod encounters
-    encounter SPECIES_POLIWAG, 40, 40
-    encounter SPECIES_POLIWAG, 40, 40
-    encounter SPECIES_MAGIKARP, 40, 40
-    encounter SPECIES_POLIWAG, 40, 40
-    encounter SPECIES_MAGIKARP, 40, 40
+    encounter SPECIES_NONE, 40, 40
+    encounter SPECIES_NONE, 40, 40
+    encounter SPECIES_NONE, 40, 40
+    encounter SPECIES_NONE, 40, 40
+    encounter SPECIES_NONE, 40, 40
 
 // swarm grass
-    pokemon SPECIES_PIDGEY
+    pokemon SPECIES_NONE
 // swarm surf
-    pokemon SPECIES_POLIWAG
+    pokemon SPECIES_NONE
 // swarm good rod
-    pokemon SPECIES_POLIWAG
+    pokemon SPECIES_NONE
 // swarm super rod
-    pokemon SPECIES_MAGIKARP
+    pokemon SPECIES_NONE
 
 .close
 
