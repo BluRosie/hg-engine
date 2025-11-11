@@ -1221,7 +1221,8 @@
       "MOVE_BODY_PRESS",
       "MOVE_SCALD",
       "MOVE_LIQUIDATION",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_WATERFALL"
     ],
     "EggMoves": [],
     "TutorMoves": [
