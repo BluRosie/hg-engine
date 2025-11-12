@@ -790,6 +790,19 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         }
                     }
 
+                    // Room Service
+                    {
+                        u16 heldItem;
+
+                        heldItem = GetBattleMonItem(sp, client_no);
+                        if (heldItem == ITEM_ROOM_SERVICE && sp->field_condition & FIELD_STATUS_TRICK_ROOM) {
+                            sp->state_client = client_no;
+                            scriptnum = SUB_SEQ_HANDLE_ROOM_SERVICE;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+
                     // Schooling
                     {
 

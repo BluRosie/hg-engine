@@ -220,6 +220,7 @@ u16 move_effect_to_subscripts[] =
     [ADD_STATUS_EFF_ENTRAINMENT]                    = SUB_SEQ_ENTRAINMENT,
     [ADD_STATUS_EFF_HOWL]                           = SUB_SEQ_HOWL,
     [ADD_STATUS_EFF_DECORATE]                       = SUB_SEQ_DECORATE,
+    [ADD_STATUS_EFF_END_TERRAIN]                    = SUB_SEQ_HANDLE_TERRAIN_END,
 };
 
 
