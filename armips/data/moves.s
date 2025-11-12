@@ -11385,7 +11385,7 @@ movedatalongname MOVE_STOMPING_TANTRUM, "StompingTantrum", "Stomping Tantrum"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -14713,7 +14713,7 @@ movedata MOVE_TEMPER_FLARE, "Temper Flare"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
