@@ -20,11 +20,12 @@ struct BadgeMartItems {
 // note: limited to 203 items (~34 pages)
 const struct BadgeMartItems sBadgeMart[] = {
     { ITEM_ULTRA_BALL,     0 },
-    { ITEM_QUICK_BALL,     0 },
     { ITEM_REVIVE,     	   0 },
     { ITEM_RARE_CANDY,     0 },
     { ITEM_MAX_REPEL,      0 },
     { ITEM_FULL_RESTORE,   0 },
+    { ITEM_MAX_ELIXIR,     0 },
+    { ITEM_QUICK_BALL,     0 },
     { ITEM_MOON_STONE,     0 },
     { ITEM_FIRE_STONE,     0 },
     { ITEM_THUNDER_STONE,  0 },
