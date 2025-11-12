@@ -475,8 +475,9 @@
 #define SUB_SEQ_HOWL                                  (465)
 #define SUB_SEQ_DECORATE                              (466)
 #define SUB_SEQ_HANDLE_ROOM_SERVICE                   (467)
+#define SUB_SEQ_SWEET_VEIL_FAIL                       (468)
 
-#define MAX_BASE_SUBSCRIPT_NUM 467
+#define MAX_BASE_SUBSCRIPT_NUM 468
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

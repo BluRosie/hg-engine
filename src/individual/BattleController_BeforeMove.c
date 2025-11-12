@@ -2913,10 +2913,8 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
 
     BOOL hasFlowerVeil = HasType(ctx, defender, TYPE_GRASS) && (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_FLOWER_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_FLOWER_VEIL));
     BOOL hasPastelVeil = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_PASTEL_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_PASTEL_VEIL);
-    //BOOL hasSweetVeil = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_SWEET_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_SWEET_VEIL);
+    BOOL hasSweetVeil = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_SWEET_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_SWEET_VEIL);
 
-    // TODO: implement Sweet Veil
-    /*
     if (hasSweetVeil) {
         switch (moveEffect) {
         case MOVE_EFFECT_STATUS_SLEEP:
@@ -2933,13 +2931,12 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         default:
             break;
         }
-    }*/
+    }
 
     if (hasFlowerVeil) {
         switch (moveEffect) {
             case MOVE_EFFECT_STATUS_SLEEP:
             case MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN:
-            case MOVE_EFFECT_RECOVER_DAMAGE_SLEEP:
             case MOVE_EFFECT_STATUS_PARALYZE:
             case MOVE_EFFECT_STATUS_POISON:
             case MOVE_EFFECT_STATUS_BADLY_POISON:
@@ -2958,7 +2955,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         }
     }
 
-    // No Stomping Tantrum doubling
+    // Rest : No Stomping Tantrum doubling
     if (ShieldsDownCanActivate || MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_LEAF_GUARD)) {
         if (moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
@@ -2971,8 +2968,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         }
     }
 
-    // TODO: implement Sweet Veil (Rest), affectsStompingTantrum = FALSE
-    /*
+    // Rest : No Stomping Tantrum doubling
     if (hasSweetVeil) {
         if (moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
@@ -2984,7 +2980,6 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
             return TRUE;
         }
     }
-    */
 
     if (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_COMATOSE)
     || MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_LEAF_GUARD)
