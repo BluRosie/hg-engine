@@ -2611,7 +2611,7 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities2(struct BattleSystem
 BOOL BattleController_CheckUproarStoppingSleepMoves(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
 
-    if (ctx->field_condition & FIELD_STATUS_UPROAR && moveEffect == MOVE_EFFECT_STATUS_SLEEP) {
+    if (ctx->field_condition & FIELD_STATUS_UPROAR && (moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN)) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
         ctx->battlerIdTemp = defender;
@@ -2621,8 +2621,8 @@ BOOL BattleController_CheckUproarStoppingSleepMoves(struct BattleSystem *bsys UN
         return TRUE;
     }
 
-    if (ctx->field_condition & FIELD_STATUS_UPROAR && moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN) {
-        BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+    if (ctx->field_condition & FIELD_STATUS_UPROAR && moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP) {
+        BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_UPROAR_STOPPING_REST);
@@ -2666,9 +2666,9 @@ BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct
     if (ctx->terrainOverlay.numberOfTurnsLeft > 0) {
         switch (ctx->terrainOverlay.type) {
             case ELECTRIC_TERRAIN:
-                if ((moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN) && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)) {
+                if ((moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN) && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)) {
                     ctx->battlerIdTemp = defender;
-                    BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+                    BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, moveEffect != MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP);
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELECTRIC_TERRAIN_PROTECTION);
                     ctx->next_server_seq_no = ctx->server_seq_no;
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2678,9 +2678,9 @@ BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct
                 break;
 
             case MISTY_TERRAIN:
-                if ((moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_STATUS_PARALYZE || moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON || moveEffect == MOVE_EFFECT_STATUS_BURN || moveEffect == MOVE_EFFECT_STATUS_CONFUSE) && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)) {
+                if ((moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_STATUS_PARALYZE || moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON || moveEffect == MOVE_EFFECT_STATUS_BURN || moveEffect == MOVE_EFFECT_STATUS_CONFUSE) && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)) {
                     ctx->battlerIdTemp = defender;
-                    BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+                    BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, moveEffect != MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP);
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MISTY_TERRAIN_PROTECTION);
                     ctx->next_server_seq_no = ctx->server_seq_no;
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2913,6 +2913,27 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
 
     BOOL hasFlowerVeil = HasType(ctx, defender, TYPE_GRASS) && (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_FLOWER_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_FLOWER_VEIL));
     BOOL hasPastelVeil = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_PASTEL_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_PASTEL_VEIL);
+    //BOOL hasSweetVeil = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_SWEET_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_SWEET_VEIL);
+
+    // TODO: implement Sweet Veil
+    /*
+    if (hasSweetVeil) {
+        switch (moveEffect) {
+        case MOVE_EFFECT_STATUS_SLEEP:
+        case MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN:
+            BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+            ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
+            ctx->battlerIdTemp = defender;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SWEET_VEIL_FAIL);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+            break;
+
+        default:
+            break;
+        }
+    }*/
 
     if (hasFlowerVeil) {
         switch (moveEffect) {
@@ -2939,7 +2960,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
 
     // No Stomping Tantrum doubling
     if (ShieldsDownCanActivate || MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_LEAF_GUARD)) {
-        if (moveEffect == MOVE_EFFECT_RECOVER_DAMAGE_SLEEP) {
+        if (moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
             ctx->battlerIdTemp = defender;
@@ -2951,6 +2972,19 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
     }
 
     // TODO: implement Sweet Veil (Rest), affectsStompingTantrum = FALSE
+    /*
+    if (hasSweetVeil) {
+        if (moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP) {
+            BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
+            ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
+            ctx->battlerIdTemp = defender;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SWEET_VEIL_FAIL);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    }
+    */
 
     if (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_COMATOSE)
     || MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_LEAF_GUARD)
