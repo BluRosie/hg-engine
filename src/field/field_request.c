@@ -4,6 +4,7 @@
 #include "../../include/constants/buttons.h"
 #include "../../include/constants/file.h"
 #include "../../include/constants/species.h"
+#include "../../include/constants/vars_flags.h"
 
 /**** AURORA CRYSTAL: Used for Teleport Gem and Portable PC. ****/
 
@@ -54,7 +55,7 @@ void SetOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req, u16 trg)
  */
 void CheckOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req, FieldSystem *fsys)
 {
-    if (req->OpenPCCheck) {
+    if (req->OpenPCCheck && CheckScriptFlag(FLAG_PORTA_PC_AVAILABLE)) {
         SetScriptFlag(0x18F);
         EventSet_Script(fsys, 2010, NULL);
     }
