@@ -74,8 +74,12 @@ def parse_trainers(file_path):
                 else:
                     print(f"encountered unexpected 'nummons' value for trainer {trainer_id}")
                     sys.exit(1)
-                    
+
             elif stripped == "endentry":
+                if key_counts["item"] < 4:
+                    print(f"ERROR: only {key_counts["item"]} 'item' entries were in trainer id {trainer_id} ({trainer["name"]})")
+                    sys.exit(1)
+
                 trainers[trainer_id] = trainer
                 trainer = {}
                 in_trainerdata = False
