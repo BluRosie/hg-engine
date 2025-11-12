@@ -12832,7 +12832,7 @@ movedata MOVE_EXPANDING_FORCE, "Expanding Force"
     movedescription MOVE_EXPANDING_FORCE, "---"
 
 movedata MOVE_STEEL_ROLLER, "Steel Roller"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_END_TERRAIN
     pss SPLIT_PHYSICAL
     basepower 130
     type TYPE_STEEL
@@ -12841,7 +12841,7 @@ movedata MOVE_STEEL_ROLLER, "Steel Roller"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13840,7 +13840,7 @@ movedata MOVE_POPULATION_BOMB, "Population Bomb"
     movedescription MOVE_POPULATION_BOMB, "The user’s fellows\ngather in droves to\nperform a combo attack\nthat hits the target one\nto ten times in a row."
 
 movedata MOVE_ICE_SPINNER, "Ice Spinner"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_END_TERRAIN
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_ICE
@@ -13849,7 +13849,7 @@ movedata MOVE_ICE_SPINNER, "Ice Spinner"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
