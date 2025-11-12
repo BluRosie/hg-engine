@@ -52,18 +52,18 @@ def parse_trainers(file_path):
                 trainer["trainermontype"] = stripped.split("trainermontype")[1].strip().upper()
                 trainer["trainermontype"] = trainer["trainermontype"].split()
                 if len(trainer["trainermontype"]) % 2 == 0:
-                    print(f"ERROR: Incorrect number or formating of 'trainermontype' for trainer {trainer_id}")
+                    print(f"ERROR: Incorrect number or formating of 'trainermontype' for trainer id {trainer_id} ({trainer['name']})")
                     sys.exit(1)
                 if(len(trainer["trainermontype"]) > 1):
                     for i in range(0,len(trainer["trainermontype"])):
                         if i % 2 == 1 and trainer["trainermontype"][i] != "|":
-                            print(f"ERROR: Incorrect number or formating of 'trainermontype' from trainer {trainer_id}")
+                            print(f"ERROR: Incorrect number or formating of 'trainermontype' from trainer id {trainer_id} ({trainer['name']})")
                             sys.exit(1)
 
             elif stripped.startswith("trainerclass"):
                 trainer["trainerclass"] = stripped.split()
                 if len(trainer["trainerclass"]) != 2:
-                    print(f"ERROR: Incorrect number or formating of 'trainerclass' for trainer {trainer_id}")
+                    print(f"ERROR: Incorrect number or formating of 'trainerclass' for trainer id {trainer_id} ({trainer['name']})")
                     sys.exit(1)
                 trainer["trainerclass"] = trainer["trainerclass"][1].strip().upper()
                 
