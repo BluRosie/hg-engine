@@ -84,7 +84,7 @@ a Medium
 a Cameraman
 a Reporter
 an Idol
-a Champion
+a Former Champion
 an Elite Four
 an Elite Four
 an Elite Four

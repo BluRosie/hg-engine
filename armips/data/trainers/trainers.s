@@ -25820,7 +25820,7 @@ trainerdata 701, "Lance"
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
-    battletype SINGLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 701

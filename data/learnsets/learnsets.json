@@ -113660,7 +113660,9 @@
       "MOVE_SCALD",
       "MOVE_PSYCHIC_FANGS",
       "MOVE_LIQUIDATION",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_FLIP_TURN",
+      "MOVE_DRAGON_CLAW"
     ],
     "EggMoves": [],
     "TutorMoves": []
