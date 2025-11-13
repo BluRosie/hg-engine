@@ -410,3 +410,13 @@ mov r0, r7
 bl RollMetronomeMove
 ldr r1, =0x022408BA|1
 bx r1
+
+.global TestBattle_AISelectMove_hook
+TestBattle_AISelectMove_hook:
+ldrb r1, [r6, #0x1d]   // r1 = battler
+ldr r0, [r6]           // r0 = BattleSystem
+bl TestBattle_AISelectMove
+ldr r1, =0x0225E442 | 1
+bx r1
+
+.pool

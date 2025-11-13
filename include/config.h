@@ -92,6 +92,11 @@
 #define FLAG_DYNAMAX_ENABLED 2520
 #define FLAG_TERASTALIZATION_ENABLED 2521
 
+// DEBUG_BATTLE_SCENARIOS enables test battle scenario loading system
+// When enabled, overrides any trainer battle parties with test scenarios
+// See src/battle/test_battle_override.c for scenario definitions
+#define DEBUG_BATTLE_SCENARIOS
+
 // UPDATE_OVERWORLD_POISON will remove overworld poison if enabled
 // comment the line out below to retain overworld poison
 #define UPDATE_OVERWORLD_POISON

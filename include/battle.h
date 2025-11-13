@@ -3938,5 +3938,10 @@ int GetSanitisedType(int type);
 
 BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp);
+void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp);
+u16 LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, int *moveSlot);
+#endif
 
 #endif // BATTLE_H

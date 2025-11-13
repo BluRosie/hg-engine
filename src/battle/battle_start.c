@@ -53,6 +53,11 @@ struct BattleStruct *ServerInit(struct BattleSystem *bw) {
 
     gBattleSystem = bw;
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+    // Apply test battle state (recharge, charging, etc.)
+    TestBattle_ApplyBattleState(bw, sp);
+#endif
+
     return sp;
 }
 

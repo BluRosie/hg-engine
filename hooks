@@ -538,3 +538,8 @@ arm9 ScrCmd_MartBuy 02048060 1
 
 # expand heal blocked moves
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
+
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+0012 TestBattle_AISelectMove_hook 0225E43A 4
+#endif
