@@ -1,5 +1,6 @@
 #include "../include/types.h"
 #include "../include/config.h"
+#include "../include/debug.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 
