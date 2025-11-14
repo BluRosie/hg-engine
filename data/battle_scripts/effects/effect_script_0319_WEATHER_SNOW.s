@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Snowscape.
+_Start:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30

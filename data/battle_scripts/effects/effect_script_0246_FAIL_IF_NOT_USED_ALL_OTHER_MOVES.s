@@ -2,12 +2,13 @@
 
 .data
 
-_000:
-    TryLastResort _004
+// Called by Last Resort.
+_Start:
+    TryLastResort _MoveFailed
     CalcCrit 
     CalcDamage 
     End 
 
-_004:
+_MoveFailed:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 

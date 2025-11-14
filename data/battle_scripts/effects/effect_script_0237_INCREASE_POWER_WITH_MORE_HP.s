@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Wring Out and Crush Grip.
+_Start:
     CalcWringOutPower 
     CalcCrit 
     CalcDamage 

@@ -2,15 +2,16 @@
 
 .data
 
-_000:
-    CompareMonDataToVar OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HELD_ITEM, BSCRIPT_VAR_BATTLE_TYPE, _011
+// Called by Acrobatics.
+_Start:
+    CompareMonDataToVar OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HELD_ITEM, ITEM_NONE, _AttackerHasNoItem
     UpdateVar OPCODE_SET, BSCRIPT_VAR_POWER_MULTI, 10
-    GoTo _015
+    GoTo _CalcDamage
 
-_011:
+_AttackerHasNoItem:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_POWER_MULTI, 20
 
-_015:
+_CalcDamage:
     CalcCrit 
     CalcDamage 
     End 

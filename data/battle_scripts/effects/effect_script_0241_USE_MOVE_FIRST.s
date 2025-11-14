@@ -2,23 +2,24 @@
 
 .data
 
-_000:
+// Called by Me First.
+_Start:
     SetPsychicTerrainMoveUsedFlag 
-    TryMeFirst _011
+    TryMeFirst _MoveFailed
     PrintAttackMessage 
     Wait 
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
-    GotoIfCurrentMoveIsValidForParentalBond _016
+    GotoIfCurrentMoveIsValidForParentalBond _HandleParentalBond
 
-_009:
+_GoToMoveScript:
     GoToMoveScript FALSE
     End
 
-_011:
+_MoveFailed:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 
 
-_016:
+_HandleParentalBond:
     Call BATTLE_SUBSCRIPT_HANDLE_PARENTAL_BOND
-    GoTo _009
+    GoTo _GoToMoveScript

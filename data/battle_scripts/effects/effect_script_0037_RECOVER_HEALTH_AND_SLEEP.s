@@ -2,6 +2,7 @@
 
 .data
 
-_000:
+// Called by Rest.
+_Start:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_DIRECT, MOVE_SIDE_EFFECT_ON_HIT|MOVE_SUBSCRIPT_PTR_REST
     End 

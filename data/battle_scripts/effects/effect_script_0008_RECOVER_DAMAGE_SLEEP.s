@@ -2,15 +2,16 @@
 
 .data
 
-_000:
-    CheckSubstitute BATTLER_CATEGORY_DEFENDER, _015
-    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_DEFENDER, BMON_DATA_STATUS, STATUS_SLEEP, _015
+// Called by Dream Eater.
+_Start:
+    CheckSubstitute BATTLER_CATEGORY_DEFENDER, _TargetImmune
+    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_DEFENDER, BMON_DATA_STATUS, STATUS_SLEEP, _TargetImmune
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT, MOVE_SIDE_EFFECT_ON_HIT|MOVE_SUBSCRIPT_PTR_DREAM_EATER
     CalcCrit 
     CalcDamage 
     End 
 
-_015:
+_TargetImmune:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30

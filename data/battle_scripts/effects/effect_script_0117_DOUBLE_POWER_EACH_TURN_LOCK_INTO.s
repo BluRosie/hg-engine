@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Rollout and Ice Ball.
+_Start:
     CalcRolloutPower 
     CalcCrit 
     CalcDamage 

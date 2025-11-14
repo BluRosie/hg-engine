@@ -2,6 +2,7 @@
 
 .data
 
-_000:
+// Called by Guillotine, Horn Drill, Fissure and Sheer Cold.
+_Start:
     TryOHKOMove 
     End 

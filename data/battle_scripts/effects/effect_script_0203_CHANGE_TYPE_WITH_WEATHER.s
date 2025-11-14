@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Weather Ball.
+_Start:
     CalcWeatherBallParams 
     CalcCrit 
     CalcDamage 

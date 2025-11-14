@@ -2,18 +2,22 @@
 
 .data
 
-_000:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_TRAINER, _009
+// Called by Teleport.
+_Start:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_TRAINER, _TrySwitchOut
+    // Try to flee the battle if this is against a wild Pokemon.
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_DIRECT, MOVE_SIDE_EFFECT_ON_HIT|MOVE_SUBSCRIPT_PTR_TELEPORT
     End 
 
-_009:
-    TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, TRUE, _043
+_TrySwitchOut:
+    // Fail if there are no Pokemon left to switch in.
+    TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, TRUE, _MoveFailed
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
-    TryRestoreStatusOnSwitch BATTLER_CATEGORY_ATTACKER, _023
+    // Handle Natural Cure.
+    TryRestoreStatusOnSwitch BATTLER_CATEGORY_ATTACKER, _SwitchOut
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STATUS, STATUS_NONE
 
-_023:
+_SwitchOut:
     DeletePokemon BATTLER_CATEGORY_ATTACKER
     Wait 
     HealthbarSlideOut BATTLER_CATEGORY_ATTACKER
@@ -23,6 +27,6 @@ _023:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_ATTACKER_SELF_TURN_STATUS_FLAGS, SELF_TURN_FLAG_CLEAR
     GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
 
-_043:
+_MoveFailed:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 

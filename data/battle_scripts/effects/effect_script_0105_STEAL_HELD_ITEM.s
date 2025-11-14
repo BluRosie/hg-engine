@@ -2,11 +2,13 @@
 
 .data
 
-_000:
-    GotoIfFirstHitOfParentalBond _005
+// Called by Thief and Covet.
+_Start:
+    // Only attempt to steal on the second hit of Parental Bond.
+    GotoIfFirstHitOfParentalBond _CalcDamage
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT, MOVE_SIDE_EFFECT_TO_DEFENDER|MOVE_SIDE_EFFECT_CHECK_SUBSTITUTE|MOVE_SUBSCRIPT_PTR_STEAL_ITEM
 
-_005:
-    CalcCrit 
-    CalcDamage 
-    End 
+_CalcDamage:
+    CalcCrit
+    CalcDamage
+    End

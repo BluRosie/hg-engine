@@ -2,14 +2,14 @@
 
 .data
 
-_000:
-    GotoIfFirstHitOfParentalBond _005
+_Start:
+    GotoIfFirstHitOfParentalBond _CalcDamage
     CalcCrit 
     CalcDamage 
     GetTerrainSecondaryEffect 
     End 
 
-_005:
+_CalcDamage:
     CalcCrit 
     CalcDamage 
     End 
