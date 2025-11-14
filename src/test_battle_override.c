@@ -10,103 +10,198 @@
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 
+#define MAX_BATTLERS_PER_SIDE 2
+#define BATTLER_PLAYER_LEFT   0
+#define BATTLER_ENEMY_LEFT    1
+#define BATTLER_PLAYER_RIGHT  2
+#define BATTLER_ENEMY_RIGHT   3
+
+#define AI_SCRIPT_MAX_MOVES   8
+#define MOVE_SLOT_1           0
+#define MOVE_SLOT_2           1
+#define MOVE_SLOT_3           2
+#define MOVE_SLOT_4           3
+
+#define ACTIVE_TEST_SCENARIO scenario_DoublesTest
+
 // Store current scenario for battle state application and AI scripting
 static const struct TestBattleScenario *g_CurrentScenario = NULL;
-static int g_PlayerAIScriptIndex = 0;  // Track which scripted move to use next for player
-static int g_EnemyAIScriptIndex = 0;   // Track which scripted move to use next for enemy
+// Track script index for each battler (0-3)
+static int g_AIScriptIndex[4] = {0, 0, 0, 0};
+
+struct TestBattlePokemon {
+    u16 species;
+    u8 level;
+    u8 form;
+    u16 ability;
+    u16 item;
+    u16 moves[4];
+    u16 hp;                            // 0 = full HP
+    u32 status;                        // STATUS_BURN, STATUS_POISON, STATUS_SLEEP, etc.
+    u32 condition2;                    // STATUS2_RECHARGE, STATUS2_CONFUSION, etc. (can be OR'd)
+    u32 moveEffectFlags;               // MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE, etc. (can be OR'd)
+    u8 aiScript[AI_SCRIPT_MAX_MOVES];  // Scripted moves. Final move repeats. 0 species = skip this mon
+    u8 aiTargets[AI_SCRIPT_MAX_MOVES]; // Target for each scripted move (battler ID: 0-3)
+};
 
 struct TestBattleScenario {
-    // Player Pokemon
-    u16 playerSpecies;
-    u8 playerLevel;
-    u16 playerAbility;
-    u16 playerItem;
-    u16 playerMoves[4];
-    u16 playerHP;               // 0 = full HP
-    u32 playerStatus;           // STATUS_BURN, STATUS_POISON, STATUS_SLEEP, STATUS_FREEZE, STATUS_PARALYSIS, etc.
-    u32 playerCondition2;       // STATUS2_RECHARGE, STATUS2_CONFUSION, STATUS2_ATTRACT, etc. (can be OR'd together)
-    u32 playerMoveEffectFlags;  // MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE, MOVE_EFFECT_FLAG_INGRAIN, etc.
+    struct TestBattlePokemon playerParty[MAX_BATTLERS_PER_SIDE];  // Player's Pokemon (singles = [0] only)
+    struct TestBattlePokemon enemyParty[MAX_BATTLERS_PER_SIDE];   // Enemy's Pokemon (singles = [0] only)
 
-    // Enemy Pokemon
-    u16 enemySpecies;
-    u8 enemyLevel;
-    u16 enemyAbility;
-    u16 enemyItem;
-    u16 enemyMoves[4];
-    u16 enemyHP;                // 0 = full HP
-    u32 enemyStatus;            // STATUS_BURN, STATUS_POISON, STATUS_SLEEP, STATUS_FREEZE, STATUS_PARALYSIS, etc.
-    u32 enemyCondition2;        // STATUS2_RECHARGE, STATUS2_CONFUSION, STATUS2_ATTRACT, etc. (can be OR'd together)
-    u32 enemyMoveEffectFlags;   // MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE, MOVE_EFFECT_FLAG_INGRAIN, etc.
-
-    // Field conditions
-    u32 weather;                // WEATHER_RAIN, WEATHER_SANDSTORM, WEATHER_SUNNY, WEATHER_HAIL, etc.
-    u32 fieldCondition;         // FIELD_CONDITION_TRICK_ROOM_INIT, FIELD_CONDITION_GRAVITY_INIT, etc.
+    // Field conditions (shared by all battlers)
+    u32 weather;                // WEATHER_RAIN, WEATHER_SANDSTORM, etc.
+    u32 fieldCondition;         // FIELD_CONDITION_TRICK_ROOM_INIT, etc.
     u8 terrain;                 // Terrain type
-
-    // Moves to use in order (0 = end of script, repeats last move)
-    u16 playerAIScript[8];  // Up to 8 scripted moves for player
-    u16 enemyAIScript[8];   // Up to 8 scripted moves for enemy
 };
 
-static const struct TestBattleScenario scenario_HyperBeamRecharge = {
-    .playerSpecies = SPECIES_SLOWPOKE,
-    .playerLevel = 50,
-    .playerAbility = ABILITY_OWN_TEMPO,
-    .playerItem = ITEM_CHOICE_BAND,
-    .playerMoves = {MOVE_HYPER_BEAM, MOVE_GIGA_IMPACT, MOVE_EARTHQUAKE, MOVE_RETURN},
-    .playerHP = 0,                  // Full HP
-    .playerStatus = 0,              // No status
-    .playerCondition2 = STATUS2_RECHARGE,  // Must recharge!
-    .playerMoveEffectFlags = 0,     // No move effects
-    .playerAIScript = {MOVE_HYPER_BEAM, 0, 0, 0, 0, 0, 0, 0},  // Let player input handle recharge state
-
-    .enemySpecies = SPECIES_TOXTRICITY,
-    .enemyLevel = 50,
-    .enemyAbility = ABILITY_PUNK_ROCK,
-    .enemyItem = ITEM_LEFTOVERS,
-    .enemyMoves = {MOVE_TRICK_ROOM, MOVE_OVERDRIVE, MOVE_SLUDGE_BOMB, MOVE_BOOMBURST},
-    .enemyHP = 0,                   // Full HP
-    .enemyStatus = 0,               // No status
-    .enemyCondition2 = 0,           // No condition2 flags
-    .enemyMoveEffectFlags = 0,      // No move effects
-    .enemyAIScript = {MOVE_TRICK_ROOM, MOVE_SLUDGE_BOMB, 0, 0, 0, 0, 0, 0},
-
+static const struct TestBattleScenario scenario_SinglesTest = {
+    .playerParty = {
+        {
+            .species = SPECIES_ONIX,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_SNOW_WARNING,
+            .item = ITEM_LEFTOVERS,
+            .moves = {MOVE_TACKLE, MOVE_FAKE_TEARS, MOVE_NONE, MOVE_NONE},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+            .aiScript = {MOVE_SLOT_2, MOVE_SLOT_2, 
+                         MOVE_SLOT_2, MOVE_SLOT_2,
+                         MOVE_SLOT_1, MOVE_SLOT_1, 
+                         MOVE_SLOT_1, MOVE_SLOT_1},
+            .aiTargets = {BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
+                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
+                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
+                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT},
+        },
+        {
+            .species = SPECIES_NONE,
+        }
+    },
+    .enemyParty = {
+        {
+            .species = SPECIES_STEELIX,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_SAND_STREAM,
+            .item = ITEM_LEFTOVERS,
+            .moves = {MOVE_NASTY_PLOT, MOVE_QUICK_ATTACK, MOVE_NONE, MOVE_NONE},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+            .aiScript = {MOVE_SLOT_1, MOVE_SLOT_1, 
+                         MOVE_SLOT_1, MOVE_SLOT_1,
+                         MOVE_SLOT_2, MOVE_SLOT_2, 
+                         MOVE_SLOT_2, MOVE_SLOT_2},
+            .aiTargets = {BATTLER_PLAYER_LEFT, BATTLER_PLAYER_RIGHT,
+                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_RIGHT,
+                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_LEFT,
+                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_LEFT},
+        },
+        {
+            .species = SPECIES_NONE,
+        }
+    },
     // Field
     .weather = 0,
     .fieldCondition = 0,
     .terrain = 0,
 };
 
-static const struct TestBattleScenario scenario_NegativeStatChanges = {
-    // Player
-    .playerSpecies = SPECIES_ONIX,
-    .playerLevel = 50,
-    .playerAbility = ABILITY_STURDY,
-    .playerItem = ITEM_NONE,
-    .playerMoves = {MOVE_FAKE_TEARS, MOVE_TACKLE, MOVE_ROCK_THROW, MOVE_BIND},
-    .playerHP = 0,             
-    .playerStatus = 0,         
-    .playerCondition2 = 0,     
-    .playerMoveEffectFlags = 0,
-    .playerAIScript = {MOVE_FAKE_TEARS, MOVE_FAKE_TEARS, MOVE_FAKE_TEARS, MOVE_FAKE_TEARS, MOVE_TACKLE, 0, 0, 0},
-
-    // Enemy
-    .enemySpecies = SPECIES_STEELIX,
-    .enemyLevel = 50,
-    .enemyAbility = ABILITY_STURDY,
-    .enemyItem = ITEM_NONE,
-    .enemyMoves = {MOVE_NASTY_PLOT, MOVE_QUICK_ATTACK, MOVE_IRON_TAIL, MOVE_ROCK_SLIDE},
-    .enemyHP = 0,             
-    .enemyStatus = 0,         
-    .enemyCondition2 = 0,     
-    .enemyMoveEffectFlags = 0,
-    .enemyAIScript = {MOVE_NASTY_PLOT, MOVE_NASTY_PLOT, MOVE_NASTY_PLOT, MOVE_NASTY_PLOT, MOVE_QUICK_ATTACK, 0, 0, 0},
-
+static const struct TestBattleScenario scenario_DoublesTest = {
+    .playerParty = {
+        {
+            .species = SPECIES_ABOMASNOW,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_SNOW_WARNING,
+            .item = ITEM_LEFTOVERS,
+            .moves = {MOVE_BLIZZARD, MOVE_GIGA_DRAIN, MOVE_ICE_SHARD, MOVE_PROTECT},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+            .aiScript = {MOVE_SLOT_3, MOVE_SLOT_3, 
+                         MOVE_SLOT_4, MOVE_SLOT_3, 
+                         MOVE_SLOT_3, MOVE_SLOT_3, 
+                         MOVE_SLOT_3, MOVE_SLOT_3},
+            .aiTargets = {BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
+                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
+                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
+                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT},
+        },
+        {
+            .species = SPECIES_ROTOM,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_LEVITATE,
+            .item = ITEM_SITRUS_BERRY,
+            .moves = {MOVE_WILL_O_WISP, MOVE_HYDRO_PUMP, MOVE_THUNDERBOLT, MOVE_VOLT_SWITCH},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+            .aiScript = {MOVE_SLOT_1, MOVE_SLOT_2, 
+                         MOVE_SLOT_3, MOVE_SLOT_3,
+                         MOVE_SLOT_3, MOVE_SLOT_3,
+                         MOVE_SLOT_3, MOVE_SLOT_3},
+            .aiTargets = {BATTLER_ENEMY_LEFT, BATTLER_ENEMY_LEFT,
+                          BATTLER_ENEMY_RIGHT, BATTLER_ENEMY_LEFT,
+                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_LEFT,
+                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_LEFT},
+        }
+    },
+    .enemyParty = {
+        {
+            .species = SPECIES_TYRANITAR,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_SAND_STREAM,
+            .item = ITEM_CHOICE_BAND,
+            .moves = {MOVE_ROCK_SLIDE, MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_STONE_EDGE},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+            .aiScript = {MOVE_SLOT_1, MOVE_SLOT_2, 
+                         MOVE_SLOT_3, MOVE_SLOT_4,
+                         MOVE_SLOT_3, MOVE_SLOT_3, 
+                         MOVE_SLOT_3, MOVE_SLOT_3},
+            .aiTargets = {BATTLER_PLAYER_LEFT, BATTLER_PLAYER_RIGHT,
+                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_RIGHT,
+                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_LEFT,
+                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_LEFT},
+        },
+        {
+            .species = SPECIES_EXCADRILL,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_SAND_RUSH,
+            .item = ITEM_FOCUS_SASH,
+            .moves = {MOVE_SWORDS_DANCE, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_IRON_HEAD},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+            .aiScript = {MOVE_SLOT_1, MOVE_SLOT_2, 
+                         MOVE_SLOT_2, MOVE_SLOT_4, 
+                         MOVE_SLOT_3, MOVE_SLOT_3,
+                         MOVE_SLOT_3, MOVE_SLOT_3},
+            .aiTargets = {BATTLER_ENEMY_RIGHT, BATTLER_PLAYER_LEFT, 
+                          BATTLER_PLAYER_RIGHT, BATTLER_PLAYER_RIGHT,
+                          BATTLER_PLAYER_RIGHT, BATTLER_PLAYER_RIGHT,
+                          BATTLER_PLAYER_RIGHT, BATTLER_PLAYER_RIGHT},
+        }
+    },
     // Field
     .weather = 0,
     .fieldCondition = 0,
     .terrain = 0,
 };
+
 
 /**
  * @brief Override a single Pokemon with test scenario data
@@ -114,15 +209,17 @@ static const struct TestBattleScenario scenario_NegativeStatChanges = {
  * @param mon Pokemon to override
  * @param species Species ID
  * @param level Level
+ * @param form Form number (0 = base form)
  * @param ability Ability ID
  * @param item Held item ID
  * @param moves Array of 4 move IDs
  * @param hp Custom HP (0 = use max)
  * @param status Status condition
  */
-static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 species, u8 level, u16 ability, u16 item, u16 moves[4], u16 hp, u32 status)
+static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 species, u8 level, u8 form, u16 ability, u16 item, u16 moves[4], u16 hp, u32 status)
 {
     PokeParaSet(mon, species, level, 31, FALSE, 0, 0, 0);
+    SetMonData(mon, MON_DATA_FORM, &form);
     SetMonData(mon, MON_DATA_ABILITY, &ability);
     SetMonData(mon, MON_DATA_HELD_ITEM, &item);
 
@@ -157,6 +254,35 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
 }
 
 /**
+ * @brief Helper to override a single party member
+ *
+ * @param bp Battle param structure
+ * @param partyIndex Which party (0 = player, 1 = enemy/trainer)
+ * @param slot Which slot in the party (0-5)
+ * @param species Species ID
+ * @param level Level
+ * @param form Form number (0 = base form)
+ * @param ability Ability ID
+ * @param item Held item ID
+ * @param moves Array of 4 move IDs
+ * @param hp Custom HP (0 = use max)
+ * @param status Status condition
+ */
+static void OverridePartySlot(struct BATTLE_PARAM *bp, int partyIndex, int slot,
+                               u16 species, u8 level, u8 form, u16 ability, u16 item,
+                               u16 moves[4], u16 hp, u32 status)
+{
+    if (bp->poke_party[partyIndex] == NULL) {
+        return;
+    }
+
+    struct PartyPokemon *mon = Party_GetMonByIndex(bp->poke_party[partyIndex], slot);
+    if (mon != NULL) {
+        TestBattle_OverridePokemon(mon, species, level, form, ability, item, moves, hp, status);
+    }
+}
+
+/**
  * @brief Hook to override battle parties with test scenario
  *
  * This should be called after MakeTrainerPokemonParty creates the trainer's party.
@@ -166,42 +292,90 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
  */
 void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
 {
-    // Get test scenario - CHANGE THIS LINE to use different scenarios
-    const struct TestBattleScenario *scenario = &scenario_HyperBeamRecharge;
+    // Get active test scenario (defined at top of file)
+    const struct TestBattleScenario *scenario = &ACTIVE_TEST_SCENARIO;
 
     // Store for battle state application and AI scripting
     g_CurrentScenario = scenario;
-    g_PlayerAIScriptIndex = 0;  // Reset player AI script to start from beginning
-    g_EnemyAIScriptIndex = 0;   // Reset enemy AI script to start from beginning
 
-    // Override player's first Pokemon (party[0], slot 0)
-    if (bp->poke_party[0] != NULL) {
-        struct PartyPokemon *playerMon = Party_GetMonByIndex(bp->poke_party[0], 0);
-        if (playerMon != NULL) {
-            TestBattle_OverridePokemon(playerMon,
-                          scenario->playerSpecies,
-                          scenario->playerLevel,
-                          scenario->playerAbility,
-                          scenario->playerItem,
-                          (u16*)scenario->playerMoves,
-                          scenario->playerHP,
-                          scenario->playerStatus);
+    // Reset all AI script indices
+    for (int i = 0; i < 4; i++) {
+        g_AIScriptIndex[i] = 0;
+    }
+
+    // Detect if this is a doubles battle (both slots have Pokémon)
+    int isDoubles = (scenario->playerParty[1].species != 0 || scenario->enemyParty[1].species != 0);
+
+    // Count enemy Pokemon for this scenario
+    int enemyCount = 0;
+    for (int i = 0; i < MAX_BATTLERS_PER_SIDE; i++) {
+        if (scenario->enemyParty[i].species != 0) {
+            enemyCount++;
         }
     }
 
-    // Override trainer's first Pokemon (party[1], slot 0)
-    if (bp->poke_party[1] != NULL) {
-        struct PartyPokemon *enemyMon = Party_GetMonByIndex(bp->poke_party[1], 0);
-        if (enemyMon != NULL) {
-            TestBattle_OverridePokemon(enemyMon,
-                          scenario->enemySpecies,
-                          scenario->enemyLevel,
-                          scenario->enemyAbility,
-                          scenario->enemyItem,
-                          (u16*)scenario->enemyMoves,
-                          scenario->enemyHP,
-                          scenario->enemyStatus);
+    // Set battle type: Trainer battle, and doubles if applicable
+    if (isDoubles) {
+        bp->fight_type = BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE; // no partner
+    } else {
+        bp->fight_type = BATTLE_TYPE_TRAINER;
+    }
+
+    // Set enemy trainer Pokemon count and ensure party has enough slots
+    if (enemyCount > 0) {
+        bp->trainer_data[1].poke_count = enemyCount;
+        // Pre-populate all needed slots with dummy mons
+        if (bp->poke_party[1] != NULL) {
+            for (int i = 0; i < enemyCount; i++) {
+                struct PartyPokemon *mon = Party_GetMonByIndex(bp->poke_party[1], i);
+                if (mon == NULL) {
+                    // Slot doesn't exist, add a dummy that we'll override later
+                    struct PartyPokemon tempMon;
+                    PokeParaSet(&tempMon, SPECIES_BULBASAUR, 5, 0, FALSE, 0, 0, 0);
+                    PokeParty_Add(bp->poke_party[1], &tempMon);
+                }
+            }
         }
+    }
+
+    // Override player's Pokemon (party 0)
+    for (int slot = 0; slot < MAX_BATTLERS_PER_SIDE; slot++) {
+        const struct TestBattlePokemon *mon = &scenario->playerParty[slot];
+
+        // If species is 0, skip this slot (no Pokemon)
+        if (mon->species == 0) {
+            continue;
+        }
+
+        OverridePartySlot(bp, 0, slot,
+                          mon->species,
+                          mon->level,
+                          mon->form,
+                          mon->ability,
+                          mon->item,
+                          (u16*)mon->moves,
+                          mon->hp,
+                          mon->status);
+    }
+
+    // Override enemy's Pokemon (party 1)
+    for (int slot = 0; slot < MAX_BATTLERS_PER_SIDE; slot++) {
+        const struct TestBattlePokemon *mon = &scenario->enemyParty[slot];
+
+        // If species is 0, skip this slot (no Pokemon)
+        if (mon->species == 0) {
+            continue;
+        }
+
+        OverridePartySlot(bp, 1, slot,
+                          mon->species,
+                          mon->level,
+                          mon->form,
+                          mon->ability,
+                          mon->item,
+                          (u16*)mon->moves,
+                          mon->hp,
+                          mon->status);
     }
 }
 
@@ -220,54 +394,80 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
         return;
     }
 
-    // Apply player status and conditions (battler 0)
-    if (g_CurrentScenario->playerStatus) {
-        sp->battlemon[0].condition |= g_CurrentScenario->playerStatus;
-    }
+    // Apply player Pokemon status and conditions (battlers 0-1 in doubles, 0 in singles)
+    for (int slot = 0; slot < MAX_BATTLERS_PER_SIDE; slot++) {
+        const struct TestBattlePokemon *mon = &g_CurrentScenario->playerParty[slot];
+        int battlerId = (slot == 0) ? BATTLER_PLAYER_LEFT : BATTLER_PLAYER_RIGHT;
 
-    if (g_CurrentScenario->playerCondition2) {
-        sp->battlemon[0].condition2 |= g_CurrentScenario->playerCondition2;
+        // Skip if no Pokemon in this slot
+        if (mon->species == 0) {
+            continue;
+        }
 
-        // Special handling for STATUS2_RECHARGE
-        if (g_CurrentScenario->playerCondition2 & STATUS2_RECHARGE) {
-            sp->battlemon[0].moveeffect.rechargeCount = 2;  // Skip 1 turn
+        // Apply status
+        if (mon->status) {
+            sp->battlemon[battlerId].condition |= mon->status;
+        }
 
-            // If Pokemon has a Choice item, lock it into the first move
-            if (g_CurrentScenario->playerItem == ITEM_CHOICE_BAND ||
-                g_CurrentScenario->playerItem == ITEM_CHOICE_SPECS ||
-                g_CurrentScenario->playerItem == ITEM_CHOICE_SCARF) {
-                sp->battlemon[0].moveeffect.moveNoChoice = g_CurrentScenario->playerMoves[0];
+        // Apply condition2
+        if (mon->condition2) {
+            sp->battlemon[battlerId].condition2 |= mon->condition2;
+
+            // Special handling for STATUS2_RECHARGE
+            if (mon->condition2 & STATUS2_RECHARGE) {
+                sp->battlemon[battlerId].moveeffect.rechargeCount = 2;  // Skip 1 turn
+
+                // If Pokemon has a Choice item, lock it into the first move
+                if (mon->item == ITEM_CHOICE_BAND ||
+                    mon->item == ITEM_CHOICE_SPECS ||
+                    mon->item == ITEM_CHOICE_SCARF) {
+                    sp->battlemon[battlerId].moveeffect.moveNoChoice = mon->moves[0];
+                }
             }
+        }
+
+        // Apply move effect flags
+        if (mon->moveEffectFlags) {
+            sp->battlemon[battlerId].effect_of_moves |= mon->moveEffectFlags;
         }
     }
 
-    if (g_CurrentScenario->playerMoveEffectFlags) {
-        sp->battlemon[0].effect_of_moves |= g_CurrentScenario->playerMoveEffectFlags;
-    }
+    // Apply enemy Pokemon status and conditions (battlers 2-3 in doubles, 1 in singles)
+    for (int slot = 0; slot < MAX_BATTLERS_PER_SIDE; slot++) {
+        const struct TestBattlePokemon *mon = &g_CurrentScenario->enemyParty[slot];
+        int battlerId = (slot == 0) ? BATTLER_ENEMY_LEFT : BATTLER_ENEMY_RIGHT;
 
-    // Apply enemy status and conditions (battler 1)
-    if (g_CurrentScenario->enemyStatus) {
-        sp->battlemon[1].condition |= g_CurrentScenario->enemyStatus;
-    }
+        // Skip if no Pokemon in this slot
+        if (mon->species == 0) {
+            continue;
+        }
 
-    if (g_CurrentScenario->enemyCondition2) {
-        sp->battlemon[1].condition2 |= g_CurrentScenario->enemyCondition2;
+        // Apply status
+        if (mon->status) {
+            sp->battlemon[battlerId].condition |= mon->status;
+        }
 
-        // Special handling for STATUS2_RECHARGE
-        if (g_CurrentScenario->enemyCondition2 & STATUS2_RECHARGE) {
-            sp->battlemon[1].moveeffect.rechargeCount = 2;  // Skip 1 turn
+        // Apply condition2
+        if (mon->condition2) {
+            sp->battlemon[battlerId].condition2 |= mon->condition2;
 
-            // If Pokemon has a Choice item, lock it into the first move
-            if (g_CurrentScenario->enemyItem == ITEM_CHOICE_BAND ||
-                g_CurrentScenario->enemyItem == ITEM_CHOICE_SPECS ||
-                g_CurrentScenario->enemyItem == ITEM_CHOICE_SCARF) {
-                sp->battlemon[1].moveeffect.moveNoChoice = g_CurrentScenario->enemyMoves[0];
+            // Special handling for STATUS2_RECHARGE
+            if (mon->condition2 & STATUS2_RECHARGE) {
+                sp->battlemon[battlerId].moveeffect.rechargeCount = 2;  // Skip 1 turn
+
+                // If Pokemon has a Choice item, lock it into the first move
+                if (mon->item == ITEM_CHOICE_BAND ||
+                    mon->item == ITEM_CHOICE_SPECS ||
+                    mon->item == ITEM_CHOICE_SCARF) {
+                    sp->battlemon[battlerId].moveeffect.moveNoChoice = mon->moves[0];
+                }
             }
         }
-    }
 
-    if (g_CurrentScenario->enemyMoveEffectFlags) {
-        sp->battlemon[1].effect_of_moves |= g_CurrentScenario->enemyMoveEffectFlags;
+        // Apply move effect flags
+        if (mon->moveEffectFlags) {
+            sp->battlemon[battlerId].effect_of_moves |= mon->moveEffectFlags;
+        }
     }
 
     // Apply field conditions
@@ -281,94 +481,80 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
 }
 
 /**
- * @brief AI move selection for test scenarios
- *
- * This function completely replaces the AI's move selection (ov10_0221BEF4)
- * for test battles. It always returns a scripted move from the test scenario.
- *
- * For test scenarios, we ALWAYS provide complete AI scripts, so there's no
- * need to fall back to the original AI logic.
- *
- * @param bsys BattleSystem pointer
- * @param battlerId The battler making the decision
- * @return Move slot (0-3)
- */
-u8 LONG_CALL TestBattle_AISelectMove(void *bsys, u8 battlerId)
-{
-    int moveSlot;
-    u16 scriptedMove;
-    scriptedMove = TestBattle_GetAIScriptedMove(battlerId, &moveSlot);
-    return moveSlot;
-}
-
-/**
  * @brief Get the next scripted move for player or enemy
  *
  * This function is called before move decision. If there's a scripted
  * move available, it returns that move and advances the script. Otherwise returns 0
  * to let normal input/AI decide.
  *
- * @param battlerId The battler making the decision (0 = player, 1 = enemy in singles)
+ * @param battlerId The battler making the decision (0-3)
  * @param moveSlot Output parameter - which move slot (0-3) contains the scripted move
+ * @param target Output parameter - which battler to target (0-3)
  * @return Move ID to use, or 0 if no override
  */
-u16 LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, int *moveSlot)
+void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *target)
 {
+    debug_printf("[TestBattle_GetAIScriptedMove] battler=%d\n", battlerId);
+    // Default
+    *moveSlot = (u8)0;
+    *target = (u8)0;
+
     // No scenario loaded
     if (g_CurrentScenario == NULL) {
-        return 0;
+        return;
     }
 
-    // Select the appropriate script and index based on battler
-    const u16 *script;
-    int *scriptIndex;
-    const u16 *moveset;
-
-    if (battlerId == 0) {
-        // Player
-        script = g_CurrentScenario->playerAIScript;
-        scriptIndex = &g_PlayerAIScriptIndex;
-        moveset = g_CurrentScenario->playerMoves;
-    } else if (battlerId == 1) {
-        // Enemy
-        script = g_CurrentScenario->enemyAIScript;
-        scriptIndex = &g_EnemyAIScriptIndex;
-        moveset = g_CurrentScenario->enemyMoves;
-    } else {
-        // Doubles battles or invalid battler ID - not supported yet
-        return 0;
+    // Validate battler ID
+    if (battlerId < 0 || battlerId >= 4) {
+        return;
     }
 
-    // Script index out of bounds
-    if (*scriptIndex >= 8) {
-        return 0;
+    const struct TestBattlePokemon *mon = NULL;
+
+    // Map battler ID (0–3) to scenario party + slot
+    switch (battlerId) {
+    case BATTLER_PLAYER_LEFT:   // 0
+        mon = &g_CurrentScenario->playerParty[0];
+        break;
+    case BATTLER_ENEMY_LEFT:    // 1
+        mon = &g_CurrentScenario->enemyParty[0];
+        break;
+    case BATTLER_PLAYER_RIGHT:  // 2
+        mon = &g_CurrentScenario->playerParty[1];
+        break;
+    case BATTLER_ENEMY_RIGHT:   // 3
+        mon = &g_CurrentScenario->enemyParty[1];
+        break;
+    default:
+        return;
     }
 
-    u16 scriptedMove = script[*scriptIndex];
+    const u16 *moveScript = mon->aiScript;
+    const u8 *targetScript = mon->aiTargets;
+    const u16 *moveset = mon->moves;
 
-    // 0 means we've reached the end of the script
-    if (scriptedMove == 0) {
-        // If we're past the first move, repeat the last scripted move
-        if (*scriptIndex > 0) {
-            scriptedMove = script[*scriptIndex - 1];
-            // Don't increment - keep using this move
-        } else {
-            return 0;
-        }
-    } else {
-        // Advance to next scripted move for next turn
-        (*scriptIndex)++;
+    int *scriptIndex = &g_AIScriptIndex[battlerId];
+
+    if (*scriptIndex >= AI_SCRIPT_MAX_MOVES) {
+        return;
     }
 
-    // Find which slot this move is in (0-3)
-    for (int i = 0; i < 4; i++) {
-        if (moveset[i] == scriptedMove) {
-            *moveSlot = i;
-            return scriptedMove;
-        }
-    }
+    u8 scriptedMove = moveScript[*scriptIndex];
+    u8 scriptedTarget = targetScript[*scriptIndex];
+    debug_printf("[TestBattle_GetAIScriptedMove] battler=%d, scriptIndex=%d, scriptedMove=%d, scriptedTarget=%d\n", battlerId, *scriptIndex, scriptedMove, scriptedTarget);
 
-    return 0;
+    *moveSlot = scriptedMove;
+    *target = scriptedTarget;
+    (*scriptIndex)++;
+
+}
+
+u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler) {
+    int moveSlot = 0;
+    int target = 0;
+    TestBattle_GetAIScriptedMove(battler, &moveSlot, &target);
+    bsys->sp->aiWorkTable.ai_dir_select_client[battler] = target;
+    return (u8)moveSlot;
 }
 
 #endif // DEBUG_BATTLE_SCENARIOS

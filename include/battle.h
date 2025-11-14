@@ -3941,7 +3941,7 @@ BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, i
 #ifdef DEBUG_BATTLE_SCENARIOS
 void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp);
 void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp);
-u16 LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, int *moveSlot);
+void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *target);
 #endif
 
 #endif // BATTLE_H

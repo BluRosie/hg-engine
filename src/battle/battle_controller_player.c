@@ -4,10 +4,10 @@
 #include "../../include/config.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
-void autoSelectPlayerMove(struct BattleSystem *bsys, struct BattleStruct *ctx)
+static void autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    int moveSlot = 0;
-    u16 scriptedMove;
+    u8 moveSlot = 0;
+    u8 target = 0;
 
     // Hook at SELECTION_SCREEN_INPUT (during input phase)
     if (ctx->server_seq_no != CONTROLLER_COMMAND_SELECTION_SCREEN_INPUT)
@@ -21,23 +21,27 @@ void autoSelectPlayerMove(struct BattleSystem *bsys, struct BattleStruct *ctx)
         return;  // Already processed or not ready
     }
 
-    // Try to get a scripted move for player (battler 0)
-    scriptedMove = TestBattle_GetAIScriptedMove(0, &moveSlot);
-
-    if (scriptedMove == 0)
-    {
-        return;  // No scripted move available
-    }
-
-    // We have a scripted move! Set the player's action
+    TestBattle_GetAIScriptedMove(0, &moveSlot, &target);
     ctx->playerActions[0][0] = CONTROLLER_COMMAND_FIGHT_INPUT;
     ctx->playerActions[0][1] = moveSlot;
+    ctx->playerActions[0][2] = target;
     ctx->playerActions[0][3] = SELECT_FIGHT_COMMAND;
     ctx->waza_no_pos[0] = moveSlot;
-
-    // Signal that input is complete (mimics what the UI does)
     ctx->com_seq_no[0] = SSI_STATE_END;
     ctx->ret_seq_no[0] = SSI_STATE_13;
+
+    if (BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) {
+        u8 partnerMoveSlot = 0;
+        u8 partnerTarget = 0;
+        TestBattle_GetAIScriptedMove(2, &partnerMoveSlot, &partnerTarget);
+        ctx->playerActions[2][0] = CONTROLLER_COMMAND_FIGHT_INPUT;
+        ctx->playerActions[2][1] = partnerMoveSlot;
+        ctx->playerActions[2][2] = partnerTarget;
+        ctx->playerActions[2][3] = SELECT_FIGHT_COMMAND;
+        ctx->waza_no_pos[2] = partnerMoveSlot;
+        ctx->com_seq_no[2] = SSI_STATE_END;
+        ctx->ret_seq_no[2] = SSI_STATE_13;
+    }
 }
 #endif
 
@@ -77,7 +81,7 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
 
     sPlayerBattleCommands[ctx->server_seq_no](bsys, ctx);
 #ifdef DEBUG_BATTLE_SCENARIOS
-    autoSelectPlayerMove(bsys, ctx);
+    autoSelectPlayerMoves(bsys, ctx);
 #endif
 #if defined (DISABLE_ITEMS_IN_TRAINER_BATTLE)
     overrideItemUsage(bsys, ctx);
