@@ -9164,7 +9164,7 @@ movedata MOVE_NOBLE_ROAR, "Noble Roar"
     movedescription MOVE_NOBLE_ROAR, "Letting out a noble\nroar, the user\nintimidates the target\nand lowers its Attack\nand Sp. Atk stats."
 
 movedata MOVE_ION_DELUGE, "Ion Deluge"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_ION_DELUGE
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ELECTRIC
@@ -9173,11 +9173,11 @@ movedata MOVE_ION_DELUGE, "Ion Deluge"
     effectchance 0
     target RANGE_FIELD
     priority 1
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_ION_DELUGE, "---"
+    movedescription MOVE_ION_DELUGE, "The user disperses\nelectrically charged\nparticles, which\nchanges Normal-type\nmoves to Electric."
 
 movedatalongname MOVE_PARABOLIC_CHARGE, "ParabolicCharge", "Parabolic Charge"
     battleeffect MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT
@@ -9628,7 +9628,7 @@ movedata MOVE_AROMATIC_MIST, "Aromatic Mist"
     movedescription MOVE_AROMATIC_MIST, "The user boosts the\nSp. Def stat of an\nally Pokémon by using\na mysterious aroma."
 
 movedata MOVE_EERIE_IMPULSE, "Eerie Impulse"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_SP_ATK_DOWN_2
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ELECTRIC
@@ -9637,11 +9637,11 @@ movedata MOVE_EERIE_IMPULSE, "Eerie Impulse"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_EERIE_IMPULSE, "---"
+    movedescription MOVE_EERIE_IMPULSE, "The user emits an\neerie impulse from its\nbody, harshly lowering\nthe target's Sp. Atk\nstat."
 
 movedata MOVE_VENOM_DRENCH, "Venom Drench"
     battleeffect MOVE_EFFECT_VENOM_DRENCH
@@ -11611,9 +11611,9 @@ movedata MOVE_PLASMA_FISTS, "Plasma Fists"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY // Reflects the contest type for Ion Deluge.
     terminatedata
-    movedescription MOVE_PLASMA_FISTS, "---"
+    movedescription MOVE_PLASMA_FISTS, "The user attacks with\nelectrically charged\nfists. This move\nchanges Normal-type\nmoves to Electric."
 
 movedata MOVE_PHOTON_GEYSER, "Photon Geyser"
     battleeffect MOVE_EFFECT_HIT

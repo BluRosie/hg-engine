@@ -179,6 +179,7 @@
 #define BATTLE_TYPE_ROAMER 0x100
 #define BATTLE_TYPE_PAL_PARK 0x200
 #define BATTLE_TYPE_CATCHING_DEMO 0x400
+#define BATTLE_TYPE_CAN_LOSE 0x800
 #define BATTLE_TYPE_BUG_CONTEST 0x1000
 
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_PAL_PARK)
@@ -414,6 +415,8 @@
 #define WEATHER_EXTREMELY_HARSH_SUNLIGHT    (0x01000000)                                                          // 0001 0000 0000 0000 0000 0000 0000
 #define WEATHER_HEAVY_RAIN                  (0x02000000)                                                          // 0010 0000 0000 0000 0000 0000 0000
 #define WEATHER_STRONG_WINDS                (0x04000000)                                                          // 0100 0000 0000 0000 0000 0000 0000
+// Ion Deluge is a strange case, as it is the only field effect that lasts for only a single turn.
+#define FIELD_STATUS_ION_DELUGE             (0x08000000)                                                          // 1000 0000 0000 0000 0000 0000 0000
 
 #define FIELD_CONDITION_WEATHER_NO_SUN      (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG | WEATHER_SNOW_ANY \
                                             | WEATHER_SHADOWY_AURA_ANY | WEATHER_EXTREMELY_HARSH_SUNLIGHT | WEATHER_HEAVY_RAIN | WEATHER_STRONG_WINDS)
