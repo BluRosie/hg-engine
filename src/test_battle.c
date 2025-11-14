@@ -161,7 +161,7 @@ static const struct TestBattleScenario scenario_DoublesTest = {
             .level = 50,
             .form = 0,
             .ability = ABILITY_SAND_STREAM,
-            .item = ITEM_CHOICE_BAND,
+            .item = ITEM_SITRUS_BERRY,
             .moves = {MOVE_ROCK_SLIDE, MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_STONE_EDGE},
             .hp = 0,
             .status = 0,
@@ -188,8 +188,8 @@ static const struct TestBattleScenario scenario_DoublesTest = {
             .condition2 = 0,
             .moveEffectFlags = 0,
             .aiScript = {MOVE_SLOT_1, MOVE_SLOT_2, 
-                         MOVE_SLOT_2, MOVE_SLOT_4, 
-                         MOVE_SLOT_3, MOVE_SLOT_3,
+                         MOVE_SLOT_4, MOVE_SLOT_4, 
+                         MOVE_SLOT_4, MOVE_SLOT_3,
                          MOVE_SLOT_3, MOVE_SLOT_3},
             .aiTargets = {BATTLER_ENEMY_SECOND, BATTLER_PLAYER_FIRST, 
                           BATTLER_PLAYER_SECOND, BATTLER_PLAYER_SECOND,
@@ -582,16 +582,9 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
  * @return The move slot (0-3) to use
  */
 u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler) {
-    debug_printf("[TestBattle_AISelectMove] CALLED for battler=%d\n", battler);
-
     int moveSlot = 0;
     int target = 0;
     TestBattle_GetAIScriptedMove(battler, &moveSlot, &target);
-
-    bsys->sp->playerActions[battler][0] = CONTROLLER_COMMAND_FIGHT_INPUT;
-    bsys->sp->playerActions[battler][1] = moveSlot;
-    bsys->sp->playerActions[battler][2] = target;
-    bsys->sp->playerActions[battler][3] = SELECT_FIGHT_COMMAND;
     bsys->sp->waza_no_pos[battler] = moveSlot;
     bsys->sp->aiWorkTable.ai_dir_select_client[battler] = target;
 

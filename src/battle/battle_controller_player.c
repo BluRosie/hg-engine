@@ -9,7 +9,7 @@ static void TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct B
     u8 moveSlot = 0;
     u8 target = 0;
 
-    // Hook at SELECTION_SCREEN_INPUT (during input phase)
+    // At SELECTION_SCREEN_INPUT (during input phase)
     if (ctx->server_seq_no != CONTROLLER_COMMAND_SELECTION_SCREEN_INPUT)
     {
         return;  // Not in input phase
@@ -23,10 +23,11 @@ static void TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct B
 
     TestBattle_GetAIScriptedMove(0, &moveSlot, &target);
     ctx->playerActions[0][0] = CONTROLLER_COMMAND_FIGHT_INPUT;
-    ctx->playerActions[0][1] = moveSlot;
-    ctx->playerActions[0][2] = target;
+    ctx->playerActions[0][1] = target;
+    ctx->playerActions[0][2] = moveSlot + 1;
     ctx->playerActions[0][3] = SELECT_FIGHT_COMMAND;
     ctx->waza_no_pos[0] = moveSlot;
+    ctx->waza_no_select[0] = ctx->battlemon[0].move[moveSlot];
     ctx->com_seq_no[0] = SSI_STATE_END;
     ctx->ret_seq_no[0] = SSI_STATE_13;
     debug_printf("[TestBattle_autoSelectPlayerMoves] Battler 0: moveSlot=%d, target=%d, set ai_dir_select_client[0]=%d\n", moveSlot, target, target);
@@ -36,10 +37,11 @@ static void TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct B
         u8 partnerTarget = 0;
         TestBattle_GetAIScriptedMove(2, &partnerMoveSlot, &partnerTarget);
         ctx->playerActions[2][0] = CONTROLLER_COMMAND_FIGHT_INPUT;
-        ctx->playerActions[2][1] = partnerMoveSlot;
-        ctx->playerActions[2][2] = partnerTarget;
+        ctx->playerActions[2][1] = partnerTarget;
+        ctx->playerActions[2][2] = partnerMoveSlot + 1;
         ctx->playerActions[2][3] = SELECT_FIGHT_COMMAND;
         ctx->waza_no_pos[2] = partnerMoveSlot;
+        ctx->waza_no_select[2] = ctx->battlemon[2].move[partnerMoveSlot];
         ctx->com_seq_no[2] = SSI_STATE_END;
         ctx->ret_seq_no[2] = SSI_STATE_13;
         debug_printf("[TestBattle_autoSelectPlayerMoves] Battler 2: moveSlot=%d, target=%d, set ai_dir_select_client[2]=%d\n", partnerMoveSlot, partnerTarget, partnerTarget);
