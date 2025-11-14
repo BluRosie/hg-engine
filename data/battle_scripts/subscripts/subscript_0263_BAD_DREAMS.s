@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {2} is tormented by {0}’s {1}!
     PrintMessage 1121, TAG_NICKNAME_ABILITY_NICKNAME, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
     Wait 

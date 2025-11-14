@@ -2,18 +2,18 @@
 
 .data
 
-_000:
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_TEMP, ABILITY_SOUNDPROOF, _015
-    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_UPROAR, _015
+_Start:
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_TEMP, ABILITY_SOUNDPROOF, _WakeUpMessage
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_UPROAR, _WakeUpMessage
     // The uproar woke up the {0}!
     PrintMessage 305, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
-    GoTo _019
+    GoTo _Cleanup
 
-_015:
+_WakeUpMessage:
     // {0} woke up!
     PrintMessage 302, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
 
-_019:
+_Cleanup:
     Wait 
     SetHealthbarStatus BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_NONE
     WaitButtonABTime 30

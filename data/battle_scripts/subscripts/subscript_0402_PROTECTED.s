@@ -2,18 +2,18 @@
 
 .data
 
-_000:
+_Start:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30
     // {0} protected itself! or {1} protected {0}!
     PrintBufferedMessage
-    // handle protect contact moves first
+    // Handle Protect contact moves first.
     CheckProtectContactMoves
     Wait 
     WaitButtonABTime 30
-    // now handle high jump kick
+    // Now handle crash damage.
     Call BATTLE_SUBSCRIPT_CRASH_ON_MISS
-    // now handle several moves needing to be canceled--rollout, charge moves
+    // Now handle moves needing to be cancelled (Rollout, Thrash, etc.)
     UnlockMoveChoice BATTLER_CATEGORY_ATTACKER
     End

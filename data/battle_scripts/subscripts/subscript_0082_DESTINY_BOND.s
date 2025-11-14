@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} is trying to take its attacker down with it!
     PrintMessage 388, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 

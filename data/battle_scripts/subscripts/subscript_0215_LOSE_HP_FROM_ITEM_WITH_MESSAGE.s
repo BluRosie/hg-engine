@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Life Orb and Sticky Barb.
+_Start:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
     Wait 
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK

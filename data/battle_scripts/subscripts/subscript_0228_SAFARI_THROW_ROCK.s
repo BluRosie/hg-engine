@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} threw Mud at the {1}!
     PrintGlobalMessage 854, TAG_TRNAME_NICKNAME, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_DEFENDER
     Wait 
@@ -11,16 +11,17 @@ _000:
     Wait 
     PlayBattleAnimation BATTLER_CATEGORY_ENEMY, BATTLE_ANIMATION_ANGRY
     Wait 
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 0, _026
+    // This value will be 0 if throwing bait did not decrease the capture chance.
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 0, _GreatOutcomeMessage
     // {0} is angry!
     PrintGlobalMessage 855, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
-    GoTo _030
+    GoTo _Cleanup
 
-_026:
+_GreatOutcomeMessage:
     // {0} is beside itself with anger!
     PrintGlobalMessage 856, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
 
-_030:
+_Cleanup:
     Wait 
     WaitButtonABTime 30
     End 

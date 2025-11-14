@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     SetPsychicTerrainMoveUsedFlag 
     PrintAttackMessage 
     Wait 
@@ -13,12 +13,12 @@ _000:
     PrintMessage 490, TAG_MOVE_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
-    GotoIfCurrentMoveIsValidForParentalBond _018
+    GotoIfCurrentMoveIsValidForParentalBond _HandleParentalBond
 
-_016:
+_GoToMoveScript:
     GoToMoveScript FALSE
     End
 
-_018:
+_HandleParentalBond:
     Call BATTLE_SUBSCRIPT_HANDLE_PARENTAL_BOND
-    GoTo _016
+    GoTo _GoToMoveScript

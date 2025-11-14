@@ -2,11 +2,11 @@
 
 .data
 
-_000:
+_Start:
     ShowParty 
     WaitMonSelection 
 
-_001:
+_SwitchLoop:
     SwitchAndUpdateMon BATTLER_CATEGORY_SWITCHED_MON
     LoadPartyGaugeGraphics 
     ShowPartyGauge BATTLER_CATEGORY_SWITCHED_MON
@@ -19,11 +19,11 @@ _001:
     PokemonSendOut BATTLER_CATEGORY_SWITCHED_MON
     WaitTime 72
     HealthbarSlideIn BATTLER_CATEGORY_SWITCHED_MON
-    Wait 
+    Wait
     Call BATTLE_SUBSCRIPT_HAZARDS_CHECK
-    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_FAINTED, _030
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_FAINTED, _CheckIfRemainingSwitches
     Call BATTLE_SUBSCRIPT_FAINT_MON
 
-_030:
-    GoToIfAnySwitches _001
+_CheckIfRemainingSwitches:
+    GoToIfAnySwitches _SwitchLoop
     End 

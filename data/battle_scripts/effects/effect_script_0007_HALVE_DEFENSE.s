@@ -2,24 +2,26 @@
 
 .data
 
-_000:
-    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ALL, ABILITY_DAMP, _038
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SELFDESTRUCTED, _035
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, 0x10000000
+// Called by Self-Destruct, Explosion and Misty Explosion.
+// Generation V: Explosion & Self-Destruct no longer halve defense.
+_Start:
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ALL, ABILITY_DAMP, _AbilityPreventsExplosion
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SELFDESTRUCTED, _CalcDamage
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, BATTLE_STATUS_BATTLER_0_BOOMED
     UpdateVarFromVar OPCODE_LEFT_SHIFT, BSCRIPT_VAR_CALC_TEMP, BSCRIPT_VAR_BATTLER_ATTACKER
     UpdateVarFromVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BSCRIPT_VAR_CALC_TEMP
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HP, 0
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, 32767
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, SELF_KO_DAMAGE
     UpdateHealthBar BATTLER_CATEGORY_ATTACKER
     Wait 
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
 
-_035:
+_CalcDamage:
     CalcCrit 
     CalcDamage 
     End 
 
-_038:
+_AbilityPreventsExplosion:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30

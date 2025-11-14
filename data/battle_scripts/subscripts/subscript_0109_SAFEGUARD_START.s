@@ -2,9 +2,9 @@
 
 .data
 
-_000:
-    TrySafeguard _003
+_Start:
+    TrySafeguard _End
     Call BATTLE_SUBSCRIPT_ANIMATION_PREPARED_MESSAGE
 
-_003:
+_End:
     End 

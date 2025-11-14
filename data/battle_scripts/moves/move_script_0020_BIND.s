@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} was squeezed by {1}!
     BufferMessage 235, TAG_NICKNAME_NICKNAME, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_ATTACKER
     GoToEffectScript 

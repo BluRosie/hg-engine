@@ -2,14 +2,13 @@
 
 .data
 
-
- _000:
-    CheckSubstitute BATTLER_CATEGORY_DEFENDER, _noitemlost
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_CUSTAP_FLAG, 0, _noitemlost
-    TryIncinerate _noitemlost
+_Start:
+    CheckSubstitute BATTLER_CATEGORY_DEFENDER, _End
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_CUSTAP_FLAG, 0, _End
+    TryIncinerate _End
     PrintBufferedMessage 
     Wait 
     WaitButtonABTime 30
 
-_noitemlost:
+_End:
     End 

@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
     // {0} transformed into {1}!
@@ -10,6 +10,4 @@ _000:
     Wait 
     WaitButtonABTime 30
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF
-    End 
-    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
-    End 
+    End

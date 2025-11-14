@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Gyro Ball.
+_Start:
     CalcGyroBallPower 
     CalcCrit 
     CalcDamage 

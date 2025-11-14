@@ -2,17 +2,18 @@
 
 .data
 
-_000:
+// Called by Brine.
+_Start:
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_MAXHP, BSCRIPT_VAR_CALC_TEMP
-    UpdateVar OPCODE_DIV, BSCRIPT_VAR_CALC_TEMP, 0x00000002
-    CompareMonDataToVar OPCODE_GT, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HP, BSCRIPT_VAR_CALC_TEMP, _020
+    UpdateVar OPCODE_DIV, BSCRIPT_VAR_CALC_TEMP, 2
+    CompareMonDataToVar OPCODE_GT, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HP, BSCRIPT_VAR_CALC_TEMP, _RegularMultiplier
     UpdateVar OPCODE_SET, BSCRIPT_VAR_POWER_MULTI, 20
-    GoTo _024
+    GoTo _CalcDamage
 
-_020:
+_RegularMultiplier:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_POWER_MULTI, 10
 
-_024:
+_CalcDamage:
     CalcCrit 
     CalcDamage 
     End 

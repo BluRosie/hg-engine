@@ -2,7 +2,7 @@
 
 .data
 
-_000:
-    CalcCrit 
-    CalcDamage 
+// Not called in vanilla.
+_Start:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_DIRECT, MOVE_SIDE_EFFECT_TO_ATTACKER|MOVE_SUBSCRIPT_PTR_ACCURACY_UP_1_STAGE
     End 

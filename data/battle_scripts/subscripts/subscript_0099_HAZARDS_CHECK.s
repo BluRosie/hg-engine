@@ -2,45 +2,48 @@
 
 .data
 
-_000:
-_checkAsOne:
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_GLASTRIER, _printAsOneMessage
-    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_SPECTRIER, _checkUnnerve
-_printAsOneMessage:
+_Start:
+    // Print the As One message before anything else.
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_GLASTRIER, _AsOneMessage
+    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_SPECTRIER, _CheckUnnerve
+
+_AsOneMessage:
     // {0} has two Abilities!
     PrintMessage 1463, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
     SetAbilityActivatedFlag BATTLER_CATEGORY_SWITCHED_MON
-_checkUnnerve:
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_GLASTRIER, _printUnnerveMessage
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_SPECTRIER, _printUnnerveMessage
-    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_UNNERVE, _landingPad
-_printUnnerveMessage:
+
+_CheckUnnerve:
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_GLASTRIER, _UnnerveMessage
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_SPECTRIER, _UnnerveMessage
+    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_UNNERVE, _CheckNextHazard
+
+_UnnerveMessage:
     // {0}’s {1} makes the opposing team too nervous to eat Berries!
     PrintMessage 1282, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_SWITCHED_MON, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
     SetAbilityActivatedFlag BATTLER_CATEGORY_SWITCHED_MON
 
-_landingPad:
-// convert this to use a sort of queue system
-// TODO: sharp steel
-    JumpToCurrentEntryHazard BATTLER_CATEGORY_SWITCHED_MON, _checkIfShouldDoSpikes, _checkIfShouldDoTSpikes, _checkIfShouldDoStealthRock, _checkIfShouldDoStickyWeb, _end
+_CheckNextHazard:
+    // TODO: Convert this to use a sort of queue system.
+    // TODO: Sharp Steel
+    JumpToCurrentEntryHazard BATTLER_CATEGORY_SWITCHED_MON, _CheckIfShouldDoSpikes, _CheckIfShouldDoToxicSpikes, _CheckIfShouldDoStealthRock, _CheckIfShouldDoStickyWeb, _End
 
-// anything that should be done after the hazards should go right here...  but we do most of it in JumpToCurrentEntryHazard
-_end:
+// Anything that should be done after the hazards should go right here...  but we do most of it in JumpToCurrentEntryHazard.
+_End:
     End
 
-_checkIfShouldDoSpikes:
-    // Skip spikes damage if HDB, but still check TSpikes for grounded Poison types to clear it.
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _landingPad
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _landingPad
-    GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _checkSpikes
-    GoTo _landingPad
+_CheckIfShouldDoSpikes:
+    // Skip spikes damage if the Pokemon has an item that makes them immune to hazards (Heavy Duty Boots).
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _CheckNextHazard
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _CheckNextHazard
+    GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _CheckSpikes
+    GoTo _CheckNextHazard
 
-_checkSpikes:
-    CheckSpikes BATTLER_CATEGORY_SWITCHED_MON, _landingPad
+_CheckSpikes:
+    CheckSpikes BATTLER_CATEGORY_SWITCHED_MON, _CheckNextHazard
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_SWITCH
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     Call BATTLE_SUBSCRIPT_UPDATE_HP
@@ -48,71 +51,72 @@ _checkSpikes:
     PrintMessage 429, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
-    GoTo _landingPad
+    GoTo _CheckNextHazard
 
-_checkIfShouldDoTSpikes:
-    // Skip spikes damage if HDB, but still check TSpikes for grounded Poison types to clear it.
-    //CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _landingPad
-    GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _checkToxicSpikes
-    GoTo _landingPad
+_CheckIfShouldDoToxicSpikes:
+    // Skip spikes effect if the Pokemon has an item that makes them immune to hazards (Heavy Duty Boots).
+    // We still need to check them for removal, so proceed regardless and handle items later.
+    GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _CheckToxicSpikes
+    GoTo _CheckNextHazard
 
-_checkToxicSpikes:
-    CheckToxicSpikes BATTLER_CATEGORY_SWITCHED_MON, _landingPad
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000002, _badlyPoison
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 0x00000001, _regularPoison
+_CheckToxicSpikes:
+    // CheckToxicSpikes will remove Toxic Spikes if the Pokemon is Poison-type, and returns the number of layers afterwards.
+    CheckToxicSpikes BATTLER_CATEGORY_SWITCHED_MON, _CheckNextHazard
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 2, _BadlyPoison
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 1, _Poison
     // The poison spikes disappeared from around your team’s feet!
     PrintMessage 1065, TAG_NONE_SIDE, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
     RemoveEntryHazardFromQueue BATTLER_CATEGORY_SWITCHED_MON, HAZARD_IDX_TOXIC_SPIKES
-    GoTo _landingPad
+    GoTo _CheckNextHazard
 
-_regularPoison:
-    // a mon with comatose can not be poisoned by toxic spikes
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_COMATOSE, _landingPad
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _end
+_Poison:
+    // A Pokemon with Comatose cannot be poisoned.
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_COMATOSE, _CheckNextHazard
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _End
     Call BATTLE_SUBSCRIPT_POISON
-    GoTo _landingPad
+    GoTo _CheckNextHazard
 
-_badlyPoison:
-    // a mon with comatose can not be poisoned by toxic spikes
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_COMATOSE, _landingPad
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _end
+_BadlyPoison:
+    // A Pokemon with Comatose cannot be poisoned.
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_COMATOSE, _CheckNextHazard
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _End
     Call BATTLE_SUBSCRIPT_BADLY_POISON
-    GoTo _landingPad
+    GoTo _CheckNextHazard
 
-// TODO: G-Max Steelsurge Hazard should be here at some point
+// TODO: G-Max Steelsurge Hazard should be here at some point.
 
-_checkIfShouldDoStickyWeb:
-    // Heavy-Duty Boots ignores Sticky Web
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _landingPad
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_WHITE_SMOKE, _landingPad
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_CLEAR_BODY, _landingPad
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_FULL_METAL_BODY, _landingPad
-    GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _checkStickyWeb
-    GoTo _landingPad
+_CheckIfShouldDoStickyWeb:
+    // Skip web effect if the Pokemon has an item that makes them immune to hazards (Heavy Duty Boots).
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _CheckNextHazard
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_WHITE_SMOKE, _CheckNextHazard
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_CLEAR_BODY, _CheckNextHazard
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_FULL_METAL_BODY, _CheckNextHazard
+    GotoIfGrounded BATTLER_CATEGORY_SWITCHED_MON, _CheckStickyWeb
+    GoTo _CheckNextHazard
     
-_checkStickyWeb:
+_CheckStickyWeb:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_ATTACKER, BSCRIPT_VAR_BATTLER_SWITCH
-    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_SIDE_CONDITION_ATTACKER, SIDE_CONDITION_STICKY_WEB, _landingPad
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_SIDE_CONDITION_ATTACKER, SIDE_CONDITION_STICKY_WEB, _CheckNextHazard
     // {0} was caught in a sticky web!
     PrintMessage 1516, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
-    // As of Gen 9: If Mirror Armor mon switches in, skip stat drop after displaying caught in webs message
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MIRROR_ARMOR, _landingPad
+    // Generation IX: If a Pokemon with Mirror Armor switches in, skip the stat drop after the message has been displayed.
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MIRROR_ARMOR, _CheckNextHazard
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_STAT_CHANGE, BSCRIPT_VAR_BATTLER_SWITCH
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_PARAM, MOVE_SUBSCRIPT_PTR_SPEED_DOWN_1_STAGE
     Call BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE
-    GoTo _landingPad
+    GoTo _CheckNextHazard
 
-_checkIfShouldDoStealthRock:
-    // Heavy-Duty Boots to ignore Stealth Rock when airborne
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _landingPad
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _landingPad
+_CheckIfShouldDoStealthRock:
+    // Skip rocks effect if the Pokemon has an item that makes them immune to hazards (Heavy Duty Boots).
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _CheckNextHazard
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_MAGIC_GUARD, _CheckNextHazard
 
-_checkStealthRock:
-    CheckStealthRock BATTLER_CATEGORY_SWITCHED_MON, _landingPad
+_CheckStealthRock:
+    CheckStealthRock BATTLER_CATEGORY_SWITCHED_MON, _CheckNextHazard
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_SWITCH
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     Call BATTLE_SUBSCRIPT_UPDATE_HP
@@ -120,4 +124,4 @@ _checkStealthRock:
     PrintMessage 1079, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
-    GoTo _landingPad
+    GoTo _CheckNextHazard

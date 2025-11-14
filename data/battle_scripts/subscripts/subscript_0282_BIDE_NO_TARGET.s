@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} unleashed energy!
     PrintMessage 335, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 

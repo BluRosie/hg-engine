@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Hidden Power.
+_Start:
     CalcHiddenPowerParams 
     CalcCrit 
     CalcDamage 

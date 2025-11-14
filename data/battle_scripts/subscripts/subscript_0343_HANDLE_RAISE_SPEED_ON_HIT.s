@@ -2,8 +2,10 @@
 
 .data
 
-_000:
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HP, 0, _045
+// Not called by any item in the mainline games.
+_Start:
+    // Don't bother with this script if we've fainted after being hit.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HP, 0, _End
     PlayBattleAnimation BATTLER_CATEGORY_DEFENDER, BATTLE_ANIMATION_HELD_ITEM
     Wait 
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SHADOW_FORCE|BATTLE_STATUS_MOVE_ANIMATIONS_OFF|BATTLE_STATUS_NO_ATTACK_MESSAGE
@@ -19,5 +21,5 @@ _000:
     WaitButtonABTime 30
     RemoveItem BATTLER_CATEGORY_DEFENDER
 
-_045:
+_End:
     End 

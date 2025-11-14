@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // Gravity returned to normal!
     PrintMessage 1004, TAG_NONE
     Wait 

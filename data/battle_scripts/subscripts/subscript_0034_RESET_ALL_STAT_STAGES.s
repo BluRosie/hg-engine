@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     ResetAllStatChanges 
     // All stat changes were eliminated!
     PrintMessage 817, TAG_NONE
