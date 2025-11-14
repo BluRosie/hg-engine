@@ -11,10 +11,10 @@
 #include "../include/constants/species.h"
 
 #define MAX_BATTLERS_PER_SIDE 2
-#define BATTLER_PLAYER_LEFT   0
-#define BATTLER_ENEMY_LEFT    1
-#define BATTLER_PLAYER_RIGHT  2
-#define BATTLER_ENEMY_RIGHT   3
+#define BATTLER_PLAYER_FIRST  0
+#define BATTLER_ENEMY_FIRST   1
+#define BATTLER_PLAYER_SECOND 2
+#define BATTLER_ENEMY_SECOND  3
 
 #define AI_SCRIPT_MAX_MOVES   8
 #define MOVE_SLOT_1           0
@@ -48,10 +48,10 @@ struct TestBattleScenario {
     struct TestBattlePokemon playerParty[MAX_BATTLERS_PER_SIDE];  // Player's Pokemon (singles = [0] only)
     struct TestBattlePokemon enemyParty[MAX_BATTLERS_PER_SIDE];   // Enemy's Pokemon (singles = [0] only)
 
-    // Field conditions (shared by all battlers)
-    u32 weather;                // WEATHER_RAIN, WEATHER_SANDSTORM, etc.
-    u32 fieldCondition;         // FIELD_CONDITION_TRICK_ROOM_INIT, etc.
-    u8 terrain;                 // Terrain type
+    // Field conditions
+    u32 weather;        // WEATHER_RAIN, WEATHER_SANDSTORM, etc.
+    u32 fieldCondition; // FIELD_CONDITION_TRICK_ROOM_INIT, etc.
+    u8 terrain;         // Terrain type
 };
 
 static const struct TestBattleScenario scenario_SinglesTest = {
@@ -71,10 +71,10 @@ static const struct TestBattleScenario scenario_SinglesTest = {
                          MOVE_SLOT_2, MOVE_SLOT_2,
                          MOVE_SLOT_1, MOVE_SLOT_1, 
                          MOVE_SLOT_1, MOVE_SLOT_1},
-            .aiTargets = {BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
-                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
-                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
-                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT},
+            .aiTargets = {BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
+                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
+                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
+                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND},
         },
         {
             .species = SPECIES_NONE,
@@ -96,10 +96,10 @@ static const struct TestBattleScenario scenario_SinglesTest = {
                          MOVE_SLOT_1, MOVE_SLOT_1,
                          MOVE_SLOT_2, MOVE_SLOT_2, 
                          MOVE_SLOT_2, MOVE_SLOT_2},
-            .aiTargets = {BATTLER_PLAYER_LEFT, BATTLER_PLAYER_RIGHT,
-                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_RIGHT,
-                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_LEFT,
-                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_LEFT},
+            .aiTargets = {BATTLER_PLAYER_FIRST, BATTLER_PLAYER_SECOND,
+                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_SECOND,
+                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_FIRST,
+                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_FIRST},
         },
         {
             .species = SPECIES_NONE,
@@ -128,15 +128,15 @@ static const struct TestBattleScenario scenario_DoublesTest = {
                          MOVE_SLOT_4, MOVE_SLOT_3, 
                          MOVE_SLOT_3, MOVE_SLOT_3, 
                          MOVE_SLOT_3, MOVE_SLOT_3},
-            .aiTargets = {BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
-                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
-                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT,
-                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_RIGHT},
+            .aiTargets = {BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
+                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
+                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
+                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND},
         },
         {
             .species = SPECIES_ROTOM,
             .level = 50,
-            .form = 0,
+            .form = 2,
             .ability = ABILITY_LEVITATE,
             .item = ITEM_SITRUS_BERRY,
             .moves = {MOVE_WILL_O_WISP, MOVE_HYDRO_PUMP, MOVE_THUNDERBOLT, MOVE_VOLT_SWITCH},
@@ -148,10 +148,10 @@ static const struct TestBattleScenario scenario_DoublesTest = {
                          MOVE_SLOT_3, MOVE_SLOT_3,
                          MOVE_SLOT_3, MOVE_SLOT_3,
                          MOVE_SLOT_3, MOVE_SLOT_3},
-            .aiTargets = {BATTLER_ENEMY_LEFT, BATTLER_ENEMY_LEFT,
-                          BATTLER_ENEMY_RIGHT, BATTLER_ENEMY_LEFT,
-                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_LEFT,
-                          BATTLER_ENEMY_LEFT, BATTLER_ENEMY_LEFT},
+            .aiTargets = {BATTLER_ENEMY_FIRST, BATTLER_ENEMY_FIRST,
+                          BATTLER_ENEMY_SECOND, BATTLER_ENEMY_FIRST,
+                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_FIRST,
+                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_FIRST},
         }
     },
     .enemyParty = {
@@ -170,10 +170,10 @@ static const struct TestBattleScenario scenario_DoublesTest = {
                          MOVE_SLOT_3, MOVE_SLOT_4,
                          MOVE_SLOT_3, MOVE_SLOT_3, 
                          MOVE_SLOT_3, MOVE_SLOT_3},
-            .aiTargets = {BATTLER_PLAYER_LEFT, BATTLER_PLAYER_RIGHT,
-                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_RIGHT,
-                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_LEFT,
-                          BATTLER_PLAYER_LEFT, BATTLER_PLAYER_LEFT},
+            .aiTargets = {BATTLER_PLAYER_FIRST, BATTLER_PLAYER_SECOND,
+                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_SECOND,
+                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_FIRST,
+                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_FIRST},
         },
         {
             .species = SPECIES_EXCADRILL,
@@ -190,10 +190,10 @@ static const struct TestBattleScenario scenario_DoublesTest = {
                          MOVE_SLOT_2, MOVE_SLOT_4, 
                          MOVE_SLOT_3, MOVE_SLOT_3,
                          MOVE_SLOT_3, MOVE_SLOT_3},
-            .aiTargets = {BATTLER_ENEMY_RIGHT, BATTLER_PLAYER_LEFT, 
-                          BATTLER_PLAYER_RIGHT, BATTLER_PLAYER_RIGHT,
-                          BATTLER_PLAYER_RIGHT, BATTLER_PLAYER_RIGHT,
-                          BATTLER_PLAYER_RIGHT, BATTLER_PLAYER_RIGHT},
+            .aiTargets = {BATTLER_ENEMY_SECOND, BATTLER_PLAYER_FIRST, 
+                          BATTLER_PLAYER_SECOND, BATTLER_PLAYER_SECOND,
+                          BATTLER_PLAYER_SECOND, BATTLER_PLAYER_SECOND,
+                          BATTLER_PLAYER_SECOND, BATTLER_PLAYER_SECOND},
         }
     },
     // Field
@@ -283,7 +283,7 @@ static void OverridePartySlot(struct BATTLE_PARAM *bp, int partyIndex, int slot,
 }
 
 /**
- * @brief Hook to override battle parties with test scenario
+ * @brief Overrides battle parties with test scenario
  *
  * This should be called after MakeTrainerPokemonParty creates the trainer's party.
  * It will override both player and trainer parties with test scenario data.
@@ -316,7 +316,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
 
     // Set battle type: Trainer battle, and doubles if applicable
     if (isDoubles) {
-        bp->fight_type = BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE; // no partner
+        bp->fight_type = BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE;
     } else {
         bp->fight_type = BATTLE_TYPE_TRAINER;
     }
@@ -324,8 +324,12 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
     // Set enemy trainer Pokemon count and ensure party has enough slots
     if (enemyCount > 0) {
         bp->trainer_data[1].poke_count = enemyCount;
+
         // Pre-populate all needed slots with dummy mons
         if (bp->poke_party[1] != NULL) {
+            // Directly set party count to ensure it matches
+            bp->poke_party[1]->count = enemyCount;
+
             for (int i = 0; i < enemyCount; i++) {
                 struct PartyPokemon *mon = Party_GetMonByIndex(bp->poke_party[1], i);
                 if (mon == NULL) {
@@ -394,10 +398,26 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
         return;
     }
 
+    // In doubles, we need to ensure both enemy battlers are properly linked to party slots
+    int isDoubles = (g_CurrentScenario->playerParty[1].species != 0 || g_CurrentScenario->enemyParty[1].species != 0);
+    if (isDoubles) {
+        // Player battlers
+        sp->sel_mons_no[BATTLER_PLAYER_FIRST] = 0;
+        if (g_CurrentScenario->playerParty[1].species != 0) {
+            sp->sel_mons_no[BATTLER_PLAYER_SECOND] = 1;
+        }
+
+        // Enemy battlers
+        sp->sel_mons_no[BATTLER_ENEMY_FIRST] = 0;
+        if (g_CurrentScenario->enemyParty[1].species != 0) {
+            sp->sel_mons_no[BATTLER_ENEMY_SECOND] = 1;
+        }
+    }
+
     // Apply player Pokemon status and conditions (battlers 0-1 in doubles, 0 in singles)
     for (int slot = 0; slot < MAX_BATTLERS_PER_SIDE; slot++) {
         const struct TestBattlePokemon *mon = &g_CurrentScenario->playerParty[slot];
-        int battlerId = (slot == 0) ? BATTLER_PLAYER_LEFT : BATTLER_PLAYER_RIGHT;
+        int battlerId = (slot == 0) ? BATTLER_PLAYER_FIRST : BATTLER_PLAYER_SECOND;
 
         // Skip if no Pokemon in this slot
         if (mon->species == 0) {
@@ -435,7 +455,7 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
     // Apply enemy Pokemon status and conditions (battlers 2-3 in doubles, 1 in singles)
     for (int slot = 0; slot < MAX_BATTLERS_PER_SIDE; slot++) {
         const struct TestBattlePokemon *mon = &g_CurrentScenario->enemyParty[slot];
-        int battlerId = (slot == 0) ? BATTLER_ENEMY_LEFT : BATTLER_ENEMY_RIGHT;
+        int battlerId = (slot == 0) ? BATTLER_ENEMY_FIRST : BATTLER_ENEMY_SECOND;
 
         // Skip if no Pokemon in this slot
         if (mon->species == 0) {
@@ -494,18 +514,20 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
  */
 void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *target)
 {
-    debug_printf("[TestBattle_GetAIScriptedMove] battler=%d\n", battlerId);
+    debug_printf("[TestBattle_GetAIScriptedMove] CALLED for battler=%d\n", battlerId);
     // Default
     *moveSlot = (u8)0;
     *target = (u8)0;
 
     // No scenario loaded
     if (g_CurrentScenario == NULL) {
+        debug_printf("[TestBattle_GetAIScriptedMove] No scenario loaded\n");
         return;
     }
 
     // Validate battler ID
     if (battlerId < 0 || battlerId >= 4) {
+        debug_printf("[TestBattle_GetAIScriptedMove] Invalid battler ID: %d\n", battlerId);
         return;
     }
 
@@ -513,19 +535,20 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
 
     // Map battler ID (0–3) to scenario party + slot
     switch (battlerId) {
-    case BATTLER_PLAYER_LEFT:   // 0
+    case BATTLER_PLAYER_FIRST:   // 0
         mon = &g_CurrentScenario->playerParty[0];
         break;
-    case BATTLER_ENEMY_LEFT:    // 1
+    case BATTLER_ENEMY_FIRST:    // 1
         mon = &g_CurrentScenario->enemyParty[0];
         break;
-    case BATTLER_PLAYER_RIGHT:  // 2
+    case BATTLER_PLAYER_SECOND:  // 2
         mon = &g_CurrentScenario->playerParty[1];
         break;
-    case BATTLER_ENEMY_RIGHT:   // 3
+    case BATTLER_ENEMY_SECOND:   // 3
         mon = &g_CurrentScenario->enemyParty[1];
         break;
     default:
+        debug_printf("[TestBattle_GetAIScriptedMove] Switch default case\n");
         return;
     }
 
@@ -536,12 +559,13 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
     int *scriptIndex = &g_AIScriptIndex[battlerId];
 
     if (*scriptIndex >= AI_SCRIPT_MAX_MOVES) {
+        debug_printf("[TestBattle_GetAIScriptedMove] Script index %d >= max %d\n", *scriptIndex, AI_SCRIPT_MAX_MOVES);
         return;
     }
 
     u8 scriptedMove = moveScript[*scriptIndex];
     u8 scriptedTarget = targetScript[*scriptIndex];
-    debug_printf("[TestBattle_GetAIScriptedMove] battler=%d, scriptIndex=%d, scriptedMove=%d, scriptedTarget=%d\n", battlerId, *scriptIndex, scriptedMove, scriptedTarget);
+    debug_printf("[TestBattle_GetAIScriptedMove] battler=%d, scriptIndex=%d, moveSlot=%d, target=%d\n", battlerId, *scriptIndex, scriptedMove, scriptedTarget);
 
     *moveSlot = scriptedMove;
     *target = scriptedTarget;
@@ -549,11 +573,28 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
 
 }
 
+/**
+ * @brief AI move selection for test battles
+  *
+ * @param bsys Battle system pointer
+ * @param battler The battler making the decision (1 or 3 for enemies in doubles)
+ * @return The move slot (0-3) to use
+ */
 u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler) {
+    debug_printf("[TestBattle_AISelectMove] CALLED for battler=%d\n", battler);
+
     int moveSlot = 0;
     int target = 0;
     TestBattle_GetAIScriptedMove(battler, &moveSlot, &target);
+
+    bsys->sp->playerActions[battler][0] = CONTROLLER_COMMAND_FIGHT_INPUT;
+    bsys->sp->playerActions[battler][1] = moveSlot;
+    bsys->sp->playerActions[battler][2] = target;
+    bsys->sp->playerActions[battler][3] = SELECT_FIGHT_COMMAND;
+    bsys->sp->waza_no_pos[battler] = moveSlot;
     bsys->sp->aiWorkTable.ai_dir_select_client[battler] = target;
+
+    debug_printf("[TestBattle_AISelectMove] Set moveSlot=%d, target=%d for battler=%d\n", moveSlot, target, battler);
     return (u8)moveSlot;
 }
 

@@ -4,7 +4,7 @@
 #include "../../include/config.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
-static void autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx)
+static void TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     u8 moveSlot = 0;
     u8 target = 0;
@@ -29,6 +29,7 @@ static void autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct
     ctx->waza_no_pos[0] = moveSlot;
     ctx->com_seq_no[0] = SSI_STATE_END;
     ctx->ret_seq_no[0] = SSI_STATE_13;
+    debug_printf("[TestBattle_autoSelectPlayerMoves] Battler 0: moveSlot=%d, target=%d, set ai_dir_select_client[0]=%d\n", moveSlot, target, target);
 
     if (BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) {
         u8 partnerMoveSlot = 0;
@@ -41,6 +42,7 @@ static void autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct
         ctx->waza_no_pos[2] = partnerMoveSlot;
         ctx->com_seq_no[2] = SSI_STATE_END;
         ctx->ret_seq_no[2] = SSI_STATE_13;
+        debug_printf("[TestBattle_autoSelectPlayerMoves] Battler 2: moveSlot=%d, target=%d, set ai_dir_select_client[2]=%d\n", partnerMoveSlot, partnerTarget, partnerTarget);
     }
 }
 #endif
@@ -81,7 +83,7 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
 
     sPlayerBattleCommands[ctx->server_seq_no](bsys, ctx);
 #ifdef DEBUG_BATTLE_SCENARIOS
-    autoSelectPlayerMoves(bsys, ctx);
+    TestBattle_autoSelectPlayerMoves(bsys, ctx);
 #endif
 #if defined (DISABLE_ITEMS_IN_TRAINER_BATTLE)
     overrideItemUsage(bsys, ctx);
