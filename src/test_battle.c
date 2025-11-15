@@ -18,17 +18,29 @@
 #define BATTLER_ENEMY_SECOND  3
 
 #define AI_SCRIPT_MAX_MOVES   8
-#define MOVE_SLOT_1           0
-#define MOVE_SLOT_2           1
-#define MOVE_SLOT_3           2
-#define MOVE_SLOT_4           3
+#define ACTION_MOVE_SLOT_1   0
+#define ACTION_MOVE_SLOT_2   1
+#define ACTION_MOVE_SLOT_3   2
+#define ACTION_MOVE_SLOT_4   3
+#define ACTION_SWITCH_SLOT_0 4
+#define ACTION_SWITCH_SLOT_1 5
+#define ACTION_SWITCH_SLOT_2 6
+#define ACTION_SWITCH_SLOT_3 7
+#define ACTION_SWITCH_SLOT_4 8
+#define ACTION_SWITCH_SLOT_5 9
 
-#define ACTIVE_TEST_SCENARIO scenario_DoublesTest
+#define ACTIVE_TEST_SCENARIO scenario_SinglesTest
 
 // Store current scenario for battle state application and AI scripting
 static const struct TestBattleScenario *g_CurrentScenario = NULL;
 // Track script index for each battler (0-3)
 static int g_AIScriptIndex[4] = {0, 0, 0, 0};
+
+// Battle action structure
+struct BattleAction {
+    u8 action;  // 0-3 = move slot, 4-9 = switch to party slot (action - 4)
+    u8 target;  // Battler ID (0-3)
+};
 
 struct TestBattlePokemon {
     u16 species;
@@ -37,12 +49,11 @@ struct TestBattlePokemon {
     u16 ability;
     u16 item;
     u16 moves[4];
-    u16 hp;                            // 0 = full HP
-    u32 status;                        // STATUS_BURN, STATUS_POISON, STATUS_SLEEP, etc.
-    u32 condition2;                    // STATUS2_RECHARGE, STATUS2_CONFUSION, etc. (can be OR'd)
-    u32 moveEffectFlags;               // MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE, etc. (can be OR'd)
-    u8 aiScript[AI_SCRIPT_MAX_MOVES];  // Scripted moves. Final move repeats. 0 species = skip this mon
-    u8 aiTargets[AI_SCRIPT_MAX_MOVES]; // Target for each scripted move (battler ID: 0-3)
+    u16 hp;              // 0 = full HP
+    u32 status;          // STATUS_BURN, STATUS_POISON, STATUS_SLEEP, etc.
+    u32 condition2;      // STATUS2_RECHARGE, STATUS2_CONFUSION, etc. (can be OR'd)
+    u32 moveEffectFlags; // MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE, etc. (can be OR'd)
+    struct BattleAction aiScript[AI_SCRIPT_MAX_MOVES];
 };
 
 struct TestBattleScenario {
@@ -62,20 +73,22 @@ static const struct TestBattleScenario scenario_SinglesTest = {
             .level = 50,
             .form = 0,
             .ability = ABILITY_SNOW_WARNING,
-            .item = ITEM_LEFTOVERS,
+            .item = ITEM_NONE,
             .moves = {MOVE_TACKLE, MOVE_FAKE_TEARS, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {MOVE_SLOT_2, MOVE_SLOT_2, 
-                         MOVE_SLOT_2, MOVE_SLOT_2,
-                         MOVE_SLOT_1, MOVE_SLOT_1, 
-                         MOVE_SLOT_1, MOVE_SLOT_1},
-            .aiTargets = {BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
-                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
-                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
-                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND},
+            .aiScript = {
+                {ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND},
+                {ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND},
+                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND},
+                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND},
+            },
         },
         {
             .species = SPECIES_NONE,
@@ -93,14 +106,16 @@ static const struct TestBattleScenario scenario_SinglesTest = {
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {MOVE_SLOT_1, MOVE_SLOT_1, 
-                         MOVE_SLOT_1, MOVE_SLOT_1,
-                         MOVE_SLOT_2, MOVE_SLOT_2, 
-                         MOVE_SLOT_2, MOVE_SLOT_2},
-            .aiTargets = {BATTLER_PLAYER_FIRST, BATTLER_PLAYER_SECOND,
-                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_SECOND,
-                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_FIRST,
-                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_FIRST},
+            .aiScript = {
+                {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND},
+                {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND},
+                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
+            },
         },
         {
             .species = SPECIES_NONE,
@@ -125,14 +140,16 @@ static const struct TestBattleScenario scenario_DoublesTest = {
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {MOVE_SLOT_3, MOVE_SLOT_3, 
-                         MOVE_SLOT_4, MOVE_SLOT_3, 
-                         MOVE_SLOT_3, MOVE_SLOT_3, 
-                         MOVE_SLOT_3, MOVE_SLOT_3},
-            .aiTargets = {BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
-                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
-                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND,
-                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_SECOND},
+            .aiScript = {
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_SECOND},
+                {ACTION_MOVE_SLOT_4, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_SECOND},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_SECOND},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_SECOND},
+            },
         },
         {
             .species = SPECIES_ROTOM,
@@ -145,14 +162,16 @@ static const struct TestBattleScenario scenario_DoublesTest = {
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {MOVE_SLOT_1, MOVE_SLOT_2, 
-                         MOVE_SLOT_3, MOVE_SLOT_3,
-                         MOVE_SLOT_3, MOVE_SLOT_3,
-                         MOVE_SLOT_3, MOVE_SLOT_3},
-            .aiTargets = {BATTLER_ENEMY_FIRST, BATTLER_ENEMY_FIRST,
-                          BATTLER_ENEMY_SECOND, BATTLER_ENEMY_FIRST,
-                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_FIRST,
-                          BATTLER_ENEMY_FIRST, BATTLER_ENEMY_FIRST},
+            .aiScript = {
+                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_SECOND},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+            },
         }
     },
     .enemyParty = {
@@ -167,14 +186,16 @@ static const struct TestBattleScenario scenario_DoublesTest = {
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {MOVE_SLOT_1, MOVE_SLOT_2, 
-                         MOVE_SLOT_3, MOVE_SLOT_4,
-                         MOVE_SLOT_3, MOVE_SLOT_3, 
-                         MOVE_SLOT_3, MOVE_SLOT_3},
-            .aiTargets = {BATTLER_PLAYER_FIRST, BATTLER_PLAYER_SECOND,
-                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_SECOND,
-                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_FIRST,
-                          BATTLER_PLAYER_FIRST, BATTLER_PLAYER_FIRST},
+            .aiScript = {
+                {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_SECOND},
+                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_4, BATTLER_PLAYER_SECOND},
+                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+            },
         },
         {
             .species = SPECIES_EXCADRILL,
@@ -187,14 +208,16 @@ static const struct TestBattleScenario scenario_DoublesTest = {
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {MOVE_SLOT_1, MOVE_SLOT_2, 
-                         MOVE_SLOT_4, MOVE_SLOT_4, 
-                         MOVE_SLOT_4, MOVE_SLOT_3,
-                         MOVE_SLOT_3, MOVE_SLOT_3},
-            .aiTargets = {BATTLER_ENEMY_SECOND, BATTLER_PLAYER_FIRST, 
-                          BATTLER_PLAYER_SECOND, BATTLER_PLAYER_SECOND,
-                          BATTLER_PLAYER_SECOND, BATTLER_PLAYER_SECOND,
-                          BATTLER_PLAYER_SECOND, BATTLER_PLAYER_SECOND},
+            .aiScript = {
+                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND},
+                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_4, BATTLER_PLAYER_SECOND},
+                {ACTION_MOVE_SLOT_4, BATTLER_PLAYER_SECOND},
+                {ACTION_MOVE_SLOT_4, BATTLER_PLAYER_SECOND},
+                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_SECOND},
+                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_SECOND},
+                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_SECOND},
+            },
         }
     },
     // Field
@@ -553,10 +576,7 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
         return;
     }
 
-    const u16 *moveScript = mon->aiScript;
-    const u8 *targetScript = mon->aiTargets;
-    const u16 *moveset = mon->moves;
-
+    const struct BattleAction *script = mon->aiScript;
     int *scriptIndex = &g_AIScriptIndex[battlerId];
 
     if (*scriptIndex >= AI_SCRIPT_MAX_MOVES) {
@@ -564,12 +584,17 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
         return;
     }
 
-    u8 scriptedMove = moveScript[*scriptIndex];
-    u8 scriptedTarget = targetScript[*scriptIndex];
-    debug_printf("[TestBattle_GetAIScriptedMove] battler=%d, scriptIndex=%d, moveSlot=%d, target=%d\n", battlerId, *scriptIndex, scriptedMove, scriptedTarget);
+    struct BattleAction action = script[*scriptIndex];
+    debug_printf("[TestBattle_GetAIScriptedMove] battler=%d, scriptIndex=%d, action=%d, target=%d\n", battlerId, *scriptIndex, action.action, action.target);
 
-    *moveSlot = scriptedMove;
-    *target = scriptedTarget;
+    if (action.action <= ACTION_MOVE_SLOT_4) {
+        *moveSlot = action.action;
+    } else {
+        debug_printf("[TestBattle_GetAIScriptedMove] WARNING: Switch actions not yet implemented\n");
+        *moveSlot = 0; 
+    }
+
+    *target = action.target;
     (*scriptIndex)++;
 
 }
