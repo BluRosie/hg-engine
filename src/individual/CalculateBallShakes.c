@@ -50,7 +50,7 @@ u16 MoonBallSpecies[] =
  *  @return the amount of shakes a ball undergoes.  or'd with CRITICAL_CAPTURE_MASK for critical captures
  */
 u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, struct BattleStruct *sp) {
-    u32 i, speciesCatchRate, ballCaptureRatio, type1, type2, criticalCapture = FALSE;
+    u32 i, speciesCatchRate, ballCaptureRatio, criticalCapture = FALSE;
     u32 heavyBallMod = 0, modifiedCatchRate = 0;
     u64 a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, captureValueCoeffcient = 0, badgePenalty = UQ412__1_0, statusModifier = 0, criticalCatchModifier = 0, speciesInDex = 0, criticalCatchRate = 0, shakeChecks = 4, shakeChance = 0;
     int badges, missingBadges;
@@ -61,6 +61,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         return 4;
     }
 
+    // location does not need to be adjusted because speciesCatchRate is not used until heavyBallMod is
     if (sp->item_work == ITEM_SAFARI_BALL)
     {
         speciesCatchRate = PokePersonalParaGet(sp->battlemon[sp->defence_client].species, PERSONAL_CATCH_RATE);
@@ -72,9 +73,6 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     }
 
     ballCaptureRatio = 0x1000;
-    type1 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE1, 0); // type 1
-    type2 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_TYPE2, 0); // type 2
-
 
     switch (sp->item_work)
     {
@@ -92,11 +90,15 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     case ITEM_POKE_BALL:
         ballCaptureRatio = 0x1000;
         break;
+#ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
     case ITEM_SAFARI_BALL:
-        ballCaptureRatio = 0x1000;
+        if (BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) {
+            ballCaptureRatio = 0x1800;
+        }
         break;
+#endif
     case ITEM_NET_BALL:
-        if (type1 == TYPE_WATER || type2 == TYPE_WATER || type1 == TYPE_BUG || type2 == TYPE_BUG) {
+        if (HasType(sp, sp->defence_client, TYPE_WATER) || HasType(sp, sp->defence_client, TYPE_BUG)) {
             ballCaptureRatio = 0x3800;
         }
         break;
@@ -163,16 +165,24 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             }
         }
         break;
-    // case ITEM_LURE_BALL:
-    //     if (Battle_IsFishingEncounter(bw))
-    //         ballRate = 40; // as of sword and shield
-    //     break;
+    case ITEM_LURE_BALL:
+#ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
+        if (Battle_IsFishingEncounter(bw)) {
+            ballCaptureRatio = 0x4000; // as of sword and shield
+        }
+        break;
+#else
+        if (BattleWorkGroundIDGet(bw) == 7) { // if the battle is happening with a water background
+            ballCaptureRatio = 0x4000;
+        }
+        break;
+#endif
     case ITEM_HEAVY_BALL:
-        if (GetPokemonWeight(bw, sp, sp->defence_client) < 999) {
+        if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 999) {
             heavyBallMod = -20;
-        } else if (GetPokemonWeight(bw, sp, sp->defence_client) < 1999) {
+        } else if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 1999) {
             heavyBallMod = 0;
-        } else if (GetPokemonWeight(bw, sp, sp->defence_client) < 2999) {
+        } else if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 2999) {
             heavyBallMod = 20;
         } else {
             heavyBallMod = 30;
@@ -204,9 +214,13 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             ballCaptureRatio = 0x4000;
         }
         break;
+#ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
     case ITEM_SPORT_BALL:
-        ballCaptureRatio = 0x1000;
+        if (BattleTypeGet(bw) & BATTLE_TYPE_BUG_CONTEST) {
+            ballCaptureRatio = 0x1800;
+        }
         break;
+#endif
     //case ITEM_PARK_BALL:
     //
     //    break;
@@ -276,6 +290,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     debug_printf("Step 3: Account for the species catch rate\n");
 #endif
 
+    // https://xcancel.com/Sibuna_Switch/status/1551411751803043840
     c = (speciesCatchRate + heavyBallMod) * b;
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("c: %d\n\n", c);
@@ -296,12 +311,31 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("Step 5: Calculate the badge penalty\n");
 #endif
+
+    u8 badgeLevel[] = {
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        100,
+    };
+
     struct PlayerProfile *profile = Sav2_PlayerData_GetProfileAddr(SaveBlock2_get());
     badges = profile->johtoBadges + profile->kantoBadges;
-    missingBadges = 8 - badges;
-    if (missingBadges < 0) {
-        missingBadges = 0;
+    badges = badges > 8 ? 8 : badges;
+    missingBadges = 0;
+    if (sp->battlemon[sp->defence_client].level + 5 > badgeLevel[badges]) {
+        for (int i = badges; i <= 8; i++) {
+            if (sp->battlemon[sp->defence_client].level > badgeLevel[i]) {
+                missingBadges++;
+            }
+        }
     }
+    
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("missingBadges: %d\n", missingBadges);
 #endif

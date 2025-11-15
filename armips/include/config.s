@@ -5,11 +5,20 @@ GEN_LATEST equ 9
 // START_ADDRESS defines the file address within the synthetic overlay where you would like to place all of the code that this project uses.  this is largely the repointed tables that the code uses.
 // if START_ADDRESS is 0x10000, then the tables will be inserted at address 0x10000 of the synthetic overlay
 // the current implementation (with all gen 5 mons) uses ~9222/0x2406 bytes.  make sure this points to that much free space (probably allow for a little bit more than that)
-START_ADDRESS equ 0x0
+// currently 0x10 to have space for a marker for DSPRE to disable editors!
+START_ADDRESS equ 0x10
 
-// FAIRY_TYPE_IMPLEMENTED defines whether or not the fairy type is to be implemented as type 9 or not.
-// if you do not want this change, then set it to 0
+// DISALLOW_DEXIT_GEN controls whether to disallow selection of dexited moves in later generations. Choose any Generation below 8 for none. 0 will instead disable any unimplemented moves.
+DISALLOW_DEXIT_GEN equ 0
+
+// FAIRY_TYPE_IMPLEMENTED defines whether or not the Fairy type is to be implemented as type 9 or not.
+// If you do not want this change, then set it to 0.
 FAIRY_TYPE_IMPLEMENTED equ 1
+
+// TYPE_EFFECTIVENESS_GEN defines the type chart interactions you would like to use.
+// Defining this as "5" or lower will revert Steel to resisting Ghost- and Dark-type moves.
+// Type chart changes prior to Gen 4 (e.g. Gen 1) are not included.
+TYPE_EFFECTIVENESS_GEN equ GEN_LATEST
 
 // SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
 // 9 or above: Snow
@@ -22,9 +31,6 @@ SNOW_WARNING_GENERATION equ GEN_LATEST
 
 // CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
 CRY_PSEUDOBANK_START equ 778
-
-// LEARNSET_TOTAL_MOVES is the amount of moves that each pokémon should be able to learn by level up
-LEARNSET_TOTAL_MOVES equ 41 // 40+terminate - currently driven by gallade
 
 // BATTLE_MODE_FORCE_SET defines whether or not players will be able to switch out mons when the opponent sends out their next mon. The player will be able to choose themselves like normal if the following is 0, 1 if the player will be forced to use "set"
 BATTLE_MODE_FORCE_SET equ 0
@@ -40,12 +46,6 @@ BATTLES_UNCAPPED_FRAME_RATE equ 0
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
 FAST_TEXT_PRINTING equ 0
-
-// REUSABLE_TMS will make TMs infinite and hide the quantity number.
-REUSABLE_TMS equ 1
-
-// DELETABLE_HMS Allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
-DELETABLE_HMS equ 0
 
 // NO_PARTNER_DOUBLE_BATTLES allows for setting trainers to double battles without setting up a partner trainer.  set to 0 to disable
 // note that the entry in `armips/data/trainers/trainertext.s` has to use `TEXT_DOUBLE_DEFEATED_IN_BATTLE_1`, but the overworld entries can remain the same.

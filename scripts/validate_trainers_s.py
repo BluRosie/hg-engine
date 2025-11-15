@@ -13,9 +13,10 @@ def parse_trainers(file_path):
     in_party = False
     current_mon = []
     mon_list = []
+    key_counts = None
 
     for line in lines:
-        stripped = line.split("//")[0].strip()
+        stripped = line.split("//")[0].strip().lower()
 
         if not stripped:
             continue
@@ -32,26 +33,40 @@ def parse_trainers(file_path):
                     "party": []
                 }
                 in_trainerdata = True
+                key_counts = {}
             continue
 
         if in_trainerdata:
+            key = stripped.split()[0]
+            key_counts[key] = key_counts.get(key, 0) + 1
+            if key == "item":
+                if key_counts[key] > 4:
+                    print(f"ERROR: trainerdata id {trainer_id} ({trainer['name']}): too many '{key}' entries (max 4)")
+                    sys.exit(1)
+            elif key_counts[key] > 1:
+                print(f"ERROR: trainerdata id {trainer_id} ({trainer['name']}): duplicate '{key}' not allowed")
+                sys.exit(1)
+
             if stripped.startswith("trainermontype"):
-                trainer["trainermontype"] = stripped.split("trainermontype")[1].strip()
+                trainer["trainermontype"] = stripped.split("trainermontype")[1].strip().upper()
             elif stripped.startswith("nummons"):
                 match = re.search(r'nummons\s+.*?(\b[0-6]\b)', stripped)
                 if match:
                     trainer["nummons"] = int(match.group(1))
                 else:
                     print(f"encountered unexpected 'nummons' value for trainer {trainer_id}")
+                    sys.exit(1)
             elif stripped == "endentry":
                 trainers[trainer_id] = trainer
                 trainer = {}
                 in_trainerdata = False
+                key_counts = None
             continue
 
         if stripped.startswith("party"):
             if in_party:
                 print(f"encountered unexpected 'party' tag before closure with 'endparty'. inspect your trainers.s file before trainer {trainer_id}")
+                sys.exit(1)
 
             match = re.match(r'party\s+(\d+)', stripped)
             if match:
@@ -99,6 +114,7 @@ def parse_trainers(file_path):
             else:
                 if not current_mon:
                     print(f"encountered unexpected line {stripped}. inspect your trainers.s file at trainer {trainer_id}. 'ivs' should be the first attribute listed for each pokémon")
+                    sys.exit(1)
                 current_mon.append(stripped)
 
     return list(trainers.values())
@@ -106,7 +122,7 @@ def parse_trainers(file_path):
 
 def mon_additional_flag_check(trainer, mon, mon_index, flag, key):
     has_additionalflags_flag = "additionalflags" in mon
-    has_flag = has_additionalflags_flag and flag in mon["additionalflags"]
+    has_flag = has_additionalflags_flag and flag.lower() in mon["additionalflags"]
     has_val = key in mon
 
     if has_flag and not has_val:
@@ -159,10 +175,13 @@ def validate_abilities(trainer, party):
     return validate_single_field(trainer, party, "TRAINER_DATA_TYPE_ABILITY", "ability")
 
 
-def validate_field_order(trainer, party):
+def validate_fields_overall(trainer, party):
     errors = []
+    required_fields = [
+        "ivs", "abilityslot", "level", "ballseal"
+    ]
     correct_field_order = [
-        "ivs", "abilityslot", "level", "pokemon", "item",
+        "ivs", "abilityslot", "level", "pokemon", "monwithform", "item",
         "move1", "move2", "move3", "move4",
         "ability", "setivs", "setevs", "nature",
         "shinylock", "additionalflags", "status",
@@ -183,6 +202,12 @@ def validate_field_order(trainer, party):
             errors.append(f"ERROR: {trainer['name']} (id: {trainer['id']} mon {i}: field order is incorrect.")
             errors.append(f"  found order: {[f for f, _ in actual_order]}")
             errors.append(f"  expected order (if present): {correct_field_order}")
+
+        missing = [f for f in required_fields if f not in mon]
+        if "pokemon" not in mon and "monwithform" not in mon:
+            missing.append("pokemon/monwithform")
+        if missing:
+            errors.append(f"ERROR: {trainer['name']} (id: {trainer['id']}) mon {i}: missing required fields {missing}")
     return errors
 
 
@@ -229,7 +254,7 @@ def validate_trainers(trainers, print_team):
         errors.extend(validate_single_field(trainer, party, "TRAINER_DATA_TYPE_NATURE_SET", "nature"))
         errors.extend(validate_single_field(trainer, party, "TRAINER_DATA_TYPE_SHINY_LOCK", "shinylock"))
         errors.extend(validate_additional_flags(trainer, party))
-        errors.extend(validate_field_order(trainer, party))
+        errors.extend(validate_fields_overall(trainer, party))
 
         # Party size validation
         if len(party) != trainer["nummons"]:

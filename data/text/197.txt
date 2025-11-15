@@ -618,7 +618,7 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!
 The wild {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
 The opposing {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
 It started to rain!
-(Unused)
+
 (Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its {STRVAR_1 13, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}!
@@ -1525,9 +1525,9 @@ The {STRVAR_1 8, 1, 0} drastically boosted\nthe wild {STRVAR_1 1, 0, 0}’s {STR
 The {STRVAR_1 8, 1, 0} drastically boosted\nthe opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
 Your team is no longer\nprotected by mist!
 The opposing team is no longer\nprotected by mist!
-The {STRVAR_1 6, 1, 0} weakened\nthe damage to {STRVAR_1 8, 0, 0}!
-The {STRVAR_1 6, 1, 0} weakened\nthe damage to the wild {STRVAR_1 8, 0, 0}!
-The {STRVAR_1 6, 1, 0} weakened\nthe damage to the opposing {STRVAR_1 8, 0, 0}!
+The {STRVAR_1 8, 1, 0} weakened\nthe damage to {STRVAR_1 1, 0, 0}!
+The {STRVAR_1 8, 1, 0} weakened\nthe damage to the wild {STRVAR_1 1, 0, 0}!
+The {STRVAR_1 8, 1, 0} weakened\nthe damage to the opposing {STRVAR_1 1, 0, 0}!
 {STRVAR_1 8, 0, 0} cannot\nbe confused!
 The wild {STRVAR_1 8, 0, 0} cannot\nbe confused!
 The opposing {STRVAR_1 8, 0, 0} cannot\nbe confused!
@@ -1563,11 +1563,32 @@ Being hit by {STRVAR_1 8, 1, 0} charged the opposing\n{STRVAR_1 1, 0, 0} with po
 {STRVAR_1 1, 0, 0} was hurt!
 The wild {STRVAR_1 1, 0, 0} was hurt!
 The opposing {STRVAR_1 1, 0, 0} was hurt!
-{STRVAR_1 6, 0, 0} protected your team!
-{STRVAR_1 6, 0, 0} protected the opposing team!
+{STRVAR_1 6, 0, 0} protected\nyour team!
+{STRVAR_1 6, 0, 0} protected\nthe opposing team!
 {STRVAR_1 6, 1, 0} protected\n{STRVAR_1 1, 0, 0}!
 {STRVAR_1 6, 1, 0} protected\nthe wild {STRVAR_1 1, 0, 0}!
 {STRVAR_1 6, 1, 0} protected\nthe opposing {STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} was burned up!
+{STRVAR_1 1, 0, 0}’s item cannot be removed!
+The wild {STRVAR_1 1, 0, 0}’s item cannot be\nremoved!
+The opposing {STRVAR_1 1, 0, 0}’s item cannot be\nremoved!
+Grass type was added\nto {STRVAR_1 1, 0, 0}!
+Grass type was added\nto the wild {STRVAR_1 1, 0, 0}!
+Grass type was added\nto the opposing {STRVAR_1 1, 0, 0}!
+Ghost type was added\nto {STRVAR_1 1, 0, 0}!
+Ghost type was added\nto the wild {STRVAR_1 1, 0, 0}!
+Ghost type was added\nto the opposing {STRVAR_1 1, 0, 0}!
+{STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
+The wild {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
+The opposing {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
+Aurora Veil made your team stronger\nagainst physical and special moves!
+Aurora Veil made the opposing team\nstronger against physical and special\fmoves!
+Aurora Veil made your team stronger\nagainst physical and special moves!
+Aurora Veil made the opposing team\nstronger against physical and special\fmoves!
+{STRVAR_1 1, 0, 0} picked up\n{STRVAR_1 8, 1, 0}!\fPut it in the bag.
+Some of your party has\npicked up items!\fPut them in the bag.

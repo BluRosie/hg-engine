@@ -48,6 +48,19 @@ typedef struct BagData {
     u16 registeredItems[2];                        // IDs of registered key items
 } BAG_DATA;
 
+typedef struct BagContext {
+    /* 0x000 */ u8 padding_000[0x2EC];  
+    /* 0x2EC */ void *msgPrinter;
+    /* 0x2F0 */ void *unk2F0;
+    /* 0x2F4 */ void *unk2F4;
+} BagContext;
+
+typedef enum TMHMPocketSortPrecedence {
+    SORT_ORDER_TM,
+    SORT_ORDER_TR,
+    SORT_ORDER_HM,
+} TMHMPocketSortPrecedence;
+
 /*
  * u32 Sav2_Bag_sizeof(void)
  *

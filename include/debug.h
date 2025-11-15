@@ -36,7 +36,7 @@
 //#define GUARANTEE_CAPTURES
 
 // Uncomment this when you want to enable all gimmicks while testing
-#define DEBUG_ENABLE_ALL_GIMMICKS
+// #define DEBUG_ENABLE_ALL_GIMMICKS
 
 // DEBUG_SQRT prints debug information for the gpio sqrt function
 //#define DEBUG_SQRT
@@ -82,6 +82,9 @@
 
 // FANCY_PRINT_NICKNAME defines in progress implementations that may not necessarily function.
 // #define FANCY_PRINT_NICKNAME
+
+// DEBUG_ENABLE_UNIMPLEMENTED_MOVES shows debug information if a chosen move is not implemented/dexited
+//#define DEBUG_ENABLE_UNIMPLEMENTED_MOVES
 
 // NOCASH_GBA_PRINT swaps from desmume prints with the syscall to NO$GBA-style prints for use with i.e. melonDS
 #define NOCASH_GBA_PRINT

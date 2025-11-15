@@ -2,7 +2,7 @@
 #include "../include/config.h"
 #include "../include/debug.h"
 #include "../include/constants/species.h"
-#include "../include/msgdata.h"
+#include "../include/message.h"
 #include "../include/pokemon.h"
 #include "../include/pokemon_storage_system.h"
 #include "../include/save.h"
@@ -31,8 +31,8 @@ void PCStorage_InitializeBoxes(PCStorage *storage) {
             {
                 if (species > MAX_MON_NUM)
                 {
-                    form = GetFormBasedOnAdjustedForm(species);
-                    species = GetOriginalSpeciesBasedOnAdjustedForm(species);
+                    form = GetFormFromAdjustedForm(species);
+                    species = GetBaseSpeciesFromAdjustedForm(species);
                 }
                 CreateBoxMonData(&storage->boxes[i].mons[j], species, 50, 31, FALSE, 0, FALSE, 0);
                 if (form)

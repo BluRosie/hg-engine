@@ -128,6 +128,9 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_TryFutureSight 02242570 3
 0012 BtlCmd_SetMultiHit 0223EC10 3
 0012 BtlCmd_GenerateEndOfBattleItem 022440A0 3
+0012 BtlCmd_TryPluck 022444D0 3
+0012 BtlCmd_PlayFaintAnimation 0223E290 3
+0012 BtlCmd_TryBreakScreens 02242E00 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -312,8 +315,6 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 0007 LoadCaptureSuccessSPAStarEmitter 02232644 1
 0007 LoadCaptureSuccessSPANumEmitters 02232630 1
 #endif
-
-0001 SpeciesAndFormeToWazaOshieIndex 02202C7C 2
 
 # need another hook for this one yeah yeah
 0012 ServerDoTypeCalcMod 02251D28
@@ -516,3 +517,24 @@ arm9 DestroyHeap_hook 0201AA24 3
 
 arm9 PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook 02081E54 0
 arm9 PartyMenu_ItemUseFunc_ReuseItem_hook 0208138C 3
+
+arm9 ScrCmd_BufferItemName 02048510 1
+arm9 BufferItemNameWithIndefArticle 0200C100 3
+arm9 BufferItemNamePlural 0200C134 3
+arm9 GetItemDescIntoString 02077D64 3
+arm9 ItemToMachineMoveIndex 0207804C 1
+arm9 ItemToMachineMove 02078000 1
+arm9 MoveIsHM 02078024 1
+arm9 GetMonMachineMoveCompat 0207224C 2
+arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
+0015 Bag_PrintMachineMoveLabel 021FE914
+0001 GetLearnableTutorMoves 02202D40 3
+arm9 PartyMenu_LearnMoveToSlot 0208254C 3
+0015 Bag_RenderMachineMoveSlot_hook 021FF586 3
+
+#ifdef MART_EXPANSION
+arm9 ScrCmd_MartBuy 02048060 1
+#endif
+
+# expand heal blocked moves
+0012 BattleContext_CheckMoveHealBlocked 02252DF8 1

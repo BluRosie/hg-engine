@@ -95,7 +95,7 @@ NARC_FILES += $(OPENDEMO_NARC)
 MONDATA_DIR := $(BUILD)/a002
 MONDATA_NARC := $(BUILD_NARC)/mondata.narc
 MONDATA_TARGET := $(FILESYS)/a/0/0/2
-MONDATA_DEPENDENCIES := armips/data/mondata.s armips/data/tmlearnset.txt
+MONDATA_DEPENDENCIES := armips/data/mondata.s
 MONDATA_NAMES_DIR := $(BUILD)/rawtext/237 $(BUILD)/rawtext/238 $(BUILD)/rawtext/817
 MONDATA_DESCRIPTIONS_DIR := $(BUILD)/rawtext/803
 MONDATA_CLASSIFICATIONS_DIR := $(BUILD)/rawtext/816 $(BUILD)/rawtext/823
@@ -104,7 +104,6 @@ MONDATA_WEIGHTS_DIR := $(BUILD)/rawtext/812 $(BUILD)/rawtext/813
 
 $(MONDATA_NARC): $(MONDATA_DEPENDENCIES)
 	$(ARMIPS) armips/data/mondata.s
-	$(PYTHON) scripts/tm_learnset.py armips/data/tmlearnset.txt
 	$(NARCHIVE) create $@ $(MONDATA_DIR) -nf
 
 NARC_FILES += $(MONDATA_NARC)
@@ -167,20 +166,6 @@ $(DEXSORT_NARC): $(DEXSORT_DEPENDENCIES)
 NARC_FILES += $(DEXSORT_NARC)
 
 
-EGGMOVES_DIR := $(BUILD)/kowaza
-EGGMOVES_NARC := $(BUILD_NARC)/kowaza.narc
-EGGMOVES_TARGET := $(FILESYS)/a/2/2/9
-EGGMOVES_TARGET_2 := $(FILESYS)/data/kowaza.narc
-EGGMOVES_DEPENDENCIES := armips/data/eggmoves.s
-
-$(EGGMOVES_NARC): $(EGGMOVES_DEPENDENCIES)
-	$(ARMIPS) $^
-	$(NARCHIVE) create $@ $(EGGMOVES_DIR) -nf
-
-NARC_FILES += $(EGGMOVES_NARC)
-REQUIRED_DIRECTORIES += $(EGGMOVES_DIR)
-
-
 EVOS_DIR := $(BUILD)/a034
 EVOS_NARC := $(BUILD_NARC)/a034.narc
 EVOS_TARGET := $(FILESYS)/a/0/3/4
@@ -192,19 +177,6 @@ $(EVOS_NARC): $(EVOS_DEPENDENCIES)
 
 NARC_FILES += $(EVOS_NARC)
 REQUIRED_DIRECTORIES += $(EVOS_DIR)
-
-
-LEARNSET_DIR := $(BUILD)/a033
-LEARNSET_NARC := $(BUILD_NARC)/a033.narc
-LEARNSET_TARGET := $(FILESYS)/a/0/3/3
-LEARNSET_DEPENDENCIES := armips/data/levelupdata.s
-
-$(LEARNSET_NARC): $(LEARNSET_DEPENDENCIES)
-	$(ARMIPS) $^
-	$(NARCHIVE) create $@ $(LEARNSET_DIR) -nf
-
-NARC_FILES += $(LEARNSET_NARC)
-REQUIRED_DIRECTORIES += $(LEARNSET_DIR)
 
 
 REGIONALDEX_DIR := $(BUILD)/a138
@@ -404,41 +376,24 @@ REQUIRED_DIRECTORIES += $(BATTLE_SUB_DIR) $(BATTLE_SUB_OBJ_DIR)
 clean_battle_scripts:
 	rm -rf $(MOVE_ANIM_SCRIPT_OUTPUT_DIR) $(MOVE_SEQ_NARC) $(BATTLE_SUB_NARC) $(BATTLE_EFF_NARC)
 
-ITEMGFX_DIR := $(BUILD)/a018
-ITEMGFX_NARC := $(BUILD_NARC)/a018.narc
-ITEMGFX_TARGET := $(FILESYS)/a/0/1/8
-ITEMGFX_DEPENDENCIES_DIR := data/graphics/item
-ITEMGFX_CUSTOM_DIR := $(ITEMGFX_DEPENDENCIES_DIR)/custom
+BAGGFX_DIR := $(BUILD)/a015
+BAGGFX_NARC := $(BUILD_NARC)/a015.narc
+BAGGFX_TARGET := $(FILESYS)/a/0/1/5
+BAGGFX_DEPENDENCIES_DIR := data/graphics/bag
 
-ITEMGFX_SRCS := $(wildcard $(ITEMGFX_DEPENDENCIES_DIR)/*.png)
-ITEMGFX_CUSTOM_SRCS := $(wildcard $(ITEMGFX_CUSTOM_DIR)/*.png)
-ITEMGFX_OBJS := $(patsubst $(ITEMGFX_DEPENDENCIES_DIR)/%.png,$(ITEMGFX_DIR)/9_%-00.NCGR,$(ITEMGFX_SRCS))
-ITEMGFX_OBJS += $(patsubst $(ITEMGFX_CUSTOM_DIR)/%.png,$(ITEMGFX_DIR)/A_%-00.NCGR,$(ITEMGFX_CUSTOM_SRCS))
-ITEMGFX_PALS := $(patsubst $(ITEMGFX_DEPENDENCIES_DIR)/%.png,$(ITEMGFX_DIR)/9_%-01.NCLR,$(ITEMGFX_SRCS))
-ITEMGFX_PALS += $(patsubst $(ITEMGFX_CUSTOM_DIR)/%.png,$(ITEMGFX_DIR)/A_%-01.NCLR,$(ITEMGFX_CUSTOM_SRCS))
+BAGGFX_SRCS := $(wildcard $(BAGGFX_DEPENDENCIES_DIR)/*.png)
+BAGGFX_OBJS := $(patsubst $(BAGGFX_DEPENDENCIES_DIR)/%.png,$(BAGGFX_DIR)/5_%.NCGR,$(BAGGFX_SRCS))
 
-$(ITEMGFX_DIR)/9_%-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/%.png
+$(BAGGFX_DIR)/5_%.NCGR:$(BAGGFX_DEPENDENCIES_DIR)/%.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
-$(ITEMGFX_DIR)/9_%-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/%.png
-	$(GFX) $< $@ -ir -bitdepth 4
+$(BAGGFX_NARC): $(BAGGFX_OBJS) $(BAGGFX_PALS)
+	$(NARCHIVE) extract $(BAGGFX_TARGET) -o $(BAGGFX_DIR) -nf
+	for n in $$(seq 95 $$(expr $$(ls $(BAGGFX_DIR) | wc -l) - 1)); do rm -f $(BAGGFX_DIR)/5_$$n; done
+	$(NARCHIVE) create $@ $(BAGGFX_DIR) -nf
 
-$(ITEMGFX_DIR)/A_%-00.NCGR:$(ITEMGFX_CUSTOM_DIR)/%.png
-	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
-
-$(ITEMGFX_DIR)/A_%-01.NCLR:$(ITEMGFX_CUSTOM_DIR)/%.png
-	$(GFX) $< $@ -ir -bitdepth 4
-
-# go overkill on the removal + support 4-digit removal, so that's fine
-$(ITEMGFX_NARC): $(ITEMGFX_OBJS) $(ITEMGFX_PALS)
-	$(NARCHIVE) extract $(ITEMGFX_TARGET) -o $(ITEMGFX_DIR) -nf
-	for n in $$(seq 797 $$(expr $$(ls $(ITEMGFX_DIR) | wc -l) - 1)); do rm -f $(ITEMGFX_DIR)/8_$$n; done
-	for n in $$(seq 797 $$(expr $$(ls $(ITEMGFX_DIR) | wc -l) - 1)); do rm -f $(ITEMGFX_DIR)/8_$$(printf "%04d" $$n); done
-	$(NARCHIVE) create $@ $(ITEMGFX_DIR) -nf
-
-NARC_FILES += $(ITEMGFX_NARC)
-REQUIRED_DIRECTORIES += $(ITEMGFX_DIR)
-
+NARC_FILES += $(BAGGFX_NARC)
+REQUIRED_DIRECTORIES += $(BAGGFX_DIR)
 
 OVERWORLDS_DIR := $(BUILD)/pokemonow
 OVERWORLDS_NARC := $(BUILD_NARC)/pokemonow.narc
@@ -487,11 +442,17 @@ BATTLEGFX_DEPENDENCIES_DIR := rawdata/battle_gfx
 BATTLEWEATHERGFX_DEPENDENCIES_DIR := rawdata/weather_icons
 BATTLEGFX_DEPENDENCIES := $(wildcard $(BATTLEGFX_DEPENDENCIES_DIR)/*) $(wildcard $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*)
 
+ITEM_STYLE_DEPENDENCIES := $(wildcard $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_hud.png)
+BATTLEGFX_NOITEM_DEPENDENCIES := $(filter-out $(wildcard $(BATTLEGFX_DEPENDENCIES_DIR)/*),$(filter-out $(ITEM_STYLE_DEPENDENCIES),$(BATTLEGFX_DEPENDENCIES)))
+
 $(BATTLEGFX_NARC): $(BATTLEGFX_DEPENDENCIES)
 	$(NARCHIVE) extract $(BATTLEGFX_TARGET) -o $(BATTLEGFX_DIR) -nf
-	for n in $$(seq 346 $$(expr $$(ls $(BATTLEGFX_DIR) | wc -l) - 1)); do rm -f $(BATTLEGFX_DIR)/8_$$n; done
+	find $(BATTLEGFX_DIR) -maxdepth 1 -type f -name '8_*' \
+	| awk -F'[/_-]' '{n=$$NF; sub(/[^0-9].*/,"",n); if (n >= 346) print $$0}' \
+	| xargs -r rm -f
 	cp -r $(BATTLEGFX_DEPENDENCIES_DIR)/. $(BATTLEGFX_DIR)
-	for file in $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*.png; do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -bitdepth 8 -nopad -comp 10; done
+	for file in $(ITEM_STYLE_DEPENDENCIES); do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR -clobbersize -version101 -bitdepth 4; $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -ir -bitdepth 4; done
+	for file in $(BATTLEGFX_NOITEM_DEPENDENCIES); do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -bitdepth 8 -nopad -comp 10; done
 	for file in $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_terrain.png; do $(GFX) $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR.lz; rm $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; done
 	$(NARCHIVE) create $@ $(BATTLEGFX_DIR) -nf
 
@@ -708,7 +669,7 @@ $(TRAINER_GFX_DIR)/8_%-03.NANR:$(TRAINER_GFX_DEPENDENCIES_DIR)/%_anim.json
 	$(GFX) $< $@
 
 $(TRAINER_GFX_DIR)/8_%-04.NCGR:$(TRAINER_GFX_DEPENDENCIES_DIR)/%_enc.png
-	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4 -scanfronttoback -mwidth 20
+	$(GFX) $< $@ -bitdepth 4 -scanned -mwidth 20
 
 $(TRAINER_GFX_NARC): $(TRAINER_GFX_DEPENDENCIES) $(TRAINER_GFX_OBJS)
 	$(NARCHIVE) create $@ $(TRAINER_GFX_DIR) -nf

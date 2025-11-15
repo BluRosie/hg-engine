@@ -18,6 +18,7 @@
 #include "../include/constants/sndseq.h"
 #include "../include/constants/species.h"
 #include "../include/constants/weather_numbers.h"
+#include "../include/constants/generated/learnsets.h"
 
 
 extern u32 word_to_store_form_at;
@@ -847,7 +848,8 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
     u32 reshiramBool = splicer_pos & RESHIRAM_MASK;
     splicer_pos &= JUST_SPLICER_POS_MASK;
 
-    if (wk->dat->item == ITEM_DNA_SPLICERS
+    // TODO: handle correct item
+    if (wk->dat->item == ITEM_DNA_SPLICERS_FUSE
      && (splicer_pos < 6))
     {
         void *saveData = SaveBlock2_get();
@@ -1237,42 +1239,22 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
 }
 
 /**
- *  @brief load egg moves to dest and return amount of egg moves
+ *  @brief load egg moves to dest and return amount of egg moves. reads from data/generated/EggLearnsets.c
  *
  *  @param pokemon PartyPokemon to grab egg moves for
  *  @param dest destination for the array of egg moves
  *  @return number of egg moves in dest
  */
-u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest)
-{
-    u16 n;
-    u16 *kowaza_list;
-    u16 offset;
-    u16 species;
-    u16 i;
+u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest) {
+    u16 species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
+    ArchiveDataLoadOfs(dest, ARC_EGG_MOVES, 0, species * MAX_EGG_MOVES * sizeof(u16), MAX_EGG_MOVES * sizeof(u16));
 
-    kowaza_list = sys_AllocMemory(HEAPID_MAIN_HEAP, NUM_EGG_MOVES_TOTAL*2);
-    ArchiveDataLoad(kowaza_list, ARC_EGG_MOVES, 0);
-
-    n = 0;
-    offset = 0;
-
-    species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
-    for (i = 0; i < NUM_EGG_MOVES_TOTAL; i++) {
-        if (species + 20000 == kowaza_list[i]) {
-            offset = i + 1;
-            break;
-        }
+    u8 count = 0;
+    while (count < MAX_EGG_MOVES && dest[count] != 0xFFFF) {
+        count++;
     }
-    for (i = 0; i < EGG_MOVES_PER_MON; i++) {
-        if (kowaza_list[offset + i] > 20000) {
-            break;
-        }
-        dest[i] = kowaza_list[offset + i];
-        n++;
-    }
-    sys_FreeMemoryEz(kowaza_list);
-    return n;
+
+    return count;
 }
 
 /**
@@ -1630,7 +1612,7 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
 
     i=GetBoxMonGender(boxmon);
     SetBoxMonData(boxmon,MON_DATA_GENDER,(u8 *)&i);
-    FillInBoxMonLearnset(boxmon);
+    InitBoxMonMoveset(boxmon);
     BoxMonSetFastModeOff(boxmon,flag);
 }
 
@@ -2004,48 +1986,6 @@ u32 CheckCanUseBallOnDoublesFromBag(struct BattleStruct *sp)
 }
 
 /**
- *  @brief grab tutor move index from species and form
- *
- *  @param species species index
- *  @param form form number
- *  @return index in fielddata/wazaoshie/waza_oshie.bin
- */
-u32 SpeciesAndFormeToWazaOshieIndex(u32 species, u32 form)
-{
-    u32 ret = species;
-    switch (species)
-    {
-    case SPECIES_DEOXYS:
-        if (form)
-            ret = 494 + form - 1;
-        break;
-    case SPECIES_WORMADAM:
-        if (form)
-            ret = 497 + form - 1;
-        break;
-    case SPECIES_GIRATINA:
-        if (form)
-            ret = 499 + form - 1;
-        break;
-    case SPECIES_SHAYMIN:
-        if (form)
-            ret = 500 + form - 1;
-        break;
-    case SPECIES_ROTOM:
-        if (form)
-            ret = 501 + form - 1;
-        break;
-    default:
-        if (form)
-            ret = PokeOtherFormMonsNoGet(species, form);
-        break;
-    }
-
-    ret--;
-    return ret;
-}
-
-/**
  *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
  *
  *  @return level cap from LEVEL_CAP_VARIABLE script variable or 100 if it's not set at all
@@ -2222,7 +2162,7 @@ u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0)
         isMonEvolving = TRUE;
     }
     u32 ret = 0;
-    u32 *levelUpLearnset = sys_AllocMemory(HEAPID_DEFAULT, LEARNSET_TOTAL_MOVES * sizeof(u32));
+    u32 *levelUpLearnset = sys_AllocMemory(HEAPID_DEFAULT, MAX_LEVELUP_MOVES * sizeof(u32));
     u32 species = (u16)GetMonData(mon, MON_DATA_SPECIES, NULL);
     u32 form = GetMonData(mon, MON_DATA_FORM, NULL);
     u32 level = (u8)GetMonData(mon, MON_DATA_LEVEL, NULL);
@@ -2396,6 +2336,7 @@ const u8 sTrainerGenders[] = {
     [TRAINERCLASS_PKMN_TRAINER_LUCAS_DP] = TRAINER_MALE,
     [TRAINERCLASS_PKMN_TRAINER_DAWN_DP] = TRAINER_FEMALE,
     [TRAINERCLASS_PKMN_TRAINER_LUCAS_PT] = TRAINER_MALE,
+    [TRAINERCLASS_PKMN_TRAINER_DAWN_PT] = TRAINER_FEMALE,
 };
 
 TrainerGender LONG_CALL TT_TrainerTypeSexGet(int tr_type) {
@@ -2484,4 +2425,29 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
     default:
         break;
     }
+}
+
+/**
+ * @brief checks if a given mon can learn a specific TM or HM by index. reads from data/generated/MachineMoveLearnsets.c
+ * @see   pret/pokeheartgold GetMonTMHMCompat
+ */
+BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex) {
+    u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
+    u16 form = GetMonData(pp, MON_DATA_FORM, NULL);
+
+    if (species > MAX_SPECIES_INCLUDING_FORMS || machineMoveIndex > NUM_MACHINE_MOVES) {
+        return FALSE;
+    }
+
+    u32 buf[MACHINE_LEARNSETS_BITFIELD_COUNT];
+    ArchiveDataLoadOfs(buf, ARC_CODE_ADDONS, CODE_ADDON_MACHINE_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * MACHINE_LEARNSETS_BITFIELD_COUNT * sizeof(u32), MACHINE_LEARNSETS_BITFIELD_COUNT * sizeof(u32));
+
+    return (buf[machineMoveIndex / 32] >> (machineMoveIndex % 32)) & 1;
+}
+
+/**
+ * @brief loads level up data for a mon. reads from data/generated/LevelupLearnsets.c
+ */
+void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset) {
+    ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, 0, PokeOtherFormMonsNoGet(species, form) * MAX_LEVELUP_MOVES * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
 }
