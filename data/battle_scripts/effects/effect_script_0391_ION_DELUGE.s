@@ -3,15 +3,8 @@
 .data
 
 _Start:
-    PrintAttackMessage 
-    Wait 
-    WaitButtonABTime 30
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_ION_DELUGE, _MoveFailed
-    PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
-    Wait
-
-_TrySettingIonDeluge:
-    Call BATTLE_SUBSCRIPT_ION_DELUGE
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT, MOVE_SIDE_EFFECT_ON_HIT|MOVE_SUBSCRIPT_PTR_ION_DELUGE
     End
 
 _MoveFailed:
