@@ -7204,7 +7204,7 @@ movedata MOVE_JUDGMENT, "Judgment"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_UNUSABLE_IN_GEN_8
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT
     appeal 0x0E
     contesttype CONTEST_SMART
     terminatedata
@@ -7546,6 +7546,7 @@ movedata MOVE_470, "MOVE_470"
     terminatedata
     movedescription MOVE_SHADOW_FORCE+3, "--"
 
+// Moves introduced in Generation V:
 movedata MOVE_HONE_CLAWS, "Hone Claws"
     battleeffect MOVE_EFFECT_ATK_ACC_UP
     pss SPLIT_STATUS
@@ -7574,7 +7575,7 @@ movedata MOVE_WIDE_GUARD, "Wide Guard"
     priority 3
     flags FLAG_KEEP_HP_BAR | FLAG_SNATCH
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_WIDE_GUARD, "The user protects\nitself and its\nallies from wide-\nranged attacks."
 
@@ -7590,7 +7591,7 @@ movedata MOVE_GUARD_SPLIT, "Guard Split"
     priority 0
     flags FLAG_PROTECT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_GUARD_SPLIT, "The user employs its\npsychic power to\naverage its Defense\nand Sp. Def stats\nwith the target."
 
@@ -7606,7 +7607,7 @@ movedata MOVE_POWER_SPLIT, "Power Split"
     priority 0
     flags FLAG_PROTECT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_POWER_SPLIT, "The user employs its\npsychic power to\naverage its Attack\nand Sp. Atk stats\nwith the target."
 
@@ -7622,7 +7623,7 @@ movedata MOVE_WONDER_ROOM, "Wonder Room"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_WONDER_ROOM, "The user creates a\nbizarre area where\nPokémon’s Defense\nand Sp. Def swap\nfor five turns."
 
@@ -7638,7 +7639,7 @@ movedata MOVE_PSYSHOCK, "Psyshock"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_PSYSHOCK, "An odd psychic wave\nattacks the target.\nThis attack does\nphysical damage."
 
@@ -7654,7 +7655,7 @@ movedata MOVE_VENOSHOCK, "Venoshock"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_VENOSHOCK, "The foe is soaked\nby a special acid.\nIts power doubles if\nthe foe is poisoned."
 
@@ -7670,7 +7671,7 @@ movedata MOVE_AUTOTOMIZE, "Autotomize"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_SNATCH | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_AUTOTOMIZE, "The user sheds part\nof its body to make\nitself lighter and\nsharply raise its\nSpeed stat."
 
@@ -7686,7 +7687,7 @@ movedata MOVE_RAGE_POWDER, "Rage Powder"
     priority 2
     flags 0
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_RAGE_POWDER, "The user scatters\na cloud of powder,\nmaking foes attack\nonly the user."
 
@@ -7702,7 +7703,7 @@ movedata MOVE_TELEKINESIS, "Telekinesis"
     priority 0
     flags FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_TELEKINESIS, "The user makes the\ntarget float with\npsychic power. The\ntarget is easier to\nhit for three turns."
 
@@ -7718,7 +7719,7 @@ movedata MOVE_MAGIC_ROOM, "Magic Room"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_MAGIC_ROOM, "The user creates a\nbizarre area in\nwhich Pokémon’s held\nitems lose effect\nfor five turns."
 
@@ -7734,7 +7735,7 @@ movedata MOVE_SMACK_DOWN, "Smack Down"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_SMACK_DOWN, "A projectile is\nthrown at the\nopponent. A flying\nPokémon will fall\nto the ground."
 
@@ -7766,7 +7767,7 @@ movedata MOVE_FLAME_BURST, "Flame Burst"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_FLAME_BURST, "The user attacks\nthe foe with a\nbursting flame."
 
@@ -7782,7 +7783,7 @@ movedata MOVE_SLUDGE_WAVE, "Sludge Wave"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_SLUDGE_WAVE, "The area around the\nuser is swamped by\na giant sludge wave.\nIt may also poison\nthose hit."
 
@@ -7798,7 +7799,7 @@ movedata MOVE_QUIVER_DANCE, "Quiver Dance"
     priority 0
     flags FLAG_SNATCH
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_QUIVER_DANCE, "The user mystically\ndances, raising its\nSp. Atk, Sp. Def,\nand Speed."
 
@@ -7814,7 +7815,7 @@ movedata MOVE_HEAVY_SLAM, "Heavy Slam"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_HEAVY_SLAM, "The user slams into\nthe target. The\ngreater the weight\ndifference, the\ngreater the damage."
 
@@ -7830,7 +7831,7 @@ movedata MOVE_SYNCHRONOISE, "Synchronoise"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_SYNCHRONOISE, "Using an odd shock\nwave, the user\ndamages same-type\nPokémon in the\nsurrounding area."
 
@@ -7894,7 +7895,7 @@ movedata MOVE_COIL, "Coil"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_SNATCH
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_COIL, "The user coils up,\nraising its Attack,\nDefense, and\naccuracy."
 
@@ -7910,7 +7911,7 @@ movedata MOVE_LOW_SWEEP, "Low Sweep"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_LOW_SWEEP, "The user attacks\nthe foe’s legs,\nlowering its\nSpeed stat."
 
@@ -7926,7 +7927,7 @@ movedata MOVE_ACID_SPRAY, "Acid Spray"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_ACID_SPRAY, "The user spits fluid\nthat melts the foe.\nIt harshly lowers\nthe foe’s Sp. Def."
 
@@ -7942,7 +7943,7 @@ movedata MOVE_FOUL_PLAY, "Foul Play"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_FOUL_PLAY, "The user turns the\ntarget’s power\nagainst it. Power\nincreases with the\nfoe’s Attack stat."
 
@@ -7958,7 +7959,7 @@ movedata MOVE_SIMPLE_BEAM, "Simple Beam"
     priority 0
     flags FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_SIMPLE_BEAM, "The user’s\nmysterious psychic\nwave changes the\ntarget’s Ability to\nSimple."
 
@@ -7974,7 +7975,7 @@ movedata MOVE_ENTRAINMENT, "Entrainment"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_ENTRAINMENT, "The user dances\nwith an odd rhythm,\nmaking the target’s\nAbility the same as\nthe user’s Ability."
 
@@ -7990,7 +7991,7 @@ movedata MOVE_AFTER_YOU, "After You"
     priority 0
     flags FLAG_KEEP_HP_BAR
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_AFTER_YOU, "The user helps the\ntarget and makes it\nuse its move right\nafter the user."
 
@@ -8006,7 +8007,7 @@ movedata MOVE_ROUND, "Round"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_ROUND, "The user attacks\nwith a song. Others\ncan join in, doing\nmore damage."
 
@@ -8022,7 +8023,7 @@ movedata MOVE_ECHOED_VOICE, "Echoed Voice"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_ECHOED_VOICE, "The user attacks\nthe target with a\nharsh echo.\nIf used every turn,\npower increases."
 
@@ -8038,7 +8039,7 @@ movedata MOVE_CHIP_AWAY, "Chip Away"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_CHIP_AWAY, "An attack which is\nnot affected by the\ntarget’s stat\nchanges."
 
@@ -8054,7 +8055,7 @@ movedata MOVE_CLEAR_SMOG, "Clear Smog"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_CLEAR_SMOG, "The user throws a\nclump of special\nmud that reverts\nall stat changes."
 
@@ -8070,7 +8071,7 @@ movedata MOVE_STORED_POWER, "Stored Power"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_STORED_POWER, "The user attacks\nwith a stored power\nthat grows with\neach raised stat."
 
@@ -8102,7 +8103,7 @@ movedata MOVE_ALLY_SWITCH, "Ally Switch"
     priority 2
     flags FLAG_KEEP_HP_BAR | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_ALLY_SWITCH, "The user teleports\nusing a strange\npower and switches\nplaces with one of\nits allies."
 
@@ -8118,7 +8119,7 @@ movedata MOVE_SCALD, "Scald"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_SCALD, "Boiling water is\nshot at the foe.\nIt may also cause\na burn."
 
@@ -8134,7 +8135,7 @@ movedata MOVE_SHELL_SMASH, "Shell Smash"
     priority 0
     flags FLAG_SNATCH
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_SHELL_SMASH, "Sharply raises\nAttack, Sp. Atk, and\nSpeed, but lowers\nDefense and Sp. Def."
 
@@ -8150,7 +8151,7 @@ movedata MOVE_HEAL_PULSE, "Heal Pulse"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_HEAL_PULSE, "The user emits a\nhealing pulse that\nrestores a target’s\nHP by up to half."
 
@@ -8166,7 +8167,7 @@ movedata MOVE_HEX, "Hex"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_HEX, "This attack does\ndouble damage to a\ntarget affected by\na status problem."
 
@@ -8182,7 +8183,7 @@ movedata MOVE_SKY_DROP, "Sky Drop"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_SKY_DROP, "It takes the enemy\ninto the sky,\nwhere it can’t\nattack. It is\ndropped next turn."
 
@@ -8198,7 +8199,7 @@ movedata MOVE_SHIFT_GEAR, "Shift Gear"
     priority 0
     flags FLAG_SNATCH
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_SHIFT_GEAR, "Rotating its gears,\nthe user raises its\nAttack and sharply\nraises its Speed."
 
@@ -8230,7 +8231,7 @@ movedata MOVE_INCINERATE, "Incinerate"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_INCINERATE, "The user burns\nthe foe completely,\nrendering a held\nBerry useless."
 
@@ -8246,7 +8247,7 @@ movedata MOVE_QUASH, "Quash"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_QUASH, "The user suppresses\nthe target and makes\nits move go last."
 
@@ -8278,7 +8279,7 @@ movedata MOVE_REFLECT_TYPE, "Reflect Type"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_SNATCH | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_REFLECT_TYPE, "The user reflects\nthe target’s type,\nmaking it the same\ntype as the target."
 
@@ -8310,7 +8311,7 @@ movedata MOVE_FINAL_GAMBIT, "Final Gambit"
     priority 0
     flags FLAG_PROTECT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_FINAL_GAMBIT, "The user risks all,\ndealing damage\nequal to its HP\nand then fainting\nfrom exhaustion."
 
@@ -8326,7 +8327,7 @@ movedata MOVE_BESTOW, "Bestow"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_BESTOW, "The user passes its\nheld item to the\ntarget when the\ntarget isn’t\nholding an item."
 
@@ -8342,7 +8343,7 @@ movedata MOVE_INFERNO, "Inferno"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_INFERNO, "The foe is engulfed\nby an intense fire\nthat is sure to\nleave a burn."
 
@@ -8358,7 +8359,7 @@ movedata MOVE_WATER_PLEDGE, "Water Pledge"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_WATER_PLEDGE, "When combined with\nits fire equivalent,\nits power increases\nand a rainbow\nappears."
 
@@ -8374,7 +8375,7 @@ movedata MOVE_FIRE_PLEDGE, "Fire Pledge"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_FIRE_PLEDGE, "When used with its\ngrass equivalent,\nits power increases\nand a vast sea of\nfire appears."
 
@@ -8390,7 +8391,7 @@ movedata MOVE_GRASS_PLEDGE, "Grass Pledge"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_GRASS_PLEDGE, "When used with its\nwater equivalent,\nits power increases\nand a vast swamp\nappears."
 
@@ -8422,7 +8423,7 @@ movedata MOVE_STRUGGLE_BUG, "Struggle Bug"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_STRUGGLE_BUG, "While resisting, the\nuser attacks the\nfoe, lowering its\nSp. Atk stat."
 
@@ -8438,7 +8439,7 @@ movedata MOVE_BULLDOZE, "Bulldoze"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_BULLDOZE, "The user hits all\nPokémon in battle\nby stomping. Lowers\nSpeed of those hit."
 
@@ -8454,7 +8455,7 @@ movedata MOVE_FROST_BREATH, "Frost Breath"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_FROST_BREATH, "The user blows\ncold air at the foe.\nIt always results in\na critical hit."
 
@@ -8470,7 +8471,7 @@ movedata MOVE_DRAGON_TAIL, "Dragon Tail"
     priority -6
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_DRAGON_TAIL, "The foe is made to\nswitch out with an\nally. In the wild,\nthe battle ends."
 
@@ -8486,7 +8487,7 @@ movedata MOVE_WORK_UP, "Work Up"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_SNATCH
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_WORK_UP, "The user rouses\nitself to raise\nits Attack and\nSp. Atk stats."
 
@@ -8502,7 +8503,7 @@ movedata MOVE_ELECTROWEB, "Electroweb"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_ELECTROWEB, "The user traps the\nfoe in an electric\nnet. It also lowers\nthe foe’s Speed."
 
@@ -8518,7 +8519,7 @@ movedata MOVE_WILD_CHARGE, "Wild Charge"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_WILD_CHARGE, "The user throws an\nelectrified tackle.\nIt hurts the user\na little."
 
@@ -8534,7 +8535,7 @@ movedata MOVE_DRILL_RUN, "Drill Run"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_DRILL_RUN, "The user rotates\nits body like a\ndrill. It has a high\ncritical-hit ratio."
 
@@ -8550,7 +8551,7 @@ movedata MOVE_DUAL_CHOP, "Dual Chop"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_DUAL_CHOP, "The user hits\nthe foe with two\nbrutal strikes\nin one turn."
 
@@ -8566,7 +8567,7 @@ movedata MOVE_HEART_STAMP, "Heart Stamp"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_HEART_STAMP, "The foe is hit\nafter a cute act.\nIt may also make\nthe foe flinch."
 
@@ -8582,7 +8583,7 @@ movedata MOVE_HORN_LEECH, "Horn Leech"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_HORN_LEECH, "A harsh attack that\nabsorbs half the\ndamage it inflicted\nto restore HP."
 
@@ -8630,7 +8631,7 @@ movedata MOVE_HEAT_CRASH, "Heat Crash"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_HEAT_CRASH, "The user slams down\nwith fire. The more\nthe user outweighs\nthe foe, the greater\nthe damage."
 
@@ -8662,7 +8663,7 @@ movedata MOVE_STEAMROLLER, "Steamroller"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_STEAMROLLER, "The user crushes\nthe foe with its\nbody. It may also\nmake the foe flinch."
 
@@ -8678,7 +8679,7 @@ movedata MOVE_COTTON_GUARD, "Cotton Guard"
     priority 0
     flags FLAG_SNATCH
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_COTTON_GUARD, "The user protects\nitself with cotton,\ndrastically raising\nits Defense."
 
@@ -8726,12 +8727,12 @@ movedata MOVE_TAIL_SLAP, "Tail Slap"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_TAIL_SLAP, "The use attacks by\nhitting the target\nwith its hard tail.\nIt hits two to five\ntimes in a row."
 
 movedata MOVE_HURRICANE, "Hurricane"
-    battleeffect MOVE_EFFECT_HURRICANE // accuracy in rain & sun handled in other_battle_calculators.c
+    battleeffect MOVE_EFFECT_HURRICANE // Accuracy in rain & sun handled in other_battle_calculators.c.
     pss SPLIT_SPECIAL
     basepower 110
     type TYPE_FLYING
@@ -8742,7 +8743,7 @@ movedata MOVE_HURRICANE, "Hurricane"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_HURRICANE, "The user attacks by\nwrapping its opponent\nin a fierce wind.\nThis may also confuse\nthe target."
 
@@ -8758,7 +8759,7 @@ movedata MOVE_HEAD_CHARGE, "Head Charge"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_HEAD_CHARGE, "The user charges its\nhead into its foe,\nusing its guard hair.\nIt slightly damages\nthe user."
 
@@ -8774,7 +8775,7 @@ movedata MOVE_GEAR_GRIND, "Gear Grind"
     priority 0
     flags FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_GEAR_GRIND, "The user attacks by\nthrowing two steel\ngears at it target.\nThis attack hits\ntwice in a row."
 
@@ -8822,7 +8823,7 @@ movedata MOVE_RELIC_SONG, "Relic Song"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_RELIC_SONG, "The user sings an\nancient song and\nattacks the hearts of\nthe listeners. It\nmay induce sleep."
 
@@ -8838,7 +8839,7 @@ movedata MOVE_SECRET_SWORD, "Secret Sword"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_SECRET_SWORD, "The user cuts with\nits long horn. The\nodd power in the\nhorn does physical\ndamage to the foe."
 
@@ -8854,7 +8855,7 @@ movedata MOVE_GLACIATE, "Glaciate"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_GLACIATE, "The user attacks by\nblowing freezing cold\nair at opposing\nPokémon. This lowers\ntheir Speed."
 
@@ -8870,7 +8871,7 @@ movedata MOVE_BOLT_STRIKE, "Bolt Strike"
     priority 0
     flags  FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_BOLT_STRIKE, "The user surrounds\nitself with abundant\nelectricity that can\nparalyze and charges\nits target."
 
@@ -8886,7 +8887,7 @@ movedata MOVE_BLUE_FLARE, "Blue Flare"
     priority 0
     flags  FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_BLUE_FLARE, "The user attacks by\nengulfing the foe in\na severe, beautiful,\nblue flame. It may\nburn the foe."
 
@@ -8902,7 +8903,7 @@ movedata MOVE_FIERY_DANCE, "Fiery Dance"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_FIERY_DANCE, "Cloaked in flames,\nthe user dances.\nIt may also raise\nthe user’s Sp. Atk."
 
@@ -8918,7 +8919,7 @@ movedata MOVE_FREEZE_SHOCK, "Freeze Shock"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_FREEZE_SHOCK, "A two-turn attack\nthat hits the foe\nwith electrically\ncharged ice. It may\nparalyze the foe."
 
@@ -8934,7 +8935,7 @@ movedata MOVE_ICE_BURN, "Ice Burn"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_ICE_BURN, "A two-turn attack\nthat surrounds the\nfoe with ultracold,\nfreezing wind. It\nmay burn the foe."
 
@@ -8950,7 +8951,7 @@ movedata MOVE_SNARL, "Snarl"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_SNARL, "The user barks\nmenacingly. It\nalso lowers the\nfoe’s Sp. Atk."
 
@@ -8966,7 +8967,7 @@ movedata MOVE_ICICLE_CRASH, "Icicle Crash"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_ICICLE_CRASH, "Icicles are dropped\non the foe. It may\nalso make the foe\nflinch."
 
@@ -8998,7 +8999,7 @@ movedata MOVE_FUSION_FLARE, "Fusion Flare"
     priority 0
     flags  FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_FUSION_FLARE, "The user brings down\na giant flame.\nIt does more damage\nwhen influenced by\nan enormous bolt."
 
@@ -9018,7 +9019,7 @@ movedata MOVE_FUSION_BOLT, "Fusion Bolt"
     terminatedata
     movedescription MOVE_FUSION_BOLT, "The user throws down\na giant bolt.\nIt does more damage\nwhen influenced by\nan enormous flame."
 
-
+// Moves introduced in Generation VI:
 movedata MOVE_FLYING_PRESS, "Flying Press"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
@@ -9031,7 +9032,7 @@ movedata MOVE_FLYING_PRESS, "Flying Press"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_FLYING_PRESS, "The user dives down\nonto the target from\nthe sky. This move is\nFighting and Flying\ntype simultaneously."
 
@@ -9049,7 +9050,7 @@ movedata MOVE_MAT_BLOCK, "Mat Block"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_MAT_BLOCK, "---"
+    movedescription MOVE_MAT_BLOCK, "Using a pulled-up mat\nas a shield, the user\nprotects itself and\nits allies from\ndamaging moves."
 
 movedata MOVE_BELCH, "Belch"
     battleeffect MOVE_EFFECT_HIT
@@ -9063,7 +9064,7 @@ movedata MOVE_BELCH, "Belch"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_BELCH, "The user lets out a\ndamaging belch at the\ntarget. The user must\neat a held Berry to\nuse this move."
 
@@ -9079,9 +9080,9 @@ movedata MOVE_ROTOTILLER, "Rototiller"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
-    movedescription MOVE_ROTOTILLER, "---"
+    movedescription MOVE_ROTOTILLER, "By making it easier\nfor plants to grow,\nthe user raises the\nAttack and Sp. Atk\nstats of Grass-types."
 
 movedata MOVE_STICKY_WEB, "Sticky Web"
     battleeffect MOVE_EFFECT_STICKY_WEB
@@ -9095,9 +9096,9 @@ movedata MOVE_STICKY_WEB, "Sticky Web"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
-    movedescription MOVE_STICKY_WEB, "The user weaves a web\naround the foe.\nIt lowers the foes\nSpeed upon switching\nin."
+    movedescription MOVE_STICKY_WEB, "The user weaves a web\naround the opposing\nteam, which lowers\ntheir Speed stat upon\nswitching into battle."
 
 movedata MOVE_FELL_STINGER, "Fell Stinger"
     battleeffect MOVE_EFFECT_HIT
@@ -9159,7 +9160,7 @@ movedata MOVE_NOBLE_ROAR, "Noble Roar"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_NOBLE_ROAR, "Letting out a noble\nroar, the user\nintimidates the target\nand lowers its Attack\nand Sp. Atk stats."
 
@@ -9223,7 +9224,7 @@ movedata MOVE_PETAL_BLIZZARD, "Petal Blizzard"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_PETAL_BLIZZARD, "The user stirs up a\nviolent petal blizzard\nand attacks everything\naround it."
 
@@ -9239,9 +9240,9 @@ movedata MOVE_FREEZE_DRY, "Freeze-Dry"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_FREEZE_DRY, "---"
+    movedescription MOVE_FREEZE_DRY, "The user rapidly cools\nthe target, possibly\nleaving them frozen.\nThis move is super\neffective on Water."
 
 movedata MOVE_DISARMING_VOICE, "Disarming Voice"
     battleeffect MOVE_EFFECT_BYPASS_ACCURACY
@@ -9255,7 +9256,7 @@ movedata MOVE_DISARMING_VOICE, "Disarming Voice"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_DISARMING_VOICE, "Letting out a charming\ncry, the user does\nemotional damage to\nopposing Pokémon. This\nattack never misses."
 
@@ -9287,7 +9288,7 @@ movedata MOVE_TOPSY_TURVY, "Topsy-Turvy"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
     movedescription MOVE_TOPSY_TURVY, "All stat changes\naffecting the target\nturn topsy-turvy and\nbecome the opposite of\nwhat they were."
 
@@ -9319,9 +9320,9 @@ movedata MOVE_CRAFTY_SHIELD, "Crafty Shield"
     priority 3
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_CRAFTY_SHIELD, "---"
+    movedescription MOVE_CRAFTY_SHIELD, "The user protects\nitself and its allies\nfrom status moves\nwith a mysterious\npower."
 
 movedata MOVE_FLOWER_SHIELD, "Flower Shield"
     battleeffect MOVE_EFFECT_HIT
@@ -9335,7 +9336,7 @@ movedata MOVE_FLOWER_SHIELD, "Flower Shield"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_FLOWER_SHIELD, "The user raises the\nDefense stats of all\nGrass-type Pokémon\nin battle with a\nmysterious power."
 
@@ -9383,9 +9384,9 @@ movedata MOVE_ELECTRIFY, "Electrify"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_ELECTRIFY, "---"
+    movedescription MOVE_ELECTRIFY, "If the target is\nelectrified, their\nmoves become Electric\ntype for the rest of\nthat turn."
 
 movedata MOVE_PLAY_ROUGH, "Play Rough"
     battleeffect MOVE_EFFECT_LOWER_ATTACK_HIT
@@ -9399,7 +9400,7 @@ movedata MOVE_PLAY_ROUGH, "Play Rough"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_PLAY_ROUGH, "The user attacks by\nplaying rough with the\ntarget. This may also\nlower the target's\nAttack stat."
 
@@ -9415,7 +9416,7 @@ movedata MOVE_FAIRY_WIND, "Fairy Wind"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_FAIRY_WIND, "The user attacks by\nstirring up a fairy\nwind to strike the\ntarget."
 
@@ -9431,7 +9432,7 @@ movedata MOVE_MOONBLAST, "Moonblast"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_MOONBLAST, "Borrowing the power of\nthe moon, the user\nattacks the target.\nThis may also lower the\ntarget's Sp. Atk stat."
 
@@ -9447,7 +9448,7 @@ movedata MOVE_BOOMBURST, "Boomburst"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_BOOMBURST, "The user attacks\neverything around it\nwith the destructive\npower of a terrible\nexplosive sound."
 
@@ -9463,9 +9464,9 @@ movedata MOVE_FAIRY_LOCK, "Fairy Lock"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_FAIRY_LOCK, "---"
+    movedescription MOVE_FAIRY_LOCK, "By locking down the\nbattlefield, the user\nkeeps all Pokémon\nfrom fleeing during\nthe next turn."
 
 movedata MOVE_KINGS_SHIELD, "King’s Shield"
     battleeffect MOVE_EFFECT_PROTECT
@@ -9481,7 +9482,7 @@ movedata MOVE_KINGS_SHIELD, "King’s Shield"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_KINGS_SHIELD, "---"
+    movedescription MOVE_KINGS_SHIELD, "The user protects\nitself from damage\nwhile lowering the\nAttack of any attacker\nthat makes contact."
 
 movedata MOVE_PLAY_NICE, "Play Nice"
     battleeffect MOVE_EFFECT_ATK_DOWN
@@ -9511,9 +9512,9 @@ movedata MOVE_CONFIDE, "Confide"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
-    movedescription MOVE_CONFIDE, "---"
+    movedescription MOVE_CONFIDE, "The user tells the\ntarget a secret,\nmaking it lose focus.\nThis lowers the\ntarget's Sp. Atk stat."
 
 movedata MOVE_DIAMOND_STORM, "Diamond Storm"
     battleeffect MOVE_EFFECT_RAISE_DEF_2_HIT
@@ -9527,9 +9528,9 @@ movedata MOVE_DIAMOND_STORM, "Diamond Storm"
     priority 0
     flags  FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_DIAMOND_STORM, "---"
+    movedescription MOVE_DIAMOND_STORM, "A storm of diamonds\nwhips opposing\nPokémon. This may also\nsharply boost the\nuser's Defense stat."
 
 movedata MOVE_STEAM_ERUPTION, "Steam Eruption"
     battleeffect MOVE_EFFECT_THAW_AND_BURN_HIT
@@ -9543,7 +9544,7 @@ movedata MOVE_STEAM_ERUPTION, "Steam Eruption"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_STEAM_ERUPTION, "The user immerses the\ntarget in superheated\nsteam.\nThis may also leave\nthe target with a burn."
 
@@ -9559,9 +9560,9 @@ movedata MOVE_HYPERSPACE_HOLE, "Hyperspace Hole"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_HYPERSPACE_HOLE, "---"
+    movedescription MOVE_HYPERSPACE_HOLE, "Using a hyperspace\nhole, the user strikes\nfrom far away. This\ncan hit a target using\nProtect or Detect."
 
 movedata MOVE_WATER_SHURIKEN, "Water Shuriken"
     battleeffect MOVE_EFFECT_MULTI_HIT
@@ -9591,7 +9592,7 @@ movedata MOVE_MYSTICAL_FIRE, "Mystical Fire"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_MYSTICAL_FIRE, "The user attacks by\nbreathing a special,\nhot fire.\nThis also lowers the\ntarget's Sp. Atk stat."
 
@@ -9607,9 +9608,9 @@ movedata MOVE_SPIKY_SHIELD, "Spiky Shield"
     priority 4
     flags 0
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
-    movedescription MOVE_SPIKY_SHIELD, "---"
+    movedescription MOVE_SPIKY_SHIELD, "The user is protected\nfrom attacks, while\nalso damaging any\nattacker who makes\ndirect contact."
 
 movedata MOVE_AROMATIC_MIST, "Aromatic Mist"
     battleeffect MOVE_EFFECT_HIT
@@ -9623,7 +9624,7 @@ movedata MOVE_AROMATIC_MIST, "Aromatic Mist"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_AROMATIC_MIST, "The user boosts the\nSp. Def stat of an\nally Pokémon by using\na mysterious aroma."
 
@@ -9655,9 +9656,9 @@ movedata MOVE_VENOM_DRENCH, "Venom Drench"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_VENOM_DRENCH, "---"
+    movedescription MOVE_VENOM_DRENCH, "Foes are drenched in\na poisonous liquid.\nThis lowers the Attack,\nSp. Atk, and Speed of\na poisoned target."
 
 movedata MOVE_POWDER, "Powder"
     battleeffect MOVE_EFFECT_HIT
@@ -9671,9 +9672,9 @@ movedata MOVE_POWDER, "Powder"
     priority 1
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_POWDER, "---"
+    movedescription MOVE_POWDER, "The user covers the\ntarget in an explosive\npowder that damages\nthe target if they use\na Fire-type move."
 
 movedata MOVE_GEOMANCY, "Geomancy"
     battleeffect MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2
@@ -9687,9 +9688,9 @@ movedata MOVE_GEOMANCY, "Geomancy"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_GEOMANCY, "---"
+    movedescription MOVE_GEOMANCY, "The user absorbs energy\nand sharply boosts its\nSp. Atk, Sp. Def, and\nSpeed stats on the next\nturn."
 
 movedata MOVE_MAGNETIC_FLUX, "Magnetic Flux"
     battleeffect MOVE_EFFECT_HIT
@@ -9703,9 +9704,9 @@ movedata MOVE_MAGNETIC_FLUX, "Magnetic Flux"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_MAGNETIC_FLUX, "---"
+    movedescription MOVE_MAGNETIC_FLUX, "Magnetic fields boost\nthe Defense and Sp. Def\nstats of ally Pokémon\nwith the Plus or Minus\nAbility."
 
 movedata MOVE_HAPPY_HOUR, "Happy Hour"
     battleeffect MOVE_EFFECT_DO_NOTHING
@@ -9719,7 +9720,7 @@ movedata MOVE_HAPPY_HOUR, "Happy Hour"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_HAPPY_HOUR, "Using Happy Hour\ndoubles the amount of\nprize money received\nafter battle."
 
@@ -9735,9 +9736,9 @@ movedatalongname MOVE_ELECTRIC_TERRAIN, "ElectricTerrain", "Electric Terrain"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x05
-    contesttype CONTEST_SMART // Prior to Pokémon Omega Ruby and Alpha Sapphire, it was known as the Smart condition.
+    contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_ELECTRIC_TERRAIN, "---"
+    movedescription MOVE_ELECTRIC_TERRAIN, "For five turns, Pokémon\non the ground have\npowered up Electric-type\nmoves and can no longer\nfall asleep."
 
 movedata MOVE_DAZZLING_GLEAM, "Dazzling Gleam"
     battleeffect MOVE_EFFECT_HIT
@@ -9751,7 +9752,7 @@ movedata MOVE_DAZZLING_GLEAM, "Dazzling Gleam"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_DAZZLING_GLEAM, "The user damages\nopposing Pokémon by\nemitting a powerful\nflash."
 
@@ -9767,7 +9768,7 @@ movedata MOVE_CELEBRATE, "Celebrate"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_CELEBRATE, "The Pokémon\ncongratulates you on\nyour special day!"
 
@@ -9783,7 +9784,7 @@ movedata MOVE_HOLD_HANDS, "Hold Hands"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_HOLD_HANDS, "The user and an ally\nhold hands.\nThis makes them very\nhappy."
 
@@ -9815,9 +9816,9 @@ movedata MOVE_NUZZLE, "Nuzzle"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
-    movedescription MOVE_NUZZLE, "---"
+    movedescription MOVE_NUZZLE, "The user nuzzles its\nelectrified cheeks\nagainst the target.\nThis also leaves the\ntarget with paralysis."
 
 movedata MOVE_HOLD_BACK, "Hold Back"
     battleeffect MOVE_EFFECT_LEAVE_WITH_1_HP
@@ -9847,7 +9848,7 @@ movedata MOVE_INFESTATION, "Infestation"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_CUTE
     terminatedata
     movedescription MOVE_INFESTATION, "The target is infested\nand attacked for four\nto five turns.\nThe target can't flee\nduring this time."
 
@@ -9863,7 +9864,7 @@ movedata MOVE_POWER_UP_PUNCH, "Power-Up Punch"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_POWER_UP_PUNCH, "Striking opponents\nover and over makes\nthe user's fists\nharder. Hitting a\ntarget raises Attack."
 
@@ -9881,7 +9882,7 @@ movedata MOVE_OBLIVION_WING, "Oblivion Wing"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_OBLIVION_WING, "---"
+    movedescription MOVE_OBLIVION_WING, "The user absorbs the\ntarget's HP. The user's\nHP is restored by over\nhalf the damage taken\nby the target."
 
 movedata MOVE_THOUSAND_ARROWS, "Thousand Arrows"
     battleeffect MOVE_EFFECT_HIT
@@ -9895,7 +9896,7 @@ movedata MOVE_THOUSAND_ARROWS, "Thousand Arrows"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_THOUSAND_ARROWS, "This move can hit\nopposing Pokémon that\nare in the air. Those\nPokémon are knocked\ndown to the ground."
 
@@ -9911,7 +9912,7 @@ movedata MOVE_THOUSAND_WAVES, "Thousand Waves"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
     movedescription MOVE_THOUSAND_WAVES, "The user attacks with\na wave that crawls\nalong the ground.\nThose it hits can't\nflee from battle."
 
@@ -9927,7 +9928,7 @@ movedata MOVE_LANDS_WRATH, "Land’s Wrath"
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_LANDS_WRATH, "The user gathers the\nenergy of the land and\nfocuses that power on\nopposing Pokémon to\ninflict damage."
 
@@ -9943,7 +9944,7 @@ movedata MOVE_LIGHT_OF_RUIN, "Light of Ruin"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_LIGHT_OF_RUIN, "Drawing power from the\nEternal Flower, the user\nfires a powerful beam of\nlight. This also damages\nthe user terribly."
 
@@ -9959,7 +9960,7 @@ movedata MOVE_ORIGIN_PULSE, "Origin Pulse"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
     movedescription MOVE_ORIGIN_PULSE, "The user attacks\nopposing Pokémon with\ncountless beams of\nlight that glow a deep\nand brilliant blue."
 
@@ -9991,9 +9992,9 @@ movedata MOVE_DRAGON_ASCENT, "Dragon Ascent"
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_DRAGON_ASCENT, "---"
+    movedescription MOVE_DRAGON_ASCENT, "The user attacks by\ndropping out of the sky\nat high speed. This also\nlowers the user's\nDefense and Sp. Def."
 
 movedata MOVE_HYPERSPACE_FURY, "Hyperspace Fury"
     battleeffect MOVE_EFFECT_USER_DEF_DOWN_HIT_REMOVE_PROTECT
@@ -10007,10 +10008,11 @@ movedata MOVE_HYPERSPACE_FURY, "Hyperspace Fury"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8
     appeal 0x00
-    contesttype CONTEST_COOL
+    contesttype CONTEST_TOUGH
     terminatedata
-    movedescription MOVE_HYPERSPACE_FURY, "---"
+    movedescription MOVE_HYPERSPACE_FURY, "The user unleashes a\nbarrage that ignores the\neffects of protection\nmoves. This also lowers\nthe user's Defense."
 
+// Moves introduced in Generation VII:
 movedata MOVE_BREAKNECK_BLITZ_PHYSICAL, "Breakneck Blitz"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
@@ -10025,7 +10027,7 @@ movedata MOVE_BREAKNECK_BLITZ_PHYSICAL, "Breakneck Blitz"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BREAKNECK_BLITZ_PHYSICAL, "---"
+    movedescription MOVE_BREAKNECK_BLITZ_PHYSICAL, "The user crashes into the target at full speed using its Z-Power. The power varies, depending on the original move."
 
 movedata MOVE_BREAKNECK_BLITZ_SPECIAL, "Breakneck Blitz"
     battleeffect MOVE_EFFECT_HIT
@@ -10041,7 +10043,7 @@ movedata MOVE_BREAKNECK_BLITZ_SPECIAL, "Breakneck Blitz"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BREAKNECK_BLITZ_SPECIAL, "---"
+    movedescription MOVE_BREAKNECK_BLITZ_SPECIAL, "The user crashes into the target at full speed using its Z-Power. The power varies, depending on the original move."
 
 movedatalongname MOVE_ALL_OUT_PUMMELING_PHYSICAL, "All-Out Pummel", "All-Out Pummeling"
     battleeffect MOVE_EFFECT_HIT
