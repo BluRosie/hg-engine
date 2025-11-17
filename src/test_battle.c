@@ -63,7 +63,7 @@ struct TestBattleScenario {
     // Field conditions
     u32 weather;        // WEATHER_RAIN, WEATHER_SANDSTORM, etc.
     u32 fieldCondition; // FIELD_CONDITION_TRICK_ROOM_INIT, etc.
-    u8 terrain;         // Terrain type
+    u8 terrain;         // GRASSY_TERRAIN, MISTY_TERRAIN, etc.
 };
 
 static const struct TestBattleScenario scenario_SinglesTest = {
@@ -252,19 +252,13 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
         if (moves[i] != MOVE_NONE) {
             u16 move = moves[i];
             SetMonData(mon, MON_DATA_MOVE1 + i, &move);
-
-            // Set PP to max (40 is good default for testing)
-            u8 pp = 40;
+            u32 pp = 40;
+            SetMonData(mon, MON_DATA_MOVE1MAXPP + i, &pp);
             SetMonData(mon, MON_DATA_MOVE1PP + i, &pp);
-
-            // Set PP Up to 0
-            u8 ppUp = 0;
-            SetMonData(mon, MON_DATA_MOVE1PPUP + i, &ppUp);
         }
     }
 
     if (hp == 0) {
-        // Use max HP
         u16 maxHP = (u16)GetMonData(mon, MON_DATA_MAXHP, NULL);
         SetMonData(mon, MON_DATA_HP, &maxHP);
     } else {
@@ -318,19 +312,12 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
 {
     // Get active test scenario (defined at top of file)
     const struct TestBattleScenario *scenario = &ACTIVE_TEST_SCENARIO;
-
-    // Store for battle state application and AI scripting
     g_CurrentScenario = scenario;
 
-    // Reset all AI script indices
     for (int i = 0; i < 4; i++) {
         g_AIScriptIndex[i] = 0;
     }
 
-    // Detect if this is a doubles battle (both slots have Pokémon)
-    int isDoubles = (scenario->playerParty[1].species != 0 || scenario->enemyParty[1].species != 0);
-
-    // Count enemy Pokemon for this scenario
     int enemyCount = 0;
     for (int i = 0; i < MAX_BATTLERS_PER_SIDE; i++) {
         if (scenario->enemyParty[i].species != 0) {
@@ -338,8 +325,8 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
         }
     }
 
-    // Set battle type: Trainer battle, and doubles if applicable
-    if (isDoubles) {
+    // Set battle type
+    if ((scenario->playerParty[1].species != 0 || scenario->enemyParty[1].species != 0)) {
         bp->fight_type = BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE;
     } else {
         bp->fight_type = BATTLE_TYPE_TRAINER;
