@@ -88,8 +88,13 @@
 
 // DEBUG_BATTLE_SCENARIOS enables test battle scenario loading system
 // When enabled, overrides any trainer battle parties with test scenarios
-// See src/battle/test_battle_override.c for scenario definitions
-// #define DEBUG_BATTLE_SCENARIOS
+// See src/test_battle.c for scenario definitions
+// recommend turning on DEBUG_AUTO_CONTINUE_GAME for test roms
+//#define DEBUG_BATTLE_SCENARIOS
+
+// DEBUG_AUTO_CONTINUE_GAME skips the title screen and start menu to automatically continue the game
+// when enabled, skips the intro movie and title screen to immediately continue the loaded save
+//#define DEBUG_AUTO_CONTINUE_GAME
 
 // NOCASH_GBA_PRINT swaps from desmume prints with the syscall to NO$GBA-style prints for use with i.e. melonDS
 #define NOCASH_GBA_PRINT
