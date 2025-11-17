@@ -578,7 +578,7 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
         *moveSlot = action.action;
     } else {
         debug_printf("[TestBattle_GetAIScriptedMove] WARNING: Switch actions not yet implemented\n");
-        *moveSlot = 0; 
+        *moveSlot = 0;
     }
 
     *target = action.target;
