@@ -310,7 +310,7 @@ def load_itemdata_to_dict():
     print("success")
     return dict
 
-def process_csv(input_file, output_file='data/itemdata/completed_itemdata.csv'):
+def process_csv(input_file, output_file='data/itemdata/itemdata.csv'):
     """
     Process a CSV file to fill missing IDs and save the result.
     
@@ -340,10 +340,21 @@ def process_csv(input_file, output_file='data/itemdata/completed_itemdata.csv'):
         
         # Save the result
         completed_df.to_csv(output_file, index=False)
+        
+        # Hacky workaround
+        full_file_text = ""
+        
+        with open(output_file, "r") as read_file:
+            full_file_text = read_file.read()
+            full_file_text = full_file_text.replace('False', 'FALSE').replace('True', 'TRUE').replace('nan', 'FALSE')
+            
+        with open(output_file, "w") as write_file:
+            write_file.write(full_file_text)
+            
         print(f"Processing complete. Saved to '{output_file}'")
         
     except FileNotFoundError:
         print(f"Error: Could not find input file '{input_file}'")
 
 if __name__ == '__main__':
-    process_csv('data/itemdata/itemdata.csv', 'data/itemdata/completed_itemdata.csv')
+    process_csv('data/itemdata/dumped_itemdata.csv', 'data/itemdata/itemdata.csv')

@@ -3,7 +3,7 @@ from os import listdir
 from os.path import isfile, join, isdir
 import sys
 
-caps_list = []
+caps_list = ['751', '817']
 
 article_list = ['238']
 

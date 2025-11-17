@@ -78,12 +78,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                 // debug_printf("In SBA_RESET_FURY_CUTTER\n");
 
                 for (client_no = 0; client_no < client_set_max; client_no++) {
-                    if (
-						((sp->battlemon[client_no].condition & 7) != 0)
-						|| (sp->moveTbl[GetBattlerSelectedMove(sp, client_no)].effect != MOVE_EFFECT_DOUBLE_POWER_EACH_TURN)
-						|| (ST_CheckIfInTruant(sp, client_no) != FALSE)
-						|| (sp->oneTurnFlag[client_no].struggle_flag != 0)
-					)
+                    if (((sp->battlemon[client_no].condition & 7) != 0) || (GetBattlerSelectedMove(sp, client_no) != MOVE_FURY_CUTTER) || (ST_CheckIfInTruant(sp, client_no) != FALSE) || (sp->oneTurnFlag[client_no].struggle_flag != 0))
                         sp->battlemon[client_no].moveeffect.furyCutterCount = 0;
                 }
                 sp->sba_seq_no++;

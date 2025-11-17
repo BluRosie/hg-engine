@@ -3,13 +3,13 @@
 ### ``armips\include\config.s`` and ``include\config.h``
  ``START_ADDRESS`` is the start address in both of these files for all the armips assembly (primarily tables) that need to be inserted into the arm9 extension, here overlay 129.  By default there are 0x1000 bytes at the beginning of overlay 129 for this.
 
+ ``DISALLOW_DEXIT_GEN`` (``armips/include/config.s`` only) controls whether to disallow selection of dexited moves in later generations, or disallow selection of unimplemented moves.
+
  ``FAIRY_TYPE_IMPLEMENTED`` should be set to 0 in both of these files in order to disable the fairy type implementation.  By default, it is 1 to implement the fairy type.
 
  ``ALLOW_SAVE_CHANGES`` is by default defined in these files to allow for save expansion for expanded dex Pokémon, bigger item pockets, and Kyurem's forme change method that stores Reshiram/Zekrom in the save.  If you want to maintain PKHeX compatibility, all you have to do is comment out the line ``ALLOW_SAVE_CHANGES`` in both of these files.  Commenting this line out disables Kyurem's forme change and the registering of new Pokémon in the dex (although the new mons are still implemented).
 
  ``CRY_PSEUDOBANK_START`` is where the pseudobanks start in the SDAT for new cries.  To save on sound heap RAM space, new banks are just detected and forced to load cries instead of having the massive structure that comes with it.  By default 778, which is the first empty index of SBNK's in the vanilla SDAT.
-
- ``LEARNSET_TOTAL_MOVES`` is the amount of moves that should be learned per Pokémon at level up plus one for the termination sequence.
 
  ``BATTLE_MODE_FORCE_SET`` (``armips/include/config.s`` only) is the toggle to force set mode in the ROM.  Set to 1 to enable, 0 will use the default behavior.
 

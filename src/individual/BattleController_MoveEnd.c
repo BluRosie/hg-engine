@@ -70,33 +70,6 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
                 }
             }
         }
-		
-		// Handle Fell Stinger
-		// +3 Attack 
-		if ((ctx->current_move_index == MOVE_FELL_STINGER && ctx->battlemon[ctx->attack_client].sheer_force_flag == 0)
-		&& (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs)
-		&& (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12)
-		&& (ctx->battlemon[ctx->attack_client].moveeffect.fakeOutCount != (ctx->total_turn + 1))) {
-			ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
-			ctx->addeffect_type = ADD_EFFECT_DIRECT;
-			ctx->state_client = ctx->attack_client;
-			LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
-			ctx->next_server_seq_no = ctx->server_seq_no;
-			ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-			ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-			return;
-        }
-		
-		// Handle Dragon Tail/Circle Throw
-		if ((ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_FORCE_SWITCH_HIT)
-		&& (ctx->battlemon[ctx->defence_client].hp > 0)
-		&& !(ctx->oneTurnFlag[ctx->attack_client].numberOfKOs)
-		&& (ctx->battlemon[ctx->attack_client].moveeffect.fakeOutCount != (ctx->total_turn + 1))) {
-			LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FORCE_OUT);
-			ctx->next_server_seq_no = ctx->server_seq_no;
-			ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-			return;
-        }
 
         // TODO: A rampage move that fails (Thrash, Outrage etc) will cancel except on the last turn
         if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS && !ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag) {

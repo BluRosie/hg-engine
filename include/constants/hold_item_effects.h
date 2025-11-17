@@ -2,6 +2,7 @@
 #define CONSTANTS_HOLD_ITEM_EFFECTS_H
 
 #define HOLD_EFFECT_NONE                                 0
+#define SOUBI_NONE                                       HOLD_EFFECT_NONE
 #define HOLD_EFFECT_HP_RESTORE                           1
 #define HOLD_EFFECT_GIRATINA_BOOST                       2
 #define HOLD_EFFECT_DIALGA_BOOST                         3

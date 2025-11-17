@@ -460,21 +460,17 @@
 #define SUB_SEQ_SPIKY_SHIELD                          (450)
 #define SUB_SEQ_HANDLE_ANGER_SHELL                    (451)
 #define SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE         (452)
+#define SUB_SEQ_HANDLE_INCINERATE                     (453)
+#define SUB_SEQ_ADD_THIRD_TYPE_GRASS                  (454)
+#define SUB_SEQ_ADD_THIRD_TYPE_GHOST                  (455)
+#define SUB_SEQ_CHANGE_TARGET_TO_PSYCHIC_TYPE         (456)
+#define SUB_SEQ_AURORA_VEIL                           (457)
+#define SUB_SEQ_CHEEK_POUCH                           (458)
 
-#define MAX_BASE_SUBSCRIPT_NUM 452
+#define MAX_BASE_SUBSCRIPT_NUM 458
 
 // define your custom subscripts below like this
-// #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
-
-#define CUSTOM_BATTLE_SUBSCRIPT_START 500
-
-#define SUB_SEQ_HEAL_STATUS                           (CUSTOM_BATTLE_SUBSCRIPT_START + 1)
-#define SUB_SEQ_UNUSED_1                              (CUSTOM_BATTLE_SUBSCRIPT_START + 2)
-#define SUB_SEQ_HEAL_USER_AND_ALLY                    (CUSTOM_BATTLE_SUBSCRIPT_START + 3)
-#define SUB_SEQ_ATK_UP_CHARGE_TURN_SOLAR_BLADE        (CUSTOM_BATTLE_SUBSCRIPT_START + 4)
-#define SUB_SEQ_SP_ATK_UP_CHARGE_TURN_SOLAR_BEAM      (CUSTOM_BATTLE_SUBSCRIPT_START + 5)
-#define SUB_SEQ_POWER_HERB_SOLAR_BLADE                (CUSTOM_BATTLE_SUBSCRIPT_START + 6)
-#define SUB_SEQ_ATK_UP_SUN_SKIP                       (CUSTOM_BATTLE_SUBSCRIPT_START + 7)
+// #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
 
 
 
@@ -672,17 +668,19 @@
 #define ADD_STATUS_EFF_MORTAL_SPIN                     (189)
 #define ADD_STATUS_EFF_TIDY_UP                         (190)
 #define ADD_STATUS_EFF_BURN_AND_DRAIN_HEALTH           (191)
+#define ADD_STATUS_EFF_INCINERATE                      (192)
+#define ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6         (193) // This constant and the one below are only used as spacers for Steam Engine.
+#define ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP_6        (194) // To add more +6 effects, copy the order & proximity of other stat stage change constants.
+#define ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_6          (195) // Used for Steam Engine.
+#define ADD_STATUS_EFF_ADD_THIRD_TYPE_GRASS            (196)
+#define ADD_STATUS_EFF_ADD_THIRD_TYPE_GHOST            (197)
+#define ADD_STATUS_EFF_CHANGE_TARGET_TO_PSYCHIC_TYPE   (198)
+#define ADD_STATUS_EFF_AURORA_VEIL                     (199)
 
-#define MAX_STATUS_EFF (191)
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (199)
 
-#define ADD_STATUS_EFF_HEAL_STATUS                     (MAX_STATUS_EFF + 1)
-#define ADD_STATUS_EFF_UNUSED_1                        (MAX_STATUS_EFF + 2)
-#define ADD_STATUS_EFF_HEAL_USER_AND_ALLY              (MAX_STATUS_EFF + 3)
-#define ADD_STATUS_EFF_ATK_UP_CHARGE_TURN_SOLAR_BLADE  (MAX_STATUS_EFF + 4)
-#define ADD_STATUS_EFF_SP_ATK_UP_CHARGE_TURN_SOLAR_BEAM (MAX_STATUS_EFF + 5)
-#define ADD_STATUS_EFF_POWER_HERB_SOLAR_BLADE          (MAX_STATUS_EFF + 6)
-#define ADD_STATUS_EFF_ATK_UP_SUN_SKIP                 (MAX_STATUS_EFF + 7)
-
+// define your custom subscripts below like this
+// #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)
 
 // additional effect constants
 #define ADD_STATUS_NONE (0)

@@ -1,0 +1,19 @@
+{
+  "SPECIES_DEOXYS": {
+    "LevelMoves": [],
+    "MachineMoves": [],
+    "EggMoves": [],
+    "TutorMoves": [
+      "MOVE_BODY_SLAM",
+      "MOVE_DOUBLE_EDGE",
+      "MOVE_DREAM_EATER",
+      "MOVE_ICY_WIND",
+      "MOVE_MIMIC",
+      "MOVE_NIGHTMARE",
+      "MOVE_SEISMIC_TOSS",
+      "MOVE_SUBSTITUTE",
+      "MOVE_SWAGGER",
+      "MOVE_THUNDER_WAVE"
+    ]
+  }
+}

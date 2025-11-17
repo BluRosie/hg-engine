@@ -1235,7 +1235,7 @@ scr_seq_0003_019:
     end
 
 scr_seq_0003_020:
-    hasitem ITEM_BICYCLE, 1, VAR_SPECIAL_RESULT
+    hasitem ITEM_BIKE, 1, VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _1163
     scrcmd_609

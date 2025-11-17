@@ -3,6 +3,7 @@
 #include "../../include/battle.h"
 #include "../../include/item.h"
 #include "../../include/mega.h"
+#include "../../include/message.h"
 #include "../../include/pokemon.h"
 #include "../../include/constants/ability.h"
 #include "../../include/constants/battle_script_constants.h"

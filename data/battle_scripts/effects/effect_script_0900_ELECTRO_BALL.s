@@ -3,7 +3,6 @@
 .data
 
 _000:
-    CalcElectroBallPower
-    CalcCrit
-    CalcDamage
-    End
+    CalcCrit 
+    CalcDamage 
+    End 

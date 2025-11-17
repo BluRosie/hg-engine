@@ -1,6 +1,8 @@
 #include "../include/config.h"
 #include "../include/constants/item.h"
+#include "../include/constants/file.h"
 #include "../include/bag.h"
+#include "../include/message.h"
 #include "../include/item.h"
 #include "../include/map_events_internal.h"
 #include "../include/save.h"
@@ -34,7 +36,15 @@ const u8 sPocketCountBytes[8] = {
 
 
 void SortPocket(ITEM_SLOT *slots, u32 count);
+void SortTMHMPocket(ITEM_SLOT *slots, u32 count);
 void PocketCompaction(ITEM_SLOT *slots, u32 count);
+static u16 GetMachineMoveNumber(u16 itemId);
+void LONG_CALL Bag_PrintMachineMoveLabel(BagContext *context, void *window, ITEM_SLOT *slot, u32 baseY);
+void LONG_CALL PrintUIntOnWindowWithGlyph(void *msgPrinter, u8 glyphId, u32 num, u32 ndigits, u32 mode, void *window, u32 x, u32 y);
+void LONG_CALL ov15_021FE8C4(BagContext *context, u32 packedArgs);
+void LONG_CALL PrintUIntOnWindow(void *messagePrinter, u32 num, u32 ndigits, u32 mode, void *window, u32 x, u32 y);
+void LONG_CALL Bag_RenderItemSlotIcon(BagContext *context, void *target, u16 y); // overriding param 3 for our sprite index
+void LONG_CALL PrintItemSlotQuantity(void *unk2F4, void *unk2F0, void *window, u16 quantity);
 
 u32 Sav2_Bag_sizeof(void) {
     return sizeof(BAG_DATA);
@@ -160,7 +170,13 @@ ITEM_SLOT *Bag_GetItemSlotForAdd(BAG_DATA *bag, u16 itemId, u16 quantity, int he
 
     pocket_id = Bag_GetItemPocket(bag, itemId, &slots, &count, heap_id);
     if (pocket_id == POCKET_TMHMS) {
-        return Pocket_GetItemSlotForAdd(slots, count, itemId, quantity, BAG_TMHM_QUANTITY_MAX);
+        u16 max = BAG_TMHM_QUANTITY_MAX;
+#ifdef REUSABLE_TMS
+        if (IS_ITEM_TM(itemId)) {
+            max = 1;
+        }
+#endif // REUSABLE_TMS
+        return Pocket_GetItemSlotForAdd(slots, count, itemId, quantity, max);
     } else {
         return Pocket_GetItemSlotForAdd(slots, count, itemId, quantity, BAG_SLOT_QUANTITY_MAX);
     }
@@ -182,8 +198,11 @@ BOOL Bag_AddItem(BAG_DATA *bag, u16 itemId, u16 quantity, int heap_id) {
         u32 pocket_id;
 
         pocket_id = Bag_GetItemPocket(bag, itemId, &slot, &count, heap_id);
-        if (pocket_id == POCKET_TMHMS || pocket_id == POCKET_BERRIES) {
+        if (pocket_id == POCKET_BERRIES) {
             SortPocket(slot, count);
+        }
+        if (pocket_id == POCKET_TMHMS) {
+            SortTMHMPocket(slot, count);
         }
     }
     return TRUE;
@@ -342,6 +361,30 @@ void SortPocket(ITEM_SLOT *slots, u32 count) {
     }
 }
 
+u8 GetTMHMPocketSortPrecedence(u16 itemId) {
+    if (IS_ITEM_HM(itemId)) {
+        return SORT_ORDER_HM;
+    }
+    if (IS_ITEM_TR(itemId)) {
+        return SORT_ORDER_TR;
+    }
+    return SORT_ORDER_TM;
+}
+
+void SortTMHMPocket(ITEM_SLOT *slots, u32 count) {
+    u32 i, j;
+    for (i = 0; i < count - 1; i++) {
+        for (j = i + 1; j < count; j++) {
+            u8 iSortOrder = GetTMHMPocketSortPrecedence(slots[i].id);
+            u8 jSortOrder = GetTMHMPocketSortPrecedence(slots[j].id);
+            if (slots[i].quantity == 0 || (slots[j].quantity != 0 &&
+                (iSortOrder > jSortOrder || (iSortOrder == jSortOrder && slots[i].id > slots[j].id)))) {
+                SwapItemSlots(&slots[i], &slots[j]);
+            }
+        }
+    }
+}
+
 // returns a BAG_VIEW but we don't have to care about that
 void *CreateBagView(BAG_DATA *bag, const u8 *pockets, int heap_id) {
     int i;
@@ -424,6 +467,93 @@ ITEM_SLOT *Bag_GetPocketSlotN(BAG_DATA *bag, u8 pocket, int n) {
     return &slots[n];
 }
 
+
+/**
+ * @brief Gets the machine move number for a given item id
+ */
+static u16 GetMachineMoveNumber(u16 itemId) {
+    // HMs
+    if (itemId == ITEM_HM07_ORAS) {
+        return 7;
+    }
+    if (itemId >= ITEM_HM01 && itemId <= ITEM_HM08) {
+        return itemId - ITEM_HM01 + 1;
+    }
+
+    // TMs
+    if (itemId >= ITEM_TM001 && itemId <= ITEM_TM092) {
+        return itemId - ITEM_TM001 + 1;
+    }
+    if (itemId == ITEM_TM00) {
+        return 0;
+    }
+    if (itemId >= ITEM_TM093 && itemId <= ITEM_TM095) {
+        return itemId - ITEM_TM093 + 93;
+    }
+    if (itemId >= ITEM_TM096 && itemId <= ITEM_TM100) {
+        return itemId - ITEM_TM096 + 96;
+    }
+    if (itemId >= ITEM_TM100_SV && itemId <= ITEM_TM229) {
+        return itemId - ITEM_TM100_SV + 100;
+    }
+
+    // TRs
+    if (itemId >= ITEM_TR00 && itemId <= ITEM_TR99) {
+        return itemId - ITEM_TR00;
+    }
+
+    return 0;
+}
+
+/**
+ * @brief handles drawing machine move item slots in the bag and decides if we should draw the quantity numbers or not on TMs
+ */
+void LONG_CALL Bag_RenderMachineMoveSlot(BagContext *context, void *window, void *msg, void *lst, int index) {
+    void *items = *(void **)lst;
+    ITEM_SLOT *slot = (ITEM_SLOT *)items + index;
+    AddTextPrinterParameterizedWithColor(window, 0, msg, 0, 0, 0xFF, 0x00010200, NULL);
+    Bag_PrintMachineMoveLabel(context, window, slot, 0x10);
+#ifdef REUSABLE_TMS
+    BOOL showQuant = IS_ITEM_TR(slot->id);
+#else
+    BOOL showQuant = IS_ITEM_TM(slot->id) || IS_ITEM_TR(slot->id);
+#endif // REUSABLE_TMS
+    if (showQuant) {
+        PrintItemSlotQuantity(context->unk2F4, context->unk2F0, window, slot->quantity);
+    }
+}
+
+/**
+ * @brief render the label and number for a TM/HM/TR item in the bag
+ */
+void LONG_CALL Bag_PrintMachineMoveLabel(BagContext *context, void *window, ITEM_SLOT *slot, u32 baseY) {
+    u16 itemId = slot->id;
+    u16 machineMoveNumber = GetMachineMoveNumber(itemId);
+    void *msgPrinter = context->msgPrinter;
+
+#ifdef UPDATE_MACHINE_MOVE_LABELS
+    int numDigits = 2;
+    int icon = BAG_HM_ICON;
+
+    if (IS_ITEM_TM(itemId)) {
+        icon = BAG_TM_ICON;
+        numDigits = 3;
+    } else if (IS_ITEM_TR(itemId)) {
+        icon = BAG_TR_ICON;
+    }
+
+    PrintUIntOnWindow(msgPrinter, machineMoveNumber, numDigits, 2, window, 24, baseY + 5);
+    Bag_RenderItemSlotIcon(context, window, icon);
+#else
+    if (IS_ITEM_HM(itemId)) {
+        PrintUIntOnWindow(msgPrinter, machineMoveNumber, 2, 1, window, 0x10, baseY + 5);
+        Bag_RenderItemSlotIcon(context, window, BAG_HM_ICON);
+    } else {
+        PrintUIntOnWindowWithGlyph(msgPrinter, 2, machineMoveNumber, 2, 2, window, 0x0, baseY + 5); // No. XX
+        ov15_021FE8C4(context, ((u32)slot->quantity << 16) | (baseY & 0xFFFF)); // honestly idk what this is even doing
+    }
+#endif // UPDATE_MACHINE_MOVE_LABELS
+}
 
 
 // move these here so gFieldSysPtr works
