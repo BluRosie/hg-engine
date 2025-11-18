@@ -72,7 +72,7 @@ static const struct TestBattleScenario scenario_SinglesTest = {
             .species = SPECIES_ONIX,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_SNOW_WARNING,
+            .ability = ABILITY_STURDY,
             .item = ITEM_NONE,
             .moves = {MOVE_TACKLE, MOVE_FAKE_TEARS, MOVE_NONE, MOVE_NONE},
             .hp = 0,
@@ -99,17 +99,17 @@ static const struct TestBattleScenario scenario_SinglesTest = {
             .species = SPECIES_STEELIX,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_SAND_STREAM,
+            .ability = ABILITY_STURDY,
             .item = ITEM_LEFTOVERS,
-            .moves = {MOVE_NASTY_PLOT, MOVE_QUICK_ATTACK, MOVE_NONE, MOVE_NONE},
+            .moves = {MOVE_NASTY_PLOT, MOVE_QUICK_ATTACK, MOVE_WILL_O_WISP, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
             .aiScript = {
-                {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
                 {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND},
-                {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
                 {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND},
                 {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
                 {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
@@ -122,9 +122,9 @@ static const struct TestBattleScenario scenario_SinglesTest = {
         }
     },
     // Field
-    .weather = 0,
+    .weather = WEATHER_SANDSTORM,
     .fieldCondition = 0,
-    .terrain = 0,
+    .terrain = MISTY_TERRAIN,
 };
 
 static const struct TestBattleScenario scenario_DoublesTest = {
@@ -502,12 +502,23 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
     }
 
     // Apply field conditions
+    // sp->field_condition &= ~(FIELD_CONDITION_WEATHER);
+
     if (g_CurrentScenario->weather) {
         sp->field_condition |= g_CurrentScenario->weather;
     }
 
     if (g_CurrentScenario->fieldCondition) {
         sp->field_condition |= g_CurrentScenario->fieldCondition;
+    }
+
+    // Apply terrain overlay
+    sp->terrainOverlay.type = TERRAIN_NONE;
+    sp->terrainOverlay.numberOfTurnsLeft = 0;
+
+    if (g_CurrentScenario->terrain != TERRAIN_NONE) {
+        sp->terrainOverlay.type = g_CurrentScenario->terrain;
+        sp->terrainOverlay.numberOfTurnsLeft = 255;
     }
 }
 
