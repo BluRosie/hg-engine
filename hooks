@@ -191,6 +191,9 @@ arm9 get_mon_ow_tag 08069D70 3
 arm9 ArceusBoxPokemonFormeChange 08071BD0 3
 #pc screen forme change
 0014 HandleBoxPokemonFormeChanges 08000BD0 3
+#pc screen ability store
+0014 BoxDisplayMon_StoreAbility 021E73B0 0
+0014 BoxDisplayMon_GrabAbility 021F52AE 1
 
 #use item attribute change
 arm9 UseItemMonAttrChangeCheck_hook 0807C29C 0

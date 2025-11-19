@@ -790,6 +790,33 @@ bx r1
 .pool
 
 
+// actually just store the ability to 0x021E73B8.  that should do lol
+.global BoxDisplayMon_StoreAbility
+BoxDisplayMon_StoreAbility:
+mov r0, r7
+mov r1, #0xA // MON_DATA_ABILITY
+mov r2, #0
+ldr r3, =0x0206E640 | 1 // GetBoxMonData
+bl bx_r3
+ldr r1, =0x021E73B8
+strh r0, [r1]
+ldr r1, =0x021E73BC | 1
+bx r1
+
+.global BoxDisplayMon_GrabAbility
+BoxDisplayMon_GrabAbility:
+ldr r2, =0x021E73B8
+ldrh r2, [r2]
+ldr r0, [r5, #0x24]
+mov r1, #0
+ldr r3, =0x0200C060 | 1
+bl bx_r3
+ldr r1, =0x021F52B8 | 1
+bx r1
+
+.pool
+
+
 .data
 
 .align 2

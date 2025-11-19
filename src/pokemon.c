@@ -558,7 +558,7 @@ BOOL SetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void 
     PokemonDataBlockA *blockA = blocks->blockA;
     PokemonDataBlockB *blockB UNUSED = blocks->blockB;
     PokemonDataBlockC *blockC UNUSED = blocks->blockC;
-    PokemonDataBlockD *blockD UNUSED = blocks->blockD;
+    PokemonDataBlockD *blockD = blocks->blockD;
     switch (field)
     {
     case MON_DATA_ABILITY:
@@ -582,6 +582,16 @@ BOOL SetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void 
         ret = TRUE;
         break;
     }
+    case MON_DATA_MET_LEVEL:
+    {
+        u8 metLevel = *((u8 *)data);
+        blockD->metLevel = metLevel;
+#ifdef DEBUG_BOXMONDATA_EDITED_CASES
+        debug_printf("[SetBoxMonData] metLevel to set %d\n", blockD->metLevel);
+#endif
+        ret = TRUE;
+        break;
+    }
     }
     return ret;
 }
@@ -601,7 +611,7 @@ u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *
     PokemonDataBlockA *blockA = blocks->blockA;
     PokemonDataBlockB *blockB UNUSED = blocks->blockB;
     PokemonDataBlockC *blockC UNUSED = blocks->blockC;
-    PokemonDataBlockD *blockD UNUSED = blocks->blockD;
+    PokemonDataBlockD *blockD = blocks->blockD;
     *retBool = FALSE;
     switch (field)
     {
@@ -623,9 +633,23 @@ u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *
 #endif
         break;
     }
+    case MON_DATA_MET_LEVEL:
+        ret = blockD->metLevel;
+        *retBool = TRUE;
+#ifdef DEBUG_BOXMONDATA_EDITED_CASES
+        debug_printf("Met level returned: %d\n", ret);
+#endif
+        break;
+    case MON_DATA_LEVEL:
+        ret = CalcLevelBySpeciesAndExp(blockA->species, blockA->exp);
+        *retBool = TRUE;
+#ifdef DEBUG_BOXMONDATA_EDITED_CASES
+        debug_printf("Current level returned: %d\n", ret);
+#endif
+        break;
     }
 #ifdef DEBUG_BOXMONDATA_EDITED_CASES
-    debug_printf("Modified GetBoxMonData called...\n    blocks %08X,\n    field %d,\n    data %08X,\n    retBool %08X\n", blocks, field, data, retBool);
+    //debug_printf("Modified GetBoxMonData called...\n    blocks %08X,\n    field %d,\n    data %08X,\n    retBool %08X\n", blocks, field, data, retBool);
 #endif
     return ret;
 }

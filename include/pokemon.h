@@ -1175,6 +1175,15 @@ u32 LONG_CALL PokeParaLevelExpGet(struct PartyPokemon *pp);
 u32 LONG_CALL PokeLevelUpCheck(struct PartyPokemon *pp);
 
 /**
+ *  @brief grab the level of a species given its experience
+ *
+ *  @param species species index to calculate for
+ *  @param exp total experience the species has
+ *  @return level the species is at with given experience
+ */
+u32 LONG_CALL CalcLevelBySpeciesAndExp(u32 species, u32 exp);
+
+/**
  *  @brief check if a Party has a specific species
  *
  *  @param party Party to check through
