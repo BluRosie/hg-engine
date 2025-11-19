@@ -8,11 +8,35 @@
 
 // personal narc ability expansion here too
 .org 0x0206FB80
-    ldrh r5, [r4, #0x16]
+ldrh r5, [r4, #0x16]
 
 .org 0x0206FB84
-    ldrh r5, [r4, #0x1A]
+ldrh r5, [r4, #0x1A]
 
+/*
+summary screen!
+ability is originally a u8 at 0x32 of the pokemondata structure (0x262 of overall structure)
+we need to move it to the original form field, a u16 at 0x4e (0x27e of overall structure)
+*/
+// changes to how the ability is stored
+.org 0x02089A2A
+add r1, #0x4e
+strh r0, [r1]
+
+// change how the form is stored
+.org 0x02089B30
+add r1, #0x32
+strb r0, [r1]
+
+// change how ability is used
+.org 0x0208D376
+ldrh r2, [r4, r2]
+
+.org 0x0208D3C4
+ldrh r1, [r4, r1]
+
+.org 0x0208D464
+.word 0x27E
 
 .close
 
