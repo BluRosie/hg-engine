@@ -7530,7 +7530,7 @@ movedata MOVE_469, "MOVE_469"
     terminatedata
     movedescription MOVE_SHADOW_FORCE+2, "--"
 
-movedata MOVE_470, "MOVE_470"
+movedata MOVE_MEGA_EVOLVE, "MOVE_MEGA_EVOLVE"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_SPECIAL
     basepower 100
