@@ -12176,7 +12176,7 @@ movedata MOVE_COURT_CHANGE, "Court Change"
     movedescription MOVE_COURT_CHANGE, "With its mysterious\npower, the user swaps\nthe effects on either\nside of the field."
 
 movedata MOVE_MAX_FLARE, "Max Flare"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // TODO: Replace with MOVE_EFFECT_SUN_HIT once implemented.
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_FIRE
@@ -12208,7 +12208,7 @@ movedata MOVE_MAX_FLUTTERBY, "Max Flutterby"
     movedescription MOVE_MAX_FLUTTERBY, "This is a Bug-type\nattack Dynamax Pokémon\nuse. This lowers the\ntarget's Sp. Atk stat."
 
 movedata MOVE_MAX_LIGHTNING, "Max Lightning"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // TODO: Replace with MOVE_EFFECT_ELECTRIC_TERRAIN_HIT once implemented.
     pss SPLIT_PHYSICAL
     basepower 10
     type TYPE_ELECTRIC
@@ -12271,8 +12271,8 @@ movedata MOVE_MAX_PHANTASM, "Max Phantasm"
     terminatedata
     movedescription MOVE_MAX_PHANTASM, "This is a Ghost-type\nattack Dynamax Pokémon\nuse. This lowers the\ntarget's Defense stat."
 
-movedata MOVE_MAX_HAILSTORM, (SNOW_WARNING_GENERATION >= 9) ? "Max Snowstorm" : "Max Hailstorm"
-    battleeffect (SNOW_WARNING_GENERATION >= 9) ? MOVE_EFFECT_HIT : MOVE_EFFECT_HIT
+movedata MOVE_MAX_HAILSTORM, "Max Hailstorm"
+    battleeffect (SNOW_WARNING_GENERATION >= 9) ? MOVE_EFFECT_HIT : MOVE_EFFECT_HIT // TODO: Replace the left with MOVE_EFFECT_SNOW_HIT and right with MOVE_EFFECT_HAIL_HIT once implemented.
     pss SPLIT_PHYSICAL
     basepower 10
     type TYPE_ICE
@@ -12281,7 +12281,7 @@ movedata MOVE_MAX_HAILSTORM, (SNOW_WARNING_GENERATION >= 9) ? "Max Snowstorm" : 
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12304,7 +12304,7 @@ movedata MOVE_MAX_OOZE, "Max Ooze"
     movedescription MOVE_MAX_OOZE, "This is a Poison-type\nattack Dynamax Pokémon\nuse. This boosts ally\nPokémon's Sp. Atk\nstats."
 
 movedata MOVE_MAX_GEYSER, "Max Geyser"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // TODO: Replace with MOVE_EFFECT_RAIN_HIT once implemented.
     pss SPLIT_PHYSICAL
     basepower 10
     type TYPE_WATER
@@ -12313,7 +12313,7 @@ movedata MOVE_MAX_GEYSER, "Max Geyser"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12336,7 +12336,7 @@ movedata MOVE_MAX_AIRSTREAM, "Max Airstream"
     movedescription MOVE_MAX_AIRSTREAM, "This is a Flying-type\nattack Dynamax Pokémon\nuse. This boosts ally\nPokémon's Speed stats."
 
 movedata MOVE_MAX_STARFALL, "Max Starfall"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // TODO: Replace with MOVE_EFFECT_MISTY_TERRAIN_HIT once implemented.
     pss SPLIT_PHYSICAL
     basepower 10
     type (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
@@ -12345,7 +12345,7 @@ movedata MOVE_MAX_STARFALL, "Max Starfall"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12368,7 +12368,7 @@ movedata MOVE_MAX_WYRMWIND, "Max Wyrmwind"
     movedescription MOVE_MAX_WYRMWIND, "This is a Dragon-type\nattack Dynamax Pokémon\nuse. This lowers the\ntarget's Attack stat."
 
 movedata MOVE_MAX_MINDSTORM, "Max Mindstorm"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // TODO: Replace with MOVE_EFFECT_PSYCHIC_TERRAIN_HIT once implemented.
     pss SPLIT_PHYSICAL
     basepower 10
     type TYPE_PSYCHIC
@@ -12377,14 +12377,14 @@ movedata MOVE_MAX_MINDSTORM, "Max Mindstorm"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
     movedescription MOVE_MAX_MINDSTORM, "This is a Psychic-type\nattack Dynamax Pokémon\nuse. The user turns the\nground into Psychic\nTerrain for five turns."
 
 movedata MOVE_MAX_ROCKFALL, "Max Rockfall"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // TODO: Replace with MOVE_EFFECT_SANDSTORM_HIT once implemented.
     pss SPLIT_PHYSICAL
     basepower 10
     type TYPE_ROCK
@@ -12393,7 +12393,7 @@ movedata MOVE_MAX_ROCKFALL, "Max Rockfall"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12432,7 +12432,7 @@ movedata MOVE_MAX_DARKNESS, "Max Darkness"
     movedescription MOVE_MAX_DARKNESS, "This is a Dark-type\nattack Dynamax Pokémon\nuse. This lowers the\ntarget's Sp. Def stat."
 
 movedata MOVE_MAX_OVERGROWTH, "Max Overgrowth"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // TODO: Replace with MOVE_EFFECT_GRASSY_TERRAIN_HIT once implemented.
     pss SPLIT_PHYSICAL
     basepower 10
     type TYPE_GRASS
@@ -12441,7 +12441,7 @@ movedata MOVE_MAX_OVERGROWTH, "Max Overgrowth"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -14798,6 +14798,6 @@ movedatanoname NUM_OF_MOVES
     target 0x0000
     priority 0
     flags 0x32
-    appeal APPEAL_LOW_VOLTAGE_BOOST
+    appeal 0x10
     contesttype CONTEST_BEAUTY
     terminatedata
