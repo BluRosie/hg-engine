@@ -9718,7 +9718,7 @@ movedata MOVE_HAPPY_HOUR, "Happy Hour"
     effectchance 0
     target RANGE_USER_SIDE
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
     contesttype CONTEST_CUTE
     terminatedata
@@ -10671,7 +10671,7 @@ movedata MOVE_SPIRIT_SHACKLE, "Spirit Shackle"
     movedescription MOVE_SPIRIT_SHACKLE, "The user attacks while\nsimultaneously stitching\nthe target's shadow to\nthe ground to prevent\nthe target from fleeing."
 
 movedata MOVE_DARKEST_LARIAT, "Darkest Lariat"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // Defense is handled in CalcBaseDamage.c and Evasion is in other_battle_calculators.c.
     pss SPLIT_PHYSICAL
     basepower 85
     type TYPE_DARK
