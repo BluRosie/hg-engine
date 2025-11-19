@@ -66,7 +66,7 @@ def parse_trainers(file_path):
                     print(f"ERROR: Incorrect number or formating of 'trainerclass' for trainer id {trainer_id} ({trainer['name']})")
                     sys.exit(1)
                 trainer["trainerclass"] = trainer["trainerclass"][1].strip().upper()
-                
+
             elif stripped.startswith("nummons"):
                 match = re.search(r'nummons\s+.*?(\b[0-6]\b)', stripped)
                 if match:
@@ -77,7 +77,7 @@ def parse_trainers(file_path):
 
             elif stripped == "endentry":
                 if key_counts["item"] < 4:
-                    print(f"ERROR: only {key_counts["item"]} 'item' entries were in trainer id {trainer_id} ({trainer["name"]})")
+                    print(f"ERROR: only {key_counts['item']} 'item' entries were in trainer id {trainer_id} ({trainer['name']})")
                     sys.exit(1)
 
                 trainers[trainer_id] = trainer
