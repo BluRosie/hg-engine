@@ -1,5 +1,5 @@
-#ifndef POKEHEARTGOLD_CONSTANTS_GAME_STATS_H
-#define POKEHEARTGOLD_CONSTANTS_GAME_STATS_H
+#ifndef CONSTANTS_GAME_STATS_H
+#define CONSTANTS_GAME_STATS_H
 
 #define GAME_STAT_UNK0                      0 // Related to Apricorns somehow.
 #define GAME_STAT_APRICORN_GET              1
