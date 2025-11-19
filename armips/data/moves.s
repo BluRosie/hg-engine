@@ -12481,7 +12481,7 @@ movedata MOVE_CLANGOROUS_SOUL, "Clangorous Soul"
     movedescription MOVE_CLANGOROUS_SOUL, "The user boosts all\nits stats by using\nsome of its own HP."
 
 movedata MOVE_BODY_PRESS, "Body Press"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // Handled in CalcBaseDamage.c.
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_FIGHTING
@@ -12913,7 +12913,7 @@ movedata MOVE_MISTY_EXPLOSION, "Misty Explosion"
     movedescription MOVE_MISTY_EXPLOSION, "The user attacks\neverything around it\nand faints. This move's\npower is boosted on\nMisty Terrain."
 
 movedata MOVE_GRASSY_GLIDE, "Grassy Glide"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // Priority handled in other_battle_calculators.c.
     pss SPLIT_PHYSICAL
     basepower 55
     type TYPE_GRASS
@@ -13006,7 +13006,7 @@ movedata MOVE_LASH_OUT, "Lash Out"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_LASH_OUT, "The user vents its\nfrustration Its power is\ndoubled if the user's\nstats were lowered\nduring this turn."
+    movedescription MOVE_LASH_OUT, "The user vents its\nfrustration. Its power\nis doubled if the user's\nstats were lowered\nduring this turn."
 
 movedata MOVE_POLTERGEIST, "Poltergeist"
     battleeffect MOVE_EFFECT_POLTERGEIST
@@ -14115,7 +14115,7 @@ movedata MOVE_RUINATION, "Ruination"
     movedescription MOVE_RUINATION, "The user summons a\nruinous disaster.\nThis cuts the\ntarget’s HP in half."
 
 movedatalongname MOVE_COLLISION_COURSE, "ColisionCourse","Collision Course"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // Handled in battle_calc_damage.c.
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_FIGHTING
@@ -14131,7 +14131,7 @@ movedatalongname MOVE_COLLISION_COURSE, "ColisionCourse","Collision Course"
     movedescription MOVE_COLLISION_COURSE, "The user causes a\nmassive prehistoric\nexplosion. This move's\npower is boosted more if\nit’s super effective."
 
 movedata MOVE_ELECTRO_DRIFT, "Electro Drift"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT // Handled in battle_calc_damage.c.
     pss SPLIT_SPECIAL
     basepower 100
     type TYPE_ELECTRIC
@@ -14268,7 +14268,7 @@ movedata MOVE_HYPER_DRILL, "Hyper Drill"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_CONTACT
+    flags FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -14494,7 +14494,7 @@ movedata MOVE_BLOOD_MOON, "Blood Moon"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
