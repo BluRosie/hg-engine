@@ -24767,17 +24767,17 @@ trainerdata 671, "Buck"
         ivs 200
         abilityslot 0
         level 87
-        pokemon SPECIES_SHUCKLE
-        item ITEM_LEFTOVERS
-        move MOVE_REST
-        move MOVE_STEALTH_ROCK
-        move MOVE_STICKY_WEB
-        move MOVE_KNOCK_OFF
-        ability ABILITY_SOLID_ROCK
+        pokemon SPECIES_TERRAKION
+        item ITEM_LIFE_ORB
+        move MOVE_SUPERPOWER
+        move MOVE_STONE_EDGE
+        move MOVE_EARTHQUAKE
+        move MOVE_IRON_HEAD
+        ability ABILITY_JUSTIFIED
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_IMPISH
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -24802,25 +24802,6 @@ trainerdata 671, "Buck"
         ballseal 0
 
         // mon 2
-        ivs 200
-        abilityslot 0
-        level 87
-        pokemon SPECIES_TERRAKION
-        item ITEM_LIFE_ORB
-        move MOVE_SUPERPOWER
-        move MOVE_STONE_EDGE
-        move MOVE_EARTHQUAKE
-        move MOVE_IRON_HEAD
-        ability ABILITY_JUSTIFIED
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        // mon 3
         ivs 250
         abilityslot 0
         level 87
@@ -24836,6 +24817,25 @@ trainerdata 671, "Buck"
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
+        additionalflags 0
+        ballseal 0
+
+        // mon 3
+        ivs 200
+        abilityslot 0
+        level 87
+        pokemon SPECIES_SHUCKLE
+        item ITEM_LEFTOVERS
+        move MOVE_REST
+        move MOVE_STEALTH_ROCK
+        move MOVE_STICKY_WEB
+        move MOVE_KNOCK_OFF
+        ability ABILITY_SOLID_ROCK
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_IMPISH
+        shinylock 0
         additionalflags 0
         ballseal 0
 
