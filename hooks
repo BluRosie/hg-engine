@@ -45,6 +45,10 @@ arm9 GetItemArcData 08077CE8 3
 arm9 GetPokemonOwNum 0206A304 1
 arm9 GetMonIconPalette 02074364 3
 
+# ability expansion
+arm9 GetBoxMonData_EditedCases_hook 0206E6E0 3
+arm9 SetBoxMonData_EditedCases_hook 0206EE28 0
+
 # wild mon hidden ability/form stuff
 #02247910
 0002 get_form_out_of_encounter_species_rare 02247910 4
@@ -187,6 +191,9 @@ arm9 get_mon_ow_tag 08069D70 3
 arm9 ArceusBoxPokemonFormeChange 08071BD0 3
 #pc screen forme change
 0014 HandleBoxPokemonFormeChanges 08000BD0 3
+#pc screen ability store
+0014 BoxDisplayMon_StoreAbility 021E73B0 0
+0014 BoxDisplayMon_GrabAbility 021F52AE 1
 
 #use item attribute change
 arm9 UseItemMonAttrChangeCheck_hook 0807C29C 0

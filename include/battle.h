@@ -819,7 +819,7 @@ struct __attribute__((packed)) battle_moveflag
  *
  *  not encrypted or anything, has a number of fields pertaining to each mon on the field
  */
-struct __attribute__((packed)) BattlePokemon
+struct BattlePokemon
 {
     /* 0x00 */ u16 species;                  /**< species */
     /* 0x02 */ u16 attack;                   /**< raw attack stat */
@@ -842,7 +842,7 @@ struct __attribute__((packed)) BattlePokemon
     /* 0x25 */ u8 type2;                     /**< second type */
     /* 0x26 */ u8 form_no : 5;               /**< form id */
                u8 rare : 1;                  /**< shininess */
-               u8 ability;                   /**< ability index */
+               u8 dummy;                     /**< free - used to be ability index */
 
                /** switch in flags to mark it as having been done */
     /* 0x28 */ u32 paddingForNow1 : 6;
@@ -869,21 +869,21 @@ struct __attribute__((packed)) BattlePokemon
     /* 0x4c */ s32 hp;                       /**< current hp */
     /* 0x50 */ u32 maxhp;                    /**< max hp */
     /* 0x54 */ u16 oyaname[8];               /**< OT name */
-    /* 0x68 */ u32 exp; //68                 /**< total experience */
-    /* 0x6c */ u32 personal_rnd;             /**< personality id */
-    /* 0x70 */ u32 condition;                /**< non-volatile status conditions (STATUS_* constants) */ // status
-    /* 0x74 */ u32 condition2;               /**< most other status conditions (STATUS2_* constants) */  // status2
-    /* 0x78 */ u32 id_no;                    /**< OT ID */
-    /* 0x7c */ u16 item;                     /**< held item */
-    /* 0x7e */ u16 dummy;
-    /* 0x80 */ u8 hit_count;
-    /* 0x81 */ u8 message_flag;
-    /* 0x82 */ u8 sex : 4;                   /**< sex for rivalry purposes etc. */
+    /* 0x64 */ u32 exp; //68                 /**< total experience */
+    /* 0x68 */ u32 personal_rnd;             /**< personality id */
+    /* 0x6C */ u32 condition;                /**< non-volatile status conditions (STATUS_* constants) */ // status
+    /* 0x70 */ u32 condition2;               /**< most other status conditions (STATUS2_* constants) */  // status2
+    /* 0x74 */ u32 id_no;                    /**< OT ID */
+    /* 0x78 */ u16 item;                     /**< held item */
+    /* 0x7a */ u16 ability;                  /**< ability index -- moved from 0x27 */
+    /* 0x7c */ u8 hit_count;
+    /* 0x7d */ u8 message_flag;
+    /* 0x7e */ u8 sex : 4;                   /**< sex for rivalry purposes etc. */
                u8 oyasex : 4;                /**< original trainer sex */
-    /* 0x83 */ u8 get_ball;                  /**< caught ball */
-    /* 0x84 */ u32 effect_of_moves;          /**< move effect trackers (see MOVE_EFFECT_* constants) */ // moveEffectFlags
-    /* 0x88 */ u32 effect_of_moves_temp;     /**< storage for effect_of_moves */
-    /* 0x8c */ struct __attribute__((packed)) battle_moveflag moveeffect;   // unk88
+    /* 0x7f */ u8 get_ball;                  /**< caught ball */
+    /* 0x80 */ u32 effect_of_moves;          /**< move effect trackers (see MOVE_EFFECT_* constants) */ // moveEffectFlags
+    /* 0x84 */ u32 effect_of_moves_temp;     /**< storage for effect_of_moves */
+    /* 0x88 */ struct battle_moveflag moveeffect;   // unk88
 }; // size = 0xc0
 
 typedef struct {
@@ -1197,7 +1197,7 @@ typedef struct OnceOnlyAbilityFlags {
  *
  *  tracks everything about battle state.  consider it a "battle global" structure
  */
-struct PACKED BattleStruct {
+struct BattleStruct {
     /*0x0*/ u8 com_seq_no[CLIENT_MAX];
     /*0x4*/ u8 ret_seq_no[CLIENT_MAX];
     /*0x8*/ int server_seq_no;
