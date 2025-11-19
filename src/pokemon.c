@@ -504,7 +504,6 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     ability_swapped = GET_BOX_MON_SWAP_ABILITY_SLOT_BIT(boxmon);
     mons_no = PokeOtherFormMonsNoGet(mons_no, form);
     hiddenability = GetMonHiddenAbilityAlreadySanitized(mons_no);
-    debug_printf("Abilities: %d, %d, %d\n", ability1, ability2, hiddenability);
 
     if (has_hidden_ability && hiddenability != 0)
     {
