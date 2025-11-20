@@ -86,6 +86,9 @@
 // DEBUG_ENABLE_UNIMPLEMENTED_MOVES shows debug information if a chosen move is not implemented/dexited
 //#define DEBUG_ENABLE_UNIMPLEMENTED_MOVES
 
+// DEBUG_BOXMONDATA_EDITED_CASES shows debug information for GetBoxMonData/SetBoxMonData when its cases are edited
+//#define DEBUG_BOXMONDATA_EDITED_CASES
+
 // DEBUG_BATTLE_SCENARIOS enables test battle scenario loading system
 // When enabled, overrides any trainer battle parties with test scenarios
 // See src/test_battle.c for scenario definitions

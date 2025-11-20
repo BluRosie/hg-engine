@@ -599,7 +599,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             src = (u8 *)&sp->battlemon[sp->attack_client];
                             dest = (u8 *)&sp->battlemon[sp->defence_client];
 
-                            for (num = 0; num <= (int)offsetof(struct BattlePokemon, ability); num++) {
+                            for (num = 0; num <= (int)0x26/*offsetof(struct BattlePokemon, ability)*/; num++) {
                                 src[num] = dest[num];
                             }
 

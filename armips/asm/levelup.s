@@ -8,14 +8,6 @@
 
 .open "base/arm9.bin", 0x02000000
 
-// just feeling like implementing personal narc ability expansion here too
-.org 0x0206FB80
-    ldrh r5, [r4, #0x16]
-
-.org 0x0206FB84
-    ldrh r5, [r4, #0x1A]
-
-
 // initialize box mon learnset - InitBoxMonMoveset
 .org 0x020712E0
     mov r1, #4*MAX_LEVELUP_MOVES
