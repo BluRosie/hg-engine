@@ -541,5 +541,6 @@ arm9 ScrCmd_MartBuy 02048060 1
 
 
 #ifdef DEBUG_BATTLE_SCENARIOS
-0010 TestBattle_AISelectMove 0221bef4 2
+0010 TestBattle_AISelectMove 0221BEF4 2
+0010 TestBattle_AIPickCommand 022205BC 2
 #endif

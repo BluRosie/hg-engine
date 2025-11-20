@@ -12,6 +12,7 @@
 #include "../include/constants/species.h"
 
 #define MAX_BATTLERS_PER_SIDE 2
+#define MAX_PARTY_SIZE 6
 #define BATTLER_PLAYER_FIRST  0
 #define BATTLER_ENEMY_FIRST   1
 #define BATTLER_PLAYER_SECOND 2
@@ -53,12 +54,15 @@ struct TestBattlePokemon {
     u32 status;          // STATUS_BURN, STATUS_POISON, STATUS_SLEEP, etc.
     u32 condition2;      // STATUS2_RECHARGE, STATUS2_CONFUSION, etc. (can be OR'd)
     u32 moveEffectFlags; // MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE, etc. (can be OR'd)
-    struct BattleAction aiScript[AI_SCRIPT_MAX_MOVES];
 };
 
 struct TestBattleScenario {
-    struct TestBattlePokemon playerParty[MAX_BATTLERS_PER_SIDE];  // Player's Pokemon (singles = [0] only)
-    struct TestBattlePokemon enemyParty[MAX_BATTLERS_PER_SIDE];   // Enemy's Pokemon (singles = [0] only)
+    u32 battleType;                                        // BATTLE_TYPE_SINGLE, BATTLE_TYPE_DOUBLE, etc.
+    struct TestBattlePokemon playerParty[MAX_PARTY_SIZE];  // Player party
+    struct TestBattlePokemon enemyParty[MAX_PARTY_SIZE];   // Enemy's party
+
+    struct BattleAction playerScript[MAX_BATTLERS_PER_SIDE][AI_SCRIPT_MAX_MOVES];
+    struct BattleAction enemyScript[MAX_BATTLERS_PER_SIDE][AI_SCRIPT_MAX_MOVES];
 
     // Field conditions
     u32 weather;        // WEATHER_RAIN, WEATHER_SANDSTORM, etc.
@@ -67,6 +71,7 @@ struct TestBattleScenario {
 };
 
 static const struct TestBattleScenario scenario_SinglesTest = {
+    .battleType = BATTLE_TYPE_SINGLE,
     .playerParty = {
         {
             .species = SPECIES_ONIX,
@@ -79,16 +84,45 @@ static const struct TestBattleScenario scenario_SinglesTest = {
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {
-                {ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND},
-                {ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND},
-                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND},
-                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND},
-            },
+        },
+        {
+            .species = SPECIES_GEODUDE,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_ROCK_HEAD,
+            .item = ITEM_NONE,
+            .moves = {MOVE_ROCK_THROW, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_GRAVELER,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_ROCK_HEAD,
+            .item = ITEM_NONE,
+            .moves = {MOVE_ROCK_SLIDE, MOVE_MAGNITUDE, MOVE_NONE, MOVE_NONE},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_GOLEM,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_STURDY,
+            .item = ITEM_NONE,
+            .moves = {MOVE_STONE_EDGE, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_NONE,
         },
         {
             .species = SPECIES_NONE,
@@ -106,19 +140,72 @@ static const struct TestBattleScenario scenario_SinglesTest = {
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {
-                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
-                {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND},
-                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
-                {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND},
-                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
-                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
-                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
-                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
-            },
+        },
+        {
+            .species = SPECIES_MACHOP,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_GUTS,
+            .item = ITEM_NONE,
+            .moves = {MOVE_KARATE_CHOP, MOVE_SEISMIC_TOSS, MOVE_NONE, MOVE_NONE},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_MACHOKE,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_GUTS,
+            .item = ITEM_NONE,
+            .moves = {MOVE_CROSS_CHOP, MOVE_DYNAMIC_PUNCH, MOVE_NONE, MOVE_NONE},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_MACHAMP,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_NO_GUARD,
+            .item = ITEM_NONE,
+            .moves = {MOVE_DYNAMIC_PUNCH, MOVE_STONE_EDGE, MOVE_NONE, MOVE_NONE},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
         },
         {
             .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        }
+    },
+    .playerScript = {
+        { // Battler 0 (PLAYER_FIRST)
+            {ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST},
+            {ACTION_SWITCH_SLOT_2, 0},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+        },
+        { // Battler 1 (PLAYER_SECOND)
+        }
+    },
+    .enemyScript = {
+        { // Battler 0 (ENEMY_FIRST)
+            {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+            {ACTION_SWITCH_SLOT_1, 0},
+            {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+        },
+        { // Battler 1 (ENEMY_SECOND)
         }
     },
     // Field
@@ -128,6 +215,7 @@ static const struct TestBattleScenario scenario_SinglesTest = {
 };
 
 static const struct TestBattleScenario scenario_DoublesTest = {
+    .battleType = BATTLE_TYPE_DOUBLE,
     .playerParty = {
         {
             .species = SPECIES_ABOMASNOW,
@@ -140,16 +228,6 @@ static const struct TestBattleScenario scenario_DoublesTest = {
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_SECOND},
-                {ACTION_MOVE_SLOT_4, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_SECOND},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_SECOND},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_SECOND},
-            },
         },
         {
             .species = SPECIES_ROTOM,
@@ -162,16 +240,18 @@ static const struct TestBattleScenario scenario_DoublesTest = {
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {
-                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_SECOND},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
-            },
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
         }
     },
     .enemyParty = {
@@ -186,16 +266,6 @@ static const struct TestBattleScenario scenario_DoublesTest = {
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {
-                {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
-                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_SECOND},
-                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
-                {ACTION_MOVE_SLOT_4, BATTLER_PLAYER_SECOND},
-                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
-                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
-            },
         },
         {
             .species = SPECIES_EXCADRILL,
@@ -208,16 +278,64 @@ static const struct TestBattleScenario scenario_DoublesTest = {
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            .aiScript = {
-                {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND},
-                {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
-                {ACTION_MOVE_SLOT_4, BATTLER_PLAYER_SECOND},
-                {ACTION_MOVE_SLOT_4, BATTLER_PLAYER_SECOND},
-                {ACTION_MOVE_SLOT_4, BATTLER_PLAYER_SECOND},
-                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_SECOND},
-                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_SECOND},
-                {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_SECOND},
-            },
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        }
+    },
+    // Player script: (action, target)
+    .playerScript = {
+        { // Battler 0 (PLAYER_FIRST) - Abomasnow
+            {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+        },
+        { // Battler 1 (PLAYER_SECOND) - Rotom
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_SECOND},
+            {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST},
+        }
+    },
+    // Enemy script: (action, target)
+    .enemyScript = {
+        { // Battler 0 (ENEMY_FIRST) - Tyranitar
+            {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_SECOND},
+            {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST},
+        },
+        { // Battler 1 (ENEMY_SECOND) - Excadrill
+            {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_4, BATTLER_PLAYER_SECOND},
+            {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST},
         }
     },
     // Field
@@ -325,14 +443,35 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
         }
     }
 
-    // Set battle type
-    if ((scenario->playerParty[1].species != 0 || scenario->enemyParty[1].species != 0)) {
-        bp->fight_type = BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE;
-    } else {
-        bp->fight_type = BATTLE_TYPE_TRAINER;
+    // Set battle type from scenario
+    bp->fight_type = BATTLE_TYPE_TRAINER | scenario->battleType;
+
+    // Override player's Pokemon (party 0)
+    int playerCount = 0;
+    for (int slot = 0; slot < MAX_PARTY_SIZE; slot++) {
+        const struct TestBattlePokemon *mon = &scenario->playerParty[slot];
+
+        if (mon->species == 0) {
+            break;  // Stop at first empty slot
+        }
+
+        OverridePartySlot(bp, 0, slot,
+                          mon->species,
+                          mon->level,
+                          mon->form,
+                          mon->ability,
+                          mon->item,
+                          (u16*)mon->moves,
+                          mon->hp,
+                          mon->status);
+        playerCount++;
+    }
+    // Set party count to match scenario
+    if (bp->poke_party[0] != NULL) {
+        bp->poke_party[0]->count = playerCount;
     }
 
-    // Set enemy trainer Pokemon count and ensure party has enough slots
+    // Override enemy's Pokemon (party 1)
     if (enemyCount > 0) {
         bp->trainer_data[1].poke_count = enemyCount;
 
@@ -352,34 +491,11 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
             }
         }
     }
-
-    // Override player's Pokemon (party 0)
-    for (int slot = 0; slot < MAX_BATTLERS_PER_SIDE; slot++) {
-        const struct TestBattlePokemon *mon = &scenario->playerParty[slot];
-
-        // If species is 0, skip this slot (no Pokemon)
-        if (mon->species == 0) {
-            continue;
-        }
-
-        OverridePartySlot(bp, 0, slot,
-                          mon->species,
-                          mon->level,
-                          mon->form,
-                          mon->ability,
-                          mon->item,
-                          (u16*)mon->moves,
-                          mon->hp,
-                          mon->status);
-    }
-
-    // Override enemy's Pokemon (party 1)
-    for (int slot = 0; slot < MAX_BATTLERS_PER_SIDE; slot++) {
+    for (int slot = 0; slot < MAX_PARTY_SIZE; slot++) {
         const struct TestBattlePokemon *mon = &scenario->enemyParty[slot];
 
-        // If species is 0, skip this slot (no Pokemon)
         if (mon->species == 0) {
-            continue;
+            break;  // Stop at first empty slot
         }
 
         OverridePartySlot(bp, 1, slot,
@@ -409,8 +525,8 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
         return;
     }
 
-    // In doubles, we need to ensure both enemy battlers are properly linked to party slots
-    int isDoubles = (g_CurrentScenario->playerParty[1].species != 0 || g_CurrentScenario->enemyParty[1].species != 0);
+    // In doubles, we need to ensure both battlers are properly linked to party slots
+    int isDoubles = (g_CurrentScenario->battleType & BATTLE_TYPE_DOUBLE);
     if (isDoubles) {
         // Player battlers
         sp->sel_mons_no[BATTLER_PLAYER_FIRST] = 0;
@@ -549,28 +665,16 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
         return;
     }
 
-    const struct TestBattlePokemon *mon = NULL;
+    // Determine which script array and index to use
+    const struct BattleAction *script;
+    int battlerIndex = (battlerId == BATTLER_PLAYER_FIRST || battlerId == BATTLER_ENEMY_FIRST) ? 0 : 1;
 
-    // Map battler ID (0–3) to scenario party + slot
-    switch (battlerId) {
-    case BATTLER_PLAYER_FIRST:   // 0
-        mon = &g_CurrentScenario->playerParty[0];
-        break;
-    case BATTLER_ENEMY_FIRST:    // 1
-        mon = &g_CurrentScenario->enemyParty[0];
-        break;
-    case BATTLER_PLAYER_SECOND:  // 2
-        mon = &g_CurrentScenario->playerParty[1];
-        break;
-    case BATTLER_ENEMY_SECOND:   // 3
-        mon = &g_CurrentScenario->enemyParty[1];
-        break;
-    default:
-        debug_printf("[TestBattle_GetAIScriptedMove] Switch default case\n");
-        return;
+    if (battlerId == BATTLER_PLAYER_FIRST || battlerId == BATTLER_PLAYER_SECOND) {
+        script = g_CurrentScenario->playerScript[battlerIndex];
+    } else {
+        script = g_CurrentScenario->enemyScript[battlerIndex];
     }
 
-    const struct BattleAction *script = mon->aiScript;
     int *scriptIndex = &g_AIScriptIndex[battlerId];
 
     if (*scriptIndex >= AI_SCRIPT_MAX_MOVES) {
@@ -582,16 +686,13 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
     debug_printf("[TestBattle_GetAIScriptedMove] battler=%d, scriptIndex=%d, action=%d, target=%d\n", battlerId, *scriptIndex, action.action, action.target);
 
     if (action.action <= ACTION_MOVE_SLOT_4) {
+        // Move action
         *moveSlot = action.action;
-    } else {
-        debug_printf("[TestBattle_GetAIScriptedMove] WARNING: Switch actions not yet implemented\n");
-        *moveSlot = 0;
+        *target = action.target;
     }
-
-    *target = action.target;
     (*scriptIndex)++;
-
 }
+
 
 /**
  * @brief AI move selection for test battles
@@ -609,6 +710,174 @@ u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler) {
 
     debug_printf("[TestBattle_AISelectMove] Set moveSlot=%d, target=%d for battler=%d\n", moveSlot, target, battler);
     return (u8)moveSlot;
+}
+
+/**
+ * @brief AI command picking for test battles - decides whether to fight or switch
+ *
+ * @param bsys Battle system pointer
+ * @param battler The battler making the decision
+ * @return 1 for FIGHT, 2 for ITEM, 3 for SWITCH (matches original AI function)
+ */
+int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler) {
+    debug_printf("[TestBattle_AIPickCommand] *** ENTRY *** battler=%d bsys=%p\n", battler, bsys);
+
+    // Only handle enemy AI, not player
+    if (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND) {
+        debug_printf("[TestBattle_AIPickCommand] Player battler, returning FIGHT\n");
+        return 1;  // FIGHT
+    }
+
+    if (g_CurrentScenario == NULL) {
+        debug_printf("[TestBattle_AIPickCommand] No scenario, returning FIGHT\n");
+        return 1;  // FIGHT
+    }
+
+    // Add safety check for bsys and sp
+    if (bsys == NULL || bsys->sp == NULL) {
+        debug_printf("[TestBattle_AIPickCommand] Invalid bsys or sp pointer!\n");
+        return 1;  // FIGHT
+    }
+
+    // Determine which script array and index to use
+    const struct BattleAction *script;
+    int battlerIndex = (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_ENEMY_FIRST) ? 0 : 1;
+
+    if (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND) {
+        script = g_CurrentScenario->playerScript[battlerIndex];
+    } else {
+        script = g_CurrentScenario->enemyScript[battlerIndex];
+    }
+
+    int scriptIndex = g_AIScriptIndex[battler];
+
+    if (scriptIndex >= AI_SCRIPT_MAX_MOVES) {
+        debug_printf("[TestBattle_AIPickCommand] Script exhausted, returning FIGHT\n");
+        return 1;  // FIGHT
+    }
+
+    // Peek at the next action without consuming it
+    struct BattleAction action = script[scriptIndex];
+
+    if (action.action >= ACTION_SWITCH_SLOT_0 && action.action <= ACTION_SWITCH_SLOT_5) {
+        // This is a switch action
+        u8 partySlot = action.action - ACTION_SWITCH_SLOT_0;
+        bsys->sp->ai_reshuffle_sel_mons_no[battler] = partySlot;
+
+        // Consume the switch action by incrementing the script index
+        g_AIScriptIndex[battler]++;
+
+        debug_printf("[TestBattle_AIPickCommand] Switching battler %d to party slot %d\n", battler, partySlot);
+        debug_printf("[TestBattle_AIPickCommand] *** RETURNING 3 (SWITCH) ***\n");
+        return 3;  // SWITCH
+    }
+
+    // Not a switch action - just return FIGHT and let TestBattle_AISelectMove handle the move
+    debug_printf("[TestBattle_AIPickCommand] Move action, returning FIGHT\n");
+    debug_printf("[TestBattle_AIPickCommand] *** RETURNING 1 (FIGHT) ***\n");
+    return 1;  // FIGHT
+}
+
+/**
+ * @brief Auto-select moves/switches for player battlers in test scenarios
+ *
+ * Called from BattleContext_Main during the input phase to automatically
+ * select actions for player-controlled battlers based on the test script.
+ *
+ * @param bsys Battle system pointer
+ * @param ctx Battle struct pointer
+ */
+void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    // At SELECTION_SCREEN_INPUT (during input phase)
+    if (ctx->server_seq_no != CONTROLLER_COMMAND_SELECTION_SCREEN_INPUT)
+    {
+        return;  // Not in input phase
+    }
+
+    // Only run once per turn - check if com_seq_no is at the start
+    if (ctx->com_seq_no[0] != SSI_STATE_SELECT_COMMAND_INIT)
+    {
+        return;  // Already processed or not ready
+    }
+
+    if (g_CurrentScenario == NULL) {
+        return;
+    }
+
+    // Handle battler 0 (PLAYER_FIRST)
+    const struct BattleAction *script0 = g_CurrentScenario->playerScript[0];
+    int scriptIndex0 = g_AIScriptIndex[0];
+
+    if (scriptIndex0 < AI_SCRIPT_MAX_MOVES) {
+        struct BattleAction action = script0[scriptIndex0];
+
+        if (action.action >= ACTION_SWITCH_SLOT_0 && action.action <= ACTION_SWITCH_SLOT_5) {
+            // Switch action
+            u8 partySlot = action.action - ACTION_SWITCH_SLOT_0;
+            ctx->playerActions[0][0] = CONTROLLER_COMMAND_POKEMON_INPUT;
+            ctx->playerActions[0][1] = partySlot;
+            ctx->playerActions[0][2] = 0;
+            ctx->playerActions[0][3] = SELECT_POKEMON_COMMAND;
+            ctx->reshuffle_sel_mons_no[0] = partySlot;
+            ctx->com_seq_no[0] = SSI_STATE_END;
+            ctx->ret_seq_no[0] = SSI_STATE_13;
+            g_AIScriptIndex[0]++;
+            debug_printf("[TestBattle_autoSelectPlayerMoves] Battler 0: SWITCH to party slot %d\n", partySlot);
+        } else {
+            // Move action
+            u8 moveSlot = action.action;
+            u8 target = action.target;
+            ctx->playerActions[0][0] = CONTROLLER_COMMAND_FIGHT_INPUT;
+            ctx->playerActions[0][1] = target;
+            ctx->playerActions[0][2] = moveSlot + 1;
+            ctx->playerActions[0][3] = SELECT_FIGHT_COMMAND;
+            ctx->waza_no_pos[0] = moveSlot;
+            ctx->waza_no_select[0] = ctx->battlemon[0].move[moveSlot];
+            ctx->com_seq_no[0] = SSI_STATE_END;
+            ctx->ret_seq_no[0] = SSI_STATE_13;
+            g_AIScriptIndex[0]++;
+            debug_printf("[TestBattle_autoSelectPlayerMoves] Battler 0: moveSlot=%d, target=%d\n", moveSlot, target);
+        }
+    }
+
+    if (BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) {
+        // Handle battler 2 (PLAYER_SECOND)
+        const struct BattleAction *script1 = g_CurrentScenario->playerScript[1];
+        int scriptIndex2 = g_AIScriptIndex[2];
+
+        if (scriptIndex2 < AI_SCRIPT_MAX_MOVES) {
+            struct BattleAction action = script1[scriptIndex2];
+
+            if (action.action >= ACTION_SWITCH_SLOT_0 && action.action <= ACTION_SWITCH_SLOT_5) {
+                // Switch action
+                u8 partySlot = action.action - ACTION_SWITCH_SLOT_0;
+                ctx->playerActions[2][0] = CONTROLLER_COMMAND_POKEMON_INPUT;
+                ctx->playerActions[2][1] = partySlot;
+                ctx->playerActions[2][2] = 0;
+                ctx->playerActions[2][3] = SELECT_POKEMON_COMMAND;
+                ctx->reshuffle_sel_mons_no[2] = partySlot;
+                ctx->com_seq_no[2] = SSI_STATE_END;
+                ctx->ret_seq_no[2] = SSI_STATE_13;
+                g_AIScriptIndex[2]++;
+                debug_printf("[TestBattle_autoSelectPlayerMoves] Battler 2: SWITCH to party slot %d\n", partySlot);
+            } else {
+                // Move action
+                u8 moveSlot = action.action;
+                u8 target = action.target;
+                ctx->playerActions[2][0] = CONTROLLER_COMMAND_FIGHT_INPUT;
+                ctx->playerActions[2][1] = target;
+                ctx->playerActions[2][2] = moveSlot + 1;
+                ctx->playerActions[2][3] = SELECT_FIGHT_COMMAND;
+                ctx->waza_no_pos[2] = moveSlot;
+                ctx->waza_no_select[2] = ctx->battlemon[2].move[moveSlot];
+                ctx->com_seq_no[2] = SSI_STATE_END;
+                ctx->ret_seq_no[2] = SSI_STATE_13;
+                g_AIScriptIndex[2]++;
+                debug_printf("[TestBattle_autoSelectPlayerMoves] Battler 2: moveSlot=%d, target=%d\n", moveSlot, target);
+            }
+        }
+    }
 }
 
 #endif // DEBUG_BATTLE_SCENARIOS
