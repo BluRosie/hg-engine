@@ -501,9 +501,6 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
         }
     }
 
-    // Apply field conditions
-    // sp->field_condition &= ~(FIELD_CONDITION_WEATHER);
-
     if (g_CurrentScenario->weather) {
         sp->field_condition |= g_CurrentScenario->weather;
     }
@@ -512,7 +509,6 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
         sp->field_condition |= g_CurrentScenario->fieldCondition;
     }
 
-    // Apply terrain overlay
     sp->terrainOverlay.type = TERRAIN_NONE;
     sp->terrainOverlay.numberOfTurnsLeft = 0;
 
