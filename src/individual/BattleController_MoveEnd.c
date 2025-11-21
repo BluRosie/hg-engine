@@ -71,6 +71,19 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
             }
         }
 
+        if (ctx->terrainOverlay.type != TERRAIN_NONE
+            && (ctx->current_move_index == MOVE_STEEL_ROLLER
+            || (ctx->current_move_index == MOVE_ICE_SPINNER
+                && ctx->battlemon[ctx->attack_client].hp))
+            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
+        {
+            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HANDLE_TERRAIN_END);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+
         // TODO: A rampage move that fails (Thrash, Outrage etc) will cancel except on the last turn
         if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS && !ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag) {
                 ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 1;

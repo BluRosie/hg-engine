@@ -1191,9 +1191,10 @@ typedef struct OnceOnlyAbilityFlags {
 } OnceOnlyAbilityFlags;
 
 typedef struct MoveConditionsFlags {
+    u8 endTurnMoveEffectActivated : 1;
     u8 moveFailureLastTurn : 1;
     u8 moveFailureThisTurn : 1;
-    u8 padding : 7;
+    u8 padding : 5;
 } MoveConditionsFlags;
 
 
