@@ -2908,7 +2908,6 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
     int attacker = ctx->attack_client;
     BOOL doChecking = FALSE;
     BOOL doesNotAffect = FALSE;
-    BOOL affectsStompingTantrum = TRUE;
     BOOL ShieldsDownCanActivate = (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_SHIELDS_DOWN) || (ctx->battlemon[defender].species == SPECIES_MINIOR && ctx->battlemon[defender].form_no == 1));
 
     BOOL hasFlowerVeil = HasType(ctx, defender, TYPE_GRASS) && (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_FLOWER_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_FLOWER_VEIL));
@@ -3038,7 +3037,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
     }
 
     if (doesNotAffect) {
-        BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, affectsStompingTantrum);
+        BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT_ABILITY);
@@ -4578,5 +4577,5 @@ void BattleController_ResetGeneralMoveFailureFlags(struct BattleStruct *ctx, int
     if (setsMoveConditionalFailureFlag) {
         ctx->moveConditionsFlags[attack_client].moveFailureThisTurn = TRUE;
     }
-    //TODO: end bide, bide no taget, Telekinesis
+    //TODO: end bide, bide no target, Telekinesis
 }
