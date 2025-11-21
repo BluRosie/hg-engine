@@ -2199,7 +2199,7 @@ BOOL BattleController_CheckStolenBySnatch(struct BattleSystem *bw UNUSED, struct
 
 BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     if (!(ctx->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
-    && !(GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_NO_GUARD)
+    && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_NO_GUARD)
     && ctx->moveTbl[ctx->current_move_index].target != RANGE_ADJACENT_OPPONENTS
     && (
         (!(ctx->server_status_flag & BATTLE_STATUS_HIT_FLY) && ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR)
