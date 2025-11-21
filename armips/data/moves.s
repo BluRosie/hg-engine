@@ -1019,7 +1019,7 @@ movedata MOVE_AURORA_BEAM, "Aurora Beam"
     movedescription MOVE_AURORA_BEAM, "The foe is hit with a\nrainbow colored beam.\nIt may also lower the\ntarget’s Attack\nstat."
 
 movedata MOVE_HYPER_BEAM, "Hyper Beam"
-    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
+    battleeffect MOVE_EFFECT_CUSTOM_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_NORMAL
@@ -1195,7 +1195,7 @@ movedata MOVE_LEECH_SEED, "Leech Seed"
     movedescription MOVE_LEECH_SEED, "A seed is planted on\nthe foe. It steals\nsome HP from the foe\nto heal the user on\nevery turn."
 
 movedata MOVE_GROWTH, "Growth"
-    battleeffect MOVE_EFFECT_GROWTH
+    battleeffect MOVE_EFFECT_CUSTOM_GROWTH
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
@@ -1227,7 +1227,7 @@ movedata MOVE_RAZOR_LEAF, "Razor Leaf"
     movedescription MOVE_RAZOR_LEAF, "Sharp edged leaves\nare launched to slash\nat the foe. It has a\nhigh critical hit\nratio."
 
 movedata MOVE_SOLAR_BEAM, "Solar Beam"
-    battleeffect MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_SUN_SKIPS
+    battleeffect MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_GRASS
@@ -3547,7 +3547,7 @@ movedata MOVE_PAIN_SPLIT, "Pain Split"
     movedescription MOVE_PAIN_SPLIT, "The user adds its HP\nto the foe’s HP, then\nequally shares the\ncombined HP with the\nfoe."
 
 movedata MOVE_SACRED_FIRE, "Sacred Fire"
-    battleeffect MOVE_EFFECT_BURN_HIT_HEAL_STATUS
+    battleeffect MOVE_EFFECT_CUSTOM_BURN_HIT_HEAL_STATUS
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_FIRE
@@ -4427,7 +4427,7 @@ movedata MOVE_INGRAIN, "Ingrain"
     movedescription MOVE_INGRAIN, "The user lays roots\nthat restore HP on\nevery turn.\nBecause it is rooted,\nit can’t switch out."
 
 movedata MOVE_SUPERPOWER, "Superpower"
-    battleeffect MOVE_EFFECT_USER_ATK_DOWN_2
+    battleeffect MOVE_EFFECT_CUSTOM_USER_ATK_DOWN_2
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_FIGHTING
@@ -4923,7 +4923,7 @@ movedata MOVE_CRUSH_CLAW, "Crush Claw"
     movedescription MOVE_CRUSH_CLAW, "The user slashes the\nfoe with hard and\nsharp claws.\nIt may also lower the\ntarget’s Defense."
 
 movedata MOVE_BLAST_BURN, "Blast Burn"
-    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
+    battleeffect MOVE_EFFECT_CUSTOM_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_FIRE
@@ -4939,7 +4939,7 @@ movedata MOVE_BLAST_BURN, "Blast Burn"
     movedescription MOVE_BLAST_BURN, "The foe is razed by\na fiery explosion.\nThe user must rest\non the next turn,\nhowever."
 
 movedata MOVE_HYDRO_CANNON, "Hydro Cannon"
-    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
+    battleeffect MOVE_EFFECT_CUSTOM_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_WATER
@@ -5275,7 +5275,7 @@ movedata MOVE_SAND_TOMB, "Sand Tomb"
     movedescription MOVE_SAND_TOMB, "The user traps the\nfoe inside a harshly\nraging sandstorm for\nup to five turns."
 
 movedata MOVE_SHEER_COLD, "Sheer Cold"
-    battleeffect MOVE_EFFECT_STATUS_FREEZE
+    battleeffect MOVE_EFFECT_CUSTOM_STATUS_FREEZE
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ICE
@@ -5419,7 +5419,7 @@ movedata MOVE_DRAGON_CLAW, "Dragon Claw"
     movedescription MOVE_DRAGON_CLAW, "The user slashes the\nfoe with huge, sharp\nclaws."
 
 movedata MOVE_FRENZY_PLANT, "Frenzy Plant"
-    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
+    battleeffect MOVE_EFFECT_CUSTOM_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_GRASS
@@ -6667,7 +6667,7 @@ movedata MOVE_SWITCHEROO, "Switcheroo"
     movedescription MOVE_SWITCHEROO, "The user trades held\nitems with the foe\nfaster than the eye\ncan follow."
 
 movedata MOVE_GIGA_IMPACT, "Giga Impact"
-    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
+    battleeffect MOVE_EFFECT_CUSTOM_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_NORMAL
@@ -7035,7 +7035,7 @@ movedata MOVE_POWER_WHIP, "Power Whip"
     movedescription MOVE_POWER_WHIP, "The user violently\nwhirls its vines or\ntentacles to harshly\nlash the foe."
 
 movedata MOVE_ROCK_WRECKER, "Rock Wrecker"
-    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
+    battleeffect MOVE_EFFECT_CUSTOM_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_ROCK
@@ -7835,7 +7835,7 @@ movedata MOVE_SYNCHRONOISE, "Synchronoise" //Unimplemented
     movedescription MOVE_SYNCHRONOISE, "Using an odd shock\nwave, the user\ndamages same type\nPokémon in the\nsurrounding area."
 
 movedata MOVE_ELECTRO_BALL, "Electro Ball"
-    battleeffect MOVE_EFFECT_ELECTRO_BALL
+    battleeffect MOVE_EFFECT_CUSTOM_ELECTRO_BALL
     pss SPLIT_SPECIAL
     basepower 1
     type TYPE_ELECTRIC
@@ -8059,7 +8059,7 @@ movedata MOVE_CLEAR_SMOG, "Clear Smog"
     movedescription MOVE_CLEAR_SMOG, "The user throws a\ncloud of special\nsmoke that reverts\nall stat changes."
 
 movedata MOVE_STORED_POWER, "Stored Power"
-    battleeffect MOVE_EFFECT_STORED_POWER
+    battleeffect MOVE_EFFECT_CUSTOM_STORED_POWER
     pss SPLIT_SPECIAL
     basepower 1
     type TYPE_PSYCHIC
@@ -8203,7 +8203,7 @@ movedata MOVE_SHIFT_GEAR, "Shift Gear"
     movedescription MOVE_SHIFT_GEAR, "Rotating its gears,\nthe user raises its\nAttack and Speed\nstat."
 
 movedata MOVE_CIRCLE_THROW, "Circle Throw"
-    battleeffect MOVE_EFFECT_FORCE_SWITCH_HIT
+    battleeffect MOVE_EFFECT_CUSTOM_FORCE_SWITCH_HIT
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_FIGHTING
@@ -8219,7 +8219,7 @@ movedata MOVE_CIRCLE_THROW, "Circle Throw"
     movedescription MOVE_CIRCLE_THROW, "The foe is made to\nswitch out with an\nally. In the wild,\nthe battle ends."
 
 movedata MOVE_INCINERATE, "Incinerate"
-    battleeffect MOVE_EFFECT_REMOVE_ITEM_HIT
+    battleeffect MOVE_EFFECT_INCINERATE
     pss SPLIT_SPECIAL
     basepower 60
     type TYPE_FIRE
@@ -8232,7 +8232,7 @@ movedata MOVE_INCINERATE, "Incinerate"
     appeal 0x00
     contesttype 0x00
     terminatedata
-    movedescription MOVE_INCINERATE, "The user burns\nthe foe completely,\nrendering a held\nitem useless."
+    movedescription MOVE_INCINERATE, "The user burns\nthe foe completely,\nrendering a held\nBerry useless."
 
 movedata MOVE_QUASH, "Quash"
     battleeffect MOVE_EFFECT_QUASH
@@ -8459,7 +8459,7 @@ movedata MOVE_FROST_BREATH, "Frost Breath"
     movedescription MOVE_FROST_BREATH, "The user blows\ncold air at the foe.\nIt always results in\na critical hit."
 
 movedata MOVE_DRAGON_TAIL, "Dragon Tail"
-    battleeffect MOVE_EFFECT_FORCE_SWITCH_HIT
+    battleeffect MOVE_EFFECT_CUSTOM_FORCE_SWITCH_HIT
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_DRAGON
@@ -10763,7 +10763,7 @@ movedata MOVE_STRENGTH_SAP, "Strength Sap" //Unimplemented
     movedescription MOVE_STRENGTH_SAP, "The user restores its\nHP by the same amount\nas the target's Attack\nstat. It also lowers the\ntarget's Attack stat."
 
 movedata MOVE_SOLAR_BLADE, "Solar Blade"
-    battleeffect MOVE_EFFECT_CHARGE_TURN_ATK_UP_SUN_SKIPS
+    battleeffect MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_GRASS
@@ -10955,7 +10955,7 @@ movedata MOVE_FIRE_LASH, "Fire Lash"
     movedescription MOVE_FIRE_LASH, "The user strikes the\ntarget with a burning\nlash.\nThis also lowers the\ntarget’s Defense stat."
 
 movedata MOVE_POWER_TRIP, "Power Trip"
-    battleeffect MOVE_EFFECT_STORED_POWER
+    battleeffect MOVE_EFFECT_CUSTOM_STORED_POWER
     pss SPLIT_PHYSICAL
     basepower 1
     type TYPE_DARK
@@ -12715,7 +12715,7 @@ movedata MOVE_STRANGE_STEAM, "Strange Steam"
     movedescription MOVE_STRANGE_STEAM, "The user attacks the\ntarget by emitting\nsteam.\nThis may also\nconfuse the target."
 
 movedata MOVE_LIFE_DEW, "Life Dew"
-    battleeffect MOVE_EFFECT_HEAL_USER_AND_ALLY
+    battleeffect MOVE_EFFECT_CUSTOM_HEAL_USER_AND_ALLY
     pss SPLIT_STATUS
     basepower 0
     type TYPE_WATER
@@ -13515,7 +13515,7 @@ movedata MOVE_ESPER_WING, "Esper Wing"
     movedescription MOVE_ESPER_WING, "---"
 
 movedata MOVE_BITTER_MALICE, "Cold Snap"
-    battleeffect MOVE_EFFECT_FREEZE_HIT_DOUBLE_POWER_ON_STATUS
+    battleeffect MOVE_EFFECT_CUSTOM_BITTER_MALICE
     pss SPLIT_SPECIAL
     basepower 60
     type TYPE_ICE
@@ -14347,7 +14347,7 @@ movedata MOVE_DOUBLE_SHOCK, "Double Shock" //Unimplemented
     movedescription MOVE_DOUBLE_SHOCK, "---"
 
 movedata MOVE_GIGATON_HAMMER, "Gigaton Hammer"
-    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
+    battleeffect MOVE_EFFECT_CUSTOM_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_STEEL
@@ -14475,7 +14475,7 @@ movedata MOVE_MAGICAL_TORQUE, "Magical Torque"
     movedescription MOVE_MAGICAL_TORQUE, "---"
 
 movedata MOVE_BLOOD_MOON, "Blood Moon"
-    battleeffect MOVE_EFFECT_HIT_CANT_USE_CONSECUTIVELY
+    battleeffect MOVE_EFFECT_CUSTOM_HIT_CANT_USE_CONSECUTIVELY
     pss SPLIT_SPECIAL
     basepower 120
     type TYPE_NORMAL
@@ -14777,214 +14777,6 @@ movedata MOVE_MALIGNANT_CHAIN, "Malignant Chain"
     contesttype 0x00
     terminatedata
     movedescription MOVE_MALIGNANT_CHAIN, "---"
-	
-movedata MOVE_NIBBLE, "Nibble"
-    battleeffect MOVE_EFFECT_HIT
-    pss SPLIT_PHYSICAL
-    basepower 50
-    type TYPE_WATER
-    accuracy 0
-    pp 20
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_NIBBLE, "The user nips at the\nfoe."
-
-movedata MOVE_KNEAD, "Knead"
-    battleeffect MOVE_EFFECT_HIT
-    pss SPLIT_PHYSICAL
-    basepower 50
-    type TYPE_FIRE
-    accuracy 0
-    pp 20
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_KNEAD, "The user rubs against\nthe foe."
-
-movedata MOVE_JAB, "Jab"
-    battleeffect MOVE_EFFECT_HIT
-    pss SPLIT_PHYSICAL
-    basepower 50
-    type TYPE_FIGHTING
-    accuracy 0
-    pp 20
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_JAB, "The foe is slugged with\nhard fists."
-
-movedata MOVE_WATERMILL, "Watermill"
-    battleeffect MOVE_EFFECT_HIT
-    pss SPLIT_PHYSICAL
-    basepower 70
-    type TYPE_WATER
-    accuracy 0
-    pp 15
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_WATERMILL, "The user charges with\nspinning pressure."
-
-movedata MOVE_TRAMPLE, "Trample"
-    battleeffect MOVE_EFFECT_HIT
-    pss SPLIT_PHYSICAL
-    basepower 50
-    type TYPE_GROUND
-    accuracy 0
-    pp 20
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_TRAMPLE, "The user charges then\nstomps down on the foe."
-
-movedata MOVE_LEAP, "Leap"
-    battleeffect MOVE_EFFECT_HIT
-    pss SPLIT_PHYSICAL
-    basepower 50
-    type TYPE_DRAGON
-    accuracy 0
-    pp 20
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_LEAP, "The user leaps into the\nair and lands on the foe."
-
-movedata MOVE_SHOCK, "Shock"
-    battleeffect MOVE_EFFECT_FLINCH_HIT
-    pss SPLIT_PHYSICAL
-    basepower 30
-    type TYPE_ELECTRIC
-    accuracy 50
-    pp 20
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_SHOCK, "The user rams into the\nfoe with electric potential."
-
-movedata MOVE_SKID, "Skid"
-    battleeffect MOVE_EFFECT_HIT
-    pss SPLIT_PHYSICAL
-    basepower 50
-    type TYPE_ICE
-    accuracy 0
-    pp 20
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_SKID, "The user slams into\nthe foe by slipping on\nan icy surface."
-
-movedata MOVE_SHEAR, "Shear"
-    battleeffect MOVE_EFFECT_HIGH_CRITICAL
-    pss SPLIT_PHYSICAL
-    basepower 60
-    type TYPE_ICE
-    accuracy 0
-    pp 15
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_SHEAR, "The user slashes with\nchilling flurry. This\nmove has a high\ncritical hit ratio."
-
-movedata MOVE_PALM_CLOSE, "Palm Close"
-    battleeffect MOVE_EFFECT_HIT
-    pss SPLIT_PHYSICAL
-    basepower 50
-    type TYPE_PSYCHIC
-    accuracy 0
-    pp 20
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_PALM_CLOSE, "The user closes its hands.\nThe psychic energy hurts the foe."
-	
-movedata MOVE_SKULK_OUT, "Skulk Out"
-    battleeffect MOVE_EFFECT_SKULK_OUT
-    pss SPLIT_PHYSICAL
-    basepower 70
-    type TYPE_DARK
-    accuracy 0
-    pp 10
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_SKULK_OUT, "The user sneaks away\nand commands an ally\nto perform an attack."
-
-movedata MOVE_CACKLE, "Cackle"
-    battleeffect MOVE_EFFECT_HIT
-    pss SPLIT_STATUS
-    basepower 0
-    type TYPE_DARK
-    accuracy 0
-    pp 15
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_CACKLE, "Raises foes Speed but\nreduces Attack and\nDefense. Effect is\ndoubled if the foe has\na status condition."
-
-movedata MOVE_SOMERSAULT, "Somersault"
-    battleeffect MOVE_EFFECT_SWITCH_HIT
-    pss SPLIT_PHYSICAL
-    basepower 70
-    type TYPE_FLYING
-    accuracy 0
-    pp 10
-    effectchance 0
-    target RANGE_SINGLE_TARGET
-    priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT
-    appeal 0x00
-    contesttype 0x00
-    terminatedata
-    movedescription MOVE_SOMERSAULT, "After making its\nattack, the user\nrushes back to switch\nplaces with a party\nPokémon in waiting."
 
 movedatanoname NUM_OF_MOVES
     battleeffect MOVE_EFFECT_HIT

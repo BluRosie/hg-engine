@@ -3938,5 +3938,6 @@ int GetSanitisedType(int type);
 
 BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
 
+BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no);
 
 #endif // BATTLE_H

@@ -9,6 +9,7 @@
 #include "../../include/rtc.h"
 #include "../../include/save.h"
 #include "../../include/script.h"
+#include "../../include/npc_trade.h"
 #include "../../include/constants/ability.h"
 #include "../../include/constants/file.h"
 #include "../../include/constants/game.h"
@@ -324,7 +325,7 @@ BOOL ScrCmd_BufferItemName(SCRIPTCONTEXT *ctx) {
     return FALSE;
 }
 
-BOOL IsPlayerInCave(u8 collision) {
+BOOL IsPlayerInCave(UNUSED u8 collision) {
     return FALSE;
 }
 

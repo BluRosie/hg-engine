@@ -475,9 +475,9 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
 
     accuracy = sp->moveTbl[move_no].accuracy;
 
-    if (accuracy == 0) {
+    /*if (accuracy == 0) {
         return FALSE;
-    }
+    }*/
 
     // 5. If the move is a status move, has greater than 50% accuracy, and the target has Wonder Skin, or the move is Thunder / Hurricane and the weather is sun, set the move's accuracy to 50.
 
@@ -696,7 +696,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     // 14. Roll a random number 0-99 inclusive. If the accuracy value is greater than that random number, the move hits. (That is, check if accuracy > rand(100)).
 
     if (accuracy <= (BattleRand(bw) % 100)) {
-        sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
+        //sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
         sp->oneTurnFlag[attacker].parental_bond_flag = 0;
         sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
     }

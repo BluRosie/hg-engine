@@ -538,3 +538,8 @@ arm9 ScrCmd_MartBuy 02048060 1
 
 # expand heal blocked moves
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
+
+arm9 CalcMonStats 0206E27C 2
+arm9 ScrCmd_FollowerPokeIsEventTrigger 02046A1C 2
+arm9 IsPlayerInCave 0205B8D0 1
+0001 ScrCmd_GiveSpikyEarPichu 022021F8 1

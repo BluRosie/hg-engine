@@ -771,3 +771,8 @@ PrintItemSlotQuantity = 0x021FF66C | 1;
 
 PlayerProfile_TestBadgeFlag = 0x02028F98 | 1;
 InitMartUI = 0x02256D34 | 1;
+
+AcquireMonLock = 0x0206DD40 | 1;
+LoadMonBaseStats_HandleAlternateForm = 0x020725B4 | 1;
+ReleaseMonLock = 0x0206DD8C | 1;
+PlayerProfile_GetTrainerID = 0x02028F84 | 1;
