@@ -1133,7 +1133,7 @@ u32 LONG_CALL GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 a
     }
 
     // Ion Deluge's effect is applied after all type-modifying abilities have activated.
-    if (typeLocal == TYPE_NORMAL && sp->field_condition & FIELD_STATUS_ION_DELUGE == FIELD_STATUS_ION_DELUGE)
+    if (typeLocal == TYPE_NORMAL && (sp->field_condition & FIELD_STATUS_ION_DELUGE) == FIELD_STATUS_ION_DELUGE)
     {
         typeLocal = TYPE_ELECTRIC;
     }
