@@ -11599,7 +11599,7 @@ movedata MOVE_MIND_BLOWN, "Mind Blown"
     movedescription MOVE_MIND_BLOWN, "The user attacks\neverything around it by\ncausing its own head to\nexplode. This also\ndamages the user."
 
 movedata MOVE_PLASMA_FISTS, "Plasma Fists"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_ION_DELUGE_HIT
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_ELECTRIC
@@ -11608,7 +11608,7 @@ movedata MOVE_PLASMA_FISTS, "Plasma Fists"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_BEAUTY // Reflects the contest type for Ion Deluge.
     terminatedata
