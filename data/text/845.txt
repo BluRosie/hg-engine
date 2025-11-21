@@ -1,0 +1,298 @@
+a {COLOR 255}piece of Normalium Z{COLOR 0}
+a {COLOR 255}piece of Firium Z{COLOR 0}
+a {COLOR 255}piece of Waterium Z{COLOR 0}
+a {COLOR 255}piece of Electrium Z{COLOR 0}
+a {COLOR 255}piece of Grassium Z{COLOR 0}
+a {COLOR 255}piece of Icium Z{COLOR 0}
+a {COLOR 255}piece of Fightinium Z{COLOR 0}
+a {COLOR 255}piece of Poisonium Z{COLOR 0}
+a {COLOR 255}piece of Groundium Z{COLOR 0}
+a {COLOR 255}piece of Flyinium Z{COLOR 0}
+a {COLOR 255}piece of Psychium Z{COLOR 0}
+a {COLOR 255}piece of Buginium Z{COLOR 0}
+a {COLOR 255}piece of Rockium Z{COLOR 0}
+a {COLOR 255}piece of Ghostium Z{COLOR 0}
+a {COLOR 255}piece of Dragonium Z{COLOR 0}
+a {COLOR 255}piece of Darkinium Z{COLOR 0}
+a {COLOR 255}piece of Steelium Z{COLOR 0}
+a {COLOR 255}piece of Fairium Z{COLOR 0}
+a {COLOR 255}piece of Pikanium Z{COLOR 0}
+a {COLOR 255}Bottle Cap{COLOR 0}
+a {COLOR 255}Gold Bottle Cap{COLOR 0}
+a {COLOR 255}Z-Ring{COLOR 0}
+a {COLOR 255}piece of Decidium Z{COLOR 0}
+a {COLOR 255}piece of Incinium Z{COLOR 0}
+a {COLOR 255}piece of Primarium Z{COLOR 0}
+a {COLOR 255}piece of Tapunium Z{COLOR 0}
+a {COLOR 255}piece of Marshadium Z{COLOR 0}
+a {COLOR 255}piece of Aloraichium Z{COLOR 0}
+a {COLOR 255}piece of Snorlium Z{COLOR 0}
+a {COLOR 255}piece of Eevium Z{COLOR 0}
+a {COLOR 255}piece of Mewnium Z{COLOR 0}
+a {COLOR 255}piece of Normalium Z{COLOR 0}
+a {COLOR 255}piece of Firium Z{COLOR 0}
+a {COLOR 255}piece of Waterium Z{COLOR 0}
+a {COLOR 255}piece of Electrium Z{COLOR 0}
+a {COLOR 255}piece of Grassium Z{COLOR 0}
+a {COLOR 255}piece of Icium Z{COLOR 0}
+a {COLOR 255}piece of Fightinium Z{COLOR 0}
+a {COLOR 255}piece of Poisonium Z{COLOR 0}
+a {COLOR 255}piece of Groundium Z{COLOR 0}
+a {COLOR 255}piece of Flyinium Z{COLOR 0}
+a {COLOR 255}piece of Psychium Z{COLOR 0}
+a {COLOR 255}piece of Buginium Z{COLOR 0}
+a {COLOR 255}piece of Rockium Z{COLOR 0}
+a {COLOR 255}piece of Ghostium Z{COLOR 0}
+a {COLOR 255}piece of Dragonium Z{COLOR 0}
+a {COLOR 255}piece of Darkinium Z{COLOR 0}
+a {COLOR 255}piece of Steelium Z{COLOR 0}
+a {COLOR 255}piece of Fairium Z{COLOR 0}
+a {COLOR 255}piece of Pikanium Z{COLOR 0}
+a {COLOR 255}piece of Decidium Z{COLOR 0}
+a {COLOR 255}piece of Incinium Z{COLOR 0}
+a {COLOR 255}piece of Primarium Z{COLOR 0}
+a {COLOR 255}piece of Tapunium Z{COLOR 0}
+a {COLOR 255}piece of Marshadium Z{COLOR 0}
+a {COLOR 255}piece of Aloraichium Z{COLOR 0}
+a {COLOR 255}piece of Snorlium Z{COLOR 0}
+a {COLOR 255}piece of Eevium Z{COLOR 0}
+a {COLOR 255}piece of Mewnium Z{COLOR 0}
+a {COLOR 255}piece of Pikashunium Z{COLOR 0}
+a {COLOR 255}piece of Pikashunium Z{COLOR 0}
+???
+???
+???
+???
+a {COLOR 255}Forage Bag{COLOR 0}
+a {COLOR 255}Fishing Rod{COLOR 0}
+a {COLOR 255}Professor’s Mask{COLOR 0}
+a {COLOR 255}Festival Ticket{COLOR 0}
+a {COLOR 255}Sparkling Stone{COLOR 0}
+an {COLOR 255}Adrenaline Orb{COLOR 0}
+a {COLOR 255}Zygarde Cube{COLOR 0}
+???
+an {COLOR 255}Ice Stone{COLOR 0}
+a {COLOR 255}Ride Pager{COLOR 0}
+a {COLOR 255}Beast Ball{COLOR 0}
+a {COLOR 255}Big Malasada{COLOR 0}
+a {COLOR 255}jar of Red Nectar{COLOR 0}
+a {COLOR 255}jar of Yellow Nectar{COLOR 0}
+a {COLOR 255}jar of Pink Nectar{COLOR 0}
+a {COLOR 255}jar of Purple Nectar{COLOR 0}
+a {COLOR 255}Sun Flute{COLOR 0}
+a {COLOR 255}Moon Flute{COLOR 0}
+???
+an {COLOR 255}Enigmatic Card{COLOR 0}
+a {COLOR 255}Silver Razz Berry{COLOR 0}
+a {COLOR 255}Golden Razz Berry{COLOR 0}
+a {COLOR 255}Silver Nanab Berry{COLOR 0}
+a {COLOR 255}Golden Nanab Berry{COLOR 0}
+a {COLOR 255}Silver Pinap Berry{COLOR 0}
+a {COLOR 255}Golden Pinap Berry{COLOR 0}
+???
+???
+???
+???
+???
+a {COLOR 255}Secret Key{COLOR 0}
+an {COLOR 255}S.S. Ticket{COLOR 0}
+a {COLOR 255}Silph Scope{COLOR 0}
+a {COLOR 255}Parcel{COLOR 0}
+a {COLOR 255}Card Key{COLOR 0}
+a {COLOR 255}set of Gold Teeth{COLOR 0}
+a {COLOR 255}Lift Key{COLOR 0}
+a {COLOR 255}Terrain Extender{COLOR 0}
+the {COLOR 255}set of Protective Pads{COLOR 0}
+an {COLOR 255}Electric Seed{COLOR 0}
+a {COLOR 255}Psychic Seed{COLOR 0}
+a {COLOR 255}Misty Seed{COLOR 0}
+a {COLOR 255}Grassy Seed{COLOR 0}
+a {COLOR 255}Stretchy Spring{COLOR 0}
+a {COLOR 255}Chalky Stone{COLOR 0}
+a {COLOR 255}Marble{COLOR 0}
+a {COLOR 255}Lone Earring{COLOR 0}
+a {COLOR 255}piece of Beach Glass{COLOR 0}
+a {COLOR 255}Gold Leaf{COLOR 0}
+a {COLOR 255}Silver Leaf{COLOR 0}
+a {COLOR 255}Polished Mud Ball{COLOR 0}
+a {COLOR 255}Tropical Shell{COLOR 0}
+a {COLOR 255}Leaf Letter{COLOR 0}
+a {COLOR 255}Leaf Letter{COLOR 0}
+a {COLOR 255}Small Bouquet{COLOR 0}
+???
+???
+???
+a {COLOR 255}Lure{COLOR 0}
+a {COLOR 255}Super Lure{COLOR 0}
+a {COLOR 255}Max Lure{COLOR 0}
+a {COLOR 255}bag of Pewter Crunchies{COLOR 0}
+a {COLOR 255}Fighting Memory{COLOR 0}
+a {COLOR 255}Flying Memory{COLOR 0}
+a {COLOR 255}Poison Memory{COLOR 0}
+a {COLOR 255}Ground Memory{COLOR 0}
+a {COLOR 255}Rock Memory{COLOR 0}
+a {COLOR 255}Bug Memory{COLOR 0}
+a {COLOR 255}Ghost Memory{COLOR 0}
+a {COLOR 255}Steel Memory{COLOR 0}
+a {COLOR 255}Fire Memory{COLOR 0}
+a {COLOR 255}Water Memory{COLOR 0}
+a {COLOR 255}Grass Memory{COLOR 0}
+an {COLOR 255}Electric Memory{COLOR 0}
+a {COLOR 255}Psychic Memory{COLOR 0}
+an {COLOR 255}Ice Memory{COLOR 0}
+a {COLOR 255}Dragon Memory{COLOR 0}
+a {COLOR 255}Dark Memory{COLOR 0}
+a {COLOR 255}Fairy Memory{COLOR 0}
+a {COLOR 255}piece of Solganium Z{COLOR 0}
+a {COLOR 255}piece of Lunalium Z{COLOR 0}
+a {COLOR 255}piece of Ultranecrozium Z{COLOR 0}
+a {COLOR 255}piece of Mimikium Z{COLOR 0}
+a {COLOR 255}piece of Lycanium Z{COLOR 0}
+a {COLOR 255}piece of Kommonium Z{COLOR 0}
+a {COLOR 255}piece of Solganium Z{COLOR 0}
+a {COLOR 255}piece of Lunalium Z{COLOR 0}
+a {COLOR 255}piece of Ultranecrozium Z{COLOR 0}
+a {COLOR 255}piece of Mimikium Z{COLOR 0}
+a {COLOR 255}piece of Lycanium Z{COLOR 0}
+a {COLOR 255}piece of Kommonium Z{COLOR 0}
+a {COLOR 255}Z-Power Ring{COLOR 0}
+a {COLOR 255}Pink Petal{COLOR 0}
+an {COLOR 255}Orange Petal{COLOR 0}
+a {COLOR 255}Blue Petal{COLOR 0}
+a {COLOR 255}Red Petal{COLOR 0}
+a {COLOR 255}Green Petal{COLOR 0}
+a {COLOR 255}Yellow Petal{COLOR 0}
+a {COLOR 255}Purple Petal{COLOR 0}
+a {COLOR 255}Rainbow Flower{COLOR 0}
+a {COLOR 255}Surge Badge{COLOR 0}
+an {COLOR 255}N-Solarizer{COLOR 0}
+an {COLOR 255}N-Lunarizer{COLOR 0}
+an {COLOR 255}N-Solarizer{COLOR 0}
+an {COLOR 255}N-Lunarizer{COLOR 0}
+a {COLOR 255}piece of Ilima’s Normalium Z{COLOR 0}
+a {COLOR 255}Left Poké Ball{COLOR 0}
+a {COLOR 255}Roto Hatch{COLOR 0}
+a {COLOR 255}Roto Bargain{COLOR 0}
+a {COLOR 255}Roto Prize Money{COLOR 0}
+the {COLOR 255}Roto Exp. Points{COLOR 0}
+a {COLOR 255}Roto Friendship{COLOR 0}
+a {COLOR 255}Roto Encounter{COLOR 0}
+a {COLOR 255}Roto Stealth{COLOR 0}
+a {COLOR 255}Roto HP Restore{COLOR 0}
+a {COLOR 255}Roto PP Restore{COLOR 0}
+a {COLOR 255}Roto Boost{COLOR 0}
+a {COLOR 255}Roto Catch{COLOR 0}
+a {COLOR 255}Health Candy{COLOR 0}
+a {COLOR 255}Mighty Candy{COLOR 0}
+a {COLOR 255}Tough Candy{COLOR 0}
+a {COLOR 255}Smart Candy{COLOR 0}
+a {COLOR 255}Courage Candy{COLOR 0}
+a {COLOR 255}Quick Candy{COLOR 0}
+a {COLOR 255}Health Candy L{COLOR 0}
+a {COLOR 255}Mighty Candy L{COLOR 0}
+a {COLOR 255}Tough Candy L{COLOR 0}
+a {COLOR 255}Smart Candy L{COLOR 0}
+a {COLOR 255}Courage Candy L{COLOR 0}
+a {COLOR 255}Quick Candy L{COLOR 0}
+a {COLOR 255}Health Candy XL{COLOR 0}
+a {COLOR 255}Mighty Candy XL{COLOR 0}
+a {COLOR 255}Tough Candy XL{COLOR 0}
+a {COLOR 255}Smart Candy XL{COLOR 0}
+a {COLOR 255}Courage Candy XL{COLOR 0}
+a {COLOR 255}Quick Candy XL{COLOR 0}
+a {COLOR 255}Bulbasaur Candy{COLOR 0}
+a {COLOR 255}Charmander Candy{COLOR 0}
+a {COLOR 255}Squirtle Candy{COLOR 0}
+a {COLOR 255}Caterpie Candy{COLOR 0}
+a {COLOR 255}Weedle Candy{COLOR 0}
+a {COLOR 255}Pidgey Candy{COLOR 0}
+a {COLOR 255}Rattata Candy{COLOR 0}
+a {COLOR 255}Spearow Candy{COLOR 0}
+an {COLOR 255}Ekans Candy{COLOR 0}
+a {COLOR 255}Pikachu Candy{COLOR 0}
+a {COLOR 255}Sandshrew Candy{COLOR 0}
+a {COLOR 255}Nidoran♀ Candy{COLOR 0}
+a {COLOR 255}Nidoran♂ Candy{COLOR 0}
+a {COLOR 255}Clefairy Candy{COLOR 0}
+a {COLOR 255}Vulpix Candy{COLOR 0}
+a {COLOR 255}Jigglypuff Candy{COLOR 0}
+a {COLOR 255}Zubat Candy{COLOR 0}
+an {COLOR 255}Oddish Candy{COLOR 0}
+a {COLOR 255}Paras Candy{COLOR 0}
+a {COLOR 255}Venonat Candy{COLOR 0}
+a {COLOR 255}Diglett Candy{COLOR 0}
+a {COLOR 255}Meowth Candy{COLOR 0}
+a {COLOR 255}Psyduck Candy{COLOR 0}
+a {COLOR 255}Mankey Candy{COLOR 0}
+a {COLOR 255}Growlithe Candy{COLOR 0}
+a {COLOR 255}Poliwag Candy{COLOR 0}
+an {COLOR 255}Abra Candy{COLOR 0}
+a {COLOR 255}Machop Candy{COLOR 0}
+a {COLOR 255}Bellsprout Candy{COLOR 0}
+a {COLOR 255}Tentacool Candy{COLOR 0}
+a {COLOR 255}Geodude Candy{COLOR 0}
+a {COLOR 255}Ponyta Candy{COLOR 0}
+a {COLOR 255}Slowpoke Candy{COLOR 0}
+a {COLOR 255}Magnemite Candy{COLOR 0}
+a {COLOR 255}Farfetch’d Candy{COLOR 0}
+a {COLOR 255}Doduo Candy{COLOR 0}
+a {COLOR 255}Seel Candy{COLOR 0}
+a {COLOR 255}Grimer Candy{COLOR 0}
+a {COLOR 255}Shellder Candy{COLOR 0}
+a {COLOR 255}Gastly Candy{COLOR 0}
+an {COLOR 255}Onix Candy{COLOR 0}
+a {COLOR 255}Drowzee Candy{COLOR 0}
+a {COLOR 255}Krabby Candy{COLOR 0}
+a {COLOR 255}Voltorb Candy{COLOR 0}
+an {COLOR 255}Exeggcute Candy{COLOR 0}
+a {COLOR 255}Cubone Candy{COLOR 0}
+a {COLOR 255}Hitmonlee Candy{COLOR 0}
+a {COLOR 255}Hitmonchan Candy{COLOR 0}
+a {COLOR 255}Lickitung Candy{COLOR 0}
+a {COLOR 255}Koffing Candy{COLOR 0}
+a {COLOR 255}Rhyhorn Candy{COLOR 0}
+a {COLOR 255}Chansey Candy{COLOR 0}
+a {COLOR 255}Tangela Candy{COLOR 0}
+a {COLOR 255}Kangaskhan Candy{COLOR 0}
+a {COLOR 255}Horsea Candy{COLOR 0}
+a {COLOR 255}Goldeen Candy{COLOR 0}
+a {COLOR 255}Staryu Candy{COLOR 0}
+a {COLOR 255}Mr. Mime Candy{COLOR 0}
+a {COLOR 255}Scyther Candy{COLOR 0}
+a {COLOR 255}Jynx Candy{COLOR 0}
+an {COLOR 255}Electabuzz Candy{COLOR 0}
+a {COLOR 255}Pinsir Candy{COLOR 0}
+a {COLOR 255}Tauros Candy{COLOR 0}
+a {COLOR 255}Magikarp Candy{COLOR 0}
+a {COLOR 255}Lapras Candy{COLOR 0}
+a {COLOR 255}Ditto Candy{COLOR 0}
+an {COLOR 255}Eevee Candy{COLOR 0}
+a {COLOR 255}Porygon Candy{COLOR 0}
+an {COLOR 255}Omanyte Candy{COLOR 0}
+a {COLOR 255}Kabuto Candy{COLOR 0}
+an {COLOR 255}Aerodactyl Candy{COLOR 0}
+a {COLOR 255}Snorlax Candy{COLOR 0}
+an {COLOR 255}Articuno Candy{COLOR 0}
+a {COLOR 255}Zapdos Candy{COLOR 0}
+a {COLOR 255}Moltres Candy{COLOR 0}
+a {COLOR 255}Dratini Candy{COLOR 0}
+a {COLOR 255}Mewtwo Candy{COLOR 0}
+a {COLOR 255}Mew Candy{COLOR 0}
+a {COLOR 255}Meltan Candy{COLOR 0}
+a {COLOR 255}Magmar Candy{COLOR 0}
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???
+???

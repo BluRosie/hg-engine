@@ -21,7 +21,7 @@ Task_DistributeExp = 0x02245898 | 1;
 ServerCriticalMessage = 0x166BC+ 0x022378C1;
 ServerWazaStatusMessage = 0x166D8 + 0x022378C1;
 ST_ServerAddStatusCheck = 0x18BD0 + 0x022378C1;
-//ServerIkariCheck = 0x1672C + 0x022378C1;
+ServerIkariCheck = 0x1672C + 0x022378C1;
 ST_ServerWazaHitTokuseiCheck_Old = 0x1C544 + 0x022378C1;
 ST_ServerWaruagakiCheck = 0x19F2C + 0x022378C1;
 ServerSenseiCheck = 0x143E4 + 0x022378C1;
@@ -666,7 +666,6 @@ GetNaturalGiftType = 0x022558A4 | 1;
 
 BattleContext_CheckMoveImprisoned = 0x02252C74 | 1;
 BattleContext_CheckMoveUnuseableInGravity = 0x02252DC4 | 1;
-BattleContext_CheckMoveHealBlocked = 0x02252DF8 | 1;
 
 CanUseItemOnPokemon = 0x0208FD9C | 1;
 
@@ -772,8 +771,3 @@ PrintItemSlotQuantity = 0x021FF66C | 1;
 
 PlayerProfile_TestBadgeFlag = 0x02028F98 | 1;
 InitMartUI = 0x02256D34 | 1;
-
-AcquireMonLock = 0x0206DD40 | 1;
-LoadMonBaseStats_HandleAlternateForm = 0x020725B4 | 1;
-ReleaseMonLock = 0x0206DD8C | 1;
-PlayerProfile_GetTrainerID = 0x02028F84 | 1;

@@ -828,8 +828,6 @@ enum
 
 
 #define gDimorphismTable ((u8 *)(0x020FECAE))
-#define EGG_MOVES_PER_MON 16 // need to go through later and make this editable
-#define NUM_EGG_MOVES_TOTAL 8000
 
 
 /**Trainer Data File Bitfield**/
@@ -1091,13 +1089,6 @@ u8 LONG_CALL GetNatureFromPersonality(u32 personality);
  *  @return nature
  */
 u8 LONG_CALL GetMonNature(struct PartyPokemon *pp);
-
-/**
- *  @brief intialize a BoxPokemon's moves depending on level and such that are already set
- *
- *  @param boxmon BoxPokemon whose moves to initialize
- */
-void LONG_CALL FillInBoxMonLearnset(struct BoxPokemon *boxmon);
 
 /**
  *  @brief get data from personal narc for a species
@@ -1721,7 +1712,7 @@ BOOL LONG_CALL Party_UpdateDeerlingSeasonForm(struct Party *party);
 //BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const struct RTCTime *time);
 
 /**
- *  @brief load egg moves to dest and return amount of egg moves
+ *  @brief load egg moves to dest and return amount of egg moves. reads from data/generated/EggLearnsets.c
  *
  *  @param pokemon PartyPokemon to grab egg moves for
  *  @param dest destination for the array of egg moves
@@ -1891,5 +1882,11 @@ BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 mov
 void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemon *param, unsigned int expected_form, int *a3);
 
 void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp);
+
+void LONG_CALL MonApplyFriendshipMod(struct PartyPokemon *mon, u8 kind, u16 location);
+
+u8 LONG_CALL GetMoveMaxPP(u16 moveId, u8 ppUps);
+
+void LONG_CALL ApplyMonMoodModifier(struct PartyPokemon *mon, int modifierId);
 
 #endif

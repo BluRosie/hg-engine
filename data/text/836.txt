@@ -1,0 +1,102 @@
+{COLOR 255}Prism Scales{COLOR 0}
+{COLOR 255}Eviolites{COLOR 0}
+{COLOR 255}Float Stones{COLOR 0}
+{COLOR 255}Rocky Helmets{COLOR 0}
+{COLOR 255}Air Balloons{COLOR 0}
+{COLOR 255}Red Cards{COLOR 0}
+{COLOR 255}Ring Targets{COLOR 0}
+{COLOR 255}Binding Bands{COLOR 0}
+{COLOR 255}Absorb Bulbs{COLOR 0}
+{COLOR 255}Cell Batteries{COLOR 0}
+{COLOR 255}Eject Buttons{COLOR 0}
+{COLOR 255}Fire Gems{COLOR 0}
+{COLOR 255}Water Gems{COLOR 0}
+{COLOR 255}Electric Gems{COLOR 0}
+{COLOR 255}Grass Gems{COLOR 0}
+{COLOR 255}Ice Gems{COLOR 0}
+{COLOR 255}Fighting Gems{COLOR 0}
+{COLOR 255}Poison Gems{COLOR 0}
+{COLOR 255}Ground Gems{COLOR 0}
+{COLOR 255}Flying Gems{COLOR 0}
+{COLOR 255}Psychic Gems{COLOR 0}
+{COLOR 255}Bug Gems{COLOR 0}
+{COLOR 255}Rock Gems{COLOR 0}
+{COLOR 255}Ghost Gems{COLOR 0}
+{COLOR 255}Dragon Gems{COLOR 0}
+{COLOR 255}Dark Gems{COLOR 0}
+{COLOR 255}Steel Gems{COLOR 0}
+{COLOR 255}Normal Gems{COLOR 0}
+{COLOR 255}Health Feathers{COLOR 0}
+{COLOR 255}Muscle Feathers{COLOR 0}
+{COLOR 255}Resist Feathers{COLOR 0}
+{COLOR 255}Genius Feathers{COLOR 0}
+{COLOR 255}Clever Feathers{COLOR 0}
+{COLOR 255}Swift Feathers{COLOR 0}
+{COLOR 255}Pretty Feathers{COLOR 0}
+{COLOR 255}Cover Fossils{COLOR 0}
+{COLOR 255}Plume Fossils{COLOR 0}
+{COLOR 255}Liberty Passes{COLOR 0}
+{COLOR 255}Pass Orbs{COLOR 0}
+{COLOR 255}Dream Balls{COLOR 0}
+{COLOR 255}Poké Toys{COLOR 0}
+{COLOR 255}Prop Cases{COLOR 0}
+{COLOR 255}Dragon Skulls{COLOR 0}
+{COLOR 255}Balm Mushrooms{COLOR 0}
+{COLOR 255}Big Nuggets{COLOR 0}
+{COLOR 255}Pearl Strings{COLOR 0}
+{COLOR 255}Comet Shards{COLOR 0}
+{COLOR 255}Relic Coppers{COLOR 0}
+{COLOR 255}Relic Silvers{COLOR 0}
+{COLOR 255}Relic Golds{COLOR 0}
+{COLOR 255}Relic Vases{COLOR 0}
+{COLOR 255}Relic Bands{COLOR 0}
+{COLOR 255}Relic Statues{COLOR 0}
+{COLOR 255}Relic Crowns{COLOR 0}
+{COLOR 255}Casteliacones{COLOR 0}
+{COLOR 255}Dire Hit 2s{COLOR 0}
+{COLOR 255}X Speed 2s{COLOR 0}
+{COLOR 255}X Sp. Atk 2s{COLOR 0}
+{COLOR 255}X Sp. Def 2s{COLOR 0}
+{COLOR 255}X Defense 2s{COLOR 0}
+{COLOR 255}X Attack 2s{COLOR 0}
+{COLOR 255}X Accuracy 2s{COLOR 0}
+{COLOR 255}X Speed 3s{COLOR 0}
+{COLOR 255}X Sp. Atk 3s{COLOR 0}
+{COLOR 255}X Sp. Def 3s{COLOR 0}
+{COLOR 255}X Defense 3s{COLOR 0}
+{COLOR 255}X Attack 3s{COLOR 0}
+{COLOR 255}X Accuracy 3s{COLOR 0}
+{COLOR 255}X Speed 6s{COLOR 0}
+{COLOR 255}X Sp. Atk 6s{COLOR 0}
+{COLOR 255}X Sp. Def 6s{COLOR 0}
+{COLOR 255}X Defense 6s{COLOR 0}
+{COLOR 255}X Attack 6s{COLOR 0}
+{COLOR 255}X Accuracy 6s{COLOR 0}
+{COLOR 255}Ability Urges{COLOR 0}
+{COLOR 255}Item Drops{COLOR 0}
+{COLOR 255}Item Urges{COLOR 0}
+{COLOR 255}Reset Urges{COLOR 0}
+{COLOR 255}Dire Hit 3s{COLOR 0}
+{COLOR 255}Light Stones{COLOR 0}
+{COLOR 255}Dark Stones{COLOR 0}
+{COLOR 255}TM093s{COLOR 0}
+{COLOR 255}TM094s{COLOR 0}
+{COLOR 255}TM095s{COLOR 0}
+{COLOR 255}Xtransceivers{COLOR 0}
+???
+{COLOR 255}Gram 1s{COLOR 0}
+{COLOR 255}Gram 2s{COLOR 0}
+{COLOR 255}Gram 3s{COLOR 0}
+{COLOR 255}Xtransceivers{COLOR 0}
+{COLOR 255}Medal Boxes{COLOR 0}
+{COLOR 255}DNA Splicers{COLOR 0}
+{COLOR 255}DNA Splicers{COLOR 0}
+{COLOR 255}Permits{COLOR 0}
+{COLOR 255}Oval Charms{COLOR 0}
+{COLOR 255}Shiny Charms{COLOR 0}
+{COLOR 255}Plasma Cards{COLOR 0}
+{COLOR 255}Grubby Hankies{COLOR 0}
+{COLOR 255}Colress Machines{COLOR 0}
+{COLOR 255}Dropped Items{COLOR 0}
+{COLOR 255}Dropped Items{COLOR 0}
+{COLOR 255}Reveal Glasses{COLOR 0}

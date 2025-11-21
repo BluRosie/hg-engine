@@ -24,10 +24,6 @@ DESIRED_GAMECODE := IPKE
 GAMECODE = $(shell dd bs=1 skip=12 count=4 if=$(ROMNAME) status=none)
 VALID_GAMECODE = $(shell echo $(GAMECODE) | grep -i -q $(DESIRED_GAMECODE); echo $$?)
 
-ifneq ($(shell pwd | grep -i 'onedrive'),)
-$(error "HAAAAAAAAAAAAAAAANK HAAAAAAAAAAAAAAAAAAAAAAAAAAANK DO NOT PUT FILES IN ONEDRIVE. CLONE THE REPOSITORY IN ANOTHER FOLDER" )
-endif
-
 ifneq ($(VALID_GAMECODE), 0)
 # invalid rom detected based on gamecode.  this primarily catches other-language roms
 $(error ROM Code read from $(ROMNAME) ($(GAMECODE)) does not match valid ROM Code ($(DESIRED_GAMECODE)).$(n)Please use a valid US HeartGold ROM.$(n)hg-engine does not work with non-USA ROM files)
@@ -81,7 +77,7 @@ PYTHON = $(PYTHON_NO_VENV)
 VENV_ACTIVATE =
 endif
 
-.PHONY: clean all
+.PHONY: clean all dumprom
 
 default: all
 
@@ -140,8 +136,10 @@ OBJS     := $(C_OBJS) $(ASM_OBJS)
 
 REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
+
 ## includes
 include data/graphics/pokegra.mk
+include data/graphics/itemgra.mk
 include data/itemdata/itemdata.mk
 include data/codetables.mk
 include narcs.mk
@@ -237,7 +235,7 @@ $(foreach folder, $(CODE_BUILD_DIRS), $(eval $(call FOLDER_CREATE_DEFINE,$(folde
 # generate .d dependency files that are included as part of compiling if it does not exist
 define SRC_OBJ_INC_DEFINE
 # this generates the objects as part of generating the dependency list which will just be massive files of rules
-$1: $2 $(CODE_BUILD_DIRS)
+$1: $2 $(CODE_BUILD_DIRS) $(LEARNSETS_HEADER)
 	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
 	@#printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
 
@@ -263,6 +261,7 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	@mkdir -p $(REQUIRED_DIRECTORIES)
 	@# find and delete macOS files that it creates for some reason
 	find . -name "*.DS_Store" -delete
+	find . -name "*:Zone.Identifier" -type f -delete
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo "$(ROMNAME) Decompression successful!!"
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
@@ -288,6 +287,7 @@ restore_build: | restore all
 ####################### Clean #######################
 clean:
 	rm -rf $(BUILD) $(BASE) rom_gen.ld rom_gen_battle.ld
+	rm -rf $(shell find . -type d -name "generated")
 	@echo "Build artifacts removed."
 
 clean_tools:
@@ -339,15 +339,8 @@ move_narc: $(NARC_FILES)
 	@echo "pokedex sort lists:"
 	cp $(DEXSORT_NARC) $(DEXSORT_TARGET)
 
-	@echo "egg moves:"
-	cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET)
-	cp $(EGGMOVES_NARC) $(EGGMOVES_TARGET_2)
-
 	@echo "evolution data:"
 	cp $(EVOS_NARC) $(EVOS_TARGET)
-
-	@echo "mon learnset data:"
-	cp $(LEARNSET_NARC) $(LEARNSET_TARGET)
 
 	@echo "regional dex order:"
 	cp $(REGIONALDEX_NARC) $(REGIONALDEX_TARGET)
@@ -377,6 +370,9 @@ move_narc: $(NARC_FILES)
 
 	@echo "battle sub effects:"
 	cp $(BATTLE_SUB_NARC) $(BATTLE_SUB_TARGET)
+
+	@echo "bag gfx:"
+	cp $(BAGGFX_NARC) $(BAGGFX_TARGET)
 
 	@echo "item gfx:"
 	cp $(ITEMGFX_NARC) $(ITEMGFX_TARGET)
@@ -433,17 +429,16 @@ move_narc: $(NARC_FILES)
 	@echo "trainer gfx:"
 	cp $(TRAINER_GFX_NARC) $(TRAINER_GFX_TARGET)
 
+	@echo "levelup learnset:"
+	cp $(LEVELUPLEARNSET_NARC) $(LEVELUPLEARNSET_TARGET)
+
+	@echo "egg moves:"
+	cp $(EGGLEARNSET_NARC) $(EGGLEARNSET_TARGET)
+
+
 
 	@echo "baby mons:"
 	$(ARMIPS) armips/data/babymons.s
-
-	@echo "tutor moves and tm moves:"
-# 	$(PYTHON) scripts/tm_learnset.py --writetmlist armips/data/tmlearnset.txt
-	$(PYTHON) scripts/learnsets.py --writetmlist
-# 	$(PYTHON) scripts/tutor_learnset.py --writemovecostlist armips/data/tutordata.txt
-	$(PYTHON) scripts/learnsets.py --writetutormovelist
-# 	$(PYTHON) scripts/tutor_learnset.py armips/data/tutordata.txt
-	$(PYTHON) scripts/learnsets.py --writetutorlearnsets
 
 	@if test -s build/a028/8_00; then \
 		rm -rf build/a028/8_0 build/a028/8_1 build/a028/8_2 build/a028/8_3 build/a028/8_4 build/a028/8_5 build/a028/8_6 build/a028/8_7 build/a028/8_8 build/a028/8_9; \
@@ -474,21 +469,55 @@ move_narc: $(NARC_FILES)
 	@echo "form reversion mapping table:"
 	cp $(FORMREVERSION_BIN) $(FORMREVERSION_TARGET)
 
+	@echo "machine moves:"
+	cp $(MACHINELEARNSET_BIN) $(MACHINELEARNSET_TARGET)
+
+	@echo "tutor moves:"
+	cp $(TUTORLEARNSET_BIN) $(TUTORLEARNSET_TARGET)
+
+
+DUMP_SCRIPT_LOCATION := tools/source/dumptools
+# the goal here is to extract the required narcs to the proper folders for the dump scripts to work.
+# learnsets are covered by script migration
+dumprom: $(VENV_ACTIVATE)
+	$(MAKE) clean
+	chmod +x $(DUMP_SCRIPT_LOCATION)/*.sh
+
+	./$(DUMP_SCRIPT_LOCATION)/dumprom.sh
+	mkdir -p $(BUILD) $(BUILD_NARC) $(BUILD)/a028/
+# dump human overworlds
+	#./$(DUMP_SCRIPT_LOCATION)/dump_human_overworlds.sh
+# dump everything covered by this script
+	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
+# mondata:  needed by migrate_learnsets.py
+	cp $(MONDATA_TARGET) $(BUILD_NARC)/mondata
+	$(NARCHIVE) extract $(BUILD_NARC)/mondata -o $(MONDATA_DIR)
+	rm $(BUILD_NARC)/mondata
+# learnsets:  needed by migrate_learnsets.py
+	cp $(LEVELUPLEARNSET_TARGET) $(BUILD_NARC)/learnset
+	$(NARCHIVE) extract $(BUILD_NARC)/learnset -o $(LEVELUPLEARNSET_DIR)
+# kowaza:  needed by migrate_learnsets.py
+	cp $(EGGLEARNSET_TARGET) $(BUILD_NARC)/kowaza
+	$(NARCHIVE) extract $(BUILD_NARC)/kowaza -o $(BUILD)/kowaza
+	$(PYTHON) tools/source/dumptools/migrate_learnsets.py
+	rm -rf $(BUILD)
+
+# dump mondata, encounters, evos, moves
+	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
+
+
+update_machine_moves: $(VENV_ACTIVATE)
+	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/830.txt data/text/830.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/834.txt data/text/834.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/838.txt data/text/838.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/846.txt data/text/846.txt
+	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/850.txt data/text/850.txt
+	@echo "Updated item descriptions and sprites. Double check formatting"
+
+
 # needed to keep the $(SDAT_OBJ_DIR)/WAVE_ARC_PV%/00.swav from being detected as an intermediate file
 .SECONDARY:
 
 ####################### Debug #######################
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
-
-effect_script:
-	i=447 ; \
-	while [ "$$i" -le 500 ] ; do \
-		if [ "$$i" -le 10 ]; then \
-			cp data/battle_scripts/subscripts/subscript_0448_CUSTOM_2_UNUSED_1.s data/battle_scripts/subscripts/subscript_000$${i}_UNUSED_$$i.s; \
-		elif [ "$$i" -le 100 ]; then \
-			cp data/battle_scripts/subscripts/subscript_0448_CUSTOM_2_UNUSED_1.s data/battle_scripts/subscripts/subscript_00$${i}_UNUSED_$$i.s; \
-		else \
-			cp data/battle_scripts/subscripts/subscript_0448_CUSTOM_2_UNUSED_1.s data/battle_scripts/subscripts/subscript_0$${i}_UNUSED_$$i.s; \
-		fi; \
-		i=$$((i+1)); \
-	done

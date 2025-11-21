@@ -77,11 +77,11 @@ The Pokémon is protected\nagainst critical hits.
 Eliminates the effects of\nweather.
 Raises evasion if the\nPokémon is confused.
 Raises Speed if hit by an\nElectric-type move.
-Powers up moves against\nfoes that share a type.
+Raises Attack if the foe\nis of the same gender.
 Raises Speed each time\nthe Pokémon flinches.
 Raises evasion in a\nhailstorm.
 Encourages the early use\nof a held Berry.
-Sharply ups Attack if a\nhit makes its HP half or less.
+Raises Attack upon\ntaking a critical hit.
 Raises Speed if a held\nitem is used.
 Weakens the power of\nFire-type moves.
 The Pokémon is prone to\nwild stat changes.
@@ -199,7 +199,7 @@ Its shell breaks if its\nHP becomes half or less.
 Deals doubles damage to\na target’s replacement.
 Weakens incoming Fire-type\nmoves and prevents burns.
 Powers up\nSteel-type moves.
-Sharply ups Sp. Atk if a\nhit makes its HP half or less.
+Ups Sp. Atk if a hit\nmakes its HP half or less.
 Boosts the Pokémon’s\nSpeed stat in a hailstorm.
 Uses moves without\nmaking contact with the target.
 Its sound-based moves\nbecome Water-type.

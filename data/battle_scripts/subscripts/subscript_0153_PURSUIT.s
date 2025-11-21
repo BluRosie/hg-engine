@@ -9,7 +9,7 @@ _loop:
     TryPursuit _end
     TryMegaOrUltraBurstDuringPursuit _noMega
     CallFromVar BSCRIPT_VAR_TEMP_DATA
-    // Handle cases such as Mega Manectrics Intimidate ability (Switch -> Mega Evolution -> Intimidate -> Pursuit)
+    // Handle cases such as Mega Manectric's Intimidate ability (Switch -> Mega Evolution -> Intimidate -> Pursuit)
     // 處理例如超級雷電獸的威嚇特性 （切換中 -> 超級進化 -> 威嚇 -> 追打）
     Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
 _noMega:
@@ -17,7 +17,9 @@ _noMega:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_POWER_MULTI, 20
     CalcCrit 
     CalcDamage 
-    ApplyTypeEffectiveness 
+    // handled in CalcDamage already
+    // TODO: apply the effectiveness flag
+    // ApplyTypeEffectiveness 
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_ATTACK_MESSAGE
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF
     PrintAttackMessage 
@@ -116,7 +118,7 @@ _184:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_EXP_GAIN
 
 _expLoop:
-    // only give experience to the players mons
+    // only give experience to the player's mons
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_CALC_TEMP, 0x00000001, _215
     Call BATTLE_SUBSCRIPT_GRANT_EXP
 

@@ -16,7 +16,7 @@ MSG_DATA_ITEM_DESCRIPTION = {
 def parse_moves_descriptions(moves_s: Path):
     """
     Parse single-line movedescription entries, replace literal '\n' sequences with spaces,
-    and convert straight apostrophes (') to typographic ones (¡¯).
+    and convert straight apostrophes (') to typographic ones (â€™).
     We deliberately do NOT unescape backslashes while scanning, so '\n' stays as two
     characters and can be replaced cleanly afterwards.
     """
@@ -49,7 +49,7 @@ def parse_moves_descriptions(moves_s: Path):
             # Replace literal '\n' sequences with spaces
             text = text.replace(r'\n', " ")
             # Replace straight apostrophes with typographic ones
-            text = text.replace("'", "¡¯")
+            text = text.replace("'", "â€™")
 
             descs[move] = text
 

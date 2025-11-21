@@ -2747,6 +2747,7 @@ int BattlerController_CheckSubstituteBlockingStatDropsOrDecorate(struct BattleSy
                 case MOVE_EFFECT_SPEED_DOWN_3:
                 case MOVE_EFFECT_SP_ATK_DOWN_3:
                 case MOVE_EFFECT_SP_DEF_DOWN_3:
+                case MOVE_EFFECT_DECORATE:
                     return SUB_SEQ_DOESNT_AFFECT;
                     break;
 
@@ -3106,7 +3107,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
     if (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) {
         if (ctx->attack_client != ctx->defence_client) {
             switch (moveEffect) {
-                // TODO: Handle Electrify, Flower Shield, Heal Pulse, Purify, Tar Shot, Topsy-Turvy
+                // TODO: Handle Electrify, Flower Shield, Purify, Tar Shot, Topsy-Turvy
 
                 // List of effects tested: attempting to inflict a major status condition, Acupressure, Block / Mean Look / Spider Web / Octolock, Electrify / Quash, Flower Shield, Forest's Curse / Trick-or-Treat / Soak / Magic Powder, Gastro Acid, Guard Split / Power Split, Heal Pulse, Leech Seed, Lock-On, Mind Reader, Pain Split, Psycho Shift, Purify, Simple Beam, Tar Shot, Topsy-Turvy, Transform, Worry Seed
                 case MOVE_EFFECT_RANDOM_STAT_UP_2:
@@ -3124,6 +3125,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
                 case MOVE_EFFECT_AVERAGE_HP:
                 case MOVE_EFFECT_TRANSFER_STATUS:
                 case MOVE_EFFECT_SET_ABILITY_TO_SIMPLE:
+                case MOVE_EFFECT_HEAL_TARGET:
                     if (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_INFILTRATOR) {
                         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);
                         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
@@ -3261,7 +3263,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
                 ctx->battlerIdTemp = ctx->defence_client;
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL);
                 ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -3812,7 +3814,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
 // Edit: should be done? Need to double check
 BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     switch (ctx->current_move_index) {
-        case MOVE_LIFE_DEW: {
+        // temporarily handled in the life dew subscript because otherwise it doesn't fallthrough on the ally
+        /* case MOVE_LIFE_DEW: {
             if (ctx->battlemon[defender].hp == (s32)ctx->battlemon[defender].maxhp) {
                 ctx->battlerIdTemp = defender;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL);
@@ -3822,7 +3825,7 @@ BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bs
                 return TRUE;
             }
             break;
-        }
+        } */
         case MOVE_CORROSIVE_GAS: {
             if (ctx->battlemon[defender].item == ITEM_NONE
 #if CORROSIVE_GAS_IMPLIED_BEHAVIOUR == TRUE
@@ -3945,7 +3948,8 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
     || (moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN && (ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_YAWN_COUNTER || ctx->battlemon[defender].condition))
     // Worry Seed when target has Insomnia / Truant
     || (moveEffect == MOVE_EFFECT_SET_ABILITY_TO_INSOMNIA && (GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_INSOMNIA || GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_TRUANT))
-    // TODO: Coaching in singles or when there is no ally target available in doubles
+    // Coaching in singles or when there is no ally target available in doubles
+    || ((moveEffect == MOVE_EFFECT_COACHING) && (!(BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) || (ctx->battlemon[BATTLER_ALLY(ctx->attack_client)].hp == 0)))
     ) {
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
         ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
@@ -4029,6 +4033,7 @@ int BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys U
         case MOVE_EFFECT_ATK_UP:
         case MOVE_EFFECT_ATK_UP_2:
         case MOVE_EFFECT_ATK_UP_3:
+        // case MOVE_EFFECT_HOWL: needs a dedicated case checking both it & partner, temp handled in effect
         // case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION: //handled below
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12) {
                 result = 1;
@@ -4080,7 +4085,13 @@ int BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys U
             }
             break;
         case MOVE_EFFECT_ATK_DEF_UP:
+        case MOVE_EFFECT_COACHING:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
+                result = 1;
+            }
+            break;
+        case MOVE_EFFECT_DECORATE:
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
                 result = 1;
             }
             break;

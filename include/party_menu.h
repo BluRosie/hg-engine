@@ -178,5 +178,7 @@ void LONG_CALL PartyMenu_PrintMessageOnWindow33(struct PLIST_WORK *wk, int msgId
 void LONG_CALL thunk_Sprite_SetPalIndex(void* sprites, int);
 void LONG_CALL FreeToHeapExplicit(u32 heapId, void *ptr);
 void LONG_CALL PartyMenu_PrintMessageOnWindow32(struct PLIST_WORK *partyMenu, int msgId, BOOL drawFrame);
+u16 LONG_CALL PartyMenu_GetCurrentMapSec(struct PLIST_WORK *partyMenu);
+BOOL LONG_CALL ShouldTakeMachineMoveItem(u16 itemId);
 
 #endif // POKEHEARTGOLD_PARTY_MENU_H

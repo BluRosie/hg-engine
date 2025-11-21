@@ -374,11 +374,11 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
             }
             case SBA_RAGE: {
                 // debug_printf("In SBA_RAGE\n");
-                /*for (client_no = 0; client_no < client_set_max; client_no++) {
+                for (client_no = 0; client_no < client_set_max; client_no++) {
                     if ((sp->battlemon[client_no].condition2 & STATUS2_RAGE) && (GetBattlerSelectedMove(sp, client_no) != MOVE_RAGE)) {
                         sp->battlemon[client_no].condition2 &= ~STATUS2_RAGE;
                     }
-                }*/
+                }
                 sp->sba_seq_no++;
                 break;
             }

@@ -95,6 +95,8 @@ BOOL btl_scr_cmd_104_tryincinerate(void* bsys, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_105_addthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_108_strengthsapcalc(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -385,6 +387,8 @@ const u8 *BattleScrCmdNames[] =
     "AddThirdType",
     "TryAuroraVeil",
     "ClearAuroraVeil",
+    "StrengthSapCalc",
+    "CheckTargetIsPartner",
     // "YourCustomCommand",
 };
 
@@ -435,6 +439,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_addthirdtype,
     [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_tryauroraveil,
     [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_clearauroraveil,
+    [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_108_strengthsapcalc,
+    [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_109_checktargetispartner,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -2988,6 +2994,8 @@ BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
  *  @return FALSE
  */
 BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
     u32 attacker = ctx->attack_client;
     u32 disguiseAddress = read_battle_script_param(ctx);
 
@@ -3273,6 +3281,56 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleSt
         }
     }
 
+    return FALSE;
+}
+
+/**
+ *  @brief script command to calculate Strength Sap healing
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_108_strengthsapcalc(void* bw UNUSED, struct BattleStruct* sp) {
+    IncrementBattleScriptPtr(sp, 1);
+
+    s32 damage;
+    u16 attack;
+    s8 atkstate;
+
+    attack = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_ATK, NULL);
+    atkstate = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_STATE_ATK, NULL);
+
+    damage = attack * StatBoostModifiers[atkstate][0];
+    damage /= StatBoostModifiers[atkstate][1];
+
+    sp->hp_calc_work = -damage;
+
+//    debug_printf("strengthsap: %d\n", damage);
+
+    return FALSE;
+}
+
+/**
+ *  @brief script command to check if the target is partner or not. 
+ *  used for pollen puff because TryHelpingHand has unique conditions built in
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    int adrs = read_battle_script_param(sp);
+    int defender = sp->defence_client;
+    int attacker = sp->attack_client;
+
+    if (defender == BATTLER_ALLY(attacker))
+    {
+        sp->battlerIdTemp = sp->defence_client; // corrects the full health msg
+        IncrementBattleScriptPtr(sp, adrs);
+    //    debug_printf("target is ally\n")
+    }
+    
     return FALSE;
 }
 
@@ -3866,6 +3924,7 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
     u16 species, item;
     u8 ability, lvl;
     struct PartyPokemon *mon;
+    u32 quantityPickedUp = 0, partyIndex = 0, itemPickedUp = ITEM_NONE;
 
     IncrementBattleScriptPtr(sp, 1);
 
@@ -3895,6 +3954,9 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
                     break;
                 }
             }
+            quantityPickedUp++;
+            partyIndex = i;
+            itemPickedUp = item;
         }
         if (ability == ABILITY_HONEY_GATHER
             && species != SPECIES_NONE
@@ -3902,7 +3964,7 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
             && item == ITEM_NONE) {
             j   = 0;
             k   = 10;
-            lvl = GetMonData(mon, MON_DATA_LEVEL, 0);
+            lvl = GetMonData(mon, MON_DATA_LEVEL, NULL);
             while (lvl > k) {
                 j++;
                 k += 10;
@@ -3911,10 +3973,28 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
             GF_ASSERT(j < 10);
 
             if ((BattleRand(bw) % 100) < sHoneyGatherChanceTable[j]) {
-                j = ITEM_HONEY;
-                SetMonData(mon, MON_DATA_HELD_ITEM, &j);
+                item = ITEM_HONEY;
+                SetMonData(mon, MON_DATA_HELD_ITEM, &item);
+                quantityPickedUp++;
+                partyIndex = i;
+                itemPickedUp = ITEM_HONEY;
             }
         }
+    }
+
+    sp->calc_work = quantityPickedUp;
+
+    if (quantityPickedUp > 1)
+    {
+        sp->mp.msg_id = BATTLE_MSG_GENERIC_PICKED_UP_ITEM;
+        sp->mp.msg_tag = TAG_NONE;
+    }
+    else if (quantityPickedUp > 0) // aka == 1
+    {
+        sp->mp.msg_id = BATTLE_MSG_PICKED_UP_ITEM;
+        sp->mp.msg_tag = TAG_NICKNAME_ITEM;
+        sp->mp.msg_para[0] = (partyIndex << 8) | 0;
+        sp->mp.msg_para[1] = itemPickedUp;
     }
 
     return FALSE;
@@ -4178,12 +4258,12 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
     {
     case BATTLER_PLAYER:
         sp->playerSideHasFaintedTeammateThisTurn = TRAINER_1;//0b01
-        if (bsys->trainerId[BATTLER_PLAYER2] == 0) //Ally trainer does not exist => must be player, both pokemon slots see the fainted mate 
+        if (bsys->trainerId[BATTLER_PLAYER2] == 0) //Ally trainer does not exist => must be player, both pokemon slots see the fainted mate
             sp->playerSideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     case BATTLER_ENEMY:
         sp->enemySideHasFaintedTeammateThisTurn = TRAINER_1;//0b01
-        if (bsys->trainerId[BATTLER_ENEMY2] == 0) //Ally trainer does not exist => must be enemy trainer #1, both pokemon slots see the fainted mate 
+        if (bsys->trainerId[BATTLER_ENEMY2] == 0) //Ally trainer does not exist => must be enemy trainer #1, both pokemon slots see the fainted mate
             sp->enemySideHasFaintedTeammateThisTurn = TRAINER_BOTH;//0b11
         break;
     case BATTLER_PLAYER2:
@@ -4219,81 +4299,5 @@ BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx)
         IncrementBattleScriptPtr(ctx, adrs);
     }
 
-    return FALSE;
-}
-
-BOOL BtlCmd_CalcGyroBallPower(void *bsys UNUSED, struct BattleStruct *ctx) {
-    IncrementBattleScriptPtr(ctx, 1);
-
-    ctx->damage_power = 25 * ctx->effectiveSpeed[ctx->defence_client] / ctx->effectiveSpeed[ctx->attack_client];
-	
-	if (ctx->damage_power < 40) {
-        ctx->damage_power = 40;
-    }
-
-    return FALSE;
-}
-
-BOOL BtlCmd_CalcPunishmentPower(void *bsys UNUSED, struct BattleStruct *ctx) {
-    int stat, cnt;
-	
-    IncrementBattleScriptPtr(ctx, 1);
-
-    cnt = 0;
-    for (stat = 0; stat < 8; stat++) {
-        if (ctx->battlemon[ctx->defence_client].states[stat] > 6) {
-            cnt += ctx->battlemon[ctx->defence_client].states[stat] - 6;
-        }
-    }
-
-    ctx->damage_power = 40 + 20 * cnt;
-
-    return FALSE;
-}
-
-u16 sNaturePowerMoveTable[] =
-{
-	MOVE_EARTH_POWER, //TERRAIN_PLAIN
-	MOVE_EARTH_POWER, //TERRAIN_SAND
-	MOVE_ENERGY_BALL, //TERRAIN_GRASS
-	MOVE_ENERGY_BALL, //TERRAIN_PUDDLE
-	MOVE_POWER_GEM,  //TERRAIN_MOUNTAIN
-	MOVE_POWER_GEM, //TERRAIN_CAVE
-	MOVE_BLIZZARD, //TERRAIN_SNOW
-	MOVE_HYDRO_PUMP, //TERRAIN_WATER
-	MOVE_ICE_BEAM, //TERRAIN_ICE
-	MOVE_TRI_ATTACK, //TERRAIN_BUILDING
-	MOVE_MUD_BOMB, //TERRAIN_GREAT_MARSH unused
-	MOVE_AIR_SLASH, //TERRAIN_UNKNOWN unused
-	MOVE_TRI_ATTACK, //TERRAIN_OTHERS and beyond
-};
-
-BOOL BtlCmd_GetTerrainMove(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    IncrementBattleScriptPtr(ctx, 1);
-	
-	switch (ctx->terrainOverlay.type)
-	{
-		case GRASSY_TERRAIN:
-			ctx->waza_work = MOVE_ENERGY_BALL;
-			break;
-		case ELECTRIC_TERRAIN:
-			ctx->waza_work = MOVE_THUNDERBOLT;
-			break;
-		case MISTY_TERRAIN:
-			ctx->waza_work = MOVE_MOONBLAST;
-			break;
-		case PSYCHIC_TERRAIN:
-			ctx->waza_work = MOVE_PSYCHIC;
-			break;
-		case TERRAIN_NONE:
-		default:
-			int terrain = bsys->terrain;
-			if (terrain > 12) {
-				terrain = 12;
-			}
-			ctx->waza_work = sNaturePowerMoveTable[terrain];
-			break;
-	}
-	
     return FALSE;
 }

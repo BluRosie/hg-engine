@@ -536,12 +536,5 @@ arm9 PartyMenu_LearnMoveToSlot 0208254C 3
 arm9 ScrCmd_MartBuy 02048060 1
 #endif
 
-arm9 CalcMonStats 0206E27C 2
-0012 BtlCmd_CalcPunishmentPower 02243A68 3
-arm9 ScrCmd_FollowerPokeIsEventTrigger 02046A1C 2
-0012 ServerIkariCheck 0224DFEC 3
-0012 BtlCmd_GetTerrainMove 02244428 3
-0012 BtlCmd_CalcGyroBallPower 02243754 3
-arm9 IsPlayerInCave 0205B8D0 1
-0012 InitializeTurn 02251710 3
-0001 ScrCmd_GiveSpikyEarPichu 022021F8 1
+# expand heal blocked moves
+0012 BattleContext_CheckMoveHealBlocked 02252DF8 1

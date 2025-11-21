@@ -50,8 +50,8 @@ _101:
     GoTo _112
 
 _106:
-    GotoIfTerrainOverlayIsType ELECTRIC_TERRAIN, _399
-    GotoIfTerrainOverlayIsType MISTY_TERRAIN, _399
+    GotoIfTerrainOverlayIsType ELECTRIC_TERRAIN, _electricTerrainFail
+    GotoIfTerrainOverlayIsType MISTY_TERRAIN, _mistyTerrainFail
 
 _112:
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _122
@@ -84,7 +84,8 @@ _bypassSafeguard:
 _182:
     PlayBattleAnimation BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLE_ANIMATION_ASLEEP
     Wait
-    UpdateMonData OPCODE_FLAG_ON, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_SLEEP_1|STATUS_SLEEP_0
+    Random 2, 2
+    UpdateMonDataFromVar OPCODE_FLAG_ON, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, BSCRIPT_VAR_CALC_TEMP
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _205
     // {0} fell asleep!
     PrintMessage 47, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
@@ -205,6 +206,19 @@ _392:
     // {0} stayed awake because of its ally’s {1}!
     PrintMessage 1385, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLER_RELATIVE_ALLY|BATTLER_CATEGORY_SIDE_EFFECT_MON
     GoTo _365
+
+_electricTerrainFail:
+    // {0} is protected by the Electric Terrain!
+    PrintMessage 1484, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
+    Wait
+    WaitButtonABTime 30
+    GoTo _399
+
+_mistyTerrainFail:
+    // {0} surrounds itself with a protective mist!
+    PrintMessage 1496, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
+    Wait
+    WaitButtonABTime 30
 
 _399:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED

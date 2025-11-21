@@ -1,5 +1,4 @@
 from dump_scripts.dump_tools import *
-import pprint
 
 AI_FLAG_DEFINES = [
     "F_PRIORITIZE_SUPER_EFFECTIVE",
@@ -113,12 +112,3 @@ def get_trainer_names():
             current_trainer_index += 1
 
     return names
-
-def flags_to_string(flags, defines):
-    retStr = []
-    for i in range(0, len(defines)):
-        if (flags & 1 << i):
-            retStr.append(defines[i])
-    if len(retStr) == 0:
-        return "0"
-    return " | ".join(retStr)

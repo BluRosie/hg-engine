@@ -1410,7 +1410,7 @@ struct PACKED BattleStruct {
                int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
-               
+
                u8 playerSideHasFaintedTeammateThisTurn : 2;// bitmask for Trainer on player side who has lost a Mon: either 0b01 (left), 0b10 (right), or 0b11 (both)
                u8 enemySideHasFaintedTeammateThisTurn : 2; // ..enemy side... either 0b01, 0b10, or 0b11
                u8 playerSideHasFaintedTeammateLastTurn : 2;
@@ -1429,7 +1429,7 @@ enum {
 enum {
     SPREAD_ABILITY_LOOP_OPPONENT_LEFT = 0,
     SPREAD_ABILITY_LOOP_OPPONENT_RIGHT,
-    SPREAD_ABILITY_LOOP_ALLY,    
+    SPREAD_ABILITY_LOOP_ALLY,
     SPREAD_ABILITY_LOOP_MAX = SPREAD_ABILITY_LOOP_ALLY
 };
 
@@ -2094,7 +2094,7 @@ int LONG_CALL BattleWorkPokeCountGet(void*,int);
 BOOL LONG_CALL ServerCriticalMessage(void*,void*);
 BOOL LONG_CALL ServerWazaStatusMessage(void*,void*);
 BOOL LONG_CALL ST_ServerAddStatusCheck(void*,void*,int *seq_no);
-BOOL LONG_CALL ServerIkariCheck(void*, struct BattleStruct *ctx);
+BOOL LONG_CALL ServerIkariCheck(void*,void*);
 BOOL LONG_CALL ST_ServerWazaHitTokuseiCheck_Old(void*,void*,int *seq_no);
 int LONG_CALL ST_ServerWaruagakiCheck(void *bw, struct BattleStruct *sp, int client_no, int waza_bit, int check_bit);
 struct Save_DexData* LONG_CALL BattleWorkZukanWorkGet(void *bw);
@@ -3601,6 +3601,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     ctx->clientLoopForSpreadMoves++;\
                     if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {\
+                        ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client); \
                         if (functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client))) {\
                             return;\
                         }\
@@ -3610,6 +3611,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     ctx->clientLoopForSpreadMoves++;\
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client); \
                         if (functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
                             return;\
                         }\
@@ -3619,6 +3621,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     ctx->clientLoopForSpreadMoves++;\
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client); \
                         if (functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
                             return;\
                         }\
@@ -3653,10 +3656,9 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client));\
                         if (failureSubscriptToRun) {\
-                            ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
-                            ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_ALLY(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3667,10 +3669,9 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client));\
                         if (failureSubscriptToRun) {\
-                            ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);\
-                            ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3681,10 +3682,9 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client));\
                         if (failureSubscriptToRun) {\
-                            ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);\
-                            ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3710,7 +3710,6 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);\
                 if (failureSubscriptToRun) {\
                     ctx->battlerIdTemp = ctx->defence_client;\
-                    ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, failureSubscriptToRun);\
                     ctx->next_server_seq_no = ctx->server_seq_no;\
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;\
@@ -3737,6 +3736,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client));\
                         if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_ALLY(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
@@ -3749,6 +3749,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client));\
                         if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
@@ -3761,6 +3762,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client));\
                         if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\

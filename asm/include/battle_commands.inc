@@ -1388,8 +1388,9 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro CalcConfusionDamage
+    .macro CalcConfusionDamage arg_0
     .long 254
+    .long (((\arg_0 - .) / 4) - 1)
     .endm
 
     .macro CheckCanActivateDefiantOrCompetitive arg_0, arg_1, arg_2
@@ -1449,7 +1450,16 @@
     .long 263
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 263
+    .macro StrengthSapCalc
+    .long 264
+    .endm
+
+    .macro CheckTargetIsPartner arg_0
+    .long 265
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 265
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

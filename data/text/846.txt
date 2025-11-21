@@ -1,0 +1,755 @@
+A letter of recommendation that\nyou’ll need in order to participate\nin the Gym Challenge.
+A device that allows you to access\nthe Pokémon storage system. There\nare some places where it won’t work.
+A stone found in the Galar region\nwith a mysterious power. It’s said\nthat your dreams come true if you\rfind one.
+A Wishing Star has been affixed to\nit. It lets out a light that allows\nPokémon to Dynamax when at a Power\rSpot.
+- - -
+- - -
+Use it by the water to fish up\nvarious kinds of Pokémon.
+This bike can be combined with the\nPokémon Rotom to use a turbo boost.
+- - -
+- - -
+One of the many ingredients that can\nbe used for cooking at your camp.\nThese sausages should be boiled\rbefore eating.
+One of the many ingredients that can\nbe used for cooking at your camp.\nThe tinned food that Bob sells is\rcuriously popular in Galar.
+One of the many ingredients that can\nbe used for cooking at your camp.\nThe tinned food that Bach sells is\rcuriously popular in Galar.
+One of the many ingredients that can\nbe used for cooking at your camp.\nWhen simmered, the beans suffuse a\rdish with their mild flavor.
+One of the many ingredients that can\nbe used for cooking at your camp. An\nindispensable tool for mopping up\rthat extra curry left on your plate.
+One of the many ingredients that can\nbe used for cooking at your camp.\nThese flour noodles make for a\rsurprisingly good match with curry.
+One of the many ingredients that can\nbe used for cooking at your camp.\nThe chewy texture of the mushrooms\rtransforms any dish they’re added\nto.
+One of the many ingredients that can\nbe used for cooking at your camp.\nWhen a Slowpoke’s tail falls off, it\rgrows back quickly.
+One of the many ingredients that can\nbe used for cooking at your camp.\nWhether this is the kind of\rvegetable stalk that Farfetch’d like\nis unknown.
+One of the many ingredients that can\nbe used for cooking at your camp. An\napple chosen above others. It has\rspectacular form and a brilliant\nsheen.
+One of the many ingredients that can\nbe used for cooking at your camp.\nThe taste boiled off from the bones\ris sure to give a dish a light umami\ntaste.
+One of the many ingredients that can\nbe used for cooking at your camp.\nPotatoes help mellow out a spicy\rtaste, to make a dish more mild.
+One of the many ingredients that can\nbe used for cooking at your camp.\nThough carelessly picked, these\rherbs can add a fragrant accent to a\ndish.
+One of the many ingredients that can\nbe used for cooking at your camp.\nThe assortment of vegetables looks\rquite appealing and healthy.
+One of the many ingredients that can\nbe used for cooking at your camp.\nIt’s been a while since it was\rfried, so it’s gotten greasy.
+One of the many ingredients that can\nbe used for cooking at your camp.\nEven just one boiled egg can really\renhance a dish.
+Everything you need to set up a tent\nand get cooking in a Wild Area or at\na camping spot.
+- - -
+- - -
+It is said that a hero used this\nsword to halt a terrible disaster in\nancient times. But it’s grown rusty\rand worn.
+It is said that a hero used this\nshield to halt a terrible disaster\nin ancient times. But it’s grown\rrusty and worn.
+A fossil piece left behind by a\nprehistoric Pokémon that once soared\nthrough the sky. What it looked like\ris a mystery.
+A fossil piece left behind by a\nprehistoric Pokémon that once lived\nin the sea. What it looked like is a\rmystery.
+A fossil piece left behind by a\nprehistoric Pokémon that once roamed\nthe land. What it looked like is a\rmystery.
+A fossil piece left behind by a\nprehistoric Pokémon that once lived\nin the sea. What it looked like is a\rmystery.
+A strawberry-shaped sweet. When a\nMilcery holds this, it spins around\nhappily.
+A heart-shaped sweet. When a Milcery\nholds this, it spins around happily.
+A berry-shaped sweet. When a Milcery\nholds this, it spins around happily.
+A clover-shaped sweet. When a\nMilcery holds this, it spins around\nhappily.
+A flower-shaped sweet. When a\nMilcery holds this, it spins around\nhappily.
+A star-shaped sweet. When a Milcery\nholds this, it spins around happily.
+A ribbon-shaped sweet. When a\nMilcery holds this, it spins around\nhappily.
+A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt’s exceptionally sweet.
+A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt’s exceptionally tart.
+An item to be held by a Pokémon. If\nthe holder uses a sound-based move,\nthis throat spray will boost its Sp.\rAtk stat.
+An item to be held by a Pokémon. If\nthe holder’s stats are lowered, it\nwill be switched out of battle.
+An item to be held by a Pokémon.\nThese boots protect the holder from\nthe effects of traps and the like\rset on the battlefield.
+An item to be held by a Pokémon. If\nthe holder misses with a move due to\nlow accuracy, this policy will\rsharply boost its Speed stat.
+An item to be held by a Pokémon. If\nTrick Room takes effect, this item\nwill lower the holder’s Speed stat.
+An item to be held by a Pokémon.\nThis sturdy umbrella protects the\nholder from the effects of rain and\rharsh sunlight.
+A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nvery small number of Exp. Points.
+A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nsmall number of Exp. Points.
+A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nmoderate number of Exp. Points.
+A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nlarge number of Exp. Points.
+A candy that is packed with energy.\nIf consumed, it grants a Pokémon a\nvery large number of Exp. Points.
+A candy that is packed with energy.\nIf consumed, it raises the Dynamax\nLevel of a Pokémon by one. A higher\rlevel means higher HP when\nDynamaxed.
+A frenetic dance to uplift the\nfighting spirit. This sharply raises\nthe user’s Attack stat.
+The user drops onto the target with\nits full body weight. This may also\nleave the target with paralysis.
+The target is scorched with an\nintense blast of fire. This may also\nleave the target with a burn.
+The target is blasted by a huge\nvolume of water launched under great\npressure.
+The user attacks everything around\nit by swamping its surroundings with\na giant wave.
+The target is struck with an\nicy-cold beam of energy. This may\nalso leave the target frozen.
+A howling blizzard is summoned to\nstrike opposing Pokémon. This may\nalso leave the opposing Pokémon\rfrozen.
+A powerful low kick that makes the\ntarget fall over. The heavier the\ntarget, the greater the move’s\rpower.
+A strong electric blast crashes down\non the target. This may also leave\nthe target with paralysis.
+A wicked thunderbolt is dropped on\nthe target to inflict damage. This\nmay also leave the target with\rparalysis.
+The user sets off an earthquake that\nstrikes every Pokémon around it.
+The target is hit by a strong\ntelekinetic force. This may also\nlower the target’s Sp. Def stat.
+The user relaxes and lightens its\nbody to move faster. This sharply\nraises the Speed stat.
+The user takes a deep breath and\nfocuses so that critical hits land\nmore easily.
+The user waggles a finger and\nstimulates its brain into randomly\nusing nearly any move.
+The target is attacked with an\nintense blast of all-consuming fire.\nThis may also leave the target with\ra burn.
+The user charges at the target and\nmay make it flinch.
+The user temporarily empties its\nmind to forget its concerns. This\nsharply raises the user’s Sp. Def\rstat.
+The user drains the target’s blood.\nThe user’s HP is restored by half\nthe damage taken by the target.
+The user strikes with a simultaneous\nthree-beam attack. This may also\nburn, freeze, or paralyze the\rtarget.
+The user creates a substitute for\nitself using some of its own HP. The\nsubstitute serves as the user’s\rdecoy.
+An all-out attack that becomes more\npowerful the less HP the user has.
+Unsanitary sludge is hurled at the\ntarget. This may also poison the\ntarget.
+The user lays a trap of spikes at\nthe opposing team’s feet. The trap\nhurts Pokémon that switch into\rbattle.
+The user rampages and attacks for\ntwo to three turns. The user then\nbecomes confused.
+The user materializes an odd psychic\nwave to attack the target. This\nattack does physical damage.
+The user endures any attack with at\nleast 1 HP. Its chance of failing\nrises if it is used in succession.
+While it is asleep, the user\nrandomly uses one of the moves it\nknows.
+Using its tough and impressive horn,\nthe user rams into the target with\nno letup.
+The user switches places with a\nparty Pokémon in waiting and passes\nalong any stat changes.
+The user compels the target to keep\nusing the move it encored for three\nturns.
+The target is slammed with a\nsteel-hard tail. This may also lower\nthe target’s Defense stat.
+The user crunches up the target with\nsharp fangs. This may also lower the\ntarget’s Defense stat.
+The user hurls a shadowy blob at the\ntarget. This may also lower the\ntarget’s Sp. Def stat.
+Two turns after this move is used, a\nhunk of psychic energy attacks the\ntarget.
+The user attacks in an uproar for\nthree turns. During that time, no\nPokémon can fall asleep.
+The user attacks by exhaling hot\nbreath on opposing Pokémon. This may\nalso leave those Pokémon with a\rburn.
+The target is taunted into a rage\nthat allows it to use only attack\nmoves for three turns.
+The user catches the target off\nguard and swaps its held item with\nits own.
+The user attacks the target with\ngreat power. However, this also\nlowers the user’s Attack and Defense\rstats.
+The user employs its psychic power\nto exchange Abilities with the\ntarget.
+The user launches a kick that lands\na critical hit more easily. This may\nalso leave the target with a burn.
+The user lets loose a horribly\nechoing shout with the power to\ninflict damage.
+The user attacks the target at full\npower. The attack’s recoil harshly\nlowers the user’s Sp. Atk stat.
+The user absorbs a mystical power\nfrom space to raise its Defense and\nSp. Def stats.
+The user attacks by shooting muddy\nwater at opposing Pokémon. This may\nalso lower their accuracy.
+The user hardens its body’s surface\nlike iron, sharply raising its\nDefense stat.
+The user slashes the target with\nhuge sharp claws.
+The user tenses its muscles to bulk\nup its body, raising both its Attack\nand Defense stats.
+The user quietly focuses its mind\nand calms its spirit to raise its\nSp. Atk and Sp. Def stats.
+The user handles a sharp leaf like a\nsword and attacks by cutting its\ntarget. Critical hits land more\reasily.
+The user vigorously performs a\nmystic, powerful dance that raises\nits Attack and Speed stats.
+The user tackles the target with a\nhigh-speed spin. The slower the user\ncompared to the target, the greater\rthe move’s power.
+The user fights the target up close\nwithout guarding itself. This also\nlowers the user’s Defense and Sp.\rDef stats.
+The user lays a trap of poison\nspikes at the feet of the opposing\nteam. The spikes will poison\ropposing Pokémon that switch into\nbattle.
+The user cloaks itself in fire and\ncharges the target. This also\ndamages the user quite a lot. This\rattack may leave the target with a\nburn.
+The user lets loose a blast of aura\npower from deep within its body at\nthe target. This attack never\rmisses.
+The target is stabbed with a\ntentacle, arm, or the like steeped\nin poison. This may also poison the\rtarget.
+The user releases a horrible aura\nimbued with dark thoughts. This may\nalso make the target flinch.
+The user slams a barrage of\nhard-shelled seeds down on the\ntarget from above.
+The user slashes at the target by\ncrossing its scythes or claws as if\nthey were a pair of scissors.
+The user generates a damaging sound\nwave by vibration. This may also\nlower the target’s Sp. Def stat.
+The target is attacked with a shock\nwave generated by the user’s gaping\nmouth.
+The user attacks with a ray of light\nthat sparkles as if it were made of\ngemstones.
+The user heightens its mental focus\nand unleashes its power. This may\nalso lower the target’s Sp. Def\rstat.
+The user draws power from nature and\nfires it at the target. This may\nalso lower the target’s Sp. Def\rstat.
+The user tucks in its wings and\ncharges from a low altitude. This\nalso damages the user quite a lot.
+The user makes the ground under the\ntarget erupt with power. This may\nalso lower the target’s Sp. Def\rstat.
+The user stimulates its brain by\nthinking bad thoughts. This sharply\nraises the user’s Sp. Atk stat.
+The user focuses its willpower to\nits head and attacks the target.\nThis may also make the target\rflinch.
+The user gathers all its light\nenergy and releases it all at once.\nThis may also lower the target’s Sp.\rDef stat.
+The user whips up a storm of leaves\naround the target. The attack’s\nrecoil harshly lowers the user’s Sp.\rAtk stat.
+The user violently whirls its vines,\ntentacles, or the like to harshly\nlash the target.
+The user shoots filthy garbage at\nthe target to attack. This may also\npoison the target.
+The user slams the target with its\nsteel-hard head. This may also make\nthe target flinch.
+The user stabs the target from below\nwith sharpened stones. Critical hits\nland more easily.
+The user lays a trap of levitating\nstones around the opposing team. The\ntrap hurts opposing Pokémon that\rswitch into battle.
+The user snares the target with\ngrass and trips it. The heavier the\ntarget, the greater the move’s\rpower.
+The user strikes everything around\nit by swamping the area with a giant\nsludge wave. This may also poison\rthose hit.
+The user slams into the target with\nits heavy body. The more the user\noutweighs the target, the greater\rthe move’s power.
+The user hurls an electric orb at\nthe target. The faster the user is\nthan the target, the greater the\rmove’s power.
+The user turns the target’s power\nagainst it. The higher the target’s\nAttack stat, the greater the damage\rit deals.
+The user attacks the target with\nstored power. The more the user’s\nstats are raised, the greater the\rmove’s power.
+The user teleports using a strange\npower and switches places with one\nof its allies.
+The user shoots boiling hot water at\nits target. This may also leave the\ntarget with a burn.
+The user is roused, and its Attack\nand Sp. Atk stats increase.
+The user shrouds itself in\nelectricity and smashes into its\ntarget. This also damages the user a\rlittle.
+The user crashes into its target\nwhile rotating its body like a\ndrill. Critical hits land more\reasily.
+The user slams its target with its\nflame-covered body. The more the\nuser outweighs the target, the\rgreater the move’s power.
+The user attacks by wrapping its\nopponent in a fierce wind that flies\nup into the sky. This may also\rconfuse the target.
+The user plays rough with the target\nand attacks it. This may also lower\nthe target’s Attack stat.
+Opposing Pokémon are drenched in an\nodd poisonous liquid. This lowers\nthe Attack, Sp. Atk, and Speed stats\rof a poisoned target.
+The user damages opposing Pokémon by\nemitting a powerful flash.
+The user swings both arms and hits\nthe target. The target’s stat\nchanges don’t affect this attack’s\rdamage.
+The user fiercely attacks the target\nusing its entire body.
+The user attacks the target’s\nthroat, and the resultant suffering\nprevents the target from using moves\rthat emit sound for two turns.
+The user attacks the enemy with a\npollen puff that explodes. If the\ntarget is an ally, it gives the ally\ra pollen puff that restores its HP\ninstead.
+The user bites the target with its\npsychic capabilities. This can also\ndestroy Light Screen and Reflect.
+The user slams into the target using\na full-force blast of water. This\nmay also lower the target’s Defense\rstat.
+The user attacks by slamming its\nbody into the target. The higher the\nuser’s Defense, the more damage it\rcan inflict on the target.
+The target is slugged by a punch\nthrown with muscle-packed power.
+Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Defense stat may\rsuffer.
+Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Sp. Atk stat may\rsuffer.
+Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Sp. Def stat may\rsuffer.
+Having a Pokémon smell this mint can\nmake its Attack stat grow stronger.\nHowever, its Speed stat may suffer.
+Having a Pokémon smell this mint can\nmake its Defense stat grow stronger.\nHowever, its Attack stat may suffer.
+Having a Pokémon smell this mint can\nmake its Defense stat grow stronger.\nHowever, its Sp. Atk stat may\rsuffer.
+Having a Pokémon smell this mint can\nmake its Defense stat grow stronger.\nHowever, its Sp. Def stat may\rsuffer.
+Having a Pokémon smell this mint can\nmake its Defense stat grow stronger.\nHowever, its Speed stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Attack stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Defense stat may\rsuffer.
+Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Sp. Def stat may\rsuffer.
+Having a Pokémon smell this mint can\nmake its Sp. Atk stat grow stronger.\nHowever, its Speed stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Def stat grow stronger.\nHowever, its Attack stat may suffer.
+Having a Pokémon smell this mint can\nmake its Sp. Def stat grow stronger.\nHowever, its Defense stat may\rsuffer.
+Having a Pokémon smell this mint can\nmake its Sp. Def stat grow stronger.\nHowever, its Sp. Atk stat may\rsuffer.
+Having a Pokémon smell this mint can\nmake its Sp. Def stat grow stronger.\nHowever, its Speed stat may suffer.
+Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Attack stat may suffer.
+Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Defense stat may\rsuffer.
+Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Sp. Atk stat may\rsuffer.
+Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Sp. Def stat may\rsuffer.
+Having a Pokémon smell this mint\nwill cause its Attack, Defense, Sp.\nAtk, Sp. Def, and Speed stats to\rgrow at an equal rate.
+Throw one into a Pokémon Den to\nattract a wild Dynamax Pokémon.
+A peculiar teapot that can make a\ncertain species of Pokémon evolve.\nIt may be cracked, but tea poured\rfrom it is delicious.
+A peculiar teapot that can make a\ncertain species of Pokémon evolve.\nIt may be chipped, but tea poured\rfrom it is delicious.
+Strange earbuds that allow you to\nfreely control the volume of various\nsounds.
+One of the many ingredients that can\nbe used for cooking at your camp.\nThe syrupy fruits give off a strong\rtropical feel.
+One of the many ingredients that can\nbe used for cooking at your camp.\nMelted cheese can really give a\rcurry some richness.
+One of the many ingredients that can\nbe used for cooking at your camp.\nThere are over fifty spices\rcontained within this ingredient’s\nhot flavor.
+One of the many ingredients that can\nbe used for cooking at your camp.\nAdd some whipped cream to a spicy\rcurry to give it some sweetness.
+One of the many ingredients that can\nbe used for cooking at your camp.\nUsing packaged curry helps make sure\rthere are no slipups when cooking.
+One of the many ingredients that can\nbe used for cooking at your camp.\nThe refined sweetness of this\rcoconut milk makes it quite popular.
+One of the many ingredients that can\nbe used for cooking at your camp. It\nhas a junk-food sort of taste, but\rit goes well with curry.
+One of the many ingredients that can\nbe used for cooking at your camp. If\nyou’re unsure about what to cook,\ryou can’t go wrong with some burger.
+One of the many ingredients that can\nbe used for cooking at your camp. A\nmysterious spice. Even a tiny\rsprinkle is sure to make a curry\ngigantic.
+Toss a number of them into a Pokémon\nDen for the chance to attract a wild\nDynamax Pokémon.
+This bike can be combined with the\nPokémon Rotom to not only do a turbo\nboost but also run on the water.
+Having one of these mysterious,\nunshakable charms makes it more\nlikely you’ll get a critical catch.
+- - -
+A letter entrusted to you by a girl,\nto be delivered to a boy. Strangely,\nit looks old to you.
+It’s signed by all members of the\nGalar region’s most charismatic\nband, the Maximizers.
+Professor Sonia’s published\nwritings. Her new discoveries about\nthe Galar region’s legends are\rrecorded in this enjoyable read.
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+A catalog of devices that Rotom\nlike. Use the catalog to have Rotom\nhop in and out of the various\rdevices listed within.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+An item that causes Pokémon\nto appear from the Watchtower Lair\nin the Wild Area until the end of\rthe day.
+Honey that Dynamax Vespiquen\nproduces. Adding this honey to Max\nSoup makes the taste very smooth. It\ralso has the same effect as a Max\nRevive.
+Mushrooms that have the power of\nchanging Dynamax forms. They boost\nall stats of a Pokémon during\rbattle.
+A twig from a species of tree called\nGalarica that grows in certain areas\naround the Galar region. It’s a\rmaterial for an accessory for a\ncertain Pokémon.
+A cuff made from woven-together\nGalarica Twigs. Giving it to a\nGalarian Slowpoke makes the Pokémon\rvery happy.
+Having one of these cards increases\nthe selection available to you in\nboutiques and hair salons.
+A pass to go to the Isle of Armor.\nShow it to the rail staff at\nWedgehurst Station.
+This bike can do a turbo boost and\nrun on the water using Rotom’s\npower. It’s a sparkling white that\rshines brilliantly.
+This bike can do a turbo boost and\nrun on the water using Rotom’s\npower. It’s a glistening black that\rshines reddish-black.
+Having one of these charms increases\nthe Exp. Points your Pokémon get.\nIt’s a strange, stretchy charm that\rencourages growth.
+Rare ore that can be obtained on the\nIsle of Armor. Something good will\nhappen if you give it to a collector\ron the Isle of Armor.
+Having one of these mysterious and\nunique charms makes it more likely\nyou’ll encounter a Pokémon with a\rmark.
+Reins that people presented to the\nking. They enhance Calyrex’s power\nover bountiful harvests and unite\rCalyrex with its beloved steed.
+Reins that people presented to the\nking. They enable those who are\nconnected to communicate with each\rother. The reins separate Calyrex\nand its beloved steed.
+A wreath made from woven-together\nGalarica Twigs. Placing it on the\nhead of a Galarian Slowpoke makes\rthe Pokémon very happy.
+A clue about the King of Bountiful\nHarvests. It’s written by Peony, and\nan old photo is attached to it.
+A clue about the legend of giants.\nIt’s written by Peony and has unique\ndrawings.
+A clue about the legend of bird\nPokémon. It’s written by Peony and\nhas a unique drawing.
+A mysterious clue that Peony seems\nto have dropped. There’s a photo\nattached to it showing a shining\rhole opening above the Max Lair.
+A pass to go to the Crown Tundra.\nShow it to the rail staff at\nWedgehurst Station.
+A mysterious object made of wood.\nPart of it seems to be chipped.\nMaybe it’s meant to be part of\rsomething.
+A single petal that the King of\nBountiful Harvests gave you. It\nradiates faint light.
+Mane hair that belonged to the King\nof Bountiful Harvests’ beloved\nsteed, Glastrier. The hair is strong\rand very flexible.
+Mane hair that belonged to the King\nof Bountiful Harvests’ beloved\nsteed, Spectrier. The hair is very\rsmooth to the touch.
+Produce that the King of Bountiful\nHarvests’ beloved steed likes to\neat. It grew in a field covered in\rsnow.
+Produce that the King of Bountiful\nHarvests’ beloved steed likes to\neat. It grew in a gloomy field.
+Mysterious ore that can be obtained\nin the Max Lair. Something good will\nhappen if you give it to a collector\rin the Crown Tundra.
+Seeds to plant in a field. The kind\nof carrot you’ll get is determined\nby which field you plant the seeds\rin.
+A patch that can be used to change\nthe regular Ability of a Pokémon to\na rarer Ability.
+Cords that shine when you hold them\nup to the light. The people of old\ntimes presented these to the King of\rBountiful Harvests to express their\ngratitude.
+A mysterious balm that somehow has\nthe power to calm Dialga in its\nfrenzy.
+A mysterious balm that somehow has\nthe power to calm Palkia in its\nfrenzy.
+A mysterious balm to be used when\nbattling Arceus.
+A string exuding a mysterious energy\nthat makes you feel a strange sense\nof connection. It’s loved by certain\rPokémon.
+A baked treat made from Berries and\nother ingredients, which is often\neaten in regions such as Galar. It\ris beloved by a surprising number of\nPokémon.
+A fruit whose shell can be used to\nform the capsules of all manner of\nPoké Balls when crafting them from\rscratch. Its proper name is actually\n“Brown Apricorn.”
+A hidden gem gaining popularity in\nJubilife Village and beloved by\nPokémon. This sweet treat can be fed\rto a Pokémon to cure any status\ncondition it may have.
+An item that sharply boosts the\noffensive and defensive stats of a\nPokémon in battle. These effects\rdisappear if the Pokémon leaves the\nbattle.
+An item that sharply boosts the\ncritical-hit ratio of a Pokémon in\nbattle. This effect disappears if\rthe Pokémon leaves the battle.
+A dumpling that will make a Pokémon\nbecome fixated on a move in battle.\nThe Pokémon will deal more damage\rwhen using that move but will take\nmore damage as well.
+These pickled vegetables prime a\nPokémon for battle. The Pokémon\ntakes a hard-hitting stance, which\rboosts the damage dealt by its moves\nby 50 percent.
+When eaten, this curious snack\ntemporarily swaps a Pokémon’s\noffensive stats with its defensive\rstats.
+A fern used for crafting items made\nto be thrown. When these curled\nleaves are unfurled, they can serve\ras nature’s wrapping paper.
+A rare seed that can be given to the\ncaptain of the Security Corps to\nhave a Pokémon master a move so it\rcan be used in the agile style or\nstrong style.
+- - -
+- - -
+A type of ice beloved by the Lord of\nthe Tundra, Avalugg. This ice is\nsaid to be fragments of ancient\rAvalugg that lived long ago.
+Proof that you have completed the\ntrial set by Uxie, the Being of\nKnowledge that lives in Lake Acuity.\rThis item is needed to forge the Red\nChain.
+Proof that you have completed the\ntrial set by Azelf, the Being of\nWillpower that lives in Lake Valor.\rThis item is needed to forge the Red\nChain.
+Proof that you have completed the\ntrial set by Mesprit, the Being of\nEmotion that lives in Lake Verity.\rThis item is needed to forge the Red\nChain.
+When combined with an Apricorn, this\nmysterious tumbled stone can draw\nout the properties required to forge\ra Poké Ball.
+A flute that can be used to call\nspecial Pokémon that are willing to\nbear you around the region. Its\rtimbre is eerie and mysterious.
+An herbal medicine that can restore\n60 HP to a Pokémon, just as a Potion\ndoes. Yet the bitter taste will make\rthe Pokémon less friendly toward\nyou.
+An herbal medicine that can restore\n100 HP to a Pokémon, just as a Super\nPotion does. Yet the bitter taste\rwill make the Pokémon less friendly\ntoward you.
+Honey that sparkles with an amber\nhue. It is beloved by bug Pokémon\nand Pokémon with fairylike charms,\rso they will gather wherever a comb\nof it is thrown.
+Beautiful stalks of rice bursting\nwith life. Pokémon that dwell and\nwander among the fields love these\rgrains and will gather wherever the\nstalks are thrown.
+Large, juicy beans that grow in\npods. These beans are beloved by\nfish Pokémon, as well as bird\rPokémon and their flying ilk, so\nthrow one and they will gather\naround.
+A large and well-ripened mushroom.\nIt is beloved by the more monstrous\nPokémon, as well as dragon Pokémon,\rso they will gather wherever one is\nthrown.
+Translucent crystals that are\nbeloved by Pokémon bearing a\nresemblance to grass, plants, or\rminerals. They will gather wherever\na lump of this salt is thrown.
+A handy log of wood that can be used\nfor anything, from crafting common\ngoods needed for daily living to\rproducing works of art.
+The king of herbs, glittering and\nbrilliant. Combining this herb with\nother materials needed to make\rmedicines will boost their efficacy.
+A mysterious balm that gives off a\nsoothing scent. It can be used to\nhelp calm the frenzy of the Lady of\rthe Ridge, Lilligant.
+A recipe for crafting Poké Balls\nfrom scratch. Required materials: 1\nApricorn and 1 Tumblestone.
+A recipe for crafting Great Balls\nfrom scratch. Required materials: 1\nApricorn, 1 Iron Chunk, and 1\rTumblestone.
+A recipe for crafting Ultra Balls\nfrom scratch. Required materials: 1\nApricorn, 2 Iron Chunks, and 2\rTumblestones.
+A recipe for crafting Feather Balls\nfrom scratch. Required materials: 1\nApricorn and 1 Sky Tumblestone.
+A recipe for crafting Pokéshi Dolls\nfrom scratch. Required materials: 3\nlogs of Wood.
+- - -
+A recipe for crafting Smoke Bombs\nfrom scratch. Required materials: 1\nCaster Fern leaf and 1 Sootfoot\rRoot.
+A recipe for crafting Scatter Bangs\nfrom scratch. Required materials: 1\nPop Pod and 1 Caster Fern leaf.
+A recipe for crafting Sticky Globs\nfrom scratch. Required materials: 1\nSpoiled Apricorn, 1 Ball of Mud, and\r1 Caster Fern leaf.
+A recipe for crafting Star Pieces\nfrom scratch. Required materials: 3\nRed Shards, 3 Blue Shards, 3 Green\rShards, and 1 bag of Stardust.
+A recipe for crafting Mushroom Cakes\nfrom scratch. Required materials: 1\nSpringy Mushroom and 1 Cake-Lure\rBase.
+A wildflower that can be found\ngrowing across the Hisui region. It\ndoes have medicinal properties, but\rit is so bitter that no wild Pokémon\nwill eat it.
+A recipe for crafting Honey Cakes\nfrom scratch. Required materials: 1\ncomb of Dazzling Honey and 1\rCake-Lure Base.
+A recipe for crafting Grain Cakes\nfrom scratch. Required materials: 1\nstalk of Hearty Grains and 1\rCake-Lure Base.
+A recipe for crafting Bean Cakes\nfrom scratch. Required materials: 1\npod of Plump Beans and 1 Cake-Lure\rBase.
+A recipe for crafting Salt Cakes\nfrom scratch. Required materials: 1\nhunk of Crunchy Salt and 1 Cake-Lure\rBase.
+A recipe for crafting Potions from\nscratch. Required materials: 1 Oran\nBerry and 1 Medicinal Leek.
+A recipe for crafting Super Potions\nfrom scratch. Required materials: 1\nPotion and 1 Pep-Up Plant.
+A recipe for crafting Hyper Potions\nfrom scratch. Required materials: 1\nSuper Potion and 1 Vivichoke.
+A recipe for crafting Max Potions\nfrom scratch. Required materials: 1\nSitrus Berry and 1 bunch of King’s\rLeaf.
+A recipe for crafting Full Restores\nfrom scratch. Required materials: 1\nMax Potion and 1 Full Heal.
+A recipe for crafting Remedies from\nscratch. Required materials: 2\nBugwort blooms.
+A recipe for crafting Fine Remedies\nfrom scratch. Required materials: 1\nRemedy and 1 Pep-Up Plant.
+A recipe for crafting Superb\nRemedies from scratch. Required\nmaterials: 1 Fine Remedy and 1\rVivichoke.
+A recipe for crafting Old Gateaux\nfrom scratch. Required materials: 1\npod of Plump Beans, 1 comb of\rDazzling Honey, 1 Sootfoot Root, and\n1 Cake-Lure Base.
+A recipe for crafting Jubilife\nMuffins from scratch. Required\nmaterials: 2 stalks of Hearty\rGrains, 2 Hopo Berries, 1 Razz\nBerry, and 1 Cake-Lure Base.
+A recipe for crafting Full Heals\nfrom scratch. Required materials: 1\nCheri Berry, 1 Pecha Berry, 1 Rawst\rBerry, and 1 Aspear Berry.
+A recipe for crafting Revives from\nscratch. Required materials: 1\nVivichoke and 2 Medicinal Leeks.
+A recipe for crafting Max Revives\nfrom scratch. Required materials: 1\nRevive and 2 bunches of King’s Leaf.
+A recipe for crafting Max Ethers\nfrom scratch. Required materials: 1\nLeppa Berry and 2 Pep-Up Plants.
+A recipe for crafting Max Elixirs\nfrom scratch. Required materials: 1\nMax Ether and 2 bunches of King’s\rLeaf.
+A recipe for crafting Stealth Sprays\nfrom scratch. Required materials: 1\nHopo Berry and 3 Bugwort blooms.
+- - -
+A recipe for crafting Aux Powers\nfrom scratch. Required materials: 2\nbunches of Swordcap and 1 Pep-Up\rPlant.
+A recipe for crafting Aux Guards\nfrom scratch. Required materials: 2\nscraps of Iron Barktongue and 1\rPep-Up Plant.
+A recipe for crafting Dire Hits from\nscratch. Required materials: 2\nDireshrooms and 1 Candy Truffle.
+A recipe for crafting Aux Evasions\nfrom scratch. Required materials: 2\nbunches of Doppel Bonnets and 1\rCandy Truffle.
+A recipe for crafting Aux\nPowerguards from scratch. Required\nmaterials: 1 Aux Power, 1 Aux Guard,\rand 1 bunch of King’s Leaf.
+A mysterious balm that gives off a\nsoothing scent. It can be used to\nhelp calm the frenzy of the Lord of\rthe Woods, Kleavor.
+A naturally occurring hunk of iron.\nSuch ore is needed to make the\nrequisite parts of numerous Poké\rBall varieties, such as the clasp\nthat holds the ball shut.
+- - -
+When combined with an Apricorn, this\nmysterious black stone can draw out\nthe properties required to forge a\rHeavy Ball.
+When combined with an Apricorn, this\nmysterious sky-blue stone can draw\nout the properties required to forge\ra Feather Ball.
+- - -
+A ball of mud that has become stiff\nand hard. Hitting a Pokémon with one\nmay stun the Pokémon, creating an\ropening for you to act.
+- - -
+A sea vegetable used for crafting\nScatter Bangs. If you wrap it up so\nthat the air has no way to escape,\rthen deal it a sharp blow, it\nproduces a loud popping noise.
+A tuber used for crafting Smoke\nBombs. It can be mashed for use in\ncooking, but it can also be dried\rand ground to produce a fine powder.
+An Apricorn that’s had its insides\neaten. Hitting a Pokémon with one\nmay stun the Pokémon, creating an\ropening for you to act.
+A hard ball made of compressed snow.\nHitting a Pokémon with one may stun\nthe Pokémon, creating an opening for\ryou to act.
+A ball of some kind of sticky\nsubstance. Hitting a Pokémon with\none may stun the Pokémon, creating\ran opening for you to act.
+A glassy black stone that produces a\nsharp cutting edge when split. It’s\nloved by a certain Pokémon.
+A block of muddy material that can\nbe used as fuel for burning when it\nis dried. It’s loved by a certain\rPokémon.
+When used in the field, this spray\nmuffles the sound of your footsteps\nand makes wild Pokémon less likely\rto notice you for a short time.
+Required for crafting medicinal\ncompounds. This vegetable is found\ngrowing across the Hisui region and\ris also known as the wayfarer’s\nfriend.
+Also called a morning-dew bud. It is\nused as a material for crafting\nitems that can restore vitality to a\rPokémon that has fainted.
+Extremely spicy but also highly\nnutritious. This herb is used as a\nmaterial for crafting items that can\rrestore PP to Pokémon or boost their\nstats.
+- - -
+- - -
+A mysterious charm that tends to be\nlost before any other item when you\nfaint in the field. This type of\rcharm comes in five different\ncolors.
+A mysterious charm that tends to be\nlost before any other item when you\nfaint in the field. This type of\rcharm comes in five different\ncolors.
+Mushrooms that, when consumed, cause\nthe muscles to swell. They imbue the\neater with strength and are one of\rthe materials needed for crafting\nAux Powers.
+Mushrooms that, when consumed, make\nthe body of the eater grow tougher.\nThey boost endurance and are one of\rthe materials needed for crafting\nAux Guards.
+Mushrooms that, when consumed, make\nthe eater feel nimble and agile as a\nfleeting shadow. They are one of the\rmaterials needed for crafting Aux\nEvasions.
+Mushrooms that, when consumed,\nsharpen the eater’s focus. They make\nit easier to land critical hits and\rare one of the materials needed for\ncrafting Dire Hits.
+This bitter root, originally native\nto sandy beaches, can now be raised\neven in frozen soil. It is pickled\rto make a sweet and spicy treat\nknown as Twice-Spiced Radishes.
+A mysterious charm that tends to be\nlost before any other item when you\nfaint in the field. This type of\rcharm comes in five different\ncolors.
+A mysterious charm that tends to be\nlost before any other item when you\nfaint in the field. This type of\rcharm comes in five different\ncolors.
+A sweet-fleshed truffle that is\npacked full of mysterious energy. It\nis one of the materials needed for\rcrafting various items.
+A type of field provision that\nenhances the flavor of other foods\nit is mixed with.
+A mysterious ball that can be thrown\nat wild Pokémon in order to catch\nthem. These balls can be crafted by\rhand if you gather the necessary\nmaterials.
+A mysterious ball that provides a\nhigher success rate for catching\nPokémon than a standard Poké Ball\rdoes.
+A mysterious ball that provides an\neven higher success rate for\ncatching Pokémon than a Great Ball\rdoes.
+A ball that flies fast and\ntrue-ideal for catching nimble\nPokémon or Pokémon that fly high in\rthe air.
+- - -
+- - -
+When thrown at the ground, these\nballs produce a loud noise and scare\noff low-level Pokémon in the area,\rsending them running.
+When thrown at the ground, these\nballs produce a cloud of fine powder\nthat will reduce visibility in the\rarea and keep wild Pokémon from\nnoticing you.
+- - -
+- - -
+A wooden toy carved in the image of\na Pokémon. It can be sold to the\ngeneral store.
+A mysterious balm that gives off a\nsoothing scent. It can be used to\nhelp calm the frenzy of the Lord of\rthe Isles, Arcanine.
+A mysterious balm that gives off a\nsoothing scent. It can be used to\nhelp calm the frenzy of the Lord of\rthe Hollow, Electrode.
+A mysterious balm that gives off a\nsoothing scent. It can be used to\nhelp calm the frenzy of the Lord of\rthe Tundra, Avalugg.
+A cake made by combining honey with\na Cake-Lure Base. These cakes are\npotently effective at attracting bug\rPokémon and also those with\nfairylike charms.
+A cake made by combining grains with\na Cake-Lure Base. These cakes are\npotently effective at attracting\rPokémon that dwell and wander among\nthe fields.
+A cake made by combining beans with\na Cake-Lure Base. These cakes are\npotently effective at attracting\rfish Pokémon, as well as bird\nPokémon and their flying ilk.
+A cake made by combining mushrooms\nwith a Cake-Lure Base. These cakes\nare potently effective at attracting\rthe more monstrous Pokémon, as well\nas dragon Pokémon.
+A cake made by combining salt with a\nCake-Lure Base. These cakes are\npotently effective at attracting\rPokémon that bear a resemblance to\ngrass, plants, or minerals.
+A recipe for crafting Swap Snacks\nfrom scratch. Required materials: 1\nCandy Truffle, 1 Sootfoot Root, 1\rSpringy Mushroom, and 1 Hopo Berry.
+A recipe for crafting Choice\nDumplings from scratch. Required\nmaterials: 3 Caster Fern leaves, 1\rDireshroom, 1 bunch of Swordcap, and\n2 stalks of Hearty Grains.
+A recipe for crafting Twice-Spiced\nRadishes from scratch. Required\nmaterials: 2 Sand Radishes, 2 hunks\rof Crunchy Salt, 2 pods of Plump\nBeans, and 2 bunches of King’s Leaf.
+A mysterious charm that holds the\npower to protect a person from\nfainting while out in the field.\rThis type of charm comes in five\ndifferent colors.
+A mysterious charm that holds the\npower to protect a person from\nfainting while out in the field.\rThis type of charm comes in five\ndifferent colors.
+A mysterious charm that holds the\npower to protect a person from\nfainting while out in the field.\rThis type of charm comes in five\ndifferent colors.
+A mysterious charm that holds the\npower to protect a person from\nfainting while out in the field.\rThis type of charm comes in five\ndifferent colors.
+A mysterious charm that holds the\npower to protect a person from\nfainting while out in the field.\rThis type of charm comes in five\ndifferent colors.
+An old, stab-bound diary in a\ntraditional style. It has been torn\nand is missing the latter half of\rits pages.
+A mysterious charm that holds the\npower to protect a person from being\nafflicted with status conditions.\rThis type of charm comes in five\ndifferent colors.
+A mysterious charm that holds the\npower to protect a person from being\nafflicted with status conditions.\rThis type of charm comes in five\ndifferent colors.
+A mysterious charm that holds the\npower to protect a person from being\nafflicted with status conditions.\rThis type of charm comes in five\ndifferent colors.
+A mysterious charm that holds the\npower to protect a person from being\nafflicted with status conditions.\rThis type of charm comes in five\ndifferent colors.
+A mysterious charm that holds the\npower to protect a person from being\nafflicted with status conditions.\rThis type of charm comes in five\ndifferent colors.
+A fragment that was once part of a\nstone panel in the Solaceon Ruins.\nIt has markings carved on it that\rappear to be some kind of writing.
+A favored food of Basculegion, a\nPokémon that will bear you on its\nback. This food is crafted in an\runusual way, from ingredients\ngathered via equally unusual\nmethods.
+A stab-bound journal that once had\npages torn from it. All the pages\nhave been collected and restored.
+An improvement on the original\nFeather Ball design. A ball that\nflies fast and true-ideal for\rcatching nimble Pokémon or Pokémon\nthat fly high in the air.
+The ultimate iteration of the\nFeather Ball. A ball that flies fast\nand true-ideal for catching nimble\rPokémon or Pokémon that fly high in\nthe air.
+A ball that is too heavy to fly high\nor far, but it is highly effective\nif you manage to hit an unsuspecting\rPokémon.
+An improvement on the original Heavy\nBall design. A ball that is too\nheavy to fly high or far, but it is\rhighly effective if you manage to\nhit an unsuspecting Pokémon.
+The ultimate iteration of the Heavy\nBall. A ball that is too heavy to\nfly high or far, but it is highly\reffective if you manage to hit an\nunsuspecting Pokémon.
+A recipe for crafting Wing Balls\nfrom scratch. Required materials: 1\nApricorn, 1 Sky Tumblestone, and 1\rIron Chunk.
+A recipe for crafting Jet Balls from\nscratch. Required materials: 1\nApricorn, 2 Sky Tumblestones, and 2\rIron Chunks.
+A recipe for crafting Heavy Balls\nfrom scratch. Required materials: 1\nApricorn and 1 Black Tumblestone.
+A Berry that can be fed to a Pokémon\nto restore its PP. If a wild Pokémon\neats one of these Berries, that\rPokémon’s reactions will be dulled.
+An herbal medicine that can restore\n150 HP to a Pokémon, just as a Hyper\nPotion does. Yet the bitter taste\rwill make the Pokémon less friendly\ntoward you.
+An item that sharply boosts the\noffensive stats of a Pokémon in\nbattle. These effects disappear if\rthe Pokémon leaves the battle.
+An item that sharply boosts the\ndefensive stats of a Pokémon in\nbattle. These effects disappear if\rthe Pokémon leaves the battle.
+An item that makes moves less likely\nto strike a Pokémon in battle. This\neffect disappears if the Pokémon\rleaves the battle.
+Mysterious dust that can raise the\neffort level for one of a Pokémon’s\nstats. It can be used to raise\reffort levels only up to level\nthree, however.
+Mysterious gravel that can raise the\neffort level for one of a Pokémon’s\nstats. It can be used only if the\reffort level is at least level three\nand no greater than level five.
+A mysterious pebble that can raise\nthe effort level for one of a\nPokémon’s stats. It can be used only\rif the effort level is at least\nlevel six and no greater than level\neight.
+A mysterious rock that can raise the\neffort level for one of a Pokémon’s\nstats. It can be used only if the\reffort level has already reached\nlevel nine.
+An astonishing medicine that can\ninstantly restore health to any\nPokémon. It is produced by an\rapothecary in Cianwood City.
+A mysterious charm that tends to be\nlost before any other item when you\nfaint in the field. This type of\rcharm comes in five different\ncolors.
+A satchel that someone dropped.
+A satchel that someone dropped.
+A satchel that someone dropped.
+A satchel that someone dropped.
+A satchel that someone dropped.
+- - -
+A singular and irreplicable Poké\nBall that can be used to catch the\nfrenzied Pokémon raging at the\rTemple of Sinnoh.
+- - -
+- - -
+- - -
+- - -
+An ore of mysterious power, spoken\nof in ancient myths and said to\ncontain the power of almighty Sinnoh\ritself.
+An item to be held by Dialga. This\nlarge, glowing gem wells with power\nand allows the Pokémon to change\rform.
+An item to be held by Palkia. This\nlarge, glowing orb wells with power\nand allows the Pokémon to change\rform.
+An item to be held by Giratina. This\nlarge, glowing gem wells with power\nand allows the Pokémon to change\rform.
+A stone tablet imbued with the\nessence of normalcy. When used on a\ncertain Pokémon, it allows that\rPokémon to gain the power of the\nNormal type.
+- - -
+A kit containing everything you\nmight need for crafting, even when\nthere is no workbench around.\rHowever, you can only use the\nmaterials you have in your satchel.
+A recipe for crafting Leaden Balls\nfrom scratch. Required materials: 1\nApricorn, 1 Black Tumblestone, and 1\rIron Chunk.
+A recipe for crafting Gigaton Balls\nfrom scratch. Required materials: 1\nApricorn, 2 Black Tumblestones, and\r2 Iron Chunks.
+- - -
+A volume for compiling the collected\nresults of much Pokémon research.\nProfessor Laventon continually adds\rto it with each report made on new\nPokémon species.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+- - -
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+Part of a series of old poems that\nhave been unearthed around the Hisui\nregion. Judging from the\rhandwriting, it appears they were\nall written by the same person.
+A small shard that emanates an\nenigmatic power. Inside the shard,\nyou can see a pattern that looks\rlike Ramanas roses.
+A large shard that emanates an\nenigmatic power. Inside the shard,\nyou can see a pattern that looks\rlike Ramanas roses.
+A single-use drill to bore a hole in\nthe wall for your Secret Base.
+A slate overflowing with enigmatic\nenergy. You can feel a strong\nconnection between it and the Kanto\rRoom at Ramanas Park.
+A slate overflowing with enigmatic\nenergy. You can feel a strong\nconnection between it and the Johto\rRoom at Ramanas Park.
+A slate overflowing with enigmatic\nenergy. You can feel a strong\nconnection between it and the Soul\rRoom at Ramanas Park.
+A slate overflowing with enigmatic\nenergy. You can feel a strong\nconnection between it and the\rRainbow Room at Ramanas Park.
+A slate overflowing with enigmatic\nenergy. You can feel a strong\nconnection between it and the Squall\rRoom at Ramanas Park.
+A slate overflowing with enigmatic\nenergy. You can feel a strong\nconnection between it and the\rOceanic Room at Ramanas Park.
+A slate overflowing with enigmatic\nenergy. You can feel a strong\nconnection between it and the\rTectonic Room at Ramanas Park.
+A slate overflowing with enigmatic\nenergy. You can feel a strong\nconnection between it and the\rStratospheric Room at Ramanas Park.
+A slate overflowing with enigmatic\nenergy. You can feel a strong\nconnection between it and the Genome\rRoom at Ramanas Park.
+A slate overflowing with enigmatic\nenergy. You can feel a strong\nconnection between it and the\rDiscovery Room at Ramanas Park.
+A slate overflowing with enigmatic\nenergy. You can feel a strong\nconnection between it and the\rDistortion Room at Ramanas Park.
+A music player that allows you to\nlisten to nostalgic songs. It’s\noperated with the flip of a single\rswitch.
+- - -
+- - -
+- - -
+- - -
+- - -
+A stone tablet imbued with the\nessence of all creation. When used\non a certain Pokémon, it allows that\rPokémon to gain the power of every\ntype there is.

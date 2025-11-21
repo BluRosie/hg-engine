@@ -4,9 +4,9 @@
 
 _000:
     // {0} is fast asleep.
-    PrintMessage 299, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
+    PrintMessage 299, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
-    PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_ASLEEP
+    PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_ASLEEP
     Wait 
     End 

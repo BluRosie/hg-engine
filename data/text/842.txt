@@ -1,0 +1,298 @@
+This is a crystallized form of\nZ-Power. It upgrades Normal-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Fire-type moves\nto Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Water-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Electric-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Grass-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Ice-type moves\nto Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Fighting-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Poison-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Ground-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Flying-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Psychic-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Bug-type moves\nto Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Rock-type moves\nto Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Ghost-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Dragon-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Dark-type moves\nto Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Steel-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Fairy-type\nmoves to Z-Moves.
+This is a crystallized form of\nZ-Power. It upgrades Pikachu’s Volt\nTackle to a Z-Move.
+A lovely silver bottle cap. Certain\npeople are delighted to be given one\nof these.
+A lovely gold bottle cap, which is\neven rarer than a silver bottle cap.\nCertain people are delighted to be\rgiven one of these.
+A mysterious ring that enables\nPokémon to use Z-Power. It requires\nboth the willpower and the physical\rpower of the Trainer wearing it.
+This is a crystallized form of\nZ-Power. It upgrades Decidueye’s\nSpirit Shackle to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Incineroar’s\nDarkest Lariat to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Primarina’s\nSparkling Aria to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades the tapu’s\nNature’s Madness to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Marshadow’s\nSpectral Thief to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Alolan Raichu’s\nThunderbolt to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Snorlax’s Giga\nImpact to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Eevee’s Last\nResort to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Mew’s Psychic\nto a Z-Move.
+It converts Z-Power into crystals\nthat upgrade Normal-type moves to\nNormal-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Fire-type moves to\nFire-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Water-type moves to\nWater-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Electric-type moves to\nElectric-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Grass-type moves to\nGrass-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Ice-type moves to\nIce-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Fighting-type moves to\nFighting-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Poison-type moves to\nPoison-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Ground-type moves to\nGround-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Flying-type moves to\nFlying-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Psychic-type moves to\nPsychic-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Bug-type moves to\nBug-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Rock-type moves to\nRock-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Ghost-type moves to\nGhost-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Dragon-type moves to\nDragon-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Dark-type moves to\nDark-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Steel-type moves to\nSteel-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Fairy-type moves to\nFairy-type Z-Moves.
+It converts Z-Power into crystals\nthat upgrade Pikachu’s Volt Tackle\nto a Z-Move.
+It converts Z-Power into crystals\nthat upgrade Decidueye’s Spirit\nShackle to a Z-Move.
+It converts Z-Power into crystals\nthat upgrade Incineroar’s Darkest\nLariat to a Z-Move.
+It converts Z-Power into crystals\nthat upgrade Primarina’s Sparkling\nAria to a Z-Move.
+It converts Z-Power into crystals\nthat upgrade the tapu’s Nature’s\nMadness to a Z-Move.
+It converts Z-Power into crystals\nthat upgrade Marshadow’s Spectral\nThief to a Z-Move.
+It converts Z-Power into crystals\nthat upgrade Alolan Raichu’s\nThunderbolt to a Z-Move.
+It converts Z-Power into crystals\nthat upgrade Snorlax’s Giga Impact\nto a Z-Move.
+It converts Z-Power into crystals\nthat upgrade Eevee’s Last Resort to\na Z-Move.
+It converts Z-Power into crystals\nthat upgrade Mew’s Psychic to a\nZ-Move.
+It converts Z-Power into crystals\nthat upgrade Thunderbolt to a Z-Move\nwhen used by a Pikachu wearing a\rcap.
+This is a crystallized form of\nZ-Power. It upgrades Thunderbolt to\na Z-Move when used by a Pikachu\rwearing a cap.
+- - -
+- - -
+- - -
+- - -
+A bag to carry ingredients gathered\nduring Mallow’s trial in the jungle.
+A fishing rod made by Captain Lana.\nCast a line over piles of underwater\nrocks to fish for wild aquatic\rPokémon.
+The mask that belongs to The Masked\nRoyal. This pro wrestler apparently\nsews his mask on a machine himself.
+A ticket that allows you to host a\nmission in Festival Plaza.
+A stone entrusted to you by a\nPokémon that has been venerated as a\nguardian deity in the Alola region.\rThere is said to be some secret in\nhow it sparkles.
+An item to be held by a Pokémon.\nThis orb boosts the Speed stat if\nthe holder is intimidated.
+An item in which Zygarde Cores and\nCells are gathered. You can also use\nit to change Zygarde’s forms.
+- - -
+A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt has a snowflake pattern in it.
+By entering certain numbers on this\npager, you can summon Ride Pokémon\nin an instant.
+A somewhat different Poké Ball that\nis not very effective when catching\nPokémon.
+The Alola region’s famous fried\nconfection. It can be used to cure\nany status condition a Pokémon may\rhave.
+Flower nectar obtained from a red\nflower. It changes the form of a\ncertain species of Pokémon.
+Flower nectar obtained from a yellow\nflower. It changes the form of a\ncertain species of Pokémon.
+Flower nectar obtained from a pink\nflower. It changes the form of a\ncertain species of Pokémon.
+Flower nectar obtained from a purple\nflower. It changes the form of a\ncertain species of Pokémon.
+It is said that the tones it\nproduces were offered up as an\nexpression of gratitude to the\rLegendary Pokémon of the sun.
+It is said that the tones it\nproduces were offered up as an\nexpression of gratitude to the\rLegendary Pokémon of the moon.
+- - -
+A mysterious card. Written on it is\na request that you go to a guest\nroom in the motel on Akala Island’s\rRoute 8.
+A Berry that makes it easier to\ncatch Pokémon when given to them.
+A Berry that makes it drastically\neasier to catch Pokémon when given\nto them.
+A Berry that calms Pokémon you’re\ntrying to catch when given to them.
+A Berry that drastically calms\nPokémon you’re trying to catch when\ngiven to them.
+A Berry that makes you more likely\nto get an item when given to Pokémon\nyou’re trying to catch.
+A Berry that makes you drastically\nmore likely to get an item when\ngiven to Pokémon you’re trying to\rcatch.
+- - -
+- - -
+- - -
+- - -
+- - -
+The key that unlocks the front door\nof the Pokémon Gym on Cinnabar\nIsland. It has a red decoration.
+The ticket required to board the\nS.S. Anne. It has a drawing of a\nship on it.
+A scope that lets you see what\ncannot usually be seen. It is made\nby Silph Co.
+A parcel you were asked to deliver\nto Professor Oak from Viridian\nCity’s Poké Mart.
+A card key that unlocks doors in\nSilph Co.’s head office in Saffron\nCity.
+A set of golden false teeth lost by\nthe Safari Zone’s warden. They make\nhis smile sparkle.
+A key that operates the elevator in\nthe Team Rocket Hideout. It bears\nthe Team Rocket logo.
+An item to be held by a Pokémon. It\nextends the duration of terrain\ncaused by the holder’s move or\rAbility.
+An item to be held by a Pokémon.\nThese pads protect the holder from\neffects triggered by making direct\rcontact with another Pokémon.
+An item to be held by a Pokémon. If\nthe terrain becomes Electric\nTerrain, the holder will use this\rseed to boost its own Defense stat.
+An item to be held by a Pokémon. If\nthe terrain becomes Psychic Terrain,\nthe holder will use this seed to\rboost its own Sp. Def stat.
+An item to be held by a Pokémon. If\nthe terrain becomes Misty Terrain,\nthe holder will use this seed to\rboost its own Sp. Def stat.
+An item to be held by a Pokémon. If\nthe terrain becomes Grassy Terrain,\nthe holder will use this seed to\rboost its own Defense stat.
+A thin small spring. It’s totally\nstretched out, and what it’s used\nfor is unknown.
+A small whitish stone picked up at\nthe edge of the road.
+A round glass marble. You can see\ncolored glass inside the transparent\nmarble.
+A single earring that somebody\ndropped.
+A piece of colored glass. Waves have\nrounded its edges. It’s slightly\nrough to the touch.
+A mysterious gold leaf. No trees\nwith this leaf have been found yet.
+A mysterious silver leaf. No trees\nwith this leaf have been found yet.
+A ball made of mud. It had been\npolished for such a long time that\nthe surface is very shiny.
+A beautiful white shell that may\nhave drifted from a sea in a warm\nregion.
+A letter written on a leaf.\nSomething is written using Pikachu’s\nfootprints.
+A letter written on a leaf.\nSomething is written using Eevee’s\nfootprints.
+A small bouquet that was made with\nheart and soul for a single Trainer.
+- - -
+- - -
+- - -
+A bottle of perfume that makes rare\nPokémon more likely to appear for a\nshort time when sprayed about.
+A bottle of perfume that makes rare\nPokémon more likely to appear when\nsprayed about. Its effect lasts\rlonger than that of a Lure.
+A bottle of perfume that makes rare\nPokémon more likely to appear when\nsprayed about. Its effect lasts\rlonger than that of a Super Lure.
+Pewter City’s famous crunchy snack.\nThey can be used to cure any status\ncondition a Pokémon may have.
+A memory disc that contains\nFighting-type data. It changes the\ntype of the holder if held by a\rcertain species of Pokémon.
+A memory disc that contains\nFlying-type data. It changes the\ntype of the holder if held by a\rcertain species of Pokémon.
+A memory disc that contains\nPoison-type data. It changes the\ntype of the holder if held by a\rcertain species of Pokémon.
+A memory disc that contains\nGround-type data. It changes the\ntype of the holder if held by a\rcertain species of Pokémon.
+A memory disc that contains\nRock-type data. It changes the type\nof the holder if held by a certain\rspecies of Pokémon.
+A memory disc that contains Bug-type\ndata. It changes the type of the\nholder if held by a certain species\rof Pokémon.
+A memory disc that contains\nGhost-type data. It changes the type\nof the holder if held by a certain\rspecies of Pokémon.
+A memory disc that contains\nSteel-type data. It changes the type\nof the holder if held by a certain\rspecies of Pokémon.
+A memory disc that contains\nFire-type data. It changes the type\nof the holder if held by a certain\rspecies of Pokémon.
+A memory disc that contains\nWater-type data. It changes the type\nof the holder if held by a certain\rspecies of Pokémon.
+A memory disc that contains\nGrass-type data. It changes the type\nof the holder if held by a certain\rspecies of Pokémon.
+A memory disc that contains\nElectric-type data. It changes the\ntype of the holder if held by a\rcertain species of Pokémon.
+A memory disc that contains\nPsychic-type data. It changes the\ntype of the holder if held by a\rcertain species of Pokémon.
+A memory disc that contains Ice-type\ndata. It changes the type of the\nholder if held by a certain species\rof Pokémon.
+A memory disc that contains\nDragon-type data. It changes the\ntype of the holder if held by a\rcertain species of Pokémon.
+A memory disc that contains\nDark-type data. It changes the type\nof the holder if held by a certain\rspecies of Pokémon.
+A memory disc that contains\nFairy-type data. It changes the type\nof the holder if held by a certain\rspecies of Pokémon.
+This is a crystallized form of\nZ-Power. It upgrades Solgaleo’s\nSunsteel Strike to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Lunala’s\nMoongeist Beam to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Necrozma’s\nPhoton Geyser to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Mimikyu’s Play\nRough to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Lycanroc’s\nStone Edge to a Z-Move.
+This is a crystallized form of\nZ-Power. It upgrades Kommo-o’s\nClanging Scales to a Z-Move.
+It converts Z-Power into crystals\nthat upgrade Solgaleo’s Sunsteel\nStrike to a Z-Move.
+It converts Z-Power into crystals\nthat upgrade Lunala’s Moongeist Beam\nto a Z-Move.
+It’s a crystal that turns Necrozma\nfused with Solgaleo or Lunala into a\nnew form.
+It converts Z-Power into crystals\nthat upgrade Mimikyu’s Play Rough to\na Z-Move.
+It converts Z-Power into crystals\nthat upgrade Lycanroc’s Stone Edge\nto a Z-Move.
+It converts Z-Power into crystals\nthat upgrade Kommo-o’s Clanging\nScales to a Z-Move.
+A mysterious ring that enables\nPokémon to use Z-Power. It requires\nboth the willpower and the physical\rpower of the Trainer wearing it.
+A pressed flower petal you receive\nfrom Mina during Mina’s trial. The\ngoal is to collect seven different\rkinds of petals.
+A pressed flower petal you receive\nfrom Ilima during Mina’s trial. The\ngoal is to collect seven different\rkinds of petals.
+A pressed flower petal you receive\nfrom Lana during Mina’s trial. The\ngoal is to collect seven different\rkinds of petals.
+A pressed flower petal you receive\nfrom Kiawe during Mina’s trial. The\ngoal is to collect seven different\rkinds of petals.
+A pressed flower petal you receive\nfrom Mallow during Mina’s trial. The\ngoal is to collect seven different\rkinds of petals.
+A pressed flower petal you receive\nfrom Sophocles during Mina’s trial.\nThe goal is to collect seven\rdifferent kinds of petals.
+A pressed flower petal you receive\nfrom Nanu during Mina’s trial. The\ngoal is to collect seven different\rkinds of petals.
+A flower made of the petals you\nreceived from captains. It’s proof\nthat your growth has been recognized\rby them.
+A novelty badge that you can receive\nat the Kantonian Gym. Rumor has it\nthat it imitates the Badge of a Gym\rsomewhere.
+A machine to fuse Necrozma, which\nneeds light, and Solgaleo.
+A machine to fuse Necrozma, which\nneeds light, and Lunala.
+A machine to separate Necrozma,\nwhich needed light, from Solgaleo.
+A machine to separate Necrozma,\nwhich needed light, from Lunala.
+The Normalium Z you were entrusted\nwith by Ilima. You were asked to\nplace it on the pedestal at the back\rof Verdant Cavern.
+A Poké Ball containing a Pokémon\nthat lost its Trainer. It seems the\nTrainer hails from Ula’ula Island.
+One of the Rotom Powers. When used,\nit helps Eggs hatch faster.
+One of the Rotom Powers. When used,\nit reduces the prices of products at\nPoké Marts by half.
+One of the Rotom Powers. When used,\nit triples the prize money you\nreceive after battle.
+One of the Rotom Powers. When used,\nit slightly increases the Exp.\nPoints your Pokémon receive after\rbattle.
+One of the Rotom Powers. When used,\nit helps Pokémon in your party grow\nfriendly quite a lot faster.
+One of the Rotom Powers. When used,\nit increases the chance of\nencountering high-level wild Pokémon\rfor a certain period of time.
+One of the Rotom Powers. When used,\nit prevents you from encountering\nany wild Pokémon for a certain\rperiod of time.
+One of the Rotom Powers. When used,\nit fully restores the max HP of your\nbattling Pokémon.
+One of the Rotom Powers. When used,\nit fully restores the max PP of your\nbattling Pokémon.
+One of the Rotom Powers. When used,\nit boosts all stats for your\nbattling Pokémon.
+One of the Rotom Powers. When used,\nit makes you far likelier to succeed\nat catching the wild Pokémon in the\rimmediate area.
+A candy that is packed with energy.\nWhen given to a Pokémon, it will\nincrease that Pokémon’s HP.
+A candy that is packed with energy.\nWhen given to a Pokémon, it will\nincrease that Pokémon’s Attack stat.
+A candy that is packed with energy.\nWhen given to a Pokémon, it will\nincrease that Pokémon’s Defense\rstat.
+A candy that is packed with energy.\nWhen given to a Pokémon, it will\nincrease that Pokémon’s Sp. Atk\rstat.
+A candy that is packed with energy.\nWhen given to a Pokémon, it will\nincrease that Pokémon’s Sp. Def\rstat.
+A candy that is packed with energy.\nWhen given to a Pokémon, it will\nincrease that Pokémon’s Speed stat.
+A big candy that is packed with\nenergy. When given to a Pokémon at\nLv. 30 or higher, it will increase\rthat Pokémon’s HP.
+A big candy that is packed with\nenergy. When given to a Pokémon at\nLv. 30 or higher, it will increase\rthat Pokémon’s Attack stat.
+A big candy that is packed with\nenergy. When given to a Pokémon at\nLv. 30 or higher, it will increase\rthat Pokémon’s Defense stat.
+A big candy that is packed with\nenergy. When given to a Pokémon at\nLv. 30 or higher, it will increase\rthat Pokémon’s Sp. Atk stat.
+A big candy that is packed with\nenergy. When given to a Pokémon at\nLv. 30 or higher, it will increase\rthat Pokémon’s Sp. Def stat.
+A big candy that is packed with\nenergy. When given to a Pokémon at\nLv. 30 or higher, it will increase\rthat Pokémon’s Speed stat.
+A huge candy that is packed with\nenergy. When given to a Pokémon at\nLv. 60 or higher, it will increase\rthat Pokémon’s HP.
+A huge candy that is packed with\nenergy. When given to a Pokémon at\nLv. 60 or higher, it will increase\rthat Pokémon’s Attack stat.
+A huge candy that is packed with\nenergy. When given to a Pokémon at\nLv. 60 or higher, it will increase\rthat Pokémon’s Defense stat.
+A huge candy that is packed with\nenergy. When given to a Pokémon at\nLv. 60 or higher, it will increase\rthat Pokémon’s Sp. Atk stat.
+A huge candy that is packed with\nenergy. When given to a Pokémon at\nLv. 60 or higher, it will increase\rthat Pokémon’s Sp. Def stat.
+A huge candy that is packed with\nenergy. When given to a Pokémon at\nLv. 60 or higher, it will increase\rthat Pokémon’s Speed stat.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+A candy that is packed with energy.\nWhen given to certain Pokémon, it\nwill increase all their stats at\ronce.
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -

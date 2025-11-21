@@ -127,6 +127,24 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     }
 
     struct PartyPokemon * mons[pokecount];
+    struct Party *playerParty = bp->poke_party[0];
+    int highestlevelEnemy = 0;
+    int highestLevelPlayer = 0;
+    
+    for (i = 0; i < pokecount; i++) {
+        mons[i] = AllocMonZeroed(heapID);
+        if (highestlevelEnemy < (buf[2] | (buf[3] << 8)))
+            highestlevelEnemy = (buf[2] | (buf[3] << 8));
+    }
+    
+    for (i = 0; i < playerParty->count; i++) {
+        struct PartyPokemon *pp = Party_GetMonByIndex(playerParty, i);
+        if (highestLevelPlayer < GetMonData(pp, MON_DATA_LEVEL, NULL))
+            highestLevelPlayer = GetMonData(pp, MON_DATA_LEVEL, NULL);
+    }
+    
+    int scaledTotalLevel = highestLevelPlayer - highestlevelEnemy;
+    int leftoverLevel = 0;
 
     for (i = 0; i < pokecount; i++)
     {
@@ -141,7 +159,23 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
         // level field
         level = buf[offset] | (buf[offset+1] << 8);
-        gLastPokemonLevelForMoneyCalc = level; // ends up being the last level at the end of the loop that we use for the money calc loop default case
+        int scaledLevel = level + scaledTotalLevel / 2 + leftoverLevel;
+        
+        if (scaledTotalLevel > 0 && scaledLevel > level) {
+            if (scaledLevel > highestLevelPlayer) {
+                level = highestLevelPlayer;
+                leftoverLevel += (scaledLevel - highestLevelPlayer);
+            } else {
+                level = scaledLevel;
+            }
+        }
+        
+        if (i == pokecount)
+            leftoverLevel = 0;
+        
+        int totalLevelForMoneyCalc = 0;
+        totalLevelForMoneyCalc += level;
+        gLastPokemonLevelForMoneyCalc = totalLevelForMoneyCalc / pokecount; // ends up being the last level at the end of the loop that we use for the money calc loop default case
         offset += 2;
 
         // species field
@@ -149,6 +183,18 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         offset += 2;
         form_no = (species & 0xF800) >> 11;
         species &= 0x07FF;
+        
+        u16 speciesWithForm;
+        speciesWithForm = PokeOtherFormMonsNoGet(species, form_no);
+
+        struct Evolution *evoTable;
+        evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
+        ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, speciesWithForm);
+
+        if (evoTable[0].method != EVO_LEVEL
+            && level >= evoTable[0].param) {
+            species = evoTable[0].target;
+        }
 
         // item field - conditional
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
