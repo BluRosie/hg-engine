@@ -70,7 +70,7 @@ _CheckPrizeMoney:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 1, _SentToMomMessage
     // {0} got ${1} for winning!
     PrintMessage 33, TAG_TRNAME_NUM, BATTLER_CATEGORY_PLAYER, BATTLER_CATEGORY_MSG_TEMP
-    GoTo ContinueScript
+    GoTo _ContinueScript
 
 _SentToMomMessage:
     // {0} got ${1} for winning! Sent some to Mom!

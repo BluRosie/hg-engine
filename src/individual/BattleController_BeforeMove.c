@@ -3177,6 +3177,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             || GetBattlerAbility(ctx, ctx->attack_client) == GetBattlerAbility(ctx, ctx->defence_client)) {
                 butItFailedFlag = TRUE;
             }
+            break;
         }
         case MOVE_ENTRAINMENT: {
             if (AbilityNoEntrainment(GetBattlerAbility(ctx, ctx->attack_client))

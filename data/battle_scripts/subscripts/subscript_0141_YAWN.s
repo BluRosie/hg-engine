@@ -10,8 +10,8 @@ _Start:
     CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _ImmuneDueToAbility
 
 _CheckFlowerVeil:
-    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, checkGrassForFlowerVeilSingle
-    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_RELATIVE_ALLY|BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, checkGrassForFlowerVeilDouble
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _SingleFlowerVeilGrassCheck
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_RELATIVE_ALLY|BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _DoubleFlowerVeilGrassCheck
     GoTo _CheckIfGrounded
 
 _SingleFlowerVeilGrassCheck:
@@ -35,18 +35,18 @@ _CheckTerrain:
 _AttackMessage:
     PrintAttackMessage
     Wait
-    CheckSubstitute BATTLER_CATEGORY_SIDE_EFFECT_MON, _MoveFailed
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_SOUNDPROOF, _CheckIfAlreadyStatused
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_UPROAR, _MoveFailed
+    CheckSubstitute BATTLER_CATEGORY_SIDE_EFFECT_MON, _ButItFailed
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_SOUNDPROOF, _CheckIfAlreadyHasStatus
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_UPROAR, _ButItFailed
 
-_CheckIfAlreadyStatused:
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_NONE, _MoveFailed
+_CheckIfAlreadyHasStatus:
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_NONE, _ButItFailed
     // Check for Safeguard.
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_SIDE_CONDITION_STAT_CHANGE, SIDE_CONDITION_SAFEGUARD, _118
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_SIDE_CONDITION_STAT_CHANGE, SIDE_CONDITION_SAFEGUARD, _HandleSafeguard
 
-_BypassSafeguard:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SEMI_INVULNERABLE|MOVE_STATUS_MISSED, _112
-    TryYawn _MoveFailed
+_TryYawn:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SEMI_INVULNERABLE|MOVE_STATUS_MISSED, _ButItFailed
+    TryYawn _ButItFailed
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait
     // {0} made {1} drowsy!
@@ -63,14 +63,14 @@ _ImmuneDueToAbility:
     PrintMessage 734, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLER_CATEGORY_SIDE_EFFECT_MON
     GoTo _Cleanup
 
-_MoveFailed:
+_ButItFailed:
     WaitButtonABTime 30
     Call BATTLE_SUBSCRIPT_BUT_IT_FAILED
-    GoTo _End
+    End
 
-_118:
+_HandleSafeguard:
     // Infiltrator bypasses Safeguard and this is specifically for Yawn, so we don't need to worry about much more than this.
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_ABILITY, ABILITY_INFILTRATOR, _BypassSafeguard
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_ABILITY, ABILITY_INFILTRATOR, _TryYawn
     WaitButtonABTime 30
     // {0} is protected by Safeguard!
     PrintMessage 200, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
@@ -79,8 +79,6 @@ _Cleanup:
     Wait
     WaitButtonABTime 30
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK
-
-_End:
     End
 
 _FlowerVeilAllyFail:
