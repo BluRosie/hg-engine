@@ -2,7 +2,8 @@
 
 .data
 
-// Called by False Swipe, for some reason.
+// Called by False Swipe and Hold Back.
+// ...for some reason.
 _Start:
     CalcCrit 
     CalcDamage 

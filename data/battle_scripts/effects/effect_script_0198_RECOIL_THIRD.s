@@ -2,7 +2,7 @@
 
 .data
 
-// Called by Brave Bird, Double-Edge, Flare Blitz, Volt Tackle, Wave Crash and Wood Hammer.
+// Called by Brave Bird, Double-Edge, Wave Crash and Wood Hammer.
 _Start:
     CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_RECKLESS, _CalcDamage
     UpdateVar OPCODE_SET, BSCRIPT_VAR_POWER_MULTI, 12

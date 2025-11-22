@@ -3,6 +3,7 @@
 .data
 
 // Called by Ancient Power, Ominous Wind and Silver Wind.
+// May be called by Clangorous Soulblaze, if/when Z-Moves are implemented.
 _Start:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT, MOVE_SIDE_EFFECT_TO_ATTACKER|MOVE_SUBSCRIPT_PTR_BOOST_ALL_STATS
     CalcCrit 
