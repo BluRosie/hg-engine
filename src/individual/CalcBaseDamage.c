@@ -433,8 +433,11 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             movepower *= 2;
         }
         break;
+    case MOVE_TEMPER_FLARE:
     case MOVE_STOMPING_TANTRUM:
-        // TODO: Implement Stomping Tantrum
+        if (AttackingMon.hasMoveFailureLastTurn) {
+            movepower *= 2;
+        }
         break;
     case MOVE_WAKE_UP_SLAP:
         if (DefendingMon.condition & STATUS_SLEEP) {
