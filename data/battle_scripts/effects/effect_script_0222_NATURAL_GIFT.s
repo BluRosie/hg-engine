@@ -2,16 +2,16 @@
 
 .data
 
-_000:
-    CalcNaturalGiftParams _008
-    GotoIfFirstHitOfParentalBond _005
+_Start:
+    CalcNaturalGiftParams _MoveFailed
+    GotoIfFirstHitOfParentalBond _CalcDamage
     RemoveItem BATTLER_CATEGORY_ATTACKER
 
-_005:
+_CalcDamage:
     CalcCrit 
     CalcDamage 
     End 
 
-_008:
+_MoveFailed:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 

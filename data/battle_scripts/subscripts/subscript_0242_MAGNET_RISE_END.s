@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0}’s electromagnetism wore off!
     PrintMessage 1039, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 

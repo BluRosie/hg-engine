@@ -110,6 +110,7 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
 BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp);
 BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* sp);
 BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -530,7 +531,7 @@ u16 sMetronomeMimicMoveBanList[] =
 // invalid moves
     MOVE_468,
     MOVE_469,
-    MOVE_470,
+    MOVE_MEGA_EVOLVE,
 
     0xFFFE,
     MOVE_AFTER_YOU,
@@ -1076,7 +1077,7 @@ BOOL btl_scr_cmd_17_playanimation(void *bw, struct BattleStruct *sp)
     // mega evolution is animation 470--force it to play regardless of whether or not animations are on
     if ((((sp->server_status_flag & SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING) == 0)
       && (CheckBattleAnimationsOption(bw) == TRUE))
-     || (move == MOVE_TRANSFORM || move == MOVE_470 || move == MOVE_ELECTRIC_TERRAIN || move == MOVE_MISTY_TERRAIN || move == MOVE_GRASSY_TERRAIN || move == MOVE_PSYCHIC_TERRAIN))
+     || (move == MOVE_TRANSFORM || move == MOVE_MEGA_EVOLVE || move == MOVE_ELECTRIC_TERRAIN || move == MOVE_MISTY_TERRAIN || move == MOVE_GRASSY_TERRAIN || move == MOVE_PSYCHIC_TERRAIN))
     {
         sp->server_status_flag |= SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING;
         SCIO_QueueMoveAnimation(bw, sp, move);
@@ -1121,7 +1122,7 @@ BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
     // TODO figure out what should actually go here
     if ((((sp->server_status_flag & SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING) == 0)
       && (CheckBattleAnimationsOption(bw) == TRUE))
-     || (move == MOVE_TRANSFORM || move == MOVE_470 || move == MOVE_ELECTRIC_TERRAIN || move == MOVE_MISTY_TERRAIN || move == MOVE_GRASSY_TERRAIN || move == MOVE_PSYCHIC_TERRAIN))
+     || (move == MOVE_TRANSFORM || move == MOVE_MEGA_EVOLVE || move == MOVE_ELECTRIC_TERRAIN || move == MOVE_MISTY_TERRAIN || move == MOVE_GRASSY_TERRAIN || move == MOVE_PSYCHIC_TERRAIN))
     {
         sp->server_status_flag |= SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING;
         SCIO_QueueMoveAnimationConsiderAttackerDefender(bw, sp, move, cli_a, cli_d);
@@ -4239,6 +4240,30 @@ BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx)
         ctx->scw[side].reflectCount = 0;
         ctx->scw[side].lightScreenCount = 0;
         ctx->scw[side].auroraVeilCount = 0;
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int side = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    if (ctx->scw[side].toxicSpikesLayers) {
+        ctx->temp_work = ctx->scw[side].toxicSpikesLayers;
+        ctx->addeffect_type = ADD_EFFECT_TOXIC_SPIKES;
+        ctx->state_client = battlerID;
+        if (HasType(ctx, battlerID, TYPE_POISON)) {
+            ctx->side_condition[side] &= ~SIDE_STATUS_TOXIC_SPIKES;
+            ctx->scw[side].toxicSpikesLayers = 0;
+            ctx->temp_work = 0;
+        }
     } else {
         IncrementBattleScriptPtr(ctx, adrs);
     }

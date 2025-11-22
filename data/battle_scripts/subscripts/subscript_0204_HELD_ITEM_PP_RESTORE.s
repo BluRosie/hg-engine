@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Leppa Berry (and potentially Hopo Berry).
+_Start:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
     Wait 
     // {0} restored {2}’s PP using its {1}!

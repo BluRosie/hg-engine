@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
     AddThirdType TYPE_GHOST
     // Ghost type was added to {0}!

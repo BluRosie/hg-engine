@@ -1,5 +1,6 @@
 import sys
 import os
+import pprint
 
 # Helper methods for reading narcs and parsing .inc files
 from dump_scripts.dump_tools import *

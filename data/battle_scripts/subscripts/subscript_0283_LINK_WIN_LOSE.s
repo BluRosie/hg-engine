@@ -2,11 +2,11 @@
 
 .data
 
-_000:
+_Start:
     SetLinkBattleResult 
     PrintBattleResultMessage 
     Wait 
     WaitButtonABTime 30
     FadeOutBattle 
-    Wait 
-    End 
+    Wait
+    End

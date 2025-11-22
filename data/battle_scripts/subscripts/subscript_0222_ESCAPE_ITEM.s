@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Poké Doll.
+_Start:
     // Used the {0}!
     PrintMessage 1206, TAG_ITEM, BATTLER_CATEGORY_MSG_TEMP
     Wait 

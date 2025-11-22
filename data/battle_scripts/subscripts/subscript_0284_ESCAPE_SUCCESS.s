@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     PlaySound BATTLER_CATEGORY_ATTACKER, 1791
     // Got away safely!
     PrintMessage 781, TAG_NONE

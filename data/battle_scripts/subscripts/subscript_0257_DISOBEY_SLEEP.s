@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     WaitButtonABTime 15
     // {0} began to nap!
     PrintMessage 827, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER

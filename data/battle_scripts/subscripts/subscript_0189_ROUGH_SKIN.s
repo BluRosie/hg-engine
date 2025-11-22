@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Rough Skin and Iron Barbs.
+_Start:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // {0}’s {1} hurt {2}!

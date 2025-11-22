@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Trump Card.
+_Start:
     CalcTrumpCardPower 
     CalcCrit 
     CalcDamage 

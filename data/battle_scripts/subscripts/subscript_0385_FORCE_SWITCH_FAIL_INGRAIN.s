@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} is anchored in place with its roots!
     BufferMessage 542, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     PrintAttackMessage 

@@ -2,8 +2,8 @@
 
 .data
 
-_000:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF, _015
+_Start:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF, _CheckIfMoveHit
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30
@@ -12,10 +12,10 @@ _000:
     Wait 
     WaitButtonABTime 30
 
-_015:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_DID_NOT_HIT, _023
+_CheckIfMoveHit:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_DID_NOT_HIT, _End
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
 
-_023:
+_End:
     End 

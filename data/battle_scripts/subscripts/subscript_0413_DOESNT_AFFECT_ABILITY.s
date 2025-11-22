@@ -2,12 +2,12 @@
 
 .data
 
-_000:
+_Start:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30
 
-    // ability popup
+    // Ability popup?
 
     // It doesn’t affect {0}...
     PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP

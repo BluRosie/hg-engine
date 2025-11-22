@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN
     // The harsh sunlight faded.
     PrintMessage 809, TAG_NONE

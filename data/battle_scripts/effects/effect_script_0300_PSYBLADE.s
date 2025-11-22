@@ -2,15 +2,15 @@
 
 .data
 
-_000:
+_Start:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_POWER, 80
-    GotoIfTerrainOverlayIsType ELECTRIC_TERRAIN, _008
-    GoTo _012
+    GotoIfTerrainOverlayIsType ELECTRIC_TERRAIN, _HandleElectricTerrain
+    GoTo _CalcDamage
 
-_008:
+_HandleElectricTerrain:
     UpdateVar OPCODE_ADD, BSCRIPT_VAR_MOVE_POWER, 40
 
-_012:
+_CalcDamage:
     CalcCrit 
     CalcDamage 
     End 

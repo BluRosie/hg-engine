@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Payback, Revenge and Avalanche.
+_Start:
     CalcPaybackPower 
     CalcCrit 
     CalcDamage 

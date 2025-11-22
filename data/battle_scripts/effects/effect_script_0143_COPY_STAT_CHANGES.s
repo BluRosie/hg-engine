@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Psych Up.
+_Start:
     CopyStatStages 
     // {0} copied {1}’s stat changes!
     BufferMessage 452, TAG_NICKNAME_NICKNAME, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_DEFENDER

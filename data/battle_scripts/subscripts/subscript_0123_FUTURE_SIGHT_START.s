@@ -2,9 +2,9 @@
 
 .data
 
-_000:
+_Start:
     PrintAttackMessage 
-    Wait 
+    Wait
     WaitButtonABTime 15
     PrintBufferedMessage 
     Wait 

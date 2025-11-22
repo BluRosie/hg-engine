@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} flew up high!
     BufferMessage 223, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     GoToEffectScript 

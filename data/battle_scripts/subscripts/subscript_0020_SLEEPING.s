@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} is fast asleep.
     PrintMessage 299, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 

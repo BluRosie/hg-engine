@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} is paralyzed! It can’t move!
     PrintMessage 130, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 

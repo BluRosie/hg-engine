@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // Can’t escape!
     PrintMessage 42, TAG_NONE
     Wait 

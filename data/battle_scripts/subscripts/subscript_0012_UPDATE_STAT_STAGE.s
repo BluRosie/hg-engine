@@ -2,60 +2,56 @@
 
 .data
 
-_000:
-    ChangeStatStage _051, _069, _070
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _010
-    PrintAttackMessage 
-    Wait 
+_Start:
+    // Address 1 if no change, Address 2 if effect was blocked, Address 3 if blocked by Substitute.
+    ChangeStatStage _PrimaryEffectStageMinMax, _CheckIfDefiantOrCompetitive, _EndWithFailFlag
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _StageChangeAnim
 
-_010:
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _023
+_PrimaryEffect:
+    PrintAttackMessage 
+    Wait
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
 
-_023:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_UPDATE_STAT_STAGES, _041
+_StageChangeAnim:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_UPDATE_STAT_STAGES, _StageChangeMessage
     PlayBattleAnimationFromVar BATTLER_CATEGORY_SIDE_EFFECT_MON, BSCRIPT_VAR_TEMP_DATA
     Wait 
-    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_STAT_STAGE_CHANGE_SHOWN, _041
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_STAT_STAGE_CHANGE_SHOWN, _StageChangeMessage
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_UPDATE_STAT_STAGES
 
-_041:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SHADOW_FORCE, _069
+_StageChangeMessage:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SHADOW_FORCE, _CheckIfDefiantOrCompetitive
     PrintBufferedMessage 
     Wait 
     WaitButtonABTime 30
-    CheckCanActivateDefiantOrCompetitive _NoNeedHandle, _HandleDefiant, _HandleCompetitive
+
+_CheckIfDefiantOrCompetitive:
+    CheckCanActivateDefiantOrCompetitive _End, _HandleDefiant, _HandleCompetitive
+
 _HandleDefiant:
     Call BATTLE_SUBSCRIPT_HANDLE_DEFIANT
-    GoTo _NoNeedHandle
+    GoTo _End
+
 _HandleCompetitive:
     Call BATTLE_SUBSCRIPT_HANDLE_COMPETITIVE
-_NoNeedHandle:
+
+_End:
     End 
 
-_051:
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _058
+_PrimaryEffectStageMinMax:
+    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _StageMinMaxMessage
     PrintAttackMessage 
     Wait 
 
-_058:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MESSAGES_OFF, _069
+_StageMinMaxMessage:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MESSAGES_OFF, _CheckIfDefiantOrCompetitive
     WaitButtonABTime 30
     PrintBufferedMessage 
     Wait 
     WaitButtonABTime 30
+    GoTo _CheckIfDefiantOrCompetitive
 
-_069:
-    CheckCanActivateDefiantOrCompetitive _NoNeedHandle2, _HandleDefiant2, _HandleCompetitive2
-_HandleDefiant2:
-    Call BATTLE_SUBSCRIPT_HANDLE_DEFIANT
-    GoTo _NoNeedHandle
-_HandleCompetitive2:
-    Call BATTLE_SUBSCRIPT_HANDLE_COMPETITIVE
-_NoNeedHandle2:
-    End 
-
-_070:
+_EndWithFailFlag:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 

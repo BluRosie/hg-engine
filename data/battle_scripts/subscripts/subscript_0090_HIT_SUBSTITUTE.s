@@ -2,18 +2,18 @@
 
 .data
 
-_000:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK, _009
+_Start:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK, _HitSubstitute
     PlayMoveHitSound BATTLER_CATEGORY_MSG_TEMP
     FlickerMon BATTLER_CATEGORY_MSG_TEMP
     Wait 
 
-_009:
+_HitSubstitute:
     // The substitute took damage for {0}!
     PrintMessage 354, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
-    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _040
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _End
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_SUBSTITUTE_OUT
     Wait 
     RestoreSprite BATTLER_CATEGORY_MSG_TEMP
@@ -25,5 +25,5 @@ _009:
     Wait 
     WaitButtonABTime 30
 
-_040:
+_End:
     End 

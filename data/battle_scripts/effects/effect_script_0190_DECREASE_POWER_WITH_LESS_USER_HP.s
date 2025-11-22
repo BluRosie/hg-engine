@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Eruption, Water Spout and Dragon Energy.
+_Start:
     CalcHPFalloffPower 
     CalcCrit 
     CalcDamage 
