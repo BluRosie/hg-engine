@@ -545,3 +545,6 @@ arm9 ScrCmd_MartBuy 02048060 1
 
 # expand heal blocked moves
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
+
+arm9 FieldSystem_GetTerrainFromStandingTile 02052470 2
+arm9 MapHeader_GetBattleBg 0203B41C 1

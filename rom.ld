@@ -772,3 +772,6 @@ PrintItemSlotQuantity = 0x021FF66C | 1;
 
 PlayerProfile_TestBadgeFlag = 0x02028F98 | 1;
 InitMartUI = 0x02256D34 | 1;
+MapNumberBoundsCheck = 0x0203B268 | 1;
+sMapHeaders = 0x020F6BE0 | 1;
+ov12_0226E70C = 0x0226E70C;

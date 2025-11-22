@@ -27,8 +27,14 @@
  *
  *  @param bw battle work structure
  */
+// External function to initialize expanded battle background table
+extern void InitExpandedBattleBgTable(void);
+
 struct BattleStruct *ServerInit(struct BattleSystem *bw) {
     struct BattleStruct *sp;
+
+    // Initialize expanded battle background table (must be done before backgrounds are loaded)
+    InitExpandedBattleBgTable();
 
     sp = sys_AllocMemory(HEAPID_BATTLE_HEAP, sizeof(struct BattleStruct));
     memset(sp, 0, sizeof(struct BattleStruct));

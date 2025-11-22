@@ -49,6 +49,17 @@ arm9 sItemFieldUseFuncs+8 020649B4
 0012 TerrainPlatformEnemyNCGR 02265F24
 0012 TerrainPlatformPalettes 02265F2C
 
+# battle background table expansion
+0012 gExpandedBattleBgTable 02266630
+0012 gExpandedBattleBgTable 02266C58
+0012 gExpandedBattleBgTable 02269894
+0012 gExpandedBattleBgTable 02269A8C
+0012 gExpandedBattleBgTable 02269C60
+0012 gExpandedBattleBgTable 02269DC8
+0012 gExpandedBattleBgTable 02269F48
+0012 gExpandedBattleBgTable 0226A28C
+0012 gExpandedBattleBgTable 0226A6E0
+
 # swarm table
 arm9 sSwarmMapLUT 02097FF0
 arm9 sSwarmMapLUT 02097F94
