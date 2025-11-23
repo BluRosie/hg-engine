@@ -1459,7 +1459,11 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 265
+    .macro ClearSmog
+    .long 266
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 266
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

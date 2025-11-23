@@ -135,6 +135,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_TryPluck 022444D0 3
 0012 BtlCmd_PlayFaintAnimation 0223E290 3
 0012 BtlCmd_TryBreakScreens 02242E00 3
+0012 BtlCmd_ResetAllStatChanges 0223FA1C 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3

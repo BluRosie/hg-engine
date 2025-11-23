@@ -7764,7 +7764,7 @@ movedata MOVE_FLAME_BURST, "Flame Burst"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -8043,7 +8043,7 @@ movedata MOVE_CHIP_AWAY, "Chip Away"
     movedescription MOVE_CHIP_AWAY, "An attack which is\nnot affected by the\ntarget’s stat\nchanges."
 
 movedata MOVE_CLEAR_SMOG, "Clear Smog"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_CLEAR_SMOG
     pss SPLIT_SPECIAL
     basepower 50
     type TYPE_POISON
@@ -8052,7 +8052,7 @@ movedata MOVE_CLEAR_SMOG, "Clear Smog"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -9100,7 +9100,7 @@ movedata MOVE_STICKY_WEB, "Sticky Web"
     movedescription MOVE_STICKY_WEB, "The user weaves a web\naround the foe.\nIt lowers the foes\nSpeed upon switching\nin."
 
 movedata MOVE_FELL_STINGER, "Fell Stinger"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_FELL_STINGER
     pss SPLIT_PHYSICAL
     basepower 50
     type TYPE_BUG
@@ -9109,7 +9109,7 @@ movedata MOVE_FELL_STINGER, "Fell Stinger"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -9260,7 +9260,7 @@ movedata MOVE_DISARMING_VOICE, "Disarming Voice"
     movedescription MOVE_DISARMING_VOICE, "Letting out a charming\ncry, the user does\nemotional damage to\nopposing Pokémon. This\nattack never misses."
 
 movedata MOVE_PARTING_SHOT, "Parting Shot"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_PARTING_SHOT
     pss SPLIT_STATUS
     basepower 0
     type TYPE_DARK
@@ -9269,7 +9269,7 @@ movedata MOVE_PARTING_SHOT, "Parting Shot"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -11385,7 +11385,7 @@ movedatalongname MOVE_STOMPING_TANTRUM, "StompingTantrum", "Stomping Tantrum"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12832,7 +12832,7 @@ movedata MOVE_EXPANDING_FORCE, "Expanding Force"
     movedescription MOVE_EXPANDING_FORCE, "---"
 
 movedata MOVE_STEEL_ROLLER, "Steel Roller"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_END_TERRAIN
     pss SPLIT_PHYSICAL
     basepower 130
     type TYPE_STEEL
@@ -12841,7 +12841,7 @@ movedata MOVE_STEEL_ROLLER, "Steel Roller"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13840,7 +13840,7 @@ movedata MOVE_POPULATION_BOMB, "Population Bomb"
     movedescription MOVE_POPULATION_BOMB, "The user’s fellows\ngather in droves to\nperform a combo attack\nthat hits the target one\nto ten times in a row."
 
 movedata MOVE_ICE_SPINNER, "Ice Spinner"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_END_TERRAIN
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_ICE
@@ -13849,7 +13849,7 @@ movedata MOVE_ICE_SPINNER, "Ice Spinner"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -14713,7 +14713,7 @@ movedata MOVE_TEMPER_FLARE, "Temper Flare"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

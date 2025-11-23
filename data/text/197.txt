@@ -1592,3 +1592,9 @@ Aurora Veil made your team stronger\nagainst physical and special moves!
 Aurora Veil made the opposing team\nstronger against physical and special\fmoves!
 {STRVAR_1 1, 0, 0} picked up\n{STRVAR_1 8, 1, 0}!\fPut it in the bag.
 Some of your party has\npicked up items!\fPut them in the bag.
+{STRVAR_1 1, 0, 0}\ncan’t fall asleep due to a veil\fof sweetness!
+The wild {STRVAR_1 1, 0, 0}\ncan’t fall asleep due to a veil\fof sweetness!
+The opposing {STRVAR_1 1, 0, 0}\ncan’t fall asleep due to a veil\fof sweetness!
+The bursting flame hit {STRVAR_1 1, 0, 0}!
+The bursting flame hit the wild\n{STRVAR_1 1, 0, 0}!
+The bursting flame hit the\nopposing {STRVAR_1 1, 0, 0}!
