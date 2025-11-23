@@ -1100,6 +1100,8 @@ gIconPalTable:
 /* SPECIES_TERAPAGOS       */ .byte  0x0
 /* SPECIES_PECHARUNT       */ .byte  0x0
 
+/* SPECIES_CELESTINA       */ .byte  0x2
+
 /* SPECIES_MEGA_VENUSAUR   */ .byte  0x1
 /* SPECIES_MEGA_CHARIZARD_X*/ .byte  0x0
 /* SPECIES_MEGA_CHARIZARD_Y*/ .byte  0x0
@@ -1168,18 +1170,18 @@ gIconPalTable:
 /* SPECIES_MUK_ALOLAN                  */ .byte  0x0
 /* SPECIES_EXEGGUTOR_ALOLAN            */ .byte  0x1
 /* SPECIES_MAROWAK_ALOLAN              */ .byte  0x1
-/* SPECIES_RATICATE_ALOLAN_LARGE       */ .byte  0x2   
-/* SPECIES_MAROWAK_ALOLAN_LARGE        */ .byte  0x1   
-/* SPECIES_GUMSHOOS_LARGE              */ .byte  0x2   
-/* SPECIES_VIKAVOLT_LARGE              */ .byte  0x0   
-/* SPECIES_RIBOMBEE_LARGE              */ .byte  0x2   
-/* SPECIES_ARAQUANID_LARGE             */ .byte  0x2   
-/* SPECIES_LURANTIS_LARGE              */ .byte  0x1   
-/* SPECIES_SALAZZLE_LARGE              */ .byte  0x0   
-/* SPECIES_TOGEDEMARU_LARGE            */ .byte  0x2   
-/* SPECIES_MIMIKYU_LARGE               */ .byte  0x1   
-/* SPECIES_MIMIKYU_BUSTED_LARGE        */ .byte  0x1   
-/* SPECIES_KOMMO_O_LARGE               */ .byte  0x2   
+/* SPECIES_RATICATE_ALOLAN_LARGE       */ .byte  0x2
+/* SPECIES_MAROWAK_ALOLAN_LARGE        */ .byte  0x1
+/* SPECIES_GUMSHOOS_LARGE              */ .byte  0x2
+/* SPECIES_VIKAVOLT_LARGE              */ .byte  0x0
+/* SPECIES_RIBOMBEE_LARGE              */ .byte  0x2
+/* SPECIES_ARAQUANID_LARGE             */ .byte  0x2
+/* SPECIES_LURANTIS_LARGE              */ .byte  0x1
+/* SPECIES_SALAZZLE_LARGE              */ .byte  0x0
+/* SPECIES_TOGEDEMARU_LARGE            */ .byte  0x2
+/* SPECIES_MIMIKYU_LARGE               */ .byte  0x1
+/* SPECIES_MIMIKYU_BUSTED_LARGE        */ .byte  0x1
+/* SPECIES_KOMMO_O_LARGE               */ .byte  0x2
 /* SPECIES_MEOWTH_GALARIAN             */ .byte  0x2
 /* SPECIES_PONYTA_GALARIAN             */ .byte  0x2
 /* SPECIES_RAPIDASH_GALARIAN           */ .byte  0x2
@@ -1417,6 +1419,8 @@ gIconPalTable:
 /* SPECIES_URSALUNA_BLOODMOON          */ .byte  0x2
 /* SPECIES_TERAPAGOS_TERASTAL          */ .byte  0x0
 /* SPECIES_TERAPAGOS_STELLAR           */ .byte  0x0
+
+/* SPECIES_SLUGMA_SAISANN              */ .byte  0x0
 
 .endarea
 
