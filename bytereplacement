@@ -482,3 +482,8 @@ arm9 0207C3AC 00 00 00 00
 # skip the tm teach confirmation on the mon screen
 arm9 0208222A 20 1C 24 4B 98 47 70 BD
 arm9 02082420 01 22
+
+#ifdef DEBUG_AUTO_CONTINUE_GAME
+# automatically starts the game.  does not care if there is a save or not
+arm9 02000E54 24 00 00 00 04 5C 1E 02
+#endif

@@ -566,11 +566,22 @@ u32 IsPlayerOnIce(u32 collision) // run to determine if the player is on ice
     return FALSE;
 }
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+u8 queueUpAutoBattleScript = 0;
+#endif
+
 BOOL IsPlayerOnLadder(void)
 {
     if (gFieldSysPtr == NULL)
         return TRUE;
     u32 collision = GetMetatileBehaviorAt(gFieldSysPtr, gFieldSysPtr->location->x, gFieldSysPtr->location->z);
     u32 mapId = gFieldSysPtr->location->mapId;
+#ifdef DEBUG_BATTLE_SCENARIOS
+    if (queueUpAutoBattleScript == 0)
+    {
+       EventSet_Script(gFieldSysPtr, 2073, NULL);
+       queueUpAutoBattleScript = 1;
+    }
+#endif
     return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
 }
