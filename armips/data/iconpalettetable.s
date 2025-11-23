@@ -1105,6 +1105,8 @@ gIconPalTable:
 /* SPECIES_TERAPAGOS       */ .byte  0x0
 /* SPECIES_PECHARUNT       */ .byte  0x0
 
+/* SPECIES_CELESTINA       */ .byte  0x2
+
 /* SPECIES_MEGA_VENUSAUR   */ .byte  0x1
 /* SPECIES_MEGA_CHARIZARD_X*/ .byte  0x0
 /* SPECIES_MEGA_CHARIZARD_Y*/ .byte  0x0
@@ -1422,6 +1424,8 @@ gIconPalTable:
 /* SPECIES_URSALUNA_BLOODMOON          */ .byte  0x2
 /* SPECIES_TERAPAGOS_TERASTAL          */ .byte  0x0
 /* SPECIES_TERAPAGOS_STELLAR           */ .byte  0x0
+
+/* SPECIES_SLUGMA_SAISANN              */ .byte  0x0
 
 .endarea
 
