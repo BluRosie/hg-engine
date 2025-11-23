@@ -2890,6 +2890,20 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             break;
         }
         break;
+    case MOVE_EFFECT_PARTING_SHOT:
+        if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_HYPER_CUTTER) && ctx->battlemon[defender].states[STAT_SPATK] == 0) {
+            subscriptToRun = SUB_SEQ_ATTACK_NOT_LOWERED;
+            break;
+        }
+        if (hasFlowerVeil) {
+            subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
+            break;
+        }
+        if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
+            subscriptToRun = SUB_SEQ_STATS_NOT_LOWERED;
+            break;
+        }
+        break;
     default:
         subscriptToRun = 0;
         break;
@@ -4226,6 +4240,13 @@ int BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys U
             && ctx->battlemon[defender].states[STAT_SPEED] == 0) {
                 result = 1;
             }
+            break;
+        case MOVE_EFFECT_PARTING_SHOT:
+            if (ctx->battlemon[defender].states[STAT_ATTACK] == 0
+                && ctx->battlemon[defender].states[STAT_SPATK] == 0) {
+                result = 1;
+            }
+            break;
         default:
             break;
     }
