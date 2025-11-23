@@ -22,6 +22,7 @@ void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, int bgId, int flag);
 // External references
 extern BattleBGStorage NewBattleBgTable[];
 extern u32 LONG_CALL GfGfxLoader_LoadCharData(u32 narcId, s32 memberNo, void *bgConfig, u32 layer, u32 tileStart, u32 szByte, BOOL isCompressed, u32 heapId);
+void LONG_CALL GfGfxLoader_LoadScrnData(u32 narcId, s32 memberNo, void *bgConfig, u32 layer, u32 tileStart, u32 szByte, BOOL isCompressed, u32 heapID);
 extern void LONG_CALL PaletteData_LoadNarc(void *data, u32 narcID, s32 memberNo, u32 heapID, u32 bufferID, u32 size, u16 pos);
 
 // Our expanded table (will be populated at runtime)
@@ -41,18 +42,19 @@ void LONG_CALL InitExpandedBattleBgTable(void) {
     debug_printf("  Vanilla table address (fixed): %p\n", vanillaTable);
     debug_printf("  Expanded table address: %p\n", gExpandedBattleBgTable);
 
-    // Copy all vanilla entries
+    // Copy all vanilla entries without modifying their callbacks
+    // Vanilla code needs these to work normally for bottom screen, etc.
     for (int i = 0; i < NUM_VANILLA_BATTLE_BACKGROUNDS; i++) {
         memcpy(&gExpandedBattleBgTable[i], &vanillaTable[i], sizeof(BattleBgTableEntry));
         if (i == 0) {
-            debug_printf("  Vanilla entry 0 callback (before): %p\n", vanillaTable[0].callback);
+            debug_printf("  Vanilla entry 0 callback: %p\n", vanillaTable[0].callback);
         }
     }
 
-    // TEST: Set callback on entry 0 to verify repoints are working
-    // If vanilla code is using our table and calls with bgConfigIdx=0, this callback will be called
+    // Set callback ONLY on entry 0 to detect when we need custom backgrounds
+    // This is called with flag=1 during main background setup
     gExpandedBattleBgTable[0].callback = CustomBattleBackgroundCallback;
-    debug_printf("  TEST: Set entry 0 callback to: %p (to verify repoint)\n", gExpandedBattleBgTable[0].callback);
+
 
     // Add custom entries (using vanilla entry 0 as template for header)
     for (int i = 0; i < NUM_CUSTOM_BACKGROUNDS; i++) {
@@ -67,6 +69,10 @@ void LONG_CALL InitExpandedBattleBgTable(void) {
 
         debug_printf("  Custom entry %d (idx=%d) callback set to: %p\n", i, idx, gExpandedBattleBgTable[idx].callback);
     }
+
+    // memset(gExpandedBattleBgTable[0].header, 0xFF, 0x28);  // all halfwords become 0xFFFF
+    // gExpandedBattleBgTable[0].callback = CustomBattleBackgroundCallback;
+    // gExpandedBattleBgTable[0].extraFn  = NULL;
 
     debug_printf("InitExpandedBattleBgTable: Created table with %d entries\n", TOTAL_BACKGROUNDS);
     debug_printf("  CustomBattleBackgroundCallback function address: %p\n", CustomBattleBackgroundCallback);
@@ -91,7 +97,7 @@ void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, int bgId, int flag) 
         return;
     }
 
-    // Only load on flag=1 (might be called multiple times during intro)
+    // Only load on flag=1 (main background loading)
     if (flag != 1) {
         debug_printf("  Wrong flag value, skipping (flag=%d)\n", flag);
         return;
@@ -106,16 +112,22 @@ void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, int bgId, int flag) 
 
     debug_printf("  NARC indices: bg=%d, palette=%d\n", bg_narc, palette_narc);
 
-    // Load the custom background graphics and palette
-    // GfGfxLoader_LoadCharData(narcId, memberNo, bgConfig, layer, tileStart, szByte, isCompressed, heapId)
-    // PaletteData_LoadNarc(data, narcID, memberNo, heapID, bufferID, size, pos)
+    // Load full background (graphics, tilemap, palette)
+    // Note: Loading during sprite setup causes artifacts - requires hooking ov12_02266508 to fix properly
     GfGfxLoader_LoadCharData(7, bg_narc, bsys->bgConfig, 3, 0, 0, TRUE, 5);
+    GfGfxLoader_LoadScrnData(7, bg_narc+2, bsys->bgConfig, 3, 0, 0, 1, 5);
     PaletteData_LoadNarc(bsys->palette, 7, palette_narc, 5, 0, 0, 0);
 
-    // Reload message box palettes (fixes UI elements)
+    // Reload message box palettes
     PaletteData_LoadNarc(bsys->palette, 38, 26, 5, 0, 0x20, 0xA0);
     PaletteData_LoadNarc(bsys->palette, 16, 8, 5, 0, 0x20, 0x80);
     PaletteData_LoadNarc(bsys->palette, 16, 8, 5, 0, 0x20, 0xB0);
 
+    // Reload battle platform/ground actors (might fix sprite artifacts)
+    extern void LONG_CALL Ground_ActorResourceSet(GROUND_WORK *ground, void *bw, u32 side, u32 terrain);
+    Ground_ActorResourceSet(&bsys->ground[0], bsys, 0, bsys->terrain);
+    Ground_ActorResourceSet(&bsys->ground[1], bsys, 1, bsys->terrain);
+
     debug_printf("CustomBattleBackgroundCallback: Loaded custom background\n");
+    debug_printf("  Note: Sprite artifacts may occur due to timing of background load\n");
 }

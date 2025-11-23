@@ -775,3 +775,4 @@ InitMartUI = 0x02256D34 | 1;
 MapNumberBoundsCheck = 0x0203B268 | 1;
 sMapHeaders = 0x020F6BE0 | 1;
 ov12_0226E70C = 0x0226E70C;
+GfGfxLoader_LoadScrnData = 0x02007914 | 1;
