@@ -55,7 +55,7 @@ void AnimScrCmd_ChangePermanentBattleBackground(ANIM_CMD_STRUCT *animCmdStruct)
     {
         terrain = bw->sp->original_terrain;
     }
-    LoadDifferentBattleBackground(bw, bg, terrain);
+    LoadDifferentBattleBackground(bw, bg, terrain, FALSE);
 }
 
 // if the form is nonzero, then ensure the PlayCry command just plays the cry itself and return

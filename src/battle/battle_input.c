@@ -817,7 +817,7 @@ u32 sSecretPowerEffectTable[] =
  *  @param bg background id to load
  *  @param terrain platform id to load
  */
-void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
+void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain, BOOL battleStart)
 {
     u32 palette;
     BOOL vanillaBg = TRUE;
@@ -854,12 +854,55 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
     Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette); // new terrains are just repointed below
     Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
 
-    // free resources
-    sys_FreeMemoryEz(bw->bg_area);
-    sys_FreeMemoryEz(bw->pal_area);
-    BattleWorkGroundBGChg(bw);
+    // free resources if we aren't running this at the start of the battle
+    if (!battleStart) {
+        sys_FreeMemoryEz(bw->bg_area);
+        sys_FreeMemoryEz(bw->pal_area);
+        BattleWorkGroundBGChg(bw);
+    }
 
     // finally set the fields for nature power/secret power/camouflage/friends
     //bw->bgId = bg;
     bw->terrain = terrain; // terrain is used directly for secret power, camouflage
+}
+
+typedef struct PACKED BattleBgTableEntry{
+    u8 header[0x28];
+    void (*callback)(void *unkPtr, int bgId, int flag); // 0x28
+    void *extraFn;                                      // 0x2C
+} BattleBgTableEntry;
+
+// vanilla battle background table
+extern BattleBgTableEntry ov12_0226E70C[] __attribute__((aligned(4)));
+
+void LONG_CALL BattleBgExpansionLoader() {
+    debug_printf("BattleBgExpansionLoader: Injecting callback...\n");
+
+    // inject our custom callback func into the vanilla battle background at index 0
+    BattleBgTableEntry *vanillaTable = (BattleBgTableEntry *)((u32)ov12_0226E70C & ~1);
+    vanillaTable[0].callback = CustomBattleBackgroundCallback;
+}
+
+void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3) {
+    // extract BattleSystem from pointer array
+    struct BattleSystem **ptrArray = (struct BattleSystem **)unkPtr;
+    struct BattleSystem *bsys = ptrArray[0];
+
+    // override battle bg based on terrain
+    BattleBg newBg = bsys->bgId;
+    switch (bsys->terrain) {
+    case TERRAIN_ELECTRIC_TERRAIN:
+        newBg = BATTLE_BG_ELECTRIC_TERRAIN;
+        break;
+    case TERRAIN_MISTY_TERRAIN:
+        newBg = BATTLE_BG_MISTY_TERRAIN;
+        break;
+    case TERRAIN_GRASSY_TERRAIN:
+        newBg = BATTLE_BG_GRASSY_TERRAIN;
+        break;
+    default:
+        return;
+    }
+
+    LoadDifferentBattleBackground(bsys, newBg, bsys->terrain, TRUE);
 }

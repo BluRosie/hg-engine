@@ -3447,8 +3447,9 @@ typedef enum Terrain {
  *  @param bw battle work structure
  *  @param bg background id to load
  *  @param terrain platform id to load
+ *  @param battleStart TRUE if loading at battle start, FALSE if switching mid-battle
  */
-void LONG_CALL LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain);
+void LONG_CALL LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain, BOOL battleStart);
 
 /**
  *  @brief Sorts clients' execution order factoring in who has already performed their action
@@ -3938,5 +3939,15 @@ int GetSanitisedType(int type);
 
 BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
 
+/**
+ * @brief Inject a custom callback function to allow
+ * loading new battle bgs at the start of a battle
+ */
+void LONG_CALL BattleBgExpansionLoader();
+
+/**
+ * @brief Callback for loading custom battle backgrounds
+ */
+void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
 
 #endif // BATTLE_H

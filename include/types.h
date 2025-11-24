@@ -73,6 +73,7 @@ VecFx32;
 #define	ALIGN4 __attribute__((aligned(4)))
 #define MOVE_TABLES_TERMIN 0xFEFE
 #define THUMB_FUNC __attribute__((target("thumb")))
+#define ARM_FUNC __attribute__((target("arm")))
 #define LONG_CALL __attribute__((long_call))
 #define UNUSED __attribute__((unused))
 #define FALLTHROUGH __attribute__ ((fallthrough))
