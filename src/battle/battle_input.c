@@ -866,20 +866,14 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain,
     bw->terrain = terrain; // terrain is used directly for secret power, camouflage
 }
 
-typedef struct PACKED BattleBgTableEntry{
-    u8 header[0x28];
-    void (*callback)(void *unkPtr, int bgId, int flag); // 0x28
-    void *extraFn;                                      // 0x2C
-} BattleBgTableEntry;
-
 // vanilla battle background table
-extern BattleBgTableEntry ov12_0226E70C[] __attribute__((aligned(4)));
+extern BattleBgProfile sBattleBgProfileTable[] ALIGN4;
 
 void LONG_CALL BattleBgExpansionLoader() {
     debug_printf("BattleBgExpansionLoader: Injecting callback...\n");
 
     // inject our custom callback func into the vanilla battle background at index 0
-    BattleBgTableEntry *vanillaTable = (BattleBgTableEntry *)((u32)ov12_0226E70C & ~1);
+    BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
     vanillaTable[0].callback = CustomBattleBackgroundCallback;
 }
 

@@ -3390,6 +3390,11 @@ typedef enum BattleBg {
     BATTLE_BG_PSYCHIC_TERRAIN,
 } BattleBg;
 
+typedef struct PACKED BattleBgProfile{
+    u8 header[0x28];
+    void (*callback)(void *unkPtr, int bgId, int flag); // 0x28
+    void *extraFn;                                      // 0x2C
+} BattleBgProfile;
 
 typedef enum Terrain {
     TERRAIN_PLAIN,
