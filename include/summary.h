@@ -52,7 +52,7 @@ struct SummaryPokemonData {
                     showGender :1;
     /* 0x13 */ u8   gender     :2,
                     ballType   :6;
-        
+
     /* 0x14 */ u32 otID;
     /* 0x18 */ u32 curExp;
     /* 0x1C */ u32 curLevelExp;
@@ -66,7 +66,7 @@ struct SummaryPokemonData {
     /* 0x2E */ u16 spDefense;
     /* 0x30 */ u16 speed;
 
-    /* 0x32 */ u8  ability;
+    /* 0x32 */ u8  form;
     /* 0x33 */ u8  nature;
 
     /* 0x34 */ u16 moves[4];
@@ -81,15 +81,15 @@ struct SummaryPokemonData {
     /* 0x49 */ u8  tough;
     /* 0x4A */ u8  sheen;
     /* 0x4B */ u8  favoriteFlavor;
-    
+
     /* 0x4C */ u16 mark;
-    /* 0x4E */ u16 form;
+    /* 0x4E */ u16 ability;
 
     /* 0x50 */ u32 status      :28,
                    isEgg       :1,
                    isShiny     :1,
                    pokerus     :2;
-    
+
     /* 0x54 */ u32 ribbons[4];
 }; // size = 0x64
 
@@ -107,9 +107,9 @@ struct SummaryState {
 
 /**
  * @brief Picks the status icon to display on the summary page, if any.
- * 
+ *
  * Original Function: `Function_208e9f0` (ARM9)
- * 
+ *
  * @param[in] pokemon
  * @return                  ID of the status icon to display.
  */
@@ -118,9 +118,9 @@ u32  LONG_CALL Summary_PickStatusIcon(struct PartyPokemon *pokemon);
 /**
  * @brief Assigns data about the input Pokemon to the struct used for display
  * on the summary screen.
- * 
+ *
  * Original Function: `Function_208d200` (ARM9)
- * 
+ *
  * @param[in]     summary
  * @param[in]     pokemon
  * @param[in,out] data
@@ -129,13 +129,13 @@ void LONG_CALL Summary_SetPokemonData(void *summary, struct PartyPokemon *pokemo
 
 /**
  * @brief Returns the underlying Pokemon struct attached to this summary.
- * 
+ *
  * This can be either a BoxPokemon or a Pokemon struct; which of them it is
  * depends on the source of the summary screen (since it can be accessed
  * from the PC).
- * 
+ *
  * Original Function: `Function_208dd48` (ARM9)
- * 
+ *
  * @param[in] summary
  * @return              The Pokemon struct attached to the summary.
  */
@@ -144,9 +144,9 @@ void* LONG_CALL Summary_GetPokemonData(struct SummaryState *summary);
 /**
  * @brief Converts a number input to a displayable string and stores it in
  * the summary's holding buffer.
- * 
+ *
  * Original Function: `Function_2090184` (ARM9)
- * 
+ *
  * @param[in,out] summary
  * @param[in]     arcMessageID  ID of the string to be pulled from text archive 302.
  * @param[in]     num           The number to be converted.
@@ -157,9 +157,9 @@ void  LONG_CALL Summary_NumberToString(struct SummaryState *summary, u32 arcMess
 
 /**
  * @brief Prints the string in the summary's holding buffer to the given window.
- * 
+ *
  * Original Function: `Function_20900d8` (ARM9)
- * 
+ *
  * @param[in,out] summary
  * @param[in,out] window    The window to print the string into.
  * @param[in]     color     The color to print the font in.
@@ -169,9 +169,9 @@ void  LONG_CALL Summary_PrintString(struct SummaryState *summary, GF_BGL_BMPWIN 
 
 /**
  * @brief Print a string for a `current / max` visualization.
- * 
+ *
  * Original Function: `Function_20901d0` (ARM9)
- * 
+ *
  * @param[in,out] summary
  * @param[in]     windowIdx Index of the window to print the constructed string into.
  * @param[in]     idSep     ID of the separator string within text archive 302.
@@ -192,21 +192,21 @@ void  LONG_CALL Summary_PrintCurrentOverMax(struct SummaryState *summary, u32 wi
 /**
  * @brief Prints values onto the stat screen with appropriate colors based on
  * the input Pokemon's nature.
- * 
+ *
  * @param[in,out] summary
  */
 void LONG_CALL Summary_ColorizeStatScreen_Wrap(struct SummaryState *summary);
 
 /**
  * @brief Updates the state necessary for the stats page of the summary.
- * 
+ *
  * Accepted modes are as follows:
  * - `0`: Display the calculated stats page (including current and max HP).
  * - `1`: Display EVs for the Pokemon.
  * - `2`: Display IVs for the Pokemon.
- * 
+ *
  * Output will be color-coded according to the Pokemon's nature.
- * 
+ *
  * @param[in,out] summary
  * @param[in]     mode      Determines which page of the stat screen to show.
  */
