@@ -98,3 +98,4 @@ changelog
 /data/generated/
 /armips/include/generated/
 /include/constants/generated/
+*.Identifier
