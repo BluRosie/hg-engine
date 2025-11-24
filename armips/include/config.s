@@ -5,8 +5,7 @@ GEN_LATEST equ 9
 // START_ADDRESS defines the file address within the synthetic overlay where you would like to place all of the code that this project uses.  this is largely the repointed tables that the code uses.
 // if START_ADDRESS is 0x10000, then the tables will be inserted at address 0x10000 of the synthetic overlay
 // the current implementation (with all gen 5 mons) uses ~9222/0x2406 bytes.  make sure this points to that much free space (probably allow for a little bit more than that)
-// currently 0x10 to have space for a marker for DSPRE to disable editors!
-START_ADDRESS equ 0x10
+START_ADDRESS equ 0x0
 
 // DISALLOW_DEXIT_GEN controls whether to disallow selection of dexited moves in later generations. Choose any Generation below 8 for none. 0 will instead disable any unimplemented moves.
 DISALLOW_DEXIT_GEN equ 0
@@ -33,10 +32,10 @@ SNOW_WARNING_GENERATION equ GEN_LATEST
 CRY_PSEUDOBANK_START equ 778
 
 // BATTLE_MODE_FORCE_SET defines whether or not players will be able to switch out mons when the opponent sends out their next mon. The player will be able to choose themselves like normal if the following is 0, 1 if the player will be forced to use "set"
-BATTLE_MODE_FORCE_SET equ 0
+BATTLE_MODE_FORCE_SET equ 1
 
 // ALWAYS_HAVE_NATIONAL_DEX defines whether or not the player will always have the national dex unlocked.
-ALWAYS_HAVE_NATIONAL_DEX equ 0
+ALWAYS_HAVE_NATIONAL_DEX equ 1
 
 // ALWAYS_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will always be uncapped, including in the overworld.
 ALWAYS_UNCAPPED_FRAME_RATE equ 0
@@ -46,6 +45,12 @@ BATTLES_UNCAPPED_FRAME_RATE equ 0
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
 FAST_TEXT_PRINTING equ 0
+
+// REUSABLE_TMS will make TMs infinite and hide the quantity number.
+REUSABLE_TMS equ 0
+
+// DELETABLE_HMS Allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
+DELETABLE_HMS equ 1
 
 // NO_PARTNER_DOUBLE_BATTLES allows for setting trainers to double battles without setting up a partner trainer.  set to 0 to disable
 // note that the entry in `armips/data/trainers/trainertext.s` has to use `TEXT_DOUBLE_DEFEATED_IN_BATTLE_1`, but the overworld entries can remain the same.

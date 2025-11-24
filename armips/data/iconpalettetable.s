@@ -14,14 +14,9 @@
     .create "base/overlay/overlay_0129.bin", 0x023D8000
 .endif
 
-.orga START_ADDRESS - 0x10
-
-// marker to tell dspre that this is an hg-engine - specific ROM and to disable several editors
-.ascii "hg-engine rocks!"
+.orga START_ADDRESS
 
 // the icon palette table maps each icon to which of the 3 icon palettes
-
-.orga START_ADDRESS
 
 .align
 
@@ -296,7 +291,7 @@ gIconPalTable:
 /* SPECIES_WURMPLE         */ .byte  0x0
 /* SPECIES_SILCOON         */ .byte  0x2
 /* SPECIES_BEAUTIFLY       */ .byte  0x0
-/* SPECIES_CASCOON         */ .byte  0x2
+/* SPECIES_CASCOON         */ .byte  0x0
 /* SPECIES_DUSTOX          */ .byte  0x1
 /* SPECIES_LOTAD           */ .byte  0x1
 /* SPECIES_LOMBRE          */ .byte  0x1
@@ -1079,7 +1074,7 @@ gIconPalTable:
 /* SPECIES_BAXCALIBUR      */ .byte  0x0
 /* SPECIES_GIMMIGHOUL      */ .byte  0x0
 /* SPECIES_GHOLDENGO       */ .byte  0x0
-/* SPECIES_WO_CHIEN        */ .byte  0x1
+/* SPECIES_WO_CHIEN        */ .byte  0x0
 /* SPECIES_CHIEN_PAO       */ .byte  0x0
 /* SPECIES_TING_LU         */ .byte  0x0
 /* SPECIES_CHI_YU          */ .byte  0x0
@@ -1091,8 +1086,8 @@ gIconPalTable:
 /* SPECIES_IRON_LEAVES     */ .byte  0x0
 /* SPECIES_DIPPLIN         */ .byte  0x1
 /* SPECIES_POLTCHAGEIST    */ .byte  0x0
-/* SPECIES_SINISTCHA       */ .byte  0x1
-/* SPECIES_OKIDOGI         */ .byte  0x1
+/* SPECIES_SINISTCHA       */ .byte  0x0
+/* SPECIES_OKIDOGI         */ .byte  0x0
 /* SPECIES_MUNKIDORI       */ .byte  0x0
 /* SPECIES_FEZANDIPITI     */ .byte  0x0
 /* SPECIES_OGERPON         */ .byte  0x1
@@ -1173,18 +1168,18 @@ gIconPalTable:
 /* SPECIES_MUK_ALOLAN                  */ .byte  0x0
 /* SPECIES_EXEGGUTOR_ALOLAN            */ .byte  0x1
 /* SPECIES_MAROWAK_ALOLAN              */ .byte  0x1
-/* SPECIES_RATICATE_ALOLAN_LARGE       */ .byte  0x2
-/* SPECIES_MAROWAK_ALOLAN_LARGE        */ .byte  0x1
-/* SPECIES_GUMSHOOS_LARGE              */ .byte  0x2
-/* SPECIES_VIKAVOLT_LARGE              */ .byte  0x0
-/* SPECIES_RIBOMBEE_LARGE              */ .byte  0x2
-/* SPECIES_ARAQUANID_LARGE             */ .byte  0x2
-/* SPECIES_LURANTIS_LARGE              */ .byte  0x1
-/* SPECIES_SALAZZLE_LARGE              */ .byte  0x0
-/* SPECIES_TOGEDEMARU_LARGE            */ .byte  0x2
-/* SPECIES_MIMIKYU_LARGE               */ .byte  0x1
-/* SPECIES_MIMIKYU_BUSTED_LARGE        */ .byte  0x1
-/* SPECIES_KOMMO_O_LARGE               */ .byte  0x2
+/* SPECIES_RATICATE_ALOLAN_LARGE       */ .byte  0x2   
+/* SPECIES_MAROWAK_ALOLAN_LARGE        */ .byte  0x1   
+/* SPECIES_GUMSHOOS_LARGE              */ .byte  0x2   
+/* SPECIES_VIKAVOLT_LARGE              */ .byte  0x0   
+/* SPECIES_RIBOMBEE_LARGE              */ .byte  0x2   
+/* SPECIES_ARAQUANID_LARGE             */ .byte  0x2   
+/* SPECIES_LURANTIS_LARGE              */ .byte  0x1   
+/* SPECIES_SALAZZLE_LARGE              */ .byte  0x0   
+/* SPECIES_TOGEDEMARU_LARGE            */ .byte  0x2   
+/* SPECIES_MIMIKYU_LARGE               */ .byte  0x1   
+/* SPECIES_MIMIKYU_BUSTED_LARGE        */ .byte  0x1   
+/* SPECIES_KOMMO_O_LARGE               */ .byte  0x2   
 /* SPECIES_MEOWTH_GALARIAN             */ .byte  0x2
 /* SPECIES_PONYTA_GALARIAN             */ .byte  0x2
 /* SPECIES_RAPIDASH_GALARIAN           */ .byte  0x2
