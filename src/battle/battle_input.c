@@ -852,13 +852,16 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain,
     {
         palette = terrain;
     }
-    Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
 
-    // free resources if we aren't running this at the start of the battle
-    if (!battleStart) {
-        // this can't run at battle start or we crash
+    if (battleStart) {
+        // this can't run at battle start or we crash for some mons
         // this does cause some minor artifacts when the mon is initially sliding in
+        //Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette);
+        Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
+    } else {
+        // free resources
         Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette); // new terrains are just repointed below
+        Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
         sys_FreeMemoryEz(bw->bg_area);
         sys_FreeMemoryEz(bw->pal_area);
         BattleWorkGroundBGChg(bw);
