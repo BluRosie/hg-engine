@@ -907,7 +907,7 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys)
 
     if (terrainType != TERRAIN_NONE) {
         bsys->sp->terrainOverlay.type = terrainType;
-        bsys->sp->terrainOverlay.numberOfTurnsLeft = 8;
+        bsys->sp->terrainOverlay.numberOfTurnsLeft = TERRAIN_TURNS_INFINITE;
         loadCustomBattleBg = TRUE;
     }
 

@@ -431,6 +431,8 @@
 #define FIELD_CONDITION_GRAVITY_SHIFT       12
 #define FIELD_CONDITION_TRICK_ROOM_SHIFT    16
 
+#define TERRAIN_TURNS_INFINITE 255
+
 /**
  *  @brief absolute battler position constants
  *
