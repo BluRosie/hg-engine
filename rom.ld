@@ -737,6 +737,7 @@ BattleMessage_BufferBoxName = 0x0223CEE4 | 1;
 _GetNpcTradeName = 0x02259C1C | 1;
 MonSetTrainerMemo = 0x0208F260 | 1;
 MapHeader_GetMapSec = 0x0203B36C | 1;
+MapHeader_GetWeather = 0x0203B3E4 | 1;
 
 OS_DisableInterrupts = 0x020D3A38;
 NNS_FndAllocFromExpHeapEx = 0x020B53A0;
@@ -750,6 +751,7 @@ QueueEmitterWithCallback = 0x02015494 | 1;
 particleEmitCallback = 0x021E5C28 | 1;
 
 BattleSystem_GetTrainer = 0x0223A9F4 | 1;
+BattleSystem_GetLocation = 0x0223AB60 | 1;
 
 BattleController_EmitPlayFaintAnimation = 0x022635E8 | 1;
 InitFaintedWork = 0x022514C4 | 1;

@@ -8,6 +8,7 @@
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/item.h"
 #include "../../include/constants/file.h"
+#include "../../include/constants/weather_numbers.h"
 
 
 
@@ -851,11 +852,13 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain,
     {
         palette = terrain;
     }
-    Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette); // new terrains are just repointed below
     Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
 
     // free resources if we aren't running this at the start of the battle
     if (!battleStart) {
+        // this can't run at battle start or we crash
+        // this does cause some minor artifacts when the mon is initially sliding in
+        Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette); // new terrains are just repointed below
         sys_FreeMemoryEz(bw->bg_area);
         sys_FreeMemoryEz(bw->pal_area);
         BattleWorkGroundBGChg(bw);
@@ -869,34 +872,82 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain,
 // vanilla battle background table
 extern BattleBgProfile sBattleBgProfileTable[] ALIGN4;
 
-void LONG_CALL BattleBgExpansionLoader() {
-    debug_printf("BattleBgExpansionLoader: Injecting callback...\n");
+extern u32 LONG_CALL MapHeader_GetWeather(u32 mapId);
+extern int LONG_CALL BattleSystem_GetLocation(struct BattleSystem *bsys);
 
-    // inject our custom callback func into the vanilla battle background at index 0
-    BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
-    vanillaTable[0].callback = CustomBattleBackgroundCallback;
+void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys)
+{
+    u8 terrainType = TERRAIN_NONE;
+
+    u32 mapId = BattleSystem_GetLocation(bsys);
+    u32 weather = MapHeader_GetWeather(mapId);
+
+    // Handle map header weather
+    switch (weather) {
+    case WEATHER_SYS_STORM:
+    case WEATHER_SYS_THUNDER:
+        terrainType = ELECTRIC_TERRAIN;
+        bsys->sp->field_condition &= ~FIELD_CONDITION_WEATHER;
+        bsys->sp->field_condition |= WEATHER_RAIN_PERMANENT;
+        break;
+    case WEATHER_SYS_MIST1:
+    case WEATHER_SYS_MIST2:
+        terrainType = MISTY_TERRAIN;
+        break;
+    default:
+        break;
+    }
+
+    BOOL loadCustomBattleBg = FALSE;
+
+    // TODO testing remove me
+    terrainType = ELECTRIC_TERRAIN;
+    bsys->sp->field_condition &= ~FIELD_CONDITION_WEATHER;
+    bsys->sp->field_condition |= WEATHER_RAIN_PERMANENT;
+
+    if (terrainType != TERRAIN_NONE) {
+        bsys->sp->terrainOverlay.type = terrainType;
+        bsys->sp->terrainOverlay.numberOfTurnsLeft = 8;
+        loadCustomBattleBg = TRUE;
+    }
+
+    if (loadCustomBattleBg) {
+        // inject our custom callback func into the vanilla battle background at index 0
+        BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
+        vanillaTable[0].callback = CustomBattleBackgroundCallback;
+    }
 }
 
-void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3) {
+void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3)
+{
     // extract BattleSystem from pointer array
     struct BattleSystem **ptrArray = (struct BattleSystem **)unkPtr;
     struct BattleSystem *bsys = ptrArray[0];
 
-    // override battle bg based on terrain
+    // Check terrains
     BattleBg newBg = bsys->bgId;
-    switch (bsys->terrain) {
-    case TERRAIN_ELECTRIC_TERRAIN:
-        newBg = BATTLE_BG_ELECTRIC_TERRAIN;
-        break;
-    case TERRAIN_MISTY_TERRAIN:
-        newBg = BATTLE_BG_MISTY_TERRAIN;
-        break;
-    case TERRAIN_GRASSY_TERRAIN:
+    Terrain terrain = bsys->terrain;
+    switch (bsys->sp->terrainOverlay.type) {
+    case GRASSY_TERRAIN:
         newBg = BATTLE_BG_GRASSY_TERRAIN;
+        terrain = TERRAIN_GRASSY_TERRAIN;
+        break;
+    case MISTY_TERRAIN:
+        newBg = BATTLE_BG_MISTY_TERRAIN;
+        terrain = TERRAIN_MISTY_TERRAIN;
+        break;
+    case ELECTRIC_TERRAIN:
+        newBg = BATTLE_BG_ELECTRIC_TERRAIN;
+        terrain = TERRAIN_ELECTRIC_TERRAIN;
+        break;
+    case PSYCHIC_TERRAIN:
+        newBg = BATTLE_BG_PSYCHIC_TERRAIN;
+        terrain = TERRAIN_PSYCHIC_TERRAIN;
         break;
     default:
         return;
     }
 
-    LoadDifferentBattleBackground(bsys, newBg, bsys->terrain, TRUE);
+    bsys->terrain = terrain;
+    LoadDifferentBattleBackground(bsys, newBg, terrain, TRUE);
 }
