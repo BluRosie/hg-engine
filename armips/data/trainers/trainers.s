@@ -1600,17 +1600,17 @@ trainerdata 22, "Adam"
         ivs 200
         abilityslot 0
         level 82
-        pokemon SPECIES_TAPU_FINI
-        item ITEM_LEFTOVERS
+        pokemon SPECIES_SCREAM_TAIL
+        item ITEM_HEAT_ROCK
         move MOVE_CALM_MIND
-        move MOVE_SCALD
-        move MOVE_MOONBLAST
-        move MOVE_ICE_BEAM
-        ability ABILITY_MISTY_SURGE
+        move MOVE_SUNNY_DAY
+        move MOVE_FIRE_BLAST
+        move MOVE_PSYCHIC
+        ability ABILITY_PROTOSYNTHESIS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_BOLD
+        nature NATURE_MODEST
         shinylock 0
         ballseal 0
 
