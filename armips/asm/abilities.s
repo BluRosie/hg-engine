@@ -38,6 +38,19 @@ ldrh r1, [r4, r1]
 .org 0x0208D464
 .word 0x27E
 
+/*
+script commands!
+
+GiveMon script command uses a u8 variable.  this cast is done by a paired lsl/lsr instruction that we change to make it u16 instead
+*/
+
+.org 0x0204D132
+lsl r0, #0x10
+lsr r0, #0x10
+
+.org 0x02054248
+ldrh r0, [r0, #0x14]
+
 .close
 
 

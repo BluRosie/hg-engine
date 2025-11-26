@@ -1192,6 +1192,14 @@ typedef struct OnceOnlyAbilityFlags {
     BOOL superSweetSyrupFlag;
 } OnceOnlyAbilityFlags;
 
+typedef struct MoveConditionsFlags {
+    u8 endTurnMoveEffectActivated : 1;
+    u8 moveFailureLastTurn : 1;
+    u8 moveFailureThisTurn : 1;
+    u8 padding : 5;
+} MoveConditionsFlags;
+
+
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
 /**
@@ -1419,6 +1427,7 @@ struct BattleStruct {
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
                BOOL gemBoostingMove;
+               MoveConditionsFlags moveConditionsFlags[CLIENT_MAX];
 };
 
 enum {
@@ -2011,6 +2020,7 @@ struct PACKED sDamageCalc
     u32 sheerForceFlag;
 
     BOOL isGrounded;
+    BOOL hasMoveFailureLastTurn;
 };
 
 struct PACKED DamageCalcStruct {

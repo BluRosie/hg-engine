@@ -386,13 +386,16 @@
 #define MOVE_EFFECT_POLLEN_PUFF								380
 #define MOVE_EFFECT_COACHING								381
 #define MOVE_EFFECT_DOUBLE_POWER_IF_FASTER					382
-#define MOVE_EFFECT_SHORE_UP								383
-#define MOVE_EFFECT_LIFE_DEW								384
-#define MOVE_EFFECT_ENTRAINMENT								385
-#define MOVE_EFFECT_HOWL							      	386
-#define MOVE_EFFECT_DECORATE								387
+#define MOVE_EFFECT_LIFE_DEW								383
+#define MOVE_EFFECT_ENTRAINMENT								384
+#define MOVE_EFFECT_HOWL							      	385
+#define MOVE_EFFECT_DECORATE								386
+#define MOVE_EFFECT_END_TERRAIN                             387
+#define MOVE_EFFECT_FELL_STINGER                            388
+#define MOVE_EFFECT_PARTING_SHOT                            389
+#define MOVE_EFFECT_CLEAR_SMOG                              390
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            387
+#define MAX_BASE_MOVE_EFFECT_NUM                            390
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)

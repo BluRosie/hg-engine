@@ -474,8 +474,13 @@
 #define SUB_SEQ_ENTRAINMENT                           (464)
 #define SUB_SEQ_HOWL                                  (465)
 #define SUB_SEQ_DECORATE                              (466)
+#define SUB_SEQ_HANDLE_ROOM_SERVICE                   (467)
+#define SUB_SEQ_SWEET_VEIL_FAIL                       (468)
+#define SUB_SEQ_HANDLE_PARTING_SHOT                   (469)
+#define SUB_SEQ_HANDLE_CLEAR_SMOG                     (470)
+#define SUB_SEQ_HANDLE_FLAME_BURST_HIT                (471)
 
-#define MAX_BASE_SUBSCRIPT_NUM 466
+#define MAX_BASE_SUBSCRIPT_NUM 471
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -691,8 +696,11 @@
 #define ADD_STATUS_EFF_ENTRAINMENT                     (205)
 #define ADD_STATUS_EFF_HOWL                            (206)
 #define ADD_STATUS_EFF_DECORATE                        (207)
+#define ADD_STATUS_EFF_PARTING_SHOT                    (208)
+#define ADD_STATUS_EFF_CLEAR_SMOG                      (209)
+#define ADD_STATUS_EFF_FLAME_BURST_HIT                 (210)
 
-#define MAX_BASE_SUBSCRIPT_PTR_NUM (204)
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (210)
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)
