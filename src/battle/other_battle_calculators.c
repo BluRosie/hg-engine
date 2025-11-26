@@ -2985,18 +2985,18 @@ const u16 HealBlockUnusableMoves[] = {
     MOVE_FLORAL_HEALING,
     MOVE_LIFE_DEW,
     MOVE_LUNAR_BLESSING,
-//  MOVE_POLLEN_PUFF, should be here but can also target enemies when heal blocked so 
+//  MOVE_POLLEN_PUFF, should be here but can also target enemies when heal blocked so
 };
 
 BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId, int moveNo) {
     int i;
     BOOL ret = FALSE;
 
-    if (ctx->battlemon[battlerId].moveeffect.healBlockTurns) 
+    if (ctx->battlemon[battlerId].moveeffect.healBlockTurns)
     {
-        for (i = 0; i < NELEMS(HealBlockUnusableMoves); i++) 
+        for (i = 0; i < NELEMS(HealBlockUnusableMoves); i++)
         {
-            if (HealBlockUnusableMoves[i] == moveNo) 
+            if (HealBlockUnusableMoves[i] == moveNo)
             {
                 ret = TRUE;
                 break;
