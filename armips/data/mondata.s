@@ -929,7 +929,7 @@ mondata SPECIES_ODDISH, "Oddish"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
-    abilities ABILITY_PRANKSTER, ABILITY_NONE
+    abilities ABILITY_CHLOROPHYLL, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     mondexentry SPECIES_ODDISH, "Awakened by moonlight, it roams\nactively at night. In the day, it stays\nquietly underground."

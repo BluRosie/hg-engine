@@ -2,13 +2,6 @@
 #include "../../include/debug.h"
 #include "../../include/types.h"
 
-/*
- * Each table is 8 slots with chances of 25/20/10/10/10/10/10/5 %.
- * In order to expand the tables or change probabilities we need to hook
- * DrawRockSmashIdx() and Task_GetRockSmashItem() (and CheckRockSmashItemDrop() for rate of item drop)
- * in https://github.com/pret/pokeheartgold/blob/master/src/field/overlay_01_rock_smash_item.c
- */
-
 
 const u16 sRockSmashItems_Default[] = {
     ITEM_MAX_ETHER,

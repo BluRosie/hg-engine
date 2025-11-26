@@ -1,7 +1,7 @@
 # Makefile
 
 ROMNAME = rom.nds
-BUILDROM = incin.nds
+BUILDROM = test.nds
 
 define n
 

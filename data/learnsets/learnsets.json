@@ -7481,15 +7481,15 @@
     "LevelMoves": [
       {
         "Level": 1,
-        "Move": "MOVE_BULLET_SEED"
+        "Move": "MOVE_ABSORB"
       },
       {
         "Level": 1,
-        "Move": "MOVE_LEECH_SEED"
+        "Move": "MOVE_GROWTH"
       },
       {
         "Level": 4,
-        "Move": "MOVE_SURF"
+        "Move": "MOVE_ACID"
       },
       {
         "Level": 8,
@@ -7521,20 +7521,20 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_CLEAR_SMOG"
+        "Move": "MOVE_MOONBLAST"
       },
       {
         "Level": 32,
-        "Move": "MOVE_TEMPER_FLARE"
+        "Move": "MOVE_GRASSY_TERRAIN"
       },
-        {
-            "Level": 36,
-            "Move": "MOVE_SWEET_SCENT"
-        },
-        {
-            "Level": 40,
-            "Move": "MOVE_FLAME_BURST"
-        }
+      {
+        "Level": 36,
+        "Move": "MOVE_MOONLIGHT"
+      },
+      {
+        "Level": 40,
+        "Move": "MOVE_PETAL_DANCE"
+      }
     ],
     "MachineMoves": [
       "MOVE_ACID_SPRAY",
