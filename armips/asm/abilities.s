@@ -124,6 +124,13 @@ strh r0, [r2, r1]
 .word ABILITY_OFFSET_WITHIN_BATTLESTRUCT
 
 
+// edits to SetBattlerVar
+.org 0x0224F320
+ldrh r0, [r3]
+add r2, #NEW_ABILITY_OFFSET
+strh r0, [r2]
+
+
 // ST_ServerTokuseiGet / GetBattlerAbility
 // already handled
 .org 0x02252830
