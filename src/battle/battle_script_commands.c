@@ -4002,7 +4002,7 @@ BOOL BtlCmd_TrySwapItems(void* bw, struct BattleStruct *sp)
     int attack = read_battle_script_param(sp);
     int defence = read_battle_script_param(sp);
 
-    int isTrickAllowedInFight = BattleTypeGet(bw) & (BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_WIRELESS);
+    int isTrickAllowedInFight = BattleTypeGet(bw) & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_WIRELESS);
 #ifdef AI_CAN_GRAB_ITEMS
     isTrickAllowedInFight = 0;
 #endif

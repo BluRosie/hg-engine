@@ -56,7 +56,7 @@
 
 #define NUMBER_OF_MON_TYPES 20
 
-// Type effectiveness
+// Type effectiveness multiplier flags:
 #define TYPE_MUL_NO_EFFECT              0
 #define TYPE_MUL_TRIPLE_NOT_EFFECTIVE   3
 #define TYPE_MUL_DOUBLE_NOT_EFFECTIVE   4
@@ -66,63 +66,63 @@
 #define TYPE_MUL_DOUBLE_SUPER_EFFECTIVE 30
 #define TYPE_MUL_TRIPLE_SUPER_EFFECTIVE 40
 
-// Special type table IDs
+// Special type table IDs:
 #define TYPE_FORESIGHT 0xFE
 #define TYPE_ENDTABLE  0xFF
 
-// Contest types
+// Contest types:
 #define COOL   0
 #define BEAUTY 1
 #define CUTE   2
 #define SMART  3
 #define TOUGH  4
 
-#define SELECT_FIGHT_COMMAND 1
-#define SELECT_ITEM_COMMAND 2
-#define SELECT_POKEMON_COMMAND 3
-#define SELECT_ESCAPE_COMMAND 4
+// Battle menu commands:
+#define SELECT_FIGHT_COMMAND    1
+#define SELECT_ITEM_COMMAND     2
+#define SELECT_POKEMON_COMMAND  3
+#define SELECT_ESCAPE_COMMAND   4
 
+// Add effect defines
+#define ADD_STATUS_NO_ABILITY 0x08000000
 
-// add effect defines
-#define ADD_STATUS_NO_ABILITY (0x08000000)
-
-#define ADD_EFFECT_DIRECT 1
-#define ADD_EFFECT_INDIRECT 2
-#define ADD_EFFECT_ABILITY 3
-#define ADD_EFFECT_MOVE_EFFECT 4
-#define ADD_EFFECT_HELD_ITEM 5
+#define ADD_EFFECT_DIRECT       1
+#define ADD_EFFECT_INDIRECT     2
+#define ADD_EFFECT_ABILITY      3
+#define ADD_EFFECT_MOVE_EFFECT  4
+#define ADD_EFFECT_HELD_ITEM    5
 #define ADD_EFFECT_TOXIC_SPIKES 6
-#define ADD_EFFECT_VARIOUS 7
-// new
+#define ADD_EFFECT_VARIOUS      7
+// New:
 #define ADD_EFFECT_PRINT_WORK_ABILITY 8
 
 /**
  *  @brief move status flag defines for the BattleStruct's waza_status_flag field.
  *  name is left as source define if not sure what it defines
  */
-#define MOVE_STATUS_FLAG_MISS                    (0x00000001)
-#define MOVE_STATUS_FLAG_SUPER_EFFECTIVE         (0x00000002)
-#define MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE      (0x00000004)
-#define MOVE_STATUS_FLAG_NOT_EFFECTIVE           (0x00000008)
-#define WAZA_STATUS_FLAG_CRITICAL                (0x00000010)
-#define MOVE_STATUS_FLAG_OHKO_HIT                (0x00000020)
-#define MOVE_STATUS_FLAG_FAILED                  (0x00000040)
-#define MOVE_STATUS_FLAG_HELD_ON_ABILITY         (0x00000080)
-#define MOVE_STATUS_FLAG_HELD_ON_ITEM            (0x00000100)
-#define WAZA_STATUS_FLAG_PP_NONE                 (0x00000200)
-#define MOVE_STATUS_FLAG_LOCK_ON                 (0x00000400)
-#define MOVE_STATUS_FLAG_LEVITATE_MISS           (0x00000800)
-#define MOVE_STATUS_FLAG_OHKO_HIT_NOHIT          (0x00001000)
-#define WAZA_STATUS_FLAG_NANIMOOKORAN            (0x00002000)
-#define MOVE_STATUS_FLAG_FURY_CUTTER_MISS        (0x00004000)
-#define MOVE_STATUS_FLAG_PROTECTED               (0x00008000)
-#define WAZA_STATUS_FLAG_KIE_NOHIT               (0x00010000)
-#define WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT        (0x00020000)
-#define MOVE_STATUS_FLAG_MISS_WONDER_GUARD       (0x00040000)
-#define MOVE_STATUS_FLAG_NO_OHKO                 (0x00080000)
-#define MOVE_STATUS_FLAG_MAGNET_RISE_MISS        (0x00100000)
+#define MOVE_STATUS_FLAG_MISS               0x1         // (1 << 1)
+#define MOVE_STATUS_FLAG_SUPER_EFFECTIVE    0x2         // (1 << 2)
+#define MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE 0x4         // (1 << 3)
+#define MOVE_STATUS_FLAG_NOT_EFFECTIVE      0x8         // (1 << 4)
+#define WAZA_STATUS_FLAG_CRITICAL           0x10        // (1 << 5)
+#define MOVE_STATUS_FLAG_OHKO_HIT           0x20        // (1 << 6)
+#define MOVE_STATUS_FLAG_FAILED             0x40        // (1 << 7)
+#define MOVE_STATUS_FLAG_HELD_ON_ABILITY    0x80        // (1 << 8)
+#define MOVE_STATUS_FLAG_HELD_ON_ITEM       0x100       // (1 << 9)
+#define WAZA_STATUS_FLAG_PP_NONE            0x200       // (1 << 10)
+#define MOVE_STATUS_FLAG_LOCK_ON            0x400       // (1 << 11)
+#define MOVE_STATUS_FLAG_LEVITATE_MISS      0x800       // (1 << 12)
+#define MOVE_STATUS_FLAG_OHKO_HIT_NOHIT     0x1000      // (1 << 13)
+#define WAZA_STATUS_FLAG_NANIMOOKORAN       0x2000      // (1 << 14)
+#define MOVE_STATUS_FLAG_FURY_CUTTER_MISS   0x4000      // (1 << 15)
+#define MOVE_STATUS_FLAG_PROTECTED          0x8000      // (1 << 16)
+#define WAZA_STATUS_FLAG_KIE_NOHIT          0x10000     // (1 << 17)
+#define WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT   0x20000     // (1 << 18)
+#define MOVE_STATUS_FLAG_MISS_WONDER_GUARD  0x40000     // (1 << 19)
+#define MOVE_STATUS_FLAG_NO_OHKO            0x80000     // (1 << 20)
+#define MOVE_STATUS_FLAG_MAGNET_RISE_MISS   0x100000    // (1 << 21)
 
-#define MOVE_STATUS_NO_MORE_WORK                 (0x80000000)
+#define MOVE_STATUS_NO_MORE_WORK            0x80000000  // (1 << 31)
 
 #define WAZA_STATUS_FLAG_NOHIT_OFF      (MOVE_STATUS_FLAG_MISS^0xffffffff)
 #define WAZA_STATUS_FLAG_BATSUGUN_OFF   (WAZA_STATUS_FLAG_BATSUGUN^0xffffffff)
@@ -167,27 +167,27 @@
  *  @brief battle type flags
  *  access with BattleTypeGet(bw) & BATTLE_TYPE_* to test properly
  */
-#define BATTLE_TYPE_SINGLE 0x00
-#define BATTLE_TYPE_TRAINER 0x01
-#define BATTLE_TYPE_DOUBLE 0x02
-#define BATTLE_TYPE_WIRELESS 0x04
-#define BATTLE_TYPE_MULTI 0x08
-#define BATTLE_TYPE_TAG 0x10
-#define BATTLE_TYPE_SAFARI 0x20
-#define BATTLE_TYPE_NPC_MULTI 0x40
-#define BATTLE_TYPE_BATTLE_TOWER 0x80
-#define BATTLE_TYPE_ROAMER 0x100
-#define BATTLE_TYPE_PAL_PARK 0x200
-#define BATTLE_TYPE_CATCHING_DEMO 0x400
-#define BATTLE_TYPE_NO_WHITEOUT 0x800
-#define BATTLE_TYPE_BUG_CONTEST 0x1000
-#define BATTLE_TYPE_13 0x2000
-#define BATTLE_TYPE_DEBUG 0x4000
+#define BATTLE_TYPE_WILD_MON        0
+#define BATTLE_TYPE_TRAINER         0x01   // (1 << 0)
+#define BATTLE_TYPE_DOUBLE          0x02   // (1 << 1)
+#define BATTLE_TYPE_WIRELESS        0x04   // (1 << 2)
+#define BATTLE_TYPE_MULTI           0x08   // (1 << 3)
+#define BATTLE_TYPE_TAG             0x10   // (1 << 4)
+#define BATTLE_TYPE_SAFARI          0x20   // (1 << 5)
+#define BATTLE_TYPE_AI              0x40   // (1 << 6)
+#define BATTLE_TYPE_FRONTIER        0x80   // (1 << 7)
+#define BATTLE_TYPE_ROAMER          0x100  // (1 << 8)
+#define BATTLE_TYPE_PAL_PARK        0x200  // (1 << 9)
+#define BATTLE_TYPE_CATCHING_DEMO   0x400  // (1 << 10)
+#define BATTLE_TYPE_NO_WHITEOUT     0x800  // (1 << 11)
+#define BATTLE_TYPE_BUG_CONTEST     0x1000 // (1 << 12)
+#define BATTLE_TYPE_IMPORTED        0x2000 // (1 << 13)
+#define BATTLE_TYPE_DEBUG           (1 << 31)
 
-#define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_PAL_PARK)
+#define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_PAL_PARK)
 
-// change the flow of the ball callback to make sure that critical captures only shake once then succeed.  if it shakes, it succeeds, though
-#define CRITICAL_CAPTURE_MASK (0x80)
+// Changes the flow of the ball callback to make sure that critical captures only perform one shake check and then succeed (meaning it will always succeed after one shake).
+#define CRITICAL_CAPTURE_MASK 0x80 // (1 << 7)
 
 
 /**
@@ -201,13 +201,13 @@
  *
  *  seems to be duplicated in battle_moveflag structure (moveeffect field of BattleStruct)
  */
-#define MOVE_EFFECT_LEECH_SEED_BATTLER      (0x00000003) // leech seed battler
-#define MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE  (0x00000004) // if leech seed is active
-#define MOVE_EFFECT_FLAG_LOCK_ON            (0x00000018) // potentially client locked on to
+#define MOVE_EFFECT_LEECH_SEED_BATTLER      (0x00000003)
+#define MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE  (0x00000004)
+#define MOVE_EFFECT_FLAG_LOCK_ON            (0x00000018)
 #define MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE (0x00000020)
-#define MOVE_EFFECT_FLAG_FLYING_IN_AIR      (0x00000040) // is currently flying
-#define MOVE_EFFECT_FLAG_DIGGING            (0x00000080) // is currently digging
-#define MOVE_EFFECT_FLAG_MINIMIZED          (0x00000100) // minimized for stomp effectiveness
+#define MOVE_EFFECT_FLAG_FLYING_IN_AIR      (0x00000040)
+#define MOVE_EFFECT_FLAG_DIGGING            (0x00000080)
+#define MOVE_EFFECT_FLAG_MINIMIZED          (0x00000100) // Used for Stomp effectiveness.
 #define MOVE_EFFECT_FLAG_CHARGE             (0x00000200)
 #define MOVE_EFFECT_FLAG_INGRAIN            (0x00000400)
 #define MOVE_EFFECT_YAWN_COUNTER            (0x00001800)
@@ -226,9 +226,9 @@
 #define MOVE_EFFECT_FLAG_HEAL_BLOCK         (0x02000000)
 #define MOVE_EFFECT_FLAG_EMBARGO            (0x04000000)
 #define MOVE_EFFECT_FLAG_MAGNET_RISE        (0x08000000)
-#define MOVE_EFFECT_FLAG_CAMOUFLAGE         (0x10000000) // for trainer ai
+#define MOVE_EFFECT_FLAG_CAMOUFLAGE         (0x10000000) // For trainer AI.
 #define MOVE_EFFECT_FLAG_SHADOW_FORCE       (0x20000000)
-#define MOVE_EFFECT_FLAG_TRIED_IMPRISON     (0x40000000) // for trainer ai
+#define MOVE_EFFECT_FLAG_TRIED_IMPRISON     (0x40000000) // For trainer AI.
 
 #define MOVE_EFFECT_FLAG_SEMI_INVULNERABLE (MOVE_EFFECT_FLAG_FLYING_IN_AIR | MOVE_EFFECT_FLAG_DIGGING | MOVE_EFFECT_FLAG_IS_DIVING | MOVE_EFFECT_FLAG_SHADOW_FORCE)
 
@@ -268,7 +268,7 @@
 
 #define STATUS_POISON_COUNT_SHIFT 8
 
-// Self Turns Flags
+// Self Turn flags:
 #define SELF_TURN_FLAG_CLEAR          0
 #define SELF_TURN_FLAG_PLUCK_BERRY    (1 << 1)
 #define SELF_TURN_FLAG_INFATUATED     (1 << 2)
@@ -279,47 +279,47 @@
  *  flags that signal to the battle server to divert its attention for a moment
  *    or that something else is happening and to not run certain code at any given moment
  */
-#define SERVER_STATUS_FLAG_x20 (0x00000020)
-#define SERVER_STATUS_FLAG_SYNCHRONIZE (0x00000080)
-#define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC (0x00000400)
-#define SERVER_STATUS_FLAG_TYPE_FLAT (0x00000800)
-#define SERVER_STATUS_FLAG_TYPE_NONE (0x00008000)
-#define SERVER_STATUS_FLAG_MOVE_HIT (0x00002000)
+#define SERVER_STATUS_FLAG_x20                  (0x00000020)
+#define SERVER_STATUS_FLAG_SYNCHRONIZE          (0x00000080)
+#define SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC  (0x00000400)
+#define SERVER_STATUS_FLAG_TYPE_FLAT            (0x00000800)
+#define SERVER_STATUS_FLAG_TYPE_NONE            (0x00008000)
+#define SERVER_STATUS_FLAG_MOVE_HIT             (0x00002000)
 #define SERVER_STATUS_FLAG_ANIMATION_IS_PLAYING (0x00004000)
-#define SERVER_STATUS_FLAG_BEAT_UP_USED (0x00010000)
+#define SERVER_STATUS_FLAG_BEAT_UP_USED         (0x00010000)
 #define SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE (0x00020000)
-#define SERVER_STATUS_FLAG_MOLD_BREAKER (0x00800000)
+#define SERVER_STATUS_FLAG_MOLD_BREAKER         (0x00800000)
 
 /**
  *  @brief server status 2 flags (for BattleStruct's server_status_flag2)
  *  a continuation of BattleStruct's server_status_flag that do the same type of things
  */
-#define SERVER_STATUS_FLAG2_U_TURN (0x00000010)
+#define SERVER_STATUS_FLAG2_U_TURN      (0x00000010)
 #define SERVER_STATUS_FLAG2_FORM_CHANGE (0x04000000)
 
 /**
  *  @brief volatile status condition flags
  *  accessible in BattleStruct's battlemon[battler].condition2
  */
-#define STATUS2_CONFUSION (0x00000007)
-#define STATUS2_FLINCH (0x00000008)
-#define STATUS2_UPROAR (0x00000070)
-#define STATUS2_RAMPAGE_TURNS (0x00000C00)
-#define STATUS2_LOCKED_INTO_MOVE (0x00001000)
-#define STATUS2_BINDING_TURNS (0x0000E000) // no longer used, see sp->binding_turns
-#define STATUS2_ATTRACT (0x000f0000)
-#define STATUS2_FOCUS_ENERGY (0x00100000)
-#define STATUS2_TRANSFORMED (0x00200000)
-#define STATUS2_RECHARGE (0x00400000)
-#define STATUS2_RAGE (0x00800000)
-#define STATUS2_SUBSTITUTE (0x01000000)
-#define STATUS2_DESTINY_BOND (0x02000000)
-#define STATUS2_MEAN_LOOK (0x04000000)
-#define STATUS2_NIGHTMARE (0x08000000)
-#define STATUS2_CURSE (0x10000000)
-#define STATUS2_FORESIGHT (0x20000000)
-#define STATUS2_DEFENCE_CURL (0x40000000)
-#define STATUS2_TORMENT (0x80000000)
+#define STATUS2_CONFUSION           (0x00000007)
+#define STATUS2_FLINCH              (0x00000008)
+#define STATUS2_UPROAR              (0x00000070)
+#define STATUS2_RAMPAGE_TURNS       (0x00000C00)
+#define STATUS2_LOCKED_INTO_MOVE    (0x00001000)
+#define STATUS2_BINDING_TURNS       (0x0000E000) // No longer used; see sp->binding_turns.
+#define STATUS2_ATTRACT             (0x000f0000)
+#define STATUS2_FOCUS_ENERGY        (0x00100000)
+#define STATUS2_TRANSFORMED         (0x00200000)
+#define STATUS2_RECHARGE            (0x00400000)
+#define STATUS2_RAGE                (0x00800000)
+#define STATUS2_SUBSTITUTE          (0x01000000)
+#define STATUS2_DESTINY_BOND        (0x02000000)
+#define STATUS2_MEAN_LOOK           (0x04000000)
+#define STATUS2_NIGHTMARE           (0x08000000)
+#define STATUS2_CURSE               (0x10000000)
+#define STATUS2_FORESIGHT           (0x20000000)
+#define STATUS2_DEFENCE_CURL        (0x40000000)
+#define STATUS2_TORMENT             (0x80000000)
 
 #define STATUS2_UPROAR_SHIFT  4
 #define STATUS2_BIDE_SHIFT    8
@@ -330,38 +330,38 @@
 #define STATUS2_BATON_PASSABLE (STATUS2_CONFUSION | STATUS2_FOCUS_ENERGY | STATUS2_SUBSTITUTE | STATUS2_MEAN_LOOK | STATUS2_CURSE)
 
 // Status 2
-#define STATUS2_RAMPAGE          (3 << 10)
-#define STATUS2_BIDE_0           (1 << 8)
-#define STATUS2_BIDE_1           (1 << 9)
+#define STATUS2_RAMPAGE (3 << 10)
+#define STATUS2_BIDE_0  (1 << 8)
+#define STATUS2_BIDE_1  (1 << 9)
 
 #define STATUS2_BIDE    (STATUS2_BIDE_0 | STATUS2_BIDE_1)
 
-#define HAZARD_IDX_NONE 0
-#define HAZARD_IDX_SPIKES 1
+#define HAZARD_IDX_NONE         0
+#define HAZARD_IDX_SPIKES       1
 #define HAZARD_IDX_TOXIC_SPIKES 2
 #define HAZARD_IDX_STEALTH_ROCK 3
-#define HAZARD_IDX_STICKY_WEB 4
-#define HAZARD_IDX_SHARP_STEEL 5
-#define NUM_HAZARD_IDX (HAZARD_IDX_SHARP_STEEL)
+#define HAZARD_IDX_STICKY_WEB   4
+#define HAZARD_IDX_SHARP_STEEL  5
+#define NUM_HAZARD_IDX          (HAZARD_IDX_SHARP_STEEL)
 
 /**
  *  @brief side status flags that apply to one side
  *  accessible in BattleStruct's side_condition[side]
  *  seems to be duplicated in the side_condition_work structure bitfield
  */
-#define SIDE_STATUS_REFLECT (0x1)
-#define SIDE_STATUS_LIGHT_SCREEN (0x2)
-#define SIDE_STATUS_SPIKES (0x4)
-#define SIDE_STATUS_SAFEGUARD (0x8)
-#define SIDE_STATUS_FUTURE_SIGHT (0x10)
-#define SIDE_STATUS_WISH (0x20)
-#define SIDE_STATUS_MIST (0x40)
-#define SIDE_STATUS_STEALTH_ROCK (0x80)
-#define SIDE_STATUS_TAILWIND (0x300) // no longer used, see sp->tailwindCount
-#define SIDE_STATUS_TOXIC_SPIKES (0x400)
-#define SIDE_STATUS_STICKY_WEB (0x800)
-#define SIDE_STATUS_LUCKY_CHANT (0x7000)
-#define SIDE_STATUS_AURORA_VEIL (0x8000)
+#define SIDE_STATUS_REFLECT         (0x1)
+#define SIDE_STATUS_LIGHT_SCREEN    (0x2)
+#define SIDE_STATUS_SPIKES          (0x4)
+#define SIDE_STATUS_SAFEGUARD       (0x8)
+#define SIDE_STATUS_FUTURE_SIGHT    (0x10)
+#define SIDE_STATUS_WISH            (0x20)
+#define SIDE_STATUS_MIST            (0x40)
+#define SIDE_STATUS_STEALTH_ROCK    (0x80)
+#define SIDE_STATUS_TAILWIND        (0x300) // No longer used; see sp->tailwindCount.
+#define SIDE_STATUS_TOXIC_SPIKES    (0x400)
+#define SIDE_STATUS_STICKY_WEB      (0x800)
+#define SIDE_STATUS_LUCKY_CHANT     (0x7000)
+#define SIDE_STATUS_AURORA_VEIL     (0x8000)
 
 /**
  *  @brief self status flags that apply to BattleStruct's oneSelfFlag[battler].status_flag
@@ -369,17 +369,17 @@
  *
  *  largely handles effects that are supposed to happen for the turn and nothing more
  */
-#define SELF_STATUS_FLAG_HELD_ITEM_POWER_DOWN (0x00000001)
-#define SELF_STATUS_FLAG_PICKUP (0x00000002)
-#define SELF_STATUS_FLAG_ATTRACT (0x00000004) // this is checked for
-#define SELF_STATUS_FLAG_SUBSTITUTE_HIT (0x00000008)
+#define SELF_STATUS_FLAG_HELD_ITEM_POWER_DOWN   (0x00000001)
+#define SELF_STATUS_FLAG_PICKUP                 (0x00000002)
+#define SELF_STATUS_FLAG_ATTRACT                (0x00000004) // This is checked for.
+#define SELF_STATUS_FLAG_SUBSTITUTE_HIT         (0x00000008)
 
 /**
  *  @brief move category constants
  */
-#define SPLIT_PHYSICAL 0
-#define SPLIT_SPECIAL 1
-#define SPLIT_STATUS 2
+#define SPLIT_PHYSICAL  0
+#define SPLIT_SPECIAL   1
+#define SPLIT_STATUS    2
 
 /**
  *  @brief field status constants that apply to BattleStruct's field_condition field
@@ -405,11 +405,11 @@
 #define FIELD_CONDITION_TRICK_ROOM_INIT     (0x00050000)                                                                    // 0101 0000 0000 0000 0000
 #define FIELD_STATUS_TRICK_ROOM             (0x00070000)                                                                    // 0111 0000 0000 0000 0000
 
-// New weathers
+// New weathers:
 #define WEATHER_SNOW                        (0x00100000)                                                          //      0001 0000 0000 0000 0000 0000
 #define WEATHER_SNOW_PERMANENT              (0x00200000)                                                          //      0010 0000 0000 0000 0000 0000
 #define WEATHER_SNOW_ANY                    (WEATHER_SNOW | WEATHER_SNOW_PERMANENT)                               //      0011 0000 0000 0000 0000 0000
-// We have 2 extra bits let's have fun:
+// We have 2 extra bits, let's have fun:
 #define WEATHER_SHADOWY_AURA                (0x00400000)                                                          //      0100 0000 0000 0000 0000 0000
 #define WEATHER_SHADOWY_AURA_PERMANENT      (0x00800000)                                                          //      1000 0000 0000 0000 0000 0000
 #define WEATHER_SHADOWY_AURA_ANY            (WEATHER_SHADOWY_AURA | WEATHER_SHADOWY_AURA_PERMANENT)               //      1100 0000 0000 0000 0000 0000
@@ -430,7 +430,7 @@
 // weather that has indicators on the bottom screen
 #define WEATHER_ANY_ICONS (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG)
 
-#define FIELD_CONDITION_UPROAR_SHIFT         8
+#define FIELD_CONDITION_UPROAR_SHIFT        8
 #define FIELD_CONDITION_GRAVITY_SHIFT       12
 #define FIELD_CONDITION_TRICK_ROOM_SHIFT    16
 
@@ -561,7 +561,7 @@
 /**
  *  @brief animation constants for statbuffchange
  */
-#define STATUS_EFF_UP (12)
+#define STATUS_EFF_UP   (12)
 #define STATUS_EFF_DOWN (13)
 
 
@@ -585,9 +585,9 @@
 /**
  *  @brief eventually implement difficulty modes
  */
-#define NORMAL_MODE (0)
-#define CHALLENGE_MODE (1)
-#define EASY_MODE (2)
+#define NORMAL_MODE     (0)
+#define CHALLENGE_MODE  (1)
+#define EASY_MODE       (2)
 
 //Battle Status
 #define BATTLE_STATUS_NO_ATTACK_MESSAGE             (1 << 0)
@@ -646,7 +646,7 @@
 #define STRUGGLE_CHECK_IMPRISON             (1 << 5)
 #define STRUGGLE_CHECK_GRAVITY              (1 << 6)
 #define STRUGGLE_CHECK_HEAL_BLOCK           (1 << 7)
-#define STRUGGLE_CHECK_ENCORE               (1 << 8) //unused because they straight up forgot
+#define STRUGGLE_CHECK_ENCORE               (1 << 8) // Unused because they straight up forgot.
 #define STRUGGLE_CHECK_CHOICED              (1 << 9)
 #define STRUGGLE_CHECK_GORILLA_TACTICS      (1 << 10)
 #define STRUGGLE_CHECK_GIGATON_HAMMER       (1 << 11)
@@ -658,10 +658,10 @@
 enum
 {
     MSG_HEAL_SLEEP = 0,
-    MSG_HEAL_POISON,
-    MSG_HEAL_BURN,
-    MSG_HEAL_PARALYSIS,
-    MSG_HEAL_FROZEN,
+    MSG_HEAL_POISON,    // 1
+    MSG_HEAL_BURN,      // 2
+    MSG_HEAL_PARALYSIS, // 3
+    MSG_HEAL_FROZEN,    // 4
 };
 
 
@@ -694,12 +694,12 @@ struct __attribute__((packed)) OneTurnEffect
                u32 pp_dec_flag : 1;       /**< pp decreased this turn? */
                u32 protectFlag : 1;       /**< pokémon is currently protecting */
                u32 helping_hand_flag : 1; /**< pokémon is being aided by helping hand */
-               u32 magic_cort_flag : 1;   /**< pokémon has magic coat active */
+               u32 magic_coat_flag : 1;   /**< pokémon has magic coat active */
                u32 snatchFlag : 1;
                u32 haneyasume_flag : 1;
                u32 escape_flag : 2;
                u32 prevent_one_hit_ko_ability : 1; /**< pokémon has damp active */
-               // begin custom flags
+               // Custom flags:
                enum ForceExecutionOrder{EXECUTION_ORDER_NORMAL, EXECUTION_ORDER_AFTER_YOU, EXECUTION_ORDER_QUASH} forceExecutionOrderFlag : 2;
                u32 parental_bond_flag : 2;
                u32 parental_bond_is_active : 1;
@@ -726,22 +726,22 @@ struct __attribute__((packed)) OneTurnEffect
  */
 struct __attribute__((packed)) OneSelfTurnEffect
 {
-    /* 0x00 */ u32 no_pressure_flag : 1;         /**< affected by pressure */
-               u32 lightningRodFlag : 1;       /**< lightning rod activated on this pokémon */
-               u32 stormDrainFlag : 1;         /**< storm drain activated on this pokémon */
-               u32 moldBreakerFlag : 1;        /**< mold breaker activated on this pokémon */
+    /* 0x00 */ u32 no_pressure_flag : 1;        /**< affected by pressure */
+               u32 lightningRodFlag : 1;        /**< lightning rod activated on this pokémon */
+               u32 stormDrainFlag : 1;          /**< storm drain activated on this pokémon */
+               u32 moldBreakerFlag : 1;         /**< mold breaker activated on this pokémon */
                u32 trickRoomFlag : 1;           /**< trick room is active on this pokémon */
-               u32 prevent_one_hit_ko_item : 1;  /**< a held item prevented OHKO on this pokémon */
-               u32 rolloutCount : 3;           /**< counter for rollout */
-               u32 defiant_flag : 1;             /**< flag that signals to activate defiant after a stat is raised */
+               u32 prevent_one_hit_ko_item : 1; /**< a held item prevented OHKO on this pokémon */
+               u32 rolloutCount : 3;            /**< counter for rollout */
+               u32 defiant_flag : 1;            /**< flag that signals to activate defiant after a stat is raised */
                u32 : 22;
 
-    /* 0x04 */ int physical_damage;              /**< physical damage last taken */
-    /* 0x08 */ int physical_damager;             /**< last battler that physically damaged this pokémon */
-    /* 0x0C */ int special_damage;               /**< special damage last taken */
-    /* 0x10 */ int special_damager;              /**< last battler that specially damaged this pokémon */
+    /* 0x04 */ int physical_damage;             /**< physical damage last taken */
+    /* 0x08 */ int physical_damager;            /**< last battler that physically damaged this pokémon */
+    /* 0x0C */ int special_damage;              /**< special damage last taken */
+    /* 0x10 */ int special_damager;             /**< last battler that specially damaged this pokémon */
     /* 0x14 */ int status_flag;
-    /* 0x18 */ int shell_bell_damage;            /**< damage basis to be used for shell bell */
+    /* 0x18 */ int shell_bell_damage;           /**< damage basis to be used for shell bell */
 }; // size = 0x1C
 
 /**
@@ -769,51 +769,51 @@ struct __attribute__((packed)) MoveOutCheck
  */
 struct __attribute__((packed)) battle_moveflag
 {
-    /* 0x00 */ u32 disabledTurns : 3;        /**< duration of disable */
-               u32 encoredTurns : 3;         /**< duration of encore */
-               u32 isCharged : 2;            /**< whether or not the pokémon is charged */
-               u32 tauntTurns : 3;           /**< duration of taunt */
-               u32 protectSuccessTurns : 2;  /**< how many times protect has succeeded UNUSED see ctx->protectSuccessTurns[] */
-               u32 perishSongTurns : 2;      /**< perish song count */
-               u32 rolloutCount : 3;         /**< rollout count */
-               u32 furyCutterCount : 3;      /**< fury cutter successes */
-               u32 stockpileCount : 3;       /**< stockpile count */
-               u32 stockpileDefCount : 3;    /**< amount of defense stages due to stockpile */
-               u32 stockpileSpDefCount : 3;  /**< amount of special defense stages due to stockpile */
-               u32 truantFlag : 1;           /**< truant active flag */
-               u32 flashFire : 1;            /**< flash fire active flag */
+    /* 0x00 */ u32 disabledTurns : 3;        /**< Duration of disable. */
+               u32 encoredTurns : 3;         /**< Duration of encore. */
+               u32 isCharged : 2;            /**< Whether or not the pokémon is charged. */
+               u32 tauntTurns : 3;           /**< Duration of taunt. */
+               u32 protectSuccessTurns : 2;  /**< How many times Protect has succeeded (UNUSED, see ctx->protectSuccessTurns[]). */
+               u32 perishSongTurns : 2;      /**< Perish Song count. */
+               u32 rolloutCount : 3;         /**< Rollout count. */
+               u32 furyCutterCount : 3;      /**< Fury Cutter successes. */
+               u32 stockpileCount : 3;       /**< Stockpile count. */
+               u32 stockpileDefCount : 3;    /**< Amount of Defense stages due to Stockpile. */
+               u32 stockpileSpDefCount : 3;  /**< Amount of Special Defense stages due to Stockpile. */
+               u32 truantFlag : 1;           /**< Whether or not Truant is active. */
+               u32 flashFire : 1;            /**< Whether or not Flash Fire is active. */
 
-    /* 0x04 */ u32 battlerIdLockOn : 2;      /**< which battler the pokémon is locked on to */
-               u32 mimickedMoveIndex : 4;    /**< which move was mimicked as index to its move array */
-               u32 battlerIdBinding : 2;     /**< which battler the pokémon is binding */
-               u32 battlerIdMeanLook : 2;    /**< which battler the pokémon is trapping */
-               u32 lastResortCount : 3;      /**< how many moves have been used so far for last resort */
-               u32 magnetRiseTurns : 3;      /**< magnet rise duration */
-               u32 healBlockTurns : 3;       /**< heal block duration */
-               u32 embargoFlag : 3;          /**< embargo duration */
-               u32 knockOffFlag : 1;         /**< if the pokémon has lost its item.  used for unburden */
-               u32 metronomeTurns : 4;       /**< how many turns the metronome item has run for */
-               u32 boostedAccuracy : 1;      /**< accuracy boosted flag, see Micle Berry */
-               u32 custapBerryFlag : 1;      /**< whether the custap berry has activated */
-               u32 quickClawFlag : 1;        /**< whether the quick claw activated */
-               u32 meFirstFlag : 1;          /**< whether the move me first was used */
+    /* 0x04 */ u32 battlerIdLockOn : 2;      /**< Which battler the Pokémon is locked on to. */
+               u32 mimickedMoveIndex : 4;    /**< Which move was mimicked (as index to its move array). */
+               u32 battlerIdBinding : 2;     /**< Which battler the pokémon is binding. */
+               u32 battlerIdMeanLook : 2;    /**< Which battler the pokémon is trapping. */
+               u32 lastResortCount : 3;      /**< How many moves have been used so far for Last Resort. */
+               u32 magnetRiseTurns : 3;      /**< Magnet rise duration. */
+               u32 healBlockTurns : 3;       /**< Heal block duration. */
+               u32 embargoFlag : 3;          /**< Embargo duration. */
+               u32 knockOffFlag : 1;         /**< If the pokémon has lost its item. Also used for Unburden. */
+               u32 metronomeTurns : 4;       /**< How many turns the metronome item has run for. */
+               u32 boostedAccuracy : 1;      /**< Accuracy boosted flag; see Micle Berry. */
+               u32 custapBerryFlag : 1;      /**< Whether the Custap Berry has activated. */
+               u32 quickClawFlag : 1;        /**< Whether the Quick Claw activated. */
+               u32 meFirstFlag : 1;          /**< Whether the move Me First was used. */
                u32 : 1;
 
-    /* 0x08 */ int rechargeCount;            /**< recharge duration */
-    /* 0x0c */ int fakeOutCount;             /**< can it use fake out? */
-    /* 0x10 */ int slowStartTurns;           /**< slow start duration */
-    /* 0x14 */ int meFirstCount;             /**< me first count */
-    /* 0x18 */ int substituteHp;             /**< amount of hp the active substitute has */
-    /* 0x1c */ u32 transformPid;             /**< pid stored for transform */
-    /* 0x20 */ u16 disabledMove;             /**< move that was disabled */
-    /* 0x22 */ u16 bindingMove;              /**< move that is binding the opponent */
-    /* 0x24 */ u16 encoredMove;              /**< move that is forced by encore */
-    /* 0x26 */ u16 encoredMoveIndex;         /**< move position that is forced by encore in the pokémon's move array */
-    /* 0x28 */ u16 lastResortMoves[4];       /**< which moves have been used for last resort purposes */
-    /* 0x2a */ u16 moveNoChoice;             /**< move number forced by choice item */
-    /* 0x2c */ u16 transformGender;          /**< pokémon sex stored for transform purposes */
+    /* 0x08 */ int rechargeCount;            /**< Recharge duration. */
+    /* 0x0c */ int fakeOutCount;             /**< Whether or not this is the first turn in. */
+    /* 0x10 */ int slowStartTurns;           /**< Slow start duration. */
+    /* 0x14 */ int meFirstCount;             /**< Me First count. */
+    /* 0x18 */ int substituteHp;             /**< Amount of hp the active Substitute has. */
+    /* 0x1c */ u32 transformPid;             /**< PID stored for transform. */
+    /* 0x20 */ u16 disabledMove;             /**< Move that is disabled. */
+    /* 0x22 */ u16 bindingMove;              /**< Move that is binding the opponent. */
+    /* 0x24 */ u16 encoredMove;              /**< Move that is forced by Encore. */
+    /* 0x26 */ u16 encoredMoveIndex;         /**< Move position that is forced by Encore in the pokémon's move array. */
+    /* 0x28 */ u16 lastResortMoves[4];       /**< Which moves have been used for Last Resort purposes. */
+    /* 0x2a */ u16 moveNoChoice;             /**< Move array number forced by choice item. */
+    /* 0x2c */ u16 transformGender;          /**< Pokémon sex stored for Transform purposes. */
 // padding at 2e
-    /* 0x30 */ int itemHpRecover;            /**< how much hp was just restored by an item */
+    /* 0x30 */ int itemHpRecover;            /**< How much hp was just restored by an item. */
 }; // size = 0x34
 
 
@@ -824,68 +824,68 @@ struct __attribute__((packed)) battle_moveflag
  */
 struct __attribute__((packed)) BattlePokemon
 {
-    /* 0x00 */ u16 species;                  /**< species */
-    /* 0x02 */ u16 attack;                   /**< raw attack stat */
-    /* 0x04 */ u16 defense;                  /**< raw defense stat */
-    /* 0x06 */ u16 speed;                    /**< raw speed stat */
-    /* 0x08 */ u16 spatk;                    /**< raw special attack stat */
-    /* 0x0a */ u16 spdef;                    /**< raw special defense stat */
-    /* 0x0c */ u16 move[4];                  /**< move indices the BattlePokemon knows */
-    /* 0x14 */ u32 hp_iv : 5;                /**< hp iv */
-               u32 atk_iv : 5;               /**< attack iv */
-               u32 def_iv : 5;               /**< defense iv */
-               u32 spe_iv : 5;               /**< speed iv */
-               u32 spatk_iv : 5;             /**< special attack iv */
-               u32 spdef_iv : 5;             /**< special defense iv */
-               u32 is_egg : 1;               /**< the BattlePokemon is an egg */
-               u32 have_nickname : 1;        /**< has a nickname */
-    /* 0x18 */ s8 states[8];                 /**< stat stages */
-    /* 0x20 */ int weight;                   /**< current weight (before multiplicative adjustments but after autotomize adjustments) */
-    /* 0x24 */ u8 type1; //25                /**< first type */
-    /* 0x25 */ u8 type2;                     /**< second type */
-    /* 0x26 */ u8 form_no : 5;               /**< form id */
-               u8 rare : 1;                  /**< shininess */
-               u8 ability;                   /**< ability index */
+    /* 0x00 */ u16 species;                  /**< Species. */
+    /* 0x02 */ u16 attack;                   /**< Raw Attack stat. */
+    /* 0x04 */ u16 defense;                  /**< Raw Defense stat. */
+    /* 0x06 */ u16 speed;                    /**< Raw Speed stat. */
+    /* 0x08 */ u16 spatk;                    /**< Raw Special attack stat. */
+    /* 0x0a */ u16 spdef;                    /**< Raw Special defense stat. */
+    /* 0x0c */ u16 move[4];                  /**< Moves the BattlePokemon knows (by index number). */
+    /* 0x14 */ u32 hp_iv : 5;                /**< HP IV. */
+               u32 atk_iv : 5;               /**< Attack IV. */
+               u32 def_iv : 5;               /**< Defense IV. */
+               u32 spe_iv : 5;               /**< Speed IV. */
+               u32 spatk_iv : 5;             /**< Special Attack IV. */
+               u32 spdef_iv : 5;             /**< Special Defense IV. */
+               u32 is_egg : 1;               /**< If the BattlePokemon is an egg. */
+               u32 have_nickname : 1;        /**< If the BattlePokemon has a nickname */
+    /* 0x18 */ s8 states[8];                 /**< Current stat stages. */
+    /* 0x20 */ int weight;                   /**< Current weight (before multiplicative adjustments but after Autotomize). */
+    /* 0x24 */ u8 type1; //25                /**< First type. */
+    /* 0x25 */ u8 type2;                     /**< Second type. */
+    /* 0x26 */ u8 form_no : 5;               /**< Form ID. */
+               u8 rare : 1;                  /**< Shininess. */
+               u8 ability;                   /**< Ability index number. */
 
-               /** switch in flags to mark it as having been done */
+               /** Switch in flags to mark it as having been done: */
     /* 0x28 */ u32 paddingForNow1 : 6;
-               u32 slow_start_flag : 1;      /**< slow start has printed its message */
-               u32 slow_start_end_flag : 1;  /**< slow start should end */
+               u32 slow_start_flag : 1;      /**< Whether Slow Start has printed its message. */
+               u32 slow_start_end_flag : 1;  /**< Whether Slow Start should end. */
                u32 paddingForNow2 : 3;
-               u32 canMega : 1;              /**< the BattlePokemon can mega */
-               u32 sheer_force_flag : 1;     /**< keep track of sheer force activation */
-               u32 imposter_flag : 1;        /**< imposter has activated */
-               u32 critical_hits : 2;        /**< tracks the amount of critical hits the pokémon has landed while in battle so far */
-               u32 air_balloon_flag : 1;      /**< the held air balloon has printed its message */
+               u32 canMega : 1;              /**< Whether the BattlePokemon can Mega Evolve. */
+               u32 sheer_force_flag : 1;     /**< Whether Sheer Force has already applied its benefit. */
+               u32 imposter_flag : 1;        /**< Whether imposter has activated. */
+               u32 critical_hits : 2;        /**< The amount of critical hits the Pokémon has landed while in battle so far. */
+               u32 air_balloon_flag : 1;     /**< Whether the held Air Balloon has printed its message. */
                u32 potentially_affected_by_psychic_terrain_move_used_flag : 1;
                u32 ability_activated_flag : 1;
                u32 tera_type : 5;
                u32 is_currently_terastallized : 1;
                u32 is_currently_dynamaxed : 1;
                u32 has_dynamaxed_before : 1; /**< for Cherrim and Flower Gift */
-               u32 type3 : 5; // need to add to ClearBattleMonFlags when added to here as well
-    /* 0x2c */ u8 pp[4];                     /**< move pp left */
-    /* 0x30 */ u8 pp_count[4];               /**< move max pp */
-    /* 0x34 */ u8 level;                     /**< current level */
-    /* 0x35 */ u8 friendship;                /**< friendship */
-    /* 0x36 */ u16 nickname[11];             /**< nickname characters.  see charmap.txt for more information */
-    /* 0x4c */ s32 hp;                       /**< current hp */
-    /* 0x50 */ u32 maxhp;                    /**< max hp */
-    /* 0x54 */ u16 oyaname[8];               /**< OT name */
-    /* 0x68 */ u32 exp; //68                 /**< total experience */
-    /* 0x6c */ u32 personal_rnd;             /**< personality id */
-    /* 0x70 */ u32 condition;                /**< non-volatile status conditions (STATUS_* constants) */ // status
-    /* 0x74 */ u32 condition2;               /**< most other status conditions (STATUS2_* constants) */  // status2
-    /* 0x78 */ u32 id_no;                    /**< OT ID */
-    /* 0x7c */ u16 item;                     /**< held item */
+               u32 type3 : 5; // Need to add to ClearBattleMonFlags when added to here as well.
+    /* 0x2c */ u8 pp[4];                     /**< PP left for each move. */
+    /* 0x30 */ u8 pp_count[4];               /**< Maximum PP for each move. */
+    /* 0x34 */ u8 level;                     /**< Current level. */
+    /* 0x35 */ u8 friendship;                /**< Current friendship. */
+    /* 0x36 */ u16 nickname[11];             /**< Nickname characters-- see charmap.txt. */
+    /* 0x4c */ s32 hp;                       /**< Current HP. */
+    /* 0x50 */ u32 maxhp;                    /**< Max HP. */
+    /* 0x54 */ u16 oyaname[8];               /**< OT name. */
+    /* 0x68 */ u32 exp; //68                 /**< Total experience points. */
+    /* 0x6c */ u32 personal_rnd;             /**< Personality ID. */
+    /* 0x70 */ u32 condition;                /**< Current non-volatile status conditions (see STATUS constants). */
+    /* 0x74 */ u32 condition2;               /**< (Most) current volatile status conditions (see STATUS2 constants). */
+    /* 0x78 */ u32 id_no;                    /**< OT ID. */
+    /* 0x7c */ u16 item;                     /**< Current held item. */
     /* 0x7e */ u16 dummy;
     /* 0x80 */ u8 hit_count;
     /* 0x81 */ u8 message_flag;
-    /* 0x82 */ u8 sex : 4;                   /**< sex for rivalry purposes etc. */
-               u8 oyasex : 4;                /**< original trainer sex */
-    /* 0x83 */ u8 get_ball;                  /**< caught ball */
-    /* 0x84 */ u32 effect_of_moves;          /**< move effect trackers (see MOVE_EFFECT_* constants) */ // moveEffectFlags
-    /* 0x88 */ u32 effect_of_moves_temp;     /**< storage for effect_of_moves */
+    /* 0x82 */ u8 sex : 4;                   /**< Sex for battle purposes (Rivalry, Infatutate, etc.) */
+               u8 oyasex : 4;                /**< OT sex. */
+    /* 0x83 */ u8 get_ball;                  /**< Ball that the Pokémon was caught in. */
+    /* 0x84 */ u32 effect_of_moves;          /**< Move effect trackers (see MOVE_EFFECT constants). */ // moveEffectFlags
+    /* 0x88 */ u32 effect_of_moves_temp;     /**< Storage for effect_of_moves. */
     /* 0x8c */ struct __attribute__((packed)) battle_moveflag moveeffect;   // unk88
 }; // size = 0xc0
 
@@ -902,13 +902,13 @@ typedef struct {
  */
 struct __attribute__((packed)) field_condition_count
 {
-    /*0x00*/ u32     weather_count;                            /**< weather duration left */
-    /*0x04*/ u8      future_prediction_count[CLIENT_MAX];      /**< future turns left */
-    /*0x08*/ u8      wish_count[CLIENT_MAX];                   /**< wish turns left */
-    /*0x0C*/ u16     future_prediction_wazano[CLIENT_MAX];     /**< move to use for future sight damage (future sight or doom desire?) */
-    /*0x14*/ int     future_prediction_client_no[CLIENT_MAX];  /**< target to use for future sight damage */
-    /*0x24*/ s32     future_prediction_damage[CLIENT_MAX];     /**< damage to use for future sight */
-    /*0x34*/ u8      wish_sel_mons[CLIENT_MAX];                /**< party position to use to restore wish */
+    /*0x00*/ u32     weather_count;                            /**< Turns until weather dissipates. */
+    /*0x04*/ u8      future_prediction_count[CLIENT_MAX];      /**< Turns until a Future Sight effect hits. */
+    /*0x08*/ u8      wish_count[CLIENT_MAX];                   /**< Turns until a Wish effect is granted. */
+    /*0x0C*/ u16     future_prediction_wazano[CLIENT_MAX];     /**< Move to use for Future Sight damage calculations (Future Sight or Doom Desire). */
+    /*0x14*/ int     future_prediction_client_no[CLIENT_MAX];  /**< Target position to use for Future Sight damage. */
+    /*0x24*/ s32     future_prediction_damage[CLIENT_MAX];     /**< Future Sight calculated damage.*/
+    /*0x34*/ u8      wish_sel_mons[CLIENT_MAX];                /**< Target position to receive Wish. */
 };
 
 struct __attribute__((packed)) tcb_skill_intp_work
@@ -962,55 +962,55 @@ struct __attribute__((packed)) side_condition_work
 
 struct __attribute__((packed)) BattleAIWorkTable
 {
-    u8 ai_seq_no; //0x0
-    u8 ai_move_pos; //0x1
-    u16 ai_move_no; //0x2
+    u8 ai_seq_no;                           // 0x0
+    u8 ai_move_pos;                         // 0x1
+    u16 ai_move_no;                         // 0x2
 
-    s8 ai_move_point[4]; //0x4
+    s8 ai_move_point[4];                    // 0x4
 
-    int ai_calc_work; //0x8
-    u32 ai_think_bit; //0xC
+    int ai_calc_work;                       // 0x8
+    u32 ai_think_bit;                       // 0xC
 
-    u8 ai_status_flag; //0x10
-    u8 ai_think_no; //0x11
-    u8 ai_all_move_check_loop_count; //0x12
-    u8 ai_all_move_check_push_pos; //0x13
+    u8 ai_status_flag;                      // 0x10
+    u8 ai_think_no;                         // 0x11
+    u8 ai_all_move_check_loop_count;        // 0x12
+    u8 ai_all_move_check_push_pos;          // 0x13
 
-    u8* ai_all_move_check_loop_address; //0x14
-    u8 ai_damage_amount[4]; //0x18
+    u8* ai_all_move_check_loop_address;     // 0x14
+    u8 ai_damage_amount[4];                 // 0x18
 
-    u16 ai_defence_use_move[4][4]; //0x1C, length = 32 = 0x20 bytes
+    u16 ai_defence_use_move[4][4];          // 0x1C, length = 32 = 0x20 bytes.
 
-    u8 ai_tokusyu_no[4]; //0x3C
-    u16 ai_soubi_item[4]; //0x40
+    u8 ai_tokusyu_no[4];                    // 0x3C
+    u16 ai_soubi_item[4];                   // 0x40
 
-    u16 ai_have_item[2][4]; //0x48, length = 16 = 0x10 bytes
+    u16 ai_have_item[2][4];                 // 0x48, length = 16 = 0x10 bytes.
 
-    u32 push_address_buffer[8]; //0x58, length = 32 = 0x20 bytes
-    u8 push_address_count; //0x78
-    u8 ai_item_count[2]; //0x79
-    u8 ai_attack_client; //0x7B
-    u8 ai_defence_client; //0x7C
+    u32 push_address_buffer[8];             // 0x58, length = 32 = 0x20 bytes.
+    u8 push_address_count;                  // 0x78
+    u8 ai_item_count[2];                    // 0x79
+    u8 ai_attack_client;                    // 0x7B
+    u8 ai_defence_client;                   // 0x7C
 
-    u8 ai_item_type[2]; //0x7D
-    u8 ai_item_condition[2]; //0x7F
+    u8 ai_item_type[2];                     // 0x7D
+    u8 ai_item_condition[2];                // 0x7F
 
-    u8 padding_81; //implicit padding here, one byte
+    u8 padding_81;                          // Implicit padding here (one byte).
 
-    u16 ai_item_no[2]; //0x82
+    u16 ai_item_no[2];                      // 0x82
 
-    u8 ai_dir_select_client[CLIENT_MAX]; //0x86
-    struct BattleMove old_moveTbl[467 + 1]; //0x8A, length = 0x10*468 = 0x1D40, this technically is also 0x3DE in the BattleStruct
+    u8 ai_dir_select_client[CLIENT_MAX];    // 0x86
+    struct BattleMove old_moveTbl[467 + 1]; // 0x8A, length = 0x10*468 = 0x1D40 (this is technically also 0x3DE in the BattleStruct).
 
-    u16 padding_1DCA; //implicit padding here, two bytes
+    u16 padding_1DCA;                       // Implicit padding here (two bytes).
 
-    ITEMDATA *item; //0x1DCC, this is technically also 0x2120 in the BattleStruct
+    ITEMDATA *item;                         // 0x1DCC (this is technically also 0x2120 in the BattleStruct)
 
-    u16 ai_calc_count[CLIENT_MAX]; //0x1DD0
-    u16 ai_calc_continue[CLIENT_MAX]; //0x1DD8
+    u16 ai_calc_count[CLIENT_MAX];          // 0x1DD0
+    u16 ai_calc_continue[CLIENT_MAX];       // 0x1DD8
 
-    //length is 0x1DE0
-    //the end of this struct is at 0x2134 in the BattleStruct
+    // Length is 0x1DE0.
+    // The end of this struct is at 0x2134 in the BattleStruct.
 };
 
 
@@ -1067,17 +1067,17 @@ typedef enum ControllerCommand {
     CONTROLLER_COMMAND_BEFORE_TURN,
     CONTROLLER_COMMAND_8,
     CONTROLLER_COMMAND_UPDATE_FIELD_CONDITION,
-    CONTROLLER_COMMAND_UPDATE_MON_CONDITION, //10
+    CONTROLLER_COMMAND_UPDATE_MON_CONDITION, // 10
     CONTROLLER_COMMAND_UPDATE_FIELD_CONDITION_EXTRA,
     CONTROLLER_COMMAND_TURN_END,
     CONTROLLER_COMMAND_FIGHT_INPUT,
     CONTROLLER_COMMAND_ITEM_INPUT,
-    CONTROLLER_COMMAND_POKEMON_INPUT, //15
+    CONTROLLER_COMMAND_POKEMON_INPUT, // 15
     CONTROLLER_COMMAND_RUN_INPUT,
     CONTROLLER_COMMAND_SAFARI_THROW_BALL,
     CONTROLLER_COMMAND_SAFARI_THROW_BAIT,
     CONTROLLER_COMMAND_SAFARI_THROW_MUD,
-    CONTROLLER_COMMAND_SAFARI_WATCHING, //20
+    CONTROLLER_COMMAND_SAFARI_WATCHING, // 20
     CONTROLLER_COMMAND_CATCHING_CONSTEST_THROW_BALL,
     CONTROLLER_COMMAND_RUN_SCRIPT,
     CONTROLLER_COMMAND_23,
@@ -1112,42 +1112,42 @@ enum BattleControlSequence {
     BATTLE_CONTROL_TRAINER_MESSAGE,
     BATTLE_CONTROL_SHOW_BATTLE_MON,
     BATTLE_CONTROL_INIT_COMMAND_SELECTION,
-    BATTLE_CONTROL_COMMAND_SELECTION_INPUT,
+    BATTLE_CONTROL_COMMAND_SELECTION_INPUT, // 5
     BATTLE_CONTROL_CALC_TURN_ORDER,
     BATTLE_CONTROL_CHECK_PRE_MOVE_ACTIONS,
     BATTLE_CONTROL_BRANCH_ACTIONS,
     BATTLE_CONTROL_CHECK_FIELD_CONDITIONS,
-    BATTLE_CONTROL_CHECK_MON_CONDITIONS,
+    BATTLE_CONTROL_CHECK_MON_CONDITIONS, // 10
     BATTLE_CONTROL_CHECK_SIDE_CONDITIONS,
     BATTLE_CONTROL_TURN_END,
 
     BATTLE_CONTROL_FIGHT,
     BATTLE_CONTROL_ITEM,
-    BATTLE_CONTROL_PARTY,
+    BATTLE_CONTROL_PARTY, // 15
     BATTLE_CONTROL_RUN,
 
     BATTLE_CONTROL_SAFARI_BALL,
     BATTLE_CONTROL_SAFARI_BAIT,
     BATTLE_CONTROL_SAFARI_ROCK,
-    BATTLE_CONTROL_SAFARI_WAIT,
+    BATTLE_CONTROL_SAFARI_WAIT, // 20
 
     BATTLE_CONTROL_EXEC_SCRIPT,
     BATTLE_CONTROL_BEFORE_MOVE,
     BATTLE_CONTROL_TRY_MOVE,
     BATTLE_CONTROL_PRIMARY_EFFECT,
-    BATTLE_CONTROL_MOVE_FAILED,
+    BATTLE_CONTROL_MOVE_FAILED, // 25
     BATTLE_CONTROL_USE_MOVE,
     BATTLE_CONTROL_UPDATE_HP,
     BATTLE_CONTROL_AFTER_MOVE_MESSAGE,
-    // 29 is an unused state
+    // 29 is an unused state.
     BATTLE_CONTROL_AFTER_MOVE_EFFECT = 30,
     BATTLE_CONTROL_LOOP_MULTI_HIT,
-    // 32 is an unused state
+    // 32 is an unused state.
     BATTLE_CONTROL_LOOP_FAINTED = 33,
     BATTLE_CONTROL_LOOP_SPREAD_MOVES,
     BATTLE_CONTROL_FAINT_AFTER_SELFDESTRUCT,
     BATTLE_CONTROL_TRIGGER_AFTER_HIT_EFFECTS,
-    // 37 is an unused state
+    // 37 is an unused state.
     BATTLE_CONTROL_UPDATE_MOVE_BUFFERS = 38,
     BATTLE_CONTROL_MOVE_END,
     BATTLE_CONTROL_CHECK_ANY_FAINTED,
@@ -1164,7 +1164,7 @@ typedef enum FutureConditionType {
     FUTURE_CONDITION_MAX = FUTURE_CONDITION_FUTURE_SIGHT_OR_DOOM_DESIRE,
 } FutureConditionType;
 
-// Cannonade, Vine Lash, Volcalith, Wildfire) and Pledge Sea of Fire
+// Cannonade, Vine Lash, Volcalith, Wildfire and the Sea of Fire Pledge effect.
 typedef enum SideConditionType {
     SIDE_CONDITION_NONE = 0,
     SIDE_CONDITION_G_MAX_VINE_LASH,
@@ -1235,7 +1235,7 @@ struct PACKED BattleStruct {
     /*0x78*/ int reshuffle_client;      // battlerIdSwitch
     /*0x7C*/ int reshuffle_client_temp;
     /*0x80*/ int ability_client;
-    /*0x84*/ int magic_cort_client;     // battlerIdMagicCoat
+    /*0x84*/ int magic_coat_client;     // battlerIdMagicCoat
 
     /*0x88*/ int addeffect_type;
     /*0x8C*/ int addeffect_param;
@@ -1256,7 +1256,7 @@ struct PACKED BattleStruct {
     /*0xEC*/ int executionIndex;
     /*0xF0*/ int wait_cnt;
     /*0xF4*/ MESSAGE_PARAM mp;          // buffMsg
-    /*0x118*/ int battlerIdTemp;          // battlerIdTemp
+    /*0x118*/ int battlerIdTemp;        // battlerIdTemp
     /*0x11C*/ int attack_client_work;   // battlerIdLeechSeedRecv
     /*0x120*/ int defence_client_work;  // battlerIdLeechSeeded
     /*0x124*/ int waza_work;            // moveTemp
@@ -1285,19 +1285,19 @@ struct PACKED BattleStruct {
     /*0x2134*/ u32 *ai_seq_work;
     /*0x2138*/ u32 ai_seq_address;
 
-    /*0x213C*/ u32 server_status_flag;                              // battleStatus
-    /*0x2140*/ u32 server_status_flag2;                             // battleStatus2
+    /*0x213C*/ u32 server_status_flag;      // battleStatus
+    /*0x2140*/ u32 server_status_flag2;     // battleStatus2
     /*0x2144*/ int damage;
     /*0x2148*/ int hit_damage;
-    /*0x214C*/ int critical_count;                                  // criticalCnt
-    /*0x2150*/ int critical;                                        // criticalMultiplier
+    /*0x214C*/ int critical_count;          // criticalCnt
+    /*0x2150*/ int critical;                // criticalMultiplier
     /*0x2154*/ int damage_power;
     /*0x2158*/ int damage_value;
-    /*0x215C*/ int hp_calc_work;                                    // hpCalc
-    /*0x2160*/ int move_type;                                       // moveType
+    /*0x215C*/ int hp_calc_work;            // hpCalc
+    /*0x2160*/ int move_type;               // moveType
     /*0x2164*/ int waza_eff_cnt;
     /*0x2168*/ int money_multiplier;
-    /*0x216C*/ u32 waza_status_flag;                                // moveStatusFlag
+    /*0x216C*/ u32 waza_status_flag;        // moveStatusFlag
 
     /*0x2170*/ u32 add_status_flag_direct;
     /*0x2174*/ u32 add_status_flag_indirect;
@@ -1308,21 +1308,21 @@ struct PACKED BattleStruct {
     /*0x217F*/ u8 beat_up_count;
 
     /*0x2180*/ u32 loop_flag;
-    /*0x2184*/ u32 waza_out_check_on_off; // multiHitCheckFlags
-    /*0x2188*/ u32 loop_hit_check;  // checkMultiHit
+    /*0x2184*/ u32 waza_out_check_on_off;   // multiHitCheckFlags
+    /*0x2188*/ u32 loop_hit_check;          // checkMultiHit
 
     /*0x218C*/ u32 condition2_off_req[CLIENT_MAX];
-    /*0x219C*/ u8 sel_mons_no[CLIENT_MAX];  // selectedMonIndex
+    /*0x219C*/ u8 sel_mons_no[CLIENT_MAX];                  // selectedMonIndex
     /*0x21A0*/ u8 reshuffle_sel_mons_no[CLIENT_MAX];
     /*0x21A4*/ u8 ai_reshuffle_sel_mons_no[CLIENT_MAX];
-    /*0x21A8*/ u32 playerActions[4][4]; // client_act_work
-    /*0x21E8*/ u8 executionOrder[4]; // client_agi_work -- accounts for running, items, etc used in battler slots
-    /*0x21EC*/ u8 turnOrder[4]; // turn_order -- by pokemon speed, accounting for trick room
-    /*0x21F0*/ u32 effectiveSpeed[4]; // psp_agi_point
+    /*0x21A8*/ u32 playerActions[4][4];                     // client_act_work
+    /*0x21E8*/ u8 executionOrder[4];                        // client_agi_work (accounts for running, items, etc. used in battler slots)
+    /*0x21EC*/ u8 turnOrder[4];                             // turn_order (by speed, accounting for Trick Room)
+    /*0x21F0*/ u32 effectiveSpeed[4];                       // psp_agi_point
     /*0x2200*/ u8 ServerQue[4][4][16];
     /*0x2300*/ u8 server_buffer[4][256];
     /*0x2700*/ int SkillSeqWorkOld[400];
-    /*0x2D40*/ struct BattlePokemon battlemon[CLIENT_MAX]; //0xc0
+    /*0x2D40*/ struct BattlePokemon battlemon[CLIENT_MAX];  // 0xc0
     /*0x3040*/ u32 moveNoTemp;
     /*0x3044*/ u32 current_move_index;
     // u8 unk_bytes4[0x74];
@@ -1349,7 +1349,7 @@ struct PACKED BattleStruct {
     /*0x30E4*/ int store_damage[CLIENT_MAX];
     /*0x30F4*/ int client_no_hit[CLIENT_MAX];
     /*0x3104*/ int client_no_agi;
-    /*0x3108*/ u8 no_reshuffle_client;      // switchInFlag
+    /*0x3108*/ u8 no_reshuffle_client;  // switchInFlag
     /*0x3109*/ u8 level_up_pokemon;
     /*0x310A*/ u16 que_check_wait;
     /*0x310C*/ u16 agi_rand[CLIENT_MAX];
@@ -1372,27 +1372,27 @@ struct PACKED BattleStruct {
     /*0x3150*/ int waitingBattlers;
     /*0x3154*/ u32 battle_progress_flag : 1;
                u32 : 31;
-    /*0x3158*/ u8 log_hail_for_ice_face; // bitfield with 1 << client for if there was hail last turn
-    /*0x3159*/ u8 tailwindCount[2]; // new tailwind counter
+    /*0x3158*/ u8 log_hail_for_ice_face;                    // Bitfield (offset by client) to check if there was hail/snow last turn.
+    /*0x3159*/ u8 tailwindCount[2];                         // New Tailwind counter.
     /*0x315B*/ u8 mons_getting_exp;
     /*0x315C*/ u8 mons_getting_exp_from_item;
-    /*0x315D*/ u8 relic_song_tracker; // bitfield with 1 << client for if it used relic song
-    /*0x315E*/ u8 frisk_tracker; // see which clients have been frisked by the frisk client (1 << client)
-    /*0x315F*/ u8 magicBounceTracker; // if any client has already activated magic bounce, another can not activate
-    /*0x3160*/ u8 binding_turns[4]; // turns left for bind
+    /*0x315D*/ u8 relic_song_tracker;                       // Bitfield (offset by client) to check if the client used Relic Song.
+    /*0x315E*/ u8 frisk_tracker;                            // Bitfield (offset by client) to check which clients have been frisked by the frisk client.
+    /*0x315F*/ u8 magicBounceTracker;                       // If any client has already activated Magic Bounce, another cannot activate.
+    /*0x3160*/ u8 binding_turns[4];                         // Turns left (per client) for binding effects.
     /*0x3164*/ u8 entryHazardQueue[2][NUM_HAZARD_IDX];
-    /*0x316E*/ u8 protectSuccessTurns[CLIENT_MAX]; // Only need to count up to 6
+    /*0x316E*/ u8 protectSuccessTurns[CLIENT_MAX];          // Only needs to count up to 6.
     /*0x3172*/ u8 hazardQueueTracker:7;
-               u8 itemActivatedTracker:1; // if an item that isn't lost on activation has been activated for this hit (think rocky helmet)
-    /*0x3173*/ u8 padding_3173[0x317E - 0x3173]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
+               u8 itemActivatedTracker:1;                   // Check if an item that isn't lost on activation has been activated for this hit (e.g. Rocky Helmet).
+    /*0x3173*/ u8 padding_3173[0x317E - 0x3173];            // Padding to get moveTbl to 317E (for the convenience of 3180 in asm).
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
-    /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
-    /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
+    /*0x    */ u32 gainedExperience[6];                     // Possible experience gained per party member in order to get level scaling done right.
+    /*0x    */ u32 gainedExperienceShare[6];                // Possible experience gained per party member in order to get level scaling done right.
     /*0x    */ int SkillSeqWork[600];
     /*...*/
 
                FutureCondition futureConditionQueue[CLIENT_MAX * FUTURE_CONDITION_MAX];
-               BOOL checkOnlySpecifiedTarget; // for BattleFormChangeCheck
+               BOOL checkOnlySpecifiedTarget; // For BattleFormChangeCheck.
                u8 endTurnEventBlockSequenceNumber;
                u8 checkOnlySpecifiedTargetClient;
 
@@ -1414,8 +1414,8 @@ struct PACKED BattleStruct {
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
 
-               u8 playerSideHasFaintedTeammateThisTurn : 2;// bitmask for Trainer on player side who has lost a Mon: either 0b01 (left), 0b10 (right), or 0b11 (both)
-               u8 enemySideHasFaintedTeammateThisTurn : 2; // ..enemy side... either 0b01, 0b10, or 0b11
+               u8 playerSideHasFaintedTeammateThisTurn : 2; // Bitmask for a Trainer on the Player side who has lost a Mon: either 0b01 (left), 0b10 (right), or 0b11 (both).
+               u8 enemySideHasFaintedTeammateThisTurn : 2;  // ..enemy side... either 0b01, 0b10, or 0b11
                u8 playerSideHasFaintedTeammateLastTurn : 2;
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
@@ -1519,14 +1519,14 @@ struct BattleSystem {
     // UnkBattleSystemSub1D0 unk1D0[4];
     // UnkBattleSystemSub220 unk220;
     // GAME_STATS *gameStats;
-    u8 padding_19C[0x220 - 0x19C]; // 220 based on assembly at 0223B884
+    u8 padding_19C[0x220 - 0x19C]; // 220 based on assembly at 0223B884.
     u8 *bg_area;
     u16 *pal_area;
     // u8 sendBuffer[0x1000];
     // u8 recvBuffer[0x1000];
     // u16 unk2238[0x70];
     // u16 unk2318[0x70];
-    // u16 unk23E8; //labeling may be wrong before here
+    // u16 unk23E8; // labeling may be wrong before here
     // u16 unk23EA;
     // u16 unk23EC;
     // u16 unk23EE;
@@ -1584,7 +1584,7 @@ struct BattleSystem {
 };
 
 
-//Ability Checks - values for flag for CheckSideAbility
+// Ability Checks (flag values for CheckSideAbility):
 #define CHECK_ABILITY_SAME_SIDE             0
 #define CHECK_ABILITY_SAME_SIDE_HP          1
 #define CHECK_ABILITY_OPPOSING_SIDE         2
@@ -1634,8 +1634,8 @@ enum
     BATTLE_MON_DATA_MAX_CONDITION = 52,
     BATTLE_MON_DATA_STATUS2 = 53,
     BATTLE_MON_HELD_ITEM = 55,
-    BATTLE_MON_DATA_MOVE_STATE = 59,  //0x40 - fly, 0x80 - dig
-    BATTLE_MON_DATA_MOVE_STATE_2 = 60,//0x40 - fly, 0x80 - dig
+    BATTLE_MON_DATA_MOVE_STATE = 59,    //0x40 - fly, 0x80 - dig
+    BATTLE_MON_DATA_MOVE_STATE_2 = 60,  //0x40 - fly, 0x80 - dig
     BATTLE_MON_FLASH_FIRE_ACTIVATED = 73,
     BATTLE_MON_DATA_SLOW_START_COUNTER = 89,
 };
@@ -1818,23 +1818,23 @@ enum {
     BEFORE_MOVE_STATE_RECHARGE,
     BEFORE_MOVE_STATE_SLEEP_OR_FROZEN,
     BEFORE_MOVE_STATE_CHECK_OBEDIENCE,
-    BEFORE_MOVE_STATE_CHECK_PP,
+    BEFORE_MOVE_STATE_CHECK_PP, // 5
     BEFORE_MOVE_STATE_DISPLAY_Z_DANCE_AND_EFFECT,
     BEFORE_MOVE_STATE_TRUANT,
     BEFORE_MOVE_STATE_FOCUS_PUNCH_LOSE_FOCUS,
     BEFORE_MOVE_STATE_FLINCH,
-    BEFORE_MOVE_STATE_DISABLED,
+    BEFORE_MOVE_STATE_DISABLED, // 10
     BEFORE_MOVE_STATE_HEAL_BLOCK,
     BEFORE_MOVE_STATE_GRAVITY_THROAT_CHOP,
     BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK,
     BEFORE_MOVE_STATE_TAUNT,
-    BEFORE_MOVE_STATE_IMPRISION,
+    BEFORE_MOVE_STATE_IMPRISION, // 15
     BEFORE_MOVE_STATE_CONFUSION_SELF_HIT_OR_WEAR_OFF,
     BEFORE_MOVE_STATE_PARALYSIS,
     BEFORE_MOVE_STATE_INFATUATION,
     // BEFORE_MOVE_STATE_SLEEP_TALK_SNORE_ANNOUNCEMENT,
     BEFORE_MOVE_STATE_ANNOUNCE_SUB_MOVE,
-    BEFORE_MOVE_STATE_THAW_OUT_BY_MOVE,
+    BEFORE_MOVE_STATE_THAW_OUT_BY_MOVE, // 20
     BEFORE_MOVE_STATE_STANCE_CHANGE,
     // BEFORE_MOVE_STATE_CHECK_FAIL_MESSAGES,
 
@@ -1844,67 +1844,67 @@ enum {
     // BEFORE_MOVE_STATE_ABILITY_REDIRECT_TARGET,
     BEFORE_MOVE_STATE_REDIRECT_TARGET,
     BEFORE_MOVE_STATE_DECREMENT_PP,
-    BEFORE_MOVE_STATE_CHOICE_LOCK,
+    BEFORE_MOVE_STATE_CHOICE_LOCK, // 25
     BEFORE_MOVE_STATE_BURN_UP_OR_DOUBLE_SHOCK,
     BEFORE_MOVE_STATE_PRIMAL_WEATHER,
     BEFORE_MOVE_STATE_CONSUME_MICLE_BERRY_FLAG,
     BEFORE_MOVE_STATE_MOVE_FAILURES_1,
-    BEFORE_MOVE_STATE_BIDE,
+    BEFORE_MOVE_STATE_BIDE, // 30
     BEFORE_MOVE_STATE_ABILITY_FAILURES_1,
     BEFORE_MOVE_STATE_INTERRUPTIBLE_MOVES,
     BEFORE_MOVE_STATE_PROTEAN_OR_LIBERO,
     BEFORE_MOVE_STATE_CHARGING_MOVE_MESSAGE,
-    BEFORE_MOVE_STATE_CHECK_POWER_HERB,
+    BEFORE_MOVE_STATE_CHECK_POWER_HERB, // 35
     BEFORE_MOVE_STATE_CHECK_STOLEN_BY_SNATCH,
     BEFORE_MOVE_STATE_SET_EXPLOSION_SELF_DESTRUCT_FLAG,
     BEFORE_MOVE_STATE_CHECK_NO_TARGET_OR_SELF,
     BEFORE_MOVE_STATE_SET_CRASH_FLAG,
-    BEFORE_MOVE_STATE_SET_STEEL_BEAM_FLAG,
+    BEFORE_MOVE_STATE_SET_STEEL_BEAM_FLAG, // 40
     BEFORE_MOVE_STATE_CHECK_SKY_DROP_TARGET,
     BEFORE_MOVE_STATE_SEMI_INVULNERABILITY,
     BEFORE_MOVE_STATE_PSYCHIC_TERRAIN,
     BEFORE_MOVE_STATE_TEAMMATE_PROTECTION,
-    BEFORE_MOVE_STATE_PROTECT_AND_FRIENDS,
+    BEFORE_MOVE_STATE_PROTECT_AND_FRIENDS, // 45
     BEFORE_MOVE_STATE_MAT_BLOCK,
     BEFORE_MOVE_STATE_MAX_GUARD,
     BEFORE_MOVE_STATE_MAGIC_COAT,
     BEFORE_MOVE_STATE_TELEKINESIS_FAILURES,
-    BEFORE_MOVE_STATE_MAGIC_BOUNCE,
+    BEFORE_MOVE_STATE_MAGIC_BOUNCE, // 50
     BEFORE_MOVE_STATE_ABILITY_FAILURES_2,
     BEFORE_MOVE_STATE_TYPE_CHART_IMMUNITY,
     BEFORE_MOVE_STATE_LEVITATE,
     BEFORE_MOVE_STATE_AIR_BALLOON_TELEKINESIS_MAGNET_RISE,
-    BEFORE_MOVE_STATE_SAFETY_GOGGLES,
+    BEFORE_MOVE_STATE_SAFETY_GOGGLES, // 55
     BEFORE_MOVE_STATE_ABILITY_FAILURES_3,
     BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_1,
     BEFORE_MOVE_STATE_MOVE_FAILURES_2,
     BEFORE_MOVE_STATE_MOVE_FAILURES_2_VENOM_DRENCH,
-    BEFORE_MOVE_STATE_MOVE_FAILURES_3,
+    BEFORE_MOVE_STATE_MOVE_FAILURES_3, // 60
     BEFORE_MOVE_STATE_MOVE_FAILURES_3_PERISH_SONG,
     BEFORE_MOVE_STATE_MOVE_FAILURES_3_LOWER_STATS,
     BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_2,
     BEFORE_MOVE_STATE_UPROAR_STOPPING_MOVES,
-    BEFORE_MOVE_STATE_SAFEGUARD,
+    BEFORE_MOVE_STATE_SAFEGUARD, // 65
     BEFORE_MOVE_STATE_TERRAIN_BLOCK,
     BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE,
     BEFORE_MOVE_STATE_MIST,
     BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STAT_BASED_FAILURES,
-    BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STATUS_BASED_FAILURES,
+    BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STATUS_BASED_FAILURES, // 70
     BEFORE_MOVE_STATE_ABILITY_FAILURES_4_OTHER_AROMA_VEIL_STRUDY,
     BEFORE_MOVE_STATE_MOVE_ACCURACY,
     BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_OTHER_EFFECTS,
     BEFORE_MOVE_STATE_MIRROR_ARMOR,
-    BEFORE_MOVE_STATE_ROAR_WHIRLWIND_INTO_DYNAMAXED_TARGET,
+    BEFORE_MOVE_STATE_ROAR_WHIRLWIND_INTO_DYNAMAXED_TARGET, // 75
     BEFORE_MOVE_STATE_MOVE_FAILURES_4_SINGLE_TARGET,
     BEFORE_MOVE_STATE_MOVE_FAILURES_4_MULTIPLE_TARGETS,
     BEFORE_MOVE_STATE_MOVE_FAILURES_5,
     BEFORE_MOVE_STATE_AROMA_VEIL,
-    BEFORE_MOVE_STATE_GEM_ACTIVATION,
+    BEFORE_MOVE_STATE_GEM_ACTIVATION, // 80
     BEFORE_MOVE_STATE_TRIGGER_STRONG_WINDS,
     BEFORE_MOVE_STATE_TERA_SHELL,
     BEFORE_MOVE_STATE_CONSUME_DAMAGE_REDUCING_BERRY,
 
-    BEFORE_MOVE_END,
+    BEFORE_MOVE_END, // 84
 };
 
 // enum {
@@ -2050,19 +2050,6 @@ struct PACKED DamageCalcStruct {
 };
 
 extern u8 TypeEffectivenessTable[][3];
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
