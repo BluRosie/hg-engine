@@ -875,33 +875,23 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain,
 // vanilla battle background table
 extern BattleBgProfile sBattleBgProfileTable[] ALIGN4;
 
-extern u32 LONG_CALL MapHeader_GetWeather(u32 mapId);
-extern int LONG_CALL BattleSystem_GetLocation(struct BattleSystem *bsys);
-
 void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys)
 {
     u8 terrainType = TERRAIN_NONE;
 
-    u32 mapId = BattleSystem_GetLocation(bsys);
-    u32 weather = MapHeader_GetWeather(mapId);
     BOOL loadCustomBattleBg = FALSE;
 
     // Handle map header weather
-    switch (weather) {
-    case WEATHER_SYS_STORM:
+    switch (BattleWorkWeatherGet(bsys)) {
     case WEATHER_SYS_THUNDER:
 #ifdef THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN
         terrainType = ELECTRIC_TERRAIN;
-        bsys->sp->field_condition &= ~FIELD_CONDITION_WEATHER;
-        bsys->sp->field_condition |= WEATHER_RAIN_PERMANENT;
 #endif
         break;
     case WEATHER_SYS_MIST1:
     case WEATHER_SYS_MIST2:
 #ifdef FOG_WEATHER_MISTY_TERRAIN
         terrainType = MISTY_TERRAIN;
-#else
-        bsys->sp->field_condition |= FIELD_STATUS_FOG;
 #endif
         break;
     default:
@@ -910,8 +900,6 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys)
 
     // TODO testing remove me
     terrainType = ELECTRIC_TERRAIN;
-    bsys->sp->field_condition &= ~FIELD_CONDITION_WEATHER;
-    bsys->sp->field_condition |= WEATHER_RAIN_PERMANENT;
 
     if (terrainType != TERRAIN_NONE) {
         bsys->sp->terrainOverlay.type = terrainType;
