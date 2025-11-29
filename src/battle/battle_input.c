@@ -902,7 +902,6 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys)
         terrainType = MISTY_TERRAIN;
 #else
         bsys->sp->field_condition |= FIELD_STATUS_FOG;
-        loadCustomBattleBg = TRUE;
 #endif
         break;
     default:
