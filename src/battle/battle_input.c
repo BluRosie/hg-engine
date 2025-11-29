@@ -853,19 +853,28 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain,
         palette = terrain;
     }
 
+    // free resources
+    debug_printf("1\n");
+    Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette); // new terrains are just repointed below
+    debug_printf("2\n");
+    Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
+    debug_printf("3\n");
     if (battleStart) {
-        // this can't run at battle start or we crash for some mons
-        // this does cause some minor artifacts when the mon is initially sliding in
-        //Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette);
-        Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
+        debug_printf("4.0\n");
+        if (bw->bg_area != NULL)
+            debug_printf("4.1\n");
+            sys_FreeMemoryEz(bw->bg_area);
+        if (bw->pal_area != NULL)
+            debug_printf("4.2\n");
+            sys_FreeMemoryEz(bw->pal_area);
     } else {
-        // free resources
-        Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette); // new terrains are just repointed below
-        Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
         sys_FreeMemoryEz(bw->bg_area);
         sys_FreeMemoryEz(bw->pal_area);
-        BattleWorkGroundBGChg(bw);
     }
+    debug_printf("5\n");
+    BattleWorkGroundBGChg(bw);
+    debug_printf("6\n");
+
 
     // finally set the fields for nature power/secret power/camouflage/friends
     //bw->bgId = bg;
@@ -874,6 +883,9 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain,
 
 // vanilla battle background table
 extern BattleBgProfile sBattleBgProfileTable[] ALIGN4;
+
+// Store original callback so we can restore it
+static void (*originalCallback)(void *, int, int) = NULL;
 
 void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys)
 {
@@ -910,6 +922,7 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys)
     if (loadCustomBattleBg) {
         // inject our custom callback func into the vanilla battle background at index 0
         BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
+        originalCallback = vanillaTable[0].callback;
         vanillaTable[0].callback = CustomBattleBackgroundCallback;
     }
 }
@@ -946,4 +959,8 @@ void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNU
 
     bsys->terrain = terrain;
     LoadDifferentBattleBackground(bsys, newBg, terrain, TRUE);
+    originalCallback(unkPtr, unk2, unk3);
+    // restore the original callback func
+    BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
+    vanillaTable[0].callback = originalCallback;
 }
