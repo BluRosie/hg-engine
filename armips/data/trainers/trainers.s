@@ -802,7 +802,7 @@ trainerdata 13, "Kylian"
         move MOVE_PHANTOM_FORCE
         move MOVE_STEEL_WING
         move MOVE_U_TURN
-        ability ABILITY_INFILTRATOR
+        ability ABILITY_CURSED_BODY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1600,17 +1600,17 @@ trainerdata 22, "Adam"
         ivs 200
         abilityslot 0
         level 82
-        pokemon SPECIES_SCREAM_TAIL
-        item ITEM_HEAT_ROCK
+        pokemon SPECIES_TAPU_FINI
+        item ITEM_LEFTOVERS
         move MOVE_CALM_MIND
-        move MOVE_SUNNY_DAY
-        move MOVE_FIRE_BLAST
-        move MOVE_PSYCHIC
-        ability ABILITY_PROTOSYNTHESIS
+        move MOVE_SCALD
+        move MOVE_MOONBLAST
+        move MOVE_ICE_BEAM
+        ability ABILITY_MISTY_SURGE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_MODEST
+        nature NATURE_BOLD
         shinylock 0
         ballseal 0
 
