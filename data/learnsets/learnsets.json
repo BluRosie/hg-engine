@@ -885,10 +885,6 @@
         "Move": "MOVE_SHELL_SMASH"
       },
       {
-        "Level": 28,
-        "Move": "MOVE_RAIN_DANCE"
-      },
-      {
         "Level": 31,
         "Move": "MOVE_IRON_DEFENSE"
       },
@@ -1017,10 +1013,6 @@
       {
         "Level": 31,
         "Move": "MOVE_AQUA_TAIL"
-      },
-      {
-        "Level": 34,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 35,
@@ -1153,10 +1145,6 @@
       {
         "Level": 35,
         "Move": "MOVE_SHELL_SMASH"
-      },
-      {
-        "Level": 38,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 44,
@@ -3037,7 +3025,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 45,
@@ -3195,7 +3183,7 @@
       },
       {
         "Level": 52,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 57,
@@ -6229,7 +6217,7 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 29,
@@ -6371,7 +6359,7 @@
       },
       {
         "Level": 30,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 31,
@@ -7649,10 +7637,6 @@
         "Move": "MOVE_BUBBLE_BEAM"
       },
       {
-        "Level": 21,
-        "Move": "MOVE_RAIN_DANCE"
-      },
-      {
         "Level": 25,
         "Move": "MOVE_BODY_SLAM"
       },
@@ -7772,7 +7756,7 @@
       },
       {
         "Level": 21,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 22,
@@ -7883,10 +7867,6 @@
       {
         "Level": 1,
         "Move": "MOVE_BUBBLE_BEAM"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 1,
@@ -10137,7 +10117,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 45,
@@ -10288,10 +10268,6 @@
       {
         "Level": 41,
         "Move": "MOVE_PSYCH_UP"
-      },
-      {
-        "Level": 46,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 51,
@@ -11113,7 +11089,7 @@
       },
       {
         "Level": 53,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       }
     ],
     "MachineMoves": [
@@ -11259,7 +11235,7 @@
       },
       {
         "Level": 65,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       }
     ],
     "MachineMoves": [
@@ -12377,7 +12353,7 @@
       },
       {
         "Level": 45,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 49,
@@ -15612,7 +15588,7 @@
       },
       {
         "Level": 55,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       }
     ],
     "MachineMoves": [
@@ -15748,7 +15724,7 @@
       },
       {
         "Level": 65,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       }
     ],
     "MachineMoves": [
@@ -17005,7 +16981,7 @@
       },
       {
         "Level": 47,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 56,
@@ -17424,10 +17400,6 @@
         "Move": "MOVE_DRAGON_RAGE"
       },
       {
-        "Level": 38,
-        "Move": "MOVE_RAIN_DANCE"
-      },
-      {
         "Level": 40,
         "Move": "MOVE_DRAGON_DANCE"
       },
@@ -17445,7 +17417,7 @@
       },
       {
         "Level": 52,
-        "Move": "MOVE_HYPER_BEAM"
+        "Move": "MOVE_BOUNCE"
       }
     ],
     "MachineMoves": [
@@ -17559,10 +17531,6 @@
       {
         "Level": 35,
         "Move": "MOVE_BRINE"
-      },
-      {
-        "Level": 36,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 38,
@@ -19418,7 +19386,7 @@
       },
       {
         "Level": 53,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 57,
@@ -19548,7 +19516,7 @@
       },
       {
         "Level": 53,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 61,
@@ -19681,7 +19649,7 @@
       },
       {
         "Level": 53,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 61,
@@ -19801,7 +19769,7 @@
       },
       {
         "Level": 45,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 50,
@@ -19930,7 +19898,7 @@
       },
       {
         "Level": 53,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 60,
@@ -20079,10 +20047,6 @@
       {
         "Level": 49,
         "Move": "MOVE_SAFEGUARD"
-      },
-      {
-        "Level": 53,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 53,
@@ -24581,7 +24545,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 39,
@@ -24723,7 +24687,7 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 34,
@@ -24883,10 +24847,6 @@
       {
         "Level": 30,
         "Move": "MOVE_AQUA_RING"
-      },
-      {
-        "Level": 35,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 43,
@@ -25154,10 +25114,6 @@
       {
         "Level": 1,
         "Move": "MOVE_BUBBLE_BEAM"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 1,
@@ -25876,7 +25832,7 @@
       },
       {
         "Level": 40,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 43,
@@ -26000,7 +25956,7 @@
       },
       {
         "Level": 40,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 43,
@@ -26203,7 +26159,7 @@
       },
       {
         "Level": 19,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 19,
@@ -26320,10 +26276,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_RAIN_DANCE"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_MUD_SHOT"
       },
       {
@@ -26365,10 +26317,6 @@
       {
         "Level": 32,
         "Move": "MOVE_AMNESIA"
-      },
-      {
-        "Level": 41,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 42,
@@ -26990,10 +26938,6 @@
       {
         "Level": 39,
         "Move": "MOVE_PSYCH_UP"
-      },
-      {
-        "Level": 42,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 45,
@@ -28094,7 +28038,7 @@
       },
       {
         "Level": 45,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 49,
@@ -31231,10 +31175,6 @@
       {
         "Level": 55,
         "Move": "MOVE_DRAGON_DANCE"
-      },
-      {
-        "Level": 65,
-        "Move": "MOVE_RAIN_DANCE"
       }
     ],
     "MachineMoves": [
@@ -32430,7 +32370,7 @@
       },
       {
         "Level": 40,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 45,
@@ -32922,7 +32862,7 @@
       },
       {
         "Level": 68,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 78,
@@ -33081,7 +33021,7 @@
       },
       {
         "Level": 66,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 71,
@@ -33175,7 +33115,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 6,
@@ -33215,7 +33155,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 45,
@@ -33345,7 +33285,7 @@
       },
       {
         "Level": 23,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 27,
@@ -33465,7 +33405,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 1,
@@ -33497,7 +33437,7 @@
       },
       {
         "Level": 27,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 28,
@@ -33620,7 +33560,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 1,
@@ -33652,7 +33592,7 @@
       },
       {
         "Level": 27,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 28,
@@ -33820,7 +33760,7 @@
       },
       {
         "Level": 47,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 48,
@@ -33975,7 +33915,7 @@
       },
       {
         "Level": 47,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 48,
@@ -36623,7 +36563,7 @@
       },
       {
         "Level": 30,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 35,
@@ -36776,7 +36716,7 @@
       },
       {
         "Level": 43,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 45,
@@ -36888,10 +36828,6 @@
       {
         "Level": 1,
         "Move": "MOVE_GIGA_DRAIN"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 1,
@@ -37040,7 +36976,7 @@
       },
       {
         "Level": 25,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 30,
@@ -37203,7 +37139,7 @@
       },
       {
         "Level": 36,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 39,
@@ -37345,7 +37281,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -40598,7 +40534,7 @@
       },
       {
         "Level": 34,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 37,
@@ -44715,7 +44651,7 @@
       },
       {
         "Level": 33,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 36,
@@ -44882,7 +44818,7 @@
       },
       {
         "Level": 33,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 38,
@@ -45074,7 +45010,7 @@
       },
       {
         "Level": 33,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 38,
@@ -45227,7 +45163,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 54,
@@ -45387,7 +45323,7 @@
       },
       {
         "Level": 54,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 59,
@@ -47016,7 +46952,7 @@
       },
       {
         "Level": 39,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 43,
@@ -47168,7 +47104,7 @@
       },
       {
         "Level": 44,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 52,
@@ -48011,15 +47947,15 @@
       },
       {
         "Level": 20,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 20,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 20,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 25,
@@ -49440,7 +49376,7 @@
       },
       {
         "Level": 47,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 48,
@@ -49564,7 +49500,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 51,
@@ -49708,7 +49644,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 49,
@@ -49848,7 +49784,7 @@
       },
       {
         "Level": 48,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 58,
@@ -49982,7 +49918,7 @@
       },
       {
         "Level": 51,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 52,
@@ -56689,7 +56625,7 @@
       },
       {
         "Level": 22,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 30,
@@ -56761,7 +56697,7 @@
     "LevelMoves": [
       {
         "Level": 0,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 0,
@@ -56769,7 +56705,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -56817,7 +56753,7 @@
       },
       {
         "Level": 22,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 34,
@@ -56927,7 +56863,7 @@
       },
       {
         "Level": 31,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 33,
@@ -57053,10 +56989,6 @@
       {
         "Level": 26,
         "Move": "MOVE_BODY_SLAM"
-      },
-      {
-        "Level": 34,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 36,
@@ -58913,7 +58845,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -58937,7 +58869,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 1,
@@ -59002,10 +58934,6 @@
       {
         "Level": 52,
         "Move": "MOVE_HEAL_BLOCK"
-      },
-      {
-        "Level": 56,
-        "Move": "MOVE_RAIN_DANCE"
       }
     ],
     "MachineMoves": [
@@ -59783,7 +59711,7 @@
       },
       {
         "Level": 31,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 35,
@@ -59922,7 +59850,7 @@
       },
       {
         "Level": 37,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 42,
@@ -60030,7 +59958,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 3,
@@ -60062,7 +59990,7 @@
       },
       {
         "Level": 39,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 45,
@@ -60703,7 +60631,7 @@
       },
       {
         "Level": 24,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 25,
@@ -60834,7 +60762,7 @@
       },
       {
         "Level": 24,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 25,
@@ -61672,7 +61600,7 @@
       },
       {
         "Level": 13,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 17,
@@ -61801,10 +61729,6 @@
       {
         "Level": 10,
         "Move": "MOVE_ATTRACT"
-      },
-      {
-        "Level": 13,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 17,
@@ -63350,7 +63274,7 @@
       },
       {
         "Level": 47,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 56,
@@ -63827,7 +63751,7 @@
       },
       {
         "Level": 35,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 37,
@@ -63980,7 +63904,7 @@
       },
       {
         "Level": 35,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 39,
@@ -64293,7 +64217,7 @@
       },
       {
         "Level": 21,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 24,
@@ -64881,7 +64805,7 @@
       },
       {
         "Level": 34,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 37,
@@ -65246,7 +65170,7 @@
       },
       {
         "Level": 46,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 52,
@@ -66761,10 +66685,6 @@
       {
         "Level": 61,
         "Move": "MOVE_DIVE"
-      },
-      {
-        "Level": 69,
-        "Move": "MOVE_RAIN_DANCE"
       }
     ],
     "MachineMoves": [
@@ -66859,10 +66779,6 @@
       {
         "Level": 61,
         "Move": "MOVE_DIVE"
-      },
-      {
-        "Level": 69,
-        "Move": "MOVE_RAIN_DANCE"
       },
       {
         "Level": 76,
@@ -72527,7 +72443,7 @@
       },
       {
         "Level": 34,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 38,
@@ -72643,7 +72559,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 48,
@@ -72748,7 +72664,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 48,
@@ -73112,7 +73028,7 @@
       },
       {
         "Level": 29,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 36,
@@ -73249,7 +73165,7 @@
       },
       {
         "Level": 33,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 40,
@@ -73906,7 +73822,7 @@
       },
       {
         "Level": 37,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 38,
@@ -74018,7 +73934,7 @@
       },
       {
         "Level": 44,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 46,
@@ -74136,7 +74052,7 @@
       },
       {
         "Level": 48,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 49,
@@ -75100,7 +75016,7 @@
       },
       {
         "Level": 39,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 41,
@@ -75215,7 +75131,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -75361,7 +75277,7 @@
       },
       {
         "Level": 37,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 38,
@@ -75485,7 +75401,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -75716,7 +75632,7 @@
       },
       {
         "Level": 34,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 34,
@@ -75855,7 +75771,7 @@
       },
       {
         "Level": 37,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 37,
@@ -75991,7 +75907,7 @@
       },
       {
         "Level": 39,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 48,
@@ -76423,7 +76339,7 @@
       },
       {
         "Level": 44,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 47,
@@ -77456,7 +77372,7 @@
       },
       {
         "Level": 43,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 45,
@@ -77595,7 +77511,7 @@
       },
       {
         "Level": 48,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 53,
@@ -79578,7 +79494,7 @@
       },
       {
         "Level": 34,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 37,
@@ -79691,7 +79607,7 @@
       },
       {
         "Level": 34,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 40,
@@ -79795,7 +79711,7 @@
       },
       {
         "Level": 29,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 31,
@@ -79920,7 +79836,7 @@
       },
       {
         "Level": 30,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 31,
@@ -80053,7 +79969,7 @@
       },
       {
         "Level": 30,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 31,
@@ -80988,7 +80904,7 @@
       },
       {
         "Level": 25,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 27,
@@ -81136,7 +81052,7 @@
       },
       {
         "Level": 25,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 27,
@@ -83557,7 +83473,7 @@
       },
       {
         "Level": 38,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 38,
@@ -83729,7 +83645,7 @@
       },
       {
         "Level": 40,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 42,
@@ -87318,7 +87234,7 @@
       },
       {
         "Level": 60,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 65,
@@ -87431,7 +87347,7 @@
       },
       {
         "Level": 60,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 65,
@@ -87803,7 +87719,7 @@
       },
       {
         "Level": 60,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 65,
@@ -88826,7 +88742,7 @@
       },
       {
         "Level": 43,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 46,
@@ -88939,7 +88855,7 @@
       },
       {
         "Level": 52,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 56,
@@ -89079,7 +88995,7 @@
       },
       {
         "Level": 62,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 68,
@@ -94061,7 +93977,7 @@
       },
       {
         "Level": 43,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 44,
@@ -94212,7 +94128,7 @@
       },
       {
         "Level": 46,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 46,
@@ -94862,7 +94778,7 @@
       },
       {
         "Level": 27,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 38,
@@ -94972,7 +94888,7 @@
       },
       {
         "Level": 27,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 40,
@@ -95102,7 +95018,7 @@
       },
       {
         "Level": 27,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 40,
@@ -96736,7 +96652,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 56,
@@ -100766,7 +100682,7 @@
       },
       {
         "Level": 45,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 45,
@@ -100894,7 +100810,7 @@
       },
       {
         "Level": 52,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 55,
@@ -102583,7 +102499,7 @@
       },
       {
         "Level": 57,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       }
     ],
     "MachineMoves": [
@@ -102700,7 +102616,7 @@
       },
       {
         "Level": 64,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       }
     ],
     "MachineMoves": [
@@ -107892,7 +107808,7 @@
       },
       {
         "Level": 36,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       }
     ],
     "MachineMoves": [
@@ -107973,7 +107889,7 @@
       },
       {
         "Level": 48,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       }
     ],
     "MachineMoves": [
@@ -108056,7 +107972,7 @@
       },
       {
         "Level": 54,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 62,
@@ -110022,7 +109938,7 @@
       },
       {
         "Level": 35,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 40,
@@ -110107,7 +110023,7 @@
       },
       {
         "Level": 35,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 42,
@@ -112791,7 +112707,7 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 32,
@@ -112971,7 +112887,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 48,
@@ -120158,7 +120074,7 @@
       },
       {
         "Level": 17,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 21,
@@ -120255,7 +120171,7 @@
       },
       {
         "Level": 17,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 21,
@@ -121779,7 +121695,7 @@
       },
       {
         "Level": 34,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 38,
@@ -121862,7 +121778,7 @@
       },
       {
         "Level": 26,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 29,
@@ -121967,7 +121883,7 @@
       },
       {
         "Level": 26,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 29,
@@ -122618,7 +122534,7 @@
       },
       {
         "Level": 45,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 50,
@@ -123349,7 +123265,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 7,
@@ -123746,7 +123662,7 @@
     "LevelMoves": [
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -123850,7 +123766,7 @@
     "LevelMoves": [
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -124497,7 +124413,7 @@
       },
       {
         "Level": 49,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 56,
@@ -125612,7 +125528,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 7,
@@ -125819,7 +125735,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -126906,7 +126822,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 7,
@@ -127005,7 +126921,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -127854,7 +127770,7 @@
       },
       {
         "Level": 38,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 44,
@@ -128194,7 +128110,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 58,
@@ -128558,7 +128474,7 @@
       },
       {
         "Level": 38,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 40,
@@ -129105,7 +129021,7 @@
       },
       {
         "Level": 45,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 49,
@@ -129469,7 +129385,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 1,
@@ -129501,7 +129417,7 @@
       },
       {
         "Level": 27,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 28,
@@ -131098,7 +131014,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 51,
@@ -131775,7 +131691,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 3,
@@ -131807,7 +131723,7 @@
       },
       {
         "Level": 39,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 45,
@@ -132985,7 +132901,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 45,
@@ -133111,7 +133027,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 1,
@@ -133496,7 +133412,7 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 29,
@@ -133617,7 +133533,7 @@
       },
       {
         "Level": 30,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 31,
@@ -135537,7 +135453,7 @@
       },
       {
         "Level": 52,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 55,
@@ -136372,7 +136288,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 45,
@@ -136507,7 +136423,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 45,
@@ -137337,7 +137253,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 45,
@@ -140115,15 +140031,15 @@
       },
       {
         "Level": 20,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 20,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 20,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 25,
@@ -140174,15 +140090,15 @@
       },
       {
         "Level": 20,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 20,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 20,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 25,
@@ -140233,15 +140149,15 @@
       },
       {
         "Level": 20,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 20,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 20,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 25,
@@ -140272,7 +140188,7 @@
     "LevelMoves": [
       {
         "Level": 0,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 0,
@@ -140280,7 +140196,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -140328,7 +140244,7 @@
       },
       {
         "Level": 22,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 34,
@@ -140403,7 +140319,7 @@
       },
       {
         "Level": 31,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 33,
@@ -140509,7 +140425,7 @@
       },
       {
         "Level": 34,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 36,
@@ -141858,7 +141774,7 @@
       },
       {
         "Level": 60,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 65,
@@ -141971,7 +141887,7 @@
       },
       {
         "Level": 60,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 65,
@@ -142085,7 +142001,7 @@
       },
       {
         "Level": 60,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 65,
@@ -148431,7 +148347,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 56,
@@ -148553,7 +148469,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 56,
@@ -148675,7 +148591,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 56,
@@ -148797,7 +148713,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 56,
@@ -148888,7 +148804,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_ROCK_TOMB"
       },
       {
         "Level": 56,
@@ -152817,7 +152733,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_HAIL"
+        "Move": "MOVE_ICY_WIND"
       },
       {
         "Level": 48,
@@ -154742,7 +154658,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -155186,7 +155102,7 @@
       },
       {
         "Level": 30,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 35,
@@ -155296,7 +155212,7 @@
       },
       {
         "Level": 30,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 35,
@@ -155748,7 +155664,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 1,
@@ -156176,7 +156092,7 @@
       },
       {
         "Level": 25,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 27,
@@ -156322,7 +156238,7 @@
       },
       {
         "Level": 25,
-        "Move": "MOVE_RAIN_DANCE"
+        "Move": "MOVE_SCALD"
       },
       {
         "Level": 27,
@@ -158459,7 +158375,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 7,
@@ -158530,7 +158446,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 7,
@@ -158601,7 +158517,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 7,
@@ -158672,7 +158588,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
+        "Move": "MOVE_TACKLE"
       },
       {
         "Level": 7,
