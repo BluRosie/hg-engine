@@ -2571,7 +2571,7 @@
 
 
 #define NUM_MEGA_STONES 48 // includes the pixie plate
-#define NUM_HMS         (ITEM_HM08 - ITEM_HM01 + 1)
+#define NUM_HMS         (ITEM_HM08 - ITEM_HM01 + 1) // intentionally do not include HM07_ORAS (Dive)
 
 #define IS_ITEM_ARCEUS_PLATE(item) ((item >= ITEM_FLAME_PLATE && item <= ITEM_IRON_PLATE) || (item == ITEM_PIXIE_PLATE))
 
@@ -2580,6 +2580,8 @@
 #define IS_ITEM_MAIL(item) ((item >= ITEM_GRASS_MAIL && item <= ITEM_BRICK_MAIL))
 
 #define IS_ITEM_MEGA_STONE(item) (item >= ITEM_GENGARITE && item <= ITEM_LATIOSITE) || (item >= ITEM_SWAMPERTITE && item <= ITEM_DIANCITE) || (item >= ITEM_CAMERUPTITE && item <= ITEM_BEEDRILLITE)
+
+#define IS_ITEM_Z_CRYSTAL(item) ((item >= ITEM_NORMALIUM_Z_HELD && item <= ITEM_PIKANIUM_Z_HELD) || (item >= ITEM_DECIDIUM_Z_HELD && item <= ITEM_MEWNIUM_Z_HELD) || (item == ITEM_PIKASHUNIUM_Z_HELD) || (item >= ITEM_MIMIKIUM_Z_ITEM && item <= ITEM_ULTRANECROZIUM_Z_ITEM))
 
 #define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_BURN_DRIVE && item <= ITEM_SHOCK_DRIVE)
 
@@ -2593,16 +2595,19 @@
 
 #define IS_ITEM_MASK(item) (item >= ITEM_CORNERSTONE_MASK && item <= ITEM_HEARTHFLAME_MASK)
 
-#define IS_ITEM_VANILLA_HM(item)   (((item) >= ITEM_HM01 && item <= ITEM_HM08))
-#define IS_ITEM_VANILLA_TM(item)   (((item) >= ITEM_TM001 && item <= ITEM_TM092))
-#define IS_ITEM_EXPANSION_TM(item) (((item) == ITEM_TM00) || \
-                                    ((item) >= ITEM_TM093 && item <= ITEM_TM095) || \
-                                    ((item) >= ITEM_TM096 && item <= ITEM_TM100) || \
-                                    ((item) >= ITEM_TM100_SV && item <= ITEM_TM229))
-#define IS_ITEM_EXPANSION_HM(item) (((item) == ITEM_HM07_ORAS))
-#define IS_ITEM_TM(item)           ((IS_ITEM_VANILLA_TM(item) || IS_ITEM_EXPANSION_TM(item)))
-#define IS_ITEM_HM(item)           ((IS_ITEM_VANILLA_HM(item) || IS_ITEM_EXPANSION_HM(item)))
-#define IS_ITEM_TR(item)           (((item) >= ITEM_TR00 && (item) <= ITEM_TR99))
+#define IS_ITEM_TM(item) \
+    ((item) == ITEM_TM00 || \
+     ((item) >= ITEM_TM001 && (item) <= ITEM_TM092) || \
+     ((item) >= ITEM_TM093 && (item) <= ITEM_TM095) || \
+     ((item) >= ITEM_TM096 && (item) <= ITEM_TM100) || \
+     ((item) >= ITEM_TM100_SV && (item) <= ITEM_TM229))
+
+#define IS_ITEM_HM(item) \
+    (((item) >= ITEM_HM01 && (item) <= ITEM_HM08) || \
+     (item) == ITEM_HM07_ORAS)
+
+#define IS_ITEM_TR(item) \
+    ((item) >= ITEM_TR00 && (item) <= ITEM_TR99)
 
 enum ItemGeneration {
     CUSTOM,
@@ -2635,15 +2640,8 @@ enum ItemGeneration {
 #define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
 #define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
 
-#define NEW_ITEM_MAX ITEM_BRIARS_BOOK
-
-#define BAG_SLOT_QUANTITY_MAX                    999
-
-#ifdef REUSABLE_TMS
-#define BAG_TMHM_QUANTITY_MAX                      1
-#else
-#define BAG_TMHM_QUANTITY_MAX                     99
-#endif
+#define BAG_SLOT_QUANTITY_MAX 999
+#define BAG_TMHM_QUANTITY_MAX 99
 
 // HGSS Pockets
 

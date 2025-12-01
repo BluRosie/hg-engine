@@ -156,3 +156,24 @@ int PartyMenu_ItemUseFunc_ReuseItem(struct PLIST_WORK *wk) {
     }
     return 0x20;
 }
+
+void PartyMenu_LearnMoveToSlot(struct PLIST_WORK *partyMenu, struct PartyPokemon *mon, int moveIdx) {
+    int data = partyMenu->dat->move;
+    SetMonData(mon, MON_DATA_MOVE1 + moveIdx, &data);
+    data = 0;
+    SetMonData(mon, MON_DATA_MOVE1PPUP + moveIdx, &data);
+    data = GetMoveMaxPP(partyMenu->dat->move, 0);
+    SetMonData(mon, MON_DATA_MOVE1PP + moveIdx, &data);
+    if (partyMenu->dat->item != ITEM_NONE) {
+#ifdef REUSABLE_TMS
+    BOOL consumeItem = IS_ITEM_TR(partyMenu->dat->item);
+#else
+    BOOL consumeItem = IS_ITEM_TM(partyMenu->dat->item) || IS_ITEM_TR(partyMenu->dat->item);
+#endif // REUSABLE_TMS
+        if (consumeItem) {
+            Bag_TakeItem(partyMenu->dat->myitem, partyMenu->dat->item, 1, HEAP_ID_PARTY_MENU);
+        }
+        MonApplyFriendshipMod(mon, 4, PartyMenu_GetCurrentMapSec(partyMenu));
+        ApplyMonMoodModifier(mon, 3);
+    }
+}

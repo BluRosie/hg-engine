@@ -203,9 +203,11 @@ typedef struct {
     /* 0x00 */ u16 species;
     /* 0x02 */ u16 heldItem;
     /* 0x04 */ u32 otID; // low 16: visible; high 16: secret
-    /* 0x08 */ u32 exp;
+    /* 0x08 */ u32 exp:21; // low 21 are all that is used!
+               u32 unused:10;
+               u32 abilityMSB:1; // msb of previous experience field is the exp
     /* 0x0C */ u8 friendship;
-    /* 0x0D */ u8 ability;
+    /* 0x0D */ u8 ability; // taking a bit from exp
     /* 0x0E */ u8 markings; // circle, triangle, square, heart, star, diamond
     /* 0x0F */ u8 originLanguage;
     /* 0x10 */ u8 hpEV;
@@ -1173,6 +1175,15 @@ u32 LONG_CALL PokeParaLevelExpGet(struct PartyPokemon *pp);
 u32 LONG_CALL PokeLevelUpCheck(struct PartyPokemon *pp);
 
 /**
+ *  @brief grab the level of a species given its experience
+ *
+ *  @param species species index to calculate for
+ *  @param exp total experience the species has
+ *  @return level the species is at with given experience
+ */
+u32 LONG_CALL CalcLevelBySpeciesAndExp(u32 species, u32 exp);
+
+/**
  *  @brief check if a Party has a specific species
  *
  *  @param party Party to check through
@@ -1882,5 +1893,11 @@ BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 mov
 void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemon *param, unsigned int expected_form, int *a3);
 
 void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp);
+
+void LONG_CALL MonApplyFriendshipMod(struct PartyPokemon *mon, u8 kind, u16 location);
+
+u8 LONG_CALL GetMoveMaxPP(u16 moveId, u8 ppUps);
+
+void LONG_CALL ApplyMonMoodModifier(struct PartyPokemon *mon, int modifierId);
 
 #endif

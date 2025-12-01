@@ -461,13 +461,30 @@
 #define SUB_SEQ_HANDLE_ANGER_SHELL                    (451)
 #define SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE         (452)
 #define SUB_SEQ_HANDLE_INCINERATE                     (453)
+#define SUB_SEQ_ADD_THIRD_TYPE_GRASS                  (454)
+#define SUB_SEQ_ADD_THIRD_TYPE_GHOST                  (455)
+#define SUB_SEQ_CHANGE_TARGET_TO_PSYCHIC_TYPE         (456)
+#define SUB_SEQ_AURORA_VEIL                           (457)
+#define SUB_SEQ_CHEEK_POUCH                           (458)
+#define SUB_SEQ_STRENGTH_SAP                          (459)
+#define SUB_SEQ_HEAL_PULSE                            (460)
+#define SUB_SEQ_POLLEN_PUFF_HEAL                      (461)
+#define SUB_SEQ_COACHING                              (462)
+#define SUB_SEQ_LIFE_DEW                              (463)
+#define SUB_SEQ_ENTRAINMENT                           (464)
+#define SUB_SEQ_HOWL                                  (465)
+#define SUB_SEQ_DECORATE                              (466)
+#define SUB_SEQ_HANDLE_ROOM_SERVICE                   (467)
+#define SUB_SEQ_SWEET_VEIL_FAIL                       (468)
+#define SUB_SEQ_HANDLE_PARTING_SHOT                   (469)
+#define SUB_SEQ_HANDLE_CLEAR_SMOG                     (470)
+#define SUB_SEQ_HANDLE_FLAME_BURST_HIT                (471)
+#define SUB_SEQ_FOCUS_SASH                            (472)
 
-
-#define MAX_BASE_SUBSCRIPT_NUM 453
+#define MAX_BASE_SUBSCRIPT_NUM 472
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
-
 
 
 // add status effect constants--used in battle effect scripts to queue up a subscript through the table in src/moves.c
@@ -657,7 +674,7 @@
 #define ADD_STATUS_EFF_DRAIN_THREE_QUARTERS            (182)
 #define ADD_STATUS_EFF_JAW_LOCK                        (183)
 #define ADD_STATUS_EFF_TOXIC_THREAD                    (184)
-#define ADD_STATUS_EFF_MAKE_IT_RAIN	                   (185)
+#define ADD_STATUS_EFF_MAKE_IT_RAIN                    (185)
 #define ADD_STATUS_EFF_ATK_SP_ATK_SPEED_DOWN           (186)
 #define ADD_STATUS_EFF_ATK_SP_ATK_DOWN                 (187)
 #define ADD_STATUS_EFF_TAKE_HEART                      (188)
@@ -668,8 +685,23 @@
 #define ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6         (193) // This constant and the one below are only used as spacers for Steam Engine.
 #define ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP_6        (194) // To add more +6 effects, copy the order & proximity of other stat stage change constants.
 #define ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_6          (195) // Used for Steam Engine.
+#define ADD_STATUS_EFF_ADD_THIRD_TYPE_GRASS            (196)
+#define ADD_STATUS_EFF_ADD_THIRD_TYPE_GHOST            (197)
+#define ADD_STATUS_EFF_CHANGE_TARGET_TO_PSYCHIC_TYPE   (198)
+#define ADD_STATUS_EFF_AURORA_VEIL                     (199)
+#define ADD_STATUS_EFF_STRENGTH_SAP                    (200)
+#define ADD_STATUS_EFF_HEAL_PULSE                      (201)
+#define ADD_STATUS_EFF_POLLEN_PUFF_HEAL                (202)
+#define ADD_STATUS_EFF_COACHING                        (203)
+#define ADD_STATUS_EFF_LIFE_DEW                        (204)
+#define ADD_STATUS_EFF_ENTRAINMENT                     (205)
+#define ADD_STATUS_EFF_HOWL                            (206)
+#define ADD_STATUS_EFF_DECORATE                        (207)
+#define ADD_STATUS_EFF_PARTING_SHOT                    (208)
+#define ADD_STATUS_EFF_CLEAR_SMOG                      (209)
+#define ADD_STATUS_EFF_FLAME_BURST_HIT                 (210)
 
-#define MAX_BASE_SUBSCRIPT_PTR_NUM (195)
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (210)
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)

@@ -8,6 +8,7 @@
 .include "asm/include/moves.inc"
 .include "asm/include/species.inc"
 
+.include "armips/asm/abilities.s" // ability expansion
 .include "armips/asm/backgrounds.s" // fixes new move animations
 .include "armips/asm/moves.s" // repoints all the move table defines within the structure
 .include "armips/asm/trainer_ai.s" // repoints all the move table defines for trainer ai within the structure
@@ -24,7 +25,6 @@
 .include "armips/asm/tm_palettes.s" // allows editing of pallete table for TMs
 .include "armips/asm/hidden_items.s" // allows editing of hidden items for Dowsing Machine
 
-.include "armips/asm/tm.s" // make tms infinite
 .include "armips/asm/no_partner_double_battles.s" // allows no partner double battles
 
 .if FAIRY_TYPE_IMPLEMENTED == 1

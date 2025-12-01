@@ -45,6 +45,10 @@ arm9 GetItemArcData 08077CE8 3
 arm9 GetPokemonOwNum 0206A304 1
 arm9 GetMonIconPalette 02074364 3
 
+# ability expansion
+arm9 GetBoxMonData_EditedCases_hook 0206E6E0 3
+arm9 SetBoxMonData_EditedCases_hook 0206EE28 0
+
 # wild mon hidden ability/form stuff
 #02247910
 0002 get_form_out_of_encounter_species_rare 02247910 4
@@ -130,6 +134,8 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_GenerateEndOfBattleItem 022440A0 3
 0012 BtlCmd_TryPluck 022444D0 3
 0012 BtlCmd_PlayFaintAnimation 0223E290 3
+0012 BtlCmd_TryBreakScreens 02242E00 3
+0012 BtlCmd_ResetAllStatChanges 0223FA1C 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -186,6 +192,9 @@ arm9 get_mon_ow_tag 08069D70 3
 arm9 ArceusBoxPokemonFormeChange 08071BD0 3
 #pc screen forme change
 0014 HandleBoxPokemonFormeChanges 08000BD0 3
+#pc screen ability store
+0014 BoxDisplayMon_StoreAbility 021E73B0 0
+0014 BoxDisplayMon_GrabAbility 021F52AE 1
 
 #use item attribute change
 arm9 UseItemMonAttrChangeCheck_hook 0807C29C 0
@@ -518,14 +527,22 @@ arm9 PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook 02081E54 0
 arm9 PartyMenu_ItemUseFunc_ReuseItem_hook 0208138C 3
 
 arm9 ScrCmd_BufferItemName 02048510 1
-arm9 BufferItemNameWithIndefArticle 0200C100 4
-arm9 BufferItemNamePlural 0200C134 4
-arm9 GetItemDescIntoString 02077D64 7
-
+arm9 BufferItemNameWithIndefArticle 0200C100 3
+arm9 BufferItemNamePlural 0200C134 3
+arm9 GetItemDescIntoString 02077D64 3
 arm9 ItemToMachineMoveIndex 0207804C 1
 arm9 ItemToMachineMove 02078000 1
 arm9 MoveIsHM 02078024 1
 arm9 GetMonMachineMoveCompat 0207224C 2
 arm9 LoadLevelUpLearnset_HandleAlternateForm 02071FC8 3
-0015 Bag_DrawMachineMoveLabel 021FE914 7
+0015 Bag_PrintMachineMoveLabel 021FE914
 0001 GetLearnableTutorMoves 02202D40 3
+arm9 PartyMenu_LearnMoveToSlot 0208254C 3
+0015 Bag_RenderMachineMoveSlot_hook 021FF586 3
+
+#ifdef MART_EXPANSION
+arm9 ScrCmd_MartBuy 02048060 1
+#endif
+
+# expand heal blocked moves
+0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
