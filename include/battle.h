@@ -1409,6 +1409,7 @@ struct BattleStruct {
                u8 hasLoadedTerrainOver:1;
                u8 original_bgId:7;
                u8 hasLoadedBgIdOver:1;
+               BOOL hasReloadedCustomTerrainBg;
                u32 moveStatusFlagForSpreadMoves[CLIENT_MAX];
                u32 damageForSpreadMoves[CLIENT_MAX]; // u32 or int?
                u8 clientLoopForSpreadMoves;
@@ -3966,5 +3967,12 @@ void LONG_CALL BattleBgExpansionLoader();
  * @brief Callback for loading custom battle backgrounds
  */
 void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
+
+int LONG_CALL TryAbilityOnEntry(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+void LONG_CALL ReadBattleScriptFromNarc(struct BattleStruct *ctx, int narcId, int fileId);
+
+void LONG_CALL ov12_0223C0C4(struct BattleSystem *bsys);
+
 
 #endif // BATTLE_H

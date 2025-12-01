@@ -854,27 +854,14 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain,
     }
 
     // free resources
-    debug_printf("1\n");
     Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette); // new terrains are just repointed below
-    debug_printf("2\n");
     Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
-    debug_printf("3\n");
-    if (battleStart) {
-        debug_printf("4.0\n");
-        if (bw->bg_area != NULL)
-            debug_printf("4.1\n");
-            sys_FreeMemoryEz(bw->bg_area);
-        if (bw->pal_area != NULL)
-            debug_printf("4.2\n");
-            sys_FreeMemoryEz(bw->pal_area);
-    } else {
+
+    if (!battleStart) {
         sys_FreeMemoryEz(bw->bg_area);
         sys_FreeMemoryEz(bw->pal_area);
+        BattleWorkGroundBGChg(bw);
     }
-    debug_printf("5\n");
-    BattleWorkGroundBGChg(bw);
-    debug_printf("6\n");
-
 
     // finally set the fields for nature power/secret power/camouflage/friends
     //bw->bgId = bg;
@@ -924,43 +911,99 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys)
         BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
         originalCallback = vanillaTable[0].callback;
         vanillaTable[0].callback = CustomBattleBackgroundCallback;
+    } else {
+        // tell BattleControllerPlayer_PokemonAppear not to reload later
+        bsys->sp->hasReloadedCustomTerrainBg = TRUE;
     }
 }
 
-void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3)
+static BOOL GetTerrainBattleBackground(Terrain terrainType, BattleBg *outBg, Terrain *outTerrain)
 {
+    switch (terrainType) {
+    case GRASSY_TERRAIN:
+        *outBg = BATTLE_BG_GRASSY_TERRAIN;
+        *outTerrain = TERRAIN_GRASSY_TERRAIN;
+        return TRUE;
+    case MISTY_TERRAIN:
+        *outBg = BATTLE_BG_MISTY_TERRAIN;
+        *outTerrain = TERRAIN_MISTY_TERRAIN;
+        return TRUE;
+    case ELECTRIC_TERRAIN:
+        *outBg = BATTLE_BG_ELECTRIC_TERRAIN;
+        *outTerrain = TERRAIN_ELECTRIC_TERRAIN;
+        return TRUE;
+    case PSYCHIC_TERRAIN:
+        *outBg = BATTLE_BG_PSYCHIC_TERRAIN;
+        *outTerrain = TERRAIN_PSYCHIC_TERRAIN;
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
+void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, int unk2, int unk3)
+{
+    debug_printf("CustomBattleBackgroundCallback: unk2=%d unk3=%d\n", unk2, unk3);
+
     // extract BattleSystem from pointer array
     struct BattleSystem **ptrArray = (struct BattleSystem **)unkPtr;
     struct BattleSystem *bsys = ptrArray[0];
 
-    // Check terrains
-    BattleBg newBg = bsys->bgId;
-    Terrain terrain = bsys->terrain;
-    switch (bsys->sp->terrainOverlay.type) {
-    case GRASSY_TERRAIN:
-        newBg = BATTLE_BG_GRASSY_TERRAIN;
-        terrain = TERRAIN_GRASSY_TERRAIN;
-        break;
-    case MISTY_TERRAIN:
-        newBg = BATTLE_BG_MISTY_TERRAIN;
-        terrain = TERRAIN_MISTY_TERRAIN;
-        break;
-    case ELECTRIC_TERRAIN:
-        newBg = BATTLE_BG_ELECTRIC_TERRAIN;
-        terrain = TERRAIN_ELECTRIC_TERRAIN;
-        break;
-    case PSYCHIC_TERRAIN:
-        newBg = BATTLE_BG_PSYCHIC_TERRAIN;
-        terrain = TERRAIN_PSYCHIC_TERRAIN;
-        break;
-    default:
+    // Call original callback if it's not null
+    if (originalCallback != NULL) {
+        debug_printf("CustomBattleBackgroundCallback: Calling original callback first\n");
+        originalCallback(unkPtr, unk2, unk3);
+    }
+
+    // Get terrain background to load
+    BattleBg newBg;
+    Terrain terrain;
+    if (!GetTerrainBattleBackground(bsys->sp->terrainOverlay.type, &newBg, &terrain)) {
+        // No custom terrain, restore callback and return
+        BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
+        vanillaTable[0].callback = originalCallback;
         return;
     }
 
+    debug_printf("CustomBattleBackgroundCallback: Loading terrain after vanilla callback\n");
     bsys->terrain = terrain;
     LoadDifferentBattleBackground(bsys, newBg, terrain, TRUE);
-    originalCallback(unkPtr, unk2, unk3);
+
+    // Reset the reload flag for this new battle
+    bsys->sp->hasReloadedCustomTerrainBg = FALSE;
+
     // restore the original callback func
     BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
     vanillaTable[0].callback = originalCallback;
+}
+
+void LONG_CALL BattleControllerPlayer_PokemonAppear(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    debug_printf("BattleControllerPlayer_PokemonAppear\n");
+
+    // reload bg exactly once more after mons first appear
+    if (bsys->sp && !bsys->sp->hasReloadedCustomTerrainBg) {
+        debug_printf("PokemonAppear: Reloading terrain to clear trainer sprite artifacts\n");
+        BattleBg newBg;
+        Terrain terrain;
+        GetTerrainBattleBackground(bsys->sp->terrainOverlay.type, &newBg, &terrain);
+        LoadDifferentBattleBackground(bsys, newBg, terrain, TRUE);
+        // TODO
+        sys_FreeMemoryEz(bsys->bg_area);
+        sys_FreeMemoryEz(bsys->pal_area);
+        bsys->sp->hasReloadedCustomTerrainBg = TRUE;
+    }
+
+    // vanilla logic
+    int script = TryAbilityOnEntry(bsys, ctx);
+
+    if (script) {
+        ReadBattleScriptFromNarc(ctx, 1, script);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+    } else {
+        SortMonsBySpeed(bsys, ctx);
+        ov12_0223C0C4(bsys);
+        ctx->server_seq_no = CONTROLLER_COMMAND_SELECTION_SCREEN_INIT;
+    }
 }
