@@ -28,7 +28,7 @@ _026:
     PrintMessage 184, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
-    GoTo _ally
+    GoTo _doublescheck
 
 _036:
     WaitButtonABTime 30
@@ -36,6 +36,9 @@ _036:
     PrintMessage 187, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
+
+_doublescheck:
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_CALC_TEMP, 0x00000002, _end
 
 _ally:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_ABILITY, ABILITY_WATER_ABSORB, _absorb
