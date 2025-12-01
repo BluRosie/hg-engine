@@ -9237,7 +9237,7 @@ movedata MOVE_FREEZE_DRY, "Freeze-Dry"
     effectchance 10
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | 
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE 
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
