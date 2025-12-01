@@ -21782,7 +21782,7 @@ mondata SPECIES_BRUTE_BONNET, "BruteBonet"
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
-    abilities ABILIABILITY_PROTOSYNTHESISTY_NONE, ABILITY_NONE
+    abilities ABILITY_PROTOSYNTHESIS, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     mondexentry SPECIES_BRUTE_BONNET, "It bears a slight resemblance to a Pokémon\ndescribed in a dubious magazine as a cross\nbetween a dinosaur and a mushroom."
@@ -23457,7 +23457,7 @@ mondata SPECIES_KYOGRE_PRIMAL, "-----"
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
     abilities ABILITY_PRIMORDIAL_SEA, ABILITY_NONE
     runchance 0
-    colorflip: 0, 0
+    colorflip BODY_COLOR_BLUE, 0
 
 
 mondata SPECIES_RATTATA_ALOLAN, "-----"
