@@ -1859,12 +1859,12 @@ trainerdata 24, "Valente"
         ballseal 0
 
         // mon 3
-        ivs 250
+        ivs 200
         abilityslot 0
         level 83
         pokemon SPECIES_MR_RIME
         item ITEM_MENTAL_HERB
-        move MOVE_FREEZE_DRY
+        move MOVE_ICE_BEAM
         move MOVE_PSYCHIC
         move MOVE_ENCORE
         move MOVE_DAZZLING_GLEAM
@@ -1877,12 +1877,12 @@ trainerdata 24, "Valente"
         ballseal 0
 
         // mon 4
-        ivs 250
+        ivs 200
         abilityslot 0
         level 84
         pokemon SPECIES_FERALIGATR
         item ITEM_ASSAULT_VEST
-        move MOVE_FISHIOUS_REND
+        move MOVE_LIQUIDATION
         move MOVE_CRUNCH
         move MOVE_SUPERPOWER
         move MOVE_ICY_WIND
