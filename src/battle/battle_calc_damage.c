@@ -131,6 +131,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         client.item = GetBattleMonItem(sp, i);
         client.item_held_effect = BattleItemDataGet(sp, client.item, 1);
         client.item_power = BattleItemDataGet(sp, client.item, 2);
+        client.hasMoveFailureLastTurn = sp->moveConditionsFlags[i].moveFailureLastTurn;
 
         damageCalc.clients[i] = client;
     }

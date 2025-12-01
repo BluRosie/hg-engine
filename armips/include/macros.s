@@ -3,7 +3,7 @@
 // mon data macros
 
 .macro mondata,species,name
-    monname species, name
+	monname species, name
 	.if species < 10
 		.create "build/a002/mondata_000" + tostring(species),0
 	.elseif species < 100
@@ -64,33 +64,26 @@
 .endmacro
 
 .macro abilities,abi1,abi2
-.if abi1 > 255 && abi2 <= 255
-	.byte abi2
-.elseif abi1 > 255
-	.byte ABILITY_NONE
-.else
-	.byte abi1
-.endif
-
-.if abi2 > 255
-	.byte ABILITY_NONE
-.else
-	.byte abi2
-.endif
+.orga 0x16
+	.halfword abi1
+.orga 0x1A
+	.halfword abi2
 .endmacro
 
 .macro runchance,num
+.orga 0x18
 	.byte num
 .endmacro
 
 .macro colorflip,color,flip
 	.byte (color | flip << 7)
-	.halfword 0 // padding
-    .word 0
-    .word 0
-    .word 0
-    .word 0
-    .close
+	// get rid of zeroing out ability 2
+.orga 0x1C
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.close
 .endmacro
 
 
@@ -332,7 +325,7 @@
 // trainer data macros
 
 .macro trainerdata,num,name
-    trainername num, name
+	trainername num, name
 	.if num < 10
 		.create "build/a055/5_00" + tostring(num),0
 	.elseif num < 100
@@ -446,7 +439,7 @@
 .endmacro
 
 .macro additionalflags,num
-    .word num
+	.word num
 .endmacro
 
 .macro status,num
@@ -557,50 +550,50 @@
 .endmacro
 
 .macro msgbankappend,file,msg
-    .create file, 0
-    .stringn msg
-    .close
+	.create file, 0
+	.stringn msg
+	.close
 .endmacro
 
 .macro writestring,subfile,id,str
 	.if id < 10
-	    msgbankappend "build/rawtext/" + subfile + "/000" + tostring(id) + ".txt", str
+		msgbankappend "build/rawtext/" + subfile + "/000" + tostring(id) + ".txt", str
 	.elseif id < 100
 		msgbankappend "build/rawtext/" + subfile + "/00" + tostring(id) + ".txt", str
 	.elseif id < 1000
-    	msgbankappend "build/rawtext/" + subfile + "/0" + tostring(id) + ".txt", str
+		msgbankappend "build/rawtext/" + subfile + "/0" + tostring(id) + ".txt", str
 	.else
 		msgbankappend "build/rawtext/" + subfile + "/" + tostring(id) + ".txt", str
 	.endif
 .endmacro
 
 .macro trainername,id,name
-    writestring "729", id, "{TRNAME}"+name
+	writestring "729", id, "{TRNAME}"+name
 .endmacro
 
 .macro monname,id,name
-    writestring "237", id, name
-    writestring "238", id, name
-    writestring "817", id, name
+	writestring "237", id, name
+	writestring "238", id, name
+	writestring "817", id, name
 .endmacro
 
 .macro mondexentry,id,description
-    writestring "803", id, description
+	writestring "803", id, description
 .endmacro
 
 .macro mondexclassification,id,classification
-    writestring "816", id, classification
-    writestring "823", id, classification
+	writestring "816", id, classification
+	writestring "823", id, classification
 .endmacro
 
 .macro mondexheight,id,height
-    writestring "814", id, height
-    writestring "815", id, height
+	writestring "814", id, height
+	writestring "815", id, height
 .endmacro
 
 .macro mondexweight,id,weight
-    writestring "812", id, weight
-    writestring "813", id, weight
+	writestring "812", id, weight
+	writestring "813", id, weight
 .endmacro
 
 
@@ -610,16 +603,16 @@
 // headbutt trees
 
 .macro xycoords, x, y
-    .halfword x, y
+	.halfword x, y
 .endmacro
 
 .macro treecoords, x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6
-    xycoords x1, y1
-    xycoords x2, y2
-    xycoords x3, y3
-    xycoords x4, y4
-    xycoords x5, y5
-    xycoords x6, y6
+	xycoords x1, y1
+	xycoords x2, y2
+	xycoords x3, y3
+	xycoords x4, y4
+	xycoords x5, y5
+	xycoords x6, y6
 .endmacro
 
 .macro headbuttheader, num, headbuttTreeQuantity, specialTreeQuantity
@@ -630,7 +623,7 @@
 	.else
 		.create "build/headbutttrees/" + tostring(num),0
 	.endif
-    .halfword headbuttTreeQuantity, specialTreeQuantity
+	.halfword headbuttTreeQuantity, specialTreeQuantity
 .endmacro
 
 .macro headbuttencounter, species, minLevel, maxlevel

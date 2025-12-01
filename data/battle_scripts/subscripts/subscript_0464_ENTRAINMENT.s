@@ -1,0 +1,12 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_ABILITY, BSCRIPT_VAR_CALC_TEMP
+    UpdateMonDataFromVar OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_ABILITY, BSCRIPT_VAR_CALC_TEMP
+    // {0} acquired {1}!
+    PrintMessage 1021, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER
+    Wait 
+    WaitButtonABTime 30
+    End 

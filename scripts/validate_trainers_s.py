@@ -29,6 +29,7 @@ def parse_trainers(file_path):
                     "id": trainer_id,
                     "name": match.group(2),
                     "trainermontype": "",
+                    "trainerclass": "",
                     "nummons": 0,
                     "party": []
                 }
@@ -49,6 +50,23 @@ def parse_trainers(file_path):
 
             if stripped.startswith("trainermontype"):
                 trainer["trainermontype"] = stripped.split("trainermontype")[1].strip().upper()
+                trainer["trainermontype"] = trainer["trainermontype"].split()
+                if len(trainer["trainermontype"]) % 2 == 0:
+                    print(f"ERROR: Incorrect number or formating of 'trainermontype' for trainer id {trainer_id} ({trainer['name']})")
+                    sys.exit(1)
+                if(len(trainer["trainermontype"]) > 1):
+                    for i in range(0,len(trainer["trainermontype"])):
+                        if i % 2 == 1 and trainer["trainermontype"][i] != "|":
+                            print(f"ERROR: Incorrect number or formating of 'trainermontype' from trainer id {trainer_id} ({trainer['name']})")
+                            sys.exit(1)
+
+            elif stripped.startswith("trainerclass"):
+                trainer["trainerclass"] = stripped.split()
+                if len(trainer["trainerclass"]) != 2:
+                    print(f"ERROR: Incorrect number or formating of 'trainerclass' for trainer id {trainer_id} ({trainer['name']})")
+                    sys.exit(1)
+                trainer["trainerclass"] = trainer["trainerclass"][1].strip().upper()
+
             elif stripped.startswith("nummons"):
                 match = re.search(r'nummons\s+.*?(\b[0-6]\b)', stripped)
                 if match:
@@ -56,7 +74,12 @@ def parse_trainers(file_path):
                 else:
                     print(f"encountered unexpected 'nummons' value for trainer {trainer_id}")
                     sys.exit(1)
+
             elif stripped == "endentry":
+                if key_counts["item"] < 4:
+                    print(f"ERROR: only {key_counts['item']} 'item' entries were in trainer id {trainer_id} ({trainer['name']})")
+                    sys.exit(1)
+
                 trainers[trainer_id] = trainer
                 trainer = {}
                 in_trainerdata = False

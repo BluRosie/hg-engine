@@ -81,14 +81,14 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
     // goal:  get rid of massive switch statement with each individual byte.  make the trainer type a bitfield
     u32 id;
-    u16 species = 0, adjustedSpecies = 0, item = 0, ability = 0, level = 0, ball = 0, hp = 0, atk = 0, def = 0, speed = 0, spatk = 0, spdef = 0;
+    u16 species = 0, adjustedSpecies = 0, item = 0, ability = 0, level = 0, ball = 0, hp = 0, atk = 0, def = 0, speed = 0, spatk = 0, spdef = 0, ab1 = 0, ab2 = 0;
     u16 offset = 0;
     u16 moves[4];
     u8 ivnums[6];
     u8 evnums[6];
     u8 ppcounts[4];
     u16 *nickname = sys_AllocMemory(heapID, 11*sizeof(u16));
-    u8 form_no = 0, abilityslot = 0, nature = 0, ballseal = 0, shinylock = 0, status = 0, ab1 = 0, ab2 = 0;
+    u8 form_no = 0, abilityslot = 0, nature = 0, ballseal = 0, shinylock = 0, status = 0;
     u32 additionalflags = 0;
 
     int partyOrder[pokecount];
@@ -314,15 +314,15 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         {
             if (abilityslot & 1 || abilityslot == 32) // abilityslot 32 gives second slot in vanilla
             {
-                SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab2);
+                SetMonData(mons[i], MON_DATA_ABILITY, (u16 *)&ab2);
             }
             else{
-                SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab1);
+                SetMonData(mons[i], MON_DATA_ABILITY, (u16 *)&ab1);
             }
         }
         else
         {
-            SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&ab1);
+            SetMonData(mons[i], MON_DATA_ABILITY, (u16 *)&ab1);
         }
 
         // if abilityslot is 2 force hidden ability with the bit set.  this specifically to cover darmanitan with zen mode switching between forms and such.
@@ -330,7 +330,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         {
             u16 hiddenability = GetMonHiddenAbility(species, form_no);
             SET_MON_HIDDEN_ABILITY_BIT(mons[i]);
-            SetMonData(mons[i], MON_DATA_ABILITY, (u8 *)&hiddenability);
+            SetMonData(mons[i], MON_DATA_ABILITY, (u16 *)&hiddenability);
         }
 
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS)
