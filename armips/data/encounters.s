@@ -808,18 +808,18 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-    encounter SPECIES_BASCULIN, 82, 86
-    encounter SPECIES_LUMINEON, 82, 86
-    encounter SPECIES_ALOMOMOLA, 82, 86
-    encounter SPECIES_ALOMOMOLA, 82, 86
-    encounter SPECIES_ALOMOMOLA, 82, 86
+    encounter SPECIES_BASCULIN, 80, 84
+    encounter SPECIES_LUMINEON, 80, 84
+    encounter SPECIES_ALOMOMOLA, 80, 84
+    encounter SPECIES_ALOMOMOLA, 80, 84
+    encounter SPECIES_ALOMOMOLA, 80, 84
 
 // good rod encounters
-    encounter SPECIES_POLITOED, 82, 86
-    encounter SPECIES_PRIMARINA, 82, 86
-    encounter SPECIES_LUMINEON, 82, 86
-    encounter SPECIES_LUMINEON, 82, 86
-    encounter SPECIES_LUMINEON, 82, 86
+    encounter SPECIES_POLITOED, 80, 84
+    encounter SPECIES_PRIMARINA, 80, 84
+    encounter SPECIES_LUMINEON, 80, 84
+    encounter SPECIES_LUMINEON, 80, 84
+    encounter SPECIES_LUMINEON, 80, 84
 
 // super rod encounters
     encounter SPECIES_ALOMOMOLA, 80, 84
@@ -912,18 +912,18 @@ walklevels 80, 80, 81, 81, 82, 82, 82, 83, 83, 83, 84, 84
     encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-    encounter SPECIES_LANTURN, 82, 86
-    encounter SPECIES_SEISMITOAD, 82, 86
-    encounter SPECIES_TENTACRUEL, 82, 86
-    encounter SPECIES_TENTACRUEL, 82, 86
-    encounter SPECIES_TENTACRUEL, 82, 86
+    encounter SPECIES_LANTURN, 80, 84
+    encounter SPECIES_SEISMITOAD, 80, 84
+    encounter SPECIES_TENTACRUEL, 80, 84
+    encounter SPECIES_TENTACRUEL, 80, 84
+    encounter SPECIES_TENTACRUEL, 80, 84
 
 // good rod encounters
-    encounter SPECIES_TENTACRUEL, 82, 86
-    encounter SPECIES_ARAQUANID, 82, 86
-    encounter SPECIES_LANTURN, 82, 86
-    encounter SPECIES_LANTURN, 82, 86
-    encounter SPECIES_LANTURN, 82, 86
+    encounter SPECIES_TENTACRUEL, 80, 84
+    encounter SPECIES_ARAQUANID, 80, 84
+    encounter SPECIES_LANTURN, 80, 84
+    encounter SPECIES_LANTURN, 80, 84
+    encounter SPECIES_LANTURN, 80, 84
 
 // super rod encounters
     encounter SPECIES_JELLICENT, 80, 84

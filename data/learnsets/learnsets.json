@@ -263,18 +263,6 @@
     "LevelMoves": [
       {
         "Level": 0,
-        "Move": "MOVE_PETAL_BLIZZARD"
-      },
-      {
-        "Level": 0,
-        "Move": "MOVE_PETAL_DANCE"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_PETAL_BLIZZARD"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_PETAL_DANCE"
       },
       {
@@ -291,23 +279,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_GROWTH"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_LEECH_SEED"
-      },
-      {
-        "Level": 3,
-        "Move": "MOVE_GROWL"
-      },
-      {
-        "Level": 8,
-        "Move": "MOVE_LEECH_SEED"
-      },
-      {
-        "Level": 9,
-        "Move": "MOVE_VINE_WHIP"
       },
       {
         "Level": 14,
@@ -670,14 +642,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_AIR_SLASH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_DRAGON_CLAW"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_HEAT_WAVE"
       },
       {
@@ -698,23 +662,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_WING_ATTACK"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_FLARE_BLITZ"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_SHADOW_CLAW"
-      },
-      {
-        "Level": 7,
-        "Move": "MOVE_EMBER"
-      },
-      {
-        "Level": 10,
-        "Move": "MOVE_SMOKESCREEN"
       },
       {
         "Level": 12,
@@ -755,10 +703,6 @@
       {
         "Level": 69,
         "Move": "MOVE_FLARE_BLITZ"
-      },
-      {
-        "Level": 71,
-        "Move": "MOVE_HEAT_WAVE"
       }
     ],
     "MachineMoves": [
@@ -3719,10 +3663,6 @@
         "Move": "MOVE_CAPTIVATE"
       },
       {
-        "Level": 45,
-        "Move": "MOVE_HORN_DRILL"
-      },
-      {
         "Level": 55,
         "Move": "MOVE_EARTH_POWER"
       }
@@ -3843,10 +3783,6 @@
       {
         "Level": 54,
         "Move": "MOVE_POISON_JAB"
-      },
-      {
-        "Level": 58,
-        "Move": "MOVE_HORN_DRILL"
       },
       {
         "Level": 71,
@@ -6958,10 +6894,6 @@
         "Move": "MOVE_AMNESIA"
       },
       {
-        "Level": 42,
-        "Move": "MOVE_HYDRO_PUMP"
-      },
-      {
         "Level": 47,
         "Move": "MOVE_WONDER_ROOM"
       }
@@ -7875,10 +7807,6 @@
       {
         "Level": 1,
         "Move": "MOVE_EARTH_POWER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_HYDRO_PUMP"
       },
       {
         "Level": 1,
@@ -11150,14 +11078,6 @@
   "SPECIES_DEWGONG": {
     "LevelMoves": [
       {
-        "Level": 0,
-        "Move": "MOVE_SHEER_COLD"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SHEER_COLD"
-      },
-      {
         "Level": 1,
         "Move": "MOVE_HEADBUTT"
       },
@@ -12944,10 +12864,6 @@
       {
         "Level": 48,
         "Move": "MOVE_SWORDS_DANCE"
-      },
-      {
-        "Level": 49,
-        "Move": "MOVE_GUILLOTINE"
       },
       {
         "Level": 51,
@@ -14832,10 +14748,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_HORN_DRILL"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_HORN_ATTACK"
       },
       {
@@ -15822,10 +15734,6 @@
         "Move": "MOVE_SOAK"
       },
       {
-        "Level": 43,
-        "Move": "MOVE_HORN_DRILL"
-      },
-      {
         "Level": 45,
         "Move": "MOVE_MEGAHORN"
       }
@@ -15945,10 +15853,6 @@
       {
         "Level": 44,
         "Move": "MOVE_SOAK"
-      },
-      {
-        "Level": 49,
-        "Move": "MOVE_HORN_DRILL"
       },
       {
         "Level": 52,
@@ -17117,10 +17021,6 @@
         "Move": "MOVE_THRASH"
       },
       {
-        "Level": 48,
-        "Move": "MOVE_GUILLOTINE"
-      },
-      {
         "Level": 49,
         "Move": "MOVE_SUPERPOWER"
       }
@@ -17329,10 +17229,6 @@
     "LevelMoves": [
       {
         "Level": 0,
-        "Move": "MOVE_BITE"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_BITE"
       },
       {
@@ -19037,10 +18933,6 @@
         "Move": "MOVE_SKY_DROP"
       },
       {
-        "Level": 59,
-        "Move": "MOVE_HYPER_BEAM"
-      },
-      {
         "Level": 69,
         "Move": "MOVE_GIGA_IMPACT"
       }
@@ -20055,10 +19947,6 @@
       {
         "Level": 61,
         "Move": "MOVE_DRAGON_DANCE"
-      },
-      {
-        "Level": 77,
-        "Move": "MOVE_HYPER_BEAM"
       },
       {
         "Level": 81,
@@ -30356,10 +30244,6 @@
       {
         "Level": 55,
         "Move": "MOVE_SOAK"
-      },
-      {
-        "Level": 55,
-        "Move": "MOVE_HYPER_BEAM"
       }
     ],
     "MachineMoves": [
@@ -31556,10 +31440,6 @@
       {
         "Level": 60,
         "Move": "MOVE_ZAP_CANNON"
-      },
-      {
-        "Level": 65,
-        "Move": "MOVE_HYPER_BEAM"
       }
     ],
     "MachineMoves": [
@@ -33083,10 +32963,6 @@
     "LevelMoves": [
       {
         "Level": 1,
-        "Move": "MOVE_SHEER_COLD"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_EXTREME_SPEED"
       },
       {
@@ -33555,18 +33431,6 @@
         "Move": "MOVE_PAYBACK"
       },
       {
-        "Level": 1,
-        "Move": "MOVE_BITE"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_ROCK_TOMB"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SCREECH"
-      },
-      {
         "Level": 9,
         "Move": "MOVE_BITE"
       },
@@ -33599,10 +33463,6 @@
         "Move": "MOVE_DARK_PULSE"
       },
       {
-        "Level": 35,
-        "Move": "MOVE_THRASH"
-      },
-      {
         "Level": 36,
         "Move": "MOVE_CRUNCH"
       },
@@ -33617,14 +33477,6 @@
       {
         "Level": 49,
         "Move": "MOVE_STONE_EDGE"
-      },
-      {
-        "Level": 61,
-        "Move": "MOVE_HYPER_BEAM"
-      },
-      {
-        "Level": 69,
-        "Move": "MOVE_GIGA_IMPACT"
       }
     ],
     "MachineMoves": [
@@ -40044,10 +39896,6 @@
       {
         "Level": 65,
         "Move": "MOVE_BOOMBURST"
-      },
-      {
-        "Level": 73,
-        "Move": "MOVE_HYPER_BEAM"
       }
     ],
     "MachineMoves": [
@@ -43898,10 +43746,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_FISSURE"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_ERUPTION"
       },
       {
@@ -44906,10 +44750,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_DRAGON_CLAW"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_DRAGON_BREATH"
       },
       {
@@ -44939,10 +44779,6 @@
       {
         "Level": 1,
         "Move": "MOVE_SUPERPOWER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_FISSURE"
       },
       {
         "Level": 1,
@@ -44977,20 +44813,12 @@
         "Move": "MOVE_MUD_SLAP"
       },
       {
-        "Level": 8,
-        "Move": "MOVE_BULLDOZE"
-      },
-      {
         "Level": 14,
         "Move": "MOVE_SAND_TOMB"
       },
       {
         "Level": 15,
         "Move": "MOVE_ROCK_SLIDE"
-      },
-      {
-        "Level": 19,
-        "Move": "MOVE_SUPERSONIC"
       },
       {
         "Level": 23,
@@ -45005,10 +44833,6 @@
         "Move": "MOVE_BUG_BUZZ"
       },
       {
-        "Level": 32,
-        "Move": "MOVE_EARTH_POWER"
-      },
-      {
         "Level": 33,
         "Move": "MOVE_ROCK_TOMB"
       },
@@ -45018,7 +44842,7 @@
       },
       {
         "Level": 43,
-        "Move": "MOVE_HYPER_BEAM"
+        "Move": "MOVE_EARTH_POWER"
       },
       {
         "Level": 46,
@@ -45078,7 +44902,8 @@
       "MOVE_POWER_UP_PUNCH",
       "MOVE_DUAL_WINGBEAT",
       "MOVE_CRUNCH",
-      "MOVE_HEAT_WAVE"
+      "MOVE_HEAT_WAVE",
+      "MOVE_LEECH_LIFE"
     ],
     "EggMoves": [],
     "TutorMoves": [
@@ -46643,10 +46468,6 @@
       {
         "Level": 48,
         "Move": "MOVE_ENDEAVOR"
-      },
-      {
-        "Level": 50,
-        "Move": "MOVE_GUILLOTINE"
       }
     ],
     "MachineMoves": [
@@ -46802,10 +46623,6 @@
       {
         "Level": 58,
         "Move": "MOVE_ENDEAVOR"
-      },
-      {
-        "Level": 59,
-        "Move": "MOVE_GUILLOTINE"
       }
     ],
     "MachineMoves": [
@@ -47018,14 +46835,6 @@
   },
   "SPECIES_CLAYDOL": {
     "LevelMoves": [
-      {
-        "Level": 0,
-        "Move": "MOVE_HYPER_BEAM"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_HYPER_BEAM"
-      },
       {
         "Level": 1,
         "Move": "MOVE_TELEPORT"
@@ -47845,16 +47654,16 @@
         "Move": "MOVE_DRAGON_TAIL"
       },
       {
-        "Level": 27,
-        "Move": "MOVE_RECOVER"
-      },
-      {
         "Level": 31,
         "Move": "MOVE_AQUA_TAIL"
       },
       {
         "Level": 36,
         "Move": "MOVE_SAFEGUARD"
+      },
+      {
+        "Level": 39,
+        "Move": "MOVE_RECOVER"
       },
       {
         "Level": 40,
@@ -47867,10 +47676,6 @@
       {
         "Level": 45,
         "Move": "MOVE_CHARM"
-      },
-      {
-        "Level": 48,
-        "Move": "MOVE_ALLURING_VOICE"
       }
     ],
     "MachineMoves": [
@@ -49441,10 +49246,6 @@
       {
         "Level": 1,
         "Move": "MOVE_FREEZE_DRY"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SHEER_COLD"
       },
       {
         "Level": 1,
@@ -51213,10 +51014,6 @@
       {
         "Level": 57,
         "Move": "MOVE_AGILITY"
-      },
-      {
-        "Level": 71,
-        "Move": "MOVE_HYPER_BEAM"
       }
     ],
     "MachineMoves": [
@@ -52136,10 +51933,6 @@
       {
         "Level": 42,
         "Move": "MOVE_AQUA_RING"
-      },
-      {
-        "Level": 54,
-        "Move": "MOVE_SHEER_COLD"
       },
       {
         "Level": 54,
@@ -60785,10 +60578,6 @@
         "Move": "MOVE_DOUBLE_EDGE"
       },
       {
-        "Level": 57,
-        "Move": "MOVE_FISSURE"
-      },
-      {
         "Level": 62,
         "Move": "MOVE_SLACK_OFF"
       }
@@ -62712,10 +62501,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_HORN_DRILL"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_POISON_JAB"
       },
       {
@@ -62781,10 +62566,6 @@
       {
         "Level": 58,
         "Move": "MOVE_MEGAHORN"
-      },
-      {
-        "Level": 65,
-        "Move": "MOVE_HORN_DRILL"
       },
       {
         "Level": 72,
@@ -63975,10 +63756,6 @@
     "LevelMoves": [
       {
         "Level": 1,
-        "Move": "MOVE_GUILLOTINE"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_THUNDER_FANG"
       },
       {
@@ -64003,18 +63780,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_KNOCK_OFF"
-      },
-      {
-        "Level": 4,
-        "Move": "MOVE_SAND_ATTACK"
-      },
-      {
-        "Level": 7,
-        "Move": "MOVE_HARDEN"
-      },
-      {
-        "Level": 10,
         "Move": "MOVE_KNOCK_OFF"
       },
       {
@@ -64056,10 +63821,6 @@
       {
         "Level": 50,
         "Move": "MOVE_SWORDS_DANCE"
-      },
-      {
-        "Level": 55,
-        "Move": "MOVE_GUILLOTINE"
       }
     ],
     "MachineMoves": [
@@ -64076,6 +63837,7 @@
       "MOVE_FACADE",
       "MOVE_FALSE_SWIPE",
       "MOVE_FLING",
+      "MOVE_FLY",
       "MOVE_FRUSTRATION",
       "MOVE_GIGA_IMPACT",
       "MOVE_HIDDEN_POWER",
@@ -73096,14 +72858,6 @@
   "SPECIES_EXCADRILL": {
     "LevelMoves": [
       {
-        "Level": 0,
-        "Move": "MOVE_HORN_DRILL"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_HORN_DRILL"
-      },
-      {
         "Level": 1,
         "Move": "MOVE_MUD_SLAP"
       },
@@ -79921,10 +79675,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SHEER_COLD"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_ICICLE_SPEAR"
       },
       {
@@ -82921,10 +82671,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_OVERHEAT"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_MEMENTO"
       },
       {
@@ -83062,10 +82808,6 @@
       {
         "Level": 42,
         "Move": "MOVE_SWORDS_DANCE"
-      },
-      {
-        "Level": 47,
-        "Move": "MOVE_GUILLOTINE"
       },
       {
         "Level": 48,
@@ -83359,10 +83101,6 @@
         "Move": "MOVE_OUTRAGE"
       },
       {
-        "Level": 55,
-        "Move": "MOVE_GUILLOTINE"
-      },
-      {
         "Level": 66,
         "Move": "MOVE_GIGA_IMPACT"
       }
@@ -83577,10 +83315,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SHEER_COLD"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_THRASH"
       },
       {
@@ -83729,10 +83463,6 @@
       {
         "Level": 1,
         "Move": "MOVE_ICE_SHARD"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SHEER_COLD"
       },
       {
         "Level": 1,
@@ -84116,10 +83846,6 @@
       {
         "Level": 1,
         "Move": "MOVE_THUNDER_SHOCK"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_FISSURE"
       },
       {
         "Level": 1,
@@ -85096,10 +84822,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_GUILLOTINE"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_IRON_HEAD"
       },
       {
@@ -85165,10 +84887,6 @@
       {
         "Level": 63,
         "Move": "MOVE_SWORDS_DANCE"
-      },
-      {
-        "Level": 71,
-        "Move": "MOVE_GUILLOTINE"
       }
     ],
     "MachineMoves": [
@@ -85993,10 +85711,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_GUILLOTINE"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_VICE_GRIP"
       },
       {
@@ -86054,10 +85768,6 @@
       {
         "Level": 49,
         "Move": "MOVE_IRON_DEFENSE"
-      },
-      {
-        "Level": 53,
-        "Move": "MOVE_GUILLOTINE"
       }
     ],
     "MachineMoves": [
@@ -87728,10 +87438,6 @@
       {
         "Level": 70,
         "Move": "MOVE_OUTRAGE"
-      },
-      {
-        "Level": 75,
-        "Move": "MOVE_FISSURE"
       },
       {
         "Level": 80,
@@ -93867,10 +93573,6 @@
         "Move": "MOVE_EARTHQUAKE"
       },
       {
-        "Level": 53,
-        "Move": "MOVE_HORN_DRILL"
-      },
-      {
         "Level": 62,
         "Move": "MOVE_HEAD_SMASH"
       },
@@ -94141,10 +93843,6 @@
       {
         "Level": 48,
         "Move": "MOVE_LIGHT_SCREEN"
-      },
-      {
-        "Level": 64,
-        "Move": "MOVE_HYPER_BEAM"
       },
       {
         "Level": 66,
@@ -97048,10 +96746,6 @@
         "Move": "MOVE_FLARE_BLITZ"
       },
       {
-        "Level": 75,
-        "Move": "MOVE_OVERHEAT"
-      },
-      {
         "Level": 78,
         "Move": "MOVE_STEAM_ERUPTION"
       },
@@ -99027,10 +98721,6 @@
       {
         "Level": 33,
         "Move": "MOVE_BUG_BUZZ"
-      },
-      {
-        "Level": 34,
-        "Move": "MOVE_GUILLOTINE"
       },
       {
         "Level": 37,
@@ -103285,10 +102975,6 @@
       {
         "Level": 42,
         "Move": "MOVE_SHELL_TRAP"
-      },
-      {
-        "Level": 48,
-        "Move": "MOVE_OVERHEAT"
       },
       {
         "Level": 52,
@@ -120009,10 +119695,6 @@
       {
         "Level": 51,
         "Move": "MOVE_IRON_DEFENSE"
-      },
-      {
-        "Level": 56,
-        "Move": "MOVE_GUILLOTINE"
       }
     ],
     "MachineMoves": [
@@ -120196,10 +119878,6 @@
       {
         "Level": 44,
         "Move": "MOVE_SEED_BOMB"
-      },
-      {
-        "Level": 48,
-        "Move": "MOVE_OVERHEAT"
       },
       {
         "Level": 48,
@@ -123196,10 +122874,6 @@
       {
         "Level": 64,
         "Move": "MOVE_SWORDS_DANCE"
-      },
-      {
-        "Level": 71,
-        "Move": "MOVE_GUILLOTINE"
       }
     ],
     "MachineMoves": [
@@ -125682,10 +125356,6 @@
       {
         "Level": 84,
         "Move": "MOVE_THUNDER"
-      },
-      {
-        "Level": 91,
-        "Move": "MOVE_OVERHEAT"
       },
       {
         "Level": 98,
@@ -128386,10 +128056,6 @@
         "Move": "MOVE_THRASH"
       },
       {
-        "Level": 48,
-        "Move": "MOVE_GUILLOTINE"
-      },
-      {
         "Level": 49,
         "Move": "MOVE_SUPERPOWER"
       }
@@ -130554,10 +130220,6 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_FISSURE"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_ERUPTION"
       },
       {
@@ -130955,10 +130617,6 @@
       {
         "Level": 1,
         "Move": "MOVE_FREEZE_DRY"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SHEER_COLD"
       },
       {
         "Level": 1,
@@ -133193,10 +132851,6 @@
       },
       {
         "Level": 48,
-        "Move": "MOVE_SHEER_COLD"
-      },
-      {
-        "Level": 48,
         "Move": "MOVE_GRUDGE"
       },
       {
@@ -133297,10 +132951,6 @@
       {
         "Level": 1,
         "Move": "MOVE_AURORA_VEIL"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SHEER_COLD"
       },
       {
         "Level": 1,
@@ -142010,10 +141660,6 @@
       {
         "Level": 70,
         "Move": "MOVE_OUTRAGE"
-      },
-      {
-        "Level": 75,
-        "Move": "MOVE_FISSURE"
       },
       {
         "Level": 80,
@@ -156116,10 +155762,6 @@
       },
       {
         "Level": 44,
-        "Move": "MOVE_HYDRO_PUMP"
-      },
-      {
-        "Level": 44,
         "Move": "MOVE_DESTINY_BOND"
       },
       {
@@ -156259,10 +155901,6 @@
       {
         "Level": 36,
         "Move": "MOVE_WHIRLPOOL"
-      },
-      {
-        "Level": 47,
-        "Move": "MOVE_HYDRO_PUMP"
       },
       {
         "Level": 48,
