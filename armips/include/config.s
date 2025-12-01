@@ -45,7 +45,7 @@ ALWAYS_UNCAPPED_FRAME_RATE equ 0
 BATTLES_UNCAPPED_FRAME_RATE equ 0
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
-FAST_TEXT_PRINTING equ 1
+FAST_TEXT_PRINTING equ 0
 
 // NO_PARTNER_DOUBLE_BATTLES allows for setting trainers to double battles without setting up a partner trainer.  set to 0 to disable
 // note that the entry in `armips/data/trainers/trainertext.s` has to use `TEXT_DOUBLE_DEFEATED_IN_BATTLE_1`, but the overworld entries can remain the same.
