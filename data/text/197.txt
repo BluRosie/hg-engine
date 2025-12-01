@@ -1598,3 +1598,4 @@ The opposing {STRVAR_1 1, 0, 0}\ncan’t fall asleep due to a veil\fof sweetness
 The bursting flame hit {STRVAR_1 1, 0, 0}!
 The bursting flame hit the wild\n{STRVAR_1 1, 0, 0}!
 The bursting flame hit the\nopposing {STRVAR_1 1, 0, 0}!
+A deluge of ions showers\nthe battlefield!
