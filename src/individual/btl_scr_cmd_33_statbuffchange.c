@@ -96,23 +96,19 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         sp->temp_work = STATUS_EFF_UP;
     }
 
-    if (battlemon->ability == ABILITY_SIMPLE) {
+    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_SIMPLE)) {
         statchange *= 2;
     }
 
-    if (battlemon->ability == ABILITY_CONTRARY)
-    {
-        //statchange
+    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_CONTRARY)) {
+        // statchange
         statchange = -statchange;
 
-        //sp->temp_work
-        if(sp->temp_work == STATUS_EFF_UP)
-        {
-            sp->temp_work= STATUS_EFF_DOWN;
-        }
-        else if(sp->temp_work == STATUS_EFF_DOWN)
-        {
-            sp->temp_work= STATUS_EFF_UP;
+        // sp->temp_work
+        if (sp->temp_work == STATUS_EFF_UP) {
+            sp->temp_work = STATUS_EFF_DOWN;
+        } else if (sp->temp_work == STATUS_EFF_DOWN) {
+            sp->temp_work = STATUS_EFF_UP;
         }
     }
 

@@ -43,20 +43,108 @@ const u8 StatBoostModifiers[][2] = {
         { 8, 2 },
 };
 
-int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
-                   u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
+int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED,
+                   u32 field_cond, u16 pow UNUSED, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
 {
+
+    struct DamageCalcStruct damageCalc = {0};
+
+    damageCalc.maxBattlers = BattleWorkClientSetMaxGet(bw);
+    damageCalc.attackerPartySize = Battle_GetClientPartySize(bw, attacker);
+    for (int i = 0; i < damageCalc.attackerPartySize; i++) {
+        struct PartyPokemon *mon = Battle_GetClientPartyMon(bw, attacker, i);
+        damageCalc.attackerParty[i] = mon;
+    }
+    damageCalc.attacker = attacker;
+    damageCalc.defender = defender;
+    damageCalc.critical = critical;
+    damageCalc.moveno = moveno;
+    damageCalc.movetype = GetAdjustedMoveType(sp, attacker, moveno);
+    damageCalc.movesplit = GetMoveSplit(sp, moveno);
+    damageCalc.movepower = sp->moveTbl[moveno].power;
+    damageCalc.damage_power = sp->damage_power;
+    damageCalc.damage_value = sp->damage_value;
+    damageCalc.magnitude = sp->magnitude;
+    damageCalc.gemBoostingMove = sp->gemBoostingMove;
+    memcpy(damageCalc.rawSpeedNonRNGClientOrder, sp->rawSpeedNonRNGClientOrder, 4 * sizeof(sp->rawSpeedNonRNGClientOrder[0]));
+
+    damageCalc.noCloudNineAndAirLock = (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0);
+    damageCalc.fieldHasFairyAura = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_FAIRY_AURA);
+    damageCalc.fieldHasDarkAura = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DARK_AURA);
+    damageCalc.fieldHasAuraBreak = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AURA_BREAK);
+    // TODO: Mold Breaker + Mold Breaker interactions
+    damageCalc.fieldHasVesselOfRuin = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_VESSEL_OF_RUIN);
+    damageCalc.fieldHasSwordOfRuin = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_SWORD_OF_RUIN);
+    damageCalc.fieldHasTabletsOfRuin = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_TABLETS_OF_RUIN);
+    damageCalc.fieldHasBeadsOfRuin = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_BEADS_OF_RUIN);
+
+    damageCalc.field_cond = field_cond;
+
+    damageCalc.terrainOverlayType = sp->terrainOverlay.type;
+    damageCalc.terrainOverlayNumberOfTurnsLeft = sp->terrainOverlay.numberOfTurnsLeft;
+
+    damageCalc.playerSideHasFaintedTeammateLastTurn = sp->playerSideHasFaintedTeammateLastTurn;
+    damageCalc.enemySideHasFaintedTeammateLastTurn = sp->enemySideHasFaintedTeammateLastTurn;
+
+    damageCalc.originalMoveType = sp->moveTbl[moveno].type;
+    damageCalc.moveEffect = sp->moveTbl[moveno].effect;
+    damageCalc.moveFlag = sp->moveTbl[moveno].flag;
+
+    for (u32 i = 0; i < damageCalc.maxBattlers; i++) {
+        struct sDamageCalc client = {0};
+        client.attack = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_ATK, NULL);
+        client.defense = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_DEF, NULL);
+        client.sp_attack = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_SPATK, NULL);
+        client.sp_defense = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_SPDEF, NULL);
+        client.atkstate = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
+        client.defstate = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
+        client.spatkstate = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
+        client.spdefstate = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
+
+        client.positiveStatBoosts = 0;
+        for (int stat = 0; stat < 8; stat++) {
+            if (sp->battlemon[i].states[stat] > 6) {
+                client.positiveStatBoosts += sp->battlemon[i].states[stat] - 6;
+            }
+        }
+
+        client.level = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_LEVEL, NULL);
+        client.species = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_SPECIES, NULL);
+        client.hp = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_HP, NULL);
+        client.maxhp = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_MAX_HP, NULL);
+        client.condition = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_MAX_CONDITION, NULL);
+        client.condition2 = sp->battlemon[i].condition2;
+        client.ability = GetBattlerAbility(sp, i);
+        client.sex = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_SEX, NULL);
+        client.speed = sp->effectiveSpeed[i];
+        client.weight = GetPokemonWeight(bw, sp, attacker, i);
+        client.happiness = sp->battlemon[i].friendship;
+        client.form = sp->battlemon[i].form_no;
+        client.furyCutterCount = sp->battlemon[i].moveeffect.furyCutterCount;
+        client.rolloutCount = sp->battlemon[i].moveeffect.rolloutCount;
+        client.stockpileCount = sp->battlemon[i].moveeffect.stockpileCount;
+        client.parentalBondFlag = sp->oneTurnFlag[i].parental_bond_flag;
+        client.helpingHandFlag = sp->oneTurnFlag[i].helping_hand_flag;
+        client.sheerForceFlag = sp->battlemon[i].sheer_force_flag;
+        client.effectOfMoves = sp->battlemon[i].effect_of_moves;
+        client.isGrounded = IsClientGrounded(sp, i);
+        client.item = GetBattleMonItem(sp, i);
+        client.item_held_effect = BattleItemDataGet(sp, client.item, 1);
+        client.item_power = BattleItemDataGet(sp, client.item, 2);
+        client.hasMoveFailureLastTurn = sp->moveConditionsFlags[i].moveFailureLastTurn;
+
+        damageCalc.clients[i] = client;
+    }
+
     u32 ovyId, offset;
     int ret;
-    int (*internalFunc)(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
-                         u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical);
+    int (*internalFunc)(struct BattleSystem *bw, struct BattleStruct *sp, struct DamageCalcStruct *damageCalc);
 
     ovyId = OVERLAY_CALCBASEDAMAGE;
     offset = 0x023C0400 | 1;
     HandleLoadOverlay(ovyId, 2);
-    internalFunc = (int (*)(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
-                            u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical))(offset);
-    ret = internalFunc(bw, sp, moveno, side_cond, field_cond, pow, type, attacker, defender, critical);
+    internalFunc = (int (*)(struct BattleSystem *bw, struct BattleStruct *sp, struct DamageCalcStruct *damageCalc))(offset);
+    ret = internalFunc(bw, sp, &damageCalc);
     UnloadOverlayByID(ovyId);
 
     return ret;
@@ -134,14 +222,14 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     // TODO: the vanilla implementation is probably wrong
 
     if ((battle_type & BATTLE_TYPE_DOUBLE) &&
-        (sp->moveTbl[moveno].target == 0x4) &&
+        (sp->moveTbl[moveno].target == RANGE_ADJACENT_OPPONENTS) &&
         (CheckNumMonsHit(bw, sp, 1, defender) == 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 
     if ((battle_type & BATTLE_TYPE_DOUBLE) &&
-        (sp->moveTbl[moveno].target == 0x8) &&
-        (CheckNumMonsHit(bw, sp, 1, defender) >= 2)) {
+        (sp->moveTbl[moveno].target == RANGE_ALL_ADJACENT) &&
+        (CheckNumMonsHit(bw, sp, 0, defender) >= 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 
@@ -459,10 +547,9 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     // Effects relative to a particular side of the field
     // 6.9.1 Screens
-    // TODO: handle Aurora Veil
     // handle Reflect
     if ((movesplit == SPLIT_PHYSICAL)
-    && ((side_cond & SIDE_STATUS_REFLECT) != 0)
+    && ((side_cond & SIDE_STATUS_REFLECT) != 0 || (side_cond & SIDE_STATUS_AURORA_VEIL) != 0)
     && (sp->critical == 1)
     && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
     && (sp->battlemon[attacker].ability != ABILITY_INFILTRATOR)) {
@@ -474,7 +561,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     }
     // handle Light Screen
     if ((movesplit == SPLIT_SPECIAL)
-    && ((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0)
+    && ((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0 || (side_cond & SIDE_STATUS_AURORA_VEIL) != 0)
     && (sp->critical == 1)
     && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
     && (attackerAbility != ABILITY_INFILTRATOR)) {
@@ -526,7 +613,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
                     // 6.9.8 Solid Rock / Filter / Prism Armor
                     if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-                    && (defenderAbility == ABILITY_SOLID_ROCK || defenderAbility == ABILITY_FILTER || defenderAbility == ABILITY_PRISM_ARMOR)) {
+                        && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SOLID_ROCK) || MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FILTER) || defenderAbility == ABILITY_PRISM_ARMOR)) {
                         finalModifier = QMul_RoundUp(finalModifier, UQ412__0_75);
 #ifdef DEBUG_DAMAGE_CALC
                         debug_printf("\n=================\n");
@@ -537,7 +624,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
                     break;
                 default:
                     break;
-            }
+                }
         }
 
         // 6.9.3 Sniper
@@ -552,9 +639,9 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         }
 
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && (defenderAbility == ABILITY_FLUFFY)) {
+        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLUFFY)) {
             // 6.9.6 Fluffy (contact moves)
-            if (IsContactBeingMade(bw, sp)) {
+            if (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
                 finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
                 debug_printf("\n=================\n");
@@ -575,7 +662,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
         // 6.9.5 Multiscale / Shadow Shield
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && ((defenderAbility == ABILITY_MULTISCALE)
+        && ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MULTISCALE))
         || (defenderAbility == ABILITY_SHADOW_SHIELD))
         && (sp->battlemon[defender].hp == (s32)sp->battlemon[defender].maxhp)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
@@ -587,7 +674,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         }
 
         // 6.9.7 Friend Guard
-        if ((sp->rawSpeedNonRNGClientOrder[i] == BATTLER_ALLY(defender)) && (GetBattlerAbility(sp, BATTLER_ALLY(defender)) == ABILITY_FRIEND_GUARD)) {
+        if ((sp->rawSpeedNonRNGClientOrder[i] == BATTLER_ALLY(defender)) && MoldBreakerAbilityCheck(sp, attacker, BATTLER_ALLY(defender), ABILITY_FRIEND_GUARD)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_75);
 #ifdef DEBUG_DAMAGE_CALC
             debug_printf("\n=================\n");
@@ -599,7 +686,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         // 6.9.15 Punk Rock
         // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8291673
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && (defenderAbility == ABILITY_PUNK_ROCK)
+        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_PUNK_ROCK)
         && IsMoveSoundBased(moveno)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
@@ -678,7 +765,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
                 // 6.9.13 Resist Berries
                 if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-                && CanActivateDamageReductionBerry(bw, sp, defender)) {
+                && CanActivateDamageReductionBerry(sp, defender)) {
                     finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
                     debug_printf("\n=================\n");

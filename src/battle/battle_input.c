@@ -199,9 +199,9 @@ void Sub_PokeIconResourceLoad(struct BI_PARAM *bip)
         }
     }
 
-    OAM_LoadResourceCellArc(csp, crp, ARC_BATTLE_GFX, 1, 0, MEGA_ICON_CELL_TAG);
+    OAM_LoadResourceCellArc(csp, crp, ARC_ITEM_GFX_DATA, 1, 0, MEGA_ICON_CELL_TAG);
 
-    OAM_LoadResourceCellAnmArc(csp, crp, ARC_BATTLE_GFX, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
+    OAM_LoadResourceCellAnmArc(csp, crp, ARC_ITEM_GFX_DATA, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
 
 
     // weather
@@ -408,8 +408,8 @@ void LoadMegaButton(struct BI_PARAM *bip)
         OAM_LoadResourcePlttWorkArc(pfd, FADE_SUB_OBJ, csp, crp, ARC_BATTLE_GFX, palindex, 0, 1, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_PAL_TAG);
         OAM_LoadResourceCharArc(csp, crp, ARC_BATTLE_GFX, iconindex, 0, NNS_G2D_VRAM_TYPE_2DSUB, MEGA_BUTTON_SPRITE_TAG);
 
-        OAM_LoadResourceCellArc(csp, crp, ARC_BATTLE_GFX, 1, 0, MEGA_ICON_CELL_TAG);
-        OAM_LoadResourceCellAnmArc(csp, crp, ARC_BATTLE_GFX, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
+        OAM_LoadResourceCellArc(csp, crp, ARC_ITEM_GFX_DATA, 1, 0, MEGA_ICON_CELL_TAG);
+        OAM_LoadResourceCellAnmArc(csp, crp, ARC_ITEM_GFX_DATA, 0, 0, MEGA_ICON_CELL_ANIM_TAG);
         newBS.MegaButton = OAM_ObjectAdd_S(csp, crp, &MegaButtonTemplate);
         OAM_ObjectUpdate(newBS.MegaButton->act);
     }
