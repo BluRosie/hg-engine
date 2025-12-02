@@ -1650,6 +1650,14 @@ BOOL LONG_CALL HandleBoxPokemonFormeChanges(struct BoxPokemon* bp);
 BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp);
 
 /**
+ *  @brief check if a rotom catalog can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check reveal glass against
+ *  @return TRUE if rotom catalog can be used; FALSE otherwise
+ */
+BOOL CanUseRotomCatalog(struct PartyPokemon *pp);
+
+/**
  *  @brief check if DNA splicers can be used, return position in party if so
  *
  *  @param pp PartyPokemon to check for

@@ -290,7 +290,6 @@ int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
     }
 
     if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG && CanUseRotomCatalog(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex))) {
-        debug_printf("rotom babay\n");
         PartyMenu_ShowRotomCatalogList(partyMenu);
         sys_FreeMemoryEz(itemData);
         return PARTY_MENU_STATE_HANDLE_CONTEXT_MENU_INPUT;
