@@ -55,6 +55,7 @@ u16 MainMusicComboTable[][2] =
     // (***END OF VANILLA ENTRIES***)
     [ANIM_MUSIC_COMBO_ELDER] = {0x2E, SEQ_2382},
     [ANIM_MUSIC_COMBO_BUCK] = {0x2E, SEQ_2384},
+    [ANIM_MUSIC_COMBO_SAGE] = {0x2D, SEQ_2383},
 };
 
 // format is one byte for trainer class, then one byte for combo (combo increments by 4 because each combo is four bytes long)
@@ -96,6 +97,7 @@ u8 TrainerClassToMusicCombo[][2] =
     // (***END OF VANILLA ENTRIES***)
     {TRAINERCLASS_ELDER, ANIM_MUSIC_COMBO_ELDER*4},
     {TRAINERCLASS_PKMN_TRAINER_BUCK, ANIM_MUSIC_COMBO_BUCK*4},
+    {TRAINERCLASS_SAGE, ANIM_MUSIC_COMBO_SAGE*4}
 };
 
 struct MonBattleMusic
@@ -173,4 +175,5 @@ struct TrainerMusic sTrainerEncounterMusicParam[] = // cues which music sequence
     {.class = TRAINERCLASS_EXECUTIVE_ARCHER, .music1 = SEQ_GS_EYE_ROCKET, .music2 = SEQ_GS_EYE_ROCKET},
     {.class = TRAINERCLASS_EXECUTIVE_PROTON, .music1 = SEQ_GS_EYE_ROCKET, .music2 = SEQ_GS_EYE_ROCKET},
     {.class = TRAINERCLASS_EXECUTIVE_PETREL, .music1 = SEQ_GS_EYE_ROCKET, .music2 = SEQ_GS_EYE_ROCKET},
+    {.class = TRAINERCLASS_SAGE, .music1 = SEQ_GS_EYE_MAIKO, .music2 = SEQ_GS_EYE_MAIKO},
 };
