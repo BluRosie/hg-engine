@@ -37,8 +37,6 @@ struct BattleStruct *ServerInit(struct BattleSystem *bw) {
     ServerMoveAIInit(bw, sp);
     DumpMoveTableData(&sp->moveTbl[0]);
     sp->aiWorkTable.item = ItemDataTableLoad(HEAPID_BATTLE_HEAP);
-    bw->sp = sp;
-    BattleBgExpansionLoader(bw);
 
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
 
@@ -52,6 +50,8 @@ struct BattleStruct *ServerInit(struct BattleSystem *bw) {
 
     sp->original_terrain = bw->terrain;
     sp->original_bgId = bw->bgId;
+    bw->sp = sp;
+    BattleBgExpansionLoader(bw);
 
     gBattleSystem = bw;
 

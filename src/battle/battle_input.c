@@ -860,8 +860,8 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain,
     if (!battleStart) {
         sys_FreeMemoryEz(bw->bg_area);
         sys_FreeMemoryEz(bw->pal_area);
-        BattleWorkGroundBGChg(bw);
     }
+    BattleWorkGroundBGChg(bw);
 
     // finally set the fields for nature power/secret power/camouflage/friends
     //bw->bgId = bg;
