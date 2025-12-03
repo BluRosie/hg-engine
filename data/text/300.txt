@@ -218,3 +218,10 @@ Pokémon holding a Soul Dew cannot be\nentered in the GS Cup.\r
 {STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Careful Mint!\r
 {STRVAR_1 0, 0, 0}’s stats may have changed due\nto the effects of the Quirky Mint!\r
 {STRVAR_1 1, 0, 0} learned\n{STRVAR_1 6, 1, 0}!{WAIT 4}{WAIT 2}\r
+Order which appliance?
+Refrigerator
+Electric Fan
+Lawn Mower
+Light Bulb
+Microwave Oven
+Washing Machine
