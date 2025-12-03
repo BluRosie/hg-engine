@@ -138,7 +138,7 @@ pokemon SPECIES_NIDORAN_M
 
 // day encounter slots
 pokemon SPECIES_URSALUNA
-pokemon SPECIES_URSALUNA_BLOODMOON
+monwithform SPECIES_URSALUNA, 1
 pokemon SPECIES_BIDOOF
 pokemon SPECIES_RATTATA
 pokemon SPECIES_SENTRET
