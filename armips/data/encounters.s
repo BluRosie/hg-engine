@@ -6839,7 +6839,7 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
-/ surf encounters (apenas aquáticos/dragões aquáticos)
+// surf encounters (apenas aquáticos/dragões aquáticos)
 encounter SPECIES_MAGIKARP, 10, 20
 encounter SPECIES_DRATINI, 15, 25
 encounter SPECIES_TATSUGIRI, 20, 30
@@ -7279,7 +7279,7 @@ encounter SPECIES_CLAUNCHER, 20, 20
 // super rod encounters
 encounter SPECIES_GYARADOS, 40, 40
 encounter SPECIES_SEAKING, 40, 40
-encounter SPECIES_OCTILLERY 40, 40
+encounter SPECIES_OCTILLERY, 40, 40
 encounter SPECIES_LANTURN, 40, 40
 encounter SPECIES_KINGDRA, 40, 40
 
