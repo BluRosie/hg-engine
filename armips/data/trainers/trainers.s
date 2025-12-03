@@ -2210,7 +2210,7 @@ trainerdata 27, "Lisa"
 trainerdata 28, "Edmond"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK 
     trainerclass TRAINERCLASS_SAGE
-    nummons 5
+    nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -2307,6 +2307,24 @@ trainerdata 28, "Edmond"
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
+        shinylock 0 // mon will be forced shiny
+        ballseal 0
+
+        // mon 5
+        ivs 250
+        abilityslot 0
+        level 85
+        pokemon SPECIES_DRAGALGE
+        item ITEM_LIFE_ORB
+        move MOVE_DRACO_METEOR
+        move MOVE_SLUDGE_WAVE
+        move MOVE_SCALD
+        move MOVE_THUNDER
+        ability ABILITY_ADAPTABILITY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
         shinylock 0 // mon will be forced shiny
         ballseal 0
     endparty
@@ -3768,7 +3786,7 @@ trainerdata 59, "Alexander-Arnold"
 trainerdata 60, "Riad"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK 
     trainerclass TRAINERCLASS_SAGE
-    nummons 5
+    nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -3860,11 +3878,29 @@ trainerdata 60, "Riad"
         move MOVE_AURA_SPHERE
         move MOVE_AIR_SLASH
         move MOVE_ROOST
-        ability ABILITY_SOLAR_POWER
+        ability ABILITY_BLAZE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_HASTY
+        shinylock 0 // mon will be forced shiny
+        ballseal 0
+
+        // mon 5
+        ivs 250
+        abilityslot 0
+        level 87
+        pokemon SPECIES_SLOWKING
+        item ITEM_ASSAULT_VEST
+        move MOVE_SCALD
+        move MOVE_PSYCHIC
+        move MOVE_ICE_BEAM
+        move MOVE_FLAMETHROWER
+        ability ABILITY_REGENERATOR
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_QUIET
         shinylock 0 // mon will be forced shiny
         ballseal 0
     endparty
