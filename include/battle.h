@@ -3467,7 +3467,7 @@ typedef enum Terrain {
  *  @param terrain platform id to load
  *  @param battleStart TRUE if loading at battle start, FALSE if switching mid-battle
  */
-void LONG_CALL LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain, BOOL battleStart);
+void LONG_CALL LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain);
 
 /**
  *  @brief Sorts clients' execution order factoring in who has already performed their action

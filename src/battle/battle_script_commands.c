@@ -2695,7 +2695,7 @@ BOOL btl_scr_cmd_F5_changepermanentbg(void *bw, struct BattleStruct *sp) {
     {
         terrain = bsys->sp->original_terrain;
     }
-    LoadDifferentBattleBackground(bsys, bg, terrain, FALSE);
+    LoadDifferentBattleBackground(bsys, bg, terrain);
 
     return FALSE;
 }
