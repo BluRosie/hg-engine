@@ -230,6 +230,10 @@ static inline u16 PAD_Read(void) {
                   (PAD_PLUS_KEY_MASK | PAD_BUTTON_MASK)) & (PAD_PLUS_KEY_MASK | PAD_BUTTON_MASK));
 }
 
+static inline void G2_SetBG0Priority(int priority) {
+    reg_G2_BG0CNT = (u16)((reg_G2_BG0CNT & ~0x3) | (priority << 0));
+}
+
 #define RGB(r, g, b) (((b & 0x1F) << 10) | ((g & 0x1F) << 5) | (r & 0x1F))
 
 #endif

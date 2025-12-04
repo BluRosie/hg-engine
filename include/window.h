@@ -29,5 +29,6 @@ void LONG_CALL FillWindowPixelBuffer(void*,u8);
 void LONG_CALL CopyWindowToVram(void*);
 void LONG_CALL ConvertNumToString(void *, u32 msg_id, u32 num, u8 keta, u8 type);
 void LONG_CALL StringPut(void *wk, void *win, u32 col, u32 mode);
+void LONG_CALL SetBgPriority(u8 bgId, u16 priority);
 
 #endif

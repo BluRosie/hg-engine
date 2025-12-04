@@ -1463,7 +1463,21 @@
     .long 266
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 266
+    .macro AbilityPopup
+    .long 267
+    .endm
+
+    .macro AbilityPopupRemove
+    .long 268
+    .endm
+
+    .macro AbilityPopupAnim
+    AbilityPopup
+    WaitButtonABTime 130
+    AbilityPopupRemove
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 268
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)
