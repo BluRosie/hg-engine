@@ -910,11 +910,11 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys)
         // inject our custom callback func into the vanilla battle background at index 0
         BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
         originalCallback = vanillaTable[0].callback;
-        vanillaTable[0].callback = CustomBattleBackgroundCallback;
+        vanillaTable[0].callback = BattleBackgroundCallback;
     }
 }
 
-void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, int unk2, int unk3)
+void LONG_CALL BattleBackgroundCallback(void *unkPtr, int unk2, int unk3)
 {
     // extract BattleSystem from pointer array
     struct BattleSystem **ptrArray = (struct BattleSystem **)unkPtr;

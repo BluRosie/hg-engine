@@ -774,6 +774,3 @@ PlayerProfile_TestBadgeFlag = 0x02028F98 | 1;
 InitMartUI = 0x02256D34 | 1;
 
 sBattleBgProfileTable = 0x0226E70C;
-TryAbilityOnEntry = 0x02253194 | 1;
-ReadBattleScriptFromNarc = 0x0224EB9C | 1;
-ov12_0223C0C4 = 0x0223C0C4 | 1;

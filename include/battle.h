@@ -1409,7 +1409,6 @@ struct BattleStruct {
                u8 hasLoadedTerrainOver:1;
                u8 original_bgId:7;
                u8 hasLoadedBgIdOver:1;
-               BOOL hasReloadedCustomTerrainBg;
                u32 moveStatusFlagForSpreadMoves[CLIENT_MAX];
                u32 damageForSpreadMoves[CLIENT_MAX]; // u32 or int?
                u8 clientLoopForSpreadMoves;
@@ -3465,7 +3464,6 @@ typedef enum Terrain {
  *  @param bw battle work structure
  *  @param bg background id to load
  *  @param terrain platform id to load
- *  @param battleStart TRUE if loading at battle start, FALSE if switching mid-battle
  */
 void LONG_CALL LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain);
 
@@ -3966,13 +3964,6 @@ void LONG_CALL BattleBgExpansionLoader();
 /**
  * @brief Callback for loading custom battle backgrounds
  */
-void LONG_CALL CustomBattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
-
-int LONG_CALL TryAbilityOnEntry(struct BattleSystem *bsys, struct BattleStruct *ctx);
-
-void LONG_CALL ReadBattleScriptFromNarc(struct BattleStruct *ctx, int narcId, int fileId);
-
-void LONG_CALL ov12_0223C0C4(struct BattleSystem *bsys);
-
+void LONG_CALL BattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
 
 #endif // BATTLE_H
