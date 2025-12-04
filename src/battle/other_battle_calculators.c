@@ -3467,6 +3467,8 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
         return !IS_ITEM_MEMORY(item);
     case SPECIES_OGERPON:
         return !IS_ITEM_MASK(item);
+    case SPECIES_ARCEUS:
+        return !IS_ITEM_ARCEUS_PLATE(item);
     }
 
     // then the other swathes of species
