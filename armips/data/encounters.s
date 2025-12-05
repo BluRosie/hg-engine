@@ -335,7 +335,7 @@ pokemon SPECIES_GOSSIFLEUR
 pokemon SPECIES_BOUNSWEET
 pokemon SPECIES_YUNGOOS
 pokemon SPECIES_WURMPLE
-pokemon SPECIES_SPINARAK
+pokemon SPECIES_SKORUPI
 pokemon SPECIES_LEDYBA
 pokemon SPECIES_CATERPIE
 pokemon SPECIES_WEEDLE
@@ -365,7 +365,7 @@ pokemon SPECIES_SIZZLIPEDE
 pokemon SPECIES_MORELULL
 pokemon SPECIES_KRICKETOT
 pokemon SPECIES_NINCADA
-pokemon SPECIES_SPINARAK
+pokemon SPECIES_SKORUPI
 pokemon SPECIES_LEDYBA
 pokemon SPECIES_PINECO
 pokemon SPECIES_PHANTUMP
@@ -1422,7 +1422,7 @@ pokemon SPECIES_NUMEL
 pokemon SPECIES_DWEBBLE
 pokemon SPECIES_MIENFOO
 pokemon SPECIES_FERROSEED
-pokemon SPECIES_SANDSHREW
+pokemon SPECIES_WHISMUR
 pokemon SPECIES_NOIBAT
 pokemon SPECIES_ONIX
 pokemon SPECIES_CARBINK
@@ -1436,7 +1436,7 @@ pokemon SPECIES_NUMEL
 pokemon SPECIES_DWEBBLE
 pokemon SPECIES_MIENFOO
 pokemon SPECIES_FERROSEED
-pokemon SPECIES_SANDSHREW
+pokemon SPECIES_SAWK
 pokemon SPECIES_NOIBAT
 pokemon SPECIES_ONIX
 pokemon SPECIES_CARBINK
@@ -2253,7 +2253,7 @@ pokemon SPECIES_MURKROW
 pokemon SPECIES_PURRLOIN
 pokemon SPECIES_MORPEKO
 pokemon SPECIES_DRIFLOON
-pokemon SPECIES_GASTLY
+pokemon SPECIES_DROWZEE
 pokemon SPECIES_SHUPPET
 
 // hoenn encounter slots
@@ -2277,13 +2277,13 @@ encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
 encounter SPECIES_FEEBAS, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
+encounter SPECIES_FEEBAS, 10, 10
 encounter SPECIES_POLIWAG, 10, 10
 encounter SPECIES_WOOPER, 10, 10
 encounter SPECIES_SURSKIT, 10, 10
 
 // good rod encounters
-encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_FEEBAS, 20, 20
 encounter SPECIES_POLIWAG, 20, 20
 encounter SPECIES_MARILL, 20, 20
 encounter SPECIES_PSYDUCK, 20, 20
@@ -2842,7 +2842,7 @@ walklevels 13, 14, 13, 14, 15, 15, 14, 14, 16, 15, 16, 15
 pokemon SPECIES_GROWLITHE
 pokemon SPECIES_SLUGMA
 pokemon SPECIES_ZORUA
-pokemon SPECIES_LITLEO
+monwithform SPECIES_TAUROS, 1
 pokemon SPECIES_PONYTA
 pokemon SPECIES_YAMASK
 pokemon SPECIES_HOUNDOUR
@@ -3985,7 +3985,7 @@ walklevels 16, 17, 16, 17, 16, 16, 16, 16, 15, 15, 15, 15
 // morning encounter slots
 pokemon SPECIES_LECHONK
 pokemon SPECIES_YAMPER
-pokemon SPECIES_KLINK
+pokemon SPECIES_TAUROS
 pokemon SPECIES_HIPPOPOTAS
 pokemon SPECIES_MUDBRAY
 pokemon SPECIES_FURFROU
@@ -4275,7 +4275,7 @@ encounter SPECIES_KRABBY, 40, 40
 // swarm grass
 pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_TENTACOOL
+monwithform SPECIES_Tauros, 2
 // swarm good rod
 pokemon SPECIES_STARYU
 // swarm super rod
@@ -4359,7 +4359,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_DONDOZO, 10, 10
 encounter SPECIES_CRABRAWLER, 10, 10
 encounter SPECIES_PYUKUMUKU, 10, 10
-encounter SPECIES_TENTACOOL, 10, 10
+encounter SPECIES_BASCULIN, 10, 10
 encounter SPECIES_TENTACOOL, 10, 10
 
 // good rod encounters
@@ -5473,7 +5473,7 @@ pokemon SPECIES_DURALUDON
 pokemon SPECIES_SPIRITOMB
 pokemon SPECIES_ROTOM
 monwithform SPECIES_SNEASEL, 1
-pokemon SPECIES_KOFFING
+monwithform SPECIES_KOFFING, 1
 monwithform SPECIES_GRIMER, 1
 monwithform SPECIES_GRIMER, 1
 pokemon SPECIES_SPINDA
@@ -8087,9 +8087,9 @@ pokemon SPECIES_CHINGLING
 // surf encounters
 encounter SPECIES_SEEL, 30, 40
 encounter SPECIES_HORSEA, 30, 40
-encounter SPECIES_SLOWBRO, 35, 45
-encounter SPECIES_SLOWBRO, 50, 50
-encounter SPECIES_SLOWBRO, 35, 45
+encounter SPECIES_LAPRAS, 35, 45
+encounter SPECIES_LAPRAS, 50, 50
+encounter SPECIES_LAPRAS, 35, 45
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
@@ -11363,7 +11363,7 @@ walklevels 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
 // morning encounter slots
 pokemon SPECIES_GRAVELER
 pokemon SPECIES_GOLBAT
-pokemon SPECIES_GRAVELER
+monwithform SPECIES_TAUROS, 3
 pokemon SPECIES_GOLBAT
 pokemon SPECIES_DONPHAN
 pokemon SPECIES_DONPHAN
@@ -11377,7 +11377,7 @@ pokemon SPECIES_RHYHORN
 // day encounter slots
 pokemon SPECIES_GRAVELER
 pokemon SPECIES_GOLBAT
-pokemon SPECIES_GRAVELER
+monwithform SPECIES_TAUROS, 3
 pokemon SPECIES_GOLBAT
 pokemon SPECIES_DONPHAN
 pokemon SPECIES_DONPHAN
@@ -11711,7 +11711,7 @@ pokemon SPECIES_TING_LU
 pokemon SPECIES_MARSHADOW
 pokemon SPECIES_TING_LU
 pokemon SPECIES_MARSHADOW
-pokemon SPECIES_MARSHADOW
+monwithform SPECIES_ARTICUNO, 1
 pokemon SPECIES_ARCTOZOLT
 
 // hoenn encounter slots
@@ -11909,7 +11909,7 @@ pokemon SPECIES_ENAMORUS
 pokemon SPECIES_ENAMORUS
 
 // night encounter slots
-pokemon SPECIES_ZAPDOS
+monwithform SPECIES_ZAPDOS, 1
 pokemon SPECIES_ZAPDOS
 pokemon SPECIES_ENAMORUS
 pokemon SPECIES_ZAPDOS
@@ -14413,7 +14413,7 @@ pokemon SPECIES_GOLBAT
 pokemon SPECIES_PARASECT
 pokemon SPECIES_MAGNETON
 pokemon SPECIES_DITTO
-pokemon SPECIES_ELECTRODE
+monwithform SPECIES_ELECTRODE, 1
 pokemon SPECIES_WOBBUFFET
 monwithform SPECIES_PRIMEAPE, 1
 pokemon SPECIES_KINGAMBIT
