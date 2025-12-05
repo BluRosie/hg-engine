@@ -60,6 +60,32 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             }
             break;
 
+        case HOLD_EFFECT_MAYBE_ENDURE: // Focus Band
+            {
+                if (sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item && sp->battlemon[sp->defence_client].hp == 1) {
+                    sp->battlerIdTemp = sp->defence_client;
+                    sp->item_work = sp->battlemon[sp->defence_client].item;
+                    sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
+                    seq_no[0] = SUB_SEQ_FOCUS_SASH;
+                    ret = TRUE;
+                }
+                sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = FALSE;
+            }
+            break;
+
+        case HOLD_EFFECT_ENDURE: // Focus Sash //will only be triggered for multi hit moves
+            {
+                if (sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item && sp->battlemon[sp->defence_client].hp == 1 && (sp->battlemon[sp->defence_client].maxhp + sp->hit_damage /*negative value*/) == 1) {
+                    sp->battlerIdTemp = sp->defence_client;
+                    sp->item_work = sp->battlemon[sp->defence_client].item;
+                    sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
+                    seq_no[0] = SUB_SEQ_FOCUS_SASH;
+                    ret = TRUE;
+                }
+                sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = FALSE;
+            }
+            break;
+
         case HOLD_EFFECT_RECOIL_PHYSICAL:                       // Jaboca Berry
             // Attacker is alive after the attack
             if ((sp->battlemon[sp->attack_client].hp)
