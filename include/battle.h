@@ -3973,7 +3973,7 @@ BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, i
  * @brief Inject a custom callback function to allow
  * loading new battle bgs at the start of a battle
  */
-void LONG_CALL BattleBgExpansionLoader();
+void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys);
 
 /**
  * @brief Callback for loading custom battle backgrounds
