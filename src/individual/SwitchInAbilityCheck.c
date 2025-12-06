@@ -113,7 +113,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 if (i == client_set_max) {
                     sp->switch_in_check_seq_no++;
                 }
-            } 
+            }
                 break;
             case SWITCH_IN_CHECK_ENTRY_EFFECT_UNNERVE: {
                 for (i = 0; i < client_set_max; i++) {
@@ -147,7 +147,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             case SWITCH_IN_CHECK_ENTRY_EFFECT_HEALING_WISH: {
                 for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
-                    
+
                     // Heal from Healing Wish, Lunar Dance, Z-Memento, or Z-Parting Shot if applicable
                     {
 
@@ -168,13 +168,13 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
 
-                    
+
                     // Entry hazards
                     {
 
                     }
 
-                    
+
                     // Need to trigger script
                     if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
                         break;
@@ -187,7 +187,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
                 break;
             case SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON: {
-                for (i = 0; i < client_set_max; i++) {      
+                for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
 
                     // Abilities with entry effects can announce, except Neutralizing Gas/Unnerve (earlier) and form-changing abilities (later)
@@ -201,11 +201,11 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                         sp->defence_client_work = TraceClientGet(bw, sp, def1, def2);
 
-                        if ((sp->battlemon[client_no].ability_activated_flag == 0) 
-                            && (sp->defence_client_work != 0xFF) 
-                            && (sp->battlemon[client_no].hp) 
-                            && (sp->battlemon[client_no].item != ITEM_GRISEOUS_ORB) 
-                            && (sp->battlemon[sp->defence_client_work].hp) 
+                        if ((sp->battlemon[client_no].ability_activated_flag == 0)
+                            && (sp->defence_client_work != 0xFF)
+                            && (sp->battlemon[client_no].hp)
+                            && (sp->battlemon[client_no].item != ITEM_GRISEOUS_ORB)
+                            && (sp->battlemon[sp->defence_client_work].hp)
                             && (GetBattlerAbility(sp, client_no) == ABILITY_TRACE))
                         {
                             sp->battlerIdTemp = client_no;
@@ -668,7 +668,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         && (sp->battlemon[client_no].hp)
                         && (GetBattlerAbility(sp, client_no) == ABILITY_INTREPID_SWORD)) {
                             sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].intrepidSwordFlag = TRUE;
-                            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;                        
+                            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
                             sp->addeffect_type = ADD_STATUS_ABILITY;
                             sp->state_client = client_no;
                             scriptnum = SUB_SEQ_BOOST_STATS;
@@ -683,7 +683,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         && (sp->battlemon[client_no].hp)
                         && (GetBattlerAbility(sp, client_no) == ABILITY_DAUNTLESS_SHIELD)) {
                             sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].dauntlessShieldFlag = TRUE;
-                            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP;                        
+                            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP;
                             sp->addeffect_type = ADD_STATUS_ABILITY;
                             sp->state_client = client_no;
                             scriptnum = SUB_SEQ_BOOST_STATS;
@@ -873,7 +873,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Costar
                     {
-                        
+
                     }
 
                     // Commander
@@ -918,7 +918,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Opportunist
                     {
-                        
+
                     }
 
                     // Need to trigger script
@@ -961,7 +961,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     sp->switch_in_check_seq_no++;
                 }
             }
-                break;    
+                break;
             case SWITCH_IN_CHECK_END:
                 sp->switch_in_check_seq_no = 0;
                 ret = SWITCH_IN_CHECK_CHECK_END;
