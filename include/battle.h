@@ -443,6 +443,8 @@
 #define FIELD_CONDITION_GRAVITY_SHIFT       12
 #define FIELD_CONDITION_TRICK_ROOM_SHIFT    16
 
+#define TERRAIN_TURNS_INFINITE 255
+
 /**
  *  @brief absolute battler position constants
  *
@@ -3412,6 +3414,11 @@ typedef enum BattleBg {
     BATTLE_BG_PSYCHIC_TERRAIN,
 } BattleBg;
 
+typedef struct PACKED BattleBgProfile{
+    u8 header[0x28];
+    void (*callback)(void *unkPtr, int bgId, int flag); // 0x28
+    void *extraFn;                                      // 0x2C
+} BattleBgProfile;
 
 typedef enum Terrain {
     TERRAIN_PLAIN,
@@ -3962,5 +3969,15 @@ int GetSanitisedType(int type);
 
 BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
 
+/**
+ * @brief Inject a custom callback function to allow
+ * loading new battle bgs at the start of a battle
+ */
+void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys);
+
+/**
+ * @brief Callback for loading custom battle backgrounds
+ */
+void LONG_CALL BattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
 
 #endif // BATTLE_H
