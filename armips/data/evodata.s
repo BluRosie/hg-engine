@@ -2784,7 +2784,7 @@ evodata SPECIES_KINGDRA
     terminateevodata
 
 evodata SPECIES_PHANPY
-    evolution EVO_LEVEL, 25, SPECIES_DONPHAN
+    evolution EVO_LEVEL, 25, SPECIES_IRON_TREADS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2976,7 +2976,7 @@ evodata SPECIES_LARVITAR
     terminateevodata
 
 evodata SPECIES_PUPITAR
-    evolution EVO_LEVEL, 55, SPECIES_TYRANITAR
+    evolution EVO_LEVEL, 55, SPECIES_IRON_THORNS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3384,8 +3384,8 @@ evodata SPECIES_RALTS
     terminateevodata
 
 evodata SPECIES_KIRLIA
-    evolution EVO_LEVEL, 30, SPECIES_GARDEVOIR
-    evolution EVO_STONE_MALE, ITEM_DAWN_STONE, SPECIES_GALLADE
+    evolution EVO_LEVEL, 30, SPECIES_IRON_VALIANT
+    evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3564,7 +3564,7 @@ evodata SPECIES_EXPLOUD
     terminateevodata
 
 evodata SPECIES_MAKUHITA
-    evolution EVO_LEVEL, 24, SPECIES_HARIYAMA
+    evolution EVO_LEVEL, 24, SPECIES_IRON_HANDS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -8224,7 +8224,7 @@ evodata SPECIES_DEINO
     terminateevodata
 
 evodata SPECIES_ZWEILOUS
-    evolution EVO_LEVEL, 64, SPECIES_HYDREIGON
+    evolution EVO_LEVEL, 64, SPECIES_IRON_JUGULIS
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -8248,7 +8248,7 @@ evodata SPECIES_HYDREIGON
     terminateevodata
 
 evodata SPECIES_LARVESTA
-    evolution EVO_LEVEL, 59, SPECIES_VOLCARONA
+    evolution EVO_LEVEL, 59, SPECIES_IRON_MOTH
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
