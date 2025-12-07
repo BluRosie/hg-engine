@@ -1427,15 +1427,15 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     debug_printf("[CalcBaseDamage] DefendingMon.spatkstate: %d\n", DefendingMon.spatkstate);
 #endif
 
-    // Step 4.2. Chip Away / Sacred Sword
-    if ((moveno == MOVE_CHIP_AWAY) || (moveno == MOVE_SACRED_SWORD)) {
+    // Step 4.2. Chip Away / Sacred Sword / Darkest Lariat
+    if ((moveno == MOVE_CHIP_AWAY) || (moveno == MOVE_SACRED_SWORD) || (moveno == MOVE_DARKEST_LARIAT)) {
         DefendingMon.defstate = 0;
         DefendingMon.spdefstate = 0;
     }
 
 #ifdef DEBUG_DAMAGE_CALC
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 4.2. Chip Away / Sacred Sword\n");
+    debug_printf("[CalcBaseDamage] Step 4.2. Chip Away / Sacred Sword / Darkest Lariat\n");
     debug_printf("[CalcBaseDamage] DefendingMon.defstate: %d\n", DefendingMon.defstate);
     debug_printf("[CalcBaseDamage] DefendingMon.spdefstate: %d\n", DefendingMon.spdefstate);
 #endif
