@@ -2299,7 +2299,6 @@ u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
 const u16 MinimizeVulnerabilityMovesList[] = {
     MOVE_BODY_SLAM,
     MOVE_STOMP,
-    MOVE_SLEEP_POWDER,
     MOVE_DRAGON_RUSH,
     MOVE_STEAMROLLER,
     MOVE_HEAT_CRASH,
