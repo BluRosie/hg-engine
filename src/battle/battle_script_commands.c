@@ -114,6 +114,7 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp);
 BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* sp);
 BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -4329,5 +4330,28 @@ BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     reset_stat_changes(ctx, ctx->defence_client);
+    return FALSE;
+}
+
+BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int side = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    if (ctx->scw[side].toxicSpikesLayers) {
+        ctx->temp_work = ctx->scw[side].toxicSpikesLayers;
+        ctx->addeffect_type = ADD_EFFECT_TOXIC_SPIKES;
+        ctx->battlerIdStatChange = battlerID;
+        if (HasType(ctx, battlerID, TYPE_POISON)) {
+            ctx->side_condition[side] &= ~SIDE_STATUS_TOXIC_SPIKES;
+            ctx->scw[side].toxicSpikesLayers = 0;
+            ctx->temp_work = 0;
+        }
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
     return FALSE;
 }
