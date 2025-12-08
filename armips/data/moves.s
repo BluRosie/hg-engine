@@ -13327,7 +13327,7 @@ movedata MOVE_PSYSHIELD_BASH, "Psyshield Bash"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_PSYSHIELD_BASH, "Cloaking itself in\npsychic energy, the user\nslams into the target.\nThis also boosts the\nuser’s Defense stat."
+    movedescription MOVE_PSYSHIELD_BASH, "Cloaked in psychic\nenergy, the user slams\ninto the target. This\nalso boosts the user’s\nDefense stat."
 
 movedata MOVE_POWER_SHIFT, "Power Shift"
     battleeffect MOVE_EFFECT_SWAP_ATK_DEF
