@@ -6641,7 +6641,7 @@ evodata SPECIES_OSHAWOTT
 
 evodata SPECIES_DEWOTT
     evolution EVO_LEVEL, 36, SPECIES_SAMUROTT
-    evolution EVO_NONE, 0, SPECIES_NONE
+    evolutionwithform EVO_STONE, ITEM_DUSK_STONE, SPECIES_SAMUROTT, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -9293,7 +9293,7 @@ terminateevodata
 
 evodata SPECIES_DARTRIX
     evolution EVO_LEVEL, 34, SPECIES_DECIDUEYE
-    evolution EVO_NONE, 0, SPECIES_NONE
+    evolutionwithform EVO_STONE, ITEM_DAWN_STONE, SPECIES_DECIDUEYE, 1
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
