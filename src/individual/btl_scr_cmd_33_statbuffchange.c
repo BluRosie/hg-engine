@@ -259,8 +259,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 }
                 else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_CLEAR_BODY) == TRUE)
                       || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_WHITE_SMOKE) == TRUE)
-                      || (GetBattlerAbility(sp, sp->state_client) == ABILITY_FULL_METAL_BODY)   // Full Metal Body cannot be ignored
-                      /*|| (HeldItemHoldEffectGet(sp, sp->attack_client) == HOLD_EFFECT_PREVENT_STAT_DROPS)*/) // clear amulet : TODO needs its own branch with separate message
+                      || (GetBattlerAbility(sp, sp->state_client) == ABILITY_FULL_METAL_BODY))   // Full Metal Body cannot be ignored
                 {
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
@@ -278,6 +277,16 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                         sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
                         sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
                     }
+                    flag = 1;
+                }
+                else if (HeldItemHoldEffectGet(sp, sp->state_client) == HOLD_EFFECT_PREVENT_STAT_DROPS && sp->temp_work == STATUS_EFF_DOWN)
+                {
+                    statchange = 0;
+                    sp->mp.msg_id = BATTLE_MSG_ITEM_PREVENTS_STAT_LOSS;
+                    sp->mp.msg_tag = TAG_NICKNAME_ITEM_STAT;
+                    sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
+                    sp->mp.msg_para[1] = CreateNicknameTag(sp, GetBattleMonItem(sp, sp->state_client));
+                    sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
                     flag = 1;
                 }
                 else if (((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_KEEN_EYE) == TRUE)
