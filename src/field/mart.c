@@ -20,6 +20,7 @@ struct BadgeMartItems {
 // note: limited to 203 items (~34 pages)
 const struct BadgeMartItems sBadgeMart[] = {
     { ITEM_POKE_BALL,      0 },
+    { ITEM_INFINITE_CANDY  0 },
     { ITEM_GREAT_BALL,     3 },
     { ITEM_ULTRA_BALL,     5 },
     { ITEM_POTION,         0 },
