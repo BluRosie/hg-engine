@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"banzaihero.1": {
+		"fishinghero.1": {
 			"frame": 0,
 			"coordTrans": 0,
 			"color0": 1,
@@ -11,13 +11,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 613,
+			"unkBlockUnk0": 621,
 			"unkBlockUnk1": 267,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"banzaihero.10": {
+		"fishinghero.10": {
 			"frame": 1,
 			"coordTrans": 0,
 			"color0": 1,
@@ -28,30 +28,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 93,
+			"unkBlockUnk0": 101,
 			"unkBlockUnk1": 3,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"banzaihero.11": {
-			"frame": 0,
-			"coordTrans": 0,
-			"color0": 1,
-			"format": 3,
-			"height": 32,
-			"width": 32,
-			"flipY": 0,
-			"flipX": 0,
-			"repeatY": 0,
-			"repeatX": 0,
-			"unkBlockUnk0": 1115,
-			"unkBlockUnk1": 2570,
-			"unk0": 0,
-			"unk1": 1,
-			"unk2": 128
-		},
-		"banzaihero.12": {
+		"fishinghero.11": {
 			"frame": 2,
 			"coordTrans": 0,
 			"color0": 1,
@@ -62,30 +45,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1370,
-			"unkBlockUnk1": 1543,
+			"unkBlockUnk0": 1123,
+			"unkBlockUnk1": 3594,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"banzaihero.2": {
-			"frame": 1,
-			"coordTrans": 0,
-			"color0": 1,
-			"format": 3,
-			"height": 32,
-			"width": 32,
-			"flipY": 0,
-			"flipX": 0,
-			"repeatY": 0,
-			"repeatX": 0,
-			"unkBlockUnk0": 601,
-			"unkBlockUnk1": 1030,
-			"unk0": 0,
-			"unk1": 1,
-			"unk2": 128
-		},
-		"banzaihero.3": {
+		"fishinghero.12": {
 			"frame": 3,
 			"coordTrans": 0,
 			"color0": 1,
@@ -96,13 +62,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1368,
-			"unkBlockUnk1": 1286,
+			"unkBlockUnk0": 1378,
+			"unkBlockUnk1": 2567,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"banzaihero.4": {
+		"fishinghero.13": {
 			"frame": 4,
 			"coordTrans": 0,
 			"color0": 1,
@@ -113,13 +79,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 2137,
-			"unkBlockUnk1": 2057,
+			"unkBlockUnk0": 609,
+			"unkBlockUnk1": 2054,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"banzaihero.5": {
+		"fishinghero.14": {
 			"frame": 5,
 			"coordTrans": 0,
 			"color0": 1,
@@ -130,14 +96,14 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1112,
-			"unkBlockUnk1": 1800,
+			"unkBlockUnk0": 1376,
+			"unkBlockUnk1": 2310,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"banzaihero.6": {
-			"frame": 2,
+		"fishinghero.15": {
+			"frame": 6,
 			"coordTrans": 0,
 			"color0": 1,
 			"format": 3,
@@ -147,14 +113,14 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1880,
-			"unkBlockUnk1": 2313,
+			"unkBlockUnk0": 2145,
+			"unkBlockUnk1": 3081,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"banzaihero.7": {
-			"frame": 5,
+		"fishinghero.16": {
+			"frame": 7,
 			"coordTrans": 0,
 			"color0": 1,
 			"format": 3,
@@ -164,14 +130,14 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 856,
-			"unkBlockUnk1": 2826,
+			"unkBlockUnk0": 1120,
+			"unkBlockUnk1": 2824,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"banzaihero.8": {
-			"frame": 4,
+		"fishinghero.2": {
+			"frame": 8,
 			"coordTrans": 0,
 			"color0": 1,
 			"format": 3,
@@ -181,14 +147,14 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3169,
-			"unkBlockUnk1": 779,
+			"unkBlockUnk0": 1888,
+			"unkBlockUnk1": 3337,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"banzaihero.9": {
-			"frame": 3,
+		"fishinghero.3": {
+			"frame": 9,
 			"coordTrans": 0,
 			"color0": 1,
 			"format": 3,
@@ -198,19 +164,121 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 352,
-			"unkBlockUnk1": 524,
+			"unkBlockUnk0": 864,
+			"unkBlockUnk1": 3850,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		},
+		"fishinghero.4": {
+			"frame": 10,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 3178,
+			"unkBlockUnk1": 1295,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		},
+		"fishinghero.5": {
+			"frame": 11,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 3433,
+			"unkBlockUnk1": 782,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		},
+		"fishinghero.6": {
+			"frame": 12,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 360,
+			"unkBlockUnk1": 525,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		},
+		"fishinghero.7": {
+			"frame": 13,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 3176,
+			"unkBlockUnk1": 1038,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		},
+		"fishinghero.8": {
+			"frame": 14,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 4201,
+			"unkBlockUnk1": 1807,
+			"unk0": 0,
+			"unk1": 1,
+			"unk2": 128
+		},
+		"fishinghero.9": {
+			"frame": 15,
+			"coordTrans": 0,
+			"color0": 1,
+			"format": 3,
+			"height": 32,
+			"width": 32,
+			"flipY": 0,
+			"flipX": 0,
+			"repeatY": 0,
+			"repeatX": 0,
+			"unkBlockUnk0": 2920,
+			"unkBlockUnk1": 1552,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		}
 	},
 	"palettes": {
-		"banzaihero": {
+		"fishinghero": {
 			"offset": 0,
-			"unk0": 78,
+			"unk0": 86,
 			"unk1": 1,
-			"fileName": "banzaihero.pal"
+			"fileName": "fishinghero.pal"
 		}
 	}
 }

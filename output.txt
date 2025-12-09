@@ -1,0 +1,375 @@
+arm-none-eabi-gcc -MMD -MF build/bag.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/bag.c -o build/bag.o
+arm-none-eabi-gcc -MMD -MF build/item.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/item.c -o build/item.o
+arm-none-eabi-gcc -MMD -MF build/message.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/message.c -o build/message.o
+arm-none-eabi-gcc -MMD -MF build/moves.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/moves.c -o build/moves.o
+arm-none-eabi-gcc -MMD -MF build/music_tables.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/music_tables.c -o build/music_tables.o
+arm-none-eabi-gcc -MMD -MF build/npc_trade.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/npc_trade.c -o build/npc_trade.o
+arm-none-eabi-gcc -MMD -MF build/overlay.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/overlay.c -o build/overlay.o
+arm-none-eabi-gcc -MMD -MF build/party_menu.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/party_menu.c -o build/party_menu.o
+arm-none-eabi-gcc -MMD -MF build/pokemon.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/pokemon.c -o build/pokemon.o
+arm-none-eabi-gcc -MMD -MF build/pokemon_storage_system.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/pokemon_storage_system.c -o build/pokemon_storage_system.o
+arm-none-eabi-gcc -MMD -MF build/qmath64.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/qmath64.c -o build/qmath64.o
+arm-none-eabi-gcc -MMD -MF build/repel.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/repel.c -o build/repel.o
+arm-none-eabi-gcc -MMD -MF build/save.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/save.c -o build/save.o
+arm-none-eabi-gcc -MMD -MF build/script_new_cmds.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/script_new_cmds.c -o build/script_new_cmds.o
+arm-none-eabi-gcc -MMD -MF build/sound.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/sound.c -o build/sound.o
+arm-none-eabi-gcc -MMD -MF build/summary.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/summary.c -o build/summary.o
+arm-none-eabi-gcc -MMD -MF build/swarms.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/swarms.c -o build/swarms.o
+arm-none-eabi-gcc -MMD -MF build/textbox.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/textbox.c -o build/textbox.o
+arm-none-eabi-gcc -MMD -MF build/trainermoney.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/trainermoney.c -o build/trainermoney.o
+arm-none-eabi-as -mthumb -c asm/arm_hooks.s -o build/arm_hooks.o
+arm-none-eabi-as -mthumb -c asm/general_hooks.s -o build/general_hooks.o
+arm-none-eabi-as -mthumb -c asm/other_hook.s -o build/other_hook.o
+arm-none-eabi-as -mthumb -c asm/qmath.s -o build/qmath.o
+arm-none-eabi-as -mthumb -c asm/thumb_help.s -o build/thumb_help.o
+arm-none-eabi-gcc -MMD -MF build/battle/ability.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/ability.c -o build/battle/ability.o
+arm-none-eabi-gcc -MMD -MF build/battle/ai.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/ai.c -o build/battle/ai.o
+arm-none-eabi-gcc -MMD -MF build/battle/anim.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/anim.c -o build/battle/anim.o
+arm-none-eabi-gcc -MMD -MF build/battle/battle_calc_damage.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/battle_calc_damage.c -o build/battle/battle_calc_damage.o
+arm-none-eabi-gcc -MMD -MF build/battle/battle_controller_player.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/battle_controller_player.c -o build/battle/battle_controller_player.o
+arm-none-eabi-gcc -MMD -MF build/battle/battle_input.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/battle_input.c -o build/battle/battle_input.o
+arm-none-eabi-gcc -MMD -MF build/battle/battle_item.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/battle_item.c -o build/battle/battle_item.o
+arm-none-eabi-gcc -MMD -MF build/battle/battle_pokemon.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/battle_pokemon.c -o build/battle/battle_pokemon.o
+arm-none-eabi-gcc -MMD -MF build/battle/battle_script_commands.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/battle_script_commands.c -o build/battle/battle_script_commands.o
+arm-none-eabi-gcc -MMD -MF build/battle/battle_start.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/battle_start.c -o build/battle/battle_start.o
+arm-none-eabi-gcc -MMD -MF build/battle/mega.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/mega.c -o build/battle/mega.o
+arm-none-eabi-gcc -MMD -MF build/battle/other_battle_calculators.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/other_battle_calculators.c -o build/battle/other_battle_calculators.o
+arm-none-eabi-gcc -MMD -MF build/battle/weather.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/battle/weather.c -o build/battle/weather.o
+arm-none-eabi-as -mthumb -c asm/battle/battle_hooks.s -o build/battle/battle_hooks.o
+arm-none-eabi-gcc -MMD -MF build/field/enemy_party.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/field/enemy_party.c -o build/field/enemy_party.o
+arm-none-eabi-gcc -MMD -MF build/field/mart.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/field/mart.c -o build/field/mart.o
+arm-none-eabi-gcc -MMD -MF build/field/move_tutor.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/field/move_tutor.c -o build/field/move_tutor.o
+arm-none-eabi-gcc -MMD -MF build/field/overworld_table.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/field/overworld_table.c -o build/field/overworld_table.o
+arm-none-eabi-gcc -MMD -MF build/field/pokewalker.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/field/pokewalker.c -o build/field/pokewalker.o
+arm-none-eabi-gcc -MMD -MF build/field/script_commands.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/field/script_commands.c -o build/field/script_commands.o
+arm-none-eabi-as -mthumb -c asm/field/bdhcam_routine.s -o build/field/bdhcam_routine.o
+arm-none-eabi-as -mthumb -c asm/field/field_hooks.s -o build/field/field_hooks.o
+arm-none-eabi-gcc -MMD -MF build/pokedex/pokedex.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/pokedex/pokedex.c -o build/pokedex/pokedex.o
+arm-none-eabi-gcc -MMD -MF build/individual/BattleController_BeforeMove.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/BattleController_BeforeMove.c -o build/individual/BattleController_BeforeMove.o
+arm-none-eabi-gcc -MMD -MF build/individual/BattleController_MoveEnd.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/BattleController_MoveEnd.c -o build/individual/BattleController_MoveEnd.o
+arm-none-eabi-gcc -MMD -MF build/individual/BattleFormChangeCheck.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/BattleFormChangeCheck.c -o build/individual/BattleFormChangeCheck.o
+arm-none-eabi-gcc -MMD -MF build/individual/BattleSystem_BufferMessage.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/BattleSystem_BufferMessage.c -o build/individual/BattleSystem_BufferMessage.o
+arm-none-eabi-gcc -MMD -MF build/individual/CalcBaseDamage.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/CalcBaseDamage.c -o build/individual/CalcBaseDamage.o
+arm-none-eabi-gcc -MMD -MF build/individual/CalculateBallShakes.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/CalculateBallShakes.c -o build/individual/CalculateBallShakes.o
+arm-none-eabi-gcc -MMD -MF build/individual/CheckDefenderItemEffectOnHit.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/CheckDefenderItemEffectOnHit.c -o build/individual/CheckDefenderItemEffectOnHit.o
+arm-none-eabi-gcc -MMD -MF build/individual/GetMonEvolutionBattle.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/GetMonEvolutionBattle.c -o build/individual/GetMonEvolutionBattle.o
+arm-none-eabi-gcc -MMD -MF build/individual/GetMonEvolutionInternal.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/GetMonEvolutionInternal.c -o build/individual/GetMonEvolutionInternal.o
+arm-none-eabi-gcc -MMD -MF build/individual/MoveHitDefenderAbilityCheck.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/MoveHitDefenderAbilityCheck.c -o build/individual/MoveHitDefenderAbilityCheck.o
+arm-none-eabi-gcc -MMD -MF build/individual/ServerBeforeAct.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/ServerBeforeAct.c -o build/individual/ServerBeforeAct.o
+arm-none-eabi-gcc -MMD -MF build/individual/ServerDoPostMoveEffects.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/ServerDoPostMoveEffects.c -o build/individual/ServerDoPostMoveEffects.o
+arm-none-eabi-gcc -MMD -MF build/individual/ServerFieldConditionCheck.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/ServerFieldConditionCheck.c -o build/individual/ServerFieldConditionCheck.o
+arm-none-eabi-gcc -MMD -MF build/individual/ServerHPCalc.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/ServerHPCalc.c -o build/individual/ServerHPCalc.o
+arm-none-eabi-gcc -MMD -MF build/individual/SwitchInAbilityCheck.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/SwitchInAbilityCheck.c -o build/individual/SwitchInAbilityCheck.o
+arm-none-eabi-gcc -MMD -MF build/individual/btl_scr_cmd_33_statbuffchange.d -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta -c src/individual/btl_scr_cmd_33_statbuffchange.c -o build/individual/btl_scr_cmd_33_statbuffchange.o
+arm-none-eabi-ld rom.ld -T src/linker.ld -o build/linked.o build/bag.o build/item.o build/message.o build/moves.o build/music_tables.o build/npc_trade.o build/overlay.o build/party_menu.o build/pokemon.o build/pokemon_storage_system.o build/qmath64.o build/repel.o build/save.o build/script_new_cmds.o build/sound.o build/summary.o build/swarms.o build/textbox.o build/trainermoney.o build/arm_hooks.o build/general_hooks.o build/other_hook.o build/qmath.o build/thumb_help.o
+arm-none-eabi-objcopy -O binary build/linked.o build/output.bin
+cp rom.ld rom_gen.ld
+. .venv/bin/activate; python3 scripts/generate_ld.py
+Generating linker script...
+arm-none-eabi-ld rom_gen.ld -T src/field/linker.ld -o build/field_linked.o build/field/enemy_party.o build/field/mart.o build/field/move_tutor.o build/field/overworld_table.o build/field/pokewalker.o build/field/script_commands.o build/field/bdhcam_routine.o build/field/field_hooks.o build/thumb_help.o
+arm-none-eabi-ld rom_gen.ld -T src/pokedex/linker.ld -o build/pokedex_linked.o build/pokedex/pokedex.o  build/thumb_help.o
+arm-none-eabi-objcopy -O binary build/pokedex_linked.o build/output_pokedex.bin
+arm-none-eabi-objcopy -O binary build/field_linked.o build/output_field.bin
+arm-none-eabi-ld rom_gen.ld -T src/battle/linker.ld -o build/battle_linked.o build/battle/ability.o build/battle/ai.o build/battle/anim.o build/battle/battle_calc_damage.o build/battle/battle_controller_player.o build/battle/battle_input.o build/battle/battle_item.o build/battle/battle_pokemon.o build/battle/battle_script_commands.o build/battle/battle_start.o build/battle/mega.o build/battle/other_battle_calculators.o build/battle/weather.o build/battle/battle_hooks.o build/thumb_help.o
+arm-none-eabi-objcopy -O binary build/battle_linked.o build/output_battle.bin
+cp rom_gen.ld rom_gen_battle.ld
+. .venv/bin/activate; python3 scripts/generate_ld.py rom_gen_battle.ld build/battle_linked.o
+Generating linker script...
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/BattleController_MoveEnd.ld -o build/BattleController_MoveEnd_linked.o build/individual/BattleController_MoveEnd.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/BattleFormChangeCheck.ld -o build/BattleFormChangeCheck_linked.o build/individual/BattleFormChangeCheck.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/BattleSystem_BufferMessage.ld -o build/BattleSystem_BufferMessage_linked.o build/individual/BattleSystem_BufferMessage.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/CalcBaseDamage.ld -o build/CalcBaseDamage_linked.o build/individual/CalcBaseDamage.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/CalculateBallShakes.ld -o build/CalculateBallShakes_linked.o build/individual/CalculateBallShakes.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/CheckDefenderItemEffectOnHit.ld -o build/CheckDefenderItemEffectOnHit_linked.o build/individual/CheckDefenderItemEffectOnHit.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/GetMonEvolutionBattle.ld -o build/GetMonEvolutionBattle_linked.o build/individual/GetMonEvolutionBattle.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/GetMonEvolutionInternal.ld -o build/GetMonEvolutionInternal_linked.o build/individual/GetMonEvolutionInternal.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/MoveHitDefenderAbilityCheck.ld -o build/MoveHitDefenderAbilityCheck_linked.o build/individual/MoveHitDefenderAbilityCheck.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/ServerBeforeAct.ld -o build/ServerBeforeAct_linked.o build/individual/ServerBeforeAct.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/ServerDoPostMoveEffects.ld -o build/ServerDoPostMoveEffects_linked.o build/individual/ServerDoPostMoveEffects.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/ServerFieldConditionCheck.ld -o build/ServerFieldConditionCheck_linked.o build/individual/ServerFieldConditionCheck.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/ServerHPCalc.ld -o build/ServerHPCalc_linked.o build/individual/ServerHPCalc.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/SwitchInAbilityCheck.ld -o build/SwitchInAbilityCheck_linked.o build/individual/SwitchInAbilityCheck.o build/thumb_help.o
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/btl_scr_cmd_33_statbuffchange.ld -o build/btl_scr_cmd_33_statbuffchange_linked.o build/individual/btl_scr_cmd_33_statbuffchange.o build/thumb_help.o
+arm-none-eabi-objcopy -O binary build/BattleSystem_BufferMessage_linked.o build/output_BattleSystem_BufferMessage.bin
+arm-none-eabi-objcopy -O binary build/CalculateBallShakes_linked.o build/output_CalculateBallShakes.bin
+arm-none-eabi-objcopy -O binary build/CheckDefenderItemEffectOnHit_linked.o build/output_CheckDefenderItemEffectOnHit.bin
+arm-none-eabi-objcopy -O binary build/GetMonEvolutionInternal_linked.o build/output_GetMonEvolutionInternal.bin
+arm-none-eabi-objcopy -O binary build/ServerBeforeAct_linked.o build/output_ServerBeforeAct.bin
+arm-none-eabi-objcopy -O binary build/ServerDoPostMoveEffects_linked.o build/output_ServerDoPostMoveEffects.bin
+arm-none-eabi-objcopy -O binary build/ServerHPCalc_linked.o build/output_ServerHPCalc.bin
+arm-none-eabi-objcopy -O binary build/SwitchInAbilityCheck_linked.o build/output_SwitchInAbilityCheck.bin
+arm-none-eabi-objcopy -O binary build/btl_scr_cmd_33_statbuffchange_linked.o build/output_btl_scr_cmd_33_statbuffchange.bin
+arm-none-eabi-objcopy -O binary build/BattleController_MoveEnd_linked.o build/output_BattleController_MoveEnd.bin
+arm-none-eabi-objcopy -O binary build/BattleFormChangeCheck_linked.o build/output_BattleFormChangeCheck.bin
+arm-none-eabi-objcopy -O binary build/CalcBaseDamage_linked.o build/output_CalcBaseDamage.bin
+arm-none-eabi-objcopy -O binary build/GetMonEvolutionBattle_linked.o build/output_GetMonEvolutionBattle.bin
+arm-none-eabi-objcopy -O binary build/MoveHitDefenderAbilityCheck_linked.o build/output_MoveHitDefenderAbilityCheck.bin
+arm-none-eabi-objcopy -O binary build/ServerFieldConditionCheck_linked.o build/output_ServerFieldConditionCheck.bin
+arm-none-eabi-ld rom_gen_battle.ld -T src/individual/linker/BattleController_BeforeMove.ld -o build/BattleController_BeforeMove_linked.o build/individual/BattleController_BeforeMove.o build/thumb_help.o
+arm-none-eabi-objcopy -O binary build/BattleController_BeforeMove_linked.o build/output_BattleController_BeforeMove.bin
+rm -rf base
+find . -name "*.DS_Store" -delete
+tools/ndstool -x rom.nds -9 base/arm9.bin -7 base/arm7.bin -y9 base/overarm9.bin -y7 base/overarm7.bin -d base/root -y base/overlay -t base/banner.bin -h base/header.bin
+Nintendo DS rom tool 2.1.2 - Oct  8 2025
+by Rafael Vuijk, Dave Murphy, Alexei Karpenko
+9i (null), 7i (null), unitcode 0
+rom.nds Decompression successful!!
+. .venv/bin/activate; python3 tools/narcpy.py extract base/root/a/0/2/8 -o build/a028/ -nf
+. .venv/bin/activate; python3 scripts/make.py
+
+Inserting code.
+make move_narc
+make[1]: Entering directory '/home/jibril/git/hg-engine'
+. .venv/bin/activate; python3 tools/narcpy.py extract base/root/a/0/1/2 -o build/a012 -nf
+for file in armips/scr_seq/scr_seq_00003_commonscript.s; do tools/armips $file; done
+tools/armips armips/data/moves.s
+tools/armips armips/move/move_anim/127.s
+tools/armips armips/move/move_anim/128.s
+tools/armips armips/move/move_anim/129.s
+tools/armips armips/move/move_anim/130.s
+tools/armips armips/move/move_anim/131.s
+tools/armips armips/move/move_anim/132.s
+tools/armips armips/move/move_anim/133.s
+tools/armips armips/move/move_anim/134.s
+tools/armips armips/move/move_anim/135.s
+tools/armips armips/move/move_anim/136.s
+tools/armips armips/move/move_anim/137.s
+tools/armips armips/move/move_anim/138.s
+tools/armips armips/move/move_anim/139.s
+tools/armips armips/move/move_anim/140.s
+tools/armips armips/move/move_anim/141.s
+tools/armips armips/move/move_anim/142.s
+tools/armips armips/move/move_anim/143.s
+tools/armips armips/move/move_anim/144.s
+tools/armips armips/move/move_anim/145.s
+tools/armips armips/move/move_anim/146.s
+tools/armips armips/move/move_anim/147.s
+tools/armips armips/move/move_anim/148.s
+tools/armips armips/move/move_anim/149.s
+tools/armips armips/move/move_anim/150.s
+tools/armips armips/move/move_anim/151.s
+tools/armips armips/move/move_anim/152.s
+tools/armips armips/move/move_anim/153.s
+tools/armips armips/move/move_anim/154.s
+tools/armips armips/move/move_anim/155.s
+tools/armips armips/move/move_anim/156.s
+tools/armips armips/move/move_anim/157.s
+tools/armips armips/move/move_anim/158.s
+tools/armips armips/move/move_anim/159.s
+tools/armips armips/move/move_anim/160.s
+tools/armips armips/move/move_anim/161.s
+tools/armips armips/move/move_anim/162.s
+tools/armips armips/move/move_anim/163.s
+tools/armips armips/move/move_anim/164.s
+tools/armips armips/move/move_anim/165.s
+tools/armips armips/move/move_anim/166.s
+tools/armips armips/move/move_anim/167.s
+tools/armips armips/move/move_anim/168.s
+tools/armips armips/move/move_anim/169.s
+tools/armips armips/move/move_anim/170.s
+tools/armips armips/move/move_anim/171.s
+tools/armips armips/move/move_anim/172.s
+tools/armips armips/move/move_anim/173.s
+tools/armips armips/move/move_anim/174.s
+tools/armips armips/move/move_anim/175.s
+tools/armips armips/move/move_anim/176.s
+tools/armips armips/move/move_anim/177.s
+tools/armips armips/move/move_anim/178.s
+tools/armips armips/move/move_anim/179.s
+tools/armips armips/move/move_anim/180.s
+tools/armips armips/move/move_anim/181.s
+tools/armips armips/move/move_anim/182.s
+tools/armips armips/move/move_anim/183.s
+tools/armips armips/move/move_anim/184.s
+tools/armips armips/move/move_anim/185.s
+tools/armips armips/move/move_anim/186.s
+tools/armips armips/move/move_anim/187.s
+tools/armips armips/move/move_anim/188.s
+tools/armips armips/move/move_anim/189.s
+tools/armips armips/move/move_anim/190.s
+tools/armips armips/move/move_anim/191.s
+tools/armips armips/move/move_anim/192.s
+tools/armips armips/move/move_anim/193.s
+tools/armips armips/move/move_anim/194.s
+tools/armips armips/move/move_anim/195.s
+tools/armips armips/move/move_anim/196.s
+tools/armips armips/move/move_anim/197.s
+tools/armips armips/move/move_anim/198.s
+tools/armips armips/move/move_anim/199.s
+tools/armips armips/move/move_anim/200.s
+tools/armips armips/move/move_anim/201.s
+tools/armips armips/move/move_anim/202.s
+tools/armips armips/move/move_anim/203.s
+tools/armips armips/move/move_anim/204.s
+tools/armips armips/move/move_anim/205.s
+tools/armips armips/move/move_anim/206.s
+tools/armips armips/move/move_anim/207.s
+tools/armips armips/move/move_anim/208.s
+tools/armips armips/move/move_anim/209.s
+tools/armips armips/move/move_anim/210.s
+tools/armips armips/move/move_anim/211.s
+tools/armips armips/move/move_anim/212.s
+tools/armips armips/move/move_anim/213.s
+tools/armips armips/move/move_anim/214.s
+tools/armips armips/move/move_anim/215.s
+tools/armips armips/move/move_anim/216.s
+tools/armips armips/move/move_anim/217.s
+tools/armips armips/move/move_anim/218.s
+tools/armips armips/move/move_anim/219.s
+tools/armips armips/move/move_anim/220.s
+tools/armips armips/move/move_anim/221.s
+tools/armips armips/move/move_anim/222.s
+tools/armips armips/move/move_anim/223.s
+tools/armips armips/move/move_anim/224.s
+tools/armips armips/move/move_anim/225.s
+tools/armips armips/move/move_anim/226.s
+tools/armips armips/move/move_anim/227.s
+tools/armips armips/move/move_anim/228.s
+tools/armips armips/move/move_anim/229.s
+. .venv/bin/activate; python3 tools/narcpy.py create build/narc/scr_seq.narc build/a012 -nf
+tools/armips armips/move/move_anim/230.s
+tools/armips armips/move/move_anim/231.s
+tools/armips armips/move/move_anim/232.s
+tools/armips armips/move/move_anim/233.s
+tools/armips armips/move/move_anim/234.s
+tools/armips armips/move/move_anim/235.s
+tools/armips armips/move/move_anim/236.s
+tools/armips armips/move/move_anim/237.s
+tools/armips armips/move/move_anim/238.s
+tools/armips armips/move/move_anim/239.s
+tools/armips armips/move/move_anim/240.s
+tools/armips armips/move/move_anim/241.s
+tools/armips armips/move/move_anim/242.s
+tools/armips armips/move/move_anim/243.s
+tools/armips armips/move/move_anim/244.s
+tools/armips armips/move/move_anim/245.s
+tools/armips armips/move/move_anim/246.s
+tools/armips armips/move/move_anim/247.s
+tools/armips armips/move/move_anim/248.s
+tools/armips armips/move/move_anim/249.s
+tools/armips armips/move/move_anim/250.s
+tools/armips armips/move/move_anim/251.s
+tools/armips armips/move/move_anim/252.s
+tools/armips armips/move/move_anim/253.s
+tools/armips armips/move/move_anim/254.s
+tools/armips armips/move/move_anim/255.s
+tools/armips armips/move/move_anim/256.s
+tools/armips armips/move/move_anim/257.s
+tools/armips armips/move/move_anim/258.s
+tools/armips armips/move/move_anim/259.s
+tools/armips armips/move/move_anim/260.s
+tools/armips armips/move/move_anim/261.s
+tools/armips armips/move/move_anim/262.s
+tools/armips armips/move/move_anim/263.s
+tools/armips armips/move/move_anim/264.s
+tools/armips armips/move/move_anim/265.s
+tools/armips armips/move/move_anim/266.s
+tools/armips armips/move/move_anim/267.s
+tools/armips armips/move/move_anim/268.s
+tools/armips armips/move/move_anim/269.s
+tools/armips armips/move/move_anim/270.s
+tools/armips armips/move/move_anim/271.s
+tools/armips armips/move/move_anim/272.s
+tools/armips armips/move/move_anim/273.s
+tools/armips armips/move/move_anim/274.s
+tools/armips armips/move/move_anim/275.s
+tools/armips armips/move/move_anim/276.s
+tools/armips armips/move/move_anim/277.s
+tools/armips armips/move/move_anim/278.s
+tools/armips armips/move/move_anim/279.s
+tools/armips armips/move/move_anim/280.s
+tools/armips armips/move/move_anim/281.s
+tools/armips armips/move/move_anim/282.s
+tools/armips armips/move/move_anim/283.s
+tools/armips armips/move/move_anim/284.s
+tools/armips armips/move/move_anim/285.s
+tools/armips armips/move/move_anim/286.s
+tools/armips armips/move/move_anim/287.s
+tools/armips armips/move/move_anim/288.s
+tools/armips armips/move/move_anim/289.s
+tools/armips armips/move/move_anim/290.s
+tools/armips armips/move/move_anim/291.s
+tools/armips armips/move/move_anim/292.s
+tools/armips armips/move/move_anim/293.s
+tools/armips armips/move/move_anim/294.s
+tools/armips armips/move/move_anim/295.s
+tools/armips armips/move/move_anim/296.s
+tools/armips armips/move/move_anim/297.s
+tools/armips armips/move/move_anim/298.s
+tools/armips armips/move/move_anim/299.s
+tools/armips armips/move/move_anim/300.s
+tools/armips armips/move/move_anim/301.s
+tools/armips armips/move/move_anim/302.s
+tools/armips armips/move/move_anim/303.s
+tools/armips armips/move/move_anim/304.s
+tools/armips armips/move/move_anim/305.s
+tools/armips armips/move/move_anim/306.s
+tools/armips armips/move/move_anim/307.s
+tools/armips armips/move/move_anim/308.s
+tools/armips armips/move/move_anim/309.s
+tools/armips armips/move/move_anim/310.s
+tools/armips armips/move/move_anim/311.s
+tools/armips armips/move/move_anim/312.s
+tools/armips armips/move/move_anim/313.s
+tools/armips armips/move/move_anim/314.s
+tools/armips armips/move/move_anim/315.s
+tools/armips armips/move/move_anim/316.s
+tools/armips armips/move/move_anim/317.s
+tools/armips armips/move/move_anim/318.s
+tools/armips armips/move/move_anim/319.s
+tools/armips armips/move/move_anim/320.s
+tools/armips armips/move/move_anim/321.s
+tools/armips armips/move/move_anim/322.s
+tools/armips armips/move/move_anim/323.s
+tools/armips armips/move/move_anim/324.s
+tools/armips armips/move/move_anim/325.s
+tools/armips armips/move/move_anim/326.s
+tools/armips armips/move/move_anim/327.s
+tools/armips armips/move/move_anim/328.s
+tools/armips armips/move/move_anim/329.s
+tools/armips armips/move/move_anim/330.s
+tools/armips armips/move/move_anim/331.s
+tools/armips armips/move/move_anim/332.s
+tools/armips armips/move/move_anim/333.s
+tools/armips armips/move/move_anim/334.s
+tools/armips armips/move/move_anim/335.s
+tools/armips armips/move/move_anim/336.s
+tools/armips armips/move/move_anim/337.s
+tools/armips armips/move/move_anim/338.s
+tools/armips armips/move/move_anim/339.s
+tools/armips armips/move/move_anim/340.s
+tools/armips armips/move/move_anim/341.s
+tools/armips armips/move/move_anim/342.s
+tools/armips armips/move/move_anim/343.s
+tools/armips armips/move/move_anim/344.s
+tools/armips armips/move/move_anim/345.s
+tools/armips armips/move/move_anim/346.s
+tools/armips armips/move/move_anim/347.s
+tools/armips armips/move/move_anim/348.s
+tools/armips armips/move/move_anim/349.s
+tools/armips armips/move/move_anim/350.s
+tools/armips armips/move/move_anim/351.s
+tools/armips armips/move/move_anim/352.s
+tools/armips armips/move/move_anim/353.s
+tools/armips armips/move/move_anim/354.s
+tools/armips armips/move/move_anim/355.s
+tools/armips armips/move/move_anim/356.s
+tools/armips armips/move/move_anim/357.s
+tools/armips armips/move/move_anim/358.s
+tools/armips armips/move/move_anim/359.s
+tools/armips armips/move/move_anim/360.s
+tools/armips armips/move/move_anim/361.s
+tools/armips armips/move/move_anim/362.s
+armips/data/moves.s(14778) error: Directive not terminated
+armips/data/moves.s(26) error: Not enough parameters (min 2)
+armips/data/moves.s(27) error: Invalid THUMB opcode: .elseif
+armips/data/moves.s(28) error: Not enough parameters (min 2)
+armips/data/moves.s(29) error: Invalid THUMB opcode: .else
+armips/data/moves.s(30) error: Not enough parameters (min 2)
+armips/data/moves.s(31) error: Invalid THUMB opcode: .endif
+tools/armips armips/move/move_anim/363.s
+tools/armips armips/move/move_anim/364.s
+tools/armips armips/move/move_anim/365.s
+Aborting.
+tools/armips armips/move/move_anim/366.s
+make[1]: Leaving directory '/home/jibril/git/hg-engine'

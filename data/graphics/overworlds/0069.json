@@ -1,6 +1,6 @@
 {
 	"frames": {
-		"hero.1": {
+		"heroine.1": {
 			"frame": 0,
 			"coordTrans": 0,
 			"color0": 1,
@@ -11,13 +11,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 565,
+			"unkBlockUnk0": 589,
 			"unkBlockUnk1": 267,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.10": {
+		"heroine.10": {
 			"frame": 1,
 			"coordTrans": 0,
 			"color0": 1,
@@ -28,13 +28,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 45,
+			"unkBlockUnk0": 69,
 			"unkBlockUnk1": 3,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.11": {
+		"heroine.11": {
 			"frame": 2,
 			"coordTrans": 0,
 			"color0": 1,
@@ -45,13 +45,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1067,
+			"unkBlockUnk0": 1091,
 			"unkBlockUnk1": 7690,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.12": {
+		"heroine.12": {
 			"frame": 3,
 			"coordTrans": 0,
 			"color0": 1,
@@ -62,13 +62,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1322,
+			"unkBlockUnk0": 1346,
 			"unkBlockUnk1": 6663,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.13": {
+		"heroine.13": {
 			"frame": 4,
 			"coordTrans": 0,
 			"color0": 1,
@@ -79,13 +79,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 553,
+			"unkBlockUnk0": 577,
 			"unkBlockUnk1": 2822,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.14": {
+		"heroine.14": {
 			"frame": 5,
 			"coordTrans": 0,
 			"color0": 1,
@@ -96,13 +96,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1320,
+			"unkBlockUnk0": 1344,
 			"unkBlockUnk1": 5638,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.15": {
+		"heroine.15": {
 			"frame": 4,
 			"coordTrans": 0,
 			"color0": 1,
@@ -113,13 +113,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 2089,
+			"unkBlockUnk0": 2113,
 			"unkBlockUnk1": 7177,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.16": {
+		"heroine.16": {
 			"frame": 6,
 			"coordTrans": 0,
 			"color0": 1,
@@ -130,13 +130,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1064,
+			"unkBlockUnk0": 1088,
 			"unkBlockUnk1": 6920,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.17": {
+		"heroine.17": {
 			"frame": 7,
 			"coordTrans": 0,
 			"color0": 1,
@@ -147,13 +147,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 1832,
+			"unkBlockUnk0": 1856,
 			"unkBlockUnk1": 7433,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.18": {
+		"heroine.18": {
 			"frame": 8,
 			"coordTrans": 0,
 			"color0": 1,
@@ -164,13 +164,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 808,
+			"unkBlockUnk0": 832,
 			"unkBlockUnk1": 7946,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.19": {
+		"heroine.19": {
 			"frame": 7,
 			"coordTrans": 0,
 			"color0": 1,
@@ -181,13 +181,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3123,
+			"unkBlockUnk0": 3147,
 			"unkBlockUnk1": 2334,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.2": {
+		"heroine.2": {
 			"frame": 9,
 			"coordTrans": 0,
 			"color0": 1,
@@ -198,13 +198,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3378,
+			"unkBlockUnk0": 3402,
 			"unkBlockUnk1": 1303,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.20": {
+		"heroine.20": {
 			"frame": 10,
 			"coordTrans": 0,
 			"color0": 1,
@@ -215,13 +215,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3633,
+			"unkBlockUnk0": 3657,
 			"unkBlockUnk1": 787,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.21": {
+		"heroine.21": {
 			"frame": 11,
 			"coordTrans": 0,
 			"color0": 1,
@@ -232,13 +232,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3888,
+			"unkBlockUnk0": 3912,
 			"unkBlockUnk1": 529,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.22": {
+		"heroine.22": {
 			"frame": 12,
 			"coordTrans": 0,
 			"color0": 1,
@@ -249,13 +249,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 297,
+			"unkBlockUnk0": 321,
 			"unkBlockUnk1": 3088,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.23": {
+		"heroine.23": {
 			"frame": 11,
 			"coordTrans": 0,
 			"color0": 1,
@@ -266,13 +266,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3880,
+			"unkBlockUnk0": 3904,
 			"unkBlockUnk1": 5904,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.24": {
+		"heroine.24": {
 			"frame": 13,
 			"coordTrans": 0,
 			"color0": 1,
@@ -283,13 +283,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3625,
+			"unkBlockUnk0": 3649,
 			"unkBlockUnk1": 3346,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.25": {
+		"heroine.25": {
 			"frame": 14,
 			"coordTrans": 0,
 			"color0": 1,
@@ -300,13 +300,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 4392,
+			"unkBlockUnk0": 4416,
 			"unkBlockUnk1": 6162,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.26": {
+		"heroine.26": {
 			"frame": 15,
 			"coordTrans": 0,
 			"color0": 1,
@@ -317,13 +317,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 5168,
+			"unkBlockUnk0": 5192,
 			"unkBlockUnk1": 1046,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.27": {
+		"heroine.27": {
 			"frame": 14,
 			"coordTrans": 0,
 			"color0": 1,
@@ -334,13 +334,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3369,
+			"unkBlockUnk0": 3393,
 			"unkBlockUnk1": 3605,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.28": {
+		"heroine.28": {
 			"frame": 16,
 			"coordTrans": 0,
 			"color0": 1,
@@ -351,13 +351,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 5160,
+			"unkBlockUnk0": 5184,
 			"unkBlockUnk1": 6421,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.29": {
+		"heroine.29": {
 			"frame": 17,
 			"coordTrans": 0,
 			"color0": 1,
@@ -368,13 +368,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 4905,
+			"unkBlockUnk0": 4929,
 			"unkBlockUnk1": 3862,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.3": {
+		"heroine.3": {
 			"frame": 0,
 			"coordTrans": 0,
 			"color0": 1,
@@ -385,13 +385,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 6193,
+			"unkBlockUnk0": 6217,
 			"unkBlockUnk1": 1819,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.30": {
+		"heroine.30": {
 			"frame": 18,
 			"coordTrans": 0,
 			"color0": 1,
@@ -402,13 +402,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 6448,
+			"unkBlockUnk0": 6472,
 			"unkBlockUnk1": 1562,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.31": {
+		"heroine.31": {
 			"frame": 17,
 			"coordTrans": 0,
 			"color0": 1,
@@ -419,13 +419,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 3113,
+			"unkBlockUnk0": 3137,
 			"unkBlockUnk1": 4121,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.32": {
+		"heroine.32": {
 			"frame": 19,
 			"coordTrans": 0,
 			"color0": 1,
@@ -436,13 +436,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 6185,
+			"unkBlockUnk0": 6209,
 			"unkBlockUnk1": 4378,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.4": {
+		"heroine.4": {
 			"frame": 20,
 			"coordTrans": 0,
 			"color0": 1,
@@ -453,13 +453,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 7216,
+			"unkBlockUnk0": 7240,
 			"unkBlockUnk1": 2077,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.5": {
+		"heroine.5": {
 			"frame": 21,
 			"coordTrans": 0,
 			"color0": 1,
@@ -470,13 +470,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 5929,
+			"unkBlockUnk0": 5953,
 			"unkBlockUnk1": 4636,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.6": {
+		"heroine.6": {
 			"frame": 22,
 			"coordTrans": 0,
 			"color0": 1,
@@ -487,13 +487,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 6953,
+			"unkBlockUnk0": 6977,
 			"unkBlockUnk1": 4893,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.7": {
+		"heroine.7": {
 			"frame": 21,
 			"coordTrans": 0,
 			"color0": 1,
@@ -504,13 +504,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 7984,
+			"unkBlockUnk0": 8008,
 			"unkBlockUnk1": 2592,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.8": {
+		"heroine.8": {
 			"frame": 23,
 			"coordTrans": 0,
 			"color0": 1,
@@ -521,13 +521,13 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 2857,
+			"unkBlockUnk0": 2881,
 			"unkBlockUnk1": 5151,
 			"unk0": 0,
 			"unk1": 1,
 			"unk2": 128
 		},
-		"hero.9": {
+		"heroine.9": {
 			"frame": 2,
 			"coordTrans": 0,
 			"color0": 1,
@@ -538,7 +538,7 @@
 			"flipX": 0,
 			"repeatY": 0,
 			"repeatX": 0,
-			"unkBlockUnk0": 7721,
+			"unkBlockUnk0": 7745,
 			"unkBlockUnk1": 5408,
 			"unk0": 0,
 			"unk1": 1,
@@ -546,11 +546,11 @@
 		}
 	},
 	"palettes": {
-		"hero": {
+		"heroine": {
 			"offset": 0,
-			"unk0": 30,
+			"unk0": 54,
 			"unk1": 1,
-			"fileName": "hero.pal"
+			"fileName": "heroine.pal"
 		}
 	}
 }

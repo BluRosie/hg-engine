@@ -45,7 +45,7 @@ Swimmer♀
 Tuber
 Tuber
 Sailor
-Kimono Girl
+Rainbow Emissary
 Ruin Maniac
 Psychic
 Psychic
@@ -77,14 +77,14 @@ Leader
 Leader
 Teacher
 Super Nerd
-Sage
+Rainbow Emissary
 Parasol Lady
 Waiter
 Medium
 Cameraman
 Reporter
 Idol
-Champion
+Former Champion
 Elite Four
 Elite Four
 Elite Four

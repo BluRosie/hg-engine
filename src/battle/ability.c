@@ -275,7 +275,7 @@ u8 LONG_CALL BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
         sp->battlemon[client].attack,
         sp->battlemon[client].defense,
         sp->battlemon[client].speed,
-        sp->battlemon[client].spatk, 
+        sp->battlemon[client].spatk,
         sp->battlemon[client].spdef
     };
 

@@ -1373,6 +1373,13 @@
 #define SEQ_SE_GS_GEARSEALHAMERU             2376
 #define SEQ_SE_GS_XBUTTON_SYUKUSHOU          2377
 #define SEQ_SE_END                           2378
+#define SEQ_2379                             2379
+#define SEQ_2380                             2380
+#define SEQ_2381                             2381
+#define SEQ_2382                             2382
+#define SEQ_2383                             2383
+#define SEQ_2384                             2384
+#define SEQ_2385                             2385
 
 //Sounds marked BANK, WAVE, PLAYER, GROUP not ported over from pokeheartgold/include/constants/sndseq.h
 
@@ -1422,6 +1429,9 @@ enum {
     ANIM_MUSIC_COMBO_JOHTO_WILD_THEME,
     ANIM_MUSIC_COMBO_KIMONO_GIRL,
     ANIM_MUSIC_COMBO_RED,
+    ANIM_MUSIC_COMBO_ELDER,
+    ANIM_MUSIC_COMBO_BUCK,
+    ANIM_MUSIC_COMBO_SAGE,
 };
 
 #endif //POKEHEARTGOLD_CONSTANTS_SNDSEQ_H
