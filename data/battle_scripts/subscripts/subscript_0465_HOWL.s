@@ -14,7 +14,7 @@ _000:
     PrintMessage 750, TAG_NICKNAME_STAT, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
-    GoTo _ally
+    GoTo _doublescheck
 
 _maxed:
     Wait 
@@ -24,9 +24,14 @@ _maxed:
     Wait 
     WaitButtonABTime 30
 
+_doublescheck:
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_CALC_TEMP, 0x00000002, _end
+
 _ally:
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_HP, 0, _end
+
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_ABILITY, ABILITY_SOUNDPROOF, _soundproof
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STAT_CHANGE_ATK, 12, _maxedpartner
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_STAT_CHANGE_ATK, 12, _maxedpartner
     
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER_PARTNER, BATTLE_ANIMATION_STAT_BOOST
     Wait 

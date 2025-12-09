@@ -180,4 +180,11 @@
 // Park Ball, and Lure Ball.  Comment this line to make the balls behave as they do in Gen 9
 #define INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
 
+// THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN makes the Thunder & Storm map header weathers set permanent
+// Electric Terrain (and rain) in battle
+//#define THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN
+
+// FOG_SETS_MISTY_TERRAIN makes the Fog map header weather set permanent Misty Terrain in battle
+//#define FOG_WEATHER_MISTY_TERRAIN
+
 #endif
