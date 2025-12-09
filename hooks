@@ -545,6 +545,7 @@ arm9 ScrCmd_MartBuy 02048060 1
 #endif
 
 # expand heal blocked moves
+<<<<<<< HEAD
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
 
 # pc anywhere
@@ -553,3 +554,6 @@ arm9 ScrCmd_MartBuy 02048060 1
 0001 SetOverworldRequestFlags_hook 021E6982 0
 # hook from near beginning of function
 0001 CheckOverworldRequestFlags_hook 021E6AF6 3
+=======
+0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
+>>>>>>> upstream/main
