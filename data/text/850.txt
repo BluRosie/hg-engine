@@ -727,3 +727,4 @@ A rock that fell to earth from\nspace. It’s slightly warm to the\ntouch. It al
 A record of an expedition to the\nGreat Crater of Paldea, given to you\nby Professor Sada. The book has the\rname “Sada” written on it in clumsy\nhandwriting.
 A record of an expedition to the\nGreat Crater of Paldea, given to you\nby Professor Turo. The book has the\rname “Turo” written on it in clumsy\nhandwriting.
 A proof copy of the exploration\nnotes covering the Area Zero\nUnderdepths. It’s filled with long\rparagraphs describing what happened,\nalong with Briar’s thoughts.
+A candy that is packed with energy.\nIt raises the level of a single Pokémon\nby one.
