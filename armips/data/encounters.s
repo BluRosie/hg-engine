@@ -5524,7 +5524,7 @@ pokemon SPECIES_CHINGLING
 encounter SPECIES_TENTACOOL, 12, 18
 encounter SPECIES_CHINCHOU, 14, 20
 encounter SPECIES_MAREANIE, 14, 20
-encounter SPECIES_DHELMIZE, 14, 20
+encounter SPECIES_DHELMISE, 14, 20
 encounter SPECIES_NONE, 0, 0
 
 // rock smash encounters
@@ -5732,7 +5732,7 @@ pokemon SPECIES_CHINGLING
 encounter SPECIES_TENTACOOL, 12, 18
 encounter SPECIES_CHINCHOU, 14, 20
 encounter SPECIES_MAREANIE, 14, 20
-encounter SPECIES_DHELMIZE, 14, 20
+encounter SPECIES_DHELMISE, 14, 20
 encounter SPECIES_NONE, 0, 0
 
 // rock smash encounters
@@ -5836,7 +5836,7 @@ pokemon SPECIES_CHINGLING
 encounter SPECIES_TENTACOOL, 12, 18
 encounter SPECIES_CHINCHOU, 14, 20
 encounter SPECIES_MAREANIE, 14, 20
-encounter SPECIES_DHELMIZE, 14, 20
+encounter SPECIES_DHELMISE, 14, 20
 encounter SPECIES_NONE, 0, 0
 
 // rock smash encounters
