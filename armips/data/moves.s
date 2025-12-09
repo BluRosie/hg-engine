@@ -11628,7 +11628,7 @@ movedata MOVE_PHOTON_GEYSER, "Photon Geyser"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_PHOTON_GEYSER, "The user attacks with a\npillar of light. This\ncan inflict damage using\nAttack or Sp. Atk—\nwhichever is higher."
+    movedescription MOVE_PHOTON_GEYSER, "The user attacks with a\npillar of light. This\ncan inflict damage using\nAttack or Sp. Atk-\nwhichever is higher."
 
 movedatalongname MOVE_LIGHT_THAT_BURNS_THE_SKY, "LightBurnSky", "Light That Burns the Sky"
     battleeffect MOVE_EFFECT_HIT
@@ -11644,7 +11644,7 @@ movedatalongname MOVE_LIGHT_THAT_BURNS_THE_SKY, "LightBurnSky", "Light That Burn
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_LIGHT_THAT_BURNS_THE_SKY, "Necrozma inflicts damage\nusing Attack or Sp. Atk—\nwhichever is higher.\nThis move ignores the\ntarget's Ability."
+    movedescription MOVE_LIGHT_THAT_BURNS_THE_SKY, "Necrozma inflicts damage\nusing Attack or Sp. Atk-\nwhichever is higher.\nThis move ignores the\ntarget's Ability."
 
 movedatalongname MOVE_SEARING_SUNRAZE_SMASH, "Sunraze Smash", "Searing Sunraze Smash"
     battleeffect MOVE_EFFECT_HIT
@@ -13695,7 +13695,7 @@ movedata MOVE_TERA_BLAST, "Tera Blast"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_TERA_BLAST, "If Terastallized, the\nuser unleashes energy of\nits Tera Type. It can\nuse Attack or Sp. Atk—\nwhichever is higher."
+    movedescription MOVE_TERA_BLAST, "If Terastallized, the\nuser unleashes energy of\nits Tera Type. It can\nuse Attack or Sp. Atk-\nwhichever is higher."
 
 movedata MOVE_SILK_TRAP, "Silk Trap"
     battleeffect MOVE_EFFECT_PROTECT
