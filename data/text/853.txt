@@ -727,3 +727,4 @@ a {COLOR 255}Meteorite{COLOR 0}
 a {COLOR 255}Scarlet Book{COLOR 0}
 a {COLOR 255}Violet Book{COLOR 0}
 a {COLOR 255}copy of Briar’s Book{COLOR 0}
+an {COLOR 255}Infinite Candy{COLOR 0}
