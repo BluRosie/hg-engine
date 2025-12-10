@@ -14,8 +14,7 @@ _CheckType2:
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_TYPE_2, TYPE_TYPELESS
 
 _CheckType3:
-    // TODO: Actually check for type3!
-    GoTo _DoAnimation
+    GoToIfThirdType TYPE_FIRE, _DoAnimation
     AddThirdType TYPE_TYPELESS
 
 _DoAnimation:
