@@ -222,6 +222,7 @@ u16 move_effect_to_subscripts[] =
     [ADD_STATUS_EFF_DECORATE]                       = SUB_SEQ_DECORATE,
     [ADD_STATUS_EFF_PARTING_SHOT]                   = SUB_SEQ_HANDLE_PARTING_SHOT,
     [ADD_STATUS_EFF_CLEAR_SMOG]                     = SUB_SEQ_HANDLE_CLEAR_SMOG,
+    [ADD_STATUS_EFF_ION_DELUGE]                     = SUB_SEQ_ION_DELUGE,
 };
 
 
