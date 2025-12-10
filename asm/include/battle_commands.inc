@@ -1463,7 +1463,13 @@
     .long 266
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 266
+    .macro GoToIfThirdType arg_0, arg_1
+    .long 267
+    .long \arg_0
+    .long (((\arg_1 - .) / 4) - 1)
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 267
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)
