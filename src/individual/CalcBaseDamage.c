@@ -356,6 +356,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         movepower = (255 - AttackingMon.happiness) * 10 / 25;
         break;
     // Counter-based
+    // Fury Cutter's damage cap is handled in src/battle/battle_script_commands.c. 
+    // By default, the modern cap is 3 (meaning furyCutterCount will be between 0-2).
     case MOVE_FURY_CUTTER:
         for (u32 n = 0; n < AttackingMon.furyCutterCount; n++) {
             movepower *= 2;
@@ -363,11 +365,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         break;
     case MOVE_ROLLOUT:
     case MOVE_ICE_BALL:
-        // TODO: Handle Rollout storage, need to hook `BtlCmd_CalcRolloutPower`
-        // For now we use the Gen 4 implementation which is basically the same
-        // Edit: Rollout storage seems to be patched
-
-        for (u32 n = 0; n < 5 - AttackingMon.rolloutCount; n++) {
+        // CalcRolloutPower decrements rolloutCount before running this loop, meaning it will range between 4-0.
+        for (u32 n = 0; n < 4 - AttackingMon.rolloutCount; n++) {
             movepower *= 2;
         }
         break;
