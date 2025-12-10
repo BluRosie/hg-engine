@@ -125,3 +125,9 @@ arm9 sPokeathlonShopThursday 0210FA30
 arm9 sPokeathlonShopFriday 0210FA34
 arm9 sPokeathlonShopSaturday 0210FA38
 #endif
+
+# rock smash items
+# starting at 0x021E5900 + 0x1F580 (+0/+4/+8)
+0001 sRockSmashItems_Default 0x2204E80
+0001 sRockSmashItems_RuinsOfAlph 0x2204E84 
+0001 sRockSmashItems_CliffCave 0x2204E88 
