@@ -1470,7 +1470,7 @@
     .long (((\arg_2 - .) / 4) - 1)
     .endm
 
-    .macro GoToIfThirdType arg_0, arg_1
+    .macro GoToIfTerastallized arg_0, arg_1
     .long 268
     .long \arg_0
     .long (((\arg_1 - .) / 4) - 1)
