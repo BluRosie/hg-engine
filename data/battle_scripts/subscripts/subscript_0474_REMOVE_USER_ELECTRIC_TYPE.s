@@ -23,7 +23,7 @@ _DoAnimation:
 
 _RemovalMessage:
     // {0} used up all its electricity!
-    PrintMessage 1604, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP
+    PrintMessage 1604, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
 
 _Cleanup:
     Wait 
