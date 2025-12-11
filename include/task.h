@@ -51,7 +51,6 @@ struct TaskManager { //declared in field_system.h
 SysTask *LONG_CALL CreateSysTask(SysTaskFunc func, void *data, int priority);
 void LONG_CALL DestroySysTask(SysTask *task);
 SysTask *LONG_CALL SysTask_CreateOnVBlankQueue(SysTaskFunc func, void *data, int priority);
-typedef BOOL (*TaskFunc)(TaskManager *taskman);
 void LONG_CALL TaskManager_Call(TaskManager *taskman, TaskFunc taskFunc, void *env);
 BOOL LONG_CALL Task_TutorialBattle(TaskManager *taskManager);
 
