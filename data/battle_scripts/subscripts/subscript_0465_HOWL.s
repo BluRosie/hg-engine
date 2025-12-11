@@ -15,7 +15,7 @@ _Start:
     PrintMessage 750, TAG_NICKNAME_STAT, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
-    GoTo _HandleAlly
+    GoTo _CheckAlly
 
 _StageMaxMessage:
     Wait 
@@ -25,7 +25,9 @@ _StageMaxMessage:
     Wait 
     WaitButtonABTime 30
 
-_HandleAlly:
+_CheckAlly:
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_DOUBLES, _Cleanup
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_HP, 0, _Cleanup
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_ABILITY, ABILITY_SOUNDPROOF, _SoundproofMessage_Ally
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_STAT_CHANGE_ATK, 12, _StageMaxMessage_Ally
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER_PARTNER, BATTLE_ANIMATION_STAT_BOOST
