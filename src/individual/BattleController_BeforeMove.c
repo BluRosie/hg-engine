@@ -3286,7 +3286,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_BELLY_DRUM: {
-            if ((ctx->battlemon[ctx->defence_client].hp < (s32)ctx->battlemon[ctx->defence_client].maxhp / 2)
+            if ((ctx->battlemon[ctx->defence_client].hp <= (s32)ctx->battlemon[ctx->defence_client].maxhp / 2)
             || ctx->battlemon[ctx->defence_client].states[STAT_ATTACK] == 12) {
                 butItFailedFlag = TRUE;
             }
@@ -4340,6 +4340,7 @@ BOOL LONG_CALL AbilityFailRolePlay(int ability) {
     case ABILITY_POWER_OF_ALCHEMY:
     case ABILITY_RKS_SYSTEM:
     case ABILITY_ICE_FACE:
+    case ABILITY_GULP_MISSILE:
     case ABILITY_NEUTRALIZING_GAS:
     case ABILITY_HUNGER_SWITCH:
     case ABILITY_AS_ONE_GLASTRIER:
