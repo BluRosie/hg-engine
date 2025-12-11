@@ -772,3 +772,12 @@ PrintItemSlotQuantity = 0x021FF66C | 1;
 
 PlayerProfile_TestBadgeFlag = 0x02028F98 | 1;
 InitMartUI = 0x02256D34 | 1;
+
+sBattleBgProfileTable = 0x0226E70C;
+
+BattleSetup_New = 0x020518D8 | 1;
+BattleSetup_InitFromFieldSystem = 0x02051F00 | 1;
+ov02_02247F30 = 0x02247F30 | 1;
+BattleSetup_GetWildTransitionEffect = 0x020517E8 | 1;
+BattleSetup_GetWildBattleMusic = 0x020517FC | 1;
+CallTask_StartEncounter = 0x0205085C | 1;

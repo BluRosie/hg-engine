@@ -3468,6 +3468,63 @@ typedef enum Terrain {
 #define TRAINER_2     2 //0b10
 #define TRAINER_BOTH  (TRAINER_1 & TRAINER_2)
 
+struct BattleSetupSub_138 {
+    int unk_0;
+    int unk_4;
+    int unk_8;
+};
+
+struct BattleSetup {
+    u32 battleType;                     // 0x0
+    struct Party *party[4];             // 0x4
+    int winFlag;                        // 0x14
+    int trainerId[4];                   // 0x18
+    TRAINER_DATA trainer[4];            // 0x28
+    void *profile[4];                   // 0xF8
+    void *bag;                          // 0x108
+    void *bagCursor;                    // 0x10C
+    void *pokedex;                      // 0x110
+    void *storagePC;                    // 0x114
+    void *chatot[4];                    // 0x118
+    void *unk_128;
+    void *wifiHistory;
+    struct OPTIONS *options;            // 0x130
+    void *unk_134;
+    struct BattleSetupSub_138 unk138;
+    void *gameStats;                    // 0x144
+    void *palPad;                       // 0x148
+    BattleBg battleBg;                  // 0x14C
+    Terrain terrain;
+    u32 mapSection;                     // 0x154
+    u32 mapNumber;                      // 0x158
+    TIMEOFDAY timeOfDay;                // 0x15C
+    u32 evolutionLocation;              // 0x160
+    u32 unk_164;
+    BOOL metBill;                       // 0x168
+    int momsSavingsActive;              // 0x16C
+    u32 unk_170;
+    u32 weatherType;                    // 0x174
+    int levelUpFlag;                    // 0x178
+    u8 filler_17C[0x10];
+    u32 battleSpecial;                  // 0x18C
+    int safariBalls;                    // 0x190
+    BOOL fixedDamaageMovesBanned;
+    void *evolutionTaskData;
+    int unk_19C;
+    int unk_1A0[4];
+    u16 unk1B0;
+    u8 unk1B2;
+    u8 unk1B3;
+    int unk1B4;
+    void *unk1B8;
+    int unk1BC;
+    SaveData *saveData;                 // 0x1C0
+    int unk1C4;
+    struct PartyPokemon *bugContestMon; // 0x1C8
+    u8 unk1CC[4];
+    BOOL unk_1D0;
+};
+
 /**
  *  @brief load in different battle bg and terrain
  *
