@@ -48,6 +48,7 @@ arm9 GetMonIconPalette 02074364 3
 # ability expansion
 arm9 GetBoxMonData_EditedCases_hook 0206E6E0 3
 arm9 SetBoxMonData_EditedCases_hook 0206EE28 0
+arm9 AddBoxMonData_EditedCases_hook 0206F67C 0
 
 # wild mon hidden ability/form stuff
 #02247910
@@ -554,3 +555,4 @@ arm9 ScrCmd_MartBuy 02048060 1
 # hook from near beginning of function
 0001 CheckOverworldRequestFlags_hook 021E6AF6 3
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
+arm9 SetupAndStartTutorialBattle 02051334 1
