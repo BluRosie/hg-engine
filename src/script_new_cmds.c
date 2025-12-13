@@ -2,9 +2,10 @@
 #include "../include/script.h"
 #include "../include/repel.h"
 #include "../include/constants/file.h"
+#include "../include/constants/species.h"
 
 #define SCRIPT_NEW_CMD_REPEL_USE    0
-#define SCRIPT_NEW_CMD_TOTEM_BATTLE 1
+#define SCRIPT_NEW_CMD_TOTEM_BATTLE_SHINY_GYARADOS 1
 
 #define SCRIPT_NEW_CMD_MAX          256
 
@@ -19,15 +20,12 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx) {
             Repel_Use(most_recent_repel, HEAPID_MAIN_HEAP);
 #endif
             break;
-        case SCRIPT_NEW_CMD_TOTEM_BATTLE:;
+        case SCRIPT_NEW_CMD_TOTEM_BATTLE_SHINY_GYARADOS:;
             u32 *winFlag = FieldSysGetAttrAddr(ctx->fsys, 24); // SCRIPTENV_BATTLE_WIN_FLAG = 24
-            u16 paramFlags = ScriptReadHalfword(ctx);
-            u16 species = paramFlags & ((1 << 14) - 1); // Set species to the first 14 bits of paramFlags.
-            paramFlags >>= 14; // Drop those 14 bits.
-            u16 level = paramFlags & ((1 << (21 - 14)) - 1); // Set level to the next 7 bits of paramFlags.
-            paramFlags >>= (21 - 14); // Drop the next 7 bits.
-            u8 shiny = paramFlags; // The remainder should just be the shiny value.
-            SetupAndStartTotemBattle(ctx->taskman, species, level, winFlag, shiny);
+            u16 level = ScriptReadHalfword(ctx);
+            SetupAndStartTotemBattle(ctx->taskman, SPECIES_GYARADOS, level, winFlag, TRUE);
+            // The game will inexplicably corrupt if you do not return true here.
+            return TRUE;
             break;
         default: break;
     }

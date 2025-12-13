@@ -18,6 +18,7 @@
 enum EndTurnResolutionOrder {
     ENDTURN_WEATHER_SUBSIDING,
     ENDTURN_WEATHER_ANIMATION_AND_DAMAGE_AND_HEAL,
+    ENDTURN_TOTEM_TEMPEST,
     ENDTURN_RESOLVE_SWITCHES_1,
     ENDTURN_AFFECTION_SELF_CURE,
     ENDTURN_FUTURE_EFFECT,
@@ -272,6 +273,48 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 sp->fcc_seq_no++;
                 sp->scc_work = 0;
+                break;
+            }
+            case ENDTURN_TOTEM_TEMPEST: {
+                #ifdef DEBUG_ENDTURN_LOGIC
+                sprintf(buf, "In ENDTURN_TOTEM_TEMPEST\n");
+                debugsyscall(buf);
+                #endif
+
+                if ((BattleTypeGet(bw) & BATTLE_TYPE_TOTEM) == 0 
+                ) // If BATTLER_ENEMY is SPECIES_GYARADOS
+                {
+                    switch (sp->total_turn % 3)
+                    {
+                        case 1:
+                            sp->mp.msg_id = 1603;  // A wicked gust starts to stir!
+                            sp->mp.msg_tag = TAG_NONE;
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, 473);
+                            break;
+                        case 2:
+                            sp->mp.msg_id = 1604;  // A horrible wind is howling!
+                            sp->mp.msg_tag = TAG_NONE;
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, 473);
+                            break;
+                        case 0:
+                            if (sp->battlemon[BATTLER_PLAYER].hp != 0)
+                            {
+                                sp->mp.msg_id = 1605;  // A terrible storm tears into you!
+                                sp->mp.msg_tag = TAG_NONE;
+                                sp->attack_client = BATTLER_ENEMY;
+                                sp->defence_client = BATTLER_PLAYER;
+                                sp->current_move_index = MOVE_HURRICANE;
+                                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, 473); 
+                            }
+                            break;
+                        default: break;
+                    }
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    ret = 1;
+                }
+
+                sp->fcc_seq_no++;
                 break;
             }
             // TODO
