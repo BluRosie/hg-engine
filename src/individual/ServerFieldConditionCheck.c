@@ -282,37 +282,41 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 debugsyscall(buf);
                 #endif
 
-                if ((BattleTypeGet(bw) & BATTLE_TYPE_TOTEM) == 0 
+                if ((BattleTypeGet(bw) & BATTLE_TYPE_TOTEM) == BATTLE_TYPE_TOTEM 
                 ) // If BATTLER_ENEMY is SPECIES_GYARADOS
                 {
-                    switch (sp->total_turn % 3)
+                    switch ((sp->total_turn + 1) % 3)
                     {
                         case 1:
-                            sp->mp.msg_id = 1603;  // A wicked gust starts to stir!
-                            sp->mp.msg_tag = TAG_NONE;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, 473);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TOTEM_TEMPEST);
+                            sp->next_server_seq_no = sp->server_seq_no;
+                            sp->server_seq_no = 22;
+                            ret = 1;
                             break;
                         case 2:
-                            sp->mp.msg_id = 1604;  // A horrible wind is howling!
-                            sp->mp.msg_tag = TAG_NONE;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, 473);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TOTEM_TEMPEST);
+                            sp->next_server_seq_no = sp->server_seq_no;
+                            sp->server_seq_no = 22;
+                            ret = 1;
                             break;
                         case 0:
                             if (sp->battlemon[BATTLER_PLAYER].hp != 0)
                             {
-                                sp->mp.msg_id = 1605;  // A terrible storm tears into you!
-                                sp->mp.msg_tag = TAG_NONE;
                                 sp->attack_client = BATTLER_ENEMY;
                                 sp->defence_client = BATTLER_PLAYER;
+                                int side = IsClientEnemy(bw, sp->defence_client);
                                 sp->current_move_index = MOVE_HURRICANE;
-                                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, 473); 
+                                sp->damage_power = 70;
+                                sp->move_type = TYPE_FLYING;
+                                // sp->hp_calc_work = CalcOutOfTurnDamage(bw, sp, sp->current_move_index, sp->side_condition[side], sp->field_condition, sp->damage_power, sp->move_type, sp->attack_client, sp->defence_client, 1) * -1;
+                                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TOTEM_TEMPEST);
+                                sp->next_server_seq_no = sp->server_seq_no;
+                                sp->server_seq_no = 22;
+                                ret = 1;
                             }
                             break;
                         default: break;
                     }
-                    sp->next_server_seq_no = sp->server_seq_no;
-                    sp->server_seq_no = 22;
-                    ret = 1;
                 }
 
                 sp->fcc_seq_no++;

@@ -58,12 +58,11 @@ void SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u
             SetMonData(totem, MON_DATA_MOVE3PP, &data);
             data = 0;
             SetMonData(totem, MON_DATA_MOVE3PPUP, &data);
-            break;
 
             // Move slot 4:
-            data = MOVE_SCARY_FACE;
+            data = MOVE_DRAGON_DANCE;
             SetMonData(totem, MON_DATA_MOVE4, &data);
-            data = GetMoveMaxPP(data, 0);
+            data = 1;
             SetMonData(totem, MON_DATA_MOVE4PP, &data);
             data = 0;
             SetMonData(totem, MON_DATA_MOVE4PPUP, &data);

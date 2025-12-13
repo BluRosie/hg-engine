@@ -1605,4 +1605,4 @@ You are challenged by Totem\n{STRVAR_1 1, 0, 0}!
 A wicked gust starts to stir!
 A horrible wind is howling!
 A terrible storm tears into you!
-
+Can’t flee this fight!
