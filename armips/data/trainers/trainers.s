@@ -243,9 +243,9 @@ trainerdata 7, "Irwin"
     endparty
 
 trainerdata 8, "Harry"
-    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK 
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_SHINY_LOCK 
     trainerclass TRAINERCLASS_RUIN_MANIAC
-    nummons 5
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -258,90 +258,48 @@ trainerdata 8, "Harry"
         // mon 0
         ivs 200
         abilityslot 0
-        level 81
-        pokemon SPECIES_KROOKODILE
-        item ITEM_BLACK_GLASSES
-        move MOVE_EARTHQUAKE
-        move MOVE_ROCK_SLIDE
-        move MOVE_KNOCK_OFF
-        move MOVE_SUPERPOWER
-        ability ABILITY_MOXIE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
-        shinylock 0
-        ballseal 0
-
-        // mon 1
-        ivs 200
-        abilityslot 0
         level 82
         pokemon SPECIES_CRUSTLE
-        item ITEM_CUSTAP_BERRY
         move MOVE_ROCK_SLIDE
         move MOVE_X_SCISSOR
         move MOVE_EARTHQUAKE
         move MOVE_STEALTH_ROCK
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 8, 8, 8, 8, 8, 8 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_IMPISH
         shinylock 0
         ballseal 0
 
-        // mon 2
+        // mon 1
         ivs 200
         abilityslot 0
         level 81
         pokemon SPECIES_NIDOKING
-        item ITEM_BLACK_SLUDGE
         move MOVE_EARTH_POWER
         move MOVE_POISON_JAB
         move MOVE_FLAMETHROWER
         move MOVE_THUNDERBOLT
         ability ABILITY_SHEER_FORCE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 8, 8, 8, 8, 8, 8 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_HASTY
         shinylock 0
         ballseal 0
 
-        // mon 3
+        // mon 2
         ivs 250
         abilityslot 0
         level 82
         pokemon SPECIES_SIGILYPH
-        item ITEM_LEFTOVERS
         move MOVE_STORED_POWER
         move MOVE_CALM_MIND
         move MOVE_AIR_SLASH
         move MOVE_ROOST
         ability ABILITY_MAGIC_GUARD
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 8, 8, 8, 8, 8, 8 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
-        shinylock 0 // mon will be forced shiny
-        ballseal 0
-
-        // mon 4
-        ivs 250
-        abilityslot 0
-        level 80
-        pokemon SPECIES_LYCANROC
-        item ITEM_LIFE_ORB
-        move MOVE_ACCELEROCK
-        move MOVE_ROCK_SLIDE
-        move MOVE_BRICK_BREAK
-        move MOVE_CRUNCH
-        ability ABILITY_STEADFAST
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
         ballseal 0
     endparty
@@ -371,7 +329,7 @@ trainerdata 9, "Maureen"
         move MOVE_THUNDER
         ability ABILITY_COMPOUND_EYES
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 8, 8, 8, 8, 8, 8 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -389,7 +347,7 @@ trainerdata 9, "Maureen"
         move MOVE_ICE_BEAM
         ability ABILITY_QUICK_DRAW
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 8, 8, 8, 8, 8, 8 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_RELAXED
         shinylock 0
@@ -407,7 +365,7 @@ trainerdata 9, "Maureen"
         move MOVE_FIRE_FANG
         ability ABILITY_SHEER_FORCE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 8, 8, 8, 8, 8, 8 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BRAVE
         shinylock 0
@@ -425,7 +383,7 @@ trainerdata 9, "Maureen"
         move MOVE_NASTY_PLOT
         ability ABILITY_CORROSION
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 8, 8, 8, 8, 8, 8 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0 // mon will be forced shiny
@@ -443,7 +401,7 @@ trainerdata 9, "Maureen"
         move MOVE_WISH
         ability ABILITY_SERENE_GRACE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 8, 8, 8, 8, 8, 8 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BOLD
         shinylock 0 // mon will be forced shiny
@@ -474,7 +432,7 @@ trainerdata 10, "Rayan"
         move MOVE_CUT
         ability ABILITY_TECHNICIAN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 6, 6, 6, 6, 6, 6 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -492,7 +450,7 @@ trainerdata 10, "Rayan"
         move MOVE_NIGHT_SLASH
         ability ABILITY_DEFIANT
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 6, 6, 6, 6, 6, 6 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -510,7 +468,7 @@ trainerdata 10, "Rayan"
         move MOVE_EARTHQUAKE
         ability ABILITY_SHEER_FORCE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 6, 6, 6, 6, 6, 6 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -528,7 +486,7 @@ trainerdata 10, "Rayan"
         move MOVE_FOCUS_BLAST
         ability ABILITY_TORRENT
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 6, 6, 6, 6, 6, 6 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -546,7 +504,7 @@ trainerdata 10, "Rayan"
         move MOVE_CALM_MIND
         ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 6, 6, 6, 6, 6, 6 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_CALM
         shinylock 0 // mon will be forced shiny
@@ -578,7 +536,7 @@ trainerdata 11, "Ilyes"
         move MOVE_PROTECT
         ability ABILITY_PRANKSTER
         ball ITEM_LOVE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_CAREFUL
         shinylock 0
@@ -596,7 +554,7 @@ trainerdata 11, "Ilyes"
         move MOVE_MYSTICAL_FIRE
         ability ABILITY_LEVITATE
         ball ITEM_LOVE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -614,7 +572,7 @@ trainerdata 11, "Ilyes"
         move MOVE_THUNDER_WAVE
         ability ABILITY_SHADOW_TAG
         ball ITEM_LOVE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -632,7 +590,7 @@ trainerdata 11, "Ilyes"
         move MOVE_REFLECT
         ability ABILITY_PRANKSTER
         ball ITEM_LOVE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_CALM
         shinylock 0 // mon will be forced shiny
@@ -650,7 +608,7 @@ trainerdata 11, "Ilyes"
         move MOVE_SHADOW_SNEAK
         ability ABILITY_DISGUISE
         ball ITEM_LOVE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -682,7 +640,7 @@ trainerdata 12, "Eliott"
         move MOVE_ROOST
         ability ABILITY_REGENERATOR
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -700,7 +658,7 @@ trainerdata 12, "Eliott"
         move MOVE_BULK_UP
         ability ABILITY_DEFIANT
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -718,7 +676,7 @@ trainerdata 12, "Eliott"
         move MOVE_U_TURN
         ability ABILITY_SKILL_LINK
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -736,7 +694,7 @@ trainerdata 12, "Eliott"
         move MOVE_HYPER_VOICE
         ability ABILITY_INFILTRATOR
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0 // mon will be forced shiny
@@ -754,7 +712,7 @@ trainerdata 12, "Eliott"
         move MOVE_SWORDS_DANCE
         ability ABILITY_LONG_REACH
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -786,7 +744,7 @@ trainerdata 13, "Kylian"
         move MOVE_GRASS_KNOT
         ability ABILITY_VOLT_ABSORB
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -804,7 +762,7 @@ trainerdata 13, "Kylian"
         move MOVE_U_TURN
         ability ABILITY_CURSED_BODY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -822,7 +780,7 @@ trainerdata 13, "Kylian"
         move MOVE_CLOSE_COMBAT
         ability ABILITY_SWIFT_SWIM
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -840,7 +798,7 @@ trainerdata 13, "Kylian"
         move MOVE_WILD_CHARGE
         ability ABILITY_RECKLESS
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_HASTY
         shinylock 0 // mon will be forced shiny
@@ -858,7 +816,7 @@ trainerdata 13, "Kylian"
         move MOVE_ASSURANCE
         ability ABILITY_TECHNICIAN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -890,7 +848,7 @@ trainerdata 14, "Victor"
         move MOVE_SWORDS_DANCE
         ability ABILITY_TECHNICIAN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_IMPISH
         shinylock 0
@@ -908,7 +866,7 @@ trainerdata 14, "Victor"
         move MOVE_HONE_CLAWS
         ability ABILITY_INFILTRATOR
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -926,7 +884,7 @@ trainerdata 14, "Victor"
         move MOVE_EARTHQUAKE
         ability ABILITY_SPEED_BOOST
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -944,7 +902,7 @@ trainerdata 14, "Victor"
         move MOVE_VOLT_SWITCH
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_RELAXED
         shinylock 0 // mon will be forced shiny
@@ -962,7 +920,7 @@ trainerdata 14, "Victor"
         move MOVE_EARTHQUAKE
         ability ABILITY_BATTLE_ARMOR
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -994,7 +952,7 @@ trainerdata 15, "Rodrigo"
         move MOVE_NIGHT_SLASH
         ability ABILITY_SCRAPPY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -1012,7 +970,7 @@ trainerdata 15, "Rodrigo"
         move MOVE_ROCK_SLIDE
         ability ABILITY_DEFIANT
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -1030,7 +988,7 @@ trainerdata 15, "Rodrigo"
         move MOVE_FAKE_OUT
         ability ABILITY_MOXIE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -1048,7 +1006,7 @@ trainerdata 15, "Rodrigo"
         move MOVE_SPORE
         ability ABILITY_TECHNICIAN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -1066,7 +1024,7 @@ trainerdata 15, "Rodrigo"
         move MOVE_ICE_PUNCH
         ability ABILITY_IRON_FIST
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -1098,7 +1056,7 @@ trainerdata 16, "Willian"
         move MOVE_HEAD_SMASH
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_NAUGHTY
         shinylock 0
@@ -1117,7 +1075,7 @@ trainerdata 16, "Willian"
         move MOVE_ROAR
         ability ABILITY_ROCK_HEAD
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_CAREFUL
         shinylock 0
@@ -1136,7 +1094,7 @@ trainerdata 16, "Willian"
         move MOVE_RAGING_BULL
         ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -1155,7 +1113,7 @@ trainerdata 16, "Willian"
         move MOVE_PLAY_ROUGH
         ability ABILITY_GUTS
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BRAVE
         shinylock 0 // mon will be forced shiny
@@ -1175,7 +1133,7 @@ trainerdata 16, "Willian"
         move MOVE_CLOSE_COMBAT
         ability ABILITY_STANCE_CHANGE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BRAVE
         shinylock 0 // mon will be forced shiny
@@ -1208,7 +1166,7 @@ trainerdata 17, "Mathis"
         move MOVE_KNOCK_OFF
         ability ABILITY_IRON_FIST
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -1226,7 +1184,7 @@ trainerdata 17, "Mathis"
         move MOVE_DIG
         ability ABILITY_PROTEAN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_HASTY
         shinylock 0
@@ -1244,7 +1202,7 @@ trainerdata 17, "Mathis"
         move MOVE_U_TURN
         ability ABILITY_BLAZE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_NAIVE
         shinylock 0
@@ -1262,7 +1220,7 @@ trainerdata 17, "Mathis"
         move MOVE_SWORDS_DANCE
         ability ABILITY_TECHNICIAN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_IMPISH
         shinylock 0 // mon will be forced shiny
@@ -1280,7 +1238,7 @@ trainerdata 17, "Mathis"
         move MOVE_ENERGY_BALL
         ability ABILITY_CURSED_BODY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0 // mon will be forced shiny
@@ -1312,7 +1270,7 @@ trainerdata 18, "Marianne"
         move MOVE_WILL_O_WISP
         ability ABILITY_CURSED_BODY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -1330,7 +1288,7 @@ trainerdata 18, "Marianne"
         move MOVE_IRON_TAIL
         ability ABILITY_SCRAPPY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -1348,7 +1306,7 @@ trainerdata 18, "Marianne"
         move MOVE_DESTINY_BOND
         ability ABILITY_TRACE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -1366,7 +1324,7 @@ trainerdata 18, "Marianne"
         move MOVE_HIGH_JUMP_KICK
         ability ABILITY_QUEENLY_MAJESTY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -1384,7 +1342,7 @@ trainerdata 18, "Marianne"
         move MOVE_HYPNOSIS
         ability ABILITY_MARVEL_SCALE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0 // mon will be forced shiny
@@ -1416,7 +1374,7 @@ trainerdata 19, "Tom"
         move MOVE_STICKY_WEB
         ability ABILITY_SOLID_ROCK
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_CAREFUL
         shinylock 0
@@ -1434,7 +1392,7 @@ trainerdata 19, "Tom"
         move MOVE_ZEN_HEADBUTT
         ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -1452,7 +1410,7 @@ trainerdata 19, "Tom"
         move MOVE_POWER_UP_PUNCH
         ability ABILITY_SWIFT_SWIM
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -1470,7 +1428,7 @@ trainerdata 19, "Tom"
         move MOVE_X_SCISSOR
         ability ABILITY_SWIFT_SWIM
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -1488,7 +1446,7 @@ trainerdata 19, "Tom"
         move MOVE_EARTHQUAKE
         ability ABILITY_WATER_ABSORB
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -1608,7 +1566,7 @@ trainerdata 22, "Adam"
         move MOVE_ICE_BEAM
         ability ABILITY_MISTY_SURGE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BOLD
         shinylock 0
@@ -1626,7 +1584,7 @@ trainerdata 22, "Adam"
         move MOVE_TRICK_ROOM
         ability ABILITY_SYNCHRONIZE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -1644,7 +1602,7 @@ trainerdata 22, "Adam"
         move MOVE_NUZZLE
         ability ABILITY_MAGIC_BOUNCE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -1662,7 +1620,7 @@ trainerdata 22, "Adam"
         move MOVE_PROTECT
         ability ABILITY_ARMOR_TAIL
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_QUIET
         shinylock 0 // mon will be forced shiny
@@ -1680,7 +1638,7 @@ trainerdata 22, "Adam"
         move MOVE_KNOCK_OFF
         ability ABILITY_OWN_TEMPO
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BRAVE
         shinylock 0 // mon will be forced shiny
@@ -1712,7 +1670,7 @@ trainerdata 23, "Daniel"
         move MOVE_PAIN_SPLIT
         ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -1730,7 +1688,7 @@ trainerdata 23, "Daniel"
         move MOVE_BODY_PRESS
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BRAVE
         shinylock 0
@@ -1748,7 +1706,7 @@ trainerdata 23, "Daniel"
         move MOVE_KNOCK_OFF
         ability ABILITY_TORRENT
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -1766,7 +1724,7 @@ trainerdata 23, "Daniel"
         move MOVE_ROOST
         ability ABILITY_TORRENT
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0 // mon will be forced shiny
@@ -1784,7 +1742,7 @@ trainerdata 23, "Daniel"
         move MOVE_CALM_MIND
         ability ABILITY_TRACE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0 // mon will be forced shiny
@@ -1816,7 +1774,7 @@ trainerdata 24, "Valente"
         move MOVE_MEMENTO
         ability ABILITY_ELECTRIC_SURGE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -1834,7 +1792,7 @@ trainerdata 24, "Valente"
         move MOVE_ICE_PUNCH
         ability ABILITY_PROTEAN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -1852,7 +1810,7 @@ trainerdata 24, "Valente"
         move MOVE_REFLECT
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -1870,7 +1828,7 @@ trainerdata 24, "Valente"
         move MOVE_DAZZLING_GLEAM
         ability ABILITY_TANGLED_FEET
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0 // mon will be forced shiny
@@ -1888,7 +1846,7 @@ trainerdata 24, "Valente"
         move MOVE_ICY_WIND
         ability ABILITY_STRONG_JAW
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -1920,7 +1878,7 @@ trainerdata 25, "Paul"
         move MOVE_TOXIC
         ability ABILITY_STORM_DRAIN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -1938,7 +1896,7 @@ trainerdata 25, "Paul"
         move MOVE_MUDDY_WATER
         ability ABILITY_GOOEY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -1956,7 +1914,7 @@ trainerdata 25, "Paul"
         move MOVE_BANEFUL_BUNKER
         ability ABILITY_REGENERATOR
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_CALM
         shinylock 0
@@ -1974,7 +1932,7 @@ trainerdata 25, "Paul"
         move MOVE_AXE_KICK
         ability ABILITY_CHLOROPHYLL
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -1992,7 +1950,7 @@ trainerdata 25, "Paul"
         move MOVE_ICE_PUNCH
         ability ABILITY_PURE_POWER
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -2024,7 +1982,7 @@ trainerdata 26, "Samy"
         move MOVE_AIR_SLASH
         ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -2042,7 +2000,7 @@ trainerdata 26, "Samy"
         move MOVE_AQUA_JET
         ability ABILITY_EMERGENCY_EXIT
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -2060,7 +2018,7 @@ trainerdata 26, "Samy"
         move MOVE_TAILWIND
         ability ABILITY_PRANKSTER
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_CAREFUL
         shinylock 0
@@ -2078,7 +2036,7 @@ trainerdata 26, "Samy"
         move MOVE_DRILL_RUN
         ability ABILITY_SWARM
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -2096,7 +2054,7 @@ trainerdata 26, "Samy"
         move MOVE_SUBSTITUTE
         ability ABILITY_WATER_BUBBLE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -2128,7 +2086,7 @@ trainerdata 27, "Lisa"
         move MOVE_ICE_BEAM
         ability ABILITY_SWIFT_SWIM
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -2146,7 +2104,7 @@ trainerdata 27, "Lisa"
         move MOVE_PERISH_SONG
         ability ABILITY_LIQUID_VOICE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -2164,7 +2122,7 @@ trainerdata 27, "Lisa"
         move MOVE_POWER_WHIP
         ability ABILITY_HEAVY_METAL
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -2182,7 +2140,7 @@ trainerdata 27, "Lisa"
         move MOVE_SUBSTITUTE
         ability ABILITY_LIQUID_VOICE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0 // mon will be forced shiny
@@ -2200,7 +2158,7 @@ trainerdata 27, "Lisa"
         move MOVE_CRUNCH
         ability ABILITY_THICK_FAT
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -2232,7 +2190,7 @@ trainerdata 28, "Edmond"
         move MOVE_PROTECT
         ability ABILITY_PSYCHIC_SURGE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -2250,7 +2208,7 @@ trainerdata 28, "Edmond"
         move MOVE_TOXIC
         ability ABILITY_INFILTRATOR
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -2268,7 +2226,7 @@ trainerdata 28, "Edmond"
         move MOVE_KNOCK_OFF
         ability ABILITY_STEELWORKER
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -2286,7 +2244,7 @@ trainerdata 28, "Edmond"
         move MOVE_TOXIC
         ability ABILITY_HYDRATION
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_CALM
         shinylock 0 // mon will be forced shiny
@@ -2304,7 +2262,7 @@ trainerdata 28, "Edmond"
         move MOVE_CRUNCH
         ability ABILITY_ADAPTABILITY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -2322,7 +2280,7 @@ trainerdata 28, "Edmond"
         move MOVE_THUNDER
         ability ABILITY_ADAPTABILITY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0 // mon will be forced shiny
@@ -2354,7 +2312,7 @@ trainerdata 29, "Johnny"
         move MOVE_EXPLOSION
         ability ABILITY_GALVANIZE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -2372,7 +2330,7 @@ trainerdata 29, "Johnny"
         move MOVE_STONE_EDGE
         ability ABILITY_HUSTLE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -2390,7 +2348,7 @@ trainerdata 29, "Johnny"
         move MOVE_KNOCK_OFF
         ability ABILITY_SWIFT_SWIM
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -2408,7 +2366,7 @@ trainerdata 29, "Johnny"
         move MOVE_DUAL_WINGBEAT
         ability ABILITY_HYDRATION
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -2426,7 +2384,7 @@ trainerdata 29, "Johnny"
         move MOVE_EARTHQUAKE
         ability ABILITY_SWIFT_SWIM
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -2758,7 +2716,7 @@ trainerdata 36, "Aliou"
         move MOVE_FLIP_TURN
         ability ABILITY_MOXIE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -2777,7 +2735,7 @@ trainerdata 36, "Aliou"
         move MOVE_FACADE
         ability ABILITY_UNBURDEN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -2797,7 +2755,7 @@ trainerdata 36, "Aliou"
         move MOVE_PSYCHIC_FANGS
         ability ABILITY_SWIFT_SWIM
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -2816,7 +2774,7 @@ trainerdata 36, "Aliou"
         move MOVE_JET_PUNCH
         ability ABILITY_TECHNICIAN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -2835,7 +2793,7 @@ trainerdata 36, "Aliou"
         move MOVE_SLEEP_TALK
         ability ABILITY_SWIFT_SWIM
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -2868,7 +2826,7 @@ trainerdata 37, "Axel"
         move MOVE_FOCUS_BLAST
         ability ABILITY_NO_GUARD
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -2887,7 +2845,7 @@ trainerdata 37, "Axel"
         move MOVE_EARTHQUAKE
         ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -2906,7 +2864,7 @@ trainerdata 37, "Axel"
         move MOVE_BRAVE_BIRD
         ability ABILITY_UNNERVE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_IMPISH
         shinylock 0
@@ -2925,7 +2883,7 @@ trainerdata 37, "Axel"
         move MOVE_TOXIC
         ability ABILITY_SWIFT_SWIM
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BOLD
         shinylock 0 // mon will be forced shiny
@@ -2944,7 +2902,7 @@ trainerdata 37, "Axel"
         move MOVE_KNOCK_OFF
         ability ABILITY_HUGE_POWER
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -3440,7 +3398,7 @@ trainerdata 55, "Benjamin"
         move MOVE_LIGHT_SCREEN
         ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -3458,7 +3416,7 @@ trainerdata 55, "Benjamin"
         move MOVE_STEALTH_ROCK
         ability ABILITY_WATER_COMPACTION
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -3476,7 +3434,7 @@ trainerdata 55, "Benjamin"
         move MOVE_GRASS_KNOT
         ability ABILITY_COMPETITIVE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -3494,7 +3452,7 @@ trainerdata 55, "Benjamin"
         move MOVE_SUBSTITUTE
         ability ABILITY_CORROSION
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0 // mon will be forced shiny
@@ -3512,7 +3470,7 @@ trainerdata 55, "Benjamin"
         move MOVE_KNOCK_OFF
         ability ABILITY_MOTOR_DRIVE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -3544,7 +3502,7 @@ trainerdata 56, "Lucas"
         move MOVE_NASTY_PLOT
         ability ABILITY_ADAPTABILITY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -3562,7 +3520,7 @@ trainerdata 56, "Lucas"
         move MOVE_AQUA_TAIL
         ability ABILITY_SNIPER
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -3580,7 +3538,7 @@ trainerdata 56, "Lucas"
         move MOVE_SUBSTITUTE
         ability ABILITY_DEFIANT
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -3598,7 +3556,7 @@ trainerdata 56, "Lucas"
         move MOVE_PAIN_SPLIT
         ability ABILITY_MOTOR_DRIVE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0 // mon will be forced shiny
@@ -3616,7 +3574,7 @@ trainerdata 56, "Lucas"
         move MOVE_NASTY_PLOT
         ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0 // mon will be forced shiny
@@ -3648,7 +3606,7 @@ trainerdata 57, "Mohamed"
         move MOVE_ENDEAVOR
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -3666,7 +3624,7 @@ trainerdata 57, "Mohamed"
         move MOVE_X_SCISSOR
         ability ABILITY_UNBURDEN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -3684,7 +3642,7 @@ trainerdata 57, "Mohamed"
         move MOVE_BITE
         ability ABILITY_TECHNICIAN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -3702,7 +3660,7 @@ trainerdata 57, "Mohamed"
         move MOVE_WILD_CHARGE
         ability ABILITY_ROCK_HEAD
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -3720,7 +3678,7 @@ trainerdata 57, "Mohamed"
         move MOVE_SHELL_SMASH
         ability ABILITY_ROCK_HEAD
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -3808,7 +3766,7 @@ trainerdata 60, "Riad"
         move MOVE_FLIP_TURN
         ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -3826,7 +3784,7 @@ trainerdata 60, "Riad"
         move MOVE_SWORDS_DANCE
         ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_NAIVE
         shinylock 0
@@ -3844,7 +3802,7 @@ trainerdata 60, "Riad"
         move MOVE_FIRE_FANG
         ability ABILITY_SHEER_FORCE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_HASTY
         shinylock 0
@@ -3862,7 +3820,7 @@ trainerdata 60, "Riad"
         move MOVE_DESTINY_BOND
         ability ABILITY_TRACE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0 // mon will be forced shiny
@@ -3880,7 +3838,7 @@ trainerdata 60, "Riad"
         move MOVE_ROOST
         ability ABILITY_BLAZE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_HASTY
         shinylock 0 // mon will be forced shiny
@@ -3898,7 +3856,7 @@ trainerdata 60, "Riad"
         move MOVE_FLAMETHROWER
         ability ABILITY_REGENERATOR
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_QUIET
         shinylock 0 // mon will be forced shiny
@@ -3930,7 +3888,7 @@ trainerdata 61, "Remy"
         move MOVE_PROTECT
         ability ABILITY_GUTS
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0
@@ -3950,7 +3908,7 @@ trainerdata 61, "Remy"
         move MOVE_BOOMBURST
         ability ABILITY_LIQUID_VOICE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -3969,7 +3927,7 @@ trainerdata 61, "Remy"
         move MOVE_SUBSTITUTE
         ability ABILITY_CHLOROPHYLL
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_HASTY
         shinylock 0
@@ -3988,7 +3946,7 @@ trainerdata 61, "Remy"
         move MOVE_STONE_EDGE
         ability ABILITY_MOXIE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -4007,7 +3965,7 @@ trainerdata 61, "Remy"
         move MOVE_HURRICANE
         ability ABILITY_COMPOUND_EYES
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0 // mon will be forced shiny
@@ -10699,7 +10657,7 @@ trainerdata 261, "Blue"
         move MOVE_FOCUS_BLAST
         ability ABILITY_NO_GUARD
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -10717,7 +10675,7 @@ trainerdata 261, "Blue"
         move MOVE_FLASH_CANNON
         ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -10735,7 +10693,7 @@ trainerdata 261, "Blue"
         move MOVE_EXTREME_SPEED
         ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -10753,7 +10711,7 @@ trainerdata 261, "Blue"
         move MOVE_ICE_PUNCH
         ability ABILITY_MOTOR_DRIVE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -10771,7 +10729,7 @@ trainerdata 261, "Blue"
         move MOVE_SLUDGE_BOMB
         ability ABILITY_CHLOROPHYLL
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0 // mon will be forced shiny
@@ -10789,7 +10747,7 @@ trainerdata 261, "Blue"
         move MOVE_LEECH_SEED
         ability ABILITY_OVERGROW
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0 // mon will be forced shiny
@@ -24811,7 +24769,7 @@ trainerdata 671, "Buck"
         move MOVE_IRON_HEAD
         ability ABILITY_JUSTIFIED
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -24830,7 +24788,7 @@ trainerdata 671, "Buck"
         move MOVE_EARTH_POWER
         ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BOLD
         shinylock 0
@@ -24849,7 +24807,7 @@ trainerdata 671, "Buck"
         move MOVE_EARTHQUAKE
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -24868,7 +24826,7 @@ trainerdata 671, "Buck"
         move MOVE_KNOCK_OFF
         ability ABILITY_SOLID_ROCK
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_IMPISH
         shinylock 0
@@ -24887,7 +24845,7 @@ trainerdata 671, "Buck"
         move MOVE_TOXIC
         ability ABILITY_SYNCHRONIZE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_IMPISH
         shinylock 0 // mon will be forced shiny
@@ -24906,7 +24864,7 @@ trainerdata 671, "Buck"
         move MOVE_ICE_PUNCH
         ability ABILITY_CLEAR_BODY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -25743,7 +25701,7 @@ trainerdata 700, "Blue"
         move MOVE_KNOCK_OFF
         ability ABILITY_GUTS
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -25763,7 +25721,7 @@ trainerdata 700, "Blue"
         move MOVE_GYRO_BALL
         ability ABILITY_IRON_BARBS
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BRAVE
         shinylock 0
@@ -25782,7 +25740,7 @@ trainerdata 700, "Blue"
         move MOVE_TELEPORT
         ability ABILITY_REGENERATOR
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BOLD
         shinylock 0
@@ -25801,7 +25759,7 @@ trainerdata 700, "Blue"
         move MOVE_EARTHQUAKE
         ability ABILITY_SNIPER
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -25820,7 +25778,7 @@ trainerdata 700, "Blue"
         move MOVE_DRAGON_DANCE
         ability ABILITY_MOXIE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -25839,7 +25797,7 @@ trainerdata 700, "Blue"
         move MOVE_EARTHQUAKE
         ability ABILITY_BLAZE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -26443,7 +26401,7 @@ trainerdata 712, "Falkner"
         move MOVE_DUAL_WINGBEAT
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_IMPISH
         shinylock 0
@@ -26462,7 +26420,7 @@ trainerdata 712, "Falkner"
         move MOVE_ROCK_SLIDE
         ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -26481,7 +26439,7 @@ trainerdata 712, "Falkner"
         move MOVE_ACROBATICS
         ability ABILITY_MOTOR_DRIVE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_NAIVE
         shinylock 0
@@ -26500,7 +26458,7 @@ trainerdata 712, "Falkner"
         move MOVE_ROOST
         ability ABILITY_SHEER_FORCE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0 // mon will be forced shiny
@@ -26519,7 +26477,7 @@ trainerdata 712, "Falkner"
         move MOVE_ACROBATICS
         ability ABILITY_POISON_HEAL
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_IMPISH
         shinylock 0 // mon will be forced shiny
@@ -26539,7 +26497,7 @@ trainerdata 712, "Falkner"
         move MOVE_ROOST
         ability ABILITY_NO_GUARD
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0 // mon will be forced shiny
@@ -27776,7 +27734,7 @@ trainerdata 727, "Blue"
         move MOVE_SHADOW_BALL
         ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -27794,7 +27752,7 @@ trainerdata 727, "Blue"
         move MOVE_CALM_MIND
         ability ABILITY_FLASH_FIRE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -27812,7 +27770,7 @@ trainerdata 727, "Blue"
         move MOVE_FIRE_BLAST
         ability ABILITY_MULTISCALE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -27830,7 +27788,7 @@ trainerdata 727, "Blue"
         move MOVE_EXTREME_SPEED
         ability ABILITY_JUSTIFIED
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0 // mon will be forced shiny
@@ -27848,7 +27806,7 @@ trainerdata 727, "Blue"
         move MOVE_ICE_PUNCH
         ability ABILITY_SOLID_ROCK
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
         shinylock 0 // mon will be forced shiny
@@ -27866,7 +27824,7 @@ trainerdata 727, "Blue"
         move MOVE_SHELL_SMASH
         ability ABILITY_TORRENT
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 10, 10, 10, 10, 10, 10 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0 // mon will be forced shiny
