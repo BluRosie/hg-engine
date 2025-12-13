@@ -283,7 +283,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 #endif
 
                 if ((BattleTypeGet(bw) & BATTLE_TYPE_TOTEM) == BATTLE_TYPE_TOTEM 
-                ) // If BATTLER_ENEMY is SPECIES_GYARADOS
+                && sp->battlemon[BATTLER_ENEMY].species == SPECIES_GYARADOS)
                 {
                     switch ((sp->total_turn + 1) % 3)
                     {
