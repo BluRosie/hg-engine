@@ -612,6 +612,7 @@ u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *
     PokemonDataBlockB *blockB UNUSED = blocks->blockB;
     PokemonDataBlockC *blockC UNUSED = blocks->blockC;
     PokemonDataBlockD *blockD = blocks->blockD;
+
     *retBool = FALSE;
     switch (field)
     {
@@ -665,7 +666,7 @@ u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *
 BOOL AddBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, int data)
 {
 #ifdef DEBUG_BOXMONDATA_EDITED_CASES
-    debug_printf("Modified AddBoxMonData called... field=%d data=%d", field, data);
+    debug_printf("Modified AddBoxMonData called... field=%d data=%d\n", field, data);
 #endif
     BOOL ret = FALSE;
 
@@ -684,7 +685,7 @@ BOOL AddBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, int d
         }
         ret = TRUE;
 #ifdef DEBUG_BOXMONDATA_EDITED_CASES
-        debug_printf("Experience to add %d, new experience %d\n", experience, blockA->exp);
+        debug_printf("[AddBoxMonData] Experience to add %d, new experience %d\n", experience, blockA->exp);
 #endif
         break;
     }
@@ -694,6 +695,9 @@ BOOL AddBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, int d
         blockA->ability     = ability & 0xFF;
         blockA->abilityMSB  = (ability >> 8) & 0x01;
         ret = TRUE;
+#ifdef DEBUG_BOXMONDATA_EDITED_CASES
+        debug_printf("[AddBoxMonData] Ability to set %d, LSB %d, MSb %d\n", ability, blockA->ability, blockA->abilityMSB);
+#endif
         break;
     }
     }

@@ -795,8 +795,8 @@ sub sp, #0x14
 mov r3, sp
 str r4, [r3, #0x0]   // blockA
 str r5, [r3, #0x4]   // blockB
-str r6, [r3, #0x8]   // blockC
-str r7, [r3, #0xC]   // blockD
+str r1, [r3, #0x8]   // blockC
+str r0, [r3, #0xC]   // blockD
 ldr r1, [r3, #(0x14 + 0x4)]  // field
 mov r2, r6                   // data
 mov r0, r3                   // blocks
