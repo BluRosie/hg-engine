@@ -3473,6 +3473,64 @@ typedef enum Terrain {
 #define TRAINER_2     2 //0b10
 #define TRAINER_BOTH  (TRAINER_1 & TRAINER_2)
 
+
+struct BattleSetupSub_138 {
+    int unk_0;
+    int unk_4;
+    int unk_8;
+};
+
+struct BattleSetup {
+    u32 battleType;                      // 0
+    struct Party *party[4];           // 4
+    int winFlag;                         // 14
+    int trainerId[4];          // 18
+    TRAINER_DATA trainer[4];        // 28
+    void *profile[4]; // f8
+    void *bag;                            // 108
+    void *bagCursor;                // 10c
+    void *pokedex;                    // 110
+    void *storagePC;                // 114
+    void *chatot[4];   // 118
+    void *unk_128;
+    void *wifiHistory;
+    struct OPTIONS *options; // 130
+    void *unk_134;
+    struct BattleSetupSub_138 unk138;
+    void *gameStats; // 144
+    void *palPad;   // 148
+    BattleBg battleBg;    // 14C
+    Terrain terrain;
+    u32 mapSection;        // 154
+    u32 mapNumber;         // 158
+    TIMEOFDAY timeOfDay;   // 15C
+    u32 evolutionLocation; // 160
+    u32 unk_164;
+    BOOL metBill;          // 168
+    int momsSavingsActive; // 16C
+    u32 unk_170;
+    u32 weatherType; // 174
+    int levelUpFlag; // 178
+    u8 filler_17C[0x10];
+    u32 battleSpecial; // 18C
+    int safariBalls;   // 190
+    BOOL fixedDamaageMovesBanned;
+    void *evolutionTaskData;
+    int unk_19C;
+    int unk_1A0[4];
+    u16 unk1B0;
+    u8 unk1B2;
+    u8 unk1B3;
+    int unk1B4;
+    void *unk1B8;
+    int unk1BC;
+    SaveData *saveData; // 1c0
+    int unk1C4;
+    struct PartyPokemon *bugContestMon; // 1c8
+    u8 unk1CC[4];
+    BOOL unk_1D0;
+};
+
 /**
  *  @brief load in different battle bg and terrain
  *
