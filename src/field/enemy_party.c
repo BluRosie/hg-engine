@@ -452,6 +452,11 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     sys_FreeMemoryEz(nickname);
 
     gf_srand(seed_tmp);
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+    // Override parties with test scenario if enabled
+    TestBattle_OverrideParties(bp);
+#endif
 }
 
 extern u32 space_for_setmondata;

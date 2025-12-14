@@ -3323,7 +3323,7 @@ BOOL btl_scr_cmd_108_strengthsapcalc(void* bw UNUSED, struct BattleStruct* sp) {
 }
 
 /**
- *  @brief script command to check if the target is partner or not. 
+ *  @brief script command to check if the target is partner or not.
  *  used for pollen puff because TryHelpingHand has unique conditions built in
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -3341,7 +3341,7 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp) {
         IncrementBattleScriptPtr(sp, adrs);
     //    debug_printf("target is ally\n")
     }
-    
+
     return FALSE;
 }
 
