@@ -4348,7 +4348,7 @@ BOOL btl_scr_cmd_10B_gotoifthirdtype(void *bsys UNUSED, struct BattleStruct *ctx
         type = TYPE_NORMAL;
 
     // Proceed only if type ID is a valid, existing type and our types match.
-    if (type >= 0 && type < NUMBER_OF_MON_TYPES && ctx->battlemon[battlerID].type3 == type) 
+    if (type >= 0 && type < NUMBER_OF_MON_TYPES && ctx->battlemon[battlerID].type3 == type)
         IncrementBattleScriptPtr(ctx, address);
 
     return FALSE;
@@ -4375,13 +4375,13 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     int battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
 
     if (ctx->scw[side].toxicSpikesLayers) {
-        ctx->temp_work = ctx->scw[side].toxicSpikesLayers;
+        ctx->calc_work = ctx->scw[side].toxicSpikesLayers;
         ctx->addeffect_type = ADD_EFFECT_TOXIC_SPIKES;
-        ctx->state_change = battlerID;
+        ctx->state_client = battlerID;
         if (HasType(ctx, battlerID, TYPE_POISON)) {
             ctx->side_condition[side] &= ~SIDE_STATUS_TOXIC_SPIKES;
             ctx->scw[side].toxicSpikesLayers = 0;
-            ctx->temp_work = 0;
+            ctx->calc_work = 0;
         }
     } else {
         IncrementBattleScriptPtr(ctx, adrs);

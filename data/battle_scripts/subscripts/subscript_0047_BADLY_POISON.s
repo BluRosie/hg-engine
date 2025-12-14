@@ -1,3 +1,7 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
 _Start:
     // Ensure that the effect does not come from a hazard (important for Mold Breaker).
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_TOXIC_SPIKES, _CheckAbilities_Textless
@@ -8,7 +12,7 @@ _Start:
     CheckIgnoreWeather _CheckFlowerVeil
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN_ALL, _CheckFlowerVeil
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _AbilityBlock
-    
+
 // Check for hazard-inflicted poison (Toxic Spikes).
 _CheckFlowerVeil:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _SingleFlowerVeilGrassCheck_Hazard

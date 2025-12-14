@@ -131,7 +131,7 @@ _244:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _End
     WaitButtonABTime 30
     Call BATTLE_SUBSCRIPT_BUT_IT_FAILED
-    _End
+    End
 
 _260:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _End
@@ -171,7 +171,7 @@ _handleInfiltrator:
 _handleInfiltratorMoveEffect:
     // infiltrator bypasses safeguard but only on moves that are used (which allows us to check the attacker directly)
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_ABILITY, ABILITY_INFILTRATOR, _bypassSafeguard
-    _End
+    End
 
 _326:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _handleInfiltrator
