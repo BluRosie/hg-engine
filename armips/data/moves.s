@@ -7204,7 +7204,7 @@ movedata MOVE_JUDGMENT, "Judgment"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_UNUSABLE_IN_GEN_8
     appeal 0x0E
     contesttype CONTEST_SMART
     terminatedata
@@ -7546,7 +7546,6 @@ movedata MOVE_470, "MOVE_470"
     terminatedata
     movedescription MOVE_SHADOW_FORCE+3, "--"
 
-// Moves introduced in Generation V:
 movedata MOVE_HONE_CLAWS, "Hone Claws"
     battleeffect MOVE_EFFECT_ATK_ACC_UP
     pss SPLIT_STATUS
@@ -9019,7 +9018,6 @@ movedata MOVE_FUSION_BOLT, "Fusion Bolt"
     terminatedata
     movedescription MOVE_FUSION_BOLT, "The user throws down\na giant bolt.\nIt does more damage\nwhen influenced by\nan enormous flame."
 
-// Moves introduced in Generation VI:
 movedata MOVE_FLYING_PRESS, "Flying Press"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
@@ -9736,7 +9734,7 @@ movedatalongname MOVE_ELECTRIC_TERRAIN, "ElectricTerrain", "Electric Terrain"
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x05
-    contesttype CONTEST_SMART
+    contesttype CONTEST_SMART // Prior to Pokémon Omega Ruby and Alpha Sapphire, it was known as the Smart condition.
     terminatedata
     movedescription MOVE_ELECTRIC_TERRAIN, "For five turns, Pokémon\non the ground have\npowered up Electric-type\nmoves and can no longer\nfall asleep."
 
@@ -10012,8 +10010,6 @@ movedata MOVE_HYPERSPACE_FURY, "Hyperspace Fury"
     terminatedata
     movedescription MOVE_HYPERSPACE_FURY, "The user unleashes a\nbarrage that ignores the\neffects of protection\nmoves. This also lowers\nthe user's Defense."
 
-// Contest types after this point are purely speculative due to the lack of contests since Generation VII.
-// Moves introduced in Generation VII:
 movedata MOVE_BREAKNECK_BLITZ_PHYSICAL, "Breakneck Blitz"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
@@ -11180,7 +11176,12 @@ movedata MOVE_AURORA_VEIL, "Aurora Veil"
     appeal 0x00
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_AURORA_VEIL, "This move reduces damage\nfrom most moves for five\nturns. It can be used\nonly in a hailstorm or\nwhen it is snowing."
+
+.if SNOW_WARNING_GENERATION >= 9
+    movedescription MOVE_AURORA_VEIL, "This move reduces damage\nfrom most moves for five\nturns. It can be used\nonly when it is snowing."
+.else
+    movedescription MOVE_AURORA_VEIL, "This move reduces damage\nfrom most moves for five\nturns. It can be used\nonly in a hailstorm."
+.endif
 
 movedatalongname MOVE_SINISTER_ARROW_RAID, "Sinister Raid", "Sinister Arrow Raid"
     battleeffect MOVE_EFFECT_HIT
@@ -11950,7 +11951,6 @@ movedatalongname MOVE_DOUBLE_IRON_BASH, "Double IronBash", "Double Iron Bash"
     terminatedata
     movedescription MOVE_DOUBLE_IRON_BASH, "The user spins on its\nnut, striking the target\nwith its arms twice in a\nrow. This may also make\nthe target flinch."
 
-// Moves introduced in Generation VIII:
 movedata MOVE_MAX_GUARD, "Max Guard"
     battleeffect MOVE_EFFECT_PROTECT
     pss SPLIT_STATUS
@@ -13295,7 +13295,6 @@ movedata MOVE_EERIE_SPELL, "Eerie Spell"
     terminatedata
     movedescription MOVE_EERIE_SPELL, "The user attacks with\nits tremendous psychic\npower. This also drains\n3 PP from the move last\nused by the target."
 
-// Moves introduced in Generation VIII (LA):
 movedata MOVE_DIRE_CLAW, "Dire Claw"
     battleeffect MOVE_EFFECT_SLEEP_POISON_PARALYZE_HIT
     pss SPLIT_PHYSICAL
@@ -13680,7 +13679,6 @@ movedata MOVE_TAKE_HEART, "Take Heart"
     terminatedata
     movedescription MOVE_TAKE_HEART, "The user lifts its\nspirits, curing its\nown status conditions\nand boosting its Sp.\nAtk and Sp. Def stats."
 
-// Moves introduced in Generation IX:
 movedata MOVE_TERA_BLAST, "Tera Blast"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_SPECIAL
@@ -14401,8 +14399,6 @@ movedata MOVE_AQUA_CUTTER, "Aqua Cutter"
     terminatedata
     movedescription MOVE_AQUA_CUTTER, "The user expels\npressurized water to\ncut at the target like\na blade. It has a high\ncritical-hit ratio."
 
-// The Torque moves are not normally used by players, so they lack internal descriptions. 
-// The given descriptions are sourced from PokeRogue with permission.
 movedata MOVE_BLAZING_TORQUE, "Blazing Torque"
     battleeffect MOVE_EFFECT_BURN_HIT
     pss SPLIT_PHYSICAL
@@ -14417,7 +14413,7 @@ movedata MOVE_BLAZING_TORQUE, "Blazing Torque"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_BLAZING_TORQUE, "The user rams into the\ntarget with blazing\nenergy. This may also\nleave the target with\na burn."
+    movedescription MOVE_BLAZING_TORQUE, "---"
 
 movedata MOVE_WICKED_TORQUE, "Wicked Torque"
     battleeffect MOVE_EFFECT_SLEEP_HIT
@@ -14433,7 +14429,7 @@ movedata MOVE_WICKED_TORQUE, "Wicked Torque"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_WICKED_TORQUE, "The user rams into the\ntarget with malicious\nintent. This may put\nthe target to sleep."
+    movedescription MOVE_WICKED_TORQUE, "---"
 
 movedata MOVE_NOXIOUS_TORQUE, "Noxious Torque"
     battleeffect MOVE_EFFECT_POISON_HIT
@@ -14449,7 +14445,7 @@ movedata MOVE_NOXIOUS_TORQUE, "Noxious Torque"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_NOXIOUS_TORQUE, "The user rams into the\ntarget with a\npoisonous end. This\nmay also poison the\ntarget."
+    movedescription MOVE_NOXIOUS_TORQUE, "---"
 
 movedata MOVE_COMBAT_TORQUE, "Combat Torque"
     battleeffect MOVE_EFFECT_PARALYZE_HIT
@@ -14465,7 +14461,7 @@ movedata MOVE_COMBAT_TORQUE, "Combat Torque"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_COMBAT_TORQUE, "The user rams into the\ntarget with great\nforce. This may also\nleave the target with\nparalysis."
+    movedescription MOVE_COMBAT_TORQUE, "---"
 
 movedata MOVE_MAGICAL_TORQUE, "Magical Torque"
     battleeffect MOVE_EFFECT_CONFUSE_HIT
@@ -14481,7 +14477,7 @@ movedata MOVE_MAGICAL_TORQUE, "Magical Torque"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_MAGICAL_TORQUE, "The user rams into the\ntarget with a fae-like\nforce. This may also\nconfuse the target."
+    movedescription MOVE_MAGICAL_TORQUE, "---"
 
 movedata MOVE_BLOOD_MOON, "Blood Moon"
     battleeffect MOVE_EFFECT_HIT
