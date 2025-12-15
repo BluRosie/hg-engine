@@ -368,11 +368,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         break;
     case MOVE_ROLLOUT:
     case MOVE_ICE_BALL:
-        // TODO: Handle Rollout storage, need to hook `BtlCmd_CalcRolloutPower`
-        // For now we use the Gen 4 implementation which is basically the same
-        // Edit: Rollout storage seems to be patched
         // https://github.com/pret/pokeheartgold/blob/29282f7bb45946dee63475022a8d506092bc3748/src/battle/battle_command.c#L3391
-        for (u32 n = 0; n < 4 - AttackingMon.rolloutCount; n++) {
+        for (u32 n = 1; n < 5 - AttackingMon.rolloutCount; n++) {
             movepower *= 2;
         }
         break;
