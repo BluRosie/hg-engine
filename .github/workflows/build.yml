@@ -15,10 +15,12 @@ jobs:
         run: |
           sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
           sudo apt update
-          sudo apt -y --allow-downgrades install libpng-dev build-essential cmake python3-pip python3-venv git automate autoconf gcc-arm-none-eabi pkg-config
+          sudo apt -y --allow-downgrades install libpng-dev build-essential cmake python3-pip python3-venv git autoconf gcc-arm-none-eabi pkg-config
 
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Setup Repo
         run: |
@@ -26,7 +28,7 @@ jobs:
           cd ~/download
           wget https://archive.org/download/pkmn_collection/pkmn%20collection/NDS/Pokemon%20-%20HeartGold%20Version%20%28USA%29.zip
           unzip "Pokemon - HeartGold Version (USA).zip"
-          mv "Pokemon - HeartGold Version (USA).zip" "rom.nds"
+          mv "Pokemon - HeartGold Version (USA).nds" "rom.nds"
           mv rom.nds $GITHUB_WORKSPACE/
         working-directory: ~
 
@@ -36,4 +38,4 @@ jobs:
           swap-size-gb: 19
 
       - name: Build hg-engine
-        run: make -j4
+        run: make -j$(nproc)
