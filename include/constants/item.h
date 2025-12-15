@@ -489,8 +489,8 @@
 #define ITEM_RAINBOW_FEATHER              483 //Replaced RAINBOW_WING
 #define ITEM_MYSTERY_EGG                  484
 #define ITEM_RED_APRICORN                 485
-#define ITEM_YELLOW_APRICORN              486 //Have to swap with BLUE_APRICORN
-#define ITEM_BLUE_APRICORN                487
+#define ITEM_BLUE_APRICORN                486
+#define ITEM_YELLOW_APRICORN              487
 #define ITEM_GREEN_APRICORN               488
 #define ITEM_PINK_APRICORN                489
 #define ITEM_WHITE_APRICORN               490

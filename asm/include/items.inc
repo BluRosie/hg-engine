@@ -488,8 +488,8 @@
 .equ ITEM_RAINBOW_FEATHER,              483 //Replaced RAINBOW_WING
 .equ ITEM_MYSTERY_EGG,                  484
 .equ ITEM_RED_APRICORN,                 485
-.equ ITEM_YELLOW_APRICORN,              486 //Have to swap with BLUE_APRICORN
-.equ ITEM_BLUE_APRICORN,                487
+.equ ITEM_BLUE_APRICORN,                486
+.equ ITEM_YELLOW_APRICORN,              487
 .equ ITEM_GREEN_APRICORN,               488
 .equ ITEM_PINK_APRICORN,                489
 .equ ITEM_WHITE_APRICORN,               490
