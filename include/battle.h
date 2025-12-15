@@ -7,6 +7,7 @@
 #include "pokemon.h"
 #include "task.h"
 #include "save.h"
+#include "bag_cursor.h"
 #include "constants/moves.h"
 
 #define CLIENT_MAX 4
@@ -1516,7 +1517,7 @@ struct BattleSystem {
     /* 0x38 */ int maxBattlers;
     struct PlayerProfile *playerProfile[4];
     void *bag;
-    void *bagCursor;
+    struct BagCursor *bagCursor;
     void *pokedex;
     void *storage;
     struct Party *trainerParty[4];
@@ -4043,5 +4044,16 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys);
  * @brief Callback for loading custom battle backgrounds
  */
 void LONG_CALL BattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
+
+/**
+ * @brief Information used for selecting an item on the bottom screen
+ */
+typedef struct BattleItem {
+    u16 id;
+    u8 page;
+    u8 monIndex;
+} BattleItem;
+
+void LONG_CALL ReadBattleScriptFromNarc(struct BattleStruct* ctx, int narcId, int fileId);
 
 #endif // BATTLE_H

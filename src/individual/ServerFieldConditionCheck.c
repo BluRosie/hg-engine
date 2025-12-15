@@ -54,6 +54,8 @@ enum EndTurnResolutionOrder {
     ENDTURN_MAGIC_ROOM_DISSIPATING,
     ENDTURN_TERRAIN_DISSIPATING,
     ENDTURN_THIRD_EVENT_BLOCK,
+    ENDTURN_TOTEM_STAT_RESTORE,
+    ENDTURN_TOTEM_PARK_PICKUP,
     ENDTURN_RESOLVE_SWITCHES_4,
     ENDTURN_FORM_CHANGE,
     ENDTURN_FOURTH_EVENT_BLOCK,
@@ -283,7 +285,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 #endif
 
                 if ((BattleTypeGet(bw) & BATTLE_TYPE_TOTEM) == BATTLE_TYPE_TOTEM 
-                && sp->battlemon[BATTLER_ENEMY].species == SPECIES_GYARADOS)
+                && sp->battlemon[BATTLER_ENEMY].species == SPECIES_AMBIPOM)
                 {
                     switch ((sp->total_turn + 1) % 3)
                     {
@@ -304,10 +306,11 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             {
                                 sp->attack_client = BATTLER_ENEMY;
                                 sp->defence_client = BATTLER_PLAYER;
-                                int side = IsClientEnemy(bw, sp->defence_client);
+                                // int side = IsClientEnemy(bw, sp->defence_client);
                                 sp->current_move_index = MOVE_HURRICANE;
                                 sp->damage_power = 70;
                                 sp->move_type = TYPE_FLYING;
+                                sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp * -1, 3);
                                 // sp->hp_calc_work = CalcOutOfTurnDamage(bw, sp, sp->current_move_index, sp->side_condition[side], sp->field_condition, sp->damage_power, sp->move_type, sp->attack_client, sp->defence_client, 1) * -1;
                                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TOTEM_TEMPEST);
                                 sp->next_server_seq_no = sp->server_seq_no;
@@ -1856,6 +1859,79 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     sp->fcc_seq_no++;
                 }
 
+                break;
+            }
+            case ENDTURN_TOTEM_STAT_RESTORE:
+            {
+                #ifdef DEBUG_ENDTURN_LOGIC
+                sprintf(buf, "In ENDTURN_TOTEM_STAT_RESTORE\n");
+                debugsyscall(buf);
+                #endif
+
+                if ((BattleTypeGet(bw) & BATTLE_TYPE_TOTEM) == BATTLE_TYPE_TOTEM)
+                {
+                    int targetStatArray[8] = {6, 6, 6, 6, 6, 6, 6, 6};
+                    switch (sp->battlemon[BATTLER_ENEMY].species)
+                    {
+                        case SPECIES_GYARADOS:
+                            targetStatArray[STAT_SPDEF]++; // +1 Special Defense
+                            targetStatArray[STAT_SPEED]++; // +1 Speed
+                            break;
+                        default: break;
+                    }
+
+                    BOOL statsRestored = FALSE;
+                    // Skip STAT_HP (0)
+                    for (int stat = 1; stat < STAT_MAX; stat++)
+                    {
+                        if (sp->battlemon[BATTLER_ENEMY].states[stat] < targetStatArray[stat])
+                        {
+                            sp->battlemon[BATTLER_ENEMY].states[stat]++;
+                            statsRestored = TRUE;
+                        }
+                    }
+
+                    if (statsRestored)
+                    {
+                        sp->mp.msg_id = 1610;  // The Totem Pokemon's lowered stats have returned to normal!
+                        sp->mp.msg_tag = TAG_NONE; 
+                        for (int stat = 1; stat < STAT_MAX; stat++)
+                        {
+                            if (sp->battlemon[BATTLER_ENEMY].states[stat] < targetStatArray[stat])
+                            {
+                                sp->mp.msg_id = 1609;  // The Totem Pokemon's lowered stats are returning to normal!
+                                break;
+                            }
+                        }
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TOTEM_STAT_RESTORE);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        ret = 1;
+                    }
+                }
+                sp->fcc_seq_no++;
+                break;
+            }
+            case ENDTURN_TOTEM_PARK_PICKUP:
+            {
+                #ifdef DEBUG_ENDTURN_LOGIC
+                sprintf(buf, "In ENDTURN_TOTEM_PARK_PICKUP\n");
+                debugsyscall(buf);
+                #endif
+
+                if ((BattleTypeGet(bw) & BATTLE_TYPE_TOTEM) == BATTLE_TYPE_TOTEM 
+                && sp->battlemon[BATTLER_ENEMY].species == SPECIES_GYARADOS
+                && sp->battlemon[BATTLER_ENEMY].item == ITEM_NONE)
+                {
+                    int parkItems[5] = {ITEM_HARD_STONE, ITEM_IRON_BALL, ITEM_TIN_OF_BEANS, ITEM_ODD_KEYSTONE, ITEM_KINGS_ROCK};
+                    sp->item_work = parkItems[BattleRand(bw) % 5];
+                    sp->battlemon[BATTLER_ENEMY].item = sp->item_work;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TOTEM_PARK_PICKUP);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    ret = 1;
+                }
+                sp->fcc_seq_no++;
                 break;
             }
             // TODO

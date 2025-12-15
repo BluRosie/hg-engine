@@ -21,7 +21,8 @@ void SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u
 
     struct PartyPokemon *totem = Party_GetMonByIndex(setup->party[BATTLER_ENEMY], 0);
     // Perform generic Totem adjustments.
-    // TODO: Double height & weight.
+    // Height & weight cannot be increased until battle start as they are per-species.
+    // In theory we would need to hook BattleMon creation to apply those changes on battle start.
 
     // Manually adjust specific elements according to Totem Species.
     switch (species)
@@ -67,6 +68,23 @@ void SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u
             data = 0;
             SetMonData(totem, MON_DATA_MOVE4PPUP, &data);
             break;
+
+            // IVs:
+            data = 20;
+            SetMonData(totem, MON_DATA_HP_IV, &data);
+            SetMonData(totem, MON_DATA_ATK_IV, &data);
+            SetMonData(totem, MON_DATA_DEF_IV, &data);
+            SetMonData(totem, MON_DATA_SPEED_IV, &data);
+            SetMonData(totem, MON_DATA_SPATK_IV, &data);
+            SetMonData(totem, MON_DATA_SPDEF_IV, &data);
+
+            // Nature:
+            data = NATURE_ADAMANT;
+            u32 pid = GetMonData(totem, MON_DATA_PERSONALITY, NULL);
+            u8 currentNature = pid % 25;
+            pid = pid + data - currentNature;
+            SetMonData(totem, MON_DATA_PERSONALITY, &pid);
+
         default: break;
     }
 

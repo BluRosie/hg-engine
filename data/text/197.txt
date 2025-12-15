@@ -1606,3 +1606,7 @@ A wicked gust starts to stir!
 A horrible wind is howling!
 A terrible storm tears into you!
 Can’t flee this fight!
+The roaring winds extinguished\nthe burning Pokémon!
+The Totem Pokémon’s lowered stats\nare returning to normal!
+The Totem Pokemon’s lowered stats\nhave returned to normal!
+An Aipom hands {STRVAR_1 1, 0, 0}\na {STRVAR_1 8, 1, 0}!

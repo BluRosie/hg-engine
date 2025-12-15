@@ -97,7 +97,8 @@ BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_108_strengthsapcalc(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
-BOOL btl_scr_cmd_110_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_10B_doublesize(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -392,6 +393,7 @@ const u8 *BattleScrCmdNames[] =
     "StrengthSapCalc",
     "CheckTargetIsPartner",
     "ClearSmog",
+    "DoubleSize",
     // "YourCustomCommand",
 };
 
@@ -444,7 +446,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_clearauroraveil,
     [0x108 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_108_strengthsapcalc,
     [0x109 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_109_checktargetispartner,
-    [0x110 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_110_clearsmog,
+    [0x10A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10A_clearsmog,
+    [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_doublesize,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4325,9 +4328,28 @@ BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *
     return FALSE;
 }
 
-BOOL btl_scr_cmd_110_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     reset_stat_changes(ctx, ctx->defence_client);
+    return FALSE;
+}
+
+/**
+ *  @brief script command to double a battler's height and weight (used for Totems)
+ *
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return FALSE
+ */
+BOOL btl_scr_cmd_10B_doublesize(void *bw UNUSED, struct BattleStruct *sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    s32 battlerID = read_battle_script_param(sp);
+    sp->battlemon[battlerID].weight *= 2;
+    // Height is actually not tracked in any mechanical way for battle, even internally.
+    // sp->battlemon[battlerID].height *= 2;
+
     return FALSE;
 }
