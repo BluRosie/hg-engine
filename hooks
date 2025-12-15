@@ -137,6 +137,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_PlayFaintAnimation 0223E290 3
 0012 BtlCmd_TryBreakScreens 02242E00 3
 0012 BtlCmd_ResetAllStatChanges 0223FA1C 3
+0012 BtlCmd_CheckToxicSpikes 02243E6C 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -556,3 +557,9 @@ arm9 ScrCmd_MartBuy 02048060 1
 0001 CheckOverworldRequestFlags_hook 021E6AF6 3
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
 arm9 SetupAndStartTutorialBattle 02051334 1
+arm9 SetupAndStartTutorialBattle 02051334 1
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+0010 TestBattle_AISelectMove 0221BEF4 2
+0010 TestBattle_AIPickCommand 022205BC 2
+#endif
