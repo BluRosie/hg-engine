@@ -48,6 +48,7 @@ arm9 GetMonIconPalette 02074364 3
 # ability expansion
 arm9 GetBoxMonData_EditedCases_hook 0206E6E0 3
 arm9 SetBoxMonData_EditedCases_hook 0206EE28 0
+arm9 AddBoxMonData_EditedCases_hook 0206F67C 0
 
 # wild mon hidden ability/form stuff
 #02247910
@@ -136,6 +137,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_PlayFaintAnimation 0223E290 3
 0012 BtlCmd_TryBreakScreens 02242E00 3
 0012 BtlCmd_ResetAllStatChanges 0223FA1C 3
+0012 BtlCmd_CheckToxicSpikes 02243E6C 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -546,3 +548,10 @@ arm9 ScrCmd_MartBuy 02048060 1
 
 # expand heal blocked moves
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
+
+arm9 SetupAndStartTutorialBattle 02051334 1
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+0010 TestBattle_AISelectMove 0221BEF4 2
+0010 TestBattle_AIPickCommand 022205BC 2
+#endif

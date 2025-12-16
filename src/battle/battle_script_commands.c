@@ -116,6 +116,7 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp);
 BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* sp);
 BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -395,6 +396,7 @@ const u8 *BattleScrCmdNames[] =
     "CheckTargetIsPartner",
     "ClearSmog",
     "GoToIfThirdType",
+    "GoToIfTerastallized",
     // "YourCustomCommand",
 };
 
@@ -3321,7 +3323,7 @@ BOOL btl_scr_cmd_108_strengthsapcalc(void* bw UNUSED, struct BattleStruct* sp) {
 }
 
 /**
- *  @brief script command to check if the target is partner or not. 
+ *  @brief script command to check if the target is partner or not.
  *  used for pollen puff because TryHelpingHand has unique conditions built in
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -3339,7 +3341,7 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp) {
         IncrementBattleScriptPtr(sp, adrs);
     //    debug_printf("target is ally\n")
     }
-    
+
     return FALSE;
 }
 
@@ -4346,7 +4348,7 @@ BOOL btl_scr_cmd_10B_gotoifthirdtype(void *bsys UNUSED, struct BattleStruct *ctx
         type = TYPE_NORMAL;
 
     // Proceed only if type ID is a valid, existing type and our types match.
-    if (type >= 0 && type < NUMBER_OF_MON_TYPES && ctx->battlemon[battlerID].type3 == type) 
+    if (type >= 0 && type < NUMBER_OF_MON_TYPES && ctx->battlemon[battlerID].type3 == type)
         IncrementBattleScriptPtr(ctx, address);
 
     return FALSE;
@@ -4361,5 +4363,28 @@ BOOL btl_scr_cmd_10C_gotoifterastallized(void *bsys UNUSED, struct BattleStruct 
     if (ctx->battlemon[battlerID].is_currently_terastallized)
         IncrementBattleScriptPtr(ctx, address);
 
+    return FALSE;
+}
+
+BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int side = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    if (ctx->scw[side].toxicSpikesLayers) {
+        ctx->calc_work = ctx->scw[side].toxicSpikesLayers;
+        ctx->addeffect_type = ADD_EFFECT_TOXIC_SPIKES;
+        ctx->state_client = battlerID;
+        if (HasType(ctx, battlerID, TYPE_POISON)) {
+            ctx->side_condition[side] &= ~SIDE_STATUS_TOXIC_SPIKES;
+            ctx->scw[side].toxicSpikesLayers = 0;
+            ctx->calc_work = 0;
+        }
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
     return FALSE;
 }
