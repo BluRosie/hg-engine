@@ -2,5 +2,5 @@
 
 .data
 
-_000:
+_Start:
     End 

@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // The twisted dimensions returned to normal!
     PrintGlobalMessage 1076, TAG_NONE
     Wait 

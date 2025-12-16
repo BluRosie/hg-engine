@@ -2,37 +2,43 @@
 
 .data
 
-_000:
+_Start:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30
-    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_PARALYSIS, Paralyzed
-    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_BURN, Burned
-    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_SLEEP, Asleep
-    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_POISON, Poisoned
-    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_BAD_POISON, Poisoned
-    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_CONFUSION, Confused
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_PARALYSIS, _ParalyzedMessage
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_BURN, _BurnedMessage
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_SLEEP, _AsleepMessage
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_POISON, _PoisonedMessage
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_BAD_POISON, _PoisonedMessage
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_CONFUSION, _ConfusedMessage
+    End
     
-Paralyzed:
+_ParalyzedMessage:
     // {0} is already paralyzed!
     PrintMessage 133, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
-    GoTo Continue
-Burned:
+    GoTo _End
+
+_BurnedMessage:
     // {0} is already burned!
     PrintMessage 98, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
-    GoTo Continue
-Asleep:
+    GoTo _End
+
+_AsleepMessage:
     // {0} is already asleep!
     PrintMessage 57, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
-    GoTo Continue
-Poisoned:
+    GoTo _End
+
+_PoisonedMessage:
     // {0} is already poisoned!
     PrintMessage 76, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
-    GoTo Continue
-Confused:
+    GoTo _End
+
+_ConfusedMessage:
     // {0} is already confused!
     PrintMessage 159, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
-Continue:
+
+_End:
     Wait
     WaitButtonABTime 30
     End

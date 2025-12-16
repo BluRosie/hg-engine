@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} hid underwater!
     // BufferMessage 229, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     GoToEffectScript 

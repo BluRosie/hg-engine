@@ -2,6 +2,6 @@
 
 .data
 
-_000:
+_Start:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SPLASH
     End 

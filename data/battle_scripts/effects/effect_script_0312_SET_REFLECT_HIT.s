@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Baddy Bad.
+_Start:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT, MOVE_SIDE_EFFECT_ON_HIT|MOVE_SUBSCRIPT_PTR_REFLECT
     CalcCrit 
     CalcDamage 

@@ -2,9 +2,9 @@
 
 .data
 
-_000:
-    TryLightScreen _003
+_Start:
+    TryLightScreen _End
     Call BATTLE_SUBSCRIPT_ANIMATION_PREPARED_MESSAGE
 
-_003:
+_End:
     End 

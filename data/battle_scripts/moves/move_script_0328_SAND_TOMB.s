@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} was trapped by Sand Tomb!
     BufferMessage 245, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     GoToEffectScript 

@@ -2,11 +2,11 @@
 
 .data
 
-Begin:
-    SwitchInAbilityCheck LoopEnd
+_Start:
+    SwitchInAbilityCheck _End
     CallFromVar BSCRIPT_VAR_TEMP_DATA
-    GoTo Begin
+    GoTo _Start
 
-LoopEnd:
+_End:
     End 
 

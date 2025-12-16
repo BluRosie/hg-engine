@@ -2,16 +2,17 @@
 
 .data
 
-_000:
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_STATUS, STATUS_NONE, _011
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_ABILITY, ABILITY_COMATOSE, _011
+// Called by Hex.
+_Start:
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_STATUS, STATUS_NONE, _TargetHasStatus
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_ABILITY, ABILITY_COMATOSE, _TargetHasStatus
     UpdateVar OPCODE_SET, BSCRIPT_VAR_POWER_MULTI, 10
-    GoTo _015
+    GoTo _CalcDamage
 
-_011:
+_TargetHasStatus:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_POWER_MULTI, 20
 
-_015:
+_CalcDamage:
     CalcCrit 
     CalcDamage 
     End 

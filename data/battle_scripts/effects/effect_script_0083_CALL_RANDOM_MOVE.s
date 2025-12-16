@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Metronome.
+_Start:
     SetPsychicTerrainMoveUsedFlag 
     PrintAttackMessage 
     Wait 
@@ -10,14 +11,14 @@ _000:
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
     Metronome 
-    GotoIfCurrentMoveIsValidForParentalBond _012
+    GotoIfCurrentMoveIsValidForParentalBond _HandleParentalBond
 
-_010:
+_WaggleMessage:
     // Waggling a finger let it use {1}!
     PrintMessage 1483, TAG_MOVE_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
     GoToMoveScript FALSE
     End
 
-_012:
+_HandleParentalBond:
     Call BATTLE_SUBSCRIPT_HANDLE_PARENTAL_BOND
-    GoTo _010
+    GoTo _WaggleMessage

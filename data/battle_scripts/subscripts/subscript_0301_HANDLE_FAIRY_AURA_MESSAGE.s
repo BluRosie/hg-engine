@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} is radiating a fairy aura!
     PrintMessage 1291, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     Wait 

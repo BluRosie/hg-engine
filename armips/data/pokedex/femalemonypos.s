@@ -1083,5 +1083,6 @@
 /* SPECIES_IRON_CROWN      */ .halfword 24
 /* SPECIES_TERAPAGOS       */ .halfword 24
 /* SPECIES_PECHARUNT       */ .halfword 24
+/* SPECIES_CELESTINA       */ .halfword 24
 
 .close

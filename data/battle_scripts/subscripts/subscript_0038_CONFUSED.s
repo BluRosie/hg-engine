@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} is confused!
     PrintMessage 150, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 

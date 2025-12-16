@@ -2,14 +2,15 @@
 
 .data
 
-_000:
-    CheckSubstitute BATTLER_CATEGORY_SIDE_EFFECT_MON, _018
-    SetBindingTurns _018
+// Called by Bind, Wrap, Fire Spin, Clamp, Sand Tomb and Magma Storm.
+_Start:
+    CheckSubstitute BATTLER_CATEGORY_SIDE_EFFECT_MON, _End
+    SetBindingTurns _End
     PrintBufferedMessage 
     Wait 
     WaitButtonABTime 30
     UpdateMonDataFromVar OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_BIND_TARGET, BSCRIPT_VAR_BATTLER_ATTACKER
     UpdateMonDataFromVar OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_BINDING_MOVE_NO, BSCRIPT_VAR_MOVE_NO_CUR
 
-_018:
+_End:
     End 

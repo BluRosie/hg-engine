@@ -2,8 +2,9 @@
 
 .data
 
-_000:
-    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _016
+_Start:
+    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _DisguiseMessage
+    // Temporarily remove the visual effect of Substitute to show the form change.
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_SUB_OUT
     Wait 
     RestoreSprite BATTLER_CATEGORY_MSG_TEMP
@@ -11,13 +12,14 @@ _000:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_SUB_IN
     Wait 
 
-_016:
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_ABILITY, ABILITY_ICE_FACE, _skipDisguiseMessage
+_DisguiseMessage:
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_ABILITY, ABILITY_ICE_FACE, _BreakDisguise
     // Its disguise served it as a decoy!
     PrintMessage 1131, TAG_NONE
     Wait 
     WaitButtonABTime 30
-_skipDisguiseMessage:
+
+_BreakDisguise:
     PlaySound BATTLER_CATEGORY_MSG_TEMP, 1980
     SetMosaic BATTLER_CATEGORY_MSG_TEMP, 8, 1
     Wait 
@@ -25,7 +27,7 @@ _skipDisguiseMessage:
     PlaySound BATTLER_CATEGORY_MSG_TEMP, 1984
     SetMosaic BATTLER_CATEGORY_MSG_TEMP, 0, 1
     Wait 
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_ABILITY, ABILITY_ICE_FACE, _067
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_ABILITY, ABILITY_ICE_FACE, _IceFaceMessage
     // {0}’s disguise was busted!
     PrintMessage 1351, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 
@@ -35,13 +37,11 @@ _skipDisguiseMessage:
     UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     GoToSubscript BATTLE_SUBSCRIPT_UPDATE_HP
-    GoTo _074
+    End
 
-_067:
+_IceFaceMessage:
     // {0} transformed!
     PrintMessage 721, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
-
-_074:
-    End 
+    End

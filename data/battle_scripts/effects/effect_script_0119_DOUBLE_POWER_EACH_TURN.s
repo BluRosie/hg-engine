@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Fury Cutter.
+_Start:
     CalcFuryCutterPower 
     CalcCrit 
     CalcDamage 

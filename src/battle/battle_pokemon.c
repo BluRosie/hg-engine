@@ -603,7 +603,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
 
         if (fight_type & BATTLE_TYPE_WIRELESS)
         {
-            if (fight_type & BATTLE_TYPE_BATTLE_TOWER)
+            if (fight_type & BATTLE_TYPE_FRONTIER)
             {
                 mp->msg_id = BATTLE_MSG_DOUBLE_TOWER_BATTLE_SEND_OUT;
                 mp->msg_tag = TAG_TRCLASS_TRNAME_NICKNAME_TRCLASS_TRNAME_NICKNAME;
@@ -842,6 +842,7 @@ void LONG_CALL BattleFormChange(int client, int form_no, void* bw, struct Battle
 
     sp->battlemon[client].type1 = GetMonData(pp2, MON_DATA_TYPE_1, NULL);
     sp->battlemon[client].type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
+    sp->battlemon[client].type3 = TYPE_TYPELESS;
     sp->battlemon[client].ability_activated_flag = FALSE;
 
     // need to update weight as well

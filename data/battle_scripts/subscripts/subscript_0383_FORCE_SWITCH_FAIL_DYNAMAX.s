@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // The move was blocked by the power of Dynamax!
     BufferMessage 1490, TAG_NONE
     PrintAttackMessage

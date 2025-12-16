@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} tucked in its head!
     // BufferMessage 217, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     GoToEffectScript 

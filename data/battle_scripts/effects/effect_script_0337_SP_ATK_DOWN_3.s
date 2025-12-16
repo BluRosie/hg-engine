@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Not called in vanilla.
+_Start:
     CalcCrit 
     CalcDamage 
     End 

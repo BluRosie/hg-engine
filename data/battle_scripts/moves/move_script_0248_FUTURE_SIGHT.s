@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} foresaw an attack!
     BufferMessage 472, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     GoToEffectScript 

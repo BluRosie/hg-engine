@@ -2,11 +2,11 @@
 
 .data
 
-_000:
-    GotoIfTerrainOverlayIsType GRASSY_TERRAIN, _004
-    GoTo _end
+_Start:
+    GotoIfTerrainOverlayIsType GRASSY_TERRAIN, _HandleGrassyTerrain
+    End
 
-_004:
+_HandleGrassyTerrain:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // {0}’s HP was restored.
@@ -14,5 +14,4 @@ _004:
     Wait 
     WaitButtonABTime 30
     Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
-_end:
     End 

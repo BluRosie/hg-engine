@@ -2,9 +2,9 @@
 
 .data
 
-_000:
-    CheckSubstitute BATTLER_CATEGORY_DEFENDER, _028
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HEAL_BLOCK_TURNS, 0, _028
+_Start:
+    CheckSubstitute BATTLER_CATEGORY_DEFENDER, _HealBlockFailed
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HEAL_BLOCK_TURNS, 0, _HealBlockFailed
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
     UpdateMonData OPCODE_FLAG_ON, BATTLER_CATEGORY_DEFENDER, BMON_DATA_MOVE_EFFECT, MOVE_EFFECT_FLAG_HEAL_BLOCK
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HEAL_BLOCK_TURNS, 5
@@ -14,8 +14,9 @@ _000:
     WaitButtonABTime 30
     End 
 
-_028:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MOVE_NO_CUR, MOVE_PSYCHIC_NOISE, _048
+_HealBlockFailed:
+    // Don't play the failure message for Psychic Noise, since it can still deal damage.
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MOVE_NO_CUR, MOVE_PSYCHIC_NOISE, _End
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 15
@@ -25,5 +26,5 @@ _028:
     WaitButtonABTime 30
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK
 
-_048:
+_End:
     End 

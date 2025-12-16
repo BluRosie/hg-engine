@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Flail and Reversal.
+_Start:
     CalcFlailPower 
     CalcCrit 
     CalcDamage 

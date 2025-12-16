@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // But it failed!
     PrintMessage 796, TAG_NONE
     Wait 
