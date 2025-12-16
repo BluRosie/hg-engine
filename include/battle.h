@@ -7,7 +7,6 @@
 #include "pokemon.h"
 #include "task.h"
 #include "save.h"
-#include "bag_cursor.h"
 #include "constants/moves.h"
 
 #define CLIENT_MAX 4
@@ -1517,7 +1516,7 @@ struct BattleSystem {
     /* 0x38 */ int maxBattlers;
     struct PlayerProfile *playerProfile[4];
     void *bag;
-    struct BagCursor *bagCursor;
+    void *bagCursor;
     void *pokedex;
     void *storage;
     struct Party *trainerParty[4];
