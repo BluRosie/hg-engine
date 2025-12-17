@@ -74,7 +74,7 @@ def validate_text(text, valid_chars, valid_commands, filename):
 
         # normal
         if ch not in valid_chars:
-            errors.append((i, f'Invalid character U+{ord(ch):04X} ({repr(ch)})'))
+            errors.append((i, f'Invalid character U+{ord(ch):04X} ({repr(ch)}). Refer to charmap.txt'))
 
         i += 1
 
