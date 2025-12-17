@@ -3484,39 +3484,39 @@ struct BattleSetupSub_138 {
 };
 
 struct BattleSetup {
-    u32 battleType;                     // 0x0
-    struct Party *party[4];             // 0x4
-    int winFlag;                        // 0x14
-    int trainerId[4];                   // 0x18
-    TRAINER_DATA trainer[4];            // 0x28
-    void *profile[4];                   // 0xF8
-    void *bag;                          // 0x108
-    void *bagCursor;                    // 0x10C
-    void *pokedex;                      // 0x110
-    void *storagePC;                    // 0x114
-    void *chatot[4];                    // 0x118
+    u32 battleType;                      // 0
+    struct Party *party[4];           // 4
+    int winFlag;                         // 14
+    int trainerId[4];          // 18
+    TRAINER_DATA trainer[4];        // 28
+    void *profile[4]; // f8
+    void *bag;                            // 108
+    void *bagCursor;                // 10c
+    void *pokedex;                    // 110
+    void *storagePC;                // 114
+    void *chatot[4];   // 118
     void *unk_128;
     void *wifiHistory;
-    struct OPTIONS *options;            // 0x130
+    struct OPTIONS *options; // 130
     void *unk_134;
     struct BattleSetupSub_138 unk138;
-    void *gameStats;                    // 0x144
-    void *palPad;                       // 0x148
-    BattleBg battleBg;                  // 0x14C
+    void *gameStats; // 144
+    void *palPad;   // 148
+    BattleBg battleBg;    // 14C
     Terrain terrain;
-    u32 mapSection;                     // 0x154
-    u32 mapNumber;                      // 0x158
-    TIMEOFDAY timeOfDay;                // 0x15C
-    u32 evolutionLocation;              // 0x160
+    u32 mapSection;        // 154
+    u32 mapNumber;         // 158
+    TIMEOFDAY timeOfDay;   // 15C
+    u32 evolutionLocation; // 160
     u32 unk_164;
-    BOOL metBill;                       // 0x168
-    int momsSavingsActive;              // 0x16C
+    BOOL metBill;          // 168
+    int momsSavingsActive; // 16C
     u32 unk_170;
-    u32 weatherType;                    // 0x174
-    int levelUpFlag;                    // 0x178
+    u32 weatherType; // 174
+    int levelUpFlag; // 178
     u8 filler_17C[0x10];
-    u32 battleSpecial;                  // 0x18C
-    int safariBalls;                    // 0x190
+    u32 battleSpecial; // 18C
+    int safariBalls;   // 190
     BOOL fixedDamaageMovesBanned;
     void *evolutionTaskData;
     int unk_19C;
@@ -3527,9 +3527,9 @@ struct BattleSetup {
     int unk1B4;
     void *unk1B8;
     int unk1BC;
-    SaveData *saveData;                 // 0x1C0
+    SaveData *saveData; // 1c0
     int unk1C4;
-    struct PartyPokemon *bugContestMon; // 0x1C8
+    struct PartyPokemon *bugContestMon; // 1c8
     u8 unk1CC[4];
     BOOL unk_1D0;
 };
@@ -4043,6 +4043,14 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys);
  * @brief Callback for loading custom battle backgrounds
  */
 void LONG_CALL BattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp);
+void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp);
+void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *target);
+int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler);
+void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
+#endif
 
 /**
  * @brief Information used for selecting an item on the bottom screen

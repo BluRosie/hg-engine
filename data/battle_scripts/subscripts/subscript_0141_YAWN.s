@@ -17,11 +17,13 @@ afterLeafGuardCheck:
 checkGrassForFlowerVeilSingle:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _101
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _101
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _101
     GoTo afterGrassChecks
 
 checkGrassForFlowerVeilDouble:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, handleFlowerVeilMessage
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, handleFlowerVeilMessage
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, handleFlowerVeilMessage
 
 afterGrassChecks:
     GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, checkElectricTerrain

@@ -484,8 +484,8 @@ a {COLOR 255}Silver Feather{COLOR 0}
 a {COLOR 255}Rainbow Feather{COLOR 0}
 a {COLOR 255}Mystery Egg{COLOR 0}
 a {COLOR 255}Red Apricorn{COLOR 0}
-a {COLOR 255}Blue Apricorn{COLOR 0}
 a {COLOR 255}Yellow Apricorn{COLOR 0}
+a {COLOR 255}Blue Apricorn{COLOR 0}
 a {COLOR 255}Green Apricorn{COLOR 0}
 a {COLOR 255}Pink Apricorn{COLOR 0}
 a {COLOR 255}White Apricorn{COLOR 0}

@@ -484,8 +484,8 @@ A strange feather that gleams with a\nsilvery color.
 A strange feather that gleams in\nrainbow colors.
 An Egg obtained from Mr. Pokémon. It\nhas a mysterious pattern on it, and\nwhat is in the Egg is unknown.
 A red Apricorn. It has a pungent\nscent that assails the nostrils.
-A blue Apricorn. It has a slightly\ngrassy smell to it.
 A yellow Apricorn. It has a light,\nrefreshing scent.
+A blue Apricorn. It has a slightly\ngrassy smell to it.
 A green Apricorn. It has a\nmysterious and aromatic scent.
 A pink Apricorn. It has a pleasantly\nsweet scent.
 A white Apricorn. It doesn’t have\nany aroma at all.
