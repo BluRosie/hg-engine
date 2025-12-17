@@ -683,10 +683,6 @@ REQUIRED_DIRECTORIES += $(TRAINER_GFX_DIR)
 
 $(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES)
 	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
-	for file in $^; do \
-    	tmp=$(MSGDATA_DIR)/.$$(basename $$file); \
-    	$(PYTHON) tools/source/dumptools/fix_quotes.py $$file $$tmp; \
-    	$(MSGENC) -e -c $(CHARMAP) $$tmp $(MSGDATA_DIR)/7_$$(basename $$file .txt); \
-    	rm -f $$tmp; \
-    done
+	for file in $(MSGDATA_DEPENDENCIES); do $(PYTHON) tools/source/dumptools/validate_text_archive.py $(CHARMAP) $$file || exit 1; done
+	for file in $^; do $(MSGENC) -e -c $(CHARMAP) $$file $(MSGDATA_DIR)/7_$$(basename $$file .txt); done
 	$(NARCHIVE) create $@ $(MSGDATA_DIR) -nf
