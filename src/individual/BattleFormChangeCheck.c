@@ -15,6 +15,16 @@
 // Ou use alguma estrutura já existente na BattleStruct se houver espaço
 //static u8 saved_zacian_pp[4] = {0, 0, 0, 0};
 //static u8 saved_zamazenta_pp[4] = {0, 0, 0, 0};
+//static u8 saved_zacian_slot = 255; // Slot onde estava o Iron Head
+//static u8 saved_zamazenta_slot = 255; // Slot onde estava o Iron Head
+
+//static u8 sIronHeadOriginalPP = 0;
+//static u8 sIronHeadSlot = 0xFF;
+//static BOOL sIronHeadPPStored = FALSE;
+
+static u8 sIronHeadOriginalPP = 0;
+static BOOL sIronHeadStored = FALSE;
+static u8 sBehemothUses = 0;
 
 /**
  *  @brief check if a form change needs to happen.  if so, return TRUE and populate *seq_no with the subscript to run
@@ -336,227 +346,55 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             }
         }
 
-        // handle Zacian (já existe)
-        /*if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZACIAN)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].item == ITEM_RUSTED_SWORD))
+        // =====================================================
+        // Zacian / Zamazenta – Transformar para forma Crowned
+        // =====================================================
+
+        if (
+            sp->battlemon[sp->battlerIdTemp].hp
+        && (
+                (sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZACIAN
+            && sp->battlemon[sp->battlerIdTemp].item == ITEM_RUSTED_SWORD)
+            || (sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZAMAZENTA
+            && sp->battlemon[sp->battlerIdTemp].item == ITEM_RUSTED_SHIELD)
+            )
+        )
         {
             form_no = 1;
-            if(sp->battlemon[sp->battlerIdTemp].form_no != form_no)
-            {
-                struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-                sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-                *seq_no = SUB_SEQ_FORM_CHANGE;
-                SetMonData(pp2, MON_DATA_FORM, &form_no);
-                ret = TRUE;
-                break;
-            }
-        }
 
-        // handle Zamazenta
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZAMAZENTA)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].item == ITEM_RUSTED_SHIELD))
-        {
-            form_no = 1;
-            if(sp->battlemon[sp->battlerIdTemp].form_no != form_no)
+            if (sp->battlemon[sp->battlerIdTemp].form_no != form_no)
             {
-                struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-                sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-                *seq_no = SUB_SEQ_FORM_CHANGE;
-                SetMonData(pp2, MON_DATA_FORM, &form_no);
-                ret = TRUE;
-                break;
-            }
-        }
+                struct PartyPokemon *pp2 =
+                    BattleWorkPokemonParamGet(
+                        bw,
+                        sp->battlerIdTemp,
+                        sp->sel_mons_no[sp->battlerIdTemp]);
 
-        // Revert Zacian when item is lost
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZACIAN)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].form_no == 1)
-         && (sp->battlemon[sp->battlerIdTemp].item != ITEM_RUSTED_SWORD))
-        {
-            form_no = 0;
-            struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-            sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            SetMonData(pp2, MON_DATA_FORM, &form_no);
-            ret = TRUE;
-            break;
-        }
-
-        // Revert Zamazenta when item is lost
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZAMAZENTA)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].form_no == 1)
-         && (sp->battlemon[sp->battlerIdTemp].item != ITEM_RUSTED_SHIELD))
-        {
-            form_no = 0;
-            struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-            sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            SetMonData(pp2, MON_DATA_FORM, &form_no);
-            ret = TRUE;
-            break;
-        }*/
-        // handle Zacian - transform and change moves
-        /*if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZACIAN)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].item == ITEM_RUSTED_SWORD))
-        {
-            form_no = 1;
-            if(sp->battlemon[sp->battlerIdTemp].form_no != form_no)
-            {
-                struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
                 sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-                
-                // Substituir Iron Head por Behemoth Blade
-                for(int move_slot = 0; move_slot < 4; move_slot++)
+
+                for (int slot = 0; slot < 4; slot++)
                 {
-                    u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                    if(current_move == MOVE_IRON_HEAD)
+                    if (sp->battlemon[sp->battlerIdTemp].move[slot] == MOVE_IRON_HEAD)
                     {
-                        u16 new_move = MOVE_BEHEMOTH_BLADE;
-                        SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                        // Atualizar também no battlemon
-                        sp->battlemon[sp->battlerIdTemp].move[move_slot] = new_move;
-                    }
-                }
-                
-                *seq_no = SUB_SEQ_FORM_CHANGE;
-                SetMonData(pp2, MON_DATA_FORM, &form_no);
-                ret = TRUE;
-                break;
-            }
-        }
-
-        // handle Zamazenta - transform and change moves
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZAMAZENTA)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].item == ITEM_RUSTED_SHIELD))
-        {
-            form_no = 1;
-            if(sp->battlemon[sp->battlerIdTemp].form_no != form_no)
-            {
-                struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-                sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-                
-                // Substituir Iron Head por Behemoth Bash
-                for(int move_slot = 0; move_slot < 4; move_slot++)
-                {
-                    u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                    if(current_move == MOVE_IRON_HEAD)
-                    {
-                        u16 new_move = MOVE_BEHEMOTH_BASH;
-                        SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                        // Atualizar também no battlemon
-                        sp->battlemon[sp->battlerIdTemp].move[move_slot] = new_move;
-                    }
-                }
-                
-                *seq_no = SUB_SEQ_FORM_CHANGE;
-                SetMonData(pp2, MON_DATA_FORM, &form_no);
-                ret = TRUE;
-                break;
-            }
-        }
-
-        // Revert Zacian when item is lost - restore moves
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZACIAN)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].form_no == 1)
-         && (sp->battlemon[sp->battlerIdTemp].item != ITEM_RUSTED_SWORD))
-        {
-            form_no = 0;
-            struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-            sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-            
-            // Reverter Behemoth Blade para Iron Head
-            for(int move_slot = 0; move_slot < 4; move_slot++)
-            {
-                u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                if(current_move == MOVE_BEHEMOTH_BLADE)
-                {
-                    u16 new_move = MOVE_IRON_HEAD;
-                    SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                    // Atualizar também no battlemon
-                    sp->battlemon[sp->battlerIdTemp].move[move_slot] = new_move;
-                }
-            }
-            
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            SetMonData(pp2, MON_DATA_FORM, &form_no);
-            ret = TRUE;
-            break;
-        }
-
-        // Revert Zamazenta when item is lost - restore moves
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZAMAZENTA)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].form_no == 1)
-         && (sp->battlemon[sp->battlerIdTemp].item != ITEM_RUSTED_SHIELD))
-        {
-            form_no = 0;
-            struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-            sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-            
-            // Reverter Behemoth Bash para Iron Head
-            for(int move_slot = 0; move_slot < 4; move_slot++)
-            {
-                u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                if(current_move == MOVE_BEHEMOTH_BASH)
-                {
-                    u16 new_move = MOVE_IRON_HEAD;
-                    SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                    // Atualizar também no battlemon
-                    sp->battlemon[sp->battlerIdTemp].move[move_slot] = new_move;
-                }
-            }
-            
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            SetMonData(pp2, MON_DATA_FORM, &form_no);
-            ret = TRUE;
-            break;
-        }*/
-
-        // handle Zacian - transform and change moves
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZACIAN)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].item == ITEM_RUSTED_SWORD))
-        {
-            form_no = 1;
-            if(sp->battlemon[sp->battlerIdTemp].form_no != form_no)
-            {
-                struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-                sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-                
-                // Substituir Iron Head por Behemoth Blade
-                for(int move_slot = 0; move_slot < 4; move_slot++)
-                {
-                    u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                    if(current_move == MOVE_IRON_HEAD)
-                    {
-                        u16 new_move = MOVE_BEHEMOTH_BLADE;
-                        u8 new_pp = 5; // PP máximo do Behemoth Blade
-                        u8 current_pp = GetMonData(pp2, MON_DATA_MOVE1PP + move_slot, NULL);
-                        
-                        // Ajustar PP: se o PP atual for maior que o máximo do novo golpe, ajusta para o máximo
-                        if(current_pp > new_pp)
+                        if (!sIronHeadStored)
                         {
-                            current_pp = new_pp;
+                            sIronHeadOriginalPP =
+                                sp->battlemon[sp->battlerIdTemp].pp[slot];
+                            sIronHeadStored = TRUE;
+                            sBehemothUses = 0;
                         }
-                        
-                        SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                        SetMonData(pp2, MON_DATA_MOVE1PP + move_slot, &current_pp);
-                        
-                        // Atualizar também no battlemon se necessário
-                        if(sp->battlemon[sp->battlerIdTemp].move)
-                        {
-                            sp->battlemon[sp->battlerIdTemp].move[move_slot] = new_move;
-                        }
+
+                        u16 new_move =
+                            (sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZACIAN)
+                            ? MOVE_BEHEMOTH_BLADE
+                            : MOVE_BEHEMOTH_BASH;
+
+                        sp->battlemon[sp->battlerIdTemp].move[slot] = new_move;
+                        SetMonData(pp2, MON_DATA_MOVE1 + slot, &new_move);
+                        break;
                     }
                 }
-                
+
                 *seq_no = SUB_SEQ_FORM_CHANGE;
                 SetMonData(pp2, MON_DATA_FORM, &form_no);
                 ret = TRUE;
@@ -564,309 +402,87 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             }
         }
 
-        // handle Zamazenta - transform and change moves
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZAMAZENTA)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].item == ITEM_RUSTED_SHIELD))
+        // =====================================================
+        // Behemoth – limitar PP a 5 e contar usos
+        // =====================================================
+
+        for (int slot = 0; slot < 4; slot++)
         {
-            form_no = 1;
-            if(sp->battlemon[sp->battlerIdTemp].form_no != form_no)
+            u16 move = sp->battlemon[sp->battlerIdTemp].move[slot];
+
+            if (move == MOVE_BEHEMOTH_BLADE || move == MOVE_BEHEMOTH_BASH)
             {
-                struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-                sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-                
-                // Substituir Iron Head por Behemoth Bash
-                for(int move_slot = 0; move_slot < 4; move_slot++)
+                if (sp->battlemon[sp->battlerIdTemp].pp[slot] > 5)
+                    sp->battlemon[sp->battlerIdTemp].pp[slot] = 5;
+
+                // Detectar uso (PP diminuiu)
+                static u8 lastPP[4] = {0};
+
+                if (lastPP[slot] != 0 &&
+                    sp->battlemon[sp->battlerIdTemp].pp[slot] < lastPP[slot])
                 {
-                    u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                    if(current_move == MOVE_IRON_HEAD)
-                    {
-                        u16 new_move = MOVE_BEHEMOTH_BASH;
-                        u8 new_pp = 5; // PP máximo do Behemoth Bash
-                        u8 current_pp = GetMonData(pp2, MON_DATA_MOVE1PP + move_slot, NULL);
-                        
-                        // Ajustar PP: se o PP atual for maior que o máximo do novo golpe, ajusta para o máximo
-                        if(current_pp > new_pp)
-                        {
-                            current_pp = new_pp;
-                        }
-                        
-                        SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                        SetMonData(pp2, MON_DATA_MOVE1PP + move_slot, &current_pp);
-                        
-                        // Atualizar também no battlemon se necessário
-                        if(sp->battlemon[sp->battlerIdTemp].move)
-                        {
-                            sp->battlemon[sp->battlerIdTemp].move[move_slot] = new_move;
-                        }
-                    }
+                    sBehemothUses++;
                 }
-                
-                *seq_no = SUB_SEQ_FORM_CHANGE;
-                SetMonData(pp2, MON_DATA_FORM, &form_no);
-                ret = TRUE;
-                break;
+
+                lastPP[slot] = sp->battlemon[sp->battlerIdTemp].pp[slot];
             }
         }
 
-        // Revert Zacian when item is lost - restore moves
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZACIAN)
-        && (sp->battlemon[sp->battlerIdTemp].hp)
-        && (sp->battlemon[sp->battlerIdTemp].form_no == 1)
-        && (sp->battlemon[sp->battlerIdTemp].item != ITEM_RUSTED_SWORD))
+        // =====================================================
+        // Zacian / Zamazenta – Reverter para forma normal
+        // =====================================================
+
+        if (
+            sp->battlemon[sp->battlerIdTemp].hp
+        && sp->battlemon[sp->battlerIdTemp].form_no == 1
+        && (
+                (sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZACIAN
+            && sp->battlemon[sp->battlerIdTemp].item != ITEM_RUSTED_SWORD)
+            || (sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZAMAZENTA
+            && sp->battlemon[sp->battlerIdTemp].item != ITEM_RUSTED_SHIELD)
+            )
+        )
         {
             form_no = 0;
-            struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
+
+            struct PartyPokemon *pp2 =
+                BattleWorkPokemonParamGet(
+                    bw,
+                    sp->battlerIdTemp,
+                    sp->sel_mons_no[sp->battlerIdTemp]);
+
             sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-            
-            // Reverter Behemoth Blade para Iron Head
-            for(int move_slot = 0; move_slot < 4; move_slot++)
+
+            for (int slot = 0; slot < 4; slot++)
             {
-                u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                if(current_move == MOVE_BEHEMOTH_BLADE)
+                u16 move = sp->battlemon[sp->battlerIdTemp].move[slot];
+
+                if (move == MOVE_BEHEMOTH_BLADE || move == MOVE_BEHEMOTH_BASH)
                 {
-                    u16 new_move = MOVE_IRON_HEAD;
-                    u8 new_pp = 15; // PP máximo do Iron Head
-                    u8 current_pp = GetMonData(pp2, MON_DATA_MOVE1PP + move_slot, NULL);
-                    
-                    // O PP atual é mantido, mas não pode exceder o máximo do novo golpe
-                    // Como estamos voltando para Iron Head (15 PP), não precisa ajustar
-                    // Mas vamos manter a lógica para consistência
-                    if(current_pp > new_pp)
-                    {
-                        current_pp = new_pp;
-                    }
-                    
-                    SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                    SetMonData(pp2, MON_DATA_MOVE1PP + move_slot, &current_pp);
-                    
-                    // Atualizar também no battlemon se necessário
-                    if(sp->battlemon[sp->battlerIdTemp].move)
-                    {
-                        sp->battlemon[sp->battlerIdTemp].move[move_slot] = new_move;
-                    }
+                    u8 final_pp =
+                        (sIronHeadOriginalPP >= sBehemothUses)
+                        ? sIronHeadOriginalPP - sBehemothUses
+                        : 0;
+
+                    sp->battlemon[sp->battlerIdTemp].move[slot] = MOVE_IRON_HEAD;
+                    sp->battlemon[sp->battlerIdTemp].pp[slot] = final_pp;
+
+                    SetMonData(pp2, MON_DATA_MOVE1 + slot, &(u16){MOVE_IRON_HEAD});
+                    SetMonData(pp2, MON_DATA_MOVE1PP + slot, &final_pp);
+
+                    sIronHeadOriginalPP = 0;
+                    sIronHeadStored = FALSE;
+                    sBehemothUses = 0;
+                    break;
                 }
             }
-            
+
             *seq_no = SUB_SEQ_FORM_CHANGE;
             SetMonData(pp2, MON_DATA_FORM, &form_no);
             ret = TRUE;
             break;
         }
 
-        // Revert Zamazenta when item is lost - restore moves
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZAMAZENTA)
-        && (sp->battlemon[sp->battlerIdTemp].hp)
-        && (sp->battlemon[sp->battlerIdTemp].form_no == 1)
-        && (sp->battlemon[sp->battlerIdTemp].item != ITEM_RUSTED_SHIELD))
-        {
-            form_no = 0;
-            struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-            sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-            
-            // Reverter Behemoth Bash para Iron Head
-            for(int move_slot = 0; move_slot < 4; move_slot++)
-            {
-                u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                if(current_move == MOVE_BEHEMOTH_BASH)
-                {
-                    u16 new_move = MOVE_IRON_HEAD;
-                    u8 new_pp = 15; // PP máximo do Iron Head
-                    u8 current_pp = GetMonData(pp2, MON_DATA_MOVE1PP + move_slot, NULL);
-                    
-                    // O PP atual é mantido, mas não pode exceder o máximo do novo golpe
-                    if(current_pp > new_pp)
-                    {
-                        current_pp = new_pp;
-                    }
-                    
-                    SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                    SetMonData(pp2, MON_DATA_MOVE1PP + move_slot, &current_pp);
-                    
-                    // Atualizar também no battlemon se necessário
-                    if(sp->battlemon[sp->battlerIdTemp].move)
-                    {
-                        sp->battlemon[sp->battlerIdTemp].move[move_slot] = new_move;
-                    }
-                }
-            }
-            
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            SetMonData(pp2, MON_DATA_FORM, &form_no);
-            ret = TRUE;
-            break;
-        }
-       
-        // handle Zacian - transform and change moves
-        /*if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZACIAN)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].item == ITEM_RUSTED_SWORD))
-        {
-            form_no = 1;
-            if(sp->battlemon[sp->battlerIdTemp].form_no != form_no)
-            {
-                struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-                sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-                
-                // Substituir Iron Head por Behemoth Blade
-                for(int move_slot = 0; move_slot < 4; move_slot++)
-                {
-                    u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                    if(current_move == MOVE_IRON_HEAD)
-                    {
-                        u16 new_move = MOVE_BEHEMOTH_BLADE;
-                        u8 new_pp = 5; // PP máximo do Behemoth Blade
-                        u8 current_pp = GetMonData(pp2, MON_DATA_MOVE1PP + move_slot, NULL);
-                        
-                        // SALVAR o PP original do Iron Head
-                        saved_zacian_pp[move_slot] = current_pp;
-                        
-                        // Ajustar PP: se o PP atual for maior que o máximo do novo golpe, ajusta para o máximo
-                        if(current_pp > new_pp)
-                        {
-                            current_pp = new_pp;
-                        }
-                        
-                        SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                        SetMonData(pp2, MON_DATA_MOVE1PP + move_slot, &current_pp);
-                                               
-                    }
-                }
-                
-                *seq_no = SUB_SEQ_FORM_CHANGE;
-                SetMonData(pp2, MON_DATA_FORM, &form_no);
-                ret = TRUE;
-                break;
-            }
-        }
-
-        // handle Zamazenta - transform and change moves
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZAMAZENTA)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].item == ITEM_RUSTED_SHIELD))
-        {
-            form_no = 1;
-            if(sp->battlemon[sp->battlerIdTemp].form_no != form_no)
-            {
-                struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-                sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-                
-                // Substituir Iron Head por Behemoth Bash
-                for(int move_slot = 0; move_slot < 4; move_slot++)
-                {
-                    u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                    if(current_move == MOVE_IRON_HEAD)
-                    {
-                        u16 new_move = MOVE_BEHEMOTH_BASH;
-                        u8 new_pp = 5; // PP máximo do Behemoth Bash
-                        u8 current_pp = GetMonData(pp2, MON_DATA_MOVE1PP + move_slot, NULL);
-                        
-                        // SALVAR o PP original do Iron Head
-                        saved_zamazenta_pp[move_slot] = current_pp;
-                        
-                        // Ajustar PP: se o PP atual for maior que o máximo do novo golpe, ajusta para o máximo
-                        if(current_pp > new_pp)
-                        {
-                            current_pp = new_pp;
-                        }
-                        
-                        SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                        SetMonData(pp2, MON_DATA_MOVE1PP + move_slot, &current_pp);
-                                               
-                    }
-                }
-                
-                *seq_no = SUB_SEQ_FORM_CHANGE;
-                SetMonData(pp2, MON_DATA_FORM, &form_no);
-                ret = TRUE;
-                break;
-            }
-        }
-
-        // Revert Zacian when item is lost - restore moves
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZACIAN)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].form_no == 1)
-         && (sp->battlemon[sp->battlerIdTemp].item != ITEM_RUSTED_SWORD))
-        {
-            form_no = 0;
-            struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-            sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-            
-            // Reverter Behemoth Blade para Iron Head
-            for(int move_slot = 0; move_slot < 4; move_slot++)
-            {
-                u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                if(current_move == MOVE_BEHEMOTH_BLADE)
-                {
-                    u16 new_move = MOVE_IRON_HEAD;
-                    
-                    // RESTAURAR o PP original do Iron Head
-                    u8 restored_pp = saved_zacian_pp[move_slot];
-                    
-                    // Se não tinha PP salvo (por segurança), usa o PP atual
-                    if(restored_pp == 0)
-                    {
-                        restored_pp = GetMonData(pp2, MON_DATA_MOVE1PP + move_slot, NULL);
-                    }
-                    
-                    SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                    SetMonData(pp2, MON_DATA_MOVE1PP + move_slot, &restored_pp);
-                    
-                    // Limpar o backup
-                    saved_zacian_pp[move_slot] = 0;
-                    
-                }
-            }
-            
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            SetMonData(pp2, MON_DATA_FORM, &form_no);
-            ret = TRUE;
-            break;
-        }
-
-        // Revert Zamazenta when item is lost - restore moves
-        if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZAMAZENTA)
-         && (sp->battlemon[sp->battlerIdTemp].hp)
-         && (sp->battlemon[sp->battlerIdTemp].form_no == 1)
-         && (sp->battlemon[sp->battlerIdTemp].item != ITEM_RUSTED_SHIELD))
-        {
-            form_no = 0;
-            struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, sp->battlerIdTemp, sp->sel_mons_no[sp->battlerIdTemp]);
-            sp->battlemon[sp->battlerIdTemp].form_no = form_no;
-            
-            // Reverter Behemoth Bash para Iron Head
-            for(int move_slot = 0; move_slot < 4; move_slot++)
-            {
-                u16 current_move = GetMonData(pp2, MON_DATA_MOVE1 + move_slot, NULL);
-                if(current_move == MOVE_BEHEMOTH_BASH)
-                {
-                    u16 new_move = MOVE_IRON_HEAD;
-                    
-                    // RESTAURAR o PP original do Iron Head
-                    u8 restored_pp = saved_zamazenta_pp[move_slot];
-                    
-                    // Se não tinha PP salvo (por segurança), usa o PP atual
-                    if(restored_pp == 0)
-                    {
-                        restored_pp = GetMonData(pp2, MON_DATA_MOVE1PP + move_slot, NULL);
-                    }
-                    
-                    SetMonData(pp2, MON_DATA_MOVE1 + move_slot, &new_move);
-                    SetMonData(pp2, MON_DATA_MOVE1PP + move_slot, &restored_pp);
-                    
-                    // Limpar o backup
-                    saved_zamazenta_pp[move_slot] = 0;
-                                      
-                }
-            }
-            
-            *seq_no = SUB_SEQ_FORM_CHANGE;
-            SetMonData(pp2, MON_DATA_FORM, &form_no);
-            ret = TRUE;
-            break;
-        }
-        */
         // handle Zygarde TODO test
         if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_ZYGARDE)
          && (sp->battlemon[sp->battlerIdTemp].hp)
