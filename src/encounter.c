@@ -143,6 +143,64 @@ void SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u
             pid_2 = pid_2 + data_2 - currentNature_2;
             SetMonData(totem, MON_DATA_PERSONALITY, &pid_2);
             break;
+        case SPECIES_NIHILEGO:
+            // Ability:
+            u16 data_3 = ABILITY_BEAST_BOOST;
+            SetMonData(totem, MON_DATA_ABILITY, &data_3);
+
+            // Item:
+            data_3 = ITEM_HARD_STONE;
+            SetMonData(totem, MON_DATA_HELD_ITEM, &data_3);
+
+            // Move slot 1:
+            data_3 = MOVE_TOXIC;
+            SetMonData(totem, MON_DATA_MOVE1, &data_3);
+            data_3 = 99; // GetMoveMaxPP(data_3, 0);
+            SetMonData(totem, MON_DATA_MOVE1PP, &data_3);
+            data_3 = 0;
+            SetMonData(totem, MON_DATA_MOVE1PPUP, &data_3);
+
+            // Move slot 2:
+            data_3 = MOVE_DOUBLE_HIT;
+            SetMonData(totem, MON_DATA_MOVE2, &data_3);
+            data_3 = 0; // GetMoveMaxPP(data_3, 0);
+            SetMonData(totem, MON_DATA_MOVE2PP, &data_3);
+            data_3 = 0;
+            SetMonData(totem, MON_DATA_MOVE2PPUP, &data_3);
+
+            // Move slot 3:
+            data_3 = MOVE_SWIFT;
+            SetMonData(totem, MON_DATA_MOVE3, &data_3);
+            data_3 = 0; // GetMoveMaxPP(data_3, 0);
+            SetMonData(totem, MON_DATA_MOVE3PP, &data_3);
+            data_3 = 0;
+            SetMonData(totem, MON_DATA_MOVE3PPUP, &data_3);
+
+            // Move slot 4:
+            data_3 = MOVE_DUAL_CHOP;
+            SetMonData(totem, MON_DATA_MOVE4, &data_3);
+            data_3 = 0; // GetMoveMaxPP(data_3, 0);
+            SetMonData(totem, MON_DATA_MOVE4PP, &data_3);
+            data_3 = 0;
+            SetMonData(totem, MON_DATA_MOVE4PPUP, &data_3);
+            break;
+
+            // IVs:
+            data_3 = 15;
+            SetMonData(totem, MON_DATA_HP_IV, &data_3);
+            SetMonData(totem, MON_DATA_ATK_IV, &data_3);
+            SetMonData(totem, MON_DATA_DEF_IV, &data_3);
+            SetMonData(totem, MON_DATA_SPEED_IV, &data_3);
+            SetMonData(totem, MON_DATA_SPATK_IV, &data_3);
+            SetMonData(totem, MON_DATA_SPDEF_IV, &data_3);
+
+            // Nature:
+            data_3 = NATURE_IMPISH;
+            u32 pid_3 = GetMonData(totem, MON_DATA_PERSONALITY, NULL);
+            u8 currentNature_3 = pid_3 % 25;
+            pid_3 = pid_3 + data_3 - currentNature_3;
+            SetMonData(totem, MON_DATA_PERSONALITY, &pid_3);
+            break;
 
         default: break;
     }
