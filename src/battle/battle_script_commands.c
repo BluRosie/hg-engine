@@ -4340,9 +4340,11 @@ BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx)
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
-    s32 battlerID = read_battle_script_param(ctx);
-    s32 type = read_battle_script_param(ctx);
-    u32 address = read_battle_script_param(ctx);
+    int side = read_battle_script_param(ctx);
+    int type = read_battle_script_param(ctx);
+    int address = read_battle_script_param(ctx);
+
+    int battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
 
     if (FAIRY_TYPE_IMPLEMENTED == 0 && type == TYPE_FAIRY) // Revert Fairy to Normal if someone tries to add Fairy with the flag disabled.
         type = TYPE_NORMAL;
@@ -4357,8 +4359,10 @@ BOOL btl_scr_cmd_10B_gotoifthirdtype(void *bsys UNUSED, struct BattleStruct *ctx
 BOOL btl_scr_cmd_10C_gotoifterastallized(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
-    s32 battlerID = read_battle_script_param(ctx);
-    u32 address = read_battle_script_param(ctx);
+    int side = read_battle_script_param(ctx);
+    int address = read_battle_script_param(ctx);
+
+    int battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
 
     if (ctx->battlemon[battlerID].is_currently_terastallized)
         IncrementBattleScriptPtr(ctx, address);
