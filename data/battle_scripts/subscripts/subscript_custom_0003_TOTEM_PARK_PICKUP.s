@@ -52,7 +52,7 @@ _GlitteringMessage:
     GoTo _Cleanup
 
 _MeltingMessage:
-    // An Aipom hands {0} a {1}! Hurry, or it'll melt!
+    // An Aipom hands {0} a {1}! Hurry, or it’ll melt!
     PrintMessage 1614, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP
     GoTo _Cleanup
 

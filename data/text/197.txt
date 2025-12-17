@@ -1610,3 +1610,17 @@ The roaring winds extinguished\nthe burning Pokémon!
 The Totem Pokémon’s lowered stats\nare returning to normal!
 The Totem Pokemon’s lowered stats\nhave returned to normal!
 An Aipom hands {STRVAR_1 1, 0, 0}\na {STRVAR_1 8, 1, 0}!
+An Aipom hands {STRVAR_1 1, 0, 0}\na perfectly crisp {STRVAR_1 8, 1, 0}!
+An Aipom hands {STRVAR_1 1, 0, 0}\na glittering {STRVAR_1 8, 1, 0}!
+An Aipom hands {STRVAR_1 1, 0, 0}\na {STRVAR_1 8, 1, 0}! Hurry, or it’ll melt!
+An Aipom cautiously hands {STRVAR_1 1, 0, 0}\na {STRVAR_1 8, 1, 0}!
+An Aipom hands {STRVAR_1 1, 0, 0}\na {STRVAR_1 8, 1, 0}! At this time of year?
+An Aipom hands {STRVAR_1 1, 0, 0}\na blindingly bright {STRVAR_1 8, 1, 0}!
+An Aipom hands {STRVAR_1 1, 0, 0}\na {STRVAR_1 8, 1, 0}! Watch your step!
+An Aipom hands {STRVAR_1 1, 0, 0} a {STRVAR_1 8, 1, 0}!\nHow’s the weather over there?
+An Aipom hands {STRVAR_1 1, 0, 0}\na pleasantly warm {STRVAR_1 8, 1, 0}!
+An Aipom hands {STRVAR_1 1, 0, 0}\na {STRVAR_1 8, 1, 0}! Pointy!
+An Aipom hands {STRVAR_1 1, 0, 0}\na well-chewed {STRVAR_1 8, 1, 0}!
+An Aipom hands {STRVAR_1 1, 0, 0}\nan... {STRVAR_1 8, 1, 0}?\fWhere did they get that?!
+An Aipom hands {STRVAR_1 1, 0, 0}\na hefty {STRVAR_1 8, 1, 0}!
+An Aipom, with considerable strain,\nhoists an {STRVAR_1 8, 1, 0} into {STRVAR_1 1, 0, 0}’s hands!

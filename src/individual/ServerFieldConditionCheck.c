@@ -1877,6 +1877,10 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             targetStatArray[STAT_SPDEF]++; // +1 Special Defense
                             targetStatArray[STAT_SPEED]++; // +1 Speed
                             break;
+                        case SPECIES_AMBIPOM:
+                            targetStatArray[STAT_ATTACK]++; // +1 Attack
+                            targetStatArray[STAT_DEFENSE]++; // +1 Defense
+                            targetStatArray[STAT_SPDEF]++; // +1 Special Defense
                         default: break;
                     }
 
@@ -1918,7 +1922,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 sprintf(buf, "In ENDTURN_TOTEM_PARK_PICKUP\n");
                 debugsyscall(buf);
                 #endif
-
+                
                 if ((BattleTypeGet(bw) & BATTLE_TYPE_TOTEM) == BATTLE_TYPE_TOTEM 
                 && sp->battlemon[BATTLER_ENEMY].species == SPECIES_AMBIPOM
                 && sp->battlemon[BATTLER_ENEMY].item == ITEM_NONE)
@@ -1926,6 +1930,8 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     int parkItems[22] = {ITEM_LUM_BERRY, ITEM_FANCY_APPLE, ITEM_COMET_SHARD, ITEM_RARE_CANDY, ITEM_CASTELIACONE, ITEM_HEART_SCALE, ITEM_TOXIC_ORB, ITEM_SNOWBALL, ITEM_KINGS_ROCK, ITEM_LIGHT_BALL, ITEM_DUBIOUS_DISC, ITEM_LEEK, ITEM_UTILITY_UMBRELLA, ITEM_HEAT_ROCK, ITEM_POISON_BARB, ITEM_TIN_OF_BEANS, ITEM_ODD_KEYSTONE, ITEM_CHIPPED_POT, ITEM_THICK_CLUB, ITEM_RARE_BONE, ITEM_HARD_STONE, ITEM_IRON_BALL};
                     sp->item_work = parkItems[BattleRand(bw) % 22];
                     sp->battlemon[BATTLER_ENEMY].item = sp->item_work;
+                    sp->battlerIdTemp = BATTLER_ENEMY; // TODO: Check if this one is necessary.
+                    sp->state_client = BATTLER_ENEMY; 
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TOTEM_PARK_PICKUP);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
