@@ -39,11 +39,13 @@ _077:
 _singleFlowerVeilGrassCheck:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _singleFlowerVeilHandle
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _singleFlowerVeilHandle
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _singleFlowerVeilHandle
     GoTo _101
 
 _doubleFlowerVeilGrassCheck:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _doubleFlowerVeilHandle
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _doubleFlowerVeilHandle
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _doubleFlowerVeilHandle
 
 _101:
     GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _106
