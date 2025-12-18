@@ -30,7 +30,7 @@
 #define ACTION_SWITCH_SLOT_4 8
 #define ACTION_SWITCH_SLOT_5 9
 
-#define ACTIVE_TEST_SCENARIO scenario_tspikes // scenario_SinglesTest
+#define ACTIVE_TEST_SCENARIO scenario_SinglesTest
 
 // Store current scenario for battle state application and AI scripting
 static const struct TestBattleScenario *g_CurrentScenario = NULL;
