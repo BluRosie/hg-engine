@@ -30,7 +30,7 @@
 #define ACTION_SWITCH_SLOT_4 8
 #define ACTION_SWITCH_SLOT_5 9
 
-#define ACTIVE_TEST_SCENARIO scenario_SinglesTest
+#define ACTIVE_TEST_SCENARIO scenario_tspikes // scenario_SinglesTest
 
 // Store current scenario for battle state application and AI scripting
 static const struct TestBattleScenario *g_CurrentScenario = NULL;
@@ -344,7 +344,440 @@ static const struct TestBattleScenario scenario_DoublesTest = {
     .terrain = 0,
 };
 
+static const struct TestBattleScenario scenario_DoublesFlameOrbAndBurning = {
+    .battleType = BATTLE_TYPE_DOUBLE,
+    .playerParty = {
+        {
+            .species = SPECIES_FLORGES,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_FLOWER_VEIL,
+            .item = ITEM_FLAME_ORB,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_BELLOSSOM,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_HEALER,
+            .item = ITEM_FLAME_ORB,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        } },
+    .enemyParty = { {
+                        .species = SPECIES_SALAZZLE,
+                        .level = 50,
+                        .form = 0,
+                        .ability = ABILITY_MOLD_BREAKER,
+                        .item = ITEM_FLAME_ORB,
+                        .moves = { MOVE_WILL_O_WISP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .hp = 0,
+                        .status = 0,
+                        .condition2 = 0,
+                        .moveEffectFlags = 0,
+                    },
+        {
+            .species = SPECIES_PRIMARINA,
+            .level = 5,
+            .form = 0,
+            .ability = ABILITY_MAGIC_GUARD,
+            .item = ITEM_FLAME_ORB,
+            .moves = { MOVE_SPARKLING_ARIA, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        } },
+    // Player script: (action, target)
+    .playerScript = { {
+                          // Battler 0 (PLAYER_FIRST)
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                      },
+        {
+            // Battler 1 (PLAYER_SECOND)
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+        } },
+    // Enemy script: (action, target)
+    .enemyScript = { {
+                         // Battler 0 (ENEMY_FIRST)
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                     },
+        {
+            // Battler 1 (ENEMY_SECOND)
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+        } },
+    // Field
+    .weather = 0,
+    .fieldCondition = 0,
+    .terrain = 0,
+};
 
+static const struct TestBattleScenario scenario_SpikesRocksStickyWebBoots = {
+    .battleType = BATTLE_TYPE_DOUBLE,
+    .playerParty = {
+        {
+            .species = SPECIES_CLEFAIRY,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_MAGIC_GUARD,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_SPEAROW,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_REGENERATOR,
+            .item = ITEM_SITRUS_BERRY,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_QUAGSIRE,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_WATER_ABSORB,
+            .item = ITEM_HEAVY_DUTY_BOOTS,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_WOOPER,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_WATER_ABSORB,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        } },
+    .enemyParty = { {
+                        .species = SPECIES_KLEFKI,
+                        .level = 50,
+                        .form = 0,
+                        .ability = ABILITY_PRANKSTER,
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .hp = 0,
+                        .status = 0,
+                        .condition2 = 0,
+                        .moveEffectFlags = 0,
+                    },
+        {
+            .species = SPECIES_KLEFKI,
+            .level = 5,
+            .form = 0,
+            .ability = ABILITY_PRANKSTER,
+            .item = ITEM_NONE,
+            .moves = { MOVE_STEALTH_ROCK, MOVE_STICKY_WEB, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        } },
+    // Player script: (action, target)
+    .playerScript = { {
+                          // Battler 0 (PLAYER_FIRST)
+                          { ACTION_SWITCH_SLOT_2, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_0, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_2, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_0, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_2, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_0, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_2, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_0, BATTLER_ENEMY_FIRST },
+                      },
+        {
+            // Battler 1 (PLAYER_SECOND)
+            { ACTION_SWITCH_SLOT_3, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_3, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_3, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_3, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_1, BATTLER_ENEMY_FIRST },
+        } },
+    // Enemy script: (action, target)
+    .enemyScript = { {
+                         // Battler 0 (ENEMY_FIRST)
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                     },
+        {
+            // Battler 1 (ENEMY_SECOND)
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+        } },
+    // Field
+    .weather = 0,
+    .fieldCondition = 0,
+    .terrain = 0,
+};
+
+static const struct TestBattleScenario scenario_tspikes = {
+    .battleType = BATTLE_TYPE_DOUBLE,
+    .playerParty = {
+        {
+            .species = SPECIES_FLORGES,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_FLOWER_VEIL,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_MEGANIUM,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_OVERGROW,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_FEAROW,
+            .level = 100,
+            .form = 0,
+            .ability = ABILITY_REGENERATOR,
+            .item = ITEM_IRON_BALL,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_CLEFAIRY,
+            .level = 5, //speed
+            .form = 0,
+            .ability = ABILITY_MAGIC_GUARD,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_UMBREON,
+            .level = 2,
+            .form = 0,
+            .ability = ABILITY_SYNCHRONIZE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_KOMALA,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_COMATOSE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        } },
+    .enemyParty = { {
+                        .species = SPECIES_SABLEYE,
+                        .level = 50,
+                        .form = 0,
+                        .ability = ABILITY_PRANKSTER,
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_TOXIC_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .hp = 0,
+                        .status = 0,
+                        .condition2 = 0,
+                        .moveEffectFlags = 0,
+                    },
+        {
+            .species = SPECIES_SABLEYE,
+            .level = 5,
+            .form = 0,
+            .ability = ABILITY_PRANKSTER,
+            .item = ITEM_NONE,
+            .moves = { MOVE_TOXIC_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        },
+        {
+            .species = SPECIES_NONE,
+        } },
+    // Player script: (action, target)
+    .playerScript = { {
+                          // Battler 0 (PLAYER_FIRST)
+                          { ACTION_SWITCH_SLOT_2, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_0, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_4, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_2, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_0, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_4, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_2, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_0, BATTLER_ENEMY_FIRST },
+                      },
+        {
+            // Battler 1 (PLAYER_SECOND)
+            { ACTION_SWITCH_SLOT_3, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_5, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_3, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_5, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_3, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_1, BATTLER_ENEMY_FIRST },
+        } },
+    // Enemy script: (action, target)
+    .enemyScript = { {
+                         // Battler 0 (ENEMY_FIRST)
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                     },
+        {
+            // Battler 1 (ENEMY_SECOND)
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+        } },
+    // Field
+    .weather = 0,
+    .fieldCondition = 0,
+    .terrain = 0,
+};
 /**
  * @brief Override a single Pokemon with test scenario data
  *
