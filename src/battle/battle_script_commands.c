@@ -4373,14 +4373,15 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     int adrs = read_battle_script_param(ctx);
 
     int battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
+    int fieldSide = IsClientEnemy(bsys, battlerID);
 
-    if (ctx->scw[side].toxicSpikesLayers) {
-        ctx->calc_work = ctx->scw[side].toxicSpikesLayers;
+    if (ctx->scw[fieldSide].toxicSpikesLayers) {
+        ctx->calc_work = ctx->scw[fieldSide].toxicSpikesLayers;
         ctx->addeffect_type = ADD_EFFECT_TOXIC_SPIKES;
         ctx->state_client = battlerID;
         if (HasType(ctx, battlerID, TYPE_POISON)) {
-            ctx->side_condition[side] &= ~SIDE_STATUS_TOXIC_SPIKES;
-            ctx->scw[side].toxicSpikesLayers = 0;
+            ctx->side_condition[fieldSide] &= ~SIDE_STATUS_TOXIC_SPIKES;
+            ctx->scw[fieldSide].toxicSpikesLayers = 0;
             ctx->calc_work = 0;
         }
     } else {
