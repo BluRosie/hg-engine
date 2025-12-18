@@ -4346,9 +4346,6 @@ BOOL btl_scr_cmd_10B_gotoifthirdtype(void *bsys UNUSED, struct BattleStruct *ctx
 
     s32 battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
 
-    if (FAIRY_TYPE_IMPLEMENTED == 0 && type == TYPE_FAIRY)  // Revert Fairy to Normal if someone tries to add Fairy with the flag disabled.
-        type = TYPE_NORMAL;
-
     // Proceed only if type ID is a valid, existing type and our types match.
     if (type >= 0 && type < NUMBER_OF_MON_TYPES && ctx->battlemon[battlerID].type3 == type)
         IncrementBattleScriptPtr(ctx, address);
