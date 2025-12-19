@@ -96,7 +96,7 @@ BOOL btl_scr_cmd_105_addthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_108_strengthsapcalc(void* bw, struct BattleStruct* sp);
-BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_109_checktargetispartner(void* bw UNUSED, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_ifthirdtype(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10C_ifterastallized(void* bw, struct BattleStruct* sp);
@@ -3332,7 +3332,7 @@ BOOL btl_scr_cmd_108_strengthsapcalc(void* bw UNUSED, struct BattleStruct* sp) {
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp) {
+BOOL btl_scr_cmd_109_checktargetispartner(void* bw UNUSED, struct BattleStruct* sp) {
     IncrementBattleScriptPtr(sp, 1);
     int adrs = read_battle_script_param(sp);
     int defender = sp->defence_client;
@@ -4152,7 +4152,7 @@ BOOL btl_scr_cmd_105_addthirdtype(void* bw UNUSED, struct BattleStruct* sp)
     if (FAIRY_TYPE_IMPLEMENTED == 0 && type == TYPE_FAIRY) // revert fairy to normal if someone tries to add fairy with the flag disabled
         type = TYPE_NORMAL;
 
-    if (type >= 0 && type < NUMBER_OF_MON_TYPES) // proceed only if type ID is a valid, existing type
+    if (type < NUMBER_OF_MON_TYPES) // proceed only if type ID is a valid, existing type
         sp->battlemon[sp->defence_client].type3 = type;
 
     return FALSE;
@@ -4349,11 +4349,6 @@ BOOL btl_scr_cmd_10B_ifthirdtype(void *bw, struct BattleStruct *sp)
     u32 address = read_battle_script_param(sp);
 
     int battlerID = GrabClientFromBattleScriptParam(bw, sp, side);
-
-    if (FAIRY_TYPE_IMPLEMENTED == 0 && type == TYPE_FAIRY) // Revert Fairy to Normal if someone tries to add Fairy with the flag disabled.
-    {
-        type = TYPE_NORMAL;
-    }    
 
     // Proceed only if type ID is a valid, existing type and our types match.
     if (type < NUMBER_OF_MON_TYPES && sp->battlemon[battlerID].type3 == type)
