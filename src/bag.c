@@ -577,9 +577,10 @@ BOOL IsPlayerOnLadder(void)
     u32 collision = GetMetatileBehaviorAt(gFieldSysPtr, gFieldSysPtr->location->x, gFieldSysPtr->location->z);
     u32 mapId = gFieldSysPtr->location->mapId;
 #ifdef DEBUG_BATTLE_SCENARIOS
-    if (queueUpAutoBattleScript == 0)
+    if (queueUpAutoBattleScript == 0 || TestBattle_HasMoreTests())
     {
        EventSet_Script(gFieldSysPtr, 2073, NULL);
+       TestBattle_QueueNextTest();
        queueUpAutoBattleScript = 1;
     }
 #endif

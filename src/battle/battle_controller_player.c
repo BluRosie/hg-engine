@@ -61,6 +61,14 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
     }
 #endif
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+    if (TestBattle_IsComplete() && !ctx->fight_end_flag)
+    {
+        BattleSystem_SetBattleOutcomeFlags(bsys, BATTLE_OUTCOME_PLAYER_FLED);
+        ctx->server_seq_no = CONTROLLER_COMMAND_42;
+    }
+#endif
+
     if (!ctx->fight_end_flag)
     {
         if (BattleSystem_GetBattleOutcomeFlags(bsys) && !(BattleSystem_GetBattleOutcomeFlags(bsys) & 0x40))

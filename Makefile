@@ -474,6 +474,9 @@ move_narc: $(NARC_FILES)
 	@echo "tutor moves:"
 	cp $(TUTORLEARNSET_BIN) $(TUTORLEARNSET_TARGET)
 
+	@echo "battle tests:"
+	cp $(BATTLETESTS_BIN) $(BATTLETESTS_TARGET)
+
 
 DUMP_SCRIPT_LOCATION := tools/source/dumptools
 # the goal here is to extract the required narcs to the proper folders for the dump scripts to work.
