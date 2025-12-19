@@ -6,33 +6,15 @@
 
 #include "../include/battle.h"
 #include "../include/pokemon.h"
-#include "../include/test_battle_scenario.h"
+#include "../include/test_battle.h"
 #include "../include/constants/ability.h"
 #include "../include/constants/file.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 
-#define MAX_BATTLERS_PER_SIDE 2
-#define MAX_PARTY_SIZE 6
-#define BATTLER_PLAYER_FIRST  0
-#define BATTLER_ENEMY_FIRST   1
-#define BATTLER_PLAYER_SECOND 2
-#define BATTLER_ENEMY_SECOND  3
-
-#define AI_SCRIPT_MAX_MOVES   8
-#define ACTION_MOVE_SLOT_1   0
-#define ACTION_MOVE_SLOT_2   1
-#define ACTION_MOVE_SLOT_3   2
-#define ACTION_MOVE_SLOT_4   3
-#define ACTION_SWITCH_SLOT_0 4
-#define ACTION_SWITCH_SLOT_1 5
-#define ACTION_SWITCH_SLOT_2 6
-#define ACTION_SWITCH_SLOT_3 7
-#define ACTION_SWITCH_SLOT_4 8
-#define ACTION_SWITCH_SLOT_5 9
-
-#define TEST_BATTLE_TOTAL_TESTS 2 // Adjust as needed
+#define TEST_BATTLE_TOTAL_TESTS 3 // Adjust as needed
+#define TEST_START_INDEX        0
 
 // Store current scenario for battle state application and AI scripting
 const struct TestBattleScenario *g_CurrentScenario = NULL;
@@ -40,7 +22,7 @@ static struct TestBattleScenario g_LoadedScenario = {0};
 static int g_AIScriptIndex[4] = {0, 0, 0, 0};
 static BOOL g_TestBattleCurrentComplete = FALSE;
 static BOOL g_TestBattleHasMoreTests = FALSE;
-static int g_CurrentTestIndex = 0;
+static int g_CurrentTestIndex = TEST_START_INDEX;
 
 /**
  * @brief Override a single Pokemon with test scenario data
@@ -141,7 +123,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
     }
 
     int enemyCount = 0;
-    for (int i = 0; i < MAX_BATTLERS_PER_SIDE; i++) {
+    for (int i = 0; i < 2; i++) {
         if (scenario->enemyParty[i].species != 0) {
             enemyCount++;
         }
@@ -154,7 +136,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
 
     // Override player's Pokemon (party 0)
     int playerCount = 0;
-    for (int slot = 0; slot < MAX_PARTY_SIZE; slot++) {
+    for (int slot = 0; slot < 6; slot++) {
         const struct TestBattlePokemon *mon = &scenario->playerParty[slot];
 
         if (mon->species == 0) {
@@ -197,7 +179,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
             }
         }
     }
-    for (int slot = 0; slot < MAX_PARTY_SIZE; slot++) {
+    for (int slot = 0; slot < 6; slot++) {
         const struct TestBattlePokemon *mon = &scenario->enemyParty[slot];
 
         if (mon->species == 0) {
@@ -225,7 +207,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
  * @param bw Battle system pointer
  * @param sp Battle struct pointer
  */
-void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
+void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
 {
     if (g_CurrentScenario == NULL) {
         return;
@@ -248,7 +230,7 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
     }
 
     // Apply player Pokemon status and conditions (battlers 0-1 in doubles, 0 in singles)
-    for (int slot = 0; slot < MAX_BATTLERS_PER_SIDE; slot++) {
+    for (int slot = 0; slot < 2; slot++) {
         const struct TestBattlePokemon *mon = &g_CurrentScenario->playerParty[slot];
         int battlerId = (slot == 0) ? BATTLER_PLAYER_FIRST : BATTLER_PLAYER_SECOND;
 
@@ -286,7 +268,7 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
     }
 
     // Apply enemy Pokemon status and conditions (battlers 2-3 in doubles, 1 in singles)
-    for (int slot = 0; slot < MAX_BATTLERS_PER_SIDE; slot++) {
+    for (int slot = 0; slot < 2; slot++) {
         const struct TestBattlePokemon *mon = &g_CurrentScenario->enemyParty[slot];
         int battlerId = (slot == 0) ? BATTLER_ENEMY_FIRST : BATTLER_ENEMY_SECOND;
 
@@ -384,7 +366,7 @@ static BOOL LONG_CALL TestBattle_TestComplete()
  * This should be called after each turn or after all battlers act.
  * When scripts are complete, it sets the completion flag and logs TEST_END.
  */
-void LONG_CALL TestBattle_CheckScriptCompletion()
+static void LONG_CALL TestBattle_CheckScriptCompletion()
 {
     if (g_CurrentScenario == NULL) return;
     if (g_TestBattleCurrentComplete) return;  // Already marked complete
@@ -404,14 +386,13 @@ BOOL LONG_CALL TestBattle_IsComplete()
     return g_TestBattleCurrentComplete;
 }
 
-BOOL LONG_CALL TestBattle_QueueNextTest(struct BattleSystem *bsys)
+void LONG_CALL TestBattle_QueueNextTest()
 {
     if (g_TestBattleCurrentComplete) {
         g_CurrentTestIndex++;
         g_TestBattleCurrentComplete = FALSE;
     }
     g_TestBattleHasMoreTests = FALSE; // set this to false temporarily so the script only loads once
-    return TRUE;
 }
 
 /**
@@ -498,14 +479,12 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
  * @return The move slot (0-3) to use
  */
 u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler) {
-    int moveSlot = 0;
-    int target = 0;
+    u8 moveSlot = 0;
+    u8 target = 0;
     TestBattle_GetAIScriptedMove(battler, &moveSlot, &target);
     bsys->sp->waza_no_pos[battler] = moveSlot;
     bsys->sp->aiWorkTable.ai_dir_select_client[battler] = target;
-
-    debug_printf("[TestBattle_AISelectMove] Set moveSlot=%d, target=%d for battler=%d\n", moveSlot, target, battler);
-    return (u8)moveSlot;
+    return moveSlot;
 }
 
 /**
@@ -662,7 +641,6 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
                 ctx->com_seq_no[2] = SSI_STATE_END;
                 ctx->ret_seq_no[2] = SSI_STATE_13;
                 g_AIScriptIndex[2]++;
-                debug_printf("[TestBattle_autoSelectPlayerMoves] Battler 2: SWITCH to party slot %d\n", partySlot);
             } else {
                 // Move action
                 u8 moveSlot = action.action;
@@ -676,7 +654,6 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
                 ctx->com_seq_no[2] = SSI_STATE_END;
                 ctx->ret_seq_no[2] = SSI_STATE_13;
                 g_AIScriptIndex[2]++;
-                debug_printf("[TestBattle_autoSelectPlayerMoves] Battler 2: moveSlot=%d, target=%d\n", moveSlot, target);
             }
         }
     }

@@ -16,6 +16,10 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../../include/test_battle.h"
+#endif // DEBUG_BATTLE_SCENARIOS
+
 struct BattleSetup LONG_CALL *BattleSetup_New_Tutorial(u32 heapID, FieldSystem *fieldSystem);
 int LONG_CALL BattleSetup_GetWildTransitionEffect(struct BattleSetup *setup);
 int LONG_CALL BattleSetup_GetWildBattleMusic(struct BattleSetup *setup);
