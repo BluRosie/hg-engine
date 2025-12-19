@@ -126,8 +126,8 @@ static void OverridePartySlot(struct BATTLE_PARAM *bp, int partyIndex, int slot,
 void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
 {
     g_TestBattleCurrentComplete = FALSE;
-    g_TestBattleHasMoreTests = g_CurrentTestIndex < TEST_BATTLE_TOTAL_TESTS;
-    debug_printf("TestBattle: Loading scenario %d and %d\n", g_CurrentTestIndex, TEST_BATTLE_TOTAL_TESTS);
+    g_TestBattleHasMoreTests = (g_CurrentTestIndex + 1) < TEST_BATTLE_TOTAL_TESTS;
+    debug_printf("TestBattle: Loading scenario %d of %d (more=%d)\n", g_CurrentTestIndex, TEST_BATTLE_TOTAL_TESTS, g_TestBattleHasMoreTests);
 
     // Load scenario into global buffer (not local variable!)
 	ArchiveDataLoadOfs(&g_LoadedScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS, g_CurrentTestIndex * sizeof(struct TestBattleScenario), sizeof(struct TestBattleScenario));
