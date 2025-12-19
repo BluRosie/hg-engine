@@ -3004,8 +3004,8 @@ const u16 HealBlockUnusableMoves[] = {
 //  MOVE_POLLEN_PUFF, should be here but can also target enemies when heal blocked so
 };
 
-BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId, int moveNo) {
-    int i;
+BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem* bsys UNUSED, struct BattleStruct* ctx, int battlerId, int moveNo) {
+    u32 i;
     BOOL ret = FALSE;
 
     if (ctx->battlemon[battlerId].moveeffect.healBlockTurns)
