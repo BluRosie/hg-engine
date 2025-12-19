@@ -781,6 +781,7 @@ ov02_02247F30 = 0x02247F30 | 1;
 BattleSetup_GetWildTransitionEffect = 0x020517E8 | 1;
 BattleSetup_GetWildBattleMusic = 0x020517FC | 1;
 CallTask_StartEncounter = 0x0205085C | 1;
+SetupAndStartWildBattle = 0x02051020 | 6;
 
 BattleSetup_New_Tutorial = 0x02051AAC | 1;
 Encounter_New = 0x020506BC | 1;

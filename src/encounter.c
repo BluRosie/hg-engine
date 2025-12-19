@@ -4,6 +4,7 @@
 #include "../include/constants/file.h"
 #include "../include/constants/item.h"
 #include "../include/constants/game.h"
+#include "../include/constants/game_stats.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 
@@ -205,7 +206,7 @@ void SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u
         default: break;
     }
 
-    // Increment Game Stat here if necessary.
+    GameStats_Inc(Save_GameStats_Get(fieldSystem->savedata), GAME_STAT_WILD_ENCOUNTERS);
 
     CallTask_StartEncounter(taskManager, setup, BattleSetup_GetWildTransitionEffect(setup), BattleSetup_GetWildBattleMusic(setup), winFlag);
 }

@@ -4052,15 +4052,6 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler);
 void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
 #endif
 
-/**
- * @brief Information used for selecting an item on the bottom screen
- */
-typedef struct BattleItem {
-    u16 id;
-    u8 page;
-    u8 monIndex;
-} BattleItem;
-
-void LONG_CALL ReadBattleScriptFromNarc(struct BattleStruct* ctx, int narcId, int fileId);
+void LONG_CALL SetupAndStartWildBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL canFlee, BOOL shiny);
 
 #endif // BATTLE_H
