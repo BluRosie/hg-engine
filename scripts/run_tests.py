@@ -22,7 +22,7 @@ while True:
         window.draw()
     # TODO: Obviously make it not 1
     # Kill the emulator after running 1 test case
-    if (emu_memory.unsigned[0x023df15c] == NUMBER_OF_TESTS_TO_RUN):
+    if (emu_memory.unsigned[g_EmulatorCommunicationSendHoleAddress] == NUMBER_OF_TESTS_TO_RUN):
         break
 
 print("Tests complete!\n", flush=True)
