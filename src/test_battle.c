@@ -23,6 +23,8 @@ static int g_AIScriptIndex[4] = {0, 0, 0, 0};
 static BOOL g_TestBattleCurrentComplete = FALSE;
 static BOOL g_TestBattleHasMoreTests = FALSE;
 static int g_CurrentTestIndex = TEST_START_INDEX;
+// TOSO: there is definitely some better way to do this, so that we don't need to worry if somehow this address is used by something else
+int *g_EmulatorCommunicationSendHole = (int*)0x023df15c;
 
 /**
  * @brief Override a single Pokemon with test scenario data
@@ -109,6 +111,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
 {
     g_TestBattleCurrentComplete = FALSE;
     g_TestBattleHasMoreTests = (g_CurrentTestIndex + 1) < TEST_BATTLE_TOTAL_TESTS;
+    *g_EmulatorCommunicationSendHole = g_CurrentTestIndex;
     debug_printf("TestBattle: Loading scenario %d of %d (more=%d)\n", g_CurrentTestIndex, TEST_BATTLE_TOTAL_TESTS, g_TestBattleHasMoreTests);
 
     // Load scenario into global buffer (not local variable!)
