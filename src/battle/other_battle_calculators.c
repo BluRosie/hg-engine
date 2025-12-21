@@ -2299,7 +2299,6 @@ u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
 const u16 MinimizeVulnerabilityMovesList[] = {
     MOVE_BODY_SLAM,
     MOVE_STOMP,
-    MOVE_SLEEP_POWDER,
     MOVE_DRAGON_RUSH,
     MOVE_STEAMROLLER,
     MOVE_HEAT_CRASH,
@@ -2331,8 +2330,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
 
     // toxic when used by a poison type
     if (move == MOVE_TOXIC
-        && (BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
-        || BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON)) {
+        && HasType(sp, battlerIdAttacker, TYPE_POISON)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
         return TRUE;
     }
@@ -3467,6 +3465,8 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
         return !IS_ITEM_MEMORY(item);
     case SPECIES_OGERPON:
         return !IS_ITEM_MASK(item);
+    case SPECIES_ARCEUS:
+        return !IS_ITEM_ARCEUS_PLATE(item);
     }
 
     // then the other swathes of species
