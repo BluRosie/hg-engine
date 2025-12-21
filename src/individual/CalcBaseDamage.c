@@ -921,6 +921,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if (movetype == TYPE_STEEL && AttackingMon.ability == ABILITY_STEELY_SPIRIT) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
             }
+
+            // handle Stakeout
+            // TODO: confirm location
+            if (AttackingMon.ability == ABILITY_STAKEOUT && sp->playerActions[sp->defence_client][3] == CONTROLLER_COMMAND_40) {
+                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
+            }
         }
 
         if (BATTLER_ALLY(attacker) == damageCalc->rawSpeedNonRNGClientOrder[i]) {
