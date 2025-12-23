@@ -138,17 +138,17 @@ pokemon SPECIES_NIDORAN_M
 
 // day encounter slots
 pokemon SPECIES_ZACIAN
+monwithform SPECIES_GRENINJA, 1
 pokemon SPECIES_ZACIAN
+monwithform SPECIES_GRENINJA, 1
 pokemon SPECIES_ZACIAN
+monwithform SPECIES_GRENINJA, 1
 pokemon SPECIES_ZACIAN
+monwithform SPECIES_GRENINJA, 1
 pokemon SPECIES_ZACIAN
+monwithform SPECIES_GRENINJA, 1
 pokemon SPECIES_ZACIAN
-pokemon SPECIES_ZACIAN
-pokemon SPECIES_ZACIAN
-pokemon SPECIES_ZACIAN
-pokemon SPECIES_ZACIAN
-pokemon SPECIES_ZACIAN
-pokemon SPECIES_ZACIAN
+monwithform SPECIES_GRENINJA, 1
 
 // night encounter slots
 pokemon SPECIES_ZIGZAGOON

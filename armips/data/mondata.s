@@ -19715,7 +19715,7 @@ mondata SPECIES_DRAGAPULT, "Dragapult"
 mondata SPECIES_ZACIAN, "Zacian"
     basestats 92, 120, 115, 138, 80, 115
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
-    catchrate 10
+    catchrate 10 
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 3, 0, 0
     items ITEM_NONE, ITEM_NONE
