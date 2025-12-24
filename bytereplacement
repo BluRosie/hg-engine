@@ -488,4 +488,5 @@ arm9 02082420 01 22
 arm9 02000E54 24 00 00 00 04 5C 1E 02
 #endif
 
-0031 0225DE46 05 23
+# show 6 digits for mart prices
+0031 0225DE46 06 23

@@ -555,3 +555,5 @@ arm9 SetupAndStartTutorialBattle 02051334 1
 0010 TestBattle_AISelectMove 0221BEF4 2
 0010 TestBattle_AIPickCommand 022205BC 2
 #endif
+
+arm9 GetItemAttr_PreloadedItemData 02077DAC 2
