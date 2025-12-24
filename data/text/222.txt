@@ -424,8 +424,8 @@ HM03
 HM04
 HM05
 HM06
-???
-???
+HM07
+HM08
 Explorer Kit
 Loot Sack
 Rule Book
@@ -484,8 +484,8 @@ Silver Feather
 Rainbow Feather
 Mystery Egg
 Red Apricorn
-Blue Apricorn
 Yellow Apricorn
+Blue Apricorn
 Green Apricorn
 Pink Apricorn
 White Apricorn
