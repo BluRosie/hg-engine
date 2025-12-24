@@ -1339,7 +1339,7 @@ The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas bounced back by Magic Bo
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas bounced back by Magic Bounce!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwas disabled by Cursed Body!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled by Cursed Body!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} was disabled\fby Cursed Body!
 {STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal state!
 The wild {STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal state!
 The opposing {STRVAR_1 1, 0, 0}’s\nPrimal Reversion! It reverted to\fits primal state!
@@ -1468,7 +1468,7 @@ Fog crept up as thick as soup!
 A veil of water restored\n{STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe wild {STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe opposing {STRVAR_1 1, 0, 0}’s HP!
-The effects of the weather disappeared.
+The effects of the weather\ndisappeared.
 {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The wild {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The opposing {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
@@ -1598,3 +1598,4 @@ The opposing {STRVAR_1 1, 0, 0}\ncan’t fall asleep due to a veil\fof sweetness
 The bursting flame hit {STRVAR_1 1, 0, 0}!
 The bursting flame hit the wild\n{STRVAR_1 1, 0, 0}!
 The bursting flame hit the\nopposing {STRVAR_1 1, 0, 0}!
+A deluge of ions showers\nthe battlefield!

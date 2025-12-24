@@ -262,7 +262,11 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             int seq_no;
 
             if ((ctx->waza_out_check_on_off & SYSCTL_SKIP_OBEDIENCE_CHECK) == 0) {
+#ifdef DEBUG_BATTLE_SCENARIOS
+                ret = 0;
+#else
                 ret = ServerBadgeCheck(bsys, ctx, &seq_no);  // 8013610h
+#endif
                 if (ret) {
                     switch (ret) {
                         case OBEY_CHECK_DO_NOTHING:
@@ -3286,7 +3290,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_BELLY_DRUM: {
-            if ((ctx->battlemon[ctx->defence_client].hp < (s32)ctx->battlemon[ctx->defence_client].maxhp / 2)
+            if ((ctx->battlemon[ctx->defence_client].hp <= (s32)ctx->battlemon[ctx->defence_client].maxhp / 2)
             || ctx->battlemon[ctx->defence_client].states[STAT_ATTACK] == 12) {
                 butItFailedFlag = TRUE;
             }
@@ -4340,6 +4344,7 @@ BOOL LONG_CALL AbilityFailRolePlay(int ability) {
     case ABILITY_POWER_OF_ALCHEMY:
     case ABILITY_RKS_SYSTEM:
     case ABILITY_ICE_FACE:
+    case ABILITY_GULP_MISSILE:
     case ABILITY_NEUTRALIZING_GAS:
     case ABILITY_HUNGER_SWITCH:
     case ABILITY_AS_ONE_GLASTRIER:

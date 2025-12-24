@@ -9019,7 +9019,6 @@ movedata MOVE_FUSION_BOLT, "Fusion Bolt"
     terminatedata
     movedescription MOVE_FUSION_BOLT, "The user throws down\na giant bolt.\nIt does more damage\nwhen influenced by\nan enormous flame."
 
-// Moves introduced in Generation VI:
 movedata MOVE_FLYING_PRESS, "Flying Press"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
@@ -9165,7 +9164,7 @@ movedata MOVE_NOBLE_ROAR, "Noble Roar"
     movedescription MOVE_NOBLE_ROAR, "Letting out a noble\nroar, the user\nintimidates the target\nand lowers its Attack\nand Sp. Atk stats."
 
 movedata MOVE_ION_DELUGE, "Ion Deluge"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_ION_DELUGE
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ELECTRIC
@@ -9174,7 +9173,7 @@ movedata MOVE_ION_DELUGE, "Ion Deluge"
     effectchance 0
     target RANGE_FIELD
     priority 1
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
     contesttype CONTEST_BEAUTY
     terminatedata
@@ -9629,7 +9628,7 @@ movedata MOVE_AROMATIC_MIST, "Aromatic Mist"
     movedescription MOVE_AROMATIC_MIST, "The user boosts the\nSp. Def stat of an\nally Pokémon by using\na mysterious aroma."
 
 movedata MOVE_EERIE_IMPULSE, "Eerie Impulse"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_SP_ATK_DOWN_2
     pss SPLIT_STATUS
     basepower 0
     type TYPE_ELECTRIC
@@ -9638,7 +9637,7 @@ movedata MOVE_EERIE_IMPULSE, "Eerie Impulse"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_SMART
     terminatedata
@@ -11180,7 +11179,11 @@ movedata MOVE_AURORA_VEIL, "Aurora Veil"
     appeal 0x00
     contesttype CONTEST_BEAUTY
     terminatedata
-    movedescription MOVE_AURORA_VEIL, "This move reduces damage\nfrom most moves for five\nturns. It can be used\nonly in a hailstorm or\nwhen it is snowing."
+.if SNOW_WARNING_GENERATION >= 9
+    movedescription MOVE_AURORA_VEIL, "This move reduces damage\nfrom most moves for five\nturns. It can be used\nonly when it is snowing."
+.else
+    movedescription MOVE_AURORA_VEIL, "This move reduces damage\nfrom most moves for five\nturns. It can be used\nonly in a hailstorm."
+.endif
 
 movedatalongname MOVE_SINISTER_ARROW_RAID, "Sinister Raid", "Sinister Arrow Raid"
     battleeffect MOVE_EFFECT_HIT
@@ -11599,7 +11602,7 @@ movedata MOVE_MIND_BLOWN, "Mind Blown"
     movedescription MOVE_MIND_BLOWN, "The user attacks\neverything around it by\ncausing its own head to\nexplode. This also\ndamages the user."
 
 movedata MOVE_PLASMA_FISTS, "Plasma Fists"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_ION_DELUGE_HIT
     pss SPLIT_PHYSICAL
     basepower 100
     type TYPE_ELECTRIC
@@ -11608,7 +11611,7 @@ movedata MOVE_PLASMA_FISTS, "Plasma Fists"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_BEAUTY // Reflects the contest type for Ion Deluge.
     terminatedata
@@ -11628,7 +11631,7 @@ movedata MOVE_PHOTON_GEYSER, "Photon Geyser"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_PHOTON_GEYSER, "The user attacks with a\npillar of light. This\ncan inflict damage using\nAttack or Sp. Atk— \nwhichever is higher."
+    movedescription MOVE_PHOTON_GEYSER, "The user attacks with a\npillar of light. This\ncan inflict damage using\nAttack or Sp. Atk-\nwhichever is higher."
 
 movedatalongname MOVE_LIGHT_THAT_BURNS_THE_SKY, "LightBurnSky", "Light That Burns the Sky"
     battleeffect MOVE_EFFECT_HIT
@@ -11644,7 +11647,7 @@ movedatalongname MOVE_LIGHT_THAT_BURNS_THE_SKY, "LightBurnSky", "Light That Burn
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_LIGHT_THAT_BURNS_THE_SKY, "Necrozma inflicts damage\nusing Attack or Sp. Atk— \nwhichever is higher.\nThis move ignores the\ntarget's Ability."
+    movedescription MOVE_LIGHT_THAT_BURNS_THE_SKY, "Necrozma inflicts damage\nusing Attack or Sp. Atk-\nwhichever is higher.\nThis move ignores the\ntarget's Ability."
 
 movedatalongname MOVE_SEARING_SUNRAZE_SMASH, "Sunraze Smash", "Searing Sunraze Smash"
     battleeffect MOVE_EFFECT_HIT
@@ -12730,7 +12733,7 @@ movedata MOVE_LIFE_DEW, "Life Dew"
     effectchance 0
     target RANGE_USER_SIDE
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13006,7 +13009,7 @@ movedata MOVE_LASH_OUT, "Lash Out"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_LASH_OUT, "The user vents its\nfrustration. Its power\nis doubled if the user's\nstats were lowered\nduring this turn."
+    movedescription MOVE_LASH_OUT, "The user vents its\nfrustration. Its power is\ndoubled if the user's\nstats were lowered\nduring this turn."
 
 movedata MOVE_POLTERGEIST, "Poltergeist"
     battleeffect MOVE_EFFECT_POLTERGEIST
@@ -13696,7 +13699,7 @@ movedata MOVE_TERA_BLAST, "Tera Blast"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_TERA_BLAST, "If Terastallized, the\nuser unleashes energy of\nits Tera Type. It can\nuse Attack or Sp. Atk— \nwhichever is higher."
+    movedescription MOVE_TERA_BLAST, "If Terastallized, the\nuser unleashes energy of\nits Tera Type. It can\nuse Attack or Sp. Atk-\nwhichever is higher."
 
 movedata MOVE_SILK_TRAP, "Silk Trap"
     battleeffect MOVE_EFFECT_PROTECT

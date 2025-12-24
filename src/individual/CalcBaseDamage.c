@@ -356,18 +356,20 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         movepower = (255 - AttackingMon.happiness) * 10 / 25;
         break;
     // Counter-based
+    // Fury Cutter's damage cap is handled in src/battle/battle_script_commands.c. 
+    // By default, the modern cap is 3 (meaning furyCutterCount will be between 0-2).
     case MOVE_FURY_CUTTER:
-        for (u32 n = 0; n < AttackingMon.furyCutterCount; n++) {
+        for (u32 n = 1; n < AttackingMon.furyCutterCount; n++) {
+            if (movepower >= 160) {
+                break;
+            }
             movepower *= 2;
         }
         break;
     case MOVE_ROLLOUT:
     case MOVE_ICE_BALL:
-        // TODO: Handle Rollout storage, need to hook `BtlCmd_CalcRolloutPower`
-        // For now we use the Gen 4 implementation which is basically the same
-        // Edit: Rollout storage seems to be patched
-
-        for (u32 n = 0; n < 5 - AttackingMon.rolloutCount; n++) {
+        // https://github.com/pret/pokeheartgold/blob/29282f7bb45946dee63475022a8d506092bc3748/src/battle/battle_command.c#L3391
+        for (u32 n = 1; n < 5 - AttackingMon.rolloutCount; n++) {
             movepower *= 2;
         }
         break;
@@ -610,7 +612,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             break;
         case MOVE_EXPANDING_FORCE:
             // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8520635
-            if ((terrainOverlayNumberOfTurnsLeft > 0) && (terrainOverlayType == MISTY_TERRAIN)) {
+            if ((terrainOverlayNumberOfTurnsLeft > 0) && (terrainOverlayType == PSYCHIC_TERRAIN)) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
             }
             break;
@@ -918,6 +920,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             // TODO: confirm location
             if (movetype == TYPE_STEEL && AttackingMon.ability == ABILITY_STEELY_SPIRIT) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
+            }
+
+            // handle Stakeout
+            // TODO: confirm location
+            if (AttackingMon.ability == ABILITY_STAKEOUT && sp->playerActions[sp->defence_client][3] == CONTROLLER_COMMAND_40) {
+                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
             }
         }
 
@@ -1427,15 +1435,15 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     debug_printf("[CalcBaseDamage] DefendingMon.spatkstate: %d\n", DefendingMon.spatkstate);
 #endif
 
-    // Step 4.2. Chip Away / Sacred Sword
-    if ((moveno == MOVE_CHIP_AWAY) || (moveno == MOVE_SACRED_SWORD)) {
+    // Step 4.2. Chip Away / Sacred Sword / Darkest Lariat
+    if ((moveno == MOVE_CHIP_AWAY) || (moveno == MOVE_SACRED_SWORD) || (moveno == MOVE_DARKEST_LARIAT)) {
         DefendingMon.defstate = 0;
         DefendingMon.spdefstate = 0;
     }
 
 #ifdef DEBUG_DAMAGE_CALC
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 4.2. Chip Away / Sacred Sword\n");
+    debug_printf("[CalcBaseDamage] Step 4.2. Chip Away / Sacred Sword / Darkest Lariat\n");
     debug_printf("[CalcBaseDamage] DefendingMon.defstate: %d\n", DefendingMon.defstate);
     debug_printf("[CalcBaseDamage] DefendingMon.spdefstate: %d\n", DefendingMon.spdefstate);
 #endif
