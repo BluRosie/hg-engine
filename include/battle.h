@@ -396,6 +396,7 @@
  *
  *  largely for weathers, but also covers uproar, gravity, fog, etc.
  */
+#define WEATHER_NONE                        (0x00000000)
 #define WEATHER_RAIN                        (0x00000001)                                                                    // 0000 0000 0000 0000 0001
 #define WEATHER_RAIN_PERMANENT              (0x00000002)                                                                    // 0000 0000 0000 0000 0010
 #define WEATHER_RAIN_ANY                    (WEATHER_RAIN | WEATHER_RAIN_PERMANENT | WEATHER_HEAVY_RAIN)                    // 0010 0000 0000 0000 0000 0000 0011

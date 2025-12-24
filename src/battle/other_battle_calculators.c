@@ -682,6 +682,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
     // https://bulbapedia.bulbagarden.net/wiki/Friendship
 
 #ifdef FRIENDSHIP_EFFECTS
+#ifndef DEBUG_BATTLE_SCENARIOS
     if ((sp->battlemon[defender].friendship == 255)
     && !(BattleTypeGet(bw) & BATTLE_TYPE_NO_EXPERIENCE)
     && ClientBelongsToPlayer(bw, defender)) {
@@ -691,6 +692,7 @@ BOOL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender,
             accuracy -= 10;
         }
     }
+#endif
 #endif
 
     // 14. Roll a random number 0-99 inclusive. If the accuracy value is greater than that random number, the move hits. (That is, check if accuracy > rand(100)).

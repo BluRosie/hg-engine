@@ -9,9 +9,12 @@
 const struct TestBattleScenario BattleTests[] = {
 #ifdef DEBUG_BATTLE_SCENARIOS
 
+#define GET_TEST_CASE_ONLY
+
 #include "battle_tests/000_sandstorm_misty_terrain.c"
 #include "battle_tests/001_rain_electric_terrain.c"
 #include "battle_tests/002_doubles.c"
+#include "battle_tests/003_roost.c"
 
 #endif // DEBUG_BATTLE_SCENARIOS
 };

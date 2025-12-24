@@ -1,3 +1,5 @@
+#include "debug.h"
+
 #ifdef DEBUG_BATTLE_SCENARIOS
 #ifndef TEST_BATTLE_H
 #define TEST_BATTLE_H
@@ -40,6 +42,8 @@ struct PACKED TestBattleScenario {
     struct BattleAction playerScript[2][AI_SCRIPT_MAX_MOVES];
     struct BattleAction enemyScript[2][AI_SCRIPT_MAX_MOVES];
 };
+
+#define FULL_HP 0
 
 // Action type constants
 #define ACTION_MOVE_SLOT_1   0

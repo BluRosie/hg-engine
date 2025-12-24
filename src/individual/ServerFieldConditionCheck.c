@@ -1233,6 +1233,21 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 debugsyscall(buf);
                 #endif
 
+                for (int i = 0; i < client_set_max; i++) {
+                    int species = PokeOtherFormMonsNoGet(sp->battlemon[i].species, sp->battlemon[i].form_no);
+                    u32 type1 = PokePersonalParaGet(species, PERSONAL_TYPE_1);
+                    u32 type2 = PokePersonalParaGet(species, PERSONAL_TYPE_2);
+
+                    // Assume vanilla situations
+                    // Handle Soak
+                    if (sp->battlemon[i].type1 == TYPE_WATER && sp->battlemon[i].type2 == TYPE_WATER) {
+                        break;
+                    }
+                    // There shouldn't be any other cases to handle
+                    sp->battlemon[i].type1 = type1;
+                    sp->battlemon[i].type2 = type2;
+                }
+
                 sp->fcc_seq_no++;
                 break;
             }
@@ -1459,7 +1474,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     ret = 1;
                                 }
                             }
-                            
+
                             sp->endTurnEventBlockSequenceNumber++;
                             break;
                         }
@@ -1905,7 +1920,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 sprintf(buf, "In ENDTURN_ION_DELUGE_FADING\n");
                 debugsyscall(buf);
                 #endif
-                
+
                 sp->field_condition &= ~FIELD_STATUS_ION_DELUGE;
 
                 sp->fcc_seq_no++;
