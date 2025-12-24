@@ -931,6 +931,11 @@ u32 CanUseAbilityPatch(struct PartyPokemon *pp)
     return (hidden_ability != 0);
 }
 
+BOOL CanUseRotomCatalog(struct PartyPokemon *pp)
+{
+    return (GetMonData(pp, MON_DATA_SPECIES, NULL) == SPECIES_ROTOM);
+}
+
 
 u32 ALIGN4 partyMenuSignal = 0;
 
@@ -1470,13 +1475,19 @@ u32 LONG_CALL CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPok
  *  @param heapID heap to use for allocations
  *  @return TRUE if can use item, FALSE otherwise
  */
-BOOL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID) {
+BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID) {
     struct PartyPokemon *mon = Party_GetMonByIndex(party, partyIdx);
 
     if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID) && GetMonData(mon, MON_DATA_LEVEL, NULL) == 100 && GetMonEvolution(party, mon, EVOCTX_LEVELUP, itemID, NULL))
     {
         return TRUE;
     }
+
+    if (itemID == ITEM_ROTOM_CATALOG)
+    {
+        return CanUseRotomCatalog(mon);
+    }
+
 #if defined(IMPLEMENT_LEVEL_CAP) && defined(UNCAP_CANDIES_FROM_LEVEL_CAP)
     int currentLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
     if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID))
