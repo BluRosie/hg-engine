@@ -14,7 +14,9 @@ const struct TestBattleScenario BattleTests[] = {
 #include "battle_tests/000_sandstorm_misty_terrain.c"
 #include "battle_tests/001_rain_electric_terrain.c"
 #include "battle_tests/002_doubles.c"
-#include "battle_tests/003_roost.c"
+#include "battle_tests/moves/roost/change_type.c"
+#include "battle_tests/species/zamazenta/change_form.c"
+#include "battle_tests/species/zacian/change_form.c"
 
 #endif // DEBUG_BATTLE_SCENARIOS
 };

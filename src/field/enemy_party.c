@@ -461,6 +461,17 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     // Override parties with test scenario if enabled
     TestBattle_OverrideParties(bp);
 #endif
+
+    // Change battle forms for player party
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 6; j++) {
+            struct PartyPokemon *mon = Party_GetMonByIndex(bp->poke_party[i], j);
+            if (mon != NULL) {
+                ChangeToBattleForm(mon);
+                RecalcPartyPokemonStats(mon);
+            }
+        }
+    }
 }
 
 extern u32 space_for_setmondata;
