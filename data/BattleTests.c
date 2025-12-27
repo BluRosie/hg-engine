@@ -5,9 +5,9 @@
 #include "../include/constants/item.h"
 #include "../include/constants/ability.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
 // each test file is a separate .c file in battle_tests/ for better organization
 const struct TestBattleScenario BattleTests[] = {
-#ifdef DEBUG_BATTLE_SCENARIOS
 
 #define GET_TEST_CASE_ONLY
 
@@ -18,5 +18,5 @@ const struct TestBattleScenario BattleTests[] = {
 #include "battle_tests/species/zamazenta/change_form.c"
 #include "battle_tests/species/zacian/change_form.c"
 
-#endif // DEBUG_BATTLE_SCENARIOS
 };
+#endif // DEBUG_BATTLE_SCENARIOS
