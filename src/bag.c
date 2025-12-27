@@ -1,13 +1,17 @@
+#include "../include/bag.h"
 #include "../include/config.h"
 #include "../include/constants/item.h"
 #include "../include/constants/file.h"
-#include "../include/bag.h"
-#include "../include/message.h"
+#include "../include/debug.h"
 #include "../include/item.h"
 #include "../include/map_events_internal.h"
+#include "../include/message.h"
 #include "../include/save.h"
 #include "../include/script.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../include/test_battle.h"
+#endif // DEBUG_BATTLE_SCENARIOS
 
 // file is directly from pokeheartgold but without the bag_cursor stuff + sPocketCounts right here
 
@@ -577,9 +581,10 @@ BOOL IsPlayerOnLadder(void)
     u32 collision = GetMetatileBehaviorAt(gFieldSysPtr, gFieldSysPtr->location->x, gFieldSysPtr->location->z);
     u32 mapId = gFieldSysPtr->location->mapId;
 #ifdef DEBUG_BATTLE_SCENARIOS
-    if (queueUpAutoBattleScript == 0)
+    if (queueUpAutoBattleScript == 0 || TestBattle_HasMoreTests())
     {
        EventSet_Script(gFieldSysPtr, 2073, NULL);
+       TestBattle_QueueNextTest();
        queueUpAutoBattleScript = 1;
     }
 #endif

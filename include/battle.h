@@ -396,6 +396,7 @@
  *
  *  largely for weathers, but also covers uproar, gravity, fog, etc.
  */
+#define WEATHER_NONE                        (0x00000000)
 #define WEATHER_RAIN                        (0x00000001)                                                                    // 0000 0000 0000 0000 0001
 #define WEATHER_RAIN_PERMANENT              (0x00000002)                                                                    // 0000 0000 0000 0000 0010
 #define WEATHER_RAIN_ANY                    (WEATHER_RAIN | WEATHER_RAIN_PERMANENT | WEATHER_HEAVY_RAIN)                    // 0010 0000 0000 0000 0000 0000 0011
@@ -4040,13 +4041,5 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys);
  * @brief Callback for loading custom battle backgrounds
  */
 void LONG_CALL BattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
-
-#ifdef DEBUG_BATTLE_SCENARIOS
-void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp);
-void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp);
-void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *target);
-int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler);
-void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
-#endif
 
 #endif // BATTLE_H
