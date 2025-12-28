@@ -1,6 +1,5 @@
 #include "debug.h"
 
-#ifdef DEBUG_BATTLE_SCENARIOS
 #ifndef TEST_BATTLE_H
 #define TEST_BATTLE_H
 
@@ -64,6 +63,7 @@ struct PACKED TestBattleScenario {
 #define BATTLER_PLAYER_SECOND 2
 #define BATTLER_ENEMY_SECOND  3
 
+#ifdef DEBUG_BATTLE_SCENARIOS
 // function declarations
 BOOL LONG_CALL TestBattle_HasMoreTests();
 BOOL LONG_CALL TestBattle_IsComplete();
@@ -72,5 +72,5 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp);
 void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp);
 void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-#endif // TEST_BATTLE_H
 #endif // DEBUG_BATTLE_SCENARIOS
+#endif // TEST_BATTLE_H
