@@ -98,3 +98,8 @@ changelog
 /data/generated/
 /armips/include/generated/
 /include/constants/generated/
+
+.cache/
+compile_commands.json
+.zed/
+.vscode/
