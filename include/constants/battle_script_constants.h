@@ -481,8 +481,9 @@
 #define SUB_SEQ_HANDLE_FLAME_BURST_HIT                (471)
 #define SUB_SEQ_FOCUS_SASH                            (472)
 #define SUB_SEQ_ION_DELUGE                            (473)
+#define SUB_SEQ_TOXIC_DEBRIS                          (474)
 
-#define MAX_BASE_SUBSCRIPT_NUM 473
+#define MAX_BASE_SUBSCRIPT_NUM 474
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
