@@ -4229,29 +4229,29 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 // surf encounters
-encounter SPECIES_TENTACOOL, 15, 25
-encounter SPECIES_TENTACOOL, 10, 20
-encounter SPECIES_TENTACRUEL, 15, 25
-encounter SPECIES_TENTACRUEL, 15, 25
-encounter SPECIES_TENTACRUEL, 15, 25
+encounter SPECIES_MAGIKARP, 25, 30
+encounter SPECIES_MAGIKARP, 25, 30
+encounter SPECIES_GYARADOS, 25, 30
+encounter SPECIES_GYARADOS, 25, 30
+encounter SPECIES_GYARADOS, 25, 30
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_KRABBY, 10, 10
-encounter SPECIES_KRABBY, 10, 10
+encounter SPECIES_SLOWPOKE, 25, 30
+encounter SPECIES_SLOWPOKE, 25, 30
+encounter SPECIES_SLOWPOKE, 25, 30
+encounter SPECIES_GOLDEEN, 25, 30
+encounter SPECIES_GOLDEEN, 25, 30
 
 // good rod encounters
-encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_KRABBY, 20, 20
-encounter SPECIES_KRABBY, 20, 20
-encounter SPECIES_CORSOLA, 20, 20
-encounter SPECIES_KRABBY, 20, 20
+encounter SPECIES_SLOWPOKE, 25, 30
+encounter SPECIES_GOLDEEN, 25, 30
+encounter SPECIES_GOLDEEN, 25, 30
+encounter SPECIES_STARYU, 25, 30
+encounter SPECIES_GOLDEEN, 25, 30
 
 // super rod encounters
 encounter SPECIES_KRABBY, 40, 40
@@ -4333,29 +4333,29 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 // surf encounters
-encounter SPECIES_TENTACOOL, 15, 25
-encounter SPECIES_TENTACOOL, 10, 20
-encounter SPECIES_TENTACRUEL, 15, 25
-encounter SPECIES_TENTACRUEL, 15, 25
-encounter SPECIES_TENTACRUEL, 15, 25
+encounter SPECIES_MAGIKARP, 25, 35
+encounter SPECIES_MAGIKARP, 25, 35
+encounter SPECIES_GYARADOS, 25, 35
+encounter SPECIES_GYARADOS, 25, 35
+encounter SPECIES_GYARADOS, 25, 35
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_KRABBY, 10, 10
-encounter SPECIES_KRABBY, 10, 10
+encounter SPECIES_SLOWPOKE, 25, 35
+encounter SPECIES_SLOWPOKE, 25, 35
+encounter SPECIES_SLOWPOKE, 25, 35
+encounter SPECIES_GOLDEEN, 25, 35
+encounter SPECIES_GOLDEEN, 25, 35
 
 // good rod encounters
-encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_KRABBY, 20, 20
-encounter SPECIES_KRABBY, 20, 20
-encounter SPECIES_CORSOLA, 20, 20
-encounter SPECIES_KRABBY, 20, 20
+encounter SPECIES_SLOWPOKE, 25, 35
+encounter SPECIES_GOLDEEN, 25, 35
+encounter SPECIES_GOLDEEN, 25, 35
+encounter SPECIES_STARYU, 25, 35
+encounter SPECIES_GOLDEEN, 25, 35
 
 // super rod encounters
 encounter SPECIES_KRABBY, 40, 40
@@ -4437,29 +4437,29 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 // surf encounters
-encounter SPECIES_TENTACOOL, 15, 25
-encounter SPECIES_TENTACRUEL, 15, 25
-encounter SPECIES_MANTINE, 15, 25
-encounter SPECIES_MANTINE, 15, 25
-encounter SPECIES_MANTINE, 15, 25
+encounter SPECIES_WINGULL, 25, 35
+encounter SPECIES_GYARADOS, 25, 35
+encounter SPECIES_LAPRAS, 25, 35
+encounter SPECIES_LAPRAS, 25, 35
+encounter SPECIES_LAPRAS, 25, 35
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_TENTACOOL, 10, 10
-encounter SPECIES_TENTACOOL, 10, 10
+encounter SPECIES_SLOWPOKE, 25, 35
+encounter SPECIES_SLOWPOKE, 25, 35
+encounter SPECIES_SLOWPOKE, 25, 35
+encounter SPECIES_FRILLISH, 25, 35
+encounter SPECIES_FRILLISH, 25, 35
 
 // good rod encounters
-encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_TENTACOOL, 20, 20
-encounter SPECIES_CHINCHOU, 20, 20
-encounter SPECIES_SHELLDER, 20, 20
-encounter SPECIES_CHINCHOU, 20, 20
+encounter SPECIES_SLOWPOKE, 25, 35
+encounter SPECIES_FRILLISH, 25, 35
+encounter SPECIES_SHELLDER, 25, 35
+encounter SPECIES_CHINCHOU, 25, 35
+encounter SPECIES_SHELLDER, 25, 35
 
 // super rod encounters
 encounter SPECIES_CHINCHOU, 40, 40

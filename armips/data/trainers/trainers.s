@@ -7765,7 +7765,7 @@ trainerdata 210, "Caroline"
     endparty
 
 trainerdata 211, "Huey"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_SAILOR
     nummons 2
     item ITEM_NONE
@@ -7780,15 +7780,33 @@ trainerdata 211, "Huey"
         // mon 0
         ivs 0
         abilityslot 0
-        level 18
-        pokemon SPECIES_POLIWAG
+        level 31
+        pokemon SPECIES_PELIPPER
+        move MOVE_WATER_PULSE
+        move MOVE_TWISTER
+        move MOVE_OMINOUS_WIND
+        move MOVE_AIR_CUTTER
+        ability ABILITY_KEEN_EYE
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 252, 0, 252, 0
+        nature NATURE_CALM
+        additionalflags 0
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 20
-        pokemon SPECIES_POLIWHIRL
+        level 31
+        pokemon SPECIES_LANTURN
+        move MOVE_WATER_GUN
+        move MOVE_ICY_WIND
+        move MOVE_SIGNAL_BEAM
+        move MOVE_NONE
+        ability ABILITY_VOLT_ABSORB
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 252, 0, 252, 0
+        nature NATURE_BOLD
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -15198,7 +15216,7 @@ trainerdata 400, "Dana"
     endparty
 
 trainerdata 401, "Alfred"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_GENTLEMAN
     nummons 1
     item ITEM_FULL_RESTORE
@@ -15213,8 +15231,17 @@ trainerdata 401, "Alfred"
         // mon 0
         ivs 0
         abilityslot 0
-        level 22
-        pokemon SPECIES_NOCTOWL
+        level 31
+        pokemon SPECIES_ARCANINE
+        move MOVE_THUNDER_FANG
+        move MOVE_CRUNCH
+        move MOVE_FLARE_BLITZ
+        move MOVE_NONE
+        ability ABILITY_JUSTIFIED
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 252, 0, 0, 252
+        nature NATURE_ADAMANT
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -27384,7 +27411,7 @@ trainerdata 727, "Blue"
     endparty
 
 trainerdata 728, "Charlotte"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_BEAUTY
     nummons 1
     item ITEM_NONE
@@ -27399,8 +27426,17 @@ trainerdata 728, "Charlotte"
         // mon 0
         ivs 0
         abilityslot 0
-        level 16
-        pokemon SPECIES_BELLOSSOM
+        level 30
+        pokemon SPECIES_VILEPLUME
+        move MOVE_GIGA_DRAIN
+        move MOVE_STUN_SPORE
+        move MOVE_HIDDEN_POWER
+        move MOVE_NONE
+        ability ABILITY_EFFECT_SPORE
+        setivs 31, 31, 31, 31, 30, 30 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 252, 0
+        nature NATURE_MODEST
+        additionalflags 0
         ballseal 1
     endparty
 
