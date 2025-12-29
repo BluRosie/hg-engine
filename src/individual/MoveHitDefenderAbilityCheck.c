@@ -461,7 +461,6 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             int fieldSide = IsClientEnemy(bw, sp->attack_client);
             if (sp->scw[fieldSide].toxicSpikesLayers < 2) {
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
-                sp->battlerIdTemp = sp->attack_client;
                 sp->side_condition[fieldSide] |= SIDE_STATUS_TOXIC_SPIKES;
                 sp->scw[fieldSide].toxicSpikesLayers++;
                 seq_no[0] = SUB_SEQ_TOXIC_DEBRIS;
