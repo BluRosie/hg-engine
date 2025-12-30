@@ -563,5 +563,5 @@ arm9 SetupAndStartTutorialBattle 02051334 1
 #endif
 
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2
-
+0012 TryUseHeldItem 0225471C 3
 
