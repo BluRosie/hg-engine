@@ -414,4 +414,6 @@ BOOL LONG_CALL CheckScriptFlag(u16 flag_id);
 BOOL LONG_CALL IsElementInArray(const void *array, void *element, u32 len, u32 size);
 BOOL LONG_CALL PlayerProfile_TestBadgeFlag(struct PlayerProfile *profile, s32 badgeNumber);
 
+SysInfo_RTC LONG_CALL *Save_SysInfo_RTC_Get(SaveData *saveData);
+
 #endif // SAVE_H

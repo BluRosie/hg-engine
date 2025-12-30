@@ -49,6 +49,17 @@ struct GF_RTC_DateTime {
     struct RTCTime time;
 };
 
+// In sav_system_info.h in pokeheartgold.
+typedef struct SysInfo_RTC {
+    BOOL initialized;
+    struct RTCDate date;
+    struct RTCTime time;
+    s32 days_since_nitro_epoch;
+    s64 seconds_since_nitro_epoch;
+    s64 seconds_at_game_clear;
+    u32 penaltyInMinutes;
+} SysInfo_RTC;
+
 void LONG_CALL Party_ResetAllShayminToLandForme(struct Party *party);
 void LONG_CALL GF_RTC_CopyDateTime(struct RTCDate *date, struct RTCTime *time);
 void LONG_CALL GF_RTC_CopyTime(struct RTCTime *time);
