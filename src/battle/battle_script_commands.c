@@ -4404,3 +4404,54 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     }
     return FALSE;
 }
+
+BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    BattleMessageData msgdata;
+    MESSAGE_PARAM msg;
+    IncrementBattleScriptPtr(ctx, 1);
+
+    InitBattleMsgData(ctx, &msgdata);
+    InitBattleMsg(bsys, ctx, &msgdata, &msg);
+    BattleController_EmitPrintMessage(bsys, ctx, &msg);
+
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (!(ctx->server_status_flag & BATTLE_STATUS_NO_ATTACK_MESSAGE)) {
+        BattleController_EmitPrintAttackMessage(bsys, ctx);
+    }
+
+    ctx->server_status_flag |= BATTLE_STATUS_NO_ATTACK_MESSAGE;
+    ctx->server_status_flag2 |= BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE;
+
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_PrintGlobalMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    BattleMessageData msgdata;
+    MESSAGE_PARAM msg;
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    InitBattleMsgData(ctx, &msgdata);
+    InitBattleMsg(bsys, ctx, &msgdata, &msg);
+
+    msg.msg_tag |= 128;
+
+    BattleController_EmitPrintMessage(bsys, ctx, &msg);
+
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_PrintBufferedMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    BattleController_EmitPrintMessage(bsys, ctx, &ctx->mp);
+    return FALSE;
+}

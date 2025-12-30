@@ -138,6 +138,10 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_TryBreakScreens 02242E00 3
 0012 BtlCmd_ResetAllStatChanges 0223FA1C 3
 0012 BtlCmd_CheckToxicSpikes 02243E6C 3
+0012 BtlCmd_PrintMessage 0223DEF0 3
+0012 BtlCmd_PrintAttackMessage 0223DEB0 3
+0012 BtlCmd_PrintGlobalMessage 0223DF24 3
+0012 BtlCmd_PrintBufferedMessage 0223DF64 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -557,3 +561,5 @@ arm9 SetupAndStartTutorialBattle 02051334 1
 #endif
 
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2
+
+

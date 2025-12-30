@@ -783,3 +783,10 @@ TaskManager_Call = 0x02050530 | 1;
 Task_TutorialBattle = 0x0205128C | 1;
 
 GetItemAttrSub = 0x02077E48 | 1;
+
+
+
+InitBattleMsgData = 0x022478F4 | 1;
+InitBattleMsg = 0x022479C0 | 1;
+BattleController_EmitPrintMessage = 0x022633F0 | 1;
+BattleController_EmitPrintAttackMessage = 0x022633B8 | 1;
