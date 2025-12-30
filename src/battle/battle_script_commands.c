@@ -3345,7 +3345,7 @@ BOOL btl_scr_cmd_108_strengthsapcalc(void* bw UNUSED, struct BattleStruct* sp) {
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp) {
+BOOL btl_scr_cmd_109_checktargetispartner(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
     int adrs = read_battle_script_param(sp);
     int defender = sp->defence_client;
