@@ -230,7 +230,7 @@ ST_ServerQueCheck = 0x0224ED48 | 1;
 SCIO_StatusEffectSet = 0x02263848 | 1;
 SCIO_LevelUpEffectSet = 0x0226399C | 1;
 BattleWorkPlaceIDGet = 0x0223AB60 | 1;
-TryUseHeldItem = 0x0225471C | 1;
+/*TryUseHeldItem = 0x0225471C | 1;*/
 HeldItemHealStatusCheck = 0x02254E7C | 1;
 Battle_GetClientPartySize = 0x0223a834 | 1;
 Battle_GetClientPartyMon = 0x0223a880 | 1;
@@ -713,6 +713,8 @@ LowestFlagNo = 0x020726E0 | 1;
 Battler_GetRandomOpposingBattlerId = 0x02253DA0 | 1;
 GetBattlerLearnedMoveCount = 0x02252EA8 | 1;
 CanSwitchMon = 0x02252890 | 1;
+BattleMon_AddVar = 0x0224F7AC | 1;
+GetFlavorPreferenceFromPID = 0x020718E8 | 1;
 
 ov12_0224DD74 = 0x0224DD74 | 1;
 ov12_02261258 = 0x02261258 | 1;

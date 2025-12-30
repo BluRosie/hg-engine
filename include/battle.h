@@ -4065,4 +4065,7 @@ void LONG_CALL InitBattleMsg(struct BattleSystem *bw, struct BattleStruct *sp, B
 void LONG_CALL BattleController_EmitPrintMessage(struct BattleSystem *bw, struct BattleStruct *sp, MESSAGE_PARAM *msg);
 void LONG_CALL BattleController_EmitPrintAttackMessage(struct BattleSystem *bw, struct BattleStruct *sp);
 
+
+void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
+
 #endif // BATTLE_H
