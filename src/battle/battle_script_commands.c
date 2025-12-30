@@ -4455,3 +4455,35 @@ BOOL LONG_CALL BtlCmd_PrintBufferedMessage(struct BattleSystem *bsys, struct Bat
     BattleController_EmitPrintMessage(bsys, ctx, &ctx->mp);
     return FALSE;
 }
+
+BOOL LONG_CALL BtlCmd_BufferMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    BattleMessageData msgdata;
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    InitBattleMsgData(ctx, &msgdata);
+    InitBattleMsg(bsys, ctx, &msgdata, &ctx->mp);
+
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_BufferLocalMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    BattleMessageData msgdata;
+    MESSAGE_PARAM msg;
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u32 side = read_battle_script_param(ctx);
+
+    InitBattleMsgData(ctx, &msgdata);
+    InitBattleMsg(bsys, ctx, &msgdata, &msg);
+
+    msg.msg_tag |= 64;
+    msg.msg_client = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    BattleController_EmitPrintMessage(bsys, ctx, &msg);
+
+    return FALSE;
+}
