@@ -1468,8 +1468,6 @@
 
 // define your custom subscripts below like this
 // .equ MOVE_SUBSCRIPT_CUSTOM_1, (MAX_BASE_SUBSCRIPT_NUM + 1)
-.equ BATTLE_SUBSCRIPT_TOTEM_TEMPEST, (MAX_BASE_SUBSCRIPT_NUM + 1)
-
 
 .equ TERRAIN_PLAIN, 0x0
 .equ TERRAIN_SAND, 0x1

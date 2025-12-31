@@ -329,7 +329,7 @@ BOOL ScrCmd_WildBattle(SCRIPTCONTEXT *ctx) {
     u16 species = ScriptGetVar(ctx);
     u16 level = ScriptGetVar(ctx);
     u8 shiny = ScriptReadByte(ctx);
-    if (GetScriptVar(0x800B) == 1)
+    if (GetScriptVar(0x800B))
     {
         SetupAndStartTotemBattle(ctx->taskman, species, level, winFlag, shiny);
     }

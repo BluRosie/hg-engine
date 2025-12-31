@@ -781,7 +781,7 @@ ov02_02247F30 = 0x02247F30 | 1;
 BattleSetup_GetWildTransitionEffect = 0x020517E8 | 1;
 BattleSetup_GetWildBattleMusic = 0x020517FC | 1;
 CallTask_StartEncounter = 0x0205085C | 1;
-SetupAndStartWildBattle = 0x02051020 | 6;
+SetupAndStartWildBattle = 0x02051020 | 1;
 
 BattleSetup_New_Tutorial = 0x02051AAC | 1;
 Encounter_New = 0x020506BC | 1;
@@ -789,4 +789,4 @@ TaskManager_Call = 0x02050530 | 1;
 Task_TutorialBattle = 0x0205128C | 1;
 
 Save_GameStats_Get = 0x0202CF54 | 1;
-GameStats_Inc = 0x0202D0FC | 2;
+GameStats_Inc = 0x0202D0FC | 1;
