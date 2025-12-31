@@ -1605,3 +1605,4 @@ You are challenged by Ultra\n{STRVAR_1 1, 0, 0}!
 Can’t flee this fight!
 The Ultra Pokémon’s lowered stats\nare returning to normal!
 The Ultra Pokemon’s lowered stats\nhave returned to normal!
+{STRVAR_1 1, 0, 0}’s aura flared to life!\nIts stats were maximized!

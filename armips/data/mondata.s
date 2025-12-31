@@ -5855,7 +5855,7 @@ mondata SPECIES_SWELLOW, "Swellow"
 mondata SPECIES_WINGULL, "Wingull"
     basestats 40, 30, 30, 85, 55, 30
     types TYPE_WATER, TYPE_FLYING
-    catchrate 190
+    catchrate 3
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 1, 0, 0
     items ITEM_PRETTY_FEATHER, ITEM_NONE

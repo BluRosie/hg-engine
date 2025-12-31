@@ -1825,9 +1825,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     int targetStatArray[8] = {6, 6, 6, 6, 6, 6, 6, 6};
                     switch (sp->battlemon[BATTLER_ENEMY].species)
                     {
-                        case SPECIES_GYARADOS:
-                            targetStatArray[STAT_SPDEF]++; // +1 Special Defense
-                            targetStatArray[STAT_SPEED]++; // +1 Speed
+                        case SPECIES_WINGULL:
+                            targetStatArray[STAT_SPDEF] += 6; // +6 Special Defense
+                            targetStatArray[STAT_SPEED] += 6; // +6 Speed
+                            targetStatArray[STAT_ATTACK] += 6; // +6 Attack
+                            targetStatArray[STAT_DEFENSE] += 6; // +6 Defenese
+                            targetStatArray[STAT_SPATK] += 6; // +6 Special Attack
+                            targetStatArray[STAT_EVASION] += 6; // +6 Evasion
                             break;
                         case SPECIES_AMBIPOM:
                             targetStatArray[STAT_ATTACK]++; // +1 Attack

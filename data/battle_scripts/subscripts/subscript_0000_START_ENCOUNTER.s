@@ -66,7 +66,7 @@ _TotemStatBoost_Wingull:
     UpdateMonData OPCODE_ADD, BATTLER_CATEGORY_ENEMY, BMON_DATA_STAT_CHANGE_DEF, 6
     UpdateMonData OPCODE_ADD, BATTLER_CATEGORY_ENEMY, BMON_DATA_STAT_CHANGE_SPATK, 6
     UpdateMonData OPCODE_ADD, BATTLER_CATEGORY_ENEMY, BMON_DATA_STAT_CHANGE_EVASION, 6
-    GoTo _TotemMultiStatMessage
+    GoTo _TotemMaxStatMessage
 
 _TotemStatBoost_Ambipom:
     PlayBattleAnimation BATTLER_CATEGORY_ENEMY, BATTLE_ANIMATION_STAT_BOOST
@@ -84,6 +84,11 @@ _TotemSingleStatMessage:
 _TotemMultiStatMessage:
     // {0}’s aura flared to life! Its stats rose!
     PrintGlobalMessage 1603, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
+    GoTo _SendOutPokemonMessage
+
+_TotemMaxStatMessage:
+    // {0}’s aura flared to life! Its stats were maximized!
+    PrintGlobalMessage 1607, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
 
 _SendOutPokemonMessage:
     Wait 
