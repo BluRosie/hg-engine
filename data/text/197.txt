@@ -1468,7 +1468,7 @@ Fog crept up as thick as soup!
 A veil of water restored\n{STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe wild {STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe opposing {STRVAR_1 1, 0, 0}’s HP!
-The effects of the weather\ndisappeared.
+The effects of the weather disappeared.
 {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The wild {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The opposing {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
@@ -1599,3 +1599,9 @@ The bursting flame hit {STRVAR_1 1, 0, 0}!
 The bursting flame hit the wild\n{STRVAR_1 1, 0, 0}!
 The bursting flame hit the\nopposing {STRVAR_1 1, 0, 0}!
 A deluge of ions showers\nthe battlefield!
+You are challenged by Ultra\n{STRVAR_1 1, 0, 0}!
+{STRVAR_1 1, 0, 0}’s aura flared to life!\nIts {STRVAR_1 13, 1, 0} rose!
+{STRVAR_1 1, 0, 0}’s aura flared to life!\nIts stats rose!
+Can’t flee this fight!
+The Ultra Pokémon’s lowered stats\nare returning to normal!
+The Ultra Pokemon’s lowered stats\nhave returned to normal!
