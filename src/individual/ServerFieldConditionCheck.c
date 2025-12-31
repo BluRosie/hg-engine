@@ -1897,13 +1897,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                     if (statsRestored)
                     {
-                        sp->mp.msg_id = 1610;  // The Totem Pokemon's lowered stats have returned to normal!
+                        sp->mp.msg_id = 1606;  // The Totem Pokemon's lowered stats have returned to normal!
                         sp->mp.msg_tag = TAG_NONE; 
                         for (int stat = 1; stat < STAT_MAX; stat++)
                         {
                             if (sp->battlemon[BATTLER_ENEMY].states[stat] < targetStatArray[stat])
                             {
-                                sp->mp.msg_id = 1609;  // The Totem Pokemon's lowered stats are returning to normal!
+                                sp->mp.msg_id = 1605;  // The Totem Pokemon's lowered stats are returning to normal!
                                 break;
                             }
                         }

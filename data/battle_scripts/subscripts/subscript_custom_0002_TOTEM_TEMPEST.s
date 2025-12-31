@@ -17,7 +17,7 @@ _CheckTempestRemainder:
 
 _HandleTempestBuildup:
     // A wicked gust starts to stir!
-    PrintMessage 1604, TAG_NONE
+    PrintMessage 1607, TAG_NONE
     // UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_TAILWIND
     // PlayMoveAnimation BATTLER_CATEGORY_MSG_TEMP
     Wait
@@ -26,7 +26,7 @@ _HandleTempestBuildup:
 
 _HandleTempestBuildup_Strong:
     // A horrible wind is howling!
-    PrintMessage 1605, TAG_NONE
+    PrintMessage 1608, TAG_NONE
     // UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_TAILWIND
     // PlayMoveAnimation BATTLER_CATEGORY_MSG_TEMP
     Wait
@@ -37,7 +37,7 @@ _HandleTempestMove:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_HURRICANE
     PlayMoveAnimation BATTLER_CATEGORY_MSG_TEMP
     // A terrible storm tears into you!
-    PrintMessage 1606, TAG_NONE
+    PrintMessage 1609, TAG_NONE
     Wait
     WaitButtonABTime 30
     // Necessary values for Hurricane are cached prior to subscript.
@@ -74,5 +74,5 @@ _HealBurn:
 
 _BurnHealMessage:
     // The roaring winds extinguished the burning Pokémon!
-    PrintMessage 1608, TAG_NONE
+    PrintMessage 1610, TAG_NONE
     End
