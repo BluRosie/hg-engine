@@ -5525,7 +5525,7 @@ trainerdata 128, "Jonah"
     endparty
 
 trainerdata 129, "Shane"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 2
     item ITEM_NONE
@@ -5540,15 +5540,33 @@ trainerdata 129, "Shane"
         // mon 0
         ivs 0
         abilityslot 0
-        level 17
-        pokemon SPECIES_NIDORINA
+        level 38
+        pokemon SPECIES_NIDOQUEEN
+        move MOVE_ICE_PUNCH
+        move MOVE_EARTH_POWER
+        move MOVE_POISON_FANG
+        move MOVE_NONE
+        ability ABILITY_POISON_POINT
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 0, 252
+        nature NATURE_HARDY
+        additionalflags 0
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 17
-        pokemon SPECIES_NIDORINO
+        level 38
+        pokemon SPECIES_NIDOKING
+        move MOVE_ICE_PUNCH
+        move MOVE_EARTH_POWER
+        move MOVE_POISON_FANG
+        move MOVE_NONE
+        ability ABILITY_POISON_POINT
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 0, 252
+        nature NATURE_HARDY
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -5651,7 +5669,7 @@ trainerdata 133, "Morgan"
     endparty
 
 trainerdata 134, "Benjamin"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
@@ -5666,22 +5684,49 @@ trainerdata 134, "Benjamin"
         // mon 0
         ivs 0
         abilityslot 0
-        level 15
-        pokemon SPECIES_DIGLETT
+        level 37
+        pokemon SPECIES_CRUSTLE
+        move MOVE_STEALTH_ROCK
+        move MOVE_SLASH
+        move MOVE_ROCK_SLIDE
+        move MOVE_BUG_BITE
+        ability ABILITY_SHELL_ARMOR
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 0, 252
+        nature NATURE_SASSY
+        additionalflags 0
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 32
-        level 15
-        pokemon SPECIES_GEODUDE
+        level 37
+        pokemon SPECIES_BASTIODON
+        move MOVE_PROTECT
+        move MOVE_BODY_SLAM
+        move MOVE_IRON_HEAD
+        move MOVE_DIG
+        ability ABILITY_STURDY
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 252, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        additionalflags 0
         ballseal 0
 
         // mon 2
         ivs 0
         abilityslot 0
-        level 17
-        pokemon SPECIES_DUGTRIO
+        level 37
+        pokemon SPECIES_RAMPARDOS
+        move MOVE_HEADBUTT
+        move MOVE_FIRE_PUNCH
+        move MOVE_THUNDER_PUNCH
+        move MOVE_DIG
+        ability ABILITY_SHEER_FORCE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 252, 0, 0, 252
+        nature NATURE_CAREFUL
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -20660,7 +20705,7 @@ trainerdata 536, "Bertrand"
     endparty
 
 trainerdata 537, "Harrison"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_POKE_MANIAC
     nummons 2
     item ITEM_NONE
@@ -20674,21 +20719,39 @@ trainerdata 537, "Harrison"
     party 537
         // mon 0
         ivs 0
-        abilityslot 32
-        level 17
-        pokemon SPECIES_NIDOKING
+        abilityslot 0
+        level 38
+        pokemon SPECIES_NIDOQUEEN
+        move MOVE_ICE_PUNCH
+        move MOVE_EARTH_POWER
+        move MOVE_POISON_FANG
+        move MOVE_NONE
+        ability ABILITY_POISON_POINT
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 0, 252
+        nature NATURE_HARDY
+        additionalflags 0
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 17
-        pokemon SPECIES_NIDOQUEEN
+        level 38
+        pokemon SPECIES_NIDOKING
+        move MOVE_ICE_PUNCH
+        move MOVE_EARTH_POWER
+        move MOVE_POISON_FANG
+        move MOVE_NONE
+        ability ABILITY_POISON_POINT
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 0, 252
+        nature NATURE_HARDY
+        additionalflags 0
         ballseal 0
     endparty
 
 trainerdata 538, "Hugh"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
@@ -20702,18 +20765,23 @@ trainerdata 538, "Hugh"
     party 538
         // mon 0
         ivs 0
-        abilityslot 0
+        abilityslot 32
         level 39
-        pokemon SPECIES_SEADRA
-        move MOVE_SMOKESCREEN
-        move MOVE_TWISTER
-        move MOVE_SURF
-        move MOVE_WATERFALL
+        pokemon SPECIES_SOLROCK
+        move MOVE_SECRET_POWER
+        move MOVE_STONE_EDGE
+        move MOVE_MIMIC
+        move MOVE_NONE
+        ability ABILITY_LEVITATE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 252, 0, 0, 252
+        nature NATURE_CAREFUL
+        additionalflags 0
         ballseal 0
     endparty
 
 trainerdata 539, "Markus"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
@@ -20728,12 +20796,17 @@ trainerdata 539, "Markus"
         // mon 0
         ivs 0
         abilityslot 32
-        level 19
-        pokemon SPECIES_SLOWPOKE
-        move MOVE_CURSE
-        move MOVE_WATER_GUN
-        move MOVE_GROWL
-        move MOVE_STRENGTH
+        level 39
+        pokemon SPECIES_SOLROCK
+        move MOVE_SECRET_POWER
+        move MOVE_STONE_EDGE
+        move MOVE_MIMIC
+        move MOVE_NONE
+        ability ABILITY_LEVITATE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 252, 0, 0, 252
+        nature NATURE_CAREFUL
+        additionalflags 0
         ballseal 0
     endparty
 
