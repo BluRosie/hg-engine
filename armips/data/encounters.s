@@ -5945,49 +5945,49 @@ rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 15, 15, 15, 15, 17, 17, 15, 15, 16, 17, 16, 17
+walklevels 34, 34, 34, 34, 35, 35, 35, 35, 36, 36, 36, 36
 
 // morning encounter slots
-pokemon SPECIES_FLAAFFY
-pokemon SPECIES_GIRAFARIG
-pokemon SPECIES_FLAAFFY
-pokemon SPECIES_GIRAFARIG
-pokemon SPECIES_PIDGEOTTO
-pokemon SPECIES_PIDGEOTTO
-pokemon SPECIES_MAREEP
-pokemon SPECIES_MAREEP
-pokemon SPECIES_VENONAT
-pokemon SPECIES_PIDGEOTTO
-pokemon SPECIES_VENONAT
-pokemon SPECIES_PIDGEOTTO
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_STOUTLAND
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_STOUTLAND
+pokemon SPECIES_SWELLOW
+pokemon SPECIES_SWELLOW
+pokemon SPECIES_SCRAGGY
+pokemon SPECIES_SCRAGGY
+pokemon SPECIES_FOONGUS
+pokemon SPECIES_SWELLOW
+pokemon SPECIES_FOONGUS
+pokemon SPECIES_SWELLOW
 
 // day encounter slots
-pokemon SPECIES_FLAAFFY
-pokemon SPECIES_GIRAFARIG
-pokemon SPECIES_FLAAFFY
-pokemon SPECIES_GIRAFARIG
-pokemon SPECIES_PIDGEOTTO
-pokemon SPECIES_PIDGEOTTO
-pokemon SPECIES_MAREEP
-pokemon SPECIES_MAREEP
-pokemon SPECIES_FLAAFFY
-pokemon SPECIES_FLAAFFY
-pokemon SPECIES_FLAAFFY
-pokemon SPECIES_FLAAFFY
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_STOUTLAND
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_STOUTLAND
+pokemon SPECIES_SWELLOW
+pokemon SPECIES_SWELLOW
+pokemon SPECIES_SCRAGGY
+pokemon SPECIES_SCRAGGY
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_MINCCINO
 
 // night encounter slots
-pokemon SPECIES_FLAAFFY
-pokemon SPECIES_GIRAFARIG
-pokemon SPECIES_FLAAFFY
-pokemon SPECIES_GIRAFARIG
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_STOUTLAND
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_STOUTLAND
 pokemon SPECIES_NOCTOWL
 pokemon SPECIES_NOCTOWL
-pokemon SPECIES_VENONAT
-pokemon SPECIES_VENONAT
-pokemon SPECIES_MAREEP
-pokemon SPECIES_VENONAT
-pokemon SPECIES_MAREEP
-pokemon SPECIES_VENONAT
+pokemon SPECIES_FOONGUS
+pokemon SPECIES_FOONGUS
+pokemon SPECIES_SCRAGGY
+pokemon SPECIES_FOONGUS
+pokemon SPECIES_SCRAGGY
+pokemon SPECIES_FOONGUS
 
 // hoenn encounter slots
 pokemon SPECIES_WHISMUR
@@ -5998,29 +5998,29 @@ pokemon SPECIES_BUIZEL
 pokemon SPECIES_BIDOOF
 
 // surf encounters
-encounter SPECIES_MAGIKARP, 15, 25
-encounter SPECIES_MAGIKARP, 10, 20
-encounter SPECIES_MAGIKARP, 5, 15
-encounter SPECIES_MAGIKARP, 5, 15
-encounter SPECIES_MAGIKARP, 50, 50
+encounter SPECIES_SLOWPOKE, 34, 36
+encounter SPECIES_SLOWPOKE, 34, 36
+encounter SPECIES_SLOWPOKE, 34, 36
+encounter SPECIES_SLOWPOKE, 34, 36
+encounter SPECIES_SLOWPOKE, 34, 36
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
+encounter SPECIES_SLOWPOKE, 34, 36
+encounter SPECIES_SLOWPOKE, 34, 36
+encounter SPECIES_SLOWPOKE, 34, 36
+encounter SPECIES_BASCULIN, 34, 36
+encounter SPECIES_BASCULIN, 34, 36
 
 // good rod encounters
-encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
+encounter SPECIES_SLOWPOKE, 34, 36
+encounter SPECIES_MAGIKARP, 34, 36
+encounter SPECIES_MAGIKARP, 34, 36
+encounter SPECIES_MAGIKARP, 34, 36
+encounter SPECIES_MAGIKARP, 34, 36
 
 // super rod encounters
 encounter SPECIES_POLIWAG, 40, 40
@@ -6102,29 +6102,29 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 // surf encounters
-encounter SPECIES_MAGIKARP, 10, 20
-encounter SPECIES_MAGIKARP, 5, 15
-encounter SPECIES_GYARADOS, 10, 20
-encounter SPECIES_GYARADOS, 10, 20
-encounter SPECIES_GYARADOS, 10, 20
+encounter SPECIES_BUIZEL, 30, 35
+encounter SPECIES_BUIZEL, 30, 35
+encounter SPECIES_BUIZEL, 30, 35
+encounter SPECIES_BUIZEL, 30, 35
+encounter SPECIES_BUIZEL, 30, 35
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
+encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
+encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
+encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
+encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
+encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
 
 // good rod encounters
-encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_GYARADOS, 20, 20
-encounter SPECIES_MAGIKARP, 20, 20
+encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
+encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
+encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
+encounter monwithform SPECIES_SLOWBRO, 1, 30, 35
+encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
 
 // super rod encounters
 encounter SPECIES_MAGIKARP, 40, 40
