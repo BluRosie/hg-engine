@@ -8204,7 +8204,7 @@ movedata MOVE_SHIFT_GEAR, "Shift Gear"
     movedescription MOVE_SHIFT_GEAR, "Rotating its gears,\nthe user raises its\nAttack and sharply\nraises its Speed."
 
 movedata MOVE_CIRCLE_THROW, "Circle Throw"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_FORCE_SWITCH_HIT
     pss SPLIT_PHYSICAL
     basepower 60
     type TYPE_FIGHTING
@@ -8460,7 +8460,7 @@ movedata MOVE_FROST_BREATH, "Frost Breath"
     movedescription MOVE_FROST_BREATH, "The user blows\ncold air at the foe.\nIt always results in\na critical hit."
 
 movedata MOVE_DRAGON_TAIL, "Dragon Tail"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_FORCE_SWITCH_HIT
     pss SPLIT_PHYSICAL
     basepower 60
     type TYPE_DRAGON
