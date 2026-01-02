@@ -187,4 +187,7 @@
 // FOG_SETS_MISTY_TERRAIN makes the Fog map header weather set permanent Misty Terrain in battle
 //#define FOG_WEATHER_MISTY_TERRAIN
 
+// EXP SHARE - Sistema moderno (Gen 5)
+#define MODERN_EXP_SHARE
+
 #endif

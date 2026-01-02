@@ -1391,9 +1391,53 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
     client_no = (sp->fainting_client >> 1) & 1;
 
+#ifdef MODERN_EXP_SHARE
+    // ================================================
+    // MODO MODERNO: MARCA TODOS OS POKÉMON VIVOS PARA GANHAR EXP
+    // ================================================
+    if (expcalc->seq_no == 0)  // Só executa uma vez
+    {
+        struct Party *party = BattleWorkPokePartyGet(expcalc->bw, exp_client_no);
+        for (int i = 0; i < party->count; i++)
+        {
+            struct PartyPokemon *pploop = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
+            if (pploop != NULL && 
+                GetMonData(pploop, MON_DATA_HP, NULL) > 0 && 
+                !GetMonData(pploop, MON_DATA_IS_EGG, NULL))
+            {
+                // Marca este Pokémon para receber EXP
+                sp->obtained_exp_right_flag[client_no] |= No2Bit(i);
+            }
+        }
+    }
+#endif
+
     if (expcalc->seq_no < 37)
     {
-        // grab the pokémon that is actually gaining the experience
+#ifdef MODERN_EXP_SHARE
+        // ================================================
+        // MODO MODERNO: Todos os Pokémon vivos ganham EXP
+        // ================================================
+        for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
+        {
+            pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
+            if (pp == NULL)
+                goto _skipAllThis;
+            
+            // Verifica se está vivo e não é ovo
+            u16 curHP = GetMonData(pp, MON_DATA_HP, NULL);
+            u8 isEgg = GetMonData(pp, MON_DATA_IS_EGG, NULL);
+            
+            if (curHP > 0 && !isEgg)
+            {
+                // Pokémon válido para ganhar EXP
+                break;
+            }
+        }
+#else
+        // ================================================
+        // MODO CLÁSSICO: Item Exp Share ou batalhou
+        // ================================================
         for (sel_mons_no = expcalc->work[6]; sel_mons_no < BattleWorkPokeCountGet(expcalc->bw, exp_client_no); sel_mons_no++)
         {
             pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
@@ -1407,7 +1451,9 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                 break;
             }
         }
+#endif
     }
+    
 
 #if EXPERIENCE_FORMULA_GEN == 5 || EXPERIENCE_FORMULA_GEN > 6 // scaled exp rate
     struct Party *party = BattleWorkPokePartyGet(expcalc->bw, 0);
