@@ -489,6 +489,8 @@
 #define SUB_SEQ_TOTEM_STAT_RESTORE                    (MAX_BASE_SUBSCRIPT_NUM + 1)
 #define SUB_SEQ_TOTEM_TEMPEST                         (MAX_BASE_SUBSCRIPT_NUM + 2)
 #define SUB_SEQ_TOTEM_PARK_PICKUP                     (MAX_BASE_SUBSCRIPT_NUM + 3)
+#define SUB_SEQ_ITEM_STAT_LOWER                       (MAX_BASE_SUBSCRIPT_NUM + 4)
+#define SUB_SEQ_ITEM_CURSE                            (MAX_BASE_SUBSCRIPT_NUM + 5)
 
 // add status effect constants--used in battle effect scripts to queue up a subscript through the table in src/moves.c
 
