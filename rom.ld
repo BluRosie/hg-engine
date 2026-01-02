@@ -790,3 +790,9 @@ Task_TutorialBattle = 0x0205128C | 1;
 
 Save_GameStats_Get = 0x0202CF54 | 1;
 GameStats_Inc = 0x0202D0FC | 1;
+
+GetHeldItemFlingEffect = 0x022558D0 | 1;
+GetHeldItemFlingPower = 0x022558F8 | 1;
+GetHeldItemModifier = 0x02255844 | 1;
+
+GetFlavorPreferenceFromPID = 0x020718E8 | 1;

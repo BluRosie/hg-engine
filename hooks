@@ -556,3 +556,4 @@ arm9 ScrCmd_WildBattle 02043E5C 1
 0010 TestBattle_AISelectMove 0221BEF4 2
 0010 TestBattle_AIPickCommand 022205BC 2
 #endif
+0012 TryFling 02255F7C 3

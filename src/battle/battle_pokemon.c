@@ -1227,3 +1227,275 @@ BOOL LONG_CALL IsMonValidAndHealthy(struct PartyPokemon *mon) {
         GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_EGG &&
         GetMonData(mon, MON_DATA_STATUS, 0) == 0);
 }
+
+BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int battlerId) {
+    int item = GetHeldItemFlingEffect(sp, battlerId);
+    int mod = GetHeldItemModifier(sp, battlerId, 2);
+
+    sp->damage_power = GetHeldItemFlingPower(sp, battlerId);
+    sp->nagetsukeru_seq_no = 0;
+    sp->addeffect_type = 0;
+
+    if (!sp->damage_power) {
+        return FALSE;
+    }
+
+    switch (item) {
+    case STEAL_EFFECT_RESTORE_HP: // Oran Berry
+        sp->nagetsukeru_work = mod;
+        sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE;
+        break;
+    case STEAL_EFFECT_RESTORE_HP_PERCENT: // Sitrus Berry
+        sp->nagetsukeru_work = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp * mod, 100);
+        sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE;
+        break;
+    case STEAL_EFFECT_CURE_PARALYSIS: // Cheri Berry
+        if (sp->battlemon[sp->defence_client].condition & STATUS_PARALYSIS) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_PRZ;
+        }
+        break;
+    case STEAL_EFFECT_CURE_SLEEP: // Chesto Berry
+        if (sp->battlemon[sp->defence_client].condition & STATUS_SLEEP) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_SLP;
+        }
+        break;
+    case STEAL_EFFECT_CURE_POISON: // Pecha Berry
+        if (sp->battlemon[sp->defence_client].condition & STATUS_POISON_ALL) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_PSN;
+        }
+        break;
+    case STEAL_EFFECT_CURE_BURN: // Rawst Berry
+        if (sp->battlemon[sp->defence_client].condition & STATUS_BURN) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_BRN;
+        }
+        break;
+    case STEAL_EFFECT_CURE_FREEZE: // Aspear Berry
+        if (sp->battlemon[sp->defence_client].condition & STATUS_FREEZE) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_FRZ;
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_PP: // Leppa Berry
+    {
+        int missingPP;
+        int index;
+        int mostMissingPP = 0;
+        int mostMissingIndex;
+        // Restore PP to the move with the most missing PP.
+        for (index = 0; index < 4; index++) { // 4 == MAX_MON_MOVES
+            // If there is a move at the current index...
+            if (sp->battlemon[sp->defence_client].move[index]) {
+                // Get the missing PP from the move.
+                missingPP = GetMoveMaxPP(sp->battlemon[sp->defence_client].move[index], sp->battlemon[sp->defence_client].pp_count[index]) - sp->battlemon[sp->defence_client].pp[index];
+                // If this move is missing the most PP so far, keep track of it.
+                if (missingPP > mostMissingPP) {
+                    mostMissingPP = missingPP;
+                    mostMissingIndex = index;
+                }
+            }
+        }
+        // If any of our moves are missing PP, mostMissingPP will be greater than 0.
+        if (mostMissingPP) {
+            // Make sure we don't restore above max PP.
+            if (mod > mostMissingPP)
+            {
+                mod = mostMissingPP;
+            }
+            sp->battlemon[sp->defence_client].pp[mostMissingIndex] += mod;
+            CopyBattleMonToPartyMon(bsys, sp, sp->defence_client);
+            sp->waza_work = sp->battlemon[sp->defence_client].move[mostMissingIndex];
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_PP_RESTORE;
+        }
+        break;
+    }
+    case STEAL_EFFECT_CURE_CONFUSION: // Persim Berry
+        if (sp->battlemon[sp->defence_client].condition2 & STATUS2_CONFUSION) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_CNF;
+        }
+        break;
+    case STEAL_EFFECT_CURE_ALL: // Lum Berry
+        if ((sp->battlemon[sp->defence_client].condition & STATUS_ALL) || (sp->battlemon[sp->defence_client].condition2 & STATUS2_CONFUSION)) {
+            if (sp->battlemon[sp->defence_client].condition & STATUS_PARALYSIS) {
+                sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_PRZ;
+            }
+            if (sp->battlemon[sp->defence_client].condition & STATUS_SLEEP) {
+                sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_SLP;
+            }
+            if (sp->battlemon[sp->defence_client].condition & STATUS_POISON_ALL) {
+                sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_PSN;
+            }
+            if (sp->battlemon[sp->defence_client].condition & STATUS_BURN) {
+                sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_BRN;
+            }
+            if (sp->battlemon[sp->defence_client].condition & STATUS_FREEZE) {
+                sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_FRZ;
+            }
+            if (sp->battlemon[sp->defence_client].condition2 & STATUS2_CONFUSION) {
+                sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_CNF;
+            }
+            if ((sp->battlemon[sp->defence_client].condition & STATUS_ALL) && (sp->battlemon[sp->defence_client].condition2 & STATUS2_CONFUSION)) {
+                sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_ALL;
+            }
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_SPICY: // Figy Berry
+        sp->nagetsukeru_work = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp, mod);
+        sp->msg_work = FLAVOR_SPICY;
+        if (GetFlavorPreferenceFromPID(sp->battlemon[sp->defence_client].personal_rnd, FLAVOR_SPICY) == -1) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+        } else {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_DRY: // Wiki Berry
+        sp->nagetsukeru_work = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp, mod);
+        sp->msg_work = FLAVOR_DRY;
+        if (GetFlavorPreferenceFromPID(sp->battlemon[sp->defence_client].personal_rnd, FLAVOR_DRY) == -1) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+        } else {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_SWEET: // Mago Berry
+        sp->nagetsukeru_work = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp, mod);
+        sp->msg_work = FLAVOR_SWEET;
+        if (GetFlavorPreferenceFromPID(sp->battlemon[sp->defence_client].personal_rnd, FLAVOR_SWEET) == -1) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+        } else {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_BITTER: // Aguav Berry
+        sp->nagetsukeru_work = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp, mod);
+        sp->msg_work = FLAVOR_BITTER;
+        if (GetFlavorPreferenceFromPID(sp->battlemon[sp->defence_client].personal_rnd, FLAVOR_BITTER) == -1) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+        } else {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_SOUR: // Iapapa Berry
+        sp->nagetsukeru_work = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp, mod);
+        sp->msg_work = FLAVOR_SOUR;
+        if (GetFlavorPreferenceFromPID(sp->battlemon[sp->defence_client].personal_rnd, FLAVOR_SOUR) == -1) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+        } else {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_HP_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_RESET_STATS: // White Herb
+    {
+        int stat;
+        for (stat = 0; stat < 8; stat++) {
+            if (sp->battlemon[sp->defence_client].states[stat] < 6) {
+                sp->battlemon[sp->defence_client].states[stat] = 6;
+                sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_STAT_DROP;
+            }
+        }
+    } break;
+    case STEAL_EFFECT_CURE_INFATUATION: // Mental Herb
+        if (sp->battlemon[sp->defence_client].condition2 & STATUS2_ATTRACT) {
+            sp->msg_work = 6; // TODO: Check if this msg_work should have an infatuate const.
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RECOVER_INF;
+        }
+        else if (sp->battlemon[sp->defence_client].condition2 & STATUS2_TORMENT)
+        {
+            // TODO: Torment
+        }
+        // TODO: Add additional cure parameters: Taunt, Encore, Heal Block, and Disable.
+        break;
+    case STEAL_EFFECT_FLINCH: // King's Rock, Razor Fang
+        sp->state_client = battlerId;
+        sp->addeffect_type = ADD_EFFECT_INDIRECT;
+        sp->nagetsukeru_seq_no = SUB_SEQ_TRY_FLINCH;
+        break;
+    case STEAL_EFFECT_PARALYZE: // Light Ball
+        sp->state_client = battlerId;
+        sp->addeffect_type = ADD_EFFECT_INDIRECT;
+        sp->nagetsukeru_seq_no = SUB_SEQ_APPLY_PARALYSIS;
+        break;
+    case STEAL_EFFECT_POISON: // Poison Barb
+        sp->state_client = battlerId;
+        sp->addeffect_type = ADD_EFFECT_INDIRECT;
+        sp->nagetsukeru_seq_no = SUB_SEQ_APPLY_POISON;
+        break;
+    case STEAL_EFFECT_BAD_POISON: // Toxic Orb
+        sp->state_client = battlerId;
+        sp->addeffect_type = ADD_EFFECT_INDIRECT;
+        sp->nagetsukeru_seq_no = SUB_SEQ_BADLY_POISON;
+        break;
+    case STEAL_EFFECT_BURN: // Flame Orb
+        sp->state_client = battlerId;
+        sp->addeffect_type = ADD_EFFECT_INDIRECT;
+        sp->nagetsukeru_seq_no = SUB_SEQ_APPLY_BURN;
+        break;
+    case STEAL_EFFECT_ATK_UP: // Liechi Berry
+        if (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12) {
+            sp->msg_work = STAT_ATTACK;
+            sp->nagetsukeru_seq_no = SUB_SEQ_BADLY_POISON;
+        }
+        break;
+    case STEAL_EFFECT_DEF_UP: // Ganlon Berry
+        if (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12) {
+            sp->msg_work = STAT_DEFENSE;
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_STAT_BOOST;
+        }
+        break;
+    case STEAL_EFFECT_SPEED_UP: // Salac Berry
+        if (sp->battlemon[sp->defence_client].states[STAT_SPEED] < 12) {
+            sp->msg_work = STAT_SPEED;
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_STAT_BOOST;
+        }
+        break;
+    case STEAL_EFFECT_SPATK_UP: // Petaya Berry
+        if (sp->battlemon[sp->defence_client].states[STAT_SPATK] < 12) {
+            sp->msg_work = STAT_SPATK;
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_STAT_BOOST;
+        }
+        break;
+    case STEAL_EFFECT_SPDEF_UP: // Apicot Berry
+        if (sp->battlemon[sp->defence_client].states[STAT_SPDEF] < 12) {
+            sp->msg_work = STAT_SPDEF;
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_STAT_BOOST;
+        }
+        break;
+    case STEAL_EFFECT_RANDOM_UP: // Starf Berry
+    {
+        int stat;
+        for (stat = 0; stat < 5; stat++) {
+            if (sp->battlemon[sp->defence_client].states[1 + stat] < 12) {
+                break;
+            }
+        }
+        if (stat != 5) {
+            do {
+                stat = BattleRand(bsys) % 5;
+            } while (sp->battlemon[sp->defence_client].states[1 + stat] == 12);
+            sp->msg_work = stat + 1;
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_STAT_BOOST_2;
+        }
+        break;
+    }
+    case STEAL_EFFECT_CRITRATE_UP: // Lansat Berry
+        if (!(sp->battlemon[sp->defence_client].condition2 & STATUS2_FOCUS_ENERGY)) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_RAISE_CRIT;
+        }
+        break;
+    case STEAL_EFFECT_ACC_UP: // Micle Berry
+        sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_ACC_UP_ONCE;
+        break;
+    default:
+        break;
+    }
+
+    if (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_EMBARGO) {
+        sp->nagetsukeru_seq_no = 0;
+    } else {
+        sp->item_work = sp->battlemon[battlerId].item;
+        if (!sp->addeffect_type && sp->nagetsukeru_seq_no) {
+            sp->oneSelfFlag[sp->attack_client].status_flag |= SELF_TURN_FLAG_PLUCK_BERRY;
+        }
+        sp->battlerIdTemp = sp->defence_client;
+    }
+
+    return TRUE;
+}
