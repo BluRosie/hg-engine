@@ -4858,7 +4858,7 @@ trainerdata 109, "Alton"
         move MOVE_PETAL_DANCE
         move MOVE_GROWTH
         move MOVE_SLUDGE
-        move move MOVE_NONE
+        move MOVE_NONE
         ability ABILITY_OVERGROW
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 252, 0, 126, 126, 0, 0
@@ -16026,7 +16026,7 @@ trainerdata 402, "Tiffany"
         move MOVE_DARK_PULSE
         move MOVE_SIGNAL_BEAM
         move MOVE_FOUL_PLAY
-        ability ABILITY_COMPETITVE
+        ability ABILITY_COMPETITIVE
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 126, 0, 252, 126
         nature NATURE_MODEST
@@ -18196,7 +18196,7 @@ trainerdata 466, "Tiffany"
         move MOVE_DARK_PULSE
         move MOVE_SIGNAL_BEAM
         move MOVE_FOUL_PLAY
-        ability ABILITY_COMPETITVE
+        ability ABILITY_COMPETITIVE
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 126, 0, 252, 126
         nature NATURE_MODEST
@@ -18906,7 +18906,7 @@ trainerdata 484, "Gerardo"
         ivs 10
         abilityslot 0
         level 43
-        pokemon SPECIES_SLIGOO
+        pokemon SPECIES_SLIGGOO
         item ITEM_EVIOLITE
         move MOVE_DRAGON_PULSE
         move MOVE_WATER_PULSE

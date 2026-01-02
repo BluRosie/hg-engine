@@ -6113,18 +6113,18 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
-encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
-encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
-encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
-encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
+ encounterwithform SPECIES_SLOWPOKE, 1, 30, 35
+ encounterwithform SPECIES_SLOWPOKE, 1, 30, 35
+ encounterwithform SPECIES_SLOWPOKE, 1, 30, 35
+ encounterwithform SPECIES_SLOWPOKE, 1, 30, 35
+ encounterwithform SPECIES_SLOWPOKE, 1, 30, 35
 
 // good rod encounters
-encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
-encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
-encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
-encounter monwithform SPECIES_SLOWBRO, 1, 30, 35
-encounter monwithform SPECIES_SLOWPOKE, 1, 30, 35
+ encounterwithform SPECIES_SLOWPOKE, 1, 30, 35
+ encounterwithform SPECIES_SLOWPOKE, 1, 30, 35
+ encounterwithform SPECIES_SLOWPOKE, 1, 30, 35
+ encounterwithform SPECIES_SLOWBRO, 1, 30, 35
+ encounterwithform SPECIES_SLOWPOKE, 1, 30, 35
 
 // super rod encounters
 encounter SPECIES_MAGIKARP, 40, 40
