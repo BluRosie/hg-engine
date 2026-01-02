@@ -1617,7 +1617,7 @@ An Aipom cautiously hands {STRVAR_1 1, 0, 0}\na {STRVAR_1 8, 1, 0}!
 An Aipom hands {STRVAR_1 1, 0, 0}\na {STRVAR_1 8, 1, 0}! At this time of year?
 An Aipom hands {STRVAR_1 1, 0, 0}\na blindingly bright {STRVAR_1 8, 1, 0}!
 An Aipom hands {STRVAR_1 1, 0, 0}\na {STRVAR_1 8, 1, 0}! Watch your step!
-An Aipom hands {STRVAR_1 1, 0, 0} a {STRVAR_1 8, 1, 0}!\nHow’s the weather over there?
+An Aipom hands {STRVAR_1 1, 0, 0} a\n{STRVAR_1 8, 1, 0}!\fHow’s the weather over there?
 An Aipom hands {STRVAR_1 1, 0, 0}\na pleasantly warm {STRVAR_1 8, 1, 0}!
 An Aipom hands {STRVAR_1 1, 0, 0}\na {STRVAR_1 8, 1, 0}! Pointy!
 An Aipom hands {STRVAR_1 1, 0, 0}\na well-chewed {STRVAR_1 8, 1, 0}!
