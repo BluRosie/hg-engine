@@ -2793,4 +2793,8 @@ enum ItemGeneration {
 #define STEAL_EFFECT_BAD_POISON         29
 #define STEAL_EFFECT_BURN               30
 
+// Define custom Pluck/Fling effects below here:
+#define STEAL_EFFECT_SPEED_DOWN         (STEAL_EFFECT_BURN + 1)
+#define STEAL_EFFECT_CURSE              (STEAL_EFFECT_BURN + 2)
+
 #endif

@@ -1483,6 +1483,17 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
     case STEAL_EFFECT_ACC_UP: // Micle Berry
         sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_ACC_UP_ONCE;
         break;
+    case STEAL_EFFECT_SPEED_DOWN: // (Custom) Snowball
+        if (sp->battlemon[sp->defence_client].states[STAT_SPEED] > 0) {
+            sp->msg_work = STAT_SPEED;
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_STAT_LOWER;
+        }
+        break;
+    case STEAL_EFFECT_CURSE: // (Custom) Odd Keystone
+        if (!(sp->battlemon[sp->defence_client].condition2 & STATUS2_CURSE)) {
+            sp->nagetsukeru_seq_no = SUB_SEQ_ITEM_CURSE;
+        }
+        break;
     default:
         break;
     }

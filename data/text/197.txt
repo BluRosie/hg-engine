@@ -1624,3 +1624,10 @@ An Aipom hands {STRVAR_1 1, 0, 0}\na well-chewed {STRVAR_1 8, 1, 0}!
 An Aipom hands {STRVAR_1 1, 0, 0}\nan... {STRVAR_1 8, 1, 0}?\fWhere did they get that?!
 An Aipom hands {STRVAR_1 1, 0, 0}\na hefty {STRVAR_1 8, 1, 0}!
 An Aipom, with considerable strain,\nhoists an {STRVAR_1 8, 1, 0} into\f{STRVAR_1 1, 0, 0}’s hands!
+An Aipom hands {STRVAR_1 1, 0, 0}\nsome {STRVAR_1 8, 1, 0}...\fhow convenient!
+The {STRVAR_1 8, 1, 0} lowered\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
+The {STRVAR_1 8, 1, 0} lowered\nthe wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
+The {STRVAR_1 8, 1, 0} lowered\nthe opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 2, 0}!
+{STRVAR_1 1, 0, 0} was cursed\nby the {STRVAR_1 8, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} was cursed\nby the {STRVAR_1 8, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} was cursed\nby the {STRVAR_1 8, 1, 0}!
