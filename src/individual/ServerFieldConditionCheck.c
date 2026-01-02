@@ -1927,8 +1927,19 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 && sp->battlemon[BATTLER_ENEMY].species == SPECIES_AMBIPOM
                 && sp->battlemon[BATTLER_ENEMY].item == ITEM_NONE)
                 {
-                    int parkItems[22] = {ITEM_LUM_BERRY, ITEM_FANCY_APPLE, ITEM_COMET_SHARD, ITEM_RARE_CANDY, ITEM_CASTELIACONE, ITEM_HEART_SCALE, ITEM_TOXIC_ORB, ITEM_SNOWBALL, ITEM_KINGS_ROCK, ITEM_LIGHT_BALL, ITEM_DUBIOUS_DISC, ITEM_LEEK, ITEM_UTILITY_UMBRELLA, ITEM_HEAT_ROCK, ITEM_POISON_BARB, ITEM_TIN_OF_BEANS, ITEM_ODD_KEYSTONE, ITEM_CHIPPED_POT, ITEM_THICK_CLUB, ITEM_RARE_BONE, ITEM_HARD_STONE, ITEM_IRON_BALL};
-                    sp->item_work = parkItems[BattleRand(bw) % 22];
+                    // If the Totem Pokemon is badly poisoned, set our held item to be a Lum Berry.
+                    // If the Totem Pokemon has any other non-volatile status, there is a 1 in 3 chance instead.
+                    if ((sp->battlemon[BATTLER_ENEMY].condition & STATUS_BAD_POISON)
+                    || ((sp->battlemon[BATTLER_ENEMY].condition & STATUS_ANY_PERSISTENT) && (BattleRand(bw) % 3 == 0)))
+                    {
+                        sp->item_work = ITEM_LUM_BERRY;
+                    }
+                    else // Otherwise, pick a random item from a set list.
+                    {
+                        int parkItems[23] = {ITEM_LUM_BERRY, ITEM_FANCY_APPLE, ITEM_COMET_SHARD, ITEM_RARE_CANDY, ITEM_CASTELIACONE, ITEM_HEART_SCALE, ITEM_TOXIC_ORB, ITEM_SNOWBALL, ITEM_KINGS_ROCK, ITEM_LIGHT_BALL, ITEM_DUBIOUS_DISC, ITEM_LEEK, ITEM_UTILITY_UMBRELLA, ITEM_HEAT_ROCK, ITEM_POISON_BARB, ITEM_TIN_OF_BEANS, ITEM_ODD_KEYSTONE, ITEM_CHIPPED_POT, ITEM_THICK_CLUB, ITEM_RARE_BONE, ITEM_HARD_STONE, ITEM_IRON_BALL};
+                        sp->item_work = parkItems[BattleRand(bw) % 23];
+                        // sp->item_work = ITEM_DISCOUNT_SHRIMP;
+                    }
                     sp->battlemon[BATTLER_ENEMY].item = sp->item_work;
                     sp->battlerIdTemp = BATTLER_ENEMY; // TODO: Check if this one is necessary.
                     sp->state_client = BATTLER_ENEMY; 

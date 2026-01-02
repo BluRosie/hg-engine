@@ -3,21 +3,6 @@
 .data
 
 _Start:
-    // If the Totem Pokemon is badly poisoned, override our held item to a Lum Berry.
-    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_BAD_POISON, _CheckIfPrimaryStatus
-    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HELD_ITEM, ITEM_LUM_BERRY
-    Wait
-    GoTo _MessageChecks
-
-// If the Totem Pokemon has any other non-volatile status, there is a 1 in 3 chance for it to be given a Lum Berry.
-_CheckIfPrimaryStatus:
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_NONE, _MessageChecks
-    Random 2, 0
-    CompareVarToValue OPCODE_GT, BSCRIPT_VAR_CALC_TEMP, 0, _MessageChecks
-    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HELD_ITEM, ITEM_LUM_BERRY
-    Wait
-
-_MessageChecks:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HELD_ITEM, ITEM_FANCY_APPLE, _CrispMessage
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HELD_ITEM, ITEM_COMET_SHARD, _GlitteringMessage
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HELD_ITEM, ITEM_HEART_SCALE, _GlitteringMessage
@@ -37,6 +22,7 @@ _MessageChecks:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HELD_ITEM, ITEM_RARE_BONE, _HeftyMessage
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HELD_ITEM, ITEM_HARD_STONE, _HeftyMessage
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HELD_ITEM, ITEM_IRON_BALL, _VeryHeavyMessage
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HELD_ITEM, ITEM_DISCOUNT_SHRIMP, _ConvenientMessage
 
 _DefaultMessage:
     // An Aipom hands {0} a {1}!
@@ -111,6 +97,11 @@ _HeftyMessage:
 _VeryHeavyMessage:
     // An Aipom, with considerable strain, hoists an {1} into {0}’s hands!
     PrintMessage 1624, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP
+    GoTo _Cleanup
+
+_ConvenientMessage:
+    // An Aipom hands {0} some {1}... how convenient!
+    PrintMessage 1625, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP
 
 _Cleanup: 
     Wait 
