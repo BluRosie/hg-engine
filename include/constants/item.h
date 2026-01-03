@@ -2566,8 +2566,9 @@
 
 // Define your custom items below like this:
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
+#define ITEM_DISCOUNT_SHRIMP (MAX_BASE_ITEM_NUM + 1)
 
-#define MAX_TOTAL_ITEM_NUM ITEM_BRIARS_BOOK
+#define MAX_TOTAL_ITEM_NUM ITEM_DISCOUNT_SHRIMP
 
 
 #define NUM_MEGA_STONES 48 // includes the pixie plate

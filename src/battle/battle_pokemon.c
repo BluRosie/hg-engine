@@ -1494,6 +1494,19 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
             sp->flingScript = SUB_SEQ_ITEM_CURSE;
         }
         break;
+    case STEAL_EFFECT_RESTORE_HP_OR_POISON:
+        if ((BattleRand(bsys) % 2) == 0)
+        {
+            sp->flingData = mod;
+            sp->flingScript = SUB_SEQ_ITEM_HP_RESTORE;
+        }
+        else
+        {
+            sp->state_client = battlerId;
+            sp->addeffect_type = ADD_EFFECT_INDIRECT;
+            sp->flingScript = SUB_SEQ_APPLY_POISON;
+        }
+        break;
     default:
         break;
     }

@@ -2561,4 +2561,6 @@
 .equ ITEM_VIOLET_BOOK_SVID,             2556
 .equ ITEM_BRIARS_BOOK,                  2557
 
+.equ ITEM_DISCOUNT_SHRIMP,              2558
+
 .endif
