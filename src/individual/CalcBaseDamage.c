@@ -612,7 +612,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             break;
         case MOVE_EXPANDING_FORCE:
             // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8520635
-            if ((terrainOverlayNumberOfTurnsLeft > 0) && (terrainOverlayType == MISTY_TERRAIN)) {
+            if ((terrainOverlayNumberOfTurnsLeft > 0) && (terrainOverlayType == PSYCHIC_TERRAIN)) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
             }
             break;
@@ -920,6 +920,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             // TODO: confirm location
             if (movetype == TYPE_STEEL && AttackingMon.ability == ABILITY_STEELY_SPIRIT) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
+            }
+
+            // handle Stakeout
+            // TODO: confirm location
+            if (AttackingMon.ability == ABILITY_STAKEOUT && sp->playerActions[sp->defence_client][3] == CONTROLLER_COMMAND_40) {
+                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
             }
         }
 

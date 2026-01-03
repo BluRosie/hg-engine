@@ -788,6 +788,8 @@ Encounter_New = 0x020506BC | 1;
 TaskManager_Call = 0x02050530 | 1;
 Task_TutorialBattle = 0x0205128C | 1;
 
+GetItemAttrSub = 0x02077E48 | 1;
+
 Save_GameStats_Get = 0x0202CF54 | 1;
 GameStats_Inc = 0x0202D0FC | 1;
 

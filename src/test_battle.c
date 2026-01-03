@@ -344,7 +344,6 @@ static const struct TestBattleScenario scenario_DoublesTest = {
     .terrain = 0,
 };
 
-
 /**
  * @brief Override a single Pokemon with test scenario data
  *
