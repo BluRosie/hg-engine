@@ -2564,7 +2564,7 @@
 
 #define MAX_BASE_ITEM_NUM ITEM_BRIARS_BOOK
 
-// define your custom move effects below like this
+// Define your custom items below like this:
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
 
 #define MAX_TOTAL_ITEM_NUM ITEM_BRIARS_BOOK
@@ -2794,7 +2794,8 @@ enum ItemGeneration {
 #define STEAL_EFFECT_BURN               30
 
 // Define custom Pluck/Fling effects below here:
-#define STEAL_EFFECT_SPEED_DOWN         (STEAL_EFFECT_BURN + 1)
-#define STEAL_EFFECT_CURSE              (STEAL_EFFECT_BURN + 2)
+#define STEAL_EFFECT_SPEED_DOWN             (STEAL_EFFECT_BURN + 1)
+#define STEAL_EFFECT_CURSE                  (STEAL_EFFECT_BURN + 2)
+#define STEAL_EFFECT_RESTORE_HP_OR_POISON   (STEAL_EFFECT_BURN + 3)
 
 #endif

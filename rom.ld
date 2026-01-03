@@ -798,3 +798,4 @@ GetHeldItemFlingPower = 0x022558F8 | 1;
 GetHeldItemModifier = 0x02255844 | 1;
 
 GetFlavorPreferenceFromPID = 0x020718E8 | 1;
+
