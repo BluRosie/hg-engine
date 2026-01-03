@@ -6153,49 +6153,49 @@ rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 23, 22, 23, 22, 22, 22, 24, 24, 24, 26, 24, 26
+walklevels 38, 38, 38, 38, 38, 38, 39, 39, 39, 39, 39, 39
 
 // morning encounter slots
-pokemon SPECIES_TANGELA
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_TANGELA
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_BELLSPROUT
-pokemon SPECIES_BELLSPROUT
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_LICKITUNG
+pokemon SPECIES_AUDINO
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_AUDINO
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_AMBIPOM
+pokemon SPECIES_AMBIPOM
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_AMBIPOM
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_AMBIPOM
 
 // day encounter slots
-pokemon SPECIES_TANGELA
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_TANGELA
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_BELLSPROUT
-pokemon SPECIES_BELLSPROUT
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_LICKITUNG
+pokemon SPECIES_AUDINO
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_AUDINO
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_AMBIPOM
+pokemon SPECIES_AMBIPOM
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_AMBIPOM
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_AMBIPOM
 
 // night encounter slots
-pokemon SPECIES_TANGELA
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_TANGELA
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_BELLSPROUT
-pokemon SPECIES_BELLSPROUT
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_LICKITUNG
-pokemon SPECIES_WEEPINBELL
-pokemon SPECIES_LICKITUNG
+pokemon SPECIES_AUDINO
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_AUDINO
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_MINCCINO
+pokemon SPECIES_AMBIPOM
+pokemon SPECIES_AMBIPOM
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_AMBIPOM
+pokemon SPECIES_GARBODOR
+pokemon SPECIES_AMBIPOM
 
 // hoenn encounter slots
 pokemon SPECIES_WHISMUR
@@ -6206,29 +6206,29 @@ pokemon SPECIES_BUIZEL
 pokemon SPECIES_BIDOOF
 
 // surf encounters
-encounter SPECIES_POLIWAG, 20, 30
-encounter SPECIES_POLIWAG, 15, 25
-encounter SPECIES_POLIWHIRL, 20, 30
-encounter SPECIES_POLIWHIRL, 20, 30
-encounter SPECIES_POLIWHIRL, 20, 30
+encounter SPECIES_MAGIKARP, 38, 39
+encounter SPECIES_MAGIKARP, 38, 39
+encounter SPECIES_LUMINEON, 38, 39
+encounter SPECIES_LUMINEON, 38, 39
+encounter SPECIES_LUMINEON, 38, 39
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
+encounter SPECIES_SLOWBRO, 38, 39
+encounter SPECIES_SLOWBRO, 38, 39
+encounter SPECIES_SLOWBRO, 38, 39
+encounter SPECIES_MAGIKARP, 38, 39
+encounter SPECIES_MAGIKARP, 38, 39
 
 // good rod encounters
-encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_REMORAID, 20, 20
+encounter SPECIES_SLOWBRO, 38, 39
+encounter SPECIES_MAGIKARP, 38, 39
+encounter SPECIES_MAGIKARP, 38, 39
+encounter SPECIES_MAGIKARP, 38, 39
+encounter SPECIES_CLOYSTER, 38, 39
 
 // super rod encounters
 encounter SPECIES_POLIWAG, 40, 40
@@ -6257,49 +6257,49 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22
+walklevels 37, 37, 37, 38, 38, 38, 39, 39, 40, 40, 41, 41
 
 // morning encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
 
 // day encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
 
 // night encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
 
 // hoenn encounter slots
 pokemon SPECIES_ABSOL
@@ -6361,49 +6361,49 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22
+walklevels 37, 37, 37, 38, 38, 38, 39, 39, 40, 40, 41, 41
 
 // morning encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
 
 // day encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
 
 // night encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
 
 // hoenn encounter slots
 pokemon SPECIES_ABSOL
@@ -6465,49 +6465,49 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
+walklevels 40, 40, 40, 41, 41, 41, 42, 42, 42, 43, 43, 44
 
 // morning encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
 
 // day encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
 
 // night encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
 
 // hoenn encounter slots
 pokemon SPECIES_ABSOL
@@ -6569,49 +6569,49 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
+walklevels 40, 40, 40, 41, 41, 41, 42, 42, 42, 43, 43, 44
 
 // morning encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
 
 // day encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_BERGMITE
 
 // night encounter slots
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_SWINUB
-pokemon SPECIES_SWINUB
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_JYNX
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_SNORUNT
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_BERGMITE
 
 // hoenn encounter slots
 pokemon SPECIES_ABSOL
