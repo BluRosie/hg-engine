@@ -98,8 +98,9 @@ BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_108_strengthsapcalc(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
-BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10B_ifthirdtype(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_10C_ifterastallized(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_10D_doublesize(void *bw UNUSED, struct BattleStruct *sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -397,6 +398,7 @@ const u8 *BattleScrCmdNames[] =
     "ClearSmog",
     "GoToIfThirdType",
     "GoToIfTerastallized",
+    "DoubleSize",
     // "YourCustomCommand",
 };
 
@@ -450,8 +452,9 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x108 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_108_strengthsapcalc,
     [0x109 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_109_checktargetispartner,
     [0x10A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10A_clearsmog,
-    [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_gotoifthirdtype,
-    [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_gotoifterastallized,
+    [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_ifthirdtype,
+    [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_ifterastallized,
+    [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_doublesize,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4353,7 +4356,7 @@ BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx)
     return FALSE;
 }
 
-BOOL btl_scr_cmd_10B_gotoifthirdtype(void *bsys UNUSED, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_10B_ifthirdtype(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     s32 side = read_battle_script_param(ctx);
@@ -4369,7 +4372,7 @@ BOOL btl_scr_cmd_10B_gotoifthirdtype(void *bsys UNUSED, struct BattleStruct *ctx
     return FALSE;
 }
 
-BOOL btl_scr_cmd_10C_gotoifterastallized(void *bsys UNUSED, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_10C_ifterastallized(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     s32 battlerID = read_battle_script_param(ctx);
@@ -4402,5 +4405,17 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     } else {
         IncrementBattleScriptPtr(ctx, adrs);
     }
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10D_doublesize(void *bw UNUSED, struct BattleStruct *sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    s32 battlerID = read_battle_script_param(sp);
+    sp->battlemon[battlerID].weight *= 2;
+    // Height is actually not tracked in any mechanical way for battle, even internally.
+    // sp->battlemon[battlerID].height *= 2;
+
     return FALSE;
 }
