@@ -10729,49 +10729,49 @@ rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 28, 28, 28, 28, 32, 32, 30, 30, 30, 30, 30, 30
+walklevels 44, 44, 44, 44, 45, 45, 45, 45, 46, 46, 46, 46
 
 // morning encounter slots
-pokemon SPECIES_DODUO
-pokemon SPECIES_SANDSLASH
-pokemon SPECIES_DODUO
-pokemon SPECIES_SANDSLASH
-pokemon SPECIES_PONYTA
-pokemon SPECIES_PONYTA
-pokemon SPECIES_DODUO
-pokemon SPECIES_DODUO
-pokemon SPECIES_RATICATE
-pokemon SPECIES_DODRIO
-pokemon SPECIES_RATICATE
-pokemon SPECIES_DODRIO
+pokemon SPECIES_SAWSBUCK
+pokemon SPECIES_GOGOAT
+pokemon SPECIES_SAWSBUCK
+pokemon SPECIES_GOGOAT
+pokemon SPECIES_PYROAR
+pokemon SPECIES_PYROAR
+pokemon SPECIES_SAWSBUCK
+pokemon SPECIES_SAWSBUCK
+pokemon SPECIES_HAWLUCHA
+pokemon SPECIES_AMPHAROS
+pokemon SPECIES_HAWLUCHA
+pokemon SPECIES_AMPHAROS
 
 // day encounter slots
-pokemon SPECIES_DODUO
-pokemon SPECIES_SANDSLASH
-pokemon SPECIES_DODUO
-pokemon SPECIES_SANDSLASH
-pokemon SPECIES_PONYTA
-pokemon SPECIES_PONYTA
-pokemon SPECIES_DODUO
-pokemon SPECIES_DODUO
-pokemon SPECIES_RATICATE
-pokemon SPECIES_DODRIO
-pokemon SPECIES_RATICATE
-pokemon SPECIES_DODRIO
+pokemon SPECIES_SAWSBUCK
+pokemon SPECIES_GOGOAT
+pokemon SPECIES_SAWSBUCK
+pokemon SPECIES_GOGOAT
+pokemon SPECIES_PYROAR
+pokemon SPECIES_PYROAR
+pokemon SPECIES_SAWSBUCK
+pokemon SPECIES_SAWSBUCK
+pokemon SPECIES_HAWLUCHA
+pokemon SPECIES_AMPHAROS
+pokemon SPECIES_HAWLUCHA
+pokemon SPECIES_AMPHAROS
 
 // night encounter slots
-pokemon SPECIES_RATICATE
-pokemon SPECIES_SANDSLASH
-pokemon SPECIES_RATICATE
-pokemon SPECIES_SANDSLASH
-pokemon SPECIES_PONYTA
-pokemon SPECIES_PONYTA
-pokemon SPECIES_RATICATE
-pokemon SPECIES_RATICATE
-pokemon SPECIES_QUAGSIRE
-pokemon SPECIES_QUAGSIRE
-pokemon SPECIES_QUAGSIRE
-pokemon SPECIES_QUAGSIRE
+pokemon SPECIES_HAWLUCHA
+pokemon SPECIES_GOGOAT
+pokemon SPECIES_HAWLUCHA
+pokemon SPECIES_GOGOAT
+pokemon SPECIES_PYROAR
+pokemon SPECIES_PYROAR
+pokemon SPECIES_HAWLUCHA
+pokemon SPECIES_HAWLUCHA
+pokemon SPECIES_SCRAFTY
+pokemon SPECIES_SCRAFTY
+pokemon SPECIES_SCRAFTY
+pokemon SPECIES_SCRAFTY
 
 // hoenn encounter slots
 pokemon SPECIES_WHISMUR
@@ -11457,49 +11457,49 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
+walklevels 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
 
 // morning encounter slots
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
 
 // day encounter slots
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
 
 // night encounter slots
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
 
 // hoenn encounter slots
 pokemon SPECIES_ABSOL
@@ -13745,49 +13745,49 @@ rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 22, 22, 22, 22, 22, 22, 21, 21, 20, 23, 20, 23
+walklevels 43, 43, 43, 43, 44, 44, 44, 44, 45, 45, 45, 45
 
 // morning encounter slots
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATICATE
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATICATE
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_RHYDON
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_RHYDON
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_OMANYTE
+pokemon SPECIES_OMANYTE
+pokemon SPECIES_CHANSEY
+pokemon SPECIES_OMANYTE
+pokemon SPECIES_CHANSEY
+pokemon SPECIES_OMANYTE
 
 // day encounter slots
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATICATE
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATICATE
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_RHYDON
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_RHYDON
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_OMANYTE
+pokemon SPECIES_OMANYTE
+pokemon SPECIES_CHANSEY
+pokemon SPECIES_OMANYTE
+pokemon SPECIES_CHANSEY
+pokemon SPECIES_OMANYTE
 
 // night encounter slots
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATICATE
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATICATE
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_SLOWPOKE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_SLOWPOKE
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_RHYDON
+pokemon SPECIES_WOOBAT
+pokemon SPECIES_RHYDON
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_OMANYTE
+pokemon SPECIES_OMANYTE
+pokemon SPECIES_CHANSEY
+pokemon SPECIES_OMANYTE
+pokemon SPECIES_CHANSEY
+pokemon SPECIES_OMANYTE
 
 // hoenn encounter slots
 pokemon SPECIES_ABSOL
@@ -13798,29 +13798,29 @@ pokemon SPECIES_BRONZOR
 pokemon SPECIES_CHINGLING
 
 // surf encounters
-encounter SPECIES_GOLDEEN, 20, 20
-encounter SPECIES_SLOWPOKE, 20, 20
-encounter SPECIES_SEAKING, 20, 20
-encounter SPECIES_SEAKING, 20, 20
-encounter SPECIES_SEAKING, 20, 20
+encounter SPECIES_GYARADOS, 43, 45
+encounter SPECIES_LANTURN, 43, 45
+encounter SPECIES_STARMIE, 43, 45
+encounter SPECIES_STARMIE, 43, 45
+encounter SPECIES_STARMIE, 43, 45
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_GOLDEEN, 10, 10
-encounter SPECIES_GOLDEEN, 10, 10
+encounter SPECIES_SEAKING, 43, 45
+encounter SPECIES_SEAKING, 43, 45
+encounter SPECIES_SEAKING, 43, 45
+encounter SPECIES_GYARADOS, 43, 45
+encounter SPECIES_GYARADOS, 43, 45
 
 // good rod encounters
-encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
+encounter SPECIES_SEAKING, 43, 45
+encounter SPECIES_GYARADOS, 43, 45
+encounter SPECIES_GYARADOS, 43, 45
+encounter SPECIES_GYARADOS, 43, 45
+encounter SPECIES_GYARADOS, 43, 45
 
 // super rod encounters
 encounter SPECIES_GOLDEEN, 40, 40
@@ -13953,49 +13953,49 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
+walklevels 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
 
 // morning encounter slots
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
 
 // day encounter slots
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
 
 // night encounter slots
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
 
 // hoenn encounter slots
 pokemon SPECIES_ABSOL
@@ -14057,49 +14057,49 @@ rocksmashrate 40
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
+walklevels 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50
 
 // morning encounter slots
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
 
 // day encounter slots
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
 
 // night encounter slots
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_GRAVELER
-pokemon SPECIES_GOLBAT
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_DONPHAN
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
-pokemon SPECIES_ONIX
-pokemon SPECIES_RHYHORN
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_DURANT
+pokemon SPECIES_SWOOBAT
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_BOLDORE
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
+pokemon SPECIES_EXCADRILL
+pokemon SPECIES_NOIVERN
 
 // hoenn encounter slots
 pokemon SPECIES_ABSOL
@@ -14117,8 +14117,8 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // rock smash encounters
-encounter SPECIES_GEODUDE, 24, 32
-encounter SPECIES_GRAVELER, 30, 33
+encounter SPECIES_NOSEPASS, 50, 50
+encounter SPECIES_ARON, 50, 50
 
 // old rod encounters
 encounter SPECIES_NONE, 0, 0
