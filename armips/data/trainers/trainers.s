@@ -6565,7 +6565,7 @@ trainerdata 146, "Timothy"
     endparty
 
 trainerdata 147, "Ted"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
@@ -6580,8 +6580,17 @@ trainerdata 147, "Ted"
         // mon 0
         ivs 0
         abilityslot 32
-        level 17
-        pokemon SPECIES_MANKEY
+        level 50
+        pokemon SPECIES_MEOWSTIC
+        move MOVE_PSYCHIC
+        move MOVE_PROTECT
+        move MOVE_THUNDERBOLT
+        move MOVE_SHADOW_BALL
+        ability ABILITY_KEEN_EYE
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 0, 252
+        nature NATURE_MODEST
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -6670,7 +6679,7 @@ trainerdata 150, "Sid"
     endparty
 
 trainerdata 151, "Erin"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_PICNICKER
     nummons 2
     item ITEM_NONE
@@ -6685,15 +6694,33 @@ trainerdata 151, "Erin"
         // mon 0
         ivs 0
         abilityslot 32
-        level 17
-        pokemon SPECIES_PONYTA
+        level 50
+        pokemon SPECIES_PYROAR
+        move MOVE_FLAMETHROWER
+        move MOVE_TOXIC
+        move MOVE_WILL_O_WISP
+        move MOVE_ATTRACT
+        ability ABILITY_MOXIE
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 252, 0
+        nature NATURE_MODEST
+        additionalflags 0
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 14
-        pokemon SPECIES_ODDISH
+        level 50
+        pokemon SPECIES_SAWSBUCK
+        move MOVE_HORN_LEECH
+        move MOVE_HIGH_JUMP_KICK
+        move MOVE_RETALIATE
+        move MOVE_ROCK_SMASH
+        ability ABILITY_SERENE_GRACE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 126, 0, 0, 126
+        nature NATURE_ADAMANT
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -6747,7 +6774,7 @@ trainerdata 153, "Sharon"
     endparty
 
 trainerdata 154, "Bailey"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_HIKER
     nummons 5
     item ITEM_NONE
@@ -6762,36 +6789,86 @@ trainerdata 154, "Bailey"
         // mon 0
         ivs 0
         abilityslot 32
-        level 13
-        pokemon SPECIES_GEODUDE
+        level 50
+        monwithform SPECIES_GRAVELER, 1
+        item ITEM_MUSCLE_BAND
+        move MOVE_STEALTH_ROCK
+        move MOVE_THUNDER_PUNCH
+        move MOVE_SELF_DESTRUCT
+        move MOVE_NONE
+        ability ABILITY_GALVANIZE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 0, 252
+        nature NATURE_CAREFUL
+        additionalflags 0
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 32
-        level 13
-        pokemon SPECIES_GEODUDE
+        level 50
+        monwithform SPECIES_GRAVELER, 1
+        item ITEM_MUSCLE_BAND
+        move MOVE_STEALTH_ROCK
+        move MOVE_THUNDER_PUNCH
+        move MOVE_SELF_DESTRUCT
+        move MOVE_NONE
+        ability ABILITY_GALVANIZE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 0, 252
+        nature NATURE_CAREFUL
+        additionalflags 0
         ballseal 0
 
         // mon 2
         ivs 0
         abilityslot 32
-        level 13
-        pokemon SPECIES_GEODUDE
+        level 50
+        monwithform SPECIES_GRAVELER, 1
+        item ITEM_MUSCLE_BAND
+        move MOVE_STEALTH_ROCK
+        move MOVE_THUNDER_PUNCH
+        move MOVE_SELF_DESTRUCT
+        move MOVE_NONE
+        ability ABILITY_GALVANIZE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 0, 252
+        nature NATURE_CAREFUL
+        additionalflags 0
         ballseal 0
 
         // mon 3
         ivs 0
         abilityslot 32
-        level 13
-        pokemon SPECIES_GEODUDE
+        level 50
+        monwithform SPECIES_GRAVELER, 1
+        item ITEM_MUSCLE_BAND
+        move MOVE_STEALTH_ROCK
+        move MOVE_THUNDER_PUNCH
+        move MOVE_SELF_DESTRUCT
+        move MOVE_NONE
+        ability ABILITY_GALVANIZE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 0, 252
+        nature NATURE_CAREFUL
+        additionalflags 0
         ballseal 0
 
         // mon 4
         ivs 0
         abilityslot 32
-        level 13
-        pokemon SPECIES_GEODUDE
+        level 50
+        monwithform SPECIES_GRAVELER, 1
+        item ITEM_MUSCLE_BAND
+        move MOVE_STEALTH_ROCK
+        move MOVE_THUNDER_PUNCH
+        move MOVE_SELF_DESTRUCT
+        move MOVE_NONE
+        ability ABILITY_GALVANIZE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 0, 0, 0, 252
+        nature NATURE_CAREFUL
+        additionalflags 0
         ballseal 0
     endparty
 
