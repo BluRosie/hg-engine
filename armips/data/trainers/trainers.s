@@ -20546,7 +20546,7 @@ trainerdata 499, "Grunt"
     endparty
 
 trainerdata 500, "Kobe"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 1
     item ITEM_NONE
@@ -20561,17 +20561,22 @@ trainerdata 500, "Kobe"
         // mon 0
         ivs 50
         abilityslot 0
-        level 37
-        pokemon SPECIES_DRAGONAIR
-        move MOVE_THUNDER
-        move MOVE_SURF
-        move MOVE_DRAGON_RAGE
-        move MOVE_IRON_TAIL
+        level 50
+        monwithform SPECIES_EXEGGUTOR, 1
+        move MOVE_LEAF_STORM
+        move MOVE_PROTECT
+        move MOVE_DRAGON_TAIL
+        move MOVE_SYNTHESIS
+        ability ABILITY_HARVEST
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 126, 0, 0, 126
+        nature NATURE_SASSY
+        additionalflags 0
         ballseal 0
     endparty
 
 trainerdata 501, "Piper"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 3
     item ITEM_NONE
@@ -20586,39 +20591,54 @@ trainerdata 501, "Piper"
         // mon 0
         ivs 50
         abilityslot 32
-        level 33
-        pokemon SPECIES_HORSEA
-        move MOVE_SMOKESCREEN
-        move MOVE_LEER
-        move MOVE_BRINE
-        move MOVE_TWISTER
+        level 50
+        pokemon SPECIES_GARCHOMP
+        move MOVE_CRUNCH
+        move MOVE_ROCK_CLIMB
+        move MOVE_DIG
+        move MOVE_DRAGON_CLAW
+        ability ABILITY_ROUGH_SKIN
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 252, 0, 0, 252
+        nature NATURE_ADAMANT
+        additionalflags 0
         ballseal 0
 
         // mon 1
         ivs 50
         abilityslot 32
-        level 33
-        pokemon SPECIES_HORSEA
-        move MOVE_SMOKESCREEN
-        move MOVE_LEER
-        move MOVE_BRINE
-        move MOVE_TWISTER
+        level 50
+        pokemon SPECIES_SALAMENCE
+        move MOVE_FLY
+        move MOVE_DRAGON_CLAW
+        move MOVE_PROTECT
+        move MOVE_EARTHQUAKE
+        ability ABILITY_INTIMIDATE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 252, 0, 0, 252
+        nature NATURE_ADAMANT
+        additionalflags 0
         ballseal 0
 
         // mon 2
         ivs 50
-        abilityslot 32
-        level 35
-        pokemon SPECIES_SEADRA
-        move MOVE_AGILITY
-        move MOVE_LEER
-        move MOVE_WATERFALL
-        move MOVE_TWISTER
+        abilityslot 0
+        level 50
+        monwithform SPECIES_EXEGGUTOR, 1
+        move MOVE_LEAF_STORM
+        move MOVE_PROTECT
+        move MOVE_DRAGON_TAIL
+        move MOVE_SYNTHESIS
+        ability ABILITY_HARVEST
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 252, 0, 126, 0, 0, 126
+        nature NATURE_SASSY
+        additionalflags 0
         ballseal 0
     endparty
 
 trainerdata 502, "Clea & Gil"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TWINS
     nummons 2
     item ITEM_NONE
@@ -20633,23 +20653,33 @@ trainerdata 502, "Clea & Gil"
         // mon 0
         ivs 0
         abilityslot 0
-        level 35
-        pokemon SPECIES_DRATINI
-        move MOVE_THUNDER_WAVE
-        move MOVE_TWISTER
-        move MOVE_THUNDERBOLT
-        move MOVE_HEADBUTT
+        level 50
+        pokemon SPECIES_FLYGON
+        move MOVE_DRAGON_CLAW
+        move MOVE_FLY
+        move MOVE_EARTHQUAKE
+        move MOVE_TAILWIND
+        ability ABILITY_LEVITATE
+        setivs 31, 31, 31, 31, 0, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 252, 0, 0, 252
+        nature NATURE_ADAMANT
+        additionalflags 0
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 35
-        pokemon SPECIES_DRATINI
-        move MOVE_THUNDER_WAVE
-        move MOVE_TWISTER
-        move MOVE_SURF
-        move MOVE_HEADBUTT
+        level 50
+        pokemon SPECIES_ALTARIA
+        move MOVE_DRAGON_BREATH
+        move MOVE_ICE_BEAM
+        move MOVE_FLAMETHROWER
+        move MOVE_PROTECT
+        ability ABILITY_NATURAL_CURE
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 252, 0, 0, 252
+        nature NATURE_MODEST
+        additionalflags 0
         ballseal 0
     endparty
 
