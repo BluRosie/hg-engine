@@ -3177,7 +3177,8 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         debug_printf("Move %d at position %d for battler %d is not implemented/dexited\n", ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]], movePos, battlerId);
 #endif
         msg->msg_tag = TAG_NONE;
-        msg->msg_id = 620; // empty message
+        // This move is unimplemented or dexited!
+        msg->msg_id = BATTLE_MSG_MOVE_IS_UNIMPLEMENTED;
         ret = FALSE;
     }
 
