@@ -211,18 +211,18 @@ headbuttheader  13,   4,   0   // Route 5
 
 headbuttheader  14,   6,   0   // Route 6
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 11, 13
-    headbuttencounter SPECIES_PINECO, 11, 13
-    headbuttencounter SPECIES_PINECO, 11, 13
-    headbuttencounter SPECIES_COMBEE, 11, 13
-    headbuttencounter SPECIES_COMBEE, 11, 13
-    headbuttencounter SPECIES_COMBEE, 11, 13
-    headbuttencounter SPECIES_HOOTHOOT, 14, 16
-    headbuttencounter SPECIES_HOOTHOOT, 14, 16
-    headbuttencounter SPECIES_HOOTHOOT, 14, 16
-    headbuttencounter SPECIES_COMBEE, 14, 16
-    headbuttencounter SPECIES_COMBEE, 14, 16
-    headbuttencounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_SLAKOTH, 55, 57
+    headbuttencounter SPECIES_SHROOMISH, 55, 57
+    headbuttencounter SPECIES_SHROOMISH, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_SLAKOTH, 55, 57
+    headbuttencounter SPECIES_SLAKOTH, 55, 57
+    headbuttencounter SPECIES_SLAKOTH, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
@@ -273,18 +273,18 @@ headbuttheader  15,   8,   0   // Route 7
 
 headbuttheader  16,   5,   0   // Route 8
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 16, 17
-    headbuttencounter SPECIES_PINECO, 16, 17
-    headbuttencounter SPECIES_PINECO, 16, 17
-    headbuttencounter SPECIES_COMBEE, 16, 17
-    headbuttencounter SPECIES_COMBEE, 16, 17
-    headbuttencounter SPECIES_COMBEE, 16, 17
-    headbuttencounter SPECIES_HOOTHOOT, 18, 19
-    headbuttencounter SPECIES_HOOTHOOT, 18, 19
-    headbuttencounter SPECIES_HOOTHOOT, 18, 19
-    headbuttencounter SPECIES_COMBEE, 18, 19
-    headbuttencounter SPECIES_COMBEE, 18, 19
-    headbuttencounter SPECIES_COMBEE, 18, 19
+    headbuttencounter SPECIES_SLAKOTH, 55, 57
+    headbuttencounter SPECIES_SHROOMISH, 55, 57
+    headbuttencounter SPECIES_SHROOMISH, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_SLAKOTH, 55, 57
+    headbuttencounter SPECIES_SLAKOTH, 55, 57
+    headbuttencounter SPECIES_SLAKOTH, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
@@ -1514,18 +1514,18 @@ headbuttheader  51,  21,   2   // Pewter City
 
 headbuttheader  52,  11,   0   // Cerulean City
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 11, 13
-    headbuttencounter SPECIES_PINECO, 11, 13
-    headbuttencounter SPECIES_PINECO, 11, 13
-    headbuttencounter SPECIES_COMBEE, 11, 13
-    headbuttencounter SPECIES_COMBEE, 11, 13
-    headbuttencounter SPECIES_COMBEE, 11, 13
-    headbuttencounter SPECIES_HOOTHOOT, 14, 16
-    headbuttencounter SPECIES_HOOTHOOT, 14, 16
-    headbuttencounter SPECIES_HOOTHOOT, 14, 16
-    headbuttencounter SPECIES_COMBEE, 14, 16
-    headbuttencounter SPECIES_COMBEE, 14, 16
-    headbuttencounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_BEAUTIFLY, 55, 57
+    headbuttencounter SPECIES_DUSTOX, 55, 57
+    headbuttencounter SPECIES_DUSTOX, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_BEAUTIFLY, 55, 57
+    headbuttencounter SPECIES_BEAUTIFLY, 55, 57
+    headbuttencounter SPECIES_BEAUTIFLY, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
@@ -1552,18 +1552,18 @@ headbuttheader  53,   0,   0   // Lavender Town
 
 headbuttheader  54,  10,   0   // Vermilion City
     // normal slots
-    headbuttencounter SPECIES_SPEAROW, 11, 13
-    headbuttencounter SPECIES_HERACROSS, 11, 13
-    headbuttencounter SPECIES_HERACROSS, 11, 13
-    headbuttencounter SPECIES_COMBEE, 11, 13
-    headbuttencounter SPECIES_COMBEE, 11, 13
-    headbuttencounter SPECIES_COMBEE, 11, 13
-    headbuttencounter SPECIES_SPEAROW, 14, 16
-    headbuttencounter SPECIES_SPEAROW, 14, 16
-    headbuttencounter SPECIES_SPEAROW, 14, 16
-    headbuttencounter SPECIES_COMBEE, 14, 16
-    headbuttencounter SPECIES_COMBEE, 14, 16
-    headbuttencounter SPECIES_COMBEE, 14, 16
+    headbuttencounter SPECIES_BEAUTIFLY, 55, 57
+    headbuttencounter SPECIES_DUSTOX, 55, 57
+    headbuttencounter SPECIES_DUSTOX, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_BEAUTIFLY, 55, 57
+    headbuttencounter SPECIES_BEAUTIFLY, 55, 57
+    headbuttencounter SPECIES_BEAUTIFLY, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
