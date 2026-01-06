@@ -94,6 +94,7 @@ sub_02017FE4 = 0x02017FE4 | 1;
 SetEggStats = 0x0206C8B8 | 1;
 SaveMisc_SetTogepiPersonalityGender = 0x0202ABB0 | 1;
 SaveMisc_GetTogepiPersonalityGender = 0x0202ABBC | 1;
+CalcLevelBySpeciesAndExp = 0x0206FDA8 | 1;
 
 SaveData_GetRepelPtr = 0x0202DB05;
 SaveData_GetEventPtr = 0x020503D0 | 1;
@@ -666,7 +667,6 @@ GetNaturalGiftType = 0x022558A4 | 1;
 
 BattleContext_CheckMoveImprisoned = 0x02252C74 | 1;
 BattleContext_CheckMoveUnuseableInGravity = 0x02252DC4 | 1;
-BattleContext_CheckMoveHealBlocked = 0x02252DF8 | 1;
 
 CanUseItemOnPokemon = 0x0208FD9C | 1;
 
@@ -772,3 +772,14 @@ PrintItemSlotQuantity = 0x021FF66C | 1;
 
 PlayerProfile_TestBadgeFlag = 0x02028F98 | 1;
 InitMartUI = 0x02256D34 | 1;
+
+sBattleBgProfileTable = 0x0226E70C;
+
+BattleSetup_New_Tutorial = 0x02051AAC | 1;
+BattleSetup_GetWildTransitionEffect = 0x020517E8 | 1;
+BattleSetup_GetWildBattleMusic = 0x020517FC | 1;
+Encounter_New = 0x020506BC | 1;
+TaskManager_Call = 0x02050530 | 1;
+Task_TutorialBattle = 0x0205128C | 1;
+
+GetItemAttrSub = 0x02077E48 | 1;

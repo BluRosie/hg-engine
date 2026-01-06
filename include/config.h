@@ -16,7 +16,8 @@
 // START_ADDRESS defines the file address within the synthetic overlay where you would like to place all of the code that this project uses.  this is largely the repointed tables that the code uses.
 // if START_ADDRESS is 0x10000, then the tables will be inserted at address 0x10000 of the synthetic overlay
 // the current implementation (with all gen 5 mons) uses ~9222/0x2406 bytes.  make sure this points to that much free space (probably allow for a little bit more than that)
-#define START_ADDRESS 0x0
+// currently 0x10 to have space for a marker for DSPRE to disable editors!
+#define START_ADDRESS 0x10
 
 // ALLOW_SAVE_CHANGES will allow save file field expansions for full feature implementation, but will break compatibility with PKHeX
 // commenting out this define will disable kyurem's forme change method and keep saves compatible with pkhex
@@ -178,5 +179,15 @@
 // INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION includes assumed parameter calculations for the Sport Ball,
 // Park Ball, and Lure Ball.  Comment this line to make the balls behave as they do in Gen 9
 #define INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
+
+// THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN makes the Thunder & Storm map header weathers set permanent
+// Electric Terrain (and rain) in battle
+//#define THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN
+
+// FOG_SETS_MISTY_TERRAIN makes the Fog map header weather set permanent Misty Terrain in battle
+//#define FOG_WEATHER_MISTY_TERRAIN
+
+// NATURAL_GIFT_POWER_GEN defines the power of Natural Gift based on generation. Gen 6 or higher are modernized values.
+#define NATURAL_GIFT_POWER_GEN GEN_LATEST
 
 #endif

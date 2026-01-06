@@ -2573,6 +2573,8 @@
 #define NUM_MEGA_STONES 48 // includes the pixie plate
 #define NUM_HMS         (ITEM_HM08 - ITEM_HM01 + 1) // intentionally do not include HM07_ORAS (Dive)
 
+// ITEM_BLANK_PLATE and ITEM_LEGEND_PLATE are not included in this list as they have only ever been key items and this list is currently just used for held item interactions.
+// Feel free to add them yourself, though.
 #define IS_ITEM_ARCEUS_PLATE(item) ((item >= ITEM_FLAME_PLATE && item <= ITEM_IRON_PLATE) || (item == ITEM_PIXIE_PLATE))
 
 #define IS_ITEM_BERRY(item) ((item >= ITEM_CHERI_BERRY && item <= ITEM_ROWAP_BERRY) || (item >= ITEM_ROSELI_BERRY && item <= ITEM_MARANGA_BERRY))
@@ -2639,8 +2641,6 @@ enum ItemGeneration {
 
 #define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
 #define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
-
-#define NEW_ITEM_MAX ITEM_BRIARS_BOOK
 
 #define BAG_SLOT_QUANTITY_MAX 999
 #define BAG_TMHM_QUANTITY_MAX 99

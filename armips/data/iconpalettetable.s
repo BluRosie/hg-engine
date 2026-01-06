@@ -14,9 +14,14 @@
     .create "base/overlay/overlay_0129.bin", 0x023D8000
 .endif
 
-.orga START_ADDRESS
+.orga START_ADDRESS - 0x10
+
+// marker to tell dspre that this is an hg-engine - specific ROM and to disable several editors
+.ascii "hg-engine rocks!"
 
 // the icon palette table maps each icon to which of the 3 icon palettes
+
+.orga START_ADDRESS
 
 .align
 

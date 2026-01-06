@@ -29,6 +29,7 @@ def parse_trainers(file_path):
                     "id": trainer_id,
                     "name": match.group(2),
                     "trainermontype": "",
+                    "trainerclass": "",
                     "nummons": 0,
                     "party": []
                 }
@@ -49,6 +50,23 @@ def parse_trainers(file_path):
 
             if stripped.startswith("trainermontype"):
                 trainer["trainermontype"] = stripped.split("trainermontype")[1].strip().upper()
+                trainer["trainermontype"] = trainer["trainermontype"].split()
+                if len(trainer["trainermontype"]) % 2 == 0:
+                    print(f"ERROR: Incorrect number or formating of 'trainermontype' for trainer id {trainer_id} ({trainer['name']})")
+                    sys.exit(1)
+                if(len(trainer["trainermontype"]) > 1):
+                    for i in range(0,len(trainer["trainermontype"])):
+                        if i % 2 == 1 and trainer["trainermontype"][i] != "|":
+                            print(f"ERROR: Incorrect number or formating of 'trainermontype' from trainer id {trainer_id} ({trainer['name']})")
+                            sys.exit(1)
+
+            elif stripped.startswith("trainerclass"):
+                trainer["trainerclass"] = stripped.split()
+                if len(trainer["trainerclass"]) != 2:
+                    print(f"ERROR: Incorrect number or formating of 'trainerclass' for trainer id {trainer_id} ({trainer['name']})")
+                    sys.exit(1)
+                trainer["trainerclass"] = trainer["trainerclass"][1].strip().upper()
+
             elif stripped.startswith("nummons"):
                 match = re.search(r'nummons\s+.*?(\b[0-6]\b)', stripped)
                 if match:
@@ -56,7 +74,12 @@ def parse_trainers(file_path):
                 else:
                     print(f"encountered unexpected 'nummons' value for trainer {trainer_id}")
                     sys.exit(1)
+
             elif stripped == "endentry":
+                if key_counts["item"] < 4:
+                    print(f"ERROR: only {key_counts['item']} 'item' entries were in trainer id {trainer_id} ({trainer['name']})")
+                    sys.exit(1)
+
                 trainers[trainer_id] = trainer
                 trainer = {}
                 in_trainerdata = False
@@ -96,11 +119,26 @@ def parse_trainers(file_path):
                         if kv:
                             key, value = kv.groups()
                             if key == "move":
+                                if " " in value or "move_" not in value:
+                                    print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has an invalid constant specified for {key}: {value}")
+                                    sys.exit(1)
                                 mon_dict[f"move{move_count}"] = value
                                 move_count += 1
                             else:
                                 if (key in mon_dict):
                                     print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has a duplicate {key} field in one of its mons.")
+                                    sys.exit(1)
+                                elif (key == "pokemon") and (("species_" not in value) or (" " in value)):
+                                    print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has an invalid constant specified for {key}: {value}")
+                                    sys.exit(1)
+                                elif (key == "item") and (("item_" not in value) or (" " in value)):
+                                    print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has an invalid constant specified for {key}: {value}")
+                                    sys.exit(1)
+                                elif (key == "ability") and (("ability_" not in value) or (" " in value)):
+                                    print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has an invalid constant specified for {key}: {value}")
+                                    sys.exit(1)
+                                elif (key == "nature") and (("nature_" not in value) or (" " in value)):
+                                    print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has an invalid constant specified for {key}: {value}")
                                     sys.exit(1)
                                 mon_dict[key] = value
                     parsed_mons.append(mon_dict)
