@@ -1,1 +1,1 @@
-a {COLOR 255}Custom Item{COLOR 0}
+an {COLOR 255}Infinite Candy{COLOR 0}
