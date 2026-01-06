@@ -3964,7 +3964,7 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
             && species != SPECIES_NONE
             && species != SPECIES_EGG
             && item == ITEM_NONE
-            && !(BattleRand(bw) % 10)) {
+            && (BattleRand(bw) % 10) == 0) {
             rnd = BattleRand(bw) % 100;
             lvl = (GetMonData(mon, MON_DATA_LEVEL, 0) - 1) / 10;
             if (lvl >= 10) {
