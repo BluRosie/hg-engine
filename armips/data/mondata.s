@@ -3080,9 +3080,9 @@ mondata SPECIES_ZAPDOS, "Zapdos"
     mondexweight SPECIES_ZAPDOS, "116.0 lbs."
 
 
-mondata SPECIES_MOLTRES, "Moltres"
+mondata SPECIES_PHOERA, "Phoera"
     basestats 90, 100, 90, 90, 125, 85
-    types TYPE_FIRE, TYPE_FLYING
+    types TYPE_FIRE, TYPE_DARK
     catchrate 3
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 0, 3, 0
@@ -3095,10 +3095,10 @@ mondata SPECIES_MOLTRES, "Moltres"
     abilities ABILITY_PRESSURE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
-    mondexentry SPECIES_MOLTRES, "This legendary Pokémon scatters\nembers with every flap of its wings.\nIt is a thrilling sight to behold."
-    mondexclassification SPECIES_MOLTRES, "Flame Pokémon"
-    mondexheight SPECIES_MOLTRES, "6’07”"
-    mondexweight SPECIES_MOLTRES, "132.3 lbs."
+    mondexentry SPECIES_PHOERA, "This legendary Pokémon scatters\nembers with every flap of its wings.\nIt is a thrilling sight to behold."
+    mondexclassification SPECIES_PHOERA, "Phoenix Pokémon"
+    mondexheight SPECIES_PHOERA, "6’03”"
+    mondexweight SPECIES_PHOERA, "119.5 lbs."
 
 
 mondata SPECIES_DRATINI, "Dratini"
