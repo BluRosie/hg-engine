@@ -548,6 +548,10 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, script);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = 22;
+
+            if (IS_ITEM_BERRY(ctx->item_work)) {
+                ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch = TRUE;
+            }
         }
     }
     return ret;
