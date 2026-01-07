@@ -272,11 +272,11 @@ BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int va
 u8 LONG_CALL BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
 {
     u16 stats[] = {
-            sp->battlemon[client].speed,
-            sp->battlemon[client].spdef,
-            sp->battlemon[client].spatk,
-            sp->battlemon[client].defense,
-            sp->battlemon[client].attack
+        sp->battlemon[client].attack,
+        sp->battlemon[client].defense,
+        sp->battlemon[client].speed,
+        sp->battlemon[client].spatk, 
+        sp->battlemon[client].spdef
     };
 
     u8 max = 0;
@@ -774,7 +774,8 @@ enum
 BOOL LONG_CALL MoveHitDefenderCottonDownCheckHelper(struct BattleStruct* sp, int battler, int* seq_no)
 {
     BOOL ret = FALSE;
-    if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+    if (sp->battlemon[battler].species
+        && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
         && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
         && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
@@ -861,10 +862,16 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
             FALLTHROUGH;
         case SEQ_NORMAL_DAMAGE_REDUCTION_BERRY_MESSAGE:
             sp->swoam_seq_no++;
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE);
-            sp->next_server_seq_no = sp->server_seq_no;
-            sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            return;
+            if (sp->defence_client != sp->attack_client
+                && (GetMoveSplit(sp, sp->current_move_index) != SPLIT_STATUS))
+            {
+                sp->item_work = GetBattleMonItem(sp, sp->defence_client);
+                sp->battlerIdTemp = sp->defence_client;
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
             FALLTHROUGH;
         case SEQ_NORMAL_FORM_CHG_CHECK:
             sp->swoam_seq_no++;
@@ -959,10 +966,16 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
             FALLTHROUGH;
         case SEQ_LOOP_DAMAGE_REDUCTION_BERRY_MESSAGE:
             sp->swoam_seq_no++;
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE);
-            sp->next_server_seq_no = sp->server_seq_no;
-            sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            return;
+            // never status move
+            //if (sp->defence_client != sp->attack_client && (GetMoveSplit(sp, sp->current_move_index) != SPLIT_STATUS))
+            {
+                sp->item_work = GetBattleMonItem(sp, sp->defence_client);
+                sp->battlerIdTemp = sp->defence_client;
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
             FALLTHROUGH;
         case SEQ_LOOP_FORM_CHG_CHECK:
             sp->swoam_seq_no++;

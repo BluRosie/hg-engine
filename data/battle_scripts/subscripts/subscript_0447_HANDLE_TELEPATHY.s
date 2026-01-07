@@ -7,7 +7,7 @@ _000:
     Wait 
     WaitButtonABTime 30
     // {STRVAR_1 1, 0, 0} can’t be hit by attacks from its ally Pokémon!
-    PrintMessage 1556, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
+    PrintMessage 1556, TAG_NICKNAME, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     Wait 
     WaitButtonABTime 30
     // now handle high jump kick

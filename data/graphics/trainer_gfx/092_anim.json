@@ -1,7 +1,7 @@
 {
 	"labelEnabled":	true,
-	"sequenceCount":	1,
-	"frameCount":	1,
+	"sequenceCount":	2,
+	"frameCount":	4,
 	"sequences":	[{
 			"frameCount":	1,
 			"loopStartFrame":	0,
@@ -12,12 +12,34 @@
 					"frameDelay":	4,
 					"resultId":	0
 				}]
+		}, {
+			"frameCount":	3,
+			"loopStartFrame":	0,
+			"animationElement":	0,
+			"animationType":	1,
+			"playbackMode":	1,
+			"frameData":	[{
+					"frameDelay":	60,
+					"resultId":	0
+				}, {
+					"frameDelay":	10,
+					"resultId":	1
+				}, {
+					"frameDelay":	60,
+					"resultId":	2
+				}]
 		}],
 	"animationResults":	[{
 			"resultType":	0,
+			"index":	2
+		}, {
+			"resultType":	0,
+			"index":	1
+		}, {
+			"resultType":	0,
 			"index":	0
 		}],
-	"resultCount":	1,
-	"labels":	["\b"],
-	"labelCount":	1
+	"resultCount":	3,
+	"labels":	["\u0001", "ï¾0"],
+	"labelCount":	2
 }
