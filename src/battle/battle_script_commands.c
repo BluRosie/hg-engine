@@ -4250,16 +4250,16 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
         return FALSE;
     }
 
-    BOOL isItemBerry = IS_ITEM_BERRY(item);
+    BOOL isBerry = IS_ITEM_BERRY(item);
     // sticky hold and substitute will keep the mon's held item
     // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
-    if (isItemBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
+    if (isBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
     {
         sp->mp.msg_id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
         sp->mp.msg_tag = TAG_NICKNAME;
         sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
     }
-    else if (isItemBerry && TryEatOpponentBerry(bw, sp, sp->defence_client)) //TODO: needs expansion/wrapper for newer berries
+    else if (isBerry && TryEatOpponentBerry(bw, sp, sp->defence_client)) //TODO: needs expansion/wrapper for newer berries
     {
         sp->mp.msg_id = BATTLE_MSG_STOLE_BERRY;
         sp->mp.msg_tag = TAG_NICKNAME_ITEM;
@@ -4267,8 +4267,9 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
         sp->mp.msg_para[1] = item;
         sp->battlemon[sp->defence_client].item = 0; //no recycle
 
-        //if (sp->temp_work != SUB_SEQ_START_BATTLE)  // berry script is triggered //TODO: confirm
-        sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->attack_client)][sp->sel_mons_no[sp->attack_client]].berryEatenAndCanBelch = TRUE;
+        if (GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
+            sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->attack_client)][sp->sel_mons_no[sp->attack_client]].berryEatenAndCanBelch = TRUE;
+        }
     }
     else
     {
@@ -4287,7 +4288,9 @@ BOOL BtlCmd_TryFling(void *bw, struct BattleStruct *sp)
     if (TryFling(bw, sp, sp->attack_client) != TRUE) {
         IncrementBattleScriptPtr(sp, adrs);
     }
-    if (IS_ITEM_BERRY(sp->battlemon[sp->attack_client].item)) {//TODO: confirm if berry script needs to activate
+
+    u32 item = sp->battlemon[sp->attack_client].item;
+    if (IS_ITEM_BERRY(item) && GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
         sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->defence_client)][sp->sel_mons_no[sp->defence_client]].berryEatenAndCanBelch = TRUE;
     }
 
