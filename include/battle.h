@@ -1410,7 +1410,7 @@ struct BattleStruct {
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right
     /*0x    */ u32 gainedExperienceShare[6]; // possible experience gained per party member in order to get level scaling done right
-    /*0x    */ int SkillSeqWork[600];
+    /*0x    */ int SkillSeqWork[650];
     /*...*/
 
                FutureCondition futureConditionQueue[CLIENT_MAX * FUTURE_CONDITION_MAX];
@@ -1851,7 +1851,7 @@ enum {
     BEFORE_MOVE_STATE_GRAVITY_THROAT_CHOP,
     BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK,
     BEFORE_MOVE_STATE_TAUNT,
-    BEFORE_MOVE_STATE_IMPRISION,
+    BEFORE_MOVE_STATE_IMPRISON,
     BEFORE_MOVE_STATE_CONFUSION_SELF_HIT_OR_WEAR_OFF,
     BEFORE_MOVE_STATE_PARALYSIS,
     BEFORE_MOVE_STATE_INFATUATION,

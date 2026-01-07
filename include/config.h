@@ -189,5 +189,7 @@
 
 // EXP SHARE - Sistema moderno (Gen 5)
 #define MODERN_EXP_SHARE
+// NATURAL_GIFT_POWER_GEN defines the power of Natural Gift based on generation. Gen 6 or higher are modernized values.
+#define NATURAL_GIFT_POWER_GEN GEN_LATEST
 
 #endif

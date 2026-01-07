@@ -522,6 +522,22 @@ u16 sMetronomeMimicMoveBanList[] =
     MOVE_LIGHT_THAT_BURNS_THE_SKY,
     MOVE_SOUL_STEALING_7_STAR_STRIKE,
 
+// lgpe moves
+    MOVE_ZIPPY_ZAP,
+    MOVE_SPLISHY_SPLASH,
+    MOVE_FLOATY_FALL,
+    MOVE_PIKA_PAPOW,
+    MOVE_BOUNCY_BUBBLE,
+    MOVE_BUZZY_BUZZ,
+    MOVE_SIZZLY_SLIDE,
+    MOVE_GLITZY_GLOW,
+    MOVE_BADDY_BAD,
+    MOVE_SAPPY_SEED,
+    MOVE_FREEZY_FROST,
+    MOVE_SPARKLY_SWIRL,
+    MOVE_VEEVEE_VOLLEY,
+    MOVE_DOUBLE_IRON_BASH,
+
 // max moves
     MOVE_MAX_GUARD,
     MOVE_DYNAMAX_CANNON,
@@ -3375,7 +3391,7 @@ BOOL btl_scr_cmd_108_strengthsapcalc(void* bw UNUSED, struct BattleStruct* sp) {
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp) {
+BOOL btl_scr_cmd_109_checktargetispartner(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
     int adrs = read_battle_script_param(sp);
     int defender = sp->defence_client;
@@ -3994,7 +4010,7 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
             && species != SPECIES_NONE
             && species != SPECIES_EGG
             && item == ITEM_NONE
-            && !(BattleRand(bw) % 10)) {
+            && (BattleRand(bw) % 10) == 0) {
             rnd = BattleRand(bw) % 100;
             lvl = (GetMonData(mon, MON_DATA_LEVEL, 0) - 1) / 10;
             if (lvl >= 10) {
@@ -4386,12 +4402,11 @@ BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx)
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
-    s32 battlerID = read_battle_script_param(ctx);
+    s32 side = read_battle_script_param(ctx);
     s32 type = read_battle_script_param(ctx);
     u32 address = read_battle_script_param(ctx);
 
-    if (FAIRY_TYPE_IMPLEMENTED == 0 && type == TYPE_FAIRY) // Revert Fairy to Normal if someone tries to add Fairy with the flag disabled.
-        type = TYPE_NORMAL;
+    s32 battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
 
     // Proceed only if type ID is a valid, existing type and our types match.
     if (type >= 0 && type < NUMBER_OF_MON_TYPES && ctx->battlemon[battlerID].type3 == type)
@@ -4419,14 +4434,15 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     int adrs = read_battle_script_param(ctx);
 
     int battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
+	int fieldSide = IsClientEnemy(bsys, battlerID);
 
-    if (ctx->scw[side].toxicSpikesLayers) {
-        ctx->calc_work = ctx->scw[side].toxicSpikesLayers;
+    if (ctx->scw[fieldSide].toxicSpikesLayers) {
+        ctx->calc_work = ctx->scw[fieldSide].toxicSpikesLayers;
         ctx->addeffect_type = ADD_EFFECT_TOXIC_SPIKES;
         ctx->state_client = battlerID;
         if (HasType(ctx, battlerID, TYPE_POISON)) {
-            ctx->side_condition[side] &= ~SIDE_STATUS_TOXIC_SPIKES;
-            ctx->scw[side].toxicSpikesLayers = 0;
+            ctx->side_condition[fieldSide] &= ~SIDE_STATUS_TOXIC_SPIKES;
+            ctx->scw[fieldSide].toxicSpikesLayers = 0;
             ctx->calc_work = 0;
         }
     } else {
