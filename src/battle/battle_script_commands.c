@@ -4433,7 +4433,9 @@ BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruc
     InitBattleMsgData(ctx, &msgdata);
     InitBattleMsg(bsys, ctx, &msgdata, &msg);
     BattleController_EmitPrintMessage(bsys, ctx, &msg);
-
+#ifdef DEBUG_BATTLE_SCENARIOS
+    debug_printf("PrintMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+#endif // DEBUG_BATTLE_SCENARIOS
     return FALSE;
 }
 
@@ -4443,6 +4445,9 @@ BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct Battl
 
     if (!(ctx->server_status_flag & BATTLE_STATUS_NO_ATTACK_MESSAGE)) {
         BattleController_EmitPrintAttackMessage(bsys, ctx);
+#ifdef DEBUG_BATTLE_SCENARIOS
+        debug_printf("PrintAttackMessage: msg_id %d, attacker %d, defender %d", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
+#endif // DEBUG_BATTLE_SCENARIOS
     }
 
     ctx->server_status_flag |= BATTLE_STATUS_NO_ATTACK_MESSAGE;
@@ -4464,7 +4469,9 @@ BOOL LONG_CALL BtlCmd_PrintGlobalMessage(struct BattleSystem *bsys, struct Battl
     msg.msg_tag |= 128;
 
     BattleController_EmitPrintMessage(bsys, ctx, &msg);
-
+#ifdef DEBUG_BATTLE_SCENARIOS
+    debug_printf("PrintGlobalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+#endif // DEBUG_BATTLE_SCENARIOS
     return FALSE;
 }
 
@@ -4472,6 +4479,9 @@ BOOL LONG_CALL BtlCmd_PrintBufferedMessage(struct BattleSystem *bsys, struct Bat
 {
     IncrementBattleScriptPtr(ctx, 1);
     BattleController_EmitPrintMessage(bsys, ctx, &ctx->mp);
+#ifdef DEBUG_BATTLE_SCENARIOS
+    debug_printf("PrintBufferedMessage: msg_id %d, attacker %d, defender %d", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
+#endif // DEBUG_BATTLE_SCENARIOS
     return FALSE;
 }
 
@@ -4503,6 +4513,8 @@ BOOL LONG_CALL BtlCmd_BufferLocalMessage(struct BattleSystem *bsys, struct Battl
     msg.msg_client = GrabClientFromBattleScriptParam(bsys, ctx, side);
 
     BattleController_EmitPrintMessage(bsys, ctx, &msg);
-
+#ifdef DEBUG_BATTLE_SCENARIOS
+    debug_printf("BufferLocalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+#endif // DEBUG_BATTLE_SCENARIOS
     return FALSE;
 }
