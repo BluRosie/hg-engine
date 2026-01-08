@@ -946,9 +946,19 @@ typedef struct
     u8  msg_tag;
     u16 msg_id;
     int msg_para[6];
-    int msg_keta;
+    int numDigits;
     int msg_client;
 } __attribute__((packed)) MESSAGE_PARAM;
+
+typedef struct
+{
+    u8 unk0;
+    u8 unk1;
+    u16 unk2;
+    int unk4[6];
+    int unk1C;
+} __attribute__((packed)) BattleMessageData;
+
 
 struct __attribute__((packed)) side_condition_work
 {
@@ -1207,6 +1217,11 @@ typedef struct OnceOnlyAbilityFlags {
     BOOL superSweetSyrupFlag;
 } OnceOnlyAbilityFlags;
 
+typedef struct OnceOnlyMoveConditionFlags {
+    u8 berryEatenAndCanBelch : 1;
+    u8 padding : 7;
+} OnceOnlyMoveConditionFlags;
+
 typedef struct MoveConditionsFlags {
     u8 endTurnMoveEffectActivated : 1;
     u8 moveFailureLastTurn : 1;
@@ -1435,6 +1450,7 @@ struct BattleStruct {
                int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
+               OnceOnlyMoveConditionFlags onceOnlyMoveConditionFlags[4][6];
 
                u8 playerSideHasFaintedTeammateThisTurn : 2;// bitmask for Trainer on player side who has lost a Mon: either 0b01 (left), 0b10 (right), or 0b11 (both)
                u8 enemySideHasFaintedTeammateThisTurn : 2; // ..enemy side... either 0b01, 0b10, or 0b11
@@ -1545,8 +1561,8 @@ struct BattleSystem {
     u8 padding_19C[0x220 - 0x19C]; // 220 based on assembly at 0223B884
     u8 *bg_area;
     u16 *pal_area;
-    // u8 sendBuffer[0x1000];
-    // u8 recvBuffer[0x1000];
+    u8 sendBuffer[0x1000];
+    u8 recvBuffer[0x1000];
     // u16 unk2238[0x70];
     // u16 unk2318[0x70];
     // u16 unk23E8; //labeling may be wrong before here
@@ -1565,7 +1581,7 @@ struct BattleSystem {
     // u8 unk240E_F:1;
     // u8 criticalHpMusic:2;
     // u8 criticalHpMusicDelay:3;
-    u8 padding[0x2400 - 0x228];
+    u8 padding[0x2400 - 0x2228];
     u32 terrain;
     u32 bgId;
     // int location;
@@ -2075,8 +2091,23 @@ struct PACKED DamageCalcStruct {
 
 extern u8 TypeEffectivenessTable[][3];
 
+extern u8 HeldItemPowerUpTable[36][2];
 
+extern u16 PunchingMovesTable[24];
 
+extern u16 StrongJawMovesTable[10];
+
+extern u16 MegaLauncherMovesTable[7];
+
+extern u16 SharpnessMovesTable[24];
+
+extern u16 sLowKickWeightToPower[6][2];
+
+extern int typeToBerryMapping[18];
+
+extern u8 StatBoostModifiers[13][2];
+
+extern u16 WeightMoveList[6];
 
 
 
@@ -2855,8 +2886,6 @@ enum
     SWITCH_IN_CHECK_MOVE_SCRIPT,
     SWITCH_IN_CHECK_CHECK_END,
 };
-
-extern const u8 StatBoostModifiers[][2];
 
 
 
@@ -4015,6 +4044,8 @@ Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battle
 
 BOOL LONG_CALL TryEatOpponentBerry(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
 
+BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
 void LONG_CALL BattleController_EmitPlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* ctx, int batlterId);
 
 void LONG_CALL InitFaintedWork(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
@@ -4048,5 +4079,14 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
 int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler);
 void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
 #endif
+
+
+void LONG_CALL InitBattleMsgData(struct BattleStruct *sp, BattleMessageData *msgdata);
+void LONG_CALL InitBattleMsg(struct BattleSystem *bw, struct BattleStruct *sp, BattleMessageData *msgdata, MESSAGE_PARAM *msg);
+void LONG_CALL BattleController_EmitPrintMessage(struct BattleSystem *bw, struct BattleStruct *sp, MESSAGE_PARAM *msg);
+void LONG_CALL BattleController_EmitPrintAttackMessage(struct BattleSystem *bw, struct BattleStruct *sp);
+
+
+void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
 
 #endif // BATTLE_H

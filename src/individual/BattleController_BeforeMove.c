@@ -4308,6 +4308,8 @@ BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys U
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLAY_EAT_BERRY_ANIMATION);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, defender)][ctx->sel_mons_no[defender]].berryEatenAndCanBelch = TRUE;
+
         return TRUE;
     }
     return FALSE;

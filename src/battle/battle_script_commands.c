@@ -113,10 +113,17 @@ BOOL BtlCmd_TrySwapItems(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct *sp);
 BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp);
+BOOL BtlCmd_TryFling(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* sp);
 BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL BtlCmd_PrintGlobalMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL BtlCmd_PrintBufferedMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL BtlCmd_BufferMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL BtlCmd_BufferLocalMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -2024,16 +2031,6 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
 
     return FALSE;
 }
-
-const u16 sLowKickWeightToPower[][2] =
-{
-    {   100,     20}, //   0- 10 kg ->  20 bp
-    {   250,     40}, //  10- 25 kg ->  40 bp
-    {   500,     60}, //  25- 50 kg ->  60 bp
-    {  1000,     80}, //  50-100 kg ->  80 bp
-    {  2000,    100}, // 100-200 kg -> 100 bp
-    {0xFFFF, 0xFFFF},
-};
 
 /**
  *  @brief grab a battler's weight
@@ -4236,33 +4233,55 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
 
     u32 adrs = read_battle_script_param(sp);
     u32 adrs2 UNUSED = read_battle_script_param(sp);
-    if (CanActivateDamageReductionBerry(sp, sp->defence_client))
+    u32 item = sp->battlemon[sp->defence_client].item;
+    if (CanActivateDamageReductionBerry(sp, sp->defence_client) || item == ITEM_JABOCA_BERRY)
     {
         IncrementBattleScriptPtr(sp, adrs);
         return FALSE;
     }
 
-    u32 item = sp->battlemon[sp->defence_client].item;
-    BOOL isItemBerry = IS_ITEM_BERRY(item);
+    BOOL isBerry = IS_ITEM_BERRY(item);
     // sticky hold and substitute will keep the mon's held item
     // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
-    if (isItemBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
+    if (isBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
     {
         sp->mp.msg_id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
         sp->mp.msg_tag = TAG_NICKNAME;
         sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
     }
-    else if (isItemBerry && TryEatOpponentBerry(bw, sp, sp->defence_client)) //needs expansion for newer berries
+    else if (isBerry && TryEatOpponentBerry(bw, sp, sp->defence_client)) //TODO: needs expansion/wrapper for newer berries
     {
         sp->mp.msg_id = BATTLE_MSG_STOLE_BERRY;
         sp->mp.msg_tag = TAG_NICKNAME_ITEM;
         sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->attack_client);
         sp->mp.msg_para[1] = item;
         sp->battlemon[sp->defence_client].item = 0; //no recycle
+
+        if (GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
+            sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->attack_client)][sp->sel_mons_no[sp->attack_client]].berryEatenAndCanBelch = TRUE;
+        }
     }
     else
     {
         IncrementBattleScriptPtr(sp, adrs);
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_TryFling(void *bw, struct BattleStruct *sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    u32 adrs = read_battle_script_param(sp);
+
+    if (TryFling(bw, sp, sp->attack_client) != TRUE) {
+        IncrementBattleScriptPtr(sp, adrs);
+    }
+
+    u32 item = sp->battlemon[sp->attack_client].item;
+    if (IS_ITEM_BERRY(item) && GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
+        sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->defence_client)][sp->sel_mons_no[sp->defence_client]].berryEatenAndCanBelch = TRUE;
     }
 
     return FALSE;
@@ -4402,5 +4421,100 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     } else {
         IncrementBattleScriptPtr(ctx, adrs);
     }
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    BattleMessageData msgdata;
+    MESSAGE_PARAM msg;
+    IncrementBattleScriptPtr(ctx, 1);
+
+    InitBattleMsgData(ctx, &msgdata);
+    InitBattleMsg(bsys, ctx, &msgdata, &msg);
+    BattleController_EmitPrintMessage(bsys, ctx, &msg);
+#ifdef DEBUG_BATTLE_SCENARIOS
+    debug_printf("PrintMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+#endif // DEBUG_BATTLE_SCENARIOS
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (!(ctx->server_status_flag & BATTLE_STATUS_NO_ATTACK_MESSAGE)) {
+        BattleController_EmitPrintAttackMessage(bsys, ctx);
+#ifdef DEBUG_BATTLE_SCENARIOS
+        debug_printf("PrintAttackMessage: msg_id %d, attacker %d, defender %d", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
+#endif // DEBUG_BATTLE_SCENARIOS
+    }
+
+    ctx->server_status_flag |= BATTLE_STATUS_NO_ATTACK_MESSAGE;
+    ctx->server_status_flag2 |= BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE;
+
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_PrintGlobalMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    BattleMessageData msgdata;
+    MESSAGE_PARAM msg;
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    InitBattleMsgData(ctx, &msgdata);
+    InitBattleMsg(bsys, ctx, &msgdata, &msg);
+
+    msg.msg_tag |= 128;
+
+    BattleController_EmitPrintMessage(bsys, ctx, &msg);
+#ifdef DEBUG_BATTLE_SCENARIOS
+    debug_printf("PrintGlobalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+#endif // DEBUG_BATTLE_SCENARIOS
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_PrintBufferedMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    BattleController_EmitPrintMessage(bsys, ctx, &ctx->mp);
+#ifdef DEBUG_BATTLE_SCENARIOS
+    debug_printf("PrintBufferedMessage: msg_id %d, attacker %d, defender %d", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
+#endif // DEBUG_BATTLE_SCENARIOS
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_BufferMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    BattleMessageData msgdata;
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    InitBattleMsgData(ctx, &msgdata);
+    InitBattleMsg(bsys, ctx, &msgdata, &ctx->mp);
+
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_BufferLocalMessage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    BattleMessageData msgdata;
+    MESSAGE_PARAM msg;
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u32 side = read_battle_script_param(ctx);
+
+    InitBattleMsgData(ctx, &msgdata);
+    InitBattleMsg(bsys, ctx, &msgdata, &msg);
+
+    msg.msg_tag |= 64;
+    msg.msg_client = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    BattleController_EmitPrintMessage(bsys, ctx, &msg);
+#ifdef DEBUG_BATTLE_SCENARIOS
+    debug_printf("BufferLocalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+#endif // DEBUG_BATTLE_SCENARIOS
     return FALSE;
 }
