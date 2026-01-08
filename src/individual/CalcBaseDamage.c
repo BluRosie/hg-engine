@@ -769,7 +769,6 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if ((AttackingMon.ability == ABILITY_MEGA_LAUNCHER)
             && IsElementInArray(MegaLauncherMovesTable, (u16 *)&moveno, NELEMS(MegaLauncherMovesTable), sizeof(MegaLauncherMovesTable[0]))) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
-                debug_printf("mega launcher\n");
                 continue;
             }
 
