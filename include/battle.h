@@ -2091,8 +2091,23 @@ struct PACKED DamageCalcStruct {
 
 extern u8 TypeEffectivenessTable[][3];
 
+extern u8 HeldItemPowerUpTable[36][2];
 
+extern u16 PunchingMovesTable[24];
 
+extern u16 StrongJawMovesTable[10];
+
+extern u16 MegaLauncherMovesTable[7];
+
+extern u16 SharpnessMovesTable[24];
+
+extern u16 sLowKickWeightToPower[6][2];
+
+extern int typeToBerryMapping[18];
+
+extern u8 StatBoostModifiers[13][2];
+
+extern u16 WeightMoveList[6];
 
 
 
@@ -2871,8 +2886,6 @@ enum
     SWITCH_IN_CHECK_MOVE_SCRIPT,
     SWITCH_IN_CHECK_CHECK_END,
 };
-
-extern const u8 StatBoostModifiers[][2];
 
 
 

@@ -2032,16 +2032,6 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
     return FALSE;
 }
 
-const u16 sLowKickWeightToPower[][2] =
-{
-    {   100,     20}, //   0- 10 kg ->  20 bp
-    {   250,     40}, //  10- 25 kg ->  40 bp
-    {   500,     60}, //  25- 50 kg ->  60 bp
-    {  1000,     80}, //  50-100 kg ->  80 bp
-    {  2000,    100}, // 100-200 kg -> 100 bp
-    {0xFFFF, 0xFFFF},
-};
-
 /**
  *  @brief grab a battler's weight
  *

@@ -271,9 +271,6 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
     boost = HeldItemAtkGet(ctx, battlerId, ATK_CHECK_NORMAL);
     BOOL hpLowerThan50 = (ctx->battlemon[battlerId].hp <= (s32)(ctx->battlemon[battlerId].maxhp) / 2);
 
-    debug_printf("TryUseHeldItem: Battler %d, ItemEffect %d, Boost %d\n", battlerId, itemHeldEffect, boost);
-    debug_printf("hp: %d, maxhp %d, hpLowerThan50 %d\n", ctx->battlemon[battlerId].hp, (s32)(ctx->battlemon[battlerId].maxhp), hpLowerThan50);
-
     if (ctx->battlemon[battlerId].hp) {
         switch (itemHeldEffect) {
         case HOLD_EFFECT_HP_RESTORE: // oran berry, berry juice
