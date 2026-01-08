@@ -39,18 +39,18 @@ headbuttheader   8,   0,   0   // Ruins Of Alph (Inside)
 
 headbuttheader   9,  20,   0   // Route 1
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 2, 3
-    headbuttencounter SPECIES_PINECO, 2, 3
-    headbuttencounter SPECIES_PINECO, 2, 3
-    headbuttencounter SPECIES_WURMPLE, 2, 3
-    headbuttencounter SPECIES_WURMPLE, 2, 3
-    headbuttencounter SPECIES_WURMPLE, 2, 3
-    headbuttencounter SPECIES_HOOTHOOT, 5, 6
-    headbuttencounter SPECIES_SPINARAK, 5, 6
-    headbuttencounter SPECIES_SPINARAK, 5, 6
-    headbuttencounter SPECIES_WURMPLE, 5, 6
-    headbuttencounter SPECIES_WURMPLE, 5, 6
-    headbuttencounter SPECIES_WURMPLE, 5, 6
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_KAKUNA, 55, 57
+    headbuttencounter SPECIES_KAKUNA, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
@@ -83,18 +83,18 @@ headbuttheader   9,  20,   0   // Route 1
 
 headbuttheader  10,  15,   0   // Route 2
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 3, 4
-    headbuttencounter SPECIES_PINECO, 3, 4
-    headbuttencounter SPECIES_PINECO, 3, 4
-    headbuttencounter SPECIES_WURMPLE, 3, 4
-    headbuttencounter SPECIES_WURMPLE, 3, 4
-    headbuttencounter SPECIES_WURMPLE, 3, 4
-    headbuttencounter SPECIES_HOOTHOOT, 5, 7
-    headbuttencounter SPECIES_SPINARAK, 5, 7
-    headbuttencounter SPECIES_SPINARAK, 5, 7
-    headbuttencounter SPECIES_WURMPLE, 5, 7
-    headbuttencounter SPECIES_WURMPLE, 5, 7
-    headbuttencounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_KAKUNA, 55, 57
+    headbuttencounter SPECIES_KAKUNA, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
@@ -1380,18 +1380,18 @@ headbuttheader  48,  10,   0   // Route 46
 
 headbuttheader  49,  17,   0   // Pallet Town
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 2, 3
-    headbuttencounter SPECIES_PINECO, 2, 3
-    headbuttencounter SPECIES_PINECO, 2, 3
-    headbuttencounter SPECIES_WURMPLE, 2, 3
-    headbuttencounter SPECIES_WURMPLE, 2, 3
-    headbuttencounter SPECIES_WURMPLE, 2, 3
-    headbuttencounter SPECIES_HOOTHOOT, 5, 6
-    headbuttencounter SPECIES_SPINARAK, 5, 6
-    headbuttencounter SPECIES_SPINARAK, 5, 6
-    headbuttencounter SPECIES_WURMPLE, 5, 6
-    headbuttencounter SPECIES_WURMPLE, 5, 6
-    headbuttencounter SPECIES_WURMPLE, 5, 6
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_KAKUNA, 55, 57
+    headbuttencounter SPECIES_KAKUNA, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
@@ -1421,18 +1421,18 @@ headbuttheader  49,  17,   0   // Pallet Town
 
 headbuttheader  50,  21,   0   // Viridian City
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 3, 4
-    headbuttencounter SPECIES_PINECO, 3, 4
-    headbuttencounter SPECIES_PINECO, 3, 4
-    headbuttencounter SPECIES_WURMPLE, 3, 4
-    headbuttencounter SPECIES_WURMPLE, 3, 4
-    headbuttencounter SPECIES_WURMPLE, 3, 4
-    headbuttencounter SPECIES_HOOTHOOT, 5, 7
-    headbuttencounter SPECIES_SPINARAK, 5, 7
-    headbuttencounter SPECIES_SPINARAK, 5, 7
-    headbuttencounter SPECIES_WURMPLE, 5, 7
-    headbuttencounter SPECIES_WURMPLE, 5, 7
-    headbuttencounter SPECIES_WURMPLE, 5, 7
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_KAKUNA, 55, 57
+    headbuttencounter SPECIES_KAKUNA, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
@@ -1466,25 +1466,25 @@ headbuttheader  50,  21,   0   // Viridian City
 
 headbuttheader  51,  21,   2   // Pewter City
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 3, 5
-    headbuttencounter SPECIES_PINECO, 3, 5
-    headbuttencounter SPECIES_PINECO, 3, 5
-    headbuttencounter SPECIES_WURMPLE, 3, 5
-    headbuttencounter SPECIES_WURMPLE, 3, 5
-    headbuttencounter SPECIES_WURMPLE, 3, 5
-    headbuttencounter SPECIES_HOOTHOOT, 7, 9
-    headbuttencounter SPECIES_HOOTHOOT, 7, 9
-    headbuttencounter SPECIES_HOOTHOOT, 7, 9
-    headbuttencounter SPECIES_WURMPLE, 7, 9
-    headbuttencounter SPECIES_WURMPLE, 7, 9
-    headbuttencounter SPECIES_WURMPLE, 7, 9
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
     // special slots
-    headbuttencounter SPECIES_WURMPLE, 5, 9
-    headbuttencounter SPECIES_WURMPLE, 5, 9
-    headbuttencounter SPECIES_STARLY, 5, 9
-    headbuttencounter SPECIES_STARLY, 5, 9
-    headbuttencounter SPECIES_STARLY, 5, 9
-    headbuttencounter SPECIES_STARLY, 8, 12
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
+    headbuttencounter SPECIES_YANMEGA, 55, 57
     // normal trees
     treecoords 1052, 117, 1053, 117, -1, -1, -1, -1, -1, -1, -1, -1
     treecoords 1060, 117, 1061, 117, -1, -1, -1, -1, -1, -1, -1, -1
@@ -2361,18 +2361,18 @@ headbuttheader 146,   0,   0   // Seafoam Islands (1F)
 
 headbuttheader 147,  24,   0   // Viridian Forest
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 3, 4
-    headbuttencounter SPECIES_SEEDOT, 3, 4
-    headbuttencounter SPECIES_SEEDOT, 3, 4
-    headbuttencounter SPECIES_SPINARAK, 3, 4
-    headbuttencounter SPECIES_HOOTHOOT, 3, 4
-    headbuttencounter SPECIES_SHROOMISH, 3, 4
-    headbuttencounter SPECIES_HOOTHOOT, 5, 7
-    headbuttencounter SPECIES_SEEDOT, 5, 7
-    headbuttencounter SPECIES_SEEDOT, 5, 7
-    headbuttencounter SPECIES_ARIADOS, 5, 7
-    headbuttencounter SPECIES_NOCTOWL, 5, 7
-    headbuttencounter SPECIES_SHROOMISH, 5, 7
+    headbuttencounter SPECIES_NINJASK, 55, 57
+    headbuttencounter SPECIES_MASQUERAIN, 55, 57
+    headbuttencounter SPECIES_MASQUERAIN, 55, 57
+    headbuttencounter SPECIES_AMBIPOM, 55, 57
+    headbuttencounter SPECIES_NINJASK, 55, 57
+    headbuttencounter SPECIES_HERACROSS, 55, 57
+    headbuttencounter SPECIES_NINJASK, 55, 57
+    headbuttencounter SPECIES_MASQUERAIN, 55, 57
+    headbuttencounter SPECIES_MASQUERAIN, 55, 57
+    headbuttencounter SPECIES_AMBIPOM, 55, 57
+    headbuttencounter SPECIES_NINJASK, 55, 57
+    headbuttencounter SPECIES_HERACROSS, 55, 57
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
