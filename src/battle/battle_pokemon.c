@@ -842,6 +842,7 @@ void LONG_CALL BattleFormChange(int client, int form_no, void* bw, struct Battle
 
     sp->battlemon[client].type1 = GetMonData(pp2, MON_DATA_TYPE_1, NULL);
     sp->battlemon[client].type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
+    sp->battlemon[client].type3 = TYPE_TYPELESS;
     sp->battlemon[client].ability_activated_flag = FALSE;
 
     // need to update weight as well
@@ -1126,10 +1127,16 @@ u32 LONG_CALL GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 a
         typeLocal = sp->moveTbl[move].type;
     }
 
-    // so all of that happens, but we still need to handle liquid voice in a way that still lets the type != 0 happen and that the type from the move table is grabbed.  moved down here
+    // So all of that happens, but we still need to handle Liquid Voice in a way that lets the type != 0 happen and that the type from the move table is grabbed.
     if (ability == ABILITY_LIQUID_VOICE && IsMoveSoundBased(sp->current_move_index))
     {
         typeLocal = TYPE_WATER;
+    }
+
+    // Ion Deluge's effect is applied after all type-modifying abilities have activated.
+    if (typeLocal == TYPE_NORMAL && (sp->field_condition & FIELD_STATUS_ION_DELUGE) == FIELD_STATUS_ION_DELUGE)
+    {
+        typeLocal = TYPE_ELECTRIC;
     }
 
     return typeLocal;

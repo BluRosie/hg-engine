@@ -424,8 +424,8 @@ None
 {COLOR 255}HM04s{COLOR 0}
 {COLOR 255}HM05s{COLOR 0}
 {COLOR 255}HM06s{COLOR 0}
-???
-???
+{COLOR 255}HM07s{COLOR 0}
+{COLOR 255}HM08s{COLOR 0}
 {COLOR 255}Explorer Kits{COLOR 0}
 {COLOR 255}Loot Sacks{COLOR 0}
 {COLOR 255}Rule Books{COLOR 0}
@@ -484,8 +484,8 @@ None
 {COLOR 255}Rainbow Feathers{COLOR 0}
 {COLOR 255}Mystery Eggs{COLOR 0}
 {COLOR 255}Red Apricorns{COLOR 0}
-{COLOR 255}Blue Apricorns{COLOR 0}
 {COLOR 255}Yellow Apricorns{COLOR 0}
+{COLOR 255}Blue Apricorns{COLOR 0}
 {COLOR 255}Green Apricorns{COLOR 0}
 {COLOR 255}Pink Apricorns{COLOR 0}
 {COLOR 255}White Apricorns{COLOR 0}
