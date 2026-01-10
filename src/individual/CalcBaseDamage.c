@@ -419,7 +419,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         break;
     case MOVE_PAYBACK:
         // TODO: Check correctness
-        if (sp->playerActions[defender][0] == CONTROLLER_COMMAND_40) {
+        if (IsMovingAfterClient(sp, defender) == TRUE) { //as of Gen5 no longer doubles on switching
             movepower *= 2;
         }
         break;
