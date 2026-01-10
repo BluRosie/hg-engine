@@ -3,6 +3,7 @@
 #include "../../include/config.h"
 #include "../../include/debug.h"
 #include "../../include/mega.h"
+#include "../../include/nitro.h"
 #include "../../include/overlay.h"
 #include "../../include/pokemon.h"
 #include "../../include/save.h"
@@ -103,7 +104,6 @@ BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10D_abilitypopup(void* bsys, struct BattleStruct* sp);
-BOOL btl_scr_cmd_10E_abilitypopupremove(void* bsys, struct BattleStruct* sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -462,7 +462,6 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_gotoifthirdtype,
     [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_gotoifterastallized,
     [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_abilitypopup,
-    [0x10E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10E_abilitypopupremove,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4417,71 +4416,161 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     return FALSE;
 }
 
+enum {
+    ABILITY_POPUP_INIT_PALETTE = 0,
+    ABILITY_POPUP_INIT,
+    ABILITY_POPUP_SLIDE_IN,
+    ABILITY_POPUP_WAIT,
+    ABILITY_POPUP_SLIDE_OUT,
+    ABILITY_POPUP_DESTROY
+};
+
+// originally wrote this to be like some kind of task but it was best done through the script command itself
+
+// in tiles
+#define ABILITY_POPUP_TEXTBOX_WIDTH 16
+#define ABILITY_POPUP_TEXTBOX_HEIGHT 2
+
+#define ABILITY_POPUP_TEXTBOX_WIDTH_PIXELS (8*(ABILITY_POPUP_TEXTBOX_WIDTH))
+#define ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION (ABILITY_POPUP_TEXTBOX_WIDTH_PIXELS+16)
+
+#define ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT (-1*ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION)
+
+#define ABILITY_POPUP_FRAMES_TO_SHIFT 4
+#define ABILITY_POPUP_PIXELS_PER_FRAME (ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION / ABILITY_POPUP_FRAMES_TO_SHIFT)
+
+void AbilityPopup_SlideIn(void *data)
+{
+    struct ABILITY_POPUP_WORK *work = (struct ABILITY_POPUP_WORK *)data;
+    struct BattleSystem* bsys = work->bsys;
+    struct BattleStruct* sp = bsys->sp;
+    struct Window* window = &bsys->window[1];
+    void* bgConfig = bsys->bgConfig;
+    void* palette = bsys->palette;
+    int side = work->side;
+
+    debug_printf("In task... step %d\n", work->step)
+    switch (work->step)
+    {
+    case ABILITY_POPUP_INIT_PALETTE:
+        PaletteData_LoadNarc(palette, 38/*NARC_a_0_3_8*/, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0 /*PLTTBUF_MAIN_BG*/, 0x20, 8 * 0x10);
+        work->step++;
+        break;
+    case ABILITY_POPUP_INIT:
+        G2_SetBG0Priority(2);
+        SetBgPriority(1, 1);
+        SetBgPriority(2, 0);
+
+        sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
+        //PaletteData_LoadNarc(palette, 38/*NARC_a_0_3_8*/, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0 /*PLTTBUF_MAIN_BG*/, 0x20, 8 * 0x10);
+        if (side != 0)
+            AddWindowParameterized(bgConfig, window, 2, 33 /*x*/, 8/*y*/, 16/*width*/, 2/*height*/, 11, 9 + 1); // can't print to the left of the screen, it just actually cuts things off
+        else
+            AddWindowParameterized(bgConfig, window, 2, 1 /*x*/, 10/*y*/, 16/*width*/, 2/*height*/, 11, 9 + 1);
+
+        FillWindowPixelBuffer(window, 0xFF);
+        DrawFrameAndWindow1(window, FALSE, 1, 8);
+        MESSAGE_PARAM mp;
+        mp.msg_id = BATTLE_MSG_ABILITY_POPUP;
+        mp.msg_tag = TAG_NICKNAME_ABILITY;
+        mp.msg_para[0] = CreateNicknameTag(sp, work->battler);
+        mp.msg_para[1] = work->ability;
+        mp.battlerId = work->battler;
+
+        BattleSystem_BufferMessage(bsys, &mp);
+        BattleMessage_ExpandPlaceholders(bsys, bsys->unkC, &mp);
+        AddTextPrinterParameterized(window, 0, bsys->msgBuffer, (side != 0) ? 0 : 2, 0, 0, 0);
+        DrawFrameAndWindow1(window, FALSE, 1, 8);
+        work->step++;
+        break;
+    case ABILITY_POPUP_SLIDE_IN: {
+        int negative = (side == 0 ? -1 : 1);
+        int sideShift = (side == 0 ? ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT : 0);
+        if (work->frames++ >= ABILITY_POPUP_FRAMES_TO_SHIFT)
+        {
+            work->step++;
+            work->frames = 0;
+        } else {
+            G2_SetBG2Offset(sideShift + negative * (work->frames * ABILITY_POPUP_PIXELS_PER_FRAME), 0);
+        }
+        }
+        break;
+    case ABILITY_POPUP_WAIT: {
+        //int negative = (side == 0 ? -1 : 1);
+        //int sideShift = (side == 0 ? ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT : 0);
+        //G2_SetBG2Offset(negative * ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION, 0);
+        if (work->frames++ > 60)
+        {
+            work->frames = 0;
+            work->step++;
+        }
+        }
+        break;
+    case ABILITY_POPUP_SLIDE_OUT: {
+        int negative = (side == 0 ? -1 : 1);
+        int sideShift = (side == 0 ? ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT : 0);
+        if (work->frames++ >= ABILITY_POPUP_FRAMES_TO_SHIFT)
+        {
+            work->step++;
+            work->frames = 0;
+        } else {
+            G2_SetBG2Offset(sideShift + negative * ((ABILITY_POPUP_FRAMES_TO_SHIFT - work->frames) * ABILITY_POPUP_PIXELS_PER_FRAME), 0);
+        }
+        }
+        break;
+    case ABILITY_POPUP_DESTROY:
+        sub_0200E5D4(window, 0);
+        RemoveWindow(window);
+
+        G2_SetBG0Priority(1);
+        SetBgPriority(1, 0);
+        SetBgPriority(2, 1);
+        break;
+    }
+
+}
+
 BOOL btl_scr_cmd_10D_abilitypopup(void* bw, struct BattleStruct* sp)
 {
 #ifdef DEBUG_ABILITY_POPUP
     debug_printf("btl_scr_cmd abilitypopup %d\n", sp->battle_progress_flag);
 #endif
-    struct BattleSystem* bsys = bw;
-    struct Window* window = &bsys->window[1];
-    void* bgConfig = bsys->bgConfig;
-    void* palette = bsys->palette;
 
-    IncrementBattleScriptPtr(sp, 1);
+    if (sp->abilityPopupWork == NULL) {
+        IncrementBattleScriptPtr(sp, 1);
+        {
+        struct ABILITY_POPUP_WORK *work = sys_AllocMemory(HEAPID_BATTLE_HEAP, sizeof(struct ABILITY_POPUP_WORK));
+        int battler = GrabClientFromBattleScriptParam(bw, sp, read_battle_script_param(sp));
+        int side = IsClientEnemy(bw, battler);
+        int ability = read_battle_script_param(sp);
 
-    int side = IsClientEnemy(bw, sp->battlerIdTemp);
+        sp->skill_seq_no -= 3; // reset position to current command so script does not continue
+
+        if (ability == -1)
+            ability = sp->battlemon[sp->battlerIdTemp].ability;
+
+        sp->abilityPopupWork = work;
+        work->bsys = bw;
+        work->ability = ability;
+        work->battler = battler;
+        work->side = side;
+        work->frames = 0;
+        work->step = ABILITY_POPUP_INIT_PALETTE;
+        sp->battle_progress_flag = 1;
+        }
+    } else if (sp->abilityPopupWork != NULL && sp->abilityPopupWork->step >= ABILITY_POPUP_DESTROY) {
+        sys_FreeMemoryEz(sp->abilityPopupWork);
+        sp->abilityPopupWork = NULL;
+        IncrementBattleScriptPtr(sp, 3);
+        sp->battle_progress_flag = 0;
+
 #ifdef DEBUG_ABILITY_POPUP
-    debug_printf("side %d, battlerId %d\n", side, sp->battlerIdTemp);
+        debug_printf("btl_scr_cmd abilitypopup end\n");
 #endif
+    } else {
+        AbilityPopup_SlideIn(sp->abilityPopupWork);
+        sp->battle_progress_flag = 1;
+    }
 
-    G2_SetBG0Priority(2);
-    SetBgPriority(1, 1);
-    SetBgPriority(2, 0);
-
-    sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
-    PaletteData_LoadNarc(palette, 38/*NARC_a_0_3_8*/, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0 /*PLTTBUF_MAIN_BG*/, 0x20, 8 * 0x10);
-    if (side != 0)
-        AddWindowParameterized(bgConfig, window, 2, 16 /*x*/, 8/*y*/, 16/*width*/, 2/*height*/, 11, 9 + 1);
-    else
-        AddWindowParameterized(bgConfig, window, 2, 0 /*x*/, 10/*y*/, 16/*width*/, 2/*height*/, 11, 9 + 1);
-
-    FillWindowPixelBuffer(window, 0xFF);
-    DrawFrameAndWindow1(window, FALSE, 1, 8);
-    MESSAGE_PARAM mp;
-    mp.msg_id = BATTLE_MSG_ABILITY_POPUP;
-    mp.msg_tag = TAG_NICKNAME_ABILITY;
-    mp.msg_para[0] = CreateNicknameTag(sp, sp->battlerIdTemp);
-    mp.msg_para[1] = sp->battlemon[sp->battlerIdTemp].ability;
-    mp.battlerId = sp->battlerIdTemp;
-
-    BattleSystem_BufferMessage(bsys, &mp);
-    BattleMessage_ExpandPlaceholders(bsys, bsys->unkC, &mp);
-    AddTextPrinterParameterized(window, 0, bsys->msgBuffer, (side != 0) ? 0 : 2, 0, 0, 0);
-#ifdef DEBUG_ABILITY_POPUP
-    debug_printf("btl_scr_cmd abilitypopup end\n");
-#endif
-    return FALSE;
-}
-
-BOOL btl_scr_cmd_10E_abilitypopupremove(void* bw, struct BattleStruct* sp)
-{
-#ifdef DEBUG_ABILITY_POPUP
-    debug_printf("btl_scr_cmd abilitypopupremove %d\n", sp->battle_progress_flag);
-#endif
-    IncrementBattleScriptPtr(sp, 1);
-    sp->battle_progress_flag = 1;
-
-    struct BattleSystem* bsys = bw;
-    struct Window* window = &bsys->window[1];
-
-    sub_0200E5D4(window, 0);
-    RemoveWindow(window);
-
-    G2_SetBG0Priority(1);
-    SetBgPriority(1, 0);
-    SetBgPriority(2, 1);
-#ifdef DEBUG_ABILITY_POPUP
-    debug_printf("btl_scr_cmd abilitypopupremove end %d\n", sp->battle_progress_flag);
-#endif
     return FALSE;
 }

@@ -1343,7 +1343,8 @@ struct BattleStruct {
     /*0x21F0*/ u32 effectiveSpeed[4]; // psp_agi_point
     /*0x2200*/ u8 ServerQue[4][4][16];
     /*0x2300*/ u8 server_buffer[4][256];
-    /*0x2700*/ int SkillSeqWorkOld[400];
+    /*0x2700*/ struct ABILITY_POPUP_WORK *abilityPopupWork;
+    /*0x2704*/ int SkillSeqWorkOld[399];
     /*0x2D40*/ struct BattlePokemon battlemon[CLIENT_MAX]; //0xc0
     /*0x3040*/ u32 moveNoTemp;
     /*0x3044*/ u32 current_move_index;
@@ -1604,6 +1605,16 @@ struct BattleSystem {
     // u8 chatotVoiceParam[4];
     // u32 unk2488;
     // u8 unk248C[4];
+};
+
+
+struct ABILITY_POPUP_WORK {
+    struct BattleSystem *bsys;
+    u16 ability;
+    u8 battler;
+    u8 side;
+    u8 frames;
+    u8 step;
 };
 
 
