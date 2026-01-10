@@ -4414,3 +4414,35 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     }
     return FALSE;
 }
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+BOOL BtlCmd_UpdateHealthbarValue(struct BattleSystem *battleSystem, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u8 battlerId = GrabClientFromBattleScriptParam(battleSystem, ctx, read_battle_script_param(ctx));
+
+    if ((ctx->battlemon[battlerId].hp + ctx->hp_calc_work) <= 0) {
+        ctx->damage = ctx->battlemon[battlerId].hp * -1;
+    } else {
+        ctx->damage = ctx->hp_calc_work;
+    }
+
+    if (ctx->damage < 0) {
+        ctx->total_damage[battlerId] += (-1 * ctx->damage);
+    }
+
+    ctx->battlemon[battlerId].hp += ctx->hp_calc_work;
+
+    if (ctx->battlemon[battlerId].hp < 0) {
+        ctx->battlemon[battlerId].hp = 0;
+    } else if (ctx->battlemon[battlerId].hp > ctx->battlemon[battlerId].maxhp) {
+        ctx->battlemon[battlerId].hp = ctx->battlemon[battlerId].maxhp;
+    }
+
+    CopyBattleMonToPartyMon(battleSystem, ctx, battlerId);
+
+    debug_printf("[DEBUG_BATTLE_SCENARIOS] damage=%d\n", ctx->damage);
+
+    return FALSE;
+}
+#endif // DEBUG_BATTLE_SCENARIOS
