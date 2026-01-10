@@ -586,6 +586,14 @@ GrabTimeOfDayFileAdjustment = 0x0223B52C | 1;
 gAnimScrTable = 0x02234DE8;
 DrawFrameAndWindow2	= 0x0200E998 | 1;
 AddWindowParameterized = 0x0201D40C | 1;
+SetBgPriority = 0x0201BB68 | 1;
+ov12_0223C224 = 0x0223C224 | 1;
+ov12_0223C4E8 = 0x0223C4E8 | 1;
+sub_0200E398 = 0x0200E398 | 1;
+sub_0200E5D4 = 0x0200E5D4 | 1;
+TextPrinterCheckActive = 0x02020094 | 1;
+sub_0200E3D8 = 0x0200E3D8 | 1;
+BattleMessage_ExpandPlaceholders = 0x0223CEF4 | 1;
 
 TryAppendMonMove = 0x0207137C | 1;
 

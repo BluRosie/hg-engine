@@ -1352,7 +1352,7 @@ The opposing {STRVAR_1 1, 0, 0}’s\nillusion wore off!
 {STRVAR_1 1, 0, 0}’s disguise was busted!
 The wild {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
 The opposing {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
-(Unused)
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}
 (Unused)
 (Unused)
 (Unused)

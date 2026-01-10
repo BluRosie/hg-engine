@@ -946,8 +946,8 @@ typedef struct
     u8  msg_tag;
     u16 msg_id;
     int msg_para[6];
-    int msg_keta;
-    int msg_client;
+    int numDigits;
+    int battlerId;
 } __attribute__((packed)) MESSAGE_PARAM;
 
 struct __attribute__((packed)) side_condition_work
@@ -1343,7 +1343,8 @@ struct BattleStruct {
     /*0x21F0*/ u32 effectiveSpeed[4]; // psp_agi_point
     /*0x2200*/ u8 ServerQue[4][4][16];
     /*0x2300*/ u8 server_buffer[4][256];
-    /*0x2700*/ int SkillSeqWorkOld[400];
+    /*0x2700*/ struct ABILITY_POPUP_WORK *abilityPopupWork;
+    /*0x2704*/ int SkillSeqWorkOld[399];
     /*0x2D40*/ struct BattlePokemon battlemon[CLIENT_MAX]; //0xc0
     /*0x3040*/ u32 moveNoTemp;
     /*0x3044*/ u32 current_move_index;
@@ -1497,7 +1498,7 @@ typedef struct MessageFormat MessageFormat;
 struct BattleSystem {
     /* 0x00 */ u32 *unk0;
     /* 0x04 */ void * /*BgConfig **/ bgConfig;
-    /* 0x08 */ void * /*Window **/ window;
+    /* 0x08 */ struct Window* window;//void * /*Window **/ window;
     /* 0x0C */ u32 *unkC;
     /* 0x10 */ u32 *unk10;
     /* 0x14 */ MessageFormat *msgFormat;
@@ -1604,6 +1605,16 @@ struct BattleSystem {
     // u8 chatotVoiceParam[4];
     // u32 unk2488;
     // u8 unk248C[4];
+};
+
+
+struct ABILITY_POPUP_WORK {
+    struct BattleSystem *bsys;
+    u16 ability;
+    u8 battler;
+    u8 side;
+    u8 frames;
+    u8 step;
 };
 
 
@@ -4048,5 +4059,14 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
 int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler);
 void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
 #endif
+
+u32 LONG_CALL ov12_0223C4E8(struct BattleSystem* bsys, void* window, void* data, MESSAGE_PARAM* msg, int x, int y, int flag, int width, int delay);
+void LONG_CALL ov12_0223C224(struct BattleSystem* bsys, int a1);
+void LONG_CALL sub_0200E398(void* bgConfig, u32 a1, u32 a2, u32 a3, u32 heapID);
+void LONG_CALL sub_0200E5D4(void* window, BOOL dont_copy_to_vram);
+u8 LONG_CALL TextPrinterCheckActive(u8 printerId);
+u32 LONG_CALL sub_0200E3D8(void);
+void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem* bsys, void* data, MESSAGE_PARAM* msg);
+void LONG_CALL BattleSystem_BufferMessage(struct BattleSystem* bsys, MESSAGE_PARAM* msg);
 
 #endif // BATTLE_H
