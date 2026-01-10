@@ -1056,7 +1056,7 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 26, 26, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30
+walklevels 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20
 
 // morning encounter slots
 pokemon SPECIES_GOLETT
@@ -1160,7 +1160,7 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 26, 26, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30
+walklevels 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20
 
 // morning encounter slots
 pokemon SPECIES_GOLETT
@@ -1264,7 +1264,7 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 26, 26, 26, 26, 27, 27, 28, 28, 29, 29, 30, 30
+walklevels 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20
 
 // morning encounter slots
 pokemon SPECIES_GOLETT
