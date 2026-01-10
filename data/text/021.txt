@@ -24,7 +24,6 @@ Skill Juice
 Jump Juice
 Speed Juice
 
-
 {STRVAR_1 51, 0, 0}
 Collected Apricorns are inside.
 Put the Apricorn in the Apriblender.
