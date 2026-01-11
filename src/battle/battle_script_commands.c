@@ -100,6 +100,7 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10D_HandleRoost(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -397,6 +398,7 @@ const u8 *BattleScrCmdNames[] =
     "ClearSmog",
     "GoToIfThirdType",
     "GoToIfTerastallized",
+    "HandleRoost"
     // "YourCustomCommand",
 };
 
@@ -452,6 +454,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x10A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10A_clearsmog,
     [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_gotoifthirdtype,
     [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_gotoifterastallized,
+    [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_HandleRoost,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4381,6 +4384,29 @@ BOOL btl_scr_cmd_10C_gotoifterastallized(void *bsys UNUSED, struct BattleStruct 
     return FALSE;
 }
 
+BOOL btl_scr_cmd_10D_HandleRoost(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u32 battlerId = GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx));
+
+    if (ctx->battlemon[battlerId].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    if (ctx->battlemon[battlerId].type1 == ctx->battlemon[battlerId].type2) {
+        ctx->battlemon[battlerId].type1 = TYPE_NORMAL;
+        ctx->battlemon[battlerId].type2 = TYPE_NORMAL;
+    }
+
+    if (ctx->battlemon[battlerId].type1 == TYPE_FLYING) {
+        ctx->battlemon[battlerId].type1 = ctx->battlemon[battlerId].type2;
+    } else {
+        ctx->battlemon[battlerId].type2 = ctx->battlemon[battlerId].type1;
+    }
+
+    return FALSE;
+}
+
 BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
@@ -4404,3 +4430,35 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     }
     return FALSE;
 }
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+BOOL BtlCmd_UpdateHealthbarValue(struct BattleSystem *battleSystem, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u8 battlerId = GrabClientFromBattleScriptParam(battleSystem, ctx, read_battle_script_param(ctx));
+
+    if ((ctx->battlemon[battlerId].hp + ctx->hp_calc_work) <= 0) {
+        ctx->damage = ctx->battlemon[battlerId].hp * -1;
+    } else {
+        ctx->damage = ctx->hp_calc_work;
+    }
+
+    if (ctx->damage < 0) {
+        ctx->total_damage[battlerId] += (-1 * ctx->damage);
+    }
+
+    ctx->battlemon[battlerId].hp += ctx->hp_calc_work;
+
+    if (ctx->battlemon[battlerId].hp < 0) {
+        ctx->battlemon[battlerId].hp = 0;
+    } else if (ctx->battlemon[battlerId].hp > ctx->battlemon[battlerId].maxhp) {
+        ctx->battlemon[battlerId].hp = ctx->battlemon[battlerId].maxhp;
+    }
+
+    CopyBattleMonToPartyMon(battleSystem, ctx, battlerId);
+
+    debug_printf("[DEBUG_BATTLE_SCENARIOS] damage=%d\n", ctx->damage);
+
+    return FALSE;
+}
+#endif // DEBUG_BATTLE_SCENARIOS

@@ -1738,7 +1738,6 @@ scr_seq_0003_073_autobattle_testing:
     npc_msg 120
     closemsg
     trainer_battle 1, 0, 0, 0
-    white_out
     releaseall
     end
 

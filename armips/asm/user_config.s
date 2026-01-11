@@ -25,7 +25,7 @@ battleStyleSelectionCallback:
 
 .endif
 
-.if ALWAYS_UNCAPPED_FRAME_RATE
+.if ALWAYS_UNCAPPED_FRAME_RATE | DEBUG_BATTLE_SCENARIOS
 
 .org 0x02000E28
 nop
@@ -54,7 +54,7 @@ patch_uncapped_frame_rate:
 .endif
 
 
-.if FAST_TEXT_PRINTING
+.if FAST_TEXT_PRINTING | DEBUG_BATTLE_SCENARIOS
 
 .org 0x02002346
     mov r1, #0
