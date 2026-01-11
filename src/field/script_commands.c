@@ -323,3 +323,19 @@ BOOL ScrCmd_BufferItemName(SCRIPTCONTEXT *ctx) {
     BufferItemNameGiveItem(*msgFmt, idx, itemId);
     return FALSE;
 }
+
+BOOL ScrCmd_WildBattle(SCRIPTCONTEXT *ctx) {
+    u32 *winFlag = FieldSysGetAttrAddr(ctx->fsys, 24); // SCRIPTENV_BATTLE_WIN_FLAG = 24
+    u16 species = ScriptGetVar(ctx);
+    u16 level = ScriptGetVar(ctx);
+    u8 shiny = ScriptReadByte(ctx);
+    if (GetScriptVar(0x800B))
+    {
+        SetupAndStartTotemBattle(ctx->taskman, species, level, winFlag, shiny);
+    }
+    else
+    {
+        SetupAndStartWildBattle(ctx->taskman, species, level, winFlag, TRUE, shiny);
+    }
+    return TRUE;
+}

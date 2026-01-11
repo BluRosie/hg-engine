@@ -9,4 +9,6 @@ typedef enum TrainerGender {
     TRAINER_DOUBLE,
 } TrainerGender;
 
+typedef struct BattleSetup BattleSetup;
+
 #endif

@@ -49,18 +49,21 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             {
                 if (sp->weather_check_flag == 0) {
                     switch (BattleWorkWeatherGet(bw)) {
+                        case 20:
                         case WEATHER_SYS_RAIN:
                         case WEATHER_SYS_HEAVY_RAIN:
                         case WEATHER_SYS_THUNDER:
                             scriptnum = SUB_SEQ_OVERWORLD_RAIN;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
+                        case 22:
                         case WEATHER_SYS_SNOW:
                         case WEATHER_SYS_SNOWSTORM:
                             // case WEATHER_SYS_BLIZZARD:
                             scriptnum = SUB_SEQ_OVERWORLD_HAIL;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
+                        case 21:
                         case WEATHER_SYS_SANDSTORM:
                             scriptnum = SUB_SEQ_OVERWORLD_SANDSTORM;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -70,10 +73,12 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             scriptnum = SUB_SEQ_OVERWORLD_FOG;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
+                        case 14:
                         case WEATHER_SYS_HIGH_SUN:
                             scriptnum = SUB_SEQ_OVERWORLD_SUN;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
+                        case 15:
                         case WEATHER_SYS_TRICK_ROOM:
                             scriptnum = SUB_SEQ_OVERWORLD_TRICK_ROOM;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -628,21 +633,25 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         if (sp->battlemon[client_no].ability_activated_flag == 0 &&
                             (sp->battlemon[client_no].hp)) {
                             switch (GetBattlerAbility(sp, client_no)) {
+                                case 16:
                                 case ABILITY_GRASSY_SURGE:
                                     sp->calc_work = sp->current_move_index;
                                     sp->current_move_index = MOVE_GRASSY_TERRAIN;  // need this for UpdateTerrainOverlay
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     break;
+                                case 17:
                                 case ABILITY_MISTY_SURGE:
                                     sp->calc_work = sp->current_move_index;
                                     sp->current_move_index = MOVE_MISTY_TERRAIN;  // need this for UpdateTerrainOverlay
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     break;
+                                case 18:
                                 case ABILITY_ELECTRIC_SURGE:
                                     sp->calc_work = sp->current_move_index;
                                     sp->current_move_index = MOVE_ELECTRIC_TERRAIN;  // need this for UpdateTerrainOverlay
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     break;
+                                case 19:
                                 case ABILITY_PSYCHIC_SURGE:
                                     sp->calc_work = sp->current_move_index;
                                     sp->current_move_index = MOVE_PSYCHIC_TERRAIN;  // need this for UpdateTerrainOverlay
