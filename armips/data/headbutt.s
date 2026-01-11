@@ -122,15 +122,15 @@ headbuttheader  10,  15,   0   // Route 2
 
 headbuttheader  11,   4,   0   // Route 3
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 6, 7
-    headbuttencounter SPECIES_PINECO, 6, 7
-    headbuttencounter SPECIES_PINECO, 6, 7
-    headbuttencounter SPECIES_WURMPLE, 6, 7
-    headbuttencounter SPECIES_WURMPLE, 6, 7
-    headbuttencounter SPECIES_WURMPLE, 6, 7
-    headbuttencounter SPECIES_HOOTHOOT, 9, 10
-    headbuttencounter SPECIES_HOOTHOOT, 9, 10
-    headbuttencounter SPECIES_HOOTHOOT, 9, 10
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
     headbuttencounter SPECIES_WURMPLE, 9, 10
     headbuttencounter SPECIES_WURMPLE, 9, 10
     headbuttencounter SPECIES_WURMPLE, 9, 10
@@ -150,18 +150,18 @@ headbuttheader  11,   4,   0   // Route 3
 
 headbuttheader  12,   9,   0   // Route 4
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 6, 7
-    headbuttencounter SPECIES_PINECO, 6, 7
-    headbuttencounter SPECIES_PINECO, 6, 7
-    headbuttencounter SPECIES_WURMPLE, 6, 7
-    headbuttencounter SPECIES_WURMPLE, 6, 7
-    headbuttencounter SPECIES_WURMPLE, 6, 7
-    headbuttencounter SPECIES_HOOTHOOT, 9, 10
-    headbuttencounter SPECIES_HOOTHOOT, 9, 10
-    headbuttencounter SPECIES_HOOTHOOT, 9, 10
-    headbuttencounter SPECIES_WURMPLE, 9, 10
-    headbuttencounter SPECIES_WURMPLE, 9, 10
-    headbuttencounter SPECIES_WURMPLE, 9, 10
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
@@ -576,25 +576,25 @@ headbuttheader  28,   0,   0   // Route 24
 
 headbuttheader  29,  11,   4   // Route 25
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 10, 11
-    headbuttencounter SPECIES_PINECO, 10, 11
-    headbuttencounter SPECIES_PINECO, 10, 11
-    headbuttencounter SPECIES_COMBEE, 10, 11
-    headbuttencounter SPECIES_COMBEE, 10, 11
-    headbuttencounter SPECIES_COMBEE, 10, 11
-    headbuttencounter SPECIES_HOOTHOOT, 13, 14
-    headbuttencounter SPECIES_HOOTHOOT, 13, 14
-    headbuttencounter SPECIES_HOOTHOOT, 13, 14
-    headbuttencounter SPECIES_COMBEE, 13, 14
-    headbuttencounter SPECIES_COMBEE, 13, 14
-    headbuttencounter SPECIES_COMBEE, 13, 14
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_TAILLOW, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_PIDGEY, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
     // special slots
-    headbuttencounter SPECIES_COMBEE, 10, 14
-    headbuttencounter SPECIES_COMBEE, 10, 14
-    headbuttencounter SPECIES_SLAKOTH, 10, 14
-    headbuttencounter SPECIES_SLAKOTH, 10, 14
-    headbuttencounter SPECIES_SLAKOTH, 10, 14
-    headbuttencounter SPECIES_SLAKOTH, 15, 18
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_METAPOD, 55, 57
+    headbuttencounter SPECIES_TALONFLAME, 55, 57
+    headbuttencounter SPECIES_TALONFLAME, 55, 57
+    headbuttencounter SPECIES_TALONFLAME, 55, 57
+    headbuttencounter SPECIES_TALONFLAME, 55, 57
     // normal trees
     treecoords 1388, 47, 1388, 48, 1388, 49, 1387, 47, -1, -1, -1, -1
     treecoords 1385, 43, 1386, 43, 1385, 42, 1385, 41, 1386, 41, -1, -1
