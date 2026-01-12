@@ -1638,21 +1638,21 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
     switch (typeMul)
     {
         case EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE:
-            return TYPE_MUL_TRIPLE_SUPER_EFFECTIVE; // 40
+            return TYPE_MUL_TRIPLE_SUPER_EFFECTIVE;     // 40
         case EFFECTIVENESS_MULT_DOUBLE_SUPER_EFFECTIVE:
-            return TYPE_MUL_DOUBLE_SUPER_EFFECTIVE; // 30
+            return TYPE_MUL_DOUBLE_SUPER_EFFECTIVE;     // 30
         case EFFECTIVENESS_MULT_SUPER_EFFECTIVE:
-            return TYPE_MUL_SUPER_EFFECTIVE;        // 20
+            return TYPE_MUL_SUPER_EFFECTIVE;            // 20
         case EFFECTIVENESS_MULT_NORMAL:
-            return TYPE_MUL_NORMAL;                 // 10
+            return TYPE_MUL_NORMAL;                     // 10
         case EFFECTIVENESS_MULT_NOT_EFFECTIVE:
-            return TYPE_MUL_NOT_EFFECTIVE;          // 5
+            return TYPE_MUL_NOT_EFFECTIVE;              // 5
         case EFFECTIVENESS_MULT_DOUBLE_NOT_EFFECTIVE:
-            return TYPE_MUL_DOUBLE_NOT_EFFECTIVE;   // 4
+            return TYPE_MUL_DOUBLE_NOT_EFFECTIVE;       // 4
         case EFFECTIVENESS_MULT_TRIPLE_NOT_EFFECTIVE:
-            return TYPE_MUL_TRIPLE_NOT_EFFECTIVE;   // 3
+            return TYPE_MUL_TRIPLE_NOT_EFFECTIVE;       // 3
     }
-    return TYPE_MUL_NO_EFFECT;                      // 0
+    return TYPE_MUL_NO_EFFECT;                          // 0
 }
 
 /**
