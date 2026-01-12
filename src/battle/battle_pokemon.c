@@ -35,9 +35,9 @@ ALIGN4 struct ILLUSION_STRUCT gIllusionStruct =
 
 /**
  *  @brief type effectiveness table
+ *         iterated through from top to bottom
  *         format is move type, defending type, and effectiveness
- *         0 is ineffective, 5 is not very effective, 20 is super effective
- *         every entry after the 0xFE entry is ignored by foresight
+ *         table stops early at TYPE_RING_TARGET or TYPE_FORESIGHT if conditions are met.
  */
 u8 TypeEffectivenessTable[][3] =
 {
@@ -184,7 +184,7 @@ u8 TypeEffectivenessTable[][3] =
 #if TYPE_EFFECTIVENESS_GEN < 6
     { TYPE_DARK, TYPE_STEEL, TYPE_MUL_NOT_EFFECTIVE },
 #endif
-
+    { TYPE_RING_TARGET, TYPE_RING_TARGET, TYPE_MUL_NO_EFFECT },
 // AI bugfix: move all of the immune type interactions to the end of the table so that the
 // immunities properly unset the super effective move effect flag (and a lanturn with thunderbolt
 // isn't switched in on a gliscor over a raichu with ice beam)
