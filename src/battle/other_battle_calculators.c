@@ -1478,22 +1478,35 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
     u8 defender_type_1 = GetSanitisedType(sp->battlemon[defence_client].type1);
     u8 defender_type_2 = GetSanitisedType(sp->battlemon[defence_client].type2);
     u8 defender_type_3 = GetSanitisedType(sp->battlemon[defence_client].type3);
-    u8 defender_tera_type = sp->battlemon[defence_client].tera_type;
-    u32 item_held_effect = BattleItemDataGet(sp, GetBattleMonItem(sp, defence_client), 1);
+    u8 defender_tera_type = GetSanitisedType(sp->battlemon[defence_client].tera_type);
+    u32 defender_item_held_effect = BattleItemDataGet(sp, GetBattleMonItem(sp, defence_client), 1);
 
     u32 type1Effectiveness = TYPE_MUL_NORMAL;
     u32 type2Effectiveness = TYPE_MUL_NORMAL;
     u32 type3Effectiveness = TYPE_MUL_NORMAL;
 
-    // https://xcancel.com/Sibuna_Switch/status/1827463371383328877#m
-    if (GetSanitisedType(move_type) == TYPE_STELLAR && !sp->battlemon[attack_client].is_currently_terastallized) {
-        return TYPE_MUL_NO_EFFECT;
+    u32 type1Effectiveness_Dual = TYPE_MUL_NORMAL;
+    u32 type2Effectiveness_Dual = TYPE_MUL_NORMAL;
+    u32 type3Effectiveness_Dual = TYPE_MUL_NORMAL;
+
+    
+    if (GetSanitisedType(move_type) == TYPE_STELLAR)
+    {
+        // https://xcancel.com/Sibuna_Switch/status/1827463371383328877#m
+        if (!sp->battlemon[attack_client].is_currently_terastallized)
+        {
+            return TYPE_MUL_NO_EFFECT;
+        }
+        else if (sp->battlemon[defence_client].is_currently_terastallized)
+        {
+            return TYPE_MUL_SUPER_EFFECTIVE;
+        }
     }
 
     // [0]: Attacking type
     // [1]: Defending type
     // [2]: TYPE_MUL
-    // TODO: handle Ring Target, Thousand Arrows, Freeze-Dry, Flying Press
+    // TODO: Thousand Arrows
     while (TypeEffectivenessTable[typeTableEntryNo][0] != TYPE_ENDTABLE)
     {
         // Foresight is treated as a fake custom type near the bottom of the type effectiveness table.
@@ -1512,7 +1525,6 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
                 continue;
             }
         }
-        if (TypeEffectivenessTable[typeTableEntryNo][0] == move_type)
         else if (TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_RING_TARGET)
         {
             if (defender_item_held_effect == HOLD_EFFECT_LOSE_TYPE_IMMUNITIES)
@@ -1570,12 +1582,58 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
                 }
             }
         }
+        if (sp->current_move_index == MOVE_FLYING_PRESS 
+            && TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_FLYING)
+        {
+            if (sp->battlemon[defence_client].is_currently_terastallized && defender_tera_type != TYPE_STELLAR)
+            {
+                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_tera_type)
+                {
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_tera_type))
+                    {
+                        type1Effectiveness_Dual = UpdateTypeEffectiveness(sp->current_move_index, defender_tera_type, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        TypeCheckCalc(sp, attack_client, type1Effectiveness_Dual, 42, 42, flag);
+                    }
+                }
+            }
+            else
+            {
+                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1)
+                {
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1))
+                    {
+                        type1Effectiveness_Dual = UpdateTypeEffectiveness(sp->current_move_index, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        TypeCheckCalc(sp, attack_client, type1Effectiveness_Dual, 42, 42, flag);
+                    }
+                }
+                else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2))
+                {
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2))
+                    {
+                        type2Effectiveness_Dual = UpdateTypeEffectiveness(sp->current_move_index, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        TypeCheckCalc(sp, attack_client, type2Effectiveness_Dual, 42, 42, flag);
+                    }
+                }
+                else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3))
+                {
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3))
+                    {
+                        type3Effectiveness_Dual = UpdateTypeEffectiveness(sp->current_move_index, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        TypeCheckCalc(sp, attack_client, type3Effectiveness_Dual, 42, 42, flag);
+                    }
+                }
+            }
+        }
         typeTableEntryNo++;
     }
 
     // TODO: Refactor, probably.
     // Returns the correct multiplier but moved to the right 3 decimal places.
-    int typeMul = type1Effectiveness * type2Effectiveness * type3Effectiveness;
+    int typeMul = (type1Effectiveness * type1Effectiveness_Dual) * (type2Effectiveness * type2Effectiveness_Dual) * (type3Effectiveness * type3Effectiveness_Dual);
     // Unfortunately this can't be directly converted into the double or triple flags, so we're stuck with this switch statement.
     switch (typeMul)
     {
@@ -1633,11 +1691,13 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
     u8 attacker_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL));
     u8 attacker_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL));
     u8 attacker_type_3 = sp->battlemon[attack_client].type3;
+    
     u8 defender_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL));
     u8 defender_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL));
     u8 defender_type_3 = sp->battlemon[defence_client].type3;
+    u8 defender_tera_type = GetSanitisedType(sp->battlemon[defence_client].tera_type);
 
-    u32 item_held_effect = BattleItemDataGet(sp, GetBattleMonItem(sp, defence_client), 1);
+    u32 defender_item_held_effect = BattleItemDataGet(sp, GetBattleMonItem(sp, defence_client), 1);
 
     if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((attacker_type_1 == move_type) || (attacker_type_2 == move_type) || (attacker_type_3 == move_type)))
     {
@@ -1686,39 +1746,100 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
         }
         else if (TypeEffectivenessTable[typeTableEntryNo][0] == move_type)
         {
-            if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1)
+            if (sp->battlemon[defence_client].is_currently_terastallized && defender_tera_type != TYPE_STELLAR)
             {
-                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
-                && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1))
+                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_tera_type)
                 {
-                    u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, item_held_effect, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
-                    damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_tera_type))
+                    {
+                        u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, defender_tera_type, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
+                        if (typeEffectiveness == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
+                        {
+                            modifier *= 2;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1)
+                {
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1))
+                    {
+                        u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
+                        if (typeEffectiveness == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
+                        {
+                            modifier *= 2;
+                        }
+                    }
+                }
+                else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2))
+                {
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2))
+                    {
+                        u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
+                        if (typeEffectiveness == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
+                        {
+                            modifier *= 2;
+                        }
+                    }
+                }
+                else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3))
+                {
+                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
+                    && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3))
+                    {
+                        u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
+                        damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
+                        if (typeEffectiveness == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
+                        {
+                            modifier *= 2;
+                        }
+                    }
+                }
+            }
+        }
+        if (sp->current_move_index == MOVE_FLYING_PRESS 
+        && TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_FLYING)
+        {
+            if (sp->battlemon[defence_client].is_currently_terastallized && defender_tera_type != TYPE_STELLAR)
+            {
+                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_tera_type)
+                {
+                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[typeTableEntryNo][2], damage, base_power, flag);
                     if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
                     {
                         modifier *= 2;
                     }
                 }
             }
-            else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2))
+            else
             {
-                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
-                && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2))
+                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1)
                 {
-                    u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, item_held_effect, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
-                    damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
+                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[typeTableEntryNo][2], damage, base_power, flag);
                     if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
                     {
                         modifier *= 2;
                     }
                 }
-            }
-            else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3))
-            {
-                if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
-                && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3))
+                else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2))
                 {
-                    u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, item_held_effect, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
-                    damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
+                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[typeTableEntryNo][2], damage, base_power, flag);
+                    if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
+                    {
+                        modifier *= 2;
+                    }
+                }
+                else if ((TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3))
+                {
+                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[typeTableEntryNo][2], damage, base_power, flag);
                     if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
                     {
                         modifier *= 2;
@@ -1729,6 +1850,11 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
         typeTableEntryNo++;
     }
 
+    if (sp->battlemon[defence_client].is_currently_terastallized && move_type == TYPE_STELLAR)
+    {
+        damage = TypeCheckCalc(sp, attack_client, TYPE_MUL_SUPER_EFFECTIVE, damage, base_power, flag);
+        modifier *= 2; // seems to be useless, modifier isn't used elsewhere
+    }
 
     if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_WONDER_GUARD) == TRUE)
      && (ShouldDelayTurnEffectivenessChecking(sp, move_no)) // check supereffectiveness later, 2-turn move
