@@ -116,7 +116,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
             }
         }
 
-        if (ctx->current_move_index == MOVE_CIRCLE_THROW || ctx->current_move_index == MOVE_DRAGON_TAIL) {
+        if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_FORCE_SWITCH_HIT) { // Dragon Tail, Circle Throw
             if (ctx->battlemon[ctx->attack_client].hp > 0 
                 && ctx->battlemon[ctx->defence_client].hp > 0
                 && !ctx->battlemon[ctx->defence_client].is_currently_dynamaxed
