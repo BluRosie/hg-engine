@@ -187,4 +187,7 @@
 // FOG_SETS_MISTY_TERRAIN makes the Fog map header weather set permanent Misty Terrain in battle
 //#define FOG_WEATHER_MISTY_TERRAIN
 
+// NATURAL_GIFT_POWER_GEN defines the power of Natural Gift based on generation. Gen 6 or higher are modernized values.
+#define NATURAL_GIFT_POWER_GEN GEN_LATEST
+
 #endif

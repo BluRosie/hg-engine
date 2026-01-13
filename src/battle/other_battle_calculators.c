@@ -1296,15 +1296,18 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
 
     for (int client = 0; client < maxBattlers; client++) {
 
-        command = ctx->playerActions[client][3];
+        command = ctx->playerActions[client][0];
         move_pos = ctx->waza_no_pos[client];
 
-        if (command == SELECT_FIGHT_COMMAND) {
+        if (command == CONTROLLER_COMMAND_FIGHT_INPUT) {
             if (ctx->oneTurnFlag[client].struggle_flag) {
                 move = MOVE_STRUGGLE;
             } else {
                 move = BattlePokemonParamGet(ctx, client, BATTLE_MON_DATA_MOVE_1 + move_pos, NULL);
             }
+        } else {
+            // priority adjustments should not activate if any other command is selected (bag, run, switch)
+            continue;
         }
         priority = ctx->moveTbl[move].priority;
 
@@ -2299,7 +2302,6 @@ u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno) {
 const u16 MinimizeVulnerabilityMovesList[] = {
     MOVE_BODY_SLAM,
     MOVE_STOMP,
-    MOVE_SLEEP_POWDER,
     MOVE_DRAGON_RUSH,
     MOVE_STEAMROLLER,
     MOVE_HEAT_CRASH,
@@ -2331,8 +2333,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
 
     // toxic when used by a poison type
     if (move == MOVE_TOXIC
-        && (BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE1, NULL) == TYPE_POISON
-        || BattlePokemonParamGet(sp, battlerIdAttacker, BATTLE_MON_DATA_TYPE2, NULL) == TYPE_POISON)) {
+        && HasType(sp, battlerIdAttacker, TYPE_POISON)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
         return TRUE;
     }
@@ -2531,10 +2532,6 @@ enum {
  * https://github.com/pret/pokeplatinum/blob/04d9ea4cfad3963feafecf3eb0f4adcbc7aa5063/src/battle/battle_controller.c#L3240
  */
 void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-#ifdef DEBUG_BEFORE_MOVE_LOGIC
-    debug_printf("In ov12_0224C4D8\n")
-#endif
-
     ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[ctx->defence_client];
 
     if (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) {
@@ -3006,8 +3003,8 @@ const u16 HealBlockUnusableMoves[] = {
 //  MOVE_POLLEN_PUFF, should be here but can also target enemies when heal blocked so
 };
 
-BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId, int moveNo) {
-    int i;
+BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem* bsys UNUSED, struct BattleStruct* ctx, int battlerId, int moveNo) {
+    u32 i;
     BOOL ret = FALSE;
 
     if (ctx->battlemon[battlerId].moveeffect.healBlockTurns)
@@ -3183,7 +3180,8 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         debug_printf("Move %d at position %d for battler %d is not implemented/dexited\n", ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]], movePos, battlerId);
 #endif
         msg->msg_tag = TAG_NONE;
-        msg->msg_id = 620; // empty message
+        // This move is unimplemented or dexited!
+        msg->msg_id = BATTLE_MSG_MOVE_IS_UNIMPLEMENTED;
         ret = FALSE;
     }
 
@@ -3467,6 +3465,8 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
         return !IS_ITEM_MEMORY(item);
     case SPECIES_OGERPON:
         return !IS_ITEM_MASK(item);
+    case SPECIES_ARCEUS:
+        return !IS_ITEM_ARCEUS_PLATE(item);
     }
 
     // then the other swathes of species

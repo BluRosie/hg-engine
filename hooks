@@ -137,6 +137,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_PlayFaintAnimation 0223E290 3
 0012 BtlCmd_TryBreakScreens 02242E00 3
 0012 BtlCmd_ResetAllStatChanges 0223FA1C 3
+0012 BtlCmd_CheckToxicSpikes 02243E6C 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -549,3 +550,16 @@ arm9 ScrCmd_MartBuy 02048060 1
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
 
 arm9 SetupAndStartTutorialBattle 02051334 1
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+0010 TestBattle_AISelectMove 0221BEF4 2
+0010 TestBattle_AIPickCommand 022205BC 2
+#endif
+
+arm9 GetItemAttr_PreloadedItemData 02077DAC 2
+
+arm9 PartyMenu_HandleUseItemOnMon 0207C288 1
+arm9 PartyMenu_PrintContextMenuItemText 0207E28C
+arm9 sub_0207E3A8 0207E3A8
+arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
+0012 BattleContext_CheckMoveHealBlocked 02252DF8 1

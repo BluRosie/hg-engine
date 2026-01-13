@@ -97,7 +97,9 @@ BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_108_strengthsapcalc(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
-BOOL btl_scr_cmd_110_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -114,6 +116,7 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp);
 BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* sp);
 BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -392,6 +395,8 @@ const u8 *BattleScrCmdNames[] =
     "StrengthSapCalc",
     "CheckTargetIsPartner",
     "ClearSmog",
+    "GoToIfThirdType",
+    "GoToIfTerastallized",
     // "YourCustomCommand",
 };
 
@@ -444,7 +449,9 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_clearauroraveil,
     [0x108 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_108_strengthsapcalc,
     [0x109 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_109_checktargetispartner,
-    [0x110 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_110_clearsmog,
+    [0x10A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10A_clearsmog,
+    [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_gotoifthirdtype,
+    [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_gotoifterastallized,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -514,6 +521,22 @@ u16 sMetronomeMimicMoveBanList[] =
     MOVE_MENACING_MOONRAZE_MAELSTROM,
     MOVE_LIGHT_THAT_BURNS_THE_SKY,
     MOVE_SOUL_STEALING_7_STAR_STRIKE,
+
+// lgpe moves
+    MOVE_ZIPPY_ZAP,
+    MOVE_SPLISHY_SPLASH,
+    MOVE_FLOATY_FALL,
+    MOVE_PIKA_PAPOW,
+    MOVE_BOUNCY_BUBBLE,
+    MOVE_BUZZY_BUZZ,
+    MOVE_SIZZLY_SLIDE,
+    MOVE_GLITZY_GLOW,
+    MOVE_BADDY_BAD,
+    MOVE_SAPPY_SEED,
+    MOVE_FREEZY_FROST,
+    MOVE_SPARKLY_SWIRL,
+    MOVE_VEEVEE_VOLLEY,
+    MOVE_DOUBLE_IRON_BASH,
 
 // max moves
     MOVE_MAX_GUARD,
@@ -3316,13 +3339,13 @@ BOOL btl_scr_cmd_108_strengthsapcalc(void* bw UNUSED, struct BattleStruct* sp) {
 }
 
 /**
- *  @brief script command to check if the target is partner or not. 
+ *  @brief script command to check if the target is partner or not.
  *  used for pollen puff because TryHelpingHand has unique conditions built in
  *  @param bw battle work structure
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp) {
+BOOL btl_scr_cmd_109_checktargetispartner(void *bw UNUSED, struct BattleStruct *sp) {
     IncrementBattleScriptPtr(sp, 1);
     int adrs = read_battle_script_param(sp);
     int defender = sp->defence_client;
@@ -3334,7 +3357,7 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp) {
         IncrementBattleScriptPtr(sp, adrs);
     //    debug_printf("target is ally\n")
     }
-    
+
     return FALSE;
 }
 
@@ -3941,7 +3964,7 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
             && species != SPECIES_NONE
             && species != SPECIES_EGG
             && item == ITEM_NONE
-            && !(BattleRand(bw) % 10)) {
+            && (BattleRand(bw) % 10) == 0) {
             rnd = BattleRand(bw) % 100;
             lvl = (GetMonData(mon, MON_DATA_LEVEL, 0) - 1) / 10;
             if (lvl >= 10) {
@@ -4128,7 +4151,7 @@ BOOL btl_scr_cmd_104_tryincinerate(void* bw UNUSED, struct BattleStruct* sp)
 }
 
 /**
- *  @brief Script command to change a pokemon's type3 parameter.
+ *  @brief Script command to change a target pokemon's type3 parameter.
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -4136,10 +4159,8 @@ BOOL btl_scr_cmd_104_tryincinerate(void* bw UNUSED, struct BattleStruct* sp)
  */
 BOOL btl_scr_cmd_105_addthirdtype(void* bw UNUSED, struct BattleStruct* sp)
 {
-    s32 type;
-
     IncrementBattleScriptPtr(sp, 1);
-    type = read_battle_script_param(sp);
+    s32 type = read_battle_script_param(sp);
 
     if (FAIRY_TYPE_IMPLEMENTED == 0 && type == TYPE_FAIRY) // revert fairy to normal if someone tries to add fairy with the flag disabled
         type = TYPE_NORMAL;
@@ -4325,9 +4346,61 @@ BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *
     return FALSE;
 }
 
-BOOL btl_scr_cmd_110_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     reset_stat_changes(ctx, ctx->defence_client);
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10B_gotoifthirdtype(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    s32 side = read_battle_script_param(ctx);
+    s32 type = read_battle_script_param(ctx);
+    u32 address = read_battle_script_param(ctx);
+
+    s32 battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    // Proceed only if type ID is a valid, existing type and our types match.
+    if (type >= 0 && type < NUMBER_OF_MON_TYPES && ctx->battlemon[battlerID].type3 == type)
+        IncrementBattleScriptPtr(ctx, address);
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10C_gotoifterastallized(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    s32 battlerID = read_battle_script_param(ctx);
+    u32 address = read_battle_script_param(ctx);
+
+    if (ctx->battlemon[battlerID].is_currently_terastallized)
+        IncrementBattleScriptPtr(ctx, address);
+
+    return FALSE;
+}
+
+BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int side = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
+	int fieldSide = IsClientEnemy(bsys, battlerID);
+
+    if (ctx->scw[fieldSide].toxicSpikesLayers) {
+        ctx->calc_work = ctx->scw[fieldSide].toxicSpikesLayers;
+        ctx->addeffect_type = ADD_EFFECT_TOXIC_SPIKES;
+        ctx->state_client = battlerID;
+        if (HasType(ctx, battlerID, TYPE_POISON)) {
+            ctx->side_condition[fieldSide] &= ~SIDE_STATUS_TOXIC_SPIKES;
+            ctx->scw[fieldSide].toxicSpikesLayers = 0;
+            ctx->calc_work = 0;
+        }
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
     return FALSE;
 }
