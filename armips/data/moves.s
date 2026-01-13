@@ -10974,7 +10974,7 @@ movedata MOVE_POWER_TRIP, "Power Trip"
     movedescription MOVE_POWER_TRIP, "The user flaunts its\nstrength. The more the\nuser's stats are\nboosted, the greater\nthe move's power."
 
 movedata MOVE_BURN_UP, "Burn Up"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_REMOVE_USER_FIRE_TYPE_HIT
     pss SPLIT_SPECIAL
     basepower 130
     type TYPE_FIRE
@@ -10983,7 +10983,7 @@ movedata MOVE_BURN_UP, "Burn Up"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12140,7 +12140,7 @@ movedata MOVE_BOLT_BEAK, "Bolt Beak"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12156,7 +12156,7 @@ movedata MOVE_FISHIOUS_REND, "Fishious Rend"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -14342,7 +14342,7 @@ movedata MOVE_BITTER_BLADE, "Bitter Blade"
     movedescription MOVE_BITTER_BLADE, "The user focuses its\nbitter feelings into a\nslash. The user's HP\nis restored by up to\nhalf the damage taken."
 
 movedata MOVE_DOUBLE_SHOCK, "Double Shock"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_REMOVE_USER_ELECTRIC_TYPE_HIT
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_ELECTRIC
@@ -14351,7 +14351,7 @@ movedata MOVE_DOUBLE_SHOCK, "Double Shock"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

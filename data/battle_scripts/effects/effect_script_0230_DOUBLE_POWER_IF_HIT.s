@@ -3,7 +3,7 @@
 .data
 
 _000:
-    CalcPaybackPower 
+    //CalcPaybackPower //unused command
     CalcCrit 
     CalcDamage 
     End 

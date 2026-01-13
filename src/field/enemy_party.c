@@ -346,6 +346,11 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         {
             for (j = 0; j < 4; j++)
             {
+#ifdef BLOCK_LEARNING_UNIMPLEMENTED_MOVES
+                if (IsMoveUnimplemented(moves[j])) {
+                    moves[j] = MOVE_NONE;
+                }
+#endif
                 SetPartyPokemonMoveAtPos(mons[i], moves[j], j);
             }
         }
