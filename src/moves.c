@@ -283,3 +283,18 @@ u32 LONG_CALL GetMoveData(u16 id, u32 field)
 
     return ret;
 }
+
+/**
+ *  @brief check if a move is unimplemented
+ *
+ *  @param move move ID to check
+ *  @return TRUE if move is unimplemented; FALSE otherwise
+ */
+BOOL LONG_CALL IsMoveUnimplemented(u16 move)
+{
+#ifdef BLOCK_LEARNING_UNIMPLEMENTED_MOVES
+    return (GetMoveData(move, MOVE_DATA_FLAGS) & FLAG_UNUSED_MOVE) != 0;
+#else
+    return FALSE;
+#endif
+}
