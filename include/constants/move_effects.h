@@ -396,8 +396,10 @@
 #define MOVE_EFFECT_CLEAR_SMOG                              390
 #define MOVE_EFFECT_ION_DELUGE                              391
 #define MOVE_EFFECT_ION_DELUGE_HIT                          392
+#define MOVE_EFFECT_REMOVE_USER_FIRE_TYPE_HIT               393
+#define MOVE_EFFECT_REMOVE_USER_ELECTRIC_TYPE_HIT           394
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            392
+#define MAX_BASE_MOVE_EFFECT_NUM                            394
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
