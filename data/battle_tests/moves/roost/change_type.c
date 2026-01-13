@@ -92,7 +92,11 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } } },
+            } },
+        .expectations = {
+            { EXPECTATION_TYPE_HP_BAR, BATTLER_PLAYER_FIRST, { 44, 44, 44, 44, 48, 48, 48, 48, 48, 48, 50, 50, 50, 50, 50, 54 } },
+            { EXPECTATION_TYPE_HP_BAR, BATTLER_PLAYER_FIRST, { 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13 } },
+        } },
 #ifndef GET_TEST_CASE_ONLY
 };
 #endif

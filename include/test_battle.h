@@ -28,6 +28,23 @@ struct PACKED TestBattlePokemon {
     u32 moveEffectFlags; // MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE, etc. (can be OR'd)
 };
 
+enum ExpectationType {
+    EXPECTATION_TYPE_HP_BAR = 1,
+    EXPECTATION_TYPE_MESSAGE,
+};
+
+union ExpectationValue {
+    u32 hpTaken[16];
+    u32 hpRecovered[16];
+    u32 messageID;  // TODO: switch to string
+};
+
+struct Expectations {
+    enum ExpectationType expectationType;
+    u8 battlerID;
+    union ExpectationValue expectationValue;
+};
+
 // Complete test scenario definition
 struct PACKED TestBattleScenario {
     u32 battleType;                           // BATTLE_TYPE_SINGLE, BATTLE_TYPE_DOUBLE, etc.
@@ -40,6 +57,10 @@ struct PACKED TestBattleScenario {
 
     struct BattleAction playerScript[2][AI_SCRIPT_MAX_MOVES];
     struct BattleAction enemyScript[2][AI_SCRIPT_MAX_MOVES];
+
+    struct Expectations expectations[8];
+
+    u8 expectationPassCount;
 };
 
 #define FULL_HP 0

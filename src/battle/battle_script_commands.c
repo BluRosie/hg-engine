@@ -4416,6 +4416,8 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
 }
 
 #ifdef DEBUG_BATTLE_SCENARIOS
+#include "../../include/test_battle.h"
+
 BOOL BtlCmd_UpdateHealthbarValue(struct BattleSystem *battleSystem, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
@@ -4442,6 +4444,20 @@ BOOL BtlCmd_UpdateHealthbarValue(struct BattleSystem *battleSystem, struct Battl
     CopyBattleMonToPartyMon(battleSystem, ctx, battlerId);
 
     debug_printf("[DEBUG_BATTLE_SCENARIOS] damage=%d\n", ctx->damage);
+
+/*
+    if (g_CurrentScenario != NULL) {
+        if (g_CurrentScenario->expectations[g_CurrentScenario->expectationPassCount].expectationType == EXPECTATION_TYPE_HP_BAR) {
+            for (int i = 0; i < 16; i++) {
+                if (g_CurrentScenario->expectations[g_CurrentScenario->expectationPassCount].expectationValue.hpTaken[i] == -ctx->damage) {
+                    debug_printf("[DEBUG_BATTLE_SCENARIOS] Expectation %d passed\n", g_CurrentScenario->expectationPassCount);
+                    g_CurrentScenario->expectationPassCount++;
+                    break;
+                }
+            }
+        }
+    }
+*/
 
     return FALSE;
 }
