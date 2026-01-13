@@ -1845,6 +1845,8 @@ u32 LONG_CALL GenerateShinyPIDKeepSubstructuresIntact(u32 otId, u32 pid);
  */
 u32 LONG_CALL GetMoveData(u16 id, u32 field);
 
+BOOL LONG_CALL IsMoveUnimplemented(u16 move);
+
 BOOL LONG_CALL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defaultSlot);
 
 void LONG_CALL Mon_UpdateShayminForm(struct PartyPokemon *mon, int form);

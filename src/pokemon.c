@@ -2386,7 +2386,12 @@ u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0)
     {
         *sp0 = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[*last_i]);
         (*last_i)++;
-        ret = TryAppendMonMove(mon, *sp0);
+#ifdef BLOCK_LEARNING_UNIMPLEMENTED_MOVES
+        if (!IsMoveUnimplemented(*sp0))
+#endif
+        {
+            ret = TryAppendMonMove(mon, *sp0);
+        }
     }
     sys_FreeMemoryEz(levelUpLearnset);
     return ret;
@@ -2635,4 +2640,24 @@ BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex) {
  */
 void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset) {
     ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, 0, PokeOtherFormMonsNoGet(species, form) * MAX_LEVELUP_MOVES * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
+
+#ifdef BLOCK_LEARNING_UNIMPLEMENTED_MOVES
+    // shift moves to skip the unimplemented ones
+    int writeIndex = 0;
+    for (int readIndex = 0; readIndex < MAX_LEVELUP_MOVES; readIndex++) {
+        u32 entry = levelUpLearnset[readIndex];
+        u16 move = LEVEL_UP_LEARNSET_MOVE(entry);
+
+        if (move == LEVEL_UP_LEARNSET_END) {
+            levelUpLearnset[writeIndex] = entry;
+            break;
+        }
+
+        // keep the move
+        if (!IsMoveUnimplemented(move)) {
+            levelUpLearnset[writeIndex] = entry;
+            writeIndex++;
+        }
+    }
+#endif
 }
