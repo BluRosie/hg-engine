@@ -701,7 +701,7 @@ sub_0207D1C8 = 0x0207D1C8 | 1;
 PartyMenu_PrintMessageOnWindow33 = 0x0207DAD8 | 1;
 thunk_Sprite_SetPalIndex = 0x0200DD08 | 1;
 
-FreeToHeapExplicit = 0x0201AB80 | 1;
+Heap_FreeExplicit = 0x0201AB80 | 1;
 
 BattleControllerPlayer_ItemInput = 0x0224AAF0 | 1;
 BattleControllerPlayer_PokemonInput = 0x0224AC50 | 1;
@@ -783,3 +783,35 @@ TaskManager_Call = 0x02050530 | 1;
 Task_TutorialBattle = 0x0205128C | 1;
 
 GetItemAttrSub = 0x02077E48 | 1;
+Mon_UpdateRotomForm	= 0x02071EC0 | 1;
+
+LoadItemDataOrGfx = 0x02077CE8 | 1;
+/* GetItemAttr_PreloadedItemData = 0x02077DAC | 1; */
+PartyMenu_ItemUseFunc_WaitTextPrinterThenExit = 0x02081378 | 1;
+PartyMenu_SetItemUseFuncFromBagSelection = 0x020812E8 | 1;
+PartyMenu_PrintMessageOnWindow34 = 0x0207DAEC | 1;
+PartyMenu_SelectMoveForPpRestoreOrPpUp = 0x02082654 | 1;
+PartyMenu_FormChangeScene_Begin = 0x0207CB54 | 1;
+
+PartyMenu_DeleteContextMenuAndList = 0x0207CB20 | 1;
+ListMenuItems_AddItem = 0x02014980 | 1;
+ListMenuItems_New = 0x02014918 | 1;
+GetPartyMenuContextMenuActionFunc = 0x0207F42C | 1;
+sub_0207E54C = 0x0207E54C | 1;
+PartyMenu_CreateContextMenuCursor = 0x0207E590 | 1;
+sub_0207E068 = 0x0207E068 | 1;
+NewString_ReadMsgData = 0x0200BBA0 | 1;
+FontID_String_GetCenterAlignmentX = 0x020030A0 | 1;
+GetWindowWidth = 0x0201EE90 | 1;
+getButtonColorDepressed = 0x0207E264 | 1;
+getButtonColorRaised = 0x0207E278 | 1;
+ScheduleWindowCopyToVram = 0x0201D5C8 | 1;
+LoadRectToBgTilemapRect = 0x0201C4C4 | 1;
+FillBgTilemapRect = 0x0201C8C4 | 1;
+sub_0207E358 = 0x0207E358 | 1;
+sButtonFrameTileOffsets = 0x021015AC;
+sButtonRects = 0x021015EC;
+sButtonWindowTemplates = 0x02101654;
+sButtonWindowIDs = 0x021016B4;
+PartyMenu_DisableMainScreenBlend_AfterYesNo = 0x0207CB90 | 1;
+sBattleBgProfileTable = 0x0226E70C;
