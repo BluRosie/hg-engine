@@ -1,6 +1,13 @@
 #ifndef POKEHEARTGOLD_PARTY_MENU_H
 #define POKEHEARTGOLD_PARTY_MENU_H
 
+#include "types.h"
+
+#include "bag.h"
+#include "message.h"
+#include "pokemon.h"
+#include "window.h"
+
 #define MAX_MON_MOVES             4
 #define MAX_BUTTONS_IN_PARTY_MENU 8
 
@@ -14,10 +21,10 @@
 #define LIST_CANCEL         -2
 #define LIST_NOTHING_CHOSEN -1
 
-#define MAKE_TEXT_COLOR(fg, sh, bg) ((((fg) & 0xFF) << 16) | (((sh) & 0xFF) << 8) | (((bg) & 0xFF) << 0))
+#define _PARTY_MENU_WINDOW_ID_MAX 40
+#define _PARTY_MENU_SPRITE_ID_MAX 29
 
-#include "message.h"
-#include "pokemon.h"
+#define MAKE_TEXT_COLOR(fg, sh, bg) ((((fg) & 0xFF) << 16) | (((sh) & 0xFF) << 8) | (((bg) & 0xFF) << 0))
 
 typedef enum PartyMenuWindowId {
     PARTY_MENU_WINDOW_ID_MON1_NICKNAME,
@@ -237,6 +244,8 @@ typedef enum PartyMenuActionReturn {
     PARTY_MENU_ACTION_RETURN_FIELD_MOVE_BEGIN = PARTY_MENU_ACTION_RETURN_CUT,
 } PartyMenuActionReturn;
 
+typedef struct FieldSystem FieldSystem;
+
 typedef struct PartyMenuArgs {
     struct Party *party;
     BAG_DATA *bag;
@@ -403,27 +412,27 @@ struct PartyMenu {
 }; // CA8
 
 u8 LONG_CALL MoveId_GetFieldEffectId(u16 move);
-void LONG_CALL PartyMenu_ContextMenuAddFieldMove(struct PLIST_WORK *wk, u16 move, u8 index);
+void LONG_CALL PartyMenu_ContextMenuAddFieldMove(struct PartyMenu *wk, u16 move, u8 index);
 BOOL LONG_CALL FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom(void *fieldSystem);
 
-u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf);
+u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf);
 
-void LONG_CALL sub_0207AFC4(struct PLIST_WORK *wk);
+void LONG_CALL sub_0207AFC4(struct PartyMenu *wk);
 void LONG_CALL ClearFrameAndWindow2(void *window, BOOL dont_copy_to_vram);
-u8 LONG_CALL sub_0207B23C(struct PLIST_WORK *wk, u8 *buf);
-u8 LONG_CALL PartyMenu_SetContextMenuItems_GiveCapsule(struct PLIST_WORK *wk, u8 *buf);
-u8 LONG_CALL sub_0207B1C8(struct PLIST_WORK *wk, u8 *buf);
-u8 LONG_CALL sub_0207B200(struct PLIST_WORK *wk, u8 *buf);
-u8 LONG_CALL PartyMenu_SetContextMenuItems_SpinTrade(struct PLIST_WORK *wk, u8 *buf);
-u8 LONG_CALL PartyMenu_SetContextMenuItems_BattleHallEntry(struct PLIST_WORK *wk, u8 *buf);
-u8 LONG_CALL sub_0207B2DC(struct PLIST_WORK *wk, u8 *buf);
-void LONG_CALL PartyMenu_OpenContextMenu(struct PLIST_WORK *wk, u8 *items, u8 numItems);
-void LONG_CALL sub_0207D1C8(struct PLIST_WORK *wk);
-void LONG_CALL PartyMenu_PrintMessageOnWindow33(struct PLIST_WORK *wk, int msgId, BOOL drawFrame);
+u8 LONG_CALL sub_0207B23C(struct PartyMenu *wk, u8 *buf);
+u8 LONG_CALL PartyMenu_SetContextMenuItems_GiveCapsule(struct PartyMenu *wk, u8 *buf);
+u8 LONG_CALL sub_0207B1C8(struct PartyMenu *wk, u8 *buf);
+u8 LONG_CALL sub_0207B200(struct PartyMenu *wk, u8 *buf);
+u8 LONG_CALL PartyMenu_SetContextMenuItems_SpinTrade(struct PartyMenu *wk, u8 *buf);
+u8 LONG_CALL PartyMenu_SetContextMenuItems_BattleHallEntry(struct PartyMenu *wk, u8 *buf);
+u8 LONG_CALL sub_0207B2DC(struct PartyMenu *wk, u8 *buf);
+void LONG_CALL PartyMenu_OpenContextMenu(struct PartyMenu *wk, u8 *items, u8 numItems);
+void LONG_CALL sub_0207D1C8(struct PartyMenu *wk);
+void LONG_CALL PartyMenu_PrintMessageOnWindow33(struct PartyMenu *wk, int msgId, BOOL drawFrame);
 void LONG_CALL thunk_Sprite_SetPalIndex(void* sprites, int);
-void LONG_CALL FreeToHeapExplicit(u32 heapId, void *ptr);
-void LONG_CALL PartyMenu_PrintMessageOnWindow32(struct PLIST_WORK *partyMenu, int msgId, BOOL drawFrame);
-u16 LONG_CALL PartyMenu_GetCurrentMapSec(struct PLIST_WORK *partyMenu);
+void LONG_CALL Heap_FreeExplicit(u32 heapId, void *ptr);
+void LONG_CALL PartyMenu_PrintMessageOnWindow32(struct PartyMenu *partyMenu, int msgId, BOOL drawFrame);
+u16 LONG_CALL PartyMenu_GetCurrentMapSec(struct PartyMenu *partyMenu);
 BOOL LONG_CALL ShouldTakeMachineMoveItem(u16 itemId);
 int LONG_CALL PartyMenu_ItemUseFunc_WaitTextPrinterThenExit(struct PartyMenu *partyMenu);
 void LONG_CALL PartyMenu_SetItemUseFuncFromBagSelection(struct PartyMenu *partyMenu);

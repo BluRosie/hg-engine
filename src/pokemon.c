@@ -851,6 +851,12 @@ BOOL LONG_CALL CanUseNectar(struct PartyPokemon *pp, u16 nectar)
     return FALSE;
 }
 
+/**
+ *  @brief check if the Gracidea can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check the nectar against
+ *  @return TRUE if Gracidea can be used; FALSE otherwise
+ */
 BOOL LONG_CALL Mon_CanUseGracidea(struct PartyPokemon *mon)
 {
     struct RTCTime time;
@@ -970,60 +976,60 @@ u16 NatureToMintItem[] =
  *  @param wk work structure
  *  @param dat data structure
  */
-u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
+u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
 {
-    struct PartyPokemon *pp = Party_GetMonByIndex(wk->dat->pp, wk->pos);
+    struct PartyPokemon *pp = Party_GetMonByIndex(wk->args->party, wk->partyMonIndex);
     partyMenuSignal = 0; // ensure it is 0 before potentially queuing up a different message
 
     // handle shaymin
 
-    if (wk->dat->item == ITEM_GRACIDEA
+    if (wk->args->itemId == ITEM_GRACIDEA
      && Mon_CanUseGracidea(pp) == TRUE)
     {
-        wk->dat->after_mons = 1; // change to sky forme
+        wk->args->species = 1; // change to sky forme
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
-        ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works alright
+        ChangePartyPokemonToForm(pp, wk->args->species); // this works alright
         return TRUE;
     }
 
     // handle tornadus/thundurus/landorus/enamorus
 
-    if (wk->dat->item == ITEM_REVEAL_GLASS
+    if (wk->args->itemId == ITEM_REVEAL_GLASS
      && CanUseRevealGlass(pp) == TRUE)
     {
         u32 currForm = GetMonData(pp, MON_DATA_FORM, NULL);
-        wk->dat->after_mons = currForm ^ 1; // toggle form between therian/incarnate
+        wk->args->species = currForm ^ 1; // toggle form between therian/incarnate
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
-        ChangePartyPokemonToForm(pp, wk->dat->after_mons); // this works alright
+        ChangePartyPokemonToForm(pp, wk->args->species); // this works alright
         return TRUE;
     }
 
     // handle oricorio form changes
     // This code relies on the item ids of the nectars being consecutive
 
-    if (wk->dat->item >= ITEM_RED_NECTAR && wk->dat->item <= ITEM_PURPLE_NECTAR
-     && CanUseNectar(pp, wk->dat->item) == TRUE)
+    if (wk->args->itemId >= ITEM_RED_NECTAR && wk->args->itemId <= ITEM_PURPLE_NECTAR
+     && CanUseNectar(pp, wk->args->itemId) == TRUE)
     {
         void *bag = Sav2_Bag_get(SaveBlock2_get());
-        wk->dat->after_mons = wk->dat->item - ITEM_RED_NECTAR;
+        wk->args->species = wk->args->itemId - ITEM_RED_NECTAR;
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
-        ChangePartyPokemonToForm(pp, wk->dat->after_mons);
-        Bag_TakeItem(bag, wk->dat->item, 1, 11);
+        ChangePartyPokemonToForm(pp, wk->args->species);
+        Bag_TakeItem(bag, wk->args->itemId, 1, 11);
         return TRUE;
     }
 
 #ifdef ALLOW_SAVE_CHANGES
     // handle reshiram/zekrom and kyurem
 
-    u32 splicer_pos = CanUseDNASplicersGrabSplicerPos(pp, wk->dat->pp);
+    u32 splicer_pos = CanUseDNASplicersGrabSplicerPos(pp, wk->args->party);
     u32 reshiramBool = splicer_pos & RESHIRAM_MASK;
     splicer_pos &= JUST_SPLICER_POS_MASK;
 
     // TODO: handle correct item
-    if (wk->dat->item == ITEM_DNA_SPLICERS_FUSE
+    if (wk->args->itemId == ITEM_DNA_SPLICERS_FUSE
      && (splicer_pos < 6))
     {
         void *saveData = SaveBlock2_get();
@@ -1035,8 +1041,8 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
 
             // grab reshiram from save
             // add reshiram to party--can't just use PokeParty_Add because icons freak out when you tell them to animate something that isn't there
-            //PokeParty_Add(wk->dat->pp, &saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS]);
-            struct PartyPokemon *reshiram = Party_GetMonByIndex(wk->dat->pp, splicer_pos);
+            //PokeParty_Add(wk->args->party, &saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS]);
+            struct PartyPokemon *reshiram = Party_GetMonByIndex(wk->args->party, splicer_pos);
             *reshiram = saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS];
             partyMenuSignal = 1;
 
@@ -1044,7 +1050,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
             memset((u8 *)&saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS], 0, sizeof(struct PartyPokemon));
             saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] = 0;
 
-            wk->dat->after_mons = 0;
+            wk->args->species = 0;
 
             ChangePartyPokemonToForm(pp, 0);
             SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK, MOVE_GLACIATE);
@@ -1054,25 +1060,25 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
         {
             // grab reshiram from party
             // store reshiram in save
-            saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS] = *Party_GetMonByIndex(wk->dat->pp, splicer_pos); // may have to directly memcpy this but this is good for the moment
+            saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS] = *Party_GetMonByIndex(wk->args->party, splicer_pos); // may have to directly memcpy this but this is good for the moment
             // delete reshiram from party--splicer_pos has the position to delete
-            PokeParty_Delete(wk->dat->pp, splicer_pos);
+            PokeParty_Delete(wk->args->party, splicer_pos);
             saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] = 1;
 
-            if (splicer_pos < wk->pos) // adjust this position back so that the right pokemon's forme gets changed
+            if (splicer_pos < wk->partyMonIndex) // adjust this position back so that the right pokemon's forme gets changed
             {
-                wk->pos--;
-                pp = Party_GetMonByIndex(wk->dat->pp, wk->pos);
+                wk->partyMonIndex--;
+                pp = Party_GetMonByIndex(wk->args->party, wk->partyMonIndex);
             }
 
             if (reshiramBool) // turn to white kyurem
-                wk->dat->after_mons = 1;
+                wk->args->species = 1;
             else              // turn to black kyurem
-                wk->dat->after_mons = 2;
+                wk->args->species = 2;
 
-            ChangePartyPokemonToForm(pp, wk->dat->after_mons);
-            SwapPartyPokemonMove(pp, MOVE_GLACIATE, wk->dat->after_mons == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK);
-            SwapPartyPokemonMove(pp, MOVE_SCARY_FACE, wk->dat->after_mons == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT);
+            ChangePartyPokemonToForm(pp, wk->args->species);
+            SwapPartyPokemonMove(pp, MOVE_GLACIATE, wk->args->species == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK);
+            SwapPartyPokemonMove(pp, MOVE_SCARY_FACE, wk->args->species == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT);
         }
         else { return FALSE; } // get out because no changes should be made
         sys_FreeMemoryEz(dat);
@@ -1083,11 +1089,11 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
 
     // handle ability capsule
 
-    if (wk->dat->item == ITEM_ABILITY_CAPSULE && CanUseAbilityCapsule(pp) == TRUE)
+    if (wk->args->itemId == ITEM_ABILITY_CAPSULE && CanUseAbilityCapsule(pp) == TRUE)
     {
         void *bag = Sav2_Bag_get(SaveBlock2_get());
         partyMenuSignal = 193; // signal to change the message to this index
-        wk->dat->after_mons = GetMonData(pp, MON_DATA_FORM, NULL); // no form change
+        wk->args->species = GetMonData(pp, MON_DATA_FORM, NULL); // no form change
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
         TOGGLE_MON_SWAP_ABILITY_SLOT_BIT(pp)
@@ -1098,34 +1104,34 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat)
 
     // handle ability patch
 
-    if (wk->dat->item == ITEM_ABILITY_PATCH && CanUseAbilityPatch(pp) == TRUE)
+    if (wk->args->itemId == ITEM_ABILITY_PATCH && CanUseAbilityPatch(pp) == TRUE)
     {
         void *bag = Sav2_Bag_get(SaveBlock2_get());
         partyMenuSignal = 193; // signal to change the message to this index
-        wk->dat->after_mons = GetMonData(pp, MON_DATA_FORM, NULL); // no form change
+        wk->args->species = GetMonData(pp, MON_DATA_FORM, NULL); // no form change
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
         TOGGLE_MON_HIDDEN_ABILITY_BIT(pp)
         ResetPartyPokemonAbility(pp);
-        Bag_TakeItem(bag, wk->dat->item, 1, 11);
+        Bag_TakeItem(bag, wk->args->itemId, 1, 11);
         return TRUE;
     }
 
     // handle nature mints
 
-    if (IS_ITEM_NATURE_MINT(wk->dat->item))
+    if (IS_ITEM_NATURE_MINT(wk->args->itemId))
     {
         u32 nature;
         void *bag = Sav2_Bag_get(SaveBlock2_get());
         for (nature = 0; nature < 25; nature++)
         {
-            if (NatureToMintItem[nature] == wk->dat->item)
+            if (NatureToMintItem[nature] == wk->args->itemId)
                 break;
         }
         partyMenuSignal = 194 + nature; // signal to change the message to this index
         SET_MON_NATURE_OVERRIDE(pp, nature)
         RecalcPartyPokemonStats(pp);
-        Bag_TakeItem(bag, wk->dat->item, 1, 11);
+        Bag_TakeItem(bag, wk->args->itemId, 1, 11);
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
         return TRUE;
@@ -1184,12 +1190,12 @@ void _EmitParticles(struct IconFormChangeData *partyMenu) {
  */
 u32 LONG_CALL PokeListProc_End_Extend(void *proc, int *seq) // finally add to pokecount so that icons are fine
 {
-    struct PLIST_WORK *wk = PROC_GetWork(proc);
+    struct PartyMenu *wk = PROC_GetWork(proc);
 
     if (partyMenuSignal == 1)
     {
         partyMenuSignal = 0;
-        wk->dat->pp->count++;
+        wk->args->party->count++;
     }
 
     return PokeListProc_End(proc, seq);

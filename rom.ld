@@ -701,7 +701,7 @@ sub_0207D1C8 = 0x0207D1C8 | 1;
 PartyMenu_PrintMessageOnWindow33 = 0x0207DAD8 | 1;
 thunk_Sprite_SetPalIndex = 0x0200DD08 | 1;
 
-FreeToHeapExplicit = 0x0201AB80 | 1;
+Heap_FreeExplicit = 0x0201AB80 | 1;
 
 BattleControllerPlayer_ItemInput = 0x0224AAF0 | 1;
 BattleControllerPlayer_PokemonInput = 0x0224AC50 | 1;
@@ -786,7 +786,7 @@ GetItemAttrSub = 0x02077E48 | 1;
 Mon_UpdateRotomForm	= 0x02071EC0 | 1;
 
 LoadItemDataOrGfx = 0x02077CE8 | 1;
-GetItemAttr_PreloadedItemData = 0x02077DAC | 1;
+/* GetItemAttr_PreloadedItemData = 0x02077DAC | 1; */
 PartyMenu_ItemUseFunc_WaitTextPrinterThenExit = 0x02081378 | 1;
 PartyMenu_SetItemUseFuncFromBagSelection = 0x020812E8 | 1;
 PartyMenu_PrintMessageOnWindow34 = 0x0207DAEC | 1;

@@ -28,6 +28,20 @@ typedef struct WindowTemplate {
     u16 baseTile;
 } WindowTemplate;
 
+struct Window
+{
+    void* /* BgConfig **/ bgConfig;
+    u8 bgId;
+    u8 tilemapLeft;
+    u8 tilemapTop;
+    u8 width;
+    u8 height;
+    u8 paletteNum;
+    u16 baseTile  : 15;
+    u16 colorMode : 1;
+    void *pixelBuffer;
+}; //size 0x10
+
 void LONG_CALL TalkWinGraphicSet(void *ini, u8 frmnum, u16 cgx, u8 pal, u8 win_num, u32 heap);
 u8 LONG_CALL GF_BGL_BmpWinGet_Frame(GF_BGL_BMPWIN *win);
 u8 LONG_CALL CONFIG_GetWindowType(const void *cfg);

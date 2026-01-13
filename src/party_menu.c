@@ -25,9 +25,9 @@ void LONG_CALL PartyMonContextMenuAction_RotomCatalog(struct PartyMenu *partyMen
 void LONG_CALL PartyMonContextMenuAction_QuitToBag(struct PartyMenu *partyMenu, int *pState);
 static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu);
 
-u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
+u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
 {
-    struct PartyPokemon *pp = Party_GetMonByIndex(wk->dat->pp, wk->pos);
+    struct PartyPokemon *pp = Party_GetMonByIndex(wk->args->party, wk->partyMonIndex);
     u16 move;
     u8 fieldMoveIndex = 0;
     u8 i;
@@ -39,7 +39,7 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
 
     buf[count] = PARTY_MON_CONTEXT_MENU_SUMMARY;
     ++count;
-    if (!FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom(wk->dat->fsys))
+    if (!FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom(wk->args->fieldSystem))
     {
         buf[count] = PARTY_MON_CONTEXT_MENU_SWITCH;
         ++count;
@@ -92,7 +92,7 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
     return count;
 }
 
-void LONG_CALL sub_0207AFC4(struct PLIST_WORK *wk)
+void LONG_CALL sub_0207AFC4(struct PartyMenu *wk)
 {
     ClearFrameAndWindow2(&wk->windows[PARTY_MENU_WINDOW_ID_32], TRUE);
 
@@ -100,7 +100,7 @@ void LONG_CALL sub_0207AFC4(struct PLIST_WORK *wk)
     buf = sys_AllocMemory(HEAP_ID_PARTY_MENU, MAX_BUTTONS_IN_PARTY_MENU);
     u8 numItems;
 
-    switch (wk->dat->mode)//(partyMenu->dat->context)
+    switch (wk->args->context)//(partyMenu->args->context)
     {
     case PARTY_MENU_CONTEXT_0:
         numItems = sub_0207B0B0(wk, buf);
@@ -130,7 +130,7 @@ void LONG_CALL sub_0207AFC4(struct PLIST_WORK *wk)
     }
 
     PartyMenu_OpenContextMenu(wk, buf, numItems);
-    FreeToHeapExplicit(HEAP_ID_PARTY_MENU, buf);
+    Heap_FreeExplicit(HEAP_ID_PARTY_MENU, buf);
     sub_0207D1C8(wk);
     PartyMenu_PrintMessageOnWindow33(wk, -1, TRUE);
     thunk_Sprite_SetPalIndex(wk->sprites[PARTY_MENU_SPRITE_ID_CURSOR], 1);
@@ -140,15 +140,15 @@ void LONG_CALL sub_0207AFC4(struct PLIST_WORK *wk)
  * @brief hooks rare candy usage in the bag to allow for repeated use without returning to the bag between each
  * thanks to yako for the for the format
  */
-int PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6(struct PLIST_WORK *wk) {
-    struct PartyPokemon *mon = Party_GetMonByIndex(wk->dat->pp, wk->pos);
-    wk->dat->after_mons = GetMonEvolution(wk->dat->pp, mon, EVOCTX_LEVELUP, EVO_NONE, (int *)&wk->dat->shinka_cond);
-    if (wk->dat->after_mons != SPECIES_NONE) {
-        wk->dat->ret_mode = 0x9;
+int PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6(struct PartyMenu *wk) {
+    struct PartyPokemon *mon = Party_GetMonByIndex(wk->args->party, wk->partyMonIndex);
+    wk->args->species = GetMonEvolution(wk->args->party, mon, EVOCTX_LEVELUP, EVO_NONE, (int *)&wk->args->evoMethod);
+    if (wk->args->species != SPECIES_NONE) {
+        wk->args->selectedAction = 0x9;
         return 0x20;
     }
-    wk->dat->ret_mode = 0x0;
-    if (Bag_HasItem(wk->dat->myitem, wk->dat->item, 1, HEAP_ID_PARTY_MENU)) {
+    wk->args->selectedAction = 0x0;
+    if (Bag_HasItem(wk->args->bag, wk->args->itemId, 1, HEAP_ID_PARTY_MENU)) {
         ClearFrameAndWindow2(&wk->windows[34], TRUE);
         PartyMenu_PrintMessageOnWindow32(wk, 33, TRUE); // message index in 300.txt
         return 0x4;
@@ -160,9 +160,9 @@ int PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6(struct PLIST_WORK *wk) {
  * @brief hooks into the ending of pokeheartgold PartyMenu_ItemUseFunc_WaitTextPrinterThenExit
  * to allow for item reuse if not an evo item and the bag has more of the item
  */
-int PartyMenu_ItemUseFunc_ReuseItem(struct PLIST_WORK *wk) {
-    wk->dat->ret_mode = 0;
-    if (GetItemData(wk->dat->item, ITEM_PARAM_EVOLUTION, HEAP_ID_PARTY_MENU) == 0 && Bag_HasItem(wk->dat->myitem, wk->dat->item, 1, HEAP_ID_PARTY_MENU)) {
+int PartyMenu_ItemUseFunc_ReuseItem(struct PartyMenu *wk) {
+    wk->args->selectedAction = 0;
+    if (GetItemData(wk->args->itemId, ITEM_PARAM_EVOLUTION, HEAP_ID_PARTY_MENU) == 0 && Bag_HasItem(wk->args->bag, wk->args->itemId, 1, HEAP_ID_PARTY_MENU)) {
         ClearFrameAndWindow2(&wk->windows[34], TRUE);
         PartyMenu_PrintMessageOnWindow32(wk, 33, TRUE); // message index in 300.txt
         return 0x4;
@@ -170,21 +170,21 @@ int PartyMenu_ItemUseFunc_ReuseItem(struct PLIST_WORK *wk) {
     return 0x20;
 }
 
-void PartyMenu_LearnMoveToSlot(struct PLIST_WORK *partyMenu, struct PartyPokemon *mon, int moveIdx) {
-    int data = partyMenu->dat->move;
+void PartyMenu_LearnMoveToSlot(struct PartyMenu *partyMenu, struct PartyPokemon *mon, int moveIdx) {
+    int data = partyMenu->args->moveId;
     SetMonData(mon, MON_DATA_MOVE1 + moveIdx, &data);
     data = 0;
     SetMonData(mon, MON_DATA_MOVE1PPUP + moveIdx, &data);
-    data = GetMoveMaxPP(partyMenu->dat->move, 0);
+    data = GetMoveMaxPP(partyMenu->args->moveId, 0);
     SetMonData(mon, MON_DATA_MOVE1PP + moveIdx, &data);
-    if (partyMenu->dat->item != ITEM_NONE) {
+    if (partyMenu->args->itemId != ITEM_NONE) {
 #ifdef REUSABLE_TMS
-    BOOL consumeItem = IS_ITEM_TR(partyMenu->dat->item);
+    BOOL consumeItem = IS_ITEM_TR(partyMenu->args->itemId);
 #else
-    BOOL consumeItem = IS_ITEM_TM(partyMenu->dat->item) || IS_ITEM_TR(partyMenu->dat->item);
+    BOOL consumeItem = IS_ITEM_TM(partyMenu->args->itemId) || IS_ITEM_TR(partyMenu->args->itemId);
 #endif // REUSABLE_TMS
         if (consumeItem) {
-            Bag_TakeItem(partyMenu->dat->myitem, partyMenu->dat->item, 1, HEAP_ID_PARTY_MENU);
+            Bag_TakeItem(partyMenu->args->bag, partyMenu->args->itemId, 1, HEAP_ID_PARTY_MENU);
         }
         MonApplyFriendshipMod(mon, 4, PartyMenu_GetCurrentMapSec(partyMenu));
         ApplyMonMoodModifier(mon, 3);
@@ -378,11 +378,11 @@ void LONG_CALL sub_0207E3A8(struct PartyMenu *partyMenu, int numItems, int selec
     s8 id = sButtonWindowIDs[numItems - 1][state][selection];
 
     // shallow copy vanilla rectangle
-    u8 tempRect[4]; 
+    u8 tempRect[4];
     const u8 *rect = sButtonRects[id];
-    tempRect[0]=rect[0]; 
-    tempRect[1]=rect[1]; 
-    tempRect[2]=rect[2]; 
+    tempRect[0]=rect[0];
+    tempRect[1]=rect[1];
+    tempRect[2]=rect[2];
     tempRect[3]=rect[3];
 
     // nudge down one tile to line up columns
@@ -424,8 +424,8 @@ void LONG_CALL PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj(struct Pa
     if (partyMenu->args && partyMenu->args->itemId == ITEM_ROTOM_CATALOG && followUpState == LIST_CANCEL) {
         for (int i = 0; i < cursor->numItems; i++) {
             if ((u32)cursor->menu.items[i].value == (u32)PartyMonContextMenuAction_QuitToBag) {
-                idx = i; 
-                break; 
+                idx = i;
+                break;
             }
         }
         cursor->selection = idx;
