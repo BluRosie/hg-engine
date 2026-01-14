@@ -33,7 +33,7 @@ _ReflectTargetTeraType:
 
 _TypeChangeMessage:
     // {0} became the same type as {1}!
-    PrintMessage 1607, TAG_NICKNAME_NICKNAME, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_DEFENDER
+    PrintMessage 1611, TAG_NICKNAME_NICKNAME, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_DEFENDER
     Wait 
     WaitButtonABTime 30
     End
