@@ -8268,7 +8268,7 @@ movedata MOVE_ACROBATICS, "Acrobatics"
     movedescription MOVE_ACROBATICS, "A nimble attack\nthat does double\ndamage if the user\nhas no held item."
 
 movedata MOVE_REFLECT_TYPE, "Reflect Type"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_REFLECT_TYPE
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -8277,7 +8277,7 @@ movedata MOVE_REFLECT_TYPE, "Reflect Type"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_SNATCH | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_SNATCH
     appeal 0x00
     contesttype CONTEST_SMART
     terminatedata

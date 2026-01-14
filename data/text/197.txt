@@ -1605,3 +1605,6 @@ The opposing {STRVAR_1 1, 0, 0}\nburned itself out!
 {STRVAR_1 1, 0, 0} used up all\nits electricity!
 The wild {STRVAR_1 1, 0, 0} used up\nall its electricity!
 The opposing {STRVAR_1 1, 0, 0} used up\nall its electricity!
+{STRVAR_1 1, 0, 0} became the same\ntype as {STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} became\nthe same type as {STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} became\nthe same type as {STRVAR_1 1, 1, 0}!

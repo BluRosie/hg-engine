@@ -483,6 +483,7 @@
 #define SUB_SEQ_ION_DELUGE                            (473)
 #define SUB_SEQ_REMOVE_USER_FIRE_TYPE                 (474)
 #define SUB_SEQ_REMOVE_USER_ELECTRIC_TYPE             (475)
+#define SUB_SEQ_REFLECT_TYPE                          (476)
 
 #define MAX_BASE_SUBSCRIPT_NUM 475
 
@@ -706,6 +707,7 @@
 #define ADD_STATUS_EFF_ION_DELUGE                      (211)
 #define ADD_STATUS_EFF_REMOVE_USER_FIRE_TYPE           (212)
 #define ADD_STATUS_EFF_REMOVE_USER_ELECTRIC_TYPE       (213)
+#define ADD_STATUS_EFF_REFLECT_TYPE                    (214)
 
 #define MAX_BASE_SUBSCRIPT_PTR_NUM (213)
 
