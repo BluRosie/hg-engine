@@ -516,6 +516,13 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     case MOVE_TRUMP_CARD:
         movepower = damage_power;
         break;
+    case MOVE_TERRAIN_PULSE:
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0 
+            && sp->terrainOverlay.type 
+            && IsClientGrounded(sp, attacker))
+        {
+            movepower *= 2;
+        }
     default:
         break;
     }

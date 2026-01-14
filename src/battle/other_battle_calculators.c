@@ -2883,7 +2883,25 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
             }
             break;
         case MOVE_TERRAIN_PULSE:
-            // TODO: Do after terrain refactor
+            type = TYPE_NORMAL;//TODO electrify
+            if (ctx->terrainOverlay.numberOfTurnsLeft > 0 && IsClientGrounded(ctx, battlerId)) {
+                switch (ctx->terrainOverlay.type) {
+                case GRASSY_TERRAIN:
+                    type = TYPE_GRASS;
+                    break;
+                case ELECTRIC_TERRAIN:
+                    type = TYPE_ELECTRIC;
+                    break;
+                case MISTY_TERRAIN:
+                    type = TYPE_FAIRY;
+                    break;
+                case PSYCHIC_TERRAIN:
+                    type = TYPE_PSYCHIC;
+                    break;
+                default:
+                    break;
+                }
+            }
             break;
         case MOVE_TERA_BLAST:
         case MOVE_TERA_STARSTORM:
