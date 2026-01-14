@@ -6,30 +6,85 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+  LM_LICENSE_FILE: "$GITHUB_WORKSPACE/tools/mwccarm/license.dat"
+  CC: gcc-10
+  CXX: g++-10
+  COMPARE: 0
+
 jobs:
   build:
+    if: ${{ github.repository == 'BluRosie/hg-engine' }}
     runs-on: ubuntu-22.04
 
     steps:
+      - name: Update and Install Software (decomp)
+        run: |
+          sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+          sudo apt update
+          sudo apt -y --allow-downgrades install g++-10-multilib linux-libc-dev binutils-arm-none-eabi p7zip-full pkg-config libpugixml-dev ppa-purge
+          sudo ppa-purge -y ppa:ubuntu-toolchain-r/test || true
+          sudo dpkg --add-architecture i386
+          sudo mkdir -pm755 /etc/apt/keyrings
+          sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+          sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport
+          sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/$(lsb_release -cs)/winehq-$(lsb_release -cs).sources
+          sudo apt update
+          sudo apt -y --allow-downgrades install --install-recommends winehq-stable
+
+      - name: Checkout Repo (decomp)
+        uses: actions/checkout@v6
+        with:
+          repository: 'pret/pokeheartgold'
+
+      - name: Setup Repo (decomp)
+        run: |
+          mkdir -p ~/download
+          cd ~/download
+          wget https://github.com/pret/pokeheartgold/raw/workflows/assets/mwccarm.zip
+          wget https://github.com/pret/pokeheartgold/raw/workflows/assets/NitroSDK-3_2-060901.7z
+          unzip mwccarm.zip
+          mv mwccarm $GITHUB_WORKSPACE/tools
+          7z x NitroSDK-3_2-060901.7z
+          mv NitroSDK-3_2-060901/tools/bin $GITHUB_WORKSPACE/tools
+          mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM7-TS.lcf.template $GITHUB_WORKSPACE/sub/
+          mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM9-TS.lcf.template $GITHUB_WORKSPACE/
+          mv NitroSDK-3_2-060901/include/nitro/specfiles/mwldarm.response.template $GITHUB_WORKSPACE/
+        working-directory: ~
+
+      - name: Set Swap Space (decomp)
+        uses: pierotofy/set-swap-space@master
+        with:
+          swap-size-gb: 19
+
+      - name: Build HeartGold (decomp)
+        env:
+          GAME_VERSION: HEARTGOLD
+          GAME_LANGUAGE: ENGLISH
+          GAME_REVISION: 0
+        run: |
+          make -j4
+
       - name: Update and Install Software
         run: |
           sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
           sudo apt update
           sudo apt -y --allow-downgrades install libpng-dev build-essential cmake python3-pip python3-venv git autoconf gcc-arm-none-eabi pkg-config
 
+      - name: Move built file (1)
+        run: |
+          mv build/heartgold.us/pokeheartgold.us.nds ~/download/rom.nds
+          cd ~
+          rm -rf $GITHUB_WORKSPACE/*
+
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Setup Repo
+      - name: Move built file (2)
         run: |
-          mkdir -p ~/download
-          cd ~/download
-          wget https://archive.org/download/pkmn_collection/pkmn%20collection/NDS/Pokemon%20-%20HeartGold%20Version%20%28USA%29.zip
-          unzip "Pokemon - HeartGold Version (USA).zip"
-          mv "Pokemon - HeartGold Version (USA).nds" "rom.nds"
-          mv rom.nds $GITHUB_WORKSPACE/
+          mv ~/download/rom.nds $GITHUB_WORKSPACE/
         working-directory: ~
 
       - name: Set Swap Space
@@ -38,4 +93,7 @@ jobs:
           swap-size-gb: 19
 
       - name: Build hg-engine
-        run: make -j$(nproc)
+        run: |
+          unset CC
+          unset CXX
+          make -j$(nproc)

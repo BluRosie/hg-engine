@@ -1413,15 +1413,18 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
 
     for (int client = 0; client < maxBattlers; client++) {
 
-        command = ctx->playerActions[client][3];
+        command = ctx->playerActions[client][0];
         move_pos = ctx->waza_no_pos[client];
 
-        if (command == SELECT_FIGHT_COMMAND) {
+        if (command == CONTROLLER_COMMAND_FIGHT_INPUT) {
             if (ctx->oneTurnFlag[client].struggle_flag) {
                 move = MOVE_STRUGGLE;
             } else {
                 move = BattlePokemonParamGet(ctx, client, BATTLE_MON_DATA_MOVE_1 + move_pos, NULL);
             }
+        } else {
+            // priority adjustments should not activate if any other command is selected (bag, run, switch)
+            continue;
         }
         priority = ctx->moveTbl[move].priority;
 
@@ -3117,8 +3120,8 @@ const u16 HealBlockUnusableMoves[] = {
 //  MOVE_POLLEN_PUFF, should be here but can also target enemies when heal blocked so
 };
 
-BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId, int moveNo) {
-    int i;
+BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem* bsys UNUSED, struct BattleStruct* ctx, int battlerId, int moveNo) {
+    u32 i;
     BOOL ret = FALSE;
 
     if (ctx->battlemon[battlerId].moveeffect.healBlockTurns)
@@ -3301,7 +3304,8 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         debug_printf("Move %d at position %d for battler %d is not implemented/dexited\n", ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]], movePos, battlerId);
 #endif
         msg->msg_tag = TAG_NONE;
-        msg->msg_id = 620; // empty message
+        // This move is unimplemented or dexited!
+        msg->msg_id = BATTLE_MSG_MOVE_IS_UNIMPLEMENTED;
         ret = FALSE;
     }
 
