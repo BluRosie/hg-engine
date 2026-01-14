@@ -3637,3 +3637,16 @@ const u8 InternalTypeToHGType[] = {
 int GetSanitisedType(int type) {
     return InternalTypeToHGType[HGTypeToInternalType[type] & 0x1F];
 }
+
+
+u32 LONG_CALL CheckSubstitute(struct BattleStruct* ctx, int client_no)
+{
+    u32 ret = FALSE;
+
+    if (ctx->oneSelfFlag[client_no].status_flag & SELF_STATUS_FLAG_SUBSTITUTE_HIT)
+    {
+        ret = TRUE;
+    }
+
+    return ret;
+}

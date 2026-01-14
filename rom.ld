@@ -205,7 +205,7 @@ HeldItemHealCheck = 0x02254E7C | 1;
 HeldItemHoldEffectGet = 0x02255830 | 1;
 HeldItemAtkGet = 0x02255844 | 1;
 IsMovingAfterClient = 0x0225561C | 1;
-CheckSubstitute = 0x02256838 | 1;
+
 GetArceusType = 0x02071C28 | 1;
 BattleWorkBattleStatusFlagGet = 0x0223B514 | 1;
 PokeParaGiratinaFormChange = 0x02071CA0 | 1;
