@@ -49,7 +49,7 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, MESSAGE_PARAM *msg) {
         BattleMessage_BufferNumber(bsys, 0, msg->msg_para[0]);
         break;
     case TAG_NUMBERS:
-        BattleMessage_BufferNumbers(bsys, 0, msg->msg_para[0], msg->msg_keta);
+        BattleMessage_BufferNumbers(bsys, 0, msg->msg_para[0], msg->numDigits);
         break;
     case TAG_TRNAME:
         BattleMessage_BufferTrainerName(bsys, 0, msg->msg_para[0]);

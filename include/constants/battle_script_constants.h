@@ -483,10 +483,11 @@
 #define SUB_SEQ_ION_DELUGE                            (473)
 #define SUB_SEQ_REMOVE_USER_FIRE_TYPE                 (474)
 #define SUB_SEQ_REMOVE_USER_ELECTRIC_TYPE             (475)
-#define SUB_SEQ_REFLECT_TYPE                          (476)
-#define SUB_SEQ_GIVE_HELD_ITEM                        (477)
+#define SUB_SEQ_TOXIC_DEBRIS                          (476)
+#define SUB_SEQ_REFLECT_TYPE                          (477)
+#define SUB_SEQ_GIVE_HELD_ITEM                        (478)
 
-#define MAX_BASE_SUBSCRIPT_NUM 477
+#define MAX_BASE_SUBSCRIPT_NUM 478
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
