@@ -484,8 +484,9 @@
 #define SUB_SEQ_REMOVE_USER_FIRE_TYPE                 (474)
 #define SUB_SEQ_REMOVE_USER_ELECTRIC_TYPE             (475)
 #define SUB_SEQ_TOXIC_DEBRIS                          (476)
+#define SUB_SEQ_BATCH_UPDATE_HP                       (477)
 
-#define MAX_BASE_SUBSCRIPT_NUM 476
+#define MAX_BASE_SUBSCRIPT_NUM 477
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

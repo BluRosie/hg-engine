@@ -299,6 +299,7 @@
 #define SERVER_STATUS_FLAG_BEAT_UP_USED (0x00010000)
 #define SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE (0x00020000)
 #define SERVER_STATUS_FLAG_MOLD_BREAKER (0x00800000)
+#define SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE (0x00040000)
 
 /**
  *  @brief server status 2 flags (for BattleStruct's server_status_flag2)
@@ -492,6 +493,10 @@
 
 #define BATTLER_OPPONENT_SIDE_LEFT(client) (BATTLER_IS_PLAYERS(client) ? (1) : (0))
 #define BATTLER_OPPONENT_SIDE_RIGHT(client) (BATTLER_IS_PLAYERS(client) ? (3) : (2))
+
+#define IS_SPREAD_MOVE(ctx) \
+    ((ctx->moveTbl[ctx->current_move_index].target == RANGE_ADJACENT_OPPONENTS) || \
+    (ctx->moveTbl[ctx->current_move_index].target == RANGE_ALL_ADJACENT))
 
 /**
  *  @brief message tags to tell the string buffer expander how to expand each string buffer

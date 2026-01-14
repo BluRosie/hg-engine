@@ -2610,7 +2610,14 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
 
         SCIO_BlankMessage(bsys);
     } else {
-        ctx->server_seq_no = CONTROLLER_COMMAND_36;
+        if (IS_SPREAD_MOVE(ctx) && (ctx->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE)) {
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BATCH_UPDATE_HP);
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            ctx->next_server_seq_no = CONTROLLER_COMMAND_36;
+            ctx->server_status_flag &= ~SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE;
+        } else {
+            ctx->server_seq_no = CONTROLLER_COMMAND_36;
+        }
     }
 }
 

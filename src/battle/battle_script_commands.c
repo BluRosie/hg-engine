@@ -100,6 +100,7 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10D_BatchUpdateHp(void* bsys, struct BattleStruct* ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -117,6 +118,8 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
 BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
+void LONG_CALL BattleController_EmitHealthbarUpdate(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int side);
+void LONG_CALL BattleController_EmitMonFlicker(struct BattleSystem *battleSystem, int side, int a2);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -397,6 +400,7 @@ const u8 *BattleScrCmdNames[] =
     "ClearSmog",
     "GoToIfThirdType",
     "GoToIfTerastallized",
+    "BatchUpdateHp",
     // "YourCustomCommand",
 };
 
@@ -404,7 +408,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x107
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x10D
 
 const btl_scr_cmd_func NewBattleScriptCmdTable[] =
 {
@@ -452,6 +456,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x10A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10A_clearsmog,
     [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_gotoifthirdtype,
     [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_gotoifterastallized,
+    [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_BatchUpdateHp,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4377,6 +4382,51 @@ BOOL btl_scr_cmd_10C_gotoifterastallized(void *bsys UNUSED, struct BattleStruct 
 
     if (ctx->battlemon[battlerID].is_currently_terastallized)
         IncrementBattleScriptPtr(ctx, address);
+
+    return FALSE;
+}
+
+/**
+ * @brief Triggers HP bar animations for all targets hit by spread move simultaneously
+ */
+BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    read_battle_script_param(ctx);
+
+    BOOL shouldFlicker = !(ctx->server_status_flag & BATTLE_STATUS_NO_BLINK);
+
+    for (int i = 0; i < CLIENT_MAX; i++) {
+        if (ctx->damageForSpreadMoves[i]) {
+            ctx->battlerIdTemp = i;
+            ctx->hp_calc_work = ctx->damageForSpreadMoves[i];
+            if (shouldFlicker) {
+                BattleController_EmitMonFlicker(bsys, i, 0);
+            }
+            BattleController_EmitHealthbarUpdate(bsys, ctx, i);
+
+            // this mirrors UpdateHealthbarValue
+            if ((ctx->battlemon[i].hp + ctx->hp_calc_work) <= 0) {
+                ctx->damage = ctx->battlemon[i].hp * -1;
+            } else {
+                ctx->damage = ctx->hp_calc_work;
+            }
+
+            if (ctx->damage < 0) {
+                ctx->total_damage[i] += (-1 * ctx->damage);
+            }
+
+            ctx->battlemon[i].hp += ctx->hp_calc_work;
+
+            if (ctx->battlemon[i].hp < 0) {
+                ctx->battlemon[i].hp = 0;
+            } else if (ctx->battlemon[i].hp > ctx->battlemon[i].maxhp) {
+                ctx->battlemon[i].hp = ctx->battlemon[i].maxhp;
+            }
+
+            CopyBattleMonToPartyMon(bsys, ctx, i);
+        }
+    }
 
     return FALSE;
 }
