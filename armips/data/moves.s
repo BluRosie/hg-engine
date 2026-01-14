@@ -8316,7 +8316,7 @@ movedata MOVE_FINAL_GAMBIT, "Final Gambit"
     movedescription MOVE_FINAL_GAMBIT, "The user risks all,\ndealing damage\nequal to its HP\nand then fainting\nfrom exhaustion."
 
 movedata MOVE_BESTOW, "Bestow"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_GIVE_HELD_ITEM
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -8325,7 +8325,7 @@ movedata MOVE_BESTOW, "Bestow"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
     contesttype CONTEST_CUTE
     terminatedata
