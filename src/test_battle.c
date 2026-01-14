@@ -23,7 +23,7 @@ static int g_AIScriptIndex[4] = {0, 0, 0, 0};
 static BOOL g_TestBattleCurrentComplete = FALSE;
 static BOOL g_TestBattleHasMoreTests = FALSE;
 static int g_CurrentTestIndex = TEST_START_INDEX;
-// TOSO: there is definitely some better way to do this, so that we don't need to worry if somehow this address is used by something else
+// TODO: there is definitely some better way to do this, so that we don't need to worry if somehow this address is used by something else
 int *g_EmulatorCommunicationSendHole = (int*)0x023df15c;
 
 /**
@@ -114,11 +114,11 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
     *g_EmulatorCommunicationSendHole = g_CurrentTestIndex;
     debug_printf("TestBattle: Loading scenario %d of %d (more=%d)\n", g_CurrentTestIndex, TEST_BATTLE_TOTAL_TESTS, g_TestBattleHasMoreTests);
 
-    // Load scenario into global buffer (not local variable!)
-	ArchiveDataLoadOfs(&g_LoadedScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS, g_CurrentTestIndex * sizeof(struct TestBattleScenario), sizeof(struct TestBattleScenario));
+    ArchiveDataLoadOfs(&g_LoadedScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS, g_CurrentTestIndex * sizeof(struct TestBattleScenario), sizeof(struct TestBattleScenario));
 
     // Point current scenario to the loaded buffer
     g_CurrentScenario = &g_LoadedScenario;
+
     const struct TestBattleScenario *scenario = g_CurrentScenario;
 
     for (int i = 0; i < 4; i++) {
@@ -132,7 +132,6 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
         }
     }
 
-    // Set battle type from scenario
     if (scenario->battleType & BATTLE_TYPE_DOUBLE) {
         bp->fight_type = BATTLE_TYPE_TRAINER | scenario->battleType;
     }
@@ -157,7 +156,6 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
                           mon->status);
         playerCount++;
     }
-    // Set party count to match scenario
     if (bp->poke_party[0] != NULL) {
         bp->poke_party[0]->count = playerCount;
     }
@@ -166,11 +164,8 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
     if (enemyCount > 0) {
         bp->trainer_data[1].poke_count = enemyCount;
 
-        // Pre-populate all needed slots with dummy mons
         if (bp->poke_party[1] != NULL) {
-            // Directly set party count to ensure it matches
             bp->poke_party[1]->count = enemyCount;
-
             for (int i = 0; i < enemyCount; i++) {
                 struct PartyPokemon *mon = Party_GetMonByIndex(bp->poke_party[1], i);
                 if (mon == NULL) {
@@ -186,7 +181,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
         const struct TestBattlePokemon *mon = &scenario->enemyParty[slot];
 
         if (mon->species == 0) {
-            break;  // Stop at first empty slot
+            break;
         }
 
         OverridePartySlot(bp, 1, slot,
@@ -217,15 +212,14 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
     }
 
     // In doubles, we need to ensure both battlers are properly linked to party slots
-    int isDoubles = (g_CurrentScenario->battleType & BATTLE_TYPE_DOUBLE);
-    if (isDoubles) {
-        // Player battlers
+    if (g_CurrentScenario->battleType & BATTLE_TYPE_DOUBLE) {
+        // Player
         sp->sel_mons_no[BATTLER_PLAYER_FIRST] = 0;
         if (g_CurrentScenario->playerParty[1].species != 0) {
             sp->sel_mons_no[BATTLER_PLAYER_SECOND] = 1;
         }
 
-        // Enemy battlers
+        // Enemy
         sp->sel_mons_no[BATTLER_ENEMY_FIRST] = 0;
         if (g_CurrentScenario->enemyParty[1].species != 0) {
             sp->sel_mons_no[BATTLER_ENEMY_SECOND] = 1;
@@ -237,34 +231,28 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
         const struct TestBattlePokemon *mon = &g_CurrentScenario->playerParty[slot];
         int battlerId = (slot == 0) ? BATTLER_PLAYER_FIRST : BATTLER_PLAYER_SECOND;
 
-        // Skip if no Pokemon in this slot
         if (mon->species == 0) {
             continue;
         }
 
-        // Apply status
         if (mon->status) {
             sp->battlemon[battlerId].condition |= mon->status;
         }
 
-        // Apply condition2
         if (mon->condition2) {
             sp->battlemon[battlerId].condition2 |= mon->condition2;
 
-            // Special handling for STATUS2_RECHARGE
             if (mon->condition2 & STATUS2_RECHARGE) {
                 sp->battlemon[battlerId].moveeffect.rechargeCount = 2;  // Skip 1 turn
 
-                // If Pokemon has a Choice item, lock it into the first move
-                if (mon->item == ITEM_CHOICE_BAND ||
-                    mon->item == ITEM_CHOICE_SPECS ||
-                    mon->item == ITEM_CHOICE_SCARF) {
+                // lock choice item to first move
+                if (mon->item == ITEM_CHOICE_BAND || mon->item == ITEM_CHOICE_SPECS || mon->item == ITEM_CHOICE_SCARF)
+                {
                     sp->battlemon[battlerId].moveeffect.moveNoChoice = mon->moves[0];
                 }
             }
         }
 
-        // Apply move effect flags
         if (mon->moveEffectFlags) {
             sp->battlemon[battlerId].effect_of_moves |= mon->moveEffectFlags;
         }
@@ -275,34 +263,28 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
         const struct TestBattlePokemon *mon = &g_CurrentScenario->enemyParty[slot];
         int battlerId = (slot == 0) ? BATTLER_ENEMY_FIRST : BATTLER_ENEMY_SECOND;
 
-        // Skip if no Pokemon in this slot
         if (mon->species == 0) {
             continue;
         }
 
-        // Apply status
         if (mon->status) {
             sp->battlemon[battlerId].condition |= mon->status;
         }
 
-        // Apply condition2
         if (mon->condition2) {
             sp->battlemon[battlerId].condition2 |= mon->condition2;
 
-            // Special handling for STATUS2_RECHARGE
             if (mon->condition2 & STATUS2_RECHARGE) {
                 sp->battlemon[battlerId].moveeffect.rechargeCount = 2;  // Skip 1 turn
 
-                // If Pokemon has a Choice item, lock it into the first move
-                if (mon->item == ITEM_CHOICE_BAND ||
-                    mon->item == ITEM_CHOICE_SPECS ||
-                    mon->item == ITEM_CHOICE_SCARF) {
+                // lock choice item to first move
+                if (mon->item == ITEM_CHOICE_BAND || mon->item == ITEM_CHOICE_SPECS || mon->item == ITEM_CHOICE_SCARF)
+                {
                     sp->battlemon[battlerId].moveeffect.moveNoChoice = mon->moves[0];
                 }
             }
         }
 
-        // Apply move effect flags
         if (mon->moveEffectFlags) {
             sp->battlemon[battlerId].effect_of_moves |= mon->moveEffectFlags;
         }
@@ -336,12 +318,8 @@ static BOOL LONG_CALL TestBattle_TestComplete()
         return FALSE;
     }
 
-    // Determine how many battlers are active based on battle type
     int maxBattlers = (g_CurrentScenario->battleType & BATTLE_TYPE_DOUBLE) ? 4 : 2;
-
-    // Check if all active battlers have exhausted their scripts
     for (int i = 0; i < maxBattlers; i++) {
-        // Determine which script this battler uses
         const struct BattleAction *script;
         int battlerIndex = (i == BATTLER_PLAYER_FIRST || i == BATTLER_ENEMY_FIRST) ? 0 : 1;
 
@@ -351,15 +329,12 @@ static BOOL LONG_CALL TestBattle_TestComplete()
             script = g_CurrentScenario->enemyScript[battlerIndex];
         }
 
-        // Check if current action is the sentinel (ACTION_NONE = 0xFF)
         int scriptIndex = g_AIScriptIndex[i];
         if (scriptIndex < AI_SCRIPT_MAX_MOVES && script[scriptIndex].action != ACTION_NONE) {
-            // This battler still has script commands remaining
             return FALSE;
         }
     }
 
-    // All scripts exhausted
     return TRUE;
 }
 
@@ -371,8 +346,9 @@ static BOOL LONG_CALL TestBattle_TestComplete()
  */
 static void LONG_CALL TestBattle_CheckScriptCompletion()
 {
-    if (g_CurrentScenario == NULL) return;
-    if (g_TestBattleCurrentComplete) return;  // Already marked complete
+    if (g_CurrentScenario == NULL || g_TestBattleCurrentComplete) {
+        return;
+    }
 
     if (TestBattle_TestComplete()) {
         g_TestBattleCurrentComplete = TRUE;
@@ -422,24 +398,17 @@ BOOL LONG_CALL TestBattle_HasMoreTests()
  */
 void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *target)
 {
-    debug_printf("[TestBattle_GetAIScriptedMove] CALLED for battler=%d\n", battlerId);
-    // Default
     *moveSlot = (u8)0;
     *target = (u8)0;
 
-    // No scenario loaded
     if (g_CurrentScenario == NULL) {
-        debug_printf("[TestBattle_GetAIScriptedMove] No scenario loaded\n");
         return;
     }
 
-    // Validate battler ID
     if (battlerId < 0 || battlerId >= 4) {
-        debug_printf("[TestBattle_GetAIScriptedMove] Invalid battler ID: %d\n", battlerId);
         return;
     }
 
-    // Determine which script array and index to use
     const struct BattleAction *script;
     int battlerIndex = (battlerId == BATTLER_PLAYER_FIRST || battlerId == BATTLER_ENEMY_FIRST) ? 0 : 1;
 
@@ -452,21 +421,16 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
     int *scriptIndex = &g_AIScriptIndex[battlerId];
 
     if (*scriptIndex >= AI_SCRIPT_MAX_MOVES) {
-        debug_printf("[TestBattle_GetAIScriptedMove] Script index %d >= max %d\n", *scriptIndex, AI_SCRIPT_MAX_MOVES);
         return;
     }
 
     struct BattleAction action = script[*scriptIndex];
-    debug_printf("[TestBattle_GetAIScriptedMove] battler=%d, scriptIndex=%d, action=%d, target=%d\n", battlerId, *scriptIndex, action.action, action.target);
 
-    // Don't consume ACTION_NONE sentinel
     if (action.action == ACTION_NONE) {
-        debug_printf("[TestBattle_GetAIScriptedMove] Encountered ACTION_NONE sentinel, not incrementing\n");
         return;
     }
 
     if (action.action <= ACTION_MOVE_SLOT_4) {
-        // Move action
         *moveSlot = action.action;
         *target = action.target;
     }
@@ -497,8 +461,8 @@ u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler) {
  * @param battler The battler making the decision
  * @return 1 for FIGHT, 2 for ITEM, 3 for SWITCH (matches original AI function)
  */
-int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler) {
-    // Only handle enemy AI, not player
+int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
+{
     if (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND) {
         return 1;  // FIGHT
     }
@@ -522,11 +486,10 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler) {
         script = g_CurrentScenario->enemyScript[battlerIndex];
     }
 
-	TestBattle_CheckScriptCompletion();
+    TestBattle_CheckScriptCompletion();
 
-    // If all scripts are complete, don't process any more commands - battle will end
     if (g_TestBattleCurrentComplete) {
-        return 1;  // FIGHT (will be ignored as battle ends)
+        return 1;  // will be ignored as battle ends
     }
 
     int scriptIndex = g_AIScriptIndex[battler];
@@ -535,15 +498,11 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler) {
         return 1;  // FIGHT
     }
 
-    // Peek at the next action without consuming it
     struct BattleAction action = script[scriptIndex];
 
     if (action.action >= ACTION_SWITCH_SLOT_0 && action.action <= ACTION_SWITCH_SLOT_5) {
-        // This is a switch action
         u8 partySlot = action.action - ACTION_SWITCH_SLOT_0;
         bsys->sp->ai_reshuffle_sel_mons_no[battler] = partySlot;
-
-        // Consume the switch action by incrementing the script index
         g_AIScriptIndex[battler]++;
         return 3;  // SWITCH
     }
@@ -562,13 +521,11 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler) {
  */
 void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    // At SELECTION_SCREEN_INPUT (during input phase)
     if (ctx->server_seq_no != CONTROLLER_COMMAND_SELECTION_SCREEN_INPUT)
     {
         return;  // Not in input phase
     }
 
-    // Only run once per turn - check if com_seq_no is at the start
     if (ctx->com_seq_no[0] != SSI_STATE_SELECT_COMMAND_INIT)
     {
         return;  // Already processed or not ready
@@ -578,23 +535,19 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
         return;
     }
 
-    // Check for script completion before processing player moves
     TestBattle_CheckScriptCompletion();
 
-    // Handle battler 0 (PLAYER_FIRST)
     const struct BattleAction *script0 = g_CurrentScenario->playerScript[0];
     int scriptIndex0 = g_AIScriptIndex[0];
 
     if (scriptIndex0 < AI_SCRIPT_MAX_MOVES) {
         struct BattleAction action = script0[scriptIndex0];
-
-        // Check for script exhaustion
         if (action.action == ACTION_NONE) {
             return;
         }
 
         if (action.action >= ACTION_SWITCH_SLOT_0 && action.action <= ACTION_SWITCH_SLOT_5) {
-            // Switch action
+            // switch
             u8 partySlot = action.action - ACTION_SWITCH_SLOT_0;
             ctx->playerActions[0][0] = CONTROLLER_COMMAND_POKEMON_INPUT;
             ctx->playerActions[0][1] = partySlot;
@@ -605,7 +558,7 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
             ctx->ret_seq_no[0] = SSI_STATE_13;
             g_AIScriptIndex[0]++;
         } else {
-            // Move action
+            // fight
             u8 moveSlot = action.action;
             u8 target = action.target;
             ctx->playerActions[0][0] = CONTROLLER_COMMAND_FIGHT_INPUT;
@@ -621,20 +574,17 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
     }
 
     if (BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) {
-        // Handle battler 2 (PLAYER_SECOND)
         const struct BattleAction *script1 = g_CurrentScenario->playerScript[1];
         int scriptIndex2 = g_AIScriptIndex[2];
 
         if (scriptIndex2 < AI_SCRIPT_MAX_MOVES) {
             struct BattleAction action = script1[scriptIndex2];
-
-            // Check for script exhaustion
             if (action.action == ACTION_NONE) {
                 return;
             }
 
             if (action.action >= ACTION_SWITCH_SLOT_0 && action.action <= ACTION_SWITCH_SLOT_5) {
-                // Switch action
+                // switch
                 u8 partySlot = action.action - ACTION_SWITCH_SLOT_0;
                 ctx->playerActions[2][0] = CONTROLLER_COMMAND_POKEMON_INPUT;
                 ctx->playerActions[2][1] = partySlot;
@@ -645,7 +595,7 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
                 ctx->ret_seq_no[2] = SSI_STATE_13;
                 g_AIScriptIndex[2]++;
             } else {
-                // Move action
+                // fight
                 u8 moveSlot = action.action;
                 u8 target = action.target;
                 ctx->playerActions[2][0] = CONTROLLER_COMMAND_FIGHT_INPUT;
