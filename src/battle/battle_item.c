@@ -258,3 +258,298 @@ BOOL CheckItemByThief(u16 item)
         return TRUE;
     return FALSE;
 }
+
+
+BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
+{
+    BOOL ret = FALSE;
+    int script;
+    int itemHeldEffect;
+    int boost;
+
+    itemHeldEffect = HeldItemHoldEffectGet(ctx, battlerId);
+    boost = HeldItemAtkGet(ctx, battlerId, ATK_CHECK_NORMAL);
+    BOOL hpLowerThan50 = (ctx->battlemon[battlerId].hp <= (s32)(ctx->battlemon[battlerId].maxhp) / 2);
+
+    if (ctx->battlemon[battlerId].hp) {
+        switch (itemHeldEffect) {
+        case HOLD_EFFECT_HP_RESTORE: // oran berry, berry juice
+            if (hpLowerThan50) {
+                ctx->hp_calc_work = boost;
+                script = SUB_SEQ_ITEM_HP_RESTORE;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_HP_PCT_RESTORE: // sitrus berry
+            if (hpLowerThan50) {
+                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * boost, 100);
+                script = SUB_SEQ_ITEM_HP_RESTORE;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_PRZ_RESTORE: // cheri berry
+            if (ctx->battlemon[battlerId].condition & STATUS_PARALYSIS) {
+                script = SUB_SEQ_ITEM_RECOVER_PRZ;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_SLP_RESTORE: // chesto berry
+            if (ctx->battlemon[battlerId].condition & STATUS_SLEEP) {
+                script = SUB_SEQ_ITEM_RECOVER_SLP;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_PSN_RESTORE: // pecha berry
+            if (ctx->battlemon[battlerId].condition & STATUS_POISON_ALL) {
+                script = SUB_SEQ_ITEM_RECOVER_PSN;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_BRN_RESTORE: // rawst berry
+            if (ctx->battlemon[battlerId].condition & STATUS_BURN) {
+                script = SUB_SEQ_ITEM_RECOVER_BRN;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_FRZ_RESTORE: // aspear berry
+            if (ctx->battlemon[battlerId].condition & STATUS_FREEZE) {
+                script = SUB_SEQ_ITEM_RECOVER_FRZ;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_PP_RESTORE: // leppa berry
+        {
+            int index;
+            for (index = 0; index < CLIENT_MAX; index++) {
+                if (ctx->battlemon[battlerId].move[index] && !ctx->battlemon[battlerId].pp[index]) {
+                    break;
+                }
+            }
+            if (index != CLIENT_MAX) {
+                BattleMon_AddVar(&ctx->battlemon[battlerId], MON_DATA_MOVE1PP + index, boost);
+                CopyBattleMonToPartyMon(bw, ctx, battlerId);
+                ctx->waza_work = ctx->battlemon[battlerId].move[index];
+                script = SUB_SEQ_ITEM_PP_RESTORE;
+                ret = TRUE;
+            }
+            break;
+        }
+        case HOLD_EFFECT_CONFUSE_RESTORE: // persim berry
+            if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION) {
+                script = SUB_SEQ_ITEM_RECOVER_CNF;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_STATUS_RESTORE: // lum berry
+            if ((ctx->battlemon[battlerId].condition & STATUS_ALL) || (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
+                if (ctx->battlemon[battlerId].condition & STATUS_PARALYSIS) {
+                    script = SUB_SEQ_ITEM_RECOVER_PRZ;
+                }
+                if (ctx->battlemon[battlerId].condition & STATUS_SLEEP) {
+                    script = SUB_SEQ_ITEM_RECOVER_SLP;
+                }
+                if (ctx->battlemon[battlerId].condition & STATUS_POISON_ALL) {
+                    script = SUB_SEQ_ITEM_RECOVER_PSN;
+                }
+                if (ctx->battlemon[battlerId].condition & STATUS_BURN) {
+                    script = SUB_SEQ_ITEM_RECOVER_BRN;
+                }
+                if (ctx->battlemon[battlerId].condition & STATUS_FREEZE) {
+                    script = SUB_SEQ_ITEM_RECOVER_FRZ;
+                }
+                if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION) {
+                    script = SUB_SEQ_ITEM_RECOVER_CNF;
+                }
+                if ((ctx->battlemon[battlerId].condition & STATUS_ALL) && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
+                    script = SUB_SEQ_ITEM_RECOVER_ALL;
+                }
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_HP_RESTORE_SPICY: // figy berry
+            if (hpLowerThan50) {
+                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
+                ctx->msg_work = 0;
+                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, FLAVOR_SPICY) == -1) {
+                    script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+                } else {
+                    script = SUB_SEQ_ITEM_HP_RESTORE;
+                }
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_HP_RESTORE_DRY: // wiki berry
+            if (hpLowerThan50) {
+                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
+                ctx->msg_work = 1;
+                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, FLAVOR_DRY) == -1) {
+                    script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+                } else {
+                    script = SUB_SEQ_ITEM_HP_RESTORE;
+                }
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_HP_RESTORE_SWEET: // mago berry
+            if (hpLowerThan50) {
+                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
+                ctx->msg_work = 2;
+                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, FLAVOR_SWEET) == -1) {
+                    script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+                } else {
+                    script = SUB_SEQ_ITEM_HP_RESTORE;
+                }
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_HP_RESTORE_BITTER: // aguav berry
+            if (hpLowerThan50) {
+                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
+                ctx->msg_work = 3;
+                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, FLAVOR_BITTER) == -1) {
+                    script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+                } else {
+                    script = SUB_SEQ_ITEM_HP_RESTORE;
+                }
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_HP_RESTORE_SOUR: // iapapa berry
+            if (hpLowerThan50) {
+                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, boost);
+                ctx->msg_work = 4;
+                if (GetFlavorPreferenceFromPID(ctx->battlemon[battlerId].personal_rnd, FLAVOR_SOUR) == -1) {
+                    script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+                } else {
+                    script = SUB_SEQ_ITEM_HP_RESTORE;
+                }
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_PINCH_ATK_UP: // liechi berry
+            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
+                boost /= 2;
+            }
+            if (ctx->battlemon[battlerId].hp <= (s32)(ctx->battlemon[battlerId].maxhp) / boost && ctx->battlemon[battlerId].states[1] < SUB_SEQ_BOOST_STATS) {
+                ctx->msg_work = 1;
+                script = SUB_SEQ_ITEM_STAT_BOOST;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_PINCH_DEF_UP: // ganlon berry
+            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
+                boost /= 2;
+            }
+            if (ctx->battlemon[battlerId].hp <= (s32)(ctx->battlemon[battlerId].maxhp) / boost && ctx->battlemon[battlerId].states[2] < SUB_SEQ_BOOST_STATS) {
+                ctx->msg_work = 2;
+                script = SUB_SEQ_ITEM_STAT_BOOST;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_PINCH_SPEED_UP: // salac berry
+            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
+                boost /= 2;
+            }
+            if (ctx->battlemon[battlerId].hp <= (s32)(ctx->battlemon[battlerId].maxhp) / boost && ctx->battlemon[battlerId].states[3] < SUB_SEQ_BOOST_STATS) {
+                ctx->msg_work = 3;
+                script = SUB_SEQ_ITEM_STAT_BOOST;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_PINCH_SPATK_UP: // petaya berry
+            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
+                boost /= 2;
+            }
+            if (ctx->battlemon[battlerId].hp <= (s32)(ctx->battlemon[battlerId].maxhp) / boost && ctx->battlemon[battlerId].states[4] < SUB_SEQ_BOOST_STATS) {
+                ctx->msg_work = 4;
+                script = SUB_SEQ_ITEM_STAT_BOOST;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_PINCH_SPDEF_UP: // apicot berry
+            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
+                boost /= 2;
+            }
+            if (ctx->battlemon[battlerId].hp <= (s32)(ctx->battlemon[battlerId].maxhp) / boost && ctx->battlemon[battlerId].states[5] < SUB_SEQ_BOOST_STATS) {
+                ctx->msg_work = 5;
+                script = SUB_SEQ_ITEM_STAT_BOOST;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_PINCH_CRITRATE_UP: // lansat berry
+            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
+                boost /= 2;
+            }
+            if (ctx->battlemon[battlerId].hp <= (s32)(ctx->battlemon[battlerId].maxhp) / boost && !(ctx->battlemon[battlerId].condition2 & STATUS2_FOCUS_ENERGY)) {
+                script = SUB_SEQ_ITEM_STAT_BOOST_2;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_PINCH_RANDOM_UP: // starf berry
+            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
+                boost /= 2;
+            }
+            if (ctx->battlemon[battlerId].hp <= (s32)(ctx->battlemon[battlerId].maxhp) / boost) {
+                int stat;
+                for (stat = 0; stat < 5; stat++) {
+                    if (ctx->battlemon[battlerId].states[1 + stat] < SUB_SEQ_BOOST_STATS) {
+                        break;
+                    }
+                }
+                if (stat != 5) {
+                    do {
+                        stat = BattleRand(bw) % 5;
+                    } while (ctx->battlemon[battlerId].states[1 + stat] == SUB_SEQ_BOOST_STATS);
+                    ctx->msg_work = stat + 1;
+                    script = SUB_SEQ_ITEM_STAT_BOOST_2;
+                    ret = TRUE;
+                }
+            }
+            break;
+        case HOLD_EFFECT_STATDOWN_RESTORE: // white herb
+        {
+            int stat;
+            for (stat = 0; stat < 8; stat++) {
+                if (ctx->battlemon[battlerId].states[stat] < 6) {
+                    ctx->battlemon[battlerId].states[stat] = 6;
+                    ret = TRUE;
+                }
+            }
+            if (ret == TRUE) {
+                script = SUB_SEQ_ITEM_RECOVER_STAT_DROP;
+            }
+            break;
+        }
+        case HOLD_EFFECT_HEAL_INFATUATION: // mental herb
+            if (ctx->battlemon[battlerId].condition2 & STATUS2_ATTRACT) {
+                ctx->msg_work = 6;
+                script = SUB_SEQ_ITEM_RECOVER_INF;
+                ret = TRUE;
+            }
+            break;
+        case HOLD_EFFECT_PINCH_ACC_UP: // micle berry
+            if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
+                boost /= 2;
+            }
+            if (ctx->battlemon[battlerId].hp <= ((s32)(ctx->battlemon[battlerId].maxhp) / boost)) {
+                script = SUB_SEQ_ITEM_ACC_UP_ONCE;
+                ret = TRUE;
+            }
+            break;
+        default:
+            break;
+        }
+        if (ret == TRUE) {
+            ctx->battlerIdTemp = battlerId;
+            ctx->item_work = GetBattleMonItem(ctx, battlerId);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, script);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = 22;
+
+            if (IS_ITEM_BERRY(ctx->item_work)) {
+                ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch = TRUE;
+            }
+        }
+    }
+    return ret;
+}

@@ -1608,3 +1608,4 @@ The opposing {STRVAR_1 1, 0, 0} used up\nall its electricity!
 {STRVAR_1 1, 0, 0} lost some of its HP!
 The wild {STRVAR_1 1, 0, 0} lost some of its HP!
 The opposing {STRVAR_1 1, 0, 0}\nlost some of its HP!
+{STRVAR_1 1, 0, 0} hasn’t eaten any held Berries,\nso it can’t possibly belch!
