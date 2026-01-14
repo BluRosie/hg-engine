@@ -17,7 +17,7 @@
 #define TEST_START_INDEX        0
 
 // Store current scenario for battle state application and AI scripting
-const struct TestBattleScenario *g_CurrentScenario = NULL;
+struct TestBattleScenario *g_CurrentScenario = NULL;
 static struct TestBattleScenario g_LoadedScenario = {0};
 static int g_AIScriptIndex[4] = {0, 0, 0, 0};
 static BOOL g_TestBattleCurrentComplete = FALSE;

@@ -303,5 +303,12 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     BattleStructureInit(ctx);
 
     ctx->server_seq_no = CONTROLLER_COMMAND_8;
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+    for (int i = 0; i < 4; i++) {
+        debug_printf("[MoveEnd_HP] Battler %d: HP=%d/%d\n", i, ctx->battlemon[i].hp, ctx->battlemon[i].maxhp);
+    }
+#endif
+
     // debug_printf("End of BattleController_MoveEnd\n");
 }
