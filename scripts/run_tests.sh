@@ -12,7 +12,7 @@ done
 shift $((OPTIND-1))
 
 if [ "$video" = true ]; then
-    python3 -u scripts/run_tests.py -v | tee test_logs.txt
+    . .venv/bin/activate; python3 -u scripts/run_tests.py -v | tee test_logs.txt
 else
-    python3 -u scripts/run_tests.py | tee test_logs.txt
+    . .venv/bin/activate; python3 -u scripts/run_tests.py | tee test_logs.txt
 fi

@@ -54,7 +54,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .playerScript = { {
-                              { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
+                              { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
@@ -94,8 +94,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { EXPECTATION_TYPE_HP_BAR, BATTLER_PLAYER_FIRST, { 44, 44, 44, 44, 48, 48, 48, 48, 48, 48, 50, 50, 50, 50, 50, 54 } },
-            { EXPECTATION_TYPE_HP_BAR, BATTLER_PLAYER_FIRST, { 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerID = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 44, 44, 44, 44, 48, 48, 48, 48, 48, 48, 50, 50, 50, 50, 50, 54 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerID = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13 } },
         } },
 #ifndef GET_TEST_CASE_ONLY
 };
