@@ -4049,4 +4049,6 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler);
 void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
 #endif
 
+void LONG_CALL *BattleScriptGetVarPointer(struct BattleSystem *bsys, struct BattleStruct *ctx, int var);
+
 #endif // BATTLE_H

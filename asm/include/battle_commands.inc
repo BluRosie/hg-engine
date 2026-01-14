@@ -1476,7 +1476,26 @@
     .long (((\arg_1 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 268
+    .macro GoToIfTeraType arg_0, arg_1, arg_2
+    .long 269
+    .long \arg_0
+    .long \arg_1
+    .long (((\arg_2 - .) / 4) - 1)
+    .endm
+
+    .macro GetThirdType arg_0, arg_1
+    .long 270
+    .long \arg_0
+    .long \arg_1
+    .endm
+
+    .macro GetTeraType arg_0, arg_1
+    .long 271
+    .long \arg_0
+    .long \arg_1
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 271
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

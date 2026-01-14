@@ -100,6 +100,9 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_ifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10C_ifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10D_ifteratype(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10E_getthirdtype(void* bsys, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10F_getteratype(void* bsys, struct BattleStruct* ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -397,6 +400,9 @@ const u8 *BattleScrCmdNames[] =
     "ClearSmog",
     "GoToIfThirdType",
     "GoToIfTerastallized",
+    "GoToIfTeraType",
+    "GetThirdType",
+    "GetTeraType",
     // "YourCustomCommand",
 };
 
@@ -452,6 +458,9 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x10A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10A_clearsmog,
     [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_ifthirdtype,
     [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_ifterastallized,
+    [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_ifteratype,
+    [0x10E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10E_getthirdtype,
+    [0x10F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10F_getteratype,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4377,6 +4386,52 @@ BOOL btl_scr_cmd_10C_ifterastallized(void *bsys UNUSED, struct BattleStruct *ctx
 
     if (ctx->battlemon[battlerID].is_currently_terastallized)
         IncrementBattleScriptPtr(ctx, address);
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10D_ifteratype(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    s32 side = read_battle_script_param(ctx);
+    s32 type = read_battle_script_param(ctx);
+    u32 address = read_battle_script_param(ctx);
+
+    s32 battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    // Proceed only if type ID is a valid, existing type and our types match.
+    if (type >= 0 && type < NUMBER_OF_MON_TYPES && ctx->battlemon[battlerID].tera_type == type)
+        IncrementBattleScriptPtr(ctx, address);
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10E_getthirdtype(void* bsys, struct BattleStruct* ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    s32 side = read_battle_script_param(ctx);
+    s32 varId = read_battle_script_param(ctx);
+    int *varPointer = BattleScriptGetVarPointer(bsys, ctx, varId);
+    
+    s32 battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    *varPointer = ctx->battlemon[battlerID].type3;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10F_getteratype(void* bsys, struct BattleStruct* ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    s32 side = read_battle_script_param(ctx);
+    s32 varId = read_battle_script_param(ctx);
+    int *varPointer = BattleScriptGetVarPointer(bsys, ctx, varId);
+    
+    s32 battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    *varPointer = ctx->battlemon[battlerID].tera_type;
 
     return FALSE;
 }
