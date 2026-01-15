@@ -4407,7 +4407,7 @@ BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys UNUSED, struct BattleStruct *ctx)
             }
             BattleController_EmitHealthbarUpdate(bsys, ctx, i);
 
-            // this mirrors UpdateHealthbarValue
+            // this mirrors UpdateHealthbarValue but we defer CopyBattleMonToPartyMon so waits work properly
             if ((ctx->battlemon[i].hp + ctx->hp_calc_work) <= 0) {
                 ctx->damage = ctx->battlemon[i].hp * -1;
             } else {
@@ -4425,8 +4425,6 @@ BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys UNUSED, struct BattleStruct *ctx)
             } else if (ctx->battlemon[i].hp > ctx->battlemon[i].maxhp) {
                 ctx->battlemon[i].hp = ctx->battlemon[i].maxhp;
             }
-
-            CopyBattleMonToPartyMon(bsys, ctx, i);
         }
     }
 
@@ -4442,13 +4440,14 @@ BOOL btl_scr_cmd_10E_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct
     int battlerId = read_battle_script_param(ctx);
 
     if (ctx->damageForSpreadMoves[battlerId] > 0) {
+        CopyBattleMonToPartyMon(bsys, ctx, battlerId);
         ctx->defence_client_temp = battlerId;
         ctx->defence_client = battlerId;
         ctx->battlerIdTemp = battlerId;
         ctx->waza_status_flag = ctx->moveStatusFlagForSimultaneousDamage[battlerId];
         ctx->moveStatusFlagForSimultaneousDamage[battlerId] = 0;
     } else {
-        ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->waza_status_flag |= MOVE_STATUS_FLAG_SUPPRESS_FOLLOWUP_MESSAGE;
     }
 
     return FALSE;
