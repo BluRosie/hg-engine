@@ -1430,6 +1430,7 @@ struct BattleStruct {
                u8 original_bgId:7;
                u8 hasLoadedBgIdOver:1;
                u32 moveStatusFlagForSpreadMoves[CLIENT_MAX];
+               u32 moveStatusFlagForSimultaneousDamage[CLIENT_MAX];
                u32 damageForSpreadMoves[CLIENT_MAX]; // u32 or int?
                u8 clientLoopForSpreadMoves;
                u8 clientLoopForAbility;

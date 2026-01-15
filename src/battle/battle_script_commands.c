@@ -100,7 +100,8 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
-BOOL btl_scr_cmd_10D_BatchUpdateHp(void* bsys, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10D_BatchUpdateHp(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10E_BatchFollowupMessage(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -457,6 +458,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_gotoifthirdtype,
     [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_gotoifterastallized,
     [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_BatchUpdateHp,
+    [0x10E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10E_BatchFollowupMessage,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4389,7 +4391,7 @@ BOOL btl_scr_cmd_10C_gotoifterastallized(void *bsys UNUSED, struct BattleStruct 
 /**
  * @brief Triggers HP bar animations for all targets hit by spread move simultaneously
  */
-BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     read_battle_script_param(ctx);
@@ -4431,6 +4433,27 @@ BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys, struct BattleStruct *ctx)
     return FALSE;
 }
 
+/**
+ * @brief Display followup messages for all targets hit by spread move in order
+ */
+BOOL btl_scr_cmd_10E_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int battlerId = read_battle_script_param(ctx);
+
+    if (ctx->damageForSpreadMoves[battlerId] > 0) {
+        ctx->defence_client_temp = battlerId;
+        ctx->defence_client = battlerId;
+        ctx->battlerIdTemp = battlerId;
+        ctx->waza_status_flag = ctx->moveStatusFlagForSimultaneousDamage[battlerId];
+        ctx->moveStatusFlagForSimultaneousDamage[battlerId] = 0;
+    } else {
+        ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+    }
+
+    return FALSE;
+}
+
 BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
@@ -4438,7 +4461,7 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     int adrs = read_battle_script_param(ctx);
 
     int battlerID = GrabClientFromBattleScriptParam(bsys, ctx, side);
-	int fieldSide = IsClientEnemy(bsys, battlerID);
+    int fieldSide = IsClientEnemy(bsys, battlerID);
 
     if (ctx->scw[fieldSide].toxicSpikesLayers) {
         ctx->calc_work = ctx->scw[fieldSide].toxicSpikesLayers;

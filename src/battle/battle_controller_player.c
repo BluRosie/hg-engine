@@ -1,6 +1,8 @@
 #include "../../include/battle.h"
 #include "../../include/battle_controller_player.h"
 #include "../../include/constants/battle_message_constants.h"
+#include "../../include/constants/battle_script_constants.h"
+#include "../../include/constants/file.h"
 #include "../../include/config.h"
 
 #if defined (DISABLE_ITEMS_IN_TRAINER_BATTLE)
@@ -82,4 +84,29 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
         return TRUE;
     }
     return FALSE;
+}
+
+BOOL LONG_CALL BattleContext_ShouldPrintFollowupMessage(struct BattleSystem *battleSystem UNUSED, struct BattleStruct *ctx)
+{
+    BOOL ret = FALSE;
+
+    if (ctx->waza_status_flag) {
+        if (ctx->multiHitCountTemp != 0) {
+            if (ctx->fainting_client != BATTLER_NONE || ctx->multiHitCount == 1 || ctx->waza_status_flag & 0x4000) {
+                ret = TRUE;
+            }
+        } else {
+            ret = TRUE;
+        }
+    }
+
+    if (ret && ctx->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE) {
+        // stash the status flag instead of displaying a message now
+        ctx->moveStatusFlagForSimultaneousDamage[ctx->defence_client] = ctx->waza_status_flag;
+    } else if (ret == TRUE) {
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FOLLOWUP_MESSAGE);
+        ctx->next_server_seq_no  = ctx->server_seq_no;
+        ctx->server_seq_no  = CONTROLLER_COMMAND_RUN_SCRIPT;
+    }
+    return ret;
 }

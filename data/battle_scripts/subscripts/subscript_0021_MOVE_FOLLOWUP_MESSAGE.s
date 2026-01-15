@@ -3,6 +3,7 @@
 .data
 
 _000:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK, _104
     WaitButtonABTime 15
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SPLASH, _011
     // But nothing happened!
