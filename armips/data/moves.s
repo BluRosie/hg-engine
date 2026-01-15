@@ -9145,7 +9145,7 @@ movedata MOVE_TRICK_OR_TREAT, "Trick-or-Treat"
     appeal 0x00
     contesttype CONTEST_CUTE
     terminatedata
-    movedescription MOVE_TRICK_OR_TREAT, "The user takes the\ntarget\ntrick-or-treating.\nThis adds Ghost type\nto the target's type."
+    movedescription MOVE_TRICK_OR_TREAT, "The user takes the\ntarget trick-or-\ntreating.\nThis adds Ghost type\nto the target's type."
 
 movedata MOVE_NOBLE_ROAR, "Noble Roar"
     battleeffect MOVE_EFFECT_ATK_SP_ATK_DOWN
@@ -9209,7 +9209,7 @@ movedata MOVE_FORESTS_CURSE, "Forest’s Curse"
     appeal 0x00
     contesttype CONTEST_SMART
     terminatedata
-    movedescription MOVE_FORESTS_CURSE, "The user puts a forest\ncurse on the target.\nThis adds Grass type\nto the target's type."
+    movedescription MOVE_FORESTS_CURSE, "The user puts a\nforest curse on the\ntarget.\nThis adds Grass type\nto the target's type."
 
 movedata MOVE_PETAL_BLIZZARD, "Petal Blizzard"
     battleeffect MOVE_EFFECT_HIT
