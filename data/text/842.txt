@@ -19,7 +19,7 @@ This is a crystallized form of Z-Power.\nIt upgrades Fairy-type moves to\nZ-Move
 This is a crystallized form of Z-Power.\nIt upgrades Pikachu’s Volt Tackle\nto a Z-Move.
 A lovely silver bottle cap.\nCertain people are delighted\nto be given one of these.
 A lovely gold bottle cap.\nCertain people are delighted\nto be given one of these.
-A mysterious ring that enables Pokémon to\nuse Z-Power. It requires both the willpower\nand physical power of the Trainer wearing it.
+A ring that lets Pokémon use Z-Power.\nIt requires both the willpower and\nphysical power of the Trainer wearing it.
 This is a crystallized form of Z-Power.\nIt upgrades Decidueye’s Spirit Shackle\nto a Z-Move.
 This is a crystallized form of Z-Power.\nIt upgrades Incineroar’s Darkest Lariat\nto a Z-Move.
 This is a crystallized form of Z-Power.\nIt upgrades Primarina’s Sparkling Aria\nto a Z-Move.
@@ -143,19 +143,19 @@ A memory disc that contains Ice-type\ndata. It changes the type of the holder\ni
 A memory disc that contains Dragon-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
 A memory disc that contains Dark-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
 A memory disc that contains Fairy-type\ndata. It changes the type of the holder\nif held by a certain species of Pokémon.
-This is a crystallized form of Z-Power\nIt upgrades Solgaleo’s Sunsteel Strike\nto a Z-Move.
-This is a crystallized form of Z-Power\nIt upgrades Lunala’s Moongeist Beam\nto a Z-Move.
-This is a crystallized form of Z-Power\nIt upgrades Necrozma’s Photon Geyser\nto a Z-Move.
-This is a crystallized form of Z-Power\nIt upgrades Mimikyu’s Play Rough\nto a Z-Move.
-This is a crystallized form of Z-Power\nIt upgrades Lycanroc’s Stone Edge\nto a Z-Move.
-This is a crystallized form of Z-Power\nIt upgrades Kommo-o’s Clanging Scales\nto a Z-Move.
+This is a crystallized form of Z-Power.\nIt upgrades Solgaleo’s Sunsteel Strike\nto a Z-Move.
+This is a crystallized form of Z-Power.\nIt upgrades Lunala’s Moongeist Beam\nto a Z-Move.
+This is a crystallized form of Z-Power.\nIt upgrades Necrozma’s Photon Geyser\nto a Z-Move.
+This is a crystallized form of Z-Power.\nIt upgrades Mimikyu’s Play Rough\nto a Z-Move.
+This is a crystallized form of Z-Power.\nIt upgrades Lycanroc’s Stone Edge\nto a Z-Move.
+This is a crystallized form of Z-Power.\nIt upgrades Kommo-o’s Clanging Scales\nto a Z-Move.
 It converts Z-Power into crystals that\nupgrade Solgaleo’s Sunsteel Strike\nto a Z-Move.
 It converts Z-Power into crystals that\nupgrade Lunala’s Moongeist Beam\nto a Z-Move.
 It’s a crystal that turns Necrozma\nfused with Solgaleo or Lunala into\na new form.
 It converts Z-Power into crystals that\nupgrade Mimikyu’s Play Rough to\na Z-Move.
 It converts Z-Power into crystals that\nupgrade Lycanroc’s Stone Edge\nto a Z-Move.
 It converts Z-Power into crystals that\nupgrade Kommo-o’s Clanging Scales\nto a Z-Move.
-A mysterious ring that enables Pokémon to\nuse Z-Power. It requires both the willpower\nand physical power of the Trainer wearing it.
+A ring that lets Pokémon use Z-Power.\nIt requires both the willpower and\nphysical power of the Trainer wearing it.
 A pressed flower petal you receive from\nMina during Mina’s trial. The goal is to\ncollect seven different kinds of petals.
 A pressed flower petal you receive from\nIlima during Mina’s trial. The goal is to\ncollect seven different kinds of petals.
 A pressed flower petal you receive from\nLana during Mina’s trial. The goal is to\ncollect seven different kinds of petals.

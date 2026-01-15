@@ -26,8 +26,8 @@ N/A
 - - -
 - - -
 - - -
-A peculiar scroll that can make a certain\nspecies of Pokémon evolve. Written upon it\nare the true secrets of the path of darkness.
-A peculiar scroll that can make a certain\nspecies of Pokémon evolve. Written upon it\nare the true secrets of the path of water.
+A scroll that can make a certain species\nof Pokémon evolve. Written upon it are\nthe true secrets of the path of darkness.
+A scroll that can make a certain species\nof Pokémon evolve. Written upon it are\nthe true secrets of the path of water.
 N/A
 N/A
 A peculiar set of armor that can make\na certain species of Pokémon evolve.\nMalicious will lurks within it.
@@ -49,13 +49,13 @@ On rare occasions, these shards form\nwhen a Tera Pokémon falls in battle\nand 
 On rare occasions, these shards form\nwhen a Tera Pokémon falls in battle\nand its Tera Jewel shatters.
 On rare occasions, these shards form\nwhen a Tera Pokémon falls in battle\nand its Tera Jewel shatters.
 On rare occasions, these shards form\nwhen a Tera Pokémon falls in battle\nand its Tera Jewel shatters.
-An item to be held by Pokémon with certain\nAbilities. The energy that fills this capsule\nboosts the strength of the Pokémon.
-An item to be held by a Pokémon.\nThis cute shield protects the holder from\nhaving its Ability changed by others.
-An item to be held by a Pokémon.\nThis amulet protects the holder from having\nits stats lowered by moves used against it.
-An item to be held by a Pokémon.\nThis herb will allow the holder to mirror an\nopponent’s stat increases-but only once.
-An item to be held by a Pokémon.\nThis protective glove boosts the power of\npunching moves and prevents direct contact.
+An item to be held by Pokémon with select\nAbilities. The energy within this capsule\nboosts the strength of the Pokémon.
+An item to be held by a Pokémon.\nThis cute shield protects the holder\nfrom having its Ability changed by others.
+An item to be held by a Pokémon.\nThis amulet protects from stat drops\nfrom opposing moves or abilities.
+An item to be held by a Pokémon.\nThis herb allows the holder to mirror an\nopponent’s stat increases-but only once.
+An item to be held by a Pokémon.\nThis glove boosts the power of punching\nmoves and prevents direct contact.
 An item to be held by a Pokémon.\nThis cloak conceals the holder, protecting\nit from the additional effects of moves.
-An item to be held by a Pokémon.\nThis loaded dice always rolls a good number,\nensuring multistrike moves hit more times.
+An item to be held by a Pokémon.\nThis dice always rolls a good number,\nensuring multistrike moves hit more times.
 N/A
 A long loaf sliced\ninto top and bottom\nhalves.\rIts aroma of wheat and its straightforward,\nsalty flavor make it pair well with all\nkinds of sandwich ingredients.
 A condiment that packs a very tart\npunch yet pairs well with various\ningredients.
@@ -125,192 +125,188 @@ N/A
 N/A
 N/A
 N/A
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
 - - -
 - - -
 - - -
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
 - - -
 - - -
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt seems that Gimmighoul treasure and\nhoard these.
-- - -
-- - -
-- - -
-- - -
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by a\nPokémon. It seems that Gimmighoul\ntreasure and hoard these.
 - - -
 - - -
 - - -
@@ -325,10 +321,14 @@ Material accidentally dropped by a Pokémon.\nIt seems that Gimmighoul treasure 
 - - -
 - - -
 - - -
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
+- - -
+- - -
+- - -
+- - -
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
 The user vigorously performs a\nmystic, powerful dance that boosts\nits Attack and Speed stats.
 The user attacks with a ray of light\nthat sparkles as if it were made of\ngemstones.
 The user shoots filthy garbage at\nthe foe to attack. It may also\npoison the target.
@@ -395,16 +395,16 @@ The user vibrates its wings to generate\na damaging sound wave.\nIt may also low
 The foe is attacked with a powerful\nbeam. The user must rest on the next\nturn to regain its energy.
 The user tucks in its wings and\ncharges from a low altitude. The\nuser also takes serious damage.
 The user cloaks itself in fire and\ncharges at the foe. The user\nsustains serious damage, too.
-A wicked thunderbolt is dropped on\nthe foe to inflict damage. It may\nalso leave the target paralyzed.
-The user fights the foe up close\nwithout guarding itself. It also\ncuts the user’s Defense and Sp. Def.
-A two-turn attack. The user gathers\nlight, then blasts a bundled beam on\nthe second turn.
+A wicked thunderbolt is dropped on the\nfoe to inflict damage.\nIt may also leave the target paralyzed.
+The user fights the foe up close without\nguarding itself. It also cuts the user’s\nDefense and Sp. Def.
+A two-turn attack.\nThe user gathers light, then blasts\na bundled beam on the second turn.
 Comets are summoned down from the\nsky. The attack’s recoil sharply\nreduces the user’s Sp. Atk stat.
 The user fires a beam of steel that\nit collected from its entire body.\nThis also damages the user.
 If the user has Terastallized,\nit unleashes energy of its\nTera Type.\rThis move inflicts damage using the\nAttack or Sp. Atk stat--whichever is\nhigher for the user.
 The foe is scared off, to be\nreplaced by another Pokémon in its\nparty. In the wild, the battle ends.
 The user boosts the power of the\nElectric move it uses next. It also\nraises the user’s Sp. Def stat.
 The user creates a haze that\neliminates every stat change among\nall the Pokémon engaged in battle.
-A move that leaves the target badly\npoisoned. Its poison damage worsens\nevery turn.
+A move that leaves the target badly\npoisoned.\nIts poison damage worsens every turn.
 The user traps the foe inside a\nharshly raging sandstorm for two to\nfive turns.
 The user looses its grudge on the\nmove last used by the foe by cutting\n4 PP from it.
 Gravity is intensified for five\nturns, making moves involving flying\nunusable and negating Levitation.
@@ -416,9 +416,9 @@ The user chomps hard on the\nfoe with its sharp front fangs.\nIt cuts the target
 The user whirls its fists to send a\nwave of pure vacuum at the foe.\nThis move always goes first.
 The user makes a lunge at the target,\nattacking with full force.\nThis also lowers the target’s Attack stat.
 The user fiercely attacks the target\nusing its entire body.
-The user launches sharp icicles at\nthe foe. It strikes two to five\ntimes in a row.
-Boiling water is shot at the foe. It\nmay also cause a burn.
-The user slams down with fire. The\nmore the user outweighs the foe, the\ngreater the damage.
+The user launches sharp icicles\nat the foe.\nIt strikes two to five times in a row.
+Boiling water is shot at the foe.\nIt may also cause a burn.
+The user slams down with fire.\nThe more the user outweighs the foe,\nthe greater the damage.
 The user gathers light on the first turn,\nthen fills a blade with the light’s energy\nand attacks on the next turn.
 The user attacks in an uproar for\ntwo to five turns. Over that time,\nno one can fall asleep.
 The user focuses its mind before\nlaunching a punch. It will fail if\nthe user is hit before it is used.
@@ -572,20 +572,20 @@ A dish for picnics.\nComes in plenty of colors to choose\nfrom based on the food
 A dish for picnics.\nComes in plenty of colors to choose\nfrom based on the food or the mood.\rThe yellow variety is impossible to go\nwrong with.
 An item to be held by a Pokémon.\nThis feather, which gleams faintly in the\nlight, boosts the power of Fairy-type moves.
 A peculiar apple that can make a\ncertain species of Pokémon evolve.\nIt’s exceptionally syrupy.
-A peculiar teacup that can make a certain\nspecies of Pokémon evolve. It may be\ncracked, but tea drunk from it is delicious.
-A peculiar teacup that can make a certain\nspecies of Pokémon evolve. It may be\nchipped, but tea drunk from it is delicious.
+A teacup that can make a certain species\nof Pokémon evolve. It may be cracked,\nbut tea drunk from it is delicious.
+A teacup that can make a certain species\nof Pokémon evolve. It may be chipped,\nbut tea drunk from it is delicious.
 A teal mask patterned after the face of an\nogre. Ogerpon dropped it while fleeing up the\nstairs after visiting the Festival of Masks.
 An item to be held by Ogerpon. This wooden\nmask is adorned with crystals and allows\nOgerpon to wield the Rock type in battle.
 An item to be held by Ogerpon. This wooden\nmask is adorned with crystals and allows\nOgerpon to wield the Water type in battle.
 An item to be held by Ogerpon. This wooden\nmask is adorned with crystals and allows\nOgerpon to wield the Fire type in battle.
 Having one of these cards increases\nthe selection available to you in\nboutiques and hair salons.
-A cluster of the crystals found within\nthe Crystal Pool. They sparkle brilliantly\nand are apparently necessary to repair\ra certain mask.
-A mochi cake with Berries kneaded\ninto its dough. It increases base\npoints for a Pokémon’s HP stat.
-A mochi cake with Berries kneaded\ninto its dough. It increases base\npoints for a Pokémon’s Attack stat.
-A mochi cake with Berries kneaded\ninto its dough. It increases base\npoints for a Pokémon’s Defense stat.
-A mochi cake with Berries kneaded\ninto its dough. It increases base\npoints for a Pokémon’s Sp. Atk stat.
-A mochi cake with Berries kneaded\ninto its dough. It increases base\npoints for a Pokémon’s Sp. Def stat.
-A mochi cake with Berries kneaded\ninto its dough. It increases base\npoints for a Pokémon’s Speed stat.
+A cluster of the crystals\nfound within the Crystal\nPool.\rThey sparkle brilliantly and are\napparently necessary to repair\na certain mask.
+A mochi cake with Berries kneaded into\nits dough. It increases base points for\na Pokémon’s HP stat.
+A mochi cake with Berries kneaded into\nits dough. It increases base points for\na Pokémon’s Attack stat.
+A mochi cake with Berries kneaded into\nits dough. It increases base points for\na Pokémon’s Defense stat.
+A mochi cake with Berries kneaded into\nits dough. It increases base points for\na Pokémon’s Sp. Atk stat.
+A mochi cake with Berries kneaded into\nits dough. It increases base points for\na Pokémon’s Sp. Def stat.
+A mochi cake with Berries kneaded into\nits dough. It increases base points for\na Pokémon’s Speed stat.
 A set of chairs that are ideal for picnicking.\nThey have a simple design that can stand up\nto both dirt and physical impacts.
 A set of chairs that are ideal for picnicking.\nTheir design was inspired by the Academy\nTablecloth.
 A set of chairs that are ideal for picnicking.\nTheir design was inspired by the Academy\nTablecloth.
@@ -607,123 +607,123 @@ A set of chairs that are ideal for picnicking.\nTheir design was inspired by the
 A set of chairs that are ideal for picnicking.\nTheir design was inspired by the Yellow\nTablecloth.
 A set of chairs that are ideal for picnicking.\nTheir design was inspired by the Blue\nTablecloth.
 A set of chairs that are ideal for picnicking.\nTheir design was inspired by the Pink\nTablecloth.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-A mochi cake with Berries kneaded\ninto its dough. It causes a Pokémon\nto lose all its base points.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+A mochi cake with Berries kneaded into\nits dough. It causes a Pokémon to lose\nall its base points.
 A stick to rest a Rotom Phone on.\nIt allows you to take selfies from a little\nbit farther away than you could on your own.
 Having one of these mysterious glimmering\ncharms increases the number of Tera Shards\nyou receive from Tera Raid Battles.
 A peculiar metal that can make\ncertain species of Pokémon evolve.\nIt is composed of many layers.
 Having one of these cards increases\nthe selection available to you in\nboutiques and hair salons.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-Material accidentally dropped by a Pokémon.\nIt can be used to make TMs.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nArticuno.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nZapdos.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nMoltres.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nRaikou.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nEntei.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nSuicune.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nLugia.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nHo-Oh.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nLatias.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nLatios.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nKyogre.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nGroudon.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nRayquaza.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nCobalion.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nTerrakion.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nVirizion.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nReshiram.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nZekrom.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nKyurem.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nSolgaleo.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nLunala.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nNecrozma.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nKubfu.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nGlastrier.
-A snack made from ingredients\nfavored by the Legendary Pokémon\nSpectrier.
-A mysterious disk with an indigo shine to it,\ngiven to you by the Top Champion.\nIt seems to be tied to Area Zero.
-A pick designed after Magmortar.\nIt’s said that using this pick makes any\nsandwich look like it’s fresh out of the oven.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+Material accidentally dropped by\na Pokémon.\nIt can be used to make TMs.
+A snack made from ingredients favored\nby the Legendary Pokémon Articuno.
+A snack made from ingredients favored\nby the Legendary Pokémon Zapdos.
+A snack made from ingredients favored\nby the Legendary Pokémon Moltres.
+A snack made from ingredients favored\nby the Legendary Pokémon Raikou.
+A snack made from ingredients favored\nby the Legendary Pokémon Entei.
+A snack made from ingredients favored\nby the Legendary Pokémon Suicune.
+A snack made from ingredients favored\nby the Legendary Pokémon Lugia.
+A snack made from ingredients favored\nby the Legendary Pokémon Ho-Oh.
+A snack made from ingredients favored\nby the Legendary Pokémon Latias.
+A snack made from ingredients favored\nby the Legendary Pokémon Latios.
+A snack made from ingredients favored\nby the Legendary Pokémon Kyogre.
+A snack made from ingredients favored\nby the Legendary Pokémon Groudon.
+A snack made from ingredients favored\nby the Legendary Pokémon Rayquaza.
+A snack made from ingredients favored\nby the Legendary Pokémon Cobalion.
+A snack made from ingredients favored\nby the Legendary Pokémon Terrakion.
+A snack made from ingredients favored\nby the Legendary Pokémon Virizion.
+A snack made from ingredients favored\nby the Legendary Pokémon Reshiram.
+A snack made from ingredients favored\nby the Legendary Pokémon Zekrom.
+A snack made from ingredients favored\nby the Legendary Pokémon Kyurem.
+A snack made from ingredients favored\nby the Legendary Pokémon Solgaleo.
+A snack made from ingredients favored\nby the Legendary Pokémon Lunala.
+A snack made from ingredients favored\nby the Legendary Pokémon Necrozma.
+A snack made from ingredients favored\nby the Legendary Pokémon Kubfu.
+A snack made from ingredients favored\nby the Legendary Pokémon Glastrier.
+A snack made from ingredients favored\nby the Legendary Pokémon Spectrier.
+A mysterious disk with an indigo shine\nto it, given to you by the Top Champion.\nIt seems to be tied to Area Zero.
+A pick designed after Magmortar. It’s said\nthat using this pick makes any sandwich\nlook like it’s fresh out of the oven.
 On rare occasions, these shards form\nwhen a Tera Pokémon falls in battle\nand its Tera Jewel shatters.
-A Pecha Berry of the highest quality.\nIt’s said that a Pecha Berry tree carefully\rtended by an expert gardener will produce\njust one of these Berries every few years.
+A Pecha Berry of the highest quality.\nIt’s said that a Pecha Berry tree\ncarefully tended by an expert gardener\rwill produce just one of these Berries\nevery few years.
 Blueberry Academy’s standard issue\ntablecloth, made with the latest\nfiber-processing technology.\rIt’s heat-resistant and so tough\neven a Razor Claw can’t tear it.
 A set of chairs that are ideal\nfor picnicking. Their design was\ninspired by the Blueberry Tablecloth.
 A device that synchronizes your mind\nand feelings with your Pokémon’s so\nthat you can work as one.\rIt’s still a prototype-hence its\nunrefined appearance.
-A rock that fell to earth from space.\nIt’s slightly warm to the touch. It allows a\ncertain species of Pokémon to change forms.
+A rock that fell to earth from space.\nIt’s warm to the touch. It changes the\nform of a certain species of Pokémon.
 A record of an expedition to the\nGreat Crater of Paldea, given\nto you by Professor Sada.\rThe book has the name “Sada” written\non it in clumsy handwriting.
 A record of an expedition to the\nGreat Crater of Paldea, given\nto you by Professor Turo.\rThe book has the name “Turo” written\non it in clumsy handwriting.
-A proof copy of the\nexploration notes covering\rthe Area Zero Underdepths.\nIt’s filled with long paragraphs\rdescribing what happened,\nalong with Briar’s thoughts.
+A proof copy of the\nexploration notes covering\nthe Area Zero Underdepths.\rIt’s filled with long paragraphs\ndescribing what happened,\nalong with Briar’s thoughts.
