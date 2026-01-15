@@ -1599,3 +1599,12 @@ The bursting flame hit {STRVAR_1 1, 0, 0}!
 The bursting flame hit the wild\n{STRVAR_1 1, 0, 0}!
 The bursting flame hit the\nopposing {STRVAR_1 1, 0, 0}!
 A deluge of ions showers\nthe battlefield!
+{STRVAR_1 1, 0, 0} burned itself out!
+The wild {STRVAR_1 1, 0, 0} burned itself out!
+The opposing {STRVAR_1 1, 0, 0}\nburned itself out!
+{STRVAR_1 1, 0, 0} used up all\nits electricity!
+The wild {STRVAR_1 1, 0, 0} used up\nall its electricity!
+The opposing {STRVAR_1 1, 0, 0} used up\nall its electricity!
+{STRVAR_1 1, 0, 0} lost some of its HP!
+The wild {STRVAR_1 1, 0, 0} lost some of its HP!
+The opposing {STRVAR_1 1, 0, 0}\nlost some of its HP!
