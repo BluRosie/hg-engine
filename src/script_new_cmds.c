@@ -10,6 +10,7 @@
 BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx) {
     u8 sw = ScriptReadByte(ctx);
     u16 UNUSED arg0 = ScriptReadHalfword(ctx);
+
     switch (sw) {
         case SCRIPT_NEW_CMD_REPEL_USE:;
 #ifdef IMPLEMENT_REUSABLE_REPELS
@@ -18,7 +19,7 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx) {
             Repel_Use(most_recent_repel, HEAPID_MAIN_HEAP);
 #endif
             break;
-            
+
         default: break;
     }
 

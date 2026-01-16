@@ -2564,7 +2564,7 @@
 
 #define MAX_BASE_ITEM_NUM ITEM_BRIARS_BOOK
 
-// Define your custom items below like this:
+// define your custom move effects below like this
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
 
 #define MAX_TOTAL_ITEM_NUM ITEM_BRIARS_BOOK
@@ -2760,37 +2760,5 @@ enum ItemGeneration {
 
 #endif
 
-// Bug Bite/Pluck/Fling effects:
-#define STEAL_EFFECT_CURE_PARALYSIS     1
-#define STEAL_EFFECT_CURE_SLEEP         2
-#define STEAL_EFFECT_CURE_POISON        3
-#define STEAL_EFFECT_CURE_BURN          4
-#define STEAL_EFFECT_CURE_FREEZE        5
-#define STEAL_EFFECT_RESTORE_PP         6
-#define STEAL_EFFECT_RESTORE_HP         7
-#define STEAL_EFFECT_CURE_CONFUSION     8
-#define STEAL_EFFECT_CURE_ALL           9
-#define STEAL_EFFECT_RESTORE_HP_PERCENT 10
-#define STEAL_EFFECT_RESTORE_SPICY      11
-#define STEAL_EFFECT_RESTORE_DRY        12
-#define STEAL_EFFECT_RESTORE_SWEET      13
-#define STEAL_EFFECT_RESTORE_BITTER     14
-#define STEAL_EFFECT_RESTORE_SOUR       15
-#define STEAL_EFFECT_ATK_UP             16
-#define STEAL_EFFECT_DEF_UP             17
-#define STEAL_EFFECT_SPEED_UP           18
-#define STEAL_EFFECT_SPATK_UP           19
-#define STEAL_EFFECT_SPDEF_UP           20
-#define STEAL_EFFECT_CRITRATE_UP        21
-#define STEAL_EFFECT_RANDOM_UP          22
-#define STEAL_EFFECT_ACC_UP             23
-// Used by Fling only:
-#define STEAL_EFFECT_RESET_STATS        24
-#define STEAL_EFFECT_CURE_INFATUATION   25
-#define STEAL_EFFECT_FLINCH             26
-#define STEAL_EFFECT_PARALYZE           27
-#define STEAL_EFFECT_POISON             28
-#define STEAL_EFFECT_BAD_POISON         29
-#define STEAL_EFFECT_BURN               30
 
 #endif
