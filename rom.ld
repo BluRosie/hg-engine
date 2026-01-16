@@ -838,3 +838,7 @@ PartyMenu_DisableMainScreenBlend_AfterYesNo = 0x0207CB90 | 1;
 sBattleBgProfileTable = 0x0226E70C;
 
 StringExpandPlaceholders = 0x0200CBBC | 1;
+
+GetHeldItemFlingEffect = 0x022558D0 | 1;
+GetHeldItemFlingPower = 0x022558F8 | 1;
+GetHeldItemModifier = 0x02255844 | 1;

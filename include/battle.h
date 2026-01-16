@@ -4147,4 +4147,9 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
 
 BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
 
+BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+int LONG_CALL GetHeldItemFlingEffect(struct BattleStruct *ctx, int battlerId);
+int LONG_CALL GetHeldItemFlingPower(struct BattleStruct *ctx, int battlerId);
+int LONG_CALL GetHeldItemModifier(struct BattleStruct *ctx, int battlerId, int flag);
+
 #endif // BATTLE_H
