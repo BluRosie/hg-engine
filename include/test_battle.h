@@ -87,7 +87,7 @@ struct PACKED TestBattleScenario {
 #define BATTLER_ENEMY_SECOND  3
 
 #ifdef DEBUG_BATTLE_SCENARIOS
-// function declarations
+struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario();
 BOOL LONG_CALL TestBattle_HasMoreTests();
 BOOL LONG_CALL TestBattle_IsComplete();
 void LONG_CALL TestBattle_QueueNextTest();

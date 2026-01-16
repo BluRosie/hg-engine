@@ -26,6 +26,11 @@ static int g_CurrentTestIndex = TEST_START_INDEX;
 // TODO: there is definitely some better way to do this, so that we don't need to worry if somehow this address is used by something else
 int *g_EmulatorCommunicationSendHole = (int*)0x023df15c;
 
+struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario()
+{
+    return g_CurrentScenario;
+}
+
 /**
  * @brief Override a single Pokemon with test scenario data
  *
