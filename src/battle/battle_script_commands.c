@@ -128,7 +128,7 @@ u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
 u32 LoadCaptureSuccessSPAStarEmitter(u32 id);
 u32 LoadCaptureSuccessSPANumEmitters(u32 id);
-void UpdateFriendshipFainted(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerId);
+void LONG_CALL UpdateFriendshipFainted(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerId);
 
 #ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
 #pragma GCC diagnostic push
@@ -4499,13 +4499,10 @@ BOOL btl_scr_cmd_110_BatchEffectivenessMessage(void *bsys, struct BattleStruct *
         order[1] = 2;
     }
 
-    for (int k = 0; k < 2; k++) {
-        u8 b = order[k];
-        s32 dmg = ctx->damageForSpreadMoves[b];
-        u32 ms = ctx->moveStatusFlagForSimultaneousDamage[b];
-
-        if (dmg != 0 && (ms & flag)) {
-            list[count++] = b;
+    for (int i = 0; i < 2; i++) {
+        u8 client = order[i];
+        if (ctx->damageForSpreadMoves[client] != 0 && (ctx->moveStatusFlagForSimultaneousDamage[client] & flag)) {
+            list[count++] = client;
         }
     }
 
@@ -4562,8 +4559,9 @@ BOOL BtlCmd_TryFaintMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx));
 
-    // TODO make this so if the client is already fainted then it won't faint them again as Bad Egg
-    if (ctx->battlemon[battlerId].hp == 0) {
+    if (ctx->battlemon[battlerId].hp == 0 && ctx->battlemon[battlerId].species != SPECIES_NONE && ctx->battlemon[battlerId].species != SPECIES_BAD_EGG)
+    {
+        ctx->battlemon[battlerId].species = SPECIES_NONE;
         ctx->fainting_client = battlerId;
         ctx->server_status_flag |= MaskOfFlagNo(battlerId) << BATTLE_STATUS_FAINTED_SHIFT;
         ctx->total_hinshi[battlerId]++;
