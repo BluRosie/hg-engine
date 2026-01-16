@@ -4,6 +4,7 @@
 #include "../include/constants/moves.h"
 #include "../include/constants/item.h"
 #include "../include/constants/ability.h"
+#include "../include/constants/battle_message_constants.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 // each test file is a separate .c file in battle_tests/ for better organization
