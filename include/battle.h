@@ -1379,8 +1379,8 @@ struct BattleStruct {
     /*0x3109*/ u8 level_up_pokemon;
     /*0x310A*/ u16 que_check_wait;
     /*0x310C*/ u16 agi_rand[CLIENT_MAX];
-    /*0x3114*/ int flingData;
-    /*0x3118*/ int flingScript;
+    /*0x3114*/ int nagetsukeru_work;
+    /*0x3118*/ int nagetsukeru_seq_no;
     /*0x311C*/ u8 safari_get_count;
     /*0x311D*/ u8 safari_escape_count;
     /*0x311E*/ u8 escape_count;
@@ -3476,6 +3476,7 @@ typedef enum Terrain {
 #define TRAINER_1     1 //0b01
 #define TRAINER_2     2 //0b10
 #define TRAINER_BOTH  (TRAINER_1 & TRAINER_2)
+
 
 struct BattleSetupSub_138 {
     int unk_0;
