@@ -94,8 +94,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerID = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 44, 44, 44, 44, 48, 48, 48, 48, 48, 48, 50, 50, 50, 50, 50, 54 } },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerID = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 44, 44, 44, 44, 48, 48, 48, 48, 48, 48, 50, 50, 50, 50, 50, 54 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13 } },
         } },
 #ifndef GET_TEST_CASE_ONLY
 };

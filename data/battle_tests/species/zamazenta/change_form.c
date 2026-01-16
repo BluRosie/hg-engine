@@ -91,7 +91,12 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } } },
+            } },
+        .expectations = {
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 17, 18, 18, 18, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 21 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 16, 17, 17, 17, 18, 18, 18, 18, 18, 18, 18, 18, 19, 19, 19, 20 } },
+            { .expectationType = EXPECTATION_OVERWORLD_FORM, .battlerIDOrPartySlot = 0, .expectationValue.formID = 0 },
+        } },
 #ifndef GET_TEST_CASE_ONLY
 };
 #endif

@@ -31,17 +31,19 @@ struct PACKED TestBattlePokemon {
 enum ExpectationType {
     EXPECTATION_TYPE_HP_BAR = 1,
     EXPECTATION_TYPE_MESSAGE,
+    EXPECTATION_OVERWORLD_FORM,
 };
 
 union ExpectationValue {
     u32 hpTaken[16];
     u32 hpRecovered[16];
     u32 messageID;  // TODO: switch to string
+    u16 formID;
 };
 
 struct Expectations {
     enum ExpectationType expectationType;
-    u8 battlerID;
+    u8 battlerIDOrPartySlot;
     union ExpectationValue expectationValue;
 };
 

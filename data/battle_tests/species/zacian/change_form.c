@@ -21,7 +21,7 @@ const struct TestBattleScenario BattleTests[] = {
         .playerParty = {
             {
                 .species = SPECIES_ZACIAN,
-                .level = 50,
+                .level = 51,
                 .form = 0,
                 .ability = ABILITY_INTREPID_SWORD,
                 .item = ITEM_RUSTED_SWORD,
@@ -91,7 +91,12 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } } },
+            } },
+        .expectations = {
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 109, 109, 111, 112, 114, 115, 117, 118, 118, 120, 121, 123, 124, 126, 127, 129 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 105, 106, 108, 109, 109, 111, 112, 114, 115, 117, 117, 118, 120, 121, 123, 124 } },
+            { .expectationType = EXPECTATION_OVERWORLD_FORM, .battlerIDOrPartySlot = 0, .expectationValue.formID = 0 },
+        } },
 #ifndef GET_TEST_CASE_ONLY
 };
 #endif
