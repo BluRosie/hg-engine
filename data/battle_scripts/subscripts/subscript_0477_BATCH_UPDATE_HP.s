@@ -4,67 +4,60 @@
 
 _Start:
     PlayMoveHitSound BATTLER_CATEGORY_MSG_BATTLER_TEMP
-    BatchUpdateHp
+    BatchUpdateHealthBar
     Wait
     WaitButtonABTime 126
-    BatchUpdateHpValue
+    BatchUpdateHealthBarValue
     Wait
-    GoTo _SuperEffectiveMessagePlayerSide
+    GoTo _SuperEffectiveMessageAttackerSide
 
-_SuperEffectiveMessagePlayerSide:
-    BatchEffectivenessMessage 0, 1, _SuperEffectiveMessageOpponentSide
+_SuperEffectiveMessageAttackerSide:
+    BatchEffectivenessMessage 1, MOVE_STATUS_SUPER_EFFECTIVE, _SuperEffectiveMessageOpponentSide
     PrintBufferedMessage
     Wait
     WaitButtonABTime 30
     GoTo _SuperEffectiveMessageOpponentSide
 
 _SuperEffectiveMessageOpponentSide:
-    BatchEffectivenessMessage 1, 1, _NotVeryEffectiveMessagePlayerSide
+    BatchEffectivenessMessage 0, MOVE_STATUS_SUPER_EFFECTIVE, _NotVeryEffectiveMessageAttackerSide
     PrintBufferedMessage
     Wait
     WaitButtonABTime 30
-    GoTo _NotVeryEffectiveMessagePlayerSide
+    GoTo _NotVeryEffectiveMessageAttackerSide
 
-_NotVeryEffectiveMessagePlayerSide:
-    BatchEffectivenessMessage 0, 0, _NotVeryEffectiveMessageOpponentSide
+_NotVeryEffectiveMessageAttackerSide:
+    BatchEffectivenessMessage 1, MOVE_STATUS_NOT_VERY_EFFECTIVE, _NotVeryEffectiveMessageOpponentSide
     PrintBufferedMessage
     Wait
     WaitButtonABTime 30
     GoTo _NotVeryEffectiveMessageOpponentSide
 
 _NotVeryEffectiveMessageOpponentSide:
-    BatchEffectivenessMessage 1, 0, _FollowupMessageClient0
+    BatchEffectivenessMessage 0, MOVE_STATUS_NOT_VERY_EFFECTIVE, _FollowupMessageAlly
     PrintBufferedMessage
     Wait
     WaitButtonABTime 30
-    GoTo _FollowupMessageClient0
+    GoTo _FollowupMessageAlly
 
-_FollowupMessageClient0:
-    BatchFollowupMessage 0
+_FollowupMessageAlly:
+    BatchFollowupMessage BATTLER_CATEGORY_ATTACKER_PARTNER
     Wait
     Call BATTLE_SUBSCRIPT_MOVE_FOLLOWUP_MESSAGE
-    TryFaintMon BATTLER_CATEGORY_PLAYER_SLOT_1
-    GoTo _FollowupMessageClient1
+    TryFaintMon BATTLER_CATEGORY_ATTACKER_PARTNER
+    GoTo _FollowupMessageOppLeft
 
-_FollowupMessageClient1:
-    BatchFollowupMessage 1
+_FollowupMessageOppLeft:
+    BatchFollowupMessage BATTLER_CATEGORY_ATTACKER_OPP_LEFT
     Wait
     Call BATTLE_SUBSCRIPT_MOVE_FOLLOWUP_MESSAGE
-    TryFaintMon BATTLER_CATEGORY_ENEMY_SLOT_1
-    GoTo _FollowupMessageClient2
+    TryFaintMon BATTLER_CATEGORY_ATTACKER_OPP_LEFT
+    GoTo _FollowupMessageOppRight
 
-_FollowupMessageClient2:
-    BatchFollowupMessage 2
+_FollowupMessageOppRight:
+    BatchFollowupMessage BATTLER_CATEGORY_ATTACKER_OPP_RIGHT
     Wait
     Call BATTLE_SUBSCRIPT_MOVE_FOLLOWUP_MESSAGE
-    TryFaintMon BATTLER_CATEGORY_PLAYER_SLOT_2
-    GoTo _FollowupMessageClient3
-
-_FollowupMessageClient3:
-    BatchFollowupMessage 3
-    Wait
-    Call BATTLE_SUBSCRIPT_MOVE_FOLLOWUP_MESSAGE
-    TryFaintMon BATTLER_CATEGORY_ENEMY_SLOT_2
+    TryFaintMon BATTLER_CATEGORY_ATTACKER_OPP_RIGHT
     GoTo _End
 
 _End:

@@ -100,8 +100,8 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
-BOOL btl_scr_cmd_10D_BatchUpdateHp(void* bsys, struct BattleStruct* ctx);
-BOOL btl_scr_cmd_10E_BatchUpdateHpValue(void* bsys, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10D_BatchUpdateHealthBar(void* bsys, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10E_BatchUpdateHealthBarValue(void* bsys, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10F_BatchFollowupMessage(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_110_BatchEffectivenessMessage(void* bsys, struct BattleStruct* ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -404,7 +404,10 @@ const u8 *BattleScrCmdNames[] =
     "ClearSmog",
     "GoToIfThirdType",
     "GoToIfTerastallized",
-    "BatchUpdateHp",
+    "BatchUpdateHealthBar",
+    "BatchUpdateHealthBarValue",
+    "BatchFollowupMessage",
+    "BatchEffectivenessMessage",
     // "YourCustomCommand",
 };
 
@@ -460,8 +463,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x10A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10A_clearsmog,
     [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_gotoifthirdtype,
     [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_gotoifterastallized,
-    [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_BatchUpdateHp,
-    [0x10E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10E_BatchUpdateHpValue,
+    [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_BatchUpdateHealthBar,
+    [0x10E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10E_BatchUpdateHealthBarValue,
     [0x10F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10F_BatchFollowupMessage,
     [0x110 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_110_BatchEffectivenessMessage,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
@@ -1010,6 +1013,12 @@ s32 LONG_CALL GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp,
                 }
             }
         }
+        break;
+    case BTL_PARAM_BATTLER_ATTACKER_OPP_LEFT:
+        client_no = BATTLER_OPPONENT_SIDE_LEFT(sp->attack_client);
+        break;
+    case BTL_PARAM_BATTLER_ATTACKER_OPP_RIGHT:
+        client_no = BATTLER_OPPONENT_SIDE_RIGHT(sp->attack_client);
         break;
     case BTL_PARAM_BATTLER_WORK:
     case BTL_PARAM_BATTLER_x15:
@@ -4396,7 +4405,7 @@ BOOL btl_scr_cmd_10C_gotoifterastallized(void *bsys UNUSED, struct BattleStruct 
 /**
  * @brief Triggers HP bar animations for all targets hit by spread move simultaneously
  */
-BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_10D_BatchUpdateHealthBar(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     read_battle_script_param(ctx);
@@ -4417,7 +4426,10 @@ BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys, struct BattleStruct *ctx)
     return FALSE;
 }
 
-BOOL btl_scr_cmd_10E_BatchUpdateHpValue(void *bsys, struct BattleStruct *ctx)
+/**
+ * @brief Updates HP values for all targets hit by spread move
+ */
+BOOL btl_scr_cmd_10E_BatchUpdateHealthBarValue(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     read_battle_script_param(ctx);
@@ -4455,12 +4467,13 @@ BOOL btl_scr_cmd_10E_BatchUpdateHpValue(void *bsys, struct BattleStruct *ctx)
 /**
  * @brief Display followup messages for all targets hit by spread move in order
  */
-BOOL btl_scr_cmd_10F_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_10F_BatchFollowupMessage(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
-    int battlerId = read_battle_script_param(ctx);
+    int battlerCategory = read_battle_script_param(ctx);
+    int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, battlerCategory);
 
-    if (ctx->damageForSpreadMoves[battlerId] > 0) {
+    if (ctx->damageForSpreadMoves[battlerId] != 0) {
         ctx->defence_client_temp = battlerId;
         ctx->defence_client = battlerId;
         ctx->battlerIdTemp = battlerId;
@@ -4477,32 +4490,36 @@ BOOL btl_scr_cmd_10F_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct
 
 /**
  * @brief Display super effective / not very effective messages for all targets hit by spread move in order
+ * Uses POV-relative logic:
+ *   side=0 = attacker's side (ally if hit)
+ *   side=1 = opponent's side (from attacker's POV)
+ * Message type stays based on ACTUAL target side (for "opposing"/"wild" prefix)
  */
 BOOL btl_scr_cmd_110_BatchEffectivenessMessage(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
 
-    int side = read_battle_script_param(ctx);
-    int superEffective = read_battle_script_param(ctx);
+    int attackerSide = read_battle_script_param(ctx);
+    int flag = read_battle_script_param(ctx);
     int adrs = read_battle_script_param(ctx);
 
-    u32 flag = superEffective ? MOVE_STATUS_FLAG_SUPER_EFFECTIVE : MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
-
+    int attacker = ctx->attack_client;
     u8 list[2];
     u8 count = 0;
-    u8 order[2];
-    if (side) {
-        order[0] = 1;
-        order[1] = 3;
-    } else {
-        order[0] = 0;
-        order[1] = 2;
-    }
 
-    for (int i = 0; i < 2; i++) {
-        u8 client = order[i];
-        if (ctx->damageForSpreadMoves[client] != 0 && (ctx->moveStatusFlagForSimultaneousDamage[client] & flag)) {
-            list[count++] = client;
+    if (attackerSide) {
+        int ally = BATTLER_ALLY(attacker);
+        if (ctx->damageForSpreadMoves[ally] != 0 && (ctx->moveStatusFlagForSimultaneousDamage[ally] & flag)) {
+            list[count++] = ally;
+        }
+    } else {
+        int oppLeft = BATTLER_OPPONENT_SIDE_LEFT(attacker);
+        int oppRight = BATTLER_OPPONENT_SIDE_RIGHT(attacker);
+        if (ctx->damageForSpreadMoves[oppLeft] != 0 && (ctx->moveStatusFlagForSimultaneousDamage[oppLeft] & flag)) {
+            list[count++] = oppLeft;
+        }
+        if (ctx->damageForSpreadMoves[oppRight] != 0 && (ctx->moveStatusFlagForSimultaneousDamage[oppRight] & flag)) {
+            list[count++] = oppRight;
         }
     }
 
@@ -4513,11 +4530,11 @@ BOOL btl_scr_cmd_110_BatchEffectivenessMessage(void *bsys, struct BattleStruct *
 
     // 0 = player; 1 = wild; 2 = enemy
     int msgTargetType = 0;
-    if (side) {
+    if (IsClientEnemy(bsys, list[0])) {
         msgTargetType = (BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER) ? 2 : 1;
     }
 
-    int baseMsgId = superEffective ? 1610 : 1634;
+    int baseMsgId = (flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE) ? 1610 : 1634;
     ctx->mp.msg_id = baseMsgId + (count - 1) * 3 + msgTargetType;
     ctx->mp.msg_tag = ((count == 1) ? TAG_NICKNAME : TAG_NICKNAME_NICKNAME) | 0x80;
     ctx->mp.msg_para[0] = CreateNicknameTag(ctx, list[0]);

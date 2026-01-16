@@ -1476,11 +1476,11 @@
     .long (((\arg_1 - .) / 4) - 1)
     .endm
 
-    .macro BatchUpdateHp
+    .macro BatchUpdateHealthBar
     .long 269
     .endm
 
-    .macro BatchUpdateHpValue
+    .macro BatchUpdateHealthBarValue
     .long 270
     .endm
 
