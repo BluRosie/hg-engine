@@ -826,3 +826,6 @@ sButtonWindowIDs = 0x021016B4;
 PartyMenu_DisableMainScreenBlend_AfterYesNo = 0x0207CB90 | 1;
 sBattleBgProfileTable = 0x0226E70C;
 
+GetHeldItemFlingEffect = 0x022558D0 | 1;
+GetHeldItemFlingPower = 0x022558F8 | 1;
+GetHeldItemModifier = 0x02255844 | 1;
