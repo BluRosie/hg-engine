@@ -80,11 +80,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_TENTACOOL, 10, 10
-encounter SPECIES_TENTACOOL, 10, 10
+encounter SPECIES_MAGIKARP, 10, 10      // 60
+encounter SPECIES_MAGIKARP, 10, 10      // 30
+encounter SPECIES_MAGIKARP, 10, 10      // 5
+encounter SPECIES_TENTACOOL, 10, 10     // 4
+encounter SPECIES_TENTACOOL, 10, 10     // 1
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -289,10 +289,10 @@ encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
 encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_KRABBY, 10, 10
-encounter SPECIES_KRABBY, 10, 10
+encounter SPECIES_REMORAID, 10, 10
+encounter SPECIES_CORSOLA, 10, 10
+encounter SPECIES_CORSOLA, 10, 10
+encounter SPECIES_CORSOLA, 10, 10
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -393,10 +393,10 @@ encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
 encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
+encounter SPECIES_REMORAID, 10, 10
+encounter SPECIES_LOTAD, 10, 10
+encounter SPECIES_LOTAD, 10, 10
+encounter SPECIES_LOTAD, 10, 10
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -497,10 +497,10 @@ encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
 encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
 encounter SPECIES_POLIWAG, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
+encounter SPECIES_SURSKIT, 10, 10
+encounter SPECIES_SURSKIT, 10, 10
+encounter SPECIES_SURSKIT, 10, 10
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -601,10 +601,10 @@ encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
 encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
 encounter SPECIES_POLIWAG, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
+encounter SPECIES_GOLDEEN, 10, 10
+encounter SPECIES_GOLDEEN, 10, 10
+encounter SPECIES_GOLDEEN, 10, 10
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -913,16 +913,16 @@ encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
 encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
+encounter SPECIES_QWILFISH, 10, 10
+encounter SPECIES_WOOPER, 10, 10
 encounter SPECIES_TENTACOOL, 10, 10
 encounter SPECIES_TENTACOOL, 10, 10
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
 encounter SPECIES_TENTACOOL, 20, 20
-encounter SPECIES_TENTACOOL, 20, 20
-encounter SPECIES_TENTACOOL, 20, 20
+encounter SPECIES_QWILFISH, 20, 20
+encounter SPECIES_WOOPER, 20, 20
 encounter SPECIES_QWILFISH, 20, 20
 
 // super rod encounters
@@ -1475,46 +1475,46 @@ superrodrate 75
 walklevels 6, 6, 6, 6, 5, 5, 4, 4, 7, 6, 7, 6
 
 // morning encounter slots
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_SANDSHREW
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_SANDSHREW
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ONIX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ONIX
+monwithform SPECIES_DIGLETT, 1      // 20
+pokemon SPECIES_ZUBAT               // 20
+pokemon SPECIES_GEODUDE             // 10
+pokemon SPECIES_ZUBAT               // 10
+pokemon SPECIES_MAKUHITA            // 10
+monwithform SPECIES_DIGLETT, 1      // 10
+pokemon SPECIES_MAKUHITA            // 5
+pokemon SPECIES_SANDSHREW           // 5
+pokemon SPECIES_SANDSHREW           // 4
+pokemon SPECIES_ZUBAT               // 4
+pokemon SPECIES_ZUBAT               // 1
+pokemon SPECIES_AXEW                // 1
 
 // day encounter slots
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_SANDSHREW
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_SANDSHREW
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ONIX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ONIX
+monwithform SPECIES_DIGLETT, 1      // 20
+pokemon SPECIES_ZUBAT               // 20
+pokemon SPECIES_GEODUDE             // 10
+pokemon SPECIES_ZUBAT               // 10
+pokemon SPECIES_MAKUHITA            // 10
+monwithform SPECIES_DIGLETT, 1      // 10
+pokemon SPECIES_MAKUHITA            // 5
+pokemon SPECIES_SANDSHREW           // 5
+pokemon SPECIES_SANDSHREW           // 4
+pokemon SPECIES_ZUBAT               // 4
+pokemon SPECIES_ZUBAT               // 1
+pokemon SPECIES_AXEW                // 1
 
 // night encounter slots
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_SANDSHREW
-pokemon SPECIES_GEODUDE
-pokemon SPECIES_SANDSHREW
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ONIX
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ONIX
+monwithform SPECIES_DIGLETT, 1      // 20
+pokemon SPECIES_SANDSHREW           // 20
+pokemon SPECIES_GEODUDE             // 10
+pokemon SPECIES_SANDSHREW           // 10
+pokemon SPECIES_MAKUHITA            // 10
+monwithform SPECIES_DIGLETT, 1      // 10
+pokemon SPECIES_MAKUHITA            // 5
+pokemon SPECIES_SANDSHREW           // 5
+pokemon SPECIES_ZUBAT               // 4
+pokemon SPECIES_ZUBAT               // 4
+pokemon SPECIES_ZUBAT               // 1
+pokemon SPECIES_AXEW                // 1
 
 // hoenn encounter slots
 pokemon SPECIES_ABSOL
@@ -1537,10 +1537,10 @@ encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
 encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_GOLDEEN, 10, 10
-encounter SPECIES_GOLDEEN, 10, 10
+encounter SPECIES_WOOPER, 10, 10
+encounter SPECIES_BARBOACH, 10, 10
+encounter SPECIES_BARBOACH, 10, 10
+encounter SPECIES_BARBOACH, 10, 10
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -7257,8 +7257,8 @@ encounter SPECIES_GEODUDE, 8, 14
 
 // old rod encounters
 encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
+encounter SPECIES_GOLDEEN, 10, 10
+encounter SPECIES_GOLDEEN, 10, 10
 encounter SPECIES_GOLDEEN, 10, 10
 encounter SPECIES_GOLDEEN, 10, 10
 
