@@ -230,7 +230,7 @@ ST_ServerQueCheck = 0x0224ED48 | 1;
 SCIO_StatusEffectSet = 0x02263848 | 1;
 SCIO_LevelUpEffectSet = 0x0226399C | 1;
 BattleWorkPlaceIDGet = 0x0223AB60 | 1;
-TryUseHeldItem = 0x0225471C | 1;
+/*TryUseHeldItem = 0x0225471C | 1;*/
 HeldItemHealStatusCheck = 0x02254E7C | 1;
 Battle_GetClientPartySize = 0x0223a834 | 1;
 Battle_GetClientPartyMon = 0x0223a880 | 1;
@@ -242,6 +242,7 @@ CreateNicknameTag = 0x022522E0 | 1;
 JumpToMoveEffectScript = 0x02245518 | 1;
 BGCallback_Waza = 0x0226748C | 1;
 TryEatOpponentBerry = 0x02255A2C | 1;
+TryFling = 0x02255F7C | 1;
 
 /* Trainer data expansion */
 gf_get_seed = 0x0201FD2C | 1;
@@ -713,6 +714,8 @@ LowestFlagNo = 0x020726E0 | 1;
 Battler_GetRandomOpposingBattlerId = 0x02253DA0 | 1;
 GetBattlerLearnedMoveCount = 0x02252EA8 | 1;
 CanSwitchMon = 0x02252890 | 1;
+BattleMon_AddVar = 0x0224F7AC | 1;
+GetFlavorPreferenceFromPID = 0x020718E8 | 1;
 
 ov12_0224DD74 = 0x0224DD74 | 1;
 ov12_02261258 = 0x02261258 | 1;
@@ -783,6 +786,13 @@ TaskManager_Call = 0x02050530 | 1;
 Task_TutorialBattle = 0x0205128C | 1;
 
 GetItemAttrSub = 0x02077E48 | 1;
+
+
+InitBattleMsgData = 0x022478F4 | 1;
+InitBattleMsg = 0x022479C0 | 1;
+BattleController_EmitPrintMessage = 0x022633F0 | 1;
+BattleController_EmitPrintAttackMessage = 0x022633B8 | 1;
+
 Mon_UpdateRotomForm	= 0x02071EC0 | 1;
 
 LoadItemDataOrGfx = 0x02077CE8 | 1;
@@ -815,3 +825,4 @@ sButtonWindowTemplates = 0x02101654;
 sButtonWindowIDs = 0x021016B4;
 PartyMenu_DisableMainScreenBlend_AfterYesNo = 0x0207CB90 | 1;
 sBattleBgProfileTable = 0x0226E70C;
+

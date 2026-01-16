@@ -763,6 +763,14 @@ enum
 #define NATURE_CAREFUL (23)
 #define NATURE_QUIRKY  (24)
 
+#define FLAVOR_SPICY  0
+#define FLAVOR_DRY    1
+#define FLAVOR_SWEET  2
+#define FLAVOR_BITTER 3
+#define FLAVOR_SOUR   4
+
+#define FLAVOR_START FLAVOR_SPICY
+#define FLAVOR_MAX   5
 
 #define MAX_EVOS_PER_POKE (9)
 
@@ -1865,8 +1873,11 @@ u8 LONG_CALL GetMoveMaxPP(u16 moveId, u8 ppUps);
 
 void LONG_CALL ApplyMonMoodModifier(struct PartyPokemon *mon, int modifierId);
 
+s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor);
+
 BOOL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defaultSlot);
 
 BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID);
+
 
 #endif
