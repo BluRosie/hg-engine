@@ -1873,8 +1873,11 @@ u8 LONG_CALL GetMoveMaxPP(u16 moveId, u8 ppUps);
 
 void LONG_CALL ApplyMonMoodModifier(struct PartyPokemon *mon, int modifierId);
 
+s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor);
+
 BOOL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defaultSlot);
 
 BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID);
+
 
 #endif
