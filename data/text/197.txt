@@ -1608,18 +1608,18 @@ The opposing {STRVAR_1 1, 0, 0} used up\nall its electricity!
 {STRVAR_1 1, 0, 0} lost some of its HP!
 The wild {STRVAR_1 1, 0, 0} lost some of its HP!
 The opposing {STRVAR_1 1, 0, 0}\nlost some of its HP!
-It’s super effective on {STRVAR_1 1, 0, 0}!
-It’s super effective on the wild {STRVAR_1 1, 0, 0}!
-It’s super effective on the opposing {STRVAR_1 1, 0, 0}!
-It’s super effective on {STRVAR_1 1, 0, 0}\nand {STRVAR_1 1, 1, 0}!
-It’s super effective on the wild {STRVAR_1 1, 0, 0}\nand {STRVAR_1 1, 1, 0}!
-It’s super effective on the opposing {STRVAR_1 1, 0, 0}\nand {STRVAR_1 1, 1, 0}!
-It’s super effective on {STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0},\nand {STRVAR_1 1, 2, 0}!
-It’s super effective on the wild {STRVAR_1 1, 0, 0},\n{STRVAR_1 1, 1, 0}, and {STRVAR_1 1, 2, 0}!
-It’s super effective on the opposing {STRVAR_1 1, 0, 0},\n{STRVAR_1 1, 1, 0}, and {STRVAR_1 1, 2, 0}!
-It’s super effective on {STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0},\n{STRVAR_1 1, 2, 0}, and {STRVAR_1 1, 3, 0}!
-It’s super effective on the wild {STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0},\n{STRVAR_1 1, 2, 0}, and {STRVAR_1 1, 3, 0}!
-It’s super effective on the opposing {STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0},\n{STRVAR_1 1, 2, 0}, and {STRVAR_1 1, 3, 0}!
+It’s super effective on\n{STRVAR_1 1, 0, 0}!
+It’s super effective on the wild\n{STRVAR_1 1, 0, 0}!
+It’s super effective on the opposing\n{STRVAR_1 1, 0, 0}!
+It’s super effective on\n{STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}!
+It’s super effective on the wild\n{STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}!
+It’s super effective on the opposing\n{STRVAR_1 1, 0, 0} and {STRVAR_1 1, 1, 0}!
+It’s super effective on\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, and {STRVAR_1 1, 2, 0}!
+It’s super effective on the wild\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, and {STRVAR_1 1, 2, 0}!
+It’s super effective on the opposing\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, and {STRVAR_1 1, 2, 0}!
+It’s super effective on\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, and {STRVAR_1 1, 3, 0}!
+It’s super effective on the wild\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, and {STRVAR_1 1, 3, 0}!
+It’s super effective on the opposing\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, and {STRVAR_1 1, 3, 0}!
 (Placeholder)
 (Placeholder)
 (Placeholder)
@@ -1632,18 +1632,18 @@ It’s super effective on the opposing {STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0},\n
 (Placeholder)
 (Placeholder)
 (Placeholder)
-It’s not very effective on {STRVAR_1 1, 0, 0}.
-It’s not very effective on the wild {STRVAR_1 1, 0, 0}.
-It’s not very effective on the opposing {STRVAR_1 1, 0, 0}.
-It’s not very effective on {STRVAR_1 1, 0, 0}\nor {STRVAR_1 1, 1, 0}.
-It’s not very effective on the wild {STRVAR_1 1, 0, 0}\nor {STRVAR_1 1, 1, 0}.
-It’s not very effective on the opposing {STRVAR_1 1, 0, 0}\nor {STRVAR_1 1, 1, 0}.
-It’s not very effective on {STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0},\nor {STRVAR_1 1, 2, 0}.
-It’s not very effective on the wild {STRVAR_1 1, 0, 0},\n{STRVAR_1 1, 1, 0}, or {STRVAR_1 1, 2, 0}.
-It’s not very effective on the opposing {STRVAR_1 1, 0, 0},\n{STRVAR_1 1, 1, 0}, or {STRVAR_1 1, 2, 0}.
-It’s not very effective on {STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0},\n{STRVAR_1 1, 2, 0}, or {STRVAR_1 1, 3, 0}.
-It’s not very effective on the wild {STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0},\n{STRVAR_1 1, 2, 0}, or {STRVAR_1 1, 3, 0}.
-It’s not very effective on the opposing {STRVAR_1 1, 0, 0},\n{STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, or {STRVAR_1 1, 3, 0}.
+It’s not very effective on\n{STRVAR_1 1, 0, 0}.
+It’s not very effective on the wild\n{STRVAR_1 1, 0, 0}.
+It’s not very effective on the opposing\n{STRVAR_1 1, 0, 0}.
+It’s not very effective on\n{STRVAR_1 1, 0, 0} or {STRVAR_1 1, 1, 0}.
+It’s not very effective on the wild\n{STRVAR_1 1, 0, 0} or {STRVAR_1 1, 1, 0}.
+It’s not very effective on the opposing\n{STRVAR_1 1, 0, 0} or {STRVAR_1 1, 1, 0}.
+It’s not very effective on\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0},\nor {STRVAR_1 1, 2, 0}.
+It’s not very effective on the wild\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, or {STRVAR_1 1, 2, 0}.
+It’s not very effective on the opposing\n{STRVAR_1 1, 0, 0},\n{STRVAR_1 1, 1, 0}, or {STRVAR_1 1, 2, 0}.
+It’s not very effective on\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, or {STRVAR_1 1, 3, 0}.
+It’s not very effective on the wild\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, or {STRVAR_1 1, 3, 0}.
+It’s not very effective on the opposing\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0}, {STRVAR_1 1, 2, 0}, or {STRVAR_1 1, 3, 0}.
 (Placeholder)
 (Placeholder)
 (Placeholder)

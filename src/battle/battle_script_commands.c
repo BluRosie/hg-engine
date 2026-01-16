@@ -100,8 +100,10 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
-BOOL btl_scr_cmd_10D_BatchUpdateHp(void* bsys UNUSED, struct BattleStruct* ctx);
-BOOL btl_scr_cmd_10E_BatchFollowupMessage(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10D_BatchUpdateHp(void* bsys, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10E_BatchUpdateHpValue(void* bsys, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10F_BatchFollowupMessage(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_110_BatchEffectivenessMessage(void* bsys, struct BattleStruct* ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -126,6 +128,7 @@ u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
 u32 LoadCaptureSuccessSPAStarEmitter(u32 id);
 u32 LoadCaptureSuccessSPANumEmitters(u32 id);
+void UpdateFriendshipFainted(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerId);
 
 #ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
 #pragma GCC diagnostic push
@@ -409,7 +412,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x10D
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x110
 
 const btl_scr_cmd_func NewBattleScriptCmdTable[] =
 {
@@ -458,7 +461,9 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_gotoifthirdtype,
     [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_gotoifterastallized,
     [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_BatchUpdateHp,
-    [0x10E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10E_BatchFollowupMessage,
+    [0x10E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10E_BatchUpdateHpValue,
+    [0x10F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10F_BatchFollowupMessage,
+    [0x110 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_110_BatchEffectivenessMessage,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4391,7 +4396,7 @@ BOOL btl_scr_cmd_10C_gotoifterastallized(void *bsys UNUSED, struct BattleStruct 
 /**
  * @brief Triggers HP bar animations for all targets hit by spread move simultaneously
  */
-BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys UNUSED, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     read_battle_script_param(ctx);
@@ -4406,8 +4411,23 @@ BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys UNUSED, struct BattleStruct *ctx)
                 BattleController_EmitMonFlicker(bsys, i, 0);
             }
             BattleController_EmitHealthbarUpdate(bsys, ctx, i);
+        }
+    }
 
-            // this mirrors UpdateHealthbarValue but we defer CopyBattleMonToPartyMon so waits work properly
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10E_BatchUpdateHpValue(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    read_battle_script_param(ctx);
+
+    for (int i = 0; i < CLIENT_MAX; i++) {
+        if (ctx->damageForSpreadMoves[i]) {
+            ctx->battlerIdTemp = i;
+            ctx->hp_calc_work = ctx->damageForSpreadMoves[i];
+
+            // this mirrors UpdateHealthbarValue
             if ((ctx->battlemon[i].hp + ctx->hp_calc_work) <= 0) {
                 ctx->damage = ctx->battlemon[i].hp * -1;
             } else {
@@ -4425,6 +4445,7 @@ BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys UNUSED, struct BattleStruct *ctx)
             } else if (ctx->battlemon[i].hp > ctx->battlemon[i].maxhp) {
                 ctx->battlemon[i].hp = ctx->battlemon[i].maxhp;
             }
+            CopyBattleMonToPartyMon(bsys, ctx, i);
         }
     }
 
@@ -4434,20 +4455,78 @@ BOOL btl_scr_cmd_10D_BatchUpdateHp(void *bsys UNUSED, struct BattleStruct *ctx)
 /**
  * @brief Display followup messages for all targets hit by spread move in order
  */
-BOOL btl_scr_cmd_10E_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_10F_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     int battlerId = read_battle_script_param(ctx);
 
     if (ctx->damageForSpreadMoves[battlerId] > 0) {
-        CopyBattleMonToPartyMon(bsys, ctx, battlerId);
         ctx->defence_client_temp = battlerId;
         ctx->defence_client = battlerId;
         ctx->battlerIdTemp = battlerId;
         ctx->waza_status_flag = ctx->moveStatusFlagForSimultaneousDamage[battlerId];
+        // ignore the effectiveness bits to skip those messages because we display those first
+        ctx->waza_status_flag &= ~(MOVE_STATUS_FLAG_SUPER_EFFECTIVE | MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE);
         ctx->moveStatusFlagForSimultaneousDamage[battlerId] = 0;
     } else {
         ctx->waza_status_flag |= MOVE_STATUS_FLAG_SUPPRESS_FOLLOWUP_MESSAGE;
+    }
+
+    return FALSE;
+}
+
+/**
+ * @brief Display super effective / not very effective messages for all targets hit by spread move in order
+ */
+BOOL btl_scr_cmd_110_BatchEffectivenessMessage(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int side = read_battle_script_param(ctx);
+    int superEffective = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    u32 flag = superEffective ? MOVE_STATUS_FLAG_SUPER_EFFECTIVE : MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+
+    u8 list[2];
+    u8 count = 0;
+    u8 order[2];
+    if (side) {
+        order[0] = 1;
+        order[1] = 3;
+    } else {
+        order[0] = 0;
+        order[1] = 2;
+    }
+
+    for (int k = 0; k < 2; k++) {
+        u8 b = order[k];
+        s32 dmg = ctx->damageForSpreadMoves[b];
+        u32 ms = ctx->moveStatusFlagForSimultaneousDamage[b];
+
+        if (dmg != 0 && (ms & flag)) {
+            list[count++] = b;
+        }
+    }
+
+    if (count == 0) {
+        IncrementBattleScriptPtr(ctx, adrs);
+        return FALSE;
+    }
+
+    // 0 = player; 1 = wild; 2 = enemy
+    int msgTargetType = 0;
+    if (side) {
+        msgTargetType = (BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER) ? 2 : 1;
+    }
+
+    int baseMsgId = superEffective ? 1610 : 1634;
+    ctx->mp.msg_id = baseMsgId + (count - 1) * 3 + msgTargetType;
+    ctx->mp.msg_tag = ((count == 1) ? TAG_NICKNAME : TAG_NICKNAME_NICKNAME) | 0x80;
+    ctx->mp.msg_para[0] = CreateNicknameTag(ctx, list[0]);
+
+    if (count == 2) {
+        ctx->mp.msg_para[1] = CreateNicknameTag(ctx, list[1]);
     }
 
     return FALSE;
@@ -4474,5 +4553,22 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     } else {
         IncrementBattleScriptPtr(ctx, adrs);
     }
+    return FALSE;
+}
+
+BOOL BtlCmd_TryFaintMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx));
+
+    // TODO make this so if the client is already fainted then it won't faint them again as Bad Egg
+    if (ctx->battlemon[battlerId].hp == 0) {
+        ctx->fainting_client = battlerId;
+        ctx->server_status_flag |= MaskOfFlagNo(battlerId) << BATTLE_STATUS_FAINTED_SHIFT;
+        ctx->total_hinshi[battlerId]++;
+        UpdateFriendshipFainted(bsys, ctx, battlerId);
+    }
+
     return FALSE;
 }
