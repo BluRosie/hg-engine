@@ -4055,9 +4055,4 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
 void LONG_CALL SetupAndStartWildBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL canFlee, BOOL shiny);
 void LONG_CALL SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL shiny);
 
-BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
-int LONG_CALL GetHeldItemFlingEffect(struct BattleStruct *ctx, int battlerId);
-int LONG_CALL GetHeldItemFlingPower(struct BattleStruct *ctx, int battlerId);
-int LONG_CALL GetHeldItemModifier(struct BattleStruct *ctx, int battlerId, int flag);
-
 #endif // BATTLE_H

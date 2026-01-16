@@ -565,4 +565,3 @@ arm9 sub_0207E3A8 0207E3A8
 arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
 
-0012 TryFling 02255F7C 3

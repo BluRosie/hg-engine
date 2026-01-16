@@ -2566,9 +2566,8 @@
 
 // Define your custom items below like this:
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
-#define ITEM_DISCOUNT_SHRIMP (MAX_BASE_ITEM_NUM + 1)
 
-#define MAX_TOTAL_ITEM_NUM ITEM_DISCOUNT_SHRIMP
+#define MAX_TOTAL_ITEM_NUM ITEM_BRIARS_BOOK
 
 
 #define NUM_MEGA_STONES 48 // includes the pixie plate
@@ -2794,9 +2793,7 @@ enum ItemGeneration {
 #define STEAL_EFFECT_BAD_POISON         29
 #define STEAL_EFFECT_BURN               30
 
-// Define custom Pluck/Fling effects below here:
-#define STEAL_EFFECT_SPEED_DOWN             (STEAL_EFFECT_BURN + 1)
-#define STEAL_EFFECT_CURSE                  (STEAL_EFFECT_BURN + 2)
-#define STEAL_EFFECT_RESTORE_HP_OR_POISON   (STEAL_EFFECT_BURN + 3)
+// Define custom Pluck/Fling effects below like this:
+// #define STEAL_EFFECT_CUSTOM_1             (STEAL_EFFECT_BURN + 1)
 
 #endif
