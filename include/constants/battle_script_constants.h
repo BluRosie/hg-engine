@@ -496,8 +496,9 @@
 #define SUB_SEQ_PARADOX_ABILITY_END                   (486)
 #define SUB_SEQ_ORICHALCUM_PULSE                      (487)
 #define SUB_SEQ_HADRON_ENGINE_NO_TERRAIN_SETUP        (488)
+#define SUB_SEQ_ITEM_HEAL_MENTAL_CONDITIONS           (489)
 
-#define MAX_BASE_SUBSCRIPT_NUM 488
+#define MAX_BASE_SUBSCRIPT_NUM 489
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

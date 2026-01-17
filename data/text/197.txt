@@ -1648,3 +1648,12 @@ The opposing {STRVAR_1 1, 0, 0} turned the\nground into Electric Terrain,\fenerg
 {STRVAR_1 1, 0, 0} used the Electric Terrain to\nenergize its futuristic engine!
 The wild {STRVAR_1 1, 0, 0} used the Electric\nTerrain to energize its futuristic\fengine!
 The opposing {STRVAR_1 1, 0, 0} used the\nElectric Terrain to energize its\ffuturistic engine!
+{STRVAR_1 1, 0, 0} shook off\nthe taunt!
+The wild {STRVAR_1 1, 0, 0} shook off\nthe taunt!
+The opposing {STRVAR_1 1, 0, 0} shook off\nthe taunt!
+{STRVAR_1 1, 0, 0} is\nno longer tormented!
+The wild {STRVAR_1 1, 0, 0} is\nno longer tormented!
+The opposing {STRVAR_1 1, 0, 0} is\nno longer tormented!
+{STRVAR_1 1, 0, 0} is no longer\nprevented from healing!
+The wild {STRVAR_1 1, 0, 0} is no longer\nprevented from healing!
+The opposing {STRVAR_1 1, 0, 0} is no longer\nprevented from healing!
