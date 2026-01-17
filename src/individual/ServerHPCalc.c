@@ -121,16 +121,17 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
             if (TestBattle_HasMoreExpectations()) {
                 // debug_printf("Has more expectations\n");
                 struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
-                if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_HP_BAR) {
+                if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_HP_BAR
+                    && sp->defence_client == scenario->expectations[scenario->expectationPassCount].battlerIDOrPartySlot) {
                     for (int i = 0; i < 16; i++) {
-                        // debug_printf("sp->damage: %d, expect: %d\n", sp->damage, scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]);
+                        debug_printf("sp->damage: %d, expect: %d\n", sp->damage, scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]);
                         if (sp->damage == scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]
                             || sp->damage * -1 == scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]) {
                                 scenario->expectationPassCount++;
                                 break;
                         }
-                        // debug_printf("\n");
                     }
+                    debug_printf("\n");
                 }
             }
 #endif
