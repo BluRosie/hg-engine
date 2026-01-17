@@ -1392,16 +1392,17 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
             }
         }
     } break;
-    case STEAL_EFFECT_CURE_INFATUATION: // Mental Herb
-        if (sp->battlemon[sp->defence_client].condition2 & STATUS2_ATTRACT) {
+    case STEAL_EFFECT_CURE_MENTAL_CONDITIONS: // Mental Herb
+        if (sp->battlemon[sp->defence_client].condition2 & STATUS2_ATTRACT
+        || sp->battlemon[sp->defence_client].condition2 & STATUS2_TORMENT
+        || sp->battlemon[sp->defence_client].moveeffect.tauntTurns
+        || sp->battlemon[sp->defence_client].moveeffect.encoredTurns
+        || sp->battlemon[sp->defence_client].moveeffect.healBlockTurns
+        || sp->battlemon[sp->defence_client].moveeffect.disabledTurns
+        ) {
             sp->msg_work = 6; // TODO: Check if this msg_work should have an infatuate const.
-            sp->flingScript = SUB_SEQ_ITEM_RECOVER_INF;
+            sp->flingScript = SUB_SEQ_ITEM_HEAL_MENTAL_CONDITIONS;
         }
-        else if (sp->battlemon[sp->defence_client].condition2 & STATUS2_TORMENT)
-        {
-            // TODO: Torment
-        }
-        // TODO: Add additional cure parameters: Taunt, Encore, Heal Block, and Disable.
         break;
     case STEAL_EFFECT_FLINCH: // King's Rock, Razor Fang
         sp->state_client = battlerId;
@@ -1482,19 +1483,6 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
         break;
     case STEAL_EFFECT_ACC_UP: // Micle Berry
         sp->flingScript = SUB_SEQ_ITEM_ACC_UP_ONCE;
-        break;
-    case STEAL_EFFECT_RESTORE_HP_OR_POISON:
-        if ((BattleRand(bsys) % 2) == 0)
-        {
-            sp->flingData = mod;
-            sp->flingScript = SUB_SEQ_ITEM_HP_RESTORE;
-        }
-        else
-        {
-            sp->state_client = battlerId;
-            sp->addeffect_type = ADD_EFFECT_INDIRECT;
-            sp->flingScript = SUB_SEQ_APPLY_POISON;
-        }
         break;
     default:
         break;

@@ -520,11 +520,16 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
             }
             break;
         }
-        case HOLD_EFFECT_HEAL_INFATUATION: // mental herb
-            if (ctx->battlemon[battlerId].condition2 & STATUS2_ATTRACT) {
-                ctx->msg_work = 6;
-                script = SUB_SEQ_ITEM_RECOVER_INF;
-                ret = TRUE;
+        case HOLD_EFFECT_HEAL_MENTAL_CONDITIONS: // Mental Herb
+            if (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_ATTRACT
+            || ctx->battlemon[ctx->defence_client].condition2 & STATUS2_TORMENT
+            || ctx->battlemon[ctx->defence_client].moveeffect.tauntTurns
+            || ctx->battlemon[ctx->defence_client].moveeffect.encoredTurns
+            || ctx->battlemon[ctx->defence_client].moveeffect.healBlockTurns
+            || ctx->battlemon[ctx->defence_client].moveeffect.disabledTurns
+            ) {
+                ctx->msg_work = 6; // TODO: Check if this msg_work should have an infatuate const.
+                ctx->flingScript = SUB_SEQ_ITEM_HEAL_MENTAL_CONDITIONS;
             }
             break;
         case HOLD_EFFECT_PINCH_ACC_UP: // micle berry
