@@ -1,55 +1,78 @@
 import argparse
-from desmume.emulator import DeSmuME
-from desmume.emulator import DeSmuME_Memory
+
+from desmume.emulator import DeSmuME, DeSmuME_Memory
+
+g_EmulatorCommunicationSendHoleAddress = 0x02FFF81C
+TEST_CASE_PASS = -1
+TEST_CASE_FAIL = -2
+
 
 # Settings
 SHOW_VIDEO_OUTPUT = False
-g_EmulatorCommunicationSendHoleAddress = 0x023df15c
-NUMBER_OF_TESTS_TO_RUN = 1
-hasFinishedTesting = False
+NUMBER_OF_TESTS_TO_RUN = 2
+has_finished_testing_flag = False
+current_test_case = 0
+return_value = 0
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-v', '--video', action='store_true')
+parser.add_argument("-v", "--video", action="store_true")
 
 emu = DeSmuME()
 emu_memory = emu.memory
 memory = DeSmuME_Memory(emu)
 
+
 def read_communication_hole_value():
     return emu_memory.signed[g_EmulatorCommunicationSendHoleAddress]
+
 
 # TODO: Obviously make it not 1
 # Kill the emulator after running 1 test case
 def has_finished_testing():
-    return read_communication_hole_value() == NUMBER_OF_TESTS_TO_RUN
+    return current_test_case == NUMBER_OF_TESTS_TO_RUN + 1
 
 
 def callback_function_when_game_put_thing_into_communication_hole(address, size):
-    if (has_finished_testing()):
-        global hasFinishedTesting
-        hasFinishedTesting = True
+    global current_test_case, has_finished_testing_flag
 
-memory.register_write(g_EmulatorCommunicationSendHoleAddress, callback_function_when_game_put_thing_into_communication_hole)
+    value = read_communication_hole_value()
+
+    # Early return if value is invalid
+    if value == TEST_CASE_FAIL:
+        print(f"[Fail] Test case {current_test_case}")
+    # Check if the value matches the current test case
+    elif value == TEST_CASE_PASS:
+        print(f"[Pass] Test case {current_test_case}")
+
+    current_test_case += 1
+
+
+memory.register_write(
+    g_EmulatorCommunicationSendHoleAddress,
+    callback_function_when_game_put_thing_into_communication_hole,
+)
+
 
 def main():
     args = parser.parse_args()
-    emu.open('test.nds')
-    emu.backup.import_file('test.sav')
+    emu.open("test.nds")
+    emu.backup.import_file("test.sav")
 
     window = None
 
-    if (args.video):
+    if args.video:
         # Create the window for the emulator
         window = emu.create_sdl_window()
 
     # Run the emulation as fast as possible until testing complete
-    while (not hasFinishedTesting):
-        if (window is not None):
+    while not has_finished_testing():
+        if window is not None:
             window.draw()
 
         emu.cycle(False)
 
     print("Tests complete!\n", flush=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

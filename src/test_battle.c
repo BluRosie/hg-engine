@@ -24,11 +24,16 @@ static BOOL g_TestBattleCurrentComplete = FALSE;
 static BOOL g_TestBattleHasMoreTests = FALSE;
 static int g_CurrentTestIndex = TEST_START_INDEX;
 // TODO: there is definitely some better way to do this, so that we don't need to worry if somehow this address is used by something else
-int *g_EmulatorCommunicationSendHole = (int*)0x023df15c;
+int *g_EmulatorCommunicationSendHole = (int*)0x02FFF81C;
 
 struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario()
 {
     return g_CurrentScenario;
+}
+
+BOOL LONG_CALL TestBattle_HasMoreExpectations()
+{
+    return g_CurrentScenario->expectationPassCount != MAX_EXPECTATIONS && g_CurrentScenario->expectations[g_CurrentScenario->expectationPassCount].expectationType != 0;
 }
 
 /**
@@ -116,8 +121,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
 {
     g_TestBattleCurrentComplete = FALSE;
     g_TestBattleHasMoreTests = (g_CurrentTestIndex + 1) < TEST_BATTLE_TOTAL_TESTS;
-    *g_EmulatorCommunicationSendHole = g_CurrentTestIndex;
-    debug_printf("TestBattle: Loading scenario %d of %d (more=%d)\n", g_CurrentTestIndex, TEST_BATTLE_TOTAL_TESTS, g_TestBattleHasMoreTests);
+    debug_printf("TestBattle: Loading scenario %d of %d (more=%d)\n", g_CurrentTestIndex, TEST_BATTLE_TOTAL_TESTS - 1, g_TestBattleHasMoreTests);
 
     ArchiveDataLoadOfs(&g_LoadedScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS, g_CurrentTestIndex * sizeof(struct TestBattleScenario), sizeof(struct TestBattleScenario));
 
@@ -357,6 +361,11 @@ static void LONG_CALL TestBattle_CheckScriptCompletion()
 
     if (TestBattle_TestComplete()) {
         g_TestBattleCurrentComplete = TRUE;
+        if (TestBattle_HasMoreExpectations()) {
+            *g_EmulatorCommunicationSendHole = TEST_CASE_FAIL;
+        } else {
+            *g_EmulatorCommunicationSendHole = TEST_CASE_PASS;
+        }
     }
 }
 

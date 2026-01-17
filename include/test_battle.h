@@ -47,6 +47,8 @@ struct Expectations {
     union ExpectationValue expectationValue;
 };
 
+#define MAX_EXPECTATIONS 8
+
 // Complete test scenario definition
 struct PACKED TestBattleScenario {
     u32 battleType;                           // BATTLE_TYPE_SINGLE, BATTLE_TYPE_DOUBLE, etc.
@@ -60,7 +62,7 @@ struct PACKED TestBattleScenario {
     struct BattleAction playerScript[2][AI_SCRIPT_MAX_MOVES];
     struct BattleAction enemyScript[2][AI_SCRIPT_MAX_MOVES];
 
-    struct Expectations expectations[8];
+    struct Expectations expectations[MAX_EXPECTATIONS];
 
     u8 expectationPassCount;
 };
@@ -86,8 +88,12 @@ struct PACKED TestBattleScenario {
 #define BATTLER_PLAYER_SECOND 2
 #define BATTLER_ENEMY_SECOND  3
 
+#define TEST_CASE_PASS (-1)
+#define TEST_CASE_FAIL (-2)
+
 #ifdef DEBUG_BATTLE_SCENARIOS
 struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario();
+BOOL LONG_CALL TestBattle_HasMoreExpectations();
 BOOL LONG_CALL TestBattle_HasMoreTests();
 BOOL LONG_CALL TestBattle_IsComplete();
 void LONG_CALL TestBattle_QueueNextTest();
