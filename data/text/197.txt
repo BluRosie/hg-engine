@@ -373,9 +373,9 @@ The opposing {STRVAR_1 1, 0, 0}’s move\nis no longer disabled!
 {STRVAR_1 1, 0, 0}\nmust do an encore!
 The wild {STRVAR_1 1, 0, 0}\nmust do an encore!
 The opposing {STRVAR_1 1, 0, 0}\nmust do an encore!
-{STRVAR_1 1, 0, 0} ended\nits encore!
-The wild {STRVAR_1 1, 0, 0} ended\nits encore!
-The opposing {STRVAR_1 1, 0, 0} ended\nits encore!
+{STRVAR_1 1, 0, 0}’s\nencore ended!
+The wild {STRVAR_1 1, 0, 0}’s\nencore ended!
+The opposing {STRVAR_1 1, 0, 0}’s\nencore ended!
 {STRVAR_1 1, 0, 0} took aim at\n{STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} took aim at\nthe wild {STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} took aim at\nthe opposing {STRVAR_1 1, 1, 0}!
