@@ -708,7 +708,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
         case BEFORE_MOVE_STATE_SET_CRASH_FLAG: {
             // handle moves that can "keep going and crash"
             u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
-            if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)
+            if (moveEffect == MOVE_EFFECT_CRASH_ON_MISS || moveEffect == MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS)
                 ctx->server_status_flag |= BATTLE_STATUS_CRASH_DAMAGE;
             ctx->wb_seq_no++;
             FALLTHROUGH;
