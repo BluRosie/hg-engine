@@ -1468,7 +1468,7 @@ Fog crept up as thick as soup!
 A veil of water restored\n{STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe wild {STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe opposing {STRVAR_1 1, 0, 0}’s HP!
-The effects of the weather\ndisappeared.
+The effects of the weather disappeared.
 {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The wild {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The opposing {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
@@ -1609,3 +1609,7 @@ The opposing {STRVAR_1 1, 0, 0} used up\nall its electricity!
 The wild {STRVAR_1 1, 0, 0} lost some of its HP!
 The opposing {STRVAR_1 1, 0, 0}\nlost some of its HP!
 {STRVAR_1 1, 0, 0} hasn’t eaten any held Berries,\nso it can’t possibly belch!
+You are challenged by Totem\n{STRVAR_1 1, 0, 0}!
+{STRVAR_1 1, 0, 0}’s aura flared to life!\nIts {STRVAR_1 13, 1, 0} rose!
+{STRVAR_1 1, 0, 0}’s aura flared to life!\nIts stats rose!
+Can’t flee this fight!

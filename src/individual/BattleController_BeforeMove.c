@@ -1812,7 +1812,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     // Sucker Punch when target doesn't have an eligible move pending
     || (moveEffect == MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING && (ctx->playerActions[ctx->defence_client][3] == CONTROLLER_COMMAND_40 || (ctx->moveTbl[move].power == 0 && !ctx->oneTurnFlag[ctx->defence_client].struggle_flag)))
     // Teleport with nothing to switch to
-    || (moveEffect == MOVE_EFFECT_FLEE_FROM_WILD_BATTLE && (BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER) && !CanSwitchMon(bsys, ctx, ctx->attack_client))
+    || (moveEffect == MOVE_EFFECT_FLEE_FROM_WILD_BATTLE && (BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER || BattleTypeGet(bsys) & BATTLE_TYPE_TOTEM) && !CanSwitchMon(bsys, ctx, ctx->attack_client))
     // TODO: Magic Room
     // Fling / Natural Gift: Embargo or Magic Room are in effect, or ineligible held item, or no item
     || ((moveEffect == MOVE_EFFECT_FLING || moveEffect == MOVE_EFFECT_NATURAL_GIFT) && attackClient.moveeffect.embargoFlag)

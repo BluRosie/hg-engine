@@ -193,6 +193,10 @@
 #define BATTLE_TYPE_CATCHING_DEMO 0x400
 #define BATTLE_TYPE_CAN_LOSE 0x800
 #define BATTLE_TYPE_BUG_CONTEST 0x1000
+#define BATTLE_TYPE_IMPORTED 0x2000
+#define BATTLE_TYPE_TOTEM 0x4000
+
+#define BATTLE_TYPE_DEBUG (1 << 31)
 
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_PAL_PARK)
 
@@ -4080,6 +4084,8 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler);
 void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
 #endif
 
+void LONG_CALL SetupAndStartWildBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL canFlee, BOOL shiny);
+void LONG_CALL SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL shiny);
 
 void LONG_CALL InitBattleMsgData(struct BattleStruct *sp, BattleMessageData *msgdata);
 void LONG_CALL InitBattleMsg(struct BattleSystem *bw, struct BattleStruct *sp, BattleMessageData *msgdata, MESSAGE_PARAM *msg);
