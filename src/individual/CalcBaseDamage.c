@@ -385,6 +385,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         movepower = 60 + 20 * DefendingMon.positiveStatBoosts;
         movepower = movepower > 200 ? 200 : movepower;
         break;
+    case MOVE_POWER_TRIP:
     case MOVE_STORED_POWER:
         movepower = 20 + 20 * AttackingMon.positiveStatBoosts;
         break;
