@@ -55,6 +55,7 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
     SetMonData(mon, MON_DATA_FORM, &form);
     SetMonData(mon, MON_DATA_ABILITY, &ability);
     SetMonData(mon, MON_DATA_HELD_ITEM, &item);
+    SET_MON_NATURE_OVERRIDE(mon, NATURE_HARDY);
 
     // moves
     for (int i = 0; i < 4; i++) {
@@ -450,7 +451,6 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
     }
     (*scriptIndex)++;
 }
-
 
 /**
  * @brief AI move selection for test battles

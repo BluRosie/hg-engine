@@ -147,7 +147,7 @@ REQUIRED_DIRECTORIES += $(BUILD)/a229 $(LEARNSET_OUTPUT_DIR)
 
 BATTLETESTS_TARGET := $(BUILD)/a028/9_16
 BATTLETESTS_DEPENDENCIES := data/BattleTests.c
-BATTLETESTS_TEST_FILES := $(wildcard data/battle_tests/*.c)
+BATTLETESTS_TEST_FILES := $(shell find data/battle_tests -type f -name '*.c' | LC_ALL=C sort)
 BATTLETESTS_OBJS := $(patsubst data/%.c,build/%.o,$(BATTLETESTS_DEPENDENCIES))
 BATTLETESTS_BIN := $(patsubst data/%.c,build/%.bin,$(BATTLETESTS_DEPENDENCIES))
 
