@@ -535,7 +535,7 @@ arm9 DestroyHeap_hook 0201AA24 3
 arm9 PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook 02081E54 0
 arm9 PartyMenu_ItemUseFunc_ReuseItem_hook 0208138C 3
 
-arm9 ScrCmd_BufferItemName 02048510 1
+#arm9 ScrCmd_BufferItemName 02048510 1
 arm9 BufferItemNameWithIndefArticle 0200C100 3
 arm9 BufferItemNamePlural 0200C134 3
 arm9 GetItemDescIntoString 02077D64 3
