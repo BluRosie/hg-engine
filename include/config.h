@@ -180,6 +180,11 @@
 // Park Ball, and Lure Ball.  Comment this line to make the balls behave as they do in Gen 9
 #define INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
 
+// INCLUDE_MOON_BALL_NERF disqualifies all Pokemon that do not directly evolve via Moon Stone (e.g. Nidoran, Clefable) from the Moon Ball's species list.
+// This was done in Gen VII onward for unknown reasons.
+// Uncomment this line to make the ball behave as it does in Gen 7 onwards.
+// #define INCLUDE_MOON_BALL_NERF
+
 // THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN makes the Thunder & Storm map header weathers set permanent
 // Electric Terrain (and rain) in battle
 //#define THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN
