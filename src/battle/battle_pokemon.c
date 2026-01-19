@@ -1435,7 +1435,7 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
             sp->flingScript = SUB_SEQ_BADLY_POISON;
         }
         break;
-    case STEAL_EFFECT_DEF_UP: // Ganlon Berry
+    case STEAL_EFFECT_DEF_UP: // Ganlon Berry, Kee Berry
         if (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12) {
             sp->msg_work = STAT_DEFENSE;
             sp->flingScript = SUB_SEQ_ITEM_STAT_BOOST;
@@ -1453,7 +1453,7 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
             sp->flingScript = SUB_SEQ_ITEM_STAT_BOOST;
         }
         break;
-    case STEAL_EFFECT_SPDEF_UP: // Apicot Berry
+    case STEAL_EFFECT_SPDEF_UP: // Apicot Berry, Maranga Berry
         if (sp->battlemon[sp->defence_client].states[STAT_SPDEF] < 12) {
             sp->msg_work = STAT_SPDEF;
             sp->flingScript = SUB_SEQ_ITEM_STAT_BOOST;
