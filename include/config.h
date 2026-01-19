@@ -190,10 +190,10 @@
 // NATURAL_GIFT_POWER_GEN defines the power of Natural Gift based on generation. Gen 6 or higher are modernized values.
 #define NATURAL_GIFT_POWER_GEN GEN_LATEST
 
-// MEDICINE_HEALING_GEN defines the amount healed by most medicine items. Gen 7 or higher are modernized values.
+// MEDICINE_HEALING_GEN defines the amount healed by most medicine items based on generation. Gen 7 or higher are most modernized values, though flavour berries got another update in Gen 8.
 #define MEDICINE_HEALING_GEN GEN_LATEST
 
-// EV_BONUS_ITEM_GEN defines the bonus EVs given by Power items. Gen 7 or higher are modernized (doubled) values.
+// EV_BONUS_ITEM_GEN defines the bonus EVs given by Power items based on generation. Gen 7 or higher are modernized (doubled) values.
 #define EV_BONUS_ITEM_GEN GEN_LATEST
 
 // BLOCK_LEARNING_UNIMPLEMENTED_MOVES prevents learning moves that are not implemented
