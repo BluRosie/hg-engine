@@ -193,6 +193,9 @@
 // MEDICINE_HEALING_GEN defines the amount healed by most medicine items. Gen 7 or higher are modernized values.
 #define MEDICINE_HEALING_GEN GEN_LATEST
 
+// EV_BONUS_ITEM_GEN defines the bonus EVs given by Power items. Gen 7 or higher are modernized (doubled) values.
+#define EV_BONUS_ITEM_GEN GEN_LATEST
+
 // BLOCK_LEARNING_UNIMPLEMENTED_MOVES prevents learning moves that are not implemented
 // based on the move having FLAG_UNUSABLE_UNIMPLEMENTED
 #define BLOCK_LEARNING_UNIMPLEMENTED_MOVES
