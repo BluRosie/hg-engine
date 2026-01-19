@@ -101,7 +101,7 @@ void Bag_UnregisterItem(BAG_DATA *bag, u16 itemId) {
 }
 
 u32 Bag_GetItemPocket(BAG_DATA *bag, u16 itemId, ITEM_SLOT **ppSlots, u32 *pCount, int heap_id) {
-    u32 pocket = GetItemData(itemId, ITEM_PARAM_POCKET, heap_id);
+    u32 pocket = GetItemData(itemId, ITEM_PARAM_FIELD_POCKET, heap_id);
     switch (pocket) {
     case POCKET_KEY_ITEMS:
         *ppSlots = bag->keyItems;
@@ -583,5 +583,9 @@ BOOL IsPlayerOnLadder(void)
        queueUpAutoBattleScript = 1;
     }
 #endif
-    return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
+    // ladder collisions
+    // bugsy gym
+    // slowpoke well entry
+    // battle tower
+    return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180 || (mapId >= 265 && mapId <= 271));
 }

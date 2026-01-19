@@ -63,7 +63,7 @@ typedef struct ItemPartyUseParam
  */
 typedef struct ItemData
 {
-    u16 price;
+    u16 price;         // Lower 16 bits of price (bits 0-15)
     u8 holdEffect;
     u8 holdEffectParam;
     u8 pluckEffect;
@@ -83,8 +83,14 @@ typedef struct ItemData
         u8 dummy;
         ITEMPARTYPARAM partyUseParam;
     };
-    u8 padding_22[2];
+    u8 price_high:4;   // Upper 4 bits of price (bits 16-19)
+    u8 padding_22:4;
+    u8 padding_23;
 } ITEMDATA;
+
+// Compile-time macro to split price into .price and .price_high fields
+// Usage: ITEM_PRICE(500000) → expands to: .price = 41248, .price_high = 7
+#define ITEM_PRICE(p) .price = ((p) & 0xFFFF), .price_high = (((p) >> 16) & 0xF)
 
 typedef void *(*FieldApplicationWorkCtor)(FieldSystem *fieldSystem);
 
@@ -149,19 +155,19 @@ enum
 {
     ITEM_PARAM_PRICE,
     ITEM_PARAM_HOLD_EFFECT,
-    ITEM_PARAM_ATTACK,
-    ITEM_PARAM_EVENT, // ?
-    ITEM_PARAM_CNV, // ?
-    ITEM_PARAM_POCKET,
+    ITEM_PARAM_HOLD_EFFECT_PARAM,
+    ITEM_PARAM_PREVENT_TOSS,
+    ITEM_PARAM_SELECTABLE,
+    ITEM_PARAM_FIELD_POCKET,
     ITEM_PARAM_FIELD,
     ITEM_PARAM_BATTLE,
     ITEM_PARAM_PLUCK_EFFECT,
     ITEM_PARAM_FLING_EFFECT,
     ITEM_PARAM_FLING_POWER,
-    ITEM_PARAM_NATURAL_POWER_POWER,
-    ITEM_PARAM_NATURAL_POWER_TYPE,
+    ITEM_PARAM_NATURAL_GIFT_POWER,
+    ITEM_PARAM_NATURAL_GIFT_TYPE,
     ITEM_PARAM_BATTLE_POCKET,
-    ITEM_PARAM_ITEM_TYPE,
+    ITEM_PARAM_PARTY,
     ITEM_PARAM_SLEEP_RECOVERY,
     ITEM_PARAM_POISON_RECOVERY,
     ITEM_PARAM_BURN_RECOVERY,
@@ -275,6 +281,7 @@ BOOL LONG_CALL THUMB_FUNC ItemFieldUseFunc_VSRecorder(struct ItemFieldUseData *d
 void *LONG_CALL sub_0203FAE8(FieldSystem *fsys, u32 heapId, u32 itemId);
 void LONG_CALL sub_0203C8F0(struct BagViewAppWork *env, u32 task); // task is a func ptr
 void LONG_CALL RegisteredItem_CreateGoToAppTask(struct ItemFieldUseData *data, FieldApplicationWorkCtor ctorTask, BOOL something);
+s32 LONG_CALL GetItemAttrSub(ITEMPARTYPARAM *param, u16 attrno);
 
 
 // defined in item.c
@@ -285,5 +292,9 @@ void LONG_CALL RegisteredItem_CreateGoToAppTask(struct ItemFieldUseData *data, F
  *  @return item data table allocated on the heap
  */
 void *LONG_CALL ItemDataTableLoad(int heapID);
+
+void *LONG_CALL LoadItemDataOrGfx(u16 itemId, int attrno, int heapID);
+
+s32 LONG_CALL GetItemAttr_PreloadedItemData(struct ItemData *itemData, u16 attrno);
 
 #endif //POKEDIAMOND_ITEM_H

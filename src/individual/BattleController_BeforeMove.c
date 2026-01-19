@@ -262,7 +262,11 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             int seq_no;
 
             if ((ctx->waza_out_check_on_off & SYSCTL_SKIP_OBEDIENCE_CHECK) == 0) {
+#ifdef DEBUG_BATTLE_SCENARIOS
+                ret = 0;
+#else
                 ret = ServerBadgeCheck(bsys, ctx, &seq_no);  // 8013610h
+#endif
                 if (ret) {
                     switch (ret) {
                         case OBEY_CHECK_DO_NOTHING:
@@ -296,7 +300,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
         // TODO implement new mechanics
         case BEFORE_MOVE_STATE_DISPLAY_Z_DANCE_AND_EFFECT: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
-            debug_printf("In BEFORE_MOVE_STATE_DIctxLAY_Z_DANCE_AND_EFFECT\n");
+            debug_printf("In BEFORE_MOVE_STATE_DISPLAY_Z_DANCE_AND_EFFECT\n");
 #endif
 
             ctx->wb_seq_no++;
@@ -387,9 +391,9 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             return;
         }
-        case BEFORE_MOVE_STATE_IMPRISION: {
+        case BEFORE_MOVE_STATE_IMPRISON: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
-            debug_printf("In BEFORE_MOVE_STATE_IMPRISION\n");
+            debug_printf("In BEFORE_MOVE_STATE_IMPRISON\n");
 #endif
 
             if ((ctx->waza_out_check_on_off & SYSCTL_SKIP_STATUS_CHECK) == FALSE) {
@@ -616,7 +620,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
                 // Protean cannot activate if the client is Terastallized
                 && (!ctx->battlemon[ctx->attack_client].is_currently_terastallized)
                 // Protean should activate only once per switch-in if gen 9 behavior
-                && (ctx->battlemon[ctx->attack_client].ability_activated_flag == 0 || PROTEAN_GENERATION < 9)) 
+                && (ctx->battlemon[ctx->attack_client].ability_activated_flag == 0 || PROTEAN_GENERATION < 9))
             {
                 ctx->battlemon[ctx->attack_client].type1 = type;
                 ctx->battlemon[ctx->attack_client].type2 = type;
@@ -1129,7 +1133,6 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_END\n");
 #endif
-
             // TODO: move it to the end of TryMove after the entire overhaul, but this works perfectly fine here
             // Edit: Should be fine after the function merges by Blu
             if (IsValidParentalBondMove(bsys, ctx, FALSE) &&
@@ -1141,7 +1144,6 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = TRUE;
             } else {
                 ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
-                //ctx->wb_seq_no = BEFORE_MOVE_START_FLAG_UNLOAD;
             }
 
             ctx->wb_seq_no = BEFORE_MOVE_START_FLAG_UNLOAD;
@@ -1664,19 +1666,24 @@ void BattleController_CheckThawOut(struct BattleSystem *bsys UNUSED, struct Batt
 
 // TODO: make it so that it doesn't do redundant damage calculations
 void BattleController_CheckSubmove(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
+    u32 currentMoveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+
     // Include Me First here for now
-    if (ctx->current_move_index == MOVE_COPYCAT ||
-        ctx->current_move_index == MOVE_METRONOME ||
-        ctx->current_move_index == MOVE_NATURE_POWER ||
-        ctx->current_move_index == MOVE_SLEEP_TALK ||
-        ctx->current_move_index == MOVE_ME_FIRST) {
+    if (currentMoveEffect == MOVE_EFFECT_USE_RANDOM_ALLY_MOVE
+     || currentMoveEffect == MOVE_EFFECT_USE_LAST_USED_MOVE
+     || currentMoveEffect == MOVE_EFFECT_USE_MOVE_FIRST
+     || currentMoveEffect == MOVE_EFFECT_COPY_MOVE
+     || currentMoveEffect == MOVE_EFFECT_NATURE_POWER
+     || currentMoveEffect == MOVE_EFFECT_USE_RANDOM_LEARNED_MOVE_SLEEP
+     || currentMoveEffect == MOVE_EFFECT_STEAL_STATUS_MOVE) {
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         // Submove announcement guarantees PP deduction.
         ServerPPCheck(bsys, ctx);
         // Technically the cases after Heal Block should not be checked again but functionally it should not matter?
-        ctx->wb_seq_no = BEFORE_MOVE_STATE_HEAL_BLOCK - 1;
+        // - it did functionally matter, had to move it to stance change
+        ctx->wb_seq_no = BEFORE_MOVE_STATE_STANCE_CHANGE - 1;
         return;
     }
 }
@@ -1994,7 +2001,8 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
 BOOL BattleController_CheckInterruptibleMoves(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     int effect = ctx->moveTbl[ctx->current_move_index].effect;
     if (effect == MOVE_EFFECT_HIT_IN_3_TURNS) {
-        ctx->server_seq_no = CONTROLLER_COMMAND_25;
+        ctx->wb_seq_no = BEFORE_MOVE_END;
+        //ctx->server_seq_no = CONTROLLER_COMMAND_25;
         return TRUE;
     }
     return FALSE;
@@ -2313,7 +2321,7 @@ BOOL BattleController_CheckProtect(struct BattleSystem *bsys, struct BattleStruc
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_PROTECTED;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED);
-            
+
             if (protectedMoveMessage > 0) {
                 ctx->mp.msg_id = BATTLE_MSG_MOVE_PROTECTED_SIDE;
                 ctx->mp.msg_tag = TAG_NICKNAME_MOVE;
@@ -4300,6 +4308,8 @@ BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys U
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLAY_EAT_BERRY_ANIMATION);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, defender)][ctx->sel_mons_no[defender]].berryEatenAndCanBelch = TRUE;
+
         return TRUE;
     }
     return FALSE;

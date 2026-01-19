@@ -135,18 +135,18 @@ a {COLOR 255}Battle Pocket{COLOR 0}
 a {COLOR 255}Sweet Heart{COLOR 0}
 an {COLOR 255}Adamant Orb{COLOR 0}
 a {COLOR 255}Lustrous Orb{COLOR 0}
-a {COLOR 255}piece of Greet Mail{COLOR 0}
-a {COLOR 255}piece of Favored Mail{COLOR 0}
-a {COLOR 255}piece of RSVP Mail{COLOR 0}
-a {COLOR 255}piece of Thanks Mail{COLOR 0}
-a {COLOR 255}piece of Inquiry Mail{COLOR 0}
-a {COLOR 255}piece of Like Mail{COLOR 0}
-a {COLOR 255}piece of Reply Mail{COLOR 0}
-a {COLOR 255}piece of Bridge Mail S{COLOR 0}
-a {COLOR 255}piece of Bridge Mail D{COLOR 0}
-a {COLOR 255}piece of Bridge Mail T{COLOR 0}
-a {COLOR 255}piece of Bridge Mail V{COLOR 0}
-a {COLOR 255}piece of Bridge Mail M{COLOR 0}
+a {COLOR 255}piece of Grass Mail{COLOR 0}
+a {COLOR 255}piece of Flame Mail{COLOR 0}
+a {COLOR 255}piece of Bubble Mail{COLOR 0}
+a {COLOR 255}piece of Bloom Mail{COLOR 0}
+a {COLOR 255}piece of Tunnel Mail{COLOR 0}
+a {COLOR 255}piece of Steel Mail{COLOR 0}
+a {COLOR 255}piece of Heart Mail{COLOR 0}
+a {COLOR 255}piece of Snow Mail{COLOR 0}
+a {COLOR 255}piece of Space Mail{COLOR 0}
+a {COLOR 255}piece of Air Mail{COLOR 0}
+a {COLOR 255}piece of Mosaic Mail{COLOR 0}
+a {COLOR 255}piece of Brick Mail{COLOR 0}
 a {COLOR 255}Cheri Berry{COLOR 0}
 a {COLOR 255}Chesto Berry{COLOR 0}
 a {COLOR 255}Pecha Berry{COLOR 0}
