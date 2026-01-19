@@ -4229,10 +4229,6 @@
   "SPECIES_SANDSLASH": {
     "LevelMoves": [
       {
-        "Level": 0,
-        "Move": "MOVE_SLASH"
-      },
-      {
         "Level": 1,
         "Move": "MOVE_SCRATCH"
       },
@@ -4282,7 +4278,7 @@
       },
       {
         "Level": 36,
-        "Move": "MOVE_X_SCISSOR"
+        "Move": "MOVE_SLASH"
       },
       {
         "Level": 41,
@@ -4298,11 +4294,11 @@
       },
       {
         "Level": 56,
-        "Move": "MOVE_EARTHQUAKE"
+        "Move": "MOVE_SANDSTORM"
       },
       {
         "Level": 61,
-        "Move": "MOVE_SANDSTORM"
+        "Move": "MOVE_EARTHQUAKE"
       }
     ],
     "MachineMoves": [
@@ -12936,7 +12932,7 @@
       },
       {
         "Level": 10,
-        "Move": "MOVE_ROCK_THROW"
+        "Move": "MOVE_ROLLOUT"
       },
       {
         "Level": 12,
@@ -12944,7 +12940,7 @@
       },
       {
         "Level": 16,
-        "Move": "MOVE_ROLLOUT"
+        "Move": "MOVE_ROCK_THROW"
       },
       {
         "Level": 18,
@@ -28053,11 +28049,11 @@
       },
       {
         "Level": 6,
-        "Move": "MOVE_EMBER"
+        "Move": "MOVE_SMOKESCREEN"
       },
       {
         "Level": 10,
-        "Move": "MOVE_SMOKESCREEN"
+        "Move": "MOVE_EMBER"
       },
       {
         "Level": 13,
@@ -40133,58 +40129,30 @@
     "LevelMoves": [
       {
         "Level": 1,
-        "Move": "MOVE_WATER_GUN"
+        "Move": "MOVE_BUBBLE"
       },
       {
-        "Level": 1,
-        "Move": "MOVE_HELPING_HAND"
-      },
-      {
-        "Level": 4,
-        "Move": "MOVE_WATER_PULSE"
-      },
-      {
-        "Level": 8,
-        "Move": "MOVE_FOCUS_ENERGY"
+        "Level": 6,
+        "Move": "MOVE_ACID_SPRAY"
       },
       {
         "Level": 11,
         "Move": "MOVE_CHARGE_BEAM"
       },
       {
-        "Level": 14,
-        "Move": "MOVE_PSYBEAM"
+        "Level": 18,
+        "Move": "MOVE_WATER_PULSE"
       },
       {
-        "Level": 16,
-        "Move": "MOVE_AURORA_BEAM"
-      },
-      {
-        "Level": 20,
-        "Move": "MOVE_BUBBLE_BEAM"
-      },
-      {
-        "Level": 24,
-        "Move": "MOVE_LOCK_ON"
-      },
-      {
-        "Level": 28,
-        "Move": "MOVE_BULLET_SEED"
-      },
-      {
-        "Level": 32,
+        "Level": 25,
         "Move": "MOVE_ICE_BEAM"
       },
       {
-        "Level": 36,
+        "Level": 34,
         "Move": "MOVE_HYDRO_PUMP"
       },
       {
-        "Level": 40,
-        "Move": "MOVE_SOAK"
-      },
-      {
-        "Level": 44,
+        "Level": 43,
         "Move": "MOVE_HYPER_BEAM"
       }
     ],
@@ -40297,66 +40265,30 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_GUNK_SHOT"
+        "Move": "MOVE_BUBBLE"
       },
       {
-        "Level": 1,
-        "Move": "MOVE_ROCK_BLAST"
+        "Level": 6,
+        "Move": "MOVE_ACID_SPRAY"
       },
       {
-        "Level": 1,
-        "Move": "MOVE_WATER_GUN"
+        "Level": 11,
+        "Move": "MOVE_CHARGE_BEAM"
       },
       {
-        "Level": 1,
-        "Move": "MOVE_WRAP"
-      },
-      {
-        "Level": 1,
+        "Level": 18,
         "Move": "MOVE_WATER_PULSE"
       },
       {
-        "Level": 1,
-        "Move": "MOVE_FOCUS_ENERGY"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_OCTAZOOKA"
-      },
-      {
-        "Level": 12,
-        "Move": "MOVE_PSYBEAM"
-      },
-      {
-        "Level": 16,
-        "Move": "MOVE_AURORA_BEAM"
-      },
-      {
-        "Level": 20,
-        "Move": "MOVE_BUBBLE_BEAM"
-      },
-      {
-        "Level": 24,
-        "Move": "MOVE_LOCK_ON"
-      },
-      {
-        "Level": 30,
-        "Move": "MOVE_BULLET_SEED"
-      },
-      {
-        "Level": 36,
+        "Level": 25,
         "Move": "MOVE_ICE_BEAM"
       },
       {
-        "Level": 42,
+        "Level": 34,
         "Move": "MOVE_HYDRO_PUMP"
       },
       {
-        "Level": 48,
-        "Move": "MOVE_HYDRO_PUMP"
-      },
-      {
-        "Level": 54,
+        "Level": 43,
         "Move": "MOVE_HYPER_BEAM"
       }
     ],
@@ -135562,7 +135494,7 @@
       },
       {
         "Level": 10,
-        "Move": "MOVE_ROCK_THROW"
+        "Move": "MOVE_ROLLOUT"
       },
       {
         "Level": 12,
@@ -135570,7 +135502,7 @@
       },
       {
         "Level": 16,
-        "Move": "MOVE_ROLLOUT"
+        "Move": "MOVE_ROCK_THROW"
       },
       {
         "Level": 18,
