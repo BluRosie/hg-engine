@@ -399,8 +399,9 @@
 #define MOVE_EFFECT_REMOVE_USER_FIRE_TYPE_HIT               393
 #define MOVE_EFFECT_REMOVE_USER_ELECTRIC_TYPE_HIT           394
 #define MOVE_EFFECT_FORCE_SWITCH_HIT                        395
+#define MOVE_EFFECT_BELCH                                   396
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            395
+#define MAX_BASE_MOVE_EFFECT_NUM                            396
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
