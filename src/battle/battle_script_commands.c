@@ -4534,7 +4534,7 @@ BOOL btl_scr_cmd_110_BatchEffectivenessMessage(void *bsys, struct BattleStruct *
         msgTargetType = (BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER) ? 2 : 1;
     }
 
-    int baseMsgId = (flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE) ? 1610 : 1634;
+    int baseMsgId = (flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE) ? BATTLE_MSG_BASE_SUPER_EFFECTIVE_BATCH : BATTLE_MSG_BASE_NOT_VERY_EFFECTIVE_BATCH;
     ctx->mp.msg_id = baseMsgId + (count - 1) * 3 + msgTargetType;
     ctx->mp.msg_tag = ((count == 1) ? TAG_NICKNAME : TAG_NICKNAME_NICKNAME) | 0x80;
     ctx->mp.msg_para[0] = CreateNicknameTag(ctx, list[0]);
