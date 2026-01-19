@@ -196,6 +196,9 @@
 // EV_BONUS_ITEM_GEN defines the bonus EVs given by Power items based on generation. Gen 7 or higher are modernized (doubled) values.
 #define EV_BONUS_ITEM_GEN GEN_LATEST
 
+// X_ITEM_GEN defines the stat stage boost given by X items based on generation. Gen 7 or higher are modernized (doubled) stage boosts.
+#define X_ITEM_GEN GEN_LATEST
+
 // BLOCK_LEARNING_UNIMPLEMENTED_MOVES prevents learning moves that are not implemented
 // based on the move having FLAG_UNUSABLE_UNIMPLEMENTED
 #define BLOCK_LEARNING_UNIMPLEMENTED_MOVES
