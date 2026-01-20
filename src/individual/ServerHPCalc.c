@@ -152,11 +152,24 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
             sp->battlerIdTemp = sp->defence_client;
             sp->hp_calc_work = sp->damage;
 
+            if (IS_SPREAD_MOVE(sp) && !(sp->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE)) {
+                sp->server_status_flag |= SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE;
+            }
+
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
             sp->server_seq_no = 22;
             sp->next_server_seq_no = 29;
 
-            sp->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+            if (sp->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE) {
+                sp->damageForSpreadMoves[sp->defence_client] = sp->damage;
+                sp->server_seq_no = 29;
+                sp->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+            } else {
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
+                sp->server_seq_no = 22;
+                sp->next_server_seq_no = 29;
+                sp->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+            }
         }
     }
     else
