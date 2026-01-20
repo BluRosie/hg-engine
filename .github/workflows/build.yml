@@ -2,7 +2,7 @@ name: build
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -35,7 +35,7 @@ jobs:
       - name: Checkout Repo (decomp)
         uses: actions/checkout@v6
         with:
-          repository: 'pret/pokeheartgold'
+          repository: "pret/pokeheartgold"
 
       - name: Setup Repo (decomp)
         run: |
@@ -96,4 +96,7 @@ jobs:
         run: |
           unset CC
           unset CXX
-          make -j$(nproc)
+          make AUTO_TEST=Y -j$(nproc)
+      - name: Run tests
+        run: |
+          scripts/run_tests.sh
