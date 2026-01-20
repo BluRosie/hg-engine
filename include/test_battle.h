@@ -93,6 +93,7 @@ struct PACKED TestBattleScenario {
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario();
+void LONG_CALL SendValueThroughCommunicationSendHole(int value);
 BOOL LONG_CALL TestBattle_HasMoreExpectations();
 BOOL LONG_CALL TestBattle_HasMoreTests();
 BOOL LONG_CALL TestBattle_IsComplete();

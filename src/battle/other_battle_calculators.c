@@ -1400,7 +1400,11 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 
     if
     (
+#ifdef DEBUG_BATTLE_SCENARIOS
+        FALSE
+#else
         BattleRand(bw) % CriticalRateTable[temp] == 0
+#endif
         || (ability == ABILITY_MERCILESS && (defender_condition & STATUS_POISON_ALL))
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_ALWAYS_CRITICAL)
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL)

@@ -12,6 +12,10 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../../include/test_battle.h"
+#endif // DEBUG_BATTLE_SCENARIOS
+
 // function declarations
 //BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp);
@@ -983,6 +987,38 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
         newBS.itemsToRestore[i] = 0;
     }
 #endif // RESTORE_ITEMS_AT_BATTLE_END
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+
+struct TestBattleScenario *currentScenario = TestBattle_GetCurrentScenario();
+
+while (TestBattle_HasMoreExpectations()) {
+    // debug_printf("Has more expectations\n");
+    // debug_printf("expectation: %d\n", currentScenario->expectations[currentScenario->expectationPassCount].expectationType);
+    if (currentScenario->expectations[currentScenario->expectationPassCount].expectationType == EXPECTATION_OVERWORLD_FORM) {
+        // debug_printf("Checking form\n");
+        struct Party *party = SaveData_GetPlayerPartyPtr(SaveBlock2_get());
+        struct PartyPokemon partyPokemon = party->members[currentScenario->expectations[currentScenario->expectationPassCount].battlerIDOrPartySlot];
+        int expectedForm = currentScenario->expectations[currentScenario->expectationPassCount].expectationValue.formID;
+        // debug_printf("expected form %d\n", expectedForm);
+        if (GetMonData(&partyPokemon, MON_DATA_FORM, NULL) == expectedForm) {
+            // debug_printf("Form matches expectation\n");
+            currentScenario->expectationPassCount++;
+        }
+    } else {
+        // debug_printf("Break\n");
+        break;
+    }
+}
+
+if (TestBattle_HasMoreExpectations()) {
+    SendValueThroughCommunicationSendHole(TEST_CASE_FAIL);
+} else {
+    SendValueThroughCommunicationSendHole(TEST_CASE_PASS);
+}
+
+#endif // DEBUG_BATTLE_SCENARIOS
+
 }
 
 /**

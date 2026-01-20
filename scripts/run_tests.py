@@ -1,10 +1,24 @@
 import argparse
+import sys
 
 from desmume.emulator import DeSmuME, DeSmuME_Memory
 
 g_EmulatorCommunicationSendHoleAddress = 0x02FFF81C
 TEST_CASE_PASS = -1
 TEST_CASE_FAIL = -2
+
+
+# https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal
+class bcolors:
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKCYAN = "\033[96m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
 
 
 # Settings
@@ -33,16 +47,17 @@ def has_finished_testing():
 
 
 def callback_function_when_game_put_thing_into_communication_hole(address, size):
-    global current_test_case, has_finished_testing_flag
+    global current_test_case, has_finished_testing_flag, return_value
 
     value = read_communication_hole_value()
 
     # Early return if value is invalid
     if value == TEST_CASE_FAIL:
-        print(f"[Fail] Test case {current_test_case}")
+        print(f"{bcolors.FAIL}[Fail] Test case {current_test_case}{bcolors.ENDC}")
+        return_value += 1
     # Check if the value matches the current test case
     elif value == TEST_CASE_PASS:
-        print(f"[Pass] Test case {current_test_case}")
+        print(f"{bcolors.OKGREEN}[Pass] Test case {current_test_case}{bcolors.ENDC}")
 
     current_test_case += 1
 
@@ -72,6 +87,7 @@ def main():
         emu.cycle(False)
 
     print("Tests complete!\n", flush=True)
+    sys.exit(return_value)
 
 
 if __name__ == "__main__":

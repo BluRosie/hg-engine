@@ -26,6 +26,10 @@ static int g_CurrentTestIndex = TEST_START_INDEX;
 // TODO: there is definitely some better way to do this, so that we don't need to worry if somehow this address is used by something else
 int *g_EmulatorCommunicationSendHole = (int*)0x02FFF81C;
 
+void LONG_CALL SendValueThroughCommunicationSendHole(int value) {
+    *g_EmulatorCommunicationSendHole = value;
+}
+
 struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario()
 {
     return g_CurrentScenario;
@@ -362,11 +366,11 @@ static void LONG_CALL TestBattle_CheckScriptCompletion()
 
     if (TestBattle_TestComplete()) {
         g_TestBattleCurrentComplete = TRUE;
-        if (TestBattle_HasMoreExpectations()) {
-            *g_EmulatorCommunicationSendHole = TEST_CASE_FAIL;
-        } else {
-            *g_EmulatorCommunicationSendHole = TEST_CASE_PASS;
-        }
+        // if (TestBattle_HasMoreExpectations()) {
+        //     *g_EmulatorCommunicationSendHole = TEST_CASE_FAIL;
+        // } else {
+        //     *g_EmulatorCommunicationSendHole = TEST_CASE_PASS;
+        // }
     }
 }
 

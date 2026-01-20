@@ -583,13 +583,6 @@ BOOL IsPlayerOnLadder(void)
 #ifdef DEBUG_BATTLE_SCENARIOS
     if (queueUpAutoBattleScript == 0 || TestBattle_HasMoreTests())
     {
-        // TODO
-        // if (TestBattle_HasMoreExpectations()) {
-        //     if (g_CurrentScenario->expectations[g_CurrentScenario->expectationPassCount].expectationType == EXPECTATION_OVERWORLD_FORM) {
-
-        //     }
-        // }
-
        EventSet_Script(gFieldSysPtr, 2073, NULL);
        TestBattle_QueueNextTest();
        queueUpAutoBattleScript = 1;
