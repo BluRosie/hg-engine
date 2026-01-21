@@ -158,6 +158,7 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
 
     u8 friendship = 255;
     SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
+    RecalcPartyPokemonStats(mon);
 }
 
 /**

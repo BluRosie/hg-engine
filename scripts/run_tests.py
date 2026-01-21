@@ -23,9 +23,12 @@ class bcolors:
 
 # Settings
 SHOW_VIDEO_OUTPUT = False
-NUMBER_OF_TESTS_TO_RUN = 2
+NUMBER_OF_TESTS_TO_RUN = 3
+TEST_START_INDEX = 0
+
+
 has_finished_testing_flag = False
-current_test_case = 0
+current_test_case = TEST_START_INDEX
 return_value = 0
 
 parser = argparse.ArgumentParser()
@@ -43,7 +46,7 @@ def read_communication_hole_value():
 # TODO: Obviously make it not 1
 # Kill the emulator after running 1 test case
 def has_finished_testing():
-    return current_test_case == NUMBER_OF_TESTS_TO_RUN + 1
+    return current_test_case == NUMBER_OF_TESTS_TO_RUN
 
 
 def callback_function_when_game_put_thing_into_communication_hole(address, size):

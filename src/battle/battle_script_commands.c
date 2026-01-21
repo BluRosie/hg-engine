@@ -4592,19 +4592,19 @@ BOOL LONG_CALL BtlCmd_BufferLocalMessage(struct BattleSystem *bsys, struct Battl
 
     BattleController_EmitPrintMessage(bsys, ctx, &msg);
 
-// #ifdef DEBUG_BATTLE_SCENARIOS
-//     // debug_printf("BufferLocalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
-//     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
-//     if (scenario != NULL && TestBattle_HasMoreExpectations()) {
-//         // debug_printf("Has more expectations\n")
-//         if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_MESSAGE) {
-//             if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == msg.msg_id) {
-//                 scenario->expectationPassCount++;
-//             }
-//             // debug_printf("\n");
-//         }
-//     }
-// #endif // DEBUG_BATTLE_SCENARIOS
+#ifdef DEBUG_BATTLE_SCENARIOS
+    // debug_printf("BufferLocalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+    struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+    if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+        // debug_printf("Has more expectations\n")
+        if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_MESSAGE) {
+            if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == msg.msg_id) {
+                scenario->expectationPassCount++;
+            }
+            // debug_printf("\n");
+        }
+    }
+#endif // DEBUG_BATTLE_SCENARIOS
 
     return FALSE;
 }
