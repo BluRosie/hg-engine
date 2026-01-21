@@ -93,3 +93,4 @@ _CalcDamage:
     CalcCrit 
     CalcDamage 
     End
+    

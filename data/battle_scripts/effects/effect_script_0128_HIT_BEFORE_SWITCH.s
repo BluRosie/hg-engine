@@ -3,7 +3,6 @@
 .data
 
 // Called by Pursuit.
-// ...for some reason.
 _Start:
     CalcCrit 
     CalcDamage 

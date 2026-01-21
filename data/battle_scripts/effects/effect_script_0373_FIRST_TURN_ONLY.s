@@ -3,7 +3,6 @@
 .data
 
 // Called by First Impression.
-// ...for some reason.
 _Start:
     CalcCrit 
     CalcDamage 
