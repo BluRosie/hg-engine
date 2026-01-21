@@ -15,24 +15,15 @@ _CheckFlowerVeil:
     GoTo _CheckIfGrounded
 
 _SingleFlowerVeilGrassCheck:
-    GoToIfTerastallized BATTLER_CATEGORY_SIDE_EFFECT_MON, _SingleFlowerVeilGrassCheck_Tera
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _AbilityBlock
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _AbilityBlock
-    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _AbilityBlock
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _ImmuneDueToAbility
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _ImmuneDueToAbility
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _ImmuneDueToAbility
     GoTo _CheckIfGrounded
 
 _DoubleFlowerVeilGrassCheck:
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _DoubleFlowerVeilHandle
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _DoubleFlowerVeilHandle
-    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _DoubleFlowerVeilHandle
-    GoTo _CheckIfGrounded
-
-_SingleFlowerVeilGrassCheck_Tera:
-    GoToIfTeraType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _AbilityBlock
-    GoTo _CheckIfGrounded
-
-_DoubleFlowerVeilGrassCheck_Tera:
-    GoToIfTeraType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _DoubleFlowerVeilHandle
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _FlowerVeilAllyFail
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _FlowerVeilAllyFail
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _FlowerVeilAllyFail
 
 _CheckIfGrounded:
     GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _CheckTerrain
