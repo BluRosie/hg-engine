@@ -21,7 +21,7 @@
 
 ## Features:
 * Dex Expansion (through Gen 6 almost entirely implemented)
-* Ability Expansion (through Gen 6 almost entirely implemented)
+* Ability Expansion up to 512 (through Gen 6 almost entirely implemented)
 * Move Expansion with future generation moves
 * Item Expansion with future generation items
 * Mega Evolutions + Primal Reversions
@@ -40,13 +40,13 @@
 If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Setup Instructions (Linux with apt)
-1. In a Terminal window, run the following commands:
+1. In a Terminal window, run the following command:
     * ```sudo apt-get install libpng-dev build-essential cmake python3-pip python3-venv git automake autoconf gcc-arm-none-eabi pkg-config```
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Setup Instructions (Linux with apk)
-1. In a Terminal window, run the following commands:
+1. In a Terminal window, run the following command:
     * ```apk add libpng-dev build-base cmake python3 git automake autoconf```
     * Grab your Alpine Linux version using the command `grep PRETTY_NAME /etc/os-release`.  I get `PRETTY_NAME='Alpine Linux v3.14'`, so my version is `v3.14`.  Substitute that into the next command for `[version]`.
     * ```apk add --no-cache binutils-arm-none-eabi gcc-arm-none-eabi newlib-arm-none-eabi --repository http://dl-cdn.alpinelinux.org/alpine/[version]/community```
@@ -54,8 +54,14 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 
 
 ## Setup Instructions (Linux with dnf or yum)
-1. In a Terminal window, run the following commands (replace `dnf` with `yum` if applicable):
+1. In a Terminal window, run the following command (replace `dnf` with `yum` if applicable):
     * ```sudo dnf install libpng-devel arm-none-eabi-gcc-cs arm-none-eabi-newlib.noarch cmake python3 git automake autoconf make```
+2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
+
+
+## Setup Instructions (Linux with pacman)
+1. In a Terminal window, run the following command:
+    * ```sudo pacman -S libpng cmake python-pip python git automake autoconf arm-none-eabi-gcc arm-none-eabi-newlib pkg-config base-devel```
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 

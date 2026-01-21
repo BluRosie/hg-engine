@@ -293,4 +293,8 @@ s32 LONG_CALL GetItemAttrSub(ITEMPARTYPARAM *param, u16 attrno);
  */
 void *LONG_CALL ItemDataTableLoad(int heapID);
 
+void *LONG_CALL LoadItemDataOrGfx(u16 itemId, int attrno, int heapID);
+
+s32 LONG_CALL GetItemAttr_PreloadedItemData(struct ItemData *itemData, u16 attrno);
+
 #endif //POKEDIAMOND_ITEM_H

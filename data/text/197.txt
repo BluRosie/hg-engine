@@ -618,7 +618,7 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!
 The wild {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
 The opposing {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
 It started to rain!
-
+This move is unimplemented or dexited!\r
 (Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its {STRVAR_1 13, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}!
@@ -1599,3 +1599,13 @@ The bursting flame hit {STRVAR_1 1, 0, 0}!
 The bursting flame hit the wild\n{STRVAR_1 1, 0, 0}!
 The bursting flame hit the\nopposing {STRVAR_1 1, 0, 0}!
 A deluge of ions showers\nthe battlefield!
+{STRVAR_1 1, 0, 0} burned itself out!
+The wild {STRVAR_1 1, 0, 0} burned itself out!
+The opposing {STRVAR_1 1, 0, 0}\nburned itself out!
+{STRVAR_1 1, 0, 0} used up all\nits electricity!
+The wild {STRVAR_1 1, 0, 0} used up\nall its electricity!
+The opposing {STRVAR_1 1, 0, 0} used up\nall its electricity!
+{STRVAR_1 1, 0, 0} lost some of its HP!
+The wild {STRVAR_1 1, 0, 0} lost some of its HP!
+The opposing {STRVAR_1 1, 0, 0}\nlost some of its HP!
+{STRVAR_1 1, 0, 0} hasn’t eaten any held Berries,\nso it can’t possibly belch!
