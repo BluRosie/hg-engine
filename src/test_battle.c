@@ -12,7 +12,7 @@
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 
-#define TEST_BATTLE_TOTAL_TESTS 3 // Adjust as needed
+#define TEST_BATTLE_TOTAL_TESTS 4 // Adjust as needed
 #define TEST_START_INDEX        0
 
 // Layout:
@@ -88,8 +88,8 @@ static void AllocAndLoadScenario(void) {
     FreeCurrentScenario();
     sCurrentScenario = sys_AllocMemory(HEAPID_DEFAULT, sizeof(struct TestBattleScenario));
     if (sCurrentScenario != NULL) {
-        int testIndex = GetCurrentTestIndex();
-        ArchiveDataLoadOfs(sCurrentScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS,
+    int testIndex = GetCurrentTestIndex();
+    ArchiveDataLoadOfs(sCurrentScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS,
                            testIndex * sizeof(struct TestBattleScenario), sizeof(struct TestBattleScenario));
     }
 }
@@ -203,7 +203,6 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
     int testIndex = GetCurrentTestIndex();
     SetTestComplete(FALSE);
     SetHasMoreTests((testIndex + 1) < TEST_BATTLE_TOTAL_TESTS);
-    debug_printf("TestBattle: Loading scenario %d of %d (more=%d)\n", testIndex, TEST_BATTLE_TOTAL_TESTS - 1, HasMoreTests());
 
     AllocAndLoadScenario();
     if (sCurrentScenario == NULL) {
