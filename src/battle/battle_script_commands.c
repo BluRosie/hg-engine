@@ -17,6 +17,10 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../../include/test_battle.h"
+#endif
+
 struct EXP_CALCULATOR
 {
     /* 0x00 */ void *bw;
@@ -4459,9 +4463,21 @@ BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruc
     InitBattleMsgData(ctx, &msgdata);
     InitBattleMsg(bsys, ctx, &msgdata, &msg);
     BattleController_EmitPrintMessage(bsys, ctx, &msg);
+
 #ifdef DEBUG_BATTLE_SCENARIOS
-    debug_printf("PrintMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+    // debug_printf("PrintMessage: msg_id %d, attacker %d, defender %d\n", msg.msg_id, ctx->attack_client, ctx->defence_client);
+    struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+    if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+        // debug_printf("Has more expectations\n")
+        if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_MESSAGE) {
+            if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == msg.msg_id) {
+                scenario->expectationPassCount++;
+            }
+            // debug_printf("\n");
+        }
+    }
 #endif // DEBUG_BATTLE_SCENARIOS
+
     return FALSE;
 }
 
@@ -4471,9 +4487,21 @@ BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct Battl
 
     if (!(ctx->server_status_flag & BATTLE_STATUS_NO_ATTACK_MESSAGE)) {
         BattleController_EmitPrintAttackMessage(bsys, ctx);
-#ifdef DEBUG_BATTLE_SCENARIOS
-        debug_printf("PrintAttackMessage: msg_id %d, attacker %d, defender %d", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
-#endif // DEBUG_BATTLE_SCENARIOS
+
+// #ifdef DEBUG_BATTLE_SCENARIOS
+//     // debug_printf("PrintAttackMessage: msg_id %d, attacker %d, defender %d\n", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
+//     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+//     if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+//         // debug_printf("Has more expectations\n")
+//         if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_ATTACK_MESSAGE) {
+//             if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == ctx->mp.msg_id) {
+//                 scenario->expectationPassCount++;
+//             }
+//             // debug_printf("\n");
+//         }
+//     }
+// #endif // DEBUG_BATTLE_SCENARIOS
+
     }
 
     ctx->server_status_flag |= BATTLE_STATUS_NO_ATTACK_MESSAGE;
@@ -4495,9 +4523,21 @@ BOOL LONG_CALL BtlCmd_PrintGlobalMessage(struct BattleSystem *bsys, struct Battl
     msg.msg_tag |= 128;
 
     BattleController_EmitPrintMessage(bsys, ctx, &msg);
-#ifdef DEBUG_BATTLE_SCENARIOS
-    debug_printf("PrintGlobalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
-#endif // DEBUG_BATTLE_SCENARIOS
+
+// #ifdef DEBUG_BATTLE_SCENARIOS
+//     // debug_printf("PrintGlobalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+//     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+//     if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+//         // debug_printf("Has more expectations\n")
+//         if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_MESSAGE) {
+//             if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == msg.msg_id) {
+//                 scenario->expectationPassCount++;
+//             }
+//             // debug_printf("\n");
+//         }
+//     }
+// #endif // DEBUG_BATTLE_SCENARIOS
+
     return FALSE;
 }
 
@@ -4505,9 +4545,21 @@ BOOL LONG_CALL BtlCmd_PrintBufferedMessage(struct BattleSystem *bsys, struct Bat
 {
     IncrementBattleScriptPtr(ctx, 1);
     BattleController_EmitPrintMessage(bsys, ctx, &ctx->mp);
-#ifdef DEBUG_BATTLE_SCENARIOS
-    debug_printf("PrintBufferedMessage: msg_id %d, attacker %d, defender %d", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
-#endif // DEBUG_BATTLE_SCENARIOS
+
+// #ifdef DEBUG_BATTLE_SCENARIOS
+//     // debug_printf("PrintBufferedMessage: msg_id %d, attacker %d, defender %d", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
+//     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+//     if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+//         // debug_printf("Has more expectations\n")
+//         if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_MESSAGE) {
+//             if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == ctx->mp.msg_id) {
+//                 scenario->expectationPassCount++;
+//             }
+//             // debug_printf("\n");
+//         }
+//     }
+// #endif // DEBUG_BATTLE_SCENARIOS
+
     return FALSE;
 }
 
@@ -4539,8 +4591,20 @@ BOOL LONG_CALL BtlCmd_BufferLocalMessage(struct BattleSystem *bsys, struct Battl
     msg.msg_client = GrabClientFromBattleScriptParam(bsys, ctx, side);
 
     BattleController_EmitPrintMessage(bsys, ctx, &msg);
-#ifdef DEBUG_BATTLE_SCENARIOS
-    debug_printf("BufferLocalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
-#endif // DEBUG_BATTLE_SCENARIOS
+
+// #ifdef DEBUG_BATTLE_SCENARIOS
+//     // debug_printf("BufferLocalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+//     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+//     if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+//         // debug_printf("Has more expectations\n")
+//         if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_MESSAGE) {
+//             if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == msg.msg_id) {
+//                 scenario->expectationPassCount++;
+//             }
+//             // debug_printf("\n");
+//         }
+//     }
+// #endif // DEBUG_BATTLE_SCENARIOS
+
     return FALSE;
 }

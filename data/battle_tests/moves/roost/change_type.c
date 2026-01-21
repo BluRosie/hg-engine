@@ -96,9 +96,9 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 44, 44, 44, 44, 48, 48, 48, 48, 48, 48, 50, 50, 50, 50, 50, 54 } },
-            // { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SUPER_EFFECTIVE }, // TODO: wait for message hook functionality
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SUPER_EFFECTIVE }, // TODO: wait for message hook functionality
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13 } },
-            // { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_NOT_VERY_EFFECTIVE }, // TODO: wait for message hook functionality
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_NOT_VERY_EFFECTIVE }, // TODO: wait for message hook functionality
         } },
 #ifndef GET_TEST_CASE_ONLY
 };
