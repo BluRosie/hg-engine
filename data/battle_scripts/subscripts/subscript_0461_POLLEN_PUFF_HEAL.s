@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     PrintAttackMessage 
     Wait 
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HEAL_BLOCK_TURNS, 0, _HealBlockAttacker

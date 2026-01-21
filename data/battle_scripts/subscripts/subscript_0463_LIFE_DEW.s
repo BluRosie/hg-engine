@@ -2,12 +2,12 @@
 
 .data
 
-_000:
+_Start:
     PrintAttackMessage 
     Wait 
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_MAXHP, BSCRIPT_VAR_HP_CALC
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 4
-    // basically just the recover hp subscript
+    // Basically just the RECOVER_HP subscript.
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_MAXHP, BSCRIPT_VAR_CALC_TEMP
     CompareMonDataToVar OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HP, BSCRIPT_VAR_CALC_TEMP, _036
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
@@ -23,7 +23,6 @@ _026:
     UpdateHealthBar BATTLER_CATEGORY_ATTACKER
     Wait 
     UpdateHealthBarValue BATTLER_CATEGORY_ATTACKER
-
     // {0} regained health!
     PrintMessage 184, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 
@@ -32,7 +31,7 @@ _026:
 
 _036:
     WaitButtonABTime 30
-    // {0}’s HP is full!
+    // {0}â€™s HP is full!
     PrintMessage 187, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
@@ -74,7 +73,7 @@ _046:
 
 _056:
     WaitButtonABTime 30
-    // {0}’s HP is full!
+    // {0}ï¿½s HP is full!
     PrintMessage 187, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER_PARTNER
     Wait 
     WaitButtonABTime 30
@@ -103,14 +102,14 @@ _boost:
     Wait 
     UpdateMonData OPCODE_ADD, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_STAT_CHANGE_SPATK, 1
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MESSAGE, 4
-    // {0}’s {1} raised its {2}!
+    // {0}ï¿½s {1} raised its {2}!
     PrintMessage 622, TAG_NICKNAME_ABILITY_STAT, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
     GoTo _end
     
 _useless:
-    // {0}’s {1} made {2} useless!
+    // {0}ï¿½s {1} made {2} useless!
     PrintMessage 638, TAG_NICKNAME_ABILITY_MOVE, BATTLER_CATEGORY_ATTACKER_PARTNER, BATTLER_CATEGORY_ATTACKER_PARTNER, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
