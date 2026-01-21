@@ -2,14 +2,12 @@
 
 .data
 
-_000:
+_Start:
     PrintAttackMessage
     Wait
     WaitButtonABTime 30
-
-    // ability popup
-
-    // {0} can’t fall asleep due to a veil of sweetness!
+    // TODO: Ability popup.
+    // {0} canâ€™t fall asleep due to a veil of sweetness!
     PrintMessage 1594, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait
     WaitButtonABTime 30

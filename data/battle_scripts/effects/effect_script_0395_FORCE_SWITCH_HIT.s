@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Circle Throw and Dragon Tail.
+_Start:
     CalcCrit 
     CalcDamage 
     End 

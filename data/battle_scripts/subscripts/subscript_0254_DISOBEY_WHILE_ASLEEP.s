@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     WaitButtonABTime 15
     // {0} ignored orders while asleep!
     PrintMessage 825, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER

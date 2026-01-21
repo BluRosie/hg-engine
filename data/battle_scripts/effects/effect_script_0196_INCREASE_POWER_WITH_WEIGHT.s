@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Grass Knot and Low Kick.
+_Start:
     CalcWeightBasedPower 
     CalcCrit 
     CalcDamage 

@@ -2,18 +2,19 @@
 
 .data
 
-_000:
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_ROCK_HEAD, _040
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MAGIC_GUARD, _040
+// Called by Head Charge, Submission, Take Down and Wild Charge.
+_Start:
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_ROCK_HEAD, _End
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MAGIC_GUARD, _End
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_ATTACKER
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_HIT_DAMAGE
-    GotoIfParentalBondIsActive _041
+    GotoIfParentalBondIsActive _CheckStoredRecoilDamage
 
-_019:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_HP_CALC, 0, _040
+_CheckIfDamageDealt:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_HP_CALC, 0, _End
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 4
 
-_027:
+_DealRecoil:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // {0} is hit with recoil!
@@ -21,14 +22,15 @@ _027:
     Wait 
     WaitButtonABTime 30
 
-_040:
-    End 
+_End:
+    End
 
-_041:
-    GotoIfSecondHitOfParentalBond _049
+_CheckStoredRecoilDamage:
+    GotoIfSecondHitOfParentalBond _StoreRecoilDamage
+    // Recoil damage is only dealt after the second hit of Parental Bond.
     UpdateVarFromVar OPCODE_ADD, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_ATTACKER_STORED_DAMAGE
-    GoTo _019
+    GoTo _CheckIfDamageDealt
 
-_049:
+_StoreRecoilDamage:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_ATTACKER_STORED_DAMAGE, BSCRIPT_VAR_HP_CALC
-    GoTo _040
+    GoTo _End

@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_TAILWIND
     PlayMoveAnimation BATTLER_CATEGORY_MSG_TEMP
     Wait 

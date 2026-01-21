@@ -2,32 +2,31 @@
 
 .data
 
-_000:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SEMI_INVULNERABLE, _097
-    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_DEFENDER, ABILITY_SUCTION_CUPS, _102
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_MOVE_EFFECT, MOVE_EFFECT_FLAG_INGRAIN, _109
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_AI|BATTLE_TYPE_MULTI, _097
-    CompareVarToValue OPCODE_LTE, BSCRIPT_VAR_BATTLER_FAINTED, BATTLER_FORCED_OUT, _097
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_WILD_MON, _038
+// Called by Whirlwind and Roar.
+_Start:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SEMI_INVULNERABLE, _MoveFailed
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_DEFENDER, ABILITY_SUCTION_CUPS, _SuctionCupsMessage
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_MOVE_EFFECT, MOVE_EFFECT_FLAG_INGRAIN, _RootedMessage
+    // Forced-switch effects do not work in wild double battles.
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_AI|BATTLE_TYPE_MULTI, _MoveFailed
+    CompareVarToValue OPCODE_LTE, BSCRIPT_VAR_BATTLER_FAINTED, BATTLER_FORCED_OUT, _MoveFailed
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_WILD_MON, _CheckLevel
 
-_030:
-    TryReplaceFaintedMon BATTLER_CATEGORY_DEFENDER, TRUE, _097
-    TryWhirlwind _030
-    GoTo _040
+_ReplacementLoop:
+    TryReplaceFaintedMon BATTLER_CATEGORY_DEFENDER, TRUE, _MoveFailed
+    TryWhirlwind _ReplacementLoop
 
-_038:
-    GoTo _126
-
-_040:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_WILD_MON, _126
+_IntoSwitchTarget:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_WILD_MON, _CheckLevel
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
-    TryRestoreStatusOnSwitch BATTLER_CATEGORY_DEFENDER, _055
+    // Handle Natural Cure.
+    TryRestoreStatusOnSwitch BATTLER_CATEGORY_DEFENDER, _SwitchTarget
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_STATUS, STATUS_NONE
 
-_055:
+_SwitchTarget:
     DeletePokemon BATTLER_CATEGORY_DEFENDER
     Wait 
-    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_TRAINER, _090
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_TRAINER, _EndBattle
     HealthbarSlideOut BATTLER_CATEGORY_DEFENDER
     Wait 
     SwitchAndUpdateMon BATTLER_CATEGORY_FORCED_OUT
@@ -44,26 +43,26 @@ _055:
     Call BATTLE_SUBSCRIPT_HAZARDS_CHECK
     End 
 
-_090:
+_EndBattle:
     FadeOutBattle 
     Wait 
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_OUTCOME, BATTLE_RESULT_PLAYER_FLED
     End 
 
-_097:
+_MoveFailed:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 
 
-_102:
+_SuctionCupsMessage:
     // {0} is anchored in place with its suction cups!
     BufferMessage 659, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER
-    GoTo _113
+    GoTo _Cleanup
 
-_109:
+_RootedMessage:
     // {0} is anchored in place with its roots!
     BufferMessage 542, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
 
-_113:
+_Cleanup:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 30
@@ -73,9 +72,11 @@ _113:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK
     End 
 
-_126:
-    IsAttackerLevelLowerThanDefender _097
+_CheckLevel:
+    // Generation V: Whirlwind always fails if the attacker's level is lower than the defender's.
+    IsAttackerLevelLowerThanDefender _MoveFailed
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
-    TryRestoreStatusOnSwitch BATTLER_CATEGORY_DEFENDER, _055
+    // Handle Natural Cure.
+    TryRestoreStatusOnSwitch BATTLER_CATEGORY_DEFENDER, _SwitchTarget
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_STATUS, STATUS_NONE
-    GoTo _055
+    GoTo _SwitchTarget

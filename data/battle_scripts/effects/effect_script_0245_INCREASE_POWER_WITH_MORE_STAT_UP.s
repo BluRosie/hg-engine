@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Punishment.
+_Start:
     CalcPunishmentPower 
     CalcCrit 
     CalcDamage 

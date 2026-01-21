@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by False Swipe and Hold Back.
+_Start:
     CalcCrit 
     CalcDamage 
     End 

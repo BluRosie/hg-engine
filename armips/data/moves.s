@@ -7530,7 +7530,7 @@ movedata MOVE_469, "MOVE_469"
     terminatedata
     movedescription MOVE_SHADOW_FORCE+2, "--"
 
-movedata MOVE_470, "MOVE_470"
+movedata MOVE_MEGA_EVOLVE, "MOVE_MEGA_EVOLVE"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_SPECIAL
     basepower 100
@@ -9019,6 +9019,7 @@ movedata MOVE_FUSION_BOLT, "Fusion Bolt"
     terminatedata
     movedescription MOVE_FUSION_BOLT, "The user throws down\na giant bolt.\nIt does more damage\nwhen influenced by\nan enormous flame."
 
+// Moves introduced in Generation VI:
 movedata MOVE_FLYING_PRESS, "Flying Press"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
@@ -11179,11 +11180,7 @@ movedata MOVE_AURORA_VEIL, "Aurora Veil"
     appeal 0x00
     contesttype CONTEST_BEAUTY
     terminatedata
-.if SNOW_WARNING_GENERATION >= 9
-    movedescription MOVE_AURORA_VEIL, "This move reduces damage\nfrom most moves for five\nturns. It can be used\nonly when it is snowing."
-.else
-    movedescription MOVE_AURORA_VEIL, "This move reduces damage\nfrom most moves for five\nturns. It can be used\nonly in a hailstorm."
-.endif
+    movedescription MOVE_AURORA_VEIL, "This move reduces damage\nfrom most moves for five\nturns. It can be used\nonly in a hailstorm or\nwhen it is snowing."
 
 movedatalongname MOVE_SINISTER_ARROW_RAID, "Sinister Raid", "Sinister Arrow Raid"
     battleeffect MOVE_EFFECT_HIT

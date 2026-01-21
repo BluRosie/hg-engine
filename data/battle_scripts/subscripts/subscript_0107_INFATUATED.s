@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} is in love with {1}!
     PrintMessage 165, TAG_NICKNAME_NICKNAME, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
     Wait 

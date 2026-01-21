@@ -2,11 +2,12 @@
 
 .data
 
-_000:
+// Called by Motor Drive.
+_Start:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 15
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_STAT_CHANGE_SPEED, 12, _032
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_STAT_CHANGE_SPEED, 12, _StageMaxMessage
     PlayBattleAnimation BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLE_ANIMATION_STAT_BOOST
     Wait 
     UpdateMonData OPCODE_ADD, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_STAT_CHANGE_SPEED, 1
@@ -17,7 +18,7 @@ _000:
     WaitButtonABTime 30
     End 
 
-_032:
+_StageMaxMessage:
     // {0}’s {1} made {2} useless!
     PrintMessage 638, TAG_NICKNAME_ABILITY_MOVE, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_ATTACKER
     Wait 

@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     Call BATTLE_SUBSCRIPT_POISON
     RapidSpin
     End 

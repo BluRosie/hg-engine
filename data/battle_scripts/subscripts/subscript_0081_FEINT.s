@@ -2,21 +2,21 @@
 
 .data
 
-_000:
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MOVE_NO_CUR, MOVE_FEINT, _015
-    IfTurnFlag BATTLER_CATEGORY_DEFENDER, TURN_FLAG_PROTECTING, 0, _022
+_Start:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MOVE_NO_CUR, MOVE_FEINT, _FeintMessage
+    IfTurnFlag BATTLER_CATEGORY_DEFENDER, TURN_FLAG_PROTECTING, 0, _DisableProtect
     // It broke through {0}’s protection!
     PrintMessage 1243, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
-    GoTo _019
+    GoTo _AfterMessage
 
-_015:
+_FeintMessage:
     // {0} fell for the feint!
     PrintMessage 1048, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
 
-_019:
+_AfterMessage:
     Wait 
     WaitButtonABTime 30
 
-_022:
+_DisableProtect:
     SetTurnFlag BATTLER_CATEGORY_DEFENDER, TURN_FLAG_PROTECTING, 0
     End 

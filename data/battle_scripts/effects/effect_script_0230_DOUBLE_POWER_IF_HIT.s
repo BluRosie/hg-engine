@@ -2,8 +2,8 @@
 
 .data
 
-_000:
-    //CalcPaybackPower //unused command
+_Start:
+    // CalcPaybackPower // Unused command.
     CalcCrit 
     CalcDamage 
     End 

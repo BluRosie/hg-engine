@@ -2,12 +2,13 @@
 
 .data
 
-_000:
-    TrySuckerPunch _004
+// Called by Sucker Punch and Thunderclap.
+_Start:
+    TrySuckerPunch _MoveFailed
     CalcCrit 
     CalcDamage 
     End 
 
-_004:
+_MoveFailed:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 

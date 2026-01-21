@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Cheri and Lum Berry.
+_Start:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
     Wait 
     // {0}’s {1} cured its paralysis!

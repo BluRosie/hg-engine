@@ -2,6 +2,7 @@
 
 .data
 
-_000:
+// Called by Acid Armor, Barrier, Iron Defense and Shelter.
+_Start:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_DIRECT, MOVE_SIDE_EFFECT_TO_ATTACKER|MOVE_SUBSCRIPT_PTR_DEFENSE_UP_2_STAGES
     End 

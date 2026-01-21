@@ -2,8 +2,9 @@
 
 .data
 
-_000:
-    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _016
+_Start:
+    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _ChangeForm
+    // Temporarily remove the visual effect of Substitute to show the form change.
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_SUB_OUT
     Wait 
     RestoreSprite BATTLER_CATEGORY_MSG_TEMP
@@ -11,7 +12,7 @@ _000:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_SUB_IN
     Wait 
 
-_016:
+_ChangeForm:
     PlaySound BATTLER_CATEGORY_MSG_TEMP, 1980
     SetMosaic BATTLER_CATEGORY_MSG_TEMP, 8, 1
     Wait 
@@ -23,7 +24,8 @@ _016:
     PrintMessage 721, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
-    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _058
+    CompareMonDataToValue OPCODE_FLAG_NOT, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE, _End
+    // Restore the visual effect of Substitute.
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_SUB_OUT
     Wait 
     RefreshSprite BATTLER_CATEGORY_MSG_TEMP
@@ -31,5 +33,5 @@ _016:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_SUB_IN
     Wait 
 
-_058:
+_End:
     End 

@@ -2,35 +2,35 @@
 
 .data
 
-_000:
+_Start:
     UpdateVar OPCODE_ADD, BSCRIPT_VAR_CRITICAL_BOOSTS, 1
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_SPECIES, SPECIES_OGERPON, _grass // any other species
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 0, _grass // Teal Mask Form
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 4, _grass // Terastallized state
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 1, _water // Wellspring Mask Form
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 5, _water // Terastallized state
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 2, _fire // Hearthflame Mask Form
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 6, _fire // Terastallized state
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 3, _rock // Cornerstone Mask Form
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 7, _rock // Terastallized state
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_SPECIES, SPECIES_OGERPON, _SetGrass // Any other species.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 0, _SetGrass // Teal Mask Form.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 4, _SetGrass // Terastallized state.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 1, _SetWater // Wellspring Mask Form.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 5, _SetWater // Terastallized state.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 2, _SetFire // Hearthflame Mask Form.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 6, _SetFire // Terastallized state.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 3, _SetRock // Cornerstone Mask Form.
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_FORM, 7, _SetRock // Terastallized state.
 
-_grass:
+_SetGrass:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_TYPE, TYPE_GRASS
-    GoTo _continue
+    GoTo _CalcDamage
 
-_water:
+_SetWater:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_TYPE, TYPE_WATER
-    GoTo _continue
+    GoTo _CalcDamage
 
-_fire:
+_SetFire:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_TYPE, TYPE_FIRE
-    GoTo _continue
+    GoTo _CalcDamage
 
-_rock:
+_SetRock:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MOVE_TYPE, TYPE_ROCK
-    GoTo _continue
+    GoTo _CalcDamage
 
-_continue:
+_CalcDamage:
     CalcCrit 
     CalcDamage 
     End 

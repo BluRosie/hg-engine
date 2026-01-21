@@ -2,15 +2,15 @@
 
 .data
 
-_000:
+_Start:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 15
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_STAT_CHANGE_SPATK, 12, _032
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_STAT_CHANGE_SPATK, 12, _StageMaxMessage
     PlayBattleAnimation BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLE_ANIMATION_STAT_BOOST
     Wait 
     UpdateMonData OPCODE_ADD, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_STAT_CHANGE_SPATK, 1
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_MESSAGE, 4
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MESSAGE, STAT_SPECIAL_ATTACK
     // TODO: Directly use ChangeStatStage?
     // {0}’s {1} raised its {2}!
     PrintMessage 622, TAG_NICKNAME_ABILITY_STAT, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_MSG_TEMP
@@ -18,11 +18,10 @@ _000:
     WaitButtonABTime 30
     End 
 
-_032:
+_StageMaxMessage:
     // TODO: Change to "It doesn’t affect {0}..."
     // {0}’s {1} made {2} useless!
     PrintMessage 638, TAG_NICKNAME_ABILITY_MOVE, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
-    End 
-    End 
+    End

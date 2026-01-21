@@ -4,7 +4,7 @@
 
 // TODO: modernise message
 
-_000:
+_Start:
     PrintAttackMessage 
     Wait 
     WaitButtonABTime 15

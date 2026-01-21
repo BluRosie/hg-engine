@@ -16,7 +16,7 @@ _Start:
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_MESSAGE, 0, _RecallEnemySlot1
 
 _CheckIfLoseMoney:
-    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_CAN_LOSE, _EndWithNoWhiteOut
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_NO_WHITEOUT, _EndWithNoWhiteOut
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_FRONTIER, _DotsMessage
     PayPrizeMoney 
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MESSAGE, 0, _DotsMessage
@@ -74,7 +74,7 @@ _SlideOutEnemyHealth:
     HealthbarSlideOut BATTLER_CATEGORY_ENEMY
     Wait 
     COMMAND_DE 10, 20
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MESSAGE, 0, _148
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MESSAGE, 0, _CheckIfMultiBattle
     // Enemy victory/taunt message. Unlike the Frontier, this only happens sometimes.
     TrainerSlideIn BATTLER_CATEGORY_ENEMY_SLOT_1, BATTLER_TYPE_SOLO_ENEMY
     Wait 
@@ -82,7 +82,8 @@ _SlideOutEnemyHealth:
     Wait 
     WaitButtonABTime 30
 
-_148:
+// Multi battles are Double battles against two different trainers.
+_CheckIfMultiBattle:
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_MULTI, _CheckIfLoseMoney
     COMMAND_DE 12, 20
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MESSAGE, 0, _CheckIfLoseMoney
@@ -141,4 +142,4 @@ _FrontierEndScript:
     SetLinkBattleResult 
     FadeOutBattle 
     Wait 
-    End 
+    End

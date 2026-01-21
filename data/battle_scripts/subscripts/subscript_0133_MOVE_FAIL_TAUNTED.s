@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} can’t use {1} after the taunt!
     PrintMessage 613, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_ATTACKER
     Wait 

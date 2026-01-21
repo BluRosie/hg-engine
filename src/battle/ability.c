@@ -1078,12 +1078,12 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     }
 
     if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
-     && (sp->oneTurnFlag[sp->defence_client].magic_cort_flag
+     && (sp->oneTurnFlag[sp->defence_client].magic_coat_flag
       // if magic bounce then activate only if it hasn't already activated this move
       || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_MAGIC_BOUNCE) && !sp->magicBounceTracker))
      && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT))
     {
-        sp->oneTurnFlag[sp->defence_client].magic_cort_flag = 0;
+        sp->oneTurnFlag[sp->defence_client].magic_coat_flag = 0;
         sp->magicBounceTracker = TRUE;
         sp->moveProtect[sp->attack_client] = 0;
         sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;

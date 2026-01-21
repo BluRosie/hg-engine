@@ -2,11 +2,12 @@
 
 .data
 
-_000:
-    CheckSubstitute BATTLER_CATEGORY_DEFENDER, _005
-    BoostRandomStatBy2 _005
+// Called by Acupressure.
+_Start:
+    CheckSubstitute BATTLER_CATEGORY_DEFENDER, _MoveFailed
+    BoostRandomStatBy2 _MoveFailed
     End 
 
-_005:
+_MoveFailed:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 

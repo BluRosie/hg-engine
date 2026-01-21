@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by First Impression.
+_Start:
     CalcCrit 
     CalcDamage 
     End 

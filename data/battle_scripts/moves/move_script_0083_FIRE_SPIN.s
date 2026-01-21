@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} was trapped in the vortex!
     BufferMessage 242, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     GoToEffectScript 

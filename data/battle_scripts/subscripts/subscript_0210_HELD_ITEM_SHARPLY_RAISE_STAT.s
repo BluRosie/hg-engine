@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Starf Berry.
+_Start:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
     Wait 
     WaitButtonABTime 15
@@ -12,13 +13,15 @@ _000:
     PrintMessage 759, TAG_NICKNAME_ITEM_STAT, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_TEMP_DATA, 18
+    // Pick the stat to boost (0x12 + Prepared)
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_TEMP_DATA, 0x12
     UpdateVarFromVar OPCODE_ADD, BSCRIPT_VAR_TEMP_DATA, BSCRIPT_VAR_MESSAGE
+    // If the stat stage would be raised above +6, clamp it down.
     UpdateMonData OPCODE_ADD, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_TEMP, 2
-    CompareMonDataToValue OPCODE_LTE, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_TEMP, 12, _042
+    CompareMonDataToValue OPCODE_LTE, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_TEMP, 12, _Cleanup
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_TEMP, 12
 
-_042:
+_Cleanup:
     Call BATTLE_SUBSCRIPT_CHEEK_POUCH
     Call BATTLE_SUBSCRIPT_PLUCK_CHECK
     End  

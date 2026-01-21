@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by X items.
+_Start:
     WaitButtonABTime 15
     PlaySound BATTLER_CATEGORY_ATTACKER, 1516
     // {0} {1} used one {2}!

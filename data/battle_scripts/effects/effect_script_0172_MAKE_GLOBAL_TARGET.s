@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Follow Me.
+_Start:
     FollowMe 
     // {0} became the center of attention!
     BufferMessage 484, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER

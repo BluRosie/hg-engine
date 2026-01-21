@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Mental Herb.
+_Start:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
     Wait 
     // {0} cured its {2} status using its {1}!

@@ -2,18 +2,22 @@
 
 .data
 
-_000:
+// Reverts Giratina to Altered Forme when outside of the Distortion World and not holding a Griseous Orb.
+// Called in src/individual/BattleFormChangeCheck.c.
+_Start:
+    // Recalculate Giratina's stats for the current form.
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_RECALC_MON_STATS
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_FORM, 0
     UpdateVar OPCODE_SET, BSCRIPT_VAR_TEMP_DATA, 0
-    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_PERSONALITY, 1, _024
+    // Check which ability to set.
+    CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_PERSONALITY, 1, _SetAbility2
     LoadArchivedMonData SPECIES_GIRATINA, BSCRIPT_VAR_TEMP_DATA, BASE_ABILITY_1
-    GoTo _028
+    GoTo _FormChange
 
-_024:
+_SetAbility2:
     LoadArchivedMonData SPECIES_GIRATINA, BSCRIPT_VAR_TEMP_DATA, BASE_ABILITY_2
 
-_028:
+_FormChange:
     UpdateMonDataFromVar OPCODE_SET, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_ABILITY, BSCRIPT_VAR_CALC_TEMP
     Call BATTLE_SUBSCRIPT_FORM_CHANGE
     RefreshMonData BATTLER_CATEGORY_MSG_BATTLER_TEMP

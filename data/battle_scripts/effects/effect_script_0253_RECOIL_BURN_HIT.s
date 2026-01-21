@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Flare Blitz.
+_Start:
     CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_RECKLESS, _008
     UpdateVar OPCODE_SET, BSCRIPT_VAR_POWER_MULTI, 12
 

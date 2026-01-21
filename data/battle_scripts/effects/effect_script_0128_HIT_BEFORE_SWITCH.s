@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Pursuit.
+_Start:
     CalcCrit 
     CalcDamage 
     End 

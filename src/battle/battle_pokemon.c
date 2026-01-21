@@ -603,7 +603,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
 
         if (fight_type & BATTLE_TYPE_WIRELESS)
         {
-            if (fight_type & BATTLE_TYPE_BATTLE_TOWER)
+            if (fight_type & BATTLE_TYPE_FRONTIER)
             {
                 mp->msg_id = BATTLE_MSG_DOUBLE_TOWER_BATTLE_SEND_OUT;
                 mp->msg_tag = TAG_TRCLASS_TRNAME_NICKNAME_TRCLASS_TRNAME_NICKNAME;

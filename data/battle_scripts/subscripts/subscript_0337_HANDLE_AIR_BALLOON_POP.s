@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0}’s {1} popped!
     PrintMessage 1367, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER
     Wait 

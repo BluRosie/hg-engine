@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} can use items again!
     PrintMessage 1138, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 

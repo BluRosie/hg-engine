@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Bolt Beak and Fishious Rend.
+_Start:
     CalcCrit 
     CalcDamage 
     End 

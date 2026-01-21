@@ -3195,6 +3195,15 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     BOOL flowerShieldSuccessCount = 0;
 
     switch (ctx->current_move_index) {
+        
+        case MOVE_ROLE_PLAY: {
+            if (AbilityFailRolePlay(GetBattlerAbility(ctx, ctx->defence_client))
+            || AbilityCantSupress(GetBattlerAbility(ctx, ctx->attack_client))
+            || GetBattlerAbility(ctx, ctx->attack_client) == GetBattlerAbility(ctx, ctx->defence_client)) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
         case MOVE_ENTRAINMENT: {
             if (AbilityNoEntrainment(GetBattlerAbility(ctx, ctx->attack_client))
             || AbilityCantSupress(GetBattlerAbility(ctx, ctx->defence_client))
@@ -3231,7 +3240,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         case MOVE_WORRY_SEED: {
             if (AbilityCantSupress(GetBattlerAbility(ctx, ctx->defence_client))
-            || GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_TRUANT) {
+            || GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_TRUANT
+            || GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_INSOMNIA) {
                 butItFailedFlag = TRUE;
             }
             break;
@@ -3396,8 +3406,8 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_SOAK: {
-            if (IsPureType(ctx, ctx->defence_client, TYPE_WATER)
-            || ctx->battlemon[ctx->defence_client].is_currently_terastallized
+            // Soak's animation still plays if the target is a pure Water type.
+            if (ctx->battlemon[ctx->defence_client].is_currently_terastallized
             || ctx->battlemon[ctx->defence_client].ability == ABILITY_MULTITYPE
             || ctx->battlemon[ctx->defence_client].ability == ABILITY_RKS_SYSTEM) {
                 butItFailedFlag = TRUE;
@@ -3405,6 +3415,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_MAGIC_POWDER: {
+            // TODO: Check if Magic Powder's animation plays the way Soak's does.
             if (IsPureType(ctx, ctx->defence_client, TYPE_PSYCHIC)
             || ctx->battlemon[ctx->defence_client].is_currently_terastallized
             || ctx->battlemon[ctx->defence_client].ability == ABILITY_MULTITYPE

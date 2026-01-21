@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Shed Skin.
+_Start:
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_NONE
     UpdateMonData OPCODE_FLAG_OFF, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_NIGHTMARE
     // {0}’s {1} cured its {2} status!

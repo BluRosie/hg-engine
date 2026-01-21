@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // The effects of the weather disappeared.
     PrintMessage 1470, TAG_NONE
     Wait 

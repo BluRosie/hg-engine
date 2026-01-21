@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by White Herb.
+_Start:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
     Wait 
     // {0} restored its status using its {1}!

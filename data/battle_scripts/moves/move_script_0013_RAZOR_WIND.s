@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} whipped up a whirlwind!
     // BufferMessage 211, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     GoToEffectScript 

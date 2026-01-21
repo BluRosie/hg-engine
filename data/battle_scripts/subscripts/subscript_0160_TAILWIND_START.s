@@ -2,8 +2,8 @@
 
 .data
 
-_000:
-    GotoIfTailwindActive BATTLER_CATEGORY_ATTACKER, _014
+_Start:
+    GotoIfTailwindActive BATTLER_CATEGORY_ATTACKER, _MoveFailed
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
     // The Tailwind blew from behind your team!
     PrintMessage 1230, TAG_NONE_SIDE, BATTLER_CATEGORY_ATTACKER
@@ -12,6 +12,6 @@ _000:
     SetTailwindCounter BATTLER_CATEGORY_ATTACKER
     End 
 
-_014:
+_MoveFailed:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     End 

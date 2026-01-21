@@ -2,9 +2,9 @@
 
 .data
 
-_000:
-    CheckChatterActivation _003
+_Start:
+    CheckChatterActivation _End
     Call BATTLE_SUBSCRIPT_CONFUSE
 
-_003:
+_End:
     End 

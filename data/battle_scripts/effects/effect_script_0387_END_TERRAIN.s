@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Ice Spinner and Steel Roller.
+_Start:
     CalcCrit 
     CalcDamage 
     End 

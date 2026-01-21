@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     ToggleVanish BATTLER_CATEGORY_MSG_TEMP, FALSE
     Wait 
     End 

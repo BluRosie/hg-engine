@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0}’s encore ended!
     PrintMessage 375, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait 

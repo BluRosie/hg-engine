@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     PrintAttackMessage 
     Wait 
     Call BATTLE_SUBSCRIPT_RECOVER_HP

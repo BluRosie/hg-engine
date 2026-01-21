@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // Your team’s {0} wore off!
     BufferLocalMessage BATTLER_CATEGORY_MSG_TEMP, 288, TAG_MOVE, BATTLER_CATEGORY_MSG_TEMP
     Wait 

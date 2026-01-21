@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Heavy Slam and Heat Crash.
+_Start:
     CalcHeavySlamPower 
     CalcCrit 
     CalcDamage 

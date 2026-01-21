@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     Call BATTLE_SUBSCRIPT_INFATUATED
     // {0} is immobilized by love!
     PrintMessage 172, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER

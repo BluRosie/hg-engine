@@ -2,7 +2,7 @@
 
 .data
 
-_000:
+_Start:
     // {0} can’t use the sealed {1}!
     PrintMessage 616, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_ATTACKER
     Wait 

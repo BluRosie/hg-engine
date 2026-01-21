@@ -2,7 +2,8 @@
 
 .data
 
-_000:
+// Called by Frost Breath, Storm Throw, Wicked Blow and Flower Trick.
+_Start:
     CalcCrit
     CalcDamage
     End

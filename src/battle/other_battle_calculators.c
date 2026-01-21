@@ -2675,7 +2675,7 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
     if (ctx->server_status_flag2 & BATTLE_STATUS2_MAGIC_COAT) {
         ctx->server_status_flag2 &= ~BATTLE_STATUS2_MAGIC_COAT;
         ctx->defence_client   = ctx->attack_client;
-        ctx->attack_client = ctx->magic_cort_client;
+        ctx->attack_client = ctx->magic_coat_client;
     }
 
     ov12_0224DD74(bsys, ctx);
