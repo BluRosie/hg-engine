@@ -98,7 +98,7 @@ static void AllocAndLoadScenario(void) {
 int *g_EmulatorCommunicationSendHole = (int*)0x02FFF81C;
 
 void LONG_CALL SendValueThroughCommunicationSendHole(int value) {
-    //*g_EmulatorCommunicationSendHole = value;
+    *g_EmulatorCommunicationSendHole = value;
 }
 
 struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario()
