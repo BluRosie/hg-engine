@@ -10,7 +10,6 @@
 /*
  *  if you would like to add new overworlds, go to
  *  https://ds-pokemon-hacking.github.io/docs/generation-iv/guides/hgss-new_overworlds/
- *  this describes how to edit narcs.mk to introduce a custom subfolder to your project
  */
 
 #define NEW_NPC_START 7000

@@ -8,7 +8,8 @@ _Start:
     // Grass-types cannot be seeded.
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_TYPE_1, TYPE_GRASS, _CannotBeSeeded
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_TYPE_2, TYPE_GRASS, _CannotBeSeeded
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _CannotBeSeeded
+    // Active Tera type should be checked here.
     PrintAttackMessage 
     Wait 
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_MOVE_EFFECT, MOVE_EFFECT_FLAG_LEECH_SEED, _MoveEvaded

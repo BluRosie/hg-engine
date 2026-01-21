@@ -42,7 +42,7 @@ _GetMoveType:
     GetCurrentMoveData MOVEATTRIBUTE_TYPE
 
 _CheckBerry:
-    GetItemHoldEffect BATTLER_CATEGORY_MSG_TEMP, BSCRIPT_VAR_TEMP_DATA
+    GetItemHoldEffect BATTLER_CATEGORY_DEFENDER, BSCRIPT_VAR_TEMP_DATA
     // Normal-type damage reduction occurs regardless of move effectiveness.
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, HOLD_EFFECT_WEAKEN_NORMAL, _HandleChilanBerry
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SUPER_EFFECTIVE, _End

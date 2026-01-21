@@ -2,9 +2,8 @@
 
 .data
 
-// Called by Payback, Revenge and Avalanche.
 _Start:
-    CalcPaybackPower 
+    // CalcPaybackPower // Unused command.
     CalcCrit 
     CalcDamage 
     End 

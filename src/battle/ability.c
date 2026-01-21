@@ -272,11 +272,11 @@ BOOL LONG_CALL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int va
 u8 LONG_CALL BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
 {
     u16 stats[] = {
-            sp->battlemon[client].speed,
-            sp->battlemon[client].spdef,
-            sp->battlemon[client].spatk,
-            sp->battlemon[client].defense,
-            sp->battlemon[client].attack
+        sp->battlemon[client].attack,
+        sp->battlemon[client].defense,
+        sp->battlemon[client].speed,
+        sp->battlemon[client].spatk, 
+        sp->battlemon[client].spdef
     };
 
     u8 max = 0;
@@ -774,7 +774,8 @@ enum
 BOOL LONG_CALL MoveHitDefenderCottonDownCheckHelper(struct BattleStruct* sp, int battler, int* seq_no)
 {
     BOOL ret = FALSE;
-    if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+    if (sp->battlemon[battler].species
+        && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
         && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
         && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||

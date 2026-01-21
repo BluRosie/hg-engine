@@ -58,6 +58,7 @@
 
 // Type effectiveness multiplier flags:
 #define TYPE_MUL_NO_EFFECT              0
+// #define TYPE_MUL_QUADRUPLE_NOT_EFFECTIVE   2
 #define TYPE_MUL_TRIPLE_NOT_EFFECTIVE   3
 #define TYPE_MUL_DOUBLE_NOT_EFFECTIVE   4
 #define TYPE_MUL_NOT_EFFECTIVE          5
@@ -65,6 +66,17 @@
 #define TYPE_MUL_SUPER_EFFECTIVE        20
 #define TYPE_MUL_DOUBLE_SUPER_EFFECTIVE 30
 #define TYPE_MUL_TRIPLE_SUPER_EFFECTIVE 40
+// #define TYPE_MUL_QUADRUPLE_SUPER_EFFECTIVE 50
+
+// #define EFFECTIVENESS_MULT_QUADRUPLE_NOT_EFFECTIVE   625
+#define EFFECTIVENESS_MULT_TRIPLE_NOT_EFFECTIVE   125
+#define EFFECTIVENESS_MULT_DOUBLE_NOT_EFFECTIVE   250
+#define EFFECTIVENESS_MULT_NOT_EFFECTIVE          500
+#define EFFECTIVENESS_MULT_NORMAL                 1000
+#define EFFECTIVENESS_MULT_SUPER_EFFECTIVE        2000
+#define EFFECTIVENESS_MULT_DOUBLE_SUPER_EFFECTIVE 4000
+#define EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE 8000
+// #define EFFECTIVENESS_MULT_QUADRUPLE_SUPER_EFFECTIVE 160000
 
 // Special type table IDs:
 #define TYPE_FORESIGHT 0xFE
@@ -181,7 +193,7 @@
 #define BATTLE_TYPE_CATCHING_DEMO   0x400  // (1 << 10)
 #define BATTLE_TYPE_NO_WHITEOUT     0x800  // (1 << 11)
 #define BATTLE_TYPE_BUG_CONTEST     0x1000 // (1 << 12)
-#define BATTLE_TYPE_IMPORTED        0x2000 // (1 << 13)
+#define BATTLE_TYPE_TRAINER_HOUSE   0x2000 // (1 << 13)
 #define BATTLE_TYPE_DEBUG           (1 << 31)
 
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_PAL_PARK)
@@ -417,6 +429,8 @@
 #define WEATHER_EXTREMELY_HARSH_SUNLIGHT    (0x01000000)                                                          // 0001 0000 0000 0000 0000 0000 0000
 #define WEATHER_HEAVY_RAIN                  (0x02000000)                                                          // 0010 0000 0000 0000 0000 0000 0000
 #define WEATHER_STRONG_WINDS                (0x04000000)                                                          // 0100 0000 0000 0000 0000 0000 0000
+// Ion Deluge is a strange case, as it is the only field effect that lasts for only a single turn.
+#define FIELD_STATUS_ION_DELUGE             (0x08000000)                                                          // 1000 0000 0000 0000 0000 0000 0000
 
 #define FIELD_CONDITION_WEATHER_NO_SUN      (WEATHER_RAIN_ANY | WEATHER_SANDSTORM_ANY | WEATHER_HAIL_ANY | FIELD_STATUS_FOG | WEATHER_SNOW_ANY \
                                             | WEATHER_SHADOWY_AURA_ANY | WEATHER_EXTREMELY_HARSH_SUNLIGHT | WEATHER_HEAVY_RAIN | WEATHER_STRONG_WINDS)
@@ -433,6 +447,8 @@
 #define FIELD_CONDITION_UPROAR_SHIFT        8
 #define FIELD_CONDITION_GRAVITY_SHIFT       12
 #define FIELD_CONDITION_TRICK_ROOM_SHIFT    16
+
+#define TERRAIN_TURNS_INFINITE 255
 
 /**
  *  @brief absolute battler position constants
@@ -822,7 +838,7 @@ struct __attribute__((packed)) battle_moveflag
  *
  *  not encrypted or anything, has a number of fields pertaining to each mon on the field
  */
-struct __attribute__((packed)) BattlePokemon
+struct BattlePokemon
 {
     /* 0x00 */ u16 species;                  /**< Species. */
     /* 0x02 */ u16 attack;                   /**< Raw Attack stat. */
@@ -845,7 +861,7 @@ struct __attribute__((packed)) BattlePokemon
     /* 0x25 */ u8 type2;                     /**< Second type. */
     /* 0x26 */ u8 form_no : 5;               /**< Form ID. */
                u8 rare : 1;                  /**< Shininess. */
-               u8 ability;                   /**< Ability index number. */
+               u8 dummy;                     /**< Free - used to be ability index. */
 
                /** Switch in flags to mark it as having been done: */
     /* 0x28 */ u32 paddingForNow1 : 6;
@@ -865,28 +881,28 @@ struct __attribute__((packed)) BattlePokemon
                u32 has_dynamaxed_before : 1; /**< for Cherrim and Flower Gift */
                u32 type3 : 5; // Need to add to ClearBattleMonFlags when added to here as well.
     /* 0x2c */ u8 pp[4];                     /**< PP left for each move. */
-    /* 0x30 */ u8 pp_count[4];               /**< Maximum PP for each move. */
+    /* 0x30 */ u8 pp_count[4];                /**< Maximum PP for each move. */
     /* 0x34 */ u8 level;                     /**< Current level. */
     /* 0x35 */ u8 friendship;                /**< Current friendship. */
     /* 0x36 */ u16 nickname[11];             /**< Nickname characters-- see charmap.txt. */
     /* 0x4c */ s32 hp;                       /**< Current HP. */
     /* 0x50 */ u32 maxhp;                    /**< Max HP. */
     /* 0x54 */ u16 oyaname[8];               /**< OT name. */
-    /* 0x68 */ u32 exp; //68                 /**< Total experience points. */
-    /* 0x6c */ u32 personal_rnd;             /**< Personality ID. */
-    /* 0x70 */ u32 condition;                /**< Current non-volatile status conditions (see STATUS constants). */
-    /* 0x74 */ u32 condition2;               /**< (Most) current volatile status conditions (see STATUS2 constants). */
-    /* 0x78 */ u32 id_no;                    /**< OT ID. */
-    /* 0x7c */ u16 item;                     /**< Current held item. */
-    /* 0x7e */ u16 dummy;
-    /* 0x80 */ u8 hit_count;
-    /* 0x81 */ u8 message_flag;
-    /* 0x82 */ u8 sex : 4;                   /**< Sex for battle purposes (Rivalry, Infatutate, etc.) */
+    /* 0x64 */ u32 exp; //68                 /**< Total experience points. */
+    /* 0x68 */ u32 personal_rnd;             /**< Personality ID. */
+    /* 0x6C */ u32 condition;                /**< Current non-volatile status conditions (see STATUS constants). */
+    /* 0x70 */ u32 condition2;               /**< (Most) current volatile status conditions (see STATUS2 constants). */
+    /* 0x74 */ u32 id_no;                    /**< OT ID. */
+    /* 0x78 */ u16 item;                     /**< Current held item. */
+    /* 0x7a */ u16 ability;                  /**< Ability index-- moved from 0x27. */
+    /* 0x7c */ u8 hit_count;
+    /* 0x7d */ u8 message_flag;
+    /* 0x7e */ u8 sex : 4;                   /**< Sex for battle purposes (Rivalry, Infatutate, etc.) */
                u8 oyasex : 4;                /**< OT sex. */
-    /* 0x83 */ u8 get_ball;                  /**< Ball that the Pokémon was caught in. */
-    /* 0x84 */ u32 effect_of_moves;          /**< Move effect trackers (see MOVE_EFFECT constants). */ // moveEffectFlags
-    /* 0x88 */ u32 effect_of_moves_temp;     /**< Storage for effect_of_moves. */
-    /* 0x8c */ struct __attribute__((packed)) battle_moveflag moveeffect;   // unk88
+    /* 0x7f */ u8 get_ball;                  /**< Ball that the Pokémon was caught in. */
+    /* 0x80 */ u32 effect_of_moves;          /**< Move effect trackers (see MOVE_EFFECT constants). */ // moveEffectFlags
+    /* 0x84 */ u32 effect_of_moves_temp;     /**< Storage for effect_of_moves. */
+    /* 0x88 */ struct battle_moveflag moveeffect;   // unk88
 }; // size = 0xc0
 
 typedef struct {
@@ -932,9 +948,19 @@ typedef struct
     u8  msg_tag;
     u16 msg_id;
     int msg_para[6];
-    int msg_keta;
+    int numDigits;
     int msg_client;
 } __attribute__((packed)) MESSAGE_PARAM;
+
+typedef struct
+{
+    u8 unk0;
+    u8 unk1;
+    u16 unk2;
+    int unk4[6];
+    int unk1C;
+} __attribute__((packed)) BattleMessageData;
+
 
 struct __attribute__((packed)) side_condition_work
 {
@@ -1193,6 +1219,19 @@ typedef struct OnceOnlyAbilityFlags {
     BOOL superSweetSyrupFlag;
 } OnceOnlyAbilityFlags;
 
+typedef struct OnceOnlyMoveConditionFlags {
+    u8 berryEatenAndCanBelch : 1;
+    u8 padding : 7;
+} OnceOnlyMoveConditionFlags;
+
+typedef struct MoveConditionsFlags {
+    u8 endTurnMoveEffectActivated : 1;
+    u8 moveFailureLastTurn : 1;
+    u8 moveFailureThisTurn : 1;
+    u8 padding : 5;
+} MoveConditionsFlags;
+
+
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
 /**
@@ -1200,7 +1239,7 @@ typedef struct OnceOnlyAbilityFlags {
  *
  *  tracks everything about battle state.  consider it a "battle global" structure
  */
-struct PACKED BattleStruct {
+struct BattleStruct {
     /*0x0*/ u8 com_seq_no[CLIENT_MAX];
     /*0x4*/ u8 ret_seq_no[CLIENT_MAX];
     /*0x8*/ int server_seq_no;
@@ -1388,7 +1427,7 @@ struct PACKED BattleStruct {
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6];                     // Possible experience gained per party member in order to get level scaling done right.
     /*0x    */ u32 gainedExperienceShare[6];                // Possible experience gained per party member in order to get level scaling done right.
-    /*0x    */ int SkillSeqWork[600];
+    /*0x    */ int SkillSeqWork[650];
     /*...*/
 
                FutureCondition futureConditionQueue[CLIENT_MAX * FUTURE_CONDITION_MAX];
@@ -1413,6 +1452,7 @@ struct PACKED BattleStruct {
                int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
                u8 clientPriority[CLIENT_MAX];
                OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
+               OnceOnlyMoveConditionFlags onceOnlyMoveConditionFlags[4][6];
 
                u8 playerSideHasFaintedTeammateThisTurn : 2; // Bitmask for a Trainer on the Player side who has lost a Mon: either 0b01 (left), 0b10 (right), or 0b11 (both).
                u8 enemySideHasFaintedTeammateThisTurn : 2;  // ..enemy side... either 0b01, 0b10, or 0b11
@@ -1420,6 +1460,7 @@ struct PACKED BattleStruct {
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
                BOOL gemBoostingMove;
+               MoveConditionsFlags moveConditionsFlags[CLIENT_MAX];
 };
 
 enum {
@@ -1522,8 +1563,8 @@ struct BattleSystem {
     u8 padding_19C[0x220 - 0x19C]; // 220 based on assembly at 0223B884.
     u8 *bg_area;
     u16 *pal_area;
-    // u8 sendBuffer[0x1000];
-    // u8 recvBuffer[0x1000];
+    u8 sendBuffer[0x1000];
+    u8 recvBuffer[0x1000];
     // u16 unk2238[0x70];
     // u16 unk2318[0x70];
     // u16 unk23E8; // labeling may be wrong before here
@@ -1542,7 +1583,7 @@ struct BattleSystem {
     // u8 unk240E_F:1;
     // u8 criticalHpMusic:2;
     // u8 criticalHpMusicDelay:3;
-    u8 padding[0x2400 - 0x228];
+    u8 padding[0x2400 - 0x2228];
     u32 terrain;
     u32 bgId;
     // int location;
@@ -2012,6 +2053,7 @@ struct PACKED sDamageCalc
     u32 sheerForceFlag;
 
     BOOL isGrounded;
+    BOOL hasMoveFailureLastTurn;
 };
 
 struct PACKED DamageCalcStruct {
@@ -2050,6 +2092,34 @@ struct PACKED DamageCalcStruct {
 };
 
 extern u8 TypeEffectivenessTable[][3];
+
+extern u8 HeldItemPowerUpTable[36][2];
+
+extern u16 PunchingMovesTable[24];
+
+extern u16 StrongJawMovesTable[10];
+
+extern u16 MegaLauncherMovesTable[7];
+
+extern u16 SharpnessMovesTable[24];
+
+extern u16 sLowKickWeightToPower[6][2];
+
+extern int typeToBerryMapping[18];
+
+extern u8 StatBoostModifiers[13][2];
+
+extern u16 WeightMoveList[6];
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2819,8 +2889,6 @@ enum
     SWITCH_IN_CHECK_CHECK_END,
 };
 
-extern const u8 StatBoostModifiers[][2];
-
 
 
 
@@ -3380,6 +3448,11 @@ typedef enum BattleBg {
     BATTLE_BG_PSYCHIC_TERRAIN,
 } BattleBg;
 
+typedef struct PACKED BattleBgProfile{
+    u8 header[0x28];
+    void (*callback)(void *unkPtr, int bgId, int flag); // 0x28
+    void *extraFn;                                      // 0x2C
+} BattleBgProfile;
 
 typedef enum Terrain {
     TERRAIN_PLAIN,
@@ -3430,6 +3503,64 @@ typedef enum Terrain {
 #define TRAINER_1     1 //0b01
 #define TRAINER_2     2 //0b10
 #define TRAINER_BOTH  (TRAINER_1 & TRAINER_2)
+
+
+struct BattleSetupSub_138 {
+    int unk_0;
+    int unk_4;
+    int unk_8;
+};
+
+struct BattleSetup {
+    u32 battleType;                      // 0
+    struct Party *party[4];           // 4
+    int winFlag;                         // 14
+    int trainerId[4];          // 18
+    TRAINER_DATA trainer[4];        // 28
+    void *profile[4]; // f8
+    void *bag;                            // 108
+    void *bagCursor;                // 10c
+    void *pokedex;                    // 110
+    void *storagePC;                // 114
+    void *chatot[4];   // 118
+    void *unk_128;
+    void *wifiHistory;
+    struct OPTIONS *options; // 130
+    void *unk_134;
+    struct BattleSetupSub_138 unk138;
+    void *gameStats; // 144
+    void *palPad;   // 148
+    BattleBg battleBg;    // 14C
+    Terrain terrain;
+    u32 mapSection;        // 154
+    u32 mapNumber;         // 158
+    TIMEOFDAY timeOfDay;   // 15C
+    u32 evolutionLocation; // 160
+    u32 unk_164;
+    BOOL metBill;          // 168
+    int momsSavingsActive; // 16C
+    u32 unk_170;
+    u32 weatherType; // 174
+    int levelUpFlag; // 178
+    u8 filler_17C[0x10];
+    u32 battleSpecial; // 18C
+    int safariBalls;   // 190
+    BOOL fixedDamaageMovesBanned;
+    void *evolutionTaskData;
+    int unk_19C;
+    int unk_1A0[4];
+    u16 unk1B0;
+    u8 unk1B2;
+    u8 unk1B3;
+    int unk1B4;
+    void *unk1B8;
+    int unk1BC;
+    SaveData *saveData; // 1c0
+    int unk1C4;
+    struct PartyPokemon *bugContestMon; // 1c8
+    u8 unk1CC[4];
+    BOOL unk_1D0;
+};
 
 /**
  *  @brief load in different battle bg and terrain
@@ -3591,6 +3722,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     ctx->clientLoopForSpreadMoves++;\
                     if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {\
+                        ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client); \
                         if (functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client))) {\
                             return;\
                         }\
@@ -3600,6 +3732,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     ctx->clientLoopForSpreadMoves++;\
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client); \
                         if (functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
                             return;\
                         }\
@@ -3609,6 +3742,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     ctx->clientLoopForSpreadMoves++;\
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client); \
                         if (functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
                             return;\
                         }\
@@ -3643,10 +3777,9 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client));\
                         if (failureSubscriptToRun) {\
-                            ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
-                            ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_ALLY(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3657,10 +3790,9 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client));\
                         if (failureSubscriptToRun) {\
-                            ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);\
-                            ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3671,10 +3803,9 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client));\
                         if (failureSubscriptToRun) {\
-                            ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);\
-                            ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
                             numClientsFailed++;\
                         }\
@@ -3700,7 +3831,6 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);\
                 if (failureSubscriptToRun) {\
                     ctx->battlerIdTemp = ctx->defence_client;\
-                    ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);\
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, failureSubscriptToRun);\
                     ctx->next_server_seq_no = ctx->server_seq_no;\
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;\
@@ -3727,6 +3857,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client));\
                         if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_ALLY(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
@@ -3739,6 +3870,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client));\
                         if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
@@ -3751,6 +3883,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                     if ((IS_TARGET_BOTH_MOVE(ctx) || IS_TARGET_FOES_AND_ALLY_MOVE(ctx))\
                     && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {\
                         numClientsChecked++;\
+                        ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client); \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client));\
                         if (failureSubscriptToRun != 0) {\
                             ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;\
@@ -3861,6 +3994,8 @@ void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int buffer
 
 int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 
+u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u32 held_effect, u8 defender_type, u8 defaultEffectiveness);
+
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag);
 
 BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
@@ -3911,6 +4046,8 @@ Trainer LONG_CALL *BattleSystem_GetTrainer(struct BattleSystem *bsys, int battle
 
 BOOL LONG_CALL TryEatOpponentBerry(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
 
+BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
 void LONG_CALL BattleController_EmitPlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* ctx, int batlterId);
 
 void LONG_CALL InitFaintedWork(struct BattleSystem* bsys, struct BattleStruct* ctx, int battlerId);
@@ -3926,5 +4063,32 @@ int GetSanitisedType(int type);
 
 BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
 
+/**
+ * @brief Inject a custom callback function to allow
+ * loading new battle bgs at the start of a battle
+ */
+void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys);
+
+/**
+ * @brief Callback for loading custom battle backgrounds
+ */
+void LONG_CALL BattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp);
+void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp);
+void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *target);
+int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler);
+void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
+#endif
+
+
+void LONG_CALL InitBattleMsgData(struct BattleStruct *sp, BattleMessageData *msgdata);
+void LONG_CALL InitBattleMsg(struct BattleSystem *bw, struct BattleStruct *sp, BattleMessageData *msgdata, MESSAGE_PARAM *msg);
+void LONG_CALL BattleController_EmitPrintMessage(struct BattleSystem *bw, struct BattleStruct *sp, MESSAGE_PARAM *msg);
+void LONG_CALL BattleController_EmitPrintAttackMessage(struct BattleSystem *bw, struct BattleStruct *sp);
+
+
+void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
 
 #endif // BATTLE_H

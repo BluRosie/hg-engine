@@ -19,13 +19,12 @@ _CheckFlowerVeil:
 _SingleFlowerVeilGrassCheck:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _ImmuneDueToAbility
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _ImmuneDueToAbility
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
-    GoTo _CheckIfGrounded
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _ImmuneDueToAbility
 
 _DoubleFlowerVeilGrassCheck:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _DoubleFlowerVeilHandle
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _DoubleFlowerVeilHandle
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _DoubleFlowerVeilHandle
 
 _CheckIfGrounded:
     GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _CheckTerrain
@@ -52,7 +51,7 @@ _CheckParalyzeImmunities:
     // Generation VI: Electric-types cannot be paralyzed whatsoever.
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_ELECTRIC, _CannotBeParalyzed
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_ELECTRIC, _CannotBeParalyzed
-    // Add type3 and tera checks here if BeforeMove isn't doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_ELECTRIC, _CannotBeParalyzed
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_NONE, _MoveFailed
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _SetParalysis
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SEMI_INVULNERABLE|MOVE_STATUS_MISSED, _MoveFailed

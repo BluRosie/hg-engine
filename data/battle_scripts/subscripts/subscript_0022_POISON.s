@@ -37,13 +37,13 @@ _CheckIgnorableFlowerVeil:
 _SingleFlowerVeilGrassCheck:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _AbilityBlock
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _AbilityBlock
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _AbilityBlock
     GoTo _CheckIfGrounded
 
 _DoubleFlowerVeilGrassCheck:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _DoubleFlowerVeilHandle
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _DoubleFlowerVeilHandle
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _DoubleFlowerVeilHandle
 
 _CheckIfGrounded:
     GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _CheckTerrain
@@ -72,9 +72,10 @@ _CheckPoisonImmunities:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_CORROSION, _CheckMoveAnimationSkips
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_POISON, _CannotBePoisoned
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_POISON, _CannotBePoisoned
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_POISON, _CannotBePoisoned
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_STEEL, _CannotBePoisoned
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_STEEL, _CannotBePoisoned
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_STEEL, _CannotBePoisoned
 
 _CheckMoveAnimationSkips:
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_NONE, _MoveFailed

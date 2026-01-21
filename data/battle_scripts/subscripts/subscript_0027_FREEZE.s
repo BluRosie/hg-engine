@@ -19,7 +19,7 @@ _CheckFlowerVeil:
 _FlowerVeilGrassCheck:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _MoveFailed
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _MoveFailed
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _MoveFailed
 
 _CheckIfGrounded:
     GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _CheckTerrain
@@ -44,7 +44,7 @@ _CheckFreezeImmunities:
     // Ice-types cannot be frozen.
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_ICE, _CannotBeFrozen
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_ICE, _CannotBeFrozen
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_ICE, _CannotBeFrozen
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_NONE, _MoveFailed
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SEMI_INVULNERABLE|MOVE_STATUS_MISSED, _MoveFailed
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_SIDE_CONDITION_STAT_CHANGE, SIDE_CONDITION_SAFEGUARD, _HandleSafeguard

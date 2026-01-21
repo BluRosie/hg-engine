@@ -12,7 +12,7 @@ _Start:
     CheckIgnoreWeather _CheckFlowerVeil
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN_ALL, _CheckFlowerVeil
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _AbilityBlock
-    
+
 // Check for hazard-inflicted poison (Toxic Spikes).
 _CheckFlowerVeil:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _SingleFlowerVeilGrassCheck_Hazard
@@ -54,30 +54,35 @@ _CheckIgnorableFlowerVeil:
 _SingleFlowerVeilGrassCheck_Hazard:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _AbilityBlock
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _AbilityBlock
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _AbilityBlock
+    // Active Tera type might need to be checked here.
     // We can skip the grounded check as this is only reachable via being hit by Toxic Spikes.
     GoTo _CheckTerrain_Hazard
 
 _DoubleFlowerVeilGrassCheck_Hazard:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _DoubleFlowerVeilHandle
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _DoubleFlowerVeilHandle
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _DoubleFlowerVeilHandle
+    // Active Tera type might need to be checked here.
     // We can skip the grounded check as this is only reachable via being hit by Toxic Spikes.
     GoTo _CheckTerrain_Hazard
 
 _SingleFlowerVeilGrassCheck:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _AbilityBlock
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _AbilityBlock
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _AbilityBlock
     GoTo _CheckShieldDust
 
 _DoubleFlowerVeilGrassCheck:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _DoubleFlowerVeilHandle
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _DoubleFlowerVeilHandle
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _DoubleFlowerVeilHandle
     GoTo _CheckShieldDust
 
 _FlowerVeilGrassCheck_Textless:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _End
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _End
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _End
     GoTo _CheckIfGrounded_Textless
 
 _CheckTerrain:
@@ -103,10 +108,12 @@ _CheckPoisonImmunities_Textless:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_CORROSION, _CheckItemAnimationSkips
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_POISON, _End
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_POISON, _End
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_POISON, _End
+    // Active Tera type might need to be checked here.
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_STEEL, _End
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_STEEL, _End
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_STEEL, _End
+    // Active Tera type might need to be checked here.
 
 _CheckItemAnimationSkips:
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_NONE, _End
@@ -130,10 +137,12 @@ _CheckPoisonImmunities:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_CORROSION, _CheckMoveAnimationSkips
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_POISON, _CannotBePoisoned
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_POISON, _CannotBePoisoned
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_POISON, _CannotBePoisoned
+    // Active Tera type might need to be checked here.
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_STEEL, _CannotBePoisoned
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_STEEL, _CannotBePoisoned
-    // Type3 and active Tera type should be checked here if for some reason BattleController_BeforeMove.c is not doing enough.
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_STEEL, _CannotBePoisoned
+    // Active Tera type might need to be checked here.
 
 _CheckMoveAnimationSkips:
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_NONE, _MoveFailed

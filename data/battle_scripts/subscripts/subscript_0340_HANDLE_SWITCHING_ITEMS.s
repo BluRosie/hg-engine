@@ -18,6 +18,7 @@ _Start:
 
 _HandleRedCard:
     // TODO: Red Card text.
+    RemoveItem BATTLER_CATEGORY_MSG_TEMP
     Call BATTLE_SUBSCRIPT_FORCE_TARGET_TO_SWITCH_OR_FLEE
 
 _End:

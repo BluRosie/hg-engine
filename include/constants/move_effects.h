@@ -381,8 +381,28 @@
 #define MOVE_EFFECT_ADD_THIRD_TYPE_GHOST                    375
 #define MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE                  376
 #define MOVE_EFFECT_SET_AURORA_VEIL                         377
+#define MOVE_EFFECT_STRENGTH_SAP							378
+#define MOVE_EFFECT_HEAL_TARGET								379
+#define MOVE_EFFECT_POLLEN_PUFF								380
+#define MOVE_EFFECT_COACHING								381
+#define MOVE_EFFECT_DOUBLE_POWER_IF_FASTER					382
+#define MOVE_EFFECT_LIFE_DEW								383
+#define MOVE_EFFECT_ENTRAINMENT								384
+#define MOVE_EFFECT_HOWL							      	385
+#define MOVE_EFFECT_DECORATE								386
+#define MOVE_EFFECT_END_TERRAIN                             387
+#define MOVE_EFFECT_FELL_STINGER                            388
+#define MOVE_EFFECT_PARTING_SHOT                            389
+#define MOVE_EFFECT_CLEAR_SMOG                              390
+#define MOVE_EFFECT_ION_DELUGE                              391
+#define MOVE_EFFECT_ION_DELUGE_HIT                          392
+#define MOVE_EFFECT_REMOVE_USER_FIRE_TYPE_HIT               393
+#define MOVE_EFFECT_REMOVE_USER_ELECTRIC_TYPE_HIT           394
+#define MOVE_EFFECT_FORCE_SWITCH_HIT                        395
+#define MOVE_EFFECT_BELCH                                   396
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            377
+#define MAX_BASE_MOVE_EFFECT_NUM                            396
+
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
 

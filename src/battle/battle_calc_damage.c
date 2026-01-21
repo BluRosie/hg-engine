@@ -23,26 +23,6 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp);
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
 
-
-
-// https://m.bulbapedia.bulbagarden.net/wiki/Stat_modifier#Stage_multipliers
-const u8 StatBoostModifiers[][2] = {
-         // numerator, denominator
-        { 2, 8 },
-        { 2, 7 },
-        { 2, 6 },
-        { 2, 5 },
-        { 2, 4 },
-        { 2, 3 },
-        { 2, 2 },
-        { 3, 2 },
-        { 4, 2 },
-        { 5, 2 },
-        { 6, 2 },
-        { 7, 2 },
-        { 8, 2 },
-};
-
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED,
                    u32 field_cond, u16 pow UNUSED, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
 {
@@ -131,6 +111,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         client.item = GetBattleMonItem(sp, i);
         client.item_held_effect = BattleItemDataGet(sp, client.item, 1);
         client.item_power = BattleItemDataGet(sp, client.item, 2);
+        client.hasMoveFailureLastTurn = sp->moveConditionsFlags[i].moveFailureLastTurn;
 
         damageCalc.clients[i] = client;
     }

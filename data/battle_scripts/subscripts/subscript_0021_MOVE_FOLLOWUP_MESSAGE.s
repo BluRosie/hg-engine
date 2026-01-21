@@ -10,13 +10,15 @@ _Start:
     GoTo _Cleanup
 
 _CheckFocusItem:
+    // TODO: remove Focus Sash here once ServerWazaStatusMessage is moved lower in ServerWazaOutAfterMessage.
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_ENDURED_ITEM, _CheckEndure
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_DEFENDER, HOLD_EFFECT_MAYBE_ENDURE, _CheckEndure
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_ABILITY, ABILITY_STURDY, _End
     PlayBattleAnimation BATTLER_CATEGORY_DEFENDER, BATTLE_ANIMATION_HELD_ITEM
     Wait 
     // {0} hung on using its {1}!
     PrintMessage 912, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER
-    CheckItemHoldEffect CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_DEFENDER, HOLD_EFFECT_ENDURE, _AfterRemoveItem
+    // CheckItemHoldEffect CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_DEFENDER, HOLD_EFFECT_ENDURE, _AfterRemoveItem
     RemoveItem BATTLER_CATEGORY_DEFENDER
 
 _AfterRemoveItem:
