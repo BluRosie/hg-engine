@@ -4,9 +4,10 @@
 
 // Called by Toxic.
 _Start:
+    // TODO: Handle Tera.
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_TYPE_1, TYPE_POISON, _HandlePoisonTypeToxic
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_TYPE_2, TYPE_POISON, _HandlePoisonTypeToxic
-    // TODO: Handle type3 and tera.
+    GoToIfThirdType BATTLER_CATEGORY_ATTACKER, TYPE_POISON, _HandlePoisonTypeToxic
 
 _SetBadlyPoisonFlag:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_FLAGS_DIRECT, MOVE_SIDE_EFFECT_TO_DEFENDER|MOVE_SUBSCRIPT_PTR_BADLY_POISON

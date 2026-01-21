@@ -3,6 +3,7 @@
 .data
 
 _Start:
+    // TODO: Handle Tera type.
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_TYPE_1, TYPE_GHOST, _HandleTargetRedirect
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_TYPE_2, TYPE_GHOST, _HandleTargetRedirect
     GoToIfThirdType BATTLER_CATEGORY_ATTACKER, TYPE_GHOST, _HandleTargetRedirect
