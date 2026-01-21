@@ -118,9 +118,9 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
 
 #ifdef DEBUG_BATTLE_SCENARIOS
             // debug_printf("In ServerHPCalc\n");
-            if (TestBattle_HasMoreExpectations()) {
-                // debug_printf("Has more expectations\n");
-                struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+            struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+            if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+                // debug_printf("Has more expectations\n")
                 if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_HP_BAR
                     && sp->defence_client == scenario->expectations[scenario->expectationPassCount].battlerIDOrPartySlot) {
                     for (int i = 0; i < 16; i++) {

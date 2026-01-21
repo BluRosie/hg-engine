@@ -992,7 +992,7 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
 
 struct TestBattleScenario *currentScenario = TestBattle_GetCurrentScenario();
 
-while (TestBattle_HasMoreExpectations()) {
+while (currentScenario != NULL && TestBattle_HasMoreExpectations()) {
     // debug_printf("Has more expectations\n");
     // debug_printf("expectation: %d\n", currentScenario->expectations[currentScenario->expectationPassCount].expectationType);
     if (currentScenario->expectations[currentScenario->expectationPassCount].expectationType == EXPECTATION_OVERWORLD_FORM) {

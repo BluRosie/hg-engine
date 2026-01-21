@@ -8,6 +8,12 @@
 
 #define AI_SCRIPT_MAX_MOVES 8
 
+#define STATE_SCRIPT_IDX_MASK       0xF
+#define STATE_COMPLETE_BIT          (1 << 20)
+#define STATE_HAS_MORE_BIT          (1 << 21)
+#define STATE_TEST_INDEX_SHIFT      22
+#define STATE_TEST_INDEX_MASK       0x3FF
+
 // Battle action for scripted tests
 struct PACKED BattleAction {
     u8 action;  // 0-3 = move slot, 4-9 = switch to party slot (action - 4)

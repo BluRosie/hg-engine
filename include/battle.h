@@ -2095,8 +2095,6 @@ extern struct newBattleStruct newBS;
 extern struct ILLUSION_STRUCT gIllusionStruct;
 extern const u16 TetsunoKobushiTable[0xF];
 
-extern struct TestBattleScenario *g_CurrentScenario;
-
 int LONG_CALL BattlePokemonParamGet(void*,int ,int,void*);
 s32 LONG_CALL BattleItemDataGet(void*,u16,u16);
 u32 LONG_CALL BattleTypeGet(void*);

@@ -7,7 +7,6 @@
 #include "../include/battle.h"
 #include "../include/pokemon.h"
 #include "../include/test_battle.h"
-#include "../include/constants/ability.h"
 #include "../include/constants/file.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
@@ -16,28 +15,104 @@
 #define TEST_BATTLE_TOTAL_TESTS 3 // Adjust as needed
 #define TEST_START_INDEX        0
 
-// Store current scenario for battle state application and AI scripting
-struct TestBattleScenario *g_CurrentScenario = NULL;
-static struct TestBattleScenario g_LoadedScenario = {0};
-static int g_AIScriptIndex[4] = {0, 0, 0, 0};
-static BOOL g_TestBattleCurrentComplete = FALSE;
-static BOOL g_TestBattleHasMoreTests = FALSE;
-static int g_CurrentTestIndex = TEST_START_INDEX;
+// Layout:
+//   bits 0-3:   scriptIndex[0] (0-8)
+//   bits 4-7:   scriptIndex[1] (0-8)
+//   bits 8-11:  scriptIndex[2] (0-8)
+//   bits 12-15: scriptIndex[3] (0-8)
+//   bits 16-19: expectationPassCount (0-8)
+//   bit 20:     testComplete
+//   bit 21:     hasMoreTests
+//   bits 22-31: currentTestIndex (0-1023)
+static u32 gTestBattleState = (TEST_START_INDEX << 22);
+
+static struct TestBattleScenario *sCurrentScenario = NULL;
+
+static int GetScriptIndex(int battler) {
+    return (gTestBattleState >> (battler * 4)) & STATE_SCRIPT_IDX_MASK;
+}
+
+static void SetScriptIndex(int battler, int value) {
+    int shift = battler * 4;
+    gTestBattleState = (gTestBattleState & ~(STATE_SCRIPT_IDX_MASK << shift)) | ((value & STATE_SCRIPT_IDX_MASK) << shift);
+}
+
+static void IncrementScriptIndex(int battler) {
+    SetScriptIndex(battler, GetScriptIndex(battler) + 1);
+}
+
+static int GetCurrentTestIndex(void) {
+    return (gTestBattleState >> STATE_TEST_INDEX_SHIFT) & STATE_TEST_INDEX_MASK;
+}
+
+static void SetCurrentTestIndex(int value) {
+    gTestBattleState = (gTestBattleState & ~(STATE_TEST_INDEX_MASK << STATE_TEST_INDEX_SHIFT)) | ((value & STATE_TEST_INDEX_MASK) << STATE_TEST_INDEX_SHIFT);
+}
+
+static BOOL IsTestComplete(void) {
+    return (gTestBattleState & STATE_COMPLETE_BIT) != 0;
+}
+
+static void SetTestComplete(BOOL complete) {
+    if (complete) {
+        gTestBattleState |= STATE_COMPLETE_BIT;
+    } else {
+        gTestBattleState &= ~STATE_COMPLETE_BIT;
+    }
+}
+
+static BOOL HasMoreTests(void) {
+    return (gTestBattleState & STATE_HAS_MORE_BIT) != 0;
+}
+
+static void SetHasMoreTests(BOOL hasMore) {
+    if (hasMore) {
+        gTestBattleState |= STATE_HAS_MORE_BIT;
+    } else {
+        gTestBattleState &= ~STATE_HAS_MORE_BIT;
+    }
+}
+
+static void ResetScriptIndices(void) {
+    gTestBattleState &= ~0xFFFF;  // Clear bits 0-15 (all 4 script indices)
+}
+
+static void FreeCurrentScenario(void) {
+    if (sCurrentScenario != NULL) {
+        sys_FreeMemoryEz(sCurrentScenario);
+        sCurrentScenario = NULL;
+    }
+}
+
+static void AllocAndLoadScenario(void) {
+    FreeCurrentScenario();
+    sCurrentScenario = sys_AllocMemory(HEAPID_DEFAULT, sizeof(struct TestBattleScenario));
+    if (sCurrentScenario != NULL) {
+        int testIndex = GetCurrentTestIndex();
+        ArchiveDataLoadOfs(sCurrentScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS,
+                           testIndex * sizeof(struct TestBattleScenario), sizeof(struct TestBattleScenario));
+    }
+}
+
 // TODO: there is definitely some better way to do this, so that we don't need to worry if somehow this address is used by something else
 int *g_EmulatorCommunicationSendHole = (int*)0x02FFF81C;
 
 void LONG_CALL SendValueThroughCommunicationSendHole(int value) {
-    *g_EmulatorCommunicationSendHole = value;
+    //*g_EmulatorCommunicationSendHole = value;
 }
 
 struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario()
 {
-    return g_CurrentScenario;
+    return sCurrentScenario;
 }
 
 BOOL LONG_CALL TestBattle_HasMoreExpectations()
 {
-    return g_CurrentScenario->expectationPassCount != MAX_EXPECTATIONS && g_CurrentScenario->expectations[g_CurrentScenario->expectationPassCount].expectationType != 0;
+    if (sCurrentScenario == NULL) {
+        return FALSE;
+    }
+    return sCurrentScenario->expectationPassCount != MAX_EXPECTATIONS &&
+           sCurrentScenario->expectations[sCurrentScenario->expectationPassCount].expectationType != 0;
 }
 
 /**
@@ -124,20 +199,19 @@ static void OverridePartySlot(struct BATTLE_PARAM *bp, int partyIndex, int slot,
  */
 void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
 {
-    g_TestBattleCurrentComplete = FALSE;
-    g_TestBattleHasMoreTests = (g_CurrentTestIndex + 1) < TEST_BATTLE_TOTAL_TESTS;
-    debug_printf("TestBattle: Loading scenario %d of %d (more=%d)\n", g_CurrentTestIndex, TEST_BATTLE_TOTAL_TESTS - 1, g_TestBattleHasMoreTests);
+    int testIndex = GetCurrentTestIndex();
+    SetTestComplete(FALSE);
+    SetHasMoreTests((testIndex + 1) < TEST_BATTLE_TOTAL_TESTS);
+    debug_printf("TestBattle: Loading scenario %d of %d (more=%d)\n", testIndex, TEST_BATTLE_TOTAL_TESTS - 1, HasMoreTests());
 
-    ArchiveDataLoadOfs(&g_LoadedScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS, g_CurrentTestIndex * sizeof(struct TestBattleScenario), sizeof(struct TestBattleScenario));
-
-    // Point current scenario to the loaded buffer
-    g_CurrentScenario = &g_LoadedScenario;
-
-    const struct TestBattleScenario *scenario = g_CurrentScenario;
-
-    for (int i = 0; i < 4; i++) {
-        g_AIScriptIndex[i] = 0;
+    AllocAndLoadScenario();
+    if (sCurrentScenario == NULL) {
+        return;
     }
+
+    const struct TestBattleScenario *scenario = sCurrentScenario;
+
+    ResetScriptIndices();
 
     int enemyCount = 0;
     for (int i = 0; i < 2; i++) {
@@ -221,28 +295,28 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
  */
 void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
 {
-    if (g_CurrentScenario == NULL) {
+    if (sCurrentScenario == NULL) {
         return;
     }
 
     // In doubles, we need to ensure both battlers are properly linked to party slots
-    if (g_CurrentScenario->battleType & BATTLE_TYPE_DOUBLE) {
+    if (sCurrentScenario->battleType & BATTLE_TYPE_DOUBLE) {
         // Player
         sp->sel_mons_no[BATTLER_PLAYER_FIRST] = 0;
-        if (g_CurrentScenario->playerParty[1].species != 0) {
+        if (sCurrentScenario->playerParty[1].species != 0) {
             sp->sel_mons_no[BATTLER_PLAYER_SECOND] = 1;
         }
 
         // Enemy
         sp->sel_mons_no[BATTLER_ENEMY_FIRST] = 0;
-        if (g_CurrentScenario->enemyParty[1].species != 0) {
+        if (sCurrentScenario->enemyParty[1].species != 0) {
             sp->sel_mons_no[BATTLER_ENEMY_SECOND] = 1;
         }
     }
 
     // Apply player Pokemon status and conditions (battlers 0-1 in doubles, 0 in singles)
     for (int slot = 0; slot < 2; slot++) {
-        const struct TestBattlePokemon *mon = &g_CurrentScenario->playerParty[slot];
+        const struct TestBattlePokemon *mon = &sCurrentScenario->playerParty[slot];
         int battlerId = (slot == 0) ? BATTLER_PLAYER_FIRST : BATTLER_PLAYER_SECOND;
 
         if (mon->species == 0) {
@@ -274,7 +348,7 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
 
     // Apply enemy Pokemon status and conditions (battlers 2-3 in doubles, 1 in singles)
     for (int slot = 0; slot < 2; slot++) {
-        const struct TestBattlePokemon *mon = &g_CurrentScenario->enemyParty[slot];
+        const struct TestBattlePokemon *mon = &sCurrentScenario->enemyParty[slot];
         int battlerId = (slot == 0) ? BATTLER_ENEMY_FIRST : BATTLER_ENEMY_SECOND;
 
         if (mon->species == 0) {
@@ -304,19 +378,19 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
         }
     }
 
-    if (g_CurrentScenario->weather) {
-        sp->field_condition |= g_CurrentScenario->weather;
+    if (sCurrentScenario->weather) {
+        sp->field_condition |= sCurrentScenario->weather;
     }
 
-    if (g_CurrentScenario->fieldCondition) {
-        sp->field_condition |= g_CurrentScenario->fieldCondition;
+    if (sCurrentScenario->fieldCondition) {
+        sp->field_condition |= sCurrentScenario->fieldCondition;
     }
 
     sp->terrainOverlay.type = TERRAIN_NONE;
     sp->terrainOverlay.numberOfTurnsLeft = 0;
 
-    if (g_CurrentScenario->terrain != TERRAIN_NONE) {
-        sp->terrainOverlay.type = g_CurrentScenario->terrain;
+    if (sCurrentScenario->terrain != TERRAIN_NONE) {
+        sp->terrainOverlay.type = sCurrentScenario->terrain;
         sp->terrainOverlay.numberOfTurnsLeft = 255;
     }
 }
@@ -328,22 +402,22 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
  */
 static BOOL LONG_CALL TestBattle_TestComplete()
 {
-    if (g_CurrentScenario == NULL) {
+    if (sCurrentScenario == NULL) {
         return FALSE;
     }
 
-    int maxBattlers = (g_CurrentScenario->battleType & BATTLE_TYPE_DOUBLE) ? 4 : 2;
+    int maxBattlers = (sCurrentScenario->battleType & BATTLE_TYPE_DOUBLE) ? 4 : 2;
     for (int i = 0; i < maxBattlers; i++) {
         const struct BattleAction *script;
         int battlerIndex = (i == BATTLER_PLAYER_FIRST || i == BATTLER_ENEMY_FIRST) ? 0 : 1;
 
         if (i == BATTLER_PLAYER_FIRST || i == BATTLER_PLAYER_SECOND) {
-            script = g_CurrentScenario->playerScript[battlerIndex];
+            script = sCurrentScenario->playerScript[battlerIndex];
         } else {
-            script = g_CurrentScenario->enemyScript[battlerIndex];
+            script = sCurrentScenario->enemyScript[battlerIndex];
         }
 
-        int scriptIndex = g_AIScriptIndex[i];
+        int scriptIndex = GetScriptIndex(i);
         if (scriptIndex < AI_SCRIPT_MAX_MOVES && script[scriptIndex].action != ACTION_NONE) {
             return FALSE;
         }
@@ -360,12 +434,12 @@ static BOOL LONG_CALL TestBattle_TestComplete()
  */
 static void LONG_CALL TestBattle_CheckScriptCompletion()
 {
-    if (g_CurrentScenario == NULL || g_TestBattleCurrentComplete) {
+    if (sCurrentScenario == NULL || IsTestComplete()) {
         return;
     }
 
     if (TestBattle_TestComplete()) {
-        g_TestBattleCurrentComplete = TRUE;
+        SetTestComplete(TRUE);
         // if (TestBattle_HasMoreExpectations()) {
         //     *g_EmulatorCommunicationSendHole = TEST_CASE_FAIL;
         // } else {
@@ -381,16 +455,17 @@ static void LONG_CALL TestBattle_CheckScriptCompletion()
  */
 BOOL LONG_CALL TestBattle_IsComplete()
 {
-    return g_TestBattleCurrentComplete;
+    return IsTestComplete();
 }
 
 void LONG_CALL TestBattle_QueueNextTest()
 {
-    if (g_TestBattleCurrentComplete) {
-        g_CurrentTestIndex++;
-        g_TestBattleCurrentComplete = FALSE;
+    if (IsTestComplete()) {
+        SetCurrentTestIndex(GetCurrentTestIndex() + 1);
+        SetTestComplete(FALSE);
     }
-    g_TestBattleHasMoreTests = FALSE; // set this to false temporarily so the script only loads once
+    SetHasMoreTests(FALSE); // set this to false temporarily so the script only loads once
+    FreeCurrentScenario();
 }
 
 /**
@@ -400,7 +475,7 @@ void LONG_CALL TestBattle_QueueNextTest()
  */
 BOOL LONG_CALL TestBattle_HasMoreTests()
 {
-    return g_TestBattleCurrentComplete && g_TestBattleHasMoreTests;
+    return IsTestComplete() && HasMoreTests();
 }
 
 /**
@@ -420,7 +495,7 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
     *moveSlot = (u8)0;
     *target = (u8)0;
 
-    if (g_CurrentScenario == NULL) {
+    if (sCurrentScenario == NULL) {
         return;
     }
 
@@ -432,18 +507,18 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
     int battlerIndex = (battlerId == BATTLER_PLAYER_FIRST || battlerId == BATTLER_ENEMY_FIRST) ? 0 : 1;
 
     if (battlerId == BATTLER_PLAYER_FIRST || battlerId == BATTLER_PLAYER_SECOND) {
-        script = g_CurrentScenario->playerScript[battlerIndex];
+        script = sCurrentScenario->playerScript[battlerIndex];
     } else {
-        script = g_CurrentScenario->enemyScript[battlerIndex];
+        script = sCurrentScenario->enemyScript[battlerIndex];
     }
 
-    int *scriptIndex = &g_AIScriptIndex[battlerId];
+    int scriptIndex = GetScriptIndex(battlerId);
 
-    if (*scriptIndex >= AI_SCRIPT_MAX_MOVES) {
+    if (scriptIndex >= AI_SCRIPT_MAX_MOVES) {
         return;
     }
 
-    struct BattleAction action = script[*scriptIndex];
+    struct BattleAction action = script[scriptIndex];
 
     if (action.action == ACTION_NONE) {
         return;
@@ -453,7 +528,7 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
         *moveSlot = action.action;
         *target = action.target;
     }
-    (*scriptIndex)++;
+    IncrementScriptIndex(battlerId);
 }
 
 /**
@@ -485,7 +560,7 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
         return 1;  // FIGHT
     }
 
-    if (g_CurrentScenario == NULL) {
+    if (sCurrentScenario == NULL) {
         return 1;  // FIGHT
     }
 
@@ -499,18 +574,18 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
     int battlerIndex = (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_ENEMY_FIRST) ? 0 : 1;
 
     if (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND) {
-        script = g_CurrentScenario->playerScript[battlerIndex];
+        script = sCurrentScenario->playerScript[battlerIndex];
     } else {
-        script = g_CurrentScenario->enemyScript[battlerIndex];
+        script = sCurrentScenario->enemyScript[battlerIndex];
     }
 
     TestBattle_CheckScriptCompletion();
 
-    if (g_TestBattleCurrentComplete) {
+    if (IsTestComplete()) {
         return 1;  // will be ignored as battle ends
     }
 
-    int scriptIndex = g_AIScriptIndex[battler];
+    int scriptIndex = GetScriptIndex(battler);
 
     if (scriptIndex >= AI_SCRIPT_MAX_MOVES) {
         return 1;  // FIGHT
@@ -521,7 +596,7 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
     if (action.action >= ACTION_SWITCH_SLOT_0 && action.action <= ACTION_SWITCH_SLOT_5) {
         u8 partySlot = action.action - ACTION_SWITCH_SLOT_0;
         bsys->sp->ai_reshuffle_sel_mons_no[battler] = partySlot;
-        g_AIScriptIndex[battler]++;
+        IncrementScriptIndex(battler);
         return 3;  // SWITCH
     }
 
@@ -539,24 +614,22 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
  */
 void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    if (ctx->server_seq_no != CONTROLLER_COMMAND_SELECTION_SCREEN_INPUT)
-    {
+    if (ctx->server_seq_no != CONTROLLER_COMMAND_SELECTION_SCREEN_INPUT) {
         return;  // Not in input phase
     }
 
-    if (ctx->com_seq_no[0] != SSI_STATE_SELECT_COMMAND_INIT)
-    {
+    if (ctx->com_seq_no[0] != SSI_STATE_SELECT_COMMAND_INIT) {
         return;  // Already processed or not ready
     }
 
-    if (g_CurrentScenario == NULL) {
+    if (sCurrentScenario == NULL) {
         return;
     }
 
     TestBattle_CheckScriptCompletion();
 
-    const struct BattleAction *script0 = g_CurrentScenario->playerScript[0];
-    int scriptIndex0 = g_AIScriptIndex[0];
+    const struct BattleAction *script0 = sCurrentScenario->playerScript[0];
+    int scriptIndex0 = GetScriptIndex(0);
 
     if (scriptIndex0 < AI_SCRIPT_MAX_MOVES) {
         struct BattleAction action = script0[scriptIndex0];
@@ -574,7 +647,7 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
             ctx->reshuffle_sel_mons_no[0] = partySlot;
             ctx->com_seq_no[0] = SSI_STATE_END;
             ctx->ret_seq_no[0] = SSI_STATE_13;
-            g_AIScriptIndex[0]++;
+            IncrementScriptIndex(0);
         } else {
             // fight
             u8 moveSlot = action.action;
@@ -587,13 +660,13 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
             ctx->waza_no_select[0] = ctx->battlemon[0].move[moveSlot];
             ctx->com_seq_no[0] = SSI_STATE_END;
             ctx->ret_seq_no[0] = SSI_STATE_13;
-            g_AIScriptIndex[0]++;
+            IncrementScriptIndex(0);
         }
     }
 
     if (BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) {
-        const struct BattleAction *script1 = g_CurrentScenario->playerScript[1];
-        int scriptIndex2 = g_AIScriptIndex[2];
+        const struct BattleAction *script1 = sCurrentScenario->playerScript[1];
+        int scriptIndex2 = GetScriptIndex(2);
 
         if (scriptIndex2 < AI_SCRIPT_MAX_MOVES) {
             struct BattleAction action = script1[scriptIndex2];
@@ -611,7 +684,7 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
                 ctx->reshuffle_sel_mons_no[2] = partySlot;
                 ctx->com_seq_no[2] = SSI_STATE_END;
                 ctx->ret_seq_no[2] = SSI_STATE_13;
-                g_AIScriptIndex[2]++;
+                IncrementScriptIndex(2);
             } else {
                 // fight
                 u8 moveSlot = action.action;
@@ -624,7 +697,7 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
                 ctx->waza_no_select[2] = ctx->battlemon[2].move[moveSlot];
                 ctx->com_seq_no[2] = SSI_STATE_END;
                 ctx->ret_seq_no[2] = SSI_STATE_13;
-                g_AIScriptIndex[2]++;
+                IncrementScriptIndex(2);
             }
         }
     }
