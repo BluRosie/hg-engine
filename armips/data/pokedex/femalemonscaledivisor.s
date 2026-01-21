@@ -1083,6 +1083,5 @@
 /* SPECIES_IRON_CROWN      */ .halfword 0x151
 /* SPECIES_TERAPAGOS       */ .halfword 0x151
 /* SPECIES_PECHARUNT       */ .halfword 0x151
-/* SPECIES_CELESTINA       */ .halfword 0x151
 
 .close

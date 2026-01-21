@@ -259,7 +259,6 @@
 .halfword SPECIES_MEWTWO
 .halfword SPECIES_MEW
 .halfword SPECIES_CELEBI
-.halfword SPECIES_CELESTINA
 
 
 .close
