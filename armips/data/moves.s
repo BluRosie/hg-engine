@@ -12532,7 +12532,7 @@ movedata MOVE_DRUM_BEATING, "Drum Beating"
     movedescription MOVE_DRUM_BEATING, "The user plays its drum,\ncontrolling the drum's\nroots to attack the\ntarget. This also lowers\nthe target's Speed stat."
 
 movedata MOVE_SNAP_TRAP, "Snap Trap"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_BIND_HIT
     pss SPLIT_PHYSICAL
     basepower 35
     type TYPE_GRASS
@@ -12541,7 +12541,7 @@ movedata MOVE_SNAP_TRAP, "Snap Trap"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13172,7 +13172,7 @@ movedata MOVE_SURGING_STRIKES, "Surging Strikes"
     movedescription MOVE_SURGING_STRIKES, "The user strikes the\ntarget with a flowing\nmotion three times in\na row. This move always\nlands a critical hit."
 
 movedata MOVE_THUNDER_CAGE, "Thunder Cage"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_BIND_HIT
     pss SPLIT_SPECIAL
     basepower 80
     type TYPE_ELECTRIC
@@ -13181,7 +13181,7 @@ movedata MOVE_THUNDER_CAGE, "Thunder Cage"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
