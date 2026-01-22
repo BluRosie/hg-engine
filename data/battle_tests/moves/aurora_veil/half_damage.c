@@ -18,7 +18,7 @@ const struct TestBattleScenario BattleTests[] = {
         .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
-        .terrain = TERRAIN_NONE,
+        .terrain = MISTY_TERRAIN,
         .playerParty = {
             {
                 .species = SPECIES_NINETALES,
