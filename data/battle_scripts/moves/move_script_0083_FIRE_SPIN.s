@@ -4,5 +4,5 @@
 
 _Start:
     // {0} became trapped in the fiery vortex!
-    BufferMessage 1617, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
+    BufferMessage 1625, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     GoToEffectScript 
