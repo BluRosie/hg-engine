@@ -1787,46 +1787,46 @@ superrodrate 0
 walklevels 6, 7, 6, 7, 6, 6, 6, 6, 8, 4, 8, 4
 
 // morning encounter slots
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_RATTATA
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_RATTATA
-pokemon SPECIES_SPEAROW
-pokemon SPECIES_SPEAROW
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_VENIPEDE    // 20
+pokemon SPECIES_RATTATA     // 20
+pokemon SPECIES_PANSAGE     // 10
+pokemon SPECIES_PANSEAR     // 10
+pokemon SPECIES_PANPOUR     // 10
+pokemon SPECIES_SPEAROW     // 10
+pokemon SPECIES_VENIPEDE    // 5
+pokemon SPECIES_RATTATA     // 5
+pokemon SPECIES_HOPPIP      // 4
+pokemon SPECIES_ZUBAT       // 4
+pokemon SPECIES_HOPPIP      // 1
+pokemon SPECIES_ZUBAT       // 1
 
 // day encounter slots
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_RATTATA
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_RATTATA
-pokemon SPECIES_SPEAROW
-pokemon SPECIES_SPEAROW
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_RATTATA
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_RATTATA
+pokemon SPECIES_VENIPEDE    // 20
+pokemon SPECIES_RATTATA     // 20
+pokemon SPECIES_PANSAGE     // 10
+pokemon SPECIES_PANSEAR     // 10
+pokemon SPECIES_PANPOUR     // 10
+pokemon SPECIES_SPEAROW     // 10
+pokemon SPECIES_VENIPEDE    // 5
+pokemon SPECIES_RATTATA     // 5
+pokemon SPECIES_HOPPIP      // 4
+pokemon SPECIES_ZUBAT       // 4
+pokemon SPECIES_HOPPIP      // 1
+pokemon SPECIES_ZUBAT       // 1
 
 // night encounter slots
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_VENIPEDE    // 20
+pokemon SPECIES_RATTATA     // 20
+pokemon SPECIES_PANSAGE     // 10
+pokemon SPECIES_PANSEAR     // 10
+pokemon SPECIES_PANPOUR     // 10
+pokemon SPECIES_SPEAROW     // 10
+pokemon SPECIES_VENIPEDE    // 5
+pokemon SPECIES_RATTATA     // 5
+pokemon SPECIES_HOPPIP      // 4
+pokemon SPECIES_ZUBAT       // 4
+pokemon SPECIES_HOPPIP      // 1
+pokemon SPECIES_ZUBAT       // 1
 
 // hoenn encounter slots
 pokemon SPECIES_PLUSLE

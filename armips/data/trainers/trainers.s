@@ -754,7 +754,7 @@ trainerdata 22, "Carrie"
 trainerdata 23, "Larry"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_POKE_MANIAC
-    nummons 1
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -767,8 +767,29 @@ trainerdata 23, "Larry"
         // mon 0
         ivs 0
         abilityslot 32
-        level 11
+        level 16
         pokemon SPECIES_SLOWPOKE
+        ballseal 0
+
+        // mon 1
+        ivs 0
+        abilityslot 32
+        level 17
+        pokemon SPECIES_TYROGUE
+        ballseal 0
+
+        // mon 2
+        ivs 0
+        abilityslot 32
+        level 17
+        monwithform SPECIES_SLOWPOKE, 1
+        ballseal 0
+
+        // mon 2
+        ivs 0
+        abilityslot 32
+        level 17
+        pokemon SPECIES_AXEW
         ballseal 0
     endparty
 
@@ -809,22 +830,22 @@ trainerdata 25, "Russel"
         // mon 0
         ivs 0
         abilityslot 32
-        level 4
-        pokemon SPECIES_GEODUDE
+        level 16
+        monwithform SPECIES_DIGLETT, 1
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 32
-        level 6
+        level 16
         pokemon SPECIES_GEODUDE
         ballseal 0
 
         // mon 2
         ivs 0
         abilityslot 32
-        level 8
-        pokemon SPECIES_GEODUDE
+        level 16
+        pokemon SPECIES_ROGGENROLA
         ballseal 0
     endparty
 
@@ -2048,7 +2069,7 @@ trainerdata 60, "Henry"
 trainerdata 61, "Anthony"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_HIKER
-    nummons 2
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -2061,15 +2082,22 @@ trainerdata 61, "Anthony"
         // mon 0
         ivs 0
         abilityslot 0
-        level 11
+        level 17
         pokemon SPECIES_GEODUDE
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 32
-        level 11
+        level 17
         pokemon SPECIES_MACHOP
+        ballseal 0
+
+        // mon 2
+        ivs 0
+        abilityslot 32
+        level 17
+        pokemon SPECIES_ONIX
         ballseal 0
     endparty
 
@@ -11060,7 +11088,7 @@ trainerdata 318, "Burt"
 trainerdata 319, "Bill"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_FIREBREATHER
-    nummons 2
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -11073,15 +11101,22 @@ trainerdata 319, "Bill"
         // mon 0
         ivs 0
         abilityslot 0
-        level 6
+        level 17
         pokemon SPECIES_KOFFING
         ballseal 0
 
         // mon 1
         ivs 0
         abilityslot 0
-        level 6
-        pokemon SPECIES_KOFFING
+        level 16
+        pokemon SPECIES_SLUGMA
+        ballseal 0
+
+        // mon 2
+        ivs 0
+        abilityslot 0
+        level 17
+        pokemon SPECIES_PANSEAR
         ballseal 0
     endparty
 
@@ -13095,7 +13130,7 @@ trainerdata 383, "Peter"
 trainerdata 384, "Daniel"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_HIKER
-    nummons 1
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -13108,8 +13143,20 @@ trainerdata 384, "Daniel"
         // mon 0
         ivs 0
         abilityslot 32
-        level 11
+        level 16
+        pokemon SPECIES_ARON
+        ballseal 0
+        // mon 1
+        ivs 0
+        abilityslot 32
+        level 18
         pokemon SPECIES_ONIX
+        ballseal 0
+        // mon 2
+        ivs 0
+        abilityslot 32
+        level 16
+        pokemon SPECIES_MAKUHITA
         ballseal 0
     endparty
 
@@ -13261,7 +13308,7 @@ trainerdata 389, "Nelson"
 trainerdata 390, "Ray"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_FIREBREATHER
-    nummons 2
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -13283,6 +13330,12 @@ trainerdata 390, "Ray"
         abilityslot 0
         level 15
         pokemon SPECIES_SALANDIT
+        ballseal 0
+        // mon 2
+        ivs 0
+        abilityslot 0
+        level 16
+        pokemon SPECIES_NUMEL
         ballseal 0
     endparty
 
