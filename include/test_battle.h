@@ -72,6 +72,8 @@ struct PACKED TestBattleScenario {
     struct Expectations expectations[MAX_EXPECTATIONS];
 
     u8 expectationPassCount;
+
+    BOOL knownFailing;  // used for tests that are written before implementation, or writing tests to cover clearly untested code that we need to clean up
 };
 
 #define FULL_HP 0
@@ -95,8 +97,9 @@ struct PACKED TestBattleScenario {
 #define BATTLER_PLAYER_SECOND 2
 #define BATTLER_ENEMY_SECOND  3
 
-#define TEST_CASE_PASS (-1)
-#define TEST_CASE_FAIL (-2)
+#define TEST_CASE_PASS          (-1)
+#define TEST_CASE_FAIL          (-2)
+#define TEST_CASE_KNOWN_FAILING (-3)
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario();

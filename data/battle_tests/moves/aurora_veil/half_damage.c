@@ -1,3 +1,4 @@
+// Test: Aurora Veil - basic functionality
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -13,7 +14,6 @@ const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    // Test: Roost - Pure Flying types will become Normal type after using Roost
     {
         .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,

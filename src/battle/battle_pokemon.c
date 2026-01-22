@@ -1012,7 +1012,11 @@ while (currentScenario != NULL && TestBattle_HasMoreExpectations()) {
 }
 
 if (TestBattle_HasMoreExpectations()) {
-    SendValueThroughCommunicationSendHole(TEST_CASE_FAIL);
+    if (currentScenario->knownFailing) {
+        SendValueThroughCommunicationSendHole(TEST_CASE_KNOWN_FAILING);
+    } else {
+        SendValueThroughCommunicationSendHole(TEST_CASE_FAIL);
+    }
 } else {
     SendValueThroughCommunicationSendHole(TEST_CASE_PASS);
 }

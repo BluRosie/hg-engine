@@ -13,6 +13,8 @@ const struct TestBattleScenario BattleTests[] = {
 #define GET_TEST_CASE_ONLY
 
 #include "battle_tests/moves/aurora_veil/half_damage.c"
+#include "battle_tests/moves/burn_up/change_type.c"
+#include "battle_tests/moves/double_shock/change_type.c"
 #include "battle_tests/moves/roost/change_type.c"
 #include "battle_tests/species/zacian/change_form.c"
 #include "battle_tests/species/zamazenta/change_form.c"

@@ -1,3 +1,4 @@
+// Test: Zamazenta - Will enter as Crowned Form and Iron Head changes to Behemoth Bash
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -13,7 +14,6 @@ const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    // Test: Zamazenta - Will enter as Crowned Form and Iron Head changes to Behemoth Bash
     {
         .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
