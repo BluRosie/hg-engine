@@ -6,8 +6,8 @@ An item to be held by a Pokémon.\nThe holder will float in the air until hit.\n
 An item to be held by a Pokémon.\nWhen the holder is hit by an attack,\nthe attacker is removed from battle.
 An item to be held by a Pokémon.\nMoves that normally have no effect\nwill land on a Pokémon holding it.
 An item to be held by a Pokémon.\nThis band boosts the power of\nbinding moves used by the holder.
-An item to be held by a Pokémon.\nThis single-use bulb boosts Sp. Atk if the\nholder is hit with a Water-type attack.
-An item to be held by a Pokémon.\nThis single-use battery ups Attack if the\nholder is hit by an Electric-type attack.
+An item to be held by a Pokémon.\nBoosts Sp. Atk if the holder is hit by\na Water-type attack--but only once.
+An item to be held by a Pokémon.\nBoosts Attack if the holder is hit by\nan Electric-type attack--but only once.
 An item to be held by a Pokémon.\nIf the holder is hit by an attack,\nit will be switched out of battle.
 A gem with an essence of fire.\nWhen held, it strengthens the power\nof a Fire-type move one time.
 A gem with an essence of water.\nWhen held, it strengthens the power\nof a Water-type move one time.
