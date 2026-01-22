@@ -1615,3 +1615,16 @@ The opposing {STRVAR_1 1, 0, 0}\nlost some of its HP!
 {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from {STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} became trapped\nin the fiery vortex!
+The wild {STRVAR_1 1, 0, 0} became trapped\nin the fiery vortex!
+The opposing {STRVAR_1 1, 0, 0} became trapped\nin the fiery vortex!
+{STRVAR_1 1, 0, 0} got trapped\nby a snap trap!
+The wild {STRVAR_1 1, 0, 0} got trapped\nby a snap trap!
+The opposing {STRVAR_1 1, 0, 0} got trapped\nby a snap trap!
+{STRVAR_1 1, 0, 0} trapped {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} trapped\nthe wild {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} trapped\nthe opposing {STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} trapped\nthe wild {STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} trapped\nthe opposing {STRVAR_1 1, 1, 0}!
