@@ -72,8 +72,7 @@ struct PACKED TestBattleScenario {
     struct Expectations expectations[MAX_EXPECTATIONS];
 
     u8 expectationPassCount;
-
-    BOOL knownFailing;  // used for tests that are written before implementation, or writing tests to cover clearly untested code that we need to clean up
+    u8 knownFailing;
 };
 
 #define FULL_HP 0

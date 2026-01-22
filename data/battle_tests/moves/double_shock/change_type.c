@@ -15,7 +15,6 @@ const struct TestBattleScenario BattleTests[] = {
 #endif
 
     {
-        .knownFailing = TRUE,
         .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
@@ -99,7 +98,9 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 118, 118, 120, 121, 123, 124, 126, 127, 129, 130, 132, 133, 135, 136, 138, 139 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_USED_UP_ELECTRICITY },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_BUT_IT_FAILED },
-        } },
+        },
+        .knownFailing = TRUE
+    },
 #ifndef GET_TEST_CASE_ONLY
 };
 #endif

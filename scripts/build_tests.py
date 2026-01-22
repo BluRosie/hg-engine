@@ -3,16 +3,15 @@ import pathlib
 import sys
 from string import Template
 
-FILE_OUTPUT = """#include "../include/battle.h"
-#include "../include/test_battle.h"
-#include "../include/constants/species.h"
-#include "../include/constants/moves.h"
-#include "../include/constants/item.h"
-#include "../include/constants/ability.h"
-#include "../include/constants/battle_message_constants.h"
+FILE_OUTPUT = """#include "../../include/battle.h"
+#include "../../include/test_battle.h"
+#include "../../include/constants/species.h"
+#include "../../include/constants/moves.h"
+#include "../../include/constants/item.h"
+#include "../../include/constants/ability.h"
+#include "../../include/constants/battle_message_constants.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
-// each test file is a separate .c file in battle_tests/ for better organization
 const struct TestBattleScenario BattleTests[] = {
 
 #define GET_TEST_CASE_ONLY
@@ -48,18 +47,20 @@ def main() -> None:
     filter_keywords = sys.argv[1:]
     template = Template(FILE_OUTPUT)
     data_folder = pathlib.Path(os.path.join(os.getcwd(), "data"))
+    build_folder = pathlib.Path(os.path.join(os.getcwd(), "build", "battle_tests"))
     battle_tests_root_folder = pathlib.Path(data_folder, "battle_tests")
     files = battle_tests_root_folder.rglob("*c")
     test_files = [
-        f'#include "{os.path.relpath(file, data_folder)}"' for file in sorted(files)
+        f'#include "../../data/{os.path.relpath(file, data_folder)}"' for file in sorted(files)
     ]
     if len(filter_keywords) > 0:
-        test_files = filter(
+        test_files = list(filter(
             lambda x: keywords_in_string(x, filter_keywords), test_files
-        )
+        ))
     tests = "\n".join(test_files)
 
-    with open(os.path.join(data_folder, "BattleTests.c"), "w") as file:
+    os.makedirs(build_folder, exist_ok=True)
+    with open(os.path.join(build_folder, "BattleTests.c"), "w") as file:
         file.write(template.substitute({"tests": tests}))
 
     write_test_battle_header(len(test_files))
