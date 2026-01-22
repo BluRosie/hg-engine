@@ -13718,7 +13718,7 @@ movedata MOVE_SILK_TRAP, "Silk Trap"
     movedescription MOVE_SILK_TRAP, "The user spins a silken\ntrap, protecting itself\nwhile lowering the Speed\nof any attacker that\nmakes direct contact."
 
 movedata MOVE_AXE_KICK, "Axe Kick"
-    battleeffect MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS
+    battleeffect MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_FIGHTING

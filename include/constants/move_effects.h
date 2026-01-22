@@ -296,7 +296,7 @@
 #define MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN   290
 #define MOVE_EFFECT_USER_DEF_SP_DEF_SPEED_DOWN_HIT          291
 #define MOVE_EFFECT_HEAVY_SLAM                              292
-#define MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS               293
+#define MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS               293
 #define MOVE_EFFECT_APPLY_TERRAINS                          294
 #define MOVE_EFFECT_ATK_SP_ATK_UP                           295
 #define MOVE_EFFECT_HIT_TWICE_AND_FLINCH                    296
