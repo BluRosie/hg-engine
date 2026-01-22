@@ -1,5 +1,8 @@
 import argparse
+import os
+import re
 import sys
+import time
 
 from desmume.emulator import DeSmuME, DeSmuME_Memory
 
@@ -23,13 +26,13 @@ class bcolors:
 
 # Settings
 SHOW_VIDEO_OUTPUT = False
-NUMBER_OF_TESTS_TO_RUN = 3
 TEST_START_INDEX = 0
-
+IDLE_TIMEOUT_SECONDS = 1 * 60 # 1 minute
 
 has_finished_testing_flag = False
 current_test_case = TEST_START_INDEX
 return_value = 0
+last_activity_time = time.monotonic()
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--video", action="store_true")
@@ -50,20 +53,34 @@ def has_finished_testing():
 
 
 def callback_function_when_game_put_thing_into_communication_hole(address, size):
-    global current_test_case, has_finished_testing_flag, return_value
+    global current_test_case, has_finished_testing_flag, return_value, last_activity_time
+
+    last_activity_time = time.monotonic()
 
     value = read_communication_hole_value()
 
-    # Early return if value is invalid
     if value == TEST_CASE_FAIL:
         print(f"{bcolors.FAIL}[Fail] Test case {current_test_case}{bcolors.ENDC}")
         return_value += 1
-    # Check if the value matches the current test case
     elif value == TEST_CASE_PASS:
         print(f"{bcolors.OKGREEN}[Pass] Test case {current_test_case}{bcolors.ENDC}")
 
     current_test_case += 1
 
+
+def read_total_tests_from_header() -> int:
+    header_path = "include/constants/generated/test_battle.h"
+
+    with open(header_path, "r", encoding="utf-8") as f:
+        text = f.read()
+
+    m = re.search(r"#define\s+TEST_BATTLE_TOTAL_TESTS\s+(\d+)", text)
+    if not m:
+        raise RuntimeError(f"Could not find TEST_BATTLE_TOTAL_TESTS in {header_path}")
+    return int(m.group(1))
+
+
+NUMBER_OF_TESTS_TO_RUN = read_total_tests_from_header()
 
 memory.register_write(
     g_EmulatorCommunicationSendHoleAddress,
@@ -84,6 +101,13 @@ def main():
 
     # Run the emulation as fast as possible until testing complete
     while not has_finished_testing():
+        if (time.monotonic() - last_activity_time) > IDLE_TIMEOUT_SECONDS:
+            print(
+                f"{bcolors.FAIL}[Timeout] No activity for {IDLE_TIMEOUT_SECONDS // 60} minutes. Aborting.{bcolors.ENDC}",
+                flush=True,
+            )
+            sys.exit(1)
+
         if window is not None:
             window.draw()
 

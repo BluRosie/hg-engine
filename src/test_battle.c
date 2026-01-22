@@ -8,12 +8,12 @@
 #include "../include/pokemon.h"
 #include "../include/test_battle.h"
 #include "../include/constants/file.h"
+#include "../include/constants/generated/test_battle.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 
-#define TEST_BATTLE_TOTAL_TESTS 4 // Adjust as needed
-#define TEST_START_INDEX        0
+#define TEST_START_INDEX 0
 
 // Layout:
 //   bits 0-3:   scriptIndex[0] (0-8)
