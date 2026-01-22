@@ -12596,7 +12596,7 @@ movedata MOVE_BEHEMOTH_BASH, "Behemoth Bash"
     movedescription MOVE_BEHEMOTH_BASH, "The user's body\nbecomes a firm shield\nand slams into the\ntarget fiercely."
 
 movedata MOVE_AURA_WHEEL, "Aura Wheel"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_RAISE_SPEED_HIT
     pss SPLIT_PHYSICAL
     basepower 110
     type TYPE_ELECTRIC
@@ -12605,7 +12605,7 @@ movedata MOVE_AURA_WHEEL, "Aura Wheel"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
