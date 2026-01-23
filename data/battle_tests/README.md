@@ -110,7 +110,18 @@ This directory contains individual battle test scenario files. Each test is a se
 
 ```c
 // Test N: Your test description
-#include "battle_tests/00X_my_test.c"
+#include "battle_tests/my_test.c"
 ```
 
-3. **Update TEST_BATTLE_TOTAL_TESTS** in `src/test_battle.c` to match the number of tests
+## Running Tests
+### Build test ROM
+`make AUTO_TEST=Y -j$(nproc)`
+
+### Run tests (headless)
+`SDL_VIDEODRIVER=dummy scripts/run_tests.sh`
+
+
+### Run tests (with video)
+`scripts/run_tests.sh -v`
+
+Tests build `test.nds` and run sequentially.

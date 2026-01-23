@@ -81,6 +81,9 @@ armips/asm/offset.s
 .vscode/
 rom_gen*.ld
 .idea/
+.zed
+compile_commands.json
+CLAUDE.md
 
 sdat/*
 *.swav
