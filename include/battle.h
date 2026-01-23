@@ -711,7 +711,7 @@ struct __attribute__((packed)) OneTurnEffect
                u32 helping_hand_flag : 1; /**< pokémon is being aided by helping hand */
                u32 magic_cort_flag : 1;   /**< pokémon has magic coat active */
                u32 snatchFlag : 1;
-               u32 haneyasume_flag : 1;
+               u32 roostFlag : 1;
                u32 escape_flag : 2;
                u32 prevent_one_hit_ko_ability : 1; /**< pokémon has damp active */
                // begin custom flags

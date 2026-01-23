@@ -1234,18 +1234,22 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 #endif
 
                 for (int i = 0; i < client_set_max; i++) {
-                    int species = PokeOtherFormMonsNoGet(sp->battlemon[i].species, sp->battlemon[i].form_no);
-                    u32 type1 = PokePersonalParaGet(species, PERSONAL_TYPE_1);
-                    u32 type2 = PokePersonalParaGet(species, PERSONAL_TYPE_2);
+                    if (sp->oneTurnFlag[i].roostFlag) {
+                        int species = PokeOtherFormMonsNoGet(sp->battlemon[i].species, sp->battlemon[i].form_no);
+                        u32 type1 = PokePersonalParaGet(species, PERSONAL_TYPE_1);
+                        u32 type2 = PokePersonalParaGet(species, PERSONAL_TYPE_2);
 
-                    // Assume vanilla situations
-                    // Handle Soak
-                    if (sp->battlemon[i].type1 == TYPE_WATER && sp->battlemon[i].type2 == TYPE_WATER) {
-                        break;
+                        // Assume vanilla situations
+                        // Handle Soak
+                        if (sp->battlemon[i].type1 == TYPE_WATER && sp->battlemon[i].type2 == TYPE_WATER) {
+                            break;
+                        }
+                        // There shouldn't be any other cases to handle
+                        sp->battlemon[i].type1 = type1;
+                        sp->battlemon[i].type2 = type2;
+
+                        sp->oneTurnFlag[i].roostFlag = FALSE;
                     }
-                    // There shouldn't be any other cases to handle
-                    sp->battlemon[i].type1 = type1;
-                    sp->battlemon[i].type2 = type2;
                 }
 
                 sp->fcc_seq_no++;
