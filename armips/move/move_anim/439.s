@@ -10,6 +10,8 @@
 
 .create "build/move/move_anim/0_439", 0
 
+//Rock Wrecker
+
 a010_439:
     initspriteresource
     loadspriteresource 0

@@ -10,6 +10,8 @@
 
 .create "build/move/move_anim/0_023", 0
 
+//Stomp
+
 a010_023:
     initspriteresource
     loadspriteresource 0

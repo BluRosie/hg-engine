@@ -10,6 +10,8 @@
 
 .create "build/move/move_anim/0_094", 0
 
+//Psychic
+
 a010_094:
     initspriteresource
     loadspriteresource 0
