@@ -4530,6 +4530,7 @@ BOOL btl_scr_cmd_10D_stuffCheeks(void *bsys UNUSED, struct BattleStruct *ctx)
     u32 script = 0;
     u32 itemHeldEffect = HeldItemHoldEffectGet(ctx, ctx->attack_client);
     u32 boost = HeldItemAtkGet(ctx, ctx->attack_client, ATK_CHECK_NORMAL);
+    //TODO: ripen
 
     switch (itemHeldEffect) {
     case HOLD_EFFECT_HP_RESTORE: // oran berry
@@ -4714,6 +4715,10 @@ BOOL btl_scr_cmd_10D_stuffCheeks(void *bsys UNUSED, struct BattleStruct *ctx)
     case HOLD_EFFECT_PINCH_ACC_UP: // micle berry
     default:
         break;
+    }
+
+    if (itemHeldEffect != 0) {
+        ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].berryEatenAndCanBelch = TRUE;
     }
 
     if (script) {
