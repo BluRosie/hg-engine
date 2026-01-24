@@ -375,19 +375,16 @@ u16 LONG_CALL ActivateParadoxAbility(void *bsys, struct BattleStruct *ctx, u8 cl
             if ((CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
              && (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)
              && (ctx->field_condition & WEATHER_SUNNY_NOT_EXTREMELY_HARSH)) {
-                debug_printf("[Paradox Abilities] It is currently sunny!\n");
                 isHarshSunlight = TRUE;
             }
 
             if ((BattleItemDataGet(ctx, ctx->battlemon[client].item, 1) == HOLD_EFFECT_ACTIVATE_PARADOX_ABILITIES)
              && !(isHarshSunlight)) {
-                debug_printf("[Paradox Abilities] Booster Energy activates Protosynthesis\n");
                 seq_no = SUB_SEQ_BOOSTER_ENERGY;
                 ctx->boosterEnergyActivated[client] = TRUE;
             }
 
             if (isHarshSunlight) {
-                debug_printf("[Paradox Abilities] Sun activates Protosynthesis\n");
                 seq_no = SUB_SEQ_FIELD_CONDITION_PARADOX_ABILITY;
             }
             break;
@@ -395,14 +392,12 @@ u16 LONG_CALL ActivateParadoxAbility(void *bsys, struct BattleStruct *ctx, u8 cl
             if ((BattleItemDataGet(ctx, ctx->battlemon[client].item, 1) == HOLD_EFFECT_ACTIVATE_PARADOX_ABILITIES)
              && (ctx->terrainOverlay.type != ELECTRIC_TERRAIN ||
                  ctx->terrainOverlay.numberOfTurnsLeft == 0)) {
-                debug_printf("[Paradox Abilities] Booster Energy activates Quark Drive\n");
                 seq_no = SUB_SEQ_BOOSTER_ENERGY;
                 ctx->boosterEnergyActivated[client] = TRUE;
             }
 
             if (ctx->terrainOverlay.type == ELECTRIC_TERRAIN
              && ctx->terrainOverlay.numberOfTurnsLeft > 0) {
-                debug_printf("[Paradox Abilities] Electric Terrain activates Quark Drive\n");
                 seq_no = SUB_SEQ_FIELD_CONDITION_PARADOX_ABILITY;
             }
         default:
@@ -412,7 +407,6 @@ u16 LONG_CALL ActivateParadoxAbility(void *bsys, struct BattleStruct *ctx, u8 cl
     
     if (seq_no) {
         u8 stat = ParadoxGreatestStatHelper(ctx, client);
-        debug_printf("[Paradox Abilities] ParadoxGreatestStatHelper returns: %d\n", stat);
         ctx->paradoxBoostedStat[client] = stat;
         ctx->battlerIdTemp = client;
         ctx->msg_work = stat;

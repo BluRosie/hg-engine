@@ -4525,7 +4525,6 @@ BOOL btl_scr_cmd_113_HandleDoubleShock(void* bsys UNUSED, struct BattleStruct* c
     return FALSE;
 }
 
-// TODO: Fix this
 /**
  * @brief Activate all clients Paradox Abilities depending on input.
  *        ActivateParadoxAbility will do the other checks
@@ -4550,22 +4549,18 @@ BOOL btl_scr_cmd_114_activateparadoxability(void *bsys, struct BattleStruct *ctx
 
     for (i = 0; i < maxBattlers; i++) {
         seq_no = 0;
-        debug_printf("[Paradox Abilities] Checking client %d with ability %d with %d\n", i, GetBattlerAbility(ctx, i), abilityToCheck);
         if (GetBattlerAbility(ctx, i) == abilityToCheck) {
             // this function will do the other checks (Sunny/Elec Terrain or Booster Energy)
             seq_no = ActivateParadoxAbility(bsys, ctx, i);
-            debug_printf("[Paradox Abilities] ActivateParadoxAbility returns: %d\n", seq_no);
         }
         if (seq_no > 0) {
             SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
-            debug_printf("[Paradox Abilities] Running Subscript: %d\n", seq_no);
         }
     }
 
     return FALSE;
 }
 
-// TODO: Fix this
 /**
  * @brief Reset all clients Paradox Abilities depending input.
  * 
