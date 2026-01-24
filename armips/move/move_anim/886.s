@@ -26,7 +26,10 @@ a010_886:
     addparticle 1, 6, 0
     waitparticle
 
-
+    unloadparticle 0
+    waitstate
+    unloadparticle 1
+    waitstate
     end
 
 .close

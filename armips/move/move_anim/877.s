@@ -41,5 +41,4 @@ a010_877:
     waitstate
     end
     
-
 .close

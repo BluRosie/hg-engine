@@ -44,6 +44,8 @@ a010_856:
 
     unloadparticle 0
     waitstate
+    unloadparticle 1
+    waitstate
     end
     
 

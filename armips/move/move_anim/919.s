@@ -16,7 +16,7 @@ a010_919:
     loadparticlefromspa 0, 358
     waitparticle
     loadparticlefromspa 1, 116
-
+    waitparticle
     addparticle 0, 1, 3
     addparticle 0, 3, 3
     wait 8
@@ -39,10 +39,9 @@ a010_919:
     waitstate
     waitparticle
 
-
-
-
     unloadparticle 0
+    waitstate
+    unloadparticle 1
     waitstate
     end
     
