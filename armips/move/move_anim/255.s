@@ -12,6 +12,8 @@
 
 .create "build/move/move_anim/0_255", 0
 
+//Spit Up
+
 a010_255:
     initspriteresource
     loadspriteresource 0
