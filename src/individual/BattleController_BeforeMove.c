@@ -1785,37 +1785,39 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
 
     // Aurora Veil when it is not hailing
     if ((currentMoveIndex == MOVE_AURORA_VEIL && !(ctx->field_condition & WEATHER_HAIL_ANY || ctx->field_condition & WEATHER_SNOW_ANY))
-    // Clangorous Soul when user lacks HP to execute the move
-    || ((currentMoveIndex == MOVE_CLANGOROUS_SOUL) && (attackClient.hp < (s32)(attackClient.maxhp / 3)))
-    // Fake Out / First Impression / Mat Block after user has already performed an action
-    || ((currentMoveIndex == MOVE_FAKE_OUT || currentMoveIndex == MOVE_FIRST_IMPRESSION || currentMoveIndex == MOVE_MAT_BLOCK) && attackClient.moveeffect.fakeOutCount != ctx->total_turn)
-    // Follow Me / Rage Powder in singles
-    || ((currentMoveIndex == MOVE_FOLLOW_ME || currentMoveIndex == MOVE_RAGE_POWDER) && !(BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)))
-    // Future Sight / Doom Desire into target that already has future attack
-    || (moveEffect == MOVE_EFFECT_HIT_IN_3_TURNS && (ctx->fcc.future_prediction_count[ctx->defence_client] != 0))
-    // Poltergeist when the target does not have an item
-    || (currentMoveIndex == MOVE_POLTERGEIST && defenceClient.item == ITEM_NONE)
-    // Sleep Talk / Snore while not asleep
-    || ((moveEffect == MOVE_EFFECT_USE_RANDOM_LEARNED_MOVE_SLEEP || moveEffect == MOVE_EFFECT_DAMAGE_WHILE_ASLEEP) && !(attackClient.condition & STATUS_SLEEP))
-    // Rest while user is already asleep
-    || (moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP && attackClient.condition & STATUS_SLEEP)
-    // Steel Roller when there is no Terrain
-    || (currentMoveIndex == MOVE_STEEL_ROLLER && ctx->terrainOverlay.type == TERRAIN_NONE)
-    // Stuff Cheeks when user doesn't have a Berry
-    || (currentMoveIndex == MOVE_STUFF_CHEEKS && !IS_ITEM_BERRY(attackClient.item))
-    // Stockpile with 3 Stockpiles already
-    || (moveEffect == MOVE_EFFECT_STOCKPILE && attackClient.moveeffect.stockpileCount == 3)
-    // Swallow / Spit Up with 0 Stockpiles
-    || ((moveEffect == MOVE_EFFECT_SWALLOW || moveEffect == MOVE_EFFECT_SPIT_UP) && attackClient.moveeffect.stockpileCount == 0)
-    // Last Resort when user has not used all its other moves once or user does not have Last Resort in its moveslot
-    || (moveEffect == MOVE_EFFECT_FAIL_IF_NOT_USED_ALL_OTHER_MOVES && (ctx->battlemon[ctx->attack_client].moveeffect.lastResortCount < cnt - 1 || cnt < 2))
-    // Sucker Punch when target doesn't have an eligible move pending
-    || (moveEffect == MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING && (ctx->playerActions[ctx->defence_client][3] == CONTROLLER_COMMAND_40 || (ctx->moveTbl[move].power == 0 && !ctx->oneTurnFlag[ctx->defence_client].struggle_flag)))
-    // Teleport with nothing to switch to
-    || (moveEffect == MOVE_EFFECT_FLEE_FROM_WILD_BATTLE && (BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER) && !CanSwitchMon(bsys, ctx, ctx->attack_client))
-    // TODO: Magic Room
-    // Fling / Natural Gift: Embargo or Magic Room are in effect, or ineligible held item, or no item
-    || ((moveEffect == MOVE_EFFECT_FLING || moveEffect == MOVE_EFFECT_NATURAL_GIFT) && attackClient.moveeffect.embargoFlag)
+        // Clangorous Soul when user lacks HP to execute the move
+        || ((currentMoveIndex == MOVE_CLANGOROUS_SOUL) && (attackClient.hp < (s32)(attackClient.maxhp / 3)))
+        // Fake Out / First Impression / Mat Block after user has already performed an action
+        || ((currentMoveIndex == MOVE_FAKE_OUT || currentMoveIndex == MOVE_FIRST_IMPRESSION || currentMoveIndex == MOVE_MAT_BLOCK) && attackClient.moveeffect.fakeOutCount != ctx->total_turn)
+        // Follow Me / Rage Powder in singles
+        || ((currentMoveIndex == MOVE_FOLLOW_ME || currentMoveIndex == MOVE_RAGE_POWDER) && !(BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)))
+        // Future Sight / Doom Desire into target that already has future attack
+        || (moveEffect == MOVE_EFFECT_HIT_IN_3_TURNS && (ctx->fcc.future_prediction_count[ctx->defence_client] != 0))
+        // Poltergeist when the target does not have an item
+        || (currentMoveIndex == MOVE_POLTERGEIST && defenceClient.item == ITEM_NONE)
+        // Sleep Talk / Snore while not asleep
+        || ((moveEffect == MOVE_EFFECT_USE_RANDOM_LEARNED_MOVE_SLEEP || moveEffect == MOVE_EFFECT_DAMAGE_WHILE_ASLEEP) && !(attackClient.condition & STATUS_SLEEP))
+        // Rest while user is already asleep
+        || (moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP && attackClient.condition & STATUS_SLEEP)
+        // Steel Roller when there is no Terrain
+        || (currentMoveIndex == MOVE_STEEL_ROLLER && ctx->terrainOverlay.type == TERRAIN_NONE)
+        // Stuff Cheeks when user doesn't have a Berry
+        || (currentMoveIndex == MOVE_STUFF_CHEEKS && !IS_ITEM_BERRY(attackClient.item))
+        // Stockpile with 3 Stockpiles already
+        || (moveEffect == MOVE_EFFECT_STOCKPILE && attackClient.moveeffect.stockpileCount == 3)
+        // Swallow / Spit Up with 0 Stockpiles
+        || ((moveEffect == MOVE_EFFECT_SWALLOW || moveEffect == MOVE_EFFECT_SPIT_UP) && attackClient.moveeffect.stockpileCount == 0)
+        // Last Resort when user has not used all its other moves once or user does not have Last Resort in its moveslot
+        || (moveEffect == MOVE_EFFECT_FAIL_IF_NOT_USED_ALL_OTHER_MOVES && (ctx->battlemon[ctx->attack_client].moveeffect.lastResortCount < cnt - 1 || cnt < 2))
+        // Sucker Punch when target doesn't have an eligible move pending
+        || (moveEffect == MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING && (ctx->playerActions[ctx->defence_client][3] == CONTROLLER_COMMAND_40 || (ctx->moveTbl[move].power == 0 && !ctx->oneTurnFlag[ctx->defence_client].struggle_flag)))
+        // Teleport with nothing to switch to
+        || (moveEffect == MOVE_EFFECT_FLEE_FROM_WILD_BATTLE && (BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER) && !CanSwitchMon(bsys, ctx, ctx->attack_client))
+        // TODO: Magic Room
+        // Fling / Natural Gift: Embargo or Magic Room are in effect, or ineligible held item, or no item
+        || ((moveEffect == MOVE_EFFECT_FLING || moveEffect == MOVE_EFFECT_NATURAL_GIFT) && attackClient.moveeffect.embargoFlag)
+        // Stuff Cheeks without Berry
+        || (moveEffect == MOVE_EFFECT_STUFF_CHEEKS && !IS_ITEM_BERRY(ctx->battlemon[ctx->attack_client].item))
     ) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->server_seq_no = CONTROLLER_COMMAND_25;
@@ -4252,6 +4254,11 @@ int BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys U
         case MOVE_EFFECT_PARTING_SHOT:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 0
                 && ctx->battlemon[defender].states[STAT_SPATK] == 0) {
+                result = 1;
+            }
+            break;
+        case MOVE_EFFECT_STUFF_CHEEKS:
+            if (ctx->battlemon[ctx->attack_client].states[STAT_DEFENSE] == 12) {
                 result = 1;
             }
             break;
