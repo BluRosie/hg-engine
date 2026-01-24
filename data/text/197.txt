@@ -373,9 +373,9 @@ The opposing {STRVAR_1 1, 0, 0}’s move\nis no longer disabled!
 {STRVAR_1 1, 0, 0}\nmust do an encore!
 The wild {STRVAR_1 1, 0, 0}\nmust do an encore!
 The opposing {STRVAR_1 1, 0, 0}\nmust do an encore!
-{STRVAR_1 1, 0, 0} ended\nits encore!
-The wild {STRVAR_1 1, 0, 0} ended\nits encore!
-The opposing {STRVAR_1 1, 0, 0} ended\nits encore!
+{STRVAR_1 1, 0, 0}’s\nencore ended!
+The wild {STRVAR_1 1, 0, 0}’s\nencore ended!
+The opposing {STRVAR_1 1, 0, 0}’s\nencore ended!
 {STRVAR_1 1, 0, 0} took aim at\n{STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} took aim at\nthe wild {STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} took aim at\nthe opposing {STRVAR_1 1, 1, 0}!
@@ -1609,3 +1609,12 @@ The opposing {STRVAR_1 1, 0, 0} used up\nall its electricity!
 The wild {STRVAR_1 1, 0, 0} lost some of its HP!
 The opposing {STRVAR_1 1, 0, 0}\nlost some of its HP!
 {STRVAR_1 1, 0, 0} hasn’t eaten any held Berries,\nso it can’t possibly belch!
+{STRVAR_1 1, 0, 0} shook off\nthe taunt!
+The wild {STRVAR_1 1, 0, 0} shook off\nthe taunt!
+The opposing {STRVAR_1 1, 0, 0} shook off\nthe taunt!
+{STRVAR_1 1, 0, 0} is\nno longer tormented!
+The wild {STRVAR_1 1, 0, 0} is\nno longer tormented!
+The opposing {STRVAR_1 1, 0, 0} is\nno longer tormented!
+{STRVAR_1 1, 0, 0} is no longer\nprevented from healing!
+The wild {STRVAR_1 1, 0, 0} is no longer\nprevented from healing!
+The opposing {STRVAR_1 1, 0, 0} is no longer\nprevented from healing!
