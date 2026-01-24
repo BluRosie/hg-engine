@@ -100,7 +100,7 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
-BOOL btl_scr_cmd_10D_stuffCheeks(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_10D_stuffCheeks(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -4522,12 +4522,13 @@ BOOL LONG_CALL BtlCmd_BufferLocalMessage(struct BattleSystem *bsys, struct Battl
     return FALSE;
 }
 
-BOOL btl_scr_cmd_10D_stuffCheeks(void *bsys UNUSED, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_10D_stuffCheeks(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     u32 failAddress = read_battle_script_param(ctx);
 
     u32 script = 0;
+    // stuff cheeks already made sure there is a berry
     u32 itemHeldEffect = HeldItemHoldEffectGet(ctx, ctx->attack_client);
     u32 boost = HeldItemAtkGet(ctx, ctx->attack_client, ATK_CHECK_NORMAL);
     //TODO: ripen
