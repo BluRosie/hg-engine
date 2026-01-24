@@ -8329,7 +8329,7 @@ movedata MOVE_BESTOW, "Bestow"
     appeal 0x00
     contesttype CONTEST_CUTE
     terminatedata
-    movedescription MOVE_BESTOW, "The user passes its\nheld item to the\ntarget when the\ntarget isn’t\nholding an item."
+    movedescription MOVE_BESTOW, "The user passes its\nheld item to the\ntarget when the\ntarget isn’t holding\nan item."
 
 movedata MOVE_INFERNO, "Inferno"
     battleeffect MOVE_EFFECT_BURN_HIT
@@ -13185,7 +13185,7 @@ movedata MOVE_THUNDER_CAGE, "Thunder Cage"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_THUNDER_CAGE, "The user traps the\ntarget inside a cage of\nsparking electricity\nthat inflicts damage\nfor four to five turns."
+    movedescription MOVE_THUNDER_CAGE, "The user traps the\ntarget inside a cage\nof electricity that\ninflicts damage for\nfour to five turns."
 
 movedata MOVE_DRAGON_ENERGY, "Dragon Energy"
     battleeffect MOVE_EFFECT_DECREASE_POWER_WITH_LESS_USER_HP
