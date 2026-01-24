@@ -1089,6 +1089,23 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                     flowerGiftAppliedForAttackModifier = TRUE;
                     attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
                 }
+                // handle Protosynthesis
+                // Theoretically if weather change -> should reset paradoxBoostedStat, does it need to be here?
+                // https://x.com/OZY_Project97/status/1596666005572685824?s=20
+                if ((AttackingMon.ability == ABILITY_PROTOSYNTHESIS)
+                && (field_cond & WEATHER_SUNNY_NOT_EXTREMELY_HARSH)
+                && !(AttackingMon.boosterEnergyActivated) // prevent Paradox ability modifier to apply twice
+                && ((movesplit == SPLIT_PHYSICAL && AttackingMon.paradoxBoostedStat == STAT_ATTACK) || 
+                    (movesplit == SPLIT_SPECIAL && AttackingMon.paradoxBoostedStat == STAT_SPATK))) {
+                    attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3);
+                }
+                // handle Orichalcum Pulse
+                // https://x.com/OZY_Project97/status/1603728930086998017?s=20
+                if ((AttackingMon.ability == ABILITY_ORICHALCUM_PULSE)
+                && (field_cond & WEATHER_SUNNY_ANY)
+                && (movesplit == SPLIT_PHYSICAL)) {
+                    attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3333);
+                }
             }
 
             // handle Guts
@@ -1149,7 +1166,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
             // handle Gorilla Tactics
             // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8303447
-            if (AttackingMon.ability == ABILITY_GORILLA_TACTICS) {
+            if (AttackingMon.ability == ABILITY_GORILLA_TACTICS && (movesplit == SPLIT_PHYSICAL)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
             }
 
@@ -1168,6 +1185,34 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             // handle Rocky Payload
             if (AttackingMon.ability == ABILITY_ROCKY_PAYLOAD && (movetype == TYPE_ROCK)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
+            }
+
+            // handle Quark Drive
+            // https://x.com/OZY_Project97/status/1596666005572685824?s=20
+            if ((AttackingMon.ability == ABILITY_QUARK_DRIVE)
+            && ((terrainOverlayType == ELECTRIC_TERRAIN && terrainOverlayNumberOfTurnsLeft > 0) ||
+                (AttackingMon.boosterEnergyActivated))
+            && ((movesplit == SPLIT_PHYSICAL && AttackingMon.paradoxBoostedStat == STAT_ATTACK) ||
+                (movesplit == SPLIT_SPECIAL && AttackingMon.paradoxBoostedStat == STAT_SPATK))) {
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3);
+            }
+
+            // handle Booster Energy Protosynthesis
+            // https://x.com/OZY_Project97/status/1596666005572685824?s=20
+            if ((AttackingMon.ability == ABILITY_PROTOSYNTHESIS)
+            && (AttackingMon.boosterEnergyActivated)
+            && ((movesplit == SPLIT_PHYSICAL && AttackingMon.paradoxBoostedStat == STAT_ATTACK) ||
+                (movesplit == SPLIT_SPECIAL && AttackingMon.paradoxBoostedStat == STAT_SPATK))) {
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3);
+            }
+
+            // handle Hadron Engine
+            // https://x.com/OZY_Project97/status/1603728930086998017?s=20
+            if ((AttackingMon.ability == ABILITY_HADRON_ENGINE)
+            && (movesplit == SPLIT_SPECIAL)
+            && (terrainOverlayType == ELECTRIC_TERRAIN)
+            && (terrainOverlayNumberOfTurnsLeft > 0)) {
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3333);
             }
         }
 
@@ -1263,6 +1308,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     debug_printf("[CalcBaseDamage] Step 3.6. Attack Modifiers\n");
     debug_printf("[CalcBaseDamage] attackModifier: %d\n", attackModifier);
     debug_printf("[CalcBaseDamage] calculatedAttack: %d\n", calculatedAttack);
+    debug_printf("[Paradox Abilities] Attacker paradoxBoostedStat: %d\n", AttackingMon.paradoxBoostedStat);
+    debug_printf("[Paradox Abilities] Attacker boosterEnergyActivated: %d\n", AttackingMon.boosterEnergyActivated);
 #endif
 
     switch (movesplit) {
@@ -1421,6 +1468,13 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                     flowerGiftAppliedForDefenseModifier = TRUE;
                     defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
                 }
+                if ((DefendingMon.ability == ABILITY_PROTOSYNTHESIS)
+                 && (field_cond & WEATHER_SUNNY_ANY)
+                 && !(DefendingMon.boosterEnergyActivated) // prevent Paradox ability modifier to apply twice
+                 && ((movesplit == SPLIT_PHYSICAL && DefendingMon.paradoxBoostedStat == STAT_DEFENSE) || 
+                     (movesplit == SPLIT_SPECIAL && DefendingMon.paradoxBoostedStat == STAT_SPDEF))) {
+                    defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_3);
+                }
             }
 
             // handle Marvel Scale
@@ -1441,6 +1495,25 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if ((MoldBreakerAbilityCheckInternal(attacker, defender, AttackingMon.ability, DefendingMon.ability, moveno, movesplit, ABILITY_FUR_COAT) == TRUE)
             && (movesplit == SPLIT_PHYSICAL)) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__2_0);
+            }
+
+            // handle Quark Drive
+            // TODO: confirm location, confirm modifier
+            if ((DefendingMon.ability == ABILITY_QUARK_DRIVE)
+            && ((terrainOverlayType == ELECTRIC_TERRAIN && terrainOverlayNumberOfTurnsLeft > 0) ||
+                (DefendingMon.boosterEnergyActivated))
+            && ((movesplit == SPLIT_PHYSICAL && DefendingMon.paradoxBoostedStat == STAT_DEFENSE) ||
+                (movesplit == SPLIT_SPECIAL && DefendingMon.paradoxBoostedStat == STAT_SPDEF))) {
+                defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_3);
+            }
+
+            // handle Booster Energy Protosynthesis
+            // TODO: confirm location, confirm modifier
+            if ((DefendingMon.ability == ABILITY_PROTOSYNTHESIS)
+            && (DefendingMon.boosterEnergyActivated)
+            && ((movesplit == SPLIT_PHYSICAL && DefendingMon.paradoxBoostedStat == STAT_DEFENSE) ||
+                (movesplit == SPLIT_SPECIAL && DefendingMon.paradoxBoostedStat == STAT_SPDEF))) {
+                defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_3);
             }
         }
 
@@ -1514,6 +1587,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     debug_printf("[CalcBaseDamage] Step 4.8. Defense Modifiers\n");
     debug_printf("[CalcBaseDamage] defenseModifier: %d\n", defenseModifier);
     debug_printf("[CalcBaseDamage] calculatedDefense: %d\n", calculatedDefense);
+    debug_printf("[Paradox Ability] Defender paradoxBoostedStat: %d\n", DefendingMon.paradoxBoostedStat);
+    debug_printf("[Paradox Ability] Defender boosterEnergyActivated: %d\n", DefendingMon.boosterEnergyActivated);
 #endif
 
     switch (movesplit) {

@@ -1059,6 +1059,8 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
     sp->binding_turns[client] = 0;
     sp->protectSuccessTurns[client] = 0;
+    sp->paradoxBoostedStat[client] = 0;
+    sp->boosterEnergyActivated[client] = FALSE;
 
     if (gBattleSystem != NULL)
     {

@@ -881,14 +881,15 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     }
 
-                    // Protosynthesis
+                    // Protosynthesis and Quark Drive 
                     {
-
-                    }
-
-                    // Quark Drive
-                    {
-
+                        debug_printf("[Paradox Abilities] Currently in SwitchInAbilityCheck for client: %d\n", client_no);
+                        scriptnum = ActivateParadoxAbility(bw, sp, client_no); // currently returns 0 even though conditions do meet = peep this func
+                        debug_printf("[Paradox Abilities] Scriptnum: %d\n", scriptnum);
+                        if (scriptnum > 0) {
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
                     }
 
                     // Hospitality

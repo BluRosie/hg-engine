@@ -7,4 +7,7 @@ _000:
     PrintMessage 1470, TAG_NONE
     Wait 
     WaitButtonABTime 30
+    ResetParadoxAbility ABILITY_PROTOSYNTHESIS
+    // Booster Energy
+    ActivateParadoxAbility ABILITY_PROTOSYNTHESIS
     End

@@ -1609,3 +1609,19 @@ The opposing {STRVAR_1 1, 0, 0} used up\nall its electricity!
 The wild {STRVAR_1 1, 0, 0} lost some of its HP!
 The opposing {STRVAR_1 1, 0, 0}\nlost some of its HP!
 {STRVAR_1 1, 0, 0} hasn’t eaten any held Berries,\nso it can’t possibly belch!
+The {STRVAR_1 8, 0, 0} was used up...
+{STRVAR_1 1, 0, 0} used the {STRVAR_1 8, 2, 0} to\nactivate {STRVAR_1 5, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} used the\n{STRVAR_1 8, 2, 0} to activate\f{STRVAR_1 5, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} used the\n{STRVAR_1 8, 2, 0} to activate\f{STRVAR_1 5, 1, 0}!
+The harsh sunlight activated\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
+The harsh sunlight activated the wild\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
+The harsh sunlight activated the\nopposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
+The Electric Terrain activated\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
+The Electric Terrain activated the wild\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
+The Electric Terrain activated the\nopposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwas heightened!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 13, 1, 0} was heightened!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 13, 1, 0} was heightened!
+The effects of {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} wore off!
+The effects of the wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} wore off!
+The effects of the opposing\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} wore off!

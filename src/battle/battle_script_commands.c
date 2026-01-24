@@ -111,6 +111,8 @@ BOOL btl_scr_cmd_110_HandleForestsCurse(void* bsys UNUSED, struct BattleStruct* 
 BOOL btl_scr_cmd_111_HandleTrickOrTreat(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_112_HandleBurnUp(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_113_HandleDoubleShock(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_114_activateparadoxability(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_115_resetparadoxability(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -422,6 +424,8 @@ const u8 *BattleScrCmdNames[] =
     "HandleTrickOrTreat",
     "HandleBurnUp",
     "HandleDoubleShock",
+    "ActivateParadoxAbility",
+    "ResetParadoxAbility",
     // "YourCustomCommand",
 };
 
@@ -484,6 +488,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x111 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_111_HandleTrickOrTreat,
     [0x112 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_112_HandleBurnUp,
     [0x113 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_113_HandleDoubleShock,
+    [0x114 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_114_activateparadoxability,
+    [0x115 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_115_resetparadoxability,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4515,6 +4521,80 @@ BOOL btl_scr_cmd_113_HandleDoubleShock(void* bsys UNUSED, struct BattleStruct* c
 
     RemoveType(ctx, ctx->attack_client, TYPE_ELECTRIC);
     ctx->moveConditionsFlags[ctx->attack_client].doubleShockFlag = TRUE;
+
+    return FALSE;
+}
+
+// TODO: Fix this
+/**
+ * @brief Activate all clients Paradox Abilities depending on input.
+ *        ActivateParadoxAbility will do the other checks
+ * 
+ * Inputs:
+ * 1. ABILITY_PROTOSYNTHESIS or ABILITY_QUARK_DRIVE
+ * 
+ * @param bsys BattleSystem
+ * @param ctx BattleContext
+ * @return FALSE
+ */
+BOOL btl_scr_cmd_114_activateparadoxability(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    // ABILITY_PROTOSYNTHESIS or ABILITY_QUARK_DRIVE
+    u32 abilityToCheck = read_battle_script_param(ctx);
+
+    u8 i;
+    u8 maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    u16 seq_no;
+
+    for (i = 0; i < maxBattlers; i++) {
+        seq_no = 0;
+        debug_printf("[Paradox Abilities] Checking client %d with ability %d with %d\n", i, GetBattlerAbility(ctx, i), abilityToCheck);
+        if (GetBattlerAbility(ctx, i) == abilityToCheck) {
+            // this function will do the other checks (Sunny/Elec Terrain or Booster Energy)
+            seq_no = ActivateParadoxAbility(bsys, ctx, i);
+            debug_printf("[Paradox Abilities] ActivateParadoxAbility returns: %d\n", seq_no);
+        }
+        if (seq_no > 0) {
+            SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
+            debug_printf("[Paradox Abilities] Running Subscript: %d\n", seq_no);
+        }
+    }
+
+    return FALSE;
+}
+
+// TODO: Fix this
+/**
+ * @brief Reset all clients Paradox Abilities depending input.
+ * 
+ * Inputs:
+ * 1. ABILITY_PROTOSYNTHESIS or ABILITY_QUARK_DRIVE
+ * 
+ * @param bsys BattleSystem
+ * @param ctx BattleContext
+ * @return FALSE
+ */
+BOOL btl_scr_cmd_115_resetparadoxability(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    // ABILITY_PROTOSYNTHESIS or ABILITY_QUARK_DRIVE
+    u32 abilityToCheck = read_battle_script_param(ctx);
+
+    u8 i;
+    u8 maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+    for (i = 0; i < maxBattlers; i++) {
+        if (GetBattlerAbility(ctx, i) == abilityToCheck
+        &&  !ctx->boosterEnergyActivated[i]
+        &&  (ctx->paradoxBoostedStat[i] > 0)) {
+            ctx->paradoxBoostedStat[i] = 0;
+            ctx->battlerIdTemp = i;
+            SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PARADOX_ABILITY_END);
+        }
+    }
 
     return FALSE;
 }

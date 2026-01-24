@@ -15,6 +15,9 @@ _019:
     Wait
     // Grass grew to cover the battlefield!
     PrintMessage 1388, TAG_NONE
+    ResetParadoxAbility ABILITY_QUARK_DRIVE
+    // Booster Energy
+    ActivateParadoxAbility ABILITY_QUARK_DRIVE
     GoTo _037
 
 _024:
@@ -22,6 +25,9 @@ _024:
     Wait
     // Mist swirled about the battlefield!
     PrintMessage 1390, TAG_NONE
+    ResetParadoxAbility ABILITY_QUARK_DRIVE
+    // Booster Energy
+    ActivateParadoxAbility ABILITY_QUARK_DRIVE
     GoTo _037
 
 _029:
@@ -29,6 +35,7 @@ _029:
     Wait
     // An electric current ran across the battlefield!
     PrintMessage 1392, TAG_NONE
+    ActivateParadoxAbility ABILITY_QUARK_DRIVE
     GoTo _037
 
 _034:
@@ -36,6 +43,9 @@ _034:
     Wait
     // The battlefield got weird!
     PrintMessage 1394, TAG_NONE
+    ResetParadoxAbility ABILITY_QUARK_DRIVE
+    // Booster Energy
+    ActivateParadoxAbility ABILITY_QUARK_DRIVE
 
 _037:
     Wait
