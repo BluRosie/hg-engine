@@ -3619,7 +3619,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             || (ctx->field_condition & WEATHER_SUNNY_ANY)
             || (ctx->field_condition & WEATHER_SANDSTORM_PERMANENT)
             || (ctx->field_condition & WEATHER_HAIL_PERMANENT)
-            || (ctx->field_condition & WEATHER_SNOW_ANY)) {
+            || (ctx->field_condition & WEATHER_SNOW_PERMANENT)) {
                 butItFailedFlag = TRUE;
             }
             if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
