@@ -395,12 +395,14 @@ u16 LONG_CALL ActivateParadoxAbility(void *bsys, struct BattleStruct *ctx, u8 cl
             if ((BattleItemDataGet(ctx, ctx->battlemon[client].item, 1) == HOLD_EFFECT_ACTIVATE_PARADOX_ABILITIES)
              && (ctx->terrainOverlay.type != ELECTRIC_TERRAIN ||
                  ctx->terrainOverlay.numberOfTurnsLeft == 0)) {
+                debug_printf("[Paradox Abilities] Booster Energy activates Quark Drive\n");
                 seq_no = SUB_SEQ_BOOSTER_ENERGY;
                 ctx->boosterEnergyActivated[client] = TRUE;
             }
 
             if (ctx->terrainOverlay.type == ELECTRIC_TERRAIN
              && ctx->terrainOverlay.numberOfTurnsLeft > 0) {
+                debug_printf("[Paradox Abilities] Electric Terrain activates Quark Drive\n");
                 seq_no = SUB_SEQ_FIELD_CONDITION_PARADOX_ABILITY;
             }
         default:

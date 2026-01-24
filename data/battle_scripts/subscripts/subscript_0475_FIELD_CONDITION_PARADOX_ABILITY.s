@@ -15,7 +15,6 @@ _HandleQuarkDriveMsg:
     PrintMessage 1608, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BSCRIPT_VAR_CALC_TEMP
     Wait
     WaitButtonABTime 30
-    End
 
 _StatMsg:
     // {0}'s {1} was heightened!
