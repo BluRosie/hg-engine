@@ -296,7 +296,7 @@
 #define MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN   290
 #define MOVE_EFFECT_USER_DEF_SP_DEF_SPEED_DOWN_HIT          291
 #define MOVE_EFFECT_HEAVY_SLAM                              292
-#define MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS               293
+#define MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS               293
 #define MOVE_EFFECT_APPLY_TERRAINS                          294
 #define MOVE_EFFECT_ATK_SP_ATK_UP                           295
 #define MOVE_EFFECT_HIT_TWICE_AND_FLINCH                    296
@@ -394,8 +394,14 @@
 #define MOVE_EFFECT_FELL_STINGER                            388
 #define MOVE_EFFECT_PARTING_SHOT                            389
 #define MOVE_EFFECT_CLEAR_SMOG                              390
+#define MOVE_EFFECT_ION_DELUGE                              391
+#define MOVE_EFFECT_ION_DELUGE_HIT                          392
+#define MOVE_EFFECT_REMOVE_USER_FIRE_TYPE_HIT               393
+#define MOVE_EFFECT_REMOVE_USER_ELECTRIC_TYPE_HIT           394
+#define MOVE_EFFECT_FORCE_SWITCH_HIT                        395
+#define MOVE_EFFECT_BELCH                                   396
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            390
+#define MAX_BASE_MOVE_EFFECT_NUM                            396
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)

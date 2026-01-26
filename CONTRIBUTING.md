@@ -7,7 +7,7 @@ These contributions are assessed based on whether or not they are "in-scope" and
 
 The overall scope of the project is first and foremost battle engine overhauls.  `hg-engine` aims to be a battle engine that ports all of the features from later generations to that of HeartGold.
 
-From there, we also have quality of life improvements.  These are things like repels that automatically prompt usage of another one,
+From there, we also have quality of life improvements.  These are things like repels that automatically prompt usage of another one as well as allowing for easy expansion and editing of the music combo tables.
 
 ## Bug Reports
 
@@ -81,7 +81,9 @@ Once your work is complete and pushed to the branch on Github, you can open a [p
 
 The pull request is reviewed and comments are made.  There is a little bit of a back and forth where the maintainers will comment and potentially request changes, and you will have to implement the suggestions.  After a bit, the PR will be approved at which point it is ready to merge.
 
-Contributors are responsible for responding to and updating their branch by addressing the feedback in the review. Contributors are also responsible for making sure the branch passes the checklist at all times.
+Contributors are responsible for responding to and updating their branch by addressing the feedback in the review. Contributors are also responsible for making sure the branch passes the build check at all times.
+
+There is a lot of good faith currently in the PR process that puts a little effort on the contributors to ensure that their code builds and works.  We may refuse contributions that are clearly untested or dysfunctional.
 
 #### Note
 

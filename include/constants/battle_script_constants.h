@@ -479,8 +479,13 @@
 #define SUB_SEQ_HANDLE_PARTING_SHOT                   (469)
 #define SUB_SEQ_HANDLE_CLEAR_SMOG                     (470)
 #define SUB_SEQ_HANDLE_FLAME_BURST_HIT                (471)
+#define SUB_SEQ_FOCUS_SASH                            (472)
+#define SUB_SEQ_ION_DELUGE                            (473)
+#define SUB_SEQ_REMOVE_USER_FIRE_TYPE                 (474)
+#define SUB_SEQ_REMOVE_USER_ELECTRIC_TYPE             (475)
+#define SUB_SEQ_TOXIC_DEBRIS                          (476)
 
-#define MAX_BASE_SUBSCRIPT_NUM 471
+#define MAX_BASE_SUBSCRIPT_NUM 476
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -699,8 +704,11 @@
 #define ADD_STATUS_EFF_PARTING_SHOT                    (208)
 #define ADD_STATUS_EFF_CLEAR_SMOG                      (209)
 #define ADD_STATUS_EFF_FLAME_BURST_HIT                 (210)
+#define ADD_STATUS_EFF_ION_DELUGE                      (211)
+#define ADD_STATUS_EFF_REMOVE_USER_FIRE_TYPE           (212)
+#define ADD_STATUS_EFF_REMOVE_USER_ELECTRIC_TYPE       (213)
 
-#define MAX_BASE_SUBSCRIPT_PTR_NUM (210)
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (213)
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)

@@ -56,7 +56,7 @@ BOOL Repel_Use(u16 item_id, u32 heap_id) {
 }
 
 u8 Repel_GetSteps(u16 item_id, u32 heap_id) {
-    return GetItemData(item_id, ITEM_PARAM_ATTACK, heap_id);
+    return GetItemData(item_id, ITEM_PARAM_HOLD_EFFECT_PARAM, heap_id);
 }
 #endif
 

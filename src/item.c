@@ -376,6 +376,7 @@ void *_CreateDNASplicersWork(FieldSystem *fieldSystem);
 void ItemMenuUseFunc_AbilityCapsule(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
 void ItemMenuUseFunc_Mint(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
 void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
+void ItemMenuUseFunc_RotomCatalog(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
 
 const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
     { NULL, ItemFieldUseFunc_Generic, NULL },
@@ -414,6 +415,7 @@ const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
     { ItemMenuUseFunc_AbilityCapsule, NULL, NULL },
     { ItemMenuUseFunc_Mint, NULL, NULL },
     { ItemMenuUseFunc_Nectar, NULL, NULL },
+    { ItemMenuUseFunc_RotomCatalog, NULL, NULL },
 };
 
 u16 GetItemIndex(u16 item, u16 type)
@@ -566,6 +568,50 @@ BOOL MoveIsHM(u16 moveId) {
     return FALSE;
 }
 
+s32 LONG_CALL GetItemAttr_PreloadedItemData(ITEMDATA *itemData, u16 attrno) {
+    switch (attrno) {
+    case ITEM_PARAM_PRICE:
+        return (u32)((itemData)->price) | ((u32)((itemData)->price_high) << 16);
+    case ITEM_PARAM_HOLD_EFFECT:
+        return itemData->holdEffect;
+    case ITEM_PARAM_HOLD_EFFECT_PARAM:
+        return itemData->holdEffectParam;
+    case ITEM_PARAM_PREVENT_TOSS:
+        return itemData->prevent_toss;
+    case ITEM_PARAM_SELECTABLE:
+        return itemData->selectable;
+    case ITEM_PARAM_FIELD_POCKET:
+        return itemData->fieldPocket;
+    case ITEM_PARAM_FIELD:
+        return itemData->fieldUseFunc;
+    case ITEM_PARAM_BATTLE:
+        return itemData->battleUseFunc;
+    case ITEM_PARAM_PLUCK_EFFECT:
+        return itemData->pluckEffect;
+    case ITEM_PARAM_FLING_EFFECT:
+        return itemData->flingEffect;
+    case ITEM_PARAM_FLING_POWER:
+        return itemData->flingPower;
+    case ITEM_PARAM_NATURAL_GIFT_POWER:
+        return itemData->naturalGiftPower;
+    case ITEM_PARAM_NATURAL_GIFT_TYPE:
+        return itemData->naturalGiftType;
+    case ITEM_PARAM_BATTLE_POCKET:
+        return itemData->battlePocket;
+    case ITEM_PARAM_PARTY:
+        return itemData->partyUse;
+    default:
+        switch (itemData->partyUse) {
+        case 0:
+            return itemData->dummy;
+        case 1:
+            return GetItemAttrSub(&itemData->partyUseParam, attrno);
+        }
+    }
+
+    return 0;
+}
+
 void ItemMenuUseFunc_RevealGlass(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
 {
     FieldSystem *fieldSystem = data->taskManager->fieldSystem; //TaskManager_GetFieldSystem(data->taskManager);
@@ -625,5 +671,14 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
     FieldSystem *fieldSystem = data->taskManager->fieldSystem; //TaskManager_GetFieldSystem(data->taskManager);
     struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, data->itemId);
+    sub_0203C8F0(env, 0x0203CA9C | 1);
+}
+
+void ItemMenuUseFunc_RotomCatalog(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
+{
+
+    FieldSystem *fieldSystem = data->taskManager->fieldSystem; //TaskManager_GetFieldSystem(data->taskManager);
+    struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_ROTOM_CATALOG);
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
