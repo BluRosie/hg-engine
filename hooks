@@ -546,3 +546,6 @@ arm9 ScrCmd_MartBuy 02048060 1
 
 # expand heal blocked moves
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
+
+# determine rock smash table to use for items
+0001 DetermineRockSmashItem_hook 02204E28 1
