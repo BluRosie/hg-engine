@@ -273,73 +273,6 @@ An item to be held by a Pokémon.\nIt allows the instant use of a move that\ncha
 An item to be held by a Pokémon.\nIt’s a bizarre orb that will badly\npoison the holder during battle.
 An item to be held by a Pokémon.\nIt’s a bizarre orb that will afflict\nthe holder with a burn during battle.
 An item to be held by Ditto.\nExtremely fine yet hard, this odd\npowder boosts Ditto’s Speed stat.
-<<<<<<< HEAD
-An item to be held by a Pokémon. If\nthe holder has full HP and it is hit\nwith a move that should knock it\rout, it will endure with 1 HP-but\nonly once.
-An item to be held by a Pokémon.\nWhen the holder acts after its\ntarget, its move will be more\raccurate than usual.
-An item to be held by a Pokémon. It\nboosts the power of a move that’s\nused repeatedly. Once the chain is\rbroken, the move’s power returns to\nnormal.
-An item to be held by a Pokémon. It\nlowers the holder’s Speed stat and\nmakes the holder vulnerable to\rGround- type moves even if it is a\nFlying type or is levitating.
-An item to be held by a Pokémon. A\ntail of something, this item is\ntremendously heavy and makes the\rholder move slower than usual.
-An item to be held by a Pokémon.\nShould the holder of this bright-red\nthread become infatuated, the\rPokémon it is infatuated with will\nbe similarly afflicted.
-An item to be held by a Pokémon. If\nthe holder is a Poison type, this\nsludge will gradually restore its\rHP. It damages any other type.
-An item to be held by a Pokémon.\nWhen the holder changes the weather\nto snow, the snow will persist for\rlonger than usual.
-An item to be held by a Pokémon.\nWhen the holder changes the weather\nto a sandstorm, the storm will\rpersist for longer than usual.
-An item to be held by a Pokémon.\nWhen the holder changes the weather\nto harsh sunlight, the sunlight will\rpersist for longer than usual.
-An item to be held by a Pokémon.\nWhen the holder changes the weather\nto rain, the rain will persist for\rlonger than usual.
-An item to be held by a Pokémon.\nWhen the holder uses moves that deal\ndamage over several turns, such as\rBind or Wrap, their effects will\nlast longer than usual.
-An item to be held by a Pokémon.\nThis curious scarf boosts the\nholder’s Speed stat but only allows\rthe use of a single move.
-An item to be held by a Pokémon. It\ndamages the holder every turn and\nmay latch on to Pokémon that make\rdirect contact with the holder.
-An item to be held by a Pokémon.\nHolding this bracer reduces a\nPokémon’s Speed in battle but allows\rits Attack stat to grow more\nquickly.
-An item to be held by a Pokémon.\nHolding this belt reduces a\nPokémon’s Speed in battle but allows\rits Defense stat to grow more\nquickly.
-An item to be held by a Pokémon.\nHolding this lens reduces a\nPokémon’s Speed in battle but allows\rits Sp. Atk stat to grow more\nquickly.
-An item to be held by a Pokémon.\nHolding this band reduces a\nPokémon’s Speed in battle but allows\rits Sp. Def stat to grow more\nquickly.
-An item to be held by a Pokémon.\nHolding this anklet reduces a\nPokémon’s Speed in battle but allows\rits Speed stat to grow more quickly.
-An item to be held by a Pokémon.\nHolding this weight reduces a\nPokémon’s Speed in battle but allows\rits HP stat to grow more quickly.
-An item to be held by a Pokémon.\nHard and sturdy, this discarded\ncarapace enables the holder to\rswitch out of battle without fail.
-An item to be held by a Pokémon.\nThis root boosts the amount of HP\nthe holder restores to itself when\rit uses HP-stealing moves.
-An item to be held by a Pokémon.\nThese curious glasses boost the\nholder’s Sp. Atk stat but only allow\rthe use of a single move.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of fire and boosts the power\rof the holder’s Fire-type moves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of water and boosts the\rpower of the holder’s Water-type\nmoves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of electricity and boosts\rthe power of the holder’s\nElectric-type moves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of plants and boosts the\rpower of the holder’s Grass-type\nmoves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of ice and boosts the power\rof the holder’s Ice-type moves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of the fighting spirit and\rboosts the power of the holder’s\nFighting-type moves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of poison and boosts the\rpower of the holder’s Poison-type\nmoves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of the earth and boosts the\rpower of the holder’s Ground-type\nmoves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of flight and boosts the\rpower of the holder’s Flying-type\nmoves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of psychic energy and boosts\rthe power of the holder’s\nPsychic-type moves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of bugs and boosts the power\rof the holder’s Bug-type moves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of rock and boosts the power\rof the holder’s Rock-type moves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of ghosts and boosts the\rpower of the holder’s Ghost-type\nmoves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of dragons and boosts the\rpower of the holder’s Dragon-type\nmoves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of darkness and boosts the\rpower of the holder’s Dark-type\nmoves.
-An item to be held by a Pokémon.\nThis stone tablet is imbued with the\nessence of steel and boosts the\rpower of the holder’s Steel-type\nmoves.
-An item to be held by a Pokémon.\nThis incense has a curious aroma\nthat boosts the power of the\rholder’s Psychic-type moves.
-An item to be held by a Pokémon.\nThis incense has a curious aroma\nthat boosts the power of the\rholder’s Rock-type moves.
-An item to be held by a Pokémon.\nThis incense has a curious aroma\nthat makes the holder move slower\rthan usual.
-An item to be held by a Pokémon.\nThis incense has a curious aroma\nthat boosts the power of the\rholder’s Water-type moves.
-An item to be held by a Pokémon.\nThis incense has a curious aroma\nthat boosts the power of the\rholder’s Grass-type moves.
-An item to be held by a Pokémon. It\ndoubles any prize money received as\nlong as the holder joins the battle\rat least once.
-An item to be held by a Pokémon. It\nhelps keep wild Pokémon away when\nthe holder is the head of the party.
-A protective item of some sort. It\nis extremely stiff and heavy. It’s\nloved by a certain Pokémon.
-A box packed with a tremendous\namount of electric energy. It’s\nloved by a certain Pokémon.
-A box packed with a tremendous\namount of magma energy. It’s loved\nby a certain Pokémon.
-A transparent device overflowing\nwith dubious data. It’s loved by a\ncertain Pokémon.
-A cloth imbued with horrifyingly\nstrong spiritual energy. It’s loved\nby a certain Pokémon.
-An item to be held by a Pokémon.\nThis sharply hooked claw boosts the\ncritical-hit ratio of the holder’s\rmoves.
-An item to be held by a Pokémon.\nThis sharply hooked fang may cause\nthe target to flinch whenever the\rholder successfully inflicts damage\non them with an attack.
-The user looses a blast of aura\npower from deep within its body.\nThis move is certain to hit.
-The user slashes the foe with huge,\nsharp claws.
-An odd psychic wave attacks the\ntarget. This attack does physical\ndamage.
-The user quietly focuses its mind\nand calms its spirit to raise its\nSp. Atk and Sp. Def stats.
-The foe is scared off, to be\nreplaced by another Pokémon in its\nparty. In the wild, the battle ends.
-A move that leaves the target badly\npoisoned. Its poison damage worsens\nevery turn.
-The area around the user is swamped\nby a giant sludge wave. It may also\npoison those hit.
-After making its attack, the user\nrushes back to switch places with a\nparty Pokémon in waiting.
-The user forcefully shoots seeds at\nthe foe. Two to five seeds are shot\nin rapid succession.
-A unique attack that varies in type\ndepending on the Pokémon using it.
-The user damages opposing Pokémon by\nemitting a powerful flash.
-The foe is taunted into a rage that\nallows it to use only attack moves\nfor two to four turns.
-=======
 An item to be held by a Pokémon.\nIf it has full HP, the holder will endure\none potential KO attack, leaving 1 HP.
 An item to be held by a Pokémon.\nWhen the holder acts after its target,\nits move will be more accurate than usual.
 An item to be held by a Pokémon.\nIt boosts moves used consecutively\nbut only until a different move is used.
@@ -405,7 +338,6 @@ The user forcefully shoots seeds at\nthe foe. Two to five seeds are shot in\nrap
 A variable move that changes type\nand power depending on the hidden\nability of the Pokémon using it.
 The user intensifies the sun for\nfive turns, powering up Fire-type\nmoves.
 The foe is taunted into a rage that\nallows it to use only attack moves for\ntwo to four turns.
->>>>>>> upstream/main
 The foe is struck with an icy-cold\nbeam of energy. It may also freeze\nthe target solid.
 The user attacks with a gust of\nchilled air. It also lowers the\ntarget’s Speed stat.
 The user lays a trap of spikes at\nthe foe’s feet. The trap hurts foes\nthat switch into battle.
@@ -483,20 +415,6 @@ The user snares the foe with grass\nand trips it. The heavier the foe,\nthe grea
 The user barks menacingly. It also\nlowers the foe’s Sp. Atk.
 The user exhales a heated breath on\nthe foe to attack. It may also leave\nthe target with a burn.
 After making its attack, the user\nrushes back to switch places with a\nparty Pokémon in waiting.
-<<<<<<< HEAD
-The user makes a copy of itself\nusing some of its HP. The copy\nserves as the user’s decoy.
-The user gathers all its light\nenergy and releases it at once. It\nmay also lower the foe’s Sp. Def\rstat.
-The user creates a bizarre area in\nwhich slower Pokémon get to move\nfirst for five turns.
-The foe is cut with a scythe or a\nclaw. It can also be used to cut\ndown thin trees.
-The user soars, then strikes on the\nsecond turn. It can also be used for\nflying to any familiar town.
-It swamps the entire battlefield\nwith a giant wave. It can also be\nused for crossing water.
-The foe is slugged with a punch\nthrown at maximum power. It can also\nbe used to move boulders.
-Traps the foe inside a whirlpool\nthat lasts for two to five turns.\nThe user can pass through\rwhirlpools.
-The user hits with a punch that may\nlower the target’s Defense. It can\nalso smash cracked boulders.
-The user charges at the foe rapidly,\nand may make it flinch. It can also\nbe used to climb a waterfall.
-A charging attack that may also\nleave the foe confused. It can also\nbe used to scale rocky walls.
-A bag filled with convenient tools\nfor exploring. It provides access to\nthe Underground in the Sinnoh\rregion.
-=======
 The user makes a copy of itself using\nsome of its HP. The copy serves as\nthe user’s decoy.
 The user gathers all its light energy\nand releases it in one shot. It may\nalso lower the foe’s Sp. Def stat.
 The user creates a bizarre space in\nwhich slower Pokémon get to move\nfirst for five turns.
@@ -509,7 +427,6 @@ The user slugs the foe with a\nshattering punch. It can also smash\ncracked boul
 The user charges the foe at an\nawesome speed. It can also be used\nto climb a waterfall.
 A charging attack that may also leave\nthe foe confused. It can also be used\nto scale rocky walls.
 A bag filled with convenient tools for\nexploring. It provides access to the\nUnderground in the Sinnoh region.
->>>>>>> upstream/main
 A sturdy, spacious bag that is used\nto carry any treasures or loot\nobtained in the coal mine.
 It lists the rules for holding battles.\nFor Link Battles, you may choose which\nset of rules you wish to use.
 A tool that can search out Pokémon\nthat are hiding in the tall grass.\nIts battery is recharged as you walk.

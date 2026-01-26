@@ -339,11 +339,7 @@ The user rotates its body like a\ndrill. It has a high critical-hit\nratio.
 The user shoots a sinister, bluish\nwhite flame at the foe to inflict a\nburn.
 The user crunches up the foe with\nsharp fangs. It may also lower the\ntarget’s Defense stat.
 The user catches the foe off guard\nand swaps the foe’s held item with\nits own.
-<<<<<<< HEAD
----
-=======
 The user slams into the target using\na full-force blast of water. This may\nalso lower the target’s Defense stat.
->>>>>>> upstream/main
 A nutrient-draining attack. The\nuser’s HP is restored by half the\ndamage taken by the target.
 The user looses a blast of aura\npower from deep within its body.\nThis move is certain to hit.
 The user whips up a turbulent\nwhirlwind that ups the Speed of all\nparty Pokémon for three turns.
@@ -357,37 +353,22 @@ The foe is hit by a strong\ntelekinetic force. It may also\nreduce the foe’s S
 The user slams into the target. The\ngreater the weight difference, the\ngreater the damage.
 The user compels the foe to keep\nusing only the move it last used for\nthree to seven turns.
 It swamps the entire battlefield\nwith a giant wave. It can also be\nused for crossing water.
-<<<<<<< HEAD
----
-=======
 The user covers its feet in\nthin ice and twirls around,\nslamming into the target.\rThis move’s spinning motion\nalso destroys the terrain.
->>>>>>> upstream/main
 The foe is scorched with an intense\nblast of fire. The target may also\nbe left with a burn.
 A strong electric blast is loosed at\nthe foe. It may also leave the foe\nparalyzed.
 The user attacks by playing rough\nwith the target. This may also lower\nthe target’s Attack stat.
 The user temporarily empties\nits mind to forget its concerns.\nIt sharply raises the user’s Sp. Def stat.
 The user quietly focuses its mind\nand calms its spirit to raise its\nSp. Atk and Sp. Def stats.
 A move that boosts the power of the\nally’s attack in a Double Battle.
-<<<<<<< HEAD
----
-=======
 The user attacks the enemy\nwith a pollen puff that\nexplodes.\rIf the target is an ally,\nit gives the ally a pollen puff\nthat restores its HP instead.
->>>>>>> upstream/main
 The user switches places with a\nparty Pokémon in waiting, passing\nalong any stat changes.
 The user makes the ground under the\nfoe erupt with power. It may also\nlower the target’s Sp. Def.
 An all-out attack that becomes more\npowerful the less HP the user has.
 The foe is struck with an icy-cold\nbeam of energy. It may also freeze\nthe target solid.
-<<<<<<< HEAD
----
-The user turns the ground into\nGrassy Terrain for five turns. This\npowers up Grass-type moves.
-This protects Pokémon on the ground\nfrom priority moves and powers up\nPsychic-type moves for five turns.
-Sets a Misty Terrain for five turns.\nThis prevents status ailments and\nweakens Dragon-Type moves.
-=======
 The user turns the ground into\nElectric Terrain for five turns,\npowering up Electric-type moves.\rPokémon on the ground can no longer\nfall asleep.
 The user turns the ground into\nGrassy Terrain for five turns.\nThis powers up Grass-type moves.
 This protects Pokémon on the ground\nfrom priority moves and powers up\nPsychic-type moves for five turns.
 This protects Pokémon on the ground from\nstatus conditions and halves damage from\nDragon-type moves for five turns.
->>>>>>> upstream/main
 The user stimulates its brain by\nthinking bad thoughts. It sharply\nraises the user’s Sp. Atk.
 The foe is attacked with an intense\nblast of all-consuming fire. It may\nalso leave the target with a burn.
 The foe is blasted by a huge volume\nof water launched under great\npressure.
@@ -399,11 +380,7 @@ The user throws an electrified\ntackle. It hurts the user a little.
 The user attacks by hurling filthy\nsludge at the foe. It may also\npoison the target.
 The user sets off an earthquake that\nhits all the Pokémon in the battle.
 The user stabs the foe with a\nsharpened stone. It has a high\ncritical-hit ratio.
-<<<<<<< HEAD
-The user disappears, then strikes\nthe foe on the second turn. It hits\neven if the foe protects itself.
-=======
 The user vanishes somewhere, then strikes\nthe target on the next turn. This move hits\neven if the target protects itself.
->>>>>>> upstream/main
 The user charges at the foe using\nevery bit of its power. The user\nmust rest on the next turn.
 The foe is razed by a fiery\nexplosion. The user also takes\nterrible damage.
 The foe is hit with a watery blast.\nThe user also takes terrible damage.
@@ -418,21 +395,12 @@ The user vibrates its wings to generate\na damaging sound wave.\nIt may also low
 The foe is attacked with a powerful\nbeam. The user must rest on the next\nturn to regain its energy.
 The user tucks in its wings and\ncharges from a low altitude. The\nuser also takes serious damage.
 The user cloaks itself in fire and\ncharges at the foe. The user\nsustains serious damage, too.
-<<<<<<< HEAD
-A wicked thunderbolt is dropped on\nthe foe to inflict damage. It may\nalso leave the target paralyzed.
-The user fights the foe up close\nwithout guarding itself. It also\ncuts the user’s Defense and Sp. Def.
-A two-turn attack. The user gathers\nlight, then blasts a bundled beam on\nthe second turn.
-Comets are summoned down from the\nsky. It also damages the user by a\nfairly large amount, however.
-The user fires a beam of steel that\nit collected from its entire body.\nThis also damages the user.
----
-=======
 A wicked thunderbolt is dropped on the\nfoe to inflict damage.\nIt may also leave the target paralyzed.
 The user fights the foe up close without\nguarding itself. It also cuts the user’s\nDefense and Sp. Def.
 A two-turn attack.\nThe user gathers light, then blasts\na bundled beam on the second turn.
 Comets are summoned down from the\nsky. The attack’s recoil sharply\nreduces the user’s Sp. Atk stat.
 The user fires a beam of steel that\nit collected from its entire body.\nThis also damages the user.
 If the user has Terastallized,\nit unleashes energy of its\nTera Type.\rThis move inflicts damage using the\nAttack or Sp. Atk stat--whichever is\nhigher for the user.
->>>>>>> upstream/main
 The foe is scared off, to be\nreplaced by another Pokémon in its\nparty. In the wild, the battle ends.
 The user boosts the power of the\nElectric move it uses next. It also\nraises the user’s Sp. Def stat.
 The user creates a haze that\neliminates every stat change among\nall the Pokémon engaged in battle.
@@ -448,17 +416,10 @@ The user chomps hard on the\nfoe with its sharp front fangs.\nIt cuts the target
 The user whirls its fists to send a\nwave of pure vacuum at the foe.\nThis move always goes first.
 The user makes a lunge at the target,\nattacking with full force.\nThis also lowers the target’s Attack stat.
 The user fiercely attacks the target\nusing its entire body.
-<<<<<<< HEAD
-The user launches sharp icicles at\nthe foe. It strikes two to five\ntimes in a row.
-Boiling water is shot at the foe. It\nmay also cause a burn.
-The user slams down with fire. The\nmore the user outweighs the foe, the\ngreater the damage.
----
-=======
 The user launches sharp icicles\nat the foe.\nIt strikes two to five times in a row.
 Boiling water is shot at the foe.\nIt may also cause a burn.
 The user slams down with fire.\nThe more the user outweighs the foe,\nthe greater the damage.
 The user gathers light on the first turn,\nthen fills a blade with the light’s energy\nand attacks on the next turn.
->>>>>>> upstream/main
 The user attacks in an uproar for\ntwo to five turns. Over that time,\nno one can fall asleep.
 The user focuses its mind before\nlaunching a punch. It will fail if\nthe user is hit before it is used.
 An attack move that varies in power\nand type depending on the weather.
@@ -469,27 +430,16 @@ The user slams the target with its\nwings to inflict damage. The target\nis hit 
 The user attacks by controlling the\ntarget’s item. This move fails if\nthe foe isn’t holding an item.
 ---
 The user attacks by shooting scales\ntwo to five times in a row. This\nraises Speed but lowers Defense.
-<<<<<<< HEAD
----
-=======
 The user attacks everything around it and\nfaints upon using this move. This move’s\npower is boosted on Misty Terrain.
->>>>>>> upstream/main
 The user adds its HP to the foe’s\nHP, then equally shares the combined\nHP with the foe.
 The user hypnotizes itself into\ncopying any stat change made by the\nfoe.
 A reckless, life- risking tackle. It\nalso damages the user by a fairly\nlarge amount, however.
 An attack move that cuts down the\nfoe’s HP to equal the user’s HP.
 The user stirs up a violent petal\nblizzard and attacks everything\naround it.
-<<<<<<< HEAD
----
-Traps the foe inside a whirlpool\nthat lasts for two to five turns.\nThe user can pass through\rwhirlpools.
-The user attacks by shooting out\nmuddy water. It may also lower the\nfoe’s accuracy.
----
-=======
 Spurred by desperation, the user attacks\nthe target. This move’s power is doubled\nif the user’s previous move failed.
 Traps the foe inside a whirlpool\nthat lasts for two to five turns.\nThe user can pass through whirlpools.
 The user attacks by shooting out\nmuddy water. It may also lower the\nfoe’s accuracy.
 The user electrifies its body and drops onto\nthe target to inflict damage. If this move\nmisses, the user takes damage instead.
->>>>>>> upstream/main
 The user traps the foe in an\nelectric net. It also lowers the\nfoe’s Speed.
 A consecutive three-kick attack that\nbecomes more powerful with each\nsuccessful hit.
 The user properly coaches its ally\nPokémon, boosting their Attack and\nDefense stats.
@@ -497,30 +447,18 @@ The area around the user is swamped by\na giant sludge wave.\nIt may also poison
 The user throws scorching sand at\nthe target to attack.\nThe target may also be left with a burn.
 The user covers the foe with a mass\nof down that sharply lowers the\nAttack stat.
 Two turns after this move is used,\nthe foe is attacked with a hunk of\npsychic energy.
-<<<<<<< HEAD
----
-=======
 The user attacks\nthe target with\nits psychic power.\rWhen the ground is Psychic Terrain,\nthis move’s power is boosted and it\ndamages all opposing Pokémon.
->>>>>>> upstream/main
 The user skitters behind the target\nto attack. This also lowers the\ntarget’s Sp. Atk stat.
 The user gathers energy from space\nto raise its Sp. Atk on the first\nturn, then attacks on the next.
 The user attacks the target’s throat,\npreventing the target from using\nsound-based moves for two turns.
 The user swings its tough tail\nand attacks opposing Pokémon.\nThis also lowers their Attack stats.
 A horrible sound like scraping metal\nis emitted to sharply reduce the\nfoe’s Sp. Def stat.
 A move that works differently for\nthe Ghost type than for all the\nother types.
-<<<<<<< HEAD
----
----
----
----
----
-=======
 The target is crushed with an arm, a claw,\nor the like to inflict damage. The attack is\nmore powerful the more HP the foe has left.
 The user raises its allies’ morale\nwith a draconic cry so that their\nfuture attacks have a heightened\rchance of landing critical hits.\nThis rouses Dragon types more.
 The user attacks the target using its angelic\nvoice. This also confuses the target if its\nstats have been boosted during the turn.
 The user attacks the target with\nunpleasant sound waves. For two\nturns, the target is prevented from\rrecovering HP through moves,\nAbilities, or held items.
 The user reacts to the target’s\nmovement and strikes with the heel\nof its palm, making the target flinch.\rThis move fails if the target is not\nreadying a priority move.
->>>>>>> upstream/main
 - - -
 - - -
 - - -

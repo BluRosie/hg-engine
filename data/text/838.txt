@@ -11,51 +11,6 @@ An item to be held by a Pokémon.\nThis single-use moss boosts Sp. Def if\nthe h
 An item to be held by a Pokémon.\nThis single-use snowball boosts Attack\nif the holder is hit by a Ice-type attack.
 An item to be held by a Pokémon.\nThese goggles protect the holder from\nboth weather-related damage and powder.
 A flute that can play with such a\nbeautiful tone that even sleeping\nPokémon find themselves woken up.
-<<<<<<< HEAD
-A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\rhas no effect.
-A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\rhas no effect.
-A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\rhas no effect.
-A fertilizer for growing Berries.\nHowever, it appears to be unsuitable\nfor the soil in the Hoenn region and\rhas no effect.
-One of a variety of mysterious Mega\nStones. Have Gengar hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Gardevoir hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Ampharos hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Venusaur hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Charizard hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Blastoise hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Mewtwo hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Mewtwo hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Blaziken hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Medicham hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Houndoom hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Aggron hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Banette hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Tyranitar hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Scizor hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Pinsir hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Aerodactyl hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Lucario hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Abomasnow hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Kangaskhan hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Gyarados hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Absol hold it, and this\nstone will enable it to Mega Evolve\rduring battle.
-One of a variety of mysterious Mega\nStones. Have Charizard hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Alakazam hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Heracross hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Mawile hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Manectric hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Garchomp hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Latias hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-One of a variety of mysterious Mega\nStones. Have Latios hold it, and\nthis stone will enable it to Mega\rEvolve during battle.
-If a Pokémon holding this Berry is\nhit with a supereffective Fairy-type\nmove, the power of that move will be\rweakened.
-If a Pokémon holding this Berry is\nhit with a physical move, the\nholder’s Defense stat will be\rboosted.
-If a Pokémon holding this Berry is\nhit with a special move, the\nholder’s Sp. Def stat will be\rboosted.
-A watering can shaped like a Lotad.\nIt helps promote the healthy growth\nof any Berries planted in good, soft\rsoil.
----
-The user soars, then strikes on the\nsecond turn. It can also be used for\nflying to any familiar town.
-The user employs its psychic power\nto exchange abilities with the foe.
-The foe slams the target with its\nsteel-hard head. It may also make\nthe target flinch.
----
-=======
 A fertilizer for growing Berries. However,\nit appears to be unsuitable for the soil\nin the Johto region and has no effect.
 A fertilizer for growing Berries. However,\nit appears to be unsuitable for the soil\nin the Johto region and has no effect.
 A fertilizer for growing Berries. However,\nit appears to be unsuitable for the soil\nin the Johto region and has no effect.
@@ -99,7 +54,6 @@ The user soars, then strikes on the\nsecond turn. It can also be used for\nflyin
 The user employs its psychic power\nto exchange abilities with the foe.
 The foe slams the target with its\nsteel-hard head. It may also make\nthe target flinch.
 The user tells the target a secret, and\nthe target loses its ability to concentrate.\nThis lowers the target’s Sp. Atk stat.
->>>>>>> upstream/main
 This pass serves as an ID card for\ngaining access to the Power Plant\nthat lies along Route 13.
 This ring contains an untold power\nthat somehow enables Pokémon carrying\na Mega Stone to Mega Evolve in battle.
 A rather curious stone that\nmight appear valuable to some.\nIt’s all in the eye of the beholder.
