@@ -101,6 +101,7 @@ BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10D_stuffCheeks(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_10E_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -406,6 +407,7 @@ const u8 *BattleScrCmdNames[] =
     "GoToIfThirdType",
     "GoToIfTerastallized",
     "StuffCheeks",
+    "SetMoveConditionFlag",
     // "YourCustomCommand",
 };
 
@@ -462,6 +464,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_gotoifthirdtype,
     [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_gotoifterastallized,
     [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_stuffCheeks,
+    [0x10E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10E_setMoveConditionFlag,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4729,4 +4732,22 @@ BOOL btl_scr_cmd_10D_stuffCheeks(void *bsys, struct BattleStruct *ctx)
     }
 
     return FALSE;
+}
+
+BOOL btl_scr_cmd_10E_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 move = read_battle_script_param(ctx);
+    u32 side = read_battle_script_param(ctx);
+    u32 client_no = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    switch (move) {
+    case MOVE_POWDER:
+        ctx->moveConditionsFlags[client_no].powderBlocksFireMove = TRUE;
+        break;
+    default:
+        break;
+    }
+
+     return FALSE;
 }

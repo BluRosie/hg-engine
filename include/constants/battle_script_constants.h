@@ -486,8 +486,10 @@
 #define SUB_SEQ_TOXIC_DEBRIS                          (476)
 #define SUB_SEQ_HANDLE_THROAT_SPRAY                   (477)
 #define SUB_SEQ_STUFF_CHEEKS                          (478)
+#define SUB_SEQ_POWDER                                (479)
+#define SUB_SEQ_TAKE_POWDER_DAMAGE                    (480)
 
-#define MAX_BASE_SUBSCRIPT_NUM 478
+#define MAX_BASE_SUBSCRIPT_NUM 480
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -710,8 +712,9 @@
 #define ADD_STATUS_EFF_REMOVE_USER_FIRE_TYPE           (212)
 #define ADD_STATUS_EFF_REMOVE_USER_ELECTRIC_TYPE       (213)
 #define ADD_STATUS_EFF_STUFF_CHEEKS                    (214)
+#define ADD_STATUS_EFF_POWDER                          (215)
 
-#define MAX_BASE_SUBSCRIPT_PTR_NUM (214)
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (215)
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)

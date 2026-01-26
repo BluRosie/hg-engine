@@ -1924,6 +1924,28 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
             return TRUE;
         }
     }
+
+    // TODO: confirm location, Shell Trap, Fire Pledge when combining with Water Pledge only
+    u32 moveType = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index);
+    if (ctx->moveConditionsFlags[ctx->attack_client].powderBlocksFireMove == TRUE && moveType == TYPE_FIRE) {
+    //  && (ctx->current_move_index == MOVE_FIRE_PLEDGE && partnerMove != MOVE_WATER_PLEDGE)
+    {
+        ctx->hp_calc_work = 0;
+        if (attackerAbility != ABILITY_MAGIC_GUARD) { //from emerald-expansion
+            ctx->hp_calc_work = attackClient.maxhp / 4;
+            ctx->hp_calc_work = ctx->hp_calc_work * (-1);
+        }
+        ctx->mp.msg_id = 1612;
+
+        ctx->battlerIdTemp = ctx->attack_client;
+        BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TAKE_POWDER_DAMAGE);
+        ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        return TRUE;
+    }
+
     return FALSE;
 }
 

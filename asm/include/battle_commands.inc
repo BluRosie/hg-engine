@@ -1481,7 +1481,13 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 269
+    .macro SetMoveConditionFlag arg_0, arg_1
+    .long 270
+    .long \arg_0
+    .long \arg_1
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 270
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

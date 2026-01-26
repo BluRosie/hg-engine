@@ -9660,14 +9660,14 @@ movedata MOVE_VENOM_DRENCH, "Venom Drench"
     movedescription MOVE_VENOM_DRENCH, "Foes are drenched in\na poisonous liquid.\nThis lowers the Attack,\nSp. Atk, and Speed of\na poisoned target."
 
 movedata MOVE_POWDER, "Powder"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_POWDER
     pss SPLIT_STATUS
     basepower 0
     type TYPE_BUG
     accuracy 100
     pp 20
     effectchance 0
-    target RANGE_SINGLE_TARGET | FLAG_UNUSABLE_UNIMPLEMENTED
+    target RANGE_SINGLE_TARGET
     priority 1
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
