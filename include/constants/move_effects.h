@@ -400,8 +400,11 @@
 #define MOVE_EFFECT_REMOVE_USER_ELECTRIC_TYPE_HIT           394
 #define MOVE_EFFECT_FORCE_SWITCH_HIT                        395
 #define MOVE_EFFECT_BELCH                                   396
+#define MOVE_EFFECT_STUFF_CHEEKS                            397
+#define MOVE_EFFECT_POWDER                                  398
+#define MOVE_EFFECT_LASER_FOCUS                             399
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            396
+#define MAX_BASE_MOVE_EFFECT_NUM                            399
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
