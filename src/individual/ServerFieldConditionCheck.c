@@ -1926,6 +1926,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     sp->moveConditionsFlags[i].moveFailureLastTurn = sp->moveConditionsFlags[i].moveFailureThisTurn;
                     sp->moveConditionsFlags[i].moveFailureThisTurn = 0;
                     sp->moveConditionsFlags[i].powderBlocksFireMove = 0;
+                    if (sp->moveConditionsFlags[i].laserFocus > 0) {
+                        sp->moveConditionsFlags[i].laserFocus--;
+                    }
                 }
 
                 sp->playerSideHasFaintedTeammateLastTurn = sp->playerSideHasFaintedTeammateThisTurn;

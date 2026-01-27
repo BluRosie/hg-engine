@@ -10830,7 +10830,7 @@ movedata MOVE_TOXIC_THREAD, "Toxic Thread"
     movedescription MOVE_TOXIC_THREAD, "The user shoots\npoisonous threads\nto poison the target\nand lower the\ntarget's Speed stat."
 
 movedata MOVE_LASER_FOCUS, "Laser Focus"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_LASER_FOCUS
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -10839,7 +10839,7 @@ movedata MOVE_LASER_FOCUS, "Laser Focus"
     effectchance 0
     target RANGE_USER
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

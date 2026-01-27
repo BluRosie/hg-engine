@@ -1614,3 +1614,6 @@ When the flame touched the powder on\nthe Pokémon, it exploded!
 {STRVAR_1 1, 0, 0} is covered in powder!
 The wild {STRVAR_1 1, 0, 0} is covered\nin powder!
 The opposing {STRVAR_1 1, 0, 0} is covered\nin powder!
+{STRVAR_1 1, 0, 0} concentrated intensely!
+The wild {STRVAR_1 1, 0, 0} concentrated\nintensely!
+The opposing {STRVAR_1 1, 0, 0} concentrated\nintensely!

@@ -120,6 +120,7 @@ BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* s
 BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_CopyStatStages(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintGlobalMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -4745,9 +4746,26 @@ BOOL btl_scr_cmd_10E_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
     case MOVE_POWDER:
         ctx->moveConditionsFlags[client_no].powderBlocksFireMove = TRUE;
         break;
+    case MOVE_LASER_FOCUS:
+        ctx->moveConditionsFlags[client_no].laserFocus = 2;
     default:
         break;
     }
 
      return FALSE;
+}
+
+BOOL BtlCmd_CopyStatStages(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    for (int stat = 0; stat < 8; stat++) {
+        ctx->battlemon[ctx->attack_client].states[stat] = ctx->battlemon[ctx->defence_client].states[stat];
+    }
+
+    ctx->battlemon[ctx->attack_client].condition2 |= (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_FOCUS_ENERGY);
+
+    ctx->moveConditionsFlags[ctx->attack_client].laserFocus = ctx->moveConditionsFlags[ctx->defence_client].laserFocus;
+
+    return FALSE;
 }

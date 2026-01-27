@@ -1511,7 +1511,8 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
          + (2 * ((hold_effect == HOLD_EFFECT_CHANSEY_CRITRATE_UP) && (species == SPECIES_CHANSEY)))
          + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_FARFETCHD)));
 
-    if (temp > 4)
+
+    if (temp > 4 || sp->moveConditionsFlags[attacker].laserFocus)
     {
         temp = 4;
     }

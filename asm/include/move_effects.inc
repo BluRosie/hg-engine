@@ -402,8 +402,9 @@
 .equ MOVE_EFFECT_BELCH, 396
 .equ MOVE_EFFECT_STUFF_CHEEKS, 397
 .equ MOVE_EFFECT_POWDER, 398
+.equ MOVE_EFFECT_LASER_FOCUS, 399
 
-.equ MAX_BASE_MOVE_EFFECT_NUM, 398
+.equ MAX_BASE_MOVE_EFFECT_NUM, 399
 
 
 // define your custom move effects below like this

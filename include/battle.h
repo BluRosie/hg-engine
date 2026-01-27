@@ -1227,7 +1227,8 @@ typedef struct MoveConditionsFlags {
     u8 moveFailureLastTurn : 1;
     u8 moveFailureThisTurn : 1;
     u8 powderBlocksFireMove : 1;
-    u8 padding : 4;
+    u8 laserFocus : 2;
+    u8 padding : 2;
 } MoveConditionsFlags;
 
 
