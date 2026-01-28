@@ -112,29 +112,30 @@
  *  @brief move status flag defines for the BattleStruct's waza_status_flag field.
  *  name is left as source define if not sure what it defines
  */
-#define MOVE_STATUS_FLAG_MISS                    (0x00000001)
-#define MOVE_STATUS_FLAG_SUPER_EFFECTIVE         (0x00000002)
-#define MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE      (0x00000004)
-#define MOVE_STATUS_FLAG_NOT_EFFECTIVE           (0x00000008)
-#define WAZA_STATUS_FLAG_CRITICAL                (0x00000010)
-#define MOVE_STATUS_FLAG_OHKO_HIT                (0x00000020)
-#define MOVE_STATUS_FLAG_FAILED                  (0x00000040)
-#define MOVE_STATUS_FLAG_HELD_ON_ABILITY         (0x00000080)
-#define MOVE_STATUS_FLAG_HELD_ON_ITEM            (0x00000100)
-#define WAZA_STATUS_FLAG_PP_NONE                 (0x00000200)
-#define MOVE_STATUS_FLAG_LOCK_ON                 (0x00000400)
-#define MOVE_STATUS_FLAG_LEVITATE_MISS           (0x00000800)
-#define MOVE_STATUS_FLAG_OHKO_HIT_NOHIT          (0x00001000)
-#define WAZA_STATUS_FLAG_NANIMOOKORAN            (0x00002000)
-#define MOVE_STATUS_FLAG_FURY_CUTTER_MISS        (0x00004000)
-#define MOVE_STATUS_FLAG_PROTECTED               (0x00008000)
-#define WAZA_STATUS_FLAG_KIE_NOHIT               (0x00010000)
-#define WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT        (0x00020000)
-#define MOVE_STATUS_FLAG_MISS_WONDER_GUARD       (0x00040000)
-#define MOVE_STATUS_FLAG_NO_OHKO                 (0x00080000)
-#define MOVE_STATUS_FLAG_MAGNET_RISE_MISS        (0x00100000)
+#define MOVE_STATUS_FLAG_MISS                      (0x00000001)
+#define MOVE_STATUS_FLAG_SUPER_EFFECTIVE           (0x00000002)
+#define MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE        (0x00000004)
+#define MOVE_STATUS_FLAG_NOT_EFFECTIVE             (0x00000008)
+#define WAZA_STATUS_FLAG_CRITICAL                  (0x00000010)
+#define MOVE_STATUS_FLAG_OHKO_HIT                  (0x00000020)
+#define MOVE_STATUS_FLAG_FAILED                    (0x00000040)
+#define MOVE_STATUS_FLAG_HELD_ON_ABILITY           (0x00000080)
+#define MOVE_STATUS_FLAG_HELD_ON_ITEM              (0x00000100)
+#define WAZA_STATUS_FLAG_PP_NONE                   (0x00000200)
+#define MOVE_STATUS_FLAG_LOCK_ON                   (0x00000400)
+#define MOVE_STATUS_FLAG_LEVITATE_MISS             (0x00000800)
+#define MOVE_STATUS_FLAG_OHKO_HIT_NOHIT            (0x00001000)
+#define WAZA_STATUS_FLAG_NANIMOOKORAN              (0x00002000)
+#define MOVE_STATUS_FLAG_FURY_CUTTER_MISS          (0x00004000)
+#define MOVE_STATUS_FLAG_PROTECTED                 (0x00008000)
+#define WAZA_STATUS_FLAG_KIE_NOHIT                 (0x00010000)
+#define WAZA_STATUS_FLAG_WAZA_KOYUU_NOHIT          (0x00020000)
+#define MOVE_STATUS_FLAG_MISS_WONDER_GUARD         (0x00040000)
+#define MOVE_STATUS_FLAG_NO_OHKO                   (0x00080000)
+#define MOVE_STATUS_FLAG_MAGNET_RISE_MISS          (0x00100000)
+#define MOVE_STATUS_FLAG_SUPPRESS_FOLLOWUP_MESSAGE (0x40000000)
 
-#define MOVE_STATUS_NO_MORE_WORK                 (0x80000000)
+#define MOVE_STATUS_NO_MORE_WORK                   (0x80000000)
 
 #define WAZA_STATUS_FLAG_NOHIT_OFF      (MOVE_STATUS_FLAG_MISS^0xffffffff)
 #define WAZA_STATUS_FLAG_BATSUGUN_OFF   (WAZA_STATUS_FLAG_BATSUGUN^0xffffffff)
@@ -299,6 +300,7 @@
 #define SERVER_STATUS_FLAG_BEAT_UP_USED (0x00010000)
 #define SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE (0x00020000)
 #define SERVER_STATUS_FLAG_MOLD_BREAKER (0x00800000)
+#define SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE (0x00040000)
 
 /**
  *  @brief server status 2 flags (for BattleStruct's server_status_flag2)
@@ -492,6 +494,10 @@
 
 #define BATTLER_OPPONENT_SIDE_LEFT(client) (BATTLER_IS_PLAYERS(client) ? (1) : (0))
 #define BATTLER_OPPONENT_SIDE_RIGHT(client) (BATTLER_IS_PLAYERS(client) ? (3) : (2))
+
+#define IS_SPREAD_MOVE(ctx) \
+    ((ctx->moveTbl[ctx->current_move_index].target == RANGE_ADJACENT_OPPONENTS) || \
+    (ctx->moveTbl[ctx->current_move_index].target == RANGE_ALL_ADJACENT))
 
 /**
  *  @brief message tags to tell the string buffer expander how to expand each string buffer
@@ -1440,6 +1446,7 @@ struct BattleStruct {
                u8 original_bgId:7;
                u8 hasLoadedBgIdOver:1;
                u32 moveStatusFlagForSpreadMoves[CLIENT_MAX];
+               u32 moveStatusFlagForSimultaneousDamage[CLIENT_MAX];
                u32 damageForSpreadMoves[CLIENT_MAX]; // u32 or int?
                u8 clientLoopForSpreadMoves;
                u8 clientLoopForAbility;
@@ -3025,35 +3032,37 @@ BOOL LONG_CALL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, i
 // defined in battle_script_commands.c
 enum
 {
-    BTL_PARAM_BATTLER_ALL              = 0x00,
-    BTL_PARAM_BATTLER_ATTACKER         = 0x01,
-    BTL_PARAM_BATTLER_DEFENDER         = 0x02,
-    BTL_PARAM_BATTLER_PLAYER           = 0x03,
-    BTL_PARAM_BATTLER_OPPONENT         = 0x04,
-    BTL_PARAM_BATTLER_FAINTED          = 0x05,
-    BTL_PARAM_BATTLER_REPLACE          = 0x06,
-    BTL_PARAM_BATTLER_ADDL_EFFECT      = 0x07,
-    BTL_PARAM_BATTLER_CHAR_CHECKED     = 0x08,
-    BTL_PARAM_BATTLER_PLAYER_LEFT      = 0x09,
-    BTL_PARAM_BATTLER_ENEMY_LEFT       = 0x0a,
-    BTL_PARAM_BATTLER_PLAYER_RIGHT     = 0x0b,
-    BTL_PARAM_BATTLER_ENEMY_RIGHT      = 0x0c,
-    BTL_PARAM_BATTLER_x0D              = 0x0d,
-    BTL_PARAM_BATTLER_ATTACKER2        = 0x0e,
-    BTL_PARAM_BATTLER_DEFENDER2        = 0x0f,
-    BTL_PARAM_BATTLER_ATTACKER_PARTNER = 0x10,
-    BTL_PARAM_BATTLER_DEFENDER_PARTNER = 0x11,
-    BTL_PARAM_BATTLER_WHIRLWINDED      = 0x12,
-    BTL_PARAM_BATTLER_x13              = 0x13,
-    BTL_PARAM_BATTLER_x14              = 0x14,
-    BTL_PARAM_BATTLER_x15              = 0x15,
-    BTL_PARAM_BATTLER_ALL_REPLACED     = 0x16,
-    BTL_PARAM_BATTLER_xFF              = 0xFF,
-    BTL_PARAM_BATTLER_WORK             = 0xFF,
+    BTL_PARAM_BATTLER_ALL                = 0x00,
+    BTL_PARAM_BATTLER_ATTACKER           = 0x01,
+    BTL_PARAM_BATTLER_DEFENDER           = 0x02,
+    BTL_PARAM_BATTLER_PLAYER             = 0x03,
+    BTL_PARAM_BATTLER_OPPONENT           = 0x04,
+    BTL_PARAM_BATTLER_FAINTED            = 0x05,
+    BTL_PARAM_BATTLER_REPLACE            = 0x06,
+    BTL_PARAM_BATTLER_ADDL_EFFECT        = 0x07,
+    BTL_PARAM_BATTLER_CHAR_CHECKED       = 0x08,
+    BTL_PARAM_BATTLER_PLAYER_LEFT        = 0x09,
+    BTL_PARAM_BATTLER_ENEMY_LEFT         = 0x0a,
+    BTL_PARAM_BATTLER_PLAYER_RIGHT       = 0x0b,
+    BTL_PARAM_BATTLER_ENEMY_RIGHT        = 0x0c,
+    BTL_PARAM_BATTLER_x0D                = 0x0d,
+    BTL_PARAM_BATTLER_ATTACKER2          = 0x0e,
+    BTL_PARAM_BATTLER_DEFENDER2          = 0x0f,
+    BTL_PARAM_BATTLER_ATTACKER_PARTNER   = 0x10,
+    BTL_PARAM_BATTLER_DEFENDER_PARTNER   = 0x11,
+    BTL_PARAM_BATTLER_WHIRLWINDED        = 0x12,
+    BTL_PARAM_BATTLER_x13                = 0x13,
+    BTL_PARAM_BATTLER_x14                = 0x14,
+    BTL_PARAM_BATTLER_x15                = 0x15,
+    BTL_PARAM_BATTLER_ALL_REPLACED       = 0x16,
+    BTL_PARAM_BATTLER_ATTACKER_OPP_LEFT  = 0x17,
+    BTL_PARAM_BATTLER_ATTACKER_OPP_RIGHT = 0x18,
+    BTL_PARAM_BATTLER_xFF                = 0xFF,
+    BTL_PARAM_BATTLER_WORK               = 0xFF,
 
-    BTL_PARAM_BATTLER_ALLY             = 0x8000,
-    BTL_PARAM_BATTLER_ENEMY            = 0x4000,
-    BTL_PARAM_BATTLER_ACROSS           = 0x2000,
+    BTL_PARAM_BATTLER_ALLY               = 0x8000,
+    BTL_PARAM_BATTLER_ENEMY              = 0x4000,
+    BTL_PARAM_BATTLER_ACROSS             = 0x2000,
 };
 
 /**
