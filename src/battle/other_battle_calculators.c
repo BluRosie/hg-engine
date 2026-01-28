@@ -1553,18 +1553,78 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 
 void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    u32 ovyId, offset;
+    u32 ovyId = OVERLAY_SERVERHPCALC;
+    u32 offset = 0x023C0400 | 1;
 
     void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-    ovyId = OVERLAY_SERVERHPCALC;
-    offset = 0x023C0400 | 1;
     HandleLoadOverlay(ovyId, 2);
-    internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
-    internalFunc(bsys, ctx);
+    internalFunc = (void (*)(struct BattleSystem *, struct BattleStruct *))(offset);
+
+    BOOL didDmg = FALSE;
+
+    if (IS_SPREAD_MOVE(ctx)) {
+        //for (int i = 0; i < 4; i++) {
+        //    ctx->damageForSpreadMoves[i] = 0;
+        //}
+
+        // TODO: common function/macro to handle the logic of creating an array with valid clients to loop over?
+        int moveTarget = ctx->moveTbl[ctx->current_move_index].target;
+        BOOL rangeAllAdjacent = (moveTarget == RANGE_ALL_ADJACENT);
+        BOOL rangeAdjacentOpp = (moveTarget == RANGE_ADJACENT_OPPONENTS);
+
+        int ally = BATTLER_ALLY(ctx->attack_client);
+        if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || (IS_TARGET_BOTH_MOVE(ctx) && ally == ctx->defence_client) || rangeAllAdjacent) && IS_VALID_MOVE_TARGET(ctx, ally))
+        {
+            debug_printf("[ServerHPCalc] calling internal ServerHPCalc for attacker %d and defender (ally) %d\n", ctx->attack_client, ally);
+            ctx->defence_client = ally;
+            internalFunc(bsys, ctx);
+        }
+
+        if (rangeAdjacentOpp || rangeAllAdjacent) {
+            int oppL = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
+            if (IS_VALID_MOVE_TARGET(ctx, oppL)) {
+                debug_printf("[ServerHPCalc] calling internal ServerHPCalc for attacker %d and defender (oppL) %d\n", ctx->attack_client, oppL);
+                ctx->defence_client = oppL;
+                internalFunc(bsys, ctx);
+            }
+
+            int oppR = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
+            if (IS_VALID_MOVE_TARGET(ctx, oppR)) {
+                debug_printf("[ServerHPCalc] calling internal ServerHPCalc for attacker %d and defender (oppR) %d\n", ctx->attack_client, oppR);
+                ctx->defence_client = oppR;
+                internalFunc(bsys, ctx);
+            }
+        }
+
+        for (int i = 0; i < BattleWorkClientSetMaxGet(bsys); i++) {
+            if (ctx->damageForSpreadMoves[i] != 0) {
+                didDmg = TRUE;
+                break;
+            }
+        }
+    } else {
+        internalFunc(bsys, ctx);
+        if (ctx->damage) {
+            didDmg = TRUE;
+        }
+    }
+
+    // TODO: refactor SUB_SEQ_HP_CHANGE so it batches HP changes for spread moves too?
+    //   else just call batch update subscript here if spread move
+    if (didDmg) {
+        debug_printf("[ServerHPCalc] damage was dealt, loading HP change subscript\n");
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
+        ctx->server_seq_no = 22;
+        ctx->next_server_seq_no = 29;
+        ctx->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+    } else {
+        debug_printf("[ServerHPCalc] no damage was dealt moving on to 29\n");
+        ctx->server_seq_no = 29;
+    }
+
     UnloadOverlayByID(ovyId);
 }
-
 
 u16 gf_p_rand(const u16 denominator)
 {

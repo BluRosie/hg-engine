@@ -30,7 +30,7 @@
 #define ACTION_SWITCH_SLOT_4 8
 #define ACTION_SWITCH_SLOT_5 9
 
-#define ACTIVE_TEST_SCENARIO scenario_SinglesTest
+#define ACTIVE_TEST_SCENARIO scenario_DoublesTest
 
 // Store current scenario for battle state application and AI scripting
 static const struct TestBattleScenario *g_CurrentScenario = NULL;
@@ -215,27 +215,27 @@ static const struct TestBattleScenario scenario_SinglesTest = {
 };
 
 static const struct TestBattleScenario scenario_DoublesTest = {
-    .battleType = BATTLE_TYPE_DOUBLE,
+    .battleType = BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE,
     .playerParty = {
         {
             .species = SPECIES_ABOMASNOW,
-            .level = 50,
+            .level = 1,
             .form = 0,
-            .ability = ABILITY_SNOW_WARNING,
-            .item = ITEM_LEFTOVERS,
-            .moves = {MOVE_BLIZZARD, MOVE_GIGA_DRAIN, MOVE_ICE_SHARD, MOVE_PROTECT},
+            .ability = ABILITY_STURDY,
+            .item = ITEM_NONE,
+            .moves = {MOVE_EARTHQUAKE, MOVE_EARTHQUAKE, MOVE_EARTHQUAKE, MOVE_EARTHQUAKE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_ROTOM,
-            .level = 50,
+            .species = SPECIES_ARON,
+            .level = 1,
             .form = 2,
-            .ability = ABILITY_LEVITATE,
-            .item = ITEM_SITRUS_BERRY,
-            .moves = {MOVE_WILL_O_WISP, MOVE_HYDRO_PUMP, MOVE_THUNDERBOLT, MOVE_VOLT_SWITCH},
+            .ability = ABILITY_STURDY,
+            .item = ITEM_NONE,
+            .moves = {MOVE_EARTHQUAKE, MOVE_EARTHQUAKE, MOVE_EARTHQUAKE, MOVE_EARTHQUAKE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
@@ -256,24 +256,24 @@ static const struct TestBattleScenario scenario_DoublesTest = {
     },
     .enemyParty = {
         {
-            .species = SPECIES_TYRANITAR,
-            .level = 50,
+            .species = SPECIES_CHIKORITA,
+            .level = 100,
             .form = 0,
-            .ability = ABILITY_SAND_STREAM,
-            .item = ITEM_SITRUS_BERRY,
-            .moves = {MOVE_ROCK_SLIDE, MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_STONE_EDGE},
+            .ability = ABILITY_INSOMNIA,
+            .item = ITEM_FOCUS_SASH,
+            .moves = {MOVE_EARTHQUAKE, MOVE_EARTHQUAKE, MOVE_EARTHQUAKE, MOVE_EARTHQUAKE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_EXCADRILL,
-            .level = 50,
+            .species = SPECIES_NUZLEAF,
+            .level = 1,
             .form = 0,
-            .ability = ABILITY_SAND_RUSH,
-            .item = ITEM_FOCUS_SASH,
-            .moves = {MOVE_SWORDS_DANCE, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_IRON_HEAD},
+            .ability = ABILITY_STURDY,
+            .item = ITEM_NONE,
+            .moves = {MOVE_EARTHQUAKE, MOVE_EARTHQUAKE, MOVE_EARTHQUAKE, MOVE_EARTHQUAKE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
@@ -647,20 +647,17 @@ void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp)
  */
 void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *target)
 {
-    debug_printf("[TestBattle_GetAIScriptedMove] CALLED for battler=%d\n", battlerId);
     // Default
     *moveSlot = (u8)0;
     *target = (u8)0;
 
     // No scenario loaded
     if (g_CurrentScenario == NULL) {
-        debug_printf("[TestBattle_GetAIScriptedMove] No scenario loaded\n");
         return;
     }
 
     // Validate battler ID
     if (battlerId < 0 || battlerId >= 4) {
-        debug_printf("[TestBattle_GetAIScriptedMove] Invalid battler ID: %d\n", battlerId);
         return;
     }
 
@@ -677,12 +674,10 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
     int *scriptIndex = &g_AIScriptIndex[battlerId];
 
     if (*scriptIndex >= AI_SCRIPT_MAX_MOVES) {
-        debug_printf("[TestBattle_GetAIScriptedMove] Script index %d >= max %d\n", *scriptIndex, AI_SCRIPT_MAX_MOVES);
         return;
     }
 
     struct BattleAction action = script[*scriptIndex];
-    debug_printf("[TestBattle_GetAIScriptedMove] battler=%d, scriptIndex=%d, action=%d, target=%d\n", battlerId, *scriptIndex, action.action, action.target);
 
     if (action.action <= ACTION_MOVE_SLOT_4) {
         // Move action
@@ -707,7 +702,6 @@ u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler) {
     bsys->sp->waza_no_pos[battler] = moveSlot;
     bsys->sp->aiWorkTable.ai_dir_select_client[battler] = target;
 
-    debug_printf("[TestBattle_AISelectMove] Set moveSlot=%d, target=%d for battler=%d\n", moveSlot, target, battler);
     return (u8)moveSlot;
 }
 
@@ -719,22 +713,18 @@ u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler) {
  * @return 1 for FIGHT, 2 for ITEM, 3 for SWITCH (matches original AI function)
  */
 int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler) {
-    debug_printf("[TestBattle_AIPickCommand] *** ENTRY *** battler=%d bsys=%p\n", battler, bsys);
 
     // Only handle enemy AI, not player
     if (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND) {
-        debug_printf("[TestBattle_AIPickCommand] Player battler, returning FIGHT\n");
         return 1;  // FIGHT
     }
 
     if (g_CurrentScenario == NULL) {
-        debug_printf("[TestBattle_AIPickCommand] No scenario, returning FIGHT\n");
         return 1;  // FIGHT
     }
 
     // Add safety check for bsys and sp
     if (bsys == NULL || bsys->sp == NULL) {
-        debug_printf("[TestBattle_AIPickCommand] Invalid bsys or sp pointer!\n");
         return 1;  // FIGHT
     }
 
@@ -751,7 +741,6 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler) {
     int scriptIndex = g_AIScriptIndex[battler];
 
     if (scriptIndex >= AI_SCRIPT_MAX_MOVES) {
-        debug_printf("[TestBattle_AIPickCommand] Script exhausted, returning FIGHT\n");
         return 1;  // FIGHT
     }
 
@@ -766,14 +755,10 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler) {
         // Consume the switch action by incrementing the script index
         g_AIScriptIndex[battler]++;
 
-        debug_printf("[TestBattle_AIPickCommand] Switching battler %d to party slot %d\n", battler, partySlot);
-        debug_printf("[TestBattle_AIPickCommand] *** RETURNING 3 (SWITCH) ***\n");
         return 3;  // SWITCH
     }
 
     // Not a switch action - just return FIGHT and let TestBattle_AISelectMove handle the move
-    debug_printf("[TestBattle_AIPickCommand] Move action, returning FIGHT\n");
-    debug_printf("[TestBattle_AIPickCommand] *** RETURNING 1 (FIGHT) ***\n");
     return 1;  // FIGHT
 }
 
