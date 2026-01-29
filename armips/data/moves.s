@@ -10862,7 +10862,7 @@ movedata MOVE_GEAR_UP, "Gear Up"
     movedescription MOVE_GEAR_UP, "The user engages its\ngears to raise the\nAttack and Sp. Atk\nstats of ally Pokémon\nwith Plus or Minus."
 
 movedata MOVE_THROAT_CHOP, "Throat Chop"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_THROAT_CHOP
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_DARK
@@ -10871,7 +10871,7 @@ movedata MOVE_THROAT_CHOP, "Throat Chop"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13862,7 +13862,7 @@ movedata MOVE_ICE_SPINNER, "Ice Spinner"
     movedescription MOVE_ICE_SPINNER, "The user covers its\nfeet in ice and twirls\naround, slamming into\nthe target. It also\ndestroys the terrain."
 
 movedata MOVE_GLAIVE_RUSH, "Glaive Rush"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_GLAIVE_RUSH
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_DRAGON
@@ -13871,7 +13871,7 @@ movedata MOVE_GLAIVE_RUSH, "Glaive Rush"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

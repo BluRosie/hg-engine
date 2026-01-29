@@ -2449,6 +2449,10 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
 
     // 1. Check if user or target has No Guard, or if the user has sure-hit accuracy from Poison-type Toxic, or if the user has used Lock-On / Mind Reader.
 
+    if (sp->moveConditionsFlags[battlerIdTarget].glaiveRush) {
+        return TRUE;
+    }
+
     // toxic when used by a poison type
     if (move == MOVE_TOXIC
         && HasType(sp, battlerIdAttacker, TYPE_POISON)) {
@@ -3206,6 +3210,9 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
         && (ctx->battlemon[battlerId].move[movePos] != MOVE_ME_FIRST)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
+        if (ctx->moveConditionsFlags[battlerId].throatChopped && IsMoveSoundBased(ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_THROAT_CHOPPED)) {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
     }
     return nonSelectableMoves;
 }
@@ -3305,7 +3312,13 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->msg_id = 1611;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
-    }
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_THROAT_CHOPPED) & No2Bit(movePos)) {
+        msg->msg_tag = TAG_ITEM;
+        // {STRVAR_1 1, 0, 0} has no moves left\nthat it can use!
+        msg->msg_id = 1622;
+        msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
+        ret = FALSE;
+    } 
 
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSED_MOVE) {
 #ifdef DEBUG_ENABLE_UNIMPLEMENTED_MOVES

@@ -1351,6 +1351,15 @@ void BattleController_CheckGravityOrThroatChop(struct BattleSystem *bsys, struct
         ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
     }
+    if (ctx->moveConditionsFlags[ctx->attack_client].throatChopped && IsMoveSoundBased(ctx->current_move_index)) {
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FAIL_THROAT_CHOP);
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+        ctx->wb_seq_no = BEFORE_MOVE_START;
+        CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
+        ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
+        ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+    }
 }
 
 void BattleController_CheckTaunt(struct BattleSystem *bsys, struct BattleStruct *ctx) {

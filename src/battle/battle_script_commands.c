@@ -4748,6 +4748,13 @@ BOOL btl_scr_cmd_10E_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
         break;
     case MOVE_LASER_FOCUS:
         ctx->moveConditionsFlags[client_no].laserFocus = 2;
+        break;
+    case MOVE_GLAIVE_RUSH:
+        ctx->moveConditionsFlags[client_no].glaiveRush = TRUE;
+        break;
+    case MOVE_THROAT_CHOP:
+        ctx->moveConditionsFlags[client_no].throatChopped = 2;
+        break;
     default:
         break;
     }

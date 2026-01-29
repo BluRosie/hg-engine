@@ -39,6 +39,10 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
             return;
         }
 
+        if (ctx->moveConditionsFlags[ctx->attack_client].glaiveRush && ctx->current_move_index != MOVE_GLAIVE_RUSH) {
+            ctx->moveConditionsFlags[ctx->attack_client].glaiveRush = FALSE;
+        }
+
         // Handle Sparkling Aria
         if (ctx->current_move_index == MOVE_SPARKLING_ARIA && ctx->battlemon[ctx->attack_client].sheer_force_flag == 0) {
             int i;

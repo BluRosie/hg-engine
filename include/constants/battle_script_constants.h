@@ -489,8 +489,9 @@
 #define SUB_SEQ_POWDER                                (479)
 #define SUB_SEQ_TAKE_POWDER_DAMAGE                    (480)
 #define SUB_SEQ_LASER_FOCUS                           (481)
+#define SUB_SEQ_MOVE_FAIL_THROAT_CHOP                 (482)
 
-#define MAX_BASE_SUBSCRIPT_NUM 481
+#define MAX_BASE_SUBSCRIPT_NUM 482
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

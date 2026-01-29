@@ -1600,8 +1600,18 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_ENDTURN_LOGIC
                             debug_printf("In THIRD_EVENT_BLOCK_UPROAR\n", NULL);
 #endif
-
-                            if (sp->battlemon[battlerId].condition2 & STATUS2_UPROAR) {
+                            if (sp->moveConditionsFlags[battlerId].throatChopped && sp->battlemon[battlerId].condition2 & STATUS2_UPROAR)
+                            {
+                                sp->battlemon[battlerId].condition2 &= ~STATUS2_UPROAR;
+                                sp->field_condition &= (No2Bit(battlerId) << 8) ^ 0xFFFFFFFF;
+                                sp->battlerIdTemp = battlerId;
+                                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_UPROAR_END);
+                                sp->next_server_seq_no = sp->server_seq_no;
+                                sp->server_seq_no = 22;
+                                flag = 1;
+                                ret = 1;
+                            }
+                            else if (sp->battlemon[battlerId].condition2 & STATUS2_UPROAR) {
                                 u8 battlerIdSleep;
                                 for (battlerIdSleep = 0; battlerIdSleep < client_set_max; battlerIdSleep++) {
                                     if ((sp->battlemon[battlerIdSleep].condition & STATUS_SLEEP) && sp->battlemon[battlerIdSleep].hp != 0 && GetBattlerAbility(sp, battlerIdSleep) != ABILITY_SOUNDPROOF) {
@@ -1928,6 +1938,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     sp->moveConditionsFlags[i].powderBlocksFireMove = 0;
                     if (sp->moveConditionsFlags[i].laserFocus > 0) {
                         sp->moveConditionsFlags[i].laserFocus--;
+                    }
+                    if (sp->moveConditionsFlags[i].throatChopped > 0) {
+                        sp->moveConditionsFlags[i].throatChopped--;
                     }
                 }
 

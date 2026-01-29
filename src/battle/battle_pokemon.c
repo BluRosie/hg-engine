@@ -1017,6 +1017,8 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->moveConditionsFlags[client].moveFailureLastTurn = 0;
     sp->moveConditionsFlags[client].powderBlocksFireMove = 0;
     sp->moveConditionsFlags[client].laserFocus = 0;
+    sp->moveConditionsFlags[client].glaiveRush = 0;
+    sp->moveConditionsFlags[client].throatChopped = 0;
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
     sp->binding_turns[client] = 0;

@@ -665,6 +665,7 @@
 #define STRUGGLE_CHECK_GORILLA_TACTICS      (1 << 10)
 #define STRUGGLE_CHECK_GIGATON_HAMMER       (1 << 11)
 #define STRUGGLE_CHECK_ASSAULT_VEST         (1 << 12)
+#define STRUGGLE_CHECK_THROAT_CHOPPED       (1 << 13)
 
 /**
  *  @brief msg work specifically for statuses
@@ -1228,7 +1229,10 @@ typedef struct MoveConditionsFlags {
     u8 moveFailureThisTurn : 1;
     u8 powderBlocksFireMove : 1;
     u8 laserFocus : 2;
-    u8 padding : 2;
+    u8 glaiveRush : 1;
+    u8 padding : 1;
+    u8 throatChopped : 2;
+    u8 padding2 : 6;
 } MoveConditionsFlags;
 
 
