@@ -120,11 +120,11 @@
 // comment out the line below to disable it
 #define RANDOMIZED_WILD
 
-// RANDOMIZE_PLAYER_PARTY_TRAINERS tells the randomzier wether to randomize player party at start of trainer battles
+// RANDOMIZE_PLAYER_PARTY_TRAINERS tells the randomizer whether to randomize player party at start of trainer battles
 // comment out the line below to disable it
 #define RANDOMIZE_PLAYER_PARTY_TRAINERS
 
-// RANDOMIZE_TRAINER_PARTIES tells the randomzier wether to randomize enemy trainer party at start of trainer battles
+// RANDOMIZE_TRAINER_PARTIES tells the randomizer whether to randomize enemy trainer party at start of trainer battles
 // comment out the line below to disable it
 #define RANDOMIZE_TRAINER_PARTIES_NOT_SMART
 
@@ -132,14 +132,13 @@
 // absolutely needed to perform randomizing
 #define MAX_ID_RANDOMIZED SPECIES_VOLCANION
 
-// RANDOMIZE_WILD_FORMS tells the randomzier wether to randomize forms both for wild and trainer parties
+// RANDOMIZE_WILD_FORMS tells the randomizer whether to randomize forms both for wild and trainer parties
 // comment out the line below to disable it
 #define RANDOMIZE_FORMS
 
-// EXCLUDE_MEGAS_FROM_RANDOMIZER tells the randomzier wether to exclude mega forms
+// EXCLUDE_MEGAS_FROM_RANDOMIZER tells the randomizer whether to exclude mega forms
 // set to FALSE to INCLUDE them
 #define EXCLUDE_MEGAS_FROM_RANDOMIZER FALSE
-
 
 // SHINY_ODDS are the odds that a pokémon will be shiny.  actual odds are SHINY_ODDS over 65,536, by default 8 / 65536 or 1 / 8192
 // note that changing this still has no chance of spawning shiny mons in for trainers like the tutorial's method does
