@@ -10,21 +10,21 @@ Thank you for waiting.
 We hope to see you again!
 Your Pokémon may be infected with\nthe Pokérus.\rLittle is known about the Pokérus\nexcept that they are microscopic\flife-forms that attach to Pokémon.\rWhile infected, Pokémon are said to\ngrow exceptionally well.
 {STRVAR_1 3, 0, 0} is out of battle-ready\nPokémon!\r{STRVAR_1 3, 0, 0}’s vision dimmed!
-             
+
 Would you like to\nsave your adventure so far? {YESNO 0}
 There is already a saved file.\nIs it OK to overwrite it? {YESNO 0}
 Now saving your Pokémon adventure...\nDon’t turn off the power.
 You saved your progress!
-                                                                                                                    
+
 Save error.
-                                   
+
 There is already a saved game file.\nIt is impossible to save.\rPlease refer to the Instruction\nBooklet for details.\rPress Up + SELECT + B Button on\nthe title screen if you want to erase\fthe current saved game file.
 Saving a lot of data...\nDon’t turn off the power.
-                     
-                   
-                              
+
+
+
 Obtained {STRVAR_1 8, 0, 0}!
-                         
+
 Too bad!\nThe Bag is full...
 {STRVAR_1 3, 0, 0} obtained\n{COLOR 2}{STRVAR_1 8, 1, 0}{COLOR 0}!
 {STRVAR_1 3, 0, 0} obtained\n{COLOR 1}{STRVAR_1 8, 1, 0}{COLOR 0}!
@@ -37,7 +37,7 @@ The Pokémon Storage System\nwas accessed.\r
 Accessed {STRVAR_1 3, 0, 0}’s PC.\r
 Oak’s words echoed...\n{STRVAR_1 3, 0, 0}! There’s a time and\fplace for everything! But not now.
 Welcome!\nWhat do you need?
-                     
+
 There! All happy and healthy!\nGood luck and take care!
 Mom: {STRVAR_1 3, 0, 0}!\nWelcome home.\rIt sounds like you had quite the\nexperience out there.\rMaybe you should take a quick\nrest so you can relax.\r...\n...
 Mom: Oh, good! You and your\nPokémon are looking great.\rOh, yes, I heard from Professor Elm.\rHe said that a Pokémon’s energy is\nmeasured in HP (Hit Points).\rIf your Pokémon lose their HP,\nyou can restore it at any\fPokémon Center.\rIf you’re going to travel far away,\nthe smart Trainer stocks up on\fPotions at the Pokémon Mart.\rMake me proud, honey!\nTake care!
@@ -46,13 +46,13 @@ First, let’s restore your Pokémon\nto full health.
 Your Pokémon have been healed\nto perfect health.
 Please visit a Pokémon Center when\nyour Pokémon’s HP goes down.\rIf you’re planning to travel any\ndistance, you should stock up on\fPotions at a Pokémon Mart.\rGood luck, Trainer!
 There’s no Mail in the Mailbox.\r
-                    
+
 Not even a nibble...
 The Pokémon got away...
 Reeled it in too quickly...
 Landed a Pokémon!
 {STRVAR_1 1, 0, 0} survived the poisoning.\nThe poison faded away!\r
-                            
+
 ♂
 ♀
 There appears to be nothing here...
@@ -64,11 +64,11 @@ Oh?
 {STRVAR_1 0, 0, 0} hatched from the Egg!
 Would you like to give a nickname to the\nnewly hatched {STRVAR_1 0, 0, 0}?
 The repellent’s effect wore off!
-             
-                   
+
+
 I’m very sorry.\rWe are working underground right now.\nIt’s off-limits to the public.\rPlease try later on.
-                                                                                              
-                                                                                          
+
+
 There is text engraved in the back\nof the obtained Plate...\r“When the universe was created,\nits shards became this Plate.”\r
 There is text engraved in the back\nof the obtained Plate...\r“The power of defeated giants\ninfuses this Plate.”\r
 There is text engraved in the back\nof the obtained Plate...\r“Two beings of time and space set\nfree from the Original One.”\r
@@ -78,7 +78,7 @@ There is text engraved in the back\nof the obtained Plate...\r“The Original On
 There is text engraved in the back\nof the obtained Plate...\r“The powers of Plates are shared\namong Pokémon.”\r
 There is text engraved in the back\nof the obtained Plate...\r“The rightful bearer of a Plate\ndraws from the Plate it holds.”\r
 Ball Capsules can’t be used because\nyou don’t have any Seals.\r
-                                         
+
 Would you like to\nsave your adventure so far?
 There is already a saved file.\nIs it OK to overwrite it?
 Good morning!\nWelcome to the Pokémon Center.\rWe restore your tired Pokémon\nto full health.\rWould you like to rest your\nPokémon? {YESNO 0}
@@ -89,12 +89,12 @@ A glowing stairway appeared!
 The Azure Flute echoed hollowly...\rIt appears to be meaningless using\nthe Azure Flute here...
 {STRVAR_1 3, 0, 0} put {STRVAR_1 8, 1, 0}\nin the {COLOR 2}{STRVAR_1 27, 2, 0}{COLOR 0} Pocket.\r
 {STRVAR_1 3, 0, 0} put away the\n{STRVAR_1 31, 1, 0} in the Fashion Case.\r
-                        
-                                 
+
+
 Your Bag is full.\rThe Griseous Orb could not be removed,\nso you cannot enter.
 Your Hall of Fame data is corrupted.\rIt will be fixed if you enter the\nHall of Fame again.\r
 {STRVAR_1 3, 0, 0} received\n{STRVAR_1 31, 1, 0}!\rBut the Fashion Case is already full!
-                            
+
 {STRVAR_1 3, 0, 0} found a Shiny Leaf!\r{STRVAR_1 3, 0, 0} put the Shiny Leaf on\n{STRVAR_1 1, 1, 0}!
 {STRVAR_1 3, 0, 0} found a Shiny Leaf!\rBut {STRVAR_1 1, 1, 0} already has a\nShiny Leaf!
 Oh?\n{STRVAR_1 1, 0, 0}’s state...\r
@@ -118,3 +118,4 @@ NOT TELLING
 
 The repellent’s effect wore off!\nWould you like to use another one?
 You used the {STRVAR_1 8, 1, 0}.
+Begin auto-battle.

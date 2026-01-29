@@ -1,9 +1,10 @@
 #ifndef POKEHEARTGOLD_BAG_H
 #define POKEHEARTGOLD_BAG_H
 
+#include "types.h"
 #include "constants/item.h"
 //#include "item.h"
-#include "save.h"
+//#include "save.h"
 //#include "heap.h"
 //#include "bag_view.h"
 //#include "bag_cursor.h"
@@ -49,7 +50,7 @@ typedef struct BagData {
 } BAG_DATA;
 
 typedef struct BagContext {
-    /* 0x000 */ u8 padding_000[0x2EC];  
+    /* 0x000 */ u8 padding_000[0x2EC];
     /* 0x2EC */ void *msgPrinter;
     /* 0x2F0 */ void *unk2F0;
     /* 0x2F4 */ void *unk2F4;

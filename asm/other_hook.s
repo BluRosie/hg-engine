@@ -789,6 +789,31 @@ bx r1
 
 .pool
 
+.global AddBoxMonData_EditedCases_hook
+AddBoxMonData_EditedCases_hook:
+sub sp, #0x14
+mov r3, sp
+str r4, [r3, #0x0]   // blockA
+str r5, [r3, #0x4]   // blockB
+str r1, [r3, #0x8]   // blockC
+str r0, [r3, #0xC]   // blockD
+ldr r1, [r3, #(0x14 + 0x4)]  // field
+mov r2, r6                   // data
+mov r0, r3                   // blocks
+bl AddBoxMonData_EditedCases
+cmp r0, #1
+bne _vanillaAddBoxMonHandling
+add sp, #0x14
+ldr r0, =0x0206FA54 | 1
+bx  r0
+
+_vanillaAddBoxMonHandling:
+add sp, #0x14
+ldr r0, =0x0206F682 | 1
+bx  r0
+
+.pool
+
 
 // actually just store the ability to 0x021E73B8.  that should do lol
 .global BoxDisplayMon_StoreAbility

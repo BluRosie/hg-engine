@@ -8,6 +8,7 @@
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/item.h"
 #include "../../include/constants/file.h"
+#include "../../include/constants/weather_numbers.h"
 
 
 
@@ -817,7 +818,7 @@ u32 sSecretPowerEffectTable[] =
  *  @param bg background id to load
  *  @param terrain platform id to load
  */
-void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
+void LONG_CALL LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
 {
     u32 palette;
     BOOL vanillaBg = TRUE;
@@ -851,15 +852,115 @@ void LoadDifferentBattleBackground(struct BattleSystem *bw, u32 bg, u32 terrain)
     {
         palette = terrain;
     }
+
     Ground_ActorResourceSet(&bw->ground[0], bw, 0, palette); // new terrains are just repointed below
     Ground_ActorResourceSet(&bw->ground[1], bw, 1, palette);
 
     // free resources
-    sys_FreeMemoryEz(bw->bg_area);
-    sys_FreeMemoryEz(bw->pal_area);
+    if (bw->bg_area != NULL) {
+        sys_FreeMemoryEz(bw->bg_area);
+    }
+    if (bw->pal_area != NULL) {
+        sys_FreeMemoryEz(bw->pal_area);
+    }
+
     BattleWorkGroundBGChg(bw);
 
     // finally set the fields for nature power/secret power/camouflage/friends
     //bw->bgId = bg;
     bw->terrain = terrain; // terrain is used directly for secret power, camouflage
+}
+
+// vanilla battle background table
+extern BattleBgProfile sBattleBgProfileTable[] ALIGN4;
+
+// Store original callback so we can restore it
+static void (*originalCallback)(void *, int, int) = NULL;
+
+void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys)
+{
+    u8 terrainType = TERRAIN_NONE;
+
+    BOOL loadNewBattleBg = FALSE;
+
+    // Handle map header weather
+    switch (BattleWorkWeatherGet(bsys)) {
+    case WEATHER_SYS_THUNDER:
+#ifdef THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN
+        terrainType = ELECTRIC_TERRAIN;
+#endif
+        break;
+    case WEATHER_SYS_MIST1:
+    case WEATHER_SYS_MIST2:
+#ifdef FOG_WEATHER_MISTY_TERRAIN
+        terrainType = MISTY_TERRAIN;
+#endif
+        break;
+    default:
+        break;
+    }
+
+    if (terrainType != TERRAIN_NONE) {
+        bsys->sp->terrainOverlay.type = terrainType;
+        bsys->sp->terrainOverlay.numberOfTurnsLeft = TERRAIN_TURNS_INFINITE;
+        loadNewBattleBg = TRUE;
+    }
+
+    if (loadNewBattleBg) {
+        // inject our custom callback func into the vanilla battle background at index 0
+        BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
+        originalCallback = vanillaTable[0].callback;
+        vanillaTable[0].callback = BattleBackgroundCallback;
+    }
+}
+
+void LONG_CALL BattleBackgroundCallback(void *unkPtr, int unk2, int unk3)
+{
+    // extract BattleSystem from pointer array
+    struct BattleSystem **ptrArray = (struct BattleSystem **)unkPtr;
+    struct BattleSystem *bsys = ptrArray[0];
+
+    // Call original callback if it's not null
+    if (originalCallback != NULL) {
+        originalCallback(unkPtr, unk2, unk3);
+    }
+
+    BOOL loadNewBattleBg = FALSE;
+
+    // Get terrain and background to load
+    BattleBg newBg;
+    Terrain newTerrain;
+    switch (bsys->sp->terrainOverlay.type) {
+    case GRASSY_TERRAIN:
+        newBg = BATTLE_BG_GRASSY_TERRAIN;
+        newTerrain = TERRAIN_GRASSY_TERRAIN;
+        loadNewBattleBg = TRUE;
+        break;
+    case MISTY_TERRAIN:
+        newBg = BATTLE_BG_MISTY_TERRAIN;
+        newTerrain = TERRAIN_MISTY_TERRAIN;
+        loadNewBattleBg = TRUE;
+        break;
+    case ELECTRIC_TERRAIN:
+        newBg = BATTLE_BG_ELECTRIC_TERRAIN;
+        newTerrain = TERRAIN_ELECTRIC_TERRAIN;
+        loadNewBattleBg = TRUE;
+        break;
+    case PSYCHIC_TERRAIN:
+        newBg = BATTLE_BG_PSYCHIC_TERRAIN;
+        newTerrain = TERRAIN_PSYCHIC_TERRAIN;
+        loadNewBattleBg = TRUE;
+        break;
+    default:
+        break;
+    }
+
+    if (loadNewBattleBg) {
+        bsys->terrain = newTerrain;
+        LoadDifferentBattleBackground(bsys, newBg, newTerrain);
+    }
+
+    // restore the original callback func
+    BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
+    vanillaTable[0].callback = originalCallback;
 }

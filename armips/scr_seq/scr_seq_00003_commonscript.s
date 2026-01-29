@@ -87,6 +87,7 @@ scrdef scr_seq_0003_069
 scrdef scr_seq_0003_070
 scrdef scr_seq_0003_071
 scrdef scr_seq_0003_072_repels
+scrdef scr_seq_0003_073_autobattle_testing
 scrdef_end
 
 scr_seq_0003_002:
@@ -1731,7 +1732,15 @@ scr_seq_0003_064:
     releaseall
     end
 
-
+scr_seq_0003_073_autobattle_testing:
+    play_se SEQ_SE_DP_SELECT
+    lockall
+    npc_msg 120
+    closemsg
+    trainer_battle 1, 0, 0, 0
+    white_out
+    releaseall
+    end
 
 
 

@@ -1,31 +1,31 @@
-A mysterious scale that causes a\ncertain Pokémon to evolve. It shines\nin rainbow colors.
-An item to be held by a Pokémon.\nThis mysterious evolutionary lump\nboosts the Defense and Sp. Def stats\rwhen held by a Pokémon that can\nstill evolve.
+A mysterious scale that causes\na certain Pokémon to evolve.\nIt shines in rainbow colors.
+A mysterious evolutionary lump.\nIt raises both Defense and Sp. Def when\nheld by a Pokémon that can still evolve.
 An item to be held by a Pokémon.\nThis very light stone reduces the\nweight of the holder.
-An item to be held by a Pokémon. If\nanother Pokémon makes direct contact\nwith the holder, that Pokémon will\rbe damaged.
-An item to be held by a Pokémon.\nThis balloon makes the holder float\nin the air. If the holder is hit\rwith an attack, the balloon will\nburst.
-An item to be held by a Pokémon. If\nthe holder is damaged by an attack,\nthe mysterious power of this card\rcan remove the attacker from the\nbattle.
-An item to be held by a Pokémon.\nMoves that would normally have no\neffect due to type matchups will\rstill hit the holder.
+An item to be held by a Pokémon.\nIf the holder is hit, the attacker\nwill also be damaged upon contact.
+An item to be held by a Pokémon.\nThe holder will float in the air until hit.\nOnce hit, this item will burst.
+An item to be held by a Pokémon.\nWhen the holder is hit by an attack,\nthe attacker is removed from battle.
+An item to be held by a Pokémon.\nMoves that normally have no effect\nwill land on a Pokémon holding it.
 An item to be held by a Pokémon.\nThis band boosts the power of\nbinding moves used by the holder.
-An item to be held by a Pokémon.\nThis single-use bulb boosts the Sp.\nAtk stat if the holder is damaged by\ra Water-type attack.
-An item to be held by a Pokémon.\nThis single-use battery boosts the\nAttack stat if the holder is damaged\rby an Electric-type attack.
-An item to be held by a Pokémon. If\nthe holder is damaged by an attack,\nit will be switched out of battle to\rbe replaced by another Pokémon on\nyour team.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof fire and will boost the power of\ra Fire-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof water and will boost the power of\ra Water-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof electricity and will boost the\rpower of an Electric-type move-but\nonly once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof plants and will boost the power\rof a Grass-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof ice and will boost the power of\ran Ice-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof the fighting spirit and will\rboost the power of a Fighting-type\nmove-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof poison and will boost the power\rof a Poison-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof the earth and will boost the\rpower of a Ground-type move-but only\nonce.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof flight and will boost the power\rof a Flying-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof psychic energy and will boost the\rpower of a Psychic-type move-but\nonly once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof bugs and will boost the power of\ra Bug-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof rock and will boost the power of\ra Rock-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof ghosts and will boost the power\rof a Ghost-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof dragons and will boost the power\rof a Dragon-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof darkness and will boost the power\rof a Dark-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof steel and will boost the power of\ra Steel-type move-but only once.
-An item to be held by a Pokémon.\nThis gem is imbued with the essence\nof normalcy and will boost the power\rof a Normal-type move-but only once.
+An item to be held by a Pokémon.\nThis single-use bulb boosts Sp. Atk if the\nholder is hit with a Water-type attack.
+An item to be held by a Pokémon.\nThis single-use battery ups Attack if the\nholder is hit by an Electric-type attack.
+An item to be held by a Pokémon.\nIf the holder is hit by an attack,\nit will be switched out of battle.
+A gem with an essence of fire.\nWhen held, it strengthens the power\nof a Fire-type move one time.
+A gem with an essence of water.\nWhen held, it strengthens the power\nof a Water-type move one time.
+A gem with an essence of electricity.\nWhen held, it strengthens the power\nof a Electric-type move one time.
+A gem with an essence of nature.\nWhen held, it strengthens the power\nof a Grass-type move one time.
+A gem with an essence of ice.\nWhen held, it strengthens the power\nof a Ice-type move one time.
+A gem with an essence of combat.\nWhen held, it strengthens the power\nof a Fighting-type move one time.
+A gem with an essence of poison.\nWhen held, it strengthens the power\nof a Poison-type move one time.
+A gem with an essence of land.\nWhen held, it strengthens the power\nof a Ground-type move one time.
+A gem with an essence of air.\nWhen held, it strengthens the power\nof a Flying-type move one time.
+A gem with an essence of the mind.\nWhen held, it strengthens the power\nof a Psychic-type move one time.
+A gem with an insect-like essence.\nWhen held, it strengthens the power\nof a Bug-type move one time.
+A gem with an essence of rock.\nWhen held, it strengthens the power\nof a Rock-type move one time.
+A gem with a spectral essence.\nWhen held, it strengthens the power\nof a Ghost-type move one time.
+A gem with a draconic essence.\nWhen held, it strengthens the power\nof a Dragon-type move one time.
+A gem with an essence of darkness.\nWhen held, it strengthens the power\nof a Dark-type move one time.
+A gem with an essence of steel.\nWhen held, it strengthens the power\nof a Steel-type move one time.
+A gem with an ordinary essence.\nWhen held, it strengthens the power\nof a Normal-type move one time.
 An item to be used on a Pokémon.\nThis feather slightly increases base\npoints for a Pokémon’s HP stat.
 An item to be used on a Pokémon.\nThis feather slightly increases base\npoints for a Pokémon’s Attack stat.
 An item to be used on a Pokémon.\nThis feather slightly increases base\npoints for a Pokémon’s Defense stat.
@@ -33,18 +33,18 @@ An item to be used on a Pokémon.\nThis feather slightly increases base\npoints 
 An item to be used on a Pokémon.\nThis feather slightly increases base\npoints for a Pokémon’s Sp. Def stat.
 An item to be used on a Pokémon.\nThis feather slightly increases base\npoints for a Pokémon’s Speed stat.
 Though this feather is beautiful,\nit’s just a regular feather and has\nno effect.
-A fossil from a prehistoric Pokémon\nthat once lived in the sea. It\nappears as though it could be part\rof a creature’s back.
-A fossil from a prehistoric Pokémon\nsaid to be an ancestor to modern\nbird Pokémon. It looks as if it\rcould have come from part of some\ncreature’s wing.
-A special pass to go to Liberty\nGarden. Board the ship in Castelia\nCity.
+A fossil from a prehistoric Pokémon\nthat once lived in the sea. It appears\nas though it could be part of its back.
+A fossil from a prehistoric Pokémon\nthat once lived in the sky. It looks as\nif it could come from part of its wing.
+A special pass to go to Liberty Garden.\nBoard the ship in Castelia City.
 A mysterious orb containing the\npower of the Unova region, to be\nused when generating Pass Power.
 A somewhat different Poké Ball that\nis more effective when catching\nPokémon that are asleep.
 A toy that attracts the attention of\nPokémon. It guarantees escape from\nany battle with wild Pokémon.
 A wondrous, pretty case to store\nlots of colorful Props for your\nPokémon to wear in a musical.
 The skull of a Pokémon that was said\nto have braved the raging seas to\nfly around the world.
 A rare mushroom that gives off a\nnice fragrance. It can be sold at a\nhigh price to shops.
-A big nugget of pure gold that gives\noff a lustrous gleam. It can be sold\nat a high price to shops.
-Very large pearls that have a nice\nsilvery sheen to them. They can be\nsold at a high price to shops.
-A shard that fell to the ground when\na comet passed nearby. It can be\nsold at a high price to shops.
+A big nugget of pure gold that gives\noff a lustrous gleam.\nIt can be sold at a high price to shops.
+Very large pearls that have a nice silvery\nsheen to them.\nThey can be sold at a high price to shops.
+A shard that fell to the ground when a\ncomet passed nearby.\nIt can be sold at a high price to shops.
 A copper coin used by an ancient\ncivilization about three thousand\nyears ago.
 A silver coin used by an ancient\ncivilization about three thousand\nyears ago.
 A gold coin used by an ancient\ncivilization about three thousand\nyears ago.
@@ -52,51 +52,51 @@ A vase made by an ancient\ncivilization about three thousand\nyears ago.
 A bracelet made by an ancient\ncivilization about three thousand\nyears ago.
 A stone figurine made by an ancient\ncivilization about three thousand\nyears ago.
 A crown made by an ancient\ncivilization about three thousand\nyears ago.
-Castelia City’s specialty:\nsoft-serve ice cream. It can be used\nto cure any status condition a\rPokémon may have.
-Can be used many times to boost a\nPokémon’s critical- hit ratio. These\neffects disappear if the Pokémon\rleaves the battle.
-Sharply boosts the Speed stat of a\nPokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Sharply boosts the Sp. Atk stat of a\nPokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Sharply boosts the Sp. Def stat of a\nPokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Sharply boosts the Defense stat of a\nPokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Sharply boosts the Attack stat of a\nPokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Sharply boosts the accuracy of a\nPokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Drastically boosts the Speed stat of\na Pokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Drastically boosts the Sp. Atk stat\nof a Pokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Drastically boosts the Sp. Def stat\nof a Pokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Drastically boosts the Defense stat\nof a Pokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Drastically boosts the Attack stat\nof a Pokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Drastically boosts the accuracy of a\nPokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Immensely boosts the Speed stat of a\nPokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Immensely boosts the Sp. Atk stat of\na Pokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Immensely boosts the Sp. Def stat of\na Pokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Immensely boosts the Defense stat of\na Pokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Immensely boosts the Attack stat of\na Pokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
-Immensely boosts the accuracy of a\nPokémon in battle. This effect\ndisappears if the Pokémon leaves the\rbattle.
+Castelia City’s specialty: soft-serve\nice cream. It can be used to cure any\nstatus condition a Pokémon may have.
+It can be used many times to raise\nthe critical-hit ratio of one Pokémon.\nIt wears off if the Pokémon is withdrawn.
+It sharply raises the Speed stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+It sharply raises the Sp Atk. stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+It sharply raises the Sp. Def stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+It sharply raises the Defense stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+It sharply raises the Attack stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+It sharply raises the accuracy of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Drastically boosts the Speed stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Drastically boosts the Sp. Atk stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Drastically boosts the Sp. Def stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Drastically boosts the Defense stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Drastically boosts the Attack stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Drastically boosts the accuracy of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Immensely boosts the Speed stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Immensely boosts the Sp. Atk stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Immensely boosts the Sp. Def stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Immensely boosts the Defense stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Immensely boosts the Attack stat of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
+Immensely boosts the accuracy of a\nPokémon in battle.\nIt wears off if the Pokémon is withdrawn.
 When used, it activates the Ability\nof an ally Pokémon.
 When used, it causes an ally Pokémon\nto drop a held item.
 When used, it causes an ally Pokémon\nto use its held item.
 When used, it removes any stat\nchanges of an ally Pokémon.
-Can be used many times to greatly\nboost a Pokémon’s critical-hit\nratio. These effects disappear if\rthe Pokémon leaves the battle.
-Reshiram’s body was destroyed and\nchanged into this stone. It is said\nto be waiting for the emergence of a\rhero.
-Zekrom’s body was destroyed and\nchanged into this stone. It is said\nto be waiting for the emergence of a\rhero.
-The user gathers all its light\nenergy and releases it at once. It\nmay also lower the foe’s Sp. Def\rstat.
+It can be used many times to greatly\nraise a Pokémon’s critical-hit ratio.\nIt wears off if the Pokémon is withdrawn.
+Reshiram’s body was destroyed and\nchanged into this stone. It is said to\nbe waiting for the emergence of a hero.
+Zekrom’s body was destroyed and\nchanged into this stone. It is said to\nbe waiting for the emergence of a hero.
+The user gathers all its light energy\nand releases it at once. It may also\nlower the foe’s Sp. Def stat.
 The user releases a horrible aura\nimbued with dark thoughts. It may\nalso make the target flinch.
 A blood-draining attack. The user’s\nHP is restored by half the damage\ntaken by the target.
-A high-tech transceiver with a\ncamera function. It allows up to\nfour-way calls.
+A high-tech transceiver with a camera\nfunction.\nIt allows up to four-way calls.
 A rare stone.
 An important letter that Wingull\ndelivers.
 An important letter that Wingull\ndelivers.
 An important letter that Wingull\ndelivers.
-A high-tech transceiver with a\ncamera function. It allows up to\nfour-way calls.
+A high-tech transceiver with a camera\nfunction.\nIt allows up to four-way calls.
 A box-shaped machine that stores\nMedals and Medal information.
-A splicer that fuses Kyurem and a\ncertain Pokémon. They are said to\nhave originally been one.
-A splicer that separates Kyurem and\na certain Pokémon when they have\nbeen fused.
+A splicer that fuses Kyurem and a certain\nPokémon.\nThey are said to have originally been one.
+A splicer that separates Kyurem\nand a certain Pokémon when\nthey have been fused.
 A permit that is needed to enter the\nNature Preserve, a place that not\nmany people know about.
-Having one of these mysterious oval\ncharms makes it more likely Pokémon\nEggs might be found during picnics.
-Having one of these mysterious\nshining charms makes it more likely\nyou’ll encounter Shiny Pokémon in\rthe wild.
+Having one of these mysterious oval\ncharms makes it more likely Pokémon\nEggs will be found at the Day Care.
+Having one of these mysterious shining\ncharms makes it more likely you’ll\nencounter Shiny Pokémon in the wild.
 A card key needed to enter the\npassword inside the Plasma Frigate.
-A handkerchief dropped by a regular\nat Nacrene City’s Café Warehouse. It\nsmells faintly like a Pokémon.
-A special device that wrings out the\npotential of Pokémon. It’s an\nimperfect prototype.
-The Xtransceiver found at the\nNimbasa City amusement park. It\nseems it belongs to a boy.
-The Xtransceiver found at the\nNimbasa City amusement park. It\nseems it belongs to a girl.
-A mysterious looking glass that\nreveals the truth. It can return a\nPokémon to its original shape.
+A handkerchief dropped by a regular\nat Nacrene City’s Café Warehouse.\nIt smells faintly like a Pokémon.
+A special device that wrings out the\npotential of Pokémon.\nIt’s an imperfect prototype.
+The Xtransceiver found at the\nNimbasa City amusement park.\nIt seems it belongs to a boy.
+The Xtransceiver found at the\nNimbasa City amusement park.\nIt seems it belongs to a girl.
+A mysterious looking glass that reveals\nthe truth. It can return a Pokémon to\nits original shape.

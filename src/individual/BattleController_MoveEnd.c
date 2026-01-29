@@ -116,6 +116,24 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
             }
         }
 
+        if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_FORCE_SWITCH_HIT) { // Dragon Tail, Circle Throw
+            if (ctx->battlemon[ctx->attack_client].hp > 0 
+                && ctx->battlemon[ctx->defence_client].hp > 0
+                && !ctx->battlemon[ctx->defence_client].is_currently_dynamaxed
+                //&& ((ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
+                && ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0)
+                && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
+            {
+                ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+                ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+                ctx->state_client = ctx->attack_client;
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FORCE_OUT); //checks suction cup/ingrain
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
+        }
+
         // TODO: A rampage move that fails (Thrash, Outrage etc) will cancel except on the last turn
         if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS && !ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag) {
                 ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 1;
