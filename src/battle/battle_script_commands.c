@@ -4744,7 +4744,7 @@ BOOL btl_scr_cmd_10E_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
 
     switch (move) {
     case MOVE_POWDER:
-        ctx->moveConditionsFlags[client_no].powderBlocksFireMove = TRUE;
+        ctx->moveConditionsFlags[client_no].powderBlockingFireMove = TRUE;
         break;
     case MOVE_LASER_FOCUS:
         ctx->moveConditionsFlags[client_no].laserFocusTimer = 2;

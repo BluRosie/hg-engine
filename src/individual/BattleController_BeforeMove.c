@@ -1936,7 +1936,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
 
     // TODO: confirm location, Shell Trap, Fire Pledge when combining with Water Pledge only
     u32 moveType = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index);
-    if (ctx->moveConditionsFlags[ctx->attack_client].powderBlocksFireMove == TRUE && moveType == TYPE_FIRE) {
+    if (ctx->moveConditionsFlags[ctx->attack_client].powderBlockingFireMove == TRUE && moveType == TYPE_FIRE) {
         //  && (ctx->current_move_index == MOVE_FIRE_PLEDGE && partnerMove != MOVE_WATER_PLEDGE) {
         ctx->hp_calc_work = 0;
         if (attackerAbility != ABILITY_MAGIC_GUARD) { //from emerald-expansion

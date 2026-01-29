@@ -1935,7 +1935,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     sp->moveConditionsFlags[i].endTurnMoveEffectActivated = 0;
                     sp->moveConditionsFlags[i].moveFailureLastTurn = sp->moveConditionsFlags[i].moveFailureThisTurn;
                     sp->moveConditionsFlags[i].moveFailureThisTurn = 0;
-                    sp->moveConditionsFlags[i].powderBlocksFireMove = 0;
+                    sp->moveConditionsFlags[i].powderBlockingFireMove = 0;
                     if (sp->moveConditionsFlags[i].laserFocusTimer > 0) {
                         sp->moveConditionsFlags[i].laserFocusTimer--;
                     }
