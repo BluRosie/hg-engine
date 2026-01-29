@@ -3314,8 +3314,8 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_THROAT_CHOPPED) & No2Bit(movePos)) {
         msg->msg_tag = TAG_ITEM;
-        // {STRVAR_1 1, 0, 0} has no moves left\nthat it can use!
-        msg->msg_id = 1622;
+        // The effects of Throat Chop prevent\n{STRVAR_1 1, 0, 0} from using certain moves!
+        msg->msg_id = 1619;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
     } 
