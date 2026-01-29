@@ -4747,13 +4747,13 @@ BOOL btl_scr_cmd_10E_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
         ctx->moveConditionsFlags[client_no].powderBlocksFireMove = TRUE;
         break;
     case MOVE_LASER_FOCUS:
-        ctx->moveConditionsFlags[client_no].laserFocus = 2;
+        ctx->moveConditionsFlags[client_no].laserFocusTimer = 2;
         break;
     case MOVE_GLAIVE_RUSH:
         ctx->moveConditionsFlags[client_no].glaiveRush = TRUE;
         break;
     case MOVE_THROAT_CHOP:
-        ctx->moveConditionsFlags[client_no].throatChopped = 2;
+        ctx->moveConditionsFlags[client_no].throatChopTimer = 2;
         break;
     default:
         break;
@@ -4772,7 +4772,7 @@ BOOL BtlCmd_CopyStatStages(struct BattleSystem *bsys UNUSED, struct BattleStruct
 
     ctx->battlemon[ctx->attack_client].condition2 |= (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_FOCUS_ENERGY);
 
-    ctx->moveConditionsFlags[ctx->attack_client].laserFocus = ctx->moveConditionsFlags[ctx->defence_client].laserFocus;
+    ctx->moveConditionsFlags[ctx->attack_client].laserFocusTimer = ctx->moveConditionsFlags[ctx->defence_client].laserFocusTimer;
 
     return FALSE;
 }

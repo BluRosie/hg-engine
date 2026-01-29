@@ -1512,7 +1512,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
          + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_FARFETCHD)));
 
 
-    if (temp > 4 || sp->moveConditionsFlags[attacker].laserFocus)
+    if (temp > 4 || sp->moveConditionsFlags[attacker].laserFocusTimer)
     {
         temp = 4;
     }
@@ -3210,7 +3210,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
         && (ctx->battlemon[battlerId].move[movePos] != MOVE_ME_FIRST)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
-        if (ctx->moveConditionsFlags[battlerId].throatChopped 
+        if (ctx->moveConditionsFlags[battlerId].throatChopTimer 
             && IsMoveSoundBased(ctx->battlemon[battlerId].move[movePos]) 
             && (struggleCheckFlags & STRUGGLE_CHECK_THROAT_CHOPPED))
         {

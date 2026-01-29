@@ -1600,7 +1600,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_ENDTURN_LOGIC
                             debug_printf("In THIRD_EVENT_BLOCK_UPROAR\n", NULL);
 #endif
-                            if (sp->moveConditionsFlags[battlerId].throatChopped && sp->battlemon[battlerId].condition2 & STATUS2_UPROAR)
+                            if (sp->moveConditionsFlags[battlerId].throatChopTimer && sp->battlemon[battlerId].condition2 & STATUS2_UPROAR)
                             {
                                 sp->battlemon[battlerId].condition2 &= ~STATUS2_UPROAR;
                                 sp->field_condition &= (No2Bit(battlerId) << 8) ^ 0xFFFFFFFF;
@@ -1936,11 +1936,11 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     sp->moveConditionsFlags[i].moveFailureLastTurn = sp->moveConditionsFlags[i].moveFailureThisTurn;
                     sp->moveConditionsFlags[i].moveFailureThisTurn = 0;
                     sp->moveConditionsFlags[i].powderBlocksFireMove = 0;
-                    if (sp->moveConditionsFlags[i].laserFocus > 0) {
-                        sp->moveConditionsFlags[i].laserFocus--;
+                    if (sp->moveConditionsFlags[i].laserFocusTimer > 0) {
+                        sp->moveConditionsFlags[i].laserFocusTimer--;
                     }
-                    if (sp->moveConditionsFlags[i].throatChopped > 0) {
-                        sp->moveConditionsFlags[i].throatChopped--;
+                    if (sp->moveConditionsFlags[i].throatChopTimer > 0) {
+                        sp->moveConditionsFlags[i].throatChopTimer--;
                     }
                 }
 
