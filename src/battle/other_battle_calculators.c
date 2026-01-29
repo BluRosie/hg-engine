@@ -3210,7 +3210,23 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
         && (ctx->battlemon[battlerId].move[movePos] != MOVE_ME_FIRST)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
-        if (ctx->moveConditionsFlags[battlerId].throatChopped && IsMoveSoundBased(ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_THROAT_CHOPPED)) {
+        if (ctx->moveConditionsFlags[battlerId].throatChopped 
+            && IsMoveSoundBased(ctx->battlemon[battlerId].move[movePos]) 
+            && (struggleCheckFlags & STRUGGLE_CHECK_THROAT_CHOPPED))
+        {
+            nonSelectableMoves |= No2Bit(movePos);
+        }
+
+        if (ctx->battlemon[battlerId].move[movePos] == MOVE_BELCH
+            && ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch == FALSE
+            && (struggleCheckFlags & STRUGGLE_CHECK_BELCH))
+        {
+            nonSelectableMoves |= No2Bit(movePos);
+        } 
+        if (ctx->battlemon[battlerId].move[movePos] == MOVE_STUFF_CHEEKS 
+            && !IS_ITEM_BERRY(ctx->battlemon[battlerId].item) 
+            && (struggleCheckFlags & STRUGGLE_CHECK_STUFF_CHEEKS))
+        {
             nonSelectableMoves |= No2Bit(movePos);
         }
     }
@@ -3298,15 +3314,13 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         // There’s no PP left for this move!
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_NO_PP;
         ret = FALSE;
-    } else if (ctx->battlemon[battlerId].move[movePos] == MOVE_BELCH 
-        && ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch == FALSE) {
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_BELCH) & No2Bit(movePos)) { 
         msg->msg_tag = TAG_NICKNAME;
        // { STRVAR_1 1, 0, 0 } hasn’t eaten any held Berries,\nso it can’t possibly belch!
         msg->msg_id = 1610;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
-    } else if (ctx->battlemon[battlerId].move[movePos] == MOVE_STUFF_CHEEKS
-        && !IS_ITEM_BERRY( ctx->battlemon[battlerId].item)) {
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_STUFF_CHEEKS) & No2Bit(movePos)) { 
         msg->msg_tag = TAG_NICKNAME;
         //It can’t use the move because it doesn’t have a Berry !
         msg->msg_id = 1611;

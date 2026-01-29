@@ -666,6 +666,8 @@
 #define STRUGGLE_CHECK_GIGATON_HAMMER       (1 << 11)
 #define STRUGGLE_CHECK_ASSAULT_VEST         (1 << 12)
 #define STRUGGLE_CHECK_THROAT_CHOPPED       (1 << 13)
+#define STRUGGLE_CHECK_BELCH                (1 << 14)
+#define STRUGGLE_CHECK_STUFF_CHEEKS         (1 << 15)
 
 /**
  *  @brief msg work specifically for statuses
