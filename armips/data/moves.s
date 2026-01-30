@@ -12996,7 +12996,7 @@ movedatalongname MOVE_BURNING_JEALOUSY, "BurningJealousy", "Burning Jealousy"
     movedescription MOVE_BURNING_JEALOUSY, "The user attacks with\nenergy from jealousy.\nThis burns all opposing\nPokémon that have had\ntheir stats boosted."
 
 movedata MOVE_LASH_OUT, "Lash Out"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT //damage portion handled in CalcBaseDamage.c.
     pss SPLIT_PHYSICAL
     basepower 75
     type TYPE_DARK
@@ -13005,7 +13005,7 @@ movedata MOVE_LASH_OUT, "Lash Out"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
