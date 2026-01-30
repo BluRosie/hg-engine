@@ -15,9 +15,6 @@ _019:
     Wait
     // Grass grew to cover the battlefield!
     PrintMessage 1388, TAG_NONE
-    ResetParadoxAbility ABILITY_QUARK_DRIVE
-    // Booster Energy
-    ActivateParadoxAbility ABILITY_QUARK_DRIVE
     GoTo _ResetParadoxTerrainAbility
 
 _024:
@@ -25,9 +22,6 @@ _024:
     Wait
     // Mist swirled about the battlefield!
     PrintMessage 1390, TAG_NONE
-    ResetParadoxAbility ABILITY_QUARK_DRIVE
-    // Booster Energy
-    ActivateParadoxAbility ABILITY_QUARK_DRIVE
     GoTo _ResetParadoxTerrainAbility
 
 _029:

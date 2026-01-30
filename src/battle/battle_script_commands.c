@@ -4546,18 +4546,24 @@ BOOL btl_scr_cmd_114_activateparadoxability(void *bsys, struct BattleStruct *ctx
     u8 i;
     u8 maxBattlers = BattleWorkClientSetMaxGet(bsys);
     u16 seq_no;
+    u8 client;
 
     for (i = 0; i < maxBattlers; i++) {
         seq_no = 0;
-        if (GetBattlerAbility(ctx, i) == abilityToCheck) {
+        client = ctx->rawSpeedNonRNGClientOrder[i];
+        if (GetBattlerAbility(ctx, client) == abilityToCheck) {
             // this function will do the other checks (Sunny/Elec Terrain or Booster Energy)
-            seq_no = ActivateParadoxAbility(bsys, ctx, i);
+            seq_no = ActivateParadoxAbility(bsys, ctx, client);
         }
-        if (seq_no > 0) {
+        if (seq_no == SUB_SEQ_FIELD_CONDITION_PARADOX_ABILITY
+         || seq_no == SUB_SEQ_BOOSTER_ENERGY) {
+            // Jump back to instruction to rerun this command on the next client
+            IncrementBattleScriptPtr(ctx, -2);
             SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
+            break;
         }
     }
-
+    
     return FALSE;
 }
 
@@ -4580,14 +4586,19 @@ BOOL btl_scr_cmd_115_resetparadoxability(void *bsys, struct BattleStruct *ctx)
 
     u8 i;
     u8 maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    u8 client;
 
     for (i = 0; i < maxBattlers; i++) {
-        if (GetBattlerAbility(ctx, i) == abilityToCheck
-        &&  !ctx->boosterEnergyActivated[i]
-        &&  (ctx->paradoxBoostedStat[i] > 0)) {
-            ctx->paradoxBoostedStat[i] = 0;
-            ctx->battlerIdTemp = i;
+        client = ctx->rawSpeedNonRNGClientOrder[i];
+        if (GetBattlerAbility(ctx, client) == abilityToCheck
+        &&  !ctx->boosterEnergyActivated[client]
+        &&  (ctx->paradoxBoostedStat[client] > 0)) {
+            // jump back to instruction to rerun this command on the next client
+            IncrementBattleScriptPtr(ctx, -2);
+            ctx->paradoxBoostedStat[client] = 0;
+            ctx->battlerIdTemp = client;
             SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PARADOX_ABILITY_END);
+            return FALSE;
         }
     }
 

@@ -305,6 +305,8 @@ u8 LONG_CALL ParadoxGreatestStatHelper(struct BattleStruct *ctx, u32 client)
     u8 highestId = STAT_ATTACK;
     u16 highestStat = GetStatValueWithStages(ctx, client, STAT_ATTACK);
 
+    // TODO: Wonder Room does affect Paradox Ability
+
     // Order internally is: Attack, Defense, Speed, Sp. Attack, Sp. Defense.
     // Actual priority is: Attack, Defense, Sp. Attack, Sp. Defense, Speed
     // Skip Speed and then check it later.
