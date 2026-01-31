@@ -4416,7 +4416,7 @@ BOOL btl_scr_cmd_10D_HandleRoost(void* bsys UNUSED, struct BattleStruct* ctx) {
         return FALSE;
     }
 
-    if (ctx->battlemon[battlerId].type1 == ctx->battlemon[battlerId].type2) {
+    if (ctx->battlemon[battlerId].type1 == ctx->battlemon[battlerId].type2 && ctx->battlemon[battlerId].type1 == TYPE_FLYING) {
         ctx->battlemon[battlerId].type1 = TYPE_NORMAL;
         ctx->battlemon[battlerId].type2 = TYPE_NORMAL;
     }
