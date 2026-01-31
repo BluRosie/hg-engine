@@ -1236,8 +1236,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             }
 
             // handle Light Ball
-            if ((AttackingMon.item_held_effect == HOLD_EFFECT_PIKA_SPATK_UP)
-            && (AttackingMon.species == SPECIES_PIKACHU)
+            if ((AttackingMon.item_held_effect == HOLD_EFFECT_PIKA_ATK_SPATK_UP)
+            && (GetBaseSpeciesFromAdjustedForm(AttackingMon.species) == SPECIES_PIKACHU)
             // it’s not a Ditto/Smeargle/Mew Transformed into the species
             && !(AttackingMon.condition2 & STATUS2_TRANSFORMED)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__2_0);

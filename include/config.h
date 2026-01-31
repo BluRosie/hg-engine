@@ -180,6 +180,11 @@
 // Park Ball, and Lure Ball.  Comment this line to make the balls behave as they do in Gen 9
 #define INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
 
+// INCLUDE_MOON_BALL_NERF disqualifies all Pokemon that do not directly evolve via Moon Stone (e.g. Nidoran, Clefable) from the Moon Ball's species list.
+// This was done in Gen VII onward for unknown reasons.
+// Uncomment this line to make the ball behave as it does in Gen 7 onwards.
+// #define INCLUDE_MOON_BALL_NERF
+
 // THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN makes the Thunder & Storm map header weathers set permanent
 // Electric Terrain (and rain) in battle
 //#define THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN
@@ -189,6 +194,15 @@
 
 // NATURAL_GIFT_POWER_GEN defines the power of Natural Gift based on generation. Gen 6 or higher are modernized values.
 #define NATURAL_GIFT_POWER_GEN GEN_LATEST
+
+// MEDICINE_HEALING_GEN defines the amount healed by most medicine items based on generation. Gen 7 or higher are most modernized values, though flavour berries got another update in Gen 8.
+#define MEDICINE_HEALING_GEN GEN_LATEST
+
+// EV_BONUS_ITEM_GEN defines the bonus EVs given by Power items based on generation. Gen 7 or higher are modernized (doubled) values.
+#define EV_BONUS_ITEM_GEN GEN_LATEST
+
+// X_ITEM_GEN defines the stat stage boost given by X items based on generation. Gen 7 or higher are modernized (doubled) stage boosts.
+#define X_ITEM_GEN GEN_LATEST
 
 // BLOCK_LEARNING_UNIMPLEMENTED_MOVES prevents learning moves that are not implemented
 // based on the move having FLAG_UNUSABLE_UNIMPLEMENTED
