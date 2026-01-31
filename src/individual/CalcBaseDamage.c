@@ -1089,18 +1089,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                     flowerGiftAppliedForAttackModifier = TRUE;
                     attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
                 }
-                // handle Protosynthesis
-                // Theoretically if weather change -> should reset paradoxBoostedStat, does it need to be here?
-                // https://x.com/OZY_Project97/status/1596666005572685824?s=20
-                if ((AttackingMon.ability == ABILITY_PROTOSYNTHESIS)
-                && (field_cond & WEATHER_SUNNY_NOT_EXTREMELY_HARSH)
-                && !(AttackingMon.boosterEnergyActivated) // prevent Paradox ability modifier to apply twice
-                && ((movesplit == SPLIT_PHYSICAL && AttackingMon.paradoxBoostedStat == STAT_ATTACK) || 
-                    (movesplit == SPLIT_SPECIAL && AttackingMon.paradoxBoostedStat == STAT_SPATK))) {
-                    attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3);
-                }
                 // handle Orichalcum Pulse
-                // https://x.com/OZY_Project97/status/1603728930086998017?s=20
+                // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-20#post-9423025
                 if ((AttackingMon.ability == ABILITY_ORICHALCUM_PULSE)
                 && (field_cond & WEATHER_SUNNY_ANY)
                 && (movesplit == SPLIT_PHYSICAL)) {
@@ -1187,27 +1177,16 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
             }
 
-            // handle Quark Drive
-            // https://x.com/OZY_Project97/status/1596666005572685824?s=20
-            if ((AttackingMon.ability == ABILITY_QUARK_DRIVE)
-            && ((terrainOverlayType == ELECTRIC_TERRAIN && terrainOverlayNumberOfTurnsLeft > 0) ||
-                (AttackingMon.boosterEnergyActivated))
-            && ((movesplit == SPLIT_PHYSICAL && AttackingMon.paradoxBoostedStat == STAT_ATTACK) ||
-                (movesplit == SPLIT_SPECIAL && AttackingMon.paradoxBoostedStat == STAT_SPATK))) {
-                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3);
-            }
-
-            // handle Booster Energy Protosynthesis
-            // https://x.com/OZY_Project97/status/1596666005572685824?s=20
-            if ((AttackingMon.ability == ABILITY_PROTOSYNTHESIS)
-            && (AttackingMon.boosterEnergyActivated)
+            // handle Protosynthesis and Quark Drive
+            // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-20#post-9423025
+            if ((AttackingMon.ability == ABILITY_PROTOSYNTHESIS || AttackingMon.ability == ABILITY_QUARK_DRIVE)
             && ((movesplit == SPLIT_PHYSICAL && AttackingMon.paradoxBoostedStat == STAT_ATTACK) ||
                 (movesplit == SPLIT_SPECIAL && AttackingMon.paradoxBoostedStat == STAT_SPATK))) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3);
             }
 
             // handle Hadron Engine
-            // https://x.com/OZY_Project97/status/1603728930086998017?s=20
+            // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-20#post-9423025
             if ((AttackingMon.ability == ABILITY_HADRON_ENGINE)
             && (movesplit == SPLIT_SPECIAL)
             && (terrainOverlayType == ELECTRIC_TERRAIN)
