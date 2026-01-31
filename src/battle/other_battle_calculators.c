@@ -3296,7 +3296,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         // There’s no PP left for this move!
         msg->msg_id = BATTLE_MSG_CANNOT_USE_MOVE_NO_PP;
         ret = FALSE;
-    } else if (ctx->battlemon[battlerId].move[movePos] == MOVE_BELCH 
+    } else if (ctx->battlemon[battlerId].move[movePos] == MOVE_BELCH
         && ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch == FALSE) {
         msg->msg_tag = TAG_NICKNAME;
        // { STRVAR_1 1, 0, 0 } hasn’t eaten any held Berries,\nso it can’t possibly belch!
@@ -3366,13 +3366,84 @@ int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys UNUSED, struct B
 /// @param type
 /// @return whether the client has the type
 BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type) {
-    GF_ASSERT(TYPE_NORMAL < type && type < TYPE_STELLAR);
+    GF_ASSERT(TYPE_NORMAL <= type && type <= TYPE_STELLAR);
     struct BattlePokemon *client = &ctx->battlemon[battlerId];
-    return ((!(client->is_currently_terastallized) // Only check the client's base types if they are not terastallized.
-         && (client->type1 == type
-         || client->type2 == type
-         || client->type3 == type))
-         || (client->is_currently_terastallized && client->tera_type == type));
+    if (client->is_currently_terastallized) {
+        return client->tera_type == type;
+    }
+    return (client->type1 == type || client->type2 == type || client->type3 == type);
+}
+
+BOOL LONG_CALL ChangeToPureType(struct BattleStruct *ctx, int battlerId, int type) {
+    GF_ASSERT(TYPE_NORMAL <= type && type <= TYPE_STELLAR);
+    struct BattlePokemon *client = &ctx->battlemon[battlerId];
+
+    if (client->is_currently_terastallized) {
+        return FALSE;
+    }
+
+    client->type1 = type;
+    client->type2 = type;
+    client->type3 = TYPE_TYPELESS;
+
+    return TRUE;
+}
+
+BOOL LONG_CALL AddType(struct BattleStruct *ctx, int battlerId, int type) {
+    GF_ASSERT(TYPE_NORMAL <= type && type <= TYPE_STELLAR);
+    struct BattlePokemon *client = &ctx->battlemon[battlerId];
+
+    if (client->is_currently_terastallized) {
+        return FALSE;
+    }
+
+    if (ctx->battlemon[battlerId].type1 == ctx->battlemon[battlerId].type2) {
+        ctx->battlemon[battlerId].type2 = type;
+    } else {
+        ctx->battlemon[battlerId].type3 = type;
+    }
+    return TRUE;
+}
+
+BOOL LONG_CALL RemoveType(struct BattleStruct *ctx, int battlerId, int type) {
+    GF_ASSERT(TYPE_NORMAL <= type && type <= TYPE_STELLAR);
+    struct BattlePokemon *client = &ctx->battlemon[battlerId];
+
+    if (client->is_currently_terastallized) {
+        return FALSE;
+    }
+
+    if (ctx->battlemon[battlerId].type1 == type) {
+        ctx->battlemon[battlerId].type1 = TYPE_TYPELESS;
+    }
+
+    if (ctx->battlemon[battlerId].type2 == type) {
+        ctx->battlemon[battlerId].type2 = TYPE_TYPELESS;
+    }
+
+    if (ctx->battlemon[battlerId].type3 == type) {
+        ctx->battlemon[battlerId].type3 = TYPE_TYPELESS;
+    }
+
+    if (ctx->battlemon[battlerId].type1 == TYPE_TYPELESS && ctx->battlemon[battlerId].type2 != TYPE_TYPELESS) {
+        ctx->battlemon[battlerId].type1 = ctx->battlemon[battlerId].type2;
+    }
+
+    if (ctx->battlemon[battlerId].type2 == TYPE_TYPELESS && ctx->battlemon[battlerId].type1 != TYPE_TYPELESS) {
+        ctx->battlemon[battlerId].type2 = ctx->battlemon[battlerId].type1;
+    }
+
+    if (ctx->battlemon[battlerId].type1 == ctx->battlemon[battlerId].type2
+        && ctx->battlemon[battlerId].type1 == TYPE_TYPELESS) {
+            ctx->battlemon[battlerId].type1 = ctx->battlemon[battlerId].type3;
+            ctx->battlemon[battlerId].type2 = ctx->battlemon[battlerId].type3;
+    }
+
+    // debug_printf("type1: %d\n", ctx->battlemon[battlerId].type1);
+    // debug_printf("type2: %d\n", ctx->battlemon[battlerId].type2);
+    // debug_printf("type3: %d\n", ctx->battlemon[battlerId].type3);
+
+    return TRUE;
 }
 
 
@@ -3460,7 +3531,7 @@ BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleStruct *ctx, int def
 }
 
 BOOL LONG_CALL IsPureType(struct BattleStruct *ctx, int battlerId, int type) {
-    GF_ASSERT(TYPE_NORMAL < type && type < TYPE_STELLAR);
+    GF_ASSERT(TYPE_NORMAL <= type && type <= TYPE_STELLAR);
     struct BattlePokemon client = ctx->battlemon[battlerId];
     return (client.is_currently_terastallized ? client.tera_type == type : (client.type1 == type && client.type2 == type && client.type3 == TYPE_TYPELESS));
 }

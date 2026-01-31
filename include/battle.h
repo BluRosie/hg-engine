@@ -1227,7 +1227,13 @@ typedef struct MoveConditionsFlags {
     u8 endTurnMoveEffectActivated : 1;
     u8 moveFailureLastTurn : 1;
     u8 moveFailureThisTurn : 1;
-    u8 padding : 5;
+    u8 soakFlag : 1;
+    u8 magicPowderFlag : 1;
+    u8 forestsCurseFlag : 1;
+    u8 trickOrTreatFlag : 1;
+    u8 burnUpFlag : 1;
+    u8 doubleShockFlag : 1;
+    u8 padding : 7;
 } MoveConditionsFlags;
 
 
@@ -3701,6 +3707,12 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
 /// @param type
 /// @return whether the client has the type
 BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type);
+
+BOOL LONG_CALL ChangeToPureType(struct BattleStruct *ctx, int battlerId, int type);
+
+BOOL LONG_CALL AddType(struct BattleStruct *ctx, int battlerId, int type);
+
+BOOL LONG_CALL RemoveType(struct BattleStruct *ctx, int battlerId, int type);
 
 void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys, struct BattleStruct *ctx);
 

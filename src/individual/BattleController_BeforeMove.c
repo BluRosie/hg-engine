@@ -3136,8 +3136,8 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
                 case MOVE_EFFECT_QUASH:
                 case MOVE_EFFECT_CHANGE_TO_WATER_TYPE:
                 case MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE:
-                case MOVE_EFFECT_ADD_THIRD_TYPE_GRASS:
-                case MOVE_EFFECT_ADD_THIRD_TYPE_GHOST:
+                case MOVE_EFFECT_ADD_TYPE_GRASS:
+                case MOVE_EFFECT_ADD_TYPE_GHOST:
                 case MOVE_EFFECT_SUPRESS_ABILITY:
                 case MOVE_EFFECT_GUARD_SPLIT:
                 case MOVE_EFFECT_POWER_SPLIT:

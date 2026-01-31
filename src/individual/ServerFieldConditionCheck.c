@@ -1226,7 +1226,6 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 sp->scc_work = 0;
                 break;
             }
-            // TODO
             case ENDTURN_ROOST_USERS_REGAINING_FLYING_TYPE: {
                 #ifdef DEBUG_ENDTURN_LOGIC
                 sprintf(buf, "In ENDTURN_ROOST_USERS_REGAINING_FLYING_TYPE\n");
@@ -1234,22 +1233,27 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 #endif
 
                 for (int i = 0; i < client_set_max; i++) {
-                    if (sp->oneTurnFlag[i].roostFlag) {
+                    if (sp->oneTurnFlag[i].roostFlag
+                        && !sp->battlemon[i].is_currently_terastallized
+                        && !sp->moveConditionsFlags[i].soakFlag
+                        && !sp->moveConditionsFlags[i].magicPowderFlag) {
                         int species = PokeOtherFormMonsNoGet(sp->battlemon[i].species, sp->battlemon[i].form_no);
                         u32 type1 = PokePersonalParaGet(species, PERSONAL_TYPE_1);
                         u32 type2 = PokePersonalParaGet(species, PERSONAL_TYPE_2);
 
-                        // Assume vanilla situations
-                        // Handle Soak
-                        if (sp->battlemon[i].type1 == TYPE_WATER && sp->battlemon[i].type2 == TYPE_WATER) {
-                            break;
-                        }
-                        // There shouldn't be any other cases to handle
                         sp->battlemon[i].type1 = type1;
                         sp->battlemon[i].type2 = type2;
 
-                        sp->oneTurnFlag[i].roostFlag = FALSE;
+                        if (sp->moveConditionsFlags[i].burnUpFlag) {
+                            RemoveType(sp, i, TYPE_FIRE);
+                        }
+
+                        if (sp->moveConditionsFlags[i].doubleShockFlag) {
+                            RemoveType(sp, i, TYPE_ELECTRIC);
+                        }
+
                     }
+                    sp->oneTurnFlag[i].roostFlag = FALSE;
                 }
 
                 sp->fcc_seq_no++;
