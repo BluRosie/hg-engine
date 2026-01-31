@@ -478,7 +478,7 @@ move_narc: $(NARC_FILES)
 DUMP_SCRIPT_LOCATION := tools/source/dumptools
 # the goal here is to extract the required narcs to the proper folders for the dump scripts to work.
 # learnsets are covered by script migration
-dumprom: $(VENV_ACTIVATE)
+dumprom: $(VENV_ACTIVATE) $(TOOLS)
 	$(MAKE) clean
 	chmod +x $(DUMP_SCRIPT_LOCATION)/*.sh
 
@@ -501,8 +501,12 @@ dumprom: $(VENV_ACTIVATE)
 	$(PYTHON) tools/source/dumptools/migrate_learnsets.py
 	rm -rf $(BUILD)
 
-# dump mondata, encounters, evos, moves
+# dump mondata, encounters, evos, moves, trainers
+	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
+	$(MSGENC) -d -c $(CHARMAP) $(MSGDATA_DIR)/7_729 $(BUILD)/trainernames.txt
 	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
+
+	@echo "Done.  See output in dumped_armips/, learnsets are already in data/learnsets/learnsets.json."
 
 
 update_machine_moves: $(VENV_ACTIVATE)
