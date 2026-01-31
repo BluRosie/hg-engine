@@ -4172,6 +4172,7 @@ BOOL btl_scr_cmd_104_tryincinerate(void* bw UNUSED, struct BattleStruct* sp)
     return FALSE;
 }
 
+// Unused
 BOOL btl_scr_cmd_105_addtype(void* bsys UNUSED, struct BattleStruct* ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
