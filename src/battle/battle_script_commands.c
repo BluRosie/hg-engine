@@ -17,6 +17,10 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../../include/test_battle.h"
+#endif
+
 struct EXP_CALCULATOR
 {
     /* 0x00 */ void *bw;
@@ -92,7 +96,7 @@ void BattleContext_RemoveEntryHazardFromQueue(struct BattleStruct *ctx, u32 side
 BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_104_tryincinerate(void* bsys, struct BattleStruct* ctx);
-BOOL btl_scr_cmd_105_addthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_105_addtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_108_strengthsapcalc(void* bw, struct BattleStruct* sp);
@@ -100,6 +104,13 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10D_HandleRoost(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10E_HandleSoak(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10F_HandleMagicPowder(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_110_HandleForestsCurse(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_111_HandleTrickOrTreat(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_112_HandleBurnUp(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_113_HandleDoubleShock(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -396,7 +407,7 @@ const u8 *BattleScrCmdNames[] =
     "RemoveEntryHazardFromQueue",
     "CheckProtectContactMoves",
     "TryIncinerate",
-    "AddThirdType",
+    "AddType",
     "TryAuroraVeil",
     "ClearAuroraVeil",
     "StrengthSapCalc",
@@ -404,6 +415,13 @@ const u8 *BattleScrCmdNames[] =
     "ClearSmog",
     "GoToIfThirdType",
     "GoToIfTerastallized",
+    "HandleRoost",
+    "HandleSoak",
+    "HandleMagicPowder",
+    "HandleForestsCurse",
+    "HandleTrickOrTreat",
+    "HandleBurnUp",
+    "HandleDoubleShock",
     // "YourCustomCommand",
 };
 
@@ -451,7 +469,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x102 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_102_removeentryhazardfromqueue,
     [0x103 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_103_checkprotectcontactmoves,
     [0x104 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_104_tryincinerate,
-    [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_addthirdtype,
+    [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_addtype,
     [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_tryauroraveil,
     [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_clearauroraveil,
     [0x108 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_108_strengthsapcalc,
@@ -459,6 +477,13 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x10A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10A_clearsmog,
     [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_gotoifthirdtype,
     [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_gotoifterastallized,
+    [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_HandleRoost,
+    [0x10E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10E_HandleSoak,
+    [0x10F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10F_HandleMagicPowder,
+    [0x110 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_110_HandleForestsCurse,
+    [0x111 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_111_HandleTrickOrTreat,
+    [0x112 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_112_HandleBurnUp,
+    [0x113 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_113_HandleDoubleShock,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4147,23 +4172,15 @@ BOOL btl_scr_cmd_104_tryincinerate(void* bw UNUSED, struct BattleStruct* sp)
     return FALSE;
 }
 
-/**
- *  @brief Script command to change a target pokemon's type3 parameter.
- *
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @return FALSE
- */
-BOOL btl_scr_cmd_105_addthirdtype(void* bw UNUSED, struct BattleStruct* sp)
+// Unused
+BOOL btl_scr_cmd_105_addtype(void* bsys UNUSED, struct BattleStruct* ctx)
 {
-    IncrementBattleScriptPtr(sp, 1);
-    s32 type = read_battle_script_param(sp);
+    IncrementBattleScriptPtr(ctx, 1);
+    int type = read_battle_script_param(ctx);
 
-    if (FAIRY_TYPE_IMPLEMENTED == 0 && type == TYPE_FAIRY) // revert fairy to normal if someone tries to add fairy with the flag disabled
-        type = TYPE_NORMAL;
+    GF_ASSERT(type >= TYPE_NORMAL && type <= TYPE_DARK);
 
-    if (type >= 0 && type < NUMBER_OF_MON_TYPES) // proceed only if type ID is a valid, existing type
-        sp->battlemon[sp->defence_client].type3 = type;
+    AddType(ctx, ctx->defence_client, type);
 
     return FALSE;
 }
@@ -4400,6 +4417,108 @@ BOOL btl_scr_cmd_10C_gotoifterastallized(void *bsys UNUSED, struct BattleStruct 
     return FALSE;
 }
 
+BOOL btl_scr_cmd_10D_HandleRoost(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u32 battlerId = GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx));
+
+    if ((ctx->battlemon[battlerId].is_currently_terastallized)
+        || (ctx->battlemon[battlerId].type1 == ctx->battlemon[battlerId].type2 && ctx->battlemon[battlerId].type1 != TYPE_FLYING)) {
+            return FALSE;
+    }
+
+    if (ctx->battlemon[battlerId].type1 == ctx->battlemon[battlerId].type2) {
+        ctx->battlemon[battlerId].type1 = TYPE_NORMAL;
+        ctx->battlemon[battlerId].type2 = TYPE_NORMAL;
+    }
+
+    if (ctx->battlemon[battlerId].type1 == TYPE_FLYING) {
+        ctx->battlemon[battlerId].type1 = ctx->battlemon[battlerId].type2;
+    } else {
+        ctx->battlemon[battlerId].type2 = ctx->battlemon[battlerId].type1;
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10E_HandleSoak(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    ChangeToPureType(ctx, ctx->defence_client, TYPE_WATER);
+    ctx->moveConditionsFlags[ctx->defence_client].soakFlag = TRUE;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10F_HandleMagicPowder(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    ChangeToPureType(ctx, ctx->defence_client, TYPE_PSYCHIC);
+    ctx->moveConditionsFlags[ctx->defence_client].magicPowderFlag = TRUE;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_110_HandleForestsCurse(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    AddType(ctx, ctx->defence_client, TYPE_GRASS);
+    ctx->moveConditionsFlags[ctx->defence_client].forestsCurseFlag = TRUE;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_111_HandleTrickOrTreat(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    AddType(ctx, ctx->defence_client, TYPE_GHOST);
+    ctx->moveConditionsFlags[ctx->defence_client].trickOrTreatFlag = TRUE;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_112_HandleBurnUp(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->attack_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    RemoveType(ctx, ctx->attack_client, TYPE_FIRE);
+    ctx->moveConditionsFlags[ctx->attack_client].burnUpFlag = TRUE;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_113_HandleDoubleShock(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->attack_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    RemoveType(ctx, ctx->attack_client, TYPE_ELECTRIC);
+    ctx->moveConditionsFlags[ctx->attack_client].doubleShockFlag = TRUE;
+
+    return FALSE;
+}
+
 BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     IncrementBattleScriptPtr(ctx, 1);
 
@@ -4433,9 +4552,21 @@ BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruc
     InitBattleMsgData(ctx, &msgdata);
     InitBattleMsg(bsys, ctx, &msgdata, &msg);
     BattleController_EmitPrintMessage(bsys, ctx, &msg);
+
 #ifdef DEBUG_BATTLE_SCENARIOS
-    debug_printf("PrintMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+    // debug_printf("PrintMessage: msg_id %d, attacker %d, defender %d\n", msg.msg_id, ctx->attack_client, ctx->defence_client);
+    struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+    if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+        // debug_printf("Has more expectations\n")
+        if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_MESSAGE) {
+            if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == msg.msg_id) {
+                scenario->expectationPassCount++;
+            }
+            // debug_printf("\n");
+        }
+    }
 #endif // DEBUG_BATTLE_SCENARIOS
+
     return FALSE;
 }
 
@@ -4445,9 +4576,21 @@ BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct Battl
 
     if (!(ctx->server_status_flag & BATTLE_STATUS_NO_ATTACK_MESSAGE)) {
         BattleController_EmitPrintAttackMessage(bsys, ctx);
-#ifdef DEBUG_BATTLE_SCENARIOS
-        debug_printf("PrintAttackMessage: msg_id %d, attacker %d, defender %d", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
-#endif // DEBUG_BATTLE_SCENARIOS
+
+// #ifdef DEBUG_BATTLE_SCENARIOS
+//     // debug_printf("PrintAttackMessage: msg_id %d, attacker %d, defender %d\n", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
+//     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+//     if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+//         // debug_printf("Has more expectations\n")
+//         if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_ATTACK_MESSAGE) {
+//             if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == ctx->mp.msg_id) {
+//                 scenario->expectationPassCount++;
+//             }
+//             // debug_printf("\n");
+//         }
+//     }
+// #endif // DEBUG_BATTLE_SCENARIOS
+
     }
 
     ctx->server_status_flag |= BATTLE_STATUS_NO_ATTACK_MESSAGE;
@@ -4469,9 +4612,21 @@ BOOL LONG_CALL BtlCmd_PrintGlobalMessage(struct BattleSystem *bsys, struct Battl
     msg.msg_tag |= 128;
 
     BattleController_EmitPrintMessage(bsys, ctx, &msg);
-#ifdef DEBUG_BATTLE_SCENARIOS
-    debug_printf("PrintGlobalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
-#endif // DEBUG_BATTLE_SCENARIOS
+
+// #ifdef DEBUG_BATTLE_SCENARIOS
+//     // debug_printf("PrintGlobalMessage: msg_id %d, attacker %d, defender %d\n", msg.msg_id, ctx->attack_client, ctx->defence_client);
+//     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+//     if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+//         // debug_printf("Has more expectations\n")
+//         if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_MESSAGE) {
+//             if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == msg.msg_id) {
+//                 scenario->expectationPassCount++;
+//             }
+//             // debug_printf("\n");
+//         }
+//     }
+// #endif // DEBUG_BATTLE_SCENARIOS
+
     return FALSE;
 }
 
@@ -4479,9 +4634,21 @@ BOOL LONG_CALL BtlCmd_PrintBufferedMessage(struct BattleSystem *bsys, struct Bat
 {
     IncrementBattleScriptPtr(ctx, 1);
     BattleController_EmitPrintMessage(bsys, ctx, &ctx->mp);
+
 #ifdef DEBUG_BATTLE_SCENARIOS
-    debug_printf("PrintBufferedMessage: msg_id %d, attacker %d, defender %d", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
+    // debug_printf("PrintBufferedMessage: msg_id %d, attacker %d, defender %d\n", ctx->mp.msg_id, ctx->attack_client, ctx->defence_client);
+    struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+    if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+        // debug_printf("Has more expectations\n")
+        if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_MESSAGE) {
+            if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == ctx->mp.msg_id) {
+                scenario->expectationPassCount++;
+            }
+            // debug_printf("\n");
+        }
+    }
 #endif // DEBUG_BATTLE_SCENARIOS
+
     return FALSE;
 }
 
@@ -4513,8 +4680,20 @@ BOOL LONG_CALL BtlCmd_BufferLocalMessage(struct BattleSystem *bsys, struct Battl
     msg.msg_client = GrabClientFromBattleScriptParam(bsys, ctx, side);
 
     BattleController_EmitPrintMessage(bsys, ctx, &msg);
+
 #ifdef DEBUG_BATTLE_SCENARIOS
-    debug_printf("BufferLocalMessage: msg_id %d, attacker %d, defender %d", msg.msg_id, ctx->attack_client, ctx->defence_client);
+    // debug_printf("BufferLocalMessage: msg_id %d, attacker %d, defender %d\n", msg.msg_id, ctx->attack_client, ctx->defence_client);
+    struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+    if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+        // debug_printf("Has more expectations\n")
+        if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_MESSAGE) {
+            if (scenario->expectations[scenario->expectationPassCount].expectationValue.messageID == msg.msg_id) {
+                scenario->expectationPassCount++;
+            }
+            // debug_printf("\n");
+        }
+    }
 #endif // DEBUG_BATTLE_SCENARIOS
+
     return FALSE;
 }

@@ -78,7 +78,7 @@ VecFx32;
 #define FALLTHROUGH __attribute__ ((fallthrough))
 #define PACKED __attribute__((packed))
 
-#ifdef NOCASH_GBA_PRINT
+#if defined(NOCASH_GBA_PRINT) && !defined (DEBUG_BATTLE_SCENARIOS)
 #define NOCASHGBAIDADDR 0x04FFFA00
 #define NOCASHGBAPRINTADDR1 0x04FFFA14 // does not automatically add the newline
 #define NOCASHGBAPRINTADDR2 0x04FFFA18 // does automatically add the newline
