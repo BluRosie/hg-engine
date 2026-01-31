@@ -10,6 +10,8 @@
 
 .create "build/move/move_anim/0_025", 0
 
+//Mega Kick
+
 a010_025:
     initspriteresource
     loadspriteresource 0

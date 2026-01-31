@@ -10,6 +10,8 @@
 
 .create "build/move/move_anim/0_402", 0
 
+//Seed Bomb
+
 a010_402:
     initspriteresource
     loadspriteresource 0
