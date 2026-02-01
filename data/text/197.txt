@@ -618,7 +618,7 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!
 The wild {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
 The opposing {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
 It started to rain!
-This move is unimplemented or dexited!\r
+You can’t use this move!\r
 (Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its {STRVAR_1 13, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}!
@@ -1568,9 +1568,9 @@ The opposing {STRVAR_1 1, 0, 0} was hurt!
 {STRVAR_1 6, 1, 0} protected\n{STRVAR_1 1, 0, 0}!
 {STRVAR_1 6, 1, 0} protected\nthe wild {STRVAR_1 1, 0, 0}!
 {STRVAR_1 6, 1, 0} protected\nthe opposing {STRVAR_1 1, 0, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
-The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
+The {STRVAR_1 1, 0, 0} strengthened\n{STRVAR_1 5, 1, 0}’s power!
+(unused)
+(unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} was burned up!

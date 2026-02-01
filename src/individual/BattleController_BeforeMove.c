@@ -1093,12 +1093,16 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
                 && (ctx->current_move_index < MOVE_WATER_PLEDGE || ctx->current_move_index > MOVE_GRASS_PLEDGE)
                 && IsAnyBattleMonHit(ctx))
             {
+                ctx->mp.msg_tag = TAG_ITEM_MOVE;
+                //The { STRVAR_1 1, 0, 0 } strengthened\n { STRVAR_1 5, 1, 0 }’s power !
+                ctx->mp.msg_id = BATTLE_MSG_GEM_ACTIVATION;
+                ctx->mp.msg_para[0] = ctx->battlemon[ctx->attack_client].item;
+                ctx->mp.msg_para[1] = ctx->current_move_index;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->gemBoostingMove = TRUE;
                 return;
-
             }
             FALLTHROUGH;
         }
@@ -3136,8 +3140,8 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
                 case MOVE_EFFECT_QUASH:
                 case MOVE_EFFECT_CHANGE_TO_WATER_TYPE:
                 case MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE:
-                case MOVE_EFFECT_ADD_THIRD_TYPE_GRASS:
-                case MOVE_EFFECT_ADD_THIRD_TYPE_GHOST:
+                case MOVE_EFFECT_ADD_TYPE_GRASS:
+                case MOVE_EFFECT_ADD_TYPE_GHOST:
                 case MOVE_EFFECT_SUPRESS_ABILITY:
                 case MOVE_EFFECT_GUARD_SPLIT:
                 case MOVE_EFFECT_POWER_SPLIT:

@@ -377,6 +377,7 @@ arm9 CapRareCandies 0208FEEA 1
 0012 CantEscape 02252980
 0012 BattlerCantSwitch 02255920 3
 0012 BattleTryRun 02252B68 3
+0012 CheckSubstitute 02256838 2
 
 arm9 ModifyStatByNature 0206FE3C 3
 

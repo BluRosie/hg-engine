@@ -1437,7 +1437,7 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro AddThirdType arg_0
+    .macro AddType arg_0
     .long 261
     .long \arg_0
     .endm
@@ -1476,7 +1476,42 @@
     .long (((\arg_1 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 268
+    .macro HandleRoost arg_0
+    .long 269
+    .long \arg_0
+    .endm
+
+    .macro HandleSoak arg_0
+    .long 270
+    .long \arg_0
+    .endm
+
+    .macro HandleMagicPowder arg_0
+    .long 271
+    .long \arg_0
+    .endm
+
+    .macro HandleForestsCurse arg_0
+    .long 272
+    .long \arg_0
+    .endm
+
+    .macro HandleTrickOrTreat arg_0
+    .long 273
+    .long \arg_0
+    .endm
+
+    .macro HandleBurnUp arg_0
+    .long 274
+    .long \arg_0
+    .endm
+
+    .macro HandleDoubleShock arg_0
+    .long 275
+    .long \arg_0
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 273
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)
