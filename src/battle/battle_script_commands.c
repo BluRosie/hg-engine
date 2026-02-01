@@ -4548,15 +4548,18 @@ BOOL btl_scr_cmd_114_activateparadoxability(void *bsys, struct BattleStruct *ctx
     u16 seq_no;
     u8 client;
 
+    SortRawSpeedNonRNGArray(bsys, ctx);
     for (i = 0; i < maxBattlers; i++) {
         seq_no = 0;
         client = ctx->rawSpeedNonRNGClientOrder[i];
+        // debug_printf("[Paradox Abilities] Checking client %d of %d with ability %d\n", client, maxBattlers, GetBattlerAbility(ctx, client));
         if (GetBattlerAbility(ctx, client) == abilityToCheck) {
             // this function will do the other checks (Sunny/Elec Terrain or Booster Energy)
             seq_no = ActivateParadoxAbility(bsys, ctx, client);
         }
         if (seq_no == SUB_SEQ_FIELD_CONDITION_PARADOX_ABILITY
          || seq_no == SUB_SEQ_BOOSTER_ENERGY) {
+            // debug_printf("[Paradox Abilities] Activation via Battle Command\n");
             // Jump back to instruction to rerun this command on the next client
             IncrementBattleScriptPtr(ctx, -2);
             SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
@@ -4588,6 +4591,7 @@ BOOL btl_scr_cmd_115_resetparadoxability(void *bsys, struct BattleStruct *ctx)
     u8 maxBattlers = BattleWorkClientSetMaxGet(bsys);
     u8 client;
 
+    SortRawSpeedNonRNGArray(bsys, ctx);
     for (i = 0; i < maxBattlers; i++) {
         client = ctx->rawSpeedNonRNGClientOrder[i];
         if (GetBattlerAbility(ctx, client) == abilityToCheck

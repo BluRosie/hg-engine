@@ -885,6 +885,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     {
                         scriptnum = ActivateParadoxAbility(bw, sp, client_no);
                         if (scriptnum > 0) {
+                            // debug_printf("[Paradox Abilities] Activation via SwitchInAbilityCheck\n");
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
                         }
