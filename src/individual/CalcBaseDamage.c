@@ -1447,13 +1447,6 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                     flowerGiftAppliedForDefenseModifier = TRUE;
                     defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
                 }
-                if ((DefendingMon.ability == ABILITY_PROTOSYNTHESIS)
-                 && (field_cond & WEATHER_SUNNY_ANY)
-                 && !(DefendingMon.boosterEnergyActivated) // prevent Paradox ability modifier to apply twice
-                 && ((movesplit == SPLIT_PHYSICAL && DefendingMon.paradoxBoostedStat == STAT_DEFENSE) || 
-                     (movesplit == SPLIT_SPECIAL && DefendingMon.paradoxBoostedStat == STAT_SPDEF))) {
-                    defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_3);
-                }
             }
 
             // handle Marvel Scale
@@ -1476,20 +1469,9 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__2_0);
             }
 
-            // handle Quark Drive
-            // TODO: confirm location, confirm modifier
-            if ((DefendingMon.ability == ABILITY_QUARK_DRIVE)
-            && ((terrainOverlayType == ELECTRIC_TERRAIN && terrainOverlayNumberOfTurnsLeft > 0) ||
-                (DefendingMon.boosterEnergyActivated))
-            && ((movesplit == SPLIT_PHYSICAL && DefendingMon.paradoxBoostedStat == STAT_DEFENSE) ||
-                (movesplit == SPLIT_SPECIAL && DefendingMon.paradoxBoostedStat == STAT_SPDEF))) {
-                defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_3);
-            }
-
-            // handle Booster Energy Protosynthesis
-            // TODO: confirm location, confirm modifier
-            if ((DefendingMon.ability == ABILITY_PROTOSYNTHESIS)
-            && (DefendingMon.boosterEnergyActivated)
+            // handle Protosynthesis and Quark Drive
+            // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-20#post-9423025
+            if ((DefendingMon.ability == ABILITY_PROTOSYNTHESIS || DefendingMon.ability == ABILITY_QUARK_DRIVE)
             && ((movesplit == SPLIT_PHYSICAL && DefendingMon.paradoxBoostedStat == STAT_DEFENSE) ||
                 (movesplit == SPLIT_SPECIAL && DefendingMon.paradoxBoostedStat == STAT_SPDEF))) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_3);
