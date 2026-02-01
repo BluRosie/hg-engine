@@ -378,6 +378,7 @@ arm9 CapRareCandies 0208FEEA 1
 0012 CantEscape 02252980
 0012 BattlerCantSwitch 02255920 3
 0012 BattleTryRun 02252B68 3
+0012 CheckSubstitute 02256838 2
 
 arm9 ModifyStatByNature 0206FE3C 3
 
@@ -567,10 +568,11 @@ arm9 SetupAndStartTutorialBattle 02051334 1
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2
 0012 TryUseHeldItem 0225471C 3
 
-
 arm9 PartyMenu_HandleUseItemOnMon 0207C288 1
 arm9 PartyMenu_PrintContextMenuItemText 0207E28C
 arm9 sub_0207E3A8 0207E3A8
 arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
 
+# determine rock smash table to use for items
+0001 DetermineRockSmashItem_hook 02204E28 1

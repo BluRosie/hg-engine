@@ -10,6 +10,8 @@
 
 .create "build/move/move_anim/0_326", 0
 
+//Extrasensory
+
 a010_326:
     initspriteresource
     loadspriteresource 0

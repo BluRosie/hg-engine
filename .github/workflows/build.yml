@@ -2,7 +2,7 @@ name: build
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -11,6 +11,7 @@ env:
   CC: gcc-10
   CXX: g++-10
   COMPARE: 0
+  SDL_VIDEODRIVER: dummy
 
 jobs:
   build:
@@ -35,7 +36,7 @@ jobs:
       - name: Checkout Repo (decomp)
         uses: actions/checkout@v6
         with:
-          repository: 'pret/pokeheartgold'
+          repository: "pret/pokeheartgold"
 
       - name: Setup Repo (decomp)
         run: |
@@ -85,6 +86,7 @@ jobs:
       - name: Move built file (2)
         run: |
           mv ~/download/rom.nds $GITHUB_WORKSPACE/
+          wget https://github.com/BluRosie/hg-engine/raw/workflows/assets/test.sav -P $GITHUB_WORKSPACE/
         working-directory: ~
 
       - name: Set Swap Space
@@ -96,4 +98,7 @@ jobs:
         run: |
           unset CC
           unset CXX
-          make -j$(nproc)
+          make AUTO_TEST=Y -j$(nproc)
+      - name: Run tests
+        run: |
+          scripts/run_tests.sh

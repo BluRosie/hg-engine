@@ -14,6 +14,10 @@
 #include "../../include/constants/file.h"
 #include "../../include/overlay.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../../include/test_battle.h"
+#endif
+
 void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
 {
     int eqp;
@@ -110,6 +114,27 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                     }
                 }
             }
+
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+            // debug_printf("In ServerHPCalc\n");
+            struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+            if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+                // debug_printf("Has more expectations\n")
+                if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_HP_BAR
+                    && sp->defence_client == scenario->expectations[scenario->expectationPassCount].battlerIDOrPartySlot) {
+                    for (int i = 0; i < 16; i++) {
+                        // debug_printf("sp->damage: %d, expect: %d\n", sp->damage, scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]);
+                        if (sp->damage == scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]
+                            || sp->damage * -1 == scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]) {
+                                scenario->expectationPassCount++;
+                                break;
+                        }
+                    }
+                    // debug_printf("\n");
+                }
+            }
+#endif
 
             /**
              * END OF ORIGINAL AND USER-DEFINED DAMAGE CALCULATIONS.
