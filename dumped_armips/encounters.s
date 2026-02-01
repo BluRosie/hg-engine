@@ -6664,7 +6664,7 @@ walklevels 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
 .close
 
 
-encounterdata  64   // ???
+encounterdata  64   // Ruins of Alph (Ladder Room) [NEW]
 
 walkrate 15
 surfrate 0

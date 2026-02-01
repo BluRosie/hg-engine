@@ -9,6 +9,7 @@
 .include "asm/include/moves.inc"
 .include "asm/include/species.inc"
 
+
 trainerdata 0, "-"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_PKMN_TRAINER_ETHAN
@@ -22,45 +23,46 @@ trainerdata 0, "-"
     endentry
 
     party 0
-        // mon 0
-        ivs 0
-        abilityslot 0
-        level 0
-        pokemon SPECIES_NONE
-        ballseal 0
     endparty
 
 trainerdata 1, "Silver"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_RIVAL
-    nummons 3
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
     party 1
         // mon 0
-        ivs 30
+        ivs 80
         abilityslot 0
-        level 14
-        pokemon SPECIES_GASTLY
+        level 18
+        pokemon SPECIES_ROGGENROLA
         ballseal 0
 
         // mon 1
-        ivs 30
+        ivs 80
         abilityslot 0
-        level 16
-        pokemon SPECIES_ZUBAT
+        level 18
+        pokemon SPECIES_GLIGAR
         ballseal 0
 
         // mon 2
-        ivs 30
+        ivs 80
         abilityslot 0
         level 18
+        pokemon SPECIES_DUSKULL
+        ballseal 0
+
+        // mon 3
+        ivs 80
+        abilityslot 0
+        level 19
         pokemon SPECIES_BAYLEEF
         ballseal 0
     endparty
@@ -73,7 +75,7 @@ trainerdata 2, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -94,7 +96,7 @@ trainerdata 3, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -115,7 +117,7 @@ trainerdata 4, "Wade"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -157,7 +159,7 @@ trainerdata 5, "Victoria"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -192,7 +194,7 @@ trainerdata 6, "Keith"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -213,7 +215,7 @@ trainerdata 7, "Irwin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -255,7 +257,7 @@ trainerdata 8, "Joey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -267,7 +269,7 @@ trainerdata 8, "Joey"
         pokemon SPECIES_WOOLOO
         ballseal 0
 
-        // mon 0
+        // mon 1
         ivs 0
         abilityslot 0
         level 6
@@ -283,7 +285,7 @@ trainerdata 9, "Elaine"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -299,28 +301,42 @@ trainerdata 9, "Elaine"
 trainerdata 10, "Amy & Mimi"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TWINS
-    nummons 2
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
     party 10
         // mon 0
-        ivs 10
+        ivs 30
         abilityslot 32
-        level 10
-        pokemon SPECIES_SPINARAK
+        level 20
+        pokemon SPECIES_BUTTERFREE
         ballseal 0
 
         // mon 1
-        ivs 10
+        ivs 30
         abilityslot 32
-        level 10
-        pokemon SPECIES_LEDYBA
+        level 20
+        pokemon SPECIES_SHUCKLE
+        ballseal 0
+
+        // mon 2
+        ivs 30
+        abilityslot 32
+        level 21
+        pokemon SPECIES_NINJASK
+        ballseal 0
+
+        // mon 3
+        ivs 30
+        abilityslot 32
+        level 21
+        pokemon SPECIES_WORMADAM
         ballseal 0
     endparty
 
@@ -332,7 +348,7 @@ trainerdata 11, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -367,7 +383,7 @@ trainerdata 12, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -375,34 +391,34 @@ trainerdata 12, "Grunt"
         // mon 0
         ivs 30
         abilityslot 32
-        level 7
-        pokemon SPECIES_RATTATA
+        level 18
+        monwithform SPECIES_RATTATA, 1
         ballseal 0
 
         // mon 1
         ivs 30
         abilityslot 0
-        level 9
-        pokemon SPECIES_ZUBAT
+        level 19
+        pokemon SPECIES_HOUNDOUR
         ballseal 0
 
         // mon 2
         ivs 30
         abilityslot 0
-        level 9
-        pokemon SPECIES_ZUBAT
+        level 19
+        pokemon SPECIES_GRIMER
         ballseal 0
     endparty
 
 trainerdata 13, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET_F
-    nummons 2
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -410,14 +426,21 @@ trainerdata 13, "Grunt"
         // mon 0
         ivs 30
         abilityslot 0
-        level 9
+        level 18
         pokemon SPECIES_ZUBAT
         ballseal 0
 
         // mon 1
         ivs 30
         abilityslot 0
-        level 11
+        level 18
+        pokemon SPECIES_MANKEY
+        ballseal 0
+
+        // mon 2
+        ivs 30
+        abilityslot 0
+        level 19
         pokemon SPECIES_EKANS
         ballseal 0
     endparty
@@ -430,7 +453,7 @@ trainerdata 14, "Duncan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -465,7 +488,7 @@ trainerdata 15, "Otis"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -500,7 +523,7 @@ trainerdata 16, "Simon"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -528,7 +551,7 @@ trainerdata 17, "Kenji"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -549,7 +572,7 @@ trainerdata 18, "Justin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -591,7 +614,7 @@ trainerdata 19, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -626,7 +649,7 @@ trainerdata 20, "Falkner"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | F_PRIORITIZE_SUPER_EFFECTIVE
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -664,7 +687,7 @@ trainerdata 20, "Falkner"
         move MOVE_CUT
         ballseal 0
 
-        // mon 2
+        // mon 3
         ivs 255
         abilityslot 1
         level 15
@@ -677,52 +700,76 @@ trainerdata 20, "Falkner"
     endparty
 
 trainerdata 21, "Bugsy"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_BUGSY
-    nummons 3
-    item ITEM_SUPER_POTION
+    nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    item ITEM_NONE
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
     party 21
         // mon 0
-        ivs 80
-        abilityslot 32
-        level 17
-        pokemon SPECIES_SCYTHER
-        item ITEM_SITRUS_BERRY
-        move MOVE_QUICK_ATTACK
-        move MOVE_LEER
-        move MOVE_U_TURN
-        move MOVE_FOCUS_ENERGY
+        ivs 100
+        abilityslot 0
+        level 21
+        pokemon SPECIES_ANORITH
+        item ITEM_NONE
+        move MOVE_ROCK_TOMB
+        move MOVE_AQUA_JET
+        move MOVE_BUG_BITE
+        move MOVE_STEALTH_ROCK
         ballseal 0
 
         // mon 1
-        ivs 80
+        ivs 100
         abilityslot 0
-        level 15
-        pokemon SPECIES_KAKUNA
+        level 21
+        pokemon SPECIES_VOLBEAT
         item ITEM_NONE
-        move MOVE_POISON_STING
-        move MOVE_NONE
-        move MOVE_NONE
-        move MOVE_NONE
+        move MOVE_U_TURN
+        move MOVE_THUNDER_SHOCK
+        move MOVE_STRUGGLE_BUG
+        move MOVE_TAIL_GLOW
         ballseal 0
 
         // mon 2
-        ivs 80
+        ivs 100
         abilityslot 0
-        level 15
-        pokemon SPECIES_METAPOD
+        level 22
+        pokemon SPECIES_SPIDOPS
         item ITEM_NONE
-        move MOVE_TACKLE
-        move MOVE_NONE
-        move MOVE_NONE
-        move MOVE_NONE
+        move MOVE_U_TURN
+        move MOVE_PROTECT
+        move MOVE_ROCK_TOMB
+        move MOVE_TRAILBLAZE
+        ballseal 0
+
+        // mon 3
+        ivs 100
+        abilityslot 1
+        level 22
+        pokemon SPECIES_VIVILLON
+        item ITEM_NONE
+        move MOVE_U_TURN
+        move MOVE_STUN_SPORE
+        move MOVE_GIGA_DRAIN
+        move MOVE_STRUGGLE_BUG
+        ballseal 0
+
+        // mon 4
+        ivs 110
+        abilityslot 0
+        level 23
+        pokemon SPECIES_ARIADOS
+        item ITEM_POISON_BARB
+        move MOVE_NIGHT_SLASH
+        move MOVE_SKITTER_SMACK
+        move MOVE_CROSS_POISON
+        move MOVE_TOXIC_THREAD
         ballseal 0
     endparty
 
@@ -734,7 +781,7 @@ trainerdata 22, "Carrie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -759,7 +806,7 @@ trainerdata 23, "Larry"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -785,7 +832,7 @@ trainerdata 23, "Larry"
         monwithform SPECIES_SLOWPOKE, 1
         ballseal 0
 
-        // mon 2
+        // mon 3
         ivs 0
         abilityslot 32
         level 17
@@ -801,7 +848,7 @@ trainerdata 24, "Alan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -822,7 +869,7 @@ trainerdata 25, "Russel"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -857,7 +904,7 @@ trainerdata 26, "Roland"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -892,7 +939,7 @@ trainerdata 27, "Liz"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -927,7 +974,7 @@ trainerdata 28, "Jake"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -974,7 +1021,7 @@ trainerdata 29, "Rod"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1002,14 +1049,14 @@ trainerdata 29, "Rod"
     endparty
 
 trainerdata 30, "Whitney"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_WHITNEY
     nummons 2
     item ITEM_SUPER_POTION
     item ITEM_SUPER_POTION
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1040,14 +1087,14 @@ trainerdata 30, "Whitney"
     endparty
 
 trainerdata 31, "Morty"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_MORTY
     nummons 4
     item ITEM_HYPER_POTION
     item ITEM_HYPER_POTION
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1102,14 +1149,14 @@ trainerdata 31, "Morty"
     endparty
 
 trainerdata 32, "Pryce"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_PRYCE
     nummons 3
     item ITEM_HYPER_POTION
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER
     battletype SINGLE_BATTLE
     endentry
 
@@ -1152,14 +1199,14 @@ trainerdata 32, "Pryce"
     endparty
 
 trainerdata 33, "Jasmine"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_JASMINE
     nummons 3
     item ITEM_HYPER_POTION
     item ITEM_HYPER_POTION
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1202,14 +1249,14 @@ trainerdata 33, "Jasmine"
     endparty
 
 trainerdata 34, "Chuck"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_CHUCK
     nummons 2
     item ITEM_HYPER_POTION
     item ITEM_HYPER_POTION
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1240,14 +1287,14 @@ trainerdata 34, "Chuck"
     endparty
 
 trainerdata 35, "Clair"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_CLAIR
     nummons 4
     item ITEM_HYPER_POTION
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1309,7 +1356,7 @@ trainerdata 36, "Joyce"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1345,7 +1392,7 @@ trainerdata 37, "Preston"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1373,7 +1420,7 @@ trainerdata 38, "Colette"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1394,7 +1441,7 @@ trainerdata 39, "Eugene"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1429,7 +1476,7 @@ trainerdata 40, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1450,7 +1497,7 @@ trainerdata 41, "Clyde"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1471,7 +1518,7 @@ trainerdata 42, "Nathan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1492,7 +1539,7 @@ trainerdata 43, "Chow"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1534,7 +1581,7 @@ trainerdata 44, "Derek"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1559,7 +1606,7 @@ trainerdata 45, "Ruth"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1584,7 +1631,7 @@ trainerdata 46, "Martha"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1619,7 +1666,7 @@ trainerdata 47, "Mikey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1647,7 +1694,7 @@ trainerdata 48, "Rob"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1675,7 +1722,7 @@ trainerdata 49, "Albert"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1710,7 +1757,7 @@ trainerdata 50, "Abe"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1745,7 +1792,7 @@ trainerdata 51, "Nico"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1787,7 +1834,7 @@ trainerdata 52, "Edmond"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1822,7 +1869,7 @@ trainerdata 53, "Jin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1850,7 +1897,7 @@ trainerdata 54, "Troy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1885,7 +1932,7 @@ trainerdata 55, "Neal"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -1897,7 +1944,7 @@ trainerdata 55, "Neal"
         pokemon SPECIES_BELLSPROUT
         ballseal 0
 
-        // mon 0
+        // mon 1
         ivs 6
         abilityslot 0
         level 10
@@ -1913,7 +1960,7 @@ trainerdata 56, "Gordon"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1948,7 +1995,7 @@ trainerdata 57, "Ralph"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -1983,7 +2030,7 @@ trainerdata 58, "Arnold"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2004,7 +2051,7 @@ trainerdata 59, "Kyle"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2039,7 +2086,7 @@ trainerdata 60, "Henry"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2074,7 +2121,7 @@ trainerdata 61, "Anthony"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2109,7 +2156,7 @@ trainerdata 62, "Samuel"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2151,7 +2198,7 @@ trainerdata 63, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2172,7 +2219,7 @@ trainerdata 64, "Ian"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2208,7 +2255,7 @@ trainerdata 65, "Gina"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2243,7 +2290,7 @@ trainerdata 66, "Todd"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -2264,29 +2311,29 @@ trainerdata 67, "Benny"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
     party 67
         // mon 0
-        ivs 10
+        ivs 30
         abilityslot 0
-        level 7
-        pokemon SPECIES_WEEDLE
+        level 20
+        pokemon SPECIES_KRICKETUNE
         ballseal 0
 
         // mon 1
-        ivs 10
+        ivs 30
         abilityslot 0
-        level 9
-        pokemon SPECIES_KAKUNA
+        level 20
+        pokemon SPECIES_BEAUTIFLY
         ballseal 0
 
         // mon 2
-        ivs 10
+        ivs 30
         abilityslot 0
-        level 12
+        level 21
         pokemon SPECIES_BEEDRILL
         ballseal 0
     endparty
@@ -2294,49 +2341,63 @@ trainerdata 67, "Benny"
 trainerdata 68, "Al"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_BUG_CATCHER
-    nummons 2
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
     party 68
         // mon 0
-        ivs 10
+        ivs 30
         abilityslot 0
-        level 12
-        pokemon SPECIES_CATERPIE
+        level 20
+        pokemon SPECIES_CHARJABUG
         ballseal 0
 
         // mon 1
-        ivs 10
+        ivs 30
         abilityslot 0
-        level 12
-        pokemon SPECIES_WEEDLE
+        level 20
+        pokemon SPECIES_DOTTLER
+        ballseal 0
+
+        // mon 2
+        ivs 30
+        abilityslot 0
+        level 21
+        pokemon SPECIES_LEDIAN
         ballseal 0
     endparty
 
 trainerdata 69, "Josh"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_BUG_CATCHER
-    nummons 1
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
     party 69
         // mon 0
-        ivs 10
+        ivs 30
         abilityslot 0
-        level 13
-        pokemon SPECIES_PARAS
+        level 21
+        pokemon SPECIES_LARVESTA
+        ballseal 0
+
+        // mon 1
+        ivs 30
+        abilityslot 0
+        level 21
+        pokemon SPECIES_YANMA
         ballseal 0
     endparty
 
@@ -2348,7 +2409,7 @@ trainerdata 70, "Samantha"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2384,7 +2445,7 @@ trainerdata 71, "Cathy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -2419,7 +2480,7 @@ trainerdata 72, "Bryan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2447,7 +2508,7 @@ trainerdata 73, "Theo"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2496,7 +2557,7 @@ trainerdata 74, "Ivan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -2531,7 +2592,7 @@ trainerdata 75, "Elliot"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -2559,7 +2620,7 @@ trainerdata 76, "Brooke"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2584,7 +2645,7 @@ trainerdata 77, "Kim"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2605,7 +2666,7 @@ trainerdata 78, "Arnie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2626,7 +2687,7 @@ trainerdata 79, "Ken"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2654,7 +2715,7 @@ trainerdata 80, "Dirk"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -2682,7 +2743,7 @@ trainerdata 81, "Tori & Til"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -2710,7 +2771,7 @@ trainerdata 82, "Toby"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2745,7 +2806,7 @@ trainerdata 83, "Cindy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2770,7 +2831,7 @@ trainerdata 84, "Barry"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -2795,7 +2856,7 @@ trainerdata 85, "Paula"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2823,7 +2884,7 @@ trainerdata 86, "Randall"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -2870,7 +2931,7 @@ trainerdata 87, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -2891,7 +2952,7 @@ trainerdata 88, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -2940,7 +3001,7 @@ trainerdata 89, "Grace"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -2968,7 +3029,7 @@ trainerdata 90, "Kaylee"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3015,7 +3076,7 @@ trainerdata 91, "Susie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3051,7 +3112,7 @@ trainerdata 92, "Denise"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3072,7 +3133,7 @@ trainerdata 93, "Kara"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3100,7 +3161,7 @@ trainerdata 94, "Wendy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3136,7 +3197,7 @@ trainerdata 95, "Charlie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3171,7 +3232,7 @@ trainerdata 96, "George"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3227,7 +3288,7 @@ trainerdata 97, "Berke"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3248,7 +3309,7 @@ trainerdata 98, "Ronald"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3276,7 +3337,7 @@ trainerdata 99, "Matthew"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3297,7 +3358,7 @@ trainerdata 100, "Anthony"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3320,12 +3381,12 @@ trainerdata 100, "Anthony"
 trainerdata 101, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 2
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -3333,15 +3394,22 @@ trainerdata 101, "Grunt"
         // mon 0
         ivs 30
         abilityslot 32
-        level 9
-        pokemon SPECIES_RATTATA
+        level 18
+        monwithform SPECIES_RATTATA, 1
         ballseal 0
 
         // mon 1
         ivs 30
         abilityslot 32
-        level 9
-        pokemon SPECIES_RATTATA
+        level 18
+        pokemon SPECIES_EKANS
+        ballseal 0
+
+        // mon 2
+        ivs 30
+        abilityslot 32
+        level 18
+        pokemon SPECIES_YANMA
         ballseal 0
     endparty
 
@@ -3353,7 +3421,7 @@ trainerdata 102, "Gaven"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3400,7 +3468,7 @@ trainerdata 103, "Blake"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3447,7 +3515,7 @@ trainerdata 104, "Brian"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3472,7 +3540,7 @@ trainerdata 105, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3507,7 +3575,7 @@ trainerdata 106, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3542,7 +3610,7 @@ trainerdata 107, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3577,7 +3645,7 @@ trainerdata 108, "Ryan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3613,7 +3681,7 @@ trainerdata 109, "Alton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3648,7 +3716,7 @@ trainerdata 110, "Paulo"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3683,7 +3751,7 @@ trainerdata 111, "Mike"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3704,7 +3772,7 @@ trainerdata 112, "Cody"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3732,7 +3800,7 @@ trainerdata 113, "Jamie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3768,7 +3836,7 @@ trainerdata 114, "Reena"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3803,7 +3871,7 @@ trainerdata 115, "Megan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3850,7 +3918,7 @@ trainerdata 116, "Lois"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3886,7 +3954,7 @@ trainerdata 117, "Lola"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3914,7 +3982,7 @@ trainerdata 118, "Kate"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3942,7 +4010,7 @@ trainerdata 119, "Fran"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3963,7 +4031,7 @@ trainerdata 120, "Irene"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3991,7 +4059,7 @@ trainerdata 121, "Kelly"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -4026,7 +4094,7 @@ trainerdata 122, "Marvin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4073,7 +4141,7 @@ trainerdata 123, "Tully"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4094,7 +4162,7 @@ trainerdata 124, "Wilton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4129,7 +4197,7 @@ trainerdata 125, "Edgar"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4165,7 +4233,7 @@ trainerdata 126, "Andre"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4186,7 +4254,7 @@ trainerdata 127, "Raymond"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4228,7 +4296,7 @@ trainerdata 128, "Jonah"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4270,7 +4338,7 @@ trainerdata 129, "Shane"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4298,7 +4366,7 @@ trainerdata 130, "Beckett"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4319,7 +4387,7 @@ trainerdata 131, "Brent"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4347,7 +4415,7 @@ trainerdata 132, "Ron"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4368,7 +4436,7 @@ trainerdata 133, "Morgan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4396,7 +4464,7 @@ trainerdata 134, "Benjamin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4431,7 +4499,7 @@ trainerdata 135, "Johnny"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -4466,7 +4534,7 @@ trainerdata 136, "Linda"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -4513,7 +4581,7 @@ trainerdata 137, "Vance"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4541,7 +4609,7 @@ trainerdata 138, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -4562,7 +4630,7 @@ trainerdata 139, "Debra"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4583,7 +4651,7 @@ trainerdata 140, "Doug"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4611,7 +4679,7 @@ trainerdata 141, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -4632,7 +4700,7 @@ trainerdata 142, "Gina"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4667,7 +4735,7 @@ trainerdata 143, "Erik"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4702,7 +4770,7 @@ trainerdata 144, "Michael"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4737,7 +4805,7 @@ trainerdata 145, "Parry"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4758,7 +4826,7 @@ trainerdata 146, "Timothy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4794,7 +4862,7 @@ trainerdata 147, "Ted"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -4815,7 +4883,7 @@ trainerdata 148, "Lloyd"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -4836,7 +4904,7 @@ trainerdata 149, "Dean"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -4864,7 +4932,7 @@ trainerdata 150, "Sid"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -4899,7 +4967,7 @@ trainerdata 151, "Erin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4927,7 +4995,7 @@ trainerdata 152, "Hope"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4948,7 +5016,7 @@ trainerdata 153, "Sharon"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -4976,7 +5044,7 @@ trainerdata 154, "Bailey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5025,7 +5093,7 @@ trainerdata 155, "Anthony"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5060,7 +5128,7 @@ trainerdata 156, "Yoshi"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5085,7 +5153,7 @@ trainerdata 157, "Lao"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5110,7 +5178,7 @@ trainerdata 158, "Kiyo"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5138,7 +5206,7 @@ trainerdata 159, "Lung"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5166,14 +5234,14 @@ trainerdata 159, "Lung"
     endparty
 
 trainerdata 160, "Naoko"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5192,14 +5260,14 @@ trainerdata 160, "Naoko"
     endparty
 
 trainerdata 161, "Sayo"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5218,14 +5286,14 @@ trainerdata 161, "Sayo"
     endparty
 
 trainerdata 162, "Zuki"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5244,14 +5312,14 @@ trainerdata 162, "Zuki"
     endparty
 
 trainerdata 163, "Kuni"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5270,14 +5338,14 @@ trainerdata 163, "Kuni"
     endparty
 
 trainerdata 164, "Miki"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_KIMONO_GIRL
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5303,7 +5371,7 @@ trainerdata 165, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5324,7 +5392,7 @@ trainerdata 166, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5345,7 +5413,7 @@ trainerdata 167, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5366,7 +5434,7 @@ trainerdata 168, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5401,7 +5469,7 @@ trainerdata 169, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5429,7 +5497,7 @@ trainerdata 170, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5464,7 +5532,7 @@ trainerdata 171, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5499,7 +5567,7 @@ trainerdata 172, "Brent"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5534,7 +5602,7 @@ trainerdata 173, "Brent"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5576,7 +5644,7 @@ trainerdata 174, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5611,7 +5679,7 @@ trainerdata 175, "Bethany"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5632,7 +5700,7 @@ trainerdata 176, "Margaret"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5653,7 +5721,7 @@ trainerdata 177, "Ethel"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5674,7 +5742,7 @@ trainerdata 178, "Jack"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5702,7 +5770,7 @@ trainerdata 179, "Kipp"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5744,7 +5812,7 @@ trainerdata 180, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5765,7 +5833,7 @@ trainerdata 181, "William"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5786,7 +5854,7 @@ trainerdata 182, "Beverly"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5807,7 +5875,7 @@ trainerdata 183, "Alice"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5854,7 +5922,7 @@ trainerdata 184, "Krise"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -5882,7 +5950,7 @@ trainerdata 185, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5910,7 +5978,7 @@ trainerdata 186, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5945,7 +6013,7 @@ trainerdata 187, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -5994,7 +6062,7 @@ trainerdata 188, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6022,7 +6090,7 @@ trainerdata 189, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6064,7 +6132,7 @@ trainerdata 190, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6085,7 +6153,7 @@ trainerdata 191, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6113,7 +6181,7 @@ trainerdata 192, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6148,7 +6216,7 @@ trainerdata 193, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6183,7 +6251,7 @@ trainerdata 194, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -6204,7 +6272,7 @@ trainerdata 195, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6225,7 +6293,7 @@ trainerdata 196, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6253,7 +6321,7 @@ trainerdata 197, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6281,7 +6349,7 @@ trainerdata 198, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6302,7 +6370,7 @@ trainerdata 199, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6330,7 +6398,7 @@ trainerdata 200, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6372,7 +6440,7 @@ trainerdata 201, "Andrew"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6400,7 +6468,7 @@ trainerdata 202, "Calvin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6421,7 +6489,7 @@ trainerdata 203, "Phillip"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6449,7 +6517,7 @@ trainerdata 204, "Leonard"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6477,7 +6545,7 @@ trainerdata 205, "Nick"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -6524,7 +6592,7 @@ trainerdata 206, "Gwen"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -6566,7 +6634,7 @@ trainerdata 207, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6587,7 +6655,7 @@ trainerdata 208, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6608,7 +6676,7 @@ trainerdata 209, "Cassie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6636,7 +6704,7 @@ trainerdata 210, "Caroline"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6671,7 +6739,7 @@ trainerdata 211, "Huey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6699,7 +6767,7 @@ trainerdata 212, "Terrell"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6720,7 +6788,7 @@ trainerdata 213, "Kent"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6756,7 +6824,7 @@ trainerdata 214, "Roberto"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6791,7 +6859,7 @@ trainerdata 215, "Connie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -6812,7 +6880,7 @@ trainerdata 216, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6854,7 +6922,7 @@ trainerdata 217, "Denis"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6889,7 +6957,7 @@ trainerdata 218, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6910,7 +6978,7 @@ trainerdata 219, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6945,7 +7013,7 @@ trainerdata 220, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -6973,7 +7041,7 @@ trainerdata 221, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -6994,7 +7062,7 @@ trainerdata 222, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7015,7 +7083,7 @@ trainerdata 223, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7043,7 +7111,7 @@ trainerdata 224, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7078,7 +7146,7 @@ trainerdata 225, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -7099,7 +7167,7 @@ trainerdata 226, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -7120,7 +7188,7 @@ trainerdata 227, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7148,7 +7216,7 @@ trainerdata 228, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7176,7 +7244,7 @@ trainerdata 229, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7204,7 +7272,7 @@ trainerdata 230, "Franklin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -7240,7 +7308,7 @@ trainerdata 231, "Edward"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7261,7 +7329,7 @@ trainerdata 232, "Vincent"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7308,7 +7376,7 @@ trainerdata 233, "Eric"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -7336,7 +7404,7 @@ trainerdata 234, "Eoin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7371,7 +7439,7 @@ trainerdata 235, "Noland"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7399,7 +7467,7 @@ trainerdata 236, "Shaye"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -7446,7 +7514,7 @@ trainerdata 237, "Carol"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -7493,7 +7561,7 @@ trainerdata 238, "Stanly"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7528,7 +7596,7 @@ trainerdata 239, "Jeff"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7556,7 +7624,7 @@ trainerdata 240, "Garrett"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7577,7 +7645,7 @@ trainerdata 241, "Kenneth"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7619,7 +7687,7 @@ trainerdata 242, "Fritz"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7666,7 +7734,7 @@ trainerdata 243, "Katie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -7680,14 +7748,14 @@ trainerdata 243, "Katie"
     endparty
 
 trainerdata 244, "Lance"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_CHAMPION
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -7766,14 +7834,14 @@ trainerdata 244, "Lance"
     endparty
 
 trainerdata 245, "Will"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_ELITE_FOUR_WILL
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -7840,14 +7908,14 @@ trainerdata 245, "Will"
     endparty
 
 trainerdata 246, "Karen"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_ELITE_FOUR_KAREN
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -7914,14 +7982,14 @@ trainerdata 246, "Karen"
     endparty
 
 trainerdata 247, "Koga"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_ELITE_FOUR_KOGA
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -7995,7 +8063,7 @@ trainerdata 248, "Ed"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -8030,7 +8098,7 @@ trainerdata 249, "Don"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -8065,7 +8133,7 @@ trainerdata 250, "Kenji"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -8107,7 +8175,7 @@ trainerdata 251, "Nob"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -8143,7 +8211,7 @@ trainerdata 252, "Harold"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -8164,14 +8232,14 @@ trainerdata 252, "Harold"
     endparty
 
 trainerdata 253, "Brock"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_BROCK
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -8238,14 +8306,14 @@ trainerdata 253, "Brock"
     endparty
 
 trainerdata 254, "Misty"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_MISTY
     nummons 4
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -8300,14 +8368,14 @@ trainerdata 254, "Misty"
     endparty
 
 trainerdata 255, "Lt. Surge"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_LT_SURGE
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -8374,14 +8442,14 @@ trainerdata 255, "Lt. Surge"
     endparty
 
 trainerdata 256, "Erika"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_ERIKA
     nummons 4
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER
     battletype SINGLE_BATTLE
     endentry
 
@@ -8436,14 +8504,14 @@ trainerdata 256, "Erika"
     endparty
 
 trainerdata 257, "Janine"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_JANINE
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -8510,14 +8578,14 @@ trainerdata 257, "Janine"
     endparty
 
 trainerdata 258, "Sabrina"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_SABRINA
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -8560,14 +8628,14 @@ trainerdata 258, "Sabrina"
     endparty
 
 trainerdata 259, "Blaine"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_BLAINE
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER
     battletype SINGLE_BATTLE
     endentry
 
@@ -8610,14 +8678,14 @@ trainerdata 259, "Blaine"
     endparty
 
 trainerdata 260, "Red"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_PKMN_TRAINER_RED
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -8696,14 +8764,14 @@ trainerdata 260, "Red"
     endparty
 
 trainerdata 261, "Blue"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_BLUE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -8789,7 +8857,7 @@ trainerdata 262, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -8824,7 +8892,7 @@ trainerdata 263, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -8882,7 +8950,7 @@ trainerdata 264, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -8962,7 +9030,7 @@ trainerdata 265, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -8978,34 +9046,41 @@ trainerdata 265, "Silver"
 trainerdata 266, "Silver"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_RIVAL
-    nummons 3
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
     party 266
         // mon 0
-        ivs 30
+        ivs 80
         abilityslot 0
-        level 14
-        pokemon SPECIES_GASTLY
+        level 18
+        pokemon SPECIES_IMPIDIMP
         ballseal 0
 
         // mon 1
-        ivs 30
+        ivs 80
         abilityslot 0
-        level 16
-        pokemon SPECIES_ZUBAT
+        level 18
+        pokemon SPECIES_GLIGAR
         ballseal 0
 
         // mon 2
-        ivs 30
+        ivs 80
         abilityslot 0
         level 18
+        pokemon SPECIES_TYNAMO
+        ballseal 0
+
+        // mon 3
+        ivs 80
+        abilityslot 0
+        level 19
         pokemon SPECIES_QUILAVA
         ballseal 0
     endparty
@@ -9018,7 +9093,7 @@ trainerdata 267, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9076,7 +9151,7 @@ trainerdata 268, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -9151,12 +9226,12 @@ trainerdata 268, "Silver"
 trainerdata 269, "Silver"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_RIVAL
-    nummons 3
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -9164,21 +9239,28 @@ trainerdata 269, "Silver"
         // mon 0
         ivs 30
         abilityslot 0
-        level 14
-        pokemon SPECIES_GASTLY
+        level 18
+        pokemon SPECIES_WHIRLIPEDE
         ballseal 0
 
         // mon 1
         ivs 30
         abilityslot 0
-        level 16
-        pokemon SPECIES_ZUBAT
+        level 18
+        pokemon SPECIES_GLIGAR
         ballseal 0
 
         // mon 2
         ivs 30
         abilityslot 0
         level 18
+        pokemon SPECIES_MAGBY
+        ballseal 0
+
+        // mon 3
+        ivs 30
+        abilityslot 0
+        level 19
         pokemon SPECIES_CROCONAW
         ballseal 0
     endparty
@@ -9191,7 +9273,7 @@ trainerdata 270, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9249,7 +9331,7 @@ trainerdata 271, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -9318,7 +9400,7 @@ trainerdata 272, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -9398,7 +9480,7 @@ trainerdata 273, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9433,7 +9515,7 @@ trainerdata 274, "Todd"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -9468,7 +9550,7 @@ trainerdata 275, "Todd"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -9510,7 +9592,7 @@ trainerdata 276, "Liz"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9538,7 +9620,7 @@ trainerdata 277, "Liz"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9573,7 +9655,7 @@ trainerdata 278, "Kenji"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9615,7 +9697,7 @@ trainerdata 279, "Joey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9636,7 +9718,7 @@ trainerdata 280, "Joey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9661,7 +9743,7 @@ trainerdata 281, "Richard"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9682,7 +9764,7 @@ trainerdata 282, "Ned"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9717,7 +9799,7 @@ trainerdata 283, "Orson"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9753,7 +9835,7 @@ trainerdata 284, "Corey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -9795,7 +9877,7 @@ trainerdata 285, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -9875,7 +9957,7 @@ trainerdata 286, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -9955,7 +10037,7 @@ trainerdata 287, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -10035,7 +10117,7 @@ trainerdata 288, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -10104,7 +10186,7 @@ trainerdata 289, "Silver"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -10173,7 +10255,7 @@ trainerdata 290, "Li"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -10215,7 +10297,7 @@ trainerdata 291, "Debbie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10236,7 +10318,7 @@ trainerdata 292, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10257,7 +10339,7 @@ trainerdata 293, "Nicole"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10292,7 +10374,7 @@ trainerdata 294, "Lori"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10339,7 +10421,7 @@ trainerdata 295, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10360,7 +10442,7 @@ trainerdata 296, "Nikki"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10388,7 +10470,7 @@ trainerdata 297, "Diana"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10413,7 +10495,7 @@ trainerdata 298, "Briana"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10449,7 +10531,7 @@ trainerdata 299, "Hank"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10477,7 +10559,7 @@ trainerdata 300, "Roy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10505,7 +10587,7 @@ trainerdata 301, "Boris"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10540,7 +10622,7 @@ trainerdata 302, "Bob"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10561,7 +10643,7 @@ trainerdata 303, "Jose"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10582,7 +10664,7 @@ trainerdata 304, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -10624,7 +10706,7 @@ trainerdata 305, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -10666,7 +10748,7 @@ trainerdata 306, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -10708,7 +10790,7 @@ trainerdata 307, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -10750,7 +10832,7 @@ trainerdata 308, "Jerry"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -10775,7 +10857,7 @@ trainerdata 309, "Dwayne"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10817,7 +10899,7 @@ trainerdata 310, "Harris"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10838,7 +10920,7 @@ trainerdata 311, "Zeke"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10866,7 +10948,7 @@ trainerdata 312, "Charles"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10901,7 +10983,7 @@ trainerdata 313, "Reese"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10922,7 +11004,7 @@ trainerdata 314, "Joel"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10950,7 +11032,7 @@ trainerdata 315, "Glenn"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -10985,7 +11067,7 @@ trainerdata 316, "Herman"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -11032,7 +11114,7 @@ trainerdata 317, "Fidel"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -11057,7 +11139,7 @@ trainerdata 318, "Burt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11093,7 +11175,7 @@ trainerdata 319, "Bill"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11128,7 +11210,7 @@ trainerdata 320, "Martin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11156,7 +11238,7 @@ trainerdata 321, "Stephen"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11191,7 +11273,7 @@ trainerdata 322, "Barney"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11226,7 +11308,7 @@ trainerdata 323, "Tully"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11247,7 +11329,7 @@ trainerdata 324, "Tully"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11282,7 +11364,7 @@ trainerdata 325, "Wilton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11317,7 +11399,7 @@ trainerdata 326, "Jo & Zoe"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -11353,7 +11435,7 @@ trainerdata 327, "Danny"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -11388,7 +11470,7 @@ trainerdata 328, "Tommy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -11424,7 +11506,7 @@ trainerdata 329, "Dudley"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -11446,7 +11528,7 @@ trainerdata 330, "Joe"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -11476,7 +11558,7 @@ trainerdata 331, "Billy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -11511,7 +11593,7 @@ trainerdata 332, "Heidi"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11539,7 +11621,7 @@ trainerdata 333, "Edna"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11567,7 +11649,7 @@ trainerdata 334, "Gina"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11602,7 +11684,7 @@ trainerdata 335, "Erin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11630,7 +11712,7 @@ trainerdata 336, "Tanya"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11655,7 +11737,7 @@ trainerdata 337, "Gregory"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11702,7 +11784,7 @@ trainerdata 338, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11723,7 +11805,7 @@ trainerdata 339, "Wai"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11758,7 +11840,7 @@ trainerdata 340, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11779,7 +11861,7 @@ trainerdata 341, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11800,7 +11882,7 @@ trainerdata 342, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11821,7 +11903,7 @@ trainerdata 343, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11842,7 +11924,7 @@ trainerdata 344, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11863,7 +11945,7 @@ trainerdata 345, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11884,7 +11966,7 @@ trainerdata 346, "Julia"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11931,7 +12013,7 @@ trainerdata 347, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11952,7 +12034,7 @@ trainerdata 348, "Robert"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -11973,7 +12055,7 @@ trainerdata 349, "Joshua"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12029,7 +12111,7 @@ trainerdata 350, "Carter"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12064,7 +12146,7 @@ trainerdata 351, "Trevor"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12085,7 +12167,7 @@ trainerdata 352, "Georgia"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12134,7 +12216,7 @@ trainerdata 353, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12155,7 +12237,7 @@ trainerdata 354, "Laura"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -12193,7 +12275,7 @@ trainerdata 355, "Shannon"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -12228,7 +12310,7 @@ trainerdata 356, "Michelle"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | F_USE_WEATHER
     battletype SINGLE_BATTLE
     endentry
 
@@ -12275,7 +12357,7 @@ trainerdata 357, "Clarke"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12303,7 +12385,7 @@ trainerdata 358, "Kenny"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12338,7 +12420,7 @@ trainerdata 359, "Jim"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12359,7 +12441,7 @@ trainerdata 360, "Arnie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12380,7 +12462,7 @@ trainerdata 361, "Kevin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -12427,7 +12509,7 @@ trainerdata 362, "Quinn"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER
     battletype SINGLE_BATTLE
     endentry
 
@@ -12463,7 +12545,7 @@ trainerdata 363, "Emma"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -12484,7 +12566,7 @@ trainerdata 364, "Sam"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -12514,7 +12596,7 @@ trainerdata 365, "Tyrone"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -12542,14 +12624,14 @@ trainerdata 365, "Tyrone"
     endparty
 
 trainerdata 366, "Pat"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_SUPER_NERD
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -12575,7 +12657,7 @@ trainerdata 367, "Shawn"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -12613,7 +12695,7 @@ trainerdata 368, "Rebecca"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -12649,7 +12731,7 @@ trainerdata 369, "Darcy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -12685,7 +12767,7 @@ trainerdata 370, "Jerome"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12727,7 +12809,7 @@ trainerdata 371, "Tucker"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12755,7 +12837,7 @@ trainerdata 372, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12790,7 +12872,7 @@ trainerdata 373, "Frankie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12811,7 +12893,7 @@ trainerdata 374, "Tyson"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12847,7 +12929,7 @@ trainerdata 375, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12882,7 +12964,7 @@ trainerdata 376, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12917,7 +12999,7 @@ trainerdata 377, "Parker"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12953,7 +13035,7 @@ trainerdata 378, "Warren"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -12981,7 +13063,7 @@ trainerdata 379, "Jimmy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13016,7 +13098,7 @@ trainerdata 380, "Owen"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13037,7 +13119,7 @@ trainerdata 381, "Jason"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13065,7 +13147,7 @@ trainerdata 382, "Hillary"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13093,7 +13175,7 @@ trainerdata 383, "Peter"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13135,7 +13217,7 @@ trainerdata 384, "Daniel"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13146,12 +13228,14 @@ trainerdata 384, "Daniel"
         level 16
         pokemon SPECIES_ARON
         ballseal 0
+
         // mon 1
         ivs 0
         abilityslot 32
         level 18
         pokemon SPECIES_ONIX
         ballseal 0
+
         // mon 2
         ivs 0
         abilityslot 32
@@ -13168,7 +13252,7 @@ trainerdata 385, "Dara & Dia"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -13196,7 +13280,7 @@ trainerdata 386, "Greg"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13216,28 +13300,42 @@ trainerdata 386, "Greg"
 trainerdata 387, "Amy & Mimi"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TWINS
-    nummons 2
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
     party 387
         // mon 0
-        ivs 10
+        ivs 30
         abilityslot 32
-        level 10
-        pokemon SPECIES_LEDYBA
+        level 20
+        pokemon SPECIES_BUTTERFREE
         ballseal 0
 
         // mon 1
-        ivs 10
+        ivs 30
         abilityslot 32
-        level 10
-        pokemon SPECIES_SPINARAK
+        level 20
+        pokemon SPECIES_SHUCKLE
+        ballseal 0
+
+        // mon 2
+        ivs 30
+        abilityslot 32
+        level 21
+        pokemon SPECIES_NINJASK
+        ballseal 0
+
+        // mon 3
+        ivs 30
+        abilityslot 32
+        level 21
+        pokemon SPECIES_WORMADAM
         ballseal 0
     endparty
 
@@ -13249,7 +13347,7 @@ trainerdata 388, "Walt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13277,7 +13375,7 @@ trainerdata 389, "Nelson"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13313,7 +13411,7 @@ trainerdata 390, "Ray"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13331,6 +13429,7 @@ trainerdata 390, "Ray"
         level 15
         pokemon SPECIES_SALANDIT
         ballseal 0
+
         // mon 2
         ivs 0
         abilityslot 0
@@ -13347,7 +13446,7 @@ trainerdata 391, "Issac"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13372,7 +13471,7 @@ trainerdata 392, "Donald"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13400,7 +13499,7 @@ trainerdata 393, "Teru"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13442,7 +13541,7 @@ trainerdata 394, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13477,7 +13576,7 @@ trainerdata 395, "Mark"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13524,7 +13623,7 @@ trainerdata 396, "Horton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13571,7 +13670,7 @@ trainerdata 397, "Chad"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13592,7 +13691,7 @@ trainerdata 398, "Valerie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13628,7 +13727,7 @@ trainerdata 399, "Lyle"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13663,7 +13762,7 @@ trainerdata 400, "Dana"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13699,7 +13798,7 @@ trainerdata 401, "Alfred"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13720,7 +13819,7 @@ trainerdata 402, "Tiffany"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13745,7 +13844,7 @@ trainerdata 403, "Spencer"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13780,7 +13879,7 @@ trainerdata 404, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13816,7 +13915,7 @@ trainerdata 405, "Phil"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13852,7 +13951,7 @@ trainerdata 406, "Zach"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13873,7 +13972,7 @@ trainerdata 407, "Allen"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13909,7 +14008,7 @@ trainerdata 408, "Cybil"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -13945,7 +14044,7 @@ trainerdata 409, "Brandon"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13973,7 +14072,7 @@ trainerdata 410, "Harry"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -13998,7 +14097,7 @@ trainerdata 411, "Vernon"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14019,7 +14118,7 @@ trainerdata 412, "Eli"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14054,7 +14153,7 @@ trainerdata 413, "Scott"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14101,7 +14200,7 @@ trainerdata 414, "Jose"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14122,7 +14221,7 @@ trainerdata 415, "Jared"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14169,7 +14268,7 @@ trainerdata 416, "Jo & Zoe"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -14205,7 +14304,7 @@ trainerdata 417, "Jenn"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14226,14 +14325,14 @@ trainerdata 417, "Jenn"
     endparty
 
 trainerdata 418, "Bruno"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_ELITE_FOUR_BRUNO
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14307,7 +14406,7 @@ trainerdata 419, "Ellen"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14335,7 +14434,7 @@ trainerdata 420, "Perry"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14356,7 +14455,7 @@ trainerdata 421, "Bret"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14384,7 +14483,7 @@ trainerdata 422, "Rodney"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14412,7 +14511,7 @@ trainerdata 423, "Jeremy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14447,7 +14546,7 @@ trainerdata 424, "Colin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14472,7 +14571,7 @@ trainerdata 425, "Meg & Peg"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -14500,7 +14599,7 @@ trainerdata 426, "Meg & Peg"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -14528,7 +14627,7 @@ trainerdata 427, "Shirley"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14556,7 +14655,7 @@ trainerdata 428, "Nate"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | F_MULTI_BATTLE_PARTNER | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | F_MULTI_BATTLE_PARTNER
     battletype SINGLE_BATTLE
     endentry
 
@@ -14584,7 +14683,7 @@ trainerdata 429, "Ricky"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14614,7 +14713,7 @@ trainerdata 430, "Jack"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14642,7 +14741,7 @@ trainerdata 431, "Jack"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14670,7 +14769,7 @@ trainerdata 432, "Alan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14698,7 +14797,7 @@ trainerdata 433, "Alan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14740,7 +14839,7 @@ trainerdata 434, "Chad"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14768,7 +14867,7 @@ trainerdata 435, "Chad"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14796,7 +14895,7 @@ trainerdata 436, "Beverly"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14817,7 +14916,7 @@ trainerdata 437, "Beverly"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14838,7 +14937,7 @@ trainerdata 438, "Derek"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14866,7 +14965,7 @@ trainerdata 439, "Derek"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14908,7 +15007,7 @@ trainerdata 440, "Huey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14936,7 +15035,7 @@ trainerdata 441, "Huey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -14964,7 +15063,7 @@ trainerdata 442, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -14985,7 +15084,7 @@ trainerdata 443, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15006,7 +15105,7 @@ trainerdata 444, "Reena"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15041,7 +15140,7 @@ trainerdata 445, "Reena"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15076,7 +15175,7 @@ trainerdata 446, "Jose"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15104,7 +15203,7 @@ trainerdata 447, "Vance"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15132,7 +15231,7 @@ trainerdata 448, "Vance"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15167,7 +15266,7 @@ trainerdata 449, "Arnie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15192,7 +15291,7 @@ trainerdata 450, "Wilton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15227,7 +15326,7 @@ trainerdata 451, "Parry"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15255,7 +15354,7 @@ trainerdata 452, "Parry"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15283,7 +15382,7 @@ trainerdata 453, "Erin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15318,7 +15417,7 @@ trainerdata 454, "Irwin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15360,7 +15459,7 @@ trainerdata 455, "Irwin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15402,7 +15501,7 @@ trainerdata 456, "Gaven"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15449,7 +15548,7 @@ trainerdata 457, "Gaven"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15496,7 +15595,7 @@ trainerdata 458, "Jamie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15532,7 +15631,7 @@ trainerdata 459, "Jamie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15568,7 +15667,7 @@ trainerdata 460, "Wade"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15626,7 +15725,7 @@ trainerdata 461, "Wade"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15684,7 +15783,7 @@ trainerdata 462, "Ralph"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15705,7 +15804,7 @@ trainerdata 463, "Ralph"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15733,7 +15832,7 @@ trainerdata 464, "Dana"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15769,7 +15868,7 @@ trainerdata 465, "Dana"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15805,7 +15904,7 @@ trainerdata 466, "Tiffany"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15830,7 +15929,7 @@ trainerdata 467, "Tiffany"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -15855,7 +15954,7 @@ trainerdata 468, "Ross"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15883,7 +15982,7 @@ trainerdata 469, "Mitch"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15904,7 +16003,7 @@ trainerdata 470, "Gregg"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15939,7 +16038,7 @@ trainerdata 471, "Garett"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15974,7 +16073,7 @@ trainerdata 472, "Trenton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -15999,7 +16098,7 @@ trainerdata 473, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16027,7 +16126,7 @@ trainerdata 474, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16048,7 +16147,7 @@ trainerdata 475, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16083,7 +16182,7 @@ trainerdata 476, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16118,7 +16217,7 @@ trainerdata 477, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16143,7 +16242,7 @@ trainerdata 478, "Ariana"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16190,7 +16289,7 @@ trainerdata 479, "Ariana"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16237,7 +16336,7 @@ trainerdata 480, "Diana"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -16258,7 +16357,7 @@ trainerdata 481, "Jill"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -16279,7 +16378,7 @@ trainerdata 482, "Deandre"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -16314,7 +16413,7 @@ trainerdata 483, "Patton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -16342,7 +16441,7 @@ trainerdata 484, "Gerardo"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -16389,7 +16488,7 @@ trainerdata 485, "Archer"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16429,14 +16528,14 @@ trainerdata 485, "Archer"
     endparty
 
 trainerdata 486, "Proton"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_EXECUTIVE_PROTON
-    nummons 2
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16444,15 +16543,49 @@ trainerdata 486, "Proton"
         // mon 0
         ivs 100
         abilityslot 0
-        level 8
-        pokemon SPECIES_ZUBAT
+        level 20
+        pokemon SPECIES_ELECTRIKE
+        item ITEM_NONE
+        move MOVE_SHOCK_WAVE
+        move MOVE_FLAME_BURST
+        move MOVE_SIGNAL_BEAM
+        move MOVE_AURORA_BEAM
         ballseal 0
 
         // mon 1
         ivs 100
         abilityslot 0
-        level 12
-        pokemon SPECIES_KOFFING
+        level 20
+        pokemon SPECIES_MAKUHITA
+        item ITEM_NONE
+        move MOVE_BULLET_PUNCH
+        move MOVE_FAKE_OUT
+        move MOVE_FORCE_PALM
+        move MOVE_ROCK_TOMB
+        ballseal 0
+
+        // mon 2
+        ivs 100
+        abilityslot 0
+        level 20
+        pokemon SPECIES_QWILFISH
+        item ITEM_NONE
+        move MOVE_BARB_BARRAGE
+        move MOVE_PAYBACK
+        move MOVE_AQUA_JET
+        move MOVE_POISON_TAIL
+        ballseal 0
+
+        // mon 3
+        ivs 100
+        abilityslot 0
+        level 21
+        pokemon SPECIES_LAMPENT
+        item ITEM_PASSHO_BERRY
+        move MOVE_FLAME_BURST
+        move MOVE_HEX
+        move MOVE_WILL_O_WISP
+        move MOVE_SHOCK_WAVE
         ballseal 0
     endparty
 
@@ -16464,7 +16597,7 @@ trainerdata 487, "Petrel"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16544,7 +16677,7 @@ trainerdata 488, "Petrel"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16579,7 +16712,7 @@ trainerdata 489, "Silver"
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16659,7 +16792,7 @@ trainerdata 490, "Silver"
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16732,14 +16865,14 @@ trainerdata 490, "Silver"
     endparty
 
 trainerdata 491, "Silver"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16825,7 +16958,7 @@ trainerdata 492, "Alex"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -16860,7 +16993,7 @@ trainerdata 493, "Edith"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16881,7 +17014,7 @@ trainerdata 494, "Georgina"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -16930,7 +17063,7 @@ trainerdata 495, "Boy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -16941,6 +17074,7 @@ trainerdata 495, "Boy"
         level 4
         pokemon SPECIES_ROGGENROLA
         ballseal 0
+
         // mon 1
         ivs 0
         abilityslot 0
@@ -16957,7 +17091,7 @@ trainerdata 496, "Boy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -16968,6 +17102,7 @@ trainerdata 496, "Boy"
         level 4
         pokemon SPECIES_TYNAMO
         ballseal 0
+
         // mon 1
         ivs 0
         abilityslot 0
@@ -16984,7 +17119,7 @@ trainerdata 497, "Boy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -16995,6 +17130,7 @@ trainerdata 497, "Boy"
         level 4
         pokemon SPECIES_VENIPEDE
         ballseal 0
+
         // mon 1
         ivs 0
         abilityslot 0
@@ -17011,7 +17147,7 @@ trainerdata 498, "Eusine"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -17058,7 +17194,7 @@ trainerdata 499, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17094,7 +17230,7 @@ trainerdata 500, "Kobe"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -17119,7 +17255,7 @@ trainerdata 501, "Piper"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -17166,7 +17302,7 @@ trainerdata 502, "Clea & Gil"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -17202,7 +17338,7 @@ trainerdata 503, "Jack"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -17249,7 +17385,7 @@ trainerdata 504, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -17296,7 +17432,7 @@ trainerdata 505, "Alan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -17338,7 +17474,7 @@ trainerdata 506, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -17396,7 +17532,7 @@ trainerdata 507, "Chad"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | F_PRIORITIZE_STATUS_MOVES | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | F_PRIORITIZE_STATUS_MOVES
     battletype SINGLE_BATTLE
     endentry
 
@@ -17432,7 +17568,7 @@ trainerdata 508, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -17468,7 +17604,7 @@ trainerdata 509, "Huey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17504,7 +17640,7 @@ trainerdata 510, "Joey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17529,7 +17665,7 @@ trainerdata 511, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17554,7 +17690,7 @@ trainerdata 512, "Wade"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17612,7 +17748,7 @@ trainerdata 513, "Arnie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17648,7 +17784,7 @@ trainerdata 514, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17673,7 +17809,7 @@ trainerdata 515, "Ralph"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17701,7 +17837,7 @@ trainerdata 516, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17737,7 +17873,7 @@ trainerdata 517, "Tully"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17784,7 +17920,7 @@ trainerdata 518, "Liz"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17819,7 +17955,7 @@ trainerdata 519, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17866,7 +18002,7 @@ trainerdata 520, "Gina"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17901,7 +18037,7 @@ trainerdata 521, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17948,7 +18084,7 @@ trainerdata 522, "Tiffany"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -17973,7 +18109,7 @@ trainerdata 523, "Anthony"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18008,7 +18144,7 @@ trainerdata 524, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18055,7 +18191,7 @@ trainerdata 525, "Todd"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -18097,7 +18233,7 @@ trainerdata 526, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -18155,7 +18291,7 @@ trainerdata 527, "Irwin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18213,7 +18349,7 @@ trainerdata 528, "Dana"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -18249,7 +18385,7 @@ trainerdata 529, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -18285,7 +18421,7 @@ trainerdata 530, "Brent"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18327,7 +18463,7 @@ trainerdata 531, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -18363,7 +18499,7 @@ trainerdata 532, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18421,7 +18557,7 @@ trainerdata 533, "Wayne"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18449,7 +18585,7 @@ trainerdata 534, "Kimberly"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18470,7 +18606,7 @@ trainerdata 535, "Marigold"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18491,7 +18627,7 @@ trainerdata 536, "Bertrand"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -18526,7 +18662,7 @@ trainerdata 537, "Harrison"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18554,7 +18690,7 @@ trainerdata 538, "Hugh"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -18579,7 +18715,7 @@ trainerdata 539, "Markus"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -18604,7 +18740,7 @@ trainerdata 540, "Rex"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18625,7 +18761,7 @@ trainerdata 541, "Andy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18646,7 +18782,7 @@ trainerdata 542, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -18682,7 +18818,7 @@ trainerdata 543, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -18718,7 +18854,7 @@ trainerdata 544, "Mickey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -18747,14 +18883,14 @@ trainerdata 544, "Mickey"
     endparty
 
 trainerdata 545, "French"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 2
     item ITEM_DIRE_HIT
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -18792,7 +18928,7 @@ trainerdata 546, "Sherman"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_MULTI_BATTLE_PARTNER | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_MULTI_BATTLE_PARTNER
     battletype SINGLE_BATTLE
     endentry
 
@@ -18828,7 +18964,7 @@ trainerdata 547, "Bruce"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18863,7 +18999,7 @@ trainerdata 548, "Manford"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18888,7 +19024,7 @@ trainerdata 549, "Zac & Jen"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype DOUBLE_BATTLE
     endentry
 
@@ -18924,7 +19060,7 @@ trainerdata 550, "Ander"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18959,7 +19095,7 @@ trainerdata 551, "Dwight"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -18987,7 +19123,7 @@ trainerdata 552, "Regis"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19015,7 +19151,7 @@ trainerdata 553, "Moe & Lulu"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -19043,7 +19179,7 @@ trainerdata 554, "Milton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19064,7 +19200,7 @@ trainerdata 555, "Justin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19092,7 +19228,7 @@ trainerdata 556, "Gail"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19120,7 +19256,7 @@ trainerdata 557, "Vic & Tara"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_USE_WEATHER | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_USE_WEATHER
     battletype DOUBLE_BATTLE
     endentry
 
@@ -19156,7 +19292,7 @@ trainerdata 558, "Kyler"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19191,7 +19327,7 @@ trainerdata 559, "Tim & Sue"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -19219,7 +19355,7 @@ trainerdata 560, "Clark"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -19240,7 +19376,7 @@ trainerdata 561, "Tanner"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -19261,7 +19397,7 @@ trainerdata 562, "Piper"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19282,7 +19418,7 @@ trainerdata 563, "Ginger"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19296,14 +19432,14 @@ trainerdata 563, "Ginger"
     endparty
 
 trainerdata 564, "Clarice"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_TEACHER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -19341,7 +19477,7 @@ trainerdata 565, "Josh"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19355,14 +19491,14 @@ trainerdata 565, "Josh"
     endparty
 
 trainerdata 566, "Connor"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_SCHOOL_KID_M
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -19388,7 +19524,7 @@ trainerdata 567, "Torin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -19416,7 +19552,7 @@ trainerdata 568, "Travis"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -19441,7 +19577,7 @@ trainerdata 569, "Kay & Tia"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -19477,7 +19613,7 @@ trainerdata 570, "Boone"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19505,7 +19641,7 @@ trainerdata 571, "Eleanor"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19533,7 +19669,7 @@ trainerdata 572, "Dale"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19555,7 +19691,7 @@ trainerdata 573, "Jacob"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19583,7 +19719,7 @@ trainerdata 574, "Aiden"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19604,7 +19740,7 @@ trainerdata 575, "Dan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19639,7 +19775,7 @@ trainerdata 576, "Theron"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19660,7 +19796,7 @@ trainerdata 577, "Markey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19681,7 +19817,7 @@ trainerdata 578, "Teddy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19702,7 +19838,7 @@ trainerdata 579, "Ernest"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19723,14 +19859,14 @@ trainerdata 579, "Ernest"
     endparty
 
 trainerdata 580, "Pedro"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_CAMPER
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -19756,7 +19892,7 @@ trainerdata 581, "Adrian"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19777,7 +19913,7 @@ trainerdata 582, "Cheyenne"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19798,7 +19934,7 @@ trainerdata 583, "Bert"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19826,7 +19962,7 @@ trainerdata 584, "Ernie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19847,7 +19983,7 @@ trainerdata 585, "Elmo"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19875,7 +20011,7 @@ trainerdata 586, "Luis"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19903,7 +20039,7 @@ trainerdata 587, "Leona"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19924,7 +20060,7 @@ trainerdata 588, "Mina"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -19959,7 +20095,7 @@ trainerdata 589, "Murphy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20001,7 +20137,7 @@ trainerdata 590, "Liam"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20022,7 +20158,7 @@ trainerdata 591, "Gideon"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20058,7 +20194,7 @@ trainerdata 592, "Chelan"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20083,7 +20219,7 @@ trainerdata 593, "Kendra"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20104,7 +20240,7 @@ trainerdata 594, "Esteban"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20132,7 +20268,7 @@ trainerdata 595, "Duane"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20160,7 +20296,7 @@ trainerdata 596, "Kinsley"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20195,7 +20331,7 @@ trainerdata 597, "Easton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20237,7 +20373,7 @@ trainerdata 598, "Day & Dani"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -20265,7 +20401,7 @@ trainerdata 599, "Virgil"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -20286,7 +20422,7 @@ trainerdata 600, "Selina"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20307,7 +20443,7 @@ trainerdata 601, "Grunt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20328,7 +20464,7 @@ trainerdata 602, "Jose"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20363,7 +20499,7 @@ trainerdata 603, "Erin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20405,7 +20541,7 @@ trainerdata 604, "Gaven"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -20452,7 +20588,7 @@ trainerdata 605, "Kenji"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20494,7 +20630,7 @@ trainerdata 606, "Parry"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20522,7 +20658,7 @@ trainerdata 607, "Reena"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -20569,7 +20705,7 @@ trainerdata 608, "Wilton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20604,7 +20740,7 @@ trainerdata 609, "Jamie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -20640,7 +20776,7 @@ trainerdata 610, "Derek"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20682,7 +20818,7 @@ trainerdata 611, "Beverly"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20703,7 +20839,7 @@ trainerdata 612, "Vance"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20738,7 +20874,7 @@ trainerdata 613, "Krise"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -20766,7 +20902,7 @@ trainerdata 614, "Krise"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -20794,7 +20930,7 @@ trainerdata 615, "Krise"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -20822,7 +20958,7 @@ trainerdata 616, "Ian"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20850,7 +20986,7 @@ trainerdata 617, "Ian"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20878,7 +21014,7 @@ trainerdata 618, "Ian"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20906,7 +21042,7 @@ trainerdata 619, "Walt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20934,7 +21070,7 @@ trainerdata 620, "Walt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20962,7 +21098,7 @@ trainerdata 621, "Walt"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -20997,7 +21133,7 @@ trainerdata 622, "Doug"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21025,7 +21161,7 @@ trainerdata 623, "Doug"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21053,7 +21189,7 @@ trainerdata 624, "Doug"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21081,7 +21217,7 @@ trainerdata 625, "Rob"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21109,7 +21245,7 @@ trainerdata 626, "Rob"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21137,7 +21273,7 @@ trainerdata 627, "Rob"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21165,7 +21301,7 @@ trainerdata 628, "Reese"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21201,7 +21337,7 @@ trainerdata 629, "Reese"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21237,7 +21373,7 @@ trainerdata 630, "Reese"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21273,7 +21409,7 @@ trainerdata 631, "Aiden"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21301,7 +21437,7 @@ trainerdata 632, "Aiden"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21329,7 +21465,7 @@ trainerdata 633, "Aiden"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21364,7 +21500,7 @@ trainerdata 634, "Ernest"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21392,7 +21528,7 @@ trainerdata 635, "Ernest"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21420,7 +21556,7 @@ trainerdata 636, "Ernest"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21448,7 +21584,7 @@ trainerdata 637, "Hillary"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -21476,7 +21612,7 @@ trainerdata 638, "Hillary"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -21504,7 +21640,7 @@ trainerdata 639, "Hillary"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -21532,7 +21668,7 @@ trainerdata 640, "Billy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -21567,7 +21703,7 @@ trainerdata 641, "Billy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -21602,7 +21738,7 @@ trainerdata 642, "Billy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -21660,7 +21796,7 @@ trainerdata 643, "Kay & Tia"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -21696,7 +21832,7 @@ trainerdata 644, "Kay & Tia"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -21732,7 +21868,7 @@ trainerdata 645, "Kay & Tia"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -21768,7 +21904,7 @@ trainerdata 646, "Josh"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21796,7 +21932,7 @@ trainerdata 647, "Josh"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21824,7 +21960,7 @@ trainerdata 648, "Josh"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -21852,7 +21988,7 @@ trainerdata 649, "Torin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -21887,7 +22023,7 @@ trainerdata 650, "Torin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -21922,7 +22058,7 @@ trainerdata 651, "Torin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -21957,7 +22093,7 @@ trainerdata 652, "Tim & Sue"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -21985,7 +22121,7 @@ trainerdata 653, "Tim & Sue"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -22021,7 +22157,7 @@ trainerdata 654, "Tim & Sue"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -22057,7 +22193,7 @@ trainerdata 655, "Kenny"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22099,7 +22235,7 @@ trainerdata 656, "Kenny"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22141,7 +22277,7 @@ trainerdata 657, "Kenny"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22183,7 +22319,7 @@ trainerdata 658, "Tanner"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -22211,7 +22347,7 @@ trainerdata 659, "Tanner"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -22246,7 +22382,7 @@ trainerdata 660, "Tanner"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -22281,7 +22417,7 @@ trainerdata 661, "Kyle"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22316,7 +22452,7 @@ trainerdata 662, "Kyle"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22358,7 +22494,7 @@ trainerdata 663, "Kyle"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22400,7 +22536,7 @@ trainerdata 664, "Kyler"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22442,7 +22578,7 @@ trainerdata 665, "Kyler"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22491,7 +22627,7 @@ trainerdata 666, "Kyler"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22540,14 +22676,14 @@ trainerdata 666, "Kyler"
     endparty
 
 trainerdata 667, "Cheryl"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_PKMN_TRAINER_CHERYL
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -22614,14 +22750,14 @@ trainerdata 667, "Cheryl"
     endparty
 
 trainerdata 668, "Marley"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_PKMN_TRAINER_MARLEY
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -22688,14 +22824,14 @@ trainerdata 668, "Marley"
     endparty
 
 trainerdata 669, "Mira"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_PKMN_TRAINER_MIRA
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -22762,14 +22898,14 @@ trainerdata 669, "Mira"
     endparty
 
 trainerdata 670, "Riley"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_PKMN_TRAINER_RILEY
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -22836,14 +22972,14 @@ trainerdata 670, "Riley"
     endparty
 
 trainerdata 671, "Buck"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_PKMN_TRAINER_BUCK
     nummons 5
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -22917,7 +23053,7 @@ trainerdata 672, "Alfred"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22938,7 +23074,7 @@ trainerdata 673, "Alfred"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22959,7 +23095,7 @@ trainerdata 674, "Alfred"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -22984,7 +23120,7 @@ trainerdata 675, "Lance"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23009,7 +23145,7 @@ trainerdata 676, "Parker"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23045,7 +23181,7 @@ trainerdata 677, "Eddie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23070,7 +23206,7 @@ trainerdata 678, "Joy"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23095,7 +23231,7 @@ trainerdata 679, "Callie"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23131,7 +23267,7 @@ trainerdata 680, "Kassandra"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23167,7 +23303,7 @@ trainerdata 681, "Arabella"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23203,7 +23339,7 @@ trainerdata 682, "Bonita"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23232,14 +23368,14 @@ trainerdata 682, "Bonita"
     endparty
 
 trainerdata 683, "Salma"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_ACE_TRAINER_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23270,14 +23406,14 @@ trainerdata 683, "Salma"
     endparty
 
 trainerdata 684, "Elan & Ida"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_DOUBLE_TEAM
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype DOUBLE_BATTLE
     endentry
 
@@ -23315,7 +23451,7 @@ trainerdata 685, "Edwin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23340,7 +23476,7 @@ trainerdata 686, "Bryce"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23368,7 +23504,7 @@ trainerdata 687, "Shaun"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23396,7 +23532,7 @@ trainerdata 688, "Cady"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23417,7 +23553,7 @@ trainerdata 689, "Cary"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23442,7 +23578,7 @@ trainerdata 690, "Waldo"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23467,7 +23603,7 @@ trainerdata 691, "Merle"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23492,7 +23628,7 @@ trainerdata 692, "Lowell"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23517,7 +23653,7 @@ trainerdata 693, "Linden"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23542,7 +23678,7 @@ trainerdata 694, "Daniel"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23567,7 +23703,7 @@ trainerdata 695, "Dane"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23595,7 +23731,7 @@ trainerdata 696, "Dion"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23616,7 +23752,7 @@ trainerdata 697, "Stacey"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23651,7 +23787,7 @@ trainerdata 698, "Ellis"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23686,7 +23822,7 @@ trainerdata 699, "Abner"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -23714,14 +23850,14 @@ trainerdata 699, "Abner"
     endparty
 
 trainerdata 700, "Giovanni"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_ROCKET_BOSS
     nummons 4
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23776,14 +23912,14 @@ trainerdata 700, "Giovanni"
     endparty
 
 trainerdata 701, "Lance"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_CHAMPION
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23862,14 +23998,14 @@ trainerdata 701, "Lance"
     endparty
 
 trainerdata 702, "Will"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_ELITE_FOUR_WILL
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -23948,14 +24084,14 @@ trainerdata 702, "Will"
     endparty
 
 trainerdata 703, "Koga"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_ELITE_FOUR_KOGA
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24034,14 +24170,14 @@ trainerdata 703, "Koga"
     endparty
 
 trainerdata 704, "Bruno"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_ELITE_FOUR_BRUNO
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24120,14 +24256,14 @@ trainerdata 704, "Bruno"
     endparty
 
 trainerdata 705, "Karen"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_ELITE_FOUR_KAREN
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24213,7 +24349,7 @@ trainerdata 706, "Proton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24249,7 +24385,7 @@ trainerdata 707, "Palmer"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24270,7 +24406,7 @@ trainerdata 708, "Argenta"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24291,7 +24427,7 @@ trainerdata 709, "Thorton"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24312,7 +24448,7 @@ trainerdata 710, "Dahlia"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24333,7 +24469,7 @@ trainerdata 711, "Darach"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24347,14 +24483,14 @@ trainerdata 711, "Darach"
     endparty
 
 trainerdata 712, "Falkner"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_FALKNER
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24433,14 +24569,14 @@ trainerdata 712, "Falkner"
     endparty
 
 trainerdata 713, "Bugsy"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_BUGSY
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24519,14 +24655,14 @@ trainerdata 713, "Bugsy"
     endparty
 
 trainerdata 714, "Whitney"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_WHITNEY
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_PRIORITIZE_STATUS_MOVES | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_PRIORITIZE_STATUS_MOVES
     battletype SINGLE_BATTLE
     endentry
 
@@ -24605,14 +24741,14 @@ trainerdata 714, "Whitney"
     endparty
 
 trainerdata 715, "Morty"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_MORTY
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24691,14 +24827,14 @@ trainerdata 715, "Morty"
     endparty
 
 trainerdata 716, "Pryce"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_PRYCE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER
     battletype SINGLE_BATTLE
     endentry
 
@@ -24777,14 +24913,14 @@ trainerdata 716, "Pryce"
     endparty
 
 trainerdata 717, "Jasmine"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_JASMINE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24863,14 +24999,14 @@ trainerdata 717, "Jasmine"
     endparty
 
 trainerdata 718, "Chuck"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_CHUCK
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -24949,14 +25085,14 @@ trainerdata 718, "Chuck"
     endparty
 
 trainerdata 719, "Clair"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_CLAIR
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -25035,14 +25171,14 @@ trainerdata 719, "Clair"
     endparty
 
 trainerdata 720, "Brock"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_BROCK
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -25121,14 +25257,14 @@ trainerdata 720, "Brock"
     endparty
 
 trainerdata 721, "Misty"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_MISTY
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -25207,14 +25343,14 @@ trainerdata 721, "Misty"
     endparty
 
 trainerdata 722, "Lt. Surge"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_LT_SURGE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -25293,14 +25429,14 @@ trainerdata 722, "Lt. Surge"
     endparty
 
 trainerdata 723, "Erika"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_ERIKA
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER
     battletype SINGLE_BATTLE
     endentry
 
@@ -25379,14 +25515,14 @@ trainerdata 723, "Erika"
     endparty
 
 trainerdata 724, "Janine"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_JANINE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -25465,14 +25601,14 @@ trainerdata 724, "Janine"
     endparty
 
 trainerdata 725, "Sabrina"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_SABRINA
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_PRIORITIZE_STATUS_MOVES | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_PRIORITIZE_STATUS_MOVES
     battletype SINGLE_BATTLE
     endentry
 
@@ -25551,14 +25687,14 @@ trainerdata 725, "Sabrina"
     endparty
 
 trainerdata 726, "Blaine"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_BLAINE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -25637,14 +25773,14 @@ trainerdata 726, "Blaine"
     endparty
 
 trainerdata 727, "Blue"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_BLUE
     nummons 6
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -25730,7 +25866,7 @@ trainerdata 728, "Charlotte"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype SINGLE_BATTLE
     endentry
 
@@ -25751,7 +25887,7 @@ trainerdata 729, "Duff & Eda"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
     battletype DOUBLE_BATTLE
     endentry
 
@@ -25779,7 +25915,7 @@ trainerdata 730, "Thom & Kae"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype DOUBLE_BATTLE
     endentry
 
@@ -25815,7 +25951,7 @@ trainerdata 731, "Devin"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE
     battletype SINGLE_BATTLE
     endentry
 
@@ -25850,7 +25986,7 @@ trainerdata 732, "Grant"
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -25871,14 +26007,14 @@ trainerdata 732, "Grant"
     endparty
 
 trainerdata 733, "Lance"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_CHAMPION
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -25921,14 +26057,14 @@ trainerdata 733, "Lance"
     endparty
 
 trainerdata 734, "Clair"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_LEADER_CLAIR
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -25971,14 +26107,14 @@ trainerdata 734, "Clair"
     endparty
 
 trainerdata 735, "Silver"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_RIVAL
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -26021,14 +26157,14 @@ trainerdata 735, "Silver"
     endparty
 
 trainerdata 736, "Silver"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_RIVAL
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -26071,14 +26207,14 @@ trainerdata 736, "Silver"
     endparty
 
 trainerdata 737, "Silver"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
     trainerclass TRAINERCLASS_RIVAL
     nummons 3
     item ITEM_FULL_RESTORE
     item ITEM_FULL_RESTORE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -26120,16 +26256,15 @@ trainerdata 737, "Silver"
         ballseal 0
     endparty
 
-
 trainerdata 738, "Ethan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_NPC_TRAINER_ETHAN
+    trainerclass 129
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -26158,13 +26293,13 @@ trainerdata 738, "Ethan"
 
 trainerdata 739, "Lyra"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_NPC_TRAINER_LYRA
+    trainerclass 130
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -26190,3 +26325,60 @@ trainerdata 739, "Lyra"
         pokemon SPECIES_VULPIX
         ballseal 0
     endparty
+
+trainerdata 740, "Grunt"
+    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainerclass TRAINERCLASS_TEAM_ROCKET
+    nummons 2
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
+    battletype SINGLE_BATTLE
+    endentry
+
+    party 740
+        // mon 0
+        ivs 30
+        abilityslot 32
+        level 19
+        pokemon SPECIES_HOUNDOUR
+        ballseal 0
+
+        // mon 1
+        ivs 30
+        abilityslot 32
+        level 19
+        pokemon SPECIES_EKANS
+        ballseal 0
+    endparty
+
+trainerdata 741, "Grunt"
+    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainerclass TRAINERCLASS_TEAM_ROCKET
+    nummons 2
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE
+    battletype SINGLE_BATTLE
+    endentry
+
+    party 741
+        // mon 0
+        ivs 30
+        abilityslot 32
+        level 19
+        pokemon SPECIES_MANKEY
+        ballseal 0
+
+        // mon 1
+        ivs 30
+        abilityslot 32
+        level 19
+        monwithform SPECIES_RATTATA, 1
+        ballseal 0
+    endparty
+

@@ -3543,7 +3543,7 @@ mondata SPECIES_SPINARAK, "Spinarak"
 
 
 mondata SPECIES_ARIADOS, "Ariados"
-    basestats 70, 90, 70, 80, 60, 70
+    basestats 70, 90, 70, 40, 60, 70
     types TYPE_BUG, TYPE_POISON
     catchrate 90
     baseexp 0 // defined in baseexp.s
@@ -11768,7 +11768,7 @@ mondata SPECIES_PURRLOIN, "Purrloin"
     abilities ABILITY_LIMBER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    mondexentry SPECIES_PURRLOIN, "Their cute act is a ruse. They trick\npeople and steal their valuables\njust to see the looks on their faces."
+    mondexentry SPECIES_PURRLOIN, "Their cute act is a ruse.\nThey trick people and steal their valuables\njust to see the looks on their faces."
     mondexclassification SPECIES_PURRLOIN, "Devious Pokémon"
     mondexheight SPECIES_PURRLOIN, "1’04”"
     mondexweight SPECIES_PURRLOIN, "22.3 lbs."

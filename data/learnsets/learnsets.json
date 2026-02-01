@@ -12932,7 +12932,7 @@
       },
       {
         "Level": 10,
-        "Move": "MOVE_ROLLOUT"
+        "Move": "MOVE_ROCK_THROW"
       },
       {
         "Level": 12,
@@ -12940,7 +12940,7 @@
       },
       {
         "Level": 16,
-        "Move": "MOVE_ROCK_THROW"
+        "Move": "MOVE_ROLLOUT"
       },
       {
         "Level": 18,
@@ -30330,6 +30330,10 @@
       {
         "Level": 0,
         "Move": "MOVE_SWORDS_DANCE"
+      },
+      {
+        "Level": 0,
+        "Move": "MOVE_TOXIC_THREAD"
       },
       {
         "Level": 1,
@@ -135494,7 +135498,7 @@
       },
       {
         "Level": 10,
-        "Move": "MOVE_ROLLOUT"
+        "Move": "MOVE_ROCK_THROW"
       },
       {
         "Level": 12,
@@ -135502,7 +135506,7 @@
       },
       {
         "Level": 16,
-        "Move": "MOVE_ROCK_THROW"
+        "Move": "MOVE_ROLLOUT"
       },
       {
         "Level": 18,
