@@ -728,36 +728,36 @@ trainerdata 21, "Bugsy"
         ivs 100
         abilityslot 0
         level 21
-        pokemon SPECIES_VOLBEAT
+        pokemon SPECIES_RIBOMBEE
         item ITEM_NONE
         move MOVE_U_TURN
-        move MOVE_THUNDER_SHOCK
-        move MOVE_STRUGGLE_BUG
-        move MOVE_TAIL_GLOW
+        move MOVE_SIGNAL_BEAM
+        move MOVE_MAGICAL_LEAF
+        move MOVE_DRAINING_KISS
         ballseal 0
 
         // mon 2
         ivs 100
         abilityslot 0
         level 22
-        pokemon SPECIES_SPIDOPS
+        pokemon SPECIES_RABSCA
         item ITEM_NONE
-        move MOVE_U_TURN
-        move MOVE_PROTECT
-        move MOVE_ROCK_TOMB
-        move MOVE_TRAILBLAZE
+        move MOVE_PSYBEAM
+        move MOVE_MUD_SHOT
+        move MOVE_STRUGGLE_BUG
+        move MOVE_CONFUSE_RAY
         ballseal 0
 
         // mon 3
         ivs 100
         abilityslot 1
         level 22
-        pokemon SPECIES_VIVILLON
+        pokemon SPECIES_VESPIQUEN
         item ITEM_NONE
         move MOVE_U_TURN
-        move MOVE_STUN_SPORE
-        move MOVE_GIGA_DRAIN
-        move MOVE_STRUGGLE_BUG
+        move MOVE_AIR_SLASH
+        move MOVE_CROSS_POISON
+        move MOVE_HEAL_ORDER
         ballseal 0
 
         // mon 4
@@ -766,7 +766,7 @@ trainerdata 21, "Bugsy"
         level 23
         pokemon SPECIES_ARIADOS
         item ITEM_POISON_BARB
-        move MOVE_NIGHT_SLASH
+        move MOVE_SHADOW_SNEAK
         move MOVE_SKITTER_SMACK
         move MOVE_CROSS_POISON
         move MOVE_TOXIC_THREAD
