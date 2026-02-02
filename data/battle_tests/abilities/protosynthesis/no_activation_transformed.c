@@ -1,4 +1,4 @@
-// Test: Protosynthesis prioritizes stats in the case of a tie in the following order: Attack, Defense, Sp. Attack, Sp. Defense, Speed - Attack case
+// Test: Protosynthesis doesn't activate for a transformed battler
 {
     .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,

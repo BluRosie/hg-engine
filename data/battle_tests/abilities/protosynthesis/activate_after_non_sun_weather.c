@@ -1,5 +1,5 @@
 // Test: Protosynthesis activates with Booster Energy immediately after non-Sun Weather setting ability.
-// 
+// https://bsky.app/profile/nerdofnow.bsky.social/post/3lg2ox2cdlc2v
 {
     .battleType = BATTLE_TYPE_DOUBLE,
     .weather = WEATHER_NONE,

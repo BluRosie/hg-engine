@@ -1,25 +1,36 @@
-// Test: Protosynthesis prioritizes stats in the case of a tie in the following order: Attack, Defense, Sp. Attack, Sp. Defense, Speed - Attack case
-// Mew has 120 stats across the board (except HP)
+// Test: Quark Drive activates after all Weather setting abilities, not immediately after.
+// https://bsky.app/profile/nerdofnow.bsky.social/post/3lg2ox2ccm22v
 {
-    .battleType = BATTLE_TYPE_SINGLE,
+    .battleType = BATTLE_TYPE_DOUBLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
 
     .playerParty = {
         {
-            .species = SPECIES_MEW,
-            .level = 51,
+            .species = SPECIES_IRON_BUNDLE,
+            .level = 50,
             .form = 0,
-            .ability = ABILITY_PROTOSYNTHESIS,
+            .ability = ABILITY_QUARK_DRIVE,
             .item = ITEM_BOOSTER_ENERGY,
-            .moves = {MOVE_SCRATCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        {.species = SPECIES_NONE},
+        {
+            .species = SPECIES_TORKOAL,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_DROUGHT,
+            .item = ITEM_NONE,
+            .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         {.species = SPECIES_NONE},
         {.species = SPECIES_NONE},
         {.species = SPECIES_NONE},
@@ -28,12 +39,24 @@
 
     .enemyParty = {
         {
-            .species = SPECIES_MEW,
+            .species = SPECIES_SALAMENCE,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_DROUGHT,
+            .ability = ABILITY_INTIMIDATE,
             .item = ITEM_NONE,
-            .moves = {MOVE_SCRATCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .hp = 0,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_VULPIX,
+            .level = 50,
+            .form = 1,
+            .ability = ABILITY_SNOW_WARNING,
+            .item = ITEM_NONE,
+            .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
@@ -42,13 +65,12 @@
         {.species = SPECIES_NONE},
         {.species = SPECIES_NONE},
         {.species = SPECIES_NONE},
-        {.species = SPECIES_NONE},
         {.species = SPECIES_NONE}
     },
 
     .playerScript = {
         {
-            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_NONE, 0},
             {ACTION_NONE, 0},
             {ACTION_NONE, 0},
             {ACTION_NONE, 0},
@@ -71,7 +93,7 @@
 
     .enemyScript = {
         {
-            {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+            {ACTION_NONE, 0},
             {ACTION_NONE, 0},
             {ACTION_NONE, 0},
             {ACTION_NONE, 0},
@@ -93,9 +115,9 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HARSH_SUNLIGHT_ACTIVATE_ABILITY },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_STARTED_TO_SNOW },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ITEM_ACTIVATE_ABILITY },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIGHEST_STAT_WAS_HEIGHTENED },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 21, 21, 21, 22, 22, 22, 22, 23, 23, 23, 23, 24, 24, 24, 24, 25 } },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 16, 16, 16, 16, 16, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 19 } },
     }
 },

@@ -1,5 +1,4 @@
-// Test: Protosynthesis prioritizes stats in the case of a tie in the following order: Attack, Defense, Sp. Attack, Sp. Defense, Speed - Attack case
-// Mew has 120 stats across the board (except HP)
+// Test: Quark Drive deactivates when Electric Terrain disappears
 {
     .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
@@ -8,12 +7,12 @@
 
     .playerParty = {
         {
-            .species = SPECIES_MEW,
-            .level = 51,
+            .species = SPECIES_TAPU_KOKO,
+            .level = 50,
             .form = 0,
-            .ability = ABILITY_PROTOSYNTHESIS,
-            .item = ITEM_BOOSTER_ENERGY,
-            .moves = {MOVE_SCRATCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .ability = ABILITY_ELECTRIC_SURGE,
+            .item = ITEM_NONE,
+            .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
@@ -28,12 +27,12 @@
 
     .enemyParty = {
         {
-            .species = SPECIES_MEW,
+            .species = SPECIES_IRON_VALIANT,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_DROUGHT,
+            .ability = ABILITY_QUARK_DRIVE,
             .item = ITEM_NONE,
-            .moves = {MOVE_SCRATCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
@@ -49,10 +48,10 @@
     .playerScript = {
         {
             {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
-            {ACTION_NONE, 0},
-            {ACTION_NONE, 0},
-            {ACTION_NONE, 0},
-            {ACTION_NONE, 0},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST},
             {ACTION_NONE, 0},
             {ACTION_NONE, 0},
             {ACTION_NONE, 0},
@@ -72,10 +71,10 @@
     .enemyScript = {
         {
             {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
-            {ACTION_NONE, 0},
-            {ACTION_NONE, 0},
-            {ACTION_NONE, 0},
-            {ACTION_NONE, 0},
+            {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
+            {ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
             {ACTION_NONE, 0},
             {ACTION_NONE, 0},
             {ACTION_NONE, 0},
@@ -93,9 +92,10 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HARSH_SUNLIGHT_ACTIVATE_ABILITY },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ELECTRIC_TERRAIN },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ELECTRIC_TERRAIN_ACTIVATE_ABILITY },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIGHEST_STAT_WAS_HEIGHTENED },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 21, 21, 21, 22, 22, 22, 22, 23, 23, 23, 23, 24, 24, 24, 24, 25 } },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 16, 16, 16, 16, 16, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 19 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ELECTRIC_CURRENT_DISAPPEARED },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_WORE_OFF },
     }
 },

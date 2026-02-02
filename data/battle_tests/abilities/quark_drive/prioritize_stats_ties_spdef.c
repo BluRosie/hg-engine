@@ -1,5 +1,5 @@
-// Test: Protosynthesis prioritizes stats in the case of a tie in the following order: Attack, Defense, Sp. Attack, Sp. Defense, Speed - Attack case
-// Mew has 120 stats across the board (except HP)
+// Test: Protosynthesis prioritizes stats in the case of a tie in the following order: Attack, Defense, Sp. Attack, Sp. Defense, Speed - Sp. Defense case
+// Ninetales has 96 Atk, 95 Def, 101 Sp. Atk, 120 Sp. Def, 120 Speed
 {
     .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
@@ -8,12 +8,12 @@
 
     .playerParty = {
         {
-            .species = SPECIES_MEW,
-            .level = 51,
+            .species = SPECIES_NINETALES,
+            .level = 50,
             .form = 0,
-            .ability = ABILITY_PROTOSYNTHESIS,
+            .ability = ABILITY_QUARK_DRIVE,
             .item = ITEM_BOOSTER_ENERGY,
-            .moves = {MOVE_SCRATCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .moves = {MOVE_FLAMETHROWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
@@ -28,12 +28,12 @@
 
     .enemyParty = {
         {
-            .species = SPECIES_MEW,
+            .species = SPECIES_NINETALES,
             .level = 50,
             .form = 0,
             .ability = ABILITY_DROUGHT,
-            .item = ITEM_NONE,
-            .moves = {MOVE_SCRATCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .item = ITEM_CHOICE_SCARF,
+            .moves = {MOVE_FLAMETHROWER, MOVE_NONE, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
@@ -93,9 +93,9 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HARSH_SUNLIGHT_ACTIVATE_ABILITY },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ITEM_ACTIVATE_ABILITY },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIGHEST_STAT_WAS_HEIGHTENED },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 21, 21, 21, 22, 22, 22, 22, 23, 23, 23, 23, 24, 24, 24, 24, 25 } },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 16, 16, 16, 16, 16, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 19 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 25, 25, 25, 26, 26, 27, 27, 27, 27, 27, 28, 28, 28, 29, 29, 30 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 33, 33, 33, 33, 34, 34, 35, 35, 36, 36, 36, 36, 37, 37, 38, 39 } },
     }
 },
