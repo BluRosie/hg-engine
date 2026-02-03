@@ -1093,6 +1093,9 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-20#post-9423025
                 if ((AttackingMon.ability == ABILITY_ORICHALCUM_PULSE)
                 && (field_cond & WEATHER_SUNNY_ANY)
+                // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9426805
+                // TODO: For Orichalcum Pulse itself - still shows "sending its ancient pulse into a frenzy!" message even with Utility Umbrella disabling the attack boost.
+                && !(AttackingMon.item_held_effect == HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN)
                 && (movesplit == SPLIT_PHYSICAL)) {
                     attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3333);
                 }
