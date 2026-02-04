@@ -2,49 +2,58 @@
 
 .data
 
-_000:
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_TEMP, ABILITY_MAGIC_GUARD, _082
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_WRAP, _039
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_FIRE_SPIN, _044
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_MAGMA_STORM, _049
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_CLAMP, _054
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_WHIRLPOOL, _059
-    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_SAND_TOMB, _064
+_Start:
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_TEMP, ABILITY_MAGIC_GUARD, _End
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_WRAP, _PlayAnimation_Wrap
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_FIRE_SPIN, _PlayAnimation_FireSpin
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_MAGMA_STORM, _PlayAnimation_MagmaStorm
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_CLAMP, _PlayAnimation_Clamp
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_WHIRLPOOL, _PlayAnimation_Whirlpool
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_SAND_TOMB, _PlayAnimation_SandTomb
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_SNAP_TRAP, _PlayAnimation_SnapTrap
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_THUNDER_CAGE, _PlayAnimation_ThunderCage
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_DAMAGE_BIND
-    GoTo _067
+    GoTo _DealDamage
 
-_039:
+_PlayAnimation_Wrap:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_DAMAGE_WRAP
-    GoTo _067
+    GoTo _DealDamage
 
-_044:
+_PlayAnimation_FireSpin:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_DAMAGE_FIRE_SPIN
-    GoTo _067
+    GoTo _DealDamage
 
-_049:
+_PlayAnimation_MagmaStorm:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_DAMAGE_MAGMA_STORM
-    GoTo _067
+    GoTo _DealDamage
 
-_054:
+_PlayAnimation_Clamp:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_DAMAGE_CLAMP
-    GoTo _067
+    GoTo _DealDamage
 
-_059:
+_PlayAnimation_Whirlpool:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_DAMAGE_WHIRLPOOL
-    GoTo _067
+    GoTo _DealDamage
 
-_064:
+_PlayAnimation_SandTomb:
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_DAMAGE_SAND_TOMB
+    GoTo _DealDamage
 
-_067:
+_PlayAnimation_SnapTrap:
+    // TODO: Implement Snap Trap bind animation.
+    PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_DAMAGE_WRAP
+    GoTo _DealDamage
+
+_PlayAnimation_ThunderCage:
+    // TODO: Implement Thunder Cage bind animation.
+    PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_DAMAGE_WRAP
+
+_DealDamage:
     Wait 
     // {0} is hurt by {1}!
     PrintMessage 262, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP
-    Wait 
-    WaitButtonABTime 30
-    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     GoToSubscript BATTLE_SUBSCRIPT_UPDATE_HP
     Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
 
-_082:
-    End 
+_End:
+    End
