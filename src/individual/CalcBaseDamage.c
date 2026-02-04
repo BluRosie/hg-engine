@@ -703,7 +703,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 || (moveEffect == MOVE_EFFECT_RECOIL_BURN_HIT)
                 || (moveEffect == MOVE_EFFECT_RECOIL_PARALYZE_HIT)
                 || (moveEffect == MOVE_EFFECT_RECOIL_HALF)
-                || (moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS))) {
+                || (moveEffect == MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS))) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
                 continue;
             }
