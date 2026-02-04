@@ -3393,12 +3393,21 @@ BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type) {
 }
 
 BOOL LONG_CALL ChangeToPureType(struct BattleStruct *ctx, int battlerId, int type) {
+    // debug_printf("In ChangeToPureType\n");
+
     GF_ASSERT(TYPE_NORMAL <= type && type <= TYPE_STELLAR);
     struct BattlePokemon *client = &ctx->battlemon[battlerId];
 
     if (client->is_currently_terastallized) {
         return FALSE;
     }
+
+    ctx->moveConditionsFlags[battlerId].soakFlag = FALSE;
+    ctx->moveConditionsFlags[battlerId].magicPowderFlag = FALSE;
+    ctx->moveConditionsFlags[battlerId].forestsCurseFlag = FALSE;
+    ctx->moveConditionsFlags[battlerId].trickOrTreatFlag = FALSE;
+    ctx->moveConditionsFlags[battlerId].burnUpFlag = FALSE;
+    ctx->moveConditionsFlags[battlerId].doubleShockFlag = FALSE;
 
     client->type1 = type;
     client->type2 = type;
@@ -3408,12 +3417,27 @@ BOOL LONG_CALL ChangeToPureType(struct BattleStruct *ctx, int battlerId, int typ
 }
 
 BOOL LONG_CALL AddType(struct BattleStruct *ctx, int battlerId, int type) {
+    // debug_printf("In AddType\n");
+
     GF_ASSERT(TYPE_NORMAL <= type && type <= TYPE_STELLAR);
     struct BattlePokemon *client = &ctx->battlemon[battlerId];
 
     if (client->is_currently_terastallized) {
         return FALSE;
     }
+
+    if (ctx->moveConditionsFlags[battlerId].forestsCurseFlag) {
+        RemoveType(ctx, battlerId, TYPE_GRASS);
+    }
+
+    if (ctx->moveConditionsFlags[battlerId].trickOrTreatFlag) {
+        RemoveType(ctx, battlerId, TYPE_GHOST);
+    }
+
+    ctx->moveConditionsFlags[battlerId].soakFlag = FALSE;
+    ctx->moveConditionsFlags[battlerId].magicPowderFlag = FALSE;
+    ctx->moveConditionsFlags[battlerId].forestsCurseFlag = FALSE;
+    ctx->moveConditionsFlags[battlerId].trickOrTreatFlag = FALSE;
 
     if (ctx->battlemon[battlerId].type1 == ctx->battlemon[battlerId].type2) {
         ctx->battlemon[battlerId].type2 = type;
@@ -3424,6 +3448,8 @@ BOOL LONG_CALL AddType(struct BattleStruct *ctx, int battlerId, int type) {
 }
 
 BOOL LONG_CALL RemoveType(struct BattleStruct *ctx, int battlerId, int type) {
+    // debug_printf("In RemoveType\n");
+
     GF_ASSERT(TYPE_NORMAL <= type && type <= TYPE_STELLAR);
     struct BattlePokemon *client = &ctx->battlemon[battlerId];
 

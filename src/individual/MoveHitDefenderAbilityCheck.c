@@ -66,6 +66,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             && (sp->battlemon[sp->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0
             && (sp->multiHitCount <= 1)) // don't activate until the last hit of a multi-hit move
         {
+            debug_printf("Color Change\n");
             ChangeToPureType(sp, sp->defence_client, movetype);
             seq_no[0] = SUB_SEQ_COLOR_CHANGE;
             sp->msg_work = movetype;
