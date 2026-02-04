@@ -1,4 +1,4 @@
-// Test: Burn Up - Pure Fire types cannot use Burn Up twice
+// Test: Burn Up - Fire types cannot use Burn Up twice
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
