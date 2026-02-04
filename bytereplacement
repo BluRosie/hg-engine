@@ -74,6 +74,10 @@ arm9 0203DFF4 8A 02
 # since we moved it
 0012 0224E998 B9 19 0A 54 40 1C 0A 54
 
+# restore the original code for the hook for the bufferitem script command
+# since we no longer hook it
+arm9 02048510 70 B5 05 1C 80 30 00 68
+
 #ifndef IMPLEMENT_CAPTURE_EXPERIENCE
 
 # undo capture experience
@@ -490,3 +494,7 @@ arm9 02000E54 24 00 00 00 04 5C 1E 02
 
 # show 6 digits for mart prices
 0031 0225DE46 06 23
+
+# nop out rock smash table limiter compare
+0001 02204D1A C0 46 C0 46 C0 46 C0 46 C0 46 C0 46 C0 46 C0 46
+

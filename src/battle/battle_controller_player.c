@@ -3,6 +3,10 @@
 #include "../../include/constants/battle_message_constants.h"
 #include "../../include/config.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../../include/test_battle.h"
+#endif // DEBUG_BATTLE_SCENARIOS
+
 #if defined (DISABLE_ITEMS_IN_TRAINER_BATTLE)
 void overrideItemUsage(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
@@ -58,6 +62,14 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
         }
         LoadDifferentBattleBackground(bsys, bg, terrain);
         ctx->hasLoadedTerrainOver = 1;
+    }
+#endif
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+    if (TestBattle_IsComplete() && !ctx->fight_end_flag)
+    {
+        BattleSystem_SetBattleOutcomeFlags(bsys, BATTLE_OUTCOME_PLAYER_FLED);
+        ctx->server_seq_no = CONTROLLER_COMMAND_42;
     }
 #endif
 

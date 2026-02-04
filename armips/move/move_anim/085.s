@@ -10,6 +10,8 @@
 
 .create "build/move/move_anim/0_085", 0
 
+//Thunderbolt
+
 a010_085:
     initspriteresource
     loadspriteresource 0

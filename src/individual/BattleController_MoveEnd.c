@@ -2,6 +2,7 @@
 #include "../../include/config.h"
 #include "../../include/debug.h"
 #include "../../include/pokemon.h"
+#include "../../include/test_battle.h"
 #include "../../include/types.h"
 #include "../../include/constants/ability.h"
 #include "../../include/constants/hold_item_effects.h"
@@ -321,5 +322,14 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     BattleStructureInit(ctx);
 
     ctx->server_seq_no = CONTROLLER_COMMAND_8;
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+    // struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+    // debug_printf("test get player party first mon species %d\n", scenario->playerParty[0].species);
+    // for (int i = 0; i < 4; i++) {
+    //     debug_printf("[MoveEnd_HP] Battler %d: HP=%d/%d\n", i, ctx->battlemon[i].hp, ctx->battlemon[i].maxhp);
+    // }
+#endif
+
     // debug_printf("End of BattleController_MoveEnd\n");
 }

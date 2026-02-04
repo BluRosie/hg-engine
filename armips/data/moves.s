@@ -7973,7 +7973,7 @@ movedata MOVE_ENTRAINMENT, "Entrainment"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_CUTE
     terminatedata
@@ -8053,7 +8053,7 @@ movedata MOVE_CLEAR_SMOG, "Clear Smog"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_BEAUTY
     terminatedata
@@ -8149,7 +8149,7 @@ movedata MOVE_HEAL_PULSE, "Heal Pulse"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_BEAUTY
     terminatedata
@@ -8293,7 +8293,7 @@ movedata MOVE_RETALIATE, "Retaliate"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -9132,7 +9132,7 @@ movedata MOVE_PHANTOM_FORCE, "Phantom Force"
     movedescription MOVE_PHANTOM_FORCE, "The user disappears,\nthen strikes the foe\non the second turn.\nIt hits even if the\nfoe protects itself."
 
 movedata MOVE_TRICK_OR_TREAT, "Trick-or-Treat"
-    battleeffect MOVE_EFFECT_ADD_THIRD_TYPE_GHOST
+    battleeffect MOVE_EFFECT_ADD_TYPE_GHOST
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GHOST
@@ -9196,7 +9196,7 @@ movedatalongname MOVE_PARABOLIC_CHARGE, "ParabolicCharge", "Parabolic Charge"
     movedescription MOVE_PARABOLIC_CHARGE, "An energy-draining\nshockwave. The user’s\nHP is restored by\nhalf the damage taken\nby those hit."
 
 movedata MOVE_FORESTS_CURSE, "Forest’s Curse"
-    battleeffect MOVE_EFFECT_ADD_THIRD_TYPE_GRASS
+    battleeffect MOVE_EFFECT_ADD_TYPE_GRASS
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
@@ -9237,7 +9237,7 @@ movedata MOVE_FREEZE_DRY, "Freeze-Dry"
     effectchance 10
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_BEAUTY
     terminatedata
@@ -10750,7 +10750,7 @@ movedata MOVE_HIGH_HORSEPOWER, "High Horsepower"
     movedescription MOVE_HIGH_HORSEPOWER, "The user fiercely\nattacks the target\nusing its entire body."
 
 movedata MOVE_STRENGTH_SAP, "Strength Sap"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_STRENGTH_SAP
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
@@ -10759,7 +10759,7 @@ movedata MOVE_STRENGTH_SAP, "Strength Sap"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -10887,7 +10887,7 @@ movedata MOVE_POLLEN_PUFF, "Pollen Puff"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -10967,7 +10967,7 @@ movedata MOVE_POWER_TRIP, "Power Trip"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -11387,7 +11387,7 @@ movedatalongname MOVE_STOMPING_TANTRUM, "StompingTantrum", "Stomping Tantrum"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12509,7 +12509,7 @@ movedata MOVE_DECORATE, "Decorate"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12845,7 +12845,7 @@ movedata MOVE_STEEL_ROLLER, "Steel Roller"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12957,7 +12957,7 @@ movedata MOVE_TERRAIN_PULSE, "Terrain Pulse"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13053,7 +13053,7 @@ movedata MOVE_COACHING, "Coaching"
     effectchance 0
     target RANGE_ALLY
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13718,7 +13718,7 @@ movedata MOVE_SILK_TRAP, "Silk Trap"
     movedescription MOVE_SILK_TRAP, "The user spins a silken\ntrap, protecting itself\nwhile lowering the Speed\nof any attacker that\nmakes direct contact."
 
 movedata MOVE_AXE_KICK, "Axe Kick"
-    battleeffect MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS
+    battleeffect MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_FIGHTING
@@ -14405,7 +14405,7 @@ movedata MOVE_AQUA_CUTTER, "Aqua Cutter"
     terminatedata
     movedescription MOVE_AQUA_CUTTER, "The user expels\npressurized water to\ncut at the target like\na blade. It has a high\ncritical-hit ratio."
 
-// The Torque moves are not normally used by players, so they lack internal descriptions. 
+// The Torque moves are not normally used by players, so they lack internal descriptions.
 // The given descriptions are sourced from PokeRogue with permission.
 movedata MOVE_BLAZING_TORQUE, "Blazing Torque"
     battleeffect MOVE_EFFECT_BURN_HIT

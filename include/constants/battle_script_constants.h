@@ -461,8 +461,8 @@
 #define SUB_SEQ_HANDLE_ANGER_SHELL                    (451)
 #define SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE         (452)
 #define SUB_SEQ_HANDLE_INCINERATE                     (453)
-#define SUB_SEQ_ADD_THIRD_TYPE_GRASS                  (454)
-#define SUB_SEQ_ADD_THIRD_TYPE_GHOST                  (455)
+#define SUB_SEQ_ADD_TYPE_GRASS                        (454)
+#define SUB_SEQ_ADD_TYPE_GHOST                        (455)
 #define SUB_SEQ_CHANGE_TARGET_TO_PSYCHIC_TYPE         (456)
 #define SUB_SEQ_AURORA_VEIL                           (457)
 #define SUB_SEQ_CHEEK_POUCH                           (458)
@@ -689,8 +689,8 @@
 #define ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6         (193) // This constant and the one below are only used as spacers for Steam Engine.
 #define ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP_6        (194) // To add more +6 effects, copy the order & proximity of other stat stage change constants.
 #define ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_6          (195) // Used for Steam Engine.
-#define ADD_STATUS_EFF_ADD_THIRD_TYPE_GRASS            (196)
-#define ADD_STATUS_EFF_ADD_THIRD_TYPE_GHOST            (197)
+#define ADD_STATUS_EFF_ADD_TYPE_GRASS                  (196)
+#define ADD_STATUS_EFF_ADD_TYPE_GHOST                  (197)
 #define ADD_STATUS_EFF_CHANGE_TARGET_TO_PSYCHIC_TYPE   (198)
 #define ADD_STATUS_EFF_AURORA_VEIL                     (199)
 #define ADD_STATUS_EFF_STRENGTH_SAP                    (200)

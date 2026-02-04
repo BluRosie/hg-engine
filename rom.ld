@@ -205,7 +205,7 @@ HeldItemHealCheck = 0x02254E7C | 1;
 HeldItemHoldEffectGet = 0x02255830 | 1;
 HeldItemAtkGet = 0x02255844 | 1;
 IsMovingAfterClient = 0x0225561C | 1;
-CheckSubstitute = 0x02256838 | 1;
+
 GetArceusType = 0x02071C28 | 1;
 BattleWorkBattleStatusFlagGet = 0x0223B514 | 1;
 PokeParaGiratinaFormChange = 0x02071CA0 | 1;
@@ -684,6 +684,7 @@ sHoneyGatherChanceTable = 0x0226CA58;
 
 sPlayerBattleCommands = 0x0226CA90;
 BattleSystem_GetBattleOutcomeFlags = 0x0223BD14 | 1;
+BattleSystem_SetBattleOutcomeFlags = 0x0223BD20 | 1;
 ov12_022639B8 = 0x022639B8 | 1;
 
 FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom = 0x02067584 | 1;
