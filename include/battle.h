@@ -68,17 +68,18 @@
 #define TYPE_MUL_TRIPLE_SUPER_EFFECTIVE 40
 // #define TYPE_MUL_QUADRUPLE_SUPER_EFFECTIVE 50
 
-// #define EFFECTIVENESS_MULT_QUADRUPLE_NOT_EFFECTIVE   625
-#define EFFECTIVENESS_MULT_TRIPLE_NOT_EFFECTIVE   125
-#define EFFECTIVENESS_MULT_DOUBLE_NOT_EFFECTIVE   250
-#define EFFECTIVENESS_MULT_NOT_EFFECTIVE          500
-#define EFFECTIVENESS_MULT_NORMAL                 1000
-#define EFFECTIVENESS_MULT_SUPER_EFFECTIVE        2000
-#define EFFECTIVENESS_MULT_DOUBLE_SUPER_EFFECTIVE 4000
-#define EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE 8000
-// #define EFFECTIVENESS_MULT_QUADRUPLE_SUPER_EFFECTIVE 160000
+// #define EFFECTIVENESS_MULT_QUADRUPLE_NOT_EFFECTIVE   62500
+#define EFFECTIVENESS_MULT_TRIPLE_NOT_EFFECTIVE   125000
+#define EFFECTIVENESS_MULT_DOUBLE_NOT_EFFECTIVE   250000
+#define EFFECTIVENESS_MULT_NOT_EFFECTIVE          500000
+#define EFFECTIVENESS_MULT_NORMAL                 1000000
+#define EFFECTIVENESS_MULT_SUPER_EFFECTIVE        2000000
+#define EFFECTIVENESS_MULT_DOUBLE_SUPER_EFFECTIVE 4000000
+#define EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE 8000000
+// #define EFFECTIVENESS_MULT_QUADRUPLE_SUPER_EFFECTIVE 160000000
 
 // Special type table IDs
+#define TYPE_RING_TARGET 0xFD
 #define TYPE_FORESIGHT 0xFE
 #define TYPE_ENDTABLE  0xFF
 
@@ -4005,7 +4006,7 @@ void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int buffer
 
 int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 
-u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u32 held_effect, u8 defender_type, u8 defaultEffectiveness);
+u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u8 defender_type, u8 defaultEffectiveness);
 
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag);
 
