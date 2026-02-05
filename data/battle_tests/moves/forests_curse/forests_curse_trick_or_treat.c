@@ -1,4 +1,4 @@
-// Test: Burn Up - Fire types cannot use Burn Up twice
+// Test: Forest's Curse and Trick-or-Treat are mutually exclusive
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -14,19 +14,18 @@ const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    {
-        .battleType = BATTLE_TYPE_SINGLE,
+    { .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_ARCANINE,
+                .species = SPECIES_THROH,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_JUSTIFIED,
+                .ability = ABILITY_INNER_FOCUS,
                 .item = ITEM_NONE,
-                .moves = { MOVE_BURN_UP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_CURSE, MOVE_SPLASH, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -38,12 +37,12 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .enemyParty = { {
-                            .species = SPECIES_SHUCKLE,
+                            .species = SPECIES_SMEARGLE,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_STURDY,
+                            .ability = ABILITY_TECHNICIAN,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .moves = { MOVE_TRICK_OR_TREAT, MOVE_ASTONISH, MOVE_FORESTS_CURSE, MOVE_EMBER },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
@@ -55,10 +54,10 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .playerScript = { {
-                              { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                              { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                              { ACTION_NONE, 0 },
-                              { ACTION_NONE, 0 },
+                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                              { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
@@ -76,9 +75,9 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .enemyScript = { {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_NONE, 0 },
-                             { ACTION_NONE, 0 },
+                             { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+                             { ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST },
+                             { ACTION_MOVE_SLOT_4, BATTLER_PLAYER_FIRST },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
@@ -95,11 +94,13 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 36, 36, 37, 37, 37, 39, 39, 39, 39, 40, 40, 40, 42, 42, 42, 43 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_BURNED_ITSELF_OUT },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_BUT_IT_FAILED },
-        }
-    },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_GHOST_TYPE_ADDED },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LAID_A_CURSE },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SUPER_EFFECTIVE },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_GRASS_TYPE_ADDED },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_STAT_RAISED },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SUPER_EFFECTIVE },
+        } },
 #ifndef GET_TEST_CASE_ONLY
 };
 #endif

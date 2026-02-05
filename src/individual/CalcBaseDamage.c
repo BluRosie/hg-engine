@@ -697,13 +697,13 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             }
 
             if ((AttackingMon.ability == ABILITY_RECKLESS)
-            && (moveEffect == MOVE_EFFECT_CRASH_ON_MISS)
-            && (moveEffect == MOVE_EFFECT_RECOIL_QUARTER)
-            && (moveEffect == MOVE_EFFECT_RECOIL_THIRD)
-            && (moveEffect == MOVE_EFFECT_RECOIL_BURN_HIT)
-            && (moveEffect == MOVE_EFFECT_RECOIL_PARALYZE_HIT)
-            && (moveEffect == MOVE_EFFECT_RECOIL_HALF)
-            && (moveEffect == MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS)) {
+            && ((moveEffect == MOVE_EFFECT_CRASH_ON_MISS)
+                || (moveEffect == MOVE_EFFECT_RECOIL_QUARTER)
+                || (moveEffect == MOVE_EFFECT_RECOIL_THIRD)
+                || (moveEffect == MOVE_EFFECT_RECOIL_BURN_HIT)
+                || (moveEffect == MOVE_EFFECT_RECOIL_PARALYZE_HIT)
+                || (moveEffect == MOVE_EFFECT_RECOIL_HALF)
+                || (moveEffect == MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS))) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
                 continue;
             }
