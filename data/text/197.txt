@@ -1609,3 +1609,14 @@ The opposing {STRVAR_1 1, 0, 0} used up\nall its electricity!
 The wild {STRVAR_1 1, 0, 0} lost some of its HP!
 The opposing {STRVAR_1 1, 0, 0}\nlost some of its HP!
 {STRVAR_1 1, 0, 0} hasn’t eaten any held Berries,\nso it can’t possibly belch!
+It can’t use the move because it\ndoesn’t have a Berry!
+When the flame touched the powder on\nthe Pokémon, it exploded!
+{STRVAR_1 1, 0, 0} is covered in powder!
+The wild {STRVAR_1 1, 0, 0} is covered\nin powder!
+The opposing {STRVAR_1 1, 0, 0} is covered\nin powder!
+{STRVAR_1 1, 0, 0} concentrated intensely!
+The wild {STRVAR_1 1, 0, 0} concentrated\nintensely!
+The opposing {STRVAR_1 1, 0, 0} concentrated\nintensely!
+The effects of Throat Chop prevent\n{STRVAR_1 1, 0, 0} from using certain moves!
+The effects of Throat Chop prevent\nthe wild {STRVAR_1 1, 0, 0}\ffrom using certain moves!
+The effects of Throat Chop prevent\nthe opposing {STRVAR_1 1, 0, 0}\ffrom using certain moves!

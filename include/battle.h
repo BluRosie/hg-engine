@@ -666,6 +666,9 @@
 #define STRUGGLE_CHECK_GORILLA_TACTICS      (1 << 10)
 #define STRUGGLE_CHECK_GIGATON_HAMMER       (1 << 11)
 #define STRUGGLE_CHECK_ASSAULT_VEST         (1 << 12)
+#define STRUGGLE_CHECK_THROAT_CHOPPED       (1 << 13)
+#define STRUGGLE_CHECK_BELCH                (1 << 14)
+#define STRUGGLE_CHECK_STUFF_CHEEKS         (1 << 15)
 
 /**
  *  @brief msg work specifically for statuses
@@ -1232,8 +1235,13 @@ typedef struct MoveConditionsFlags {
     u8 forestsCurseFlag : 1;
     u8 trickOrTreatFlag : 1;
     u8 burnUpFlag : 1;
+
     u8 doubleShockFlag : 1;
-    u8 padding : 7;
+    u8 powderBlockingFireMove : 1;
+    u8 laserFocusTimer : 2;
+    u8 glaiveRush : 1;
+    u8 anyStatLoweredThisTurn : 1;
+    u8 throatChopTimer : 2;
 } MoveConditionsFlags;
 
 
