@@ -23064,23 +23064,19 @@
         "Move": "MOVE_SCARY_FACE"
       },
       {
-        "Level": 21,
-        "Move": "MOVE_WATERFALL"
-      },
-      {
         "Level": 24,
-        "Move": "MOVE_CRUNCH"
-      },
-      {
-        "Level": 28,
         "Move": "MOVE_RAIN_DANCE"
       },
       {
-        "Level": 32,
-        "Move": "MOVE_AQUA_TAIL"
+        "Level": 30,
+        "Move": "MOVE_CRUNCH"
       },
       {
-        "Level": 36,
+        "Level": 34,
+        "Move": "MOVE_WATERFALL"
+      },
+      {
+        "Level": 38,
         "Move": "MOVE_DRAGON_DANCE"
       },
       {
