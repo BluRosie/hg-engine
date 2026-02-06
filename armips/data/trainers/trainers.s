@@ -642,7 +642,7 @@ trainerdata 19, "Mickey"
     endparty
 
 trainerdata 20, "Falkner"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_BALL
     trainerclass TRAINERCLASS_LEADER_FALKNER
     nummons 4
     item ITEM_NONE
@@ -663,6 +663,7 @@ trainerdata 20, "Falkner"
         move MOVE_QUICK_ATTACK
         move MOVE_ROOST
         move MOVE_AERIAL_ACE
+        ball ITEM_QUICK_BALL
         ballseal 0
 
         // mon 1
@@ -674,6 +675,7 @@ trainerdata 20, "Falkner"
         move MOVE_ROOST
         move MOVE_AERIAL_ACE
         move MOVE_WORK_UP
+        ball ITEM_QUICK_BALL
         ballseal 0
 
         // mon 2
@@ -685,6 +687,7 @@ trainerdata 20, "Falkner"
         move MOVE_SPIKES
         move MOVE_POISON_TAIL
         move MOVE_CUT
+        ball ITEM_QUICK_BALL
         ballseal 0
 
         // mon 3
@@ -696,11 +699,12 @@ trainerdata 20, "Falkner"
         move MOVE_ROOST
         move MOVE_AERIAL_ACE
         move MOVE_ROCK_SMASH
+        ball ITEM_QUICK_BALL
         ballseal 0
     endparty
 
 trainerdata 21, "Bugsy"
-    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_BALL
     trainerclass TRAINERCLASS_LEADER_BUGSY
     nummons 5
     item ITEM_NONE
@@ -722,6 +726,7 @@ trainerdata 21, "Bugsy"
         move MOVE_AQUA_JET
         move MOVE_BUG_BITE
         move MOVE_STEALTH_ROCK
+        ball ITEM_NET_BALL
         ballseal 0
 
         // mon 1
@@ -734,6 +739,7 @@ trainerdata 21, "Bugsy"
         move MOVE_SIGNAL_BEAM
         move MOVE_MAGICAL_LEAF
         move MOVE_DRAINING_KISS
+        ball ITEM_NET_BALL
         ballseal 0
 
         // mon 2
@@ -746,6 +752,7 @@ trainerdata 21, "Bugsy"
         move MOVE_MUD_SHOT
         move MOVE_STRUGGLE_BUG
         move MOVE_CONFUSE_RAY
+        ball ITEM_NET_BALL
         ballseal 0
 
         // mon 3
@@ -758,6 +765,7 @@ trainerdata 21, "Bugsy"
         move MOVE_AIR_SLASH
         move MOVE_CROSS_POISON
         move MOVE_HEAL_ORDER
+        ball ITEM_NET_BALL
         ballseal 0
 
         // mon 4
@@ -770,6 +778,7 @@ trainerdata 21, "Bugsy"
         move MOVE_SKITTER_SMACK
         move MOVE_CROSS_POISON
         move MOVE_TOXIC_THREAD
+        ball ITEM_NET_BALL
         ballseal 0
     endparty
 

@@ -331,46 +331,46 @@ superrodrate 75
 walklevels 2, 3, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4
 
 // morning encounter slots
-    pokemon SPECIES_STARLY
-    pokemon SPECIES_WURMPLE
-    pokemon SPECIES_PAWMI
-    pokemon SPECIES_LECHONK
-    pokemon SPECIES_FLETCHLING
-    pokemon SPECIES_ZIGZAGOON
-    pokemon SPECIES_NINCADA
-    pokemon SPECIES_LECHONK
-    pokemon SPECIES_ZIGZAGOON
-    pokemon SPECIES_FLETCHLING
-    monwithform SPECIES_ZIGZAGOON, 1
-    pokemon SPECIES_FLETCHLING
+    pokemon SPECIES_STARLY              // 20
+    pokemon SPECIES_ROCKRUFF            // 20
+    pokemon SPECIES_MAREEP              // 10
+    pokemon SPECIES_LECHONK             // 10
+    pokemon SPECIES_FLETCHLING          // 10
+    pokemon SPECIES_MAREEP              // 10
+    pokemon SPECIES_NINCADA             // 5
+    pokemon SPECIES_ROCKRUFF            // 5
+    pokemon SPECIES_MAREEP              // 4
+    pokemon SPECIES_FLETCHLING          // 4
+    pokemon SPECIES_MAREEP              // 1
+    pokemon SPECIES_FLETCHLING          // 1
 
 // day encounter slots
-    pokemon SPECIES_STARLY
-    pokemon SPECIES_WURMPLE
-    pokemon SPECIES_PAWMI
-    pokemon SPECIES_LECHONK
-    pokemon SPECIES_FLETCHLING
-    pokemon SPECIES_ZIGZAGOON
-    pokemon SPECIES_NINCADA
-    pokemon SPECIES_LECHONK
-    pokemon SPECIES_ZIGZAGOON
-    pokemon SPECIES_FLETCHLING
-    monwithform SPECIES_ZIGZAGOON, 1
-    pokemon SPECIES_FLETCHLING
+    pokemon SPECIES_STARLY              // 20
+    pokemon SPECIES_ROCKRUFF            // 20
+    pokemon SPECIES_MAREEP              // 10
+    pokemon SPECIES_LECHONK             // 10
+    pokemon SPECIES_FLETCHLING          // 10
+    pokemon SPECIES_MAREEP              // 10
+    pokemon SPECIES_NINCADA             // 5
+    pokemon SPECIES_ROCKRUFF            // 5
+    pokemon SPECIES_MAREEP              // 4
+    pokemon SPECIES_FLETCHLING          // 4
+    pokemon SPECIES_MAREEP              // 1
+    pokemon SPECIES_FLETCHLING          // 1
 
 // night encounter slots
-    pokemon SPECIES_MURKROW
-    pokemon SPECIES_WURMPLE
-    pokemon SPECIES_PAWMI
-    pokemon SPECIES_LECHONK
-    pokemon SPECIES_MINCCINO
-    pokemon SPECIES_RATTATA
-    pokemon SPECIES_NINCADA
-    pokemon SPECIES_LECHONK
-    pokemon SPECIES_RATTATA
-    pokemon SPECIES_MINCCINO
-    monwithform SPECIES_RATTATA, 1
-    pokemon SPECIES_MINCCINO
+    pokemon SPECIES_MURKROW         // 20
+    pokemon SPECIES_ROCKRUFF        // 20
+    pokemon SPECIES_ELECTRIKE       // 10
+    pokemon SPECIES_LECHONK         // 10
+    pokemon SPECIES_MINCCINO        // 10
+    pokemon SPECIES_MAREEP          // 10
+    pokemon SPECIES_NINCADA         // 5
+    pokemon SPECIES_ELECTRIKE       // 5
+    pokemon SPECIES_MAREEP          // 4
+    pokemon SPECIES_MINCCINO        // 4
+    pokemon SPECIES_MAREEP          // 1
+    pokemon SPECIES_MINCCINO        // 1
 
 // hoenn encounter slots
     pokemon SPECIES_WHISMUR
@@ -438,12 +438,12 @@ walklevels 3, 4, 3, 4, 3, 3, 5, 5, 5, 5, 5, 5
     pokemon SPECIES_STARLY
     pokemon SPECIES_DEWPIDER
     pokemon SPECIES_LOTAD
-    pokemon SPECIES_MINCCINO
+    pokemon SPECIES_PSYDUCK
     pokemon SPECIES_AZURILL
-    pokemon SPECIES_ZIGZAGOON
+    pokemon SPECIES_MAREEP
     pokemon SPECIES_NINCADA
-    pokemon SPECIES_MINCCINO
-    pokemon SPECIES_ZIGZAGOON
+    pokemon SPECIES_PSYDUCK
+    pokemon SPECIES_MAREEP
     pokemon SPECIES_LOTAD
     pokemon SPECIES_WIGLETT
     pokemon SPECIES_LOTAD
@@ -452,12 +452,12 @@ walklevels 3, 4, 3, 4, 3, 3, 5, 5, 5, 5, 5, 5
     pokemon SPECIES_STARLY
     pokemon SPECIES_DEWPIDER
     pokemon SPECIES_LOTAD
-    pokemon SPECIES_MINCCINO
+    pokemon SPECIES_PSYDUCK
     pokemon SPECIES_AZURILL
-    pokemon SPECIES_ZIGZAGOON
+    pokemon SPECIES_MAREEP
     pokemon SPECIES_NINCADA
-    pokemon SPECIES_MINCCINO
-    pokemon SPECIES_ZIGZAGOON
+    pokemon SPECIES_PSYDUCK
+    pokemon SPECIES_MAREEP
     pokemon SPECIES_LOTAD
     pokemon SPECIES_WIGLETT
     pokemon SPECIES_LOTAD
@@ -466,12 +466,12 @@ walklevels 3, 4, 3, 4, 3, 3, 5, 5, 5, 5, 5, 5
     pokemon SPECIES_HOOTHOOT
     pokemon SPECIES_DEWPIDER
     pokemon SPECIES_LOTAD
-    pokemon SPECIES_MINCCINO
+    pokemon SPECIES_PSYDUCK
     pokemon SPECIES_AZURILL
-    pokemon SPECIES_ZIGZAGOON
+    pokemon SPECIES_MAREEP
     pokemon SPECIES_NINCADA
-    pokemon SPECIES_MINCCINO
-    pokemon SPECIES_ZIGZAGOON
+    pokemon SPECIES_PSYDUCK
+    pokemon SPECIES_MAREEP
     pokemon SPECIES_LOTAD
     pokemon SPECIES_WIGLETT
     pokemon SPECIES_LOTAD
@@ -7200,8 +7200,8 @@ walklevels 3, 2, 3, 2, 2, 2, 4, 4, 3, 4, 3, 4
     pokemon SPECIES_ARON
     pokemon SPECIES_DIGLETT
     pokemon SPECIES_GEODUDE
-    pokemon SPECIES_WHISMUR
-    pokemon SPECIES_WHISMUR
+    pokemon SPECIES_NACLI
+    pokemon SPECIES_NACLI
     pokemon SPECIES_DUNSPARCE
     pokemon SPECIES_ARON
     pokemon SPECIES_DIGLETT
@@ -7214,8 +7214,8 @@ walklevels 3, 2, 3, 2, 2, 2, 4, 4, 3, 4, 3, 4
     pokemon SPECIES_ARON
     pokemon SPECIES_DIGLETT
     pokemon SPECIES_GEODUDE
-    pokemon SPECIES_WHISMUR
-    pokemon SPECIES_WHISMUR
+    pokemon SPECIES_NACLI
+    pokemon SPECIES_NACLI
     pokemon SPECIES_DUNSPARCE
     pokemon SPECIES_ARON
     pokemon SPECIES_DIGLETT
@@ -7228,8 +7228,8 @@ walklevels 3, 2, 3, 2, 2, 2, 4, 4, 3, 4, 3, 4
     pokemon SPECIES_ARON
     pokemon SPECIES_DIGLETT
     pokemon SPECIES_GEODUDE
-    pokemon SPECIES_WHISMUR
-    pokemon SPECIES_WHISMUR
+    pokemon SPECIES_NACLI
+    pokemon SPECIES_NACLI
     pokemon SPECIES_DUNSPARCE
     pokemon SPECIES_ARON
     pokemon SPECIES_DIGLETT
