@@ -410,3 +410,25 @@ mov r0, r7
 bl RollMetronomeMove
 ldr r1, =0x022408BA|1
 bx r1
+
+.global BattleController_EmitHealthbarSlideIn_EarlyBail
+BattleController_EmitHealthbarSlideIn_EarlyBail:
+ldr  r0, [sp, #4]
+mov  r1, r4
+bl   IsBattlerSlotValid
+cmp  r0, #0
+beq  _returnTo02262B4A
+
+str r0, [sp, #0xc]
+mov r0, #0xc
+add r3, sp, #0x14
+strb r0, [r3]
+mov r0, #0xc0
+ldr  r6, =0x02262A64 | 1
+bx   r6
+
+_returnTo02262B4A:
+ldr r3, =0x02262B4A | 1;
+bx r3
+
+.pool

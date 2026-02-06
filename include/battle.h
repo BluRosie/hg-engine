@@ -2164,6 +2164,7 @@ BOOL LONG_CALL ST_ServerWazaHitTokuseiCheck_Old(void*,void*,int *seq_no);
 int LONG_CALL ST_ServerWaruagakiCheck(void *bw, struct BattleStruct *sp, int client_no, int waza_bit, int check_bit);
 struct Save_DexData* LONG_CALL BattleWorkZukanWorkGet(void *bw);
 int LONG_CALL BattleWorkClientSetMaxGet(void*);
+void LONG_CALL BattleSystem_GetBattleMon(void *bsys, struct BattleStruct *ctx, int battlerId, u8 selectedMonIndex);
 u8 LONG_CALL ST_ServerAgiCalc(void*,void*,int ,int,int);
 u16 LONG_CALL GetBattlerSelectedMove(void*,int);
 BOOL LONG_CALL  ST_ServerNamakeCheck(void*,int);
@@ -4091,5 +4092,7 @@ void LONG_CALL BattleController_EmitPrintMessage(struct BattleSystem *bw, struct
 void LONG_CALL BattleController_EmitPrintAttackMessage(struct BattleSystem *bw, struct BattleStruct *sp);
 
 void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
+
+BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
 
 #endif // BATTLE_H
