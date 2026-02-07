@@ -432,3 +432,74 @@ ldr r3, =0x02262B4A | 1;
 bx r3
 
 .pool
+
+.global ov12_0225D644_SkipPartnerThrow
+ov12_0225D644_SkipPartnerThrow:
+push {r3}
+bl 0x0223AB6C | 1
+mov r4, r0
+
+mov r1, r0
+ldr r0, [r5]
+bl IsBattlerSlotValid
+cmp  r0, #0
+beq _ov12_0225D644_InvalidPartner
+
+mov r1, r4
+ldr r0, [r5]
+bl 0x0223A7E8 | 1
+pop {r3}
+ldr r4, =0x0225D77E | 1
+bx r4
+
+_ov12_0225D644_InvalidPartner:
+ldr r0, [r5]
+mov r1, r4
+bl 0x0223A7E8 | 1
+add  r1, r0, #0
+add  r1, #0x88
+ldr  r0, [r1]
+cmp  r0, #0
+beq _returnTo0225D7F2
+
+push {r1}
+
+mov  r1, #0
+bl   0x0223449C | 1
+
+pop  {r1}
+ldr  r0, [r1]
+cmp  r0, #0
+beq  _returnTo0225D7F2
+push {r1}
+
+mov  r1, #0
+bl   0x02233EFC | 1
+
+pop  {r1}
+ldr  r0, [r1]
+cmp  r0, #0
+beq  _returnTo0225D7F2
+push {r1}
+
+mov  r1, #0
+bl   0x022344C0 | 1
+
+pop  {r1}
+ldr  r0, [r1]
+cmp  r0, #0
+beq  _returnTo0225D7F2
+push {r1}
+
+mov  r1, #0
+bl   0x022344D0 | 1
+
+pop  {r1}
+b _returnTo0225D7F2
+
+_returnTo0225D7F2:
+pop {r3}
+ldr r4, =0x0225D7F2 | 1
+bx r4
+
+.pool

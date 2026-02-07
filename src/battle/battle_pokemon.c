@@ -1286,7 +1286,6 @@ BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battler
     return battleSystem->sp->battlemon[battlerId].species != SPECIES_NONE;
 }
 
-
 void LONG_CALL BattleControllerPlayer_GetBattleMon(struct BattleSystem *battleSystem, struct BattleStruct *ctx)
 {
     int battlerId;

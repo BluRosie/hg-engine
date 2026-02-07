@@ -559,7 +559,7 @@ arm9 ScrCmd_MartBuy 02048060 1
 arm9 SetupAndStartTutorialBattle 02051334 1
 0012 BattleControllerPlayer_GetBattleMon 0224873C 2
 0012 BattleController_EmitHealthbarSlideIn_EarlyBail 02262A5A 3
-0012 BattleController_EmitHealthbarSlideIn_EarlyBail 02262A5A 3
+0012 ov12_0225D644_SkipPartnerThrow 0225D772 4
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 0010 TestBattle_AISelectMove 0221BEF4 2

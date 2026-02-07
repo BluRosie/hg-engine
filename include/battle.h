@@ -1514,7 +1514,6 @@ typedef struct {
     PMS_DATA lose_word;
 } PACKED TRAINER_DATA; // size: 52 bytes
 
-
 typedef struct MessageFormat MessageFormat;
 
 struct BattleSystem {
