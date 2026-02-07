@@ -490,7 +490,7 @@
 #define SUB_SEQ_ORICHALCUM_PULSE                      (480)
 #define SUB_SEQ_HADRON_ENGINE                         (481)
 
-#define MAX_BASE_SUBSCRIPT_NUM 479
+#define MAX_BASE_SUBSCRIPT_NUM 481
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
