@@ -15,21 +15,23 @@ _019:
     Wait
     // Grass grew to cover the battlefield!
     PrintMessage 1388, TAG_NONE
-    GoTo _037
+    GoTo _ResetParadoxTerrainAbility
 
 _024:
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_MISTY_TERRAIN
     Wait
     // Mist swirled about the battlefield!
     PrintMessage 1390, TAG_NONE
-    GoTo _037
+    GoTo _ResetParadoxTerrainAbility
 
 _029:
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_ELECTRIC_TERRAIN
     Wait
     // An electric current ran across the battlefield!
     PrintMessage 1392, TAG_NONE
-    GoTo _037
+    Wait
+    WaitButtonABTime 30
+    GoTo _ActivateParadoxTerrainAbility
 
 _034:
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_PSYCHIC_TERRAIN
@@ -37,9 +39,18 @@ _034:
     // The battlefield got weird!
     PrintMessage 1394, TAG_NONE
 
-_037:
+// TODO: something weird is happening after using Terrain move rather than Surge ability
+
+_ResetParadoxTerrainAbility:
     Wait
     WaitButtonABTime 30
+    ResetParadoxAbility ABILITY_QUARK_DRIVE
+
+// Other Terrains reach this command to activate through Booster Energy
+_ActivateParadoxTerrainAbility:
+    ActivateParadoxAbility ABILITY_QUARK_DRIVE
+
+_037:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF
     // restore the mon's current move to the original one
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _049

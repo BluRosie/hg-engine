@@ -484,8 +484,13 @@
 #define SUB_SEQ_REMOVE_USER_FIRE_TYPE                 (474)
 #define SUB_SEQ_REMOVE_USER_ELECTRIC_TYPE             (475)
 #define SUB_SEQ_TOXIC_DEBRIS                          (476)
+#define SUB_SEQ_BOOSTER_ENERGY                        (477)
+#define SUB_SEQ_FIELD_CONDITION_PARADOX_ABILITY       (478)
+#define SUB_SEQ_PARADOX_ABILITY_END                   (479)
+#define SUB_SEQ_ORICHALCUM_PULSE                      (480)
+#define SUB_SEQ_HADRON_ENGINE                         (481)
 
-#define MAX_BASE_SUBSCRIPT_NUM 476
+#define MAX_BASE_SUBSCRIPT_NUM 479
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

@@ -405,6 +405,7 @@
 #define WEATHER_SANDSTORM_ANY               (WEATHER_SANDSTORM | WEATHER_SANDSTORM_PERMANENT)                               // 0000 0000 0000 0000 1100
 #define WEATHER_SUNNY                       (0x00000010)                                                                    // 0000 0000 0000 0001 0000
 #define WEATHER_SUNNY_PERMANENT             (0x00000020)                                                                    // 0000 0000 0000 0010 0000
+#define WEATHER_SUNNY_NOT_EXTREMELY_HARSH   (WEATHER_SUNNY | WEATHER_SUNNY_PERMANENT)                                       // 0000 0000 0000 0011 0000 because protosynthesis
 #define WEATHER_SUNNY_ANY                   (WEATHER_SUNNY | WEATHER_SUNNY_PERMANENT | WEATHER_EXTREMELY_HARSH_SUNLIGHT)    // 0001 0000 0000 0000 0000 0011 0000
 #define WEATHER_HAIL                        (0x00000040)                                                                    // 0000 0000 0000 0100 0000
 #define WEATHER_HAIL_PERMANENT              (0x00000080)                                                                    // 0000 0000 0000 1000 0000
@@ -1466,6 +1467,8 @@ struct BattleStruct {
 
                BOOL gemBoostingMove;
                MoveConditionsFlags moveConditionsFlags[CLIENT_MAX];
+               u8 paradoxBoostedStat[CLIENT_MAX];
+               BOOL boosterEnergyActivated[CLIENT_MAX];
 };
 
 enum {
@@ -2059,6 +2062,9 @@ struct PACKED sDamageCalc
 
     BOOL isGrounded;
     BOOL hasMoveFailureLastTurn;
+
+    u8 paradoxBoostedStat;
+    BOOL boosterEnergyActivated;
 };
 
 struct PACKED DamageCalcStruct {
@@ -3222,6 +3228,10 @@ u32 TurnEndAbilityCheck(void *bw, struct BattleStruct *sp, int client_no);
  *  @return the highest raw stat the the client has (excluding HP)
  */
 u8 LONG_CALL BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
+
+u8 LONG_CALL ParadoxGreatestStatHelper(struct BattleStruct *ctx, u32 client);
+u16 LONG_CALL GetStatValueWithStages(struct BattleStruct *ctx, u32 client, u8 stat);
+u16 LONG_CALL ActivateParadoxAbility(void *bsys, struct BattleStruct *ctx, u8 client);
 
 
 // defined in other_battle_calculators.c
