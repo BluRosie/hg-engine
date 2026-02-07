@@ -1,4 +1,4 @@
-// Test: Double Shock - Pure Electric types cannot use Double Shock twice
+// Test: Double Shock - Electric types cannot use Double Shock twice
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"

@@ -6,7 +6,7 @@ _Start:
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
     HandleSoak
     // {0} transformed into the Water type!
-    PrintMessage 1330, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP
+    PrintMessage 1330, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     Wait
     WaitButtonABTime 30
     End

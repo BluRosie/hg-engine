@@ -847,6 +847,12 @@ void LONG_CALL BattleFormChange(int client, int form_no, void* bw, struct Battle
     sp->battlemon[client].type1 = GetMonData(pp2, MON_DATA_TYPE_1, NULL);
     sp->battlemon[client].type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
     sp->battlemon[client].type3 = TYPE_TYPELESS;
+    sp->moveConditionsFlags[client].soakFlag = FALSE;
+    sp->moveConditionsFlags[client].magicPowderFlag = FALSE;
+    sp->moveConditionsFlags[client].forestsCurseFlag = FALSE;
+    sp->moveConditionsFlags[client].trickOrTreatFlag = FALSE;
+    sp->moveConditionsFlags[client].burnUpFlag = FALSE;
+    sp->moveConditionsFlags[client].doubleShockFlag = FALSE;
     sp->battlemon[client].ability_activated_flag = FALSE;
 
     // need to update weight as well
@@ -1050,6 +1056,12 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].is_currently_dynamaxed = 0;
     sp->battlemon[client].has_dynamaxed_before = 0;
     sp->battlemon[client].type3 = TYPE_TYPELESS;
+    sp->moveConditionsFlags[client].soakFlag = FALSE;
+    sp->moveConditionsFlags[client].magicPowderFlag = FALSE;
+    sp->moveConditionsFlags[client].forestsCurseFlag = FALSE;
+    sp->moveConditionsFlags[client].trickOrTreatFlag = FALSE;
+    sp->moveConditionsFlags[client].burnUpFlag = FALSE;
+    sp->moveConditionsFlags[client].doubleShockFlag = FALSE;
     sp->oneTurnFlag[client].parental_bond_flag = 0;
     sp->oneTurnFlag[client].parental_bond_is_active = 0;
     sp->moveConditionsFlags[client].endTurnMoveEffectActivated = 0;
