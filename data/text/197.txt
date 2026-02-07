@@ -1625,3 +1625,15 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 13, 1, 0} was heightened!
 The effects of {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} wore off!
 The effects of the wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} wore off!
 The effects of the opposing\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} wore off!
+{STRVAR_1 1, 0, 0} turned the sunlight harsh,\nsending its ancient pulse into a\ffrenzy!
+The wild {STRVAR_1 1, 0, 0} turned the sunlight\nharsh, sending its ancient pulse into a\ffrenzy!
+The opposing {STRVAR_1 1, 0, 0} turned the\nsunlight harsh, sending its ancient\fpulse into a frenzy!
+{STRVAR_1 1, 0, 0} basked in the sunlight,\nsending its ancient pulse into a\ffrenzy!
+The wild {STRVAR_1 1, 0, 0} basked in the\nsunlight, sending its ancient pulse\finto a frenzy!
+The opposing {STRVAR_1 1, 0, 0} basked in the\nsunlight, sending its ancient pulse\finto a frenzy!
+{STRVAR_1 1, 0, 0} turned the ground into\nElectric Terrain, energizing its\ffuturistic engine!
+The wild {STRVAR_1 1, 0, 0} turned the ground\ninto Electric Terrain, energizing its\ffuturistic engine!
+The opposing {STRVAR_1 1, 0, 0} turned the\nground into Electric Terrain,\fenergizing its futuristic engine!
+{STRVAR_1 1, 0, 0} used the Electric Terrain to\nenergize its futuristic engine!
+The wild {STRVAR_1 1, 0, 0} used the Electric\nTerrain to energize its futuristic\fengine!
+The opposing {STRVAR_1 1, 0, 0} used the\nElectric Terrain to energize its\ffuturistic engine!

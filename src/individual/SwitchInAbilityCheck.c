@@ -733,6 +733,34 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         }
                     }
 
+                    // Orichalcum Pulse
+                    {
+                        if ((sp->battlemon[client_no].hp)
+                        && (sp->battlemon[client_no].ability_activated_flag == 0)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_ORICHALCUM_PULSE)) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
+                            sp->ability_client = client_no; // Use ability_client instead of battlerIdTemp so ActivateParadoxAbility doesn't interfere
+                            scriptnum = SUB_SEQ_ORICHALCUM_PULSE;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+
+                    // Hadron Engine
+                    {
+                        if ((sp->battlemon[client_no].hp)
+                        && (sp->battlemon[client_no].ability_activated_flag == 0)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_HADRON_ENGINE)) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
+                            sp->ability_client = client_no; // Use ability_client instead of battlerIdTemp so ActivateParadoxAbility doesn't interfere
+                            sp->calc_work = sp->current_move_index;
+                            sp->current_move_index = MOVE_ELECTRIC_TERRAIN;
+                            scriptnum = SUB_SEQ_HADRON_ENGINE;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+
                     // Air Balloon is announced
                     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-9227933
                     {
