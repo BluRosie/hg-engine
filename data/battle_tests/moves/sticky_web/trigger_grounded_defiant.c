@@ -50,7 +50,7 @@ const struct TestBattleScenario BattleTests[] = {
                             .moveEffectFlags = 0,
                         },
             {
-                .species = SPECIES_STARLY
+                .species = SPECIES_STARLY,
                 .level = 50,
                 .form = 0,
                 .ability = ABILITY_DEFIANT,
