@@ -107,6 +107,7 @@
 #define ADD_EFFECT_VARIOUS 7
 // new
 #define ADD_EFFECT_PRINT_WORK_ABILITY 8
+#define ADD_EFFECT_STICKY_WEB 9
 
 /**
  *  @brief move status flag defines for the BattleStruct's waza_status_flag field.
@@ -4091,5 +4092,9 @@ void LONG_CALL BattleController_EmitPrintMessage(struct BattleSystem *bw, struct
 void LONG_CALL BattleController_EmitPrintAttackMessage(struct BattleSystem *bw, struct BattleStruct *sp);
 
 void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);
+#endif
 
 #endif // BATTLE_H
