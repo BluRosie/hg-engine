@@ -8,6 +8,7 @@ _Start:
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_HEAVY_RAIN, _PreventWeatherChange
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_STRONG_WINDS, _PreventWeatherChange
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN_ALL, _AlreadySunny
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_OVERWORLD_WEATHER_ANY, _OverworldWeather
     PlayBattleAnimation BATTLER_CATEGORY_PLAYER, BATTLE_ANIMATION_WEATHER_SUN
     Wait
     // Orichalcum Pulse will still show the "The sunlight is harsh!" message before showing the unique message
@@ -21,6 +22,13 @@ _Start:
 _AlreadySunny:
     // {0} basked in the sunlight, sending its ancient pulse into a frenzy!
     PrintMessage 1630, TAG_NICKNAME, BATTLER_CATEGORY_ABILITY_MON
+    Wait
+    WaitButtonABTime 30
+    End
+
+_OverworldWeather:
+    // But it failed!
+    PrintMessage 796, TAG_NONE
     Wait
     WaitButtonABTime 30
     End
