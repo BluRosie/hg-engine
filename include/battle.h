@@ -107,6 +107,7 @@
 #define ADD_EFFECT_VARIOUS 7
 // new
 #define ADD_EFFECT_PRINT_WORK_ABILITY 8
+#define ADD_EFFECT_STICKY_WEB 9
 
 /**
  *  @brief move status flag defines for the BattleStruct's waza_status_flag field.
