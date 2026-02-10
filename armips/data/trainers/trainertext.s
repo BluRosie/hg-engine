@@ -3100,6 +3100,12 @@ _1AD4: // Trainer 738
 _1AD8: // Trainer 739
     trainertextentry 739, TEXT_DEFEATED_IN_BATTLE, "Wow, you sure are tough!\n"
 
+_1AE0: // Trainer 740
+    trainertextentry 740, TEXT_DEFEATED_IN_BATTLE, "Hey, what's going on?\n"
+
+_1AE4: // Trainer 741
+    trainertextentry 741, TEXT_DEFEATED_IN_BATTLE, "This kid's not messing around!\n"
+
 .close
 
 
@@ -3843,5 +3849,7 @@ _1AD8: // Trainer 739
 /* Trainer 734 */ .halfword _185C
 /* Trainer 738 */ .halfword _1AD4
 /* Trainer 739 */ .halfword _1AD8
+/* Trainer 740 */ .halfword _1AE0
+/* Trainer 741 */ .halfword _1AE4
 
 .close

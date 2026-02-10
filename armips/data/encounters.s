@@ -435,18 +435,18 @@ superrodrate 75
 walklevels 3, 4, 3, 4, 3, 3, 5, 5, 5, 5, 5, 5
 
 // morning encounter slots
-    pokemon SPECIES_STARLY
-    pokemon SPECIES_DEWPIDER
-    pokemon SPECIES_LOTAD
-    pokemon SPECIES_PSYDUCK
-    pokemon SPECIES_AZURILL
-    pokemon SPECIES_MAREEP
-    pokemon SPECIES_NINCADA
-    pokemon SPECIES_PSYDUCK
-    pokemon SPECIES_MAREEP
-    pokemon SPECIES_LOTAD
-    pokemon SPECIES_WIGLETT
-    pokemon SPECIES_LOTAD
+    pokemon SPECIES_STARLY      // 20
+    pokemon SPECIES_DEWPIDER    // 20
+    pokemon SPECIES_LOTAD       // 10
+    pokemon SPECIES_PSYDUCK     // 10
+    pokemon SPECIES_AZURILL     // 10
+    pokemon SPECIES_MAREEP      // 10
+    pokemon SPECIES_NINCADA     // 5
+    pokemon SPECIES_PSYDUCK     // 5
+    pokemon SPECIES_MAREEP      // 4
+    pokemon SPECIES_LOTAD       // 4
+    pokemon SPECIES_WIGLETT     // 1
+    pokemon SPECIES_LOTAD       // 1
 
 // day encounter slots
     pokemon SPECIES_STARLY
@@ -468,10 +468,10 @@ walklevels 3, 4, 3, 4, 3, 3, 5, 5, 5, 5, 5, 5
     pokemon SPECIES_LOTAD
     pokemon SPECIES_PSYDUCK
     pokemon SPECIES_AZURILL
-    pokemon SPECIES_MAREEP
+    pokemon SPECIES_ELECTRIKE
     pokemon SPECIES_NINCADA
     pokemon SPECIES_PSYDUCK
-    pokemon SPECIES_MAREEP
+    pokemon SPECIES_ELECTRIKE
     pokemon SPECIES_LOTAD
     pokemon SPECIES_WIGLETT
     pokemon SPECIES_LOTAD
@@ -6664,7 +6664,7 @@ walklevels 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
 .close
 
 
-encounterdata  64   // ???
+encounterdata  64   // Ruins of Alph Ladder Room (NEW)
 
 walkrate 15
 surfrate 0
