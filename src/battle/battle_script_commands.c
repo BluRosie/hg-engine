@@ -495,8 +495,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x113 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_113_HandleDoubleShock,
     [0x114 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_114_stuffCheeks,
     [0x115 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_115_setMoveConditionFlag,
-    [0x114 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_116_activateparadoxability,
-    [0x115 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_117_resetparadoxability,
+    [0x116 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_116_activateparadoxability,
+    [0x117 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_117_resetparadoxability,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 

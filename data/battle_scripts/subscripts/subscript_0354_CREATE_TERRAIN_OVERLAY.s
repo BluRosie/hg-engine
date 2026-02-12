@@ -14,7 +14,7 @@ _HadronEngineTerrain:
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_ELECTRIC_TERRAIN
     Wait
     // {0} turned the ground into Electric Terrain, energizing its futuristic engine!
-    PrintMessage 1633, TAG_NICKNAME, BATTLER_CATEGORY_MSG_BATTLER_TEMP
+    PrintMessage 1644, TAG_NICKNAME, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     Wait
     WaitButtonABTime 30
     GoTo _ActivateParadoxTerrainAbility
