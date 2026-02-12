@@ -1511,17 +1511,28 @@
     .long \arg_0
     .endm
 
-    .macro ActivateParadoxAbility arg_0
+    .macro StuffCheeks arg_0
     .long 276
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .macro SetMoveConditionFlag arg_0, arg_1
+    .long 277
+    .long \arg_0
+    .long \arg_1
+    .endm
+
+    .macro ActivateParadoxAbility arg_0
+    .long 278
     .long \arg_0
     .endm
 
     .macro ResetParadoxAbility arg_0
-    .long 277
+    .long 279
     .long \arg_0
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 277
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 279
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

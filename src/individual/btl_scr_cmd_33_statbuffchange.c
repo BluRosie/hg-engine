@@ -228,6 +228,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     }
     else
     {
+        sp->moveConditionsFlags[sp->state_client].anyStatLoweredThisTurn = TRUE;
         // Cap stat change here so that message below is correct
         if (battlemon->states[STAT_ATTACK + stattochange] + statchange < 0) {
             // debug_printf("\n\nCapped\n\n");
