@@ -488,7 +488,7 @@
 #define SUB_SEQ_FIELD_CONDITION_PARADOX_ABILITY       (478)
 #define SUB_SEQ_PARADOX_ABILITY_END                   (479)
 #define SUB_SEQ_ORICHALCUM_PULSE                      (480)
-#define SUB_SEQ_HADRON_ENGINE                         (481)
+#define SUB_SEQ_HADRON_ENGINE_NO_TERRAIN_SETUP        (481)
 
 #define MAX_BASE_SUBSCRIPT_NUM 481
 

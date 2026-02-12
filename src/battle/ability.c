@@ -419,6 +419,37 @@ u16 LONG_CALL ActivateParadoxAbility(void *bsys, struct BattleStruct *ctx, u8 cl
 }
 
 /**
+ *  @brief Update terrain overlay type and number of turns, used in SwitchInAbilityCheck and Battle Commands
+ * 
+ *  @param ctx BattleContext
+ *  @param client which client causes the terrain to update
+ *  @param terrainType TerrainOverlayType
+ */
+
+void LONG_CALL UpdateTerrainOverlay(struct BattleStruct *ctx, u8 client, enum TerrainOverlayType terrainType)
+{
+    enum TerrainOverlayType oldTerrainType = ctx->terrainOverlay.type;
+
+    if (terrainType == oldTerrainType) {
+        return;
+    }
+
+    ctx->terrainOverlay.type = terrainType;
+
+    int holdEffect = HeldItemHoldEffectGet(ctx, client);
+    int holdPower = HeldItemAtkGet(ctx, client, ATK_CHECK_NORMAL);
+
+    if (terrainType != TERRAIN_NONE) {
+        ctx->terrainOverlay.numberOfTurnsLeft = 5;
+        if (holdEffect == HOLD_EFFECT_EXTEND_TERRAIN) {
+            ctx->terrainOverlay.numberOfTurnsLeft += holdPower;
+        }
+    } else {
+        ctx->terrainOverlay.numberOfTurnsLeft = 0;
+    }
+}
+
+/**
  *  @brief check if the attacker's ability should queue up a subscript or not.
  *
  *  @param bw battle work structure

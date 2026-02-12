@@ -2534,47 +2534,39 @@ BOOL btl_scr_cmd_EC_updateterrainoverlay(void *bw UNUSED, struct BattleStruct *s
 
     u8 endTerrainFlag = read_battle_script_param(sp);
     int address = read_battle_script_param(sp);
-    int item, itemPower;
 
     enum TerrainOverlayType oldTerrainOverlay = sp->terrainOverlay.type;
+    enum TerrainOverlayType terrainType;
 
     switch (sp->current_move_index) {
         case MOVE_GRASSY_TERRAIN:
-            sp->terrainOverlay.type = GRASSY_TERRAIN;
+            terrainType = GRASSY_TERRAIN;
             break;
         case MOVE_MISTY_TERRAIN:
-            sp->terrainOverlay.type = MISTY_TERRAIN;
+            terrainType = MISTY_TERRAIN;
             break;
         case MOVE_ELECTRIC_TERRAIN:
-            sp->terrainOverlay.type = ELECTRIC_TERRAIN;
+            terrainType = ELECTRIC_TERRAIN;
             break;
         case MOVE_PSYCHIC_TERRAIN:
-            sp->terrainOverlay.type = PSYCHIC_TERRAIN;
+            terrainType = PSYCHIC_TERRAIN;
             break;
         default:
-            // I think this could work for moves that remove terrain
-            sp->terrainOverlay.type = TERRAIN_NONE;
             break;
     }
 
+    // For Defog, Ice Spinner, regular terrain ending
     if (endTerrainFlag == TRUE) {
-        sp->terrainOverlay.type = TERRAIN_NONE;
+        UpdateTerrainOverlay(sp, sp->attack_client, TERRAIN_NONE);
+        return FALSE;
     }
 
-    // if the new terrain is the same as the old one, the move should fail
-    if (oldTerrainOverlay == sp->terrainOverlay.type) {
-        IncrementBattleScriptPtr(sp, address);
+    debug_printf("endTerrainFlag: %d\noldTerrainOverlay: %d\nterrainType: %d\ncurrent_move_index: %d\n", endTerrainFlag, oldTerrainOverlay, terrainType, sp->current_move_index);
+
+    if (terrainType == oldTerrainOverlay) {
+        IncrementBattleScriptPtr(sp, address); // Unused currently
     } else {
-        if (sp->terrainOverlay.type != TERRAIN_NONE) {
-            item = GetBattleMonItem(sp, sp->attack_client);
-            itemPower = BattleItemDataGet(sp, item, 2);
-            sp->terrainOverlay.numberOfTurnsLeft = 5;
-            if (item == ITEM_TERRAIN_EXTENDER) {
-                sp->terrainOverlay.numberOfTurnsLeft += itemPower;
-            }
-        } else {
-            sp->terrainOverlay.numberOfTurnsLeft = 0;
-        }
+        UpdateTerrainOverlay(sp, sp->attack_client, terrainType);
     }
 
     return FALSE;

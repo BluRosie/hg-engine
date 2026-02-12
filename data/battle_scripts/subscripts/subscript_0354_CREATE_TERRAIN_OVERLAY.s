@@ -3,12 +3,21 @@
 .data
 
 _000:
-    UpdateTerrainOverlay FALSE, _045
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_BATTLER_TEMP, ABILITY_HADRON_ENGINE, _HadronEngineTerrain
     GotoIfTerrainOverlayIsType GRASSY_TERRAIN, _019
     GotoIfTerrainOverlayIsType MISTY_TERRAIN, _024
     GotoIfTerrainOverlayIsType ELECTRIC_TERRAIN, _029
     GotoIfTerrainOverlayIsType PSYCHIC_TERRAIN, _034
     GoTo _049
+
+_HadronEngineTerrain:
+    PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_ELECTRIC_TERRAIN
+    Wait
+    // {0} turned the ground into Electric Terrain, energizing its futuristic engine!
+    PrintMessage 1633, TAG_NICKNAME, BATTLER_CATEGORY_MSG_BATTLER_TEMP
+    Wait
+    WaitButtonABTime 30
+    GoTo _ActivateParadoxTerrainAbility
 
 _019:
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_GRASSY_TERRAIN
@@ -52,13 +61,7 @@ _ActivateParadoxTerrainAbility:
 
 _037:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF
-    // restore the mon's current move to the original one
-    CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _049
-    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MOVE_NO_CUR, BSCRIPT_VAR_CALC_TEMP
     End
-
-_045:
-    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
 
 _049:
     End

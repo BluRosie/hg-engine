@@ -3232,7 +3232,7 @@ u8 LONG_CALL BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
 u8 LONG_CALL ParadoxGreatestStatHelper(struct BattleStruct *ctx, u32 client);
 u16 LONG_CALL GetStatValueWithStages(struct BattleStruct *ctx, u32 client, u8 stat);
 u16 LONG_CALL ActivateParadoxAbility(void *bsys, struct BattleStruct *ctx, u8 client);
-
+void LONG_CALL UpdateTerrainOverlay(struct BattleStruct *ctx, u8 client, u8 terrainType);
 
 // defined in other_battle_calculators.c
 /**
