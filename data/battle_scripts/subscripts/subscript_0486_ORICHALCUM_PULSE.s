@@ -14,14 +14,14 @@ _Start:
     // Orichalcum Pulse will still show the "The sunlight is harsh!" message before showing the unique message
     Call BATTLE_SUBSCRIPT_HANDLE_SUN_TEMPORARY
     // {0} turned the sunlight harsh, sending its ancient pulse into a frenzy!
-    PrintMessage 1627, TAG_NICKNAME, BATTLER_CATEGORY_ABILITY_MON
+    PrintMessage 1638, TAG_NICKNAME, BATTLER_CATEGORY_ABILITY_MON
     Wait
     WaitButtonABTime 30
     End
 
 _AlreadySunny:
     // {0} basked in the sunlight, sending its ancient pulse into a frenzy!
-    PrintMessage 1630, TAG_NICKNAME, BATTLER_CATEGORY_ABILITY_MON
+    PrintMessage 1641, TAG_NICKNAME, BATTLER_CATEGORY_ABILITY_MON
     Wait
     WaitButtonABTime 30
     End

@@ -6,7 +6,7 @@
 
 _Start:
     // {0} used the Electric Terrain to energize its futuristic engine!
-    PrintMessage 1636, TAG_NICKNAME, BATTLER_CATEGORY_ABILITY_MON
+    PrintMessage 1647, TAG_NICKNAME, BATTLER_CATEGORY_ABILITY_MON
     Wait
     WaitButtonABTime 30
     End
