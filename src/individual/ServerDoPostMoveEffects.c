@@ -34,6 +34,8 @@ u16 gMovesThatThawFrozenMons[] =
 void UNUSED ServerDoPostMoveEffectsInternal(void *bsys, struct BattleStruct *ctx);
 int ActivateSturdyOrFocusSashOrFocusBand(void *bsys, struct BattleStruct *sp, int *seq_no);
 int ActivateDefenderItems4(void *bsys, struct BattleStruct *sp);
+int ShowDamageReductionBerryMessage(void *bsys, struct BattleStruct *sp);
+int CottonDownCheck(void *bsys, struct BattleStruct *sp);
 
 /**
  *  @brief do post move effects--synchronize, held item effects, ice thawing from move usage, etc.
@@ -50,6 +52,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 
     switch (ctx->swoam_seq_no) {
     case MOVE_PERFORMANCE_VANISH_ON_OFF: {
+        debug_printf("in MOVE_PERFORMANCE_VANISH_ON_OFF\n");
         int ret = 0;
         for (ctx->swoak_work = 0; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++) {
             if (((ctx->battlemon[ctx->swoak_work].effect_of_moves & (MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)) == 0)
@@ -83,6 +86,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE:
+        debug_printf("in MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE\n");
         // TODO
         ctx->swoam_seq_no++;
         if (ServerWazaStatusMessage(bsys, ctx) == TRUE) {
@@ -90,10 +94,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_6_NOT_SE_TYPE_EFFECTIVENESS_MESSAGE: {
+        debug_printf("in MOVE_PERFORMANCE_STEP_6_NOT_SE_TYPE_EFFECTIVENESS_MESSAGE\n");
         // TODO
         ctx->swoam_seq_no++;
-
-        int seq_no;
 
         if ((ST_ServerAddStatusCheck(bsys, ctx, &seq_no) == TRUE) && ((ctx->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
@@ -104,6 +107,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_7_CRITICAL_HIT_MESSAGE:
+        debug_printf("in MOVE_PERFORMANCE_STEP_7_CRITICAL_HIT_MESSAGE\n");
         ctx->swoam_seq_no++;
         if (ServerCriticalMessage(bsys, ctx) == TRUE) {
             return;
@@ -154,8 +158,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_1_RAGE:
-        // TODO
+        debug_printf("in MOVE_PERFORMANCE_STEP_10_1_RAGE\n");
+        //https://github.com/pret/pokeheartgold/blob/f20f85b627d0ba2b208d8e33181cab27d5d1508f/src/battle/battle_controller_player.c#L3802C13-L3802C25
         ctx->swoam_seq_no++;
+        if (ServerIkariCheck(bsys, ctx) == TRUE) { // TODO: rename to TryBuildRage, hook, checks defender
+            return;
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_2_CLEAR_SMOG:
         // TODO
@@ -169,21 +177,51 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_10_5_POISON_TOUCH:
-        // TODO
+    case MOVE_PERFORMANCE_STEP_10_5_POISON_TOUCH: {
+        debug_printf("in MOVE_PERFORMANCE_STEP_10_5_POISON_TOUCH\n");
+
         ctx->swoam_seq_no++;
+        if (MoveHitAttackerAbilityCheck(bsys, ctx, &seq_no) == TRUE) // TODO: move out Moxie,etc
+        {
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+    }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_10_6_DEFENDER_ABILITY:
-        // TODO
+    case MOVE_PERFORMANCE_STEP_10_6_DEFENDER_ABILITY: {
+        debug_printf("in MOVE_PERFORMANCE_STEP_10_6_DEFENDER_ABILITY\n");
+
         ctx->swoam_seq_no++;
+        if (MoveHitDefenderAbilityCheck(bsys, ctx, &seq_no) == TRUE) {
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+    }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_10_7_COTTON_DOWN:
-        // TODO
+    case MOVE_PERFORMANCE_STEP_10_7_COTTON_DOWN: {
+        debug_printf("in MOVE_PERFORMANCE_STEP_10_6_DEFENDER_ABILITY: ctx->swoak_work %d, ctx->clientLoopForAbility %d\n", ctx->swoak_work, ctx->clientLoopForAbility);
+
+        if (CottonDownCheck(bsys, ctx) == TRUE) {
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+        ctx->clientLoopForAbility = 0;
         ctx->swoam_seq_no++;
+        ctx->swoak_work = 0;
+    }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_8_DAMAGE_REDUCTION_BERRY:
-        // TODO
+        debug_printf("in MOVE_PERFORMANCE_STEP_10_8_DAMAGE_REDUCTION_BERRY\n");
         ctx->swoam_seq_no++;
+        if (ShowDamageReductionBerryMessage(bsys, ctx) == TRUE) {
+            return;
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_9_DEFENDER_ITEMS_1:
         // TODO
@@ -218,10 +256,15 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_13_0_MULTIHIT_MOVE_ATTACKER_ITEMS_4:
-        // TODO
+        debug_printf("in MOVE_PERFORMANCE_STEP_13_0_MULTIHIT_MOVE_ATTACKER_ITEMS_4\n");
+        //TODO hook
+        //https://github.com/pret/pokeheartgold/blob/f20f85b627d0ba2b208d8e33181cab27d5d1508f/src/battle/battle_controller_player.c#L3825
         ctx->swoam_seq_no++;
+        if (ServerFlinchCheck(bsys, ctx) == TRUE) {
+            return;
+        }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4: //Go back to step 1, damage calc
+    case MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4: // Go back to step 1, damage calc
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
@@ -238,7 +281,8 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_2_SCALE_SHOT_FELL_STINGER:
-        // TODO
+        debug_printf("in MOVE_PERFORMANCE_STEP_15_2_SCALE_SHOT_FELL_STINGER\n");
+        // TODO fell stinger
 
         if (ctx->current_move_index == MOVE_SCALE_SHOT) {
             if ((ctx->battlemon[ctx->attack_client].hp)
@@ -311,8 +355,13 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_19_0_FORM_CHANGE:
+        debug_printf("in MOVE_PERFORMANCE_STEP_19_0_FORM_CHANGE\n");
         // TODO
         ctx->swoam_seq_no++;
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHAYMIN_FORM_CHECK);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_20_0_LIFE_ORB_SHELL_BELL:
         // TODO
@@ -605,5 +654,73 @@ int ActivateDefenderItems4(void *bsys, struct BattleStruct *sp)
             return TRUE;
         }
     }
+    return FALSE;
+}
+
+int ShowDamageReductionBerryMessage(void* bsys, struct BattleStruct* sp)
+{
+    for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++)
+    {
+        if (battler != sp->attack_client
+            && (GetMoveSplit(sp, sp->current_move_index) != SPLIT_STATUS))
+        {
+            sp->item_work = GetBattleMonItem(sp, sp->defence_client);
+            sp->battlerIdTemp = sp->defence_client;
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+int CottonDownCheck(void *bsys, struct BattleStruct *sp)
+{
+    for (sp->swoak_work = 0; sp->swoak_work < BattleWorkClientSetMaxGet(bsys); sp->swoak_work++)
+    {
+        if ((GetBattlerAbility(sp, sp->swoak_work) == ABILITY_COTTON_DOWN)
+            && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+            && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+            && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+            && ((sp->oneSelfFlag[sp->swoak_work].physical_damage) || (sp->oneSelfFlag[sp->swoak_work].special_damage)))
+        {
+            switch (sp->clientLoopForAbility) {
+            case SPREAD_ABILITY_LOOP_OPPONENT_LEFT:
+                sp->clientLoopForAbility++;
+                if (sp->battlemon[BATTLER_OPPONENT_SIDE_LEFT(sp->swoak_work)].species) {
+                    sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
+                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+                    sp->state_client = BATTLER_OPPONENT_SIDE_LEFT(sp->swoak_work);
+                    sp->battlerIdTemp = sp->swoak_work;
+                    return TRUE;
+                }
+                FALLTHROUGH;
+            case SPREAD_ABILITY_LOOP_OPPONENT_RIGHT:
+                sp->clientLoopForAbility++;
+                if (sp->battlemon[BATTLER_OPPONENT_SIDE_RIGHT(sp->swoak_work)].species) {
+                    sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
+                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+                    sp->state_client = BATTLER_OPPONENT_SIDE_RIGHT(sp->swoak_work);
+                    sp->battlerIdTemp = sp->swoak_work;
+                    return TRUE;
+                }
+                FALLTHROUGH;
+            case SPREAD_ABILITY_LOOP_ALLY:
+                sp->clientLoopForAbility++;
+                if (sp->battlemon[BATTLER_ALLY(sp->swoak_work)].species) {
+                    sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
+                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+                    sp->state_client = BATTLER_ALLY(sp->swoak_work);
+                    sp->battlerIdTemp = sp->swoak_work;
+                    return TRUE;
+                }
+                break;
+            default:
+                break;
+            }
+        }
+    }
+
     return FALSE;
 }
