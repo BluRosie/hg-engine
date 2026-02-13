@@ -54544,7 +54544,7 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_HIGH_JUMP_KICK"
+        "Move": "MOVE_BRICK_BREAK"
       },
       {
         "Level": 31,
@@ -54569,6 +54569,10 @@
       {
         "Level": 44,
         "Move": "MOVE_COUNTER"
+      },
+      {
+        "Level": 49,
+        "Move": "MOVE_HIGH_JUMP_KICK"
       }
     ],
     "MachineMoves": [
@@ -103840,7 +103844,7 @@
       },
       {
         "Level": 18,
-        "Move": "MOVE_DRAGON_CLAW"
+        "Move": "MOVE_BREAKING_SWIPE"
       },
       {
         "Level": 21,
@@ -103856,7 +103860,7 @@
       },
       {
         "Level": 30,
-        "Move": "MOVE_BREAKING_SWIPE"
+        "Move": "MOVE_DRAGON_CLAW"
       },
       {
         "Level": 33,

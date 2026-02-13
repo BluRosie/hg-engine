@@ -20648,7 +20648,7 @@ mondata SPECIES_NACLI, "Nacli"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
-    abilities ABILITY_COLOR_CHANGE, ABILITY_STENCH
+    abilities ABILITY_PURIFYING_SALT, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_NACLI, "The ground scrapes its body as it travels, causing it to leave salt behind. Salt is constantly being created and replenished inside Nacli’s body."
@@ -20669,7 +20669,7 @@ mondata SPECIES_NACLSTACK, "Naclstack"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
-    abilities ABILITY_COLOR_CHANGE, ABILITY_STENCH
+    abilities ABILITY_PURIFYING_SALT, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_NACLSTACK, "It compresses rock salt inside its body and shoots out hardened salt pellets with enough force to perforate an iron sheet."
@@ -20690,7 +20690,7 @@ mondata SPECIES_GARGANACL, "Garganacl"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
-    abilities ABILITY_COLOR_CHANGE, ABILITY_STENCH
+    abilities ABILITY_PURIFYING_SALT, ABILITY_STURDY
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_GARGANACL, "Garganacl will rub its fingertips together\nand sprinkle injured Pokémon with salt. Even\nsevere wounds will promptly heal afterward."
