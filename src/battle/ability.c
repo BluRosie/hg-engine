@@ -827,6 +827,11 @@ BOOL LONG_CALL MoveHitDefenderCottonDownCheck(void* bw UNUSED, struct BattleStru
  */
 void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
 {
+    debug_printf("ServerWazaOutAfterMessage\n");
+    sp->swoam_seq_no = 0;
+    sp->server_seq_no = CONTROLLER_COMMAND_31;
+    return;
+
     switch(sp->swoam_type)
     {
     case SWOAM_NORMAL:
@@ -845,6 +850,9 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
             {
                 return;
             }
+            sp->swoam_seq_no = 0;
+            sp->server_seq_no = 31;
+            break;
             FALLTHROUGH;
         case SEQ_NORMAL_ADD_STATUS_MSG:
             {
