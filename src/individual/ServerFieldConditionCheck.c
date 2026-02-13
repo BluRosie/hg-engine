@@ -1252,6 +1252,14 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             RemoveType(sp, i, TYPE_ELECTRIC);
                         }
 
+                        if (sp->moveConditionsFlags[i].forestsCurseFlag) {
+                            AddType(sp, i, TYPE_GRASS);
+                        }
+
+                        if (sp->moveConditionsFlags[i].trickOrTreatFlag) {
+                            AddType(sp, i, TYPE_GHOST);
+                        }
+
                     }
                     sp->oneTurnFlag[i].roostFlag = FALSE;
                 }
