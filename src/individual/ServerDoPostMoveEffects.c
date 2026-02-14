@@ -47,7 +47,7 @@ int CottonDownCheck(void *bsys, struct BattleStruct *sp);
 void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsys, struct BattleStruct *ctx)
 {
     debug_printf("ServerDoPostMoveEffectsInternal %d: movestatus %d, status %d\n", ctx->swoam_seq_no, ctx->waza_status_flag, ctx->server_status_flag);
-    int seq_no = 0;
+
     DynamicSortClientExecutionOrder(bsys, ctx, FALSE);
 
     switch (ctx->swoam_seq_no) {
@@ -99,7 +99,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_6_NOT_SE_TYPE_EFFECTIVENESS_MESSAGE\n");
         // TODO
         ctx->swoam_seq_no++;
-
+        int seq_no = 0;
         if ((ST_ServerAddStatusCheck(bsys, ctx, &seq_no) == TRUE) && ((ctx->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -118,6 +118,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     case MOVE_PERFORMANCE_STEP_8_STURDY_FOCUS_SASH: {
         debug_printf("in MOVE_PERFORMANCE_STEP_8_STURDY_FOCUS_SASH\n");
 
+        int seq_no = 0;
         if (ActivateSturdyOrFocusSashOrFocusBand(bsys, ctx, &seq_no) == TRUE) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -184,6 +185,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_10_5_POISON_TOUCH\n");
 
         ctx->swoam_seq_no++;
+        int seq_no = 0;
         // TODO loop through all hit battlers instead of defence_client
         if (MoveHitAttackerAbilityCheck(bsys, ctx, &seq_no) == TRUE) // TODO: move out Moxie,etc
         {
@@ -198,6 +200,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_10_6_DEFENDER_ABILITY\n");
 
         ctx->swoam_seq_no++;
+        int seq_no = 0;
         // TODO loop through all hit battlers instead of defence_client
         if (MoveHitDefenderAbilityCheck(bsys, ctx, &seq_no) == TRUE) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
@@ -237,6 +240,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_10_9_DEFENDER_ITEMS_1\n");
 
         ctx->swoam_seq_no++;
+        int seq_no = 0;
         // TODO loop through all hit battlers instead of defence_client
         if (CheckDefenderItemEffectOnHit(bsys, ctx, &seq_no) == TRUE) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
@@ -273,7 +277,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     case MOVE_PERFORMANCE_STEP_12_0_RESET_UNNERVE_NEUTRALIZING_GAS_IF_FAINTED: // switch in ability check?
     {
         debug_printf("in MOVE_PERFORMANCE_STEP_12_0_RESET_UNNERVE_NEUTRALIZING_GAS_IF_FAINTED\n");
-        seq_no = ST_ServerPokeAppearCheck(bsys, ctx); // switch in ability check
+        int seq_no = ST_ServerPokeAppearCheck(bsys, ctx); // switch in ability check
 
         if (seq_no) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
