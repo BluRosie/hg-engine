@@ -35,7 +35,7 @@ void UNUSED ServerDoPostMoveEffectsInternal(void *bsys, struct BattleStruct *ctx
 int ActivateSturdyOrFocusSashOrFocusBand(void *bsys, struct BattleStruct *sp, int *seq_no);
 int ActivateDefenderItems4(void *bsys, struct BattleStruct *sp);
 int ShowDamageReductionBerryMessage(void *bsys, struct BattleStruct *sp);
-int CottonDownCheck(void *bsys, struct BattleStruct *sp);
+int CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp);
 
 /**
  *  @brief do post move effects--synchronize, held item effects, ice thawing from move usage, etc.
@@ -78,8 +78,18 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_3_EXPLOSION_USER_FAINTS:
+        debug_printf("in MOVE_PERFORMANCE_STEP_3_EXPLOSION_USER_FAINTS\n");
         // TODO
         ctx->swoam_seq_no++;
+        /* if (ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) {
+            ctx->fainting_client = ctx->attack_client; // No2Bit((ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) >> BATTLE_STATUS_SELFDESTRUCTED_SHIFT);
+            ctx->server_status_flag &= ~BATTLE_STATUS_SELFDESTRUCTED;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOM);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+        */
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_4_DEAL_DAMAGE:
         // TODO
@@ -97,7 +107,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_6_NOT_SE_TYPE_EFFECTIVENESS_MESSAGE: {
         debug_printf("in MOVE_PERFORMANCE_STEP_6_NOT_SE_TYPE_EFFECTIVENESS_MESSAGE\n");
-        // TODO
+        // TODO confirm
         ctx->swoam_seq_no++;
         int seq_no = 0;
         if ((ST_ServerAddStatusCheck(bsys, ctx, &seq_no) == TRUE) && ((ctx->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)) {
@@ -165,7 +175,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // https://github.com/pret/pokeheartgold/blob/f20f85b627d0ba2b208d8e33181cab27d5d1508f/src/battle/battle_controller_player.c#L3802C13-L3802C25
         ctx->swoam_seq_no++;
         // TODO loop through all hit battlers instead of defence_client
-        if (ServerIkariCheck(bsys, ctx) == TRUE) { // TODO: rename to TryBuildRage, hook, checks defender
+        if (ServerIkariCheck(bsys, ctx) == TRUE) { // TODO: rename to TryBuildRage, hook, checks only defence_client currently
             return;
         }
         FALLTHROUGH;
@@ -491,7 +501,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_29_0_SOMETHING_WITH_SWITCHING: // send out new mon?
+    case MOVE_PERFORMANCE_STEP_29_0_SOMETHING_WITH_SWITCHING: // send out new mon? //TODO rename after we get a better translation
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
@@ -744,9 +754,11 @@ int ShowDamageReductionBerryMessage(void* bsys, struct BattleStruct* sp)
     return FALSE;
 }
 
-int CottonDownCheck(void *bsys, struct BattleStruct *sp)
+int CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp)
 {
-    for (sp->swoak_work = 0; sp->swoak_work < BattleWorkClientSetMaxGet(bsys); sp->swoak_work++)
+    sp->swoak_work = sp->defence_client;
+    //TODO for loop is for simultaneous damage
+    //for ( ; sp->swoak_work < BattleWorkClientSetMaxGet(bsys); sp->swoak_work++)
     {
         if ((GetBattlerAbility(sp, sp->swoak_work) == ABILITY_COTTON_DOWN)
             && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
@@ -789,6 +801,7 @@ int CottonDownCheck(void *bsys, struct BattleStruct *sp)
                 break;
             }
         }
+        sp->clientLoopForAbility = 0;
     }
 
     return FALSE;
