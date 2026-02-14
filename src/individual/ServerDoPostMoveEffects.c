@@ -390,7 +390,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         movetype = GetAdjustedMoveType(ctx, ctx->attack_client, currMove); // new normalize checks
 
         ctx->swoam_seq_no++;
-
+        //TODO loop over all battlers
         if (ctx->defence_client != 0xFF) {
             if ((ctx->battlemon[ctx->defence_client].condition & STATUS_FREEZE)
                 && ((ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS) == 0)
@@ -434,7 +434,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_19_0_FORM_CHANGE:
         debug_printf("in MOVE_PERFORMANCE_STEP_19_0_FORM_CHANGE\n");
-        // TODO
+        // TODO all battlers?, new form changes
         ctx->swoam_seq_no++;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHAYMIN_FORM_CHECK);
         ctx->next_server_seq_no = ctx->server_seq_no;
@@ -491,7 +491,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_27_0_ABILITIES_2:
         debug_printf("in MOVE_PERFORMANCE_STEP_27_0_ABILITIES_2\n");
-        // TODO
+        // TODO remove from switchInAbilityCheck?
         for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
             int client_no = ctx->turnOrder[battler];
             if (AbilityStatusRecoverCheck(bsys, ctx, client_no, 1) == TRUE) { //TODO thermal exchange and newer abilities
