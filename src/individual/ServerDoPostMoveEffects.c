@@ -490,7 +490,18 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_27_0_ABILITIES_2:
+        debug_printf("in MOVE_PERFORMANCE_STEP_27_0_ABILITIES_2\n");
         // TODO
+        for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
+            int client_no = ctx->turnOrder[battler];
+            if (AbilityStatusRecoverCheck(bsys, ctx, client_no, 1) == TRUE) { //TODO thermal exchange and newer abilities
+  
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ABILITY_RECOVER_CND);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
+        }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_27_1_OPPORTUNIST_SYBIOSIS:
