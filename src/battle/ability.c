@@ -830,7 +830,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
     sp->swoam_seq_no = 0;
     sp->server_seq_no = CONTROLLER_COMMAND_31;
     return;
-
+    /*
     switch(sp->swoam_type)
     {
     case SWOAM_NORMAL:
@@ -849,8 +849,6 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
             {
                 return;
             }
-            sp->swoam_seq_no = 0;
-            sp->server_seq_no = 31;
             break;
             FALLTHROUGH;
         case SEQ_NORMAL_ADD_STATUS_MSG:
@@ -1061,6 +1059,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
 
     sp->swoam_seq_no = 0;
     sp->server_seq_no = 31;
+    */
 }
 
 //TODO: some stack system because need the Magic Coat/Magic Bounce users to reflect the move individually

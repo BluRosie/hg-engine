@@ -89,8 +89,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE\n");
         // TODO
         ctx->swoam_seq_no++;
-        if (ServerWazaStatusMessage(bsys, ctx) == TRUE) {
-            return;
+        if (ctx->swoam_type == SWOAM_NORMAL) {
+            if (ServerWazaStatusMessage(bsys, ctx) == TRUE) {
+                return;
+            }
         }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_6_NOT_SE_TYPE_EFFECTIVENESS_MESSAGE: {
@@ -159,8 +161,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_1_RAGE:
         debug_printf("in MOVE_PERFORMANCE_STEP_10_1_RAGE\n");
-        //https://github.com/pret/pokeheartgold/blob/f20f85b627d0ba2b208d8e33181cab27d5d1508f/src/battle/battle_controller_player.c#L3802C13-L3802C25
+        // https://github.com/pret/pokeheartgold/blob/f20f85b627d0ba2b208d8e33181cab27d5d1508f/src/battle/battle_controller_player.c#L3802C13-L3802C25
         ctx->swoam_seq_no++;
+        // TODO loop through all hit battlers instead of defence_client
         if (ServerIkariCheck(bsys, ctx) == TRUE) { // TODO: rename to TryBuildRage, hook, checks defender
             return;
         }
@@ -181,6 +184,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_10_5_POISON_TOUCH\n");
 
         ctx->swoam_seq_no++;
+        // TODO loop through all hit battlers instead of defence_client
         if (MoveHitAttackerAbilityCheck(bsys, ctx, &seq_no) == TRUE) // TODO: move out Moxie,etc
         {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
@@ -194,10 +198,15 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_10_6_DEFENDER_ABILITY\n");
 
         ctx->swoam_seq_no++;
+        // TODO loop through all hit battlers instead of defence_client
         if (MoveHitDefenderAbilityCheck(bsys, ctx, &seq_no) == TRUE) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+
+        if (SynchroniseAbilityCheck(bsys, ctx, ctx->server_seq_no) == TRUE) {
             return;
         }
     }
@@ -218,14 +227,24 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_8_DAMAGE_REDUCTION_BERRY:
         debug_printf("in MOVE_PERFORMANCE_STEP_10_8_DAMAGE_REDUCTION_BERRY\n");
+
         ctx->swoam_seq_no++;
         if (ShowDamageReductionBerryMessage(bsys, ctx) == TRUE) {
             return;
         }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_10_9_DEFENDER_ITEMS_1:
-        // TODO
+    case MOVE_PERFORMANCE_STEP_10_9_DEFENDER_ITEMS_1: {
+        debug_printf("in MOVE_PERFORMANCE_STEP_10_9_DEFENDER_ITEMS_1\n");
+
         ctx->swoam_seq_no++;
+        // TODO loop through all hit battlers instead of defence_client
+        if (CheckDefenderItemEffectOnHit(bsys, ctx, &seq_no) == TRUE) {
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+    }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_10_INCINERATE:
         // TODO
@@ -251,22 +270,45 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_12_0_RESET_UNNERVE_NEUTRALIZING_GAS_IF_FAINTED:
-        // TODO
+    case MOVE_PERFORMANCE_STEP_12_0_RESET_UNNERVE_NEUTRALIZING_GAS_IF_FAINTED: // switch in ability check?
+    {
+        debug_printf("in MOVE_PERFORMANCE_STEP_12_0_RESET_UNNERVE_NEUTRALIZING_GAS_IF_FAINTED\n");
+        seq_no = ST_ServerPokeAppearCheck(bsys, ctx); // switch in ability check
+
+        if (seq_no) {
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
         ctx->swoam_seq_no++;
+    }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_13_0_MULTIHIT_MOVE_ATTACKER_ITEMS_4:
         debug_printf("in MOVE_PERFORMANCE_STEP_13_0_MULTIHIT_MOVE_ATTACKER_ITEMS_4\n");
-        //TODO hook
-        //https://github.com/pret/pokeheartgold/blob/f20f85b627d0ba2b208d8e33181cab27d5d1508f/src/battle/battle_controller_player.c#L3825
+        // TODO loop through all hit battlers instead of defence_client
         ctx->swoam_seq_no++;
         if (ServerFlinchCheck(bsys, ctx) == TRUE) {
+            return;
+        }
+
+        if (TryUseHeldItem(bsys, ctx, ctx->attack_client) == TRUE) { // will eventually need TryUseHeldItem anyway.  generic berry function thing
             return;
         }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4: // Go back to step 1, damage calc
         // TODO
         ctx->swoam_seq_no++;
+        FALLTHROUGH;
+    case MOVE_PERFORMANCE_STEP_13_2_MULTIHIT_STATUS_MESSAGE:
+        // TODO
+        debug_printf("in MOVE_PERFORMANCE_STEP_13_2_MULTIHIT_STATUS_MESSAGE\n");
+        ctx->swoam_seq_no++;
+        if (ctx->swoam_type != SWOAM_NORMAL) {
+            if (ServerWazaStatusMessage(bsys, ctx) == TRUE) {
+                return;
+            }
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_14_0_FRIENDSHIP_MESSAGE:
         // TODO
@@ -326,9 +368,31 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_8_THAW_FROM_FIRE_MOVE:
-        // TODO
+    case MOVE_PERFORMANCE_STEP_15_8_THAW_FROM_FIRE_MOVE: {
+        debug_printf("in MOVE_PERFORMANCE_STEP_15_8_THAW_FROM_FIRE_MOVE\n");
+        int movetype;
+        u16 currMove = ctx->current_move_index;
+
+        movetype = GetAdjustedMoveType(ctx, ctx->attack_client, currMove); // new normalize checks
+
         ctx->swoam_seq_no++;
+
+        if (ctx->defence_client != 0xFF) {
+            if ((ctx->battlemon[ctx->defence_client].condition & STATUS_FREEZE)
+                && ((ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS) == 0)
+                && (ctx->defence_client != ctx->attack_client)
+                && ((ctx->oneSelfFlag[ctx->defence_client].physical_damage) || (ctx->oneSelfFlag[ctx->defence_client].special_damage))
+                && (ctx->battlemon[ctx->defence_client].hp)
+                && ((movetype == TYPE_FIRE) || (IsElementInArray(gMovesThatThawFrozenMons, &currMove, NELEMS(gMovesThatThawFrozenMons), sizeof(u16)))) // scald can also melt opponents as of gen 6
+                && ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag == 0) {
+                ctx->battlerIdTemp = ctx->defence_client;
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
+        }
+    }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_9_SMELLING_SALTS_WAKEUP_SLAP_SPARKLING_ARIA:
         // TODO
@@ -441,6 +505,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     default:
         break;
     }
+
     ctx->swoak_work = 0;
     ctx->server_seq_no = CONTROLLER_COMMAND_32;
 }
@@ -481,7 +546,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         {
             int seq_no;
 
-            seq_no = ST_ServerPokeAppearCheck(bsys, ctx);
+            seq_no = ST_ServerPokeAppearCheck(bsys, ctx);   //switch in ability check
 
             if (seq_no)
             {
