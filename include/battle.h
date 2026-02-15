@@ -4184,6 +4184,13 @@ void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
 BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 BOOL LONG_CALL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 
+
+int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp);
+int LONG_CALL ActivateFellStingerOrScaleShot(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL ThawTargetFromScaldOrFireMove(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL ActivateSteelRollerOrIceSpinner(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL ActivateThroatSprayOrBlunderPolicy(void *bsys UNUSED, struct BattleStruct *sp);
+
 #ifdef DEBUG_BATTLE_SCENARIOS
 BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);
 #endif

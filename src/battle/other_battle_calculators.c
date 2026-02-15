@@ -3931,3 +3931,167 @@ u32 LONG_CALL CheckSubstitute(struct BattleStruct* ctx, int client_no)
 
     return ret;
 }
+
+
+int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp)
+{
+    sp->swoak_work = sp->defence_client;
+    // TODO for loop is for simultaneous damage
+    // for ( ; sp->swoak_work < BattleWorkClientSetMaxGet(bsys); sp->swoak_work++)
+    {
+        if ((GetBattlerAbility(sp, sp->swoak_work) == ABILITY_COTTON_DOWN)
+            && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+            && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+            && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+            && ((sp->oneSelfFlag[sp->swoak_work].physical_damage) || (sp->oneSelfFlag[sp->swoak_work].special_damage))) {
+            switch (sp->clientLoopForAbility) {
+            case SPREAD_ABILITY_LOOP_OPPONENT_LEFT:
+                sp->clientLoopForAbility++;
+                if (sp->battlemon[BATTLER_OPPONENT_SIDE_LEFT(sp->swoak_work)].species) {
+                    sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
+                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+                    sp->state_client = BATTLER_OPPONENT_SIDE_LEFT(sp->swoak_work);
+                    sp->battlerIdTemp = sp->swoak_work;
+                    return TRUE;
+                }
+                FALLTHROUGH;
+            case SPREAD_ABILITY_LOOP_OPPONENT_RIGHT:
+                sp->clientLoopForAbility++;
+                if (sp->battlemon[BATTLER_OPPONENT_SIDE_RIGHT(sp->swoak_work)].species) {
+                    sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
+                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+                    sp->state_client = BATTLER_OPPONENT_SIDE_RIGHT(sp->swoak_work);
+                    sp->battlerIdTemp = sp->swoak_work;
+                    return TRUE;
+                }
+                FALLTHROUGH;
+            case SPREAD_ABILITY_LOOP_ALLY:
+                sp->clientLoopForAbility++;
+                if (sp->battlemon[BATTLER_ALLY(sp->swoak_work)].species) {
+                    sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
+                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+                    sp->state_client = BATTLER_ALLY(sp->swoak_work);
+                    sp->battlerIdTemp = sp->swoak_work;
+                    return TRUE;
+                }
+                break;
+            default:
+                break;
+            }
+        }
+        sp->clientLoopForAbility = 0;
+    }
+
+    return FALSE;
+}
+
+int LONG_CALL ActivateFellStingerOrScaleShot(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    if (ctx->current_move_index == MOVE_FELL_STINGER) {
+        if (ctx->attack_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->defence_client].hp == 0)
+            && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
+            && (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12)) {
+            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->state_client = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    }
+
+    if (ctx->current_move_index == MOVE_SCALE_SHOT) {
+        if ((ctx->attack_client != BATTLER_NONE)
+            && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
+            && (ctx->battlemon[ctx->attack_client].states[STAT_DEFENSE] > 0)
+            && (ctx->battlemon[ctx->attack_client].states[STAT_SPEED] < 12)) {
+            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->state_client = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_USER_DEF_DOWN_1_SPEED_UP_1);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+// https://bulbapedia.bulbagarden.net/wiki/Category:Moves_that_thaw_out_the_user
+// will have to add matcha gotcha and burn up to the list of effects that thaw the user
+u16 gMovesThatThawFrozenMons[] = {
+    // MOVE_BURN_UP,
+    // MOVE_FLAME_WHEEL,
+    // MOVE_FLARE_BLITZ,
+    // MOVE_FUSION_FLARE,
+    MOVE_MATCHA_GOTCHA,
+    // MOVE_PYRO_BALL,
+    // MOVE_SACRED_FIRE,
+    MOVE_SCALD,
+    MOVE_SCORCHING_SANDS,
+    MOVE_STEAM_ERUPTION,
+};
+
+int LONG_CALL ThawTargetFromScaldOrFireMove(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    int movetype;
+    u16 currMove = ctx->current_move_index;
+
+    movetype = GetAdjustedMoveType(ctx, ctx->attack_client, currMove); // new normalize checks
+
+    ctx->swoam_seq_no++;
+    // TODO loop over all battlers
+    if (ctx->defence_client != BATTLER_NONE) {
+        if ((ctx->battlemon[ctx->defence_client].condition & STATUS_FREEZE)
+            && ((ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS) == 0)
+            && (ctx->defence_client != ctx->attack_client)
+            && ((ctx->oneSelfFlag[ctx->defence_client].physical_damage) || (ctx->oneSelfFlag[ctx->defence_client].special_damage))
+            && (ctx->battlemon[ctx->defence_client].hp)
+            && ((movetype == TYPE_FIRE) || (IsElementInArray(gMovesThatThawFrozenMons, &currMove, NELEMS(gMovesThatThawFrozenMons), sizeof(u16)))) // scald can also melt opponents as of gen 6
+            && ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag == 0) {
+            ctx->battlerIdTemp = ctx->defence_client;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+int LONG_CALL ActivateSteelRollerOrIceSpinner(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    if (ctx->terrainOverlay.type != TERRAIN_NONE
+        && (ctx->current_move_index == MOVE_STEEL_ROLLER
+            || (ctx->current_move_index == MOVE_ICE_SPINNER
+                && ctx->battlemon[ctx->attack_client].hp))
+        && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
+        ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HANDLE_TERRAIN_END);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+int LONG_CALL ActivateThroatSprayOrBlunderPolicy(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    if (ctx->attack_client != BATTLER_NONE
+        && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_BOOST_SPATK_ON_SOUND_MOVE 
+        && IsMoveSoundBased(ctx->current_move_index))
+    {
+        ctx->item_work = ctx->battlemon[ctx->attack_client].item;
+        ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
+        ctx->addeffect_type = ADD_EFFECT_HELD_ITEM;
+        ctx->state_client = ctx->attack_client;
+        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HANDLE_THROAT_SPRAY);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
+    }
+    return FALSE;
+}
+
