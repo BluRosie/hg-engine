@@ -4198,6 +4198,7 @@ int LONG_CALL ActivateSparklingAriaHealingBurn(void *bw, struct BattleStruct *sp
 int LONG_CALL ActivateDragonTailOrCircleThrow(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateMoxieOrBeastBoost(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateFormChange(void *bsys, struct BattleStruct *ctx);
+int LONG_CALL ActivateMirrorHerbOrWhiteHerb(void *bw, struct BattleStruct *ctx);
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);

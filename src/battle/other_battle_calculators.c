@@ -4460,3 +4460,41 @@ int LONG_CALL ActivateFormChange(void *bsys, struct BattleStruct *ctx)
     }
     return FALSE;
 }
+
+
+int LONG_CALL ActivateMirrorHerbOrWhiteHerb(void *bsys, struct BattleStruct *ctx)
+{
+    for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++)
+    {
+        int ret = FALSE;
+        int client_no = ctx->turnOrder[battler];
+        int itemHeldEffect = HeldItemHoldEffectGet(ctx, client_no);
+        switch (itemHeldEffect) {
+            //TODO eject pack
+        case HOLD_EFFECT_COPY_STAT_INCREASE: // mirror herb //TODO
+            break;
+        case HOLD_EFFECT_STATDOWN_RESTORE: // white herb
+        {
+            int stat;
+            for (stat = 0; stat < 8; stat++) {
+                if (ctx->battlemon[client_no].states[stat] < 6) {
+                    ctx->battlemon[client_no].states[stat] = 6;
+                    ret = TRUE;
+                }
+            }
+            if (ret == TRUE) {
+                ctx->battlerIdTemp = client_no;
+                ctx->item_work = GetBattleMonItem(ctx, client_no);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_RECOVER_STAT_DROP);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return TRUE;
+            }
+            break;
+        }
+        default:
+            break;
+        }
+    }
+    return FALSE;
+}

@@ -514,21 +514,7 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
                 }
             }
             break;
-        case HOLD_EFFECT_STATDOWN_RESTORE: // white herb
-        {
-            int stat;
-            for (stat = 0; stat < 8; stat++) {
-                if (ctx->battlemon[battlerId].states[stat] < 6) {
-                    ctx->battlemon[battlerId].states[stat] = 6;
-                    ret = TRUE;
-                }
-            }
-            if (ret == TRUE) {
-                script = SUB_SEQ_ITEM_RECOVER_STAT_DROP;
-            }
-            break;
-        }
-        case HOLD_EFFECT_HEAL_INFATUATION: // mental herb
+        case HOLD_EFFECT_HEAL_INFATUATION: // mental herb 
             if (ctx->battlemon[battlerId].condition2 & STATUS2_ATTRACT) {
                 ctx->msg_work = 6;
                 script = SUB_SEQ_ITEM_RECOVER_INF;
