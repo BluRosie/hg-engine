@@ -4185,11 +4185,14 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, in
 BOOL LONG_CALL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 
 
-int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp);
+int LONG_CALL ActivateSturdyOrFocusSashOrFocusBand(void *bsys, struct BattleStruct *sp, int *seq_no);
+int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL ActivateFlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateFellStingerOrScaleShot(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ThawTargetFromScaldOrFireMove(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateSteelRollerOrIceSpinner(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL ActivateThroatSprayOrBlunderPolicy(void *bsys UNUSED, struct BattleStruct *sp);
+int LONG_CALL ActivateThroatSprayOrBlunderPolicy(void *bsys, struct BattleStruct *ctx);
+int LONG_CALL ActivateRampageConfusion(void *bsys UNUSED, struct BattleStruct *ctx);
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);

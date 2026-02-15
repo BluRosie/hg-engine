@@ -95,22 +95,6 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
             }
         }
 
-        
-
-        // TODO: A rampage move that fails (Thrash, Outrage etc) will cancel except on the last turn
-        if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS && !ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag) {
-                ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 1;
-                ctx->battlemon[ctx->attack_client].condition2 -= 1 << 10;
-                if (ov12_02252218(ctx, ctx->attack_client)) { // come back to this
-                    ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RAMPAGE_TURNS;
-                } else if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS) && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
-                    ctx->state_client = ctx->attack_client;
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THRASH_END);
-                    ctx->next_server_seq_no = ctx->server_seq_no;
-                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                    return;
-                }
-            }
 
         // If the user's next move is not Electric-type, Charge no longer wears off, and instead remains active for the next move that is.
         // However, if the user attempted to use an Electric-type move,
