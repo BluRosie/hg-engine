@@ -4193,7 +4193,11 @@ int LONG_CALL ThawTargetFromScaldOrFireMove(void *bsys UNUSED, struct BattleStru
 int LONG_CALL ActivateSteelRollerOrIceSpinner(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateThroatSprayOrBlunderPolicy(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL ActivateRampageConfusion(void *bsys UNUSED, struct BattleStruct *ctx);
-u32 LONG_CALL ActivateShellBellOrLifeOrb(void *bw UNUSED, struct BattleStruct *sp);
+int LONG_CALL ActivateShellBellOrLifeOrb(void *bw UNUSED, struct BattleStruct *sp);
+int LONG_CALL ActivateSparklingAriaHealingBurn(void *bw, struct BattleStruct *sp);
+int LONG_CALL ActivateDragonTailOrCircleThrow(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL ActivateMoxieOrBeastBoost(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL ActivateFormChange(void *bsys, struct BattleStruct *ctx);
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);

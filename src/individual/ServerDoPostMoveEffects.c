@@ -326,7 +326,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4: // Go back to step 1, damage calc
+    case MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4: // Go back to step 1, damage calc consolidate BattleController_LoopMultiHit
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4\n");
 #endif
@@ -378,8 +378,15 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_4_CIRCLE_THROW_DRAGON_TAIL:
-        // TODO move here from endMove
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_15_4_CIRCLE_THROW_DRAGON_TAIL\n");
+#endif
         ctx->swoam_seq_no++;
+        //TODO switch consolidation
+        if (ActivateDragonTailOrCircleThrow(bsys, ctx) == TRUE)
+        {
+            return;
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_5_KNOCK_DOWN_THOUSAND_WAVE_JAW_LOCK:
         // TODO
@@ -410,7 +417,14 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_9_SMELLING_SALTS_WAKEUP_SLAP_SPARKLING_ARIA:
-        // TODO, move here from endMove
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_15_8_THAW_FROM_FIRE_MOVE\n");
+#endif
+        //TODO single out the other moves too
+        if (ActivateSparklingAriaHealingBurn(bsys, ctx) == TRUE)
+        {
+            return;
+        }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_10_EERIE_SPELL:
@@ -418,8 +432,13 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE:
-        // TODO move here from endMove
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE\n");
+#endif
         ctx->swoam_seq_no++;
+        if (ActivateMoxieOrBeastBoost(bsys, ctx) == TRUE) {
+            return;
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_16_1_BERSERK_COLOR_CHANGE:
         // TODO
@@ -440,10 +459,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 
         // TODO all battlers?, new form changes
         ctx->swoam_seq_no++;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHAYMIN_FORM_CHECK);
-        ctx->next_server_seq_no = ctx->server_seq_no;
-        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-        return;
+        if (ActivateFormChange(bsys, ctx) == TRUE) {
+            return;
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_20_0_LIFE_ORB_SHELL_BELL:
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
