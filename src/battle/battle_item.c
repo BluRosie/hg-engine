@@ -136,6 +136,7 @@ enum
  */
 u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 {
+    /*
     int ret;
     int client_set_max UNUSED;
     int hold_effect;
@@ -147,13 +148,18 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 
     hold_effect = HeldItemHoldEffectGet(sp, sp->attack_client);
     hold_effect_param = HeldItemAtkGet(sp, sp->attack_client, ATK_CHECK_NORMAL);
-
+    */
+    //TODO confirm?
     if (CheckIfAnyoneShouldFaint(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE)
     {
         return TRUE;
     }
 
-    do
+    if ((sp->battlemon[sp->attack_client].condition2 & STATUS2_RAGE) && (sp->current_move_index != MOVE_RAGE)) {
+        sp->battlemon[sp->attack_client].condition2 &= ~(STATUS2_RAGE);
+    }
+    return FALSE;
+ /* do
     {
         switch(sp->swhac_seq_no)
         {
@@ -168,6 +174,7 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
                 sp->swhac_seq_no = SWHAC_END;
 
             break;
+
         case SWHAC_HELD_ITEM_SHELL_BELL:
             if(sp->defence_client != 0xFF)
             {
@@ -210,12 +217,13 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
             sp->swhac_seq_no = 0;
             sp->swhac_work = 0;
             ret = 2;
-            break;
+            break;        
         }
     }
     while (ret == 0);
 
     return (ret == 1);
+    */
 }
 
 

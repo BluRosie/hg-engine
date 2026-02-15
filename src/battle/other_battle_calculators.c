@@ -4210,3 +4210,52 @@ int LONG_CALL ActivateRampageConfusion(void *bsys UNUSED, struct BattleStruct *c
     }
     return FALSE;
 }
+
+
+u32 LONG_CALL ActivateShellBellOrLifeOrb(void *bw UNUSED, struct BattleStruct *sp)
+{
+    if (sp->attack_client != BATTLER_NONE && GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE
+        && sp->battlemon[sp->attack_client].sheer_force_flag == 1) { // skip over shell bell and life orb if sheer force is active
+        return FALSE;
+    }
+
+    int hold_effect = HeldItemHoldEffectGet(sp, sp->attack_client);
+    int hold_effect_param = HeldItemAtkGet(sp, sp->attack_client, ATK_CHECK_NORMAL);
+
+    switch (hold_effect) {
+    case HOLD_EFFECT_HP_RESTORE_ON_DMG: {
+        if (((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+            && (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
+            && (sp->oneSelfFlag[sp->attack_client].shell_bell_damage)
+            && (sp->attack_client != sp->defence_client)
+            && (sp->battlemon[sp->attack_client].hp < (s32)sp->battlemon[sp->attack_client].maxhp)
+            && (sp->battlemon[sp->attack_client].hp)) {
+            sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, hold_effect_param);
+            sp->battlerIdTemp = sp->attack_client;
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_GRADUAL);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    }
+    case HOLD_EFFECT_HP_DRAIN_ON_ATK: {
+        if ((GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
+            && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+            && (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
+            && (GetMoveSplit(sp, sp->current_move_index) != SPLIT_STATUS)
+            && (sp->battlemon[sp->attack_client].hp)) {
+            sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
+            sp->battlerIdTemp = sp->attack_client;
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_LOSS);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+    return FALSE;
+}

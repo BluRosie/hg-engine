@@ -65,11 +65,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_3_EXPLOSION_USER_FAINTS:
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_3_EXPLOSION_USER_FAINTS\n");
+        debug_printf("in MOVE_PERFORMANCE_STEP_3_EXPLOSION_USER_FAINTS %d\n", ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED);
 #endif
-        // TODO
+        // TODO once simultaneous damge is in
         ctx->swoam_seq_no++;
-        /* if (ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) {
+        /*
+        if (ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) {
             ctx->fainting_client = ctx->attack_client; // No2Bit((ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) >> BATTLE_STATUS_SELFDESTRUCTED_SHIFT);
             ctx->server_status_flag &= ~BATTLE_STATUS_SELFDESTRUCTED;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOM);
@@ -131,7 +132,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_9_0_FLING:
-        // TODO
+        // TODO needed?
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_9_1_ADDITIONAL_EFFECTS: {
@@ -150,11 +151,11 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_9_2_LOWERING_STATS:
-        // TODO
+        // TODO needed?
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_9_3_HP_DRAINING_MOVES:
-        // TODO
+        // TODO needed?
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_9_4_FLAME_BURST:
@@ -330,10 +331,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4\n");
 #endif
         // TODO
-        if (ctx->multiHitCount > 1) {
+        if (ctx->multiHitCount > 0) {
             if (TryUseHeldItem(bsys, ctx, ctx->defence_client) == TRUE) { // will eventually need TryUseHeldItem anyway.  generic berry function thing
                 return;
             }
+        }
+        if (ctx->multiHitCount > 1) {
             break;
         }
         ctx->swoam_seq_no++;
@@ -443,9 +446,16 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         return;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_20_0_LIFE_ORB_SHELL_BELL:
-        // TODO loop through all hit battlers instead of defence_client
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_20_0_LIFE_ORB_SHELL_BELL\n");
+#endif
 
         ctx->swoam_seq_no++;
+        if (ActivateShellBellOrLifeOrb(bsys, ctx) == TRUE)
+        {
+            return;
+        }
+        // TODO loop through all hit battlers instead of defence_client
         if (ServerFlinchCheck(bsys, ctx) == TRUE) { // TODO: confirm, Step 13, 20 or 26?
             return;
         }
