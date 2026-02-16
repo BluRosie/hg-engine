@@ -560,6 +560,11 @@ arm9 SetupAndStartTutorialBattle 02051334 1
 0012 BattleControllerPlayer_GetBattleMon 0224873C 2
 0012 BattleController_EmitHealthbarSlideIn_EarlyBail 02262A5A 3
 0012 ov12_0225D644_SkipPartnerThrow 0225D772 4
+0012 CT_PokemonEncountSet_Path_02259B6C 02259B6C 0
+0012 CT_PokemonEncountAppearSet_Path_02259D10 02259D10 0
+0012 CT_PokemonEncountAppearSet_Path_02259D1E 02259D1E 0
+0012 CT_PokemonEncountAppearSet_Path_02259D2C 02259D2C 0
+0012 CT_PokemonAppearSet_Path_02259F06 02259F06 0
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 0010 TestBattle_AISelectMove 0221BEF4 2

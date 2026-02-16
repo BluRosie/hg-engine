@@ -433,6 +433,7 @@ bx r3
 
 .pool
 
+
 .global ov12_0225D644_SkipPartnerThrow
 ov12_0225D644_SkipPartnerThrow:
 push {r3}
@@ -456,50 +457,211 @@ _ov12_0225D644_InvalidPartner:
 ldr r0, [r5]
 mov r1, r4
 bl 0x0223A7E8 | 1
-add  r1, r0, #0
-add  r1, #0x88
-ldr  r0, [r1]
-cmp  r0, #0
+add r1, r0, #0
+add r1, #0x88
+ldr r0, [r1]
+cmp r0, #0
 beq _returnTo0225D7F2
 
 push {r1}
 
-mov  r1, #0
-bl   0x0223449C | 1
+mov r1, #0
+bl 0x0223449C | 1
 
-pop  {r1}
-ldr  r0, [r1]
-cmp  r0, #0
-beq  _returnTo0225D7F2
+pop {r1}
+ldr r0, [r1]
+cmp r0, #0
+beq _returnTo0225D7F2
 push {r1}
 
-mov  r1, #0
-bl   0x02233EFC | 1
+mov r1, #0
+bl 0x02233EFC | 1
 
-pop  {r1}
-ldr  r0, [r1]
-cmp  r0, #0
-beq  _returnTo0225D7F2
+pop {r1}
+ldr r0, [r1]
+cmp r0, #0
+beq _returnTo0225D7F2
 push {r1}
 
-mov  r1, #0
-bl   0x022344C0 | 1
+mov r1, #0
+bl 0x022344C0 | 1
 
-pop  {r1}
-ldr  r0, [r1]
-cmp  r0, #0
-beq  _returnTo0225D7F2
+pop {r1}
+ldr r0, [r1]
+cmp r0, #0
+beq _returnTo0225D7F2
 push {r1}
 
-mov  r1, #0
-bl   0x022344D0 | 1
+mov r1, #0
+bl 0x022344D0 | 1
 
-pop  {r1}
+pop {r1}
 b _returnTo0225D7F2
 
 _returnTo0225D7F2:
 pop {r3}
 ldr r4, =0x0225D7F2 | 1
 bx r4
+
+.pool
+
+
+.global CT_PokemonEncountAppearSet_Path_02259D10
+CT_PokemonEncountAppearSet_Path_02259D10:
+push {r0-r3}
+mov r2, #0x65
+lsl r2, r2, #2
+ldrb r3, [r6, r2]
+cmp r3, #2
+bne _CTEA_Path02259D10_NoRerouteCheck
+add r2, r2, #1
+ldrb r3, [r6, r2]
+cmp r3, #4
+bne _CTEA_Path02259D10_NoRerouteCheck
+mov r0, r7
+mov r1, #2
+bl IsBattlerSlotValid
+cmp r0, #0
+bne _CTEA_Path02259D10_NoRerouteCheck
+mov r0, #1
+b _CTEA_Path02259D10_RerouteCheckDone
+_CTEA_Path02259D10_NoRerouteCheck:
+mov r0, #0
+_CTEA_Path02259D10_RerouteCheckDone:
+cmp r0, #0
+pop {r0-r3}
+bne _CTEA_Path02259D10_Reroute
+
+ldr r0, =0x0225B961 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+add sp, #0xc
+pop {r4, r5, r6, r7, pc}
+
+_CTEA_Path02259D10_Reroute:
+ldr r0, =0x0225BE39 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+add sp, #0xc
+pop {r4, r5, r6, r7, pc}
+
+.pool
+
+
+.global CT_PokemonEncountAppearSet_Path_02259D1E
+CT_PokemonEncountAppearSet_Path_02259D1E:
+ldr r0, =0x0225BE39 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+add sp, #0xc
+pop {r4, r5, r6, r7, pc}
+
+.pool
+
+
+.global CT_PokemonEncountAppearSet_Path_02259D2C
+CT_PokemonEncountAppearSet_Path_02259D2C:
+ldr r0, =0x0225B961 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+add sp, #0xc
+pop {r4, r5, r6, r7, pc}
+
+.pool
+
+
+.global CT_PokemonEncountSet_Path_02259B6C
+CT_PokemonEncountSet_Path_02259B6C:
+push {r0-r3}
+mov r2, #0x65
+lsl r2, r2, #2
+ldrb r3, [r6, r2]
+cmp r3, #2
+bne _CTE_Path02259B6C_NoRerouteCheck
+add r2, r2, #1
+ldrb r3, [r6, r2]
+cmp r3, #4
+bne _CTE_Path02259B6C_NoRerouteCheck
+ldr r0, [sp, #0x34]
+mov r1, #2
+bl IsBattlerSlotValid
+cmp r0, #0
+bne _CTE_Path02259B6C_NoRerouteCheck
+mov r0, #1
+b _CTE_Path02259B6C_RerouteCheckDone
+
+_CTE_Path02259B6C_NoRerouteCheck:
+mov r0, #0
+
+_CTE_Path02259B6C_RerouteCheckDone:
+cmp r0, #0
+pop {r0-r3}
+bne _CTE_Path02259B6C_Reroute
+
+ldr r0, =0x0225B7B9 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+ldr r3, =0x02259B82 | 1
+bx r3
+
+_CTE_Path02259B6C_Reroute:
+ldr r0, =0x0225B495 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+ldr r3, =0x02259B82 | 1
+bx r3
+
+.pool
+
+
+.global CT_PokemonAppearSet_Path_02259F06
+CT_PokemonAppearSet_Path_02259F06:
+push {r0-r3}
+ldr r2, [sp, #0x20]
+mov r0, #0x65
+lsl r0, r0, #2
+ldrb r3, [r2, r0]
+cmp r3, #2
+bne _CTPA_Path02259F06_NoRerouteCheck
+add r0, r0, #1
+ldrb r3, [r2, r0]
+cmp r3, #4
+bne _CTPA_Path02259F06_NoRerouteCheck
+ldr r0, [sp, #0x1c]
+mov r1, #2
+bl IsBattlerSlotValid
+cmp r0, #0
+bne _CTPA_Path02259F06_NoRerouteCheck
+mov r0, #1
+b _CTPA_Path02259F06_RerouteCheckDone
+
+_CTPA_Path02259F06_NoRerouteCheck:
+mov r0, #0
+
+_CTPA_Path02259F06_RerouteCheckDone:
+cmp r0, #0
+pop {r0-r3}
+bne _CTPA_Path02259F06_Reroute
+
+ldr r0, =0x0225C18D | 1
+add r1, r5, #0
+mov r2, #0
+bl 0x0200E320 | 1
+ldr r3, =0x02259F10 | 1
+bx  r3
+
+_CTPA_Path02259F06_Reroute:
+ldr r0, =0x0225C6C9 | 1
+add r1, r5, #0
+mov r2, #0
+bl 0x0200E320 | 1
+ldr r3, =0x02259F10 | 1
+bx r3
 
 .pool

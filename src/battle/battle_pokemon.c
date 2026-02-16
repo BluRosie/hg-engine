@@ -342,10 +342,6 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
         }
     }
 
-    if (!IsBattlerSlotValid(bw, cp->client_no)) {
-        cp->client_type = 0;
-    }
-
     CT_PokemonEncountAppearSet(bw, cp, pap);
     ClientCommandReset(cp);
 }
