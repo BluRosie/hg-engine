@@ -140,6 +140,43 @@
 // set to FALSE to INCLUDE them
 #define EXCLUDE_MEGAS_FROM_RANDOMIZER FALSE
 
+// RANDOMIZER_WEIGHTING enables weighted selection when randomizing species
+// Comment out the line below to disable weighting and keep uniform random selection
+#define RANDOMIZER_WEIGHTING
+
+// Weight modifiers for the randomizer when RANDOMIZER_WEIGHTING is enabled.
+// Values are additive bonuses used to bias selection toward species similar
+// to the reference: higher values increase the importance of that factor.
+// All weights are optional and can be tuned to your taste.
+#define RANDOMIZER_TYPE_WEIGHT_WILD 30
+#define RANDOMIZER_BST_SIMILARITY_WEIGHT_WILD 30
+#define RANDOMIZER_EVOLUTION_STAGE_WEIGHT_WILD 20
+
+// Trainer-specific weights (applied when randomizing trainer parties)
+#define RANDOMIZER_TYPE_WEIGHT_TRAINER 60
+#define RANDOMIZER_BST_SIMILARITY_WEIGHT_TRAINER 60
+#define RANDOMIZER_EVOLUTION_STAGE_WEIGHT_TRAINER 40
+
+// RANDOMIZER_MAX_CANDIDATES limits how many candidate species are considered
+// when building the weighted selection pool. Set to 0 for no limit.
+#define RANDOMIZER_MAX_CANDIDATES 0
+
+// Sample-K strategy: when >0, the selector will pick K random candidates
+// and compute weights only for them (O(K) work) instead of scanning all species.
+// Separate values for wild encounters and trainer parties allow different tuning.
+#define RANDOMIZER_SAMPLE_K_WILD 16
+#define RANDOMIZER_SAMPLE_K_TRAINER 32
+
+// Maximum sample size allowed when progressively increasing the sample on rerolls
+#define RANDOMIZER_SAMPLE_MAX_K_WILD 64
+#define RANDOMIZER_SAMPLE_MAX_K_TRAINER 128
+
+// Minimum per-candidate score required (sample threshold). If the best candidate
+// in the sample has a score below this, the sampler will reroll with a larger
+// K until it reaches the max K, then fall back to a full scan.
+#define RANDOMIZER_SAMPLE_MIN_SCORE_WILD 20
+#define RANDOMIZER_SAMPLE_MIN_SCORE_TRAINER 40
+
 // SHINY_ODDS are the odds that a pokémon will be shiny.  actual odds are SHINY_ODDS over 65,536, by default 8 / 65536 or 1 / 8192
 // note that changing this still has no chance of spawning shiny mons in for trainers like the tutorial's method does
 // this will change existing mons too!  if you want to change the odds of wild mons only, you will have to add a certain amount of pid rerolls to the AddWildPartyPokemon routine

@@ -69,23 +69,252 @@ u32 getValidRandomSpecies() {
  *  @return new species
  */
 u32 getValidRandomSpeciesForm(u32 species) {
-    u8 form_count = 1;
-    struct FormData *PokeFormDataTbl = sys_AllocMemory(HEAPID_MAIN_HEAP, NELEMS_POKEFORMDATATBL * sizeof(struct FormData));
-    ArchiveDataLoad(PokeFormDataTbl, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA);
-    for(u32 i=0; i<NELEMS_POKEFORMDATATBL; i++) {
-        if (PokeFormDataTbl[i].species == species) {
-            #if EXCLUDE_MEGAS_FROM_RANDOMIZER
-            if(PokeFormDataTbl[i].file >= SPECIES_ALOLAN_REGIONAL_START) {
-                form_count += 1;
-            }
-            #else
-            form_count += 1;
-            #endif            
-        }
+    // form 0 is always valid (base form).  Additional forms are listed in
+    // CODE_ADDON_FORM_DATA as 32 u16 entries per base species; a 0 entry
+    // means no form at that slot.  We build a list of valid form numbers
+    // (0..32) and pick one uniformly.
+    if (species == 0) return 0;
+
+    u16 formTable[32];
+    u8 validForms[33];
+    int validCount = 0;
+
+    ArchiveDataLoadOfs(formTable, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (32*species), sizeof(u16)*32);
+
+    // always include base form (0)
+    validForms[validCount++] = 0;
+
+    for (int i = 0; i < 32; i++) {
+        u16 entry = formTable[i] & ~(NEEDS_REVERSION);
+        if (entry == 0) continue;
+
+#if EXCLUDE_MEGAS_FROM_RANDOMIZER
+        // exclude entries that map into the mega/primal/other adjusted species range
+        if (entry >= SPECIES_MEGA_START && entry <= MAX_MEGA_NUM) continue;
+#endif
+
+        // the form number stored in the table is (i+1)
+        validForms[validCount++] = (u8)(i + 1);
+        if (validCount >= (int)sizeof(validForms)) break;
     }
-    sys_FreeMemoryEz(PokeFormDataTbl);
-    return gf_rand()%form_count;
+
+    if (validCount == 0) return 0;
+
+    int idx = gf_rand() % validCount;
+    return validForms[idx];
 }
+
+#ifdef RANDOMIZER_WEIGHTING
+static int species_base_stat_total(u16 species)
+{
+    int adj = PokeOtherFormMonsNoGet(species, 0);
+    int bst = 0;
+    bst += PokePersonalParaGet(adj, PERSONAL_BASE_HP);
+    bst += PokePersonalParaGet(adj, PERSONAL_BASE_ATTACK);
+    bst += PokePersonalParaGet(adj, PERSONAL_BASE_DEFENSE);
+    bst += PokePersonalParaGet(adj, PERSONAL_BASE_SPEED);
+    bst += PokePersonalParaGet(adj, PERSONAL_BASE_SP_ATTACK);
+    bst += PokePersonalParaGet(adj, PERSONAL_BASE_SP_DEFENSE);
+    return bst;
+}
+
+static BOOL species_has_evolution(u16 species)
+{
+    u16 speciesWithForm = PokeOtherFormMonsNoGet(species, 0);
+    struct Evolution *evoTable = sys_AllocMemory(3, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
+    if (evoTable == NULL) return FALSE;
+    ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, speciesWithForm);
+    BOOL has = (evoTable[0].method != EVO_NONE);
+    sys_FreeMemoryEz(evoTable);
+    return has;
+}
+
+static u32 selectWeightedRandomSpecies(u32 refSpecies, BOOL isTrainer)
+{
+    // Number of candidate species to consider (1..MAX_ID_RANDOMIZED)
+    int max_candidate = MAX_ID_RANDOMIZED;
+
+    // Aggregate weight of all candidates (sum of candidate weights)
+    int total_weight = 0;
+
+    // Reference species canonicalized to adjusted index (form 0)
+    int ref_adjusted_species = PokeOtherFormMonsNoGet(refSpecies, 0);
+    int ref_bst = species_base_stat_total(ref_adjusted_species);
+    int ref_type1 = PokePersonalParaGet(ref_adjusted_species, PERSONAL_TYPE_1);
+    int ref_type2 = PokePersonalParaGet(ref_adjusted_species, PERSONAL_TYPE_2);
+    BOOL ref_has_evo = species_has_evolution(refSpecies);
+
+    // Choose which set of tuning constants to use (trainer vs wild)
+    int type_weight = isTrainer ? RANDOMIZER_TYPE_WEIGHT_TRAINER : RANDOMIZER_TYPE_WEIGHT_WILD;
+    int bst_weight = isTrainer ? RANDOMIZER_BST_SIMILARITY_WEIGHT_TRAINER : RANDOMIZER_BST_SIMILARITY_WEIGHT_WILD;
+    int evo_weight = isTrainer ? RANDOMIZER_EVOLUTION_STAGE_WEIGHT_TRAINER : RANDOMIZER_EVOLUTION_STAGE_WEIGHT_WILD;
+
+    // Allocate an array of integer weights (index by species). If allocation fails,
+    // fall back to uniform selection.
+    int *weight_arr = sys_AllocMemory(0, sizeof(int) * (max_candidate + 1));
+    if (weight_arr == NULL) {
+        return getValidRandomSpecies();
+    }
+
+    // Decide sample-K value (0 = full scan). If K <= 0 or K >= max, do full scan.
+    int sample_k = isTrainer ? RANDOMIZER_SAMPLE_K_TRAINER : RANDOMIZER_SAMPLE_K_WILD;
+    if (sample_k <= 0 || sample_k >= max_candidate) {
+        // Full scan: compute weights for all candidates (previous behavior)
+        for (int cand_idx = 1; cand_idx <= max_candidate; cand_idx++)
+        {
+            int score = 1;
+            int cand_adjusted = PokeOtherFormMonsNoGet(cand_idx, 0);
+
+#if EXCLUDE_MEGAS_FROM_RANDOMIZER
+            if (cand_adjusted >= SPECIES_MEGA_START && cand_adjusted <= MAX_MEGA_NUM) continue;
+#endif
+
+            int cand_bst = species_base_stat_total(cand_adjusted);
+            int bst_diff = cand_bst - ref_bst;
+            if (bst_diff < 0) bst_diff = -bst_diff;
+            int bst_bonus = bst_weight - (bst_diff / 10);
+            if (bst_bonus < 0) bst_bonus = 0;
+            score += bst_bonus;
+
+            int cand_type1 = PokePersonalParaGet(cand_adjusted, PERSONAL_TYPE_1);
+            int cand_type2 = PokePersonalParaGet(cand_adjusted, PERSONAL_TYPE_2);
+            if (cand_type1 == ref_type1 || cand_type1 == ref_type2 || cand_type2 == ref_type1 || cand_type2 == ref_type2)
+            {
+                score += type_weight;
+            }
+
+            BOOL cand_has_evo = species_has_evolution(cand_idx);
+            if ((cand_has_evo && ref_has_evo) || (!cand_has_evo && !ref_has_evo))
+            {
+                score += evo_weight;
+            }
+
+            weight_arr[cand_idx] = score;
+            total_weight += score;
+        }
+
+        if (total_weight <= 0)
+        {
+            sys_FreeMemoryEz(weight_arr);
+            return getValidRandomSpecies();
+        }
+
+        u32 rand_val = (gf_rand() | (gf_rand() << 16)) % total_weight;
+        int cumulative = 0;
+        int selected_species = 1;
+        for (int cand_idx = 1; cand_idx <= max_candidate; cand_idx++)
+        {
+            cumulative += weight_arr[cand_idx];
+            if ((u32)cumulative > rand_val)
+            {
+                selected_species = cand_idx;
+                break;
+            }
+        }
+
+        sys_FreeMemoryEz(weight_arr);
+        return selected_species;
+    }
+
+    // --- Sample-K with progressive upsizing when no good candidates found ---
+    int initial_K = sample_k;
+    int max_K = isTrainer ? RANDOMIZER_SAMPLE_MAX_K_TRAINER : RANDOMIZER_SAMPLE_MAX_K_WILD;
+    int min_score_threshold = isTrainer ? RANDOMIZER_SAMPLE_MIN_SCORE_TRAINER : RANDOMIZER_SAMPLE_MIN_SCORE_WILD;
+
+    int current_K = initial_K;
+    while (1)
+    {
+        // If K is out of range, fall back to full scan (handled above by earlier branch)
+        if (current_K <= 0 || current_K >= max_candidate) break;
+
+        int *candidates = sys_AllocMemory(0, sizeof(int) * current_K);
+        if (candidates == NULL) break; // allocation failure -> fallback
+        int cand_count = 0;
+
+        // Fill distinct candidates
+        while (cand_count < current_K)
+        {
+            int s = 1 + gf_rand() % max_candidate;
+
+#if EXCLUDE_MEGAS_FROM_RANDOMIZER
+            {
+                int adj = PokeOtherFormMonsNoGet(s, 0);
+                if (adj >= SPECIES_MEGA_START && adj <= MAX_MEGA_NUM) continue;
+            }
+#endif
+
+            int dup = 0;
+            for (int x = 0; x < cand_count; x++) if (candidates[x] == s) { dup = 1; break; }
+            if (dup) continue;
+            candidates[cand_count++] = s;
+        }
+
+        int *sample_weights = sys_AllocMemory(0, sizeof(int) * current_K);
+        if (sample_weights == NULL) { sys_FreeMemoryEz(candidates); break; }
+
+        int sample_total = 0;
+        int sample_best = 0;
+        for (int idx = 0; idx < current_K; idx++)
+        {
+            int s = candidates[idx];
+            int score = 1;
+            int s_adj = PokeOtherFormMonsNoGet(s, 0);
+            int s_bst = species_base_stat_total(s_adj);
+            int bst_diff = s_bst - ref_bst; if (bst_diff < 0) bst_diff = -bst_diff;
+            int bst_bonus = bst_weight - (bst_diff / 10);
+            if (bst_bonus < 0) bst_bonus = 0;
+            score += bst_bonus;
+            int s_type1 = PokePersonalParaGet(s_adj, PERSONAL_TYPE_1);
+            int s_type2 = PokePersonalParaGet(s_adj, PERSONAL_TYPE_2);
+            if (s_type1 == ref_type1 || s_type1 == ref_type2 || s_type2 == ref_type1 || s_type2 == ref_type2) score += type_weight;
+            BOOL s_has_evo = species_has_evolution(s);
+            if ((s_has_evo && ref_has_evo) || (!s_has_evo && !ref_has_evo)) score += evo_weight;
+            sample_weights[idx] = score;
+            sample_total += score;
+            if (score > sample_best) sample_best = score;
+        }
+
+        // If the best sampled candidate doesn't meet the minimum threshold, increase K and retry
+        if (sample_best < min_score_threshold && current_K < max_K)
+        {
+            sys_FreeMemoryEz(sample_weights);
+            sys_FreeMemoryEz(candidates);
+            current_K = current_K * 2;
+            if (current_K > max_K) current_K = max_K;
+            continue; // retry with larger sample
+        }
+
+        if (sample_total <= 0)
+        {
+            sys_FreeMemoryEz(sample_weights);
+            sys_FreeMemoryEz(candidates);
+            break; // fallback
+        }
+
+        u32 rand_val = (gf_rand() | (gf_rand() << 16)) % sample_total;
+        int cum = 0;
+        int chosen_species = candidates[0];
+        for (int idx = 0; idx < current_K; idx++)
+        {
+            cum += sample_weights[idx];
+            if ((u32)cum > rand_val)
+            {
+                chosen_species = candidates[idx];
+                break;
+            }
+        }
+
+        sys_FreeMemoryEz(sample_weights);
+        sys_FreeMemoryEz(candidates);
+        sys_FreeMemoryEz(weight_arr);
+        return chosen_species;
+    }
+
+    // If we reach here, progressive sampling failed or requested full-scan: fall back to full scan
+    sys_FreeMemoryEz(weight_arr);
+    return selectWeightedRandomSpecies(refSpecies, TRUE); // call with K=0 path via isTrainer TRUE/recursive
+}
+#endif
 
 extern u32 gLastPokemonLevelForMoneyCalc;
 
@@ -114,8 +343,12 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     s32 player_poke_count = bp->poke_party[0]->count;
     
     for(int k = 0; k < player_poke_count; k++) {
-        pp = PokeParty_GetMemberPointer(party, k); // ToDo : WHY da F does setting it to k here crash? it properly traverses count
+        pp = Party_GetMonByIndex(party, k);
+        #ifdef RANDOMIZER_WEIGHTING
+        new_player_species = selectWeightedRandomSpecies(GetMonData(pp, MON_DATA_SPECIES, NULL), FALSE);
+        #else
         new_player_species = getValidRandomSpecies();
+        #endif
         #ifdef RANDOMIZE_FORMS
         new_player_form_no = getValidRandomSpeciesForm(new_player_species);
         SetMonData(pp, MON_DATA_FORM, (u8 *)&new_player_form_no);
@@ -160,7 +393,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     u8 ivnums[6];
     u8 evnums[6];
     u8 ppcounts[4];
-    u16 *nickname = sys_AllocMemory(heapID, 11*sizeof(u16));
+    u16 *nickname = sys_AllocMemory(heapID, 12*sizeof(u16));
     u8 form_no = 0, abilityslot = 0, nature = 0, ballseal = 0, shinylock = 0, status = 0;
     u32 additionalflags = 0;
 
@@ -224,7 +457,11 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         species &= 0x07FF;
         
         #ifdef RANDOMIZE_TRAINER_PARTIES_NOT_SMART
+        #ifdef RANDOMIZER_WEIGHTING
+        species = selectWeightedRandomSpecies(species, TRUE);
+        #else
         species = getValidRandomSpecies();
+        #endif
         #ifdef RANDOMIZE_FORMS
         form_no = getValidRandomSpeciesForm(species);
         #endif       
@@ -361,10 +598,16 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             // nickname field
             if (additionalflags & TRAINER_DATA_EXTRA_TYPE_NICKNAME)
             {
-                for(j = 0; j < 11; j++)
-                {
-                    nickname[j] = buf[offset] | (buf[offset+1] << 8);
-                    offset += 2;
+                if (nickname != NULL) {
+                    for(j = 0; j < 11; j++)
+                    {
+                        nickname[j] = buf[offset] | (buf[offset+1] << 8);
+                        offset += 2;
+                    }
+                    nickname[11] = 0;
+                } else {
+                    // skip bytes if allocation failed
+                    offset += 2 * 11;
                 }
             }
         }
@@ -568,9 +811,13 @@ BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, s
     species = GetMonData(encounterPartyPokemon, MON_DATA_SPECIES, NULL);
 
     #ifdef RANDOMIZED_WILD
+    #ifdef RANDOMIZER_WEIGHTING
+    species = selectWeightedRandomSpecies(species, FALSE);
+    #else
     species = getValidRandomSpecies();
+    #endif
     #ifdef RANDOMIZE_FORMS
-    form_no = getValidRandomSpeciesForm(species);    
+    form_no = getValidRandomSpeciesForm(species);
     SetMonData(encounterPartyPokemon, MON_DATA_FORM, (u8 *)&form_no);
     #endif
     SetMonData(encounterPartyPokemon, MON_DATA_SPECIES, &species);
