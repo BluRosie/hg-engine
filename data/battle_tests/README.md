@@ -116,6 +116,8 @@ This directory contains individual battle test scenario files. Each test is a se
 ## Running Tests
 ### Build test ROM
 `make AUTO_TEST=Y -j$(nproc)`
+`make AUTO_TEST=Y TEST_FILTER="species moves/move_folder" -j${nproc}`
+
 
 ### Run tests (headless)
 `SDL_VIDEODRIVER=dummy scripts/run_tests.sh`

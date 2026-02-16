@@ -528,7 +528,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_23_0_U_TURN_VOLT_SWITCH:
-        // TODO
+        // TODO consolidate switch with others
         ctx->swoam_seq_no++;
         if (ActivateSwitch(bsys, ctx) == TRUE) {
             return;
