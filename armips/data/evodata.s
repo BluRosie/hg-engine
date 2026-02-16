@@ -2136,7 +2136,7 @@ evodata SPECIES_TOGETIC
 terminateevodata
 
 evodata SPECIES_NATU
-    evolution EVO_LEVEL, 25, SPECIES_XATU
+    evolution EVO_LEVEL, 23, SPECIES_XATU
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -11796,7 +11796,7 @@ evodata SPECIES_SQUAWKABILLY
 terminateevodata
 
 evodata SPECIES_NACLI
-    evolution EVO_LEVEL, 24, SPECIES_NACLSTACK
+    evolution EVO_LEVEL, 23, SPECIES_NACLSTACK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

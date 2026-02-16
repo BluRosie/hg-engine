@@ -30325,10 +30325,6 @@
     "LevelMoves": [
       {
         "Level": 0,
-        "Move": "MOVE_SWORDS_DANCE"
-      },
-      {
-        "Level": 0,
         "Move": "MOVE_TOXIC_THREAD"
       },
       {
@@ -30386,6 +30382,10 @@
       {
         "Level": 35,
         "Move": "MOVE_PIN_MISSILE"
+      },
+      {
+        "Level": 38,
+        "Move": "MOVE_SWORDS_DANCE"
       },
       {
         "Level": 41,

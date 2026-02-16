@@ -26267,7 +26267,7 @@ trainerdata 737, "Silver"
 
 trainerdata 738, "Ethan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass 129
+    trainerclass TRAINERCLASS_NPC_TRAINER_ETHAN
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -26302,7 +26302,7 @@ trainerdata 738, "Ethan"
 
 trainerdata 739, "Lyra"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass 130
+    trainerclass TRAINERCLASS_NPC_TRAINER_LYRA
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -26391,3 +26391,37 @@ trainerdata 741, "Grunt"
         ballseal 0
     endparty
 
+trainerdata 742, "Lyra"
+    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainerclass TRAINERCLASS_NPC_TRAINER_LYRA
+    nummons 3
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
+    item ITEM_NONE
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS
+    battletype SINGLE_BATTLE
+    endentry
+
+    party 742
+        // mon 0
+        ivs 0
+        abilityslot 0
+        level 9
+        pokemon SPECIES_ESPURR
+        ballseal 0
+
+        // mon 1
+        ivs 0
+        abilityslot 0
+        level 10
+        pokemon SPECIES_MARILL
+        ballseal 0
+
+        // mon 2
+        ivs 0
+        abilityslot 0
+        level 9
+        pokemon SPECIES_VULPIX
+        ballseal 0
+    endparty
