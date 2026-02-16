@@ -411,6 +411,9 @@ bl RollMetronomeMove
 ldr r1, =0x022408BA|1
 bx r1
 
+
+// Start missingno hooks
+
 .global BattleController_EmitHealthbarSlideIn_EarlyBail
 BattleController_EmitHealthbarSlideIn_EarlyBail:
 ldr  r0, [sp, #4]
@@ -433,7 +436,6 @@ bx r3
 
 .pool
 
-// Start missingno hooks
 
 .global ov12_0225D644_SkipPartnerThrow
 ov12_0225D644_SkipPartnerThrow:
@@ -582,26 +584,26 @@ mov r2, #0x65
 lsl r2, r2, #2
 ldrb r3, [r6, r2]
 cmp r3, #2
-bne _CTE_Path02259B6C_NoRerouteCheck
+bne _02259B6C_NoRerouteCheck
 add r2, r2, #1
 ldrb r3, [r6, r2]
 cmp r3, #4
-bne _CTE_Path02259B6C_NoRerouteCheck
+bne _02259B6C_NoRerouteCheck
 ldr r0, [sp, #0x34]
 mov r1, #2
 bl IsBattlerSlotValid
 cmp r0, #0
-bne _CTE_Path02259B6C_NoRerouteCheck
+bne _02259B6C_NoRerouteCheck
 mov r0, #1
-b _CTE_Path02259B6C_RerouteCheckDone
+b _02259B6C_RerouteCheckDone
 
-_CTE_Path02259B6C_NoRerouteCheck:
+_02259B6C_NoRerouteCheck:
 mov r0, #0
 
-_CTE_Path02259B6C_RerouteCheckDone:
+_02259B6C_RerouteCheckDone:
 cmp r0, #0
 pop {r0-r3}
-bne _CTE_Path02259B6C_Reroute
+bne _02259B6C_Reroute
 
 ldr r0, =0x0225B7B9 | 1
 add r1, r4, #0
@@ -610,7 +612,7 @@ bl 0x0200E320 | 1
 ldr r3, =0x02259B82 | 1
 bx r3
 
-_CTE_Path02259B6C_Reroute:
+_02259B6C_Reroute:
 ldr r0, =0x0225B495 | 1
 add r1, r4, #0
 mov r2, #0
@@ -629,23 +631,23 @@ mov r0, #0x65
 lsl r0, r0, #2
 ldrb r3, [r2, r0]
 cmp r3, #2
-bne _CTPA_Path02259F06_NoRerouteCheck
+bne _02259F06_NoRerouteCheck
 add r0, r0, #1
 ldrb r3, [r2, r0]
 cmp r3, #4
-bne _CTPA_Path02259F06_NoRerouteCheck
+bne _02259F06_NoRerouteCheck
 ldr r0, [sp, #0x1c]
 mov r1, #2
 bl IsBattlerSlotValid
 cmp r0, #0
-bne _CTPA_Path02259F06_NoRerouteCheck
+bne _02259F06_NoRerouteCheck
 mov r0, #1
-b _CTPA_Path02259F06_RerouteCheckDone
+b _02259F06_RerouteCheckDone
 
-_CTPA_Path02259F06_NoRerouteCheck:
+_02259F06_NoRerouteCheck:
 mov r0, #0
 
-_CTPA_Path02259F06_RerouteCheckDone:
+_02259F06_RerouteCheckDone:
 cmp r0, #0
 pop {r0-r3}
 bne _CTPA_Path02259F06_Reroute
