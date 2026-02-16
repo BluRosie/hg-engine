@@ -4723,3 +4723,50 @@ int LONG_CALL ActivatePickpocket(void *bsys UNUSED, struct BattleStruct *sp)
 
     return FALSE;
 }
+
+
+int LONG_CALL ActivateDisguiseIceFace(void *bw, struct BattleStruct *sp)
+{
+    if (sp->defence_client == BATTLER_NONE
+        || CheckSubstitute(sp, sp->defence_client) == TRUE
+        || ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) != 0)
+        || ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) != 0)
+        || ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) != 0)) {
+        return FALSE;
+    }
+    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_DISGUISE)) {
+        if ((sp->battlemon[sp->defence_client].species == SPECIES_MIMIKYU)
+            && (sp->battlemon[sp->defence_client].hp)
+            && (sp->battlemon[sp->defence_client].form_no == 0)
+            && ((sp->waza_status_flag & MOVE_STATUS_FLAG_MISS) == 0) // if move was successful
+            && (sp->moveTbl[sp->current_move_index].power) // if move has power
+        ) {
+            BattleFormChange(sp->defence_client, 1, bw, sp, TRUE);
+            sp->battlerIdTemp = sp->defence_client;
+            sp->battlemon[sp->defence_client].form_no = 1;
+
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_DISGUISE_ICE_FACE);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_ICE_FACE)) {
+        if ((sp->battlemon[sp->defence_client].species == SPECIES_EISCUE)
+            && (sp->battlemon[sp->defence_client].hp)
+            && (sp->battlemon[sp->defence_client].form_no == 0)
+            && ((sp->waza_status_flag & MOVE_STATUS_FLAG_MISS) == 0) // if move was successful
+            && (sp->moveTbl[sp->current_move_index].power != 0)
+            && (GetMoveSplit(sp, sp->current_move_index) == SPLIT_PHYSICAL)) {
+            BattleFormChange(sp->defence_client, 1, bw, sp, TRUE);
+            sp->battlerIdTemp = sp->defence_client;
+            sp->battlemon[sp->defence_client].form_no = 1;
+ 
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_DISGUISE_ICE_FACE);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}

@@ -299,33 +299,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             seq_no[0] = SUB_SEQ_HANDLE_CURSED_BODY;
             ret = TRUE;
         }
-    } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_DISGUISE)) {
-        if ((sp->battlemon[sp->defence_client].species == SPECIES_MIMIKYU)
-            && (sp->battlemon[sp->defence_client].hp)
-            && (sp->battlemon[sp->defence_client].form_no == 0)
-            && ((sp->waza_status_flag & MOVE_STATUS_FLAG_MISS) == 0) // if move was successful
-            && (sp->moveTbl[sp->current_move_index].power) // if move has power
-        ) {
-            BattleFormChange(sp->defence_client, 1, bw, sp, TRUE);
-            sp->battlerIdTemp = sp->defence_client;
-            sp->battlemon[sp->defence_client].form_no = 1;
-            seq_no[0] = SUB_SEQ_HANDLE_DISGUISE_ICE_FACE;
-            ret = TRUE;
-        }
-    } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_ICE_FACE)) {
-        if ((sp->battlemon[sp->defence_client].species == SPECIES_EISCUE)
-            && (sp->battlemon[sp->defence_client].hp)
-            && (sp->battlemon[sp->defence_client].form_no == 0)
-            && ((sp->waza_status_flag & MOVE_STATUS_FLAG_MISS) == 0) // if move was successful
-            && (sp->moveTbl[sp->current_move_index].power != 0)
-            && (GetMoveSplit(sp, sp->current_move_index) == SPLIT_PHYSICAL)) {
-            BattleFormChange(sp->defence_client, 1, bw, sp, TRUE);
-            sp->battlerIdTemp = sp->defence_client;
-            sp->battlemon[sp->defence_client].form_no = 1;
-            seq_no[0] = SUB_SEQ_HANDLE_DISGUISE_ICE_FACE;
-            ret = TRUE;
-        }
-    } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_THERMAL_EXCHANGE)) {
+    }  else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_THERMAL_EXCHANGE)) {
         if ((sp->battlemon[sp->defence_client].hp)
             && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
             && ((sp->battlemon[sp->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0)

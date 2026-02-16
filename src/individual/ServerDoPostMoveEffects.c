@@ -277,15 +277,22 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_10_INCINERATE:
-        // TODO
+        // TODO needed?
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_11_DEFENDER_ITEMS_2_JABOCA_ROWAP:
-        // TODO
+        // TODO needed?
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_12_DISGUISE_ICE_FACE:
-        // TODO
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_10_12_DISGUISE_ICE_FACE\n");
+#endif
+        // TODO loop over all battlers
+        
+        if (ActivateDisguiseIceFace(bsys, ctx) == TRUE) {
+            return;
+        }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_13_PROTECTION_FROM_Z_MOVE:
@@ -441,6 +448,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_16_1_BERSERK_COLOR_CHANGE:
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_16_1_BERSERK_COLOR_CHANGE\n");
+#endif
         // TODO
         ctx->swoam_seq_no++;
         if (ActivateBerserkAngerShellColorChange(bsys, ctx) == TRUE)
@@ -506,6 +516,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_24_0_PICKPOCKET: //speed order
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_24_0_PICKPOCKET\n");
+#endif
         // TODO loop over all battlers
         ctx->swoam_seq_no++;
         if (ActivatePickpocket(bsys, ctx) == TRUE)
