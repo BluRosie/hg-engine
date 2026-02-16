@@ -152,39 +152,6 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             }
             break;
 
-        case HOLD_EFFECT_SWITCH_OUT_WHEN_HIT:                   // Eject Button
-            // Defender is alive after the attack
-            if ((sp->battlemon[sp->defence_client].hp)
-                // Damage was dealt
-                && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
-                    || (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && sp->multiHitCount <= 1) {
-                u32 temp = sp->attack_client;                   // swap attacker and defender so subseq handles it correctly
-                sp->battlerIdTemp = sp->defence_client;
-                sp->attack_client = sp->defence_client;
-                sp->defence_client = temp;
-                sp->current_move_index = MOVE_U_TURN;
-                seq_no[0] = SUB_SEQ_HANDLE_SWITCHING_ITEMS;
-                ret       = TRUE;
-            }
-            break;
-
-        case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE:                // Red Card
-            // Defender is alive after the attack
-            if ((sp->battlemon[sp->defence_client].hp)
-                // Damage was dealt
-                && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
-                    || (sp->oneSelfFlag[sp->defence_client].special_damage))
-                && sp->multiHitCount <= 1) {
-                u32 temp = sp->attack_client;                   // swap attacker and defender so subseq handles it correctly
-                sp->battlerIdTemp = sp->defence_client;
-                sp->attack_client = sp->defence_client;
-                sp->defence_client = temp;
-                seq_no[0] = SUB_SEQ_HANDLE_SWITCHING_ITEMS;
-                ret       = TRUE;
-            }
-            break;
-
         case HOLD_EFFECT_DAMAGE_ON_CONTACT:                     // Rocky Helmet
             // Attacker is alive after the attack
             if ((sp->battlemon[sp->attack_client].hp)
@@ -211,22 +178,6 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             }
             break;
 
-            // gen6 effects
-        case HOLD_EFFECT_BOOST_DEF_ON_PHYSICAL_HIT:             // Kee Berry
-            // Defender is alive after the attack
-            if ((sp->battlemon[sp->attack_client].hp)
-                // Attacker dealt physical damage
-                && (sp->oneSelfFlag[sp->defence_client].physical_damage)
-                // Defender has less than +6 stages to Defense
-                && ((sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
-                    // Or the defender has Contrary and more than -6 stages to Defense
-                    || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
-                        && (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] > 0)))) {
-                sp->state_client     = sp->defence_client;
-                seq_no[0]            = SUB_SEQ_HANDLE_RAISE_DEFENSE_ON_HIT;
-                ret                  = TRUE;
-            }
-            break;
 
         case HOLD_EFFECT_BOOST_SPECIAL_DEFENSE_ON_WATER_HIT:    // Luminous Moss
             // Defender is alive after the attack
@@ -236,22 +187,6 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))
-                // Defender has less than +6 stages to Special Defense
-                && ((sp->battlemon[sp->defence_client].states[STAT_SPDEF] < 12)
-                    // Or the defender has Contrary and more than -6 stages to Special Defense
-                    || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
-                        && (sp->battlemon[sp->defence_client].states[STAT_SPDEF] > 0)))) {
-                sp->state_client     = sp->defence_client;
-                seq_no[0]            = SUB_SEQ_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT;
-                ret                  = TRUE;
-            }
-            break;
-
-        case HOLD_EFFECT_BOOST_SPDEF_ON_SPECIAL_HIT:            // Maranga Berry
-            // Defender is alive after the attack
-            if ((sp->battlemon[sp->attack_client].hp)
-                // Attacker dealt special damage
-                && (sp->oneSelfFlag[sp->defence_client].special_damage)
                 // Defender has less than +6 stages to Special Defense
                 && ((sp->battlemon[sp->defence_client].states[STAT_SPDEF] < 12)
                     // Or the defender has Contrary and more than -6 stages to Special Defense

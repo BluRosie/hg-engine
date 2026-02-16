@@ -431,7 +431,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE:
+    case MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE: //speed order
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE\n");
 #endif
@@ -443,9 +443,20 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     case MOVE_PERFORMANCE_STEP_16_1_BERSERK_COLOR_CHANGE:
         // TODO
         ctx->swoam_seq_no++;
+        if (ActivateBerserkAngerShellColorChange(bsys, ctx) == TRUE)
+        {
+            return;
+        }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_17_0_DEFENDER_ITEMS_3:
+    case MOVE_PERFORMANCE_STEP_17_0_DEFENDER_ITEMS_3: //speed order
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_17_0_DEFENDER_ITEMS_3\n");
+#endif
         // TODO
+        if (ActivateKeeMarangaBerryOrRedCardOrEjectButton(bsys, ctx) == TRUE)
+        {
+            return;
+        }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_18_0_PLEDGE_MOVES_COMBINATION:
@@ -478,7 +489,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             return;
         }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_21_0_MOVE_DEFENDER_ITEMS_4:
+    case MOVE_PERFORMANCE_STEP_21_0_MOVE_DEFENDER_ITEMS_4: //speed order
         debug_printf("in MOVE_PERFORMANCE_STEP_21_0_MOVE_DEFENDER_ITEMS_4\n");
         //TODO split tryUseHeldItems
         if (ActivateDefenderItems4(bsys, ctx) == TRUE) {
@@ -486,7 +497,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_22_0_EMERGENCY_EXIT_WIMP_OUT:
+    case MOVE_PERFORMANCE_STEP_22_0_EMERGENCY_EXIT_WIMP_OUT: //speed order
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
@@ -494,7 +505,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_24_0_PICKPOCKET:
+    case MOVE_PERFORMANCE_STEP_24_0_PICKPOCKET: //speed order
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
@@ -543,7 +554,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             return;
         }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_27_0_ABILITIES_2:
+    case MOVE_PERFORMANCE_STEP_27_0_ABILITIES_2: //speed order
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_27_0_ABILITIES_2\n");
 #endif
@@ -565,7 +576,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_28_0_WHITE_HERB_MIRROR_HERB_EJECT_PACK:
+    case MOVE_PERFORMANCE_STEP_28_0_WHITE_HERB_MIRROR_HERB_EJECT_PACK: //speed order
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_28_0_WHITE_HERB_MIRROR_HERB_EJECT_PACK\n");
 #endif

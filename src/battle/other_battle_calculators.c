@@ -4325,7 +4325,7 @@ int LONG_CALL ActivateMoxieOrBeastBoost(void *bsys UNUSED, struct BattleStruct *
 {
     if (ctx->attack_client == BATTLER_NONE)
         return FALSE;
-    //TODO loop over all battlers?
+    //TODO loop over all battlers? speed order
     switch (GetBattlerAbility(ctx, ctx->attack_client)) {
     case ABILITY_BEAST_BOOST:
         if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
@@ -4496,5 +4496,192 @@ int LONG_CALL ActivateMirrorHerbOrWhiteHerb(void *bsys, struct BattleStruct *ctx
             break;
         }
     }
+    return FALSE;
+}
+
+int LONG_CALL ActivateKeeMarangaBerryOrRedCardOrEjectButton(void *bsys, struct BattleStruct *ctx)
+{
+    for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
+        int client_no = ctx->turnOrder[battler];
+        int itemHeldEffect = HeldItemHoldEffectGet(ctx, client_no);
+        switch (itemHeldEffect) {
+            //TODO switching works once
+        case HOLD_EFFECT_SWITCH_OUT_WHEN_HIT: // Eject Button
+            // Defender is alive after the attack
+            if ((ctx->battlemon[client_no].hp)
+                // Damage was dealt
+                && ((ctx->oneSelfFlag[client_no].physical_damage)
+                    || (ctx->oneSelfFlag[client_no].special_damage))
+                && ctx->multiHitCount <= 1) {
+                u32 temp = ctx->attack_client; // swap attacker and defender so subseq handles it correctly
+                ctx->battlerIdTemp = client_no;
+                ctx->attack_client = client_no;
+                client_no = temp;
+                ctx->current_move_index = MOVE_U_TURN;
+
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_SWITCHING_ITEMS);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE: // Red Card
+            // Defender is alive after the attack
+            if ((ctx->battlemon[client_no].hp)
+                // Damage was dealt
+                && ((ctx->oneSelfFlag[client_no].physical_damage)
+                    || (ctx->oneSelfFlag[client_no].special_damage))
+                && ctx->multiHitCount <= 1) {
+                u32 temp = ctx->attack_client; // swap attacker and defender so subseq handles it correctly
+                ctx->battlerIdTemp = client_no;
+                ctx->attack_client = client_no;
+                client_no = temp;
+
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_SWITCHING_ITEMS);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return TRUE;
+            }
+            break;
+
+            // gen6 effects
+        case HOLD_EFFECT_BOOST_DEF_ON_PHYSICAL_HIT: // Kee Berry
+            // Defender is alive after the attack
+            if ((ctx->battlemon[ctx->attack_client].hp)
+                // Attacker dealt physical damage
+                && (ctx->oneSelfFlag[client_no].physical_damage)
+                // Defender has less than +6 stages to Defense
+                && ((ctx->battlemon[client_no].states[STAT_DEFENSE] < 12)
+                    // Or the defender has Contrary and more than -6 stages to Defense
+                    || ((MoldBreakerAbilityCheck(ctx, ctx->attack_client, client_no, ABILITY_CONTRARY))
+                        && (ctx->battlemon[client_no].states[STAT_DEFENSE] > 0)))) {
+                ctx->state_client = client_no;
+
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_RAISE_DEFENSE_ON_HIT);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return TRUE;
+            }
+            break;
+
+        case HOLD_EFFECT_BOOST_SPDEF_ON_SPECIAL_HIT: // Maranga Berry
+            // Defender is alive after the attack
+            if ((ctx->battlemon[ctx->attack_client].hp)
+                // Attacker dealt special damage
+                && (ctx->oneSelfFlag[client_no].special_damage)
+                // Defender has less than +6 stages to Special Defense
+                && ((ctx->battlemon[client_no].states[STAT_SPDEF] < 12)
+                    // Or the defender has Contrary and more than -6 stages to Special Defense
+                    || ((MoldBreakerAbilityCheck(ctx, ctx->attack_client, client_no, ABILITY_CONTRARY))
+                        && (ctx->battlemon[client_no].states[STAT_SPDEF] > 0)))) {
+                ctx->state_client = client_no;
+
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return TRUE;
+            }
+            break;
+        default:
+            break;
+        }
+    }
+
+    return FALSE;
+}
+
+
+int LONG_CALL ActivateBerserkAngerShellColorChange(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    if (ctx->defence_client == BATTLER_NONE
+        || CheckSubstitute(ctx, ctx->defence_client) == TRUE
+        || ((ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) != 0)
+        || ((ctx->server_status_flag & SERVER_STATUS_FLAG_x20) != 0)
+        || ((ctx->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) != 0)) {
+        return FALSE;
+    }
+
+    // TODO loop over all battlers? speed order
+    // handle berserk
+    if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, ctx->defence_client, ABILITY_BERSERK)) {
+        if (
+            (ctx->battlemon[ctx->defence_client].hp)
+            && (ctx->battlemon[ctx->defence_client].states[STAT_SPATK] < 12)
+            && ((ctx->oneSelfFlag[ctx->defence_client].physical_damage) || (ctx->oneSelfFlag[ctx->defence_client].special_damage))
+            // berserk doesn't activate if the Pokémon gets attacked by a sheer force boosted move
+            && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
+            // berserk doesn't activate until the last hit of a multi-hit move
+            && (ctx->multiHitCount <= 1)
+            && (ctx->battlemon[ctx->defence_client].hp <= (s32)(ctx->battlemon[ctx->defence_client].maxhp / 2))
+            && (
+                // checks if the pokémon has gone below half HP from the current damage instance
+                // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
+                ((ctx->battlemon[ctx->defence_client].hp - (ctx->oneSelfFlag[ctx->defence_client].physical_damage)) > (s32)ctx->battlemon[ctx->defence_client].maxhp / 2)
+                || ((ctx->battlemon[ctx->defence_client].hp - (ctx->oneSelfFlag[ctx->defence_client].special_damage)) > (s32)ctx->battlemon[ctx->defence_client].maxhp / 2))) {
+            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
+            ctx->addeffect_type = ADD_EFFECT_ABILITY;
+            ctx->state_client = ctx->defence_client;
+            ctx->battlerIdTemp = ctx->defence_client;
+
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    } else if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, ctx->defence_client, ABILITY_ANGER_SHELL)) {
+        if ((ctx->battlemon[ctx->defence_client].hp)
+            && ((ctx->battlemon[ctx->defence_client].states[STAT_ATTACK] < 12)
+                || (ctx->battlemon[ctx->defence_client].states[STAT_SPATK] < 12)
+                || (ctx->battlemon[ctx->defence_client].states[STAT_SPEED] < 12)
+                || (ctx->battlemon[ctx->defence_client].states[STAT_DEFENSE] > 0)
+                || (ctx->battlemon[ctx->defence_client].states[STAT_SPDEF] > 0))
+            && ((ctx->oneSelfFlag[ctx->defence_client].physical_damage) || (ctx->oneSelfFlag[ctx->defence_client].special_damage))
+            // anger shell doesn't activate if the Pokémon gets attacked by a sheer force boosted move
+            && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
+            // anger shell doesn't activate until the last hit of a multi-hit move
+            && (ctx->multiHitCount <= 1)
+            && (ctx->battlemon[ctx->defence_client].hp <= (s32)(ctx->battlemon[ctx->defence_client].maxhp / 2))
+            && (
+                // checks if the pokémon has gone below half HP from the current damage instance
+                // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
+                ((ctx->battlemon[ctx->defence_client].hp - (ctx->oneSelfFlag[ctx->defence_client].physical_damage)) > (s32)ctx->battlemon[ctx->defence_client].maxhp / 2)
+                || ((ctx->battlemon[ctx->defence_client].hp - (ctx->oneSelfFlag[ctx->defence_client].special_damage)) > (s32)ctx->battlemon[ctx->defence_client].maxhp / 2))) {
+            ctx->addeffect_type = ADD_EFFECT_ABILITY;
+            ctx->state_client = ctx->defence_client;
+            ctx->battlerIdTemp = ctx->defence_client;
+
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_ANGER_SHELL);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    } else if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, ctx->defence_client, ABILITY_COLOR_CHANGE)) {
+        if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE && ctx->battlemon[ctx->attack_client].sheer_force_flag == 1) { // sheer force doesn't let color change activate
+            return FALSE;
+        }
+
+        u8 movetype = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index); // new normalize checks
+
+        if ((ctx->battlemon[ctx->defence_client].hp)
+            && (ctx->current_move_index != MOVE_STRUGGLE)
+            && (movetype != TYPE_TYPELESS) // Revelation Dance
+            && (!ctx->battlemon[ctx->defence_client].is_currently_terastallized)
+            && ((ctx->oneSelfFlag[ctx->defence_client].physical_damage) || (ctx->oneSelfFlag[ctx->defence_client].special_damage))
+            && (ctx->moveTbl[ctx->current_move_index].power)
+            && (!HasType(ctx, ctx->defence_client, movetype))
+            && (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0
+            && (ctx->multiHitCount <= 1)) // don't activate until the last hit of a multi-hit move
+        {
+            ChangeToPureType(ctx, ctx->defence_client, movetype);
+            ctx->msg_work = movetype;
+
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_COLOR_CHANGE);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    }
+
     return FALSE;
 }
