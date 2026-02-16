@@ -433,6 +433,7 @@ bx r3
 
 .pool
 
+// Start missingno hooks
 
 .global ov12_0225D644_SkipPartnerThrow
 ov12_0225D644_SkipPartnerThrow:
@@ -665,3 +666,5 @@ ldr r3, =0x02259F10 | 1
 bx r3
 
 .pool
+
+// End missingno hooks
