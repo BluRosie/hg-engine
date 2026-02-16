@@ -30,7 +30,7 @@ int ShowDamageReductionBerryMessage(void *bsys, struct BattleStruct *sp);
 void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsys, struct BattleStruct *ctx)
 {
     debug_printf("ServerDoPostMoveEffectsInternal %d: movestatus %d, status %d, ctx->multiHitCount %d\n", ctx->swoam_seq_no, ctx->waza_status_flag, ctx->server_status_flag, ctx->multiHitCount);
-
+    
     DynamicSortClientExecutionOrder(bsys, ctx, FALSE);
 
     switch (ctx->swoam_seq_no) {
@@ -372,8 +372,14 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE:
-        // TODO
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE, storedDamage[%d] %d\n", ctx->attack_client, ctx->store_damage[ctx->attack_client]);
+#endif
+        // TODO adjust parentalBond logic for recoil Moves
         ctx->swoam_seq_no++;
+        // if (ActivateRecoilDamage(bsys, ctx) == TRUE) {
+        //     return;
+        //}
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_1_BIND_STATE:
         // TODO
@@ -524,6 +530,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     case MOVE_PERFORMANCE_STEP_23_0_U_TURN_VOLT_SWITCH:
         // TODO
         ctx->swoam_seq_no++;
+        if (ActivateSwitch(bsys, ctx) == TRUE) {
+            return;
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_24_0_PICKPOCKET: //speed order
 #if DEBUG_MOVE_PERFORMNCE_LOGIC

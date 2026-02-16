@@ -3970,7 +3970,19 @@ int LONG_CALL ActivateSturdyOrFocusSashOrFocusBand(void *bsys, struct BattleStru
         }
 
         // TODO Sturdy, False Swipe, Hold Back
-
+        /*
+        if (MoldBreakerAbilityCheck(sp, sp->attack_client, battler, ABILITY_STURDY)) {
+            if (sp->oneTurnFlag[battler].prevent_one_hit_ko_ability == TRUE
+                && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + sp->hit_damage) == 1) 
+            {
+                sp->battlerIdTemp = battler;
+                sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
+                seq_no[0] = SUB_SEQ_FOCUS_STURDY;
+                ret = TRUE;
+            }
+                
+        }
+        */
         if (ret) {
             break;
         }
@@ -4768,5 +4780,62 @@ int LONG_CALL ActivateDisguiseIceFace(void *bw, struct BattleStruct *sp)
         }
     }
 
+    return FALSE;
+}
+
+
+int LONG_CALL ActivateRecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    if (ctx->attack_client == BATTLER_NONE
+        || ctx->battlemon[ctx->attack_client].hp == 0) {
+        return FALSE;
+    }
+
+    int seq_no = 0;
+    int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    switch (moveEffect) {
+    case MOVE_EFFECT_RECOIL_PARALYZE_HIT:
+    case MOVE_EFFECT_RECOIL_QUARTER:
+        seq_no = SUB_SEQ_RECOIL_1_4;
+        break;
+    case MOVE_EFFECT_RECOIL_BURN_HIT:
+    case MOVE_EFFECT_RECOIL_THIRD:
+        seq_no = SUB_SEQ_RECOIL_1_3;
+        break;
+    case MOVE_EFFECT_RECOIL_HALF:
+        seq_no = SUB_SEQ_RECOIL_1_2;
+        break;
+    default:
+        break;
+    }
+
+    if (seq_no != 0) {
+        ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+
+int LONG_CALL ActivateSwitch(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_SWITCH_HIT) { // U-Turn, Flip Turn
+        if (ctx->attack_client != BATTLER_NONE
+            && ctx->battlemon[ctx->attack_client].hp > 0
+            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
+        {
+            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->state_client = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PIVOT_ATTACK);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    }
     return FALSE;
 }

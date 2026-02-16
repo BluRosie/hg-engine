@@ -4559,7 +4559,7 @@ BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruc
     InitBattleMsgData(ctx, &msgdata);
     InitBattleMsg(bsys, ctx, &msgdata, &msg);
     BattleController_EmitPrintMessage(bsys, ctx, &msg);
-
+    debug_printf("PrintMessage: msg_id %d, attacker %d, defender %d\n", msg.msg_id, ctx->attack_client, ctx->defence_client);
 #ifdef DEBUG_BATTLE_SCENARIOS
 #ifdef DEBUG_AUTO_TEST_PRINTS
     debug_printf("PrintMessage: msg_id %d, attacker %d, defender %d\n", msg.msg_id, ctx->attack_client, ctx->defence_client);
