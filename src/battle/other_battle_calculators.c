@@ -4685,3 +4685,41 @@ int LONG_CALL ActivateBerserkAngerShellColorChange(void *bsys UNUSED, struct Bat
 
     return FALSE;
 }
+
+int LONG_CALL ActivatePickpocket(void *bsys UNUSED, struct BattleStruct *sp)
+{
+    if (sp->defence_client == BATTLER_NONE
+        || CheckSubstitute(sp, sp->defence_client) == TRUE
+        || ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) != 0)
+        || ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) != 0)
+        || ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) != 0)) {
+        return FALSE;
+    }
+
+    //TODO speed order/all defender
+    // handle pickpocket - steal attacker's item if it can
+    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_PICKPOCKET)) {
+        if (sp->battlemon[sp->defence_client].hp != 0
+            && (sp->battlemon[sp->attack_client].condition == 0)
+            && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
+                || (sp->oneSelfFlag[sp->defence_client].special_damage))
+            && IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)
+            && sp->moveTbl[sp->current_move_index].power != 0
+            // can not steal an item if you already have one
+            && sp->battlemon[sp->defence_client].item == ITEM_NONE
+            // if the attacker has its species-specific item or the target would get its item, then pickpocket can not activate
+            && CanTrickHeldItem(sp, sp->attack_client, sp->defence_client)
+            // pickpocket doesn't activate if attacked by sheer force
+            && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)
+            // does not hit until the last hit of a multi-strike move
+            && (sp->multiHitCount <= 1)) {
+
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PICKPOCKET_DEF);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}

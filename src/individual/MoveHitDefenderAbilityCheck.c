@@ -280,26 +280,6 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             ret = TRUE;
         }
     }
-    // handle pickpocket - steal attacker's item if it can
-    else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_PICKPOCKET)) {
-        if (sp->battlemon[sp->defence_client].hp != 0
-            && (sp->battlemon[sp->attack_client].condition == 0)
-            && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
-                || (sp->oneSelfFlag[sp->defence_client].special_damage))
-            && IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)
-            && sp->moveTbl[sp->current_move_index].power != 0
-            // can not steal an item if you already have one
-            && sp->battlemon[sp->defence_client].item == ITEM_NONE
-            // if the attacker has its species-specific item or the target would get its item, then pickpocket can not activate
-            && CanTrickHeldItem(sp, sp->attack_client, sp->defence_client)
-            // pickpocket doesn't activate if attacked by sheer force
-            && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)
-            // does not hit until the last hit of a multi-strike move
-            && (sp->multiHitCount <= 1)) {
-            seq_no[0] = SUB_SEQ_HANDLE_PICKPOCKET_DEF;
-            ret = TRUE;
-        }
-    }
     // handle cursed body - disable the last used move by the pokemon.  disabling is handled here, script just displays the message
     else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CURSED_BODY)) {
         move_pos = BattleMon_GetMoveIndex(&sp->battlemon[sp->attack_client], sp->current_move_index);

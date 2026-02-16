@@ -506,8 +506,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_24_0_PICKPOCKET: //speed order
-        // TODO
+        // TODO loop over all battlers
         ctx->swoam_seq_no++;
+        if (ActivatePickpocket(bsys, ctx) == TRUE)
+        {
+            return;
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_25_0_BURN_UP_DOUBLE_SHOCK_TYPELOSS:
         // TODO

@@ -4201,6 +4201,7 @@ int LONG_CALL ActivateFormChange(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL ActivateMirrorHerbOrWhiteHerb(void *bw, struct BattleStruct *ctx);
 int LONG_CALL ActivateKeeMarangaBerryOrRedCardOrEjectButton(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL ActivateBerserkAngerShellColorChange(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL ActivatePickpocket(void *bsys UNUSED, struct BattleStruct *sp);
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);
