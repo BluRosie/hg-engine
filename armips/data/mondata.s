@@ -27027,7 +27027,7 @@ mondata SPECIES_MEOWSTIC_FEMALE, "-----"
     colorflip BODY_COLOR_BLUE, 0
 
 mondata SPECIES_INDEEDEE_FEMALE, "-----"
-    basestats 60, 65, 55, 95, 105, 95
+    basestats 60, 55, 65, 85, 95, 105
     types TYPE_PSYCHIC, TYPE_NORMAL
     catchrate 30
     baseexp 166
@@ -27043,7 +27043,7 @@ mondata SPECIES_INDEEDEE_FEMALE, "-----"
     colorflip BODY_COLOR_PURPLE, 0
 
 mondata SPECIES_BASCULEGION_FEMALE, "-----"
-    basestats 120, 112, 65, 78, 80, 75
+    basestats 120, 92, 65, 78, 100, 75
     types TYPE_WATER, TYPE_GHOST
     catchrate 135
     baseexp 208

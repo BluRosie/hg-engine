@@ -513,6 +513,7 @@
         "PreEvoMoves": [],
         "MachineMoves": [
             "MOVE_EMBER",
+            "MOVE_ENERGY_BALL",
             "MOVE_FEINT_ATTACK",
             "MOVE_FIRE_BLAST",
             "MOVE_FIRE_SPIN",
@@ -11609,8 +11610,10 @@
         "LevelMoves": [],
         "PreEvoMoves": [],
         "MachineMoves": [
+            "MOVE_DRUM_BEATING",
             "MOVE_EARTH_POWER",
             "MOVE_ENERGY_BALL",
+            "MOVE_FRENZY_PLANT",
             "MOVE_GRASS_KNOT",
             "MOVE_RAZOR_LEAF",
             "MOVE_SCRATCH"
@@ -13641,6 +13644,7 @@
         "PreEvoMoves": [],
         "MachineMoves": [
             "MOVE_DAZZLING_GLEAM",
+            "MOVE_METEOR_BEAM",
             "MOVE_POWER_GEM",
             "MOVE_ROCK_THROW",
             "MOVE_SLUDGE_WAVE",

@@ -507,8 +507,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             break;
         case MOVE_LASH_OUT:
             // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8870357
-            // TODO
-            if (FALSE) {
+            if (sp->moveConditionsFlags[attacker].anyStatLoweredThisTurn) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
             }
             break;
