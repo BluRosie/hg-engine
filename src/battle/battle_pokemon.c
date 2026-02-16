@@ -342,6 +342,10 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
         }
     }
 
+    if (!IsBattlerSlotValid(bw, cp->client_no)) {
+        cp->client_type = 0;
+    }
+
     CT_PokemonEncountAppearSet(bw, cp, pap);
     ClientCommandReset(cp);
 }
@@ -1284,27 +1288,4 @@ BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battler
 {
     // TODO implement battle type check for relevant types like raids and totem battles here
     return battleSystem->sp->battlemon[battlerId].species != SPECIES_NONE;
-}
-
-void LONG_CALL BattleControllerPlayer_GetBattleMon(struct BattleSystem *battleSystem, struct BattleStruct *ctx)
-{
-    int battlerId;
-    int maxBattlers = BattleWorkClientSetMaxGet(battleSystem);
-
-    for (battlerId = 0; battlerId < maxBattlers; battlerId++) {
-        BattleSystem_GetBattleMon(battleSystem, ctx, battlerId, ctx->sel_mons_no[battlerId]);
-        // TODO remove partySize check when we implement new battle types in IsBattlerSlotValid
-        if (!IsBattlerSlotValid(battleSystem, battlerId) || ctx->sel_mons_no[battlerId] >= BattleWorkPokeCountGet(battleSystem, battlerId)) {
-            ctx->battlemon[battlerId].species = SPECIES_NONE;
-            ctx->battlemon[battlerId].hp = 0;
-            ctx->battlemon[battlerId].rare = 0;
-            ctx->no_reshuffle_client |= No2Bit(battlerId);
-            ctx->sel_mons_no[battlerId] = 6;
-        } else {
-            BattleSystem_GetBattleMon(battleSystem, ctx, battlerId, ctx->sel_mons_no[battlerId]);
-        }
-    }
-
-    ctx->hp_temp = ctx->battlemon[1].hp;
-    ctx->server_seq_no = CONTROLLER_COMMAND_START_ENCOUNTER;
 }
