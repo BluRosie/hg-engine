@@ -300,6 +300,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_11_0_FAINTING:
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_11_0_FAINTING\n");
+#endif
+
         // TODO
         if (CheckIfAnyoneShouldFaint(ctx, ctx->server_seq_no, ctx->server_seq_no, 1) == TRUE) {
             return;
@@ -312,8 +316,11 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_12_0_RESET_UNNERVE_NEUTRALIZING_GAS_IF_FAINTED: // switch in ability check?
     {
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_12_0_RESET_UNNERVE_NEUTRALIZING_GAS_IF_FAINTED\n");
-        int seq_no = ST_ServerPokeAppearCheck(bsys, ctx); // switch in ability check
+#endif
+
+        /* int seq_no = ST_ServerPokeAppearCheck(bsys, ctx); // switch in ability check only when killed?
 
         if (seq_no) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
@@ -321,6 +328,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
         }
+        */
         ctx->swoam_seq_no++;
     }
         FALLTHROUGH;
@@ -337,6 +345,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4\n");
 #endif
+
         // TODO
         if (ctx->multiHitCount > 0) {
             if (TryUseHeldItem(bsys, ctx, ctx->defence_client) == TRUE) { // will eventually need TryUseHeldItem anyway.  generic berry function thing
@@ -451,6 +460,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_16_1_BERSERK_COLOR_CHANGE\n");
 #endif
+
         // TODO
         ctx->swoam_seq_no++;
         if (ActivateBerserkAngerShellColorChange(bsys, ctx) == TRUE)
