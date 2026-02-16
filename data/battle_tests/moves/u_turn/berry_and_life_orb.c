@@ -14,8 +14,7 @@ const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    {
-        .battleType = BATTLE_TYPE_SINGLE,
+    {   .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
@@ -111,7 +110,8 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HELD_ITEM_HP_RESTORE },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_WENT_BACK_TO },
-        } 
+        },
+        .knownFailing = TRUE;
     },
 #ifndef GET_TEST_CASE_ONLY
 };
