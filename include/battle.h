@@ -4186,6 +4186,9 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, in
 BOOL LONG_CALL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 
 //TODO move to serverDoPostMoveEffects once more space is allocated
+
+int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
 int LONG_CALL ActivateSturdyOrFocusSashOrFocusBand(void *bsys, struct BattleStruct *sp, int *seq_no);
 int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateFlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx);

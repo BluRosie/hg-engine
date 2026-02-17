@@ -2747,9 +2747,19 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
  */
 void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     // debug_printf("In BattleController_LoopMultiHit\n");
-    if (ctx->multiHitCountTemp != 0) {
-        if (ctx->fainting_client == BATTLER_NONE && !(ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)) {
-            if (--ctx->multiHitCount) {
+    ctx->server_seq_no = CONTROLLER_COMMAND_34;
+}
+
+int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    debug_printf("In BattleController_LoopMultiHitInternal %d\n", ctx->multiHitCountTemp);
+    if (ctx->multiHitCountTemp != 0)
+    {
+        if (ctx->fainting_client == BATTLER_NONE && !(ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS))
+        {
+            SCIO_BlankMessage(bsys);
+            if (--ctx->multiHitCount)
+            {
                 ctx->loop_flag = 1;
                 ov12_02252D14(bsys, ctx);
                 ctx->server_status_flag &= ~BATTLE_STATUS_MOVE_ANIMATIONS_OFF;
@@ -2757,27 +2767,30 @@ void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct B
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->next_server_seq_no = CONTROLLER_COMMAND_23; // go back to our custom check
+                return TRUE;
             } else {
                 ctx->msg_work = ctx->multiHitCountTemp;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MULTI_HIT);
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
             }
-        } else {
-            if (ctx->fainting_client != BATTLER_NONE || ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
+        }
+        else
+        {
+            if (ctx->fainting_client != BATTLER_NONE || ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP)
+            {
                 ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount + 1;
-            } else {
+            }
+            else
+            {
                 ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount;
             }
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MULTI_HIT);
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
         }
-        SCIO_BlankMessage(bsys);
-    } else {
-        ctx->server_seq_no = CONTROLLER_COMMAND_34;
     }
+    return FALSE;
 }
+
 
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo) {
     int type;

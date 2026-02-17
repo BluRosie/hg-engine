@@ -342,6 +342,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4: // Go back to step 1, damage calc consolidate BattleController_LoopMultiHit
+    {
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4\n");
 #endif
@@ -352,10 +353,11 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
                 return;
             }
         }
-        if (ctx->multiHitCount > 1) {
-            break;
+        if (BattleController_LoopMultiHitInternal(bsys, ctx) == FALSE) {
+            ctx->swoam_seq_no++;
         }
-        ctx->swoam_seq_no++;
+        return;
+    }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_13_2_MULTIHIT_STATUS_MESSAGE:
         // TODO
