@@ -4787,22 +4787,24 @@ int LONG_CALL ActivateDisguiseIceFace(void *bw, struct BattleStruct *sp)
 int LONG_CALL ActivateRecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     if (ctx->attack_client == BATTLER_NONE
-        || ctx->battlemon[ctx->attack_client].hp == 0) {
+        || ctx->battlemon[ctx->attack_client].hp == 0
+        || MoldBreakerAbilityCheck(ctx, ctx->attack_client, ctx->attack_client, ABILITY_ROCK_HEAD)
+        || MoldBreakerAbilityCheck(ctx, ctx->attack_client, ctx->attack_client, ABILITY_MAGIC_GUARD)) {
         return FALSE;
     }
 
     int seq_no = 0;
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     switch (moveEffect) {
-    case MOVE_EFFECT_RECOIL_PARALYZE_HIT:
-    case MOVE_EFFECT_RECOIL_QUARTER:
+    case MOVE_EFFECT_RECOIL_QUARTER: //wild charge
         seq_no = SUB_SEQ_RECOIL_1_4;
         break;
-    case MOVE_EFFECT_RECOIL_BURN_HIT:
-    case MOVE_EFFECT_RECOIL_THIRD:
+    case MOVE_EFFECT_RECOIL_PARALYZE_HIT: //volt tackle
+    case MOVE_EFFECT_RECOIL_BURN_HIT: //flare blitz
+    case MOVE_EFFECT_RECOIL_THIRD:   //double edge, brave bird
         seq_no = SUB_SEQ_RECOIL_1_3;
         break;
-    case MOVE_EFFECT_RECOIL_HALF:
+    case MOVE_EFFECT_RECOIL_HALF:   //head smash, light of ruin
         seq_no = SUB_SEQ_RECOIL_1_2;
         break;
     default:

@@ -39,7 +39,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_VANISH_ON_OFF\n");
 #endif
 
-        int ret = 0;
         for (ctx->swoak_work = 0; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++) {
             if (((ctx->battlemon[ctx->swoak_work].effect_of_moves & (MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)) == 0)
                 && (ctx->battlemon[ctx->swoak_work].effect_of_moves_temp & (MOVE_EFFECT_FLAG_SEMI_INVULNERABLE))) {
@@ -48,10 +47,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
                 ctx->battlerIdTemp = ctx->swoak_work;
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ret = 1;
-            }
-
-            if (ret) {
                 return;
             }
         }
@@ -59,6 +54,11 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoak_work = 0;
         FALLTHROUGH;
     }
+    case MOVE_PERFORMANCE_STORE_DAMAGE:
+        debug_printf("in MOVE_PERFORMANCE_STORE_DAMAGE (%d)+(%d)\n", ctx->store_damage[ctx->attack_client], ctx->hit_damage);
+        ctx->store_damage[ctx->attack_client] += ctx->hit_damage;
+        ctx->swoam_seq_no++;
+        FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_2_HIT_SUBSTITUTE:
         // TODO
         ctx->swoam_seq_no++;
@@ -375,11 +375,11 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE, storedDamage[%d] %d\n", ctx->attack_client, ctx->store_damage[ctx->attack_client]);
 #endif
-        // TODO adjust parentalBond logic for recoil Moves
+
         ctx->swoam_seq_no++;
-        // if (ActivateRecoilDamage(bsys, ctx) == TRUE) {
-        //     return;
-        //}
+        if (ActivateRecoilDamage(bsys, ctx) == TRUE) {
+            return;
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_1_BIND_STATE:
         // TODO

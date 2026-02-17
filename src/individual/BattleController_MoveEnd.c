@@ -92,6 +92,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->clientLoopForAbility = 0;
     ctx->boostedAccuracy = FALSE;
     ctx->gemBoostingMove = FALSE;
+    ctx->store_damage[ctx->attack_client] = 0;
 
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 
