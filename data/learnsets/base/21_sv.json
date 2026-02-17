@@ -13738,6 +13738,10 @@
         "Move": "MOVE_REFLECT"
       },
       {
+        "Level": 15,
+        "Move": "MOVE_DEFOG"
+      },
+      {
         "Level": 18,
         "Move": "MOVE_AIR_SLASH"
       },
@@ -52802,10 +52806,6 @@
         "Move": "MOVE_FLAME_WHEEL"
       },
       {
-        "Level": 24,
-        "Move": "MOVE_BUG_BITE"
-      },
-      {
         "Level": 30,
         "Move": "MOVE_SCREECH"
       },
@@ -57463,6 +57463,10 @@
         "Move": "MOVE_SPLASH"
       },
       {
+        "Level": 5,
+        "Move": "MOVE_VICE_GRIP"
+      },
+      {
         "Level": 10,
         "Move": "MOVE_FLAIL"
       },
@@ -57550,6 +57554,10 @@
   },
   "SPECIES_CLAWITZER": {
     "LevelMoves": [
+      {
+        "Level": 1,
+        "Move": "MOVE_VICE_GRIP"
+      },
       {
         "Level": 1,
         "Move": "MOVE_WATER_GUN"
@@ -61609,6 +61617,10 @@
   },
   "SPECIES_CRABRAWLER": {
     "LevelMoves": [
+      {
+        "Level": 1,
+        "Move": "MOVE_VICE_GRIP"
+      },
       {
         "Level": 5,
         "Move": "MOVE_ROCK_SMASH"
@@ -71904,6 +71916,10 @@
     "LevelMoves": [
       {
         "Level": 1,
+        "Move": "MOVE_VICE_GRIP"
+      },
+      {
+        "Level": 1,
         "Move": "MOVE_TWISTER"
       },
       {
@@ -78140,6 +78156,10 @@
   },
   "SPECIES_KLAWF": {
     "LevelMoves": [
+      {
+        "Level": 1,
+        "Move": "MOVE_VICE_GRIP"
+      },
       {
         "Level": 1,
         "Move": "MOVE_ROCK_THROW"
@@ -84974,19 +84994,19 @@
   "SPECIES_WALKING_WAKE": {
     "LevelMoves": [
       {
-        "Level": 0,
+        "Level": 1,
         "Move": "MOVE_LEER"
       },
       {
-        "Level": 0,
+        "Level": 1,
         "Move": "MOVE_ROAR"
       },
       {
-        "Level": 0,
+        "Level": 1,
         "Move": "MOVE_TWISTER"
       },
       {
-        "Level": 0,
+        "Level": 1,
         "Move": "MOVE_AQUA_JET"
       },
       {
@@ -85088,19 +85108,19 @@
   "SPECIES_IRON_LEAVES": {
     "LevelMoves": [
       {
-        "Level": 0,
+        "Level": 1,
         "Move": "MOVE_LEER"
       },
       {
-        "Level": 0,
+        "Level": 1,
         "Move": "MOVE_QUICK_ATTACK"
       },
       {
-        "Level": 0,
+        "Level": 1,
         "Move": "MOVE_HELPING_HAND"
       },
       {
-        "Level": 0,
+        "Level": 1,
         "Move": "MOVE_WORK_UP"
       },
       {
@@ -92900,11 +92920,11 @@
       },
       {
         "Level": 40,
-        "Move": "MOVE_AROMATHERAPY"
+        "Move": "MOVE_GRASSY_TERRAIN"
       },
       {
         "Level": 40,
-        "Move": "MOVE_GRASSY_TERRAIN"
+        "Move": "MOVE_PSYCHIC_TERRAIN"
       },
       {
         "Level": 48,
@@ -94382,10 +94402,6 @@
       {
         "Level": 24,
         "Move": "MOVE_KNOCK_OFF"
-      },
-      {
-        "Level": 28,
-        "Move": "MOVE_SPITE"
       },
       {
         "Level": 32,
