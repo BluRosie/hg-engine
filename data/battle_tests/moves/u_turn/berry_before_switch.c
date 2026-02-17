@@ -1,4 +1,4 @@
-// Test: U-Turn - Iron Barbs, Life Orb, Switch, Sitrus
+// Test: U-Turn - Iron Barbs,Rocky Helmet, Sitrus, Switch
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -21,10 +21,10 @@ const struct TestBattleScenario BattleTests[] = {
         .playerParty = {
             {
                 .species = SPECIES_BEEDRILL,
-                .level = 50,
+                .level = 35,
                 .form = 0,
                 .ability = ABILITY_SWARM,
-                .item = ITEM_LIFE_ORB,
+                .item = ITEM_SITRUS_BERRY,
                 .moves = { MOVE_U_TURN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
@@ -49,10 +49,10 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .enemyParty = { {
                             .species = SPECIES_FERROSEED,
-                            .level = 45,
+                            .level = 50,
                             .form = 0,
                             .ability = ABILITY_IRON_BARBS,
-                            .item = ITEM_SITRUS_BERRY,
+                            .item = ITEM_ROCKY_HELMET,
                             .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
@@ -105,11 +105,11 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 56, 58, 58, 58, 60, 60, 60, 62, 62, 62, 64, 64, 64, 66, 66, 68 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 24, 24, 24, 24, 24, 25 } },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT }, 
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ITEM_HURT_BACK },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HELD_ITEM_HP_RESTORE }, 
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = 1 } ,// BATTLE_MSG_WENT_BACK_TO }, //TODO
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = 1 } ,// BATTLE_MSG_WENT_BACK_TO },
         },
         .knownFailing = TRUE;
     },
