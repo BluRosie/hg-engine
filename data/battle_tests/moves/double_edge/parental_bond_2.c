@@ -1,4 +1,4 @@
-// Test: heal sleep after put to sleep
+// Test: Double Edge - Parental Bond, Iron Barbs, Rocky Helmet, Sitrus
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -14,18 +14,17 @@ const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    {
-        .battleType = BATTLE_TYPE_SINGLE,
+    {   .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_HYPNO,
-                .level = 50,
+                .species = SPECIES_FERROSEED,
+                .level = 40,
                 .form = 0,
                 .ability = ABILITY_INSOMNIA,
-                .item = ITEM_CHESTO_BERRY,
+                .item = ITEM_NONE,
                 .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
@@ -39,13 +38,13 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .enemyParty = { 
                         {
-                            .species = SPECIES_PARASECT,
+                            .species = SPECIES_KANGASKHAN,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_MOLD_BREAKER,
-                            .item = ITEM_NONE,
-                            .moves = { MOVE_SPORE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                            .hp = FULL_HP,
+                            .ability = ABILITY_PARENTAL_BOND,
+                            .item = ITEM_SITRUS_BERRY,
+                            .moves = { MOVE_DOUBLE_EDGE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .hp = 106,
                             .status = 0,
                             .condition2 = 0,
                             .moveEffectFlags = 0,
@@ -57,7 +56,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .playerScript = { {
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                              { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                              { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
@@ -77,7 +76,7 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .enemyScript = { {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                             { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
@@ -96,11 +95,11 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_FELL_ASLEEP },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_FORBIDS_STATUS },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HELD_ITEM_HEAL_SLP },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_FORBIDS_STATUS },
-        }
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 43, 44, 45, 45, 45, 46, 46, 47, 48, 48, 48, 49, 49, 50, 51, 51 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12 } },        
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIT_WITH_RECOIL },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HELD_ITEM_HP_RESTORE }, 
+        },
     },
 #ifndef GET_TEST_CASE_ONLY
 };
