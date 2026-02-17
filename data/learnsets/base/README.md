@@ -9,6 +9,7 @@ Base learnset files for each game. Used by `scripts/generate_learnsets.py` to bu
 - `--inherit-egg` allows egg moves to be inherited from previous gens to fill in gaps
 - `--inherit-machine` allows machine moves learnsets to accumulate across generations
 - `--inherit-tutor` allows tutor moves learnsets to accumulate across generations
+- `--ignore-files` ignore certain generation files
 
 Alt forms of pokemon will inherit their sets from their base form. This is especially useful for things like Mega evolutions where you can technically define different learnsets.
 
@@ -16,7 +17,7 @@ Alt forms of pokemon will inherit their sets from their base form. This is espec
 
 #### HeartGold / SoulSilver (Pure)
 
-This woud use pure HGSS learnsets meaning any newer mons would not have any learnable moves. Normally it will be better to simply take the hgss json file and copy that into `data/learnsets/learnsets.json`
+This would use pure HGSS learnsets meaning any newer mons would not have any learnable moves. Normally it will be better to simply take the hgss json file and copy that into `data/learnsets/learnsets.json`
 
 ```bash
 python3 scripts/build_learnsets.py --generate data/learnsets/learnsets.json --cutoff hgss
@@ -25,10 +26,10 @@ python3 scripts/build_learnsets.py --generate data/learnsets/learnsets.json --cu
 #### National Dex (Repo Default)
 
 Takes the latest available maingame learnsets for each mon. For example, Raticate would take its BDSP level up learnset because it doesn't have learnsets for later gens. 
-Note this ignores the Pokemon GO learnsets.
+Note this ignores the Pokemon GO learnsets and Legends ZA.
 
 ```bash
-python3 scripts/build_learnsets.py --generate data/learnsets/learnsets.json --cutoff sv --inherit-level --inherit-egg --inherit-machine --inherit-tutor
+python3 scripts/build_learnsets.py --generate data/learnsets/learnsets.json --cutoff go --inherit-level --inherit-egg --inherit-machine --inherit-tutor --ignore-files 20_la.json 22_go.json
 ```
 
 #### Custom
