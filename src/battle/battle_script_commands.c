@@ -4258,11 +4258,6 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
     u32 adrs = read_battle_script_param(sp);
     u32 adrs2 UNUSED = read_battle_script_param(sp);
     u32 item = sp->battlemon[sp->defence_client].item;
-    if (CanActivateDamageReductionBerry(sp, sp->defence_client) || item == ITEM_JABOCA_BERRY)
-    {
-        IncrementBattleScriptPtr(sp, adrs);
-        return FALSE;
-    }
 
     BOOL isBerry = IS_ITEM_BERRY(item);
     // sticky hold and substitute will keep the mon's held item

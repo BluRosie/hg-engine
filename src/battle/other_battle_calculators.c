@@ -4855,3 +4855,49 @@ int LONG_CALL ActivateSwitch(void *bsys UNUSED, struct BattleStruct *ctx)
     }
     return FALSE;
 }
+
+
+int LONG_CALL ActivateKnockOffOrThiefOrPluck(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    if (ctx->attack_client != BATTLER_NONE
+        && ctx->battlemon[ctx->attack_client].hp > 0
+        && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated) {
+        return FALSE;
+    }
+
+    int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    switch (moveEffect) {
+    case MOVE_EFFECT_REMOVE_HELD_ITEM: // knock off
+    {
+        ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+        ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_KNOCK_OFF);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
+    } break;
+    case MOVE_EFFECT_STEAL_HELD_ITEM: // thief, covet
+    //if (ctx->battlemon[ctx->attack_client].item == ITEM_NONE)
+    {
+        ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+        ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THIEF);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
+    } break;
+    case MOVE_EFFECT_EAT_BERRY: // pluck, bug bite
+    {
+        ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+        ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLUCK);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
+    } break;
+    default:
+        break;
+    }
+
+    return FALSE;
+}

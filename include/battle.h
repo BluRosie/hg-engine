@@ -4209,6 +4209,7 @@ int LONG_CALL ActivatePickpocket(void *bsys UNUSED, struct BattleStruct *sp);
 int LONG_CALL ActivateDisguiseIceFace(void *bsys, struct BattleStruct *sp);
 int LONG_CALL ActivateRecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateSwitch(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL ActivateKnockOffOrThiefOrPluck(void *bsys UNUSED, struct BattleStruct *ctx);
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);

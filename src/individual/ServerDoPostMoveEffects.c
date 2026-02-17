@@ -351,11 +351,11 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         // TODO
-        if (ctx->multiHitCount > 0) {
+        //if (ctx->multiHitCount > 0) {
             if (TryUseHeldItem(bsys, ctx, ctx->defence_client) == TRUE) { // will eventually need TryUseHeldItem anyway.  generic berry function thing
                 return;
             }
-        }
+        //}
         if (BattleController_LoopMultiHitInternal(bsys, ctx) == FALSE) {
             ctx->swoam_seq_no++;
         }
@@ -403,8 +403,14 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_3_KNOCK_OFF_THIEF_PLUCK:
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_15_3_KNOCK_OFF_THIEF_PLUCK\n");
+#endif
         // TODO
         ctx->swoam_seq_no++;
+        if (ActivateKnockOffOrThiefOrPluck(bsys, ctx) == TRUE) {
+            return;
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_4_CIRCLE_THROW_DRAGON_TAIL:
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
