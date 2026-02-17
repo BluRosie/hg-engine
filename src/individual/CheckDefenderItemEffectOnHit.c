@@ -174,7 +174,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 sp->hp_calc_work         = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
                 seq_no[0]                = SUB_SEQ_ITEM_DAMAGE_BACK;
                 ret                      = TRUE;
-                sp->itemActivatedTracker = TRUE; // signal that this shouldn't happen for the rest of the hit
+                //sp->itemActivatedTracker = TRUE; // signal that this shouldn't happen for the rest of the hit
             }
             break;
 
