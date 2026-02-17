@@ -55,7 +55,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     }
     case MOVE_PERFORMANCE_STORE_DAMAGE:
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STORE_DAMAGE (%d)+(%d)\n", ctx->store_damage[ctx->attack_client], ctx->hit_damage);
+#endif
+        
         ctx->store_damage[ctx->attack_client] += ctx->hit_damage;
         ctx->swoam_seq_no++;
         FALLTHROUGH;
@@ -360,8 +363,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_13_2_MULTIHIT_STATUS_MESSAGE:
-        // TODO
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_13_2_MULTIHIT_STATUS_MESSAGE %d\n", ctx->swoam_type);
+#endif
+       
         ctx->swoam_seq_no++;
         if (ctx->swoam_type != SWOAM_NORMAL) {
             if (ServerWazaStatusMessage(bsys, ctx) == TRUE) {
@@ -530,6 +535,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_23_0_U_TURN_VOLT_SWITCH:
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_23_0_U_TURN_VOLT_SWITCH\n");
+#endif
         // TODO consolidate switch with others
         ctx->swoam_seq_no++;
         if (ActivateSwitch(bsys, ctx) == TRUE) {
@@ -646,7 +654,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 
     ctx->swoak_work = 0;
     ctx->server_seq_no = CONTROLLER_COMMAND_32;
-    debug_printf("end ServerDoPostMoveEffectsInternal %d\n", ctx->swoam_seq_no);
 }
     /*
     // Sort clients because moves may affect ctxeed
