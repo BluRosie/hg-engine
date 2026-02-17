@@ -29,7 +29,7 @@ int ShowDamageReductionBerryMessage(void *bsys, struct BattleStruct *sp);
  */
 void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsys, struct BattleStruct *ctx)
 {
-    debug_printf("ServerDoPostMoveEffectsInternal %d: movestatus %d, status %d, ctx->multiHitCount %d\n", ctx->swoam_seq_no, ctx->waza_status_flag, ctx->server_status_flag, ctx->multiHitCount);
+    debug_printf("ServerDoPostMoveEffectsInternal %d: attacker %d, movestatus %d, status %d, ctx->multiHitCount %d\n", ctx->swoam_seq_no, ctx->attack_client, ctx->waza_status_flag, ctx->server_status_flag, ctx->multiHitCount);
     
     DynamicSortClientExecutionOrder(bsys, ctx, FALSE);
 

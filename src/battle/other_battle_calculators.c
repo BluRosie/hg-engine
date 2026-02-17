@@ -4812,6 +4812,7 @@ int LONG_CALL ActivateRecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
     }
 
     if (seq_no != 0) {
+        debug_printf("in ActivateRecoilDamage (%d)\n", ctx->store_damage[ctx->attack_client]);
         ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
         ctx->next_server_seq_no = ctx->server_seq_no;
