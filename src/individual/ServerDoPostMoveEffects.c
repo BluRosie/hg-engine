@@ -350,12 +350,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4\n");
 #endif
 
-        // TODO
-        //if (ctx->multiHitCount > 0) {
+        // TODO confirm
+        if (ctx->multiHitCount > 0) {
             if (TryUseHeldItem(bsys, ctx, ctx->defence_client) == TRUE) { // will eventually need TryUseHeldItem anyway.  generic berry function thing
                 return;
             }
-        //}
+        }
         if (BattleController_LoopMultiHitInternal(bsys, ctx) == FALSE) {
             ctx->swoam_seq_no++;
         }
