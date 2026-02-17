@@ -38,7 +38,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .enemyParty = { 
                         {
-                            .species = SPECIES_FERROSEED,
+                            .species = SPECIES_FERROTHORN,
                             .level = 50,
                             .form = 0,
                             .ability = ABILITY_IRON_BARBS,
