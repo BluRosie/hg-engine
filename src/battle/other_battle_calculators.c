@@ -4076,9 +4076,27 @@ int LONG_CALL ActivateFlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx)
     return FALSE;
 }
 
-int LONG_CALL ActivateFellStingerOrScaleShot(void *bsys UNUSED, struct BattleStruct *ctx)
+int LONG_CALL ActivateAdditionalMoveEffects(void *bsys, struct BattleStruct *ctx)
 {
-    if (ctx->current_move_index == MOVE_FELL_STINGER) {
+    int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+
+    switch (moveEffect) {
+    //TODOs
+    // case EFFECT_SPIT_UP: confirm
+    // case EFFECT_SWALLOW: confirm
+    // case EFFECT_STONE_AXE:
+    // case EFFECT_CEASELESS_EDGE:
+    // case MOVE_EFFECT_TELEKINESIS:
+    // case MOVE_EFFECT_SMACK_DOWN: thousand arrows
+    // case MOVE_EFFECT_JAW_LOCK: + binding moves
+    // case MOVE_EFFECT_PREVENT_ESCAPE_HIT:
+    case MOVE_EFFECT_SECRET_POWER:
+    case MOVE_EFFECT_DOUBLE_POWER_HEAL_SLEEP:
+    case MOVE_EFFECT_DOUBLE_POWER_AND_CURE_PARALYSIS:
+    case MOVE_EFFECT_MORTAL_SPIN: //mortal spin
+    case MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING: //rapid spin
+        break;
+    case MOVE_EFFECT_FELL_STINGER:
         if (ctx->attack_client != BATTLER_NONE
             && (ctx->battlemon[ctx->defence_client].hp == 0)
             && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
@@ -4092,9 +4110,69 @@ int LONG_CALL ActivateFellStingerOrScaleShot(void *bsys UNUSED, struct BattleStr
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
         }
+        break;
+    case MOVE_EFFECT_FORCE_SWITCH_HIT:
+        if (ctx->attack_client != BATTLER_NONE
+            && ctx->battlemon[ctx->attack_client].hp > 0
+            && ctx->battlemon[ctx->defence_client].hp > 0
+            && !ctx->battlemon[ctx->defence_client].is_currently_dynamaxed
+            //&& ((ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
+            && ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0)
+            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
+            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->state_client = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORCE_OUT); // checks suction cup/ingrain
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    case MOVE_EFFECT_REMOVE_HELD_ITEM:
+        if (ctx->attack_client != BATTLER_NONE
+            && ctx->battlemon[ctx->attack_client].hp > 0
+            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated) {
+            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_KNOCK_OFF);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    case MOVE_EFFECT_STEAL_HELD_ITEM: // thief, covet
+        if (ctx->attack_client != BATTLER_NONE
+            && ctx->battlemon[ctx->attack_client].hp > 0
+            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated)
+        // if (ctx->battlemon[ctx->attack_client].item == ITEM_NONE)
+        {
+            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THIEF);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    case MOVE_EFFECT_EAT_BERRY: // pluck, bug bite
+        if (ctx->attack_client != BATTLER_NONE
+            && ctx->battlemon[ctx->attack_client].hp > 0
+            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated) {
+            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLUCK);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+
+    default:
+        break;
     }
 
-    if (ctx->current_move_index == MOVE_SCALE_SHOT) {
+    switch (ctx->current_move_index) {
+    case MOVE_SCALE_SHOT:
         if ((ctx->attack_client != BATTLER_NONE)
             && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
             && (ctx->battlemon[ctx->attack_client].states[STAT_DEFENSE] > 0)
@@ -4107,9 +4185,47 @@ int LONG_CALL ActivateFellStingerOrScaleShot(void *bsys UNUSED, struct BattleStr
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
         }
+        break;
+    case MOVE_SPARKLING_ARIA:
+        if (ctx->battlemon[ctx->attack_client].sheer_force_flag == 0) {
+            int i;
+            int numberOfClientsHitBySparklingAria = 0;
+            int client_no = 0; // initialize
+            int client_set_max = BattleWorkClientSetMaxGet(bsys);
+
+            // Count how many mons were hit by Sparkling Aria
+            for (i = 0; i < client_set_max; i++) {
+                client_no = ctx->turnOrder[i];
+                if (ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client) {
+                    numberOfClientsHitBySparklingAria++;
+                }
+            }
+
+            // Heal Burn loop
+            for (i = 0; i < client_set_max; i++) {
+                client_no = ctx->turnOrder[i];
+                if ((ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client)
+                    && (ctx->battlemon[client_no].condition & STATUS_BURN)
+                    && (ctx->battlemon[client_no].hp)) {
+                    if (numberOfClientsHitBySparklingAria > 1 || GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST) {
+                        ctx->battlerIdTemp = client_no;
+                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_BURN);
+                        ctx->next_server_seq_no = ctx->server_seq_no;
+                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                        return TRUE;
+                    }
+                }
+            }
+        }
+        break;
+    default:
+        break;
     }
+
     return FALSE;
 }
+
+
 // https://bulbapedia.bulbagarden.net/wiki/Category:Moves_that_thaw_out_the_user
 // will have to add matcha gotcha and burn up to the list of effects that thaw the user
 u16 gMovesThatThawFrozenMons[] = {
@@ -4285,66 +4401,6 @@ int LONG_CALL ActivateShellBellOrLifeOrb(void *bw UNUSED, struct BattleStruct *s
     return FALSE;
 }
 
-
-int LONG_CALL ActivateSparklingAriaHealingBurn(void *bsys, struct BattleStruct *ctx)
-{
-    // Handle Sparkling Aria
-    if (ctx->current_move_index == MOVE_SPARKLING_ARIA && ctx->battlemon[ctx->attack_client].sheer_force_flag == 0)
-    {
-        int i;
-        int numberOfClientsHitBySparklingAria = 0;
-        int client_no = 0; // initialize
-        int client_set_max = BattleWorkClientSetMaxGet(bsys);
-
-        // Count how many mons were hit by Sparkling Aria
-        for (i = 0; i < client_set_max; i++) {
-            client_no = ctx->turnOrder[i];
-            if (ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client) {
-                numberOfClientsHitBySparklingAria++;
-            }
-        }
-
-        // Heal Burn loop
-        for (i = 0; i < client_set_max; i++) {
-            client_no = ctx->turnOrder[i];
-            if ((ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client)
-                && (ctx->battlemon[client_no].condition & STATUS_BURN)
-                && (ctx->battlemon[client_no].hp)) {
-                if (numberOfClientsHitBySparklingAria > 1 || GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST) {
-                    ctx->battlerIdTemp = client_no;
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_BURN);
-                    ctx->next_server_seq_no = ctx->server_seq_no;
-                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                    return TRUE;
-                }
-            }
-        }
-    }
-    return FALSE;
-}
-
-
-int LONG_CALL ActivateDragonTailOrCircleThrow(void *bsys UNUSED, struct BattleStruct *ctx)
-{
-    if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_FORCE_SWITCH_HIT) { // Dragon Tail, Circle Throw
-        if (ctx->attack_client != BATTLER_NONE
-            && ctx->battlemon[ctx->attack_client].hp > 0
-            && ctx->battlemon[ctx->defence_client].hp > 0
-            && !ctx->battlemon[ctx->defence_client].is_currently_dynamaxed
-            //&& ((ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
-            && ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0)
-            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            ctx->state_client = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORCE_OUT); // checks suction cup/ingrain
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            return TRUE;
-        }
-    }
-    return FALSE;
-}
 
 int LONG_CALL ActivateMoxieOrBeastBoost(void *bsys UNUSED, struct BattleStruct *ctx)
 {
@@ -4853,51 +4909,5 @@ int LONG_CALL ActivateSwitch(void *bsys UNUSED, struct BattleStruct *ctx)
             return TRUE;
         }
     }
-    return FALSE;
-}
-
-
-int LONG_CALL ActivateKnockOffOrThiefOrPluck(void *bsys UNUSED, struct BattleStruct *ctx)
-{
-    if (ctx->attack_client != BATTLER_NONE
-        && ctx->battlemon[ctx->attack_client].hp > 0
-        && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated) {
-        return FALSE;
-    }
-
-    int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
-    switch (moveEffect) {
-    case MOVE_EFFECT_REMOVE_HELD_ITEM: // knock off
-    {
-        ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
-        ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_KNOCK_OFF);
-        ctx->next_server_seq_no = ctx->server_seq_no;
-        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-        return TRUE;
-    } break;
-    case MOVE_EFFECT_STEAL_HELD_ITEM: // thief, covet
-    //if (ctx->battlemon[ctx->attack_client].item == ITEM_NONE)
-    {
-        ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
-        ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THIEF);
-        ctx->next_server_seq_no = ctx->server_seq_no;
-        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-        return TRUE;
-    } break;
-    case MOVE_EFFECT_EAT_BERRY: // pluck, bug bite
-    {
-        ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
-        ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLUCK);
-        ctx->next_server_seq_no = ctx->server_seq_no;
-        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-        return TRUE;
-    } break;
-    default:
-        break;
-    }
-
     return FALSE;
 }

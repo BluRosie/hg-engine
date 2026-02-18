@@ -1858,7 +1858,7 @@ enum
     MOVE_PERFORMANCE_STEP_8_STURDY_FOCUS_SASH,
     MOVE_PERFORMANCE_STEP_8_1_SURVIVE_WITH_FRIENDSHIP,
     MOVE_PERFORMANCE_STEP_9_0_FLING,
-    MOVE_PERFORMANCE_STEP_9_1_ADDITIONAL_EFFECTS,
+    MOVE_PERFORMANCE_STEP_9_1_SECONDARY_EFFECTS,
     MOVE_PERFORMANCE_STEP_9_2_LOWERING_STATS,
     MOVE_PERFORMANCE_STEP_9_3_HP_DRAINING_MOVES,
     MOVE_PERFORMANCE_STEP_9_4_FLAME_BURST,
@@ -1885,17 +1885,8 @@ enum
     MOVE_PERFORMANCE_STEP_13_2_MULTIHIT_STATUS_MESSAGE,
     MOVE_PERFORMANCE_STEP_14_0_FRIENDSHIP_MESSAGE,
     MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE,
-    MOVE_PERFORMANCE_STEP_15_1_BIND_STATE,
-    MOVE_PERFORMANCE_STEP_15_2_SCALE_SHOT_FELL_STINGER,
-    MOVE_PERFORMANCE_STEP_15_3_KNOCK_OFF_THIEF_PLUCK,
-    MOVE_PERFORMANCE_STEP_15_4_CIRCLE_THROW_DRAGON_TAIL,
-    MOVE_PERFORMANCE_STEP_15_5_KNOCK_DOWN_THOUSAND_WAVE_JAW_LOCK,
-    MOVE_PERFORMANCE_STEP_15_5_PLASMA_FISTS,
-    MOVE_PERFORMANCE_STEP_15_6_GENESIS_SUPERNOVA,
-    MOVE_PERFORMANCE_STEP_15_7_RAPID_SPIN,
-    MOVE_PERFORMANCE_STEP_15_8_THAW_FROM_FIRE_MOVE,
-    MOVE_PERFORMANCE_STEP_15_9_SMELLING_SALTS_WAKEUP_SLAP_SPARKLING_ARIA,
-    MOVE_PERFORMANCE_STEP_15_10_EERIE_SPELL,
+    MOVE_PERFORMANCE_STEP_15_1_ADDITIONAL_MOVE_EFFECTS,
+    MOVE_PERFORMANCE_STEP_15_2_THAW_FROM_FIRE_MOVE,
     MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE,
     MOVE_PERFORMANCE_STEP_16_1_BERSERK_COLOR_CHANGE,
     MOVE_PERFORMANCE_STEP_17_0_DEFENDER_ITEMS_3,
@@ -4192,14 +4183,10 @@ int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, s
 int LONG_CALL ActivateSturdyOrFocusSashOrFocusBand(void *bsys, struct BattleStruct *sp, int *seq_no);
 int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateFlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL ActivateFellStingerOrScaleShot(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ThawTargetFromScaldOrFireMove(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL ActivateSteelRollerOrIceSpinner(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateThroatSprayOrBlunderPolicy(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL ActivateRampageConfusion(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateShellBellOrLifeOrb(void *bw UNUSED, struct BattleStruct *sp);
-int LONG_CALL ActivateSparklingAriaHealingBurn(void *bw, struct BattleStruct *sp);
-int LONG_CALL ActivateDragonTailOrCircleThrow(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateMoxieOrBeastBoost(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateFormChange(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL ActivateMirrorHerbOrWhiteHerb(void *bw, struct BattleStruct *ctx);
@@ -4207,9 +4194,12 @@ int LONG_CALL ActivateKeeMarangaBerryOrRedCardOrEjectButton(void *bsys, struct B
 int LONG_CALL ActivateBerserkAngerShellColorChange(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivatePickpocket(void *bsys UNUSED, struct BattleStruct *sp);
 int LONG_CALL ActivateDisguiseIceFace(void *bsys, struct BattleStruct *sp);
-int LONG_CALL ActivateRecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx);
+
 int LONG_CALL ActivateSwitch(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL ActivateKnockOffOrThiefOrPluck(void *bsys UNUSED, struct BattleStruct *ctx);
+
+int LONG_CALL ActivateRecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL ActivateAdditionalMoveEffects(void *bsys, struct BattleStruct *ctx);
+int LONG_CALL ActivateSteelRollerOrIceSpinner(void *bsys UNUSED, struct BattleStruct *ctx);
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);

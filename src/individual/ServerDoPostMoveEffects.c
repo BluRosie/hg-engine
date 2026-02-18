@@ -138,9 +138,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // TODO needed?
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_9_1_ADDITIONAL_EFFECTS: {
+    case MOVE_PERFORMANCE_STEP_9_1_SECONDARY_EFFECTS: {
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_9_1_ADDITIONAL_EFFECTS\n");
+        debug_printf("in MOVE_PERFORMANCE_STEP_9_1_SECONDARY_EFFECTS\n");
 #endif
 
         ctx->swoam_seq_no++;
@@ -388,83 +388,26 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             return;
         }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_1_BIND_STATE:
-        // TODO
-        ctx->swoam_seq_no++;
-        FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_2_SCALE_SHOT_FELL_STINGER:
+    case MOVE_PERFORMANCE_STEP_15_1_ADDITIONAL_MOVE_EFFECTS:
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_15_2_SCALE_SHOT_FELL_STINGER\n");
+        debug_printf("in MOVE_PERFORMANCE_STEP_15_1_ADDITIONAL_MOVE_EFFECTS\n");
 #endif
         ctx->swoam_seq_no++;
-        if (ActivateFellStingerOrScaleShot(bsys, ctx) == TRUE)
+        if (ActivateAdditionalMoveEffects(bsys, ctx) == TRUE)
         {
             return;
         }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_3_KNOCK_OFF_THIEF_PLUCK:
-#if DEBUG_MOVE_PERFORMNCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_15_3_KNOCK_OFF_THIEF_PLUCK\n");
-#endif
-        // TODO
-        ctx->swoam_seq_no++;
-        if (ActivateKnockOffOrThiefOrPluck(bsys, ctx) == TRUE) {
-            return;
-        }
-        FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_4_CIRCLE_THROW_DRAGON_TAIL:
-#if DEBUG_MOVE_PERFORMNCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_15_4_CIRCLE_THROW_DRAGON_TAIL\n");
-#endif
-        ctx->swoam_seq_no++;
-        //TODO switch consolidation
-        if (ActivateDragonTailOrCircleThrow(bsys, ctx) == TRUE)
-        {
-            return;
-        }
-        FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_5_KNOCK_DOWN_THOUSAND_WAVE_JAW_LOCK:
-        // TODO
-        ctx->swoam_seq_no++;
-        FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_5_PLASMA_FISTS:
-        // TODO
-        ctx->swoam_seq_no++;
-        FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_6_GENESIS_SUPERNOVA:
-        // TODO
-        ctx->swoam_seq_no++;
-        FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_7_RAPID_SPIN:
-        // TODO
-        ctx->swoam_seq_no++;
-        FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_8_THAW_FROM_FIRE_MOVE: {
+    case MOVE_PERFORMANCE_STEP_15_2_THAW_FROM_FIRE_MOVE: {
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_15_8_THAW_FROM_FIRE_MOVE\n");
 #endif
 
         // TODO loop over all battlers
-        if (ThawTargetFromScaldOrFireMove(bsys, ctx) == TRUE)
-        {
+        if (ThawTargetFromScaldOrFireMove(bsys, ctx) == TRUE) {
             return;
         }
     }
-        FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_9_SMELLING_SALTS_WAKEUP_SLAP_SPARKLING_ARIA:
-#if DEBUG_MOVE_PERFORMNCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_15_8_THAW_FROM_FIRE_MOVE\n");
-#endif
-        //TODO single out the other moves too
-        if (ActivateSparklingAriaHealingBurn(bsys, ctx) == TRUE)
-        {
-            return;
-        }
-        ctx->swoam_seq_no++;
-        FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_15_10_EERIE_SPELL:
-        // TODO
-        ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE: //speed order
 #if DEBUG_MOVE_PERFORMNCE_LOGIC

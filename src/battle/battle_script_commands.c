@@ -4937,7 +4937,9 @@ BOOL btl_scr_cmd_115_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
         ctx->moveConditionsFlags[client_no].glaiveRush = TRUE;
         break;
     case MOVE_THROAT_CHOP:
-        ctx->moveConditionsFlags[client_no].throatChopTimer = 2;
+        //https://discord.com/channels/419213663107416084/1368163973366681712/1473486991302594570
+        if (ctx->moveConditionsFlags[client_no].throatChopTimer == 0) //Linathan tested, does not reset
+            ctx->moveConditionsFlags[client_no].throatChopTimer = 2;
         break;
     default:
         break;
