@@ -4081,20 +4081,57 @@ int LONG_CALL ActivateAdditionalMoveEffects(void *bsys, struct BattleStruct *ctx
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
 
     switch (moveEffect) {
-    //TODOs
-    // case EFFECT_SPIT_UP: confirm
-    // case EFFECT_SWALLOW: confirm
-    // case EFFECT_STONE_AXE:
-    // case EFFECT_CEASELESS_EDGE:
-    // case MOVE_EFFECT_TELEKINESIS:
-    // case MOVE_EFFECT_SMACK_DOWN: thousand arrows
-    // case MOVE_EFFECT_JAW_LOCK: + binding moves
-    // case MOVE_EFFECT_PREVENT_ESCAPE_HIT:
+    // TODOs
+    //  case EFFECT_SPIT_UP: confirm
+    //  case EFFECT_SWALLOW: confirm
+    
+    //  case MOVE_EFFECT_TELEKINESIS:
+    //  case MOVE_EFFECT_SMACK_DOWN: thousand arrows
+    //  case MOVE_EFFECT_BIND_HIT: fire spin/wrap/infestation
+    case MOVE_EFFECT_STEALTH_ROCK_HIT: // https://discord.com/channels/419213663107416084/1368163973366681712/1392652799686348912
+        break;
+    case MOVE_EFFECT_SET_SPIKES_HIT:
+        break;
     case MOVE_EFFECT_SECRET_POWER:
     case MOVE_EFFECT_DOUBLE_POWER_HEAL_SLEEP:
     case MOVE_EFFECT_DOUBLE_POWER_AND_CURE_PARALYSIS:
-    case MOVE_EFFECT_MORTAL_SPIN: //mortal spin
-    case MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING: //rapid spin
+        break;
+    case MOVE_EFFECT_MORTAL_SPIN: // mortal spin
+    case MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING: // rapid spin
+        if (ctx->attack_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->attack_client].hp != 0)) {
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->state_client = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RAPID_SPIN);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    case MOVE_EFFECT_PREVENT_ESCAPE_BOTH_HIT:
+        if (ctx->attack_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->attack_client].hp != 0)
+            && ctx->defence_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->defence_client].hp != 0)) {
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->state_client = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_JAW_LOCK);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    case MOVE_EFFECT_PREVENT_ESCAPE_HIT:
+        if (ctx->attack_client != BATTLER_NONE // TODO confirm
+            && ctx->defence_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->defence_client].hp != 0)) {
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->state_client = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MEAN_LOOK);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
         break;
     case MOVE_EFFECT_FELL_STINGER:
         if (ctx->attack_client != BATTLER_NONE
