@@ -4103,6 +4103,7 @@ int LONG_CALL ActivateAdditionalMoveEffects(void *bsys, struct BattleStruct *ctx
     case MOVE_EFFECT_STEALTH_ROCK_HIT: // https://discord.com/channels/419213663107416084/1368163973366681712/1392652799686348912
         if (ctx->attack_client != BATTLER_NONE
             && (ctx->battlemon[ctx->attack_client].hp != 0)) {
+            debug_printf("setup rocks\n");
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SET_STEALTH_ROCK);
             ctx->next_server_seq_no = ctx->server_seq_no;
