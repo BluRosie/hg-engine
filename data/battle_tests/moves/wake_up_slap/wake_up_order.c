@@ -39,7 +39,7 @@ const struct TestBattleScenario BattleTests[] = {
         .enemyParty = { 
                         {
                             .species = SPECIES_HARIYAMA,
-                            .level = 50,
+                            .level = 75,
                             .form = 0,
                             .ability = ABILITY_IRON_BARBS,
                             .item = ITEM_NONE,
@@ -95,7 +95,7 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 90, 91, 91, 94, 94, 95, 97, 97, 99, 99, 101, 101, 103, 103, 105, 107 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 122, 125, 126, 129, 129, 130, 133, 134, 134, 136, 138, 140, 140, 142, 144, 146 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_WOKE_UP },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
