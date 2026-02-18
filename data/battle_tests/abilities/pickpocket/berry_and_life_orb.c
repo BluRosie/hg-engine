@@ -96,11 +96,11 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 64, 64, 65, 66, 66, 68, 68, 69, 69, 70, 71, 71, 73, 73, 74, 75 } },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },         
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },         
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HELD_ITEM_HP_RESTORE },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_STOLE_ITEM }, 
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 27, 27, 27, 27, 27, 27, 29, 29, 29, 30, 30, 30, 31, 31, 31, 31 } }, // life orb boosted
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE }, 
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE }, 
            
         }
     },
