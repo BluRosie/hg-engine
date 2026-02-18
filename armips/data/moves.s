@@ -12852,7 +12852,7 @@ movedata MOVE_STEEL_ROLLER, "Steel Roller"
     movedescription MOVE_STEEL_ROLLER, "The user attacks while\ndestroying the terrain.\nThis move fails if the\nground hasn't turned\ninto a terrain."
 
 movedata MOVE_SCALE_SHOT, "Scale Shot"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_MULTI_HIT // handled in endMove.c
     pss SPLIT_PHYSICAL
     basepower 25
     type TYPE_DRAGON
@@ -12861,7 +12861,7 @@ movedata MOVE_SCALE_SHOT, "Scale Shot"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

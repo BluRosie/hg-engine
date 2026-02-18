@@ -30,6 +30,18 @@ def keywords_in_string(string: str, keywords: list[str]) -> bool:
     return False
 
 
+def keywords_in_file(file_path: str, keywords: list[str]) -> bool:
+    try:
+        with open(file_path, "r") as file:
+            file_contents = file.read()
+            return keywords_in_string(file_path, keywords) or keywords_in_string(
+                file_contents, keywords
+            )
+    except (IOError, UnicodeDecodeError):
+        print(f"Could not read file: {file_path}")
+        return False
+
+
 def write_test_battle_header(test_count):
     out_path = "include/constants/generated/test_battle.h"
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
@@ -50,13 +62,15 @@ def main() -> None:
     build_folder = pathlib.Path(os.path.join(os.getcwd(), "build", "battle_tests"))
     battle_tests_root_folder = pathlib.Path(data_folder, "battle_tests")
     files = battle_tests_root_folder.rglob("*c")
-    test_files = [
-        f'#include "../../data/{os.path.relpath(file, data_folder)}"' for file in sorted(files)
-    ]
+
     if len(filter_keywords) > 0:
-        test_files = list(filter(
-            lambda x: keywords_in_string(x, filter_keywords), test_files
-        ))
+        files = list(filter(lambda x: keywords_in_file(str(x), filter_keywords), files))
+
+    test_files = [
+        f'#include "../../data/{os.path.relpath(file, data_folder)}"'
+        for file in sorted(files)
+    ]
+
     tests = "\n".join(test_files)
 
     os.makedirs(build_folder, exist_ok=True)
@@ -64,7 +78,6 @@ def main() -> None:
         file.write(template.substitute({"tests": tests}))
 
     write_test_battle_header(len(test_files))
-
 
 
 if __name__ == "__main__":

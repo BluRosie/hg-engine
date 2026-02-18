@@ -562,6 +562,7 @@ arm9 SetupAndStartTutorialBattle 02051334 1
 #ifdef DEBUG_BATTLE_SCENARIOS
 0010 TestBattle_AISelectMove 0221BEF4 2
 0010 TestBattle_AIPickCommand 022205BC 2
+0012 CheckTrainerMessage 02250D4C 2
 #endif
 
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2
