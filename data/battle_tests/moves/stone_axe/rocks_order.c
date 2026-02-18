@@ -1,4 +1,4 @@
-// Test: Bug Bite - Do not eat SE berry
+// Test: Stone Axe - Hit, Iron Barbs, Set Rocks, Life Orb
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -20,12 +20,12 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_BEEDRILL,
+                .species = SPECIES_GOLEM,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_SWARM,
-                .item = ITEM_NONE,
-                .moves = { MOVE_BUG_BITE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .ability = ABILITY_NO_GUARD,
+                .item = ITEM_LIFE_ORB,
+                .moves = { MOVE_STONE_AXE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -36,14 +36,15 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
-        .enemyParty = { {
-                            .species = SPECIES_MEGANIUM,
+        .enemyParty = { 
+                        {
+                            .species = SPECIES_GARCHOMP,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_LEAF_GUARD,
-                            .item = ITEM_TANGA_BERRY,
+                            .ability = ABILITY_ROUGH_SKIN,
+                            .item = ITEM_NONE,
                             .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                            .hp = 60,
+                            .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
                             .moveEffectFlags = 0,
@@ -94,7 +95,10 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_BERRY_WEAKENED_SE_MOVE }, 
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 29, 29, 30, 30, 31, 31, 31, 31, 31, 31, 32, 32, 32, 34, 34, 35 } },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SET_STEALTH_ROCK },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

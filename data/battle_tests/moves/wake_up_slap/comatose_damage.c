@@ -1,4 +1,4 @@
-// Test: Bug Bite - Do not eat SE berry
+// Test: Comatose - Double Damage
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -20,12 +20,12 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_BEEDRILL,
+                .species = SPECIES_HARIYAMA,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_SWARM,
+                .ability = ABILITY_THICK_FAT,
                 .item = ITEM_NONE,
-                .moves = { MOVE_BUG_BITE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_WAKE_UP_SLAP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -36,14 +36,15 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
-        .enemyParty = { {
-                            .species = SPECIES_MEGANIUM,
-                            .level = 50,
+        .enemyParty = { 
+                        {
+                            .species = SPECIES_KOMALA,
+                            .level = 100,
                             .form = 0,
-                            .ability = ABILITY_LEAF_GUARD,
-                            .item = ITEM_TANGA_BERRY,
+                            .ability = ABILITY_COMATOSE,
+                            .item = ITEM_NONE,
                             .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                            .hp = 60,
+                            .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
                             .moveEffectFlags = 0,
@@ -94,7 +95,7 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_BERRY_WEAKENED_SE_MOVE }, 
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 134, 134, 138, 138, 140, 140, 144, 144, 146, 146, 150, 150, 152, 152, 156, 158 } },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

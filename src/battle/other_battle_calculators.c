@@ -4082,26 +4082,75 @@ int LONG_CALL ActivateAdditionalMoveEffects(void *bsys, struct BattleStruct *ctx
 
     switch (moveEffect) {
     // TODOs
-    //  case EFFECT_SPIT_UP: confirm
-    //  case EFFECT_SWALLOW: confirm
+    // case EFFECT_SPIT_UP: confirm
+    // case EFFECT_SWALLOW: confirm
     
-    //  case MOVE_EFFECT_TELEKINESIS:
-    //  case MOVE_EFFECT_SMACK_DOWN: thousand arrows
-    //  case MOVE_EFFECT_BIND_HIT: fire spin/wrap/infestation
+    // case MOVE_EFFECT_TELEKINESIS:
+    // case MOVE_EFFECT_SMACK_DOWN: thousand arrows
+    // case MOVE_EFFECT_SECRET_POWER:
+     case MOVE_EFFECT_BIND_HIT: //fire spin/wrap/infestation
+        if (ctx->attack_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->attack_client].hp != 0)
+            && ctx->defence_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->defence_client].hp != 0)) {
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BIND_START);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+         break;
     case MOVE_EFFECT_STEALTH_ROCK_HIT: // https://discord.com/channels/419213663107416084/1368163973366681712/1392652799686348912
+        if (ctx->attack_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->attack_client].hp != 0)) {
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SET_STEALTH_ROCK);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
         break;
     case MOVE_EFFECT_SET_SPIKES_HIT:
+        if (ctx->attack_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->attack_client].hp != 0)) {
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SET_SPIKES);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
         break;
-    case MOVE_EFFECT_SECRET_POWER:
     case MOVE_EFFECT_DOUBLE_POWER_HEAL_SLEEP:
+        if (ctx->attack_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->attack_client].hp != 0)
+            && ctx->defence_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->defence_client].hp != 0)
+            && (ctx->battlemon[ctx->defence_client].condition & STATUS_SLEEP)) {
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORCE_WAKE_UP);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
     case MOVE_EFFECT_DOUBLE_POWER_AND_CURE_PARALYSIS:
+        if (ctx->attack_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->attack_client].hp != 0)
+            && ctx->defence_client != BATTLER_NONE
+            && (ctx->battlemon[ctx->defence_client].hp != 0)
+            && (ctx->battlemon[ctx->defence_client].condition & STATUS_PARALYSIS)) {
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_PARALYSIS);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
         break;
     case MOVE_EFFECT_MORTAL_SPIN: // mortal spin
     case MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING: // rapid spin
         if (ctx->attack_client != BATTLER_NONE
             && (ctx->battlemon[ctx->attack_client].hp != 0)) {
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            ctx->state_client = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RAPID_SPIN);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -4114,7 +4163,6 @@ int LONG_CALL ActivateAdditionalMoveEffects(void *bsys, struct BattleStruct *ctx
             && ctx->defence_client != BATTLER_NONE
             && (ctx->battlemon[ctx->defence_client].hp != 0)) {
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            ctx->state_client = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_JAW_LOCK);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -4126,7 +4174,6 @@ int LONG_CALL ActivateAdditionalMoveEffects(void *bsys, struct BattleStruct *ctx
             && ctx->defence_client != BATTLER_NONE
             && (ctx->battlemon[ctx->defence_client].hp != 0)) {
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            ctx->state_client = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MEAN_LOOK);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -4158,7 +4205,6 @@ int LONG_CALL ActivateAdditionalMoveEffects(void *bsys, struct BattleStruct *ctx
             && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
             ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            ctx->state_client = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORCE_OUT); // checks suction cup/ingrain
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -4588,8 +4634,8 @@ int LONG_CALL ActivateMirrorHerbOrWhiteHerb(void *bsys, struct BattleStruct *ctx
         int client_no = ctx->turnOrder[battler];
         int itemHeldEffect = HeldItemHoldEffectGet(ctx, client_no);
         switch (itemHeldEffect) {
-            //TODO eject pack
-        case HOLD_EFFECT_COPY_STAT_INCREASE: // mirror herb //TODO
+            //TODO eject pack //if (ctx->moveConditionsFlags[client_no].anyStatLoweredThisTurn)
+        case HOLD_EFFECT_COPY_STAT_INCREASE: // mirror herb //TODO       
             break;
         case HOLD_EFFECT_STATDOWN_RESTORE: // white herb
         {

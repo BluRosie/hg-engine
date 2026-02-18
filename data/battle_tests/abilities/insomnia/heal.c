@@ -1,4 +1,4 @@
-// Test: heal sleep after put to sleep
+// Test: Moldbreaker - Berry cures first, Insomnia Heal
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"

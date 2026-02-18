@@ -307,7 +307,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         // TODO: Implement Round
         break;
     case MOVE_SMELLING_SALTS:
-        if (DefendingMon.condition & STATUS_PARALYSIS) {
+        if (CheckSubstitute(sp, defender) == FALSE && DefendingMon.condition & STATUS_PARALYSIS) {
             movepower *= 2;
         }
         break;
@@ -318,7 +318,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         }
         break;
     case MOVE_WAKE_UP_SLAP:
-        if (DefendingMon.condition & STATUS_SLEEP) {
+        if (CheckSubstitute(sp, defender) == FALSE  && 
+            (DefendingMon.condition & STATUS_SLEEP || MoldBreakerAbilityCheck(sp, defender, defender, ABILITY_COMATOSE))) {
             movepower *= 2;
         }
         break;
