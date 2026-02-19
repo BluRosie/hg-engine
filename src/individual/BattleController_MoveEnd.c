@@ -93,7 +93,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->clientLoopForAbility = 0;
     ctx->boostedAccuracy = FALSE;
     ctx->gemBoostingMove = FALSE;
-    ctx->currentMoveSwitchingDone = FALSE;
+    ctx->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
 
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 

@@ -4638,7 +4638,7 @@ int LONG_CALL ActivateMirrorHerbOrWhiteHerbOrEjectPack(void *bsys, struct Battle
         case HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP: // Eject Pack
             // Defender is alive after the attack
             if ((ctx->battlemon[client_no].hp)
-                && (ctx->currentMoveSwitchingDone == FALSE)
+                && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
                 // Any Sat lowered
                 && ctx->moveConditionsFlags[client_no].anyStatLoweredThisTurn
                 && ctx->multiHitCount <= 1) {
@@ -4690,7 +4690,7 @@ int LONG_CALL ActivateKeeMarangaBerryOrRedCardOrEjectButton(void *bsys, struct B
         case HOLD_EFFECT_SWITCH_OUT_WHEN_HIT: // Eject Button
             // Defender is alive after the attack
             if ((ctx->battlemon[client_no].hp)
-                && (ctx->currentMoveSwitchingDone == FALSE)
+                && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
                     || (ctx->oneSelfFlag[client_no].special_damage))
@@ -4712,7 +4712,7 @@ int LONG_CALL ActivateKeeMarangaBerryOrRedCardOrEjectButton(void *bsys, struct B
                 && ctx->battlemon[ctx->attack_client].hp
                 && ctx->battlemon[client_no].hp
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
-                && (ctx->currentMoveSwitchingDone == FALSE)
+                && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
                 // Damage was dealt
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
                     || (ctx->oneSelfFlag[client_no].special_damage))
@@ -5007,7 +5007,7 @@ int LONG_CALL ActivateSwitch(void *bsys UNUSED, struct BattleStruct *ctx)
     case MOVE_EFFECT_SWITCH_HIT: // U-Turn, Flip Turn
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
-            && (ctx->currentMoveSwitchingDone == FALSE)
+            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
             && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
             ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
@@ -5021,7 +5021,7 @@ int LONG_CALL ActivateSwitch(void *bsys UNUSED, struct BattleStruct *ctx)
     case MOVE_EFFECT_PARTING_SHOT:
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
-            && (ctx->currentMoveSwitchingDone == FALSE)
+            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
             && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
             ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;

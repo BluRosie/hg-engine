@@ -392,6 +392,16 @@
 #define SPLIT_SPECIAL 1
 #define SPLIT_STATUS 2
 
+
+
+/**
+ *  @brief switch status for current move
+ */
+#define CURRENT_MOVE_NO_SWITCH 0
+#define CURRENT_MOVE_SWITCH_PENDING 1
+#define CURRENT_MOVE_SWITCH_DONE 2
+
+
 /**
  *  @brief field status constants that apply to BattleStruct's field_condition field
  *
@@ -1474,10 +1484,13 @@ struct BattleStruct {
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
                u8 gemBoostingMove: 1;
-               u8 currentMoveSwitchingDone : 1;
-               u8 currentMoveSwitchingPossiblePadding : 6;
+               u8 currentMoveSwitchingPossiblePadding : 7;
+
+               int currentMoveSwitchStatus;
+               
                MoveConditionsFlags moveConditionsFlags[CLIENT_MAX];
 };
+
 
 enum {
     SPREAD_MOVE_LOOP_ALLY = 0,

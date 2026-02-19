@@ -1,4 +1,4 @@
-// Test: Scale Shot - White Herb resets defence
+// Test: Circle Throw  - Iron Barbs, Rocky Helmet, Switch, Life Orb?
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -14,19 +14,18 @@ const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    {
-        .battleType = BATTLE_TYPE_SINGLE,
+    {   .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_GYARADOS,
+                .species = SPECIES_THROH,
                 .level = 50,
                 .form = 0,
                 .ability = ABILITY_NO_GUARD,
-                .item = ITEM_WHITE_HERB,
-                .moves = { MOVE_SCALE_SHOT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .item = ITEM_LIFE_ORB,
+                .moves = { MOVE_CIRCLE_THROW, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -38,18 +37,29 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .enemyParty = { {
-                            .species = SPECIES_SHUCKLE,
+                            .species = SPECIES_BEEDRILL,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_STURDY,
-                            .item = ITEM_NONE,
+                            .ability = ABILITY_IRON_BARBS,
+                            .item = ITEM_ROCKY_HELMET,
                             .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
                             .moveEffectFlags = 0,
-                        },
-            { .species = SPECIES_NONE },
+                        }, 
+            {
+                .species = SPECIES_LITTEN,
+                .level = 50,
+                .form = 0,
+                .ability = ABILITY_INTIMIDATE,
+                .item = ITEM_NONE,
+                .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
+                .status = 0,
+                .condition2 = 0,
+                .moveEffectFlags = 0,
+            },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
@@ -94,11 +104,13 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
             } },
-        .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIT_X_TIMES },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_STAT_FELL },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_RESTORED_STATS_DROP },
-        }
+        .expectations = {     
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_WAS_DRAGGED_OUT },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
+        },
+        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };

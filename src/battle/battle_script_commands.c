@@ -4970,6 +4970,7 @@ BOOL BtlCmd_CopyStatStages(struct BattleSystem *bsys UNUSED, struct BattleStruct
 BOOL btl_scr_cmd_116_SetCurrentMoveDoneSwitchingFlag(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
-    ctx->currentMoveSwitchingDone = TRUE;
+    u32 status = read_battle_script_param(ctx);
+    ctx->currentMoveSwitchStatus = status;
     return FALSE;
 }

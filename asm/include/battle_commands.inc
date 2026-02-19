@@ -1522,8 +1522,9 @@
     .long \arg_1
     .endm
 
-    .macro SetCurrentMoveDoneSwitchingFlag
+    .macro SetCurrentMoveDoneSwitchingFlag arg_0
     .long 278
+    .long \arg_0
     .endm
 
     .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 278
