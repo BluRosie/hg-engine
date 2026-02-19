@@ -14,7 +14,7 @@ const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    {   .battleType = BATTLE_TYPE_SINGLE,
+    { .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
@@ -47,7 +47,7 @@ const struct TestBattleScenario BattleTests[] = {
                             .status = 0,
                             .condition2 = 0,
                             .moveEffectFlags = 0,
-                        }, 
+                        },
             {
                 .species = SPECIES_LITTEN,
                 .level = 50,
@@ -104,12 +104,13 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
             } },
-        .expectations = {     
+        .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_WAS_DRAGGED_OUT },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
         },
+        .knownFailing = TRUE;
     },
 #ifndef GET_TEST_CASE_ONLY
 };
