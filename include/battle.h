@@ -4189,7 +4189,7 @@ int LONG_CALL ActivateRampageConfusion(void *bsys UNUSED, struct BattleStruct *c
 int LONG_CALL ActivateShellBellOrLifeOrb(void *bw UNUSED, struct BattleStruct *sp);
 int LONG_CALL ActivateMoxieOrBeastBoost(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivateFormChange(void *bsys, struct BattleStruct *ctx);
-int LONG_CALL ActivateMirrorHerbOrWhiteHerb(void *bw, struct BattleStruct *ctx);
+int LONG_CALL ActivateMirrorHerbOrWhiteHerbOrEjectPack(void *bw, struct BattleStruct *ctx);
 int LONG_CALL ActivateKeeMarangaBerryOrRedCardOrEjectButton(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL ActivateBerserkAngerShellColorChange(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL ActivatePickpocket(void *bsys UNUSED, struct BattleStruct *sp);

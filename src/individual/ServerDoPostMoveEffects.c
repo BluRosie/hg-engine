@@ -579,7 +579,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         // TODO
-        if (ActivateMirrorHerbOrWhiteHerb(bsys, ctx) == TRUE) {
+        if (ActivateMirrorHerbOrWhiteHerbOrEjectPack(bsys, ctx) == TRUE) {
             return;
         }
         ctx->swoam_seq_no++;

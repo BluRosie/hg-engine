@@ -4627,7 +4627,7 @@ int LONG_CALL ActivateFormChange(void *bsys, struct BattleStruct *ctx)
 }
 
 
-int LONG_CALL ActivateMirrorHerbOrWhiteHerb(void *bsys, struct BattleStruct *ctx)
+int LONG_CALL ActivateMirrorHerbOrWhiteHerbOrEjectPack(void *bsys, struct BattleStruct *ctx)
 {
     for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++)
     {
