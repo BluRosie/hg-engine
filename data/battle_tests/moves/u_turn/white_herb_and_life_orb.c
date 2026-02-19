@@ -1,4 +1,4 @@
-// Test: U-Turn - Weak Armor, Eject Button, Switch, Life Orb?
+// Test: U-Turn - Weak Armor, Life Orb, Switch, Ability, White Herb
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"

@@ -126,7 +126,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         int seq_no = 0;
-        if (ActivateSturdyOrFocusSashOrFocusBand(bsys, ctx, &seq_no) == TRUE) {
+        if (Activate_Sturdy_FocusSash_FocusBand_Message(bsys, ctx, &seq_no) == TRUE) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -163,7 +163,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_9_2_FLAME_BURST\n");
 #endif
         ctx->swoam_seq_no++;
-        if (ActivateFlameBurstHit(bsys, ctx) == TRUE)
+        if (Activate_FlameBurstHit(bsys, ctx) == TRUE)
         { 
             return;
         }    
@@ -292,7 +292,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
         // TODO loop over all battlers
         
-        if (ActivateDisguiseIceFace(bsys, ctx) == TRUE) {
+        if (Activate_Disguise_IceFace(bsys, ctx) == TRUE) {
             return;
         }
         ctx->swoam_seq_no++;
@@ -383,7 +383,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         ctx->swoam_seq_no++;
-        if (ActivateRecoilDamage(bsys, ctx) == TRUE) {
+        if (Activate_RecoilDamage(bsys, ctx) == TRUE) {
             return;
         }
         FALLTHROUGH;
@@ -392,7 +392,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_15_1_ADDITIONAL_MOVE_EFFECTS\n");
 #endif
         ctx->swoam_seq_no++;
-        if (ActivateAdditionalMoveEffects(bsys, ctx) == TRUE)
+        if (Activate_AdditionalMoveEffects(bsys, ctx) == TRUE)
         {
             return;
         }
@@ -403,7 +403,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         // TODO loop over all battlers
-        if (ThawTargetFromScaldOrFireMove(bsys, ctx) == TRUE) {
+        if (ThawTarget_FromFireMove_Scald(bsys, ctx) == TRUE) {
             return;
         }
     }
@@ -413,7 +413,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE\n");
 #endif
         ctx->swoam_seq_no++;
-        if (ActivateMoxieOrBeastBoost(bsys, ctx) == TRUE) {
+        if (Activate_Moxie_BeastBoost_Others(bsys, ctx) == TRUE) {
             return;
         }
         FALLTHROUGH;
@@ -424,7 +424,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 
         // TODO
         ctx->swoam_seq_no++;
-        if (ActivateBerserkAngerShellColorChange(bsys, ctx) == TRUE)
+        if (Activate_Berserk_AngerShell_ColorChange(bsys, ctx) == TRUE)
         {
             return;
         }
@@ -434,7 +434,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_17_0_DEFENDER_ITEMS_3\n");
 #endif
         // TODO
-        if (ActivateKeeMarangaBerryOrRedCardOrEjectButton(bsys, ctx) == TRUE)
+        if (Activate_KeeMarangaBerry_RedCard_EjectButton(bsys, ctx) == TRUE)
         {
             return;
         }
@@ -452,7 +452,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 
         // TODO all battlers?, new form changes
         ctx->swoam_seq_no++;
-        if (ActivateFormChange(bsys, ctx) == TRUE) {
+        if (Activate_FormChange(bsys, ctx) == TRUE) {
             return;
         }
         FALLTHROUGH;
@@ -462,7 +462,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         ctx->swoam_seq_no++;
-        if (ActivateShellBellOrLifeOrb(bsys, ctx) == TRUE)
+        if (Activate_ShellBell_LifeOrb(bsys, ctx) == TRUE)
         {
             return;
         }
@@ -491,7 +491,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
         // TODO consolidate switch with others
         ctx->swoam_seq_no++;
-        if (ActivateSwitch(bsys, ctx) == TRUE) {
+        if (Activate_Switch(bsys, ctx) == TRUE) {
             return;
         }
         FALLTHROUGH;
@@ -501,7 +501,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
         // TODO loop over all battlers
         ctx->swoam_seq_no++;
-        if (ActivatePickpocket(bsys, ctx) == TRUE)
+        if (Activate_Pickpocket(bsys, ctx) == TRUE)
         {
             return;
         }
@@ -520,7 +520,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         ctx->swoam_seq_no++;
-        if (ActivateRampageConfusion(bsys, ctx) == TRUE) {
+        if (Activate_RampageConfusion(bsys, ctx) == TRUE) {
             return;
         }
         FALLTHROUGH;
@@ -530,7 +530,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         ctx->swoam_seq_no++;
-        if (ActivateSteelRollerOrIceSpinner(bsys, ctx) == TRUE)
+        if (Activate_SteelRoller_IceSpinner(bsys, ctx) == TRUE)
         {
             return;
         }
@@ -546,7 +546,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 
         //TODO add blunder policy
         ctx->swoam_seq_no++;
-        if (ActivateThroatSprayOrBlunderPolicy(bsys, ctx) == TRUE)
+        if (Activate_ThroatSpray_BlunderPolicy(bsys, ctx) == TRUE)
         {
             return;
         }
@@ -579,7 +579,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         // TODO
-        if (ActivateMirrorHerbOrWhiteHerbOrEjectPack(bsys, ctx) == TRUE) {
+        if (Activate_MirrorHerb_WhiteHerb_EjectPack(bsys, ctx) == TRUE) {
             return;
         }
         ctx->swoam_seq_no++;

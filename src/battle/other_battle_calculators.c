@@ -3949,7 +3949,7 @@ u32 LONG_CALL CheckSubstitute(struct BattleStruct* ctx, int client_no)
 }
 
 
-int LONG_CALL ActivateSturdyOrFocusSashOrFocusBand(void *bsys, struct BattleStruct *sp, int *seq_no)
+int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys, struct BattleStruct *sp, int *seq_no)
 {
     int ret = FALSE;
 
@@ -4057,7 +4057,7 @@ int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp)
 
     return FALSE;
 }
-int LONG_CALL ActivateFlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx)
+int LONG_CALL Activate_FlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     if (ctx->current_move_index == MOVE_FLAME_BURST) {
         int ally = BATTLER_ALLY(ctx->defence_client);
@@ -4079,7 +4079,7 @@ int LONG_CALL ActivateFlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx)
     return FALSE;
 }
 
-int LONG_CALL ActivateAdditionalMoveEffects(void *bsys, struct BattleStruct *ctx)
+int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ctx)
 {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
 
@@ -4328,7 +4328,7 @@ u16 gMovesThatThawFrozenMons[] = {
     MOVE_STEAM_ERUPTION,
 };
 
-int LONG_CALL ThawTargetFromScaldOrFireMove(void *bsys UNUSED, struct BattleStruct *ctx)
+int LONG_CALL ThawTarget_FromFireMove_Scald(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     int movetype;
     u16 currMove = ctx->current_move_index;
@@ -4355,7 +4355,7 @@ int LONG_CALL ThawTargetFromScaldOrFireMove(void *bsys UNUSED, struct BattleStru
     return FALSE;
 }
 
-int LONG_CALL ActivateSteelRollerOrIceSpinner(void *bsys UNUSED, struct BattleStruct *ctx)
+int LONG_CALL Activate_SteelRoller_IceSpinner(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     if (ctx->terrainOverlay.type != TERRAIN_NONE
         && (ctx->current_move_index == MOVE_STEEL_ROLLER
@@ -4371,7 +4371,7 @@ int LONG_CALL ActivateSteelRollerOrIceSpinner(void *bsys UNUSED, struct BattleSt
     return FALSE;
 }
 
-int LONG_CALL ActivateThroatSprayOrBlunderPolicy(void *bsys, struct BattleStruct *ctx)
+int LONG_CALL Activate_ThroatSpray_BlunderPolicy(void *bsys, struct BattleStruct *ctx)
 {
     if (ctx->attack_client != BATTLER_NONE && ctx->battlemon[ctx->attack_client].hp)
     {
@@ -4417,7 +4417,7 @@ int LONG_CALL ActivateThroatSprayOrBlunderPolicy(void *bsys, struct BattleStruct
     return FALSE;
 }
 
-int LONG_CALL ActivateRampageConfusion(void *bsys UNUSED, struct BattleStruct *ctx)
+int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     // TODO: A rampage move that fails (Thrash, Outrage etc) will cancel except on the last turn
     if (ctx->attack_client != BATTLER_NONE
@@ -4440,7 +4440,7 @@ int LONG_CALL ActivateRampageConfusion(void *bsys UNUSED, struct BattleStruct *c
 }
 
 
-int LONG_CALL ActivateShellBellOrLifeOrb(void *bw UNUSED, struct BattleStruct *sp)
+int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *sp)
 {
     if (sp->attack_client != BATTLER_NONE && GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE
         && sp->battlemon[sp->attack_client].sheer_force_flag == 1) { // skip over shell bell and life orb if sheer force is active
@@ -4491,7 +4491,7 @@ int LONG_CALL ActivateShellBellOrLifeOrb(void *bw UNUSED, struct BattleStruct *s
 }
 
 
-int LONG_CALL ActivateMoxieOrBeastBoost(void *bsys UNUSED, struct BattleStruct *ctx)
+int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     if (ctx->attack_client == BATTLER_NONE)
         return FALSE;
@@ -4591,7 +4591,7 @@ int LONG_CALL ActivateMoxieOrBeastBoost(void *bsys UNUSED, struct BattleStruct *
 }
 
 
-int LONG_CALL ActivateFormChange(void *bsys, struct BattleStruct *ctx)
+int LONG_CALL Activate_FormChange(void *bsys, struct BattleStruct *ctx)
 {
     if (ctx->attack_client == BATTLER_NONE) {
         return FALSE;
@@ -4632,7 +4632,7 @@ int LONG_CALL ActivateFormChange(void *bsys, struct BattleStruct *ctx)
 }
 
 
-int LONG_CALL ActivateMirrorHerbOrWhiteHerbOrEjectPack(void *bsys, struct BattleStruct *ctx)
+int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bsys, struct BattleStruct *ctx)
 {
     for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++)
     {
@@ -4685,7 +4685,7 @@ int LONG_CALL ActivateMirrorHerbOrWhiteHerbOrEjectPack(void *bsys, struct Battle
     return FALSE;
 }
 
-int LONG_CALL ActivateKeeMarangaBerryOrRedCardOrEjectButton(void *bsys, struct BattleStruct *ctx)
+int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct BattleStruct *ctx)
 {
     for (ctx->swoak_work = 0; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++) {
         int client_no = ctx->turnOrder[ctx->swoak_work];
@@ -4782,7 +4782,7 @@ int LONG_CALL ActivateKeeMarangaBerryOrRedCardOrEjectButton(void *bsys, struct B
 }
 
 
-int LONG_CALL ActivateBerserkAngerShellColorChange(void *bsys UNUSED, struct BattleStruct *ctx)
+int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     if (ctx->defence_client == BATTLER_NONE
         || CheckSubstitute(ctx, ctx->defence_client) == TRUE
@@ -4876,7 +4876,7 @@ int LONG_CALL ActivateBerserkAngerShellColorChange(void *bsys UNUSED, struct Bat
     return FALSE;
 }
 
-int LONG_CALL ActivatePickpocket(void *bsys UNUSED, struct BattleStruct *sp)
+int LONG_CALL Activate_Pickpocket(void *bsys UNUSED, struct BattleStruct *sp)
 {
     if (sp->defence_client == BATTLER_NONE
         || CheckSubstitute(sp, sp->defence_client) == TRUE
@@ -4915,7 +4915,7 @@ int LONG_CALL ActivatePickpocket(void *bsys UNUSED, struct BattleStruct *sp)
 }
 
 
-int LONG_CALL ActivateDisguiseIceFace(void *bw, struct BattleStruct *sp)
+int LONG_CALL Activate_Disguise_IceFace(void *bw, struct BattleStruct *sp)
 {
     if (sp->defence_client == BATTLER_NONE
         || CheckSubstitute(sp, sp->defence_client) == TRUE
@@ -4962,7 +4962,7 @@ int LONG_CALL ActivateDisguiseIceFace(void *bw, struct BattleStruct *sp)
 }
 
 
-int LONG_CALL ActivateRecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
+int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     if (ctx->attack_client == BATTLER_NONE
         || ctx->battlemon[ctx->attack_client].hp == 0
@@ -5005,7 +5005,7 @@ int LONG_CALL ActivateRecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
 }
 
 
-int LONG_CALL ActivateSwitch(void *bsys UNUSED, struct BattleStruct *ctx)
+int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     switch (moveEffect) {

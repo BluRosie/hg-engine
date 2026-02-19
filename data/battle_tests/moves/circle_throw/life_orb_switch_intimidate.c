@@ -1,4 +1,4 @@
-// Test: Circle Throw  - Iron Barbs, Rocky Helmet, Switch, Life Orb?
+// Test: Circle Throw  - Rocky Helmet, Switch, Ability, Life Orb
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"

@@ -320,7 +320,10 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, in
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
                 && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
                 && (CheckSubstitute(sp, sp->defence_client) == FALSE)
-                && (BattleRand(bw) % 10 < 3))
+#ifndef DEBUG_BATTLE_SCENARIOS
+                && (BattleRand(bw) % 10 < 3)
+#endif
+                )
             {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
                 sp->state_client = sp->defence_client;

@@ -39,7 +39,7 @@ _nostatusrestored:
     PrintMessage 603, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     Wait 
     WaitButtonABTime 30
-    SetCurrentMoveDoneSwitchingFlag CURRENT_MOVE_SWITCH_DONE
+    SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_DONE
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SWITCH, BSCRIPT_VAR_BATTLER_TARGET
     Call BATTLE_SUBSCRIPT_HAZARDS_CHECK
     GoTo _end

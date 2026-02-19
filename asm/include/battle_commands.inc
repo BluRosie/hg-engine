@@ -1522,7 +1522,7 @@
     .long \arg_1
     .endm
 
-    .macro SetCurrentMoveDoneSwitchingFlag arg_0
+    .macro SetCurrentMoveSwitchingStatus arg_0
     .long 278
     .long \arg_0
     .endm
