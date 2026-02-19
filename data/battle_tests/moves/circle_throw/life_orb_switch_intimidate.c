@@ -40,7 +40,7 @@ const struct TestBattleScenario BattleTests[] = {
                             .species = SPECIES_BEEDRILL,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_IRON_BARBS,
+                            .ability = ABILITY_SWARM,
                             .item = ITEM_ROCKY_HELMET,
                             .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
@@ -105,7 +105,7 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ITEM_HURT_BACK },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_WAS_DRAGGED_OUT },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },

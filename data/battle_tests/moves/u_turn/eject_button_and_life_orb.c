@@ -50,7 +50,7 @@ const struct TestBattleScenario BattleTests[] = {
         .enemyParty = { 
                         {
                             .species = SPECIES_FERROSEED,
-                            .level = 50,
+                            .level = 45,
                             .form = 0,
                             .ability = ABILITY_IRON_BARBS,
                             .item = ITEM_EJECT_BUTTON,
