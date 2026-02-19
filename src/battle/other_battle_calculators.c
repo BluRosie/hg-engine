@@ -2752,7 +2752,10 @@ void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct B
 
 int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
     debug_printf("In BattleController_LoopMultiHitInternal %d\n", ctx->multiHitCountTemp);
+#endif
+    
     if (ctx->multiHitCountTemp != 0)
     {
         if (ctx->fainting_client == BATTLER_NONE && !(ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS))
