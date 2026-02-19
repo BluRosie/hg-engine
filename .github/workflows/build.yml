@@ -36,7 +36,7 @@ jobs:
       - name: Checkout Repo (decomp)
         uses: actions/checkout@v6
         with:
-          repository: "pret/pokeheartgold"
+          repository: "BluRosie/pokeheartgold"
 
       - name: Setup Repo (decomp)
         run: |
@@ -64,7 +64,7 @@ jobs:
           GAME_LANGUAGE: ENGLISH
           GAME_REVISION: 0
         run: |
-          make -j4
+          make -j$(nproc)
 
       - name: Update and Install Software
         run: |
