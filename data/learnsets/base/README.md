@@ -29,7 +29,7 @@ Takes the latest available maingame learnsets for each mon. For example, Raticat
 Note this ignores the Pokemon GO learnsets and Legends ZA.
 
 ```bash
-python3 scripts/build_learnsets.py --generate data/learnsets/learnsets.json --cutoff go --inherit-level --inherit-egg --inherit-machine --inherit-tutor --ignore-files 20_la.json 22_go.json
+python3 scripts/build_learnsets.py --generate data/learnsets/learnsets.json --cutoff go --inherit-level --inherit-egg --inherit-machine --inherit-tutor --ignore-files 20_la.json 99_go.json
 ```
 
 #### Custom
