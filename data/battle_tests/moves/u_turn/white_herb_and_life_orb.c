@@ -112,7 +112,6 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_RESTORED_STATS_DROP },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
