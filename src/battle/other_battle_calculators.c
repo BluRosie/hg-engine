@@ -3984,8 +3984,8 @@ int LONG_CALL ActivateSturdyOrFocusSashOrFocusBand(void *bsys, struct BattleStru
 
         // TODO Sturdy, False Swipe, Hold Back
         /*
-        if (MoldBreakerAbilityCheck(sp, sp->attack_client, battler, ABILITY_STURDY)) {
-            if (sp->oneTurnFlag[battler].prevent_one_hit_ko_ability == TRUE
+        {
+            if (sp->oneTurnFlag[battler].prevent_one_hit_ko_ability == TRUE //already checked by moldbreaker
                 && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + sp->hit_damage) == 1) 
             {
                 sp->battlerIdTemp = battler;
@@ -4635,7 +4635,23 @@ int LONG_CALL ActivateMirrorHerbOrWhiteHerb(void *bsys, struct BattleStruct *ctx
         int client_no = ctx->turnOrder[battler];
         int itemHeldEffect = HeldItemHoldEffectGet(ctx, client_no);
         switch (itemHeldEffect) {
-            //TODO eject pack //if (ctx->moveConditionsFlags[client_no].anyStatLoweredThisTurn)
+        case HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP: // Eject Pack
+            // Defender is alive after the attack
+            if ((ctx->battlemon[client_no].hp)
+                && (ctx->currentMoveSwitchingDone == FALSE)
+                // Any Sat lowered
+                && ctx->moveConditionsFlags[client_no].anyStatLoweredThisTurn
+                && ctx->multiHitCount <= 1) {
+
+                ctx->battlerIdTemp = client_no;
+                ctx->state_client = client_no;
+
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_SWITCHING_ITEMS);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return TRUE;
+            }
+            break;
         case HOLD_EFFECT_COPY_STAT_INCREASE: // mirror herb //TODO       
             break;
         case HOLD_EFFECT_STATDOWN_RESTORE: // white herb
@@ -4666,23 +4682,22 @@ int LONG_CALL ActivateMirrorHerbOrWhiteHerb(void *bsys, struct BattleStruct *ctx
 
 int LONG_CALL ActivateKeeMarangaBerryOrRedCardOrEjectButton(void *bsys, struct BattleStruct *ctx)
 {
-    for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
-        int client_no = ctx->turnOrder[battler];
+    for (ctx->swoak_work = 0; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++) {
+        int client_no = ctx->turnOrder[ctx->swoak_work];
         int itemHeldEffect = HeldItemHoldEffectGet(ctx, client_no);
         switch (itemHeldEffect) {
             //TODO switching works once
         case HOLD_EFFECT_SWITCH_OUT_WHEN_HIT: // Eject Button
             // Defender is alive after the attack
             if ((ctx->battlemon[client_no].hp)
-                // Damage was dealt
+                && (ctx->currentMoveSwitchingDone == FALSE)
+                && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
                     || (ctx->oneSelfFlag[client_no].special_damage))
                 && ctx->multiHitCount <= 1) {
-                u32 temp = ctx->attack_client; // swap attacker and defender so subseq handles it correctly
+ 
                 ctx->battlerIdTemp = client_no;
-                ctx->attack_client = client_no;
-                client_no = temp;
-                ctx->current_move_index = MOVE_U_TURN;
+                ctx->state_client = client_no;
 
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_SWITCHING_ITEMS);
                 ctx->next_server_seq_no = ctx->server_seq_no;
@@ -4692,18 +4707,23 @@ int LONG_CALL ActivateKeeMarangaBerryOrRedCardOrEjectButton(void *bsys, struct B
             break;
 
         case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE: // Red Card
-            // Defender is alive after the attack
-            if ((ctx->battlemon[client_no].hp)
+            // Atacker, Defender is alive after the attack
+            if (ctx->attack_client != BATTLER_NONE
+                && ctx->battlemon[ctx->attack_client].hp
+                && ctx->battlemon[client_no].hp
+                && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
+                && (ctx->currentMoveSwitchingDone == FALSE)
                 // Damage was dealt
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
                     || (ctx->oneSelfFlag[client_no].special_damage))
                 && ctx->multiHitCount <= 1) {
-                u32 temp = ctx->attack_client; // swap attacker and defender so subseq handles it correctly
+                ctx->state_client = ctx->defence_client; //store real defender
+                ctx->defence_client = ctx->attack_client;
+                ctx->attack_client = ctx->state_client;
                 ctx->battlerIdTemp = client_no;
-                ctx->attack_client = client_no;
-                client_no = temp;
+                
 
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_SWITCHING_ITEMS);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_RED_CARD);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -4965,7 +4985,10 @@ int LONG_CALL ActivateRecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
     }
 
     if (seq_no != 0) {
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in ActivateRecoilDamage (%d)\n", ctx->store_damage[ctx->attack_client]);
+#endif
+        
         ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
         ctx->next_server_seq_no = ctx->server_seq_no;
@@ -4979,11 +5002,13 @@ int LONG_CALL ActivateRecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
 
 int LONG_CALL ActivateSwitch(void *bsys UNUSED, struct BattleStruct *ctx)
 {
-    if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_SWITCH_HIT) { // U-Turn, Flip Turn
+    int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    switch (moveEffect) {
+    case MOVE_EFFECT_SWITCH_HIT: // U-Turn, Flip Turn
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
-            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
-        {
+            && (ctx->currentMoveSwitchingDone == FALSE)
+            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
             ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             ctx->state_client = ctx->attack_client;
@@ -4992,6 +5017,24 @@ int LONG_CALL ActivateSwitch(void *bsys UNUSED, struct BattleStruct *ctx)
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
         }
+        break;
+    case MOVE_EFFECT_PARTING_SHOT:
+        if (ctx->attack_client != BATTLER_NONE
+            && ctx->battlemon[ctx->attack_client].hp > 0
+            && (ctx->currentMoveSwitchingDone == FALSE)
+            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
+            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->state_client = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PARTING_SHOT);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    default:
+        break;
     }
+
     return FALSE;
 }

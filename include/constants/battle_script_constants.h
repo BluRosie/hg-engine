@@ -493,8 +493,9 @@
 #define SUB_SEQ_USER_DEF_DOWN_1_SPEED_UP_1            (483)
 #define SUB_SEQ_SET_SPIKES                            (484)
 #define SUB_SEQ_SET_STEALTH_ROCK                      (485)
+#define SUB_SEQ_HANDLE_RED_CARD                       (486)
 
-#define MAX_BASE_SUBSCRIPT_NUM 485
+#define MAX_BASE_SUBSCRIPT_NUM 486
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

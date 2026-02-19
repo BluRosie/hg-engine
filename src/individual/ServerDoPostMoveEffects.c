@@ -29,8 +29,10 @@ int ShowDamageReductionBerryMessage(void *bsys, struct BattleStruct *sp);
  */
 void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsys, struct BattleStruct *ctx)
 {
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
     debug_printf("ServerDoPostMoveEffectsInternal %d: attacker %d, movestatus %d, status %d, ctx->multiHitCount %d\n", ctx->swoam_seq_no, ctx->attack_client, ctx->waza_status_flag, ctx->server_status_flag, ctx->multiHitCount);
-    
+#endif 
+
     DynamicSortClientExecutionOrder(bsys, ctx, FALSE);
 
     switch (ctx->swoam_seq_no) {
@@ -88,7 +90,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE:
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE\n");
+#endif
+        
         // TODO
         ctx->swoam_seq_no++;
         if (ctx->swoam_type == SWOAM_NORMAL) {
@@ -153,17 +158,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
     }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_9_2_LOWERING_STATS:
-        // TODO needed?
-        ctx->swoam_seq_no++;
-        FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_9_3_HP_DRAINING_MOVES:
-        // TODO needed?
-        ctx->swoam_seq_no++;
-        FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_9_4_FLAME_BURST:
+    case MOVE_PERFORMANCE_STEP_9_2_FLAME_BURST:
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_9_4_FLAME_BURST\n");
+        debug_printf("in MOVE_PERFORMANCE_STEP_9_2_FLAME_BURST\n");
 #endif
         ctx->swoam_seq_no++;
         if (ActivateFlameBurstHit(bsys, ctx) == TRUE)
@@ -171,7 +168,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             return;
         }    
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_9_5_DYNAMAX_MOVE_EFFECTS:
+    case MOVE_PERFORMANCE_STEP_9_3_DYNAMAX_MOVE_EFFECTS:
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
@@ -220,7 +217,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_6_DEFENDER_ABILITY: {
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_10_6_DEFENDER_ABILITY\n");
+#endif
 
         ctx->swoam_seq_no++;
         int seq_no = 0;
@@ -439,6 +438,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         {
             return;
         }
+        ctx->swoak_work = 0;
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_18_0_PLEDGE_MOVES_COMBINATION:
@@ -472,8 +472,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_21_0_MOVE_DEFENDER_ITEMS_4: //speed order
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_21_0_MOVE_DEFENDER_ITEMS_4\n");
-        //TODO split tryUseHeldItems
+#endif
+        //TODO split tryUseHeldItems?
         if (ActivateDefenderItems4(bsys, ctx) == TRUE) {
             return;
         }

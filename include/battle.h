@@ -1473,7 +1473,9 @@ struct BattleStruct {
                u8 playerSideHasFaintedTeammateLastTurn : 2;
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
-               BOOL gemBoostingMove;
+               u8 gemBoostingMove: 1;
+               u8 currentMoveSwitchingDone : 1;
+               u8 currentMoveSwitchingPossiblePadding : 6;
                MoveConditionsFlags moveConditionsFlags[CLIENT_MAX];
 };
 
@@ -1859,10 +1861,8 @@ enum
     MOVE_PERFORMANCE_STEP_8_1_SURVIVE_WITH_FRIENDSHIP,
     MOVE_PERFORMANCE_STEP_9_0_FLING,
     MOVE_PERFORMANCE_STEP_9_1_SECONDARY_EFFECTS,
-    MOVE_PERFORMANCE_STEP_9_2_LOWERING_STATS,
-    MOVE_PERFORMANCE_STEP_9_3_HP_DRAINING_MOVES,
-    MOVE_PERFORMANCE_STEP_9_4_FLAME_BURST,
-    MOVE_PERFORMANCE_STEP_9_5_DYNAMAX_MOVE_EFFECTS,
+    MOVE_PERFORMANCE_STEP_9_2_FLAME_BURST,
+    MOVE_PERFORMANCE_STEP_9_3_DYNAMAX_MOVE_EFFECTS,
     MOVE_PERFORMANCE_STEP_10_0_CORE_ENFORCER,
     MOVE_PERFORMANCE_STEP_10_1_RAGE,
     MOVE_PERFORMANCE_STEP_10_2_CLEAR_SMOG,

@@ -1620,3 +1620,9 @@ The opposing {STRVAR_1 1, 0, 0} concentrated\nintensely!
 The effects of Throat Chop prevent\n{STRVAR_1 1, 0, 0} from using certain moves!
 The effects of Throat Chop prevent\nthe wild {STRVAR_1 1, 0, 0}\ffrom using certain moves!
 The effects of Throat Chop prevent\nthe opposing {STRVAR_1 1, 0, 0}\ffrom using certain moves!
+{STRVAR_1 1, 0, 0}\nis switched out with the Eject Button!
+The wild {STRVAR_1 1, 0, 0}\nis switched out with the Eject Button!
+The opposing {STRVAR_1 1, 0, 0}\nis switched out with the Eject Button!
+{STRVAR_1 1, 0, 0} held up its\nRed Card against {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} held up its\nRed Card against\fthe wild {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} held up its\nRed Card against\fthe opposing {STRVAR_1 1, 1, 0}!
