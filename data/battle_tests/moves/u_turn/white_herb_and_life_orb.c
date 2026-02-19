@@ -1,4 +1,4 @@
-// Test: U-Turn - Iron Barbs, Eject Button, Switch, Life Orb
+// Test: U-Turn - Weak Armor, Eject Button, Switch, Life Orb?
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -20,46 +20,34 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_BEEDRILL,
+                .species = SPECIES_FERROSEED,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_SWARM,
-                .item = ITEM_LIFE_ORB,
-                .moves = { MOVE_U_TURN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .ability = ABILITY_WEAK_ARMOR,
+                .item = ITEM_WHITE_HERB,
+                .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
-            {
-                .species = SPECIES_BEEDRILL,
-                .level = 49,
-                .form = 0,
-                .ability = ABILITY_SWARM,
-                .item = ITEM_LIFE_ORB,
-                .moves = { MOVE_U_TURN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                .hp = FULL_HP,
-                .status = 0,
-                .condition2 = 0,
-                .moveEffectFlags = 0,
-            },
+            { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
-        .enemyParty = { 
-                        {
-                            .species = SPECIES_FERROSEED,
+        .enemyParty = { {
+                            .species = SPECIES_BEEDRILL,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_IRON_BARBS,
-                            .item = ITEM_EJECT_BUTTON,
-                            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .ability = ABILITY_SWARM,
+                            .item = ITEM_LIFE_ORB,
+                            .moves = { MOVE_U_TURN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
                             .moveEffectFlags = 0,
-                        },
+                        }, 
             {
                 .species = SPECIES_LITTEN,
                 .level = 50,
@@ -117,10 +105,11 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 56, 58, 58, 58, 60, 60, 60, 62, 62, 62, 64, 64, 64, 66, 66, 68 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 56, 58, 58, 58, 60, 60, 60, 62, 62, 62, 64, 64, 64, 66, 66, 68 } },
+            // TODO weak armor message       
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SWITCHED_BY_ITEM },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
+            //TODO white herb
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT },
         },
         .knownFailing = TRUE,
