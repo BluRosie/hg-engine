@@ -4452,7 +4452,8 @@ int LONG_CALL ActivateShellBellOrLifeOrb(void *bw UNUSED, struct BattleStruct *s
         if (
             //((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
             //&& (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
-            && (sp->oneSelfFlag[sp->attack_client].shell_bell_damage)
+            //&& 
+            (sp->oneSelfFlag[sp->attack_client].shell_bell_damage)
             && (sp->attack_client != sp->defence_client)
             && (sp->battlemon[sp->attack_client].hp < (s32)sp->battlemon[sp->attack_client].maxhp)
             && (sp->battlemon[sp->attack_client].hp)) {
