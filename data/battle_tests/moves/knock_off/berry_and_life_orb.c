@@ -102,7 +102,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },        
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
         },
-        knownFailing = TRUE,
+        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
