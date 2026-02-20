@@ -2718,6 +2718,7 @@ BOOL LONG_CALL Battle_IsFishingEncounter(void *bw);
  *  @return TRUE if a held item effect is going to happen; FALSE otherwise
  */
 BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *sp, int client_no);
+BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *sp, int client_no, BOOL includeConfusion, int *seq_no);
 
 /**
  *  @brief check if held item effect needs to activate, specifically directly after moves.  for things like status items
@@ -3276,6 +3277,7 @@ u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int
  *  @return TRUE if a battle subscript was loaded to sp->SkillSeqWork
  */
 BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no);
+BOOL LONG_CALL TryGetSynchronizeStatusSubsequence(struct BattleStruct *sp, int *seq_no);
 
 /**
  *  @brief check if a move should activate the defender's ability and run a subscript

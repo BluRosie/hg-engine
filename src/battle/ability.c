@@ -581,43 +581,13 @@ BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int se
 
     seq_no = 0;
 
-    if((sp->defence_client != 0xFF) && //defense side check
-       (GetBattlerAbility(sp,sp->defence_client) == ABILITY_SYNCHRONIZE) &&
-       (sp->defence_client == sp->state_client) &&
-       (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
-    {
-        sp->battlerIdTemp = sp->defence_client;
-        sp->state_client = sp->attack_client;
-        ret=TRUE;
-    }
-    else if((GetBattlerAbility(sp,sp->attack_client) == ABILITY_SYNCHRONIZE) && //attacker side check
-       (sp->attack_client == sp->state_client) &&
-       (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
-    {
-        sp->battlerIdTemp = sp->attack_client;
-        sp->state_client = sp->defence_client;
-        ret = TRUE;
-    }
+    if (TryGetSynchronizeStatusSubsequence(sp, &seq_no) == TRUE) {
+        sp->addeffect_type = ADD_STATUS_ABILITY;
+        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
+        sp->next_server_seq_no = server_seq_no;
+        sp->server_seq_no = 22;
 
-    if (ret == TRUE)
-    {
-        if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_POISON_ALL) {
-            seq_no = SUB_SEQ_APPLY_POISON;
-        }
-        else if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_BURN) {
-            seq_no = SUB_SEQ_APPLY_BURN;
-        }
-        else if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_PARALYSIS) {
-            seq_no = SUB_SEQ_APPLY_PARALYSIS;
-        }
-        if(seq_no) {
-            sp->addeffect_type = ADD_STATUS_ABILITY;
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-            sp->next_server_seq_no = server_seq_no;
-            sp->server_seq_no = 22;
-
-            return ret;
-        }
+        return TRUE;
     }
 
     //check to see if both synchronise and a battle form change are occurring at this stage
@@ -659,6 +629,38 @@ BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int se
     }
 
     return FALSE;
+}
+
+BOOL LONG_CALL TryGetSynchronizeStatusSubsequence(struct BattleStruct *sp, int *seq_no)
+{
+    if ((sp->defence_client != 0xFF)
+     && (GetBattlerAbility(sp, sp->defence_client) == ABILITY_SYNCHRONIZE)
+     && (sp->defence_client == sp->state_client)
+     && (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
+    {
+        sp->battlerIdTemp = sp->defence_client;
+        sp->state_client = sp->attack_client;
+    } else if ((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SYNCHRONIZE)
+            && (sp->attack_client == sp->state_client)
+            && (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
+    {
+        sp->battlerIdTemp = sp->attack_client;
+        sp->state_client = sp->defence_client;
+    } else {
+        return FALSE;
+    }
+
+    *seq_no = 0;
+
+    if (sp->battlemon[sp->battlerIdTemp].condition & STATUS_POISON_ALL) {
+        *seq_no = SUB_SEQ_APPLY_POISON;
+    } else if (sp->battlemon[sp->battlerIdTemp].condition & STATUS_BURN) {
+        *seq_no = SUB_SEQ_APPLY_BURN;
+    } else if (sp->battlemon[sp->battlerIdTemp].condition & STATUS_PARALYSIS) {
+        *seq_no = SUB_SEQ_APPLY_PARALYSIS;
+    }
+
+    return (*seq_no != 0);
 }
 
 

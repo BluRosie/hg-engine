@@ -267,6 +267,74 @@ BOOL CheckItemByThief(u16 item)
     return FALSE;
 }
 
+BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *ctx, int battlerId, BOOL includeConfusion, int *seq_no)
+{
+    int itemHeldEffect = HeldItemHoldEffectGet(ctx, battlerId);
+    *seq_no = 0;
+
+    switch (itemHeldEffect) {
+    case HOLD_EFFECT_PRZ_RESTORE:
+        if (ctx->battlemon[battlerId].condition & STATUS_PARALYSIS) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_PRZ;
+        }
+        break;
+    case HOLD_EFFECT_SLP_RESTORE:
+        if (ctx->battlemon[battlerId].condition & STATUS_SLEEP) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_SLP;
+        }
+        break;
+    case HOLD_EFFECT_PSN_RESTORE:
+        if (ctx->battlemon[battlerId].condition & STATUS_POISON_ALL) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_PSN;
+        }
+        break;
+    case HOLD_EFFECT_BRN_RESTORE:
+        if (ctx->battlemon[battlerId].condition & STATUS_BURN) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_BRN;
+        }
+        break;
+    case HOLD_EFFECT_FRZ_RESTORE:
+        if (ctx->battlemon[battlerId].condition & STATUS_FREEZE) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_FRZ;
+        }
+        break;
+    case HOLD_EFFECT_CONFUSE_RESTORE:
+        if (includeConfusion && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_CNF;
+        }
+        break;
+    case HOLD_EFFECT_STATUS_RESTORE:
+        if ((ctx->battlemon[battlerId].condition & STATUS_ALL) || (includeConfusion && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION))) {
+            if (ctx->battlemon[battlerId].condition & STATUS_PARALYSIS) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_PRZ;
+            }
+            if (ctx->battlemon[battlerId].condition & STATUS_SLEEP) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_SLP;
+            }
+            if (ctx->battlemon[battlerId].condition & STATUS_POISON_ALL) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_PSN;
+            }
+            if (ctx->battlemon[battlerId].condition & STATUS_BURN) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_BRN;
+            }
+            if (ctx->battlemon[battlerId].condition & STATUS_FREEZE) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_FRZ;
+            }
+            if (includeConfusion && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_CNF;
+            }
+            if (includeConfusion && (ctx->battlemon[battlerId].condition & STATUS_ALL) && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_ALL;
+            }
+        }
+        break;
+    default:
+        break;
+    }
+
+    return (*seq_no != 0);
+}
+
 
 BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
 {
@@ -295,36 +363,6 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
                 ret = TRUE;
             }
             break;
-        case HOLD_EFFECT_PRZ_RESTORE: // cheri berry
-            if (ctx->battlemon[battlerId].condition & STATUS_PARALYSIS) {
-                script = SUB_SEQ_ITEM_RECOVER_PRZ;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_SLP_RESTORE: // chesto berry
-            if (ctx->battlemon[battlerId].condition & STATUS_SLEEP) {
-                script = SUB_SEQ_ITEM_RECOVER_SLP;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PSN_RESTORE: // pecha berry
-            if (ctx->battlemon[battlerId].condition & STATUS_POISON_ALL) {
-                script = SUB_SEQ_ITEM_RECOVER_PSN;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_BRN_RESTORE: // rawst berry
-            if (ctx->battlemon[battlerId].condition & STATUS_BURN) {
-                script = SUB_SEQ_ITEM_RECOVER_BRN;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_FRZ_RESTORE: // aspear berry
-            if (ctx->battlemon[battlerId].condition & STATUS_FREEZE) {
-                script = SUB_SEQ_ITEM_RECOVER_FRZ;
-                ret = TRUE;
-            }
-            break;
         case HOLD_EFFECT_PP_RESTORE: // leppa berry
         {
             int index;
@@ -342,37 +380,14 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
             }
             break;
         }
-        case HOLD_EFFECT_CONFUSE_RESTORE: // persim berry
-            if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION) {
-                script = SUB_SEQ_ITEM_RECOVER_CNF;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_STATUS_RESTORE: // lum berry
-            if ((ctx->battlemon[battlerId].condition & STATUS_ALL) || (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
-                if (ctx->battlemon[battlerId].condition & STATUS_PARALYSIS) {
-                    script = SUB_SEQ_ITEM_RECOVER_PRZ;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_SLEEP) {
-                    script = SUB_SEQ_ITEM_RECOVER_SLP;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_POISON_ALL) {
-                    script = SUB_SEQ_ITEM_RECOVER_PSN;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_BURN) {
-                    script = SUB_SEQ_ITEM_RECOVER_BRN;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_FREEZE) {
-                    script = SUB_SEQ_ITEM_RECOVER_FRZ;
-                }
-                if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION) {
-                    script = SUB_SEQ_ITEM_RECOVER_CNF;
-                }
-                if ((ctx->battlemon[battlerId].condition & STATUS_ALL) && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
-                    script = SUB_SEQ_ITEM_RECOVER_ALL;
-                }
-                ret = TRUE;
-            }
+        case HOLD_EFFECT_PRZ_RESTORE:
+        case HOLD_EFFECT_SLP_RESTORE:
+        case HOLD_EFFECT_PSN_RESTORE:
+        case HOLD_EFFECT_BRN_RESTORE:
+        case HOLD_EFFECT_FRZ_RESTORE:
+        case HOLD_EFFECT_CONFUSE_RESTORE:
+        case HOLD_EFFECT_STATUS_RESTORE:
+            ret = GetHeldItemStatusRecoverySubscript(ctx, battlerId, TRUE, &script);
             break;
         case HOLD_EFFECT_HP_RESTORE_SPICY: // figy berry
             if (hpLowerThan50) {

@@ -230,10 +230,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
         }
-
-        if (SynchroniseAbilityCheck(bsys, ctx, ctx->server_seq_no) == TRUE) {
-            return;
-        }
     }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_7_COTTON_DOWN: {
@@ -817,4 +813,3 @@ int ShowDamageReductionBerryMessage(void* bsys, struct BattleStruct* sp) //speed
     }
     return FALSE;
 }
-
