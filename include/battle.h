@@ -1484,7 +1484,7 @@ struct BattleStruct {
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
                u8 gemBoostingMove: 1;
-               u8 currentMoveSwitchingPossiblePadding : 7;
+               u8 gemBoostingMovePadding : 7;
 
                int currentMoveSwitchStatus;
                
