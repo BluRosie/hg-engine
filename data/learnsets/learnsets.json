@@ -7521,19 +7521,19 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_SPORE"
+        "Move": "MOVE_MOONBLAST"
       },
       {
         "Level": 32,
-        "Move": "MOVE_SEISMIC_TOSS"
+        "Move": "MOVE_GRASSY_TERRAIN"
       },
       {
         "Level": 36,
-        "Move": "MOVE_SCALE_SHOT"
+        "Move": "MOVE_MOONLIGHT"
       },
       {
         "Level": 40,
-        "Move": "MOVE_CLOSE_COMBAT"
+        "Move": "MOVE_PETAL_DANCE"
       }
     ],
     "MachineMoves": [
