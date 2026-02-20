@@ -784,7 +784,7 @@ int ActivateDefenderItems4(void *bsys, struct BattleStruct *sp)
     return FALSE;
 }
 
-int ShowDamageReductionBerryMessage(void* bsys, struct BattleStruct* sp)
+int ShowDamageReductionBerryMessage(void* bsys, struct BattleStruct* sp) //speed order?
 {
     for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++)
     {
