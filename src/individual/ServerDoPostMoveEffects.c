@@ -506,9 +506,14 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             return;
         }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_25_0_BURN_UP_DOUBLE_SHOCK_TYPELOSS:
-        // TODO
+    case MOVE_PERFORMANCE_STEP_25_0_BURN_UP_DOUBLE_SHOCK_TYPELOSS: //TODO group Skill effect together in one function
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_25_0_BURN_UP_DOUBLE_SHOCK_TYPELOSS\n");
+#endif
         ctx->swoam_seq_no++;
+        if (Activate_BurnUp_DoubleShock(bsys, ctx) == TRUE) {  //TODO roost?
+            return;
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_25_1_NATURAL_GIFT:
         // TODO

@@ -1,4 +1,4 @@
-// Test: Burn Up - Fire types cannot use Burn Up twice
+// Test: Knock Off - boosted, Poison Touch, Berry, Weak Armor, Life Orb, no item knocked off
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -14,19 +14,18 @@ const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    {
-        .battleType = BATTLE_TYPE_SINGLE,
+    {   .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_ARCANINE,
+                .species = SPECIES_SNEASLER,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_JUSTIFIED,
+                .ability = ABILITY_POISON_TOUCH,
                 .item = ITEM_LIFE_ORB,
-                .moves = { MOVE_BURN_UP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_KNOCK_OFF, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -37,12 +36,13 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
-        .enemyParty = { {
-                            .species = SPECIES_SHUCKLE,
+        .enemyParty = { 
+                        {
+                            .species = SPECIES_ONIX,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_STURDY,
-                            .item = ITEM_NONE,
+                            .ability = ABILITY_WEAK_ARMOR,
+                            .item = ITEM_LUM_BERRY,
                             .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
@@ -56,7 +56,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .playerScript = { {
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                              { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                              { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
@@ -76,7 +76,7 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .enemyScript = { {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                             { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
@@ -95,11 +95,14 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 47, 47, 48, 48, 48, 51, 51, 51, 51, 52, 52, 52, 55, 55, 55, 56 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 31, 31, 32, 32, 32, 33, 33, 34, 34, 34, 35, 35, 35, 36, 36, 37 } },//boosted
+            //{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_POISON_TOUCH },        
+            //{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_LUM_BERRY },     
+            // TODO weak armor message
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },        
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_BURNED_ITSELF_OUT },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_BUT_IT_FAILED },
-        }
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
+        },
+        knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };

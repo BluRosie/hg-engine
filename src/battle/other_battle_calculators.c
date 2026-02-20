@@ -4355,6 +4355,39 @@ int LONG_CALL ThawTarget_FromFireMove_Scald(void *bsys UNUSED, struct BattleStru
     return FALSE;
 }
 
+int LONG_CALL Activate_BurnUp_DoubleShock(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    switch (ctx->current_move_index) {
+    case MOVE_BURN_UP:
+        if (ctx->attack_client != BATTLER_NONE
+            && ctx->battlemon[ctx->attack_client].hp
+            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
+            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_REMOVE_USER_FIRE_TYPE);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    case MOVE_DOUBLE_SHOCK:
+        if (ctx->attack_client != BATTLER_NONE
+            && ctx->battlemon[ctx->attack_client].hp
+            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
+            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_REMOVE_USER_ELECTRIC_TYPE);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    default:
+        break;
+    }
+
+    return FALSE;
+}
+    
+
 int LONG_CALL Activate_SteelRoller_IceSpinner(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     if (ctx->terrainOverlay.type != TERRAIN_NONE

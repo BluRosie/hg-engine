@@ -4212,6 +4212,7 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx);
 
 int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ctx);
+int LONG_CALL Activate_BurnUp_DoubleShock(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_SteelRoller_IceSpinner(void *bsys UNUSED, struct BattleStruct *ctx);
 
 #ifdef DEBUG_BATTLE_SCENARIOS
