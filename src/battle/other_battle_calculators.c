@@ -2752,7 +2752,7 @@ void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct B
 
 int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-#if DEBUG_MOVE_PERFORMNCE_LOGIC
+#ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
     debug_printf("In BattleController_LoopMultiHitInternal %d\n", ctx->multiHitCountTemp);
 #endif
     
@@ -5099,7 +5099,7 @@ int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
     }
 
     if (seq_no != 0) {
-#if DEBUG_MOVE_PERFORMNCE_LOGIC
+#ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in ActivateRecoilDamage (%d)\n", ctx->store_damage[ctx->attack_client]);
 #endif
         
