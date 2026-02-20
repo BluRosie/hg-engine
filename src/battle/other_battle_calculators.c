@@ -4079,6 +4079,82 @@ int LONG_CALL Activate_FlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx
     return FALSE;
 }
 
+int LONG_CALL Activate_Rowap_Jaboca(void *bsys, struct BattleStruct *ctx)
+{
+    ctx->swoak_work = ctx->defence_client;
+    // TODO for loop is for simultaneous damage
+    // for ( ; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++)
+    {
+        // int client_no = ctx->turnOrder[ctx->swoak_work];
+        int client_no = ctx->swoak_work;
+        if (client_no != ctx->attack_client) {
+
+            if (CheckSubstitute(ctx, client_no) == TRUE) {
+                return FALSE;
+            }
+
+            // Check for defender's items
+            int itemHoldEffect = HeldItemHoldEffectGet(ctx, client_no);
+            int itemPower = HeldItemAtkGet(ctx, client_no, 0);
+
+            switch (itemHoldEffect) {
+            case HOLD_EFFECT_RECOIL_PHYSICAL: // Jaboca Berry
+                // Attacker is alive after the attack
+                if ((ctx->battlemon[ctx->attack_client].hp)
+                    // Attacker does not have Magic Guard
+                    && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_MAGIC_GUARD)
+                    // Attacker dealt physical damage
+                    && (ctx->oneSelfFlag[client_no].physical_damage)) {
+                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp * -1, itemPower);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_DAMAGE_BACK);
+                    ctx->next_server_seq_no = ctx->server_seq_no;
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    return TRUE;
+                }
+                break;
+
+            case HOLD_EFFECT_RECOIL_SPECIAL: // Rowap Berry
+                // Attacker is alive after the attack
+                if ((ctx->battlemon[ctx->attack_client].hp)
+                    // Attacker does not have Magic Guard
+                    && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_MAGIC_GUARD)
+                    // Attacker dealt special damage
+                    && (ctx->oneSelfFlag[client_no].special_damage)) {
+                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp * -1, itemPower);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_DAMAGE_BACK);
+                    ctx->next_server_seq_no = ctx->server_seq_no;
+                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    return TRUE;
+                }
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    return FALSE;
+}
+
+int LONG_CALL Activate_Incinerate(void *bsys, struct BattleStruct *ctx)
+{
+    ctx->swoak_work = ctx->defence_client;
+    // TODO for loop is for simultaneous damage
+    // for ( ; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++)
+    // for (ctx->swoak_work = 0; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++) {
+    //    int client_no = ctx->turnOrder[ctx->swoak_work];
+    int client_no = ctx->swoak_work;
+    if (client_no == ctx->attack_client
+        || (CheckSubstitute(ctx, client_no) == TRUE)
+        || ctx->oneSelfFlag[client_no].special_damage == 0) {
+        return FALSE;
+    }
+
+    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_INCINERATE);
+    ctx->next_server_seq_no = ctx->server_seq_no;
+    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+    return TRUE;
+}
+
 int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ctx)
 {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
@@ -4720,7 +4796,7 @@ int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bsys, struct BattleS
 
 int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct BattleStruct *ctx)
 {
-    for (ctx->swoak_work = 0; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++) {
+    for (; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++) {
         int client_no = ctx->turnOrder[ctx->swoak_work];
         int itemHeldEffect = HeldItemHoldEffectGet(ctx, client_no);
         switch (itemHeldEffect) {

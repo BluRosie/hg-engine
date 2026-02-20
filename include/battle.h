@@ -4196,6 +4196,8 @@ int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, s
 int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys, struct BattleStruct *sp, int *seq_no);
 int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_FlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL Activate_Rowap_Jaboca(void *bw, struct BattleStruct *sp);
+int LONG_CALL Activate_Incinerate(void *bw, struct BattleStruct *sp);
 int LONG_CALL ThawTarget_FromFireMove_Scald(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_ThroatSpray_BlunderPolicy(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *ctx);

@@ -279,12 +279,27 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_10_INCINERATE:
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_10_10_INCINERATE\n");
+#endif
         // TODO needed?
         ctx->swoam_seq_no++;
+        if (Activate_Incinerate(bsys, ctx) == TRUE) { //TODO loop over all defenders
+            return;
+        }
+        ctx->swoak_work = 0;
+        //ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_11_DEFENDER_ITEMS_2_JABOCA_ROWAP:
-        // TODO needed?
+#if DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_10_11_DEFENDER_ITEMS_2_JABOCA_ROWAP\n");
+#endif
         ctx->swoam_seq_no++;
+        if (Activate_Rowap_Jaboca(bsys, ctx) == TRUE) {//TODO loop over all defenders
+            return;
+        }
+        ctx->swoak_work = 0;
+        //ctx->swoam_seq_no++; //TODO
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_12_DISGUISE_ICE_FACE:
 #if DEBUG_MOVE_PERFORMNCE_LOGIC
@@ -786,13 +801,14 @@ int ActivateDefenderItems4(void *bsys, struct BattleStruct *sp)
 
 int ShowDamageReductionBerryMessage(void* bsys, struct BattleStruct* sp) //speed order?
 {
-    for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++)
+    int battler = sp->defence_client; // TODO loop over all hit battlers instead of defence_client
+    //for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++)
     {
         if (battler != sp->attack_client
             && (GetMoveSplit(sp, sp->current_move_index) != SPLIT_STATUS))
         {
-            sp->item_work = GetBattleMonItem(sp, sp->defence_client);
-            sp->battlerIdTemp = sp->defence_client;
+            sp->item_work = GetBattleMonItem(sp, battler);
+            sp->battlerIdTemp = battler;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE);
             sp->next_server_seq_no = sp->server_seq_no;
             sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
