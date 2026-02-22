@@ -465,6 +465,7 @@ BattleWorkClientParamGet = 0x0223A7E8 | 1;
 BattleStructureInit = 0x02250F44 | 1;
 BattleStructureCounterInit = 0x02251038 | 1;
 ServerMoveAIInit = 0x0224E384 | 1;
+BattleSystem_GetBattleMon = 0x0224E4FC | 1;
 DumpMoveTableData = 0x02073300 | 1;
 
 GF_ExpHeap_FndGetTotalFreeSize = 0x0201ABEC | 1;
