@@ -3234,8 +3234,8 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
         && (ctx->battlemon[battlerId].move[movePos] != MOVE_ME_FIRST)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
-        if (ctx->moveConditionsFlags[battlerId].throatChopTimer 
-            && IsMoveSoundBased(ctx->battlemon[battlerId].move[movePos]) 
+        if (ctx->moveConditionsFlags[battlerId].throatChopTimer
+            && IsMoveSoundBased(ctx->battlemon[battlerId].move[movePos])
             && (struggleCheckFlags & STRUGGLE_CHECK_THROAT_CHOPPED))
         {
             nonSelectableMoves |= No2Bit(movePos);
@@ -3246,9 +3246,9 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             && (struggleCheckFlags & STRUGGLE_CHECK_BELCH))
         {
             nonSelectableMoves |= No2Bit(movePos);
-        } 
-        if (ctx->battlemon[battlerId].move[movePos] == MOVE_STUFF_CHEEKS 
-            && !IS_ITEM_BERRY(ctx->battlemon[battlerId].item) 
+        }
+        if (ctx->battlemon[battlerId].move[movePos] == MOVE_STUFF_CHEEKS
+            && !IS_ITEM_BERRY(ctx->battlemon[battlerId].item)
             && (struggleCheckFlags & STRUGGLE_CHECK_STUFF_CHEEKS))
         {
             nonSelectableMoves |= No2Bit(movePos);
@@ -3345,7 +3345,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->msg_id = BATTLE_MSG_CANT_POSSIBLY_USE_BELCN;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
-    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_STUFF_CHEEKS) & No2Bit(movePos)) { 
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_STUFF_CHEEKS) & No2Bit(movePos)) {
         msg->msg_tag = TAG_NICKNAME;
         //It can’t use the move because it doesn’t have a Berry !
         msg->msg_id = BATTLE_MSG_CANT_USE_MOVE_BECAUSE_NO_BERRY;
@@ -3357,7 +3357,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->msg_id = BATTLE_MSG_THROAT_CHOP_PREVENTS_CERTAIN_MOVES;
         msg->msg_para[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
-    } 
+    }
 
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSED_MOVE) {
 #ifdef DEBUG_ENABLE_UNIMPLEMENTED_MOVES

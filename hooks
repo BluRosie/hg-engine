@@ -138,12 +138,6 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_TryBreakScreens 02242E00 3
 0012 BtlCmd_ResetAllStatChanges 0223FA1C 3
 0012 BtlCmd_CheckToxicSpikes 02243E6C 3
-0012 BtlCmd_PrintMessage 0223DEF0 3
-0012 BtlCmd_PrintAttackMessage 0223DEB0 3
-0012 BtlCmd_PrintGlobalMessage 0223DF24 3
-0012 BtlCmd_PrintBufferedMessage 0223DF64 3
-0012 BtlCmd_BufferMessage 0223DF84 3
-0012 BtlCmd_BufferLocalMessage 0223DFB0 3
 0012 BtlCmd_TryFling 0224454C 3
 0012 BtlCmd_CopyStatStages 02242510 3
 
@@ -577,6 +571,7 @@ arm9 SetupAndStartTutorialBattle 02051334 1
 0010 TestBattle_AISelectMove 0221BEF4 2
 0010 TestBattle_AIPickCommand 022205BC 2
 0012 CheckTrainerMessage 02250D4C 2
+0012 BattleMessage_ExpandPlaceholders 0223CEF4
 #endif
 
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2

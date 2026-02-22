@@ -3,7 +3,6 @@
 
 #include "../../../../include/battle.h"
 #include "../../../../include/constants/ability.h"
-#include "../../../../include/constants/battle_message_constants.h"
 #include "../../../../include/constants/item.h"
 #include "../../../../include/constants/moves.h"
 #include "../../../../include/constants/species.h"
@@ -94,12 +93,12 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_GHOST_TYPE_ADDED },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LAID_A_CURSE },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SUPER_EFFECTIVE },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_GRASS_TYPE_ADDED },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_STAT_RAISED },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SUPER_EFFECTIVE },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ghost type was added to Throh!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Throh cut its own HP and put a curse on the opposing Smeargle!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Grass type was added to Throh!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Throh's Attack rose!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
         } },
 #ifndef GET_TEST_CASE_ONLY
 };

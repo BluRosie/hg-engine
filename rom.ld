@@ -828,3 +828,4 @@ sButtonWindowIDs = 0x021016B4;
 PartyMenu_DisableMainScreenBlend_AfterYesNo = 0x0207CB90 | 1;
 sBattleBgProfileTable = 0x0226E70C;
 
+StringExpandPlaceholders = 0x0200CBBC | 1;
