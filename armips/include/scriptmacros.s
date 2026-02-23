@@ -1147,7 +1147,7 @@ PHONE_CONTACT_KAY_AND_TIA         equ   71
 PHONE_CONTACT_REESE               equ   72
 PHONE_CONTACT_AIDEN               equ   73
 PHONE_CONTACT_ERNEST              equ   74
-NUM_PHONE_CONTACTS                equ   75 
+NUM_PHONE_CONTACTS                equ   75
 
 .macro check_registered_phone_number,arg0,arg1
 .halfword 147

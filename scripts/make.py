@@ -282,6 +282,9 @@ def install():
     if os.path.isfile(BYTE_REPLACEMENT):
         with open(BYTE_REPLACEMENT, 'r') as replacelist:
             definesDict = {}
+            additionalFlags = [flag.removeprefix('-D') for flag in sys.argv if flag.startswith('-D')]
+            for flag in additionalFlags:
+                definesDict[flag] = True
             conditionals = []
             for line in replacelist:
                 if TryProcessFileInclusion(line, definesDict):
@@ -330,6 +333,9 @@ def hook():
         table = GetSymbols()
         with open(HOOKS, 'r') as hookList:
             definesDict = {}
+            additionalFlags = [flag.removeprefix('-D') for flag in sys.argv if flag.startswith('-D')]
+            for flag in additionalFlags:
+                definesDict[flag] = True
             conditionals = []
             for line in hookList:
                 if TryProcessFileInclusion(line, definesDict):
@@ -564,7 +570,7 @@ def offset():
                 rom.close()
 
 
-OVERLAYS_TO_DECOMPRESS = [1, 2, 6, 7, 8, 10, 12, 14, 15, 18, 23, 61, 63, 64, 68, 94, 96, 112]
+OVERLAYS_TO_DECOMPRESS = [1, 2, 6, 7, 8, 10, 12, 14, 15, 18, 23, 31, 61, 63, 64, 68, 94, 96, 112]
 
 
 def decompress():

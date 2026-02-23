@@ -16,6 +16,8 @@ _000:
 _037:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_ATTACKER
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
+    // Generation V: Dream Eater is now affected by Liquid Ooze.
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_DEFENDER, ABILITY_LIQUID_OOZE, _DamageInstead
     UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // {0}’s dream was eaten!
@@ -30,4 +32,14 @@ _059:
     PrintMessage 1054, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
-    End 
+    End
+
+_DamageInstead:
+    Call BATTLE_SUBSCRIPT_UPDATE_HP
+    // It sucked up the liquid ooze!
+    PrintMessage 720, TAG_NONE
+    Wait 
+    WaitButtonABTime 30
+
+_End:
+    End

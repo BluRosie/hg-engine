@@ -119,11 +119,26 @@ def parse_trainers(file_path):
                         if kv:
                             key, value = kv.groups()
                             if key == "move":
+                                if " " in value or "move_" not in value:
+                                    print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has an invalid constant specified for {key}: {value}")
+                                    sys.exit(1)
                                 mon_dict[f"move{move_count}"] = value
                                 move_count += 1
                             else:
                                 if (key in mon_dict):
                                     print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has a duplicate {key} field in one of its mons.")
+                                    sys.exit(1)
+                                elif (key == "pokemon") and (("species_" not in value) or (" " in value)):
+                                    print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has an invalid constant specified for {key}: {value}")
+                                    sys.exit(1)
+                                elif (key == "item") and (("item_" not in value) or (" " in value)):
+                                    print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has an invalid constant specified for {key}: {value}")
+                                    sys.exit(1)
+                                elif (key == "ability") and (("ability_" not in value) or (" " in value)):
+                                    print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has an invalid constant specified for {key}: {value}")
+                                    sys.exit(1)
+                                elif (key == "nature") and (("nature_" not in value) or (" " in value)):
+                                    print(f"ERROR: {trainers[trainer_id]['name']} (id: {trainer_id}) has an invalid constant specified for {key}: {value}")
                                     sys.exit(1)
                                 mon_dict[key] = value
                     parsed_mons.append(mon_dict)

@@ -2,12 +2,12 @@
 
 .data
 
-_000:
-    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_TYPE_1, TYPE_PSYCHIC
-    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_TYPE_2, TYPE_PSYCHIC
+// Called by Magic Powder.
+_Start:
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
+    HandleMagicPowder
     // {0} transformed into the Psychic type!
     PrintMessage 1585, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP
-    Wait 
+    Wait
     WaitButtonABTime 30
     End

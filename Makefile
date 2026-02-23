@@ -110,6 +110,12 @@ SDATTOOL := $(PYTHON) tools/SDATTool.py
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
 ASFLAGS = -mthumb
 CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
+ARMIPS_FLAGS = -equ DEBUG_BATTLE_SCENARIOS 0
+
+ifeq ($(AUTO_TEST),Y)
+    CFLAGS += -DDEBUG_BATTLE_SCENARIOS -DDEBUG_AUTO_CONTINUE_GAME
+    ARMIPS_FLAGS = -equ DEBUG_BATTLE_SCENARIOS 1
+endif
 
 ####################### Output #######################
 C_SUBDIR = src
@@ -235,7 +241,7 @@ $(foreach folder, $(CODE_BUILD_DIRS), $(eval $(call FOLDER_CREATE_DEFINE,$(folde
 # generate .d dependency files that are included as part of compiling if it does not exist
 define SRC_OBJ_INC_DEFINE
 # this generates the objects as part of generating the dependency list which will just be massive files of rules
-$1: $2 $(CODE_BUILD_DIRS) $(LEARNSETS_HEADER)
+$1: $2 $(CODE_BUILD_DIRS) $(LEARNSETS_HEADER) $(BATTLETESTS_HEADER)
 	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
 	@#printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
 
@@ -256,6 +262,8 @@ $(LINK):$(OBJS)
 $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
+
+
 all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	rm -rf $(BASE)
 	@mkdir -p $(REQUIRED_DIRECTORIES)
@@ -264,9 +272,9 @@ all: $(TOOLS) $(OUTPUT) $(OVERLAY_OUTPUTS)
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	@echo "$(ROMNAME) Decompression successful!!"
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
-	$(PYTHON) scripts/make.py
+	$(PYTHON) scripts/make.py $(CFLAGS)
 	$(MAKE) move_narc
-	$(ARMIPS) armips/global.s
+	$(ARMIPS) armips/global.s $(ARMIPS_FLAGS)
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo "Making ROM..."
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
@@ -474,11 +482,14 @@ move_narc: $(NARC_FILES)
 	@echo "tutor moves:"
 	cp $(TUTORLEARNSET_BIN) $(TUTORLEARNSET_TARGET)
 
+	@echo "battle tests:"
+	cp $(BATTLETESTS_BIN) $(BATTLETESTS_TARGET)
+
 
 DUMP_SCRIPT_LOCATION := tools/source/dumptools
 # the goal here is to extract the required narcs to the proper folders for the dump scripts to work.
 # learnsets are covered by script migration
-dumprom: $(VENV_ACTIVATE)
+dumprom: $(VENV_ACTIVATE) $(TOOLS)
 	$(MAKE) clean
 	chmod +x $(DUMP_SCRIPT_LOCATION)/*.sh
 
@@ -501,8 +512,12 @@ dumprom: $(VENV_ACTIVATE)
 	$(PYTHON) tools/source/dumptools/migrate_learnsets.py
 	rm -rf $(BUILD)
 
-# dump mondata, encounters, evos, moves
+# dump mondata, encounters, evos, moves, trainers
+	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
+	$(MSGENC) -d -c $(CHARMAP) $(MSGDATA_DIR)/7_729 $(BUILD)/trainernames.txt
 	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
+
+	@echo "Done.  See output in dumped_armips/, learnsets are already in data/learnsets/learnsets.json."
 
 
 update_machine_moves: $(VENV_ACTIVATE)

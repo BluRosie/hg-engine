@@ -135,18 +135,18 @@ Battle Pocket
 Sweet Heart
 Adamant Orb
 Lustrous Orb
-Greet Mail
-Favored Mail
-RSVP Mail
-Thanks Mail
-Inquiry Mail
-Like Mail
-Reply Mail
-Bridge Mail S
-Bridge Mail D
-Bridge Mail T
-Bridge Mail V
-Bridge Mail M
+Grass Mail
+Flame Mail
+Bubble Mail
+Bloom Mail
+Tunnel Mail
+Steel Mail
+Heart Mail
+Snow Mail
+Space Mail
+Air Mail
+Mosaic Mail
+Brick Mail
 Cheri Berry
 Chesto Berry
 Pecha Berry
@@ -424,8 +424,8 @@ HM03
 HM04
 HM05
 HM06
-???
-???
+HM07
+HM08
 Explorer Kit
 Loot Sack
 Rule Book
@@ -484,8 +484,8 @@ Silver Feather
 Rainbow Feather
 Mystery Egg
 Red Apricorn
-Blue Apricorn
 Yellow Apricorn
+Blue Apricorn
 Green Apricorn
 Pink Apricorn
 White Apricorn

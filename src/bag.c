@@ -1,13 +1,17 @@
+#include "../include/bag.h"
 #include "../include/config.h"
 #include "../include/constants/item.h"
 #include "../include/constants/file.h"
-#include "../include/bag.h"
-#include "../include/message.h"
+#include "../include/debug.h"
 #include "../include/item.h"
 #include "../include/map_events_internal.h"
+#include "../include/message.h"
 #include "../include/save.h"
 #include "../include/script.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../include/test_battle.h"
+#endif // DEBUG_BATTLE_SCENARIOS
 
 // file is directly from pokeheartgold but without the bag_cursor stuff + sPocketCounts right here
 
@@ -101,7 +105,7 @@ void Bag_UnregisterItem(BAG_DATA *bag, u16 itemId) {
 }
 
 u32 Bag_GetItemPocket(BAG_DATA *bag, u16 itemId, ITEM_SLOT **ppSlots, u32 *pCount, int heap_id) {
-    u32 pocket = GetItemData(itemId, ITEM_PARAM_POCKET, heap_id);
+    u32 pocket = GetItemData(itemId, ITEM_PARAM_FIELD_POCKET, heap_id);
     switch (pocket) {
     case POCKET_KEY_ITEMS:
         *ppSlots = bag->keyItems;
@@ -566,11 +570,34 @@ u32 IsPlayerOnIce(u32 collision) // run to determine if the player is on ice
     return FALSE;
 }
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+u8 queueUpAutoBattleScript = 0;
+u8 pendingNextTest = 0;
+#endif
+
 BOOL IsPlayerOnLadder(void)
 {
     if (gFieldSysPtr == NULL)
         return TRUE;
     u32 collision = GetMetatileBehaviorAt(gFieldSysPtr, gFieldSysPtr->location->x, gFieldSysPtr->location->z);
     u32 mapId = gFieldSysPtr->location->mapId;
-    return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180);
+#ifdef DEBUG_BATTLE_SCENARIOS
+    if (queueUpAutoBattleScript == 0) {
+        EventSet_Script(gFieldSysPtr, 2073, NULL);
+        TestBattle_QueueNextTest();
+        queueUpAutoBattleScript = 1;
+    } else if (pendingNextTest >= 10) {
+        // delay 10 frames to give time for memory to clean up
+        EventSet_Script(gFieldSysPtr, 2073, NULL);
+        TestBattle_QueueNextTest();
+        pendingNextTest = 0;
+    } else if (TestBattle_HasMoreTests()) {
+        pendingNextTest++;
+    }
+#endif
+    // ladder collisions
+    // bugsy gym
+    // slowpoke well entry
+    // battle tower
+    return (collision == 0x3C || collision == 0x3D || collision == 0x3E || mapId == 114 || mapId == 180 || (mapId >= 265 && mapId <= 271));
 }

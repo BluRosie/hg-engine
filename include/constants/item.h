@@ -2572,6 +2572,8 @@
 #define NUM_MEGA_STONES 48 // includes the pixie plate
 #define NUM_HMS         (ITEM_HM08 - ITEM_HM01 + 1) // intentionally do not include HM07_ORAS (Dive)
 
+// ITEM_BLANK_PLATE and ITEM_LEGEND_PLATE are not included in this list as they have only ever been key items and this list is currently just used for held item interactions.
+// Feel free to add them yourself, though.
 #define IS_ITEM_ARCEUS_PLATE(item) ((item >= ITEM_FLAME_PLATE && item <= ITEM_IRON_PLATE) || (item == ITEM_PIXIE_PLATE))
 
 #define IS_ITEM_BERRY(item) ((item >= ITEM_CHERI_BERRY && item <= ITEM_ROWAP_BERRY) || (item >= ITEM_ROSELI_BERRY && item <= ITEM_MARANGA_BERRY))
@@ -2590,7 +2592,7 @@
 
 #define IS_ITEM_NATURE_MINT(item) (item >= ITEM_LONELY_MINT && item <= ITEM_SERIOUS_MINT)
 
-#define IS_ITEM_TERRAIN_SEED(item) (item >= ITEM_ELECTRIC_SEED && item <= ITEM_PSYCHIC_SEED)
+#define IS_ITEM_TERRAIN_SEED(item) (item >= ITEM_ELECTRIC_SEED && item <= ITEM_GRASSY_SEED)
 
 #define IS_ITEM_MASK(item) (item >= ITEM_CORNERSTONE_MASK && item <= ITEM_HEARTHFLAME_MASK)
 

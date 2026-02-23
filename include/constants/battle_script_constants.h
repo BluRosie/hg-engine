@@ -461,8 +461,8 @@
 #define SUB_SEQ_HANDLE_ANGER_SHELL                    (451)
 #define SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE         (452)
 #define SUB_SEQ_HANDLE_INCINERATE                     (453)
-#define SUB_SEQ_ADD_THIRD_TYPE_GRASS                  (454)
-#define SUB_SEQ_ADD_THIRD_TYPE_GHOST                  (455)
+#define SUB_SEQ_ADD_TYPE_GRASS                        (454)
+#define SUB_SEQ_ADD_TYPE_GHOST                        (455)
 #define SUB_SEQ_CHANGE_TARGET_TO_PSYCHIC_TYPE         (456)
 #define SUB_SEQ_AURORA_VEIL                           (457)
 #define SUB_SEQ_CHEEK_POUCH                           (458)
@@ -474,8 +474,25 @@
 #define SUB_SEQ_ENTRAINMENT                           (464)
 #define SUB_SEQ_HOWL                                  (465)
 #define SUB_SEQ_DECORATE                              (466)
+#define SUB_SEQ_HANDLE_ROOM_SERVICE                   (467)
+#define SUB_SEQ_SWEET_VEIL_FAIL                       (468)
+#define SUB_SEQ_HANDLE_PARTING_SHOT                   (469)
+#define SUB_SEQ_HANDLE_CLEAR_SMOG                     (470)
+#define SUB_SEQ_HANDLE_FLAME_BURST_HIT                (471)
+#define SUB_SEQ_FOCUS_SASH                            (472)
+#define SUB_SEQ_ION_DELUGE                            (473)
+#define SUB_SEQ_REMOVE_USER_FIRE_TYPE                 (474)
+#define SUB_SEQ_REMOVE_USER_ELECTRIC_TYPE             (475)
+#define SUB_SEQ_TOXIC_DEBRIS                          (476)
+#define SUB_SEQ_HANDLE_THROAT_SPRAY                   (477)
+#define SUB_SEQ_STUFF_CHEEKS                          (478)
+#define SUB_SEQ_POWDER                                (479)
+#define SUB_SEQ_TAKE_POWDER_DAMAGE                    (480)
+#define SUB_SEQ_LASER_FOCUS                           (481)
+#define SUB_SEQ_MOVE_FAIL_THROAT_CHOP                 (482)
+#define SUB_SEQ_USER_DEF_DOWN_1_SPEED_UP_1            (483)
 
-#define MAX_BASE_SUBSCRIPT_NUM 466
+#define MAX_BASE_SUBSCRIPT_NUM 483
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -679,8 +696,8 @@
 #define ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6         (193) // This constant and the one below are only used as spacers for Steam Engine.
 #define ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP_6        (194) // To add more +6 effects, copy the order & proximity of other stat stage change constants.
 #define ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_6          (195) // Used for Steam Engine.
-#define ADD_STATUS_EFF_ADD_THIRD_TYPE_GRASS            (196)
-#define ADD_STATUS_EFF_ADD_THIRD_TYPE_GHOST            (197)
+#define ADD_STATUS_EFF_ADD_TYPE_GRASS                  (196)
+#define ADD_STATUS_EFF_ADD_TYPE_GHOST                  (197)
 #define ADD_STATUS_EFF_CHANGE_TARGET_TO_PSYCHIC_TYPE   (198)
 #define ADD_STATUS_EFF_AURORA_VEIL                     (199)
 #define ADD_STATUS_EFF_STRENGTH_SAP                    (200)
@@ -691,8 +708,17 @@
 #define ADD_STATUS_EFF_ENTRAINMENT                     (205)
 #define ADD_STATUS_EFF_HOWL                            (206)
 #define ADD_STATUS_EFF_DECORATE                        (207)
+#define ADD_STATUS_EFF_PARTING_SHOT                    (208)
+#define ADD_STATUS_EFF_CLEAR_SMOG                      (209)
+#define ADD_STATUS_EFF_FLAME_BURST_HIT                 (210)
+#define ADD_STATUS_EFF_ION_DELUGE                      (211)
+#define ADD_STATUS_EFF_REMOVE_USER_FIRE_TYPE           (212)
+#define ADD_STATUS_EFF_REMOVE_USER_ELECTRIC_TYPE       (213)
+#define ADD_STATUS_EFF_STUFF_CHEEKS                    (214)
+#define ADD_STATUS_EFF_POWDER                          (215)
+#define ADD_STATUS_EFF_LASER_FOCUS                     (216)
 
-#define MAX_BASE_SUBSCRIPT_PTR_NUM (204)
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (216)
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)
