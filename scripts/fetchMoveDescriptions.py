@@ -116,7 +116,7 @@ def fetch_and_save(out_dir=OUT_DIR, session=None, wrap_width=48):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--out-dir', default=OUT_DIR)
-    parser.add_argument('--width', type=int, default=48, help='wrap width for descriptions')
+    parser.add_argument('--width', type=int, default=40, help='wrap width for descriptions')
     args = parser.parse_args()
     fetch_and_save(args.out_dir, wrap_width=args.width)
 
