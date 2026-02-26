@@ -267,6 +267,17 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 ret = TRUE;
             }
         }
+    } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_ANGER_POINT)) {
+        if ((sp->critical > 1)
+            && (sp->battlemon[sp->defence_client].hp)
+            && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)) {
+            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6;
+            sp->addeffect_type = ADD_EFFECT_ABILITY;
+            sp->state_client = sp->defence_client;
+            sp->battlerIdTemp = sp->defence_client;
+            seq_no[0] = SUB_SEQ_BOOST_STATS;
+            ret = TRUE;
+        }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_WEAK_ARMOR)) {
         if ((sp->battlemon[sp->defence_client].hp)
             && ((sp->battlemon[sp->defence_client].states[STAT_DEFENSE] > 0)
