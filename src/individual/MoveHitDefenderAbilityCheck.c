@@ -29,8 +29,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
     if (sp->defence_client == 0xFF
      || CheckSubstitute(sp, sp->defence_client) == TRUE
      || ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) != 0)
-     || ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) != 0)
-     || ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) != 0)) {
+     || ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) != 0)) {
         return ret;
     }
 
