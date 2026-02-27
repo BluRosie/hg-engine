@@ -138,12 +138,6 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_TryBreakScreens 02242E00 3
 0012 BtlCmd_ResetAllStatChanges 0223FA1C 3
 0012 BtlCmd_CheckToxicSpikes 02243E6C 3
-0012 BtlCmd_PrintMessage 0223DEF0 3
-0012 BtlCmd_PrintAttackMessage 0223DEB0 3
-0012 BtlCmd_PrintGlobalMessage 0223DF24 3
-0012 BtlCmd_PrintBufferedMessage 0223DF64 3
-0012 BtlCmd_BufferMessage 0223DF84 3
-0012 BtlCmd_BufferLocalMessage 0223DFB0 3
 0012 BtlCmd_TryFling 0224454C 3
 0012 BtlCmd_CopyStatStages 02242510 3
 
@@ -559,11 +553,26 @@ arm9 ScrCmd_MartBuy 02048060 1
 
 arm9 SetupAndStartTutorialBattle 02051334 1
 
+# handle missingno in 1vX battles
+0012 BattleControllerPlayer_GetBattleMon 0224873C 2
+0012 BattleController_EmitHealthbarSlideIn_SkipInvalid 02262A5A 3
+0012 ov12_0225D644_SkipInvalid 0225D772 4
+0012 CT_PokemonEncountSet_SkipInvalid 02259B6C 0
+0012 CT_PokemonEncountAppearSet_SkipInvalid_02259D10 02259D10 0
+0012 CT_PokemonEncountAppearSet_SkipInvalid_02259D1E 02259D1E 0
+0012 CT_PokemonEncountAppearSet_SkipInvalid_02259D2C 02259D2C 0
+0012 CT_PokemonAppearSet_SkipInvalid 02259F06 0
+0012 ov12_0225C388_SkipInvalid 0225C388 2
+0012 ov12_0225C7AC_SkipInvalid 0225C7AC 2
+0012 ov12_0225BB7C_SkipInvalid 0225BB7C 2
+0012 ov12_0225BFC2_SkipInvalid 0225BFC2 2
+
 #ifdef DEBUG_BATTLE_SCENARIOS
 0010 TestBattle_AISelectMove 0221BEF4 2
 0010 TestBattle_AIPickCommand 022205BC 2
 0012 TestBattle_PostKOSwitchIn 02258800 2
 0012 CheckTrainerMessage 02250D4C 2
+0012 BattleMessage_ExpandPlaceholders 0223CEF4
 #endif
 
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2

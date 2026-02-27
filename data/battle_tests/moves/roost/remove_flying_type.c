@@ -7,7 +7,6 @@
 #include "../../../../include/constants/moves.h"
 #include "../../../../include/constants/species.h"
 #include "../../../../include/test_battle.h"
-#include "../../../../include/constants/battle_message_constants.h"
 
 // each test file is a separate .c file in battle_tests/ for better organization
 const struct TestBattleScenario BattleTests[] = {
@@ -97,7 +96,7 @@ const struct TestBattleScenario BattleTests[] = {
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 43, 45, 45, 45, 46, 46, 46, 48, 48, 48, 49, 49, 49, 51, 51, 52 } },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 21, 22, 22, 22, 23, 23, 23, 24, 24, 24, 24, 24, 24, 25, 25, 26 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_NOT_VERY_EFFECTIVE },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective..." },
         } },
 #ifndef GET_TEST_CASE_ONLY
 };

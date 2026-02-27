@@ -965,6 +965,15 @@ typedef struct
     int msg_client;
 } __attribute__((packed)) MESSAGE_PARAM;
 
+typedef struct BattleMessage {
+    u8 unk0;
+    u8 tag;
+    u16 id;
+    int param[6];
+    int numDigits;
+    int battlerId;
+} BattleMessage;
+
 typedef struct
 {
     u8 unk0;
@@ -1538,7 +1547,6 @@ typedef struct {
     PMS_DATA lose_word;
 } PACKED TRAINER_DATA; // size: 52 bytes
 
-
 typedef struct MessageFormat MessageFormat;
 
 struct BattleSystem {
@@ -1548,7 +1556,7 @@ struct BattleSystem {
     /* 0x0C */ u32 *unkC;
     /* 0x10 */ u32 *unk10;
     /* 0x14 */ MessageFormat *msgFormat;
-    /* 0x18 */ void * /*String **/ msgBuffer;
+    /* 0x18 */ String * msgBuffer;
     /* 0x1C */ u32 unk1C;
     /* 0x20 */ u32 unk20;
     /* 0x24 */ u32 unk24;
@@ -2256,6 +2264,7 @@ BOOL LONG_CALL ST_ServerWazaHitTokuseiCheck_Old(void*,void*,int *seq_no);
 int LONG_CALL ST_ServerWaruagakiCheck(void *bw, struct BattleStruct *sp, int client_no, int waza_bit, int check_bit);
 struct Save_DexData* LONG_CALL BattleWorkZukanWorkGet(void *bw);
 int LONG_CALL BattleWorkClientSetMaxGet(void*);
+void LONG_CALL BattleSystem_GetBattleMon(void *bsys, struct BattleStruct *ctx, int battlerId, u8 selectedMonIndex);
 u8 LONG_CALL ST_ServerAgiCalc(void*,void*,int ,int,int);
 u16 LONG_CALL GetBattlerSelectedMove(void*,int);
 BOOL LONG_CALL  ST_ServerNamakeCheck(void*,int);
@@ -3763,6 +3772,7 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 int LONG_CALL ov12_022506D4(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 move, int a4, int a5);
 
 void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
+void LONG_CALL BattleSystem_BufferMessage(struct BattleSystem *bsys, MESSAGE_PARAM *msg);
 
 void LONG_CALL BattleControllerPlayer_ItemInput(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
@@ -4221,6 +4231,7 @@ int LONG_CALL Activate_SteelRoller_IceSpinner(void *bsys UNUSED, struct BattleSt
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);
+void LONG_CALL StringExpandPlaceholders(MessageFormat *messageFormat, String *dest, String *src);
 #endif
 
 #endif // BATTLE_H

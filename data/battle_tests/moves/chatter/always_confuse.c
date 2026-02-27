@@ -1,4 +1,4 @@
-// Test: Soak and Roost no interaction check
+// Test: Chatter - Always confuses
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -20,13 +20,13 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_ROOKIDEE,
+                .species = SPECIES_CHATOT,
                 .level = 50,
                 .form = 0,
                 .ability = ABILITY_KEEN_EYE,
                 .item = ITEM_NONE,
-                .moves = { MOVE_TACKLE, MOVE_ROOST, MOVE_NONE, MOVE_NONE },
-                .hp = 50,
+                .moves = { MOVE_CHATTER, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
@@ -37,12 +37,12 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .enemyParty = { {
-                            .species = SPECIES_MACHOP,
+                            .species = SPECIES_SHUCKLE,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_KEEN_EYE,
+                            .ability = ABILITY_STURDY,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_LOW_KICK, MOVE_SOAK, MOVE_NONE, MOVE_NONE },
+                            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
@@ -55,9 +55,9 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .playerScript = { {
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                              { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
-                              { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
-                              { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                              { ACTION_NONE, 0 },
+                              { ACTION_NONE, 0 },
+                              { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
@@ -75,9 +75,9 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .enemyScript = { {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
-                             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                             { ACTION_NONE, 0 },
+                             { ACTION_NONE, 0 },
+                             { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
@@ -94,11 +94,9 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective..." },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 22, 22, 22, 22, 24, 24, 24, 24, 24, 24, 25, 25, 25, 25, 25, 27 } },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 22, 22, 22, 22, 24, 24, 24, 24, 24, 24, 25, 25, 25, 25, 25, 27 } },
-        } },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle became confused!" },
+        }
+    },
 #ifndef GET_TEST_CASE_ONLY
 };
 #endif
