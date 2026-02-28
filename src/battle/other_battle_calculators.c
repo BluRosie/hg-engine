@@ -2654,6 +2654,61 @@ enum {
 };
 
 
+int LONG_CALL IsMoveSpreadMove(struct BattleStruct *ctx, int move)
+{
+    if ((ctx->moveTbl[move].target == RANGE_ADJACENT_OPPONENTS)
+        || (ctx->moveTbl[move].target == RANGE_ALL_ADJACENT)
+        || (move == MOVE_EXPANDING_FORCE
+            && ctx->terrainOverlay.numberOfTurnsLeft > 0
+            && ctx->terrainOverlay.type == PSYCHIC_TERRAIN)) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+int LONG_CALL IsTargetFoesAndAlly(struct BattleStruct *ctx, int move)
+{
+    if (ctx->moveTbl[move].target == RANGE_ALL_ADJACENT) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+int LONG_CALL CanGetNextDefender(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    if (IsMoveSpreadMove(ctx, ctx->current_move_index)) {
+        switch (ctx->clientLoopForSpreadMoves) {
+        case SPREAD_MOVE_LOOP_ALLY:
+            ctx->clientLoopForSpreadMoves++;
+            if (IsTargetFoesAndAlly(ctx, ctx->current_move_index) && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {
+                ctx->defence_client = BATTLER_ALLY(ctx->attack_client);
+                return TRUE;
+            }
+            FALLTHROUGH;
+        case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
+            ctx->clientLoopForSpreadMoves++;
+            if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
+                ctx->defence_client = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
+                return TRUE;
+            }
+            FALLTHROUGH;
+        case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
+            ctx->clientLoopForSpreadMoves++;
+            if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
+                ctx->defence_client = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
+                return TRUE;
+            }
+            FALLTHROUGH;
+        default:
+            ctx->clientLoopForSpreadMoves++;
+            break;
+        }
+    }
+    return FALSE;
+}
+
+
+
 /**
  * Platinum version as reference
  * BattleController_TryMove
@@ -2683,6 +2738,9 @@ void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx
  * https://github.com/pret/pokeplatinum/blob/04d9ea4cfad3963feafecf3eb0f4adcbc7aa5063/src/battle/battle_controller.c#L3832
  */
 void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx) {
+    ctx->server_seq_no = CONTROLLER_COMMAND_36;
+    return;
+    /*
     if (ctx->server_status_flag2 & BATTLE_STATUS2_MAGIC_COAT) {
         ctx->server_status_flag2 &= ~BATTLE_STATUS2_MAGIC_COAT;
         ctx->defence_client   = ctx->attack_client;
@@ -2740,6 +2798,7 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
     } else {
         ctx->server_seq_no = CONTROLLER_COMMAND_36;
     }
+        */
 }
 
 /**
@@ -3953,7 +4012,8 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys, struct Bat
 {
     int ret = FALSE;
 
-    for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
+    int battler = sp->defence_client;
+    //for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
         int itemHoldEffect = HeldItemHoldEffectGet(sp, battler);
 
         switch (itemHoldEffect) {
@@ -3971,7 +4031,7 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys, struct Bat
         }
         case HOLD_EFFECT_ENDURE: // Focus Sash //will only be triggered for multi hit moves
         {
-            if (sp->oneSelfFlag[battler].prevent_one_hit_ko_item && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + sp->hit_damage /*negative value*/) == 1) {
+            if (sp->oneSelfFlag[battler].prevent_one_hit_ko_item && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + sp->damageForSpreadMoves[battler] /*negative value*/) == 1) {
                 sp->battlerIdTemp = battler;
                 sp->item_work = sp->battlemon[battler].item;
                 sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
@@ -3999,10 +4059,10 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys, struct Bat
                 
         }
         */
-        if (ret) {
-            break;
-        }
-    }
+   //     if (ret) {
+   //         break;
+  //      }
+  //  }
 
     return ret;
 }
@@ -4137,15 +4197,9 @@ int LONG_CALL Activate_Rowap_Jaboca(void *bsys, struct BattleStruct *ctx)
 
 int LONG_CALL Activate_Incinerate(void *bsys, struct BattleStruct *ctx)
 {
-    ctx->swoak_work = ctx->defence_client;
-    // TODO for loop is for simultaneous damage
-    // for ( ; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++)
-    // for (ctx->swoak_work = 0; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++) {
-    //    int client_no = ctx->turnOrder[ctx->swoak_work];
-    int client_no = ctx->swoak_work;
-    if (client_no == ctx->attack_client
-        || (CheckSubstitute(ctx, client_no) == TRUE)
-        || ctx->oneSelfFlag[client_no].special_damage == 0) {
+    if (ctx->current_move_index != MOVE_INCINERATE
+        || (CheckSubstitute(ctx, ctx->defence_client) == TRUE)
+        || ctx->oneSelfFlag[ctx->defence_client].special_damage == 0) {
         return FALSE;
     }
 
@@ -4800,7 +4854,6 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
         int client_no = ctx->turnOrder[ctx->swoak_work];
         int itemHeldEffect = HeldItemHoldEffectGet(ctx, client_no);
         switch (itemHeldEffect) {
-            //TODO switching works once
         case HOLD_EFFECT_SWITCH_OUT_WHEN_HIT: // Eject Button
             // Defender is alive after the attack
             if ((ctx->battlemon[client_no].hp)

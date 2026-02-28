@@ -132,6 +132,15 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
         }
+
+        if (CanGetNextDefender(bsys, ctx) == TRUE) {
+            ctx->server_seq_no = CONTROLLER_COMMAND_31;
+            return;
+        } else {
+            ctx->clientLoopForSpreadMoves = 0;
+            CanGetNextDefender(bsys, ctx);
+        }
+
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     }
@@ -148,15 +157,31 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_9_1_SECONDARY_EFFECTS\n");
 #endif
 
-        ctx->swoam_seq_no++;
+        
         int seq_no = 0;
+        //TODO hook and simplify logic for flags
+        u32 indirectStatusEffectFlag = ctx->add_status_flag_indirect;
+        ctx->swoam_seq_no++;
         if ((ST_ServerAddStatusCheck(bsys, ctx, &seq_no) == TRUE) && ((ctx->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0)) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            ctx->add_status_flag_indirect = indirectStatusEffectFlag;
             return;
         }
     }
+        FALLTHROUGH;
+    case MOVE_PERFORMANCE_STEP_9_1_1_SECONDARY_EFFECTS_SPREAD_MOVES_LOOP_BACK:
+        if (CanGetNextDefender(bsys, ctx) == TRUE) {
+            ctx->server_seq_no = CONTROLLER_COMMAND_31;
+            ctx->swoam_seq_no = MOVE_PERFORMANCE_STEP_9_1_SECONDARY_EFFECTS;
+            return;
+        } else {
+            ctx->clientLoopForSpreadMoves = 0;
+            CanGetNextDefender(bsys, ctx);
+        }
+        ctx->add_status_flag_indirect = 0;
+        ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_9_2_FLAME_BURST:
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
@@ -182,8 +207,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         // https://github.com/pret/pokeheartgold/blob/f20f85b627d0ba2b208d8e33181cab27d5d1508f/src/battle/battle_controller_player.c#L3802C13-L3802C25
-        ctx->swoam_seq_no++;
-        // TODO loop through all hit battlers instead of defence_client
         if (ServerIkariCheck(bsys, ctx) == TRUE) { // TODO: rename to TryBuildRage, hook, checks only defence_client currently
             return;
         }
@@ -206,7 +229,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
         ctx->swoam_seq_no++;
         int seq_no = 0;
-        // TODO loop through all hit battlers instead of defence_client
         if (MoveHitAttackerAbilityCheck(bsys, ctx, &seq_no) == TRUE) // TODO: move out Moxie,etc
         {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
@@ -223,7 +245,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 
         ctx->swoam_seq_no++;
         int seq_no = 0;
-        // TODO loop through all hit battlers instead of defence_client
         if (MoveHitDefenderAbilityCheck(bsys, ctx, &seq_no) == TRUE) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -278,38 +299,45 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_10_10_INCINERATE\n");
 #endif
-        // TODO needed?
         ctx->swoam_seq_no++;
-        if (Activate_Incinerate(bsys, ctx) == TRUE) { //TODO loop over all defenders
+        if (Activate_Incinerate(bsys, ctx) == TRUE) {
             return;
         }
         ctx->swoak_work = 0;
-        //ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_11_DEFENDER_ITEMS_2_JABOCA_ROWAP:
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_10_11_DEFENDER_ITEMS_2_JABOCA_ROWAP\n");
 #endif
         ctx->swoam_seq_no++;
-        if (Activate_Rowap_Jaboca(bsys, ctx) == TRUE) {//TODO loop over all defenders
+        if (Activate_Rowap_Jaboca(bsys, ctx) == TRUE) {
             return;
         }
         ctx->swoak_work = 0;
-        //ctx->swoam_seq_no++; //TODO
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_12_DISGUISE_ICE_FACE:
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_10_12_DISGUISE_ICE_FACE\n");
 #endif
-        // TODO loop over all battlers
-        
+
         if (Activate_Disguise_IceFace(bsys, ctx) == TRUE) {
             return;
         }
+
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_13_PROTECTION_FROM_Z_MOVE:
         // TODO
+
+        if (CanGetNextDefender(bsys, ctx) == TRUE) {
+            ctx->server_seq_no = CONTROLLER_COMMAND_31;
+            ctx->swoam_seq_no = MOVE_PERFORMANCE_STEP_10_0_CORE_ENFORCER; //loop back
+            return;
+        } else {
+            ctx->clientLoopForSpreadMoves = 0;
+            CanGetNextDefender(bsys, ctx);
+        }
+
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_11_0_FAINTING:
@@ -362,7 +390,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 
         // TODO confirm
         if (ctx->multiHitCount > 0) {
-            if (TryUseHeldItem(bsys, ctx, ctx->defence_client) == TRUE) { // will eventually need TryUseHeldItem anyway.  generic berry function thing
+            if (TryUseHeldItem(bsys, ctx, ctx->defence_client) == TRUE) {
                 return;
             }
         }
@@ -444,7 +472,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_17_0_DEFENDER_ITEMS_3\n");
 #endif
-        // TODO
         if (Activate_KeeMarangaBerry_RedCard_EjectButton(bsys, ctx) == TRUE)
         {
             return;
@@ -784,27 +811,28 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 }*/
 
 
-int ActivateDefenderItems4(void *bsys, struct BattleStruct *sp)
+int ActivateDefenderItems4(void *bsys, struct BattleStruct *ctx)
 {
-    for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) // TODO loop over defender only?
+    for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++)
     {
-        if (TryUseHeldItem(bsys, sp, battler) == TRUE) {
-            return TRUE;
+        int client_no = ctx->turnOrder[battler];
+        if (client_no != ctx->attack_client)
+        {
+            if (TryUseHeldItem(bsys, ctx, client_no) == TRUE) {
+                return TRUE;
+            }
         }
     }
     return FALSE;
 }
 
-int ShowDamageReductionBerryMessage(void* bsys, struct BattleStruct* sp) //speed order?
+int ShowDamageReductionBerryMessage(void* bsys, struct BattleStruct* sp)
 {
-    int battler = sp->defence_client; // TODO loop over all hit battlers instead of defence_client
-    //for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++)
     {
-        if (battler != sp->attack_client
-            && (GetMoveSplit(sp, sp->current_move_index) != SPLIT_STATUS))
+        if ((GetMoveSplit(sp, sp->current_move_index) != SPLIT_STATUS))
         {
-            sp->item_work = GetBattleMonItem(sp, battler);
-            sp->battlerIdTemp = battler;
+            sp->item_work = GetBattleMonItem(sp, sp->defence_client);
+            sp->battlerIdTemp = sp->defence_client;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE);
             sp->next_server_seq_no = sp->server_seq_no;
             sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;

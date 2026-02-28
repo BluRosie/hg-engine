@@ -829,10 +829,31 @@ BOOL LONG_CALL MoveHitDefenderCottonDownCheck(void* bw UNUSED, struct BattleStru
  *  @param bw battle work structure
  *  @param sp global battle structure
  */
-void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
+void ServerWazaOutAfterMessage(void *bsys, struct BattleStruct *ctx)
 {
-    sp->swoam_seq_no = 0;
-    sp->server_seq_no = CONTROLLER_COMMAND_31;
+    if (ctx->server_status_flag2 & BATTLE_STATUS2_MAGIC_COAT) {
+        ctx->server_status_flag2 &= ~BATTLE_STATUS2_MAGIC_COAT;
+        ctx->defence_client = ctx->attack_client;
+        ctx->attack_client = ctx->magic_cort_client;
+    }
+    debug_printf("ServerWazaOutAfterMessage: attacker %d, defender %d, moveStatus %d\n", ctx->attack_client, ctx->defence_client, ctx->waza_status_flag);
+    debug_printf("ServerWazaOutAfterMessage: clientloopspread %d\n", ctx->clientLoopForSpreadMoves);
+    debug_printf("ServerWazaOutAfterMessage: damage %d, hitdamage %d. spreaddamage %d\n", ctx->damage, ctx->hit_damage, ctx->damageForSpreadMoves[ctx->defence_client]);
+
+
+    ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = ctx->waza_status_flag;
+    ctx->damageForSpreadMoves[ctx->defence_client] = ctx->damage;
+    ctx->serverStatusForSpreadMoves[ctx->defence_client] = ctx->server_status_flag;
+
+    ctx->server_seq_no = CONTROLLER_COMMAND_31;
+    if (CanGetNextDefender(bsys, ctx) == TRUE) {
+        ctx->server_seq_no = CONTROLLER_COMMAND_24;
+    } else {
+        ctx->clientLoopForSpreadMoves = 0;
+        CanGetNextDefender(bsys, ctx);
+    }
+
+    ctx->swoam_seq_no = 0;
     return;
     /*
     switch(sp->swoam_type)
