@@ -441,10 +441,19 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_15_8_THAW_FROM_FIRE_MOVE\n");
 #endif
 
-        // TODO loop over all battlers
         if (ThawTarget_FromFireMove_Scald(bsys, ctx) == TRUE) {
             return;
         }
+
+        if (CanGetNextDefender(bsys, ctx) == TRUE) {
+            ctx->server_seq_no = CONTROLLER_COMMAND_31;
+            return;
+        } else {
+            ctx->clientLoopForSpreadMoves = 0;
+            CanGetNextDefender(bsys, ctx);
+        }
+
+        ctx->swoam_seq_no++;
     }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE: //speed order
@@ -461,12 +470,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_16_1_BERSERK_COLOR_CHANGE\n");
 #endif
 
-        // TODO
-        ctx->swoam_seq_no++;
         if (Activate_Berserk_AngerShell_ColorChange(bsys, ctx) == TRUE)
         {
             return;
         }
+        ctx->swoak_work = 0;
+        ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_17_0_DEFENDER_ITEMS_3: //speed order
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
@@ -527,7 +536,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_23_0_U_TURN_VOLT_SWITCH\n");
 #endif
-        // TODO consolidate switch with others
+
         ctx->swoam_seq_no++;
         if (Activate_Switch(bsys, ctx) == TRUE) {
             return;
@@ -621,13 +630,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_28_0_WHITE_HERB_MIRROR_HERB_EJECT_PACK\n");
 #endif
 
-        // TODO
         if (Activate_MirrorHerb_WhiteHerb_EjectPack(bsys, ctx) == TRUE) {
             return;
         }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_29_0_RESOLVE_PENDING_SWITCH: // send out new mon? //TODO rename after we get a better translation
+    case MOVE_PERFORMANCE_STEP_29_0_RESOLVE_PENDING_SWITCH:
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_29_0_RESOLVE_PENDING_SWITCH\n");
 #endif
