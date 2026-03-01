@@ -4883,7 +4883,7 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
                     || (ctx->oneSelfFlag[client_no].special_damage))
                 && ctx->multiHitCount <= 1) {
-                ctx->state_client = ctx->defence_client; //store real defender
+                ctx->state_client = client_no; //store real defender
                 ctx->defence_client = ctx->attack_client;
                 ctx->attack_client = ctx->state_client;
                 ctx->battlerIdTemp = client_no;
