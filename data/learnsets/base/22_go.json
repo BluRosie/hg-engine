@@ -13686,8 +13686,8 @@
         "MachineMoves": [
             "MOVE_AERIAL_ACE",
             "MOVE_BRAVE_BIRD",
-            "MOVE_CLOSE_COMBAT",
             "MOVE_DOUBLE_KICK",
+            "MOVE_UPPER_HAND",
             "MOVE_WING_ATTACK"
         ],
         "EggMoves": [],
