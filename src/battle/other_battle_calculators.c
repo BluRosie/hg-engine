@@ -4849,14 +4849,21 @@ int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bsys, struct BattleS
 
 int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct BattleStruct *ctx)
 {
-    for (; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ctx->swoak_work++) {
+    for (; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys); ) {
         int client_no = ctx->turnOrder[ctx->swoak_work];
+        ctx->swoak_work++;
+        if (ctx->battlemon[client_no].hp == 0
+            || CheckSubstitute(ctx, client_no) == TRUE
+            || ((ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) != 0)
+            || ((ctx->server_status_flag & SERVER_STATUS_FLAG_x20) != 0)) {
+            continue;
+        }
+
         int itemHeldEffect = HeldItemHoldEffectGet(ctx, client_no);
         switch (itemHeldEffect) {
         case HOLD_EFFECT_SWITCH_OUT_WHEN_HIT: // Eject Button
             // Defender is alive after the attack
-            if ((ctx->battlemon[client_no].hp)
-                && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+            if ((ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
                     || (ctx->oneSelfFlag[client_no].special_damage))
@@ -4876,7 +4883,6 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
             // Atacker, Defender is alive after the attack
             if (ctx->attack_client != BATTLER_NONE
                 && ctx->battlemon[ctx->attack_client].hp
-                && ctx->battlemon[client_no].hp
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
                 // Damage was dealt
@@ -4898,10 +4904,8 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
 
             // gen6 effects
         case HOLD_EFFECT_BOOST_DEF_ON_PHYSICAL_HIT: // Kee Berry
-            // Defender is alive after the attack
-            if ((ctx->battlemon[ctx->attack_client].hp)
-                // Attacker dealt physical damage
-                && (ctx->oneSelfFlag[client_no].physical_damage)
+            if ( // Attacker dealt physical damage
+                 (ctx->oneSelfFlag[client_no].physical_damage)
                 // Defender has less than +6 stages to Defense
                 && ((ctx->battlemon[client_no].states[STAT_DEFENSE] < 12)
                     // Or the defender has Contrary and more than -6 stages to Defense
@@ -4917,10 +4921,8 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
             break;
 
         case HOLD_EFFECT_BOOST_SPDEF_ON_SPECIAL_HIT: // Maranga Berry
-            // Defender is alive after the attack
-            if ((ctx->battlemon[ctx->attack_client].hp)
-                // Attacker dealt special damage
-                && (ctx->oneSelfFlag[client_no].special_damage)
+            if (// Attacker dealt special damage
+                (ctx->oneSelfFlag[client_no].special_damage)
                 // Defender has less than +6 stages to Special Defense
                 && ((ctx->battlemon[client_no].states[STAT_SPDEF] < 12)
                     // Or the defender has Contrary and more than -6 stages to Special Defense
@@ -4947,8 +4949,8 @@ int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct 
 {
     for (; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys);)
     {
-        ctx->swoak_work++;
         int client_no = ctx->turnOrder[ctx->swoak_work];
+        ctx->swoak_work++;
         if (client_no == ctx->attack_client
             || (ctx->battlemon[client_no].hp == 0)
             || (CheckSubstitute(ctx, client_no) == TRUE)
