@@ -345,7 +345,8 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         // TODO
-        if (CheckIfAnyoneShouldFaint(ctx, ctx->server_seq_no, ctx->server_seq_no, 1) == TRUE) {
+        if (CheckIfAnyoneShouldFaint(ctx, ctx->server_seq_no, ctx->server_seq_no, 0/*check grudge/destiny bond*/) == TRUE) {
+            Activate_KO_Count(bsys, ctx);
             return;
         }
         ctx->swoam_seq_no++;

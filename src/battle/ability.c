@@ -332,64 +332,6 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, in
                 ret = TRUE;
             }
             break;
-        case ABILITY_BEAST_BOOST:
-            if ((sp->defence_client == sp->fainting_client)
-                && BATTLERS_ON_DIFFERENT_SIDE(sp->attack_client, sp->fainting_client)
-                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-                && (sp->battlemon[sp->attack_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-            {
-                u8 stat = BeastBoostGreatestStatHelper(sp, sp->attack_client);
-
-                if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK + stat] < 12)
-                    && (sp->battlemon[sp->attack_client].moveeffect.fakeOutCount != (sp->total_turn + 1)))
-                {
-                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
-                }
-            }
-            break;
-        case ABILITY_CHILLING_NEIGH:
-        case ABILITY_AS_ONE_GLASTRIER:
-        case ABILITY_MOXIE:
-            if ((sp->defence_client == sp->fainting_client)
-                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-                && (sp->battlemon[sp->attack_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-            {
-
-                if (sp->battlemon[sp->attack_client].states[STAT_ATTACK] < 12)
-                {
-                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
-                }
-            }
-            break;
-        case ABILITY_GRIM_NEIGH:
-        case ABILITY_AS_ONE_SPECTRIER:
-            if ((sp->defence_client == sp->fainting_client)
-                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-                && (sp->battlemon[sp->attack_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-            {
-
-                if (sp->battlemon[sp->attack_client].states[STAT_SPATK] < 12)
-                {
-                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
-                }
-            }
-            break;
-        case ABILITY_BATTLE_BOND:
-            if ((sp->defence_client == sp->fainting_client)
-                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-                && (sp->battlemon[sp->attack_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-            {
-
-                if (sp->battlemon[sp->attack_client].species == SPECIES_GRENINJA && sp->battlemon[sp->attack_client].form_no == 1)
-                {
-                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
-                }
-            }
-            break;
         default:
             break;
     }

@@ -4231,7 +4231,7 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ct
 int LONG_CALL Activate_BurnUp_DoubleShock(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_SteelRoller_IceSpinner(void *bsys UNUSED, struct BattleStruct *ctx);
 
-
+int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys UNUSED, struct BattleStruct *ctx);
 
 int LONG_CALL IsMoveSpreadMove(struct BattleStruct *ctx, int move);
 int LONG_CALL IsTargetFoesAndAlly(struct BattleStruct *ctx, int move);

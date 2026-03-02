@@ -4657,7 +4657,8 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys UNUSED, struct BattleS
 {
     if (ctx->attack_client == BATTLER_NONE)
         return FALSE;
-    //TODO loop over all battlers? speed order
+
+    //TODO Magician in speed order?
     switch (GetBattlerAbility(ctx, ctx->attack_client)) {
     case ABILITY_BEAST_BOOST:
         if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
@@ -4880,7 +4881,7 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
             break;
 
         case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE: // Red Card
-            // Atacker, Defender is alive after the attack
+            // Attacker, Defender is alive after the attack
             if (ctx->attack_client != BATTLER_NONE
                 && ctx->battlemon[ctx->attack_client].hp
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
@@ -5211,4 +5212,39 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
     }
 
     return FALSE;
+}
+
+void LONG_CALL Activate_KO_Count(void *bsys, struct BattleStruct *ctx)
+{
+    if (ctx->attack_client == BATTLER_NONE || (ctx->battlemon[ctx->attack_client].hp == 0)) {
+        return;
+    }
+
+    if ((ctx->fainting_client != BATTLER_NONE)
+        && ((ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+        && ((ctx->oneSelfFlag[ctx->fainting_client].special_damager == ctx->attack_client)
+            || (ctx->oneSelfFlag[ctx->fainting_client].physical_damager == ctx->attack_client)))
+    {
+        switch (GetBattlerAbility(ctx, ctx->attack_client))
+        {
+        case ABILITY_BATTLE_BOND:
+            {
+                if (ctx->battlemon[ctx->attack_client].species != SPECIES_GRENINJA || ctx->battlemon[ctx->attack_client].form_no != 1)
+                    break; 
+            }
+            FALLTHROUGH;
+        case ABILITY_BEAST_BOOST:
+        case ABILITY_CHILLING_NEIGH:
+        case ABILITY_AS_ONE_GLASTRIER:
+        case ABILITY_MOXIE: //TODO jpwiki says it works on allies, Aero says it doesnt
+        case ABILITY_GRIM_NEIGH:
+        case ABILITY_AS_ONE_SPECTRIER:
+            {
+                ctx->oneTurnFlag[ctx->attack_client].numberOfKOs++;
+            }
+            break;
+        default:
+            break;
+        }
+    }
 }
