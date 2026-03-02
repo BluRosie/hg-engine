@@ -4066,6 +4066,18 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys, struct Bat
 
     return ret;
 }
+
+int LONG_CALL Activate_Clearsmog(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    if (ctx->current_move_index == MOVE_CLEAR_SMOG) {
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_CLEAR_SMOG);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
+    }
+    return FALSE;
+}
+
 int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp)
 {
     sp->swoak_work = sp->defence_client;
@@ -5193,6 +5205,7 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
             return TRUE;
         }
         break;
+    case MOVE_EFFECT_SHED_TAIL:
     case MOVE_EFFECT_PARTING_SHOT:
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0

@@ -74,7 +74,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         ctx->swoam_seq_no++;
-
+        
         if (ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) {
             ctx->fainting_client = ctx->attack_client; // No2Bit((ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) >> BATTLE_STATUS_SELFDESTRUCTED_SHIFT);
             ctx->server_status_flag &= ~BATTLE_STATUS_SELFDESTRUCTED;
@@ -83,7 +83,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
         }
-
+        
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_4_DEAL_DAMAGE:
         // TODO
@@ -212,8 +212,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_2_CLEAR_SMOG:
-        // TODO
         ctx->swoam_seq_no++;
+        if (Activate_Clearsmog(bsys, ctx) == TRUE) {
+            return;
+        }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_10_3_GRUDGE:
         // TODO
@@ -542,7 +544,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_24_0_PICKPOCKET\n");
 #endif
-        // TODO loop over all battlers
         ctx->swoam_seq_no++;
         if (Activate_Pickpocket(bsys, ctx) == TRUE)
         {
