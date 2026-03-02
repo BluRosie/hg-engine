@@ -72,9 +72,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_3_EXPLOSION_USER_FAINTS %d\n", ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED);
 #endif
-        // TODO once simultaneous damge is in
+
         ctx->swoam_seq_no++;
-        /*
+
         if (ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) {
             ctx->fainting_client = ctx->attack_client; // No2Bit((ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) >> BATTLE_STATUS_SELFDESTRUCTED_SHIFT);
             ctx->server_status_flag &= ~BATTLE_STATUS_SELFDESTRUCTED;
@@ -83,7 +83,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
         }
-        */
+
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_4_DEAL_DAMAGE:
         // TODO
