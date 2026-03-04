@@ -4212,6 +4212,7 @@ int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_FlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_Rowap_Jaboca(void *bw, struct BattleStruct *sp);
 int LONG_CALL Activate_Incinerate(void *bw, struct BattleStruct *sp);
+void LONG_CALL Activate_KO_Count(void *bw, struct BattleStruct *sp);
 int LONG_CALL ThawTarget_FromFireMove_Scald(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_ThroatSpray_BlunderPolicy(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *ctx);

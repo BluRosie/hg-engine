@@ -96,8 +96,8 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 80, 80, 80, 84, 84, 84, 86, 86, 86, 90, 90, 90, 92, 92, 92, 96 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_RAISED_STAT },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HELD_ITEM_HP_RESTORE },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Drampa's Berserk raised its Sp. Atk!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Drampa restored its health using its Sitrus Berry!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 67, 67, 69, 69, 70, 70, 72, 72, 73, 73, 75, 75, 76, 76, 78, 79 } },
         }
     },

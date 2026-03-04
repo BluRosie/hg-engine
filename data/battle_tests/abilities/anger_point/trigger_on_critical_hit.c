@@ -36,7 +36,8 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
+            { .species = SPECIES_NONE }
+        },
         .enemyParty = {
             {
                 .species = SPECIES_TAUROS,
@@ -54,7 +55,8 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
+            { .species = SPECIES_NONE }
+        },
         .playerScript = {
             {
               { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
@@ -75,7 +77,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
+            }
+        },
         .enemyScript = {
             {
                  { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
@@ -96,9 +99,10 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
+            }
+        },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_RAISED_STAT_DRASTICALLY },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Tauros's Anger Point raised its Attack drastically!" },
         }
     },
 #ifndef GET_TEST_CASE_ONLY

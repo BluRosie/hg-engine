@@ -94,7 +94,7 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_BERRY_WEAKENED_SE_MOVE }, 
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Tanga Berry weakened the damage to the opposing Meganium!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

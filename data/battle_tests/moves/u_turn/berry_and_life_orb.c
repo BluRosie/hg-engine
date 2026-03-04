@@ -107,10 +107,10 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 56, 58, 58, 58, 60, 60, 60, 62, 62, 62, 64, 64, 64, 66, 66, 68 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HELD_ITEM_HP_RESTORE }, 
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_WENT_BACK_TO }, 
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ferroseed's Iron Barbs hurt the opposing Beedrill!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Beedrill lost some of its HP!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Beedrill went back to" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ferroseed restored its health using its Sitrus Berry!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

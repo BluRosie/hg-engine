@@ -96,10 +96,10 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_FELL_ASLEEP },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HELD_ITEM_HEAL_SLP },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_FELL_ASLEEP },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_FORBIDS_STATUS },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno fell asleep!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno's Chesto Berry woke it up!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno fell asleep!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno cured its sleep status with its Insomnia!" },
         }
     },
 #ifndef GET_TEST_CASE_ONLY

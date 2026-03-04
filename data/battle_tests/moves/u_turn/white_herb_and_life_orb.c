@@ -106,11 +106,12 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 32, 32, 32, 32, 32, 35, 35, 35, 35, 35, 36, 36, 36, 36, 36, 39 } },
-            // TODO weak armor message       
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_WENT_BACK_TO },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_RESTORED_STATS_DROP },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Onix's Weak Armor cut its Defense!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Onix's Weak Armor raised its Speed sharply!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Beedrill lost some of its HP!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Beedrill went back to" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Onix returned its stats to normal using its White Herb!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Litten's Intimidate cuts Onix's Attack!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

@@ -118,10 +118,10 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 56, 58, 58, 58, 60, 60, 60, 62, 62, 62, 64, 64, 64, 66, 66, 68 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SWITCHED_BY_ITEM },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Ferroseed's Iron Barbs hurt Beedrill!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Ferroseed is switched out with the Eject Button!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beedrill lost some of its HP!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Litten's Intimidate cuts Beedrill's Attack!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

@@ -105,10 +105,10 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ITEM_HURT_BACK },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_WAS_DRAGGED_OUT },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Throh is hurt by the opposing Beedrill's Rocky Helmet!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Litten was dragged out!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Litten's Intimidate cuts Throh's Attack!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Throh lost some of its HP!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

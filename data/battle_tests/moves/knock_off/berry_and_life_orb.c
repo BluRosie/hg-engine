@@ -99,8 +99,8 @@ const struct TestBattleScenario BattleTests[] = {
             //{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_POISON_TOUCH },        
             //{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_LUM_BERRY },     
             // TODO weak armor message
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },        
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sneasler lost some of its HP!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sneasler lost some of its HP!" },
         },
         .knownFailing = TRUE,
     },

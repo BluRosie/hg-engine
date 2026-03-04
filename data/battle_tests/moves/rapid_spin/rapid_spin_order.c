@@ -95,10 +95,10 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_STAT_RAISED },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_BLEW_AWAY_HAZARDS },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem's Speed rose!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Golem!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem blew away Spikes!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem lost some of its HP!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

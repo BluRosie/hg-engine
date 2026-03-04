@@ -96,9 +96,9 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 82, 83, 83, 86, 86, 87, 87, 90, 90, 91, 91, 94, 94, 95, 95, 97 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_HURT_ON_HIT },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_WOKE_UP },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_LIFE_ORB_DAMAGE },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Iron Barbs hurt Hariyama!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium woke up!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hariyama lost some of its HP!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY
