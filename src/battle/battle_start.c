@@ -33,6 +33,8 @@
  */
 struct BattleStruct *ServerInit(struct BattleSystem *bw) {
     struct BattleStruct *sp;
+    struct Party *party;
+    int i;
 
     sp = sys_AllocMemory(HEAPID_BATTLE_HEAP, sizeof(struct BattleStruct));
     memset(sp, 0, sizeof(struct BattleStruct));
@@ -41,16 +43,25 @@ struct BattleStruct *ServerInit(struct BattleSystem *bw) {
     ServerMoveAIInit(bw, sp);
     DumpMoveTableData(&sp->moveTbl[0]);
     sp->aiWorkTable.item = ItemDataTableLoad(HEAPID_BATTLE_HEAP);
+    party = SaveData_GetPlayerPartyPtr(SaveBlock2_get());
 
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
 
     // store items for the player's party in sp so we can restore them at the end
-    struct Party *party = SaveData_GetPlayerPartyPtr(SaveBlock2_get());
-    for (int i = 0; i < party->count; i++) {
+    for (i = 0; i < party->count; i++) {
         newBS.itemsToRestore[i] = GetMonData(Party_GetMonByIndex(party, i), MON_DATA_HELD_ITEM, NULL);
     }
 
 #endif  // RESTORE_ITEMS_AT_BATTLE_END
+
+    // Safety net: ensure all baby species in the player's party are marked before battle begins.
+    for (i = 0; i < party->count; i++) {
+        TrySetBabyBondRibbon(Party_GetMonByIndex(party, i));
+    }
+
+    for (i = 0; i < CLIENT_MAX; i++) {
+        newBS.bondBandUsed[i] = 0;
+    }
 
     sp->original_terrain = bw->terrain;
     sp->original_bgId = bw->bgId;

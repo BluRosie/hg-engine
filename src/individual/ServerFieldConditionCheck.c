@@ -14,6 +14,7 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
+#include "../../include/exp_contribution.h"
 
 enum EndTurnResolutionOrder {
     ENDTURN_WEATHER_SUBSIDING,
@@ -758,6 +759,10 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     && (GetBattlerAbility(sp, battlerId) != ABILITY_MAGIC_GUARD && sp->battlemon[battlerId].hp != 0)) {
                         sp->attack_client_work = sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_LEECH_SEED_BATTLER;
                         sp->defence_client_work = battlerId;
+#ifdef IMPLEMENT_RESULT_BASED_EXP
+                        u32 leechSeedDamage = BattleDamageDivide(sp->battlemon[battlerId].maxhp, 8);
+                        ExpContrib_RecordResidualDamage(bw, sp, sp->attack_client_work, battlerId, leechSeedDamage);
+#endif
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LEECH_SEED_DAMAGE);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
@@ -912,6 +917,11 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         sp->binding_turns[battlerId]--;
                         if (sp->binding_turns[battlerId]) {
                             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, 8);
+#ifdef IMPLEMENT_RESULT_BASED_EXP
+                            u32 sourceBattler = sp->battlemon[battlerId].moveeffect.battlerIdBinding;
+                            u32 trapDamage = (u32)(sp->hp_calc_work * -1);
+                            ExpContrib_RecordResidualDamage(bw, sp, sourceBattler, battlerId, trapDamage);
+#endif
                             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CLAMP_DAMAGE);
                         } else {
                             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CLAMP_END);
@@ -1769,6 +1779,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->updateMonConditionData].maxhp * -1, 8); // 1/8 health drop, can probably put binding band in here too soon
 #ifdef DEBUG_ENDTURN_LOGIC
                                             debug_printf("\n\nhp_calc_work: %d\n\n", sp->hp_calc_work);
+#endif
+#ifdef IMPLEMENT_RESULT_BASED_EXP
+                                            ExpContrib_RecordResidualDamage(bw, sp, battlerId, sp->updateMonConditionData, (u32)(sp->hp_calc_work * -1));
 #endif
                                             sp->server_status_flag |= BATTLE_STATUS_NO_BLINK;
                                             sp->attack_client = battlerId;

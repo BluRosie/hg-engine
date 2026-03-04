@@ -1,25 +1,25 @@
-#include "../include/types.h"
+#include "../include/pokemon.h"
+
 #include "../include/bag.h"
 #include "../include/battle.h"
 #include "../include/config.h"
-#include "../include/debug.h"
-#include "../include/overlay.h"
-#include "../include/pokemon.h"
-#include "../include/rtc.h"
-#include "../include/save.h"
-#include "../include/script.h"
-#include "../include/sound.h"
 #include "../include/constants/ability.h"
 #include "../include/constants/file.h"
 #include "../include/constants/game.h"
+#include "../include/constants/generated/learnsets.h"
 #include "../include/constants/hold_item_effects.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/sndseq.h"
 #include "../include/constants/species.h"
 #include "../include/constants/weather_numbers.h"
-#include "../include/constants/generated/learnsets.h"
-
+#include "../include/debug.h"
+#include "../include/overlay.h"
+#include "../include/rtc.h"
+#include "../include/save.h"
+#include "../include/script.h"
+#include "../include/sound.h"
+#include "../include/types.h"
 
 extern u32 word_to_store_form_at;
 // [preevo] = {species, form}, [postevo] = {species, form},
@@ -42,13 +42,11 @@ BOOL LONG_CALL GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8
 
     word_to_store_form_at = form_no;
 
-    if (form_no != 0)
-    {
+    if (form_no != 0) {
         u16 newSpecies;
-        ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons_no + form_no-1), sizeof(u16));
+        ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (32 * mons_no + form_no - 1), sizeof(u16));
         newSpecies &= ~(NEEDS_REVERSION);
-        if (newSpecies != 0)
-        {
+        if (newSpecies != 0) {
             picdata->arc_no = ARC_MON_PIC;
             picdata->index_chr = (newSpecies) * 6 + dir;
             picdata->index_pal = (newSpecies) * 6 + 4 + col;
@@ -61,15 +59,18 @@ BOOL LONG_CALL GetOtherFormPic(MON_PIC *picdata, u16 mons_no, u8 dir, u8 col, u8
 void SetPartyPokemonParamsForEvoCutscene(struct PartyPokemon *mon, u16 *targetSpecies, BOOL clearEvoStructure)
 {
     u32 form = 0;
-    if (gEvolutionSceneOverride[0][0] == *targetSpecies)
+    if (gEvolutionSceneOverride[0][0] == *targetSpecies) {
         form = gEvolutionSceneOverride[0][1];
-    else if (gEvolutionSceneOverride[1][0] == *targetSpecies)
+    } else if (gEvolutionSceneOverride[1][0] == *targetSpecies) {
         form = gEvolutionSceneOverride[1][1];
+    }
     SetMonData(mon, MON_DATA_SPECIES, targetSpecies);
-    if (form)
+    if (form) {
         SetMonData(mon, MON_DATA_FORM, &form);
-    if (clearEvoStructure)
+    }
+    if (clearEvoStructure) {
         memset(gEvolutionSceneOverride, 0, sizeof(gEvolutionSceneOverride));
+    }
 }
 
 /**
@@ -81,48 +82,40 @@ void SetPartyPokemonParamsForEvoCutscene(struct PartyPokemon *mon, u16 *targetSp
  */
 int LONG_CALL PokeOtherFormMonsNoGet(int mons_no, int form_no)
 {
-    switch (mons_no)
-    {
+    switch (mons_no) {
     case SPECIES_DEOXYS:
-        if ((form_no) && (form_no <= 3))
-        {
+        if ((form_no) && (form_no <= 3)) {
             mons_no = 495 + form_no;
         }
         break;
     case SPECIES_WORMADAM:
-        if ((form_no) && (form_no <= 2))
-        {
+        if ((form_no) && (form_no <= 2)) {
             mons_no = 498 + form_no;
         }
         break;
 
     case SPECIES_GIRATINA:
-        if ((form_no) && (form_no <= 1))
-        {
+        if ((form_no) && (form_no <= 1)) {
             mons_no = 500 + form_no;
         }
         break;
     case SPECIES_SHAYMIN:
-        if ((form_no) && (form_no <= 1))
-        {
+        if ((form_no) && (form_no <= 1)) {
             mons_no = 501 + form_no;
         }
         break;
     case SPECIES_ROTOM:
-        if ((form_no) && (form_no <= 5))
-        {
+        if ((form_no) && (form_no <= 5)) {
             mons_no = 502 + form_no;
         }
         break;
 
     default:;
-        if (form_no != 0)
-        {
+        if (form_no != 0) {
             u16 newSpecies;
-            ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons_no + form_no-1), sizeof(u16));
+            ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (32 * mons_no + form_no - 1), sizeof(u16));
             newSpecies &= ~(NEEDS_REVERSION);
-            if (newSpecies != 0)
-            {
+            if (newSpecies != 0) {
                 mons_no = newSpecies;
                 break;
             }
@@ -141,13 +134,11 @@ int LONG_CALL PokeOtherFormMonsNoGet(int mons_no, int form_no)
  */
 u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
 {
-    if (form_no != 0)
-    {
+    if (form_no != 0) {
         u16 newSpecies;
-        ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons_no + form_no-1), sizeof(u16));
+        ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (32 * mons_no + form_no - 1), sizeof(u16));
         newSpecies &= ~(NEEDS_REVERSION);
-        if (newSpecies != 0)
-        {
+        if (newSpecies != 0) {
             mons_no = newSpecies;
         }
     }
@@ -162,8 +153,7 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
  */
 u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no)
 {
-    if (mons_no > MAX_MON_NUM)
-    {
+    if (mons_no > MAX_MON_NUM) {
         ArchiveDataLoadOfs(&mons_no, ARC_CODE_ADDONS, CODE_ADDON_FORM_SPECIES_MAPPING, sizeof(u16) * (mons_no - SPECIES_MEGA_START), sizeof(u16));
     }
     return mons_no;
@@ -178,15 +168,14 @@ u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no)
 u16 LONG_CALL GetFormFromAdjustedForm(u32 mons_no)
 {
     u32 ret = 0;
-    if (mons_no > MAX_MON_NUM)
-    {
+    if (mons_no > MAX_MON_NUM) {
         u16 oldSpecies = GetBaseSpeciesFromAdjustedForm(mons_no);
         u16 formTable[32]; // right on stack so do not have to free this
-        ArchiveDataLoadOfs(formTable, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (oldSpecies*32), sizeof(u16)*32);
-        for (ret = 0; ret < 32; ret++)
-        {
-            if ((formTable[ret] & ~NEEDS_REVERSION) == mons_no || !formTable[ret])
+        ArchiveDataLoadOfs(formTable, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (oldSpecies * 32), sizeof(u16) * 32);
+        for (ret = 0; ret < 32; ret++) {
+            if ((formTable[ret] & ~NEEDS_REVERSION) == mons_no || !formTable[ret]) {
                 break;
+            }
         }
         ret++; // offset by 1 because form 0 isn't listed in the file
     }
@@ -203,80 +192,59 @@ u16 LONG_CALL GetFormFromAdjustedForm(u32 mons_no)
  */
 u32 LONG_CALL PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 {
-    u32 pat = 7+mons;
+    u32 pat = 7 + mons;
 
-    if (egg == 1)
-    {
-        if (mons == SPECIES_MANAPHY)
-        {
+    if (egg == 1) {
+        if (mons == SPECIES_MANAPHY) {
             return 502; // manaphy egg icon
-        }
-        else
-        {
+        } else {
             return 501; // normal egg icon
         }
     }
 
-    if (form_no != 0)
-    {
-        pat = SanitizeFormNumber(mons, form_no);//70438
+    if (form_no != 0) {
+        pat = SanitizeFormNumber(mons, form_no); // 70438
 
-        if (pat != 0)
-        {
-            if (mons == SPECIES_DEOXYS)
-            {
-                return (503 + pat - 1);
+        if (pat != 0) {
+            if (mons == SPECIES_DEOXYS) {
+                return 503 + pat - 1;
             }
-            if (mons == SPECIES_UNOWN)
-            {
-                return (507 + pat - 1);
+            if (mons == SPECIES_UNOWN) {
+                return 507 + pat - 1;
             }
-            if (mons == SPECIES_BURMY)
-            {
-                return (534 + pat - 1);
+            if (mons == SPECIES_BURMY) {
+                return 534 + pat - 1;
             }
-            if (mons == SPECIES_WORMADAM)
-            {
-                return (536 + pat - 1);
+            if (mons == SPECIES_WORMADAM) {
+                return 536 + pat - 1;
             }
-            if (mons == SPECIES_SHELLOS)
-            {
-                return (538 + pat - 1);
+            if (mons == SPECIES_SHELLOS) {
+                return 538 + pat - 1;
             }
-            if (mons == SPECIES_GASTRODON)
-            {
-                return (539 + pat - 1);
+            if (mons == SPECIES_GASTRODON) {
+                return 539 + pat - 1;
             }
-            if (mons == SPECIES_GIRATINA)
-            {
-                return (540 + pat - 1);
+            if (mons == SPECIES_GIRATINA) {
+                return 540 + pat - 1;
             }
-            if (mons == SPECIES_SHAYMIN)
-            {
-                return (541 + pat - 1);
+            if (mons == SPECIES_SHAYMIN) {
+                return 541 + pat - 1;
             }
-            if (mons == SPECIES_ROTOM)
-            {
-                return (542 + pat - 1);
-            }
-            else if (mons == SPECIES_CASTFORM)
-            {
-                return (547 + pat - 1);
-            }
-            else if (mons == SPECIES_CHERRIM)
-            {
-                return (550 + pat - 1);
+            if (mons == SPECIES_ROTOM) {
+                return 542 + pat - 1;
+            } else if (mons == SPECIES_CASTFORM) {
+                return 547 + pat - 1;
+            } else if (mons == SPECIES_CHERRIM) {
+                return 550 + pat - 1;
             }
         }
 
         // pat is now treated as the return value.  is initially set as the mons+7, but is adjusted as necessary below
-        if (form_no != 0)
-        {
+        if (form_no != 0) {
             u16 newSpecies;
-            ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons + form_no-1), sizeof(u16));
+            ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (32 * mons + form_no - 1), sizeof(u16));
             newSpecies &= ~(NEEDS_REVERSION);
-            if (newSpecies != 0)
-            {
+            if (newSpecies != 0) {
                 mons = newSpecies;
             }
         }
@@ -298,8 +266,7 @@ u16 LONG_CALL PokeIconCgxPatternGet(struct BoxPokemon *ppp)
 
     monsno = GetBoxMonData(ppp, MON_DATA_SPECIES_OR_EGG, NULL);
 
-    switch (monsno)
-    {
+    switch (monsno) {
     case SPECIES_UNOWN:
     case SPECIES_DEOXYS:
     case SPECIES_BURMY:
@@ -314,10 +281,9 @@ u16 LONG_CALL PokeIconCgxPatternGet(struct BoxPokemon *ppp)
     default:;
         // here we check if the mon at all has any forms--if so we assume its form id is valid and return it
         u16 newSpecies;
-        ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*monsno + 1-1), sizeof(u16));
+        ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (32 * monsno + 1 - 1), sizeof(u16));
         newSpecies &= ~(NEEDS_REVERSION);
-        if (newSpecies != 0)
-        {
+        if (newSpecies != 0) {
             ret = GetBoxMonData(ppp, MON_DATA_FORM, NULL);
         }
     }
@@ -334,68 +300,44 @@ u16 LONG_CALL PokeIconCgxPatternGet(struct BoxPokemon *ppp)
  */
 u32 LONG_CALL PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
 {
-    if (isegg)
-    {
-        if (mons == SPECIES_MANAPHY)
+    if (isegg) {
+        if (mons == SPECIES_MANAPHY) {
             mons = 495;
-        else
+        } else {
             mons = 494;
+        }
         return mons;
     }
 
-    if (form != 0)
-    {
-        if (mons == SPECIES_DEOXYS)
-        {
+    if (form != 0) {
+        if (mons == SPECIES_DEOXYS) {
             mons = 496 + form - 1;
-        }
-        else if (mons == SPECIES_UNOWN)
-        {
+        } else if (mons == SPECIES_UNOWN) {
             mons = 499 + form - 1;
-        }
-        else if (mons == SPECIES_BURMY)
-        {
+        } else if (mons == SPECIES_BURMY) {
             mons = 527 + form - 1;
-        }
-        else if (mons == SPECIES_WORMADAM)
-        {
+        } else if (mons == SPECIES_WORMADAM) {
             mons = 529 + form - 1;
-        }
-        else if (mons == SPECIES_SHELLOS)
-        {
+        } else if (mons == SPECIES_SHELLOS) {
             mons = 531 + form - 1;
-        }
-        else if (mons == SPECIES_GASTRODON)
-        {
+        } else if (mons == SPECIES_GASTRODON) {
             mons = 532 + form - 1;
-        }
-        else if (mons == SPECIES_GIRATINA)
-        {
+        } else if (mons == SPECIES_GIRATINA) {
             mons = 533 + form - 1;
-        }
-        else if (mons == SPECIES_SHAYMIN)
-        {
+        } else if (mons == SPECIES_SHAYMIN) {
             mons = 534 + form - 1;
-        }
-        else if (mons == SPECIES_ROTOM)
-        {
+        } else if (mons == SPECIES_ROTOM) {
             mons = 535 + form - 1;
-        }
-        else if (mons == SPECIES_CASTFORM)
-        {
+        } else if (mons == SPECIES_CASTFORM) {
             mons = 540 + form - 1;
-        }
-        else if (mons == SPECIES_CHERRIM)
-        {
+        } else if (mons == SPECIES_CHERRIM) {
             mons = 543 + form - 1;
         } else {
-            if (form != 0)
-            {
+            if (form != 0) {
                 u16 newSpecies;
-                ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*mons + form-1), sizeof(u16));
+                ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (32 * mons + form - 1), sizeof(u16));
                 newSpecies &= ~(NEEDS_REVERSION);
-                if (newSpecies != 0)
-                {
+                if (newSpecies != 0) {
                     mons = newSpecies;
                 }
             }
@@ -427,7 +369,7 @@ u32 LONG_CALL GetMonIconPalette(u32 mons, u32 form, u32 isegg)
 u16 LONG_CALL GetPokemonOwNum(u16 species)
 {
     u16 ret;
-    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_BASE_OW_PER_MON, sizeof(u16)*species, sizeof(u16));
+    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_BASE_OW_PER_MON, sizeof(u16) * species, sizeof(u16));
     return ret;
 }
 
@@ -442,7 +384,7 @@ u16 GetMonHiddenAbilityAlreadySanitized(u16 species)
 {
 #ifdef HIDDEN_ABILITIES
     u16 ability = 0;
-    ArchiveDataLoadOfs(&ability, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ABILITY_LIST, sizeof(u16)*species, sizeof(u16));
+    ArchiveDataLoadOfs(&ability, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ABILITY_LIST, sizeof(u16) * species, sizeof(u16));
     return ability;
 #else
     return 0;
@@ -491,46 +433,37 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     ability1 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_1);
     ability2 = PokeFormNoPersonalParaGet(mons_no, form, PERSONAL_ABILITY_2);
 
-    if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1)
-    {
+    if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1) {
         SET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon)
         has_hidden_ability = 1;
         // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
         ClearScriptFlag(HIDDEN_ABILITIES_FLAG);
-    }
-    else
-    {
+    } else {
         has_hidden_ability = GET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon); // dummy_p2_1 & hidden ability mask
     }
     ability_swapped = GET_BOX_MON_SWAP_ABILITY_SLOT_BIT(boxmon);
     mons_no = PokeOtherFormMonsNoGet(mons_no, form);
     hiddenability = GetMonHiddenAbilityAlreadySanitized(mons_no);
 
-    if (has_hidden_ability && hiddenability != 0)
-    {
+    if (has_hidden_ability && hiddenability != 0) {
         SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&hiddenability);
-    }
-    else if (ability2 != 0)
-    {
+    } else if (ability2 != 0) {
         u32 ability_to_set;
-        if (pid & 1)
-        {
-            if (ability_swapped)
+        if (pid & 1) {
+            if (ability_swapped) {
                 ability_to_set = ability1;
-            else
+            } else {
                 ability_to_set = ability2;
-        }
-        else
-        {
-            if (ability_swapped)
+            }
+        } else {
+            if (ability_swapped) {
                 ability_to_set = ability2;
-            else
+            } else {
                 ability_to_set = ability1;
+            }
         }
         SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&ability_to_set);
-    }
-    else
-    {
+    } else {
         SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&ability1);
     }
 
@@ -559,10 +492,8 @@ BOOL SetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void 
     PokemonDataBlockB *blockB UNUSED = blocks->blockB;
     PokemonDataBlockC *blockC UNUSED = blocks->blockC;
     PokemonDataBlockD *blockD = blocks->blockD;
-    switch (field)
-    {
-    case MON_DATA_ABILITY:
-    {
+    switch (field) {
+    case MON_DATA_ABILITY: {
         u16 ability = *((u16 *)data);
         blockA->ability = ability & 0xFF;
         blockA->abilityMSB = (ability >> 8) & 0x01;
@@ -572,8 +503,7 @@ BOOL SetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void 
         ret = TRUE;
         break;
     }
-    case MON_DATA_EXPERIENCE:
-    {
+    case MON_DATA_EXPERIENCE: {
         u32 experience = *((u32 *)data);
         blockA->exp = experience;
 #ifdef DEBUG_BOXMONDATA_EDITED_CASES
@@ -582,8 +512,7 @@ BOOL SetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void 
         ret = TRUE;
         break;
     }
-    case MON_DATA_MET_LEVEL:
-    {
+    case MON_DATA_MET_LEVEL: {
         u8 metLevel = *((u8 *)data);
         blockD->metLevel = metLevel;
 #ifdef DEBUG_BOXMONDATA_EDITED_CASES
@@ -615,10 +544,8 @@ u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *
     PokemonDataBlockD *blockD = blocks->blockD;
 
     *retBool = FALSE;
-    switch (field)
-    {
-    case MON_DATA_ABILITY:
-    {
+    switch (field) {
+    case MON_DATA_ABILITY: {
 #ifdef DEBUG_BOXMONDATA_EDITED_CASES
         debug_printf("Ability returned: %d\n", (blockA->abilityMSB << 8) | (blockA->ability));
 #endif
@@ -626,8 +553,7 @@ u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *
         *retBool = TRUE;
         break;
     }
-    case MON_DATA_EXPERIENCE:
-    {
+    case MON_DATA_EXPERIENCE: {
         ret = blockA->exp;
         *retBool = TRUE;
 #ifdef DEBUG_BOXMONDATA_EDITED_CASES
@@ -651,7 +577,7 @@ u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *
         break;
     }
 #ifdef DEBUG_BOXMONDATA_EDITED_CASES
-    //debug_printf("Modified GetBoxMonData called...\n    blocks %08X,\n    field %d,\n    data %08X,\n    retBool %08X\n", blocks, field, data, retBool);
+    // debug_printf("Modified GetBoxMonData called...\n    blocks %08X,\n    field %d,\n    data %08X,\n    retBool %08X\n", blocks, field, data, retBool);
 #endif
     return ret;
 }
@@ -693,8 +619,8 @@ BOOL AddBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, int d
 
     case MON_DATA_ABILITY: {
         u16 ability = (u16)data;
-        blockA->ability     = ability & 0xFF;
-        blockA->abilityMSB  = (ability >> 8) & 0x01;
+        blockA->ability = ability & 0xFF;
+        blockA->abilityMSB = (ability >> 8) & 0x01;
         ret = TRUE;
 #ifdef DEBUG_BOXMONDATA_EDITED_CASES
         debug_printf("[AddBoxMonData] Ability to set %d, LSB %d, MSb %d\n", ability, blockA->ability, blockA->abilityMSB);
@@ -717,7 +643,7 @@ u32 LONG_CALL GetSpeciesBaseExp(u32 species, u32 form)
 {
     u16 baseExp;
     species = PokeOtherFormMonsNoGet(species, form); // for whatever reason alternate formes can have different base experiences
-    ArchiveDataLoadOfs(&baseExp, ARC_CODE_ADDONS, CODE_ADDON_BASE_EXPERIENCE_LIST, sizeof(u16)*species, sizeof(u16));
+    ArchiveDataLoadOfs(&baseExp, ARC_CODE_ADDONS, CODE_ADDON_BASE_EXPERIENCE_LIST, sizeof(u16) * species, sizeof(u16));
     return baseExp;
 }
 
@@ -729,12 +655,15 @@ u32 LONG_CALL GetSpeciesBaseExp(u32 species, u32 form)
  */
 u32 LONG_CALL GetGenesectType(u16 item) // this may just go unused
 {
-    switch (item)
-    {
-        case ITEM_DOUSE_DRIVE: return TYPE_WATER;
-        case ITEM_SHOCK_DRIVE: return TYPE_ELECTRIC;
-        case ITEM_BURN_DRIVE:  return TYPE_FIRE;
-        case ITEM_CHILL_DRIVE: return TYPE_ICE;
+    switch (item) {
+    case ITEM_DOUSE_DRIVE:
+        return TYPE_WATER;
+    case ITEM_SHOCK_DRIVE:
+        return TYPE_ELECTRIC;
+    case ITEM_BURN_DRIVE:
+        return TYPE_FIRE;
+    case ITEM_CHILL_DRIVE:
+        return TYPE_ICE;
     }
     return TYPE_NORMAL;
 }
@@ -747,12 +676,15 @@ u32 LONG_CALL GetGenesectType(u16 item) // this may just go unused
  */
 u32 LONG_CALL GetGenesectForme(u16 item)
 {
-    switch (item)
-    {
-        case ITEM_DOUSE_DRIVE: return 1;
-        case ITEM_SHOCK_DRIVE: return 2;
-        case ITEM_BURN_DRIVE:  return 3;
-        case ITEM_CHILL_DRIVE: return 4;
+    switch (item) {
+    case ITEM_DOUSE_DRIVE:
+        return 1;
+    case ITEM_SHOCK_DRIVE:
+        return 2;
+    case ITEM_BURN_DRIVE:
+        return 3;
+    case ITEM_CHILL_DRIVE:
+        return 4;
     }
     return 0;
 }
@@ -770,15 +702,13 @@ void LONG_CALL ArceusBoxPokemonFormeChange(struct BoxPokemon *bp)
     u32 form = 0;
 
     if (species == SPECIES_ARCEUS
-     && ability == ABILITY_MULTITYPE)
-    {
+        && ability == ABILITY_MULTITYPE) {
         u32 held_effect = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 0); // heap id 0 gang
         form = GetArceusType(held_effect);
         SetBoxMonData(bp, MON_DATA_FORM, &form);
     }
 
-    if (species == SPECIES_GENESECT)
-    {
+    if (species == SPECIES_GENESECT) {
         form = GetGenesectForme(item);
         SetBoxMonData(bp, MON_DATA_FORM, &form);
     }
@@ -791,27 +721,26 @@ void LONG_CALL ArceusBoxPokemonFormeChange(struct BoxPokemon *bp)
  *  @param bp struct BoxPokemon whose form to update
  *  @return TRUE if form needs updating; FALSE otherwise
  */
-BOOL LONG_CALL HandleBoxPokemonFormeChanges(struct BoxPokemon* bp)
+BOOL LONG_CALL HandleBoxPokemonFormeChanges(struct BoxPokemon *bp)
 {
     u32 species = GetBoxMonData(bp, MON_DATA_SPECIES, NULL);
 
-    if (species == SPECIES_ARCEUS || species == SPECIES_GENESECT)
-    {
+    if (species == SPECIES_ARCEUS || species == SPECIES_GENESECT) {
         u32 form_no = GetBoxMonData(bp, MON_DATA_FORM, NULL);
 
         ArceusBoxPokemonFormeChange(bp);
 
-        if (GetBoxMonData(bp, MON_DATA_FORM, NULL) != form_no)
+        if (GetBoxMonData(bp, MON_DATA_FORM, NULL) != form_no) {
             return TRUE;
-    }
-    else if (species == SPECIES_GIRATINA)
-    {
+        }
+    } else if (species == SPECIES_GIRATINA) {
         u32 form_no = GetBoxMonData(bp, MON_DATA_FORM, NULL);
 
         GiratinaBoxPokemonFormChange(bp);
 
-        if (GetBoxMonData(bp, MON_DATA_FORM, NULL) != form_no)
+        if (GetBoxMonData(bp, MON_DATA_FORM, NULL) != form_no) {
             return TRUE;
+        }
     }
 
     return FALSE;
@@ -827,8 +756,7 @@ BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp)
 {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
 
-    if (species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS)
-    {
+    if (species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS) {
         return TRUE;
     }
     return FALSE;
@@ -844,9 +772,8 @@ BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp)
 BOOL LONG_CALL CanUseNectar(struct PartyPokemon *pp, u16 nectar)
 {
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
-    u16 form = (u16) GetMonData(pp, MON_DATA_FORM, NULL);
-    if (species == SPECIES_ORICORIO && form != nectar - ITEM_RED_NECTAR)
-    {
+    u16 form = (u16)GetMonData(pp, MON_DATA_FORM, NULL);
+    if (species == SPECIES_ORICORIO && form != nectar - ITEM_RED_NECTAR) {
         return TRUE;
     }
     return FALSE;
@@ -865,7 +792,7 @@ BOOL LONG_CALL Mon_CanUseGracidea(struct PartyPokemon *mon)
     int form = GetMonData(mon, MON_DATA_FORM, NULL);
     int status = GetMonData(mon, MON_DATA_STATUS, NULL);
     int hp = GetMonData(mon, MON_DATA_HP, NULL);
-    //BOOL fatefulEncounter = GetMonData(mon, MON_DATA_FATEFUL_ENCOUNTER, NULL);
+    // BOOL fatefulEncounter = GetMonData(mon, MON_DATA_FATEFUL_ENCOUNTER, NULL);
     GF_RTC_CopyTime(&time);
 
     if (species == SPECIES_SHAYMIN && form == 0 && hp != 0 && !(status & STATUS_FREEZE) && (time.hour >= 4 && time.hour < 20)) {
@@ -875,7 +802,7 @@ BOOL LONG_CALL Mon_CanUseGracidea(struct PartyPokemon *mon)
     }
 }
 
-#define RESHIRAM_MASK (0x80)
+#define RESHIRAM_MASK         (0x80)
 #define JUST_SPLICER_POS_MASK (0x7F)
 
 /**
@@ -903,15 +830,13 @@ u32 LONG_CALL CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Pa
         if (species2 == 0 && form_no != 0) // looking for empty slot to dump reshiram to from save
         {
             return i;
-        }
-        else if ((species2 == SPECIES_RESHIRAM || species2 == SPECIES_ZEKROM) && form_no == 0) // looking for a reshiram to store to the save
+        } else if ((species2 == SPECIES_RESHIRAM || species2 == SPECIES_ZEKROM) && form_no == 0) // looking for a reshiram to store to the save
         {
-            return ((species2 == SPECIES_RESHIRAM ? RESHIRAM_MASK : 0) | i);
+            return (species2 == SPECIES_RESHIRAM ? RESHIRAM_MASK : 0) | i;
         }
     }
     return 6;
 }
-
 
 u32 CanUseAbilityCapsule(struct PartyPokemon *pp)
 {
@@ -921,13 +846,13 @@ u32 CanUseAbilityCapsule(struct PartyPokemon *pp)
     u32 ability1 = PokeFormNoPersonalParaGet(species, form, PERSONAL_ABILITY_1);
     u32 ability2 = PokeFormNoPersonalParaGet(species, form, PERSONAL_ABILITY_2);
 
-    if (hidden_ability)
+    if (hidden_ability) {
         return FALSE;
+    }
 
     // ability capsule can only be used if ability2 is nonzero and is not equal to ability1
-    return (ability2 != 0 && ability1 != ability2);
+    return ability2 != 0 && ability1 != ability2;
 }
-
 
 u32 CanUseAbilityPatch(struct PartyPokemon *pp)
 {
@@ -935,19 +860,17 @@ u32 CanUseAbilityPatch(struct PartyPokemon *pp)
     u32 form = GetMonData(pp, MON_DATA_FORM, NULL);
     u32 hidden_ability = GetMonHiddenAbility(species, form);
 
-    return (hidden_ability != 0);
+    return hidden_ability != 0;
 }
 
 BOOL CanUseRotomCatalog(struct PartyPokemon *pp)
 {
-    return (GetMonData(pp, MON_DATA_SPECIES, NULL) == SPECIES_ROTOM);
+    return GetMonData(pp, MON_DATA_SPECIES, NULL) == SPECIES_ROTOM;
 }
-
 
 u32 ALIGN4 partyMenuSignal = 0;
 
-u16 NatureToMintItem[] =
-{
+u16 NatureToMintItem[] = {
     [NATURE_LONELY] = ITEM_LONELY_MINT,
     [NATURE_ADAMANT] = ITEM_ADAMANT_MINT,
     [NATURE_NAUGHTY] = ITEM_NAUGHTY_MINT,
@@ -985,8 +908,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
     // handle shaymin
 
     if (wk->args->itemId == ITEM_GRACIDEA
-     && Mon_CanUseGracidea(pp) == TRUE)
-    {
+        && Mon_CanUseGracidea(pp) == TRUE) {
         wk->args->species = 1; // change to sky forme
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
@@ -997,8 +919,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
     // handle tornadus/thundurus/landorus/enamorus
 
     if (wk->args->itemId == ITEM_REVEAL_GLASS
-     && CanUseRevealGlass(pp) == TRUE)
-    {
+        && CanUseRevealGlass(pp) == TRUE) {
         u32 currForm = GetMonData(pp, MON_DATA_FORM, NULL);
         wk->args->species = currForm ^ 1; // toggle form between therian/incarnate
         sys_FreeMemoryEz(dat);
@@ -1011,8 +932,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
     // This code relies on the item ids of the nectars being consecutive
 
     if (wk->args->itemId >= ITEM_RED_NECTAR && wk->args->itemId <= ITEM_PURPLE_NECTAR
-     && CanUseNectar(pp, wk->args->itemId) == TRUE)
-    {
+        && CanUseNectar(pp, wk->args->itemId) == TRUE) {
         void *bag = Sav2_Bag_get(SaveBlock2_get());
         wk->args->species = wk->args->itemId - ITEM_RED_NECTAR;
         sys_FreeMemoryEz(dat);
@@ -1031,8 +951,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
 
     // TODO: handle correct item
     if (wk->args->itemId == ITEM_DNA_SPLICERS_FUSE
-     && (splicer_pos < 6))
-    {
+        && (splicer_pos < 6)) {
         void *saveData = SaveBlock2_get();
         struct SAVE_MISC_DATA *saveMiscData = Sav2_Misc_get(saveData);
 
@@ -1042,7 +961,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
 
             // grab reshiram from save
             // add reshiram to party--can't just use PokeParty_Add because icons freak out when you tell them to animate something that isn't there
-            //PokeParty_Add(wk->args->party, &saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS]);
+            // PokeParty_Add(wk->args->party, &saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS]);
             struct PartyPokemon *reshiram = Party_GetMonByIndex(wk->args->party, splicer_pos);
             *reshiram = saveMiscData->storedMons[STORED_MONS_DNA_SPLICERS];
             partyMenuSignal = 1;
@@ -1056,8 +975,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
             ChangePartyPokemonToForm(pp, 0);
             SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK, MOVE_GLACIATE);
             SwapPartyPokemonMove(pp, currForm == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT, MOVE_SCARY_FACE);
-        }
-        else if (saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] == 0) // return nothing otherwise
+        } else if (saveMiscData->isMonStored[STORED_MONS_DNA_SPLICERS] == 0) // return nothing otherwise
         {
             // grab reshiram from party
             // store reshiram in save
@@ -1072,16 +990,18 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
                 pp = Party_GetMonByIndex(wk->args->party, wk->partyMonIndex);
             }
 
-            if (reshiramBool) // turn to white kyurem
+            if (reshiramBool) { // turn to white kyurem
                 wk->args->species = 1;
-            else              // turn to black kyurem
+            } else { // turn to black kyurem
                 wk->args->species = 2;
+            }
 
             ChangePartyPokemonToForm(pp, wk->args->species);
             SwapPartyPokemonMove(pp, MOVE_GLACIATE, wk->args->species == 1 ? MOVE_ICE_BURN : MOVE_FREEZE_SHOCK);
             SwapPartyPokemonMove(pp, MOVE_SCARY_FACE, wk->args->species == 1 ? MOVE_FUSION_FLARE : MOVE_FUSION_BOLT);
-        }
-        else { return FALSE; } // get out because no changes should be made
+        } else {
+            return FALSE;
+        } // get out because no changes should be made
         sys_FreeMemoryEz(dat);
         PokeList_FormDemoOverlayLoad(wk);
         return TRUE;
@@ -1090,8 +1010,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
 
     // handle ability capsule
 
-    if (wk->args->itemId == ITEM_ABILITY_CAPSULE && CanUseAbilityCapsule(pp) == TRUE)
-    {
+    if (wk->args->itemId == ITEM_ABILITY_CAPSULE && CanUseAbilityCapsule(pp) == TRUE) {
         void *bag = Sav2_Bag_get(SaveBlock2_get());
         partyMenuSignal = 193; // signal to change the message to this index
         wk->args->species = GetMonData(pp, MON_DATA_FORM, NULL); // no form change
@@ -1105,8 +1024,7 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
 
     // handle ability patch
 
-    if (wk->args->itemId == ITEM_ABILITY_PATCH && CanUseAbilityPatch(pp) == TRUE)
-    {
+    if (wk->args->itemId == ITEM_ABILITY_PATCH && CanUseAbilityPatch(pp) == TRUE) {
         void *bag = Sav2_Bag_get(SaveBlock2_get());
         partyMenuSignal = 193; // signal to change the message to this index
         wk->args->species = GetMonData(pp, MON_DATA_FORM, NULL); // no form change
@@ -1120,14 +1038,13 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
 
     // handle nature mints
 
-    if (IS_ITEM_NATURE_MINT(wk->args->itemId))
-    {
+    if (IS_ITEM_NATURE_MINT(wk->args->itemId)) {
         u32 nature;
         void *bag = Sav2_Bag_get(SaveBlock2_get());
-        for (nature = 0; nature < 25; nature++)
-        {
-            if (NatureToMintItem[nature] == wk->args->itemId)
+        for (nature = 0; nature < 25; nature++) {
+            if (NatureToMintItem[nature] == wk->args->itemId) {
                 break;
+            }
         }
         partyMenuSignal = 194 + nature; // signal to change the message to this index
         SET_MON_NATURE_OVERRIDE(pp, nature)
@@ -1141,12 +1058,11 @@ u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
     return FALSE;
 }
 
-void LoadIconChangeAnim(struct IconFormChangeData *work, struct PartyPokemon *mon) {
+void LoadIconChangeAnim(struct IconFormChangeData *work, struct PartyPokemon *mon)
+{
     work->species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-    if (partyMenuSignal == 0)
-    {
-        switch (work->species)
-        {
+    if (partyMenuSignal == 0) {
+        switch (work->species) {
         case SPECIES_GIRATINA:
             work->duration = 65; // duration of animation in frames
             work->fileId = 0; // SPA 0 loaded from narc a206
@@ -1160,14 +1076,13 @@ void LoadIconChangeAnim(struct IconFormChangeData *work, struct PartyPokemon *mo
     }
 }
 
-void _EmitParticles(struct IconFormChangeData *partyMenu) {
+void _EmitParticles(struct IconFormChangeData *partyMenu)
+{
     // still load the open SPA so that the task can unload it later
     LoadOpenSPAToEmitter(partyMenu->particleSystem, OpenSPAFileInHeap(ARC_ICON_FORM_CHANGE_SPA, partyMenu->fileId, HEAP_ID_PARTY_MENU), 0xA, 1);
 
-    if (partyMenuSignal == 0)
-    {
-        switch (partyMenu->species)
-        {
+    if (partyMenuSignal == 0) {
+        switch (partyMenu->species) {
         case SPECIES_GIRATINA:
             QueueEmitterWithCallback(partyMenu->particleSystem, 0, particleEmitCallback, partyMenu);
             QueueEmitterWithCallback(partyMenu->particleSystem, 1, particleEmitCallback, partyMenu);
@@ -1193,8 +1108,7 @@ u32 LONG_CALL PokeListProc_End_Extend(void *proc, int *seq) // finally add to po
 {
     struct PartyMenu *wk = PROC_GetWork(proc);
 
-    if (partyMenuSignal == 1)
-    {
+    if (partyMenuSignal == 1) {
         partyMenuSignal = 0;
         wk->args->party->count++;
     }
@@ -1210,8 +1124,7 @@ u32 LONG_CALL PokeListProc_End_Extend(void *proc, int *seq) // finally add to po
  */
 void LONG_CALL ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form)
 {
-    if (form != GetMonData(pp, MON_DATA_FORM, NULL))
-    {
+    if (form != GetMonData(pp, MON_DATA_FORM, NULL)) {
         SetMonData(pp, MON_DATA_FORM, &form);
         RecalcPartyPokemonStats(pp);
         ResetPartyPokemonAbility(pp);
@@ -1227,15 +1140,12 @@ void LONG_CALL ChangePartyPokemonToForm(struct PartyPokemon *pp, u32 form)
  */
 void LONG_CALL SwapPartyPokemonMove(struct PartyPokemon *pp, u32 oldMove, u32 newMove)
 {
-    for (u32 i = 0; i < 4; i++)
-    {
-        if (GetMonData(pp, MON_DATA_MOVE1+i, NULL) == oldMove)
-        {
-            SetMonData(pp, MON_DATA_MOVE1+i, &newMove);
-            u32 maxPP = GetMonData(pp, MON_DATA_MOVE1MAXPP+i, NULL);
-            if (GetMonData(pp, MON_DATA_MOVE1PP+i, NULL) > maxPP)
-            {
-                SetMonData(pp, MON_DATA_MOVE1PP+i, &maxPP);
+    for (u32 i = 0; i < 4; i++) {
+        if (GetMonData(pp, MON_DATA_MOVE1 + i, NULL) == oldMove) {
+            SetMonData(pp, MON_DATA_MOVE1 + i, &newMove);
+            u32 maxPP = GetMonData(pp, MON_DATA_MOVE1MAXPP + i, NULL);
+            if (GetMonData(pp, MON_DATA_MOVE1PP + i, NULL) > maxPP) {
+                SetMonData(pp, MON_DATA_MOVE1PP + i, &maxPP);
             }
             break;
         }
@@ -1250,8 +1160,7 @@ void LONG_CALL SwapPartyPokemonMove(struct PartyPokemon *pp, u32 oldMove, u32 ne
  */
 void LONG_CALL ChangePartyPokemonToFormSwapMove(struct PartyPokemon *pp, u32 form, u32 oldMove, u32 newMove)
 {
-    if (form != GetMonData(pp, MON_DATA_FORM, NULL))
-    {
+    if (form != GetMonData(pp, MON_DATA_FORM, NULL)) {
         ChangePartyPokemonToForm(pp, form);
         SwapPartyPokemonMove(pp, oldMove, newMove);
     }
@@ -1267,7 +1176,7 @@ u32 LONG_CALL GrabCurrentSeason(void)
     struct RTCDate date;
     GF_RTC_CopyDate(&date);
 
-    return ((u8)(date.month-1)) % 4;
+    return ((u8)(date.month - 1)) % 4;
 }
 
 /**
@@ -1282,65 +1191,64 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
     u32 form = 0;
     BOOL shouldUpdate = TRUE;
 
-    switch (species)
-    {
+    switch (species) {
 #ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
-        case SPECIES_DEERLING:
-        case SPECIES_SAWSBUCK:
-            form = GrabCurrentSeason(); // update to the current season
-            break;
+    case SPECIES_DEERLING:
+    case SPECIES_SAWSBUCK:
+        form = GrabCurrentSeason(); // update to the current season
+        break;
 #endif
-        case SPECIES_UNFEZANT:
-        case SPECIES_FRILLISH:
-        case SPECIES_JELLICENT:
+    case SPECIES_UNFEZANT:
+    case SPECIES_FRILLISH:
+    case SPECIES_JELLICENT:
 #ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
-        case SPECIES_MEOWSTIC:
-        case SPECIES_INDEEDEE:
-        case SPECIES_OINKOLOGNE:
-        case SPECIES_BASCULEGION:
+    case SPECIES_MEOWSTIC:
+    case SPECIES_INDEEDEE:
+    case SPECIES_OINKOLOGNE:
+    case SPECIES_BASCULEGION:
 #endif
-            form = gf_rand() & 1; // 1/2 male
-            break;
+        form = gf_rand() & 1; // 1/2 male
+        break;
 #ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
-        case SPECIES_PYROAR:
-            form = (gf_rand() % 8 != 0); // 1/8 male
-            break;
+    case SPECIES_PYROAR:
+        form = (gf_rand() % 8 != 0); // 1/8 male
+        break;
 #endif
-        case SPECIES_DUNSPARCE: // TODO: move to evolution function
+    case SPECIES_DUNSPARCE: // TODO: move to evolution function
 #ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
-        case SPECIES_DUDUNSPARCE:    // This is not the case for wild Dudunsparce (including those encountered in Tera Raid Battles), as these will always be in Two-Segment Form regardless of their encryption constant value.
+    case SPECIES_DUDUNSPARCE: // This is not the case for wild Dudunsparce (including those encountered in Tera Raid Battles), as these will always be in Two-Segment Form regardless of their encryption constant value.
 #endif
-        case SPECIES_TANDEMAUS: // TODO: move to evolution function
+    case SPECIES_TANDEMAUS: // TODO: move to evolution function
 #ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
-        case SPECIES_MAUSHOLD:
+    case SPECIES_MAUSHOLD:
 #endif
-            form = (pid % 100 == 0); // 1/100 three seg / family of three
-            break;
+        form = (pid % 100 == 0); // 1/100 three seg / family of three
+        break;
 #ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
-        case SPECIES_FLABEBE:
-        case SPECIES_FLOETTE:
-        case SPECIES_FLORGES:
-            form = gf_rand() % 5; // allow any color to show up
-            break;
-        case SPECIES_PUMPKABOO:
-        case SPECIES_GOURGEIST:
-            form = gf_rand() % 4; // allow any size to show up
-            break;
-        case SPECIES_MINIOR:
-            form = gf_rand() % 7; // allow any color to show up
-            break;
-        case SPECIES_SINISTEA:
-        case SPECIES_POLTEAGEIST:
-        case SPECIES_SINISTCHA:
-        case SPECIES_POLTCHAGEIST:
-            form = (gf_rand() % 20 == 0); // 5% authentic / masterpiece
-            break;
-        case SPECIES_TATSUGIRI:
-            form = gf_rand() % 3; // equal chance for all forms
-            break;
+    case SPECIES_FLABEBE:
+    case SPECIES_FLOETTE:
+    case SPECIES_FLORGES:
+        form = gf_rand() % 5; // allow any color to show up
+        break;
+    case SPECIES_PUMPKABOO:
+    case SPECIES_GOURGEIST:
+        form = gf_rand() % 4; // allow any size to show up
+        break;
+    case SPECIES_MINIOR:
+        form = gf_rand() % 7; // allow any color to show up
+        break;
+    case SPECIES_SINISTEA:
+    case SPECIES_POLTEAGEIST:
+    case SPECIES_SINISTCHA:
+    case SPECIES_POLTCHAGEIST:
+        form = (gf_rand() % 20 == 0); // 5% authentic / masterpiece
+        break;
+    case SPECIES_TATSUGIRI:
+        form = gf_rand() % 3; // equal chance for all forms
+        break;
 #endif
-        default:
-            shouldUpdate = FALSE;
+    default:
+        shouldUpdate = FALSE;
     }
 
     if (shouldUpdate) {
@@ -1360,13 +1268,11 @@ BOOL LONG_CALL Party_UpdateDeerlingSeasonForm(struct Party *party)
     u32 ret = FALSE;
 
 #ifdef IMPLEMENT_SEASONS
-    for (int i = 0; i < party->count; i++)
-    {
+    for (int i = 0; i < party->count; i++) {
         struct PartyPokemon *pp = Party_GetMonByIndex(party, i);
         u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
         u32 newForm = GrabCurrentSeason();
-        if (newForm != GetMonData(pp, MON_DATA_FORM, NULL) && (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK))
-        {
+        if (newForm != GetMonData(pp, MON_DATA_FORM, NULL) && (species == SPECIES_DEERLING || species == SPECIES_SAWSBUCK)) {
             SetMonData(pp, MON_DATA_FORM, &newForm);
             ret = TRUE;
         }
@@ -1402,18 +1308,18 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
         if (minute < min_max + 1) {
             Party_ResetAllShayminToLandForme(party);
             ret = TRUE;
-        }/* else {
-            return FALSE;
-        }*/
+        } /* else {
+             return FALSE;
+         }*/
     } else {
         hour = time->hour;
         minute = time->minute + 60 * (hour - 4);
         if (minute < min_max) {
             Party_ResetAllShayminToLandForme(party);
             ret = TRUE;
-        }/* else {
-            return FALSE;
-        }*/
+        } /* else {
+             return FALSE;
+         }*/
     }
 
     return ret;
@@ -1426,7 +1332,8 @@ BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const str
  *  @param dest destination for the array of egg moves
  *  @return number of egg moves in dest
  */
-u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest) {
+u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest)
+{
     u16 species = PokeOtherFormMonsNoGet(GetMonData(pokemon, MON_DATA_SPECIES, NULL), GetMonData(pokemon, MON_DATA_FORM, NULL));
     ArchiveDataLoadOfs(dest, ARC_EGG_MOVES, 0, species * MAX_EGG_MOVES * sizeof(u16), MAX_EGG_MOVES * sizeof(u16));
 
@@ -1448,22 +1355,24 @@ u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest) {
  */
 u32 LONG_CALL CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPokemon *pokemon2)
 {
-    if ((int *)pokemon1 == (int *)pokemon2)
+    if ((int *)pokemon1 == (int *)pokemon2) {
         return TRUE;
+    }
 
     if (GetMonData(pokemon1, MON_DATA_SPECIES, NULL) == GetMonData(pokemon2, MON_DATA_SPECIES, NULL)
-     && GetMonData(pokemon1, MON_DATA_PERSONALITY, NULL) == GetMonData(pokemon2, MON_DATA_PERSONALITY, NULL)
-     && GetMonData(pokemon1, MON_DATA_OTID, NULL) == GetMonData(pokemon2, MON_DATA_OTID, NULL))
-    {
+        && GetMonData(pokemon1, MON_DATA_PERSONALITY, NULL) == GetMonData(pokemon2, MON_DATA_PERSONALITY, NULL)
+        && GetMonData(pokemon1, MON_DATA_OTID, NULL) == GetMonData(pokemon2, MON_DATA_OTID, NULL)) {
         for (int i = MON_DATA_STATUS; i <= MON_DATA_SPECIAL_DEFENSE; i++) // all the raw stats
         {
-            if (GetMonData(pokemon1, i, NULL) != GetMonData(pokemon2, i, NULL))
+            if (GetMonData(pokemon1, i, NULL) != GetMonData(pokemon2, i, NULL)) {
                 return FALSE;
+            }
         }
         for (int i = MON_DATA_MOVE1; i <= MON_DATA_SPDEF_IV; i++) // moves, pp, iv's
         {
-            if (GetMonData(pokemon1, i, NULL) != GetMonData(pokemon2, i, NULL))
+            if (GetMonData(pokemon1, i, NULL) != GetMonData(pokemon2, i, NULL)) {
                 return FALSE;
+            }
         }
 
         return TRUE;
@@ -1482,25 +1391,22 @@ u32 LONG_CALL CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPok
  *  @param heapID heap to use for allocations
  *  @return TRUE if can use item, FALSE otherwise
  */
-BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID) {
+BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID)
+{
     struct PartyPokemon *mon = Party_GetMonByIndex(party, partyIdx);
 
-    if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID) && GetMonData(mon, MON_DATA_LEVEL, NULL) == 100 && GetMonEvolution(party, mon, EVOCTX_LEVELUP, itemID, NULL))
-    {
+    if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID) && GetMonData(mon, MON_DATA_LEVEL, NULL) == 100 && GetMonEvolution(party, mon, EVOCTX_LEVELUP, itemID, NULL)) {
         return TRUE;
     }
 
-    if (itemID == ITEM_ROTOM_CATALOG)
-    {
+    if (itemID == ITEM_ROTOM_CATALOG) {
         return CanUseRotomCatalog(mon);
     }
 
 #if defined(IMPLEMENT_LEVEL_CAP) && defined(UNCAP_CANDIES_FROM_LEVEL_CAP)
     int currentLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
-    if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID))
-    {
-        if (currentLevel < 100 && itemID == ITEM_RARE_CANDY)
-        {
+    if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID)) {
+        if (currentLevel < 100 && itemID == ITEM_RARE_CANDY) {
             return TRUE;
         }
     }
@@ -1519,7 +1425,8 @@ BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 party
  *  @param method_ret pointer to an integer to store the evolution method that was used to evolve
  *  @return the target species to evolve into
  */
-u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon, u8 context, u16 usedItem, int *method_ret) {
+u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon, u8 context, u16 usedItem, int *method_ret)
+{
     u32 ovyId, target, offset;
     u16 (*internalFunc)(struct Party *, struct PartyPokemon *, u8, u16, int *);
 
@@ -1532,7 +1439,7 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
         offset = 0x023C0400 | 1;
     }
     HandleLoadOverlay(ovyId, 2);
-    internalFunc = (u16 (*)(struct Party *, struct PartyPokemon *, u8, u16, int *))(offset);
+    internalFunc = (u16(*)(struct Party *, struct PartyPokemon *, u8, u16, int *))(offset);
     target = internalFunc(party, pokemon, context, usedItem, method_ret);
     UnloadOverlayByID(ovyId);
 
@@ -1550,18 +1457,18 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
 u32 LONG_CALL GrabSexFromSpeciesAndForm(u32 species, u32 pid, u32 form)
 {
     u32 genderRatio = PokeFormNoPersonalParaGet(species, form, PERSONAL_GENDER_RATIO);
-    switch (genderRatio)
-    {
-        case 0:   // fully male
-            return POKEMON_GENDER_MALE;
-        case 254: // fully female
-            return POKEMON_GENDER_FEMALE;
-        case 255: // unknown
-            return POKEMON_GENDER_UNKNOWN;
+    switch (genderRatio) {
+    case 0: // fully male
+        return POKEMON_GENDER_MALE;
+    case 254: // fully female
+        return POKEMON_GENDER_FEMALE;
+    case 255: // unknown
+        return POKEMON_GENDER_UNKNOWN;
     }
 
-    if (genderRatio > (pid & 0xFF))
+    if (genderRatio > (pid & 0xFF)) {
         return POKEMON_GENDER_FEMALE;
+    }
 
     return POKEMON_GENDER_MALE;
 }
@@ -1600,35 +1507,83 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
     if (species > SPECIES_FINNEON) // split between 0x1AC and 0x1E4
     {
         adjustment = 0x1E4;
-    }
-    else
-    {
+    } else {
         adjustment = 0x1AC;
     }
 
     ret = GetPokemonOwNum(species) + adjustment;
 
-    ArchiveDataLoadOfs(&maxForm, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON, sizeof(u8)*species, sizeof(u8));
+    ArchiveDataLoadOfs(&maxForm, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON, sizeof(u8) * species, sizeof(u8));
 
     if (species == SPECIES_PIKACHU) // pikachu forms take gender adjustment into account and are looser with restrictions
     {
-        if (isFemale || form) // both female pikachu and those with forms will need this adjustment
+        if (isFemale || form) { // both female pikachu and those with forms will need this adjustment
             ret++;
-        if (form < maxForm) // invalid pikachu forms will show as female, but that's okay
+        }
+        if (form < maxForm) { // invalid pikachu forms will show as female, but that's okay
             ret += form;
-    }
-    else if (species == SPECIES_SLOWBRO && form)
-    {
+        }
+    } else if (species == SPECIES_SLOWBRO && form) {
         u32 newform = form - 1;
-        if (newform <= maxForm)
+        if (newform <= maxForm) {
             ret += newform;
-    }
-    else if (form <= maxForm)
+        }
+    } else if (form <= maxForm) {
         ret += form;
-    else if (isFemale && gDimorphismTable[species-1])
+    } else if (isFemale && gDimorphismTable[species - 1]) {
         ret += isFemale;
+    }
 
     return ret;
+}
+
+static const u16 sBabySpeciesList[] = {
+    SPECIES_PICHU,
+    SPECIES_CLEFFA,
+    SPECIES_IGGLYBUFF,
+    SPECIES_TOGEPI,
+    SPECIES_TYROGUE,
+    SPECIES_SMOOCHUM,
+    SPECIES_ELEKID,
+    SPECIES_MAGBY,
+    SPECIES_AZURILL,
+    SPECIES_WYNAUT,
+    SPECIES_BUDEW,
+    SPECIES_CHINGLING,
+    SPECIES_BONSLY,
+    SPECIES_MIME_JR,
+    SPECIES_HAPPINY,
+    SPECIES_MUNCHLAX,
+    SPECIES_RIOLU,
+    SPECIES_MANTYKE,
+    SPECIES_TOXEL,
+};
+
+BOOL LONG_CALL IsBabySpecies(u16 species)
+{
+    u32 i;
+
+    if (species > MAX_MON_NUM) {
+        species = GetBaseSpeciesFromAdjustedForm(species);
+    }
+
+    for (i = 0; i < NELEMS(sBabySpeciesList); i++) {
+        if (sBabySpeciesList[i] == species) {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+void LONG_CALL TrySetBabyBondRibbon(struct PartyPokemon *pokemon)
+{
+    u32 species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+
+    if (IsBabySpecies(species) && GetMonData(pokemon, MON_DATA_PREMIER_RIBBON, NULL) == 0) {
+        u32 hasRibbon = 1;
+        SetMonData(pokemon, MON_DATA_PREMIER_RIBBON, &hasRibbon);
+    }
 }
 
 /**
@@ -1645,7 +1600,8 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
  *  @param encounterType encounter type
  *  @return TRUE if successful; FALSE otherwise
  */
-BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 ability, u16 heldItem, int ball, int encounterType) {
+BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 ability, u16 heldItem, int ball, int encounterType)
+{
     struct Party *party;
     struct PartyPokemon *pokemon;
     void *profile;
@@ -1670,8 +1626,7 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
 
     RecalcPartyPokemonStats(pokemon); // recalculate stats
 
-    if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1)
-    {
+    if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1) {
         SET_MON_HIDDEN_ABILITY_BIT(pokemon)
         // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
         ClearScriptFlag(HIDDEN_ABILITIES_FLAG);
@@ -1682,6 +1637,9 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
     } else {
         ResetPartyPokemonAbility(pokemon); // with the flag set, the hidden ability should be set
     }
+
+    TrySetBabyBondRibbon(pokemon);
+
     result = PokeParty_Add(party, pokemon);
     if (result) {
         UpdatePokedexWithReceivedSpecies(saveData, pokemon);
@@ -1707,7 +1665,7 @@ extern u32 space_for_setmondata;
  */
 void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int level, int pow, int rndflag, u32 rnd, int idflag, u32 id)
 {
-    //u16 sum;
+    // u16 sum;
     u32 i, j;
     BOOL flag;
 
@@ -1722,84 +1680,79 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
     if (!rndflag) {
         rnd = (gf_rand() | (gf_rand() << 16));
     }
-    SetBoxMonData(boxmon,MON_DATA_PERSONALITY,(u8 *)&rnd);
+    SetBoxMonData(boxmon, MON_DATA_PERSONALITY, (u8 *)&rnd);
 
-    if (idflag==ID_NO_SHINY) {
+    if (idflag == ID_NO_SHINY) {
         do {
             id = (gf_rand() | (gf_rand() << 16));
         } while (SHINY_CHECK(id, rnd));
-    }
-    else if(idflag!=ID_SET){
-        id=0;
+    } else if (idflag != ID_SET) {
+        id = 0;
     }
 
     // this function or AddWildPartyPokemon could both get here first
     // and since both functions will initialize the moveset,
     // we need the form to be set correctly in either case
-    if (space_for_setmondata != 0)
-    {
+    if (space_for_setmondata != 0) {
         SetBoxMonData(boxmon, MON_DATA_FORM, (u8 *)&space_for_setmondata);
     }
 
-    SetBoxMonData(boxmon,MON_DATA_OTID,(u8 *)&id);
-    SetBoxMonData(boxmon,MON_DATA_GAME_LANGUAGE,(u8 *)&language);
-    SetBoxMonData(boxmon,MON_DATA_SPECIES,(u8 *)&species);
-    SetBoxMonData(boxmon,MON_DATA_SPECIES_NAME,NULL);
+    SetBoxMonData(boxmon, MON_DATA_OTID, (u8 *)&id);
+    SetBoxMonData(boxmon, MON_DATA_GAME_LANGUAGE, (u8 *)&language);
+    SetBoxMonData(boxmon, MON_DATA_SPECIES, (u8 *)&species);
+    SetBoxMonData(boxmon, MON_DATA_SPECIES_NAME, NULL);
 
-    i=PokeLevelExpGet(species,level);
-    SetBoxMonData(boxmon,MON_DATA_EXPERIENCE,(u8 *)&i);
+    i = PokeLevelExpGet(species, level);
+    SetBoxMonData(boxmon, MON_DATA_EXPERIENCE, (u8 *)&i);
 
-    i=PokePersonalParaGet(species,PERSONAL_BASE_FRIENDSHIP);
-    SetBoxMonData(boxmon,MON_DATA_FRIENDSHIP,(u8 *)&i);
+    i = PokePersonalParaGet(species, PERSONAL_BASE_FRIENDSHIP);
+    SetBoxMonData(boxmon, MON_DATA_FRIENDSHIP, (u8 *)&i);
 
-    SetBoxMonData(boxmon,MON_DATA_MET_LEVEL,(u8 *)&level);
-    SetBoxMonData(boxmon,MON_DATA_GAME_VERSION,(u8 *)&title);
-    i=ITEM_POKE_BALL;
-    SetBoxMonData(boxmon,MON_DATA_POKEBALL,(u8 *)&i);
+    SetBoxMonData(boxmon, MON_DATA_MET_LEVEL, (u8 *)&level);
+    SetBoxMonData(boxmon, MON_DATA_GAME_VERSION, (u8 *)&title);
+    i = ITEM_POKE_BALL;
+    SetBoxMonData(boxmon, MON_DATA_POKEBALL, (u8 *)&i);
 
-    if(pow <= MAX_IVS){
-        SetBoxMonData(boxmon,MON_DATA_HP_IV,(u8 *)&pow);
-        SetBoxMonData(boxmon,MON_DATA_ATK_IV,(u8 *)&pow);
-        SetBoxMonData(boxmon,MON_DATA_DEF_IV,(u8 *)&pow);
-        SetBoxMonData(boxmon,MON_DATA_SPEED_IV,(u8 *)&pow);
-        SetBoxMonData(boxmon,MON_DATA_SPATK_IV,(u8 *)&pow);
-        SetBoxMonData(boxmon,MON_DATA_SPDEF_IV,(u8 *)&pow);
+    if (pow <= MAX_IVS) {
+        SetBoxMonData(boxmon, MON_DATA_HP_IV, (u8 *)&pow);
+        SetBoxMonData(boxmon, MON_DATA_ATK_IV, (u8 *)&pow);
+        SetBoxMonData(boxmon, MON_DATA_DEF_IV, (u8 *)&pow);
+        SetBoxMonData(boxmon, MON_DATA_SPEED_IV, (u8 *)&pow);
+        SetBoxMonData(boxmon, MON_DATA_SPATK_IV, (u8 *)&pow);
+        SetBoxMonData(boxmon, MON_DATA_SPDEF_IV, (u8 *)&pow);
+    } else { // why the fuck is it done like this
+        i = gf_rand();
+        j = (i & (0x001f << 0)) >> 0;
+        SetBoxMonData(boxmon, MON_DATA_HP_IV, (u8 *)&j);
+        j = (i & (0x001f << 5)) >> 5;
+        SetBoxMonData(boxmon, MON_DATA_ATK_IV, (u8 *)&j);
+        j = (i & (0x001f << 10)) >> 10;
+        SetBoxMonData(boxmon, MON_DATA_DEF_IV, (u8 *)&j);
+        i = gf_rand();
+        j = (i & (0x001f << 0)) >> 0;
+        SetBoxMonData(boxmon, MON_DATA_SPEED_IV, (u8 *)&j);
+        j = (i & (0x001f << 5)) >> 5;
+        SetBoxMonData(boxmon, MON_DATA_SPATK_IV, (u8 *)&j);
+        j = (i & (0x001f << 10)) >> 10;
+        SetBoxMonData(boxmon, MON_DATA_SPDEF_IV, (u8 *)&j);
     }
-    else{ // why the fuck is it done like this
-        i=gf_rand();
-        j=(i&(0x001f<< 0))>> 0;
-        SetBoxMonData(boxmon,MON_DATA_HP_IV,(u8 *)&j);
-        j=(i&(0x001f<< 5))>> 5;
-        SetBoxMonData(boxmon,MON_DATA_ATK_IV,(u8 *)&j);
-        j=(i&(0x001f<<10))>>10;
-        SetBoxMonData(boxmon,MON_DATA_DEF_IV,(u8 *)&j);
-        i=gf_rand();
-        j=(i&(0x001f<< 0))>> 0;
-        SetBoxMonData(boxmon,MON_DATA_SPEED_IV,(u8 *)&j);
-        j=(i&(0x001f<< 5))>> 5;
-        SetBoxMonData(boxmon,MON_DATA_SPATK_IV,(u8 *)&j);
-        j=(i&(0x001f<<10))>>10;
-        SetBoxMonData(boxmon,MON_DATA_SPDEF_IV,(u8 *)&j);
-    }
 
-    i = PokePersonalParaGet(species,PERSONAL_ABILITY_1);
-    j = PokePersonalParaGet(species,PERSONAL_ABILITY_2);
-    if(j!=0){
-        if(rnd&1){
-            SetBoxMonData(boxmon,MON_DATA_ABILITY,(u8 *)&j);
+    i = PokePersonalParaGet(species, PERSONAL_ABILITY_1);
+    j = PokePersonalParaGet(species, PERSONAL_ABILITY_2);
+    if (j != 0) {
+        if (rnd & 1) {
+            SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&j);
+        } else {
+            SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&i);
         }
-        else{
-            SetBoxMonData(boxmon,MON_DATA_ABILITY,(u8 *)&i);
-        }
-    }
-    else{
-        SetBoxMonData(boxmon,MON_DATA_ABILITY,(u8 *)&i);
+    } else {
+        SetBoxMonData(boxmon, MON_DATA_ABILITY, (u8 *)&i);
     }
 
-    i=GetBoxMonGender(boxmon);
-    SetBoxMonData(boxmon,MON_DATA_GENDER,(u8 *)&i);
+    i = GetBoxMonGender(boxmon);
+    SetBoxMonData(boxmon, MON_DATA_GENDER, (u8 *)&i);
     InitBoxMonMoveset(boxmon);
-    BoxMonSetFastModeOff(boxmon,flag);
+    BoxMonSetFastModeOff(boxmon, flag);
 }
 
 /**
@@ -1817,23 +1770,20 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
 
     // use this chance to make bad poisoning normal poison at the end of battle
     work = GetMonData(pp, MON_DATA_STATUS, NULL);
-    if (work & STATUS_BAD_POISON)
-    {
+    if (work & STATUS_BAD_POISON) {
         work &= ~(STATUS_BAD_POISON);
         work |= STATUS_POISON;
         SetMonData(pp, MON_DATA_STATUS, &work);
     }
     work = 0; // reset work variable so that the form is fine
 
-    if (form_no != 0)
-    {
+    if (form_no != 0) {
         u16 newSpecies;
-        ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16)*(32*species + form_no-1), sizeof(u16));
+        ArchiveDataLoadOfs(&newSpecies, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (32 * species + form_no - 1), sizeof(u16));
         ret = ((newSpecies & NEEDS_REVERSION) != 0); // initial return
         newSpecies &= ~(NEEDS_REVERSION);
         // invalid form entry specified or form does not require reversion--return
-        if (newSpecies == 0 || ret == FALSE)
-        {
+        if (newSpecies == 0 || ret == FALSE) {
             return FALSE;
         }
         // Form
@@ -1858,8 +1808,7 @@ u32 gLastPokemonLevelForMoneyCalc;
  */
 void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon *pp)
 {
-    if (CheckScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG) == 1)
-    {
+    if (CheckScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG) == 1) {
         SET_MON_HIDDEN_ABILITY_BIT(pp)
         SetBoxMonAbility((void *)&pp->box);
     }
@@ -1873,9 +1822,8 @@ void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon 
 void LONG_CALL ClearMonMoves(struct PartyPokemon *pokemon)
 {
     int null = 0;
-    for (int i = 0; i < 4; i++)
-    {
-        SetMonData(pokemon, MON_DATA_MOVE1+i, &null);
+    for (int i = 0; i < 4; i++) {
+        SetMonData(pokemon, MON_DATA_MOVE1 + i, &null);
     }
 }
 
@@ -1908,80 +1856,79 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
     ResetPartyPokemonAbility(pokemon);
 }
 
-
-#define CRY_SPECIES_FORMS_BASE (MAX_MON_NUM+1)
+#define CRY_SPECIES_FORMS_BASE (MAX_MON_NUM + 1)
 
 // need to be in order of form so that python script can generate the makefile
 #define CRY_SPECIES_SHAYMIN 0x1EE
 
 // megas
-#define CRY_SPECIES_BASE_VENUSAUR (CRY_SPECIES_FORMS_BASE)
+#define CRY_SPECIES_BASE_VENUSAUR    (CRY_SPECIES_FORMS_BASE)
 #define CRY_SPECIES_BASE_CHARIZARD_X (CRY_SPECIES_FORMS_BASE + 1)
 #define CRY_SPECIES_BASE_CHARIZARD_Y (CRY_SPECIES_FORMS_BASE + 2)
-#define CRY_SPECIES_BASE_BLASTOISE (CRY_SPECIES_FORMS_BASE + 3)
-#define CRY_SPECIES_BASE_BEEDRILL (CRY_SPECIES_FORMS_BASE + 4)
-#define CRY_SPECIES_BASE_PIDGEOT (CRY_SPECIES_FORMS_BASE + 5)
-#define CRY_SPECIES_BASE_ALAKAZAM (CRY_SPECIES_FORMS_BASE + 6)
-#define CRY_SPECIES_BASE_SLOWBRO (CRY_SPECIES_FORMS_BASE + 7)
-#define CRY_SPECIES_BASE_GENGAR (CRY_SPECIES_FORMS_BASE + 8)
-#define CRY_SPECIES_BASE_KANGASKHAN (CRY_SPECIES_FORMS_BASE + 9)
-#define CRY_SPECIES_BASE_PINSIR (CRY_SPECIES_FORMS_BASE + 10)
-#define CRY_SPECIES_BASE_GYARADOS (CRY_SPECIES_FORMS_BASE + 11)
-#define CRY_SPECIES_BASE_AERODACTYL (CRY_SPECIES_FORMS_BASE + 12)
-#define CRY_SPECIES_BASE_MEWTWO_X (CRY_SPECIES_FORMS_BASE + 13)
-#define CRY_SPECIES_BASE_MEWTWO_Y (CRY_SPECIES_FORMS_BASE + 14)
-#define CRY_SPECIES_BASE_AMPHAROS (CRY_SPECIES_FORMS_BASE + 15)
-#define CRY_SPECIES_BASE_STEELIX (CRY_SPECIES_FORMS_BASE + 16)
-#define CRY_SPECIES_BASE_SCIZOR (CRY_SPECIES_FORMS_BASE + 17)
-#define CRY_SPECIES_BASE_HERACROSS (CRY_SPECIES_FORMS_BASE + 18)
-#define CRY_SPECIES_BASE_HOUNDOOM (CRY_SPECIES_FORMS_BASE + 19)
-#define CRY_SPECIES_BASE_TYRANITAR (CRY_SPECIES_FORMS_BASE + 20)
-#define CRY_SPECIES_BASE_SCEPTILE (CRY_SPECIES_FORMS_BASE + 21)
-#define CRY_SPECIES_BASE_BLAZIKEN (CRY_SPECIES_FORMS_BASE + 22)
-#define CRY_SPECIES_BASE_SWAMPERT (CRY_SPECIES_FORMS_BASE + 23)
-#define CRY_SPECIES_BASE_GARDEVOIR (CRY_SPECIES_FORMS_BASE + 24)
-#define CRY_SPECIES_BASE_SABLEYE (CRY_SPECIES_FORMS_BASE + 25)
-#define CRY_SPECIES_BASE_MAWILE (CRY_SPECIES_FORMS_BASE + 26)
-#define CRY_SPECIES_BASE_AGGRON (CRY_SPECIES_FORMS_BASE + 27)
-#define CRY_SPECIES_BASE_MEDICHAM (CRY_SPECIES_FORMS_BASE + 28)
-#define CRY_SPECIES_BASE_MANECTRIC (CRY_SPECIES_FORMS_BASE + 29)
-#define CRY_SPECIES_BASE_SHARPEDO (CRY_SPECIES_FORMS_BASE + 30)
-#define CRY_SPECIES_BASE_CAMERUPT (CRY_SPECIES_FORMS_BASE + 31)
-#define CRY_SPECIES_BASE_ALTARIA (CRY_SPECIES_FORMS_BASE + 32)
-#define CRY_SPECIES_BASE_BANETTE (CRY_SPECIES_FORMS_BASE + 33)
-#define CRY_SPECIES_BASE_ABSOL (CRY_SPECIES_FORMS_BASE + 34)
-#define CRY_SPECIES_BASE_GLALIE (CRY_SPECIES_FORMS_BASE + 35)
-#define CRY_SPECIES_BASE_SALAMENCE (CRY_SPECIES_FORMS_BASE + 36)
-#define CRY_SPECIES_BASE_METAGROSS (CRY_SPECIES_FORMS_BASE + 37)
-#define CRY_SPECIES_BASE_LATIAS (CRY_SPECIES_FORMS_BASE + 38)
-#define CRY_SPECIES_BASE_LATIOS (CRY_SPECIES_FORMS_BASE + 39)
-#define CRY_SPECIES_BASE_RAYQUAZA (CRY_SPECIES_FORMS_BASE + 40)
-#define CRY_SPECIES_BASE_LOPUNNY (CRY_SPECIES_FORMS_BASE + 41)
-#define CRY_SPECIES_BASE_GARCHOMP (CRY_SPECIES_FORMS_BASE + 42)
-#define CRY_SPECIES_BASE_LUCARIO (CRY_SPECIES_FORMS_BASE + 43)
-#define CRY_SPECIES_BASE_ABOMASNOW (CRY_SPECIES_FORMS_BASE + 44)
-#define CRY_SPECIES_BASE_GALLADE (CRY_SPECIES_FORMS_BASE + 45)
-#define CRY_SPECIES_BASE_AUDINO (CRY_SPECIES_FORMS_BASE + 46)
-#define CRY_SPECIES_BASE_DIANCIE (CRY_SPECIES_FORMS_BASE + 47)
+#define CRY_SPECIES_BASE_BLASTOISE   (CRY_SPECIES_FORMS_BASE + 3)
+#define CRY_SPECIES_BASE_BEEDRILL    (CRY_SPECIES_FORMS_BASE + 4)
+#define CRY_SPECIES_BASE_PIDGEOT     (CRY_SPECIES_FORMS_BASE + 5)
+#define CRY_SPECIES_BASE_ALAKAZAM    (CRY_SPECIES_FORMS_BASE + 6)
+#define CRY_SPECIES_BASE_SLOWBRO     (CRY_SPECIES_FORMS_BASE + 7)
+#define CRY_SPECIES_BASE_GENGAR      (CRY_SPECIES_FORMS_BASE + 8)
+#define CRY_SPECIES_BASE_KANGASKHAN  (CRY_SPECIES_FORMS_BASE + 9)
+#define CRY_SPECIES_BASE_PINSIR      (CRY_SPECIES_FORMS_BASE + 10)
+#define CRY_SPECIES_BASE_GYARADOS    (CRY_SPECIES_FORMS_BASE + 11)
+#define CRY_SPECIES_BASE_AERODACTYL  (CRY_SPECIES_FORMS_BASE + 12)
+#define CRY_SPECIES_BASE_MEWTWO_X    (CRY_SPECIES_FORMS_BASE + 13)
+#define CRY_SPECIES_BASE_MEWTWO_Y    (CRY_SPECIES_FORMS_BASE + 14)
+#define CRY_SPECIES_BASE_AMPHAROS    (CRY_SPECIES_FORMS_BASE + 15)
+#define CRY_SPECIES_BASE_STEELIX     (CRY_SPECIES_FORMS_BASE + 16)
+#define CRY_SPECIES_BASE_SCIZOR      (CRY_SPECIES_FORMS_BASE + 17)
+#define CRY_SPECIES_BASE_HERACROSS   (CRY_SPECIES_FORMS_BASE + 18)
+#define CRY_SPECIES_BASE_HOUNDOOM    (CRY_SPECIES_FORMS_BASE + 19)
+#define CRY_SPECIES_BASE_TYRANITAR   (CRY_SPECIES_FORMS_BASE + 20)
+#define CRY_SPECIES_BASE_SCEPTILE    (CRY_SPECIES_FORMS_BASE + 21)
+#define CRY_SPECIES_BASE_BLAZIKEN    (CRY_SPECIES_FORMS_BASE + 22)
+#define CRY_SPECIES_BASE_SWAMPERT    (CRY_SPECIES_FORMS_BASE + 23)
+#define CRY_SPECIES_BASE_GARDEVOIR   (CRY_SPECIES_FORMS_BASE + 24)
+#define CRY_SPECIES_BASE_SABLEYE     (CRY_SPECIES_FORMS_BASE + 25)
+#define CRY_SPECIES_BASE_MAWILE      (CRY_SPECIES_FORMS_BASE + 26)
+#define CRY_SPECIES_BASE_AGGRON      (CRY_SPECIES_FORMS_BASE + 27)
+#define CRY_SPECIES_BASE_MEDICHAM    (CRY_SPECIES_FORMS_BASE + 28)
+#define CRY_SPECIES_BASE_MANECTRIC   (CRY_SPECIES_FORMS_BASE + 29)
+#define CRY_SPECIES_BASE_SHARPEDO    (CRY_SPECIES_FORMS_BASE + 30)
+#define CRY_SPECIES_BASE_CAMERUPT    (CRY_SPECIES_FORMS_BASE + 31)
+#define CRY_SPECIES_BASE_ALTARIA     (CRY_SPECIES_FORMS_BASE + 32)
+#define CRY_SPECIES_BASE_BANETTE     (CRY_SPECIES_FORMS_BASE + 33)
+#define CRY_SPECIES_BASE_ABSOL       (CRY_SPECIES_FORMS_BASE + 34)
+#define CRY_SPECIES_BASE_GLALIE      (CRY_SPECIES_FORMS_BASE + 35)
+#define CRY_SPECIES_BASE_SALAMENCE   (CRY_SPECIES_FORMS_BASE + 36)
+#define CRY_SPECIES_BASE_METAGROSS   (CRY_SPECIES_FORMS_BASE + 37)
+#define CRY_SPECIES_BASE_LATIAS      (CRY_SPECIES_FORMS_BASE + 38)
+#define CRY_SPECIES_BASE_LATIOS      (CRY_SPECIES_FORMS_BASE + 39)
+#define CRY_SPECIES_BASE_RAYQUAZA    (CRY_SPECIES_FORMS_BASE + 40)
+#define CRY_SPECIES_BASE_LOPUNNY     (CRY_SPECIES_FORMS_BASE + 41)
+#define CRY_SPECIES_BASE_GARCHOMP    (CRY_SPECIES_FORMS_BASE + 42)
+#define CRY_SPECIES_BASE_LUCARIO     (CRY_SPECIES_FORMS_BASE + 43)
+#define CRY_SPECIES_BASE_ABOMASNOW   (CRY_SPECIES_FORMS_BASE + 44)
+#define CRY_SPECIES_BASE_GALLADE     (CRY_SPECIES_FORMS_BASE + 45)
+#define CRY_SPECIES_BASE_AUDINO      (CRY_SPECIES_FORMS_BASE + 46)
+#define CRY_SPECIES_BASE_DIANCIE     (CRY_SPECIES_FORMS_BASE + 47)
 
 // everything else
-#define CRY_SPECIES_BASE_TORNADUS (CRY_SPECIES_FORMS_BASE + 48)
-#define CRY_SPECIES_BASE_THUNDURUS (CRY_SPECIES_FORMS_BASE+1 + 48)
-#define CRY_SPECIES_BASE_LANDORUS (CRY_SPECIES_FORMS_BASE+2 + 48)
-#define CRY_SPECIES_BASE_KYUREM (CRY_SPECIES_FORMS_BASE+3 + 48)
-#define CRY_SPECIES_BASE_PUMPKABOO (CRY_SPECIES_FORMS_BASE+5 + 48)
-#define CRY_SPECIES_BASE_GOURGEIST (CRY_SPECIES_FORMS_BASE+6 + 48)
-#define CRY_SPECIES_BASE_HOOPA (CRY_SPECIES_FORMS_BASE+7 + 48)
-#define CRY_SPECIES_BASE_ORICORIO (CRY_SPECIES_FORMS_BASE+8 + 48)
-#define CRY_SPECIES_BASE_LYCANROC (CRY_SPECIES_FORMS_BASE+11 + 48)
-#define CRY_SPECIES_BASE_WISHIWASHI (CRY_SPECIES_FORMS_BASE+13 + 48)
-#define CRY_SPECIES_BASE_NECROZMA (CRY_SPECIES_FORMS_BASE+14 + 48)
-#define CRY_SPECIES_BASE_ZACIAN (CRY_SPECIES_FORMS_BASE+18 + 48)
-#define CRY_SPECIES_BASE_ZAMAZENTA (CRY_SPECIES_FORMS_BASE+19 + 48)
-#define CRY_SPECIES_BASE_URSHIFU (CRY_SPECIES_FORMS_BASE+20 + 48)
-#define CRY_SPECIES_BASE_CALYREX (CRY_SPECIES_FORMS_BASE+21 + 48)
-#define CRY_SPECIES_BASE_ENAMORUS (CRY_SPECIES_FORMS_BASE+23 + 48)
-#define CRY_SPECIES_BASE_MAUSHOLD (CRY_SPECIES_FORMS_BASE+24 + 48)
+#define CRY_SPECIES_BASE_TORNADUS   (CRY_SPECIES_FORMS_BASE + 48)
+#define CRY_SPECIES_BASE_THUNDURUS  (CRY_SPECIES_FORMS_BASE + 1 + 48)
+#define CRY_SPECIES_BASE_LANDORUS   (CRY_SPECIES_FORMS_BASE + 2 + 48)
+#define CRY_SPECIES_BASE_KYUREM     (CRY_SPECIES_FORMS_BASE + 3 + 48)
+#define CRY_SPECIES_BASE_PUMPKABOO  (CRY_SPECIES_FORMS_BASE + 5 + 48)
+#define CRY_SPECIES_BASE_GOURGEIST  (CRY_SPECIES_FORMS_BASE + 6 + 48)
+#define CRY_SPECIES_BASE_HOOPA      (CRY_SPECIES_FORMS_BASE + 7 + 48)
+#define CRY_SPECIES_BASE_ORICORIO   (CRY_SPECIES_FORMS_BASE + 8 + 48)
+#define CRY_SPECIES_BASE_LYCANROC   (CRY_SPECIES_FORMS_BASE + 11 + 48)
+#define CRY_SPECIES_BASE_WISHIWASHI (CRY_SPECIES_FORMS_BASE + 13 + 48)
+#define CRY_SPECIES_BASE_NECROZMA   (CRY_SPECIES_FORMS_BASE + 14 + 48)
+#define CRY_SPECIES_BASE_ZACIAN     (CRY_SPECIES_FORMS_BASE + 18 + 48)
+#define CRY_SPECIES_BASE_ZAMAZENTA  (CRY_SPECIES_FORMS_BASE + 19 + 48)
+#define CRY_SPECIES_BASE_URSHIFU    (CRY_SPECIES_FORMS_BASE + 20 + 48)
+#define CRY_SPECIES_BASE_CALYREX    (CRY_SPECIES_FORMS_BASE + 21 + 48)
+#define CRY_SPECIES_BASE_ENAMORUS   (CRY_SPECIES_FORMS_BASE + 23 + 48)
+#define CRY_SPECIES_BASE_MAUSHOLD   (CRY_SPECIES_FORMS_BASE + 24 + 48)
 
 u32 storeShayminForm = 0;
 
@@ -2001,7 +1948,7 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
         species = SPECIES_BULBASAUR;
     }
 
-    //debug_printf("[GrabCryNumSpeciesForm] species = %d, form = %d\n", species, form)
+    // debug_printf("[GrabCryNumSpeciesForm] species = %d, form = %d\n", species, form)
 
     // battles are fucking stupid and pass in species already adjusted for form.  need to revert to base species and extract form
     if (species > MAX_MON_NUM) {
@@ -2013,29 +1960,28 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
     // shaymin has to have some hacks to get this to work proper because of the same battle stuff above
     else if (species == SPECIES_SHAYMIN) {
         register u32 retAddr asm("lr");
-        if (retAddr == 0x020069BF)
+        if (retAddr == 0x020069BF) {
             storeShayminForm = form;
-        else if (retAddr == 0x020063E5 || retAddr == 0x02006241)
-            if (!storeShayminForm)
+        } else if (retAddr == 0x020063E5 || retAddr == 0x02006241) {
+            if (!storeShayminForm) {
                 return species;
-    }
-    else if (form == 0) // can just return species for the cry if it is base form
+            }
+        }
+    } else if (form == 0) // can just return species for the cry if it is base form
     {
         return species;
-    }
-    else
-    {
+    } else {
         // need to grab form-adjusted species otherwise
         newSpecies = PokeOtherFormMonsNoGet(species, form);
     }
 
     // handle megas in a way such that it's not added to the already-bad switch
-    if (newSpecies >= SPECIES_MEGA_START && newSpecies <= MAX_MEGA_NUM)
-        return (newSpecies - SPECIES_MEGA_START + CRY_SPECIES_BASE_VENUSAUR);
+    if (newSpecies >= SPECIES_MEGA_START && newSpecies <= MAX_MEGA_NUM) {
+        return newSpecies - SPECIES_MEGA_START + CRY_SPECIES_BASE_VENUSAUR;
+    }
 
     // handle the rest of the species
-    switch (species)
-    {
+    switch (species) {
     case SPECIES_SHAYMIN:
         return CRY_SPECIES_SHAYMIN; // form is already nonzero
     case SPECIES_TORNADUS:
@@ -2047,23 +1993,27 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
     case SPECIES_ENAMORUS:
         return CRY_SPECIES_BASE_ENAMORUS;
     case SPECIES_KYUREM:
-        return CRY_SPECIES_BASE_KYUREM + form-1;
+        return CRY_SPECIES_BASE_KYUREM + form - 1;
     case SPECIES_PUMPKABOO:
-        if (form == 3) return CRY_SPECIES_BASE_PUMPKABOO;
+        if (form == 3) {
+            return CRY_SPECIES_BASE_PUMPKABOO;
+        }
         break;
     case SPECIES_GOURGEIST:
-        if (form == 3) return CRY_SPECIES_BASE_GOURGEIST;
+        if (form == 3) {
+            return CRY_SPECIES_BASE_GOURGEIST;
+        }
         break;
     case SPECIES_HOOPA:
         return CRY_SPECIES_BASE_HOOPA;
     case SPECIES_ORICORIO:
-        return CRY_SPECIES_BASE_ORICORIO + form-1;
+        return CRY_SPECIES_BASE_ORICORIO + form - 1;
     case SPECIES_LYCANROC:
-        return CRY_SPECIES_BASE_LYCANROC + form-1;
+        return CRY_SPECIES_BASE_LYCANROC + form - 1;
     case SPECIES_WISHIWASHI:
         return CRY_SPECIES_BASE_WISHIWASHI;
     case SPECIES_NECROZMA:
-        return CRY_SPECIES_BASE_NECROZMA + form-1;
+        return CRY_SPECIES_BASE_NECROZMA + form - 1;
     case SPECIES_ZACIAN:
         return CRY_SPECIES_BASE_ZACIAN;
     case SPECIES_ZAMAZENTA:
@@ -2071,13 +2021,12 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
     case SPECIES_URSHIFU:
         return CRY_SPECIES_BASE_URSHIFU;
     case SPECIES_CALYREX:
-        return CRY_SPECIES_BASE_CALYREX + form-1;
+        return CRY_SPECIES_BASE_CALYREX + form - 1;
     case SPECIES_MAUSHOLD:
         return CRY_SPECIES_BASE_MAUSHOLD;
     }
     return species;
 }
-
 
 // double battles triggerable
 
@@ -2101,8 +2050,7 @@ u32 WildEncSingle(FieldSystem *fsys UNUSED, struct PartyPokemon *pp, void *bw, v
 
 #ifdef IMPLEMENT_WILD_DOUBLE_BATTLES
 
-    if (gTriggerDouble)
-    {
+    if (gTriggerDouble) {
         ret = SetEncountData(pp, 255, encInfo, encArea, 0, 1, bw); // add another mon to the enemy party
     }
 
@@ -2125,27 +2073,22 @@ u32 WildEncSingle(FieldSystem *fsys UNUSED, struct PartyPokemon *pp, void *bw, v
 u32 WildWaterEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, void *encArea, void *encInfo, BOOL smth)
 {
     u32 ret;
-    if (smth)
-    {
+    if (smth) {
         ret = SetEncountDataSwarm_maybe(fsys, pp, 255, encInfo, 1, 1, bw);
 
 #ifdef IMPLEMENT_WILD_DOUBLE_BATTLES
 
-        if (gTriggerDouble)
-        {
+        if (gTriggerDouble) {
             ret = SetEncountDataSwarm_maybe(fsys, pp, 255, encInfo, 1, 1, bw); // add another mon to the enemy party
         }
 
 #endif
-    }
-    else
-    {
+    } else {
         ret = SetEncountData(pp, 255, encInfo, encArea, 1, 1, bw);
 
 #ifdef IMPLEMENT_WILD_DOUBLE_BATTLES
 
-        if (gTriggerDouble)
-        {
+        if (gTriggerDouble) {
             ret = SetEncountData(pp, 255, encInfo, encArea, 1, 1, bw); // add another mon to the enemy party
         }
 
@@ -2164,8 +2107,7 @@ u32 WildWaterEncSingle(FieldSystem *fsys, struct PartyPokemon *pp, void *bw, voi
  */
 u32 CheckCanUseBallOnDoublesFromBag(struct BattleStruct *sp)
 {
-    if (sp->battlemon[1].hp && sp->battlemon[3].hp)
-    {
+    if (sp->battlemon[1].hp && sp->battlemon[3].hp) {
         return FALSE;
     }
     return TRUE;
@@ -2180,7 +2122,9 @@ u32 LONG_CALL GetLevelCap(void)
 {
 #ifdef IMPLEMENT_LEVEL_CAP
     u32 levelCap = GetScriptVar(LEVEL_CAP_VARIABLE);
-    if (levelCap > 100 || levelCap == 0) levelCap = 100;
+    if (levelCap > 100 || levelCap == 0) {
+        levelCap = 100;
+    }
     return levelCap;
 #else
     return 100;
@@ -2195,9 +2139,8 @@ u32 LONG_CALL GetLevelCap(void)
  */
 u32 LONG_CALL IsLevelAtLevelCap(u32 level)
 {
-    return (level >= GetLevelCap());
+    return level >= GetLevelCap();
 }
-
 
 #ifdef IMPLEMENT_LEVEL_CAP
 
@@ -2207,7 +2150,8 @@ u32 LONG_CALL IsLevelAtLevelCap(u32 level)
  *  @param mon PartyPokemon to level up
  *  @return TRUE if PartyPokemon should level up and level has been augmented
  */
-BOOL Pokemon_TryLevelUp(struct PartyPokemon *mon) {
+BOOL Pokemon_TryLevelUp(struct PartyPokemon *mon)
+{
     u16 species = (u16)GetMonData(mon, MON_DATA_SPECIES, NULL);
     u8 level = (u8)(GetMonData(mon, MON_DATA_LEVEL, NULL) + 1);
     u32 exp = GetMonData(mon, MON_DATA_EXPERIENCE, NULL);
@@ -2217,8 +2161,9 @@ BOOL Pokemon_TryLevelUp(struct PartyPokemon *mon) {
         exp = maxexp;
         SetMonData(mon, MON_DATA_EXPERIENCE, &exp);
     }
-    if (level > GetLevelCap())
+    if (level > GetLevelCap()) {
         return FALSE;
+    }
     if (exp >= GetExpByGrowthRateAndLevel((int)growthrate, level)) {
         SetMonData(mon, MON_DATA_LEVEL, &level);
         return TRUE;
@@ -2227,7 +2172,6 @@ BOOL Pokemon_TryLevelUp(struct PartyPokemon *mon) {
 }
 
 #endif
-
 
 /**
  *  @brief grab the nature of a BoxPokemon factoring in the nature mint override field
@@ -2248,10 +2192,11 @@ u8 LONG_CALL GetBoxMonNatureCountMints(struct BoxPokemon *boxMon)
     // lord forgive me, i know not what i do
     // modulo operator in this world is only signed!  0x80000000 % 25 = 23
     // could just use GetNatureFromPersonality from the rom, but this was a good exercise anyway
-    if (personality & 0x80000000)
+    if (personality & 0x80000000) {
         personality = ((((u32)personality & 0x7FFFFFFF) % 25) + 23) % 25;
-    else
+    } else {
         personality %= 25;
+    }
 
     return personality;
 }
@@ -2265,27 +2210,23 @@ u8 LONG_CALL GetBoxMonNatureCountMints(struct BoxPokemon *boxMon)
  *  @param type type to check for
  *  @param outNo encounter slot that is forced
  */
-BOOL SetFixedWildEncounter(const WildEncounterWork *inData, const u8 inListNum, const u8 type, u8 * outNo)
+BOOL SetFixedWildEncounter(const WildEncounterWork *inData, const u8 inListNum, const u8 type, u8 *outNo)
 {
     u8 same_type[12];
     u32 cnt, i, type1, type2;
-    for (i = 0; i < 12; i++)
-    {
+    for (i = 0; i < 12; i++) {
         same_type[i] = 0;
     }
     cnt = 0;
-    for (i = 0; i < inListNum; i++)
-    {
+    for (i = 0; i < inListNum; i++) {
         u16 newSpecies = PokeOtherFormMonsNoGet(inData[i].species, inData[i].form);
         type1 = PokePersonalParaGet(newSpecies, PERSONAL_TYPE_1);
         type2 = PokePersonalParaGet(newSpecies, PERSONAL_TYPE_2);
-        if ((type1 == type) || (type2 == type))
-        {
+        if ((type1 == type) || (type2 == type)) {
             same_type[cnt++] = i;
         }
     }
-    if (cnt == 0 || cnt == inListNum)
-    {
+    if (cnt == 0 || cnt == inListNum) {
         return FALSE;
     }
     *outNo = same_type[gf_rand() % cnt];
@@ -2321,8 +2262,9 @@ u32 LONG_CALL GenerateShinyPIDKeepSubstructuresIntact(u32 otId, u32 pid)
     u32 shinyValue = SHINY_VALUE(otId, pid);
     if (shinyValue >= SHINY_ODDS) // xoring pid with shinyValue will give shiny but may corrupt substruct order
     {
-        if (shinyValue & 0xE000)
+        if (shinyValue & 0xE000) {
             pid = pid ^ ((shinyValue << 16) & 0xE0000000);
+        }
         pid = pid ^ (shinyValue & 0x1FFF);
         // shinyValue is now 0.  any xor must keep the shinyValue below SHINY_ODDS--should be fine to just generate a random number 0-SHINY_ODDS and xor it
         pid = pid ^ (gf_rand() % (SHINY_ODDS));
@@ -2332,14 +2274,14 @@ u32 LONG_CALL GenerateShinyPIDKeepSubstructuresIntact(u32 otId, u32 pid)
 
 /**
  *  @brief try learning a move upon level up
-*          edited to allow for moves to be learned on evolution at level 0
+ *          edited to allow for moves to be learned on evolution at level 0
  *
  *  @param mon PartyPokemon whose level is checked for moves
  *  @param last_i last entry in the level up learnset table that was checked
  *  @param sp0 pointer to a u16 that contains the move constant
  *  @return (u16)-1u if the mon's learnset is full, (u16)-2u if the mon already knows the move, and the move index if the mon had the move successfully added
  */
-u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0)
+u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int *last_i, u16 *sp0)
 {
     BOOL isMonEvolving = FALSE;
     register u32 retAddr asm("lr");
@@ -2355,16 +2297,15 @@ u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0)
 
     LoadLevelUpLearnset_HandleAlternateForm(species, (int)form, levelUpLearnset);
 
-    if (isMonEvolving && LEVEL_UP_LEARNSET_LEVEL(levelUpLearnset[*last_i]) == 0) // when evolving, try to learn moves at level 0
+    if (isMonEvolving && LEVEL_UP_LEARNSET_LEVEL(levelUpLearnset[*last_i]) == 0) { // when evolving, try to learn moves at level 0
         level = 0;
+    }
 
-    if (levelUpLearnset[*last_i] == LEVEL_UP_LEARNSET_END)
-    {
+    if (levelUpLearnset[*last_i] == LEVEL_UP_LEARNSET_END) {
         sys_FreeMemoryEz(levelUpLearnset);
         return 0;
     }
-    while ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) != (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT))
-    {
+    while ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) != (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT)) {
         (*last_i)++;
         if (levelUpLearnset[*last_i] == LEVEL_UP_LEARNSET_END) {
             sys_FreeMemoryEz(levelUpLearnset);
@@ -2373,18 +2314,15 @@ u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int * last_i, u16 * sp0)
         if (isMonEvolving) // if a mon is evolving, it is possible that the current level move also corresponds with a move that it learns on evolution.  need to skip the entry if it has already been attempted to learn a move
         {
             u32 currMove = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[*last_i]);
-            for (s32 i = 0; i < *last_i; i++)
-            {
-                if (LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[i]) == currMove && LEVEL_UP_LEARNSET_LEVEL(levelUpLearnset[i]) == 0)
-                {
+            for (s32 i = 0; i < *last_i; i++) {
+                if (LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[i]) == currMove && LEVEL_UP_LEARNSET_LEVEL(levelUpLearnset[i]) == 0) {
                     (*last_i)++;
                     break;
                 }
             }
         }
     }
-    if ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) == (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT))
-    {
+    if ((levelUpLearnset[*last_i] & LEVEL_UP_LEARNSET_LEVEL_MASK) == (level << LEVEL_UP_LEARNSET_LEVEL_SHIFT)) {
         *sp0 = LEVEL_UP_LEARNSET_MOVE(levelUpLearnset[*last_i]);
         (*last_i)++;
 #ifdef BLOCK_LEARNING_UNIMPLEMENTED_MOVES
@@ -2530,64 +2468,67 @@ const u8 sTrainerGenders[] = {
     [TRAINERCLASS_PKMN_TRAINER_DAWN_PT] = TRAINER_FEMALE,
 };
 
-TrainerGender LONG_CALL TT_TrainerTypeSexGet(int tr_type) {
+TrainerGender LONG_CALL TT_TrainerTypeSexGet(int tr_type)
+{
     return (TrainerGender)sTrainerGenders[tr_type];
 }
 
 // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9714380
-void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemon *param, unsigned int expected_form, int UNUSED *a3) {
+void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemon *param, unsigned int expected_form, int UNUSED *a3)
+{
     switch (GetMonData(param, MON_DATA_SPECIES, NULL)) {
-        case SPECIES_KYUREM:
-            switch (expected_form) {
-                case 0:
-                    SwapPartyPokemonMove(param, MOVE_ICE_BURN, MOVE_GLACIATE);
-                    SwapPartyPokemonMove(param, MOVE_FREEZE_SHOCK, MOVE_GLACIATE);
-                    SwapPartyPokemonMove(param, MOVE_FUSION_FLARE, MOVE_SCARY_FACE);
-                    SwapPartyPokemonMove(param, MOVE_FUSION_BOLT, MOVE_SCARY_FACE);
-                    break;
-                case 1:
-                    SwapPartyPokemonMove(param, MOVE_GLACIATE, MOVE_ICE_BURN);
-                    SwapPartyPokemonMove(param, MOVE_SCARY_FACE, MOVE_FUSION_FLARE);
-                    break;
-                case 2:
-                    SwapPartyPokemonMove(param, MOVE_GLACIATE, MOVE_FREEZE_SHOCK);
-                    SwapPartyPokemonMove(param, MOVE_SCARY_FACE, MOVE_FUSION_BOLT);
-                    break;
+    case SPECIES_KYUREM:
+        switch (expected_form) {
+        case 0:
+            SwapPartyPokemonMove(param, MOVE_ICE_BURN, MOVE_GLACIATE);
+            SwapPartyPokemonMove(param, MOVE_FREEZE_SHOCK, MOVE_GLACIATE);
+            SwapPartyPokemonMove(param, MOVE_FUSION_FLARE, MOVE_SCARY_FACE);
+            SwapPartyPokemonMove(param, MOVE_FUSION_BOLT, MOVE_SCARY_FACE);
+            break;
+        case 1:
+            SwapPartyPokemonMove(param, MOVE_GLACIATE, MOVE_ICE_BURN);
+            SwapPartyPokemonMove(param, MOVE_SCARY_FACE, MOVE_FUSION_FLARE);
+            break;
+        case 2:
+            SwapPartyPokemonMove(param, MOVE_GLACIATE, MOVE_FREEZE_SHOCK);
+            SwapPartyPokemonMove(param, MOVE_SCARY_FACE, MOVE_FUSION_BOLT);
+            break;
 
-                default:
-                    break;
-            }
+        default:
             break;
-        case SPECIES_ZACIAN:
-            switch (expected_form) {
-                case 0:
-                    SwapPartyPokemonMove(param, MOVE_BEHEMOTH_BLADE, MOVE_IRON_HEAD);
-                    break;
-                case 1:
-                    SwapPartyPokemonMove(param, MOVE_IRON_HEAD, MOVE_BEHEMOTH_BLADE);
-                    break;
-                default:
-                    break;
-            }
+        }
+        break;
+    case SPECIES_ZACIAN:
+        switch (expected_form) {
+        case 0:
+            SwapPartyPokemonMove(param, MOVE_BEHEMOTH_BLADE, MOVE_IRON_HEAD);
             break;
-        case SPECIES_ZAMAZENTA:
-            switch (expected_form) {
-                case 0:
-                    SwapPartyPokemonMove(param, MOVE_BEHEMOTH_BASH, MOVE_IRON_HEAD);
-                    break;
-                case 1:
-                    SwapPartyPokemonMove(param, MOVE_IRON_HEAD, MOVE_BEHEMOTH_BASH);
-                    break;
-                default:
-                    break;
-            }
+        case 1:
+            SwapPartyPokemonMove(param, MOVE_IRON_HEAD, MOVE_BEHEMOTH_BLADE);
             break;
         default:
             break;
+        }
+        break;
+    case SPECIES_ZAMAZENTA:
+        switch (expected_form) {
+        case 0:
+            SwapPartyPokemonMove(param, MOVE_BEHEMOTH_BASH, MOVE_IRON_HEAD);
+            break;
+        case 1:
+            SwapPartyPokemonMove(param, MOVE_IRON_HEAD, MOVE_BEHEMOTH_BASH);
+            break;
+        default:
+            break;
+        }
+        break;
+    default:
+        break;
     }
 }
 
-void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
+void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp)
+{
     int monsNo = GetMonData(pp, MON_DATA_SPECIES, NULL);
     int formNo = GetMonData(pp, MON_DATA_FORM, NULL);
 
@@ -2622,7 +2563,8 @@ void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp) {
  * @brief checks if a given mon can learn a specific TM or HM by index. reads from data/generated/MachineMoveLearnsets.c
  * @see   pret/pokeheartgold GetMonTMHMCompat
  */
-BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex) {
+BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex)
+{
     u32 species = GetMonData(pp, MON_DATA_SPECIES, NULL);
     u16 form = GetMonData(pp, MON_DATA_FORM, NULL);
 
@@ -2639,7 +2581,8 @@ BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex) {
 /**
  * @brief loads level up data for a mon. reads from data/generated/LevelupLearnsets.c
  */
-void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset) {
+void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset)
+{
     ArchiveDataLoadOfs(levelUpLearnset, ARC_LEVELUP_LEARNSETS, 0, PokeOtherFormMonsNoGet(species, form) * MAX_LEVELUP_MOVES * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
 
 #ifdef BLOCK_LEARNING_UNIMPLEMENTED_MOVES

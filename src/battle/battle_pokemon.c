@@ -926,6 +926,8 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
         form = GetMonData(pp, MON_DATA_FORM, NULL);
 
         RevertFormChange(pp, monsno, form);
+        RestoreBoxMonPP(&pp->box);
+        TrySetBabyBondRibbon(pp);
     }
 
 #ifdef RESTORE_ITEMS_AT_BATTLE_END

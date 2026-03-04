@@ -10,6 +10,14 @@ _000:
     GoTo _101
 
 _011:
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_BOND_SURVIVE, _013
+    // {0} held on out of love!
+    PrintMessage 1622, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
+    Wait
+    WaitButtonABTime 30
+    GoTo _073
+
+_013:
     //TODO remove Focus Sash here once ServerWazaStatusMessage is moved lower in ServerWazaOutAfterMessage
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_ENDURED_ITEM, _043
     CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_DEFENDER, HOLD_EFFECT_MAYBE_ENDURE, _043

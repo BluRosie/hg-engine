@@ -1620,3 +1620,6 @@ The opposing {STRVAR_1 1, 0, 0} concentrated\nintensely!
 The effects of Throat Chop prevent\n{STRVAR_1 1, 0, 0} from using certain moves!
 The effects of Throat Chop prevent\nthe wild {STRVAR_1 1, 0, 0}\ffrom using certain moves!
 The effects of Throat Chop prevent\nthe opposing {STRVAR_1 1, 0, 0}\ffrom using certain moves!
+{STRVAR_1 1, 0, 0} held on out of love!
+The wild {STRVAR_1 1, 0, 0} held on out of love!
+The opposing {STRVAR_1 1, 0, 0} held on out of love!

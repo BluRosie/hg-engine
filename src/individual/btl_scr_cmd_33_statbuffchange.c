@@ -13,6 +13,7 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
+#include "../../include/exp_contribution.h"
 
 /**
  *  @brief script command to set up the stat boost animation/message
@@ -438,11 +439,25 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
         }
 
+        int originalStatStage = battlemon->states[STAT_ATTACK + stattochange];
         battlemon->states[STAT_ATTACK + stattochange] += statchange;
         if (battlemon->states[STAT_ATTACK + stattochange] < 0)
         {
             battlemon->states[STAT_ATTACK + stattochange] = 0;
         }
+#ifdef IMPLEMENT_RESULT_BASED_EXP
+        if (battlemon->states[STAT_ATTACK + stattochange] < originalStatStage)
+        {
+            ExpContrib_RecordStatDrop(
+                bw,
+                sp,
+                sp->attack_client,
+                sp->state_client,
+                STAT_ATTACK + stattochange,
+                originalStatStage,
+                battlemon->states[STAT_ATTACK + stattochange]);
+        }
+#endif
     }
 
     return 0;

@@ -134,6 +134,7 @@
 #define MOVE_STATUS_FLAG_MISS_WONDER_GUARD       (0x00040000)
 #define MOVE_STATUS_FLAG_NO_OHKO                 (0x00080000)
 #define MOVE_STATUS_FLAG_MAGNET_RISE_MISS        (0x00100000)
+#define MOVE_STATUS_FLAG_BOND_SURVIVE            (0x00200000)
 
 #define MOVE_STATUS_NO_MORE_WORK                 (0x80000000)
 
@@ -1717,6 +1718,8 @@ struct PACKED newBattleStruct
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
     u16 itemsToRestore[6]; // items that each mon was holding at the beginning of the battle
 #endif // RESTORE_ITEMS_AT_BATTLE_END
+
+    u8 bondBandUsed[CLIENT_MAX]; // once-per-battle survive boon usage tracker
 };
 
 struct PACKED BATTLE_PARAM

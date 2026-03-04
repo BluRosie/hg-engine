@@ -28,13 +28,33 @@
 
 // EXPERIENCE_FORMULA_GEN defines the experience formula you would like to use.  Gens 5, 7, and 8 consider the difference between the attacker's level and the fainted's level to scale the experience gained.
 // i.e. defining this as "5", "7", or "8" would use a scaled formula, whereas "6" and others would use the default formula.  There is a multiplier of 255 / 390 to not artificially inflate the experience given as well with higher base experience.
-#define EXPERIENCE_FORMULA_GEN GEN_LATEST
+#define EXPERIENCE_FORMULA_GEN 4
+
+// IMPLEMENT_RESULT_BASED_EXP enables contribution-based experience distribution.
+// Comment out this line to fully disable the feature and revert to default EXP behavior.
+#define IMPLEMENT_RESULT_BASED_EXP
+// Comment out this line to keep normal participant/held Exp Share base EXP behavior.
+#define IMPLEMENT_EXP_ALL_BASE_XP
+// Team-penalty endpoint for EXP All base EXP at 6 eligible party Pokemon.
+// The 1..6 table is auto-derived in code from this value.
+#define EXP_ALL_TEAM_PENALTY_AT_6 65
+// If uncommented, fainted party Pokemon can receive contribution-based EXP.
+// #define RESULT_BASED_EXP_INCLUDE_FAINTED
+// Base EXP is scaled by this percent before contribution bonus is applied.
+#define RESULT_BASED_EXP_BASE_PERCENT 55
+// Stat-drop score is converted to HP-equivalent by dividing by this number.
+#define RESULT_BASED_EXP_STAT_HP_EQUIV_DIV 4
+// Weights for stat-drop contribution, in percent (100 = full weight).
+#define RESULT_BASED_EXP_WEIGHT_DEFENSE_PERCENT          100
+#define RESULT_BASED_EXP_WEIGHT_OFFENSE_PERCENT          40
+#define RESULT_BASED_EXP_WEIGHT_SPEED_PERCENT            25
+#define RESULT_BASED_EXP_WEIGHT_ACCURACY_EVASION_PERCENT 10
 
 // HIDDEN_ABILITIES defines whether or not Pokémon with their hidden ability bit set will receive their hidden abilities when being generated/changing form in battle.
 // commenting this line out essentially disables hidden abilities to maintain default behavior, while leaving this as-is will introduce hidden abilities and all of their handling.
 // just need to set the HIDDEN_ABILITIES_FLAG from the save and then every mon should be generated with its hidden ability until the flag is cleared from another script
 #define HIDDEN_ABILITIES
-#define HIDDEN_ABILITIES_FLAG 2600
+#define HIDDEN_ABILITIES_FLAG          2600
 #define HIDDEN_ABILITIES_STARTERS_FLAG 2601
 
 // MEGA_EVOLUTIONS defines whether or not Pokémon that are able to mega evolve will be able to do so.
@@ -55,12 +75,12 @@
 
 // IMPLEMENT_TRANSPARENT_TEXTBOXES should be used if you want to implement transparent textboxes
 // uncommenting this line out will enable transparent textboxes
-//#define IMPLEMENT_TRANSPARENT_TEXTBOXES
+// #define IMPLEMENT_TRANSPARENT_TEXTBOXES
 
 // IMPLEMENT_WILD_DOUBLE_BATTLES defines whether or not grass tiles will have a 10% chance of starting a wild double battle
 // commenting this line out disables wild double battles entirely
 // NOTE:  wild double battles are currently unstable and broken.  i would not use them at this time.  see this issue for updates on this problem: https://github.com/BluRosie/hg-engine/issues/86
-//#define IMPLEMENT_WILD_DOUBLE_BATTLES
+// #define IMPLEMENT_WILD_DOUBLE_BATTLES
 
 // IMPLEMENT_CAPTURE_EXPERIENCE defines whether or not capturing wild pokemon will net experience
 // commenting this line out disables capture experience
@@ -81,15 +101,15 @@
 // uncommenting IMPLEMENT_LEVEL_CAP enables the level cap system.  make sure to also uncomment LEVEL_CAP_VARIABLE in the process
 // uncommenting UNCAP_CANDIES_FROM_LEVEL_CAP will allow for rare candies to not be capped by the level cap even with the level cap in place, like run & bun
 // uncommenting ALLOW_LEVEL_CAP_EVOLVE will allow for rare candies to evolve pokemon already at the level cap that can evolve at that level already
-//#define IMPLEMENT_LEVEL_CAP
-//#define LEVEL_CAP_VARIABLE 0x416F
-//#define UNCAP_CANDIES_FROM_LEVEL_CAP
-//#define ALLOW_LEVEL_CAP_EVOLVE
+// #define IMPLEMENT_LEVEL_CAP
+// #define LEVEL_CAP_VARIABLE 0x416F
+// #define UNCAP_CANDIES_FROM_LEVEL_CAP
+// #define ALLOW_LEVEL_CAP_EVOLVE
 
 // System flags that need to be enabled for the player to use the gimmick. If you want to change them, remember to change them in flags.s as well for consistency
-#define FLAG_MEGA_EVOLUTION_ENABLED 2518
-#define FLAG_Z_MOVE_ENABLED 2519
-#define FLAG_DYNAMAX_ENABLED 2520
+#define FLAG_MEGA_EVOLUTION_ENABLED  2518
+#define FLAG_Z_MOVE_ENABLED          2519
+#define FLAG_DYNAMAX_ENABLED         2520
 #define FLAG_TERASTALIZATION_ENABLED 2521
 
 // UPDATE_OVERWORLD_POISON will remove overworld poison if enabled
@@ -98,7 +118,7 @@
 
 // DISABLE_END_OF_TURN_WEATHER_MESSAGE removes the weather messages at the end of the turn.  instead the bottom screen icon can be used
 // uncomment the line out to get this functionality
-//#define DISABLE_END_OF_TURN_WEATHER_MESSAGE
+// #define DISABLE_END_OF_TURN_WEATHER_MESSAGE
 
 // IMPLEMENT_SEASONS currently implements season mechanics. Used for changing forms of Deerling and Sawsbuck.
 // Comment the line out to disable this functionality (Gen 6+)
@@ -154,19 +174,19 @@
 #define UPDATE_VITAMIN_EV_CAPS
 
 // DISABLE_ITEMS_IN_TRAINER_BATTLE will disable the usage of items in trainer battles. This is also true for the AI.
-//#define DISABLE_ITEMS_IN_TRAINER_BATTLE
+// #define DISABLE_ITEMS_IN_TRAINER_BATTLE
 
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
 #define REUSABLE_TMS
 
 // DELETABLE_HMS allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
-//#define DELETABLE_HMS
+// #define DELETABLE_HMS
 
 // MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION
 
 // POKEATHLON_EXPANSION allows for adding and modifying items to the Pokéathlon shop inventories
-//#define POKEATHLON_SHOP_EXPANSION
+// #define POKEATHLON_SHOP_EXPANSION
 
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
@@ -178,26 +198,26 @@
 
 // Configs the ball capture ratio. 4 emulates the behaviour in HeartGold. However, due to the modernization of
 // the capture formula, it is only an estimate. Some are left as 4 to be less disruptive. Use GEN_LATEST for vanilla behaviour
-#define NEST_BALL_GENERATION    GEN_LATEST
-#define NET_BALL_GENERATION     GEN_LATEST
-#define REPEAT_BALL_GENERATION  GEN_LATEST
-#define TIMER_BALL_GENERATION   GEN_LATEST
-#define DUSK_BALL_GENERATION    GEN_LATEST
-#define QUICK_BALL_GENERATION   GEN_LATEST
-#define SAFARI_BALL_GENERATION  4
-#define LURE_BALL_GENERATION    4
-#define SPORT_BALL_GENERATION   4
-#define MOON_BALL_GENERATION    GEN_LATEST
+#define NEST_BALL_GENERATION   GEN_LATEST
+#define NET_BALL_GENERATION    GEN_LATEST
+#define REPEAT_BALL_GENERATION GEN_LATEST
+#define TIMER_BALL_GENERATION  GEN_LATEST
+#define DUSK_BALL_GENERATION   GEN_LATEST
+#define QUICK_BALL_GENERATION  GEN_LATEST
+#define SAFARI_BALL_GENERATION 4
+#define LURE_BALL_GENERATION   4
+#define SPORT_BALL_GENERATION  4
+#define MOON_BALL_GENERATION   GEN_LATEST
 
 // If caught, the Pokémon's friendship is set to 200 in Generations II through VII, or 150 in Generation VIII onwards.
-#define FRIEND_BALL_GENERATION  GEN_LATEST
+#define FRIEND_BALL_GENERATION GEN_LATEST
 
 // THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN makes the Thunder & Storm map header weathers set permanent
 // Electric Terrain (and rain) in battle
-//#define THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN
+// #define THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN
 
 // FOG_SETS_MISTY_TERRAIN makes the Fog map header weather set permanent Misty Terrain in battle
-//#define FOG_WEATHER_MISTY_TERRAIN
+// #define FOG_WEATHER_MISTY_TERRAIN
 
 // NATURAL_GIFT_POWER_GEN defines the power of Natural Gift based on generation. Gen 6 or higher are modernized values.
 #define NATURAL_GIFT_POWER_GEN GEN_LATEST

@@ -2,6 +2,7 @@
 #include "../../include/battle.h"
 #include "../../include/config.h"
 #include "../../include/debug.h"
+#include "../../include/exp_contribution.h"
 #include "../../include/mega.h"
 #include "../../include/overlay.h"
 #include "../../include/pokemon.h"
@@ -1422,10 +1423,150 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp)
 
 // global variables to track experience
 u8 ALIGN4 scratchpad[4] = {0, 0, 0, 0};
+u32 ALIGN4 resultDamageHpByPartySlot[6] = {0, 0, 0, 0, 0, 0};
+u32 ALIGN4 resultStatScoreByPartySlot[6] = {0, 0, 0, 0, 0, 0};
+u8 ALIGN4 resultContribSnapshotValid = 0;
+u8 ALIGN4 resultContribSnapshotFaintedClient = 0xFF;
+u8 ALIGN4 resultContribSnapshotHasAny = 0;
 
 #define monCount scratchpad[0]
 #define monCountFromItem scratchpad[1]
 #define trackPartyExperience scratchpad[2]
+
+#ifdef IMPLEMENT_RESULT_BASED_EXP
+static void ResetResultContribSnapshotState(void)
+{
+    resultContribSnapshotValid = 0;
+    resultContribSnapshotFaintedClient = 0xFF;
+    resultContribSnapshotHasAny = 0;
+    for (int i = 0; i < 6; i++)
+    {
+        resultDamageHpByPartySlot[i] = 0;
+        resultStatScoreByPartySlot[i] = 0;
+    }
+}
+
+static BOOL HasCachedResultContribution(void)
+{
+    if (resultContribSnapshotHasAny)
+    {
+        return TRUE;
+    }
+    for (int i = 0; i < 6; i++)
+    {
+        if (resultDamageHpByPartySlot[i] != 0 || resultStatScoreByPartySlot[i] != 0)
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+#endif
+
+static BOOL IsPartyMonValidForResultExp(struct PartyPokemon *pp)
+{
+    if (pp == NULL)
+    {
+        return FALSE;
+    }
+    if (GetMonData(pp, MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+    {
+        return FALSE;
+    }
+    if (GetMonData(pp, MON_DATA_IS_EGG, NULL))
+    {
+        return FALSE;
+    }
+#ifndef RESULT_BASED_EXP_INCLUDE_FAINTED
+    if (GetMonData(pp, MON_DATA_HP, NULL) == 0)
+    {
+        return FALSE;
+    }
+#endif
+    return TRUE;
+}
+
+#ifdef IMPLEMENT_EXP_ALL_BASE_XP
+static u32 BuildExpAllEligiblePartyMask(struct BattleSystem *bw, int expClientNo)
+{
+    u32 mask = 0;
+    int partyCount = BattleWorkPokeCountGet(bw, expClientNo);
+    if (partyCount > 6)
+    {
+        partyCount = 6;
+    }
+
+    for (int i = 0; i < partyCount; i++)
+    {
+        struct PartyPokemon *pp = BattleWorkPokemonParamGet(bw, expClientNo, i);
+        if (IsPartyMonValidForResultExp(pp))
+        {
+            mask |= No2Bit(i);
+        }
+    }
+    return mask;
+}
+
+static u32 GetExpAllTeamPenaltyPercent(u32 teamCount)
+{
+    static const u8 sPenaltyShape[6] = {0, 26, 51, 71, 86, 100};
+    u32 at6 = EXP_ALL_TEAM_PENALTY_AT_6;
+    if (at6 > 100)
+    {
+        at6 = 100;
+    }
+    if (teamCount == 0)
+    {
+        return 100;
+    }
+    if (teamCount > 6)
+    {
+        teamCount = 6;
+    }
+
+    u32 delta = 100 - at6;
+    u32 shapedDelta = (delta * sPenaltyShape[teamCount - 1] + 50) / 100;
+    return 100 - shapedDelta;
+}
+
+static u32 ApplyExpAllTeamPenalty(u32 baseExp, u32 teamCount)
+{
+    if (baseExp == 0)
+    {
+        return 0;
+    }
+
+    u32 penaltyPercent = GetExpAllTeamPenaltyPercent(teamCount);
+    u32 penalized = (baseExp * penaltyPercent) / 100;
+    return penalized ? penalized : 1;
+}
+#endif
+
+static u32 ScaleBaseExp(u32 baseExp)
+{
+    if (baseExp == 0)
+    {
+        return 0;
+    }
+    u32 scaled = (baseExp * RESULT_BASED_EXP_BASE_PERCENT) / 100;
+    return scaled ? scaled : 1;
+}
+
+static u32 CalcResultExpContributionBonus(u32 scaledBaseExp, u32 enemyMaxHp, u32 damageHp, u32 statScore)
+{
+    if (scaledBaseExp == 0 || enemyMaxHp == 0)
+    {
+        return 0;
+    }
+
+    u32 effectiveDamage = damageHp > enemyMaxHp ? enemyMaxHp : damageHp;
+    u32 damageBonus = (scaledBaseExp * effectiveDamage) / enemyMaxHp;
+
+    u32 statHpEquivalent = statScore / RESULT_BASED_EXP_STAT_HP_EQUIV_DIV;
+    u32 statBonus = (scaledBaseExp * statHpEquivalent) / enemyMaxHp;
+
+    return damageBonus + statBonus;
+}
 
 /**
  *  @brief task to distribute experience
@@ -1437,14 +1578,45 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 {
     int sel_mons_no = 0;
     int client_no;
+#ifndef IMPLEMENT_EXP_ALL_BASE_XP
     int item;
     int eqp;
+#endif
     struct PartyPokemon *pp = NULL;
     struct EXP_CALCULATOR *expcalc = work;
     int exp_client_no = 0;
     struct BattleStruct *sp = expcalc->sp;
+    BOOL shouldUseResultExp = FALSE;
 
     client_no = (sp->fainting_client >> 1) & 1;
+
+#ifdef IMPLEMENT_EXP_ALL_BASE_XP
+    if (expcalc->seq_no == 0)
+    {
+        sp->obtained_exp_right_flag[client_no] = BuildExpAllEligiblePartyMask(expcalc->bw, exp_client_no);
+    }
+#endif
+
+#ifdef IMPLEMENT_RESULT_BASED_EXP
+    if (expcalc->seq_no == 0
+     && (!resultContribSnapshotValid || resultContribSnapshotFaintedClient != sp->fainting_client))
+    {
+        ResetResultContribSnapshotState();
+        shouldUseResultExp = ExpContrib_CaptureContributionForFainted(
+            expcalc->bw,
+            sp,
+            sp->fainting_client,
+            resultDamageHpByPartySlot,
+            resultStatScoreByPartySlot);
+        resultContribSnapshotHasAny = shouldUseResultExp ? 1 : 0;
+        resultContribSnapshotValid = 1;
+        resultContribSnapshotFaintedClient = sp->fainting_client;
+    }
+    else if (resultContribSnapshotValid && resultContribSnapshotFaintedClient == sp->fainting_client && expcalc->seq_no < 37)
+    {
+        shouldUseResultExp = HasCachedResultContribution();
+    }
+#endif
 
     if (expcalc->seq_no < 37)
     {
@@ -1454,6 +1626,12 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             pp = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, sel_mons_no);
             if (pp == NULL)
                 goto _skipAllThis;
+#ifdef IMPLEMENT_EXP_ALL_BASE_XP
+            if (IsPartyMonValidForResultExp(pp))
+            {
+                break;
+            }
+#else
             item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
             eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
 
@@ -1461,6 +1639,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             {
                 break;
             }
+#endif
         }
     }
 
@@ -1474,6 +1653,17 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
     if (!expcalc->work[6])
     {
         monCount = 0;
+#ifdef IMPLEMENT_EXP_ALL_BASE_XP
+        monCountFromItem = 0;
+        for (int i = 0; i < party->count; i++)
+        {
+            struct PartyPokemon *pploop = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
+            if (IsPartyMonValidForResultExp(pploop))
+            {
+                monCount++;
+            }
+        }
+#else
         monCountFromItem = 0;
         for (int i = 0; i < party->count; i++)
         {
@@ -1494,6 +1684,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                 }
             }
         }
+#endif
     }
 
     if (expcalc->seq_no < 37) // either this or switch to below.  this prevents NULL access though (ideally)
@@ -1531,6 +1722,7 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
             //debug_printf("[Task_DistributeExp_Extend] L = %d, Lp = %d, b = %d, top = %d, bottom = %d, exp = %d\n", level, Lp, base, top, bottom, totalexp);
 
+#ifndef IMPLEMENT_EXP_ALL_BASE_XP
             if (monCountFromItem)
             {
                 sp->obtained_exp = (totalexp / 2) / monCount;
@@ -1553,6 +1745,38 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                 }
                 sp->exp_share_obtained_exp = 0;
             }
+#else
+            sp->obtained_exp = totalexp;
+            if (sp->obtained_exp == 0)
+            {
+                sp->obtained_exp = 1;
+            }
+            sp->exp_share_obtained_exp = 0;
+#endif
+
+#ifdef IMPLEMENT_RESULT_BASED_EXP
+            u32 prePenaltyBaseExp = ScaleBaseExp(sp->obtained_exp);
+#ifdef IMPLEMENT_EXP_ALL_BASE_XP
+            sp->obtained_exp = ApplyExpAllTeamPenalty(prePenaltyBaseExp, monCount);
+#else
+            sp->obtained_exp = prePenaltyBaseExp;
+            sp->exp_share_obtained_exp = ScaleBaseExp(sp->exp_share_obtained_exp);
+#endif
+            if (shouldUseResultExp && sel_mons_no < 6 && IsPartyMonValidForResultExp(pp))
+            {
+                u32 bonus = CalcResultExpContributionBonus(
+                    prePenaltyBaseExp,
+                    sp->battlemon[sp->fainting_client].maxhp,
+                    resultDamageHpByPartySlot[sel_mons_no],
+                    resultStatScoreByPartySlot[sel_mons_no]);
+                sp->obtained_exp += bonus;
+#ifndef IMPLEMENT_EXP_ALL_BASE_XP
+                sp->exp_share_obtained_exp += bonus;
+#endif
+            }
+#elif defined(IMPLEMENT_EXP_ALL_BASE_XP)
+            sp->obtained_exp = ApplyExpAllTeamPenalty(sp->obtained_exp, monCount);
+#endif
         }
     }
 
@@ -1576,6 +1800,17 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
         if (!expcalc->work[6])
         {
             monCount = 0;
+#ifdef IMPLEMENT_EXP_ALL_BASE_XP
+            monCountFromItem = 0;
+            for (int i = 0; i < party->count; i++)
+            {
+                struct PartyPokemon *pploop = BattleWorkPokemonParamGet(expcalc->bw, exp_client_no, i);
+                if (IsPartyMonValidForResultExp(pploop))
+                {
+                    monCount++;
+                }
+            }
+#else
             monCountFromItem = 0;
             for (int i = 0; i < party->count; i++)
             {
@@ -1596,10 +1831,12 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
                     }
                 }
             }
+#endif
         }
         // multiply by 255/390 (map audino to 255) to not get massively inflated experience rates
         totalexp = 255 * GetSpeciesBaseExp(sp->battlemon[sp->fainting_client].species, sp->battlemon[sp->fainting_client].form_no) / 390;//PokePersonalParaGet(sp->battlemon[sp->fainting_client].species, PERSONAL_EXP_YIELD);
         totalexp = (totalexp * sp->battlemon[sp->fainting_client].level) / 7;
+#ifndef IMPLEMENT_EXP_ALL_BASE_XP
         if (monCountFromItem)
         {
             sp->obtained_exp = (totalexp / 2) / monCount;
@@ -1622,6 +1859,37 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
             }
             sp->exp_share_obtained_exp = 0;
         }
+#else
+        sp->obtained_exp = totalexp;
+        if (sp->obtained_exp == 0)
+        {
+            sp->obtained_exp = 1;
+        }
+        sp->exp_share_obtained_exp = 0;
+#endif
+#ifdef IMPLEMENT_RESULT_BASED_EXP
+        u32 prePenaltyBaseExp = ScaleBaseExp(sp->obtained_exp);
+#ifdef IMPLEMENT_EXP_ALL_BASE_XP
+        sp->obtained_exp = ApplyExpAllTeamPenalty(prePenaltyBaseExp, monCount);
+#else
+        sp->obtained_exp = prePenaltyBaseExp;
+        sp->exp_share_obtained_exp = ScaleBaseExp(sp->exp_share_obtained_exp);
+#endif
+        if (shouldUseResultExp && sel_mons_no < 6 && IsPartyMonValidForResultExp(pp))
+        {
+            u32 bonus = CalcResultExpContributionBonus(
+                prePenaltyBaseExp,
+                sp->battlemon[sp->fainting_client].maxhp,
+                resultDamageHpByPartySlot[sel_mons_no],
+                resultStatScoreByPartySlot[sel_mons_no]);
+            sp->obtained_exp += bonus;
+#ifndef IMPLEMENT_EXP_ALL_BASE_XP
+            sp->exp_share_obtained_exp += bonus;
+#endif
+        }
+#elif defined(IMPLEMENT_EXP_ALL_BASE_XP)
+        sp->obtained_exp = ApplyExpAllTeamPenalty(sp->obtained_exp, monCount);
+#endif
     }
 
 #ifdef DEBUG_PRINT_EXPERIENCE_VALUES
@@ -1643,6 +1911,12 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
 _skipAllThis:
     Task_DistributeExp(arg0, work);
+#ifdef IMPLEMENT_RESULT_BASED_EXP
+    if (expcalc->seq_no == 38)
+    {
+        ResetResultContribSnapshotState();
+    }
+#endif
 }
 
 
@@ -1693,7 +1967,10 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
 
     if (expcalc->seq_no == 0) // set first pokemon gaining experience to a specific one so that it doesn't try to give experience to something that doesn't need it
     {
-        int sel_mons_no, item, eqp;
+        int sel_mons_no;
+#ifndef IMPLEMENT_EXP_ALL_BASE_XP
+        int item, eqp;
+#endif
         struct PartyPokemon *pp;
 
         // grab the pokémon that is actually gaining the experience, factor in experience share here because i don't want to expose the whole main task
@@ -1707,6 +1984,14 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
                     expcalc->work[6] = BattleWorkPokeCountGet(expcalc->bw, 0);
                     break;
                 }
+#ifdef IMPLEMENT_EXP_ALL_BASE_XP
+                if (IsPartyMonValidForResultExp(pp))
+                {
+                    expcalc->work[6] = sel_mons_no;
+                    trackPartyExperience |= No2Bit(sel_mons_no);
+                    break;
+                }
+#else
                 item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);
                 eqp = GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5);
 
@@ -1716,6 +2001,7 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
                     trackPartyExperience |= No2Bit(sel_mons_no);
                     break;
                 }
+#endif
             }
         }
         if (sel_mons_no >= BattleWorkPokeCountGet(expcalc->bw, 0)) // invalid party index will end the task
@@ -1732,6 +2018,9 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
         ret = TRUE;
 
         store_current_exp_step = 0;
+#ifdef IMPLEMENT_RESULT_BASED_EXP
+        ResetResultContribSnapshotState();
+#endif
         for (int i = 0; i < (s32)NELEMS(store_work_params); i++) // reset and pass back to main func
         {
             store_work_params[i] = 0;
