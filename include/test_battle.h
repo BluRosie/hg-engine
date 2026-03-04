@@ -8,6 +8,9 @@
 
 #define AI_SCRIPT_MAX_MOVES 8
 
+#define TEST_BATTLE_MESSAGE_LEN 128
+#define TEST_BATTLE_MESSAGE_FILE_ID 197
+
 #define STATE_SCRIPT_IDX_MASK       0xF
 #define STATE_COMPLETE_BIT          (1 << 20)
 #define STATE_HAS_MORE_BIT          (1 << 21)
@@ -44,7 +47,7 @@ enum ExpectationType {
 union ExpectationValue {
     u32 hpTaken[16];
     u32 hpRecovered[16];
-    u32 messageID;  // TODO: switch to string
+    char message[TEST_BATTLE_MESSAGE_LEN];
     u16 formID;
 };
 

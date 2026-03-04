@@ -3,7 +3,6 @@
 
 #include "../../../../include/battle.h"
 #include "../../../../include/constants/ability.h"
-#include "../../../../include/constants/battle_message_constants.h"
 #include "../../../../include/constants/item.h"
 #include "../../../../include/constants/moves.h"
 #include "../../../../include/constants/species.h"
@@ -95,9 +94,9 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_RAISED_STAT_DRASTICALLY },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_RAISED_STAT_SHARPLY },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_RAISED_STAT },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Steam Engine raised its Speed drastically!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Steam Engine raised its Speed sharply!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Steam Engine raised its Speed!" },
         }
     },
 #ifndef GET_TEST_CASE_ONLY

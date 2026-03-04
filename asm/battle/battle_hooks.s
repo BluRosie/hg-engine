@@ -410,3 +410,333 @@ mov r0, r7
 bl RollMetronomeMove
 ldr r1, =0x022408BA|1
 bx r1
+
+
+// Start missingno hooks
+
+.global BattleController_EmitHealthbarSlideIn_SkipInvalid
+BattleController_EmitHealthbarSlideIn_SkipInvalid:
+ldr  r0, [sp, #4]
+mov  r1, r4
+bl   IsBattlerSlotValid
+cmp  r0, #0
+beq  _returnTo02262B4A
+
+str r0, [sp, #0xc]
+mov r0, #0xc
+add r3, sp, #0x14
+strb r0, [r3]
+mov r0, #0xc0
+ldr  r6, =0x02262A64 | 1
+bx   r6
+
+_returnTo02262B4A:
+ldr r3, =0x02262B4A | 1;
+bx r3
+
+.pool
+
+
+.global ov12_0225D644_SkipInvalid
+ov12_0225D644_SkipInvalid:
+push {r3}
+bl 0x0223AB6C | 1
+mov r4, r0
+
+mov r1, r0
+ldr r0, [r5]
+bl IsBattlerSlotValid
+cmp  r0, #0
+beq _returnTo0225D780
+
+mov r1, r4
+ldr r0, [r5]
+bl 0x0223A7E8 | 1
+pop {r3}
+ldr r4, =0x0225D77E | 1
+bx r4
+
+_returnTo0225D780:
+ldr r0, [r5]
+mov r1, r4
+bl 0x0223A7E8 | 1
+add r1, r0, #0
+add r1, #0x88
+ldr r0, [r1]
+cmp r0, #0
+beq _returnTo0225D7F2
+
+push {r1}
+
+mov r1, #0
+bl 0x0223449C | 1
+
+pop {r1}
+ldr r0, [r1]
+cmp r0, #0
+beq _returnTo0225D7F2
+push {r1}
+
+mov r1, #0
+bl 0x02233EFC | 1
+
+pop {r1}
+ldr r0, [r1]
+cmp r0, #0
+beq _returnTo0225D7F2
+push {r1}
+
+mov r1, #0
+bl 0x022344C0 | 1
+
+pop {r1}
+ldr r0, [r1]
+cmp r0, #0
+beq _returnTo0225D7F2
+push {r1}
+
+mov r1, #0
+bl 0x022344D0 | 1
+
+pop {r1}
+b _returnTo0225D7F2
+
+_returnTo0225D7F2:
+pop {r3}
+ldr r4, =0x0225D7F2 | 1
+bx r4
+
+.pool
+
+
+.global CT_PokemonEncountAppearSet_SkipInvalid_02259D10
+CT_PokemonEncountAppearSet_SkipInvalid_02259D10:
+push {r0-r3}
+mov r0, r7
+mov r2, #0x65
+lsl r2, r2, #2
+ldrb r1, [r6, r2]
+bl IsBattlerSlotValid
+cmp r0, #0
+pop {r0-r3}
+beq _returnTo0225BE39
+
+ldr r0, =0x0225B961 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+add sp, #0xc
+pop {r4, r5, r6, r7, pc}
+
+_returnTo0225BE39:
+ldr r0, =0x0225BE39 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+add sp, #0xc
+pop {r4, r5, r6, r7, pc}
+
+.pool
+
+
+.global CT_PokemonEncountAppearSet_SkipInvalid_02259D1E
+CT_PokemonEncountAppearSet_SkipInvalid_02259D1E:
+ldr r0, =0x0225BE39 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+add sp, #0xc
+pop {r4, r5, r6, r7, pc}
+
+.pool
+
+
+.global CT_PokemonEncountAppearSet_SkipInvalid_02259D2C
+CT_PokemonEncountAppearSet_SkipInvalid_02259D2C:
+ldr r0, =0x0225B961 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+add sp, #0xc
+pop {r4, r5, r6, r7, pc}
+
+.pool
+
+
+.global CT_PokemonEncountSet_SkipInvalid
+CT_PokemonEncountSet_SkipInvalid:
+push {r0-r3}
+ldr r0, [sp, #0x34]
+mov r2, #0x65
+lsl r2, r2, #2
+ldrb r1, [r6, r2]
+bl IsBattlerSlotValid
+cmp r0, #0
+pop {r0-r3}
+beq _returnTo0225B495
+
+ldr r0, =0x0225B7B9 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+ldr r3, =0x02259B82 | 1
+bx r3
+
+_returnTo0225B495:
+ldr r0, =0x0225B495 | 1
+add r1, r4, #0
+mov r2, #0
+bl 0x0200E320 | 1
+ldr r3, =0x02259B82 | 1
+bx r3
+
+.pool
+
+
+.global CT_PokemonAppearSet_SkipInvalid
+CT_PokemonAppearSet_SkipInvalid:
+push {r0-r3}
+ldr r0, [sp, #0x1c]
+ldr r2, [sp, #0x20]
+mov r3, #0x65
+lsl r3, r3, #2
+ldrb r1, [r2, r3]
+bl IsBattlerSlotValid
+cmp r0, #0
+pop {r0-r3}
+beq _returnTo0225C6C9
+
+ldr r0, =0x0225C18D | 1
+add r1, r5, #0
+mov r2, #0
+bl 0x0200E320 | 1
+ldr r3, =0x02259F10 | 1
+bx  r3
+
+_returnTo0225C6C9:
+ldr r0, =0x0225C6C9 | 1
+add r1, r5, #0
+mov r2, #0
+bl 0x0200E320 | 1
+ldr r3, =0x02259F10 | 1
+bx r3
+
+.pool
+
+
+.global ov12_0225C388_SkipInvalid
+ov12_0225C388_SkipInvalid:
+push {r4, lr}
+ldr  r0, [r4, #0]
+add  r1, r4, #0
+add  r1, #0x81
+ldrb r1, [r1]
+bl   IsBattlerSlotValid
+mov  r2, #1
+cmp  r0, #0
+beq  _returnTo0225C388
+mov  r2, #0
+_returnTo0225C388:
+ldr  r0, [r4, #4]
+mov  r1, #6
+ldr  r0, [r0, #32]
+bl   0x020087A4 | 1
+ldr  r0, [r4, #8]
+bl   0x02232A44 | 1
+pop  {r4}
+pop  {r3}
+mov  lr, r3
+ldr  r3, =0x0225C394 | 1
+bx   r3
+
+.pool
+
+
+.global ov12_0225C7AC_SkipInvalid
+ov12_0225C7AC_SkipInvalid:
+push {r4, lr}
+ldr  r0, [r4, #0]
+add  r1, r4, #0
+add  r1, #0x81
+ldrb r1, [r1]
+bl   IsBattlerSlotValid
+mov  r2, #1
+cmp  r0, #0
+beq  _returnTo0225C7AC
+mov  r2, #0
+_returnTo0225C7AC:
+ldr  r0, [r4, #4]
+mov  r1, #6
+ldr  r0, [r0, #32]
+bl   0x020087A4 | 1
+add  r0, r4, #0
+pop  {r4}
+pop  {r3}
+mov  lr, r3
+ldr  r3, =0x0225C7B4 | 1
+bx   r3
+
+.pool
+
+
+.global ov12_0225BB7C_SkipInvalid
+ov12_0225BB7C_SkipInvalid:
+push {r4, lr}
+ldr  r0, [r4, #0]
+add  r1, r4, #0
+add  r1, #0x81
+ldrb r1, [r1]
+bl   IsBattlerSlotValid
+mov  r2, #1
+cmp  r0, #0
+beq  _returnTo0225BB7C
+mov  r2, #0
+_returnTo0225BB7C:
+ldr  r0, [r4, #4]
+mov  r1, #6
+ldr  r0, [r0, #32]
+bl   0x020087A4 | 1
+ldr  r0, [r4, #8]
+bl   0x02232A44 | 1
+pop  {r4}
+pop  {r3}
+mov  lr, r3
+ldr  r3, =0x0225BB86 | 1
+bx   r3
+
+.pool
+
+
+.global ov12_0225BFC2_SkipInvalid
+ov12_0225BFC2_SkipInvalid:
+push {r4, lr}
+ldr  r0, [r4, #0]
+add  r1, r4, #0
+add  r1, #0x81
+ldrb r1, [r1]
+bl   IsBattlerSlotValid
+mov  r2, #1
+cmp  r0, #0
+beq  _returnTo0225BFC2
+mov  r2, #0
+_returnTo0225BFC2:
+ldr  r0, [r4, #4]
+mov  r1, #6
+ldr  r0, [r0, #32]
+bl   0x020087A4 | 1
+ldr  r0, [r4, #16]
+cmp  r0, #0
+beq  _returnTo0225BFD4
+bl   0x0221FE08 | 1
+mov  r0, #0
+str  r0, [r4, #16]
+_returnTo0225BFD4:
+pop  {r4}
+pop  {r3}
+mov  lr, r3
+ldr  r3, =0x0225BFD4 | 1
+bx   r3
+
+.pool
+
+// End missingno hooks
