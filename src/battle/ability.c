@@ -778,10 +778,6 @@ void ServerWazaOutAfterMessage(void *bsys, struct BattleStruct *ctx)
         ctx->defence_client = ctx->attack_client;
         ctx->attack_client = ctx->magic_cort_client;
     }
-    debug_printf("ServerWazaOutAfterMessage: attacker %d, defender %d, moveStatus %d\n", ctx->attack_client, ctx->defence_client, ctx->waza_status_flag);
-    debug_printf("ServerWazaOutAfterMessage: clientloopspread %d\n", ctx->clientLoopForSpreadMoves);
-    debug_printf("ServerWazaOutAfterMessage: damage %d, hitdamage %d. spreaddamage %d\n", ctx->damage, ctx->hit_damage, ctx->damageForSpreadMoves[ctx->defence_client]);
-
 
     ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = ctx->waza_status_flag;
     ctx->damageForSpreadMoves[ctx->defence_client] = ctx->damage;

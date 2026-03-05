@@ -96,13 +96,11 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 31, 31, 32, 32, 32, 33, 33, 34, 34, 34, 35, 35, 35, 36, 36, 37 } },//boosted
-            //{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_POISON_TOUCH },        
-            //{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_LUM_BERRY },     
-            // TODO weak armor message
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sneasler lost some of its HP!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sneasler's Poison Touch poisoned the opposing Onix!" },        
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Onix's Lum Berry cured its poison!" },        
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Onix's Weak Armor cut its Defense!" },        
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sneasler lost some of its HP!" },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
