@@ -491,8 +491,13 @@
 #define SUB_SEQ_LASER_FOCUS                           (481)
 #define SUB_SEQ_MOVE_FAIL_THROAT_CHOP                 (482)
 #define SUB_SEQ_USER_DEF_DOWN_1_SPEED_UP_1            (483)
+#define SUB_SEQ_BOOSTER_ENERGY                        (484)
+#define SUB_SEQ_FIELD_CONDITION_PARADOX_ABILITY       (485)
+#define SUB_SEQ_PARADOX_ABILITY_END                   (486)
+#define SUB_SEQ_ORICHALCUM_PULSE                      (487)
+#define SUB_SEQ_HADRON_ENGINE_NO_TERRAIN_SETUP        (488)
 
-#define MAX_BASE_SUBSCRIPT_NUM 483
+#define MAX_BASE_SUBSCRIPT_NUM 488
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

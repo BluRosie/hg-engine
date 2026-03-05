@@ -978,6 +978,25 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
 #endif
 
+    // Step 3.1: Protosynthesis and Quark Drive
+    // TODO: Check location
+
+    if ((ability1 == ABILITY_PROTOSYNTHESIS || ability1 == ABILITY_QUARK_DRIVE)
+     && (sp->paradoxBoostedStat[client1] == STAT_SPEED)) {
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__1_5);
+    }
+
+    if ((ability2 == ABILITY_PROTOSYNTHESIS || ability2 == ABILITY_QUARK_DRIVE)
+     && (sp->paradoxBoostedStat[client2] == STAT_SPEED)) {
+        speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__1_5);
+    }
+#ifdef DEBUG_SPEED_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcSpeed] Step 3.1: Protosynthesis and Quark Drive\n");
+    debug_printf("[CalcSpeed] %s's speedModifier1: %d\n", client1Nickname, speedModifier1);
+    debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
+#endif
+
     // Step 4: Quick Powder
 
     if ((hold_effect1 == HOLD_EFFECT_DITTO_SPEED_UP) && (sp->battlemon[client1].species == SPECIES_DITTO)
