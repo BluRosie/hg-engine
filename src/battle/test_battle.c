@@ -95,6 +95,7 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
                 break;
             }
         }
+        debug_printf("%c", character);
         actualMessage[out++] = character;
     }
     actualMessage[out] = '\0';
@@ -125,6 +126,8 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
             }
         }
     }
+
+    debug_printf("\n");
 
     if (messageMatch) {
         scenario->expectationPassCount++;
