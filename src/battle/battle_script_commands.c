@@ -4834,7 +4834,7 @@ BOOL btl_scr_cmd_118_TryCureStatusBerry(void *bsys, struct BattleStruct *ctx)
     int script = 0;
     int battler = GrabClientFromBattleScriptParam(bsys, ctx, side);
 
-    if (GetHeldItemStatusRecoverySubscript(ctx, battler, FALSE, &script) == TRUE) {
+    if (GetHeldItemStatusRecoverySubscript(ctx, battler, &script) == TRUE) {
         ctx->battlerIdTemp = battler;
         ctx->item_work = GetBattleMonItem(ctx, battler);
         ctx->temp_work = script;

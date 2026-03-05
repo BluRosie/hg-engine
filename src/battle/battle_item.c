@@ -267,7 +267,7 @@ BOOL CheckItemByThief(u16 item)
     return FALSE;
 }
 
-BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *ctx, int battlerId, BOOL includeConfusion, int *seq_no)
+BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *ctx, int battlerId, int *seq_no)
 {
     int itemHeldEffect = HeldItemHoldEffectGet(ctx, battlerId);
     *seq_no = 0;
@@ -299,12 +299,12 @@ BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *ctx, int 
         }
         break;
     case HOLD_EFFECT_CONFUSE_RESTORE:
-        if (includeConfusion && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
+        if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION) {
             *seq_no = SUB_SEQ_ITEM_RECOVER_CNF;
         }
         break;
     case HOLD_EFFECT_STATUS_RESTORE:
-        if ((ctx->battlemon[battlerId].condition & STATUS_ALL) || (includeConfusion && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION))) {
+        if ((ctx->battlemon[battlerId].condition & STATUS_ALL) || (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
             if (ctx->battlemon[battlerId].condition & STATUS_PARALYSIS) {
                 *seq_no = SUB_SEQ_ITEM_RECOVER_PRZ;
             }
@@ -320,10 +320,10 @@ BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *ctx, int 
             if (ctx->battlemon[battlerId].condition & STATUS_FREEZE) {
                 *seq_no = SUB_SEQ_ITEM_RECOVER_FRZ;
             }
-            if (includeConfusion && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
+            if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION) {
                 *seq_no = SUB_SEQ_ITEM_RECOVER_CNF;
             }
-            if (includeConfusion && (ctx->battlemon[battlerId].condition & STATUS_ALL) && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
+            if ((ctx->battlemon[battlerId].condition & STATUS_ALL) && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
                 *seq_no = SUB_SEQ_ITEM_RECOVER_ALL;
             }
         }
@@ -387,7 +387,7 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
         case HOLD_EFFECT_FRZ_RESTORE:
         case HOLD_EFFECT_CONFUSE_RESTORE:
         case HOLD_EFFECT_STATUS_RESTORE:
-            ret = GetHeldItemStatusRecoverySubscript(ctx, battlerId, TRUE, &script);
+            ret = GetHeldItemStatusRecoverySubscript(ctx, battlerId, &script);
             break;
         case HOLD_EFFECT_HP_RESTORE_SPICY: // figy berry
             if (hpLowerThan50) {
