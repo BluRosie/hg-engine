@@ -114,9 +114,9 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SUNLIGHT_TURNED_HARSH },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HARSH_SUNLIGHT_ACTIVATE_ABILITY },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIGHEST_STAT_WAS_HEIGHTENED },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ORICHALCUM_PULSE_SET_UP_SUN },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The sunlight turned harsh!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The harsh sunlight activated BruteBonet's Protosynthesis!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "BruteBonet's Attack was heightened!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Koraidon turned the sunlight harsh, sending its ancient pulse into a frenzy!" },
     }
 },

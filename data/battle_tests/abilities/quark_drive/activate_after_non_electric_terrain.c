@@ -115,9 +115,10 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_GRASSY_TERRAIN },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ITEM_ACTIVATE_ABILITY },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIGHEST_STAT_WAS_HEIGHTENED },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Grass grew to cover the battlefield!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "IronBundle used the Booster Energy to activate Quark Drive!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "IronBundle's Speed was heightened!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shinx's Intimidate cuts IronBundle's Attack!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shinx's Intimidate cuts Rillaboom's Attack!" },
     }
 },

@@ -92,6 +92,6 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HADRON_ENGINE_ELECTRIC_TERRAIN_ALREADY_UP },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Miraidon used the Electric Terrain to energize its futuristic engine!" },
     }
 },

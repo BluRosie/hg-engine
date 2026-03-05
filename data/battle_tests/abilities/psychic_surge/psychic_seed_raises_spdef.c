@@ -92,8 +92,8 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_PSYCHIC_TERRAIN },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ITEM_RAISED_STAT },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The battlefield got weird!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Psychic Seed boosted Hawlucha's Sp. Def!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 75, 75, 76, 76, 78, 79, 79, 81, 81, 82, 84, 84, 85, 85, 87, 88 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 116, 120, 120, 122, 122, 126, 126, 128, 128, 132, 132, 134, 134, 138, 138, 140 } },
     }

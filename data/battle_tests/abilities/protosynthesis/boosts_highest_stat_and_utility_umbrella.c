@@ -92,9 +92,9 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SUNLIGHT_TURNED_HARSH }, // Sun
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HARSH_SUNLIGHT_ACTIVATE_ABILITY }, // Protosynthesis message
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIGHEST_STAT_WAS_HEIGHTENED }, // Sp. Atk
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The sunlight turned harsh!" }, // Sun
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The harsh sunlight activated WalkngWake's Protosynthesis!" }, // Protosynthesis message
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "WalkngWake's Sp. Atk was heightened!" }, // Sp. Atk
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 21, 21, 21, 22, 22, 22, 22, 23, 23, 23, 23, 24, 24, 24, 24, 25 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 55, 55, 56, 57, 57, 58, 59, 59, 60, 61, 61, 62, 63, 63, 64, 65 } },
     }

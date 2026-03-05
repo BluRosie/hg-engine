@@ -103,8 +103,8 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_SUNLIGHT_TURNED_EXTREMELY_HARSH },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_EXTREMELY_HARSH_SUNLIGHT_NOT_LESSENED },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The sunlight turned extremely harsh!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The extremely harsh sunlight was not lessened at all!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 20, 21, 21, 21, 21, 22 } },
     }
 },

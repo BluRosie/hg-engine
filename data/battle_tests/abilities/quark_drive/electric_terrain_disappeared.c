@@ -92,10 +92,10 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ELECTRIC_TERRAIN },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ELECTRIC_TERRAIN_ACTIVATE_ABILITY },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIGHEST_STAT_WAS_HEIGHTENED },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ELECTRIC_TERRAIN_ENDS },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_WORE_OFF },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "An electric current ran across the battlefield!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Electric Terrain activated the opposing Iron Valor's Electric Surge!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Iron Valor's Attack was heightened!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The electricity disappeared from the battlefield." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The effects of the opposing Iron Valor's Quark Drive wore off!" },
     }
 },

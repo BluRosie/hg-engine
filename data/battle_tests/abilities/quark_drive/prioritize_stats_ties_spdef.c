@@ -93,8 +93,8 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ITEM_ACTIVATE_ABILITY },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIGHEST_STAT_WAS_HEIGHTENED },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ninetales used the Booster Energy to activate Quark Drive!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ninetales's Sp. Def was heightened!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 25, 25, 25, 26, 26, 27, 27, 27, 27, 27, 28, 28, 28, 29, 29, 30 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 33, 33, 33, 33, 34, 34, 35, 35, 36, 36, 36, 36, 37, 37, 38, 39 } },
     }

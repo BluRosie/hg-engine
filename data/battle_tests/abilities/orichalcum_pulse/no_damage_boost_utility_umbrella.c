@@ -103,7 +103,7 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ORICHALCUM_PULSE_SUN_ALREADY_UP },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Koraidon basked in the sunlight, sending its ancient pulse into a frenzy!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 30, 30, 31, 31, 32, 32, 32, 33, 33, 33, 34, 34, 34, 35, 35, 36 } },
     }
 },

@@ -92,8 +92,8 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_MISTY_TERRAIN },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_DEFOG_MESSAGE },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_BADLY_POISONED },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mist swirled about the battlefield!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Tapu Fini blew away Misty Terrain!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Volcarona was badly poisoned!" },
     }
 },

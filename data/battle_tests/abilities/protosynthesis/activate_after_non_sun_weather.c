@@ -115,8 +115,10 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_STARTED_TO_RAIN },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ITEM_ACTIVATE_ABILITY },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It started to rain!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing RoarinMoon used the Booster Energy to activate Protosynthesis!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing RoarinMoon's Attack was heightened!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Incineroar's Intimidate cuts the opposing RoarinMoon's Attack!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Incineroar's Intimidate cuts the opposing Pelipper's Attack!" },
     }
 },

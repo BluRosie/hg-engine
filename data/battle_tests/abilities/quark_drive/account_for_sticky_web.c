@@ -103,9 +103,10 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ELECTRIC_TERRAIN },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_CAUGHT_IN_STICKY_WEB },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ELECTRIC_TERRAIN_ACTIVATE_ABILITY },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIGHEST_STAT_WAS_HEIGHTENED },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "An electric current ran across the battlefield!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "IronBundle was caught in a sticky web!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "IronBundle's Speed fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Electric Terrain activated IronBundle's Quark Drive!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "IronBundle's Sp. Atk was heightened!" },
     }
 },

@@ -115,9 +115,9 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_MISTY_TERRAIN },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ITEM_ACTIVATE_ABILITY },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_HIGHEST_STAT_WAS_HEIGHTENED },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ELECTRIC_TERRAIN },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mist swirled about the battlefield!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "IronBundle used the Booster Energy to activate Quark Drive!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "IronBundle's Speed was heightened!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "An electric current ran across the battlefield!" },
     }
 },
