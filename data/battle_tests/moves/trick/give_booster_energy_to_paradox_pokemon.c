@@ -115,11 +115,12 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowscarada switched items with its target!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowscarada obtained one Booster Energy." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mewscarada switched items with its target!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Charizard used Splash!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowscarada switched items with its target!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Raging Bolt used the Booster Energy to activate Protosynthesis!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Raging Bolt's Sp. Atk was heightened!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mewscarada switched items with its target!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Booster Energy was used up..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "RagingBolt used the Booster Energy to activate Protosynthesis!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "RagingBolt's Sp. Atk was heightened!" },
     }
 },

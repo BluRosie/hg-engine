@@ -115,12 +115,12 @@
     },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The harsh sunlight activated Raging Bolt's Protosynthesis!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Raging Bolt's Sp. Atk was heightened!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The harsh sunlight activated the opposing Flutter Mane's Protosynthesis!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flutter Mane's Sp. Atk was heightened!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The harsh sunlight activated the opposing FluttrMane's Protosynthesis!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing FluttrMane's Sp. Atk was heightened!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The harsh sunlight activated RagingBolt's Protosynthesis!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "RagingBolt's Sp. Atk was heightened!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowscarada switched items with its target!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowscarada obtained one Booster Energy." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mewscarada switched items with its target!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Charizard used Splash!" },
     }
 },
