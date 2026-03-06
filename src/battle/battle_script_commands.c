@@ -7,6 +7,7 @@
 #include "../../include/overlay.h"
 #include "../../include/pokemon.h"
 #include "../../include/save.h"
+#include "../../include/system.h"
 #include "../../include/window.h"
 #include "../../include/message.h"
 #include "../../include/constants/ability.h"
@@ -4434,10 +4435,12 @@ enum {
 #define ABILITY_POPUP_TEXTBOX_WIDTH_PIXELS (8*(ABILITY_POPUP_TEXTBOX_WIDTH))
 #define ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION (ABILITY_POPUP_TEXTBOX_WIDTH_PIXELS+16)
 
-#define ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT (-1*ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION)
+#define ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT (-112)
 
 #define ABILITY_POPUP_FRAMES_TO_SHIFT 4
 #define ABILITY_POPUP_PIXELS_PER_FRAME (ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION / ABILITY_POPUP_FRAMES_TO_SHIFT)
+
+//void AbilityPopup_DrawWindowAtCoordinates(struct Window *window, )
 
 void AbilityPopup_SlideIn(void *data)
 {
@@ -4449,7 +4452,6 @@ void AbilityPopup_SlideIn(void *data)
     void* palette = bsys->palette;
     int side = work->side;
 
-    debug_printf("In task... step %d\n", work->step)
     switch (work->step)
     {
     case ABILITY_POPUP_INIT_PALETTE:
@@ -4462,11 +4464,7 @@ void AbilityPopup_SlideIn(void *data)
         SetBgPriority(2, 0);
 
         sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
-        //PaletteData_LoadNarc(palette, 38/*NARC_a_0_3_8*/, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0 /*PLTTBUF_MAIN_BG*/, 0x20, 8 * 0x10);
-        if (side != 0)
-            AddWindowParameterized(bgConfig, window, 2, 33 /*x*/, 8/*y*/, 16/*width*/, 2/*height*/, 11, 9 + 1); // can't print to the left of the screen, it just actually cuts things off
-        else
-            AddWindowParameterized(bgConfig, window, 2, 1 /*x*/, 10/*y*/, 16/*width*/, 2/*height*/, 11, 9 + 1);
+        AddWindowParameterized(bgConfig, window, 2, 33 /*x*/, 8/*y*/, 16/*width*/, 2/*height*/, 11, 9 + 1); // we initially print to the right of the screen where it is not visible at all
 
         FillWindowPixelBuffer(window, 0xFF);
         DrawFrameAndWindow1(window, FALSE, 1, 8);
@@ -4481,6 +4479,7 @@ void AbilityPopup_SlideIn(void *data)
         BattleMessage_ExpandPlaceholders(bsys, bsys->unkC, &mp);
         AddTextPrinterParameterized(window, 0, bsys->msgBuffer, (side != 0) ? 0 : 2, 0, 0, 0);
         DrawFrameAndWindow1(window, FALSE, 1, 8);
+        G2_SetBG2Offset(0, 0);
         work->step++;
         break;
     case ABILITY_POPUP_SLIDE_IN: {
@@ -4496,9 +4495,6 @@ void AbilityPopup_SlideIn(void *data)
         }
         break;
     case ABILITY_POPUP_WAIT: {
-        //int negative = (side == 0 ? -1 : 1);
-        //int sideShift = (side == 0 ? ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT : 0);
-        //G2_SetBG2Offset(negative * ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION, 0);
         if (work->frames++ > 60)
         {
             work->frames = 0;
