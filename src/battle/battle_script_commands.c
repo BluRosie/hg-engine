@@ -2045,17 +2045,17 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
     // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
     if (sp->battlemon[sp->defence_client].item && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
     {
-        sp->mp.msg_id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
-        sp->mp.msg_tag = TAG_NICKNAME;
-        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
+        sp->mp.tag = TAG_NICKNAME;
+        sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
     }
     else if (CanKnockOffApply(sp, sp->attack_client, sp->defence_client))
     {
-        sp->mp.msg_id = BATTLE_MSG_MON_KNOCKED_OFF_ITEM;
-        sp->mp.msg_tag = TAG_NICKNAME_NICKNAME_ITEM;
-        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->attack_client);
-        sp->mp.msg_para[1] = CreateNicknameTag(sp, sp->defence_client);
-        sp->mp.msg_para[2] = item;
+        sp->mp.id = BATTLE_MSG_MON_KNOCKED_OFF_ITEM;
+        sp->mp.tag = TAG_NICKNAME_NICKNAME_ITEM;
+        sp->mp.param[0] = CreateNicknameTag(sp, sp->attack_client);
+        sp->mp.param[1] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.param[2] = item;
         sp->battlemon[sp->defence_client].item = 0;
         // update:  no longer render further items unusable--just set the item to 0 here
         //sp->scw[side].knockoff_item |= No2Bit(sp->sel_mons_no[sp->defence_client]);
@@ -3667,9 +3667,9 @@ BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
         ctx->oneTurnFlag[ctx->attack_client].protectFlag = TRUE;
         // Own protect moves should keep this flag off - incase protect user is slower than side protect user.
         ctx->oneTurnFlag[ctx->attack_client].gainedProtectFlagFromAlly = FALSE;
-        ctx->mp.msg_id = BATTLE_MSG_PROTECT_ITSELF; // "{0} protected itself!"
-        ctx->mp.msg_tag = TAG_NICKNAME;
-        ctx->mp.msg_para[0] = CreateNicknameTag(ctx, ctx->attack_client);
+        ctx->mp.id = BATTLE_MSG_PROTECT_ITSELF; // "{0} protected itself!"
+        ctx->mp.tag = TAG_NICKNAME;
+        ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->attack_client);
     }
 
     if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_PROTECT_USER_SIDE) {
@@ -3681,17 +3681,17 @@ BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx) {
             ctx->oneTurnFlag[BATTLER_ALLY(ctx->attack_client)].gainedProtectFlagFromAlly = TRUE;
         }
 
-        ctx->mp.msg_id = BATTLE_MSG_PROTECT_USER_SIDE; // "{0} protected [your/the opposing] team"
-        ctx->mp.msg_tag = TAG_MOVE_SIDE;
-        ctx->mp.msg_para[0] = ctx->current_move_index;
-        ctx->mp.msg_para[1] = IsClientEnemy(bsys, ctx->attack_client);
+        ctx->mp.id = BATTLE_MSG_PROTECT_USER_SIDE; // "{0} protected [your/the opposing] team"
+        ctx->mp.tag = TAG_MOVE_SIDE;
+        ctx->mp.param[0] = ctx->current_move_index;
+        ctx->mp.param[1] = IsClientEnemy(bsys, ctx->attack_client);
     }
 
     if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
         ctx->oneTurnFlag[ctx->attack_client].prevent_one_hit_ko_ability = TRUE;
-        ctx->mp.msg_id = BATTLE_MSG_BRACED_ITSELF; // "{0} braced itself!"
-        ctx->mp.msg_tag = TAG_NICKNAME;
-        ctx->mp.msg_para[0] = CreateNicknameTag(ctx, ctx->attack_client);
+        ctx->mp.id = BATTLE_MSG_BRACED_ITSELF; // "{0} braced itself!"
+        ctx->mp.tag = TAG_NICKNAME;
+        ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->attack_client);
     }
 
     // Don't increase protectSuccessTurns at max
@@ -4044,15 +4044,15 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
 
     if (quantityPickedUp > 1)
     {
-        sp->mp.msg_id = BATTLE_MSG_GENERIC_PICKED_UP_ITEM;
-        sp->mp.msg_tag = TAG_NONE;
+        sp->mp.id = BATTLE_MSG_GENERIC_PICKED_UP_ITEM;
+        sp->mp.tag = TAG_NONE;
     }
     else if (quantityPickedUp > 0) // aka == 1
     {
-        sp->mp.msg_id = BATTLE_MSG_PICKED_UP_ITEM;
-        sp->mp.msg_tag = TAG_NICKNAME_ITEM;
-        sp->mp.msg_para[0] = (partyIndex << 8) | 0;
-        sp->mp.msg_para[1] = itemPickedUp;
+        sp->mp.id = BATTLE_MSG_PICKED_UP_ITEM;
+        sp->mp.tag = TAG_NICKNAME_ITEM;
+        sp->mp.param[0] = (partyIndex << 8) | 0;
+        sp->mp.param[1] = itemPickedUp;
     }
 
     return FALSE;
@@ -4161,16 +4161,16 @@ BOOL btl_scr_cmd_104_tryincinerate(void* bw UNUSED, struct BattleStruct* sp)
     // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
     if (isItemGemOrBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
     {
-        sp->mp.msg_id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
-        sp->mp.msg_tag = TAG_NICKNAME;
-        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
+        sp->mp.tag = TAG_NICKNAME;
+        sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
     }
     else if (isItemGemOrBerry)
     {
-        sp->mp.msg_id = BATTLE_MSG_ITEM_INCINERATED;
-        sp->mp.msg_tag = TAG_NICKNAME_ITEM;
-        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
-        sp->mp.msg_para[1] = item;
+        sp->mp.id = BATTLE_MSG_ITEM_INCINERATED;
+        sp->mp.tag = TAG_NICKNAME_ITEM;
+        sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.param[1] = item;
         sp->battlemon[sp->defence_client].item = 0; //no recycle
     }
     else
@@ -4218,10 +4218,10 @@ BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* sp)
 
     // TODO: Check if there is any difference in message between single and double battles.
     // I don't think there is.
-    sp->mp.msg_id = BATTLE_MSG_AURORA_VEIL;
-    sp->mp.msg_tag = TAG_MOVE_SIDE;
-    sp->mp.msg_para[0] = sp->current_move_index;
-    sp->mp.msg_para[1] = sp->attack_client;
+    sp->mp.id = BATTLE_MSG_AURORA_VEIL;
+    sp->mp.tag = TAG_MOVE_SIDE;
+    sp->mp.param[0] = sp->current_move_index;
+    sp->mp.param[1] = sp->attack_client;
 
     return FALSE;
 }
@@ -4271,16 +4271,16 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
     // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
     if (isBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
     {
-        sp->mp.msg_id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
-        sp->mp.msg_tag = TAG_NICKNAME;
-        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
+        sp->mp.id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
+        sp->mp.tag = TAG_NICKNAME;
+        sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
     }
     else if (isBerry && TryEatOpponentBerry(bw, sp, sp->defence_client)) //TODO: needs expansion/wrapper for newer berries
     {
-        sp->mp.msg_id = BATTLE_MSG_STOLE_BERRY;
-        sp->mp.msg_tag = TAG_NICKNAME_ITEM;
-        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->attack_client);
-        sp->mp.msg_para[1] = item;
+        sp->mp.id = BATTLE_MSG_STOLE_BERRY;
+        sp->mp.tag = TAG_NICKNAME_ITEM;
+        sp->mp.param[0] = CreateNicknameTag(sp, sp->attack_client);
+        sp->mp.param[1] = item;
         sp->battlemon[sp->defence_client].item = 0; //no recycle
 
         if (GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
@@ -4604,15 +4604,15 @@ void AbilityPopup_SlideIn(void *data)
 
         FillWindowPixelBuffer(window, 0xFF);
         DrawFrameAndWindow1(window, FALSE, 1, 8);
-        MESSAGE_PARAM mp;
-        mp.msg_id = BATTLE_MSG_ABILITY_POPUP;
-        mp.msg_tag = TAG_NICKNAME_ABILITY;
-        mp.msg_para[0] = CreateNicknameTag(sp, work->battler);
-        mp.msg_para[1] = work->ability;
+        BattleMessage mp;
+        mp.id = BATTLE_MSG_ABILITY_POPUP;
+        mp.tag = TAG_NICKNAME_ABILITY;
+        mp.param[0] = CreateNicknameTag(sp, work->battler);
+        mp.param[1] = work->ability;
         mp.battlerId = work->battler;
 
         BattleSystem_BufferMessage(bsys, &mp);
-        BattleMessage_ExpandPlaceholders(bsys, bsys->unkC, &mp);
+        BattleMessage_ExpandPlaceholders(bsys, bsys->msgData, &mp);
         AddTextPrinterParameterized(window, 0, bsys->msgBuffer, (side != 0) ? 0 : 2, 0, 0, 0);
         DrawFrameAndWindow1(window, FALSE, 1, 8);
         G2_SetBG2Offset(0, 0);
