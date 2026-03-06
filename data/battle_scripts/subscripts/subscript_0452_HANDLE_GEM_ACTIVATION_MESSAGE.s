@@ -3,10 +3,13 @@
 .data
 
 _000:
+    PrintAttackMessage 
+    Wait 
+    WaitButtonABTime 30
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_HELD_ITEM
     Wait
-    //{0}’s {1}\nboosted the attack!
-    PrintMessage 1570, TAG_NICKNAME_ITEM, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_ATTACKER
+    //The {STRVAR_1 1, 0, 0} strengthened\n{STRVAR_1 5, 1, 0}’s power!
+    PrintBufferedMessage
     Wait 
     WaitButtonABTime 30
     RemoveItem BATTLER_CATEGORY_ATTACKER

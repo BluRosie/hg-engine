@@ -135,18 +135,18 @@ Battle Pocket
 Sweet Heart
 Adamant Orb
 Lustrous Orb
-Greet Mail
-Favored Mail
-RSVP Mail
-Thanks Mail
-Inquiry Mail
-Like Mail
-Reply Mail
-Bridge Mail S
-Bridge Mail D
-Bridge Mail T
-Bridge Mail V
-Bridge Mail M
+Grass Mail
+Flame Mail
+Bubble Mail
+Bloom Mail
+Tunnel Mail
+Steel Mail
+Heart Mail
+Snow Mail
+Space Mail
+Air Mail
+Mosaic Mail
+Brick Mail
 Cheri Berry
 Chesto Berry
 Pecha Berry

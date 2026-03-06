@@ -135,18 +135,18 @@ None
 {COLOR 255}Sweet Hearts{COLOR 0}
 {COLOR 255}Adamant Orbs{COLOR 0}
 {COLOR 255}Lustrous Orbs{COLOR 0}
-{COLOR 255}pieces of Greet Mail{COLOR 0}
-{COLOR 255}pieces of Favored Mail{COLOR 0}
-{COLOR 255}pieces of RSVP Mail{COLOR 0}
-{COLOR 255}pieces of Thanks Mail{COLOR 0}
-{COLOR 255}pieces of Inquiry Mail{COLOR 0}
-{COLOR 255}pieces of Like Mail{COLOR 0}
-{COLOR 255}pieces of Reply Mail{COLOR 0}
-{COLOR 255}pieces of Bridge Mail S{COLOR 0}
-{COLOR 255}pieces of Bridge Mail D{COLOR 0}
-{COLOR 255}pieces of Bridge Mail T{COLOR 0}
-{COLOR 255}pieces of Bridge Mail V{COLOR 0}
-{COLOR 255}pieces of Bridge Mail M{COLOR 0}
+{COLOR 255}pieces of Grass Mail{COLOR 0}
+{COLOR 255}pieces of Flame Mail{COLOR 0}
+{COLOR 255}pieces of Bubble Mail{COLOR 0}
+{COLOR 255}pieces of Bloom Mail{COLOR 0}
+{COLOR 255}pieces of Tunnel Mail{COLOR 0}
+{COLOR 255}pieces of Steel Mail{COLOR 0}
+{COLOR 255}pieces of Heart Mail{COLOR 0}
+{COLOR 255}pieces of Snow Mail{COLOR 0}
+{COLOR 255}pieces of Space Mail{COLOR 0}
+{COLOR 255}pieces of Air Mail{COLOR 0}
+{COLOR 255}pieces of Mosaic Mail{COLOR 0}
+{COLOR 255}pieces of Brick Mail{COLOR 0}
 {COLOR 255}Cheri Berries{COLOR 0}
 {COLOR 255}Chesto Berries{COLOR 0}
 {COLOR 255}Pecha Berries{COLOR 0}

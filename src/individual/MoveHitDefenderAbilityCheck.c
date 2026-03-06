@@ -59,12 +59,14 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
         if ((sp->battlemon[sp->defence_client].hp)
             && (sp->current_move_index != MOVE_STRUGGLE)
             && (movetype != TYPE_TYPELESS) // Revelation Dance
+            && (!sp->battlemon[sp->defence_client].is_currently_terastallized)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
             && (sp->moveTbl[sp->current_move_index].power)
             && (!HasType(sp, sp->defence_client, movetype))
             && (sp->battlemon[sp->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0
             && (sp->multiHitCount <= 1)) // don't activate until the last hit of a multi-hit move
         {
+            ChangeToPureType(sp, sp->defence_client, movetype);
             seq_no[0] = SUB_SEQ_COLOR_CHANGE;
             sp->msg_work = movetype;
             ret = TRUE;
@@ -453,6 +455,19 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             sp->battlerIdTemp = sp->defence_client;
             seq_no[0] = SUB_SEQ_CREATE_TERRAIN_OVERLAY;
             ret = TRUE;
+        }
+    } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_TOXIC_DEBRIS)) {
+        if (((sp->battlemon[sp->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0)
+            && (sp->oneSelfFlag[sp->defence_client].physical_damage))
+        {
+            int fieldSide = IsClientEnemy(bw, sp->attack_client);
+            if (sp->scw[fieldSide].toxicSpikesLayers < 2) {
+                sp->addeffect_type = ADD_EFFECT_ABILITY;
+                sp->side_condition[fieldSide] |= SIDE_STATUS_TOXIC_SPIKES;
+                sp->scw[fieldSide].toxicSpikesLayers++;
+                seq_no[0] = SUB_SEQ_TOXIC_DEBRIS;
+                ret = TRUE;
+            }
         }
     }
 

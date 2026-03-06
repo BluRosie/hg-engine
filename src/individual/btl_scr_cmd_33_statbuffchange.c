@@ -114,15 +114,16 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
     // try and handle defiant lol
     if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_DEFIANT || GetBattlerAbility(sp, sp->state_client) == ABILITY_COMPETITIVE)
-     && sp->oneSelfFlag[sp->state_client].defiant_flag == 0
-     && statchange < 0
-     && sp->state_client != sp->attack_client // can't raise own stats
-     && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
-     && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
-     && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-     && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0))
+        && sp->oneSelfFlag[sp->state_client].defiant_flag == 0
+        && statchange < 0
+        && (sp->addeffect_type == ADD_EFFECT_STICKY_WEB
+            || (sp->state_client != sp->attack_client // can't raise own stats
+                && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0))))
     {
-        sp->oneSelfFlag[sp->state_client].defiant_flag = 1;
+            sp->oneSelfFlag[sp->state_client].defiant_flag = 1;
     }
     else
     {
@@ -228,6 +229,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     }
     else
     {
+        sp->moveConditionsFlags[sp->state_client].anyStatLoweredThisTurn = TRUE;
         // Cap stat change here so that message below is correct
         if (battlemon->states[STAT_ATTACK + stattochange] + statchange < 0) {
             // debug_printf("\n\nCapped\n\n");

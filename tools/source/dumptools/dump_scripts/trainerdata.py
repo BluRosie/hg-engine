@@ -42,9 +42,15 @@ def dump_trainerdata(trdata_narc, trpok_narc, is_expanded):
     for idx, trainer in enumerate(trdata_narc):
         flags = trdata_narc[idx]["flags"]
         trMonTypeFlags = "TRAINER_DATA_TYPE_NOTHING" if flags == 0 else flags_to_string(flags, TRAINER_PARTY_MON_FLAG_DEFINES)
-        trainerdata_armips += f'trainerdata {idx}, "{names[int(idx)]}"\n'
+        try:
+            trainerdata_armips += f'trainerdata {idx}, "{names[int(idx)]}"\n'
+        except KeyError:
+            trainerdata_armips += f'trainerdata {idx}, "NoName"\n'
         trainerdata_armips += f'    trainermontype {trMonTypeFlags}\n'
-        trainerdata_armips += f'    trainerclass {CONSTANTS["TRAINERCLASS"][trdata_narc[idx]["class"]]}\n'
+        try:
+            trainerdata_armips += f'    trainerclass {CONSTANTS["TRAINERCLASS"][trdata_narc[idx]["class"]]}\n'
+        except KeyError:
+            trainerdata_armips += f'    trainerclass {trdata_narc[idx]["class"]}\n'
         trainerdata_armips += f'    nummons {trdata_narc[idx]["num_pokemon"]}\n'
         trainerdata_armips += f'    item {ITEMS["ITEM"][trdata_narc[idx]["item_1"]]}\n'
         trainerdata_armips += f'    item {ITEMS["ITEM"][trdata_narc[idx]["item_2"]]}\n'
@@ -61,7 +67,7 @@ def dump_trainerdata(trdata_narc, trpok_narc, is_expanded):
             trainerdata_armips += f'        abilityslot {trpok_narc[idx][monPartyIdx]["ability"]}\n'
             trainerdata_armips += f'        level {trpok_narc[idx][monPartyIdx]["level"]}\n'
             if get_form(trpok_narc[idx][monPartyIdx]["species_id"], is_expanded):
-                trainerdata_armips += f'        monwithform {MONS["SPECIES"][trpok_narc[idx][monPartyIdx]["species_id"]]}\n'
+                trainerdata_armips += f'        monwithform {MONS["SPECIES"][get_base_species(trpok_narc[idx][monPartyIdx]["species_id"], is_expanded)]}, {get_form(trpok_narc[idx][monPartyIdx]["species_id"], is_expanded)}\n'
             else:
                 trainerdata_armips += f'        pokemon {MONS["SPECIES"][trpok_narc[idx][monPartyIdx]["species_id"]]}\n'
             # item
@@ -100,15 +106,12 @@ def dump_trainerdata(trdata_narc, trpok_narc, is_expanded):
     return trainerdata_armips
 
 def get_trainer_names():
-    with open("armips/data/trainers/trainers.s", 'r', encoding="utf-8") as f:
+    # proper way to get trainer names is to dump them from the rom.  handler extracts everything from the rom to a build/trainernames.txt
+    with open("build/trainernames.txt", 'r', encoding="utf-8") as f:
         content = f.readlines()
-
     names = {}
     current_trainer_index = 0
     for index, line in enumerate(content):
-        if "trainerdata" in line:
-            trainer_name = line.split("\"")[1]
-            names[current_trainer_index] = trainer_name
-            current_trainer_index += 1
-
+        names[current_trainer_index] = line.replace("{TRNAME}", "").replace("\n", "")
+        current_trainer_index += 1
     return names

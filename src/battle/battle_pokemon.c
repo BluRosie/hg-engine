@@ -12,6 +12,10 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../../include/test_battle.h"
+#endif // DEBUG_BATTLE_SCENARIOS
+
 // function declarations
 //BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp);
@@ -843,6 +847,12 @@ void LONG_CALL BattleFormChange(int client, int form_no, void* bw, struct Battle
     sp->battlemon[client].type1 = GetMonData(pp2, MON_DATA_TYPE_1, NULL);
     sp->battlemon[client].type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
     sp->battlemon[client].type3 = TYPE_TYPELESS;
+    sp->moveConditionsFlags[client].soakFlag = FALSE;
+    sp->moveConditionsFlags[client].magicPowderFlag = FALSE;
+    sp->moveConditionsFlags[client].forestsCurseFlag = FALSE;
+    sp->moveConditionsFlags[client].trickOrTreatFlag = FALSE;
+    sp->moveConditionsFlags[client].burnUpFlag = FALSE;
+    sp->moveConditionsFlags[client].doubleShockFlag = FALSE;
     sp->battlemon[client].ability_activated_flag = FALSE;
 
     // need to update weight as well
@@ -983,6 +993,42 @@ void BattleEndRevertFormChange(struct BattleSystem *bw)
         newBS.itemsToRestore[i] = 0;
     }
 #endif // RESTORE_ITEMS_AT_BATTLE_END
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+
+struct TestBattleScenario *currentScenario = TestBattle_GetCurrentScenario();
+
+while (currentScenario != NULL && TestBattle_HasMoreExpectations()) {
+    // debug_printf("Has more expectations\n");
+    // debug_printf("expectation: %d\n", currentScenario->expectations[currentScenario->expectationPassCount].expectationType);
+    if (currentScenario->expectations[currentScenario->expectationPassCount].expectationType == EXPECTATION_OVERWORLD_FORM) {
+        // debug_printf("Checking form\n");
+        struct Party *party = SaveData_GetPlayerPartyPtr(SaveBlock2_get());
+        struct PartyPokemon partyPokemon = party->members[currentScenario->expectations[currentScenario->expectationPassCount].battlerIDOrPartySlot];
+        int expectedForm = currentScenario->expectations[currentScenario->expectationPassCount].expectationValue.formID;
+        // debug_printf("expected form %d\n", expectedForm);
+        if (GetMonData(&partyPokemon, MON_DATA_FORM, NULL) == expectedForm) {
+            // debug_printf("Form matches expectation\n");
+            currentScenario->expectationPassCount++;
+        }
+    } else {
+        // debug_printf("Break\n");
+        break;
+    }
+}
+
+if (TestBattle_HasMoreExpectations()) {
+    if (currentScenario->knownFailing) {
+        SendValueThroughCommunicationSendHole(TEST_CASE_KNOWN_FAILING);
+    } else {
+        SendValueThroughCommunicationSendHole(TEST_CASE_FAIL);
+    }
+} else {
+    SendValueThroughCommunicationSendHole(TEST_CASE_PASS);
+}
+
+#endif // DEBUG_BATTLE_SCENARIOS
+
 }
 
 /**
@@ -1010,11 +1056,22 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->battlemon[client].is_currently_dynamaxed = 0;
     sp->battlemon[client].has_dynamaxed_before = 0;
     sp->battlemon[client].type3 = TYPE_TYPELESS;
+    sp->moveConditionsFlags[client].soakFlag = FALSE;
+    sp->moveConditionsFlags[client].magicPowderFlag = FALSE;
+    sp->moveConditionsFlags[client].forestsCurseFlag = FALSE;
+    sp->moveConditionsFlags[client].trickOrTreatFlag = FALSE;
+    sp->moveConditionsFlags[client].burnUpFlag = FALSE;
+    sp->moveConditionsFlags[client].doubleShockFlag = FALSE;
     sp->oneTurnFlag[client].parental_bond_flag = 0;
     sp->oneTurnFlag[client].parental_bond_is_active = 0;
     sp->moveConditionsFlags[client].endTurnMoveEffectActivated = 0;
     sp->moveConditionsFlags[client].moveFailureThisTurn = 0;
     sp->moveConditionsFlags[client].moveFailureLastTurn = 0;
+    sp->moveConditionsFlags[client].powderBlockingFireMove = 0;
+    sp->moveConditionsFlags[client].laserFocusTimer = 0;
+    sp->moveConditionsFlags[client].glaiveRush = 0;
+    sp->moveConditionsFlags[client].anyStatLoweredThisTurn = 0;
+    sp->moveConditionsFlags[client].throatChopTimer = 0;
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
     sp->binding_turns[client] = 0;
@@ -1226,4 +1283,10 @@ BOOL LONG_CALL IsMonValidAndHealthy(struct PartyPokemon *mon) {
         GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != 0 &&
         GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_EGG &&
         GetMonData(mon, MON_DATA_STATUS, 0) == 0);
+}
+
+BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId)
+{
+    // TODO implement battle type check for relevant types like raids and totem battles here
+    return battleSystem->sp->battlemon[battlerId].species != SPECIES_NONE;
 }

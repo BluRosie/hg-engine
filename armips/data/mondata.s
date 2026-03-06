@@ -11768,7 +11768,7 @@ mondata SPECIES_PURRLOIN, "Purrloin"
     abilities ABILITY_LIMBER, ABILITY_UNBURDEN
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
-    mondexentry SPECIES_PURRLOIN, "Their cute act is a ruse.\nThey trick people and steal their valuables\njust to see the looks on their faces."
+    mondexentry SPECIES_PURRLOIN, "Their cute act is a ruse. They trick\npeople and steal their valuables\njust to see the looks on their faces."
     mondexclassification SPECIES_PURRLOIN, "Devious Pokémon"
     mondexheight SPECIES_PURRLOIN, "1’04”"
     mondexweight SPECIES_PURRLOIN, "22.3 lbs."
@@ -26483,7 +26483,7 @@ mondata SPECIES_MORPEKO_HANGRY, "-----"
     colorflip BODY_COLOR_YELLOW, 0
 
 mondata SPECIES_ZACIAN_CROWNED, "-----"
-    basestats 92, 170, 115, 148, 80, 115
+    basestats 92, 150, 115, 148, 80, 115
     types TYPE_FAIRY, TYPE_STEEL
     catchrate 10
     baseexp 360
@@ -26499,7 +26499,7 @@ mondata SPECIES_ZACIAN_CROWNED, "-----"
     colorflip BODY_COLOR_BLUE, 0
 
 mondata SPECIES_ZAMAZENTA_CROWNED, "-----"
-    basestats 92, 130, 145, 128, 80, 145
+    basestats 92, 120, 140, 128, 80, 140
     types TYPE_FIGHTING, TYPE_STEEL
     catchrate 10
     baseexp 360
@@ -27027,7 +27027,7 @@ mondata SPECIES_MEOWSTIC_FEMALE, "-----"
     colorflip BODY_COLOR_BLUE, 0
 
 mondata SPECIES_INDEEDEE_FEMALE, "-----"
-    basestats 60, 65, 55, 95, 105, 95
+    basestats 60, 55, 65, 85, 95, 105
     types TYPE_PSYCHIC, TYPE_NORMAL
     catchrate 30
     baseexp 166
@@ -27043,7 +27043,7 @@ mondata SPECIES_INDEEDEE_FEMALE, "-----"
     colorflip BODY_COLOR_PURPLE, 0
 
 mondata SPECIES_BASCULEGION_FEMALE, "-----"
-    basestats 120, 112, 65, 78, 80, 75
+    basestats 120, 92, 65, 78, 100, 75
     types TYPE_WATER, TYPE_GHOST
     catchrate 135
     baseexp 208

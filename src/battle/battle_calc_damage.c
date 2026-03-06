@@ -23,26 +23,6 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp);
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
 
-
-
-// https://m.bulbapedia.bulbagarden.net/wiki/Stat_modifier#Stage_multipliers
-const u8 StatBoostModifiers[][2] = {
-         // numerator, denominator
-        { 2, 8 },
-        { 2, 7 },
-        { 2, 6 },
-        { 2, 5 },
-        { 2, 4 },
-        { 2, 3 },
-        { 2, 2 },
-        { 3, 2 },
-        { 4, 2 },
-        { 5, 2 },
-        { 6, 2 },
-        { 7, 2 },
-        { 8, 2 },
-};
-
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED,
                    u32 field_cond, u16 pow UNUSED, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
 {
@@ -316,8 +296,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     // 6.3.5 Glaive Rush
     // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-10498744
-    // TODO: implement the condition
-    if (FALSE) {
+    if (sp->moveConditionsFlags[defender].glaiveRush) {
         damage = damage * 200 / 100;
     }
 

@@ -4,10 +4,9 @@
 #include "config.h"
 //#include "save.h"
 #include "types.h"
+#include "party_menu.h"
 #include "trainer_data.h"
-
-#define _PARTY_MENU_WINDOW_ID_MAX 40
-#define _PARTY_MENU_SPRITE_ID_MAX 29
+#include "window.h"
 
 #define POKEMON_GENDER_MALE 0
 #define POKEMON_GENDER_FEMALE 1
@@ -110,13 +109,19 @@
     || (species == SPECIES_NECROZMA) || (species == SPECIES_ZACIAN) || (species == SPECIES_ZAMAZENTA) || (species == SPECIES_ETERNATUS) \
     || (species == SPECIES_CALYREX) || (species == SPECIES_KORAIDON) || (species == SPECIES_MIRAIDON) || (species == SPECIES_TERAPAGOS))
 
+#ifdef VANILLA_MYTHICALS
+#define EXTRA_MYTHICALS(species) ( (species == SPECIES_SHIINOTIC) )
+#else
+#define EXTRA_MYTHICALS(species) ( (species == SPECIES_MARSHADOW) )/* || (species == OTHER_SPECIES_TO_ADD)*/)
+#endif
+
 #define IS_SPECIES_MYTHICAL(species) ((species == SPECIES_MEW) || (species == SPECIES_CELEBI) || (species == SPECIES_JIRACHI) \
     || (species == SPECIES_DEOXYS) || (species == SPECIES_PHIONE) || (species == SPECIES_MANAPHY) || (species == SPECIES_DARKRAI) \
     || (species == SPECIES_SHAYMIN) || (species == SPECIES_ARCEUS) || (species == SPECIES_VICTINI) || (species == SPECIES_KELDEO) \
     || (species == SPECIES_MELOETTA) || (species == SPECIES_GENESECT) || (species == SPECIES_DIANCIE) || (species == SPECIES_HOOPA) \
-    || (species == SPECIES_VOLCANION) || (species == SPECIES_SHIINOTIC) /* || (species == SPECIES_MARSHADOW) */ || (species == SPECIES_MAGEARNA) \
-    || (species == SPECIES_ZERAORA) || (species == SPECIES_MELTAN) || (species == SPECIES_MELMETAL) || (species == SPECIES_ZARUDE) \
-    || (species == SPECIES_PECHARUNT))
+    || (species == SPECIES_VOLCANION) || (species == SPECIES_MAGEARNA) || (species == SPECIES_ZERAORA) \
+    || (species == SPECIES_MELTAN) || (species == SPECIES_MELMETAL) || (species == SPECIES_ZARUDE) || (species == SPECIES_PECHARUNT)\
+    || EXTRA_MYTHICALS(species))
 
 #define IS_SPECIES_SUBLEGEND(species) ((species == SPECIES_ARTICUNO) || (species == SPECIES_ZAPDOS) || (species == SPECIES_MOLTRES) \
     || (species == SPECIES_RAIKOU) || (species == SPECIES_ENTEI) || (species == SPECIES_SUICUNE) || (species == SPECIES_REGIROCK) \
@@ -131,12 +136,24 @@
     || (species == SPECIES_CHI_YU) || (species == SPECIES_OGERPON) || (species == SPECIES_OKIDOGI) || (species == SPECIES_MUNKIDORI) \
     || (species == SPECIES_FEZANDIPITI))
 
-#define IS_SPECIES_ULTRA_BEAST(species) ((species >= SPECIES_NIHILEGO && species <= SPECIES_BLACEPHALON))
+#define IS_SPECIES_ULTRA_BEAST(species) ( (species == SPECIES_NIHILEGO) || (species == SPECIES_BUZZWOLE) || (species == SPECIES_PHEROMOSA) \
+    || (species == SPECIES_XURKITREE) || (species == SPECIES_CELESTEELA) || (species == SPECIES_KARTANA) || (species == SPECIES_GUZZLORD) \
+    || (species == SPECIES_POIPOLE) || (species == SPECIES_NAGANADEL) || (species == SPECIES_STAKATAKA) || (species == SPECIES_BLACEPHALON))
 
-#define IS_SPECIES_PARADOX_FORM(species) ((species >= SPECIES_GREAT_TUSK && species <= SPECIES_IRON_THORNS) || (species == SPECIES_ROARING_MOON) || (species == SPECIES_IRON_VALIANT) || (species == SPECIES_WALKING_WAKE) \
-    || (species == SPECIES_IRON_LEAVES) /*|| (species >= SPECIES_GOUGING_FIRE && species <= SPECIES_IRON_CROWN)*/)
+#ifdef VANILLA_PARADOX_BOOSTER_ENERGY_BEHAVIOUR
+#define EXTRA_PARADOX_FORMS(species) 0
+#else
+#define EXTRA_PARADOX_FORMS(species) ( (species == SPECIES_GOUGING_FIRE) || (species == SPECIES_RAGING_BOLT) || \
+    (species == SPECIES_IRON_BOULDER) || (species == SPECIES_IRON_CROWN))
+#endif
 
-
+#define IS_SPECIES_PARADOX_FORM(species) ((species == SPECIES_GREAT_TUSK) || (species == SPECIES_SCREAM_TAIL) || (species == SPECIES_BRUTE_BONNET) \
+    || (species == SPECIES_FLUTTER_MANE) || (species == SPECIES_SLITHER_WING) || (species == SPECIES_SANDY_SHOCKS) || (species == SPECIES_IRON_TREADS) \
+    || (species == SPECIES_IRON_BUNDLE) || (species == SPECIES_IRON_HANDS) || (species == SPECIES_IRON_JUGULIS) || (species == SPECIES_IRON_MOTH) \
+    || (species == SPECIES_IRON_THORNS) || (species == SPECIES_ROARING_MOON) || (species == SPECIES_IRON_VALIANT) || (species == SPECIES_WALKING_WAKE) \
+    || (species == SPECIES_IRON_LEAVES) \
+    || EXTRA_PARADOX_FORMS(species))
+    
 // personal narc fields
 enum
 {
@@ -600,67 +617,6 @@ typedef struct FieldSystem {
 } FieldSystem; // size: 0x128
 
 
-// frick new formes
-struct PLIST_DATA
-{
-    /* 0x00 */ struct Party *pp;
-    /* 0x04 */ void *myitem;
-    /* 0x08 */ void *mailblock;
-    /* 0x0C */ void *cfg;
-    /* 0x10 */ void *tvwk;
-    /* 0x14 */ void *reg;
-    /* 0x18 */ void *scwk;
-    /* 0x1C */ FieldSystem *fsys;
-               void *padsmth;
-    /* 0x20+4 */ u8 mode;
-    /* 0x21+4 */ u8 type;
-    /* 0x22+4 */ u8 ret_sel;
-    /* 0x23+4 */ u8 ret_mode;
-    /* 0x24+4 */ u16 item; // this is actually 0x28
-    /* 0x26+4 */ u16 move;
-    /* 0x28+4 */ u8 movepos;
-    /* 0x29+4 */ u8 con_mode;
-    /* 0x2A+4 */ u8 con_type;
-    /* 0x2B+4 */ u8 con_rank;
-    /* 0x2C+4 */ u8 in_num[6];
-    /* 0x32+4 */ u8 in_min:4;
-                 u8 in_max:4;
-    /* 0x33+4 */ u8 in_lv;
-    /* 0x34+4 */ s32 lv_cnt;
-    /* 0x38+4 */ u16 after_mons;
-    /* 0x3C+4 */ s32 shinka_cond;
-};
-
-struct Window
-{
-    void* /* BgConfig **/ bgConfig;
-    u8 bgId;
-    u8 tilemapLeft;
-    u8 tilemapTop;
-    u8 width;
-    u8 height;
-    u8 paletteNum;
-    u16 baseTile  : 15;
-    u16 colorMode : 1;
-    void *pixelBuffer;
-}; //size 0x10
-
-
-struct PLIST_WORK
-{
-    /* 0x0 */ void* /* BgConfig **/ bgConfig;
-    /* 0x4 */ struct Window windows[_PARTY_MENU_WINDOW_ID_MAX];
-    /* 0x284 */ struct Window levelUpStatsWindow[1];       // 0x284
-    /* 0x294 */ struct Window contextMenuButtonWindows[8]; // 0x294
-    /* 0x314 */ u8 padding_x0[0x654-0x314];
-    /* 0x654 */ struct PLIST_DATA *dat;
-    /* 0x658 */ void* /*SpriteRenderer **/ spriteRenderer;
-    /* 0x65C */ void* /*SpriteGfxHandler **/ spriteGfxHandler;
-    /* 0x660 */ void* /*Sprite **/ sprites[_PARTY_MENU_SPRITE_ID_MAX]; // 0x660
-    /* 0x6D4 */ u8 padding_x6D4[0xC65-0x660-0x74];
-    u8 pos;
-};
-
 struct IconFormChangeData {
     int state;
     int effectTimer;
@@ -825,6 +781,14 @@ enum
 #define NATURE_CAREFUL (23)
 #define NATURE_QUIRKY  (24)
 
+#define FLAVOR_SPICY  0
+#define FLAVOR_DRY    1
+#define FLAVOR_SWEET  2
+#define FLAVOR_BITTER 3
+#define FLAVOR_SOUR   4
+
+#define FLAVOR_START FLAVOR_SPICY
+#define FLAVOR_MAX   5
 
 #define MAX_EVOS_PER_POKE (9)
 
@@ -1130,7 +1094,7 @@ void LONG_CALL GiratinaBoxPokemonFormChange(struct BoxPokemon *bp);
  *
  *  @param wk poke list work
  */
-void LONG_CALL PokeList_FormDemoOverlayLoad(struct PLIST_WORK *wk);
+void LONG_CALL PokeList_FormDemoOverlayLoad(struct PartyMenu *wk);
 
 /**
  *  @brief add a PartyPokemon to an available slot in the Party
@@ -1650,6 +1614,23 @@ BOOL LONG_CALL HandleBoxPokemonFormeChanges(struct BoxPokemon* bp);
 BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp);
 
 /**
+ *  @brief check if a certain type of nectar can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check the nectar against
+ *  @param nectar Nectar item id to check for
+ *  @return TRUE if nectar can be used; FALSE otherwise
+ */
+BOOL LONG_CALL CanUseNectar(struct PartyPokemon *pp, u16 nectar);
+
+/**
+ *  @brief check if the Gracidea can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check the nectar against
+ *  @return TRUE if Gracidea can be used; FALSE otherwise
+ */
+BOOL LONG_CALL Mon_CanUseGracidea(struct PartyPokemon *mon);
+
+/**
  *  @brief check if DNA splicers can be used, return position in party if so
  *
  *  @param pp PartyPokemon to check for
@@ -1659,12 +1640,20 @@ BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp);
 u32 LONG_CALL CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Party *party);
 
 /**
+ *  @brief check if a rotom catalog can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check reveal glass against
+ *  @return TRUE if rotom catalog can be used; FALSE otherwise
+ */
+BOOL CanUseRotomCatalog(struct PartyPokemon *pp);
+
+/**
  *  @brief see if an item changes attributes of the pokémon or not
  *
  *  @param wk work structure
  *  @param dat data structure
  */
-u32 LONG_CALL UseItemMonAttrChangeCheck(struct PLIST_WORK *wk, void *dat);
+u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat);
 
 /**
  *  @brief modify PokeListProc_End to increase party size so that when Reshiram/Zekrom are added back from DNA Splicers there are no crashes
@@ -1882,6 +1871,8 @@ u32 LONG_CALL GenerateShinyPIDKeepSubstructuresIntact(u32 otId, u32 pid);
  */
 u32 LONG_CALL GetMoveData(u16 id, u32 field);
 
+BOOL LONG_CALL IsMoveUnimplemented(u16 move);
+
 BOOL LONG_CALL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defaultSlot);
 
 void LONG_CALL Mon_UpdateShayminForm(struct PartyPokemon *mon, int form);
@@ -1899,5 +1890,12 @@ void LONG_CALL MonApplyFriendshipMod(struct PartyPokemon *mon, u8 kind, u16 loca
 u8 LONG_CALL GetMoveMaxPP(u16 moveId, u8 ppUps);
 
 void LONG_CALL ApplyMonMoodModifier(struct PartyPokemon *mon, int modifierId);
+
+s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor);
+
+BOOL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defaultSlot);
+
+BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID);
+
 
 #endif

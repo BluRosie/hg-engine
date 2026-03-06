@@ -1226,12 +1226,43 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 sp->scc_work = 0;
                 break;
             }
-            // TODO
             case ENDTURN_ROOST_USERS_REGAINING_FLYING_TYPE: {
                 #ifdef DEBUG_ENDTURN_LOGIC
                 sprintf(buf, "In ENDTURN_ROOST_USERS_REGAINING_FLYING_TYPE\n");
                 debug_printf(buf);
                 #endif
+
+                for (int i = 0; i < client_set_max; i++) {
+                    if (sp->oneTurnFlag[i].roostFlag
+                        && !sp->battlemon[i].is_currently_terastallized
+                        && !sp->moveConditionsFlags[i].soakFlag
+                        && !sp->moveConditionsFlags[i].magicPowderFlag) {
+                        int species = PokeOtherFormMonsNoGet(sp->battlemon[i].species, sp->battlemon[i].form_no);
+                        u32 type1 = PokePersonalParaGet(species, PERSONAL_TYPE_1);
+                        u32 type2 = PokePersonalParaGet(species, PERSONAL_TYPE_2);
+
+                        sp->battlemon[i].type1 = type1;
+                        sp->battlemon[i].type2 = type2;
+
+                        if (sp->moveConditionsFlags[i].burnUpFlag) {
+                            RemoveType(sp, i, TYPE_FIRE);
+                        }
+
+                        if (sp->moveConditionsFlags[i].doubleShockFlag) {
+                            RemoveType(sp, i, TYPE_ELECTRIC);
+                        }
+
+                        if (sp->moveConditionsFlags[i].forestsCurseFlag) {
+                            AddType(sp, i, TYPE_GRASS);
+                        }
+
+                        if (sp->moveConditionsFlags[i].trickOrTreatFlag) {
+                            AddType(sp, i, TYPE_GHOST);
+                        }
+
+                    }
+                    sp->oneTurnFlag[i].roostFlag = FALSE;
+                }
 
                 sp->fcc_seq_no++;
                 break;
@@ -1459,7 +1490,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     ret = 1;
                                 }
                             }
-                            
+
                             sp->endTurnEventBlockSequenceNumber++;
                             break;
                         }
@@ -1600,8 +1631,18 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_ENDTURN_LOGIC
                             debug_printf("In THIRD_EVENT_BLOCK_UPROAR\n", NULL);
 #endif
-
-                            if (sp->battlemon[battlerId].condition2 & STATUS2_UPROAR) {
+                            if (sp->moveConditionsFlags[battlerId].throatChopTimer && sp->battlemon[battlerId].condition2 & STATUS2_UPROAR)
+                            {
+                                sp->battlemon[battlerId].condition2 &= ~STATUS2_UPROAR;
+                                sp->field_condition &= (No2Bit(battlerId) << 8) ^ 0xFFFFFFFF;
+                                sp->battlerIdTemp = battlerId;
+                                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_UPROAR_END);
+                                sp->next_server_seq_no = sp->server_seq_no;
+                                sp->server_seq_no = 22;
+                                flag = 1;
+                                ret = 1;
+                            }
+                            else if (sp->battlemon[battlerId].condition2 & STATUS2_UPROAR) {
                                 u8 battlerIdSleep;
                                 for (battlerIdSleep = 0; battlerIdSleep < client_set_max; battlerIdSleep++) {
                                     if ((sp->battlemon[battlerIdSleep].condition & STATUS_SLEEP) && sp->battlemon[battlerIdSleep].hp != 0 && GetBattlerAbility(sp, battlerIdSleep) != ABILITY_SOUNDPROOF) {
@@ -1905,7 +1946,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 sprintf(buf, "In ENDTURN_ION_DELUGE_FADING\n");
                 debug_printf(buf);
                 #endif
-                
+
                 sp->field_condition &= ~FIELD_STATUS_ION_DELUGE;
 
                 sp->fcc_seq_no++;
@@ -1925,6 +1966,14 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     sp->moveConditionsFlags[i].endTurnMoveEffectActivated = 0;
                     sp->moveConditionsFlags[i].moveFailureLastTurn = sp->moveConditionsFlags[i].moveFailureThisTurn;
                     sp->moveConditionsFlags[i].moveFailureThisTurn = 0;
+                    sp->moveConditionsFlags[i].powderBlockingFireMove = 0;
+                    if (sp->moveConditionsFlags[i].laserFocusTimer > 0) {
+                        sp->moveConditionsFlags[i].laserFocusTimer--;
+                    }
+                    sp->moveConditionsFlags[i].anyStatLoweredThisTurn = 0;
+                    if (sp->moveConditionsFlags[i].throatChopTimer > 0) {
+                        sp->moveConditionsFlags[i].throatChopTimer--;
+                    }
                 }
 
                 sp->playerSideHasFaintedTeammateLastTurn = sp->playerSideHasFaintedTeammateThisTurn;

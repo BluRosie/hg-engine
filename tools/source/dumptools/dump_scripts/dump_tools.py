@@ -275,6 +275,11 @@ def get_form(species_id, is_expanded):
 
     return species_id // max_mons
 
+def get_base_species(species_id, is_expanded):
+    max_mons = 2048 if is_expanded else 1024
+
+    return (species_id & (max_mons - 1))
+
 def get_remaining_lines(file_path, original_rom_mon_count, keyword):
     with open(file_path, 'r', encoding="utf-8") as f:
         content = f.readlines()

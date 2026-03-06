@@ -21,6 +21,10 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../../include/test_battle.h"
+#endif
+
 struct EXP_CALCULATOR
 {
     /* 0x00 */ void *bw;
@@ -96,7 +100,7 @@ void BattleContext_RemoveEntryHazardFromQueue(struct BattleStruct *ctx, u32 side
 BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_104_tryincinerate(void* bsys, struct BattleStruct* ctx);
-BOOL btl_scr_cmd_105_addthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_105_addtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_106_tryauroraveil(void* bw, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_108_strengthsapcalc(void* bw, struct BattleStruct* sp);
@@ -104,7 +108,16 @@ BOOL btl_scr_cmd_109_checktargetispartner(void* bw, struct BattleStruct* sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10B_gotoifthirdtype(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_10C_gotoifterastallized(void* bsys UNUSED, struct BattleStruct* ctx);
-BOOL btl_scr_cmd_10D_abilitypopup(void* bsys, struct BattleStruct* sp);
+BOOL btl_scr_cmd_10D_HandleRoost(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10E_HandleSoak(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_10F_HandleMagicPowder(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_110_HandleForestsCurse(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_111_HandleTrickOrTreat(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_112_HandleBurnUp(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_113_HandleDoubleShock(void* bsys UNUSED, struct BattleStruct* ctx);
+BOOL btl_scr_cmd_114_stuffCheeks(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_115_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_116_abilitypopup(void* bsys, struct BattleStruct* sp);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -118,10 +131,12 @@ BOOL BtlCmd_TrySwapItems(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct *sp);
 BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp);
+BOOL BtlCmd_TryFling(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_PlayFaintAnimation(struct BattleSystem* bsys, struct BattleStruct* sp);
 BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_CopyStatStages(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -394,19 +409,25 @@ const u8 *BattleScrCmdNames[] =
     "RemoveEntryHazardFromQueue",
     "CheckProtectContactMoves",
     "TryIncinerate",
-    "AddThirdType",
+    "AddType",
     "TryAuroraVeil",
     "ClearAuroraVeil",
     "StrengthSapCalc",
     "CheckTargetIsPartner",
     "ClearSmog",
-<<<<<<< HEAD
-    "AbilityPopup",
-    "AbilityPopupRemove",
-=======
     "GoToIfThirdType",
     "GoToIfTerastallized",
->>>>>>> 86bc0d528188a4e7d87f113119c55097920d7205
+    "HandleRoost",
+    "HandleSoak",
+    "HandleMagicPowder",
+    "HandleForestsCurse",
+    "HandleTrickOrTreat",
+    "HandleBurnUp",
+    "HandleDoubleShock",
+    "StuffCheeks",
+    "SetMoveConditionFlag",
+    "AbilityPopup",
+    "AbilityPopupRemove",
     // "YourCustomCommand",
 };
 
@@ -454,7 +475,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x102 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_102_removeentryhazardfromqueue,
     [0x103 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_103_checkprotectcontactmoves,
     [0x104 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_104_tryincinerate,
-    [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_addthirdtype,
+    [0x105 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_105_addtype,
     [0x106 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_106_tryauroraveil,
     [0x107 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_107_clearauroraveil,
     [0x108 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_108_strengthsapcalc,
@@ -462,7 +483,16 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x10A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10A_clearsmog,
     [0x10B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10B_gotoifthirdtype,
     [0x10C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10C_gotoifterastallized,
-    [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_abilitypopup,
+    [0x10D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10D_HandleRoost,
+    [0x10E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10E_HandleSoak,
+    [0x10F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_10F_HandleMagicPowder,
+    [0x110 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_110_HandleForestsCurse,
+    [0x111 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_111_HandleTrickOrTreat,
+    [0x112 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_112_HandleBurnUp,
+    [0x113 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_113_HandleDoubleShock,
+    [0x114 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_114_stuffCheeks,
+    [0x115 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_115_setMoveConditionFlag,
+    [0x116 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_116_abilitypopup,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -2035,16 +2065,6 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
 
     return FALSE;
 }
-
-const u16 sLowKickWeightToPower[][2] =
-{
-    {   100,     20}, //   0- 10 kg ->  20 bp
-    {   250,     40}, //  10- 25 kg ->  40 bp
-    {   500,     60}, //  25- 50 kg ->  60 bp
-    {  1000,     80}, //  50-100 kg ->  80 bp
-    {  2000,    100}, // 100-200 kg -> 100 bp
-    {0xFFFF, 0xFFFF},
-};
 
 /**
  *  @brief grab a battler's weight
@@ -4161,23 +4181,15 @@ BOOL btl_scr_cmd_104_tryincinerate(void* bw UNUSED, struct BattleStruct* sp)
     return FALSE;
 }
 
-/**
- *  @brief Script command to change a target pokemon's type3 parameter.
- *
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @return FALSE
- */
-BOOL btl_scr_cmd_105_addthirdtype(void* bw UNUSED, struct BattleStruct* sp)
+// Unused
+BOOL btl_scr_cmd_105_addtype(void* bsys UNUSED, struct BattleStruct* ctx)
 {
-    IncrementBattleScriptPtr(sp, 1);
-    s32 type = read_battle_script_param(sp);
+    IncrementBattleScriptPtr(ctx, 1);
+    int type = read_battle_script_param(ctx);
 
-    if (FAIRY_TYPE_IMPLEMENTED == 0 && type == TYPE_FAIRY) // revert fairy to normal if someone tries to add fairy with the flag disabled
-        type = TYPE_NORMAL;
+    GF_ASSERT(type >= TYPE_NORMAL && type <= TYPE_DARK);
 
-    if (type >= 0 && type < NUMBER_OF_MON_TYPES) // proceed only if type ID is a valid, existing type
-        sp->battlemon[sp->defence_client].type3 = type;
+    AddType(ctx, ctx->defence_client, type);
 
     return FALSE;
 }
@@ -4247,33 +4259,55 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
 
     u32 adrs = read_battle_script_param(sp);
     u32 adrs2 UNUSED = read_battle_script_param(sp);
-    if (CanActivateDamageReductionBerry(sp, sp->defence_client))
+    u32 item = sp->battlemon[sp->defence_client].item;
+    if (CanActivateDamageReductionBerry(sp, sp->defence_client) || item == ITEM_JABOCA_BERRY)
     {
         IncrementBattleScriptPtr(sp, adrs);
         return FALSE;
     }
 
-    u32 item = sp->battlemon[sp->defence_client].item;
-    BOOL isItemBerry = IS_ITEM_BERRY(item);
+    BOOL isBerry = IS_ITEM_BERRY(item);
     // sticky hold and substitute will keep the mon's held item
     // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
-    if (isItemBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
+    if (isBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp)
     {
         sp->mp.msg_id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
         sp->mp.msg_tag = TAG_NICKNAME;
         sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->defence_client);
     }
-    else if (isItemBerry && TryEatOpponentBerry(bw, sp, sp->defence_client)) //needs expansion for newer berries
+    else if (isBerry && TryEatOpponentBerry(bw, sp, sp->defence_client)) //TODO: needs expansion/wrapper for newer berries
     {
         sp->mp.msg_id = BATTLE_MSG_STOLE_BERRY;
         sp->mp.msg_tag = TAG_NICKNAME_ITEM;
         sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->attack_client);
         sp->mp.msg_para[1] = item;
         sp->battlemon[sp->defence_client].item = 0; //no recycle
+
+        if (GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
+            sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->attack_client)][sp->sel_mons_no[sp->attack_client]].berryEatenAndCanBelch = TRUE;
+        }
     }
     else
     {
         IncrementBattleScriptPtr(sp, adrs);
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_TryFling(void *bw, struct BattleStruct *sp)
+{
+    IncrementBattleScriptPtr(sp, 1);
+
+    u32 adrs = read_battle_script_param(sp);
+
+    if (TryFling(bw, sp, sp->attack_client) != TRUE) {
+        IncrementBattleScriptPtr(sp, adrs);
+    }
+
+    u32 item = sp->battlemon[sp->attack_client].item;
+    if (IS_ITEM_BERRY(item) && GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
+        sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->defence_client)][sp->sel_mons_no[sp->defence_client]].berryEatenAndCanBelch = TRUE;
     }
 
     return FALSE;
@@ -4389,6 +4423,108 @@ BOOL btl_scr_cmd_10C_gotoifterastallized(void *bsys UNUSED, struct BattleStruct 
 
     if (ctx->battlemon[battlerID].is_currently_terastallized)
         IncrementBattleScriptPtr(ctx, address);
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10D_HandleRoost(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u32 battlerId = GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx));
+
+    if ((ctx->battlemon[battlerId].is_currently_terastallized)
+        || (ctx->battlemon[battlerId].type1 == ctx->battlemon[battlerId].type2 && ctx->battlemon[battlerId].type1 != TYPE_FLYING)) {
+            return FALSE;
+    }
+
+    if (ctx->battlemon[battlerId].type1 == ctx->battlemon[battlerId].type2) {
+        ctx->battlemon[battlerId].type1 = TYPE_NORMAL;
+        ctx->battlemon[battlerId].type2 = TYPE_NORMAL;
+    }
+
+    if (ctx->battlemon[battlerId].type1 == TYPE_FLYING) {
+        ctx->battlemon[battlerId].type1 = ctx->battlemon[battlerId].type2;
+    } else {
+        ctx->battlemon[battlerId].type2 = ctx->battlemon[battlerId].type1;
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10E_HandleSoak(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    ChangeToPureType(ctx, ctx->defence_client, TYPE_WATER);
+    ctx->moveConditionsFlags[ctx->defence_client].soakFlag = TRUE;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_10F_HandleMagicPowder(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    ChangeToPureType(ctx, ctx->defence_client, TYPE_PSYCHIC);
+    ctx->moveConditionsFlags[ctx->defence_client].magicPowderFlag = TRUE;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_110_HandleForestsCurse(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    AddType(ctx, ctx->defence_client, TYPE_GRASS);
+    ctx->moveConditionsFlags[ctx->defence_client].forestsCurseFlag = TRUE;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_111_HandleTrickOrTreat(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->defence_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    AddType(ctx, ctx->defence_client, TYPE_GHOST);
+    ctx->moveConditionsFlags[ctx->defence_client].trickOrTreatFlag = TRUE;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_112_HandleBurnUp(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->attack_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    RemoveType(ctx, ctx->attack_client, TYPE_FIRE);
+    ctx->moveConditionsFlags[ctx->attack_client].burnUpFlag = TRUE;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_113_HandleDoubleShock(void* bsys UNUSED, struct BattleStruct* ctx) {
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->attack_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    RemoveType(ctx, ctx->attack_client, TYPE_ELECTRIC);
+    ctx->moveConditionsFlags[ctx->attack_client].doubleShockFlag = TRUE;
 
     return FALSE;
 }
@@ -4526,7 +4662,7 @@ void AbilityPopup_SlideIn(void *data)
 
 }
 
-BOOL btl_scr_cmd_10D_abilitypopup(void* bw, struct BattleStruct* sp)
+BOOL btl_scr_cmd_116_abilitypopup(void* bw, struct BattleStruct* sp)
 {
 #ifdef DEBUG_ABILITY_POPUP
     debug_printf("btl_scr_cmd abilitypopup %d\n", sp->battle_progress_flag);
@@ -4567,6 +4703,257 @@ BOOL btl_scr_cmd_10D_abilitypopup(void* bw, struct BattleStruct* sp)
         AbilityPopup_SlideIn(sp->abilityPopupWork);
         sp->battle_progress_flag = 1;
     }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_114_stuffCheeks(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 failAddress = read_battle_script_param(ctx);
+
+    u32 script = 0;
+    // stuff cheeks already made sure there is a berry
+    u32 itemHeldEffect = HeldItemHoldEffectGet(ctx, ctx->attack_client);
+    u32 boost = HeldItemAtkGet(ctx, ctx->attack_client, ATK_CHECK_NORMAL);
+    //TODO: ripen
+
+    switch (itemHeldEffect) {
+    case HOLD_EFFECT_HP_RESTORE: // oran berry
+        ctx->hp_calc_work = boost;
+        script = SUB_SEQ_ITEM_HP_RESTORE;
+        break;
+    case HOLD_EFFECT_HP_PCT_RESTORE: // sitrus berry
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp * boost, 100);
+        script = SUB_SEQ_ITEM_HP_RESTORE;
+        break;
+    case HOLD_EFFECT_PRZ_RESTORE: // cheri berry
+        if (ctx->battlemon[ctx->attack_client].condition & STATUS_PARALYSIS) {
+            script = SUB_SEQ_ITEM_RECOVER_PRZ;
+        }
+        break;
+    case HOLD_EFFECT_SLP_RESTORE: // chesto berry
+        if (ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
+            script = SUB_SEQ_ITEM_RECOVER_SLP;
+        }
+        break;
+    case HOLD_EFFECT_PSN_RESTORE: // pecha berry
+        if (ctx->battlemon[ctx->attack_client].condition & STATUS_POISON_ALL) {
+            script = SUB_SEQ_ITEM_RECOVER_PSN;
+        }
+        break;
+    case HOLD_EFFECT_BRN_RESTORE: // rawst berry
+        if (ctx->battlemon[ctx->attack_client].condition & STATUS_BURN) {
+            script = SUB_SEQ_ITEM_RECOVER_BRN;
+        }
+        break;
+    case HOLD_EFFECT_FRZ_RESTORE: // aspear berry
+        if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
+            script = SUB_SEQ_ITEM_RECOVER_FRZ;
+        }
+        break;
+    case HOLD_EFFECT_PP_RESTORE: // leppa berry
+    {
+        int index;
+        for (index = 0; index < CLIENT_MAX; index++) {
+            if (ctx->battlemon[ctx->attack_client].move[index] && !ctx->battlemon[ctx->attack_client].pp[index]) {
+                break;
+            }
+        }
+        if (index != CLIENT_MAX) {
+            BattleMon_AddVar(&ctx->battlemon[ctx->attack_client], MON_DATA_MOVE1PP + index, boost);
+            CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
+            ctx->waza_work = ctx->battlemon[ctx->attack_client].move[index];
+            script = SUB_SEQ_ITEM_PP_RESTORE;
+        }
+        break;
+    }
+    case HOLD_EFFECT_CONFUSE_RESTORE: // persim berry
+        if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION) {
+            script = SUB_SEQ_ITEM_RECOVER_CNF;
+        }
+        break;
+    case HOLD_EFFECT_STATUS_RESTORE: // lum berry
+        if ((ctx->battlemon[ctx->attack_client].condition & STATUS_ALL) || (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
+            if (ctx->battlemon[ctx->attack_client].condition & STATUS_PARALYSIS) {
+                script = SUB_SEQ_ITEM_RECOVER_PRZ;
+            }
+            if (ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
+                script = SUB_SEQ_ITEM_RECOVER_SLP;
+            }
+            if (ctx->battlemon[ctx->attack_client].condition & STATUS_POISON_ALL) {
+                script = SUB_SEQ_ITEM_RECOVER_PSN;
+            }
+            if (ctx->battlemon[ctx->attack_client].condition & STATUS_BURN) {
+                script = SUB_SEQ_ITEM_RECOVER_BRN;
+            }
+            if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
+                script = SUB_SEQ_ITEM_RECOVER_FRZ;
+            }
+            if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION) {
+                script = SUB_SEQ_ITEM_RECOVER_CNF;
+            }
+            if ((ctx->battlemon[ctx->attack_client].condition & STATUS_ALL) && (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
+                script = SUB_SEQ_ITEM_RECOVER_ALL;
+            }
+        }
+        break;
+    case HOLD_EFFECT_HP_RESTORE_SPICY: // figy berry
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, boost);
+        ctx->msg_work = 0;
+        if (GetFlavorPreferenceFromPID(ctx->battlemon[ctx->attack_client].personal_rnd, FLAVOR_SPICY) == -1) {
+            script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+        } else {
+            script = SUB_SEQ_ITEM_HP_RESTORE;
+        }
+        break;
+    case HOLD_EFFECT_HP_RESTORE_DRY: // wiki berry
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, boost);
+        ctx->msg_work = 1;
+        if (GetFlavorPreferenceFromPID(ctx->battlemon[ctx->attack_client].personal_rnd, FLAVOR_DRY) == -1) {
+            script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+        } else {
+            script = SUB_SEQ_ITEM_HP_RESTORE;
+        }
+        break;
+    case HOLD_EFFECT_HP_RESTORE_SWEET: // mago berry
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, boost);
+        ctx->msg_work = 2;
+        if (GetFlavorPreferenceFromPID(ctx->battlemon[ctx->attack_client].personal_rnd, FLAVOR_SWEET) == -1) {
+            script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+        } else {
+            script = SUB_SEQ_ITEM_HP_RESTORE;
+        }
+        break;
+    case HOLD_EFFECT_HP_RESTORE_BITTER: // aguav berry
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, boost);
+        ctx->msg_work = 3;
+        if (GetFlavorPreferenceFromPID(ctx->battlemon[ctx->attack_client].personal_rnd, FLAVOR_BITTER) == -1) {
+            script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+        } else {
+            script = SUB_SEQ_ITEM_HP_RESTORE;
+        }
+        break;
+    case HOLD_EFFECT_HP_RESTORE_SOUR: // iapapa berry
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, boost);
+        ctx->msg_work = 4;
+        if (GetFlavorPreferenceFromPID(ctx->battlemon[ctx->attack_client].personal_rnd, FLAVOR_SOUR) == -1) {
+            script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+        } else {
+            script = SUB_SEQ_ITEM_HP_RESTORE;
+        }
+        break;
+    case HOLD_EFFECT_PINCH_ATK_UP: // liechi berry
+        if (ctx->battlemon[ctx->attack_client].states[1] < SUB_SEQ_BOOST_STATS) {
+            ctx->msg_work = 1;
+            script = SUB_SEQ_ITEM_STAT_BOOST;
+        }
+        break;
+    case HOLD_EFFECT_PINCH_DEF_UP: // ganlon berry
+        if (ctx->battlemon[ctx->attack_client].states[2] < SUB_SEQ_BOOST_STATS) {
+            ctx->msg_work = 2;
+            script = SUB_SEQ_ITEM_STAT_BOOST;
+        }
+        break;
+    case HOLD_EFFECT_PINCH_SPEED_UP: // salac berry
+        if (ctx->battlemon[ctx->attack_client].states[3] < SUB_SEQ_BOOST_STATS) {
+            ctx->msg_work = 3;
+            script = SUB_SEQ_ITEM_STAT_BOOST;
+        }
+        break;
+    case HOLD_EFFECT_PINCH_SPATK_UP: // petaya berry
+        if (ctx->battlemon[ctx->attack_client].states[4] < SUB_SEQ_BOOST_STATS) {
+            ctx->msg_work = 4;
+            script = SUB_SEQ_ITEM_STAT_BOOST;
+        }
+        break;
+    case HOLD_EFFECT_PINCH_SPDEF_UP: // apicot berry
+        if (ctx->battlemon[ctx->attack_client].states[5] < SUB_SEQ_BOOST_STATS) {
+            ctx->msg_work = 5;
+            script = SUB_SEQ_ITEM_STAT_BOOST;
+        }
+        break;
+    case HOLD_EFFECT_PINCH_CRITRATE_UP: // lansat berry
+        if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_FOCUS_ENERGY)) {
+            script = SUB_SEQ_ITEM_STAT_BOOST_2;
+        }
+        break;
+    case HOLD_EFFECT_PINCH_RANDOM_UP: // starf berry
+    {
+        int stat;
+        for (stat = 0; stat < 5; stat++) {
+            if (ctx->battlemon[ctx->attack_client].states[1 + stat] < SUB_SEQ_BOOST_STATS) {
+                break;
+            }
+        }
+        if (stat != 5) {
+            do {
+                stat = BattleRand(bsys) % 5;
+            } while (ctx->battlemon[ctx->attack_client].states[1 + stat] == SUB_SEQ_BOOST_STATS);
+            ctx->msg_work = stat + 1;
+            script = SUB_SEQ_ITEM_STAT_BOOST_2;
+        }
+    } break;
+    // TODO: confirm these do nothing
+    case HOLD_EFFECT_PINCH_PRIORITY:  //custap
+    case HOLD_EFFECT_RECOIL_PHYSICAL: //rowap
+    case HOLD_EFFECT_RECOIL_SPECIAL: //jaboca
+    case HOLD_EFFECT_PINCH_ACC_UP: // micle berry
+    default:
+        break;
+    }
+
+    if (itemHeldEffect != 0) {
+        ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].berryEatenAndCanBelch = TRUE;
+    }
+
+    if (script) {
+        ctx->temp_work = script;
+    } else {
+        IncrementBattleScriptPtr(ctx, failAddress);
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_115_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 move = read_battle_script_param(ctx);
+    u32 side = read_battle_script_param(ctx);
+    u32 client_no = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    switch (move) {
+    case MOVE_POWDER:
+        ctx->moveConditionsFlags[client_no].powderBlockingFireMove = TRUE;
+        break;
+    case MOVE_LASER_FOCUS:
+        ctx->moveConditionsFlags[client_no].laserFocusTimer = 2;
+        break;
+    case MOVE_GLAIVE_RUSH:
+        ctx->moveConditionsFlags[client_no].glaiveRush = TRUE;
+        break;
+    case MOVE_THROAT_CHOP:
+        ctx->moveConditionsFlags[client_no].throatChopTimer = 2;
+        break;
+    default:
+        break;
+    }
+
+     return FALSE;
+}
+
+BOOL BtlCmd_CopyStatStages(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    for (int stat = 0; stat < 8; stat++) {
+        ctx->battlemon[ctx->attack_client].states[stat] = ctx->battlemon[ctx->defence_client].states[stat];
+    }
+
+    ctx->battlemon[ctx->attack_client].condition2 |= (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_FOCUS_ENERGY);
+
+    ctx->moveConditionsFlags[ctx->attack_client].laserFocusTimer = ctx->moveConditionsFlags[ctx->defence_client].laserFocusTimer;
 
     return FALSE;
 }
