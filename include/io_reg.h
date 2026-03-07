@@ -67,10 +67,12 @@
 #define REG_OS_TM0CNT_H_PS_SHIFT                           0
 
 #define REG_VCOUNT_OFFSET          0x6
+#define REG_BG0CNT_OFFSET          0x8
 
 #define reg_GX_DISPCNT             (*(u32 *)0x4000000)
 #define reg_GX_DISPSTAT            (*(u16 *)0x4000004)
 #define reg_GX_VCOUNT              (*(u16 *)(HW_REG_BASE + REG_VCOUNT_OFFSET))
+#define REG_BG0CNT_ADDR            (HW_REG_BASE + REG_BG0CNT_OFFSET)
 
 #define reg_G2_BG0CNT              (*(u16 *)0x4000008)
 #define reg_G2_BG1CNT              (*(u16 *)0x400000a)
