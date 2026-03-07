@@ -1522,7 +1522,23 @@
     .long \arg_1
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 277
+    .macro SetCurrentMoveSwitchingStatus arg_0
+    .long 278
+    .long \arg_0
+    .endm
+
+    .macro TrySynchronizeStatus arg_0
+    .long 279
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .macro TryCureStatusBerry arg_0, arg_1
+    .long 280
+    .long \arg_0
+    .long (((\arg_1 - .) / 4) - 1)
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 280
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

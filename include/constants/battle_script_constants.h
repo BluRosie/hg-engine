@@ -63,9 +63,9 @@
 #define SUB_SEQ_REST                            ( 55)
 #define SUB_SEQ_UPROAR                          ( 56)
 #define SUB_SEQ_SHOW_MESSAGE                    ( 57)
-#define SUB_SEQ_CLAMP_START                     ( 58)
-#define SUB_SEQ_CLAMP_DAMAGE                    ( 59)
-#define SUB_SEQ_CLAMP_END                       ( 60)
+#define SUB_SEQ_BIND_START                      ( 58)
+#define SUB_SEQ_BIND_DAMAGE                     ( 59)
+#define SUB_SEQ_BIND_END                        ( 60)
 #define SUB_SEQ_CRASH_ON_MISS                   ( 61)
 #define SUB_SEQ_FOCUS_ENERGY                    ( 62)
 #define SUB_SEQ_RECOIL_1_4                      ( 63)
@@ -491,8 +491,11 @@
 #define SUB_SEQ_LASER_FOCUS                           (481)
 #define SUB_SEQ_MOVE_FAIL_THROAT_CHOP                 (482)
 #define SUB_SEQ_USER_DEF_DOWN_1_SPEED_UP_1            (483)
+#define SUB_SEQ_SET_SPIKES                            (484)
+#define SUB_SEQ_SET_STEALTH_ROCK                      (485)
+#define SUB_SEQ_HANDLE_RED_CARD                       (486)
 
-#define MAX_BASE_SUBSCRIPT_NUM 483
+#define MAX_BASE_SUBSCRIPT_NUM 486
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -513,7 +516,7 @@
 #define ADD_STATUS_EFF_UPROAR                          ( 10)
 #define ADD_STATUS_EFF_PAY_DAY                         ( 11)
 #define ADD_STATUS_EFF_VANISH_ON_CHARGE_TURN           ( 12)
-#define ADD_STATUS_EFF_CLAMP_START                     ( 13)
+#define ADD_STATUS_EFF_BIND_START                     ( 13)
 #define ADD_STATUS_EFF_RECOIL_1_4                      ( 14)
 #define ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP           ( 15)
 #define ADD_STATUS_EFF_BOOST_STATS_DEFENSE_UP          ( 16)

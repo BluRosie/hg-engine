@@ -113,6 +113,9 @@ BOOL btl_scr_cmd_112_HandleBurnUp(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_113_HandleDoubleShock(void* bsys UNUSED, struct BattleStruct* ctx);
 BOOL btl_scr_cmd_114_stuffCheeks(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_115_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_116_SetCurrentMoveDoneSwitchingFlag(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_117_TrySynchronizeStatus(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_118_TryCureStatusBerry(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -421,6 +424,9 @@ const u8 *BattleScrCmdNames[] =
     "HandleDoubleShock",
     "StuffCheeks",
     "SetMoveConditionFlag",
+    "SetCurrentMoveDoneSwitchingFlag",
+    "TrySynchronizeStatus",
+    "TryCureStatusBerry",
     // "YourCustomCommand",
 };
 
@@ -428,7 +434,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x107
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x118
 
 const btl_scr_cmd_func NewBattleScriptCmdTable[] =
 {
@@ -485,6 +491,9 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] =
     [0x113 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_113_HandleDoubleShock,
     [0x114 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_114_stuffCheeks,
     [0x115 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_115_setMoveConditionFlag,
+    [0x116 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_116_SetCurrentMoveDoneSwitchingFlag,
+    [0x117 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_117_TrySynchronizeStatus,
+    [0x118 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_118_TryCureStatusBerry,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4252,11 +4261,6 @@ BOOL BtlCmd_TryPluck(void* bw, struct BattleStruct* sp)
     u32 adrs = read_battle_script_param(sp);
     u32 adrs2 UNUSED = read_battle_script_param(sp);
     u32 item = sp->battlemon[sp->defence_client].item;
-    if (CanActivateDamageReductionBerry(sp, sp->defence_client) || item == ITEM_JABOCA_BERRY)
-    {
-        IncrementBattleScriptPtr(sp, adrs);
-        return FALSE;
-    }
 
     BOOL isBerry = IS_ITEM_BERRY(item);
     // sticky hold and substitute will keep the mon's held item
@@ -4771,7 +4775,9 @@ BOOL btl_scr_cmd_115_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
         ctx->moveConditionsFlags[client_no].glaiveRush = TRUE;
         break;
     case MOVE_THROAT_CHOP:
-        ctx->moveConditionsFlags[client_no].throatChopTimer = 2;
+        //https://discord.com/channels/419213663107416084/1368163973366681712/1473486991302594570
+        if (ctx->moveConditionsFlags[client_no].throatChopTimer == 0) //Linathan tested, does not reset
+            ctx->moveConditionsFlags[client_no].throatChopTimer = 2;
         break;
     default:
         break;
@@ -4791,6 +4797,50 @@ BOOL BtlCmd_CopyStatStages(struct BattleSystem *bsys UNUSED, struct BattleStruct
     ctx->battlemon[ctx->attack_client].condition2 |= (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_FOCUS_ENERGY);
 
     ctx->moveConditionsFlags[ctx->attack_client].laserFocusTimer = ctx->moveConditionsFlags[ctx->defence_client].laserFocusTimer;
+
+    return FALSE;
+}
+
+
+BOOL btl_scr_cmd_116_SetCurrentMoveDoneSwitchingFlag(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 status = read_battle_script_param(ctx);
+    ctx->currentMoveSwitchStatus = status;
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_117_TrySynchronizeStatus(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int failAddress = read_battle_script_param(ctx);
+    int seq_no = 0;
+
+    if (TryGetSynchronizeStatusSubsequence(ctx, &seq_no) == TRUE) {
+        ctx->addeffect_type = ADD_STATUS_ABILITY;
+        ctx->temp_work = seq_no;
+    } else {
+        IncrementBattleScriptPtr(ctx, failAddress);
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_118_TryCureStatusBerry(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int side = read_battle_script_param(ctx);
+    int failAddress = read_battle_script_param(ctx);
+    int script = 0;
+    int battler = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    if (GetHeldItemStatusRecoverySubscript(ctx, battler, &script) == TRUE) {
+        ctx->battlerIdTemp = battler;
+        ctx->item_work = GetBattleMonItem(ctx, battler);
+        ctx->temp_work = script;
+    } else {
+        IncrementBattleScriptPtr(ctx, failAddress);
+    }
 
     return FALSE;
 }

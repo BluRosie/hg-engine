@@ -136,6 +136,7 @@ enum
  */
 u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 {
+    /*
     int ret;
     int client_set_max UNUSED;
     int hold_effect;
@@ -147,13 +148,18 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
 
     hold_effect = HeldItemHoldEffectGet(sp, sp->attack_client);
     hold_effect_param = HeldItemAtkGet(sp, sp->attack_client, ATK_CHECK_NORMAL);
-
+    */
+    //TODO confirm?
     if (CheckIfAnyoneShouldFaint(sp, sp->server_seq_no, sp->server_seq_no, 1) == TRUE)
     {
         return TRUE;
     }
 
-    do
+    if ((sp->battlemon[sp->attack_client].condition2 & STATUS2_RAGE) && (sp->current_move_index != MOVE_RAGE)) {
+        sp->battlemon[sp->attack_client].condition2 &= ~(STATUS2_RAGE);
+    }
+    return FALSE;
+ /* do
     {
         switch(sp->swhac_seq_no)
         {
@@ -168,6 +174,7 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
                 sp->swhac_seq_no = SWHAC_END;
 
             break;
+
         case SWHAC_HELD_ITEM_SHELL_BELL:
             if(sp->defence_client != 0xFF)
             {
@@ -210,12 +217,13 @@ u32 LONG_CALL ServerWazaHitAfterCheckAct(void *bw, struct BattleStruct *sp)
             sp->swhac_seq_no = 0;
             sp->swhac_work = 0;
             ret = 2;
-            break;
+            break;        
         }
     }
     while (ret == 0);
 
     return (ret == 1);
+    */
 }
 
 
@@ -259,6 +267,74 @@ BOOL CheckItemByThief(u16 item)
     return FALSE;
 }
 
+BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *ctx, int battlerId, int *seq_no)
+{
+    int itemHeldEffect = HeldItemHoldEffectGet(ctx, battlerId);
+    *seq_no = 0;
+
+    switch (itemHeldEffect) {
+    case HOLD_EFFECT_PRZ_RESTORE:
+        if (ctx->battlemon[battlerId].condition & STATUS_PARALYSIS) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_PRZ;
+        }
+        break;
+    case HOLD_EFFECT_SLP_RESTORE:
+        if (ctx->battlemon[battlerId].condition & STATUS_SLEEP) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_SLP;
+        }
+        break;
+    case HOLD_EFFECT_PSN_RESTORE:
+        if (ctx->battlemon[battlerId].condition & STATUS_POISON_ALL) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_PSN;
+        }
+        break;
+    case HOLD_EFFECT_BRN_RESTORE:
+        if (ctx->battlemon[battlerId].condition & STATUS_BURN) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_BRN;
+        }
+        break;
+    case HOLD_EFFECT_FRZ_RESTORE:
+        if (ctx->battlemon[battlerId].condition & STATUS_FREEZE) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_FRZ;
+        }
+        break;
+    case HOLD_EFFECT_CONFUSE_RESTORE:
+        if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION) {
+            *seq_no = SUB_SEQ_ITEM_RECOVER_CNF;
+        }
+        break;
+    case HOLD_EFFECT_STATUS_RESTORE:
+        if ((ctx->battlemon[battlerId].condition & STATUS_ALL) || (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
+            if (ctx->battlemon[battlerId].condition & STATUS_PARALYSIS) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_PRZ;
+            }
+            if (ctx->battlemon[battlerId].condition & STATUS_SLEEP) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_SLP;
+            }
+            if (ctx->battlemon[battlerId].condition & STATUS_POISON_ALL) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_PSN;
+            }
+            if (ctx->battlemon[battlerId].condition & STATUS_BURN) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_BRN;
+            }
+            if (ctx->battlemon[battlerId].condition & STATUS_FREEZE) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_FRZ;
+            }
+            if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_CNF;
+            }
+            if ((ctx->battlemon[battlerId].condition & STATUS_ALL) && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
+                *seq_no = SUB_SEQ_ITEM_RECOVER_ALL;
+            }
+        }
+        break;
+    default:
+        break;
+    }
+
+    return (*seq_no != 0);
+}
+
 
 BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
 {
@@ -287,36 +363,6 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
                 ret = TRUE;
             }
             break;
-        case HOLD_EFFECT_PRZ_RESTORE: // cheri berry
-            if (ctx->battlemon[battlerId].condition & STATUS_PARALYSIS) {
-                script = SUB_SEQ_ITEM_RECOVER_PRZ;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_SLP_RESTORE: // chesto berry
-            if (ctx->battlemon[battlerId].condition & STATUS_SLEEP) {
-                script = SUB_SEQ_ITEM_RECOVER_SLP;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_PSN_RESTORE: // pecha berry
-            if (ctx->battlemon[battlerId].condition & STATUS_POISON_ALL) {
-                script = SUB_SEQ_ITEM_RECOVER_PSN;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_BRN_RESTORE: // rawst berry
-            if (ctx->battlemon[battlerId].condition & STATUS_BURN) {
-                script = SUB_SEQ_ITEM_RECOVER_BRN;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_FRZ_RESTORE: // aspear berry
-            if (ctx->battlemon[battlerId].condition & STATUS_FREEZE) {
-                script = SUB_SEQ_ITEM_RECOVER_FRZ;
-                ret = TRUE;
-            }
-            break;
         case HOLD_EFFECT_PP_RESTORE: // leppa berry
         {
             int index;
@@ -334,37 +380,14 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
             }
             break;
         }
-        case HOLD_EFFECT_CONFUSE_RESTORE: // persim berry
-            if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION) {
-                script = SUB_SEQ_ITEM_RECOVER_CNF;
-                ret = TRUE;
-            }
-            break;
-        case HOLD_EFFECT_STATUS_RESTORE: // lum berry
-            if ((ctx->battlemon[battlerId].condition & STATUS_ALL) || (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
-                if (ctx->battlemon[battlerId].condition & STATUS_PARALYSIS) {
-                    script = SUB_SEQ_ITEM_RECOVER_PRZ;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_SLEEP) {
-                    script = SUB_SEQ_ITEM_RECOVER_SLP;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_POISON_ALL) {
-                    script = SUB_SEQ_ITEM_RECOVER_PSN;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_BURN) {
-                    script = SUB_SEQ_ITEM_RECOVER_BRN;
-                }
-                if (ctx->battlemon[battlerId].condition & STATUS_FREEZE) {
-                    script = SUB_SEQ_ITEM_RECOVER_FRZ;
-                }
-                if (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION) {
-                    script = SUB_SEQ_ITEM_RECOVER_CNF;
-                }
-                if ((ctx->battlemon[battlerId].condition & STATUS_ALL) && (ctx->battlemon[battlerId].condition2 & STATUS2_CONFUSION)) {
-                    script = SUB_SEQ_ITEM_RECOVER_ALL;
-                }
-                ret = TRUE;
-            }
+        case HOLD_EFFECT_PRZ_RESTORE:
+        case HOLD_EFFECT_SLP_RESTORE:
+        case HOLD_EFFECT_PSN_RESTORE:
+        case HOLD_EFFECT_BRN_RESTORE:
+        case HOLD_EFFECT_FRZ_RESTORE:
+        case HOLD_EFFECT_CONFUSE_RESTORE:
+        case HOLD_EFFECT_STATUS_RESTORE:
+            ret = GetHeldItemStatusRecoverySubscript(ctx, battlerId, &script);
             break;
         case HOLD_EFFECT_HP_RESTORE_SPICY: // figy berry
             if (hpLowerThan50) {
@@ -506,21 +529,7 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
                 }
             }
             break;
-        case HOLD_EFFECT_STATDOWN_RESTORE: // white herb
-        {
-            int stat;
-            for (stat = 0; stat < 8; stat++) {
-                if (ctx->battlemon[battlerId].states[stat] < 6) {
-                    ctx->battlemon[battlerId].states[stat] = 6;
-                    ret = TRUE;
-                }
-            }
-            if (ret == TRUE) {
-                script = SUB_SEQ_ITEM_RECOVER_STAT_DROP;
-            }
-            break;
-        }
-        case HOLD_EFFECT_HEAL_INFATUATION: // mental herb
+        case HOLD_EFFECT_HEAL_INFATUATION: // mental herb 
             if (ctx->battlemon[battlerId].condition2 & STATUS2_ATTRACT) {
                 ctx->msg_work = 6;
                 script = SUB_SEQ_ITEM_RECOVER_INF;

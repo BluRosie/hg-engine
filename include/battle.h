@@ -392,6 +392,16 @@
 #define SPLIT_SPECIAL 1
 #define SPLIT_STATUS 2
 
+
+
+/**
+ *  @brief switch status for current move
+ */
+#define CURRENT_MOVE_NO_SWITCH 0
+#define CURRENT_MOVE_SWITCH_PENDING 1
+#define CURRENT_MOVE_SWITCH_DONE 2
+
+
 /**
  *  @brief field status constants that apply to BattleStruct's field_condition field
  *
@@ -1466,6 +1476,7 @@ struct BattleStruct {
                u8 hasLoadedBgIdOver:1;
                u32 moveStatusFlagForSpreadMoves[CLIENT_MAX];
                u32 damageForSpreadMoves[CLIENT_MAX]; // u32 or int?
+               u32 serverStatusForSpreadMoves[CLIENT_MAX];
                u8 clientLoopForSpreadMoves;
                u8 clientLoopForAbility;
                BOOL boostedAccuracy;
@@ -1482,9 +1493,14 @@ struct BattleStruct {
                u8 playerSideHasFaintedTeammateLastTurn : 2;
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
-               BOOL gemBoostingMove;
+               u8 gemBoostingMove: 1;
+               u8 gemBoostingMovePadding : 7;
+
+               int currentMoveSwitchStatus;
+               
                MoveConditionsFlags moveConditionsFlags[CLIENT_MAX];
 };
+
 
 enum {
     SPREAD_MOVE_LOOP_ALLY = 0,
@@ -1850,6 +1866,74 @@ enum
     SWOAK_SEQ_THAW_ICE,
     SWOAK_SEQ_CHECK_HEALING_ITEMS,
     SWOAK_SEQ_CLEAR_MAGIC_COAT,
+};
+
+
+enum
+{
+    MOVE_PERFORMANCE_VANISH_ON_OFF = 0,
+    MOVE_PERFORMANCE_STORE_DAMAGE,
+    MOVE_PERFORMANCE_STEP_2_HIT_SUBSTITUTE,
+    MOVE_PERFORMANCE_STEP_3_EXPLOSION_USER_FAINTS,
+    MOVE_PERFORMANCE_STEP_4_DEAL_DAMAGE,
+    MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE,
+    MOVE_PERFORMANCE_STEP_6_NOT_SE_TYPE_EFFECTIVENESS_MESSAGE,
+    MOVE_PERFORMANCE_STEP_7_CRITICAL_HIT_MESSAGE,
+    MOVE_PERFORMANCE_STEP_8_STURDY_FOCUS_SASH,
+    MOVE_PERFORMANCE_STEP_8_1_SURVIVE_WITH_FRIENDSHIP,
+    MOVE_PERFORMANCE_STEP_9_0_FLING,
+    MOVE_PERFORMANCE_STEP_9_1_SECONDARY_EFFECTS,
+    MOVE_PERFORMANCE_STEP_9_1_1_SECONDARY_EFFECTS_SPREAD_MOVES_LOOP_BACK,
+    MOVE_PERFORMANCE_STEP_9_2_FLAME_BURST,
+    MOVE_PERFORMANCE_STEP_9_3_DYNAMAX_MOVE_EFFECTS,
+    MOVE_PERFORMANCE_STEP_10_0_CORE_ENFORCER,
+    MOVE_PERFORMANCE_STEP_10_1_RAGE,
+    MOVE_PERFORMANCE_STEP_10_2_CLEAR_SMOG,
+    MOVE_PERFORMANCE_STEP_10_3_GRUDGE,
+    MOVE_PERFORMANCE_STEP_10_4_BEAK_BLAST_BURN,
+    MOVE_PERFORMANCE_STEP_10_5_POISON_TOUCH,
+    MOVE_PERFORMANCE_STEP_10_6_DEFENDER_ABILITY,
+    MOVE_PERFORMANCE_STEP_10_7_COTTON_DOWN,
+    MOVE_PERFORMANCE_STEP_10_8_DAMAGE_REDUCTION_BERRY,
+    MOVE_PERFORMANCE_STEP_10_9_DEFENDER_ITEMS_1,
+    MOVE_PERFORMANCE_STEP_10_10_INCINERATE,
+    MOVE_PERFORMANCE_STEP_10_11_DEFENDER_ITEMS_2_JABOCA_ROWAP,
+    MOVE_PERFORMANCE_STEP_10_12_DISGUISE_ICE_FACE,
+    MOVE_PERFORMANCE_STEP_10_13_PROTECTION_FROM_Z_MOVE,
+    MOVE_PERFORMANCE_STEP_11_0_FAINTING,
+    MOVE_PERFORMANCE_STEP_12_0_RESET_UNNERVE_NEUTRALIZING_GAS_IF_FAINTED,
+    MOVE_PERFORMANCE_STEP_13_0_MULTIHIT_MOVE_ATTACKER_ITEMS_4,
+    MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4,
+    MOVE_PERFORMANCE_STEP_13_2_MULTIHIT_STATUS_MESSAGE,
+    MOVE_PERFORMANCE_STEP_14_0_FRIENDSHIP_MESSAGE,
+    MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE,
+    MOVE_PERFORMANCE_STEP_15_1_ADDITIONAL_MOVE_EFFECTS,
+    MOVE_PERFORMANCE_STEP_15_2_THAW_FROM_FIRE_MOVE,
+    MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE,
+    MOVE_PERFORMANCE_STEP_16_1_BERSERK_COLOR_CHANGE,
+    MOVE_PERFORMANCE_STEP_17_0_DEFENDER_ITEMS_3,
+    MOVE_PERFORMANCE_STEP_18_0_PLEDGE_MOVES_COMBINATION,
+    MOVE_PERFORMANCE_STEP_19_0_FORM_CHANGE,
+    MOVE_PERFORMANCE_STEP_20_0_LIFE_ORB_SHELL_BELL,
+    MOVE_PERFORMANCE_STEP_21_0_MOVE_DEFENDER_ITEMS_4,
+    MOVE_PERFORMANCE_STEP_22_0_EMERGENCY_EXIT_WIMP_OUT,
+    MOVE_PERFORMANCE_STEP_23_0_U_TURN_VOLT_SWITCH,
+    MOVE_PERFORMANCE_STEP_24_0_PICKPOCKET,
+    MOVE_PERFORMANCE_STEP_25_0_BURN_UP_DOUBLE_SHOCK_TYPELOSS,
+    MOVE_PERFORMANCE_STEP_25_1_NATURAL_GIFT,
+    MOVE_PERFORMANCE_STEP_25_2_OUTRAGE_CONFUSION,
+    MOVE_PERFORMANCE_STEP_25_3_ICE_SPINNER_STEEL_ROLLER,
+    MOVE_PERFORMANCE_STEP_25_4_ORDER_UP,
+    MOVE_PERFORMANCE_STEP_26_0_LEPPA_BERRY_THROAT_SPRAY_BLUNDER_POLICY,
+    MOVE_PERFORMANCE_STEP_27_0_ABILITIES_2,
+    MOVE_PERFORMANCE_STEP_27_1_OPPORTUNIST_SYBIOSIS,
+    MOVE_PERFORMANCE_STEP_28_0_WHITE_HERB_MIRROR_HERB_EJECT_PACK,
+    MOVE_PERFORMANCE_STEP_29_0_RESOLVE_PENDING_SWITCH,
+    MOVE_PERFORMANCE_STEP_30_0_DANCER,
+    MOVE_PERFORMANCE_CLEAR_MAGIC_COAT,
+
+
+    MOVE_PERFORMANCE_END
 };
 
 
@@ -2644,6 +2728,7 @@ BOOL LONG_CALL Battle_IsFishingEncounter(void *bw);
  *  @return TRUE if a held item effect is going to happen; FALSE otherwise
  */
 BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *sp, int client_no);
+BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *sp, int client_no, int *seq_no);
 
 /**
  *  @brief check if held item effect needs to activate, specifically directly after moves.  for things like status items
@@ -3202,6 +3287,7 @@ u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int
  *  @return TRUE if a battle subscript was loaded to sp->SkillSeqWork
  */
 BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no);
+BOOL LONG_CALL TryGetSynchronizeStatusSubsequence(struct BattleStruct *sp, int *seq_no);
 
 /**
  *  @brief check if a move should activate the defender's ability and run a subscript
@@ -4110,6 +4196,48 @@ void LONG_CALL BattleController_EmitPrintMessage(struct BattleSystem *bw, struct
 void LONG_CALL BattleController_EmitPrintAttackMessage(struct BattleSystem *bw, struct BattleStruct *sp);
 
 void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
+
+
+
+BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+BOOL LONG_CALL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
+
+//TODO move to serverDoPostMoveEffects once more space is allocated
+
+int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys, struct BattleStruct *sp, int *seq_no);
+int LONG_CALL Activate_Clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL Activate_FlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL Activate_Rowap_Jaboca(void *bw, struct BattleStruct *sp);
+int LONG_CALL Activate_Incinerate(void *bw, struct BattleStruct *sp);
+void LONG_CALL Activate_KO_Count(void *bw, struct BattleStruct *sp);
+int LONG_CALL ThawTarget_FromFireMove_Scald(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL Activate_ThroatSpray_BlunderPolicy(void *bsys, struct BattleStruct *ctx);
+int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *sp);
+int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL Activate_FormChange(void *bsys, struct BattleStruct *ctx);
+int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bw, struct BattleStruct *ctx);
+int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct BattleStruct *ctx);
+int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL Activate_Pickpocket(void *bsys UNUSED, struct BattleStruct *sp);
+int LONG_CALL Activate_Disguise_IceFace(void *bsys, struct BattleStruct *sp);
+
+int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx);
+
+int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ctx);
+int LONG_CALL Activate_BurnUp_DoubleShock(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL Activate_SteelRoller_IceSpinner(void *bsys UNUSED, struct BattleStruct *ctx);
+
+int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys UNUSED, struct BattleStruct *ctx);
+
+int LONG_CALL IsMoveSpreadMove(struct BattleStruct *ctx, int move);
+int LONG_CALL IsTargetFoesAndAlly(struct BattleStruct *ctx, int move);
+int LONG_CALL CanGetNextDefender(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);

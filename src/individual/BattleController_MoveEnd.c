@@ -44,146 +44,6 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
             ctx->moveConditionsFlags[ctx->attack_client].glaiveRush = FALSE;
         }
 
-        // Handle Sparkling Aria
-        if (ctx->current_move_index == MOVE_SPARKLING_ARIA && ctx->battlemon[ctx->attack_client].sheer_force_flag == 0) {
-            int i;
-            int numberOfClientsHitBySparklingAria = 0;
-            int client_no = 0;  // initialize
-            int client_set_max = BattleWorkClientSetMaxGet(bsys);
-
-            // Count how many mons were hit by Sparkling Aria
-            for (i = 0; i < client_set_max; i++) {
-                client_no = ctx->turnOrder[i];
-                if (ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client) {
-                    numberOfClientsHitBySparklingAria++;
-                }
-            }
-
-            // Heal Burn loop
-            for (i = 0; i < client_set_max; i++) {
-                client_no = ctx->turnOrder[i];
-                if ((ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client)
-                && (ctx->battlemon[client_no].condition & STATUS_BURN)
-                && (ctx->battlemon[client_no].hp)) {
-                    if (numberOfClientsHitBySparklingAria > 1 || GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST) {
-                        ctx->battlerIdTemp = client_no;
-                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HEAL_TARGET_BURN);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        return;
-                    }
-                }
-            }
-        }
-
-        if (ctx->terrainOverlay.type != TERRAIN_NONE
-            && (ctx->current_move_index == MOVE_STEEL_ROLLER
-            || (ctx->current_move_index == MOVE_ICE_SPINNER
-                && ctx->battlemon[ctx->attack_client].hp))
-            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
-        {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
-            LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HANDLE_TERRAIN_END);
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            return;
-        }
-
-        if (ctx->current_move_index == MOVE_FELL_STINGER) {
-            if ((ctx->battlemon[ctx->defence_client].hp == 0)
-                && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
-                && (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12))
-            {
-                ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
-                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
-                ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-                ctx->state_client = ctx->attack_client;
-                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
-                ctx->next_server_seq_no = ctx->server_seq_no;
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                return;
-            }
-        }
-
-        if (ctx->current_move_index == MOVE_SCALE_SHOT) {
-            if ((ctx->battlemon[ctx->attack_client].hp)
-                && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
-                && (ctx->battlemon[ctx->attack_client].states[STAT_DEFENSE] > 0)
-                && (ctx->battlemon[ctx->attack_client].states[STAT_SPEED] < 12))
-            {
-                ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
-                //ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
-                ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-                ctx->state_client = ctx->attack_client;
-                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_USER_DEF_DOWN_1_SPEED_UP_1);
-                ctx->next_server_seq_no = ctx->server_seq_no;
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                return;
-            }
-        }
-
-        if (ctx->current_move_index == MOVE_FLAME_BURST) {
-            int ally = BATTLER_ALLY(ctx->defence_client);
-            if (ctx->battlemon[ally].hp
-                && (GetBattlerAbility(ctx, ally) != ABILITY_MAGIC_GUARD)
-                && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)) {
-                ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
-                ctx->addeffect_param = ADD_STATUS_EFF_FLAME_BURST_HIT;
-                ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-                ctx->state_client = ally;
-                ctx->battlerIdTemp = ally;
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ally].maxhp * -1, 16);
-                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HANDLE_FLAME_BURST_HIT);
-                ctx->next_server_seq_no = ctx->server_seq_no;
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                return;
-            }
-        }
-
-        if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_FORCE_SWITCH_HIT) { // Dragon Tail, Circle Throw
-            if (ctx->battlemon[ctx->attack_client].hp > 0 
-                && ctx->battlemon[ctx->defence_client].hp > 0
-                && !ctx->battlemon[ctx->defence_client].is_currently_dynamaxed
-                //&& ((ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
-                && ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0)
-                && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
-            {
-                ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
-                ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-                ctx->state_client = ctx->attack_client;
-                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FORCE_OUT); //checks suction cup/ingrain
-                ctx->next_server_seq_no = ctx->server_seq_no;
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                return;
-            }
-        }
-
-        if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_BOOST_SPATK_ON_SOUND_MOVE  && IsMoveSoundBased(ctx->current_move_index)) {
-            ctx->item_work = ctx->battlemon[ctx->attack_client].item;
-            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
-            ctx->addeffect_type = ADD_EFFECT_HELD_ITEM;
-            ctx->state_client = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HANDLE_THROAT_SPRAY);
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            return;
-        }
-
-        // TODO: A rampage move that fails (Thrash, Outrage etc) will cancel except on the last turn
-        if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS && !ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag) {
-                ctx->oneTurnFlag[ctx->attack_client].rampageProcessedFlag = 1;
-                ctx->battlemon[ctx->attack_client].condition2 -= 1 << 10;
-                if (ov12_02252218(ctx, ctx->attack_client)) { // come back to this
-                    ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RAMPAGE_TURNS;
-                } else if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS) && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
-                    ctx->state_client = ctx->attack_client;
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THRASH_END);
-                    ctx->next_server_seq_no = ctx->server_seq_no;
-                    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                    return;
-                }
-            }
-
         // If the user's next move is not Electric-type, Charge no longer wears off, and instead remains active for the next move that is.
         // However, if the user attempted to use an Electric-type move,
         // Charge will still wear off even if a condition prevented the move from being used, such as being asleep or flinching.
@@ -194,116 +54,6 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
                     ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_CHARGE;
                 }
                 ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag = 1;
-        }
-
-        switch (GetBattlerAbility(ctx, ctx->attack_client)) {
-            case ABILITY_BEAST_BOOST:
-                if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                    u8 stat = BeastBoostGreatestStatHelper(ctx, ctx->attack_client);
-
-                    if ((ctx->battlemon[ctx->attack_client].states[STAT_ATTACK + stat] < 12) && (ctx->battlemon[ctx->attack_client].moveeffect.fakeOutCount != (ctx->total_turn + 1))) {
-                        switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                        case 1:
-                            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP + stat;
-                            break;
-                        case 2:
-                            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2 + stat;
-                            break;
-                        case 3:
-                            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3 + stat;
-                            break;
-
-                        default:
-                            break;
-                        }
-                        ctx->addeffect_type = ADD_EFFECT_ABILITY;
-                        ctx->state_client = ctx->attack_client;
-                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-                        return;
-                    }
-                }
-                break;
-            case ABILITY_CHILLING_NEIGH:
-            case ABILITY_AS_ONE_GLASTRIER:
-            case ABILITY_MOXIE:
-                if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                    if (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12) {
-                        switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                            case 1:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
-                                break;
-                            case 2:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2;
-                                break;
-                            case 3:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
-                                break;
-
-                            default:
-                                break;
-                        }
-                        ctx->addeffect_type = ADD_EFFECT_ABILITY;
-                        ctx->state_client = ctx->attack_client;
-                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-                        return;
-                    }
-                }
-                break;
-            case ABILITY_GRIM_NEIGH:
-            case ABILITY_AS_ONE_SPECTRIER:
-                if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                    if (ctx->battlemon[ctx->attack_client].states[STAT_SPATK] < 12) {
-                        switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                            case 1:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
-                                break;
-                            case 2:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP_2;
-                                break;
-                            case 3:
-                                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP_3;
-                                break;
-
-                            default:
-                                break;
-                        }
-                        ctx->addeffect_type = ADD_EFFECT_ABILITY;
-                        ctx->state_client = ctx->attack_client;
-                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-                        return;
-                    }
-                }
-                break;
-            case ABILITY_BATTLE_BOND:
-                if (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
-                    if (ctx->battlemon[ctx->attack_client].species == SPECIES_GRENINJA
-                    && ctx->battlemon[ctx->attack_client].form_no == 1
-                    && ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag == FALSE) {
-                        ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag = TRUE;
-                        ctx->state_client = ctx->attack_client;
-                        ctx->battlerIdTemp = ctx->attack_client;
-                        ctx->battlemon[ctx->attack_client].form_no = 2;
-                        BattleFormChange(ctx->battlerIdTemp, ctx->battlemon[ctx->battlerIdTemp].form_no, bsys, ctx, 0);
-                        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_FORM_CHANGE);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-                        return;
-                    }
-                }
-                break;
-            default:
-                ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
-                break;
         }
 
         // Reset Focus Punch flag
@@ -337,11 +87,13 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     for (int i = 0; i < client_set_max; i++) {
         ctx->moveStatusFlagForSpreadMoves[i] = 0;
         ctx->damageForSpreadMoves[i] = 0;
+        ctx->store_damage[i] = 0;
     }
     ctx->clientLoopForSpreadMoves = 0;
     ctx->clientLoopForAbility = 0;
     ctx->boostedAccuracy = FALSE;
     ctx->gemBoostingMove = FALSE;
+    ctx->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
 
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 
