@@ -4565,16 +4565,19 @@ enum {
 // originally wrote this to be like some kind of task but it was best done through the script command itself
 
 // in tiles
-#define ABILITY_POPUP_TEXTBOX_WIDTH 16
-#define ABILITY_POPUP_TEXTBOX_HEIGHT 2
+#define ABILITY_POPUP_TEXTBOX_WIDTH 10
+#define ABILITY_POPUP_TEXTBOX_HEIGHT 4
 
 #define ABILITY_POPUP_TEXTBOX_WIDTH_PIXELS (8*(ABILITY_POPUP_TEXTBOX_WIDTH))
 #define ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION (ABILITY_POPUP_TEXTBOX_WIDTH_PIXELS+16)
 
-#define ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT (-112)
+#define ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT (-256 + ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION)
 
 #define ABILITY_POPUP_FRAMES_TO_SHIFT 4
 #define ABILITY_POPUP_PIXELS_PER_FRAME (ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION / ABILITY_POPUP_FRAMES_TO_SHIFT)
+
+#define ABILITY_POPUP_Y_COORD_PLAYER 8
+#define ABILITY_POPUP_Y_COORD_ENEMY 1
 
 //void AbilityPopup_DrawWindowAtCoordinates(struct Window *window, )
 
@@ -4600,7 +4603,12 @@ void AbilityPopup_SlideIn(void *data)
         SetBgPriority(2, 0);
 
         sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
-        AddWindowParameterized(bgConfig, window, 2, 33 /*x*/, 8/*y*/, 16/*width*/, 2/*height*/, 11, 9 + 1); // we initially print to the right of the screen where it is not visible at all
+
+        AddWindowParameterized(bgConfig, window,
+            2, 33 /*x*/,
+            (side & 1) ? ABILITY_POPUP_Y_COORD_ENEMY : ABILITY_POPUP_Y_COORD_PLAYER /*y*/,
+            ABILITY_POPUP_TEXTBOX_WIDTH/*width*/, ABILITY_POPUP_TEXTBOX_HEIGHT/*height*/,
+            11, 9 + 1); // we initially print to the right of the screen where it is not visible at all
 
         FillWindowPixelBuffer(window, 0xFF);
         DrawFrameAndWindow1(window, FALSE, 1, 8);
