@@ -1093,11 +1093,11 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
                 && (ctx->current_move_index < MOVE_WATER_PLEDGE || ctx->current_move_index > MOVE_GRASS_PLEDGE)
                 && IsAnyBattleMonHit(ctx))
             {
-                ctx->mp.msg_tag = TAG_ITEM_MOVE;
+                ctx->mp.tag = TAG_ITEM_MOVE;
                 //The { STRVAR_1 1, 0, 0 } strengthened\n { STRVAR_1 5, 1, 0 }’s power !
-                ctx->mp.msg_id = BATTLE_MSG_GEM_ACTIVATION;
-                ctx->mp.msg_para[0] = ctx->battlemon[ctx->attack_client].item;
-                ctx->mp.msg_para[1] = ctx->current_move_index;
+                ctx->mp.id = BATTLE_MSG_GEM_ACTIVATION;
+                ctx->mp.param[0] = ctx->battlemon[ctx->attack_client].item;
+                ctx->mp.param[1] = ctx->current_move_index;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -1949,7 +1949,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
             ctx->hp_calc_work = attackClient.maxhp / 4;
             ctx->hp_calc_work = ctx->hp_calc_work * (-1);
         }
-        ctx->mp.msg_id = 1612;
+        ctx->mp.id = 1612;
 
         ctx->battlerIdTemp = ctx->attack_client;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
@@ -2359,14 +2359,14 @@ BOOL BattleController_CheckProtect(struct BattleSystem *bsys, struct BattleStruc
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED);
 
             if (protectedMoveMessage > 0) {
-                ctx->mp.msg_id = BATTLE_MSG_MOVE_PROTECTED_SIDE;
-                ctx->mp.msg_tag = TAG_NICKNAME_MOVE;
-                ctx->mp.msg_para[0] = CreateNicknameTag(ctx, defender);
-                ctx->mp.msg_para[1] = protectedMoveMessage;
+                ctx->mp.id = BATTLE_MSG_MOVE_PROTECTED_SIDE;
+                ctx->mp.tag = TAG_NICKNAME_MOVE;
+                ctx->mp.param[0] = CreateNicknameTag(ctx, defender);
+                ctx->mp.param[1] = protectedMoveMessage;
             } else {
-                ctx->mp.msg_id = BATTLE_MSG_PROTECTED_ITSELF;
-                ctx->mp.msg_tag = TAG_NICKNAME;
-                ctx->mp.msg_para[0] = CreateNicknameTag(ctx, defender);
+                ctx->mp.id = BATTLE_MSG_PROTECTED_ITSELF;
+                ctx->mp.tag = TAG_NICKNAME;
+                ctx->mp.param[0] = CreateNicknameTag(ctx, defender);
             }
 
             ctx->next_server_seq_no = ctx->server_seq_no;
