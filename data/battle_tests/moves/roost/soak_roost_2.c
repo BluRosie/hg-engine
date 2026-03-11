@@ -7,7 +7,6 @@
 #include "../../../../include/constants/moves.h"
 #include "../../../../include/constants/species.h"
 #include "../../../../include/test_battle.h"
-#include "../../../../include/constants/battle_message_constants.h"
 
 // each test file is a separate .c file in battle_tests/ for better organization
 const struct TestBattleScenario BattleTests[] = {

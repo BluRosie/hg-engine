@@ -586,7 +586,7 @@ BOOL IsPlayerOnLadder(void)
         EventSet_Script(gFieldSysPtr, 2073, NULL);
         TestBattle_QueueNextTest();
         queueUpAutoBattleScript = 1;
-    } else if (pendingNextTest >= 10) {
+    } else if (pendingNextTest >= 15) {
         // delay 10 frames to give time for memory to clean up
         EventSet_Script(gFieldSysPtr, 2073, NULL);
         TestBattle_QueueNextTest();

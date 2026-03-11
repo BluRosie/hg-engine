@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PY_SCRIPT: tools/source/dumptools/gamemaster_go_import.py
-      FILE_TO_COMMIT: data/learnsets/base/22_go.json
+      FILE_TO_COMMIT: data/learnsets/base/99_go.json
       COMMIT_MESSAGE: "chore: update Pokemon GO learnsets"
       PR_TITLE: "Update Pokemon GO learnsets"
       PR_BODY: "This PR was created automatically by the GitHub Actions workflow."
@@ -40,7 +40,7 @@ jobs:
         working-directory: tools/source/dumptools
         env:
           # (Optional) make the output name overrideable in the future
-          OUTPUT_FILE_LOCAL: 22_go.json
+          OUTPUT_FILE_LOCAL: 99_go.json
         run: |
           if [ ! -f "${PY_SCRIPT##*/}" ]; then
             echo "ERROR: ${PY_SCRIPT} not found at $(pwd)"; exit 1
@@ -53,7 +53,7 @@ jobs:
       - name: Place output where we commit it
         run: |
           mkdir -p "$(dirname "${FILE_TO_COMMIT}")"
-          cp tools/source/dumptools/22_go.json "${FILE_TO_COMMIT}"
+          cp tools/source/dumptools/99_go.json "${FILE_TO_COMMIT}"
 
 
       - name: Create a unique branch name

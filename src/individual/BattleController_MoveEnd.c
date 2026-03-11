@@ -40,6 +40,10 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
             return;
         }
 
+        if (ctx->moveConditionsFlags[ctx->attack_client].glaiveRush && ctx->current_move_index != MOVE_GLAIVE_RUSH) {
+            ctx->moveConditionsFlags[ctx->attack_client].glaiveRush = FALSE;
+        }
+
         // Handle Sparkling Aria
         if (ctx->current_move_index == MOVE_SPARKLING_ARIA && ctx->battlemon[ctx->attack_client].sheer_force_flag == 0) {
             int i;
@@ -87,12 +91,31 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
 
         if (ctx->current_move_index == MOVE_FELL_STINGER) {
             if ((ctx->battlemon[ctx->defence_client].hp == 0)
-                && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)) {
+                && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
+                && (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12))
+            {
                 ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
                 ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
                 ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
                 ctx->state_client = ctx->attack_client;
                 LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_BOOST_STATS);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
+        }
+
+        if (ctx->current_move_index == MOVE_SCALE_SHOT) {
+            if ((ctx->battlemon[ctx->attack_client].hp)
+                && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
+                && (ctx->battlemon[ctx->attack_client].states[STAT_DEFENSE] > 0)
+                && (ctx->battlemon[ctx->attack_client].states[STAT_SPEED] < 12))
+            {
+                ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+                //ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
+                ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+                ctx->state_client = ctx->attack_client;
+                LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_USER_DEF_DOWN_1_SPEED_UP_1);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
@@ -133,6 +156,17 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
+        }
+
+        if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_BOOST_SPATK_ON_SOUND_MOVE  && IsMoveSoundBased(ctx->current_move_index)) {
+            ctx->item_work = ctx->battlemon[ctx->attack_client].item;
+            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
+            ctx->addeffect_type = ADD_EFFECT_HELD_ITEM;
+            ctx->state_client = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_HANDLE_THROAT_SPRAY);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
         }
 
         // TODO: A rampage move that fails (Thrash, Outrage etc) will cancel except on the last turn

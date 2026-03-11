@@ -522,11 +522,6 @@ dumprom: $(VENV_ACTIVATE) $(TOOLS)
 
 update_machine_moves: $(VENV_ACTIVATE)
 	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
-	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/830.txt data/text/830.txt
-	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/834.txt data/text/834.txt
-	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/838.txt data/text/838.txt
-	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/846.txt data/text/846.txt
-	$(PYTHON) tools/source/dumptools/wrap_item_text.py data/text/850.txt data/text/850.txt
 	@echo "Updated item descriptions and sprites. Double check formatting"
 
 

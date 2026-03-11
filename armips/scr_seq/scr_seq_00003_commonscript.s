@@ -662,14 +662,14 @@ _085F:
 
 _0892:
     buffer_players_name 0
-    buffer_item_name 1, VAR_SPECIAL_x8004
+    buffer_item_name_indef 1, VAR_SPECIAL_x8004
     npc_msg 28
     goto _08C9
 
 _08A3:
     compare VAR_SPECIAL_x8005, 1
     goto_if_gt _08BB
-    buffer_item_name 0, VAR_SPECIAL_x8004
+    buffer_item_name_indef 0, VAR_SPECIAL_x8004
     goto _08C0
 
 _08BB:

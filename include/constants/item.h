@@ -2593,7 +2593,7 @@
 
 #define IS_ITEM_NATURE_MINT(item) (item >= ITEM_LONELY_MINT && item <= ITEM_SERIOUS_MINT)
 
-#define IS_ITEM_TERRAIN_SEED(item) (item >= ITEM_ELECTRIC_SEED && item <= ITEM_PSYCHIC_SEED)
+#define IS_ITEM_TERRAIN_SEED(item) (item >= ITEM_ELECTRIC_SEED && item <= ITEM_GRASSY_SEED)
 
 #define IS_ITEM_MASK(item) (item >= ITEM_CORNERSTONE_MASK && item <= ITEM_HEARTHFLAME_MASK)
 
