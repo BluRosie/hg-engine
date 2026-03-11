@@ -152,9 +152,18 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // TODO needed?
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_9_1_SECONDARY_EFFECTS: {
+    case MOVE_PERFORMANCE_STEP_9_1_FLINCH_CHECK:
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_9_1_SECONDARY_EFFECTS\n");
+        debug_printf("in MOVE_PERFORMANCE_STEP_9_1_FLINCH_CHECK\n");
+#endif
+        ctx->swoam_seq_no++;
+        if (ServerFlinchCheck(bsys, ctx) == TRUE) {
+            return;
+        }
+        FALLTHROUGH;
+    case MOVE_PERFORMANCE_STEP_9_2_SECONDARY_EFFECTS: {
+#ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_9_2_SECONDARY_EFFECTS\n");
 #endif
 
         
@@ -171,10 +180,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
     }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_9_1_1_SECONDARY_EFFECTS_SPREAD_MOVES_LOOP_BACK:
+    case MOVE_PERFORMANCE_STEP_9_2_1_SECONDARY_EFFECTS_SPREAD_MOVES_LOOP_BACK:
         if (CanGetNextDefender(bsys, ctx) == TRUE) {
             ctx->server_seq_no = CONTROLLER_COMMAND_31;
-            ctx->swoam_seq_no = MOVE_PERFORMANCE_STEP_9_1_SECONDARY_EFFECTS;
+            ctx->swoam_seq_no = MOVE_PERFORMANCE_STEP_9_1_FLINCH_CHECK;
             return;
         } else {
             ctx->clientLoopForSpreadMoves = 0;
@@ -183,7 +192,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->add_status_flag_indirect = 0;
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_9_2_FLAME_BURST:
+    case MOVE_PERFORMANCE_STEP_9_3_FLAME_BURST:
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_9_2_FLAME_BURST\n");
 #endif
@@ -193,7 +202,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             return;
         }    
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_9_3_DYNAMAX_MOVE_EFFECTS:
+    case MOVE_PERFORMANCE_STEP_9_4_DYNAMAX_MOVE_EFFECTS:
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
@@ -402,7 +411,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_13_2_MULTIHIT_STATUS_MESSAGE %d\n", ctx->swoam_type);
 #endif
-       
         ctx->swoam_seq_no++;
         if (ctx->swoam_type != SWOAM_NORMAL) {
             if (ServerWazaStatusMessage(bsys, ctx) == TRUE) {
@@ -436,7 +444,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_2_THAW_FROM_FIRE_MOVE: {
 #ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_15_8_THAW_FROM_FIRE_MOVE\n");
+        debug_printf("in MOVE_PERFORMANCE_STEP_15_2_THAW_FROM_FIRE_MOVE\n");
 #endif
 
         if (ThawTarget_FromFireMove_Scald(bsys, ctx) == TRUE) {
@@ -509,10 +517,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         if (Activate_ShellBell_LifeOrb(bsys, ctx) == TRUE)
         {
-            return;
-        }
-        // TODO loop through all hit battlers instead of defence_client
-        if (ServerFlinchCheck(bsys, ctx) == TRUE) { // TODO: confirm, Step 13, 20 or 26?
             return;
         }
         FALLTHROUGH;
