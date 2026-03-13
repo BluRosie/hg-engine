@@ -1125,7 +1125,6 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ct
     case MOVE_EFFECT_STEALTH_ROCK_HIT: // https://discord.com/channels/419213663107416084/1368163973366681712/1392652799686348912
         if (ctx->attack_client != BATTLER_NONE
             && (ctx->battlemon[ctx->attack_client].hp != 0)) {
-            debug_printf("setup rocks\n");
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SET_STEALTH_ROCK);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1223,6 +1222,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ct
             && ctx->battlemon[ctx->attack_client].hp > 0
             && ctx->battlemon[ctx->defence_client].hp > 0
             && !ctx->battlemon[ctx->defence_client].is_currently_dynamaxed
+            && (ctx->oneSelfFlag[ctx->defence_client].physical_damage 
+                || ctx->oneSelfFlag[ctx->defence_client].special_damage)
             //&& ((ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
             && ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0)
             && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
