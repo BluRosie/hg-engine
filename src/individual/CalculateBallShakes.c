@@ -24,22 +24,26 @@ extern u8 gSafariBallRateTable[13][2];
 
 u16 MoonBallSpecies[] =
 {
-    SPECIES_NIDORAN_F,
     SPECIES_NIDORINA,
+    SPECIES_NIDORINO,
+    SPECIES_CLEFAIRY,
+    SPECIES_JIGGLYPUFF,
+    SPECIES_SKITTY,
+    SPECIES_MUNNA,
+
+#if MOON_BALL_GENERATION == 4
+    SPECIES_NIDORAN_F,
     SPECIES_NIDOQUEEN,
     SPECIES_NIDORAN_M,
-    SPECIES_NIDORINO,
     SPECIES_NIDOKING,
     SPECIES_CLEFFA,
-    SPECIES_CLEFAIRY,
     SPECIES_CLEFABLE,
     SPECIES_IGGLYBUFF,
-    SPECIES_JIGGLYPUFF,
     SPECIES_WIGGLYTUFF,
-    SPECIES_SKITTY,
     SPECIES_DELCATTY,
-    SPECIES_MUNNA,
     SPECIES_MUSHARNA,
+#endif
+
 };
 
 /**
@@ -90,7 +94,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     case ITEM_POKE_BALL:
         ballCaptureRatio = 0x1000;
         break;
-#ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
+#if SAFARI_BALL_GENERATION == 4
     case ITEM_SAFARI_BALL:
         if (BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) {
             ballCaptureRatio = 0x1800;
@@ -99,7 +103,11 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #endif
     case ITEM_NET_BALL:
         if (HasType(sp, sp->defence_client, TYPE_WATER) || HasType(sp, sp->defence_client, TYPE_BUG)) {
+#if NET_BALL_GENERATION < 8
+            ballCaptureRatio = 0x3000;
+#else
             ballCaptureRatio = 0x3800;
+#endif
         }
         break;
     case ITEM_DIVE_BALL:
@@ -108,18 +116,33 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         }
         break;
     case ITEM_NEST_BALL:
+#if NEST_BALL_GENERATION == 4
+        ballCaptureRatio = (40 - sp->battlemon[sp->defence_client].level) / 10 * 0x1000;
+        if (ballCaptureRatio < 0x1000) {
+            ballCaptureRatio = 0x1000;
+        }
+#else
         if (sp->battlemon[sp->defence_client].level <= 30) {
             // TODO: Probably wrong
             ballCaptureRatio = QMul_RoundDown((41 - sp->battlemon[sp->defence_client].level) * 0x1000 + UQ412__0_5, UQ412__0_1);
         }
+#endif
         break;
     case ITEM_REPEAT_BALL:
         if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
+#if REPEAT_BALL_GENERATION < 8
+            ballCaptureRatio = 0x3000;
+#else
             ballCaptureRatio = 0x3800;
+#endif
         }
         break;
     case ITEM_TIMER_BALL:
+#if TIMER_BALL_GENERATION < 5
+        ballCaptureRatio = (sp->total_turn + 10 ) / 10 * 0x1000;
+#else
         ballCaptureRatio = 1229 * sp->total_turn + 0x1000;
+#endif
         if (ballCaptureRatio > 0x4000) {
             ballCaptureRatio = 0x4000;
         }
@@ -132,7 +155,11 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     //    break;
     case ITEM_DUSK_BALL:
         if (Battle_GetTimeOfDay(bw) == 3 || Battle_GetTimeOfDay(bw) == 4 || BattleWorkGroundIDGet(bw) == 5) {
+#if DUSK_BALL_GENERATION < 7
+            ballCaptureRatio = 0x3800;
+#else
             ballCaptureRatio = 0x3000;
+#endif
         }
         break;
     //case ITEM_HEAL_BALL:
@@ -140,7 +167,11 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     //    break;
     case ITEM_QUICK_BALL:
         if (sp->total_turn < 1) {
+#if QUICK_BALL_GENERATION == 4
+            ballCaptureRatio = 0x4000;
+#else
             ballCaptureRatio = 0x5000;
+#endif
         }
         break;
     //case ITEM_CHERISH_BALL:
@@ -165,18 +196,26 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             }
         }
         break;
-    case ITEM_LURE_BALL:
-#ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
-        if (Battle_IsFishingEncounter(bw)) {
-            ballCaptureRatio = 0x4000; // as of sword and shield
+    case ITEM_LURE_BALL: {
+#if LURE_BALL_GENERATION == 4
+        if (Battle_IsFishingEncounter(bw)) {    // HGSS
+            ballCaptureRatio = 0x3000; // 3x
         }
-        break;
+#elif LURE_BALL_GENERATION == 7
+        if (Battle_IsFishingEncounter(bw)) {    // SMUSUM
+            ballCaptureRatio = 0x5000; // 5x
+        }
+#elif LURE_BALL_GENERATION == 8
+        if (Battle_IsFishingEncounter(bw)) {    //SwSh
+            ballCaptureRatio = 0x4000; // 4x
+        }
 #else
         if (BattleWorkGroundIDGet(bw) == 7) { // if the battle is happening with a water background
-            ballCaptureRatio = 0x4000;
+            ballCaptureRatio = 0x4000; // 4x
         }
-        break;
 #endif
+    }
+        break;
     case ITEM_HEAVY_BALL:
         if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 999) {
             heavyBallMod = -20;
@@ -214,7 +253,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             ballCaptureRatio = 0x4000;
         }
         break;
-#ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
+#if SPORT_BALL_GENERATION == 4
     case ITEM_SPORT_BALL:
         if (BattleTypeGet(bw) & BATTLE_TYPE_BUG_CONTEST) {
             ballCaptureRatio = 0x1800;
@@ -230,13 +269,18 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             ballCaptureRatio = 0x4000;
         }
         break;
-    case ITEM_BEAST_BALL:
-        if (IS_SPECIES_ULTRA_BEAST(sp->battlemon[sp->defence_client].species)) {
+    }
+
+    if (IS_SPECIES_ULTRA_BEAST(sp->battlemon[sp->defence_client].species)) {
+        if (sp->item_work == ITEM_BEAST_BALL) {
             ballCaptureRatio = 0x5000;
         } else {
             ballCaptureRatio = 0x19A;
         }
-        break;
+    } else {
+        if (sp->item_work == ITEM_BEAST_BALL) {
+            ballCaptureRatio = 0x19A;
+        }
     }
 
     // https://xcancel.com/Sibuna_Switch/status/1610341810655608833
@@ -335,7 +379,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             }
         }
     }
-    
+
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("missingBadges: %d\n", missingBadges);
 #endif
@@ -545,7 +589,11 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 
         if (sp->item_work == ITEM_FRIEND_BALL && i == shakeChecks) // if amount of succeeded captures is the same as necessary for the type of capture
         {
+#if FRIEND_BALL_GENERATION < 8
             u32 friendship = 200;
+#else
+            u32 friendship = 150;
+#endif
             SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), MON_DATA_FRIENDSHIP, &friendship);
         }
 #ifdef IMPLEMENT_CRITICAL_CAPTURE

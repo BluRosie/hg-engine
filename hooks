@@ -138,13 +138,8 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_TryBreakScreens 02242E00 3
 0012 BtlCmd_ResetAllStatChanges 0223FA1C 3
 0012 BtlCmd_CheckToxicSpikes 02243E6C 3
-0012 BtlCmd_PrintMessage 0223DEF0 3
-0012 BtlCmd_PrintAttackMessage 0223DEB0 3
-0012 BtlCmd_PrintGlobalMessage 0223DF24 3
-0012 BtlCmd_PrintBufferedMessage 0223DF64 3
-0012 BtlCmd_BufferMessage 0223DF84 3
-0012 BtlCmd_BufferLocalMessage 0223DFB0 3
 0012 BtlCmd_TryFling 0224454C 3
+0012 BtlCmd_CopyStatStages 02242510 3
 0012 BtlCmd_TryFaintMon 0223E22C 3
 
 #trainer data expansion
@@ -378,6 +373,7 @@ arm9 CapRareCandies 0208FEEA 1
 0012 CantEscape 02252980
 0012 BattlerCantSwitch 02255920 3
 0012 BattleTryRun 02252B68 3
+0012 CheckSubstitute 02256838 2
 
 arm9 ModifyStatByNature 0206FE3C 3
 
@@ -536,7 +532,6 @@ arm9 DestroyHeap_hook 0201AA24 3
 arm9 PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook 02081E54 0
 arm9 PartyMenu_ItemUseFunc_ReuseItem_hook 0208138C 3
 
-arm9 ScrCmd_BufferItemName 02048510 1
 arm9 BufferItemNameWithIndefArticle 0200C100 3
 arm9 BufferItemNamePlural 0200C134 3
 arm9 GetItemDescIntoString 02077D64 3
@@ -559,14 +554,29 @@ arm9 ScrCmd_MartBuy 02048060 1
 
 arm9 SetupAndStartTutorialBattle 02051334 1
 
+# handle missingno in 1vX battles
+0012 BattleControllerPlayer_GetBattleMon 0224873C 2
+0012 BattleController_EmitHealthbarSlideIn_SkipInvalid 02262A5A 3
+0012 ov12_0225D644_SkipInvalid 0225D772 4
+0012 CT_PokemonEncountSet_SkipInvalid 02259B6C 0
+0012 CT_PokemonEncountAppearSet_SkipInvalid_02259D10 02259D10 0
+0012 CT_PokemonEncountAppearSet_SkipInvalid_02259D1E 02259D1E 0
+0012 CT_PokemonEncountAppearSet_SkipInvalid_02259D2C 02259D2C 0
+0012 CT_PokemonAppearSet_SkipInvalid 02259F06 0
+0012 ov12_0225C388_SkipInvalid 0225C388 2
+0012 ov12_0225C7AC_SkipInvalid 0225C7AC 2
+0012 ov12_0225BB7C_SkipInvalid 0225BB7C 2
+0012 ov12_0225BFC2_SkipInvalid 0225BFC2 2
+
 #ifdef DEBUG_BATTLE_SCENARIOS
 0010 TestBattle_AISelectMove 0221BEF4 2
 0010 TestBattle_AIPickCommand 022205BC 2
+0012 CheckTrainerMessage 02250D4C 2
+0012 BattleMessage_ExpandPlaceholders 0223CEF4
 #endif
 
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2
 0012 TryUseHeldItem 0225471C 3
-
 
 arm9 PartyMenu_HandleUseItemOnMon 0207C288 1
 arm9 PartyMenu_PrintContextMenuItemText 0207E28C
@@ -574,3 +584,6 @@ arm9 sub_0207E3A8 0207E3A8
 arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
 0012 BattleContext_ShouldPrintFollowupMessage 0224DF98 2
+
+# determine rock smash table to use for items
+0001 DetermineRockSmashItem_hook 02204E28 1

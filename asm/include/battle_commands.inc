@@ -1437,7 +1437,7 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro AddThirdType arg_0
+    .macro AddType arg_0
     .long 261
     .long \arg_0
     .endm
@@ -1476,27 +1476,79 @@
     .long (((\arg_1 - .) / 4) - 1)
     .endm
 
-    .macro BatchUpdateHealthBar
+    .macro HandleRoost arg_0
     .long 269
+    .long \arg_0
     .endm
 
-    .macro BatchUpdateHealthBarValue
+    .macro HandleSoak arg_0
     .long 270
+    .long \arg_0
     .endm
 
-    .macro BatchFollowupMessage arg_0
+    .macro HandleMagicPowder arg_0
     .long 271
     .long \arg_0
     .endm
 
-    .macro BatchEffectivenessMessage arg_0, arg_1, arg_2
+    .macro HandleForestsCurse arg_0
     .long 272
+    .long \arg_0
+    .endm
+
+    .macro HandleTrickOrTreat arg_0
+    .long 273
+    .long \arg_0
+    .endm
+
+    .macro HandleBurnUp arg_0
+    .long 274
+    .long \arg_0
+    .endm
+
+    .macro HandleDoubleShock arg_0
+    .long 275
+    .long \arg_0
+    .endm
+
+    .macro StuffCheeks arg_0
+    .long 276
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .macro SetMoveConditionFlag arg_0, arg_1
+    .long 277
+    .long \arg_0
+    .long \arg_1
+    .endm
+
+    .macro AbilityPopup arg_0:req, arg_1=-1
+    .long 278
+    .long \arg_0
+    .long \arg_1
+    .endm
+
+    .macro BatchUpdateHealthBar
+    .long 279
+    .endm
+
+    .macro BatchUpdateHealthBarValue
+    .long 280
+    .endm
+
+    .macro BatchFollowupMessage arg_0
+    .long 281
+    .long \arg_0
+    .endm
+
+    .macro BatchEffectivenessMessage arg_0, arg_1, arg_2
+    .long 282
     .long \arg_0
     .long \arg_1
     .long (((\arg_2 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 272
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 282
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

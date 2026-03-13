@@ -176,9 +176,21 @@
 // Comment out the line below to disable this feature
 #define UPDATE_MACHINE_MOVE_LABELS
 
-// INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION includes assumed parameter calculations for the Sport Ball,
-// Park Ball, and Lure Ball.  Comment this line to make the balls behave as they do in Gen 9
-#define INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
+// Configs the ball capture ratio. 4 emulates the behaviour in HeartGold. However, due to the modernization of
+// the capture formula, it is only an estimate. Some are left as 4 to be less disruptive. Use GEN_LATEST for vanilla behaviour
+#define NEST_BALL_GENERATION    GEN_LATEST
+#define NET_BALL_GENERATION     GEN_LATEST
+#define REPEAT_BALL_GENERATION  GEN_LATEST
+#define TIMER_BALL_GENERATION   GEN_LATEST
+#define DUSK_BALL_GENERATION    GEN_LATEST
+#define QUICK_BALL_GENERATION   GEN_LATEST
+#define SAFARI_BALL_GENERATION  4
+#define LURE_BALL_GENERATION    4
+#define SPORT_BALL_GENERATION   4
+#define MOON_BALL_GENERATION    GEN_LATEST
+
+// If caught, the Pokémon's friendship is set to 200 in Generations II through VII, or 150 in Generation VIII onwards.
+#define FRIEND_BALL_GENERATION  GEN_LATEST
 
 // THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN makes the Thunder & Storm map header weathers set permanent
 // Electric Terrain (and rain) in battle
@@ -193,5 +205,17 @@
 // BLOCK_LEARNING_UNIMPLEMENTED_MOVES prevents learning moves that are not implemented
 // based on the move having FLAG_UNUSABLE_UNIMPLEMENTED
 #define BLOCK_LEARNING_UNIMPLEMENTED_MOVES
+
+// VANILLA_PARADOX_BOOSTER_ENERGY_BEHAVIOUR makes the Paradox Booster item behave as it does in vanilla, where the
+// DLC paradox forms can have Booster Energy tricked onto them.
+// Further info: vxtwitter.com/DaWoblefet/status/1737659599480565762
+// Comment out this define so all Paradox forms behave the same vis a vis Booster Energy
+#define VANILLA_PARADOX_BOOSTER_ENERGY_BEHAVIOUR
+
+// VANILLA_MYTHICALS disallows non vanilla mythical pokemon to be treated as mythical
+// Vanilla behaviour adds shiiontic as a mythical more info here: https://xcancel.com/Sibuna_Switch/status/1613414136079323137
+// if VANILLA_MYTHICALS is not defined, but you can change that in the EXTRA_MYTHICALS macro if you want to
+// add or remove mythicals as you see fit
+#define VANILLA_MYTHICALS
 
 #endif

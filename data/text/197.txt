@@ -618,7 +618,7 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 1, 0} after the taunt!
 The wild {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
 The opposing {STRVAR_1 1, 0, 0} can’t use\nits sealed {STRVAR_1 6, 1, 0}!\r
 It started to rain!
-This move is unimplemented or dexited!\r
+You can’t use this move!\r
 (Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nraised its {STRVAR_1 13, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised its {STRVAR_1 13, 2, 0}!
@@ -1352,7 +1352,7 @@ The opposing {STRVAR_1 1, 0, 0}’s\nillusion wore off!
 {STRVAR_1 1, 0, 0}’s disguise was busted!
 The wild {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
 The opposing {STRVAR_1 1, 0, 0}’s disguise was\nbusted!
-(Unused)
+{STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0}
 (Unused)
 (Unused)
 (Unused)
@@ -1568,9 +1568,9 @@ The opposing {STRVAR_1 1, 0, 0} was hurt!
 {STRVAR_1 6, 1, 0} protected\n{STRVAR_1 1, 0, 0}!
 {STRVAR_1 6, 1, 0} protected\nthe wild {STRVAR_1 1, 0, 0}!
 {STRVAR_1 6, 1, 0} protected\nthe opposing {STRVAR_1 1, 0, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
-The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nboosted the attack!
+The {STRVAR_1 1, 0, 0} strengthened\n{STRVAR_1 5, 1, 0}’s power!
+(unused)
+(unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} was burned up!
@@ -1609,6 +1609,17 @@ The opposing {STRVAR_1 1, 0, 0} used up\nall its electricity!
 The wild {STRVAR_1 1, 0, 0} lost some of its HP!
 The opposing {STRVAR_1 1, 0, 0}\nlost some of its HP!
 {STRVAR_1 1, 0, 0} hasn’t eaten any held Berries,\nso it can’t possibly belch!
+It can’t use the move because it\ndoesn’t have a Berry!
+When the flame touched the powder on\nthe Pokémon, it exploded!
+{STRVAR_1 1, 0, 0} is covered in powder!
+The wild {STRVAR_1 1, 0, 0} is covered\nin powder!
+The opposing {STRVAR_1 1, 0, 0} is covered\nin powder!
+{STRVAR_1 1, 0, 0} concentrated intensely!
+The wild {STRVAR_1 1, 0, 0} concentrated\nintensely!
+The opposing {STRVAR_1 1, 0, 0} concentrated\nintensely!
+The effects of Throat Chop prevent\n{STRVAR_1 1, 0, 0} from using certain moves!
+The effects of Throat Chop prevent\nthe wild {STRVAR_1 1, 0, 0}\ffrom using certain moves!
+The effects of Throat Chop prevent\nthe opposing {STRVAR_1 1, 0, 0}\ffrom using certain moves!
 It’s super effective on\n{STRVAR_1 1, 0, 0}!
 It’s super effective on the wild\n{STRVAR_1 1, 0, 0}!
 It’s super effective on the opposing\n{STRVAR_1 1, 0, 0}!

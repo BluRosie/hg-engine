@@ -809,8 +809,16 @@ bx  r0
 
 _vanillaAddBoxMonHandling:
 add sp, #0x14
-ldr r0, =0x0206F682 | 1
+cmp r7, #0xba
+bls _returnTo0206F684
+ldr r0, =0x0206FA50 | 1
 bx  r0
+
+_returnTo0206F684:
+mov r0, r7
+lsl r0, #1
+ldr r1, =0x0206F684 | 1
+bx  r1
 
 .pool
 

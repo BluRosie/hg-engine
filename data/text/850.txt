@@ -52,7 +52,7 @@ On rare occasions, these shards form\nwhen a Tera Pokémon falls in battle\nand 
 An item to be held by Pokémon with select\nAbilities. The energy within this capsule\nboosts the strength of the Pokémon.
 An item to be held by a Pokémon.\nThis cute shield protects the holder\nfrom having its Ability changed by others.
 An item to be held by a Pokémon.\nThis amulet protects from stat drops\nfrom opposing moves or abilities.
-An item to be held by a Pokémon.\nThis herb allows the holder to mirror an\nopponent’s stat increases-but only once.
+An item to be held by a Pokémon.\nThis herb allows the holder to mirror an\nopponent’s stat increases--but only once.
 An item to be held by a Pokémon.\nThis glove boosts the power of punching\nmoves and prevents direct contact.
 An item to be held by a Pokémon.\nThis cloak conceals the holder, protecting\nit from the additional effects of moves.
 An item to be held by a Pokémon.\nThis dice always rolls a good number,\nensuring multistrike moves hit more times.

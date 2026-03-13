@@ -5,25 +5,9 @@
 // Called by Magic Powder.
 _Start:
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
-    GoToIfTerastallized BATTLER_CATEGORY_DEFENDER, _MoveFailed
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_TYPE_1, TYPE_PSYCHIC, _ChangeToPsychicType
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_TYPE_2, TYPE_PSYCHIC, _ChangeToPsychicType
-    GoToIfThirdType BATTLER_CATEGORY_DEFENDER, TYPE_TYPELESS, _MoveFailed
-    GoToIfThirdType BATTLER_CATEGORY_DEFENDER, TYPE_PSYCHIC, _MoveFailed
-
-_ChangeToPsychicType:
-    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_TYPE_1, TYPE_PSYCHIC
-    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_TYPE_2, TYPE_PSYCHIC
-    AddThirdType TYPE_TYPELESS
+    HandleMagicPowder
     // {0} transformed into the Psychic type!
     PrintMessage 1585, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP
-    GoTo _Cleanup
-
-_MoveFailed:
-    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
-    End 
-
-_Cleanup:
-    Wait 
+    Wait
     WaitButtonABTime 30
     End

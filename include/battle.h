@@ -107,6 +107,7 @@
 #define ADD_EFFECT_VARIOUS 7
 // new
 #define ADD_EFFECT_PRINT_WORK_ABILITY 8
+#define ADD_EFFECT_STICKY_WEB 9
 
 /**
  *  @brief move status flag defines for the BattleStruct's waza_status_flag field.
@@ -398,6 +399,7 @@
  *
  *  largely for weathers, but also covers uproar, gravity, fog, etc.
  */
+#define WEATHER_NONE                        (0x00000000)
 #define WEATHER_RAIN                        (0x00000001)                                                                    // 0000 0000 0000 0000 0001
 #define WEATHER_RAIN_PERMANENT              (0x00000002)                                                                    // 0000 0000 0000 0000 0010
 #define WEATHER_RAIN_ANY                    (WEATHER_RAIN | WEATHER_RAIN_PERMANENT | WEATHER_HEAVY_RAIN)                    // 0010 0000 0000 0000 0000 0000 0011
@@ -501,7 +503,7 @@
 
 /**
  *  @brief message tags to tell the string buffer expander how to expand each string buffer
- *  buffered as the msg_tag of a MESSAGE_PARAM
+ *  buffered as the tag of a BattleMessage
  *
  *  i.e. TAG_NICK_ABILITY will tell the string buffer preparing function to turn
  *  "{STRVAR_1 1, 0, 0} can’t get it\ngoing because of its {STRVAR_1 5, 1, 0}!"
@@ -671,6 +673,9 @@
 #define STRUGGLE_CHECK_GORILLA_TACTICS      (1 << 10)
 #define STRUGGLE_CHECK_GIGATON_HAMMER       (1 << 11)
 #define STRUGGLE_CHECK_ASSAULT_VEST         (1 << 12)
+#define STRUGGLE_CHECK_THROAT_CHOPPED       (1 << 13)
+#define STRUGGLE_CHECK_BELCH                (1 << 14)
+#define STRUGGLE_CHECK_STUFF_CHEEKS         (1 << 15)
 
 /**
  *  @brief msg work specifically for statuses
@@ -716,7 +721,7 @@ struct __attribute__((packed)) OneTurnEffect
                u32 helping_hand_flag : 1; /**< pokémon is being aided by helping hand */
                u32 magic_cort_flag : 1;   /**< pokémon has magic coat active */
                u32 snatchFlag : 1;
-               u32 haneyasume_flag : 1;
+               u32 roostFlag : 1;
                u32 escape_flag : 2;
                u32 prevent_one_hit_ko_ability : 1; /**< pokémon has damp active */
                // begin custom flags
@@ -946,15 +951,14 @@ struct __attribute__((packed)) tcb_skill_intp_work
     void *work_p[2];
 };
 
-typedef struct
-{
-    u8  command_code;
-    u8  msg_tag;
-    u16 msg_id;
-    int msg_para[6];
+typedef struct BattleMessage {
+    u8 unk0;
+    u8 tag;
+    u16 id;
+    int param[6];
     int numDigits;
-    int msg_client;
-} __attribute__((packed)) MESSAGE_PARAM;
+    int battlerId;
+} BattleMessage;
 
 typedef struct
 {
@@ -1232,7 +1236,18 @@ typedef struct MoveConditionsFlags {
     u8 endTurnMoveEffectActivated : 1;
     u8 moveFailureLastTurn : 1;
     u8 moveFailureThisTurn : 1;
-    u8 padding : 5;
+    u8 soakFlag : 1;
+    u8 magicPowderFlag : 1;
+    u8 forestsCurseFlag : 1;
+    u8 trickOrTreatFlag : 1;
+    u8 burnUpFlag : 1;
+
+    u8 doubleShockFlag : 1;
+    u8 powderBlockingFireMove : 1;
+    u8 laserFocusTimer : 2;
+    u8 glaiveRush : 1;
+    u8 anyStatLoweredThisTurn : 1;
+    u8 throatChopTimer : 2;
 } MoveConditionsFlags;
 
 
@@ -1298,7 +1313,7 @@ struct BattleStruct {
     /*0xDC*/ int push_skill_seq_no[BATTLE_SCRIPT_PUSH_DEPTH];
     /*0xEC*/ int executionIndex;
     /*0xF0*/ int wait_cnt;
-    /*0xF4*/ MESSAGE_PARAM mp;          // buffMsg
+    /*0xF4*/ BattleMessage mp;          // buffMsg
     /*0x118*/ int battlerIdTemp;          // battlerIdTemp
     /*0x11C*/ int attack_client_work;   // battlerIdLeechSeedRecv
     /*0x120*/ int defence_client_work;  // battlerIdLeechSeeded
@@ -1364,7 +1379,8 @@ struct BattleStruct {
     /*0x21F0*/ u32 effectiveSpeed[4]; // psp_agi_point
     /*0x2200*/ u8 ServerQue[4][4][16];
     /*0x2300*/ u8 server_buffer[4][256];
-    /*0x2700*/ int SkillSeqWorkOld[400];
+    /*0x2700*/ struct ABILITY_POPUP_WORK *abilityPopupWork;
+    /*0x2704*/ int SkillSeqWorkOld[399];
     /*0x2D40*/ struct BattlePokemon battlemon[CLIENT_MAX]; //0xc0
     /*0x3040*/ u32 moveNoTemp;
     /*0x3044*/ u32 current_move_index;
@@ -1514,17 +1530,16 @@ typedef struct {
     PMS_DATA lose_word;
 } PACKED TRAINER_DATA; // size: 52 bytes
 
-
 typedef struct MessageFormat MessageFormat;
 
 struct BattleSystem {
     /* 0x00 */ u32 *unk0;
     /* 0x04 */ void * /*BgConfig **/ bgConfig;
-    /* 0x08 */ void * /*Window **/ window;
-    /* 0x0C */ u32 *unkC;
+    /* 0x08 */ struct Window* window;//void * /*Window **/ window;
+    /* 0x0C */ MsgData *msgData;
     /* 0x10 */ u32 *unk10;
     /* 0x14 */ MessageFormat *msgFormat;
-    /* 0x18 */ void * /*String **/ msgBuffer;
+    /* 0x18 */ String * msgBuffer;
     /* 0x1C */ u32 unk1C;
     /* 0x20 */ u32 unk20;
     /* 0x24 */ u32 unk24;
@@ -1627,6 +1642,16 @@ struct BattleSystem {
     // u8 chatotVoiceParam[4];
     // u32 unk2488;
     // u8 unk248C[4];
+};
+
+
+struct ABILITY_POPUP_WORK {
+    struct BattleSystem *bsys;
+    u16 ability;
+    u8 battler;
+    u8 side;
+    u8 frames;
+    u8 step;
 };
 
 
@@ -2146,7 +2171,7 @@ void LONG_CALL Snd_BgmPlay(u32 id);
 u32 LONG_CALL ST_ServerPokeOneSelfCheckActPP(void *bw, struct PartyPokemon *pp);
 void LONG_CALL PokeExpCalc(struct Party *ppt, int pos, int mons_no, int form_no);
 u8 LONG_CALL BattleWorkConfigMsgSpeedGet(void *bw);
-u8 LONG_CALL BattleMSG_Print(void *bw, void *msg_m, MESSAGE_PARAM *mp, int wait);
+u8 LONG_CALL BattleMSG_Print(void *bw, void *msg_m, BattleMessage *mp, int wait);
 u8 LONG_CALL GF_MSG_PrintEndCheck(u8 msg_index);
 void LONG_CALL SCIO_EXPGaugeCalcSet(void *bw, struct BattleStruct *sp, int send_client, int now_exp);
 u32 LONG_CALL ST_ServerQueCheck(struct BattleStruct *sp);
@@ -2164,6 +2189,7 @@ BOOL LONG_CALL ST_ServerWazaHitTokuseiCheck_Old(void*,void*,int *seq_no);
 int LONG_CALL ST_ServerWaruagakiCheck(void *bw, struct BattleStruct *sp, int client_no, int waza_bit, int check_bit);
 struct Save_DexData* LONG_CALL BattleWorkZukanWorkGet(void *bw);
 int LONG_CALL BattleWorkClientSetMaxGet(void*);
+void LONG_CALL BattleSystem_GetBattleMon(void *bsys, struct BattleStruct *ctx, int battlerId, u8 selectedMonIndex);
 u8 LONG_CALL ST_ServerAgiCalc(void*,void*,int ,int,int);
 u16 LONG_CALL GetBattlerSelectedMove(void*,int);
 BOOL LONG_CALL  ST_ServerNamakeCheck(void*,int);
@@ -3660,7 +3686,7 @@ BOOL LONG_CALL BattleContext_CheckMoveUnuseableInGravity(struct BattleSystem *bs
 BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
 //Buffer messages related to being unable to select moves?
-BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int movePos, MESSAGE_PARAM *msg);
+BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int movePos, BattleMessage *msg);
 
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                    u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
@@ -3671,6 +3697,7 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 int LONG_CALL ov12_022506D4(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 move, int a4, int a5);
 
 void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
+void LONG_CALL BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg);
 
 void LONG_CALL BattleControllerPlayer_ItemInput(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
@@ -3709,6 +3736,12 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
 /// @param type
 /// @return whether the client has the type
 BOOL LONG_CALL HasType(struct BattleStruct *ctx, int battlerId, int type);
+
+BOOL LONG_CALL ChangeToPureType(struct BattleStruct *ctx, int battlerId, int type);
+
+BOOL LONG_CALL AddType(struct BattleStruct *ctx, int battlerId, int type);
+
+BOOL LONG_CALL RemoveType(struct BattleStruct *ctx, int battlerId, int type);
 
 void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
@@ -4026,6 +4059,8 @@ BOOL LONG_CALL IsMoveInMinimizeVulnerabilityMovesList(u16 move);
 
 BOOL LONG_CALL IsMonValidAndHealthy(struct PartyPokemon *mon);
 
+BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
+
 // https://x.com/Sibuna_Switch/status/1753849078943723899
 // https://www.youtube.com/watch?v=bLS2WyCaDIM
 // TODO: come back here after implementing Raids
@@ -4081,21 +4116,24 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys);
  */
 void LONG_CALL BattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
 
-#ifdef DEBUG_BATTLE_SCENARIOS
-void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp);
-void LONG_CALL TestBattle_ApplyBattleState(void *bw, struct BattleStruct *sp);
-void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *target);
-int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler);
-void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
-#endif
-
-
 void LONG_CALL InitBattleMsgData(struct BattleStruct *sp, BattleMessageData *msgdata);
-void LONG_CALL InitBattleMsg(struct BattleSystem *bw, struct BattleStruct *sp, BattleMessageData *msgdata, MESSAGE_PARAM *msg);
-void LONG_CALL BattleController_EmitPrintMessage(struct BattleSystem *bw, struct BattleStruct *sp, MESSAGE_PARAM *msg);
+void LONG_CALL InitBattleMsg(struct BattleSystem *bw, struct BattleStruct *sp, BattleMessageData *msgdata, BattleMessage *msg);
+void LONG_CALL BattleController_EmitPrintMessage(struct BattleSystem *bw, struct BattleStruct *sp, BattleMessage *msg);
 void LONG_CALL BattleController_EmitPrintAttackMessage(struct BattleSystem *bw, struct BattleStruct *sp);
 
-
 void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);
+void LONG_CALL StringExpandPlaceholders(MessageFormat *messageFormat, String *dest, String *src);
+#endif
+
+u32 LONG_CALL ov12_0223C4E8(struct BattleSystem* bsys, void* window, void* data, BattleMessage *msg, int x, int y, int flag, int width, int delay);
+void LONG_CALL ov12_0223C224(struct BattleSystem* bsys, int a1);
+void LONG_CALL sub_0200E398(void* bgConfig, u32 a1, u32 a2, u32 a3, u32 heapID);
+void LONG_CALL sub_0200E5D4(void* window, BOOL dont_copy_to_vram);
+u8 LONG_CALL TextPrinterCheckActive(u8 printerId);
+u32 LONG_CALL sub_0200E3D8(void);
+void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSystem, MsgData *data, BattleMessage *msg);
 
 #endif // BATTLE_H

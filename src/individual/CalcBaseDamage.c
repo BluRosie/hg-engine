@@ -260,6 +260,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         movepower = 60 + 20 * DefendingMon.positiveStatBoosts;
         movepower = movepower > 200 ? 200 : movepower;
         break;
+    case MOVE_POWER_TRIP:
     case MOVE_STORED_POWER:
         movepower = 20 + 20 * AttackingMon.positiveStatBoosts;
         break;
@@ -391,6 +392,13 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     case MOVE_TRUMP_CARD:
         movepower = damage_power;
         break;
+    case MOVE_TERRAIN_PULSE:
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0 
+            && sp->terrainOverlay.type 
+            && IsClientGrounded(sp, attacker))
+        {
+            movepower *= 2;
+        }
     default:
         break;
     }
@@ -499,8 +507,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             break;
         case MOVE_LASH_OUT:
             // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8870357
-            // TODO
-            if (FALSE) {
+            if (sp->moveConditionsFlags[attacker].anyStatLoweredThisTurn) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
             }
             break;
@@ -689,13 +696,13 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             }
 
             if ((AttackingMon.ability == ABILITY_RECKLESS)
-            && (moveEffect == MOVE_EFFECT_CRASH_ON_MISS)
-            && (moveEffect == MOVE_EFFECT_RECOIL_QUARTER)
-            && (moveEffect == MOVE_EFFECT_RECOIL_THIRD)
-            && (moveEffect == MOVE_EFFECT_RECOIL_BURN_HIT)
-            && (moveEffect == MOVE_EFFECT_RECOIL_PARALYZE_HIT)
-            && (moveEffect == MOVE_EFFECT_RECOIL_HALF)
-            && (moveEffect == MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS)) {
+            && ((moveEffect == MOVE_EFFECT_CRASH_ON_MISS)
+                || (moveEffect == MOVE_EFFECT_RECOIL_QUARTER)
+                || (moveEffect == MOVE_EFFECT_RECOIL_THIRD)
+                || (moveEffect == MOVE_EFFECT_RECOIL_BURN_HIT)
+                || (moveEffect == MOVE_EFFECT_RECOIL_PARALYZE_HIT)
+                || (moveEffect == MOVE_EFFECT_RECOIL_HALF)
+                || (moveEffect == MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS))) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
                 continue;
             }

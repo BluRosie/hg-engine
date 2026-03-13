@@ -23,8 +23,8 @@ A spray-type medicine to wake the\nsleeping. It can be used to rouse a\nPokémon
 A spray-type medicine for treating\nparalysis. It can be used to free a\nPokémon that has been paralyzed.
 A medicine that can be used to fully\nrestore the max HP of a Pokémon and\ncure any status conditions it may have.
 A spray-type medicine for treating\nwounds. It can be used to fully\nrestore the max HP of a Pokémon.
-A spray-type medicine for treating\nwounds. It can be used to restore\n120 HP to a Pokémon.
-A spray-type medicine for treating\nwounds. It can be used to restore\n60 HP to a Pokémon.
+A spray-type medicine for treating\nwounds. It can be used to restore\n200 HP to a Pokémon.
+A spray-type medicine for treating\nwounds. It can be used to restore\n50 HP to a Pokémon.
 A spray-type medicine that is broadly\neffective. It can be used to cure any\nstatus condition a Pokémon may have.
 A medicine that can be used to revive\na Pokémon that has fainted. It also\nrestores half the Pokémon’s max HP.
 A medicine that can be used to revive\na Pokémon that has fainted. It also\nfully restores the Pokémon’s max HP.
@@ -54,13 +54,13 @@ A nutritious drink for Pokémon.\nThis drink increases base points\nfor a Pokém
 A medicine that can be used to raise the\nmax PP of a single move that a Pokémon\nknows as high as it can possibly go.
 A hidden gem found in the Old Chateau.\nIt can be used to cure any status\ncondition a Pokémon may have.
 An item that prevents Pokémon on\nyour side from having their stats\nlowered in battle for five turns.
-An item that raises the critical-hit ratio\ngreatly. It can be used only once and\nwears off if the Pokémon is withdrawn.
-An item that sharply boosts the Attack\nstat of a Pokémon during a battle.\nIt wears off once the Pokémon is withdrawn.
-An item that sharply boosts the Defense\nstat of a Pokémon during a battle.\nIt wears off once the Pokémon is withdrawn.
-An item that sharply boosts the Speed\nstat of a Pokémon during a battle.\nIt wears off once the Pokémon is withdrawn.
-An item that sharply boosts the accuracy\nof a Pokémon during a battle.\nIt wears off once the Pokémon is withdrawn.
-An item that sharply boosts the Sp. Atk\nstat of a Pokémon during a battle.\nIt wears off once the Pokémon is withdrawn.
-An item that sharply boosts the Sp. Def\nstat of a Pokémon during a battle.\nIt wears off once the Pokémon is withdrawn.
+An item that raises the critical-hit\nratio. It can be used only once and\nwears off if the Pokémon is withdrawn.
+An item that boosts the Attack stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
+An item that boosts the Defense stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
+An item that boosts the Speed stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
+An item that boosts the Accuracy stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
+An item that boosts the Sp. Atk stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
+An item that boosts the Sp. Def stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
 A doll that attracts the attention\nof Pokémon. It guarantees escape\nfrom any battle with wild Pokémon.
 A toy that attracts the attention of\nPokémon. It guarantees escape from\nany battle with wild Pokémon.
 A flute made from blue glass.\nIt awakens sleeping Pokémon.
@@ -212,12 +212,12 @@ If a Pokémon holds one of these Berries,\nit will be able to act faster just on
 If a Pokémon holding this Berry is hit\nwith a physical move, the attacker will\nalso take damage.
 If a Pokémon holding this Berry is hit\nwith a special move, the attacker will\nalso take damage.
 An item to be held by a Pokémon.\nIt casts a tricky glare that lowers\nthe opposing Pokémon’s accuracy.
-An item to be held by a Pokémon.\nIt will restore any lowered stat\nin battle-but only once.
+An item to be held by a Pokémon.\nIt will restore any lowered stat\nin battle--but only once.
 An item to be held by a Pokémon.\nThis stiff, heavy brace helps Pokémon\ngrow strong but cuts Speed in battle.
 An item to be held by a Pokémon.\nThe holder gets a share of a battle’s\nExp. Points without battling.
 An item to be held by a Pokémon.\nThis light, sharp claw lets the\nholder move first occasionally.
 An item to be held by a Pokémon.\nThe comforting chime of this bell\ncalms the holder, making it friendly.
-An item to be held by a Pokémon.\nIt snaps the user out of move-binding\neffects to move freely-but only once.
+An item to be held by a Pokémon.\nIt snaps the user out of move-binding\neffects to move freely--but only once.
 An item to be held by a Pokémon.\nThis curious headband boosts Attack\nbut only allows the use of one move.
 An item to be held by a Pokémon.\nWhen the holder successfully inflicts\ndamage, the target may also flinch.
 An item to be held by a Pokémon.\nIt’s a shiny silver powder that boosts\nthe power of the holder’s Bug-type moves.
@@ -269,7 +269,7 @@ An item to be held by a Pokémon.\nThis thick pair of glasses slightly\nboosts t
 An item to be held by a Pokémon.\nIt’s a well-worn belt that slightly boosts\nthe power of supereffective moves.
 An item to be held by a Pokémon.\nProtective moves like Light Screen\nand Reflect will be effective longer.
 An item to be held by a Pokémon.\nIt boosts the power of moves but\nat the cost of some HP on each hit.
-An item to be held by a Pokémon.\nIt allows the instant use of a move that\ncharges on the first turn-but only once.
+An item to be held by a Pokémon.\nIt allows the instant use of a move that\ncharges on the first turn--but only once.
 An item to be held by a Pokémon.\nIt’s a bizarre orb that will badly\npoison the holder during battle.
 An item to be held by a Pokémon.\nIt’s a bizarre orb that will afflict\nthe holder with a burn during battle.
 An item to be held by Ditto.\nExtremely fine yet hard, this odd\npowder boosts Ditto’s Speed stat.
@@ -462,9 +462,9 @@ A coupon to be exchanged for a\nPokémon Watch- Pokétch for short.\nThree coupo
 A coupon to be exchanged for a\nPokémon Watch- Pokétch for short.\nThree coupons are needed.
 A coupon to be exchanged for a\nPokémon Watch- Pokétch for short.\nThree coupons are needed.
 The key to Team Galactic’s sinister\nwarehouse located at the edge of\nVeilstone City.
-A fantastic medicine dispensed by\nthe pharmacy in Cianwood City.\nIt fully heals a Pokémon of any ailment.
-An amazing device that can record a battle\nbetween friends or the battles at certain\nspecial battle facilities.
-A flower sometimes bundled in bouquets\nto convey gratitude on special occasions,\nsuch as birthdays or anniversaries.
+A fantastic medicine dispensed by the\npharmacy in Cianwood City.\nIt fully heals a Pokémon of any ailment.
+An amazing device that can record a\nbattle between friends or the battles\nat certain special battle facilities.
+A flower sometimes bundled in\nbouquets to convey gratitude on\nspecial occasions, such as birthdays.
 A high-tech key that has to be used at\na specific location. It emits a special\nelectronic signal to open a door.
 A handy box where you can store up\nto 99 of each kind of Apricorn.
 A report of all the discovered kinds\nof Unown.
@@ -492,10 +492,10 @@ A white Apricorn.\nIt doesn’t have any aroma at all.
 A black Apricorn.\nIt has a smell that cannot be captured\nin words.
 A somewhat different Poké Ball that is\nmore effective when catching Pokémon\nthat are usually very quick to run away.
 A somewhat different Poké Ball that\nbecomes more effective the lower the\nlevel of the Pokémon compared to your own.
-A somewhat different Poké Ball that\nis more effective when catching\nPokémon in or on the water.
+A somewhat different Poké Ball that is\nmore effective when catching Pokémon\nin or on the water.
 A somewhat different Poké Ball that\nbecomes more effective the heavier\nthe Pokémon is.
-A somewhat different Poké Ball that is\nmore effective when catching Pokémon of\nthe opposite gender to your own Pokémon.
-A somewhat different Poké Ball that\nmakes a wild Pokémon more friendly\ntoward you immediately after it’s caught.
+A somewhat different Poké Ball that is\nmore effective when catching Pokémon\nof the opposite gender to your own.
+A somewhat different Poké Ball that\nmakes a wild Pokémon more friendly\ntoward you immediately.
 A somewhat different Poké Ball that is\nmore effective when catching Pokémon\nthat can be evolved using a Moon Stone.
 A special Poké Ball that is used\nduring the Bug-Catching Contest.
 A special Poké Ball used in the Pal\nPark.

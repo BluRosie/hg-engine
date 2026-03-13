@@ -751,7 +751,7 @@ movedata MOVE_ROAR, "Roar"
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
-    accuracy DEBUG_NEEDS_TESTING ? 0 : 100 // come back to check accuracyless later
+    accuracy 0
     pp 20
     effectchance 0
     target RANGE_SINGLE_TARGET
@@ -2242,7 +2242,7 @@ movedata MOVE_POISON_GAS, "Poison Gas"
     accuracy 90
     pp 40
     effectchance 0
-    target DEBUG_NEEDS_TESTING ? RANGE_ADJACENT_OPPONENTS : RANGE_SINGLE_TARGET
+    target RANGE_ADJACENT_OPPONENTS
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_PROTECT
     appeal APPEAL_BASIC
@@ -2866,7 +2866,7 @@ movedata MOVE_COTTON_SPORE, "Cotton Spore"
     accuracy 100
     pp 40
     effectchance 0
-    target DEBUG_NEEDS_TESTING ? RANGE_ADJACENT_OPPONENTS : RANGE_SINGLE_TARGET
+    target RANGE_ADJACENT_OPPONENTS
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_PROTECT
     appeal APPEAL_FIRST_NEXT_TURN
@@ -7185,7 +7185,7 @@ movedata MOVE_CHATTER, "Chatter"
     type TYPE_FLYING
     accuracy 100
     pp 20
-    effectchance DEBUG_NEEDS_TESTING ? 100 : 0 // always confuse
+    effectchance 100 // always confuse
     target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
@@ -7973,7 +7973,7 @@ movedata MOVE_ENTRAINMENT, "Entrainment"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_CUTE
     terminatedata
@@ -8053,7 +8053,7 @@ movedata MOVE_CLEAR_SMOG, "Clear Smog"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_BEAUTY
     terminatedata
@@ -8149,7 +8149,7 @@ movedata MOVE_HEAL_PULSE, "Heal Pulse"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_BEAUTY
     terminatedata
@@ -8293,7 +8293,7 @@ movedata MOVE_RETALIATE, "Retaliate"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_CONTACT | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -9132,7 +9132,7 @@ movedata MOVE_PHANTOM_FORCE, "Phantom Force"
     movedescription MOVE_PHANTOM_FORCE, "The user disappears,\nthen strikes the foe\non the second turn.\nIt hits even if the\nfoe protects itself."
 
 movedata MOVE_TRICK_OR_TREAT, "Trick-or-Treat"
-    battleeffect MOVE_EFFECT_ADD_THIRD_TYPE_GHOST
+    battleeffect MOVE_EFFECT_ADD_TYPE_GHOST
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GHOST
@@ -9196,7 +9196,7 @@ movedatalongname MOVE_PARABOLIC_CHARGE, "ParabolicCharge", "Parabolic Charge"
     movedescription MOVE_PARABOLIC_CHARGE, "An energy-draining\nshockwave. The user’s\nHP is restored by\nhalf the damage taken\nby those hit."
 
 movedata MOVE_FORESTS_CURSE, "Forest’s Curse"
-    battleeffect MOVE_EFFECT_ADD_THIRD_TYPE_GRASS
+    battleeffect MOVE_EFFECT_ADD_TYPE_GRASS
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
@@ -9237,7 +9237,7 @@ movedata MOVE_FREEZE_DRY, "Freeze-Dry"
     effectchance 10
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_BEAUTY
     terminatedata
@@ -9660,14 +9660,14 @@ movedata MOVE_VENOM_DRENCH, "Venom Drench"
     movedescription MOVE_VENOM_DRENCH, "Foes are drenched in\na poisonous liquid.\nThis lowers the Attack,\nSp. Atk, and Speed of\na poisoned target."
 
 movedata MOVE_POWDER, "Powder"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_POWDER
     pss SPLIT_STATUS
     basepower 0
     type TYPE_BUG
     accuracy 100
     pp 20
     effectchance 0
-    target RANGE_SINGLE_TARGET | FLAG_UNUSABLE_UNIMPLEMENTED
+    target RANGE_SINGLE_TARGET
     priority 1
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
@@ -10750,7 +10750,7 @@ movedata MOVE_HIGH_HORSEPOWER, "High Horsepower"
     movedescription MOVE_HIGH_HORSEPOWER, "The user fiercely\nattacks the target\nusing its entire body."
 
 movedata MOVE_STRENGTH_SAP, "Strength Sap"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_STRENGTH_SAP
     pss SPLIT_STATUS
     basepower 0
     type TYPE_GRASS
@@ -10759,7 +10759,7 @@ movedata MOVE_STRENGTH_SAP, "Strength Sap"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -10830,7 +10830,7 @@ movedata MOVE_TOXIC_THREAD, "Toxic Thread"
     movedescription MOVE_TOXIC_THREAD, "The user shoots\npoisonous threads\nto poison the target\nand lower the\ntarget's Speed stat."
 
 movedata MOVE_LASER_FOCUS, "Laser Focus"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_LASER_FOCUS
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -10839,7 +10839,7 @@ movedata MOVE_LASER_FOCUS, "Laser Focus"
     effectchance 0
     target RANGE_USER
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_IN_GEN_9
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -10862,7 +10862,7 @@ movedata MOVE_GEAR_UP, "Gear Up"
     movedescription MOVE_GEAR_UP, "The user engages its\ngears to raise the\nAttack and Sp. Atk\nstats of ally Pokémon\nwith Plus or Minus."
 
 movedata MOVE_THROAT_CHOP, "Throat Chop"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_THROAT_CHOP
     pss SPLIT_PHYSICAL
     basepower 80
     type TYPE_DARK
@@ -10871,7 +10871,7 @@ movedata MOVE_THROAT_CHOP, "Throat Chop"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -10887,7 +10887,7 @@ movedata MOVE_POLLEN_PUFF, "Pollen Puff"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -10967,7 +10967,7 @@ movedata MOVE_POWER_TRIP, "Power Trip"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -11387,7 +11387,7 @@ movedatalongname MOVE_STOMPING_TANTRUM, "StompingTantrum", "Stomping Tantrum"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12019,7 +12019,7 @@ movedata MOVE_JAW_LOCK, "Jaw Lock"
     movedescription MOVE_JAW_LOCK, "This move prevents the\nuser and the target from\nswitching out until\neither of them faints or\nleaves the field."
 
 movedata MOVE_STUFF_CHEEKS, "Stuff Cheeks"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_STUFF_CHEEKS
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -12028,7 +12028,7 @@ movedata MOVE_STUFF_CHEEKS, "Stuff Cheeks"
     effectchance 100
     target RANGE_USER
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12509,7 +12509,7 @@ movedata MOVE_DECORATE, "Decorate"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12845,14 +12845,14 @@ movedata MOVE_STEEL_ROLLER, "Steel Roller"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
     movedescription MOVE_STEEL_ROLLER, "The user attacks while\ndestroying the terrain.\nThis move fails if the\nground hasn't turned\ninto a terrain."
 
 movedata MOVE_SCALE_SHOT, "Scale Shot"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_MULTI_HIT // handled in endMove.c
     pss SPLIT_PHYSICAL
     basepower 25
     type TYPE_DRAGON
@@ -12861,7 +12861,7 @@ movedata MOVE_SCALE_SHOT, "Scale Shot"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12957,7 +12957,7 @@ movedata MOVE_TERRAIN_PULSE, "Terrain Pulse"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -12996,7 +12996,7 @@ movedatalongname MOVE_BURNING_JEALOUSY, "BurningJealousy", "Burning Jealousy"
     movedescription MOVE_BURNING_JEALOUSY, "The user attacks with\nenergy from jealousy.\nThis burns all opposing\nPokémon that have had\ntheir stats boosted."
 
 movedata MOVE_LASH_OUT, "Lash Out"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_HIT //damage portion handled in CalcBaseDamage.c.
     pss SPLIT_PHYSICAL
     basepower 75
     type TYPE_DARK
@@ -13005,7 +13005,7 @@ movedata MOVE_LASH_OUT, "Lash Out"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13053,7 +13053,7 @@ movedata MOVE_COACHING, "Coaching"
     effectchance 0
     target RANGE_ALLY
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13718,7 +13718,7 @@ movedata MOVE_SILK_TRAP, "Silk Trap"
     movedescription MOVE_SILK_TRAP, "The user spins a silken\ntrap, protecting itself\nwhile lowering the Speed\nof any attacker that\nmakes direct contact."
 
 movedata MOVE_AXE_KICK, "Axe Kick"
-    battleeffect MOVE_EFFECT_CONFUSE_AND_CRASH_IF_MISS
+    battleeffect MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_FIGHTING
@@ -13862,7 +13862,7 @@ movedata MOVE_ICE_SPINNER, "Ice Spinner"
     movedescription MOVE_ICE_SPINNER, "The user covers its\nfeet in ice and twirls\naround, slamming into\nthe target. It also\ndestroys the terrain."
 
 movedata MOVE_GLAIVE_RUSH, "Glaive Rush"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_GLAIVE_RUSH
     pss SPLIT_PHYSICAL
     basepower 120
     type TYPE_DRAGON
@@ -13871,7 +13871,7 @@ movedata MOVE_GLAIVE_RUSH, "Glaive Rush"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -14405,7 +14405,7 @@ movedata MOVE_AQUA_CUTTER, "Aqua Cutter"
     terminatedata
     movedescription MOVE_AQUA_CUTTER, "The user expels\npressurized water to\ncut at the target like\na blade. It has a high\ncritical-hit ratio."
 
-// The Torque moves are not normally used by players, so they lack internal descriptions. 
+// The Torque moves are not normally used by players, so they lack internal descriptions.
 // The given descriptions are sourced from PokeRogue with permission.
 movedata MOVE_BLAZING_TORQUE, "Blazing Torque"
     battleeffect MOVE_EFFECT_BURN_HIT
