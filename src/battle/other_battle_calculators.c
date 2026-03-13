@@ -1620,11 +1620,17 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
     // TODO: refactor SUB_SEQ_HP_CHANGE so it batches HP changes for spread moves too?
     //   else just call batch update subscript here if spread move
     if (didDmg) {
-        debug_printf("[ServerHPCalc] damage was dealt, loading HP change subscript\n");
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
-        ctx->server_seq_no = 22;
-        ctx->next_server_seq_no = 29;
-        ctx->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+        if (IS_SPREAD_MOVE(ctx)) {
+            debug_printf("[ServerHPCalc] spread damage dealt, continuing to spread loop/batch path\n");
+            ctx->server_seq_no = 29;
+            ctx->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+        } else {
+            debug_printf("[ServerHPCalc] damage was dealt, loading HP change subscript\n");
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
+            ctx->server_seq_no = 22;
+            ctx->next_server_seq_no = 29;
+            ctx->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+        }
     } else {
         debug_printf("[ServerHPCalc] no damage was dealt moving on to 29\n");
         ctx->server_seq_no = 29;
