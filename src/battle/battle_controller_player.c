@@ -134,10 +134,7 @@ BOOL LONG_CALL BattleContext_ShouldPrintFollowupMessage(struct BattleSystem *bat
         }
     }
 
-    if (ret && ctx->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE) {
-        // stash the status flag instead of displaying a message now
-        ctx->moveStatusFlagForSimultaneousDamage[ctx->defence_client] = ctx->waza_status_flag;
-    } else if (ret == TRUE) {
+    if (ret == TRUE && !(ctx->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE)) {
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FOLLOWUP_MESSAGE);
         ctx->next_server_seq_no  = ctx->server_seq_no;
         ctx->server_seq_no  = CONTROLLER_COMMAND_RUN_SCRIPT;

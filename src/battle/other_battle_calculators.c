@@ -1571,9 +1571,9 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
     BOOL didDmg = FALSE;
 
     if (IS_SPREAD_MOVE(ctx)) {
-        //for (int i = 0; i < 4; i++) {
-        //    ctx->damageForSpreadMoves[i] = 0;
-        //}
+        for (int i = 0; i < BattleWorkClientSetMaxGet(bsys); i++) {
+            ctx->moveStatusFlagForSimultaneousDamage[i] = 0;
+        }
 
         // TODO: common function/macro to handle the logic of creating an array with valid clients to loop over?
         int moveTarget = ctx->moveTbl[ctx->current_move_index].target;
@@ -1585,7 +1585,9 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
         {
             debug_printf("[ServerHPCalc] calling internal ServerHPCalc for attacker %d and defender (ally) %d\n", ctx->attack_client, ally);
             ctx->defence_client = ally;
+            ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[ally];
             internalFunc(bsys, ctx);
+            ctx->moveStatusFlagForSimultaneousDamage[ally] = ctx->waza_status_flag;
         }
 
         if (rangeAdjacentOpp || rangeAllAdjacent) {
@@ -1593,14 +1595,18 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
             if (IS_VALID_MOVE_TARGET(ctx, oppL)) {
                 debug_printf("[ServerHPCalc] calling internal ServerHPCalc for attacker %d and defender (oppL) %d\n", ctx->attack_client, oppL);
                 ctx->defence_client = oppL;
+                ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppL];
                 internalFunc(bsys, ctx);
+                ctx->moveStatusFlagForSimultaneousDamage[oppL] = ctx->waza_status_flag;
             }
 
             int oppR = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
             if (IS_VALID_MOVE_TARGET(ctx, oppR)) {
                 debug_printf("[ServerHPCalc] calling internal ServerHPCalc for attacker %d and defender (oppR) %d\n", ctx->attack_client, oppR);
                 ctx->defence_client = oppR;
+                ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppR];
                 internalFunc(bsys, ctx);
+                ctx->moveStatusFlagForSimultaneousDamage[oppR] = ctx->waza_status_flag;
             }
         }
 
@@ -2804,74 +2810,14 @@ void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx
  * https://github.com/pret/pokeplatinum/blob/04d9ea4cfad3963feafecf3eb0f4adcbc7aa5063/src/battle/battle_controller.c#L3832
  */
 void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    ctx->server_seq_no = CONTROLLER_COMMAND_36;
-    return;
-    /*
-    if (ctx->server_status_flag2 & BATTLE_STATUS2_MAGIC_COAT) {
-        ctx->server_status_flag2 &= ~BATTLE_STATUS2_MAGIC_COAT;
-        ctx->defence_client   = ctx->attack_client;
-        ctx->attack_client = ctx->magic_cort_client;
-    }
-
-    ov12_0224DD74(bsys, ctx);
-
-    if (ctx->moveTbl[ctx->current_move_index].target == RANGE_ADJACENT_OPPONENTS && !(ctx->server_status_flag & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->client_loop < BattleWorkClientSetMaxGet(bsys)) {
-        ctx->waza_out_check_on_off = 13;
-        int battlerId;
-        int maxBattlers UNUSED        = BattleWorkClientSetMaxGet(bsys);
-        struct CLIENT_PARAM *opponent = BattleWorkClientParamGet(bsys, ctx->attack_client);
-        u8 flag                = ov12_02261258(opponent);
-
-        do {
-            battlerId = ctx->turnOrder[ctx->client_loop++];
-            if (ctx->moveStatusFlagForSpreadMoves[battlerId] & MOVE_STATUS_FLAG_FAILURE_ANY) {
-                continue;
-            }
-            if (!(ctx->no_reshuffle_client & No2Bit(battlerId)) && ctx->battlemon[battlerId].hp != 0) {
-                opponent = BattleWorkClientParamGet(bsys, battlerId);
-                if (((flag & 1) && !(ov12_02261258(opponent) & 1)) || (!(flag & 1) && ov12_02261258(opponent) & 1)) {
-                    ov12_02252D14(bsys, ctx);
-                    ctx->defence_client = battlerId;
-                    ctx->server_seq_no         = CONTROLLER_COMMAND_24;
-                    break;
-                }
-            }
-        } while (ctx->client_loop < BattleWorkClientSetMaxGet(bsys));
-
-        SCIO_BlankMessage(bsys);
-    } else if (ctx->moveTbl[ctx->current_move_index].target == RANGE_ALL_ADJACENT && !(ctx->server_status_flag & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->client_loop < BattleWorkClientSetMaxGet(bsys)) {
-        ctx->waza_out_check_on_off = 13;
-
-        int battlerId;
-        int maxBattlers UNUSED = BattleWorkClientSetMaxGet(bsys);
-
-        do {
-            battlerId = ctx->turnOrder[ctx->client_loop++];
-            if (ctx->moveStatusFlagForSpreadMoves[battlerId] & MOVE_STATUS_FLAG_FAILURE_ANY) {
-                continue;
-            }
-            if (!(ctx->no_reshuffle_client & No2Bit(battlerId)) && ctx->battlemon[battlerId].hp != 0) {
-                if (battlerId != ctx->attack_client) {
-                    ov12_02252D14(bsys, ctx);
-                    ctx->defence_client = battlerId;
-                    ctx->server_seq_no         = CONTROLLER_COMMAND_24;
-                    break;
-                }
-            }
-        } while (ctx->client_loop < BattleWorkClientSetMaxGet(bsys));
-
-        SCIO_BlankMessage(bsys);
+    if (IS_SPREAD_MOVE(ctx) && (ctx->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE)) {
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BATCH_UPDATE_HP);
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        ctx->next_server_seq_no = CONTROLLER_COMMAND_36;
+        ctx->server_status_flag &= ~SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE;
     } else {
-        if (IS_SPREAD_MOVE(ctx) && (ctx->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE)) {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BATCH_UPDATE_HP);
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            ctx->next_server_seq_no = CONTROLLER_COMMAND_36;
-            ctx->server_status_flag &= ~SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE;
-        } else {
-            ctx->server_seq_no = CONTROLLER_COMMAND_36;
-        }
+        ctx->server_seq_no = CONTROLLER_COMMAND_36;
     }
-        */
 }
 
 /**
