@@ -4210,37 +4210,12 @@ BOOL LONG_CALL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 
 int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys, struct BattleStruct *sp, int *seq_no);
-int LONG_CALL Activate_Clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL Activate_FlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL Activate_Rowap_Jaboca(void *bw, struct BattleStruct *sp);
-int LONG_CALL Activate_Incinerate(void *bw, struct BattleStruct *sp);
-void LONG_CALL Activate_KO_Count(void *bw, struct BattleStruct *sp);
-int LONG_CALL ThawTarget_FromFireMove_Scald(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL Activate_ThroatSpray_BlunderPolicy(void *bsys, struct BattleStruct *ctx);
-int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *sp);
-int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL Activate_FormChange(void *bsys, struct BattleStruct *ctx);
-int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bw, struct BattleStruct *ctx);
-int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct BattleStruct *ctx);
-int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL Activate_Pickpocket(void *bsys UNUSED, struct BattleStruct *sp);
-int LONG_CALL Activate_Disguise_IceFace(void *bsys, struct BattleStruct *sp);
-
-int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx);
-
-int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ctx);
-int LONG_CALL Activate_BurnUp_DoubleShock(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL Activate_SteelRoller_IceSpinner(void *bsys UNUSED, struct BattleStruct *ctx);
-
-int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys UNUSED, struct BattleStruct *ctx);
 
 int LONG_CALL IsMoveSpreadMove(struct BattleStruct *ctx, int move);
 int LONG_CALL IsTargetFoesAndAlly(struct BattleStruct *ctx, int move);
 int LONG_CALL CanGetNextDefender(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+
 BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
 
 #ifdef DEBUG_BATTLE_SCENARIOS
