@@ -416,13 +416,15 @@ bx r1
 
 .global BattleController_EmitHealthbarSlideIn_SkipInvalid
 BattleController_EmitHealthbarSlideIn_SkipInvalid:
-ldr  r0, [sp, #4]
+push {r0}
+ldr  r0, [sp, #8]
 mov  r1, r4
 bl   IsBattlerSlotValid
+pop  {r2}
 cmp  r0, #0
 beq  _returnTo02262B4A
 
-str r0, [sp, #0xc]
+str r2, [sp, #0xc]
 mov r0, #0xc
 add r3, sp, #0x14
 strb r0, [r3]
