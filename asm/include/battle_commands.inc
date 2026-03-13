@@ -1544,7 +1544,27 @@
     .long (((\arg_1 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 281
+    .macro BatchUpdateHealthBar
+    .long 282
+    .endm
+
+    .macro BatchUpdateHealthBarValue
+    .long 283
+    .endm
+
+    .macro BatchFollowupMessage arg_0
+    .long 284
+    .long \arg_0
+    .endm
+
+    .macro BatchEffectivenessMessage arg_0, arg_1, arg_2
+    .long 285
+    .long \arg_0
+    .long \arg_1
+    .long (((\arg_2 - .) / 4) - 1)
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 285
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

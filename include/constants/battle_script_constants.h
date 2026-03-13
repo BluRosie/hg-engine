@@ -26,7 +26,7 @@
 #define SUB_SEQ_APPLY_SLEEP                     ( 18)
 #define SUB_SEQ_WAKE_UP                         ( 19)
 #define SUB_SEQ_SLEEPING                        ( 20)
-#define SUB_SEQ_MOVE_SUCCESS_MESSAGE            ( 21)
+#define SUB_SEQ_MOVE_FOLLOWUP_MESSAGE           ( 21)
 #define SUB_SEQ_APPLY_POISON                    ( 22)
 #define SUB_SEQ_POISON_DAMAGE                   ( 23)
 #define SUB_SEQ_DRAIN_HALF                      ( 24)
@@ -494,8 +494,9 @@
 #define SUB_SEQ_SET_SPIKES                            (484)
 #define SUB_SEQ_SET_STEALTH_ROCK                      (485)
 #define SUB_SEQ_HANDLE_RED_CARD                       (486)
+#define SUB_SEQ_BATCH_UPDATE_HP                       (487)
 
-#define MAX_BASE_SUBSCRIPT_NUM 486
+#define MAX_BASE_SUBSCRIPT_NUM 487
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
