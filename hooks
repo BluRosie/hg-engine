@@ -573,7 +573,6 @@ arm9 SetupAndStartTutorialBattle 02051334 1
 0010 TestBattle_AIPickCommand 022205BC 2
 0012 TestBattle_PostKOSwitchIn 02258800 2
 0012 CheckTrainerMessage 02250D4C 2
-0012 BattleMessage_ExpandPlaceholders 0223CEF4
 #endif
 
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2
