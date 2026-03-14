@@ -1583,7 +1583,6 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
         int ally = BATTLER_ALLY(ctx->attack_client);
         if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || (IS_TARGET_BOTH_MOVE(ctx) && ally == ctx->defence_client) || rangeAllAdjacent) && IS_VALID_MOVE_TARGET(ctx, ally))
         {
-            debug_printf("[ServerHPCalc] calling internal ServerHPCalc for attacker %d and defender (ally) %d\n", ctx->attack_client, ally);
             ctx->defence_client = ally;
             ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[ally];
             internalFunc(bsys, ctx);
@@ -1593,7 +1592,6 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
         if (rangeAdjacentOpp || rangeAllAdjacent) {
             int oppL = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
             if (IS_VALID_MOVE_TARGET(ctx, oppL)) {
-                debug_printf("[ServerHPCalc] calling internal ServerHPCalc for attacker %d and defender (oppL) %d\n", ctx->attack_client, oppL);
                 ctx->defence_client = oppL;
                 ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppL];
                 internalFunc(bsys, ctx);
@@ -1602,7 +1600,6 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
             int oppR = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
             if (IS_VALID_MOVE_TARGET(ctx, oppR)) {
-                debug_printf("[ServerHPCalc] calling internal ServerHPCalc for attacker %d and defender (oppR) %d\n", ctx->attack_client, oppR);
                 ctx->defence_client = oppR;
                 ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppR];
                 internalFunc(bsys, ctx);
@@ -1627,18 +1624,15 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
     //   else just call batch update subscript here if spread move
     if (didDmg) {
         if (IS_SPREAD_MOVE(ctx)) {
-            debug_printf("[ServerHPCalc] spread damage dealt, continuing to spread loop/batch path\n");
             ctx->server_seq_no = 29;
             ctx->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
         } else {
-            debug_printf("[ServerHPCalc] damage was dealt, loading HP change subscript\n");
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
             ctx->server_seq_no = 22;
             ctx->next_server_seq_no = 29;
             ctx->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
         }
     } else {
-        debug_printf("[ServerHPCalc] no damage was dealt moving on to 29\n");
         ctx->server_seq_no = 29;
     }
 
