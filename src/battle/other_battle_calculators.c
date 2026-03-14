@@ -1585,6 +1585,7 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
         {
             ctx->defence_client = ally;
             ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[ally];
+            ctx->damage = ctx->damageForSpreadMoves[ally];
             internalFunc(bsys, ctx);
             ctx->moveStatusFlagForSimultaneousDamage[ally] = ctx->waza_status_flag;
         }
@@ -1594,6 +1595,7 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
             if (IS_VALID_MOVE_TARGET(ctx, oppL)) {
                 ctx->defence_client = oppL;
                 ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppL];
+                ctx->damage = ctx->damageForSpreadMoves[oppL];
                 internalFunc(bsys, ctx);
                 ctx->moveStatusFlagForSimultaneousDamage[oppL] = ctx->waza_status_flag;
             }
@@ -1602,6 +1604,7 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
             if (IS_VALID_MOVE_TARGET(ctx, oppR)) {
                 ctx->defence_client = oppR;
                 ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppR];
+                ctx->damage = ctx->damageForSpreadMoves[oppR];
                 internalFunc(bsys, ctx);
                 ctx->moveStatusFlagForSimultaneousDamage[oppR] = ctx->waza_status_flag;
             }
@@ -1622,18 +1625,19 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     // TODO: refactor SUB_SEQ_HP_CHANGE so it batches HP changes for spread moves too?
     //   else just call batch update subscript here if spread move
+    ctx->server_seq_no = CONTROLLER_COMMAND_29;
+    ctx->next_server_seq_no = CONTROLLER_COMMAND_29;
     if (didDmg) {
         if (IS_SPREAD_MOVE(ctx)) {
-            ctx->server_seq_no = 29;
             ctx->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BATCH_UPDATE_HP);
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            //ctx->server_status_flag &= ~SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE;
         } else {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
-            ctx->server_seq_no = 22;
-            ctx->next_server_seq_no = 29;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
         }
-    } else {
-        ctx->server_seq_no = 29;
     }
 
     UnloadOverlayByID(ovyId);
@@ -2798,20 +2802,36 @@ void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx
     ST_ServerMetronomeBeforeCheck(bsys, ctx);  // 801ED20h
 }
 
+
+void LONG_CALL ov12_0224C678(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    ctx->damageForSpreadMoves[ctx->defence_client] = ctx->damage;
+    ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = ctx->waza_status_flag;
+    if (ctx->critical) {
+        ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] |= WAZA_STATUS_FLAG_CRITICAL;
+    }
+
+    if (CanGetNextDefender(bsys, ctx) == TRUE) {
+        ctx->server_seq_no = CONTROLLER_COMMAND_24;
+        return;
+    } else {
+        ctx->clientLoopForSpreadMoves = 0;
+        CanGetNextDefender(bsys, ctx);
+    }
+
+    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TRY_MOVE);
+    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+    ctx->next_server_seq_no = CONTROLLER_COMMAND_HP_CALC;
+} 
+
+
 /**
  * Platinum version as reference
  * BattleController_LoopSpreadMoves
  * https://github.com/pret/pokeplatinum/blob/04d9ea4cfad3963feafecf3eb0f4adcbc7aa5063/src/battle/battle_controller.c#L3832
  */
 void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    if (IS_SPREAD_MOVE(ctx) && (ctx->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE)) {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BATCH_UPDATE_HP);
-        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-        ctx->next_server_seq_no = CONTROLLER_COMMAND_36;
-        ctx->server_status_flag &= ~SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE;
-    } else {
-        ctx->server_seq_no = CONTROLLER_COMMAND_36;
-    }
+    ctx->server_seq_no = CONTROLLER_COMMAND_36;
 }
 
 /**

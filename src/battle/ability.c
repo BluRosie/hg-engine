@@ -773,24 +773,14 @@ BOOL LONG_CALL MoveHitDefenderCottonDownCheck(void* bw UNUSED, struct BattleStru
  */
 void ServerWazaOutAfterMessage(void *bsys, struct BattleStruct *ctx)
 {
+    //TODO:
     if (ctx->server_status_flag2 & BATTLE_STATUS2_MAGIC_COAT) {
         ctx->server_status_flag2 &= ~BATTLE_STATUS2_MAGIC_COAT;
         ctx->defence_client = ctx->attack_client;
         ctx->attack_client = ctx->magic_cort_client;
     }
 
-    ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = ctx->waza_status_flag;
-    ctx->damageForSpreadMoves[ctx->defence_client] = ctx->damage;
-    ctx->serverStatusForSpreadMoves[ctx->defence_client] = ctx->server_status_flag;
-
     ctx->server_seq_no = CONTROLLER_COMMAND_31;
-    if (CanGetNextDefender(bsys, ctx) == TRUE) {
-        ctx->server_seq_no = CONTROLLER_COMMAND_24;
-    } else {
-        ctx->clientLoopForSpreadMoves = 0;
-        CanGetNextDefender(bsys, ctx);
-    }
-
     ctx->swoam_seq_no = 0;
     return;
     /*
