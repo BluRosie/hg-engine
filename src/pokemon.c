@@ -1485,6 +1485,16 @@ u32 LONG_CALL CheckIfMonsAreEqual(struct PartyPokemon *pokemon1, struct PartyPok
 BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID) {
     struct PartyPokemon *mon = Party_GetMonByIndex(party, partyIdx);
 
+    if (itemID == ITEM_ABILITY_CAPSULE)
+    {
+        return CanUseAbilityCapsule(mon);
+    }
+
+    if (itemID == ITEM_ABILITY_PATCH)
+    {
+        return CanUseAbilityPatch(mon);
+    }
+
     if (GetItemData(itemID, ITEM_PARAM_LEVEL_UP, heapID) && GetMonData(mon, MON_DATA_LEVEL, NULL) == 100 && GetMonEvolution(party, mon, EVOCTX_LEVELUP, itemID, NULL))
     {
         return TRUE;

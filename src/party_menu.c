@@ -307,14 +307,18 @@ int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
     }
 
     if (CanUseItemOnMonInParty(partyMenu->args->party, partyMenu->args->itemId, partyMenu->partyMonIndex, 0, HEAP_ID_PARTY_MENU) == TRUE) {
-        Bag_TakeItem(partyMenu->args->bag, partyMenu->args->itemId, 1, HEAP_ID_PARTY_MENU);
         if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_EVOLUTION)) {
+            Bag_TakeItem(partyMenu->args->bag, partyMenu->args->itemId, 1, HEAP_ID_PARTY_MENU);
             struct PartyPokemon *mon = Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex);
             partyMenu->args->species = GetMonEvolution(NULL, mon, EVOCTX_ITEM_USE, partyMenu->args->itemId, &partyMenu->args->evoMethod);
             partyMenu->args->selectedAction = 8;
             sys_FreeMemoryEz(itemData);
             return PARTY_MENU_STATE_BEGIN_EXIT;
         } else {
+            if (UseItemMonAttrChangeCheck(partyMenu, itemData) == TRUE) {
+                return PARTY_MENU_STATE_FORM_CHANGE_ANIM;
+            }
+            Bag_TakeItem(partyMenu->args->bag, partyMenu->args->itemId, 1, HEAP_ID_PARTY_MENU);
             PartyMenu_SetItemUseFuncFromBagSelection(partyMenu);
         }
     } else {
