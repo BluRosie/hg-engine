@@ -5413,7 +5413,7 @@ mondata SPECIES_COMBUSKEN, "Combusken"
 
 mondata SPECIES_IRON_FLARE, "Iron Flare"
     basestats 80, 120, 70, 80, 110, 70
-    types TYPE_FIRE, TYPE_FIGHTING
+    types TYPE_FIRE, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
     evyields 0, 3, 0, 0, 0, 0
@@ -5427,7 +5427,7 @@ mondata SPECIES_IRON_FLARE, "Iron Flare"
     runchance 0
     colorflip BODY_COLOR_RED, 0
     mondexentry SPECIES_IRON_FLARE, "It can clear a 30-story building\nin a leap. Its fiery punches scorch\nits foes."
-    mondexclassification SPECIES_IRON_FLARE, "Blaze Pokémon"
+    mondexclassification SPECIES_IRON_FLARE, "Flare Pokémon"
     mondexheight SPECIES_IRON_FLARE, "6’03”"
     mondexweight SPECIES_IRON_FLARE, "114.6 lbs."
 
@@ -8185,7 +8185,7 @@ mondata SPECIES_GROTLE, "Grotle"
 
 mondata SPECIES_IRON_BARK, "Iron Bark"
     basestats 95, 109, 105, 56, 75, 85
-    types TYPE_GRASS, TYPE_GROUND
+    types TYPE_GRASS, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
     evyields 0, 2, 1, 0, 0, 0
@@ -14884,7 +14884,7 @@ mondata SPECIES_FROGADIER, "Frogadier"
 
 mondata SPECIES_IRON_SHURIKEN "IronShurkn"
     basestats 72, 95, 67, 122, 103, 71
-    types TYPE_WATER, TYPE_DARK
+    types TYPE_WATER, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 3, 0, 0
@@ -14898,7 +14898,7 @@ mondata SPECIES_IRON_SHURIKEN "IronShurkn"
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     mondexentry SPECIES_IRON_SHURIKEN "It creates throwing stars out of\ncompressed water, that can split metal\nin two."
-    mondexclassification SPECIES_IRON_SHURIKEN "Ninja Pokémon"
+    mondexclassification SPECIES_IRON_SHURIKEN "Shuriken Pokémon"
     mondexheight SPECIES_IRON_SHURIKEN "4’11”"
     mondexweight SPECIES_IRON_SHURIKEN "88.2 lbs."
 
