@@ -1155,6 +1155,8 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
         }
     }
 
+    CanGetNextDefender(bsys, ctx); //at least one valid hit
+
     // Redirect to original TryMove
     ctx->server_seq_no = CONTROLLER_COMMAND_24;
     if (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) {

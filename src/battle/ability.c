@@ -21,16 +21,15 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
 //int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 //BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
 //u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
-BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 //BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 //u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
 BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no);
-BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
+
 void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp);
 //u32 ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx);
-BOOL LONG_CALL MoveHitDefenderCottonDownCheck(void* bw UNUSED, struct BattleStruct* sp, int* seq_no);
-BOOL LONG_CALL MoveHitDefenderCottonDownCheckHelper(struct BattleStruct* sp, int battler, int* seq_no);
+//BOOL LONG_CALL MoveHitDefenderCottonDownCheck(void* bw UNUSED, struct BattleStruct* sp, int* seq_no);
+//BOOL LONG_CALL MoveHitDefenderCottonDownCheckHelper(struct BattleStruct* sp, int battler, int* seq_no);
 
 
 /**
@@ -301,7 +300,7 @@ u8 LONG_CALL BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
  *  @param seq_no the subscript number to load and run
  *  @return TRUE if a script should be run and is in *seq_no; FALSE otherwise
  */
-BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
+BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
 
@@ -321,71 +320,16 @@ BOOL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
                 && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
                 && (CheckSubstitute(sp, sp->defence_client) == FALSE)
-                && (BattleRand(bw) % 10 < 3))
+#ifndef DEBUG_BATTLE_SCENARIOS
+                && (BattleRand(bw) % 10 < 3)
+#endif
+                )
             {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
                 sp->state_client = sp->defence_client;
                 sp->battlerIdTemp = sp->attack_client;
                 seq_no[0] = SUB_SEQ_APPLY_POISON;
                 ret = TRUE;
-            }
-            break;
-        case ABILITY_BEAST_BOOST:
-            if ((sp->defence_client == sp->fainting_client)
-                && BATTLERS_ON_DIFFERENT_SIDE(sp->attack_client, sp->fainting_client)
-                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-                && (sp->battlemon[sp->attack_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-            {
-                u8 stat = BeastBoostGreatestStatHelper(sp, sp->attack_client);
-
-                if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK + stat] < 12)
-                    && (sp->battlemon[sp->attack_client].moveeffect.fakeOutCount != (sp->total_turn + 1)))
-                {
-                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
-                }
-            }
-            break;
-        case ABILITY_CHILLING_NEIGH:
-        case ABILITY_AS_ONE_GLASTRIER:
-        case ABILITY_MOXIE:
-            if ((sp->defence_client == sp->fainting_client)
-                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-                && (sp->battlemon[sp->attack_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-            {
-
-                if (sp->battlemon[sp->attack_client].states[STAT_ATTACK] < 12)
-                {
-                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
-                }
-            }
-            break;
-        case ABILITY_GRIM_NEIGH:
-        case ABILITY_AS_ONE_SPECTRIER:
-            if ((sp->defence_client == sp->fainting_client)
-                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-                && (sp->battlemon[sp->attack_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-            {
-
-                if (sp->battlemon[sp->attack_client].states[STAT_SPATK] < 12)
-                {
-                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
-                }
-            }
-            break;
-        case ABILITY_BATTLE_BOND:
-            if ((sp->defence_client == sp->fainting_client)
-                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-                && (sp->battlemon[sp->attack_client].hp)
-                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0))
-            {
-
-                if (sp->battlemon[sp->attack_client].species == SPECIES_GRENINJA && sp->battlemon[sp->attack_client].form_no == 1)
-                {
-                    sp->oneTurnFlag[sp->attack_client].numberOfKOs++;
-                }
             }
             break;
         default:
@@ -579,43 +523,13 @@ BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int se
 
     seq_no = 0;
 
-    if((sp->defence_client != 0xFF) && //defense side check
-       (GetBattlerAbility(sp,sp->defence_client) == ABILITY_SYNCHRONIZE) &&
-       (sp->defence_client == sp->state_client) &&
-       (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
-    {
-        sp->battlerIdTemp = sp->defence_client;
-        sp->state_client = sp->attack_client;
-        ret=TRUE;
-    }
-    else if((GetBattlerAbility(sp,sp->attack_client) == ABILITY_SYNCHRONIZE) && //attacker side check
-       (sp->attack_client == sp->state_client) &&
-       (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
-    {
-        sp->battlerIdTemp = sp->attack_client;
-        sp->state_client = sp->defence_client;
-        ret = TRUE;
-    }
+    if (TryGetSynchronizeStatusSubsequence(sp, &seq_no) == TRUE) {
+        sp->addeffect_type = ADD_STATUS_ABILITY;
+        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
+        sp->next_server_seq_no = server_seq_no;
+        sp->server_seq_no = 22;
 
-    if (ret == TRUE)
-    {
-        if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_POISON_ALL) {
-            seq_no = SUB_SEQ_APPLY_POISON;
-        }
-        else if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_BURN) {
-            seq_no = SUB_SEQ_APPLY_BURN;
-        }
-        else if(sp->battlemon[sp->battlerIdTemp].condition & STATUS_PARALYSIS) {
-            seq_no = SUB_SEQ_APPLY_PARALYSIS;
-        }
-        if(seq_no) {
-            sp->addeffect_type = ADD_STATUS_ABILITY;
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
-            sp->next_server_seq_no = server_seq_no;
-            sp->server_seq_no = 22;
-
-            return ret;
-        }
+        return TRUE;
     }
 
     //check to see if both synchronise and a battle form change are occurring at this stage
@@ -657,6 +571,38 @@ BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int se
     }
 
     return FALSE;
+}
+
+BOOL LONG_CALL TryGetSynchronizeStatusSubsequence(struct BattleStruct *sp, int *seq_no)
+{
+    if ((sp->defence_client != 0xFF)
+     && (GetBattlerAbility(sp, sp->defence_client) == ABILITY_SYNCHRONIZE)
+     && (sp->defence_client == sp->state_client)
+     && (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
+    {
+        sp->battlerIdTemp = sp->defence_client;
+        sp->state_client = sp->attack_client;
+    } else if ((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SYNCHRONIZE)
+            && (sp->attack_client == sp->state_client)
+            && (sp->server_status_flag & SERVER_STATUS_FLAG_SYNCHRONIZE))
+    {
+        sp->battlerIdTemp = sp->attack_client;
+        sp->state_client = sp->defence_client;
+    } else {
+        return FALSE;
+    }
+
+    *seq_no = 0;
+
+    if (sp->battlemon[sp->battlerIdTemp].condition & STATUS_POISON_ALL) {
+        *seq_no = SUB_SEQ_APPLY_POISON;
+    } else if (sp->battlemon[sp->battlerIdTemp].condition & STATUS_BURN) {
+        *seq_no = SUB_SEQ_APPLY_BURN;
+    } else if (sp->battlemon[sp->battlerIdTemp].condition & STATUS_PARALYSIS) {
+        *seq_no = SUB_SEQ_APPLY_PARALYSIS;
+    }
+
+    return (*seq_no != 0);
 }
 
 
@@ -770,7 +716,7 @@ enum
     SEQ_LOOP_MOVE_STATUS_MSG,
     SEQ_LOOP_FLINCH_CHECK,
 };
-
+/*
 BOOL LONG_CALL MoveHitDefenderCottonDownCheckHelper(struct BattleStruct* sp, int battler, int* seq_no)
 {
     BOOL ret = FALSE;
@@ -817,7 +763,7 @@ BOOL LONG_CALL MoveHitDefenderCottonDownCheck(void* bw UNUSED, struct BattleStru
     }
     return ret;
 }
-
+*/
 // TODO: Come back here for move performance modernisation
 /**
  *  @brief run the end-of-turn checks for everything.  critical hit message, move effectiveness message, call MoveHitAttackerAbilityCheck and MoveHitDefenderAbilityCheck as well
@@ -825,8 +771,19 @@ BOOL LONG_CALL MoveHitDefenderCottonDownCheck(void* bw UNUSED, struct BattleStru
  *  @param bw battle work structure
  *  @param sp global battle structure
  */
-void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
+void ServerWazaOutAfterMessage(void *bsys, struct BattleStruct *ctx)
 {
+    //TODO:
+    if (ctx->server_status_flag2 & BATTLE_STATUS2_MAGIC_COAT) {
+        ctx->server_status_flag2 &= ~BATTLE_STATUS2_MAGIC_COAT;
+        ctx->defence_client = ctx->attack_client;
+        ctx->attack_client = ctx->magic_cort_client;
+    }
+
+    ctx->server_seq_no = CONTROLLER_COMMAND_31;
+    ctx->swoam_seq_no = 0;
+    return;
+    /*
     switch(sp->swoam_type)
     {
     case SWOAM_NORMAL:
@@ -845,6 +802,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
             {
                 return;
             }
+            break;
             FALLTHROUGH;
         case SEQ_NORMAL_ADD_STATUS_MSG:
             {
@@ -1054,6 +1012,7 @@ void ServerWazaOutAfterMessage(void *bw, struct BattleStruct *sp)
 
     sp->swoam_seq_no = 0;
     sp->server_seq_no = 31;
+    */
 }
 
 //TODO: some stack system because need the Magic Coat/Magic Bounce users to reflect the move individually
@@ -1132,7 +1091,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
  */
 //u32 ServerDoPostMoveEffects_restoreOverlay = 0;
 void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    u32 ovyId = OVERLAY_SERVERDOPOSTMOVEEFFECTS, offset = 0x021FF900 | 1, ServerDoPostMoveEffects_restoreOverlay = 0;
+    u32 ovyId = OVERLAY_SERVERDOPOSTMOVEEFFECTS, offset = 0x021E5900 | 1, ServerDoPostMoveEffects_restoreOverlay = 0;
 
     void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
 

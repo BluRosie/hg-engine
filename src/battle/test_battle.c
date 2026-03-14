@@ -1,8 +1,52 @@
 #include "../../include/types.h"
-#include "../../include/debug.h"
 #include "../../include/battle.h"
 #include "../../include/message.h"
 #include "../../include/test_battle.h"
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+
+static void NormalizeMessage(char *s)
+{
+    int read = 0;
+    int write = 0;
+
+    while (s[read] == ' ' || s[read] == '\t' || s[read] == '\r' || s[read] == '\n') {
+        read++;
+    }
+
+    while (s[read] != '\0') {
+        s[write++] = s[read++];
+    }
+
+    while (write > 0 && (s[write - 1] == ' ' || s[write - 1] == '\t' || s[write - 1] == '\r' || s[write - 1] == '\n')) {
+        write--;
+    }
+
+    s[write] = '\0';
+}
+
+static BOOL MessageContains(const char *message, const char *substring)
+{
+    int i = 0;
+
+    if (substring[0] == '\0') {
+        return TRUE;
+    }
+
+    for (i = 0; message[i] != '\0'; i++) {
+        int j = 0;
+        while (substring[j] != '\0' && message[i + j] == substring[j]) {
+            j++;
+        }
+        if (substring[j] == '\0') {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+#endif // DEBUG_BATTLE_SCENARIOS
 
 void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSystem, MsgData *data, BattleMessage *msg)
 {
@@ -12,18 +56,22 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 
-    BOOL checkMessage = FALSE;
-    BOOL messageMatch = TRUE;
-
-
     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
-    if (scenario != NULL && TestBattle_HasMoreExpectations()) {
-        if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_MESSAGE) {
-            checkMessage = TRUE;
-        }
+    if (scenario == NULL || !TestBattle_HasMoreExpectations()) {
+        return;
     }
 
-    for (int i = 0; i < battleSystem->msgBuffer->size; i++) {
+    enum ExpectationType expectationType = scenario->expectations[scenario->expectationPassCount].expectationType;
+    if (expectationType != EXPECTATION_TYPE_MESSAGE &&
+        expectationType != EXPECTATION_TYPE_MESSAGE_CONTAINS &&
+        expectationType != EXPECTATION_TYPE_ATTACK_MESSAGE) {
+        return;
+    }
+
+    char actualMessage[TEST_BATTLE_MESSAGE_LEN] = {0};
+    int out = 0;
+
+    for (int i = 0; i < battleSystem->msgBuffer->size && out < TEST_BATTLE_MESSAGE_LEN - 1; i++) {
         u32 code = battleSystem->msgBuffer->data[i];
         char character = '\0';
 
@@ -32,8 +80,9 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
         } else {
             switch (code) {
             case 0xFFFF:
-                character = '\0';
-                return;
+                actualMessage[out] = '\0';
+                i = battleSystem->msgBuffer->size;
+                continue;
             case 0x01BE:
                 character = '-';
                 break;
@@ -61,15 +110,41 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
                 break;
             }
         }
-        debug_printf("%c", character);
-        if (character != scenario->expectations[scenario->expectationPassCount].expectationValue.message[i]) {
-            messageMatch = FALSE;
+        if (character == '\0') {
+            character = ' ';
+        }
+        actualMessage[out++] = character;
+    }
+    actualMessage[out] = '\0';
+
+    debug_printf("%s\n", actualMessage);
+
+    char expectedMessage[TEST_BATTLE_MESSAGE_LEN] = {0};
+    for (int i = 0; i < TEST_BATTLE_MESSAGE_LEN - 1; i++) {
+        expectedMessage[i] = scenario->expectations[scenario->expectationPassCount].expectationValue.message[i];
+        if (expectedMessage[i] == '\0') {
+            break;
         }
     }
-    if (messageMatch) {
-        debug_printf("%*s", TEST_BATTLE_MESSAGE_LEN - battleSystem->msgBuffer->size, "✅");
+
+    NormalizeMessage(actualMessage);
+    NormalizeMessage(expectedMessage);
+
+    BOOL messageMatch = FALSE;
+    if (expectationType == EXPECTATION_TYPE_MESSAGE_CONTAINS) {
+        messageMatch = MessageContains(actualMessage, expectedMessage);
+    } else {
+        messageMatch = TRUE;
+        for (int i = 0; i < TEST_BATTLE_MESSAGE_LEN; i++) {
+            if (actualMessage[i] != expectedMessage[i]) {
+                messageMatch = FALSE;
+                break;
+            }
+            if (actualMessage[i] == '\0') {
+                break;
+            }
+        }
     }
-    debug_printf("\n");
 
     if (messageMatch) {
         scenario->expectationPassCount++;
@@ -77,4 +152,3 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
 #endif // DEBUG_BATTLE_SCENARIOS
 
 }
-

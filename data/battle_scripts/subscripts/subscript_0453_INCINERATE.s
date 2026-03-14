@@ -3,7 +3,7 @@
 .data
 
 
- _000:
+_000:
     CheckSubstitute BATTLER_CATEGORY_DEFENDER, _noitemlost
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_CUSTAP_FLAG, 0, _noitemlost
     TryIncinerate _noitemlost

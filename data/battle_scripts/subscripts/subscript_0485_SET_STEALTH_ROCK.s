@@ -1,0 +1,13 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_SIDE_CONDITION_TARGET, SIDE_CONDITION_STEALTH_ROCKS, _017
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_SIDE_CONDITION_TARGET, SIDE_CONDITION_STEALTH_ROCKS
+    AddEntryHazardToQueue BATTLER_CATEGORY_DEFENDER, HAZARD_IDX_STEALTH_ROCK
+    // Pointed stones float in the air around your team!
+    PrintMessage 1077, TAG_NONE_SIDE, BATTLER_CATEGORY_ATTACKER_ENEMY
+
+_017:
+    End 

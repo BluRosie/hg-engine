@@ -1560,18 +1560,88 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 
 void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    u32 ovyId, offset;
+    u32 ovyId = OVERLAY_SERVERHPCALC;
+    u32 offset = 0x023C0400 | 1;
 
     void (*internalFunc)(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-    ovyId = OVERLAY_SERVERHPCALC;
-    offset = 0x023C0400 | 1;
     HandleLoadOverlay(ovyId, 2);
-    internalFunc = (void (*)(struct BattleSystem *bsys, struct BattleStruct *ctx))(offset);
-    internalFunc(bsys, ctx);
+    internalFunc = (void (*)(struct BattleSystem *, struct BattleStruct *))(offset);
+
+    BOOL didDmg = FALSE;
+
+    if (IS_SPREAD_MOVE(ctx)) {
+        for (int i = 0; i < BattleWorkClientSetMaxGet(bsys); i++) {
+            ctx->moveStatusFlagForSimultaneousDamage[i] = 0;
+        }
+
+        // TODO: common function/macro to handle the logic of creating an array with valid clients to loop over?
+        int moveTarget = ctx->moveTbl[ctx->current_move_index].target;
+        BOOL rangeAllAdjacent = (moveTarget == RANGE_ALL_ADJACENT);
+        BOOL rangeAdjacentOpp = (moveTarget == RANGE_ADJACENT_OPPONENTS);
+
+        int ally = BATTLER_ALLY(ctx->attack_client);
+        if ((IS_TARGET_FOES_AND_ALLY_MOVE(ctx) || (IS_TARGET_BOTH_MOVE(ctx) && ally == ctx->defence_client) || rangeAllAdjacent) && IS_VALID_MOVE_TARGET(ctx, ally))
+        {
+            ctx->defence_client = ally;
+            ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[ally];
+            ctx->damage = ctx->damageForSpreadMoves[ally];
+            internalFunc(bsys, ctx);
+            ctx->moveStatusFlagForSimultaneousDamage[ally] = ctx->waza_status_flag;
+        }
+
+        if (rangeAdjacentOpp || rangeAllAdjacent) {
+            int oppL = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
+            if (IS_VALID_MOVE_TARGET(ctx, oppL)) {
+                ctx->defence_client = oppL;
+                ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppL];
+                ctx->damage = ctx->damageForSpreadMoves[oppL];
+                internalFunc(bsys, ctx);
+                ctx->moveStatusFlagForSimultaneousDamage[oppL] = ctx->waza_status_flag;
+            }
+
+            int oppR = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
+            if (IS_VALID_MOVE_TARGET(ctx, oppR)) {
+                ctx->defence_client = oppR;
+                ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppR];
+                ctx->damage = ctx->damageForSpreadMoves[oppR];
+                internalFunc(bsys, ctx);
+                ctx->moveStatusFlagForSimultaneousDamage[oppR] = ctx->waza_status_flag;
+            }
+        }
+
+        for (int i = 0; i < BattleWorkClientSetMaxGet(bsys); i++) {
+            if (ctx->damageForSpreadMoves[i] != 0) {
+                didDmg = TRUE;
+                break;
+            }
+        }
+    } else {
+        internalFunc(bsys, ctx);
+        if (ctx->damage) {
+            didDmg = TRUE;
+        }
+    }
+
+    // TODO: refactor SUB_SEQ_HP_CHANGE so it batches HP changes for spread moves too?
+    //   else just call batch update subscript here if spread move
+    ctx->server_seq_no = CONTROLLER_COMMAND_29;
+    ctx->next_server_seq_no = CONTROLLER_COMMAND_29;
+    if (didDmg) {
+        if (IS_SPREAD_MOVE(ctx)) {
+            ctx->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BATCH_UPDATE_HP);
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            //ctx->server_status_flag &= ~SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE;
+        } else {
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            ctx->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+        }
+    }
+
     UnloadOverlayByID(ovyId);
 }
-
 
 u16 gf_p_rand(const u16 denominator)
 {
@@ -2654,6 +2724,61 @@ enum {
 };
 
 
+int LONG_CALL IsMoveSpreadMove(struct BattleStruct *ctx, int move)
+{
+    if ((ctx->moveTbl[move].target == RANGE_ADJACENT_OPPONENTS)
+        || (ctx->moveTbl[move].target == RANGE_ALL_ADJACENT)
+        || (move == MOVE_EXPANDING_FORCE
+            && ctx->terrainOverlay.numberOfTurnsLeft > 0
+            && ctx->terrainOverlay.type == PSYCHIC_TERRAIN)) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+int LONG_CALL IsTargetFoesAndAlly(struct BattleStruct *ctx, int move)
+{
+    if (ctx->moveTbl[move].target == RANGE_ALL_ADJACENT) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+int LONG_CALL CanGetNextDefender(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    if (IsMoveSpreadMove(ctx, ctx->current_move_index)) {
+        switch (ctx->clientLoopForSpreadMoves) {
+        case SPREAD_MOVE_LOOP_ALLY:
+            ctx->clientLoopForSpreadMoves++;
+            if (IsTargetFoesAndAlly(ctx, ctx->current_move_index) && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {
+                ctx->defence_client = BATTLER_ALLY(ctx->attack_client);
+                return TRUE;
+            }
+            FALLTHROUGH;
+        case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
+            ctx->clientLoopForSpreadMoves++;
+            if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
+                ctx->defence_client = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
+                return TRUE;
+            }
+            FALLTHROUGH;
+        case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
+            ctx->clientLoopForSpreadMoves++;
+            if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
+                ctx->defence_client = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
+                return TRUE;
+            }
+            FALLTHROUGH;
+        default:
+            ctx->clientLoopForSpreadMoves++;
+            break;
+        }
+    }
+    return FALSE;
+}
+
+
+
 /**
  * Platinum version as reference
  * BattleController_TryMove
@@ -2677,69 +2802,36 @@ void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx
     ST_ServerMetronomeBeforeCheck(bsys, ctx);  // 801ED20h
 }
 
+
+void LONG_CALL ov12_0224C678(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    ctx->damageForSpreadMoves[ctx->defence_client] = ctx->damage;
+    ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = ctx->waza_status_flag;
+    if (ctx->critical) {
+        ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] |= WAZA_STATUS_FLAG_CRITICAL;
+    }
+
+    if (CanGetNextDefender(bsys, ctx) == TRUE) {
+        ctx->server_seq_no = CONTROLLER_COMMAND_24;
+        return;
+    } else {
+        ctx->clientLoopForSpreadMoves = 0;
+        CanGetNextDefender(bsys, ctx);
+    }
+
+    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TRY_MOVE);
+    ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+    ctx->next_server_seq_no = CONTROLLER_COMMAND_HP_CALC;
+} 
+
+
 /**
  * Platinum version as reference
  * BattleController_LoopSpreadMoves
  * https://github.com/pret/pokeplatinum/blob/04d9ea4cfad3963feafecf3eb0f4adcbc7aa5063/src/battle/battle_controller.c#L3832
  */
 void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    if (ctx->server_status_flag2 & BATTLE_STATUS2_MAGIC_COAT) {
-        ctx->server_status_flag2 &= ~BATTLE_STATUS2_MAGIC_COAT;
-        ctx->defence_client   = ctx->attack_client;
-        ctx->attack_client = ctx->magic_cort_client;
-    }
-
-    ov12_0224DD74(bsys, ctx);
-
-    if (ctx->moveTbl[ctx->current_move_index].target == RANGE_ADJACENT_OPPONENTS && !(ctx->server_status_flag & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->client_loop < BattleWorkClientSetMaxGet(bsys)) {
-        ctx->waza_out_check_on_off = 13;
-        int battlerId;
-        int maxBattlers UNUSED        = BattleWorkClientSetMaxGet(bsys);
-        struct CLIENT_PARAM *opponent = BattleWorkClientParamGet(bsys, ctx->attack_client);
-        u8 flag                = ov12_02261258(opponent);
-
-        do {
-            battlerId = ctx->turnOrder[ctx->client_loop++];
-            if (ctx->moveStatusFlagForSpreadMoves[battlerId] & MOVE_STATUS_FLAG_FAILURE_ANY) {
-                continue;
-            }
-            if (!(ctx->no_reshuffle_client & No2Bit(battlerId)) && ctx->battlemon[battlerId].hp != 0) {
-                opponent = BattleWorkClientParamGet(bsys, battlerId);
-                if (((flag & 1) && !(ov12_02261258(opponent) & 1)) || (!(flag & 1) && ov12_02261258(opponent) & 1)) {
-                    ov12_02252D14(bsys, ctx);
-                    ctx->defence_client = battlerId;
-                    ctx->server_seq_no         = CONTROLLER_COMMAND_24;
-                    break;
-                }
-            }
-        } while (ctx->client_loop < BattleWorkClientSetMaxGet(bsys));
-
-        SCIO_BlankMessage(bsys);
-    } else if (ctx->moveTbl[ctx->current_move_index].target == RANGE_ALL_ADJACENT && !(ctx->server_status_flag & BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE) && ctx->client_loop < BattleWorkClientSetMaxGet(bsys)) {
-        ctx->waza_out_check_on_off = 13;
-
-        int battlerId;
-        int maxBattlers UNUSED = BattleWorkClientSetMaxGet(bsys);
-
-        do {
-            battlerId = ctx->turnOrder[ctx->client_loop++];
-            if (ctx->moveStatusFlagForSpreadMoves[battlerId] & MOVE_STATUS_FLAG_FAILURE_ANY) {
-                continue;
-            }
-            if (!(ctx->no_reshuffle_client & No2Bit(battlerId)) && ctx->battlemon[battlerId].hp != 0) {
-                if (battlerId != ctx->attack_client) {
-                    ov12_02252D14(bsys, ctx);
-                    ctx->defence_client = battlerId;
-                    ctx->server_seq_no         = CONTROLLER_COMMAND_24;
-                    break;
-                }
-            }
-        } while (ctx->client_loop < BattleWorkClientSetMaxGet(bsys));
-
-        SCIO_BlankMessage(bsys);
-    } else {
-        ctx->server_seq_no = CONTROLLER_COMMAND_36;
-    }
+    ctx->server_seq_no = CONTROLLER_COMMAND_36;
 }
 
 /**
@@ -2747,9 +2839,22 @@ void LONG_CALL ov12_0224D03C(struct BattleSystem *bsys, struct BattleStruct *ctx
  */
 void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     // debug_printf("In BattleController_LoopMultiHit\n");
-    if (ctx->multiHitCountTemp != 0) {
-        if (ctx->fainting_client == BATTLER_NONE && !(ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)) {
-            if (--ctx->multiHitCount) {
+    ctx->server_seq_no = CONTROLLER_COMMAND_34;
+}
+
+int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+#ifdef DEBUG_MOVE_PERFORMNCE_LOGIC
+    debug_printf("In BattleController_LoopMultiHitInternal %d\n", ctx->multiHitCountTemp);
+#endif
+    
+    if (ctx->multiHitCountTemp != 0)
+    {
+        if (ctx->fainting_client == BATTLER_NONE && !(ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS))
+        {
+            SCIO_BlankMessage(bsys);
+            if (--ctx->multiHitCount)
+            {
                 ctx->loop_flag = 1;
                 ov12_02252D14(bsys, ctx);
                 ctx->server_status_flag &= ~BATTLE_STATUS_MOVE_ANIMATIONS_OFF;
@@ -2757,27 +2862,30 @@ void LONG_CALL BattleController_LoopMultiHit(struct BattleSystem *bsys, struct B
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->next_server_seq_no = CONTROLLER_COMMAND_23; // go back to our custom check
+                return TRUE;
             } else {
                 ctx->msg_work = ctx->multiHitCountTemp;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MULTI_HIT);
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
             }
-        } else {
-            if (ctx->fainting_client != BATTLER_NONE || ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
+        }
+        else
+        {
+            if (ctx->fainting_client != BATTLER_NONE || ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP)
+            {
                 ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount + 1;
-            } else {
+            }
+            else
+            {
                 ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount;
             }
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MULTI_HIT);
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
         }
-        SCIO_BlankMessage(bsys);
-    } else {
-        ctx->server_seq_no = CONTROLLER_COMMAND_34;
     }
+    return FALSE;
 }
+
 
 int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo) {
     int type;
@@ -3862,7 +3970,7 @@ BOOL LONG_CALL IsAnyBattleMonHit(struct BattleStruct* ctx)
     return FALSE;
 }
 
-BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type)
+BOOL LONG_CALL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type)
 {
     return (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) && sp->field_condition & WEATHER_STRONG_WINDS && (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) && defender_type == TYPE_FLYING);
 }
@@ -3915,7 +4023,8 @@ const u8 InternalTypeToHGType[] = {
 
 };
 
-int GetSanitisedType(int type) {
+int LONG_CALL GetSanitisedType(int type)
+{
     return InternalTypeToHGType[HGTypeToInternalType[type] & 0x1F];
 }
 

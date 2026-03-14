@@ -59,9 +59,10 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
             }
             sp->oneSelfFlag[sp->defence_client].status_flag |= SELF_STATUS_FLAG_SUBSTITUTE_HIT;
             sp->battlerIdTemp = sp->defence_client;
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HIT_SUBSTITUTE);
-            sp->server_seq_no = 22;
-            sp->next_server_seq_no = 29;
+            // TODO how to handle this?
+            //LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HIT_SUBSTITUTE);
+            //sp->server_seq_no = 22;
+            //sp->next_server_seq_no = 29;
         }
         else
         {
@@ -177,15 +178,15 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
             sp->battlerIdTemp = sp->defence_client;
             sp->hp_calc_work = sp->damage;
 
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
-            sp->server_seq_no = 22;
-            sp->next_server_seq_no = 29;
+            if (IS_SPREAD_MOVE(sp) && !(sp->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE)) {
+                sp->server_status_flag |= SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE;
+            }
 
-            sp->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+            if (sp->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE) {
+                if (sp->damageForSpreadMoves[sp->defence_client] == 0) {
+                    sp->damageForSpreadMoves[sp->defence_client] = sp->damage;
+                }
+            }
         }
-    }
-    else
-    {
-        sp->server_seq_no = 29;
     }
 }

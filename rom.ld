@@ -595,7 +595,6 @@ sub_0200E398 = 0x0200E398 | 1;
 sub_0200E5D4 = 0x0200E5D4 | 1;
 TextPrinterCheckActive = 0x02020094 | 1;
 sub_0200E3D8 = 0x0200E3D8 | 1;
-/*BattleMessage_ExpandPlaceholders = 0x0223CEF4 | 1;*/
 
 TryAppendMonMove = 0x0207137C | 1;
 
@@ -717,6 +716,8 @@ Heap_FreeExplicit = 0x0201AB80 | 1;
 BattleControllerPlayer_ItemInput = 0x0224AAF0 | 1;
 BattleControllerPlayer_PokemonInput = 0x0224AC50 | 1;
 BattleControllerPlayer_RunInput = 0x0224AC94 | 1;
+BattleController_EmitHealthbarUpdate = 0x02263488 | 1;
+BattleController_EmitMonFlicker = 0x0226346C | 1;
 BattleMon_GetMoveIndex = 0x02251C60 | 1;
 CheckTruant = 0x02252C40 | 1;
 CopyBattleMonToPartyMon = 0x02250C40 | 1;
@@ -836,5 +837,6 @@ sButtonWindowTemplates = 0x02101654;
 sButtonWindowIDs = 0x021016B4;
 PartyMenu_DisableMainScreenBlend_AfterYesNo = 0x0207CB90 | 1;
 sBattleBgProfileTable = 0x0226E70C;
+UpdateFriendshipFainted = 0x02248558 | 1;
 
 StringExpandPlaceholders = 0x0200CBBC | 1;

@@ -68,6 +68,9 @@
 // DEBUG_BEFORE_MOVE_LOGIC turns on a number of debug prints related to the before-move logic
 //#define DEBUG_BEFORE_MOVE_LOGIC
 
+// DEBUG_MOVE_PERFORMNCE_LOGIC turns on a number of debug prints related to the move-performance logic
+// #define DEBUG_MOVE_PERFORMNCE_LOGIC
+
 // DEBUG_PRINT_HEAP_CREATION allows for debug prints on heap creation/deletion
 //#define DEBUG_PRINT_HEAP_CREATION
 
