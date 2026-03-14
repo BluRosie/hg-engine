@@ -268,7 +268,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             }
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_ANGER_POINT)) {
-        if (((ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] & WAZA_STATUS_FLAG_CRITICAL) != 0)
+        if (((sp->moveStatusFlagForSpreadMoves[sp->defence_client] & WAZA_STATUS_FLAG_CRITICAL) != 0)
             && (sp->battlemon[sp->defence_client].hp)
             && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)) {
             sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6;
