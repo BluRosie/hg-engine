@@ -46,8 +46,16 @@ static BOOL MessageContains(const char *message, const char *substring)
     return FALSE;
 }
 
-void LONG_CALL TestBattle_VerifyMessages(struct BattleSystem *battleSystem, BattleMessage *msg)
+#endif // DEBUG_BATTLE_SCENARIOS
+
+void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSystem, MsgData *data, BattleMessage *msg)
 {
+    String *str = NewString_ReadMsgData(data, msg->id);
+    StringExpandPlaceholders(battleSystem->msgFormat, battleSystem->msgBuffer, str);
+    String_Delete(str);
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+
     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
     if (scenario == NULL || !TestBattle_HasMoreExpectations()) {
         return;
@@ -60,12 +68,10 @@ void LONG_CALL TestBattle_VerifyMessages(struct BattleSystem *battleSystem, Batt
         return;
     }
 
-    BattleMessage_ExpandPlaceholders(battleSystem, battleSystem->msgData, msg);
-
     char actualMessage[TEST_BATTLE_MESSAGE_LEN] = {0};
     int out = 0;
 
-    for (int i = 0; i < battleSystem->msgBuffer->size; i++) {
+    for (int i = 0; i < battleSystem->msgBuffer->size && out < TEST_BATTLE_MESSAGE_LEN - 1; i++) {
         u32 code = battleSystem->msgBuffer->data[i];
         char character = '\0';
 
@@ -74,8 +80,9 @@ void LONG_CALL TestBattle_VerifyMessages(struct BattleSystem *battleSystem, Batt
         } else {
             switch (code) {
             case 0xFFFF:
-                character = '\0';
-                return;
+                actualMessage[out] = '\0';
+                i = battleSystem->msgBuffer->size;
+                continue;
             case 0x01BE:
                 character = '-';
                 break;
@@ -102,6 +109,9 @@ void LONG_CALL TestBattle_VerifyMessages(struct BattleSystem *battleSystem, Batt
                 character = (char)(code - 228);
                 break;
             }
+        }
+        if (character == '\0') {
+            character = ' ';
         }
         actualMessage[out++] = character;
     }
@@ -139,6 +149,6 @@ void LONG_CALL TestBattle_VerifyMessages(struct BattleSystem *battleSystem, Batt
     if (messageMatch) {
         scenario->expectationPassCount++;
     }
-}
-
 #endif // DEBUG_BATTLE_SCENARIOS
+
+}

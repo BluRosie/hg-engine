@@ -16,10 +16,6 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/system_control.h"
 
-#ifdef DEBUG_BATTLE_SCENARIOS
-#include "../../include/test_battle.h"
-#endif
-
 static int GetKeyStoneVariantFromTrainerClass(int trainerClass) {
     switch (trainerClass) {
         default:
@@ -323,7 +319,4 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg) {
         GF_ASSERT(FALSE);
     }
 
-#ifdef DEBUG_BATTLE_SCENARIOS
-    TestBattle_VerifyMessages(bsys, msg);
-#endif
 }

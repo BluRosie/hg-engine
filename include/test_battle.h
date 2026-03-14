@@ -114,7 +114,6 @@ void LONG_CALL TestBattle_QueueNextTest();
 void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp);
 void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp);
 void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
-void LONG_CALL TestBattle_VerifyMessages(struct BattleSystem *battleSystem, BattleMessage *msg);
 
 #endif // DEBUG_BATTLE_SCENARIOS
 #endif // TEST_BATTLE_H
