@@ -1,15 +1,16 @@
 #include "../../include/types.h"
+#include "../../include/debug.h"
 #include "../../include/battle.h"
 #include "../../include/message.h"
 #include "../../include/test_battle.h"
-
-#ifdef DEBUG_BATTLE_SCENARIOS
 
 void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSystem, MsgData *data, BattleMessage *msg)
 {
     String *str = NewString_ReadMsgData(data, msg->id);
     StringExpandPlaceholders(battleSystem->msgFormat, battleSystem->msgBuffer, str);
     String_Delete(str);
+
+#ifdef DEBUG_BATTLE_SCENARIOS
 
     BOOL checkMessage = FALSE;
     BOOL messageMatch = TRUE;
@@ -73,6 +74,7 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
     if (messageMatch) {
         scenario->expectationPassCount++;
     }
+#endif // DEBUG_BATTLE_SCENARIOS
+
 }
 
-#endif // DEBUG_BATTLE_SCENARIOS

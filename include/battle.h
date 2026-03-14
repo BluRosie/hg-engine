@@ -946,13 +946,13 @@ struct __attribute__((packed)) tcb_skill_intp_work
 };
 
 typedef struct BattleMessage {
-    u8 unk0;
-    u8 tag;
-    u16 id;
-    int param[6];
-    int numDigits;
-    int battlerId;
-} BattleMessage;
+    /* 0x00 */ u8 unk0;
+    /* 0x01 */ u8 tag;
+    /* 0x02 */ u16 id;
+    /* 0x04 */ int param[6];
+    /* 0x1C */ int numDigits;
+    /* 0x20 */ int battlerId;
+} BattleMessage; /* size 0x24 */
 
 typedef struct
 {
@@ -4116,8 +4116,8 @@ void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw, struct BattleStruct *sp);
-void LONG_CALL StringExpandPlaceholders(MessageFormat *messageFormat, String *dest, String *src);
 #endif
+void LONG_CALL StringExpandPlaceholders(MessageFormat *messageFormat, String *dest, String *src);
 
 u32 LONG_CALL ov12_0223C4E8(struct BattleSystem* bsys, void* window, void* data, BattleMessage *msg, int x, int y, int flag, int width, int delay);
 void LONG_CALL ov12_0223C224(struct BattleSystem* bsys, int a1);
