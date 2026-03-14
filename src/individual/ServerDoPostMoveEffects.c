@@ -1011,9 +1011,7 @@ int LONG_CALL Activate_FlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx
     if (ctx->current_move_index == MOVE_FLAME_BURST) {
         int ally = BATTLER_ALLY(ctx->defence_client);
         if (ctx->battlemon[ally].hp
-            && (GetBattlerAbility(ctx, ally) != ABILITY_MAGIC_GUARD)
-            && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)) {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            && (GetBattlerAbility(ctx, ally) != ABILITY_MAGIC_GUARD)) {
             ctx->addeffect_param = ADD_STATUS_EFF_FLAME_BURST_HIT;
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             ctx->state_client = ally;
@@ -1205,9 +1203,7 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ct
     case MOVE_EFFECT_FELL_STINGER:
         if (ctx->attack_client != BATTLER_NONE
             && (ctx->battlemon[ctx->defence_client].hp == 0)
-            && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
             && (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12)) {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
             ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             ctx->state_client = ctx->attack_client;
@@ -1225,9 +1221,7 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ct
             && (ctx->oneSelfFlag[ctx->defence_client].physical_damage 
                 || ctx->oneSelfFlag[ctx->defence_client].special_damage)
             //&& ((ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
-            && ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0)
-            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            && ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0)) {
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORCE_OUT); // checks suction cup/ingrain
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1237,9 +1231,7 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ct
         break;
     case MOVE_EFFECT_REMOVE_HELD_ITEM:
         if (ctx->attack_client != BATTLER_NONE
-            && ctx->battlemon[ctx->attack_client].hp > 0
-            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated) {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            && ctx->battlemon[ctx->attack_client].hp > 0) {
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_KNOCK_OFF);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1249,11 +1241,9 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ct
         break;
     case MOVE_EFFECT_STEAL_HELD_ITEM: // thief, covet
         if (ctx->attack_client != BATTLER_NONE
-            && ctx->battlemon[ctx->attack_client].hp > 0
-            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated)
+            && ctx->battlemon[ctx->attack_client].hp > 0)
         // if (ctx->battlemon[ctx->attack_client].item == ITEM_NONE)
         {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THIEF);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1263,9 +1253,7 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ct
         break;
     case MOVE_EFFECT_EAT_BERRY: // pluck, bug bite
         if (ctx->attack_client != BATTLER_NONE
-            && ctx->battlemon[ctx->attack_client].hp > 0
-            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated) {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            && ctx->battlemon[ctx->attack_client].hp > 0) {
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLUCK);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1281,10 +1269,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys, struct BattleStruct *ct
     switch (ctx->current_move_index) {
     case MOVE_SCALE_SHOT:
         if ((ctx->attack_client != BATTLER_NONE)
-            && (ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0)
             && (ctx->battlemon[ctx->attack_client].states[STAT_DEFENSE] > 0)
             && (ctx->battlemon[ctx->attack_client].states[STAT_SPEED] < 12)) {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             ctx->state_client = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USER_DEF_DOWN_1_SPEED_UP_1);
@@ -1377,9 +1363,7 @@ int LONG_CALL Activate_BurnUp_DoubleShock(void *bsys UNUSED, struct BattleStruct
     switch (ctx->current_move_index) {
     case MOVE_BURN_UP:
         if (ctx->attack_client != BATTLER_NONE
-            && ctx->battlemon[ctx->attack_client].hp
-            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            && ctx->battlemon[ctx->attack_client].hp) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_REMOVE_USER_FIRE_TYPE);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -1388,9 +1372,7 @@ int LONG_CALL Activate_BurnUp_DoubleShock(void *bsys UNUSED, struct BattleStruct
         break;
     case MOVE_DOUBLE_SHOCK:
         if (ctx->attack_client != BATTLER_NONE
-            && ctx->battlemon[ctx->attack_client].hp
-            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            && ctx->battlemon[ctx->attack_client].hp) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_REMOVE_USER_ELECTRIC_TYPE);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -1409,9 +1391,7 @@ int LONG_CALL Activate_SteelRoller_IceSpinner(void *bsys UNUSED, struct BattleSt
     if (ctx->terrainOverlay.type != TERRAIN_NONE
         && (ctx->current_move_index == MOVE_STEEL_ROLLER
             || (ctx->current_move_index == MOVE_ICE_SPINNER
-                && ctx->battlemon[ctx->attack_client].hp))
-        && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
-        ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+                && ctx->battlemon[ctx->attack_client].hp))) {
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_TERRAIN_END);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -1930,8 +1910,7 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
             || (sp->battlemon[client_no].hp == 0)
             || (CheckSubstitute(sp, client_no) == TRUE)
             || ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) != 0)
-            || ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) != 0)
-            || ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) != 0)) { //TODO u-turn
+            || ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) != 0)) {
             continue;
         }
 
@@ -2055,9 +2034,7 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
     case MOVE_EFFECT_SWITCH_HIT: // U-Turn, Flip Turn
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
-            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
-            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)) {
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             ctx->state_client = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PIVOT_ATTACK);
@@ -2071,9 +2048,7 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
         debug_printf("PartingShot attacker %d, defender %d\n", ctx->attack_client, ctx->defence_client);
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
-            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
-            && ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated == 0) {
-            ctx->moveConditionsFlags[ctx->attack_client].endTurnMoveEffectActivated = 1;
+            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)) {
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             ctx->state_client = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PARTING_SHOT);

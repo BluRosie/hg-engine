@@ -1963,7 +1963,6 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     sp->battlemon[i].moveeffect.custapBerryFlag = 0;
                     sp->numberOfTurnsClientHasCurrentAbility[i] = sp->numberOfTurnsClientHasCurrentAbility[i] + 1;
 
-                    sp->moveConditionsFlags[i].endTurnMoveEffectActivated = 0;
                     sp->moveConditionsFlags[i].moveFailureLastTurn = sp->moveConditionsFlags[i].moveFailureThisTurn;
                     sp->moveConditionsFlags[i].moveFailureThisTurn = 0;
                     sp->moveConditionsFlags[i].powderBlockingFireMove = 0;

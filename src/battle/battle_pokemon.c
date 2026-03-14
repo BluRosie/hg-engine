@@ -1064,7 +1064,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->moveConditionsFlags[client].doubleShockFlag = FALSE;
     sp->oneTurnFlag[client].parental_bond_flag = 0;
     sp->oneTurnFlag[client].parental_bond_is_active = 0;
-    sp->moveConditionsFlags[client].endTurnMoveEffectActivated = 0;
+
     sp->moveConditionsFlags[client].moveFailureThisTurn = 0;
     sp->moveConditionsFlags[client].moveFailureLastTurn = 0;
     sp->moveConditionsFlags[client].powderBlockingFireMove = 0;
