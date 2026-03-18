@@ -662,14 +662,14 @@ _085F:
 
 _0892:
     buffer_players_name 0
-    buffer_item_name 1, VAR_SPECIAL_x8004
+    buffer_item_name_indef 1, VAR_SPECIAL_x8004
     npc_msg 28
     goto _08C9
 
 _08A3:
     compare VAR_SPECIAL_x8005, 1
     goto_if_gt _08BB
-    buffer_item_name 0, VAR_SPECIAL_x8004
+    buffer_item_name_indef 0, VAR_SPECIAL_x8004
     goto _08C0
 
 _08BB:
@@ -1738,7 +1738,6 @@ scr_seq_0003_073_autobattle_testing:
     npc_msg 120
     closemsg
     trainer_battle 1, 0, 0, 0
-    white_out
     releaseall
     end
 

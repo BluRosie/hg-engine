@@ -114,15 +114,16 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
     // try and handle defiant lol
     if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_DEFIANT || GetBattlerAbility(sp, sp->state_client) == ABILITY_COMPETITIVE)
-     && sp->oneSelfFlag[sp->state_client].defiant_flag == 0
-     && statchange < 0
-     && sp->state_client != sp->attack_client // can't raise own stats
-     && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
-     && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
-     && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-     && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0))
+        && sp->oneSelfFlag[sp->state_client].defiant_flag == 0
+        && statchange < 0
+        && (sp->addeffect_type == ADD_EFFECT_STICKY_WEB
+            || (sp->state_client != sp->attack_client // can't raise own stats
+                && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
+                && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0))))
     {
-        sp->oneSelfFlag[sp->state_client].defiant_flag = 1;
+            sp->oneSelfFlag[sp->state_client].defiant_flag = 1;
     }
     else
     {
@@ -147,10 +148,10 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             }
             else
             {
-                sp->mp.msg_id = BATTLE_MSG_STAT_WONT_GO_HIGHER;
-                sp->mp.msg_tag = TAG_NICKNAME_STAT;
-                sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-                sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
+                sp->mp.id = BATTLE_MSG_STAT_WONT_GO_HIGHER;
+                sp->mp.tag = TAG_NICKNAME_STAT;
+                sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                sp->mp.param[1] = STAT_ATTACK + stattochange;
                 sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address1);
                 return FALSE;
@@ -168,56 +169,56 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 switch (statchange)
                 {
                 case 1:
-                    sp->mp.msg_id = BATTLE_MSG_ABILITY_RAISED_STAT;
+                    sp->mp.id = BATTLE_MSG_ABILITY_RAISED_STAT;
                     break;
                 case 2:
-                    sp->mp.msg_id = BATTLE_MSG_ABILITY_RAISED_STAT_SHARPLY;
+                    sp->mp.id = BATTLE_MSG_ABILITY_RAISED_STAT_SHARPLY;
                     break;
                 default:
-                    sp->mp.msg_id = BATTLE_MSG_ABILITY_RAISED_STAT_DRASTICALLY;
+                    sp->mp.id = BATTLE_MSG_ABILITY_RAISED_STAT_DRASTICALLY;
                     break;
                 }
-                sp->mp.msg_tag = TAG_NICKNAME_ABILITY_STAT;
-                sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-                sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
-                sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
+                sp->mp.tag = TAG_NICKNAME_ABILITY_STAT;
+                sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                sp->mp.param[1] = sp->battlemon[sp->state_client].ability;
+                sp->mp.param[2] = STAT_ATTACK + stattochange;
             }
             else if (sp->addeffect_type == ADD_EFFECT_HELD_ITEM)
             {
                 switch (statchange)
                 {
                 case 1:
-                    sp->mp.msg_id = BATTLE_MSG_ITEM_RAISED_STAT;
+                    sp->mp.id = BATTLE_MSG_ITEM_RAISED_STAT;
                     break;
                 case 2:
-                    sp->mp.msg_id = BATTLE_MSG_ITEM_SHARPLY_RAISED_STAT;
+                    sp->mp.id = BATTLE_MSG_ITEM_SHARPLY_RAISED_STAT;
                     break;
                 default:
-                    sp->mp.msg_id = BATTLE_MSG_ITEM_DRASTICALLY_RAISED_STAT;
+                    sp->mp.id = BATTLE_MSG_ITEM_DRASTICALLY_RAISED_STAT;
                     break;
                 }
-                sp->mp.msg_tag = TAG_NICKNAME_ITEM_STAT;
-                sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-                sp->mp.msg_para[1] = sp->item_work;
-                sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
+                sp->mp.tag = TAG_NICKNAME_ITEM_STAT;
+                sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                sp->mp.param[1] = sp->item_work;
+                sp->mp.param[2] = STAT_ATTACK + stattochange;
             }
             else
             {
                 switch (statchange)
                 {
                 case 1:
-                    sp->mp.msg_id = BATTLE_MSG_STAT_RAISED;
+                    sp->mp.id = BATTLE_MSG_STAT_RAISED;
                     break;
                 case 2:
-                    sp->mp.msg_id = BATTLE_MSG_STAT_RAISED_SHARPLY;
+                    sp->mp.id = BATTLE_MSG_STAT_RAISED_SHARPLY;
                     break;
                 default:
-                    sp->mp.msg_id = BATTLE_MSG_STAT_RAISED_DRASTICALLY;
+                    sp->mp.id = BATTLE_MSG_STAT_RAISED_DRASTICALLY;
                     break;
                 }
-                sp->mp.msg_tag = TAG_NICKNAME_STAT;
-                sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-                sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
+                sp->mp.tag = TAG_NICKNAME_STAT;
+                sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                sp->mp.param[1] = STAT_ATTACK + stattochange;
             }
             battlemon->states[STAT_ATTACK + stattochange] += statchange;
             if (battlemon->states[STAT_ATTACK + stattochange] > 12)
@@ -228,6 +229,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     }
     else
     {
+        sp->moveConditionsFlags[sp->state_client].anyStatLoweredThisTurn = TRUE;
         // Cap stat change here so that message below is correct
         if (battlemon->states[STAT_ATTACK + stattochange] + statchange < 0) {
             // debug_printf("\n\nCapped\n\n");
@@ -240,9 +242,9 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 // infiltrator bypasses mist
                 if (sp->scw[IsClientEnemy(bw, sp->state_client)].mistCount && GetBattlerAbility(sp, sp->attack_client) != ABILITY_INFILTRATOR)
                 {
-                    sp->mp.msg_id = BATTLE_MSG_PROTECTED_BY_MIST;
-                    sp->mp.msg_tag = TAG_NICKNAME;
-                    sp->mp.msg_para[0] = CreateNicknameTag(sp,sp->state_client);
+                    sp->mp.id = BATTLE_MSG_PROTECTED_BY_MIST;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp,sp->state_client);
                     flag = 1;
                 }
                 else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_FLOWER_VEIL) == TRUE
@@ -251,9 +253,9 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 {
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
-                        sp->mp.msg_id = BATTLE_MSG_FLOWER_VEIL_PETALS;
-                        sp->mp.msg_tag = TAG_NICKNAME;
-                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
+                        sp->mp.id = BATTLE_MSG_FLOWER_VEIL_PETALS;
+                        sp->mp.tag = TAG_NICKNAME;
+                        sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
                     }
                     flag = 1;
                 }
@@ -263,30 +265,30 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 {
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
-                        sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
-                        sp->mp.msg_tag = TAG_NICKNAME_ABILITY_NICKNAME_ABILITY;
-                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-                        sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
-                        sp->mp.msg_para[2] = CreateNicknameTag(sp, sp->attack_client);
-                        sp->mp.msg_para[3] = sp->battlemon[sp->attack_client].ability;
+                        sp->mp.id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
+                        sp->mp.tag = TAG_NICKNAME_ABILITY_NICKNAME_ABILITY;
+                        sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                        sp->mp.param[1] = sp->battlemon[sp->state_client].ability;
+                        sp->mp.param[2] = CreateNicknameTag(sp, sp->attack_client);
+                        sp->mp.param[3] = sp->battlemon[sp->attack_client].ability;
                     }
                     else
                     {
-                        sp->mp.msg_id = BATTLE_MSG_PREVENTS_STAT_LOSS;
-                        sp->mp.msg_tag = TAG_NICKNAME_ABILITY;
-                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-                        sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
+                        sp->mp.id = BATTLE_MSG_PREVENTS_STAT_LOSS;
+                        sp->mp.tag = TAG_NICKNAME_ABILITY;
+                        sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                        sp->mp.param[1] = sp->battlemon[sp->state_client].ability;
                     }
                     flag = 1;
                 }
                 else if (HeldItemHoldEffectGet(sp, sp->state_client) == HOLD_EFFECT_PREVENT_STAT_DROPS && sp->temp_work == STATUS_EFF_DOWN)
                 {
                     statchange = 0;
-                    sp->mp.msg_id = BATTLE_MSG_ITEM_PREVENTS_STAT_LOSS;
-                    sp->mp.msg_tag = TAG_NICKNAME_ITEM_STAT;
-                    sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-                    sp->mp.msg_para[1] = CreateNicknameTag(sp, GetBattleMonItem(sp, sp->state_client));
-                    sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
+                    sp->mp.id = BATTLE_MSG_ITEM_PREVENTS_STAT_LOSS;
+                    sp->mp.tag = TAG_NICKNAME_ITEM_STAT;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    sp->mp.param[1] = CreateNicknameTag(sp, GetBattleMonItem(sp, sp->state_client));
+                    sp->mp.param[2] = STAT_ATTACK + stattochange;
                     flag = 1;
                 }
                 else if (((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_KEEN_EYE) == TRUE)
@@ -302,20 +304,20 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     {
                     if (sp->addeffect_type == ADD_EFFECT_ABILITY)
                     {
-                        sp->mp.msg_id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
-                        sp->mp.msg_tag = TAG_NICKNAME_ABILITY_NICKNAME_ABILITY;
-                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-                        sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
-                        sp->mp.msg_para[2] = CreateNicknameTag(sp, sp->attack_client);
-                        sp->mp.msg_para[3] = sp->battlemon[sp->attack_client].ability;
+                        sp->mp.id = BATTLE_MSG_ABILITY_SUPPRESSES_STAT_LOSS;
+                        sp->mp.tag = TAG_NICKNAME_ABILITY_NICKNAME_ABILITY;
+                        sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                        sp->mp.param[1] = sp->battlemon[sp->state_client].ability;
+                        sp->mp.param[2] = CreateNicknameTag(sp, sp->attack_client);
+                        sp->mp.param[3] = sp->battlemon[sp->attack_client].ability;
                     }
                     else
                     {
-                        sp->mp.msg_id = BATTLE_MSG_ITEM_PREVENTS_STAT_LOSS;
-                        sp->mp.msg_tag = TAG_NICKNAME_ABILITY_STAT;
-                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-                        sp->mp.msg_para[1] = sp->battlemon[sp->state_client].ability;
-                        sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
+                        sp->mp.id = BATTLE_MSG_ITEM_PREVENTS_STAT_LOSS;
+                        sp->mp.tag = TAG_NICKNAME_ABILITY_STAT;
+                        sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                        sp->mp.param[1] = sp->battlemon[sp->state_client].ability;
+                        sp->mp.param[2] = STAT_ATTACK + stattochange;
                     }
                     flag = 1;
                 }
@@ -331,10 +333,10 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     }
                     else
                     {
-                        sp->mp.msg_id = BATTLE_MSG_STAT_WONT_GO_LOWER;
-                        sp->mp.msg_tag = TAG_NICKNAME_STAT;
-                        sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-                        sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
+                        sp->mp.id = BATTLE_MSG_STAT_WONT_GO_LOWER;
+                        sp->mp.tag = TAG_NICKNAME_STAT;
+                        sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                        sp->mp.param[1] = STAT_ATTACK + stattochange;
                         sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                         IncrementBattleScriptPtr(sp, address1);
                         return FALSE;
@@ -362,10 +364,10 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 }
                 else
                 {
-                    sp->mp.msg_id = BATTLE_MSG_STAT_WONT_GO_LOWER;
-                    sp->mp.msg_tag = TAG_NICKNAME_STAT;
-                    sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-                    sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
+                    sp->mp.id = BATTLE_MSG_STAT_WONT_GO_LOWER;
+                    sp->mp.tag = TAG_NICKNAME_STAT;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    sp->mp.param[1] = STAT_ATTACK + stattochange;
                     sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                     IncrementBattleScriptPtr(sp, address1);
                     return FALSE;
@@ -392,48 +394,48 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         }
         if (sp->addeffect_type == ADD_EFFECT_ABILITY && sp->battlerIdTemp == sp->state_client)
         {
-            sp->mp.msg_id = BATTLE_MSG_ABILITY_LOWERED_ITS_OWN_STAT;
-            sp->mp.msg_tag = TAG_NICKNAME_ABILITY_STAT;
-            sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->battlerIdTemp);
-            sp->mp.msg_para[1] = sp->battlemon[sp->battlerIdTemp].ability;
-            sp->mp.msg_para[2] = STAT_ATTACK + stattochange;
+            sp->mp.id = BATTLE_MSG_ABILITY_LOWERED_ITS_OWN_STAT;
+            sp->mp.tag = TAG_NICKNAME_ABILITY_STAT;
+            sp->mp.param[0] = CreateNicknameTag(sp, sp->battlerIdTemp);
+            sp->mp.param[1] = sp->battlemon[sp->battlerIdTemp].ability;
+            sp->mp.param[2] = STAT_ATTACK + stattochange;
         }
         else if (sp->addeffect_type == ADD_EFFECT_ABILITY)
         {
-            sp->mp.msg_id = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT;
-            sp->mp.msg_tag = TAG_NICKNAME_ABILITY_NICKNAME_STAT;
-            sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->attack_client);
-            sp->mp.msg_para[1] = sp->battlemon[sp->attack_client].ability;
-            sp->mp.msg_para[2] = CreateNicknameTag(sp, sp->state_client);
-            sp->mp.msg_para[3] = STAT_ATTACK + stattochange;
+            sp->mp.id = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT;
+            sp->mp.tag = TAG_NICKNAME_ABILITY_NICKNAME_STAT;
+            sp->mp.param[0] = CreateNicknameTag(sp, sp->attack_client);
+            sp->mp.param[1] = sp->battlemon[sp->attack_client].ability;
+            sp->mp.param[2] = CreateNicknameTag(sp, sp->state_client);
+            sp->mp.param[3] = STAT_ATTACK + stattochange;
         }
         // certain abilities fuck it up.  this fixes them
         else if (sp->addeffect_type == ADD_EFFECT_PRINT_WORK_ABILITY)
         {
-            sp->mp.msg_id = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT;
-            sp->mp.msg_tag = TAG_NICKNAME_ABILITY_NICKNAME_STAT;
-            sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->battlerIdTemp);
-            sp->mp.msg_para[1] = sp->battlemon[sp->battlerIdTemp].ability;
-            sp->mp.msg_para[2] = CreateNicknameTag(sp, sp->state_client);
-            sp->mp.msg_para[3] = STAT_ATTACK+stattochange;
+            sp->mp.id = BATTLE_MSG_ATK_ABILITY_CUTS_MON_STAT;
+            sp->mp.tag = TAG_NICKNAME_ABILITY_NICKNAME_STAT;
+            sp->mp.param[0] = CreateNicknameTag(sp, sp->battlerIdTemp);
+            sp->mp.param[1] = sp->battlemon[sp->battlerIdTemp].ability;
+            sp->mp.param[2] = CreateNicknameTag(sp, sp->state_client);
+            sp->mp.param[3] = STAT_ATTACK+stattochange;
         }
         else
         {
             switch (statchange)
                 {
                 case -1:
-                    sp->mp.msg_id = BATTLE_MSG_STAT_FELL;
+                    sp->mp.id = BATTLE_MSG_STAT_FELL;
                     break;
                 case -2:
-                    sp->mp.msg_id = BATTLE_MSG_STAT_HARSHLY_FELL;
+                    sp->mp.id = BATTLE_MSG_STAT_HARSHLY_FELL;
                     break;
                 default:
-                    sp->mp.msg_id = BATTLE_MSG_STAT_LOWERED_SEVERELY;
+                    sp->mp.id = BATTLE_MSG_STAT_LOWERED_SEVERELY;
                     break;
                 }
-            sp->mp.msg_tag = TAG_NICKNAME_STAT;
-            sp->mp.msg_para[0] = CreateNicknameTag(sp, sp->state_client);
-            sp->mp.msg_para[1] = STAT_ATTACK + stattochange;
+            sp->mp.tag = TAG_NICKNAME_STAT;
+            sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+            sp->mp.param[1] = STAT_ATTACK + stattochange;
         }
 
         battlemon->states[STAT_ATTACK + stattochange] += statchange;

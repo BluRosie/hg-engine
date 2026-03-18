@@ -3,6 +3,10 @@
 #include "../../include/constants/battle_message_constants.h"
 #include "../../include/config.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../../include/test_battle.h"
+#endif // DEBUG_BATTLE_SCENARIOS
+
 #if defined (DISABLE_ITEMS_IN_TRAINER_BATTLE)
 void overrideItemUsage(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
@@ -61,6 +65,14 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
     }
 #endif
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+    if (TestBattle_IsComplete() && !ctx->fight_end_flag)
+    {
+        BattleSystem_SetBattleOutcomeFlags(bsys, BATTLE_OUTCOME_PLAYER_FLED);
+        ctx->server_seq_no = CONTROLLER_COMMAND_42;
+    }
+#endif
+
     if (!ctx->fight_end_flag)
     {
         if (BattleSystem_GetBattleOutcomeFlags(bsys) && !(BattleSystem_GetBattleOutcomeFlags(bsys) & 0x40))
@@ -82,4 +94,26 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
         return TRUE;
     }
     return FALSE;
+}
+
+void LONG_CALL BattleControllerPlayer_GetBattleMon(struct BattleSystem *battleSystem, struct BattleStruct *ctx)
+{
+    int battlerId;
+    int maxBattlers = BattleWorkClientSetMaxGet(battleSystem);
+
+    for (battlerId = 0; battlerId < maxBattlers; battlerId++) {
+        BattleSystem_GetBattleMon(battleSystem, ctx, battlerId, ctx->sel_mons_no[battlerId]);
+        // TODO remove partySize check when we implement new battle types in IsBattlerSlotValid
+        if (!IsBattlerSlotValid(battleSystem, battlerId) || ctx->sel_mons_no[battlerId] >= BattleWorkPokeCountGet(battleSystem, battlerId)) {
+            ctx->battlemon[battlerId].species = 0; // SPECIES_NONE
+            ctx->battlemon[battlerId].hp = 0;
+            ctx->battlemon[battlerId].rare = 0;
+            ctx->no_reshuffle_client |= No2Bit(battlerId);
+        } else {
+            BattleSystem_GetBattleMon(battleSystem, ctx, battlerId, ctx->sel_mons_no[battlerId]);
+        }
+    }
+
+    ctx->hp_temp = ctx->battlemon[1].hp;
+    ctx->server_seq_no = CONTROLLER_COMMAND_START_ENCOUNTER;
 }

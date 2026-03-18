@@ -10,6 +10,8 @@
 
 .create "build/move/move_anim/0_291", 0
 
+//Dive
+
 a010_291:
     initspriteresource
     loadspriteresource 0

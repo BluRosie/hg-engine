@@ -610,6 +610,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             sp->battlemon[sp->attack_client].slow_start_flag = 0;
                             sp->battlemon[sp->attack_client].slow_start_end_flag = 0;
                             ClearBattleMonFlags(sp, sp->attack_client);  // clear extra flags here too
+                            sp->moveConditionsFlags[sp->attack_client].laserFocusTimer = sp->moveConditionsFlags[sp->defence_client].laserFocusTimer;
 
                             for (num = 0; num < 4; num++) {
                                 sp->battlemon[sp->attack_client].move[num] = sp->battlemon[sp->defence_client].move[num];

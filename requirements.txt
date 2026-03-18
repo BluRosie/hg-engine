@@ -1,2 +1,4 @@
 ndspy==4.1.0
 pandas
+Pillow
+py-desmume
