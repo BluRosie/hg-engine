@@ -2834,7 +2834,7 @@ movedata MOVE_CONVERSION_2, "Conversion 2"
     accuracy 0
     pp 30
     effectchance 0
-    target DEBUG_NEEDS_TESTING ? RANGE_ALL_ADJACENT : RANGE_USER
+    target RANGE_ALL_ADJACENT
     priority 0
     flags 0
     appeal APPEAL_PITY_HEARTS
