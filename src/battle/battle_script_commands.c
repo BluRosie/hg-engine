@@ -137,6 +137,7 @@ BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx)
 BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_CopyStatStages(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
+BOOL BtlCmd_TryConversion2(struct BattleSystem *bsys, struct BattleStruct *ctx);
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp);
 u32 DealWithCriticalCaptureShakes(struct EXP_CALCULATOR *expcalc, u32 shakes);
 u32 LoadCaptureSuccessSPA(u32 id);
@@ -4962,6 +4963,65 @@ BOOL BtlCmd_CopyStatStages(struct BattleSystem *bsys UNUSED, struct BattleStruct
     ctx->battlemon[ctx->attack_client].condition2 |= (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_FOCUS_ENERGY);
 
     ctx->moveConditionsFlags[ctx->attack_client].laserFocusTimer = ctx->moveConditionsFlags[ctx->defence_client].laserFocusTimer;
+
+    return FALSE;
+}
+
+BOOL BtlCmd_TryConversion2(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int adrs = read_battle_script_param(ctx);
+
+    // Failure conditions other than type chart interactions are handled in BeforeMove.c.
+
+    // If the target has used a move...
+    if (ctx->lastClientMoveType[ctx->defence_client] != TYPE_TYPELESS)
+    {
+        u8 attackingTypeToCheck, typeToChangeTo, effectiveness;
+        int moveType = ctx->lastClientMoveType[ctx->defence_client];
+
+        for (int i = 0; i < 1000; i++)
+        {
+            // Get a random attacking type, defending type and their corresponding type effectiveness.
+            GetTypeEffectivenessData(bsys, 0xffff, &attackingTypeToCheck, &typeToChangeTo, &effectiveness);
+            if (attackingTypeToCheck == moveType // If the random attacking type matches the defender's move type,
+            && effectiveness <= TYPE_MUL_NOT_EFFECTIVE // The type interaction is 'not very effective' or worse,
+            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type1) != typeToChangeTo // and the defending type does not match any of the attacker's current types.
+            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type2) != typeToChangeTo
+            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type3) != typeToChangeTo)
+            {
+                ctx->battlemon[ctx->attack_client].type1 = typeToChangeTo;
+                ctx->battlemon[ctx->attack_client].type2 = typeToChangeTo;
+                ctx->battlemon[ctx->attack_client].type3 = TYPE_TYPELESS;
+                ctx->msg_work = typeToChangeTo;
+                return FALSE;
+            }
+        }
+
+        // If we have no interactions after 1000 random checks, manually iterate through the type chart from top to bottom and change to the first matching type.
+        for (int i = 0; GetTypeEffectivenessData(bsys, i, &attackingTypeToCheck, &typeToChangeTo, &effectiveness); i++)
+        {
+            if (attackingTypeToCheck == moveType
+            && effectiveness <= TYPE_MUL_NOT_EFFECTIVE
+            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type1) != typeToChangeTo
+            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type2) != typeToChangeTo
+            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type3) != typeToChangeTo)
+            {
+                ctx->battlemon[ctx->attack_client].type1 = typeToChangeTo;
+                ctx->battlemon[ctx->attack_client].type2 = typeToChangeTo;
+                ctx->battlemon[ctx->attack_client].type3 = TYPE_TYPELESS;
+                ctx->msg_work = typeToChangeTo;
+                return FALSE;
+            }
+        }
+    }
+    else
+    {
+        debug_printf("Conversion 2 failed: target has not yet used a move.\n");
+    }
+
+    IncrementBattleScriptPtr(ctx, adrs);
 
     return FALSE;
 }

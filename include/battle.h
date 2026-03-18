@@ -4127,4 +4127,6 @@ u8 LONG_CALL TextPrinterCheckActive(u8 printerId);
 u32 LONG_CALL sub_0200E3D8(void);
 void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSystem, MsgData *data, BattleMessage *msg);
 
+BOOL LONG_CALL GetTypeEffectivenessData(struct BattleSystem *bsys, int index, u8 *typeMove, u8 *typeMon, u8 *eff);
+
 #endif // BATTLE_H

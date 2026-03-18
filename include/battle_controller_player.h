@@ -21,4 +21,8 @@ u8 LONG_CALL BattleSystem_GetBattleOutcomeFlags(struct BattleSystem *bsys);
 void LONG_CALL BattleSystem_SetBattleOutcomeFlags(struct BattleSystem *bsys, u8 battleOutcomeFlag);
 BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
+void LONG_CALL ov12_0224D23C(struct BattleSystem *bsys, struct BattleStruct *ctx);
+void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
+void LONG_CALL ov12_02256694(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
 #endif
