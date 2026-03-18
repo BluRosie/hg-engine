@@ -1380,14 +1380,14 @@ struct BattleStruct {
     /*0x3044*/ u32 current_move_index;
     // u8 unk_bytes4[0x74];
 
-    /*0x3048*/ u32 waza_no_last;
+    /*0x3048*/ u32 waza_no_last;                    // The most recently used move in the battle (other than the current one).
     /*0x304C*/ u32 waza_no_keep[CLIENT_MAX];
 
     /*0x305C*/ u16 moveProtect[CLIENT_MAX];
-    /*0x3064*/ u16 waza_no_hit[CLIENT_MAX];
-    /*0x306C*/ u16 waza_no_hit_client[CLIENT_MAX];
-    /*0x3074*/ u16 waza_no_hit_type[CLIENT_MAX];
-    /*0x307C*/ u16 waza_no_old[CLIENT_MAX];
+    /*0x3064*/ u16 waza_no_hit[CLIENT_MAX];         // The last move that hit each client.
+    /*0x306C*/ u16 waza_no_hit_client[CLIENT_MAX];  // The last client that hit each client.
+    /*0x3074*/ u16 waza_no_hit_type[CLIENT_MAX];    // The type of the last move that hit each client.
+    /*0x307C*/ u16 waza_no_old[CLIENT_MAX];         // The last move used by each client.
     /*0x3084*/ u16 waza_no_oumu[CLIENT_MAX];
     /*0x308C*/ u16 waza_no_oumu_hit[CLIENT_MAX][CLIENT_MAX];
     /*0x30AC*/ u16 waza_no_sketch[CLIENT_MAX];
@@ -1395,9 +1395,9 @@ struct BattleStruct {
 
     /*0x30BC*/ u16 waza_no_pos[CLIENT_MAX];
     /*0x30C4*/ //u8 unk_bytes_4[0x44];
-    /*0x30C4*/ u16 waza_no_texture2[CLIENT_MAX];
-    /*0x30CC*/ u16 waza_no_texture2_client[CLIENT_MAX];
-    /*0x30D4*/ u16 waza_no_texture2_type[CLIENT_MAX];
+    /*0x30C4*/ u16 lastClientDamagingMove[CLIENT_MAX];  // Currently unused due to modernization.
+    /*0x30CC*/ u16 lastClientDamagedBy[CLIENT_MAX];     // Same here.
+    /*0x30D4*/ u16 lastClientMoveType[CLIENT_MAX];      // Used for modernized Conversion 2. Originally stored only the most recent damaging move.
     /*0x30DC*/ u16 waza_no_metronome[CLIENT_MAX];
     /*0x30E4*/ int store_damage[CLIENT_MAX];
     /*0x30F4*/ int client_no_hit[CLIENT_MAX];
