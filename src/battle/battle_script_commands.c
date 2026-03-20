@@ -428,7 +428,6 @@ const u8 *BattleScrCmdNames[] =
     "StuffCheeks",
     "SetMoveConditionFlag",
     "AbilityPopup",
-    "AbilityPopupRemove",
     // "YourCustomCommand",
 };
 
