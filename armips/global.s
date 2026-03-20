@@ -23,7 +23,6 @@
 
 .include "armips/data/starters.s" // data definitions for which species to use for the starter Pokemon
 .include "armips/asm/tm_palettes.s" // allows editing of pallete table for TMs
-.include "armips/asm/hidden_items.s" // allows editing of hidden items for Dowsing Machine
 
 .include "armips/asm/no_partner_double_battles.s" // allows no partner double battles
 

@@ -516,8 +516,9 @@ dumprom: $(VENV_ACTIVATE) $(TOOLS)
 	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
 	$(MSGENC) -d -c $(CHARMAP) $(MSGDATA_DIR)/7_729 $(BUILD)/trainernames.txt
 	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
+	$(PYTHON) tools/source/dumptools/dump_hidden_items.py
 
-	@echo "Done.  See output in dumped_armips/, learnsets are already in data/learnsets/learnsets.json."
+	@echo "Done.  See output in dumped_armips/ and dumped_c/, learnsets are already in data/learnsets/learnsets.json."
 
 
 update_machine_moves: $(VENV_ACTIVATE)

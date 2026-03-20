@@ -113,10 +113,19 @@ GF_CpuCopy8 = 0x0204D450;
 GetEvScriptWorkMemberAdrs = 0x020402F0 |1;
 WORDSET_RegisterAbilityName = 0x0200C060|1;
 EventSet_Script = 0x0203FE74 |1;
+FieldSysGetAttrAddrInternal = 0x020401B4 | 1;
+FieldSystem_FlagCheck = 0x020403FC | 1;
+Field_GetBgEvents = 0x0203B6D8 | 1;
+Field_GetNumBgEvents = 0x0203B6E0 | 1;
 
 sys_AllocMemory = 0x0201AA8C | 1;
 sys_FreeMemoryEz = 0x0201AB0C | 1;
 sys_AllocMemoryLo = 0x0201AACC | 1;
+Heap_Alloc = 0x0201AA8C | 1;
+PlayerAvatar_GetXCoord = 0x0205C67C | 1;
+PlayerAvatar_GetZCoord = 0x0205C688 | 1;
+HiddenItemScriptNoToFlagId = 0x0204055C | 1;
+HiddenItemScriptNoToHiddenItemIdx = 0x0204056C | 1;
 
 /*TextBox*/
 TalkWinGraphicSet = 0x0200E644 |1;

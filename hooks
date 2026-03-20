@@ -185,6 +185,10 @@ arm9 ScrCmd_GiveEgg 0204D248 1
 0001 ScrCmd_GiveTogepiEgg 022020CC 1
 arm9 sub_0206D328 0206D328 2
 
+arm9 HiddenItemGetUnk3 02040578 1
+arm9 GetHiddenItemParams 020405AC 2
+arm9 AllocAndFetchNearbyHiddenItems 02040614 2
+
 #hof/pokeathlon/pokewalker fix
 0063 grab_overworld_a081_index 080025E4 3
 0064 grab_overworld_a081_index 021E6E30 3
