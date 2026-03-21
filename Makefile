@@ -485,6 +485,12 @@ move_narc: $(NARC_FILES)
 	@echo "battle tests:"
 	cp $(BATTLETESTS_BIN) $(BATTLETESTS_TARGET)
 
+	@echo "background gfx ids:"
+	cp $(BACKGROUND_GFX_IDS_BIN) $(BACKGROUND_GFX_IDS_TARGET)
+
+	@echo "hidden item params:"
+	cp $(HIDDEN_ITEM_PARAMS_BIN) $(HIDDEN_ITEM_PARAMS_TARGET)
+
 
 DUMP_SCRIPT_LOCATION := tools/source/dumptools
 # the goal here is to extract the required narcs to the proper folders for the dump scripts to work.

@@ -30,6 +30,7 @@ arm9 LoadEggMoves 0806C488 2
 #arm9 InheritMoves 0206C510 3 # come back later for egg move expansion
 arm9 GetMonEvolution 02070E34
 0007 hook_7_spriteOffsetSpecies 08018A48 3
+0007 ov07_0221FB7C 0221FB7C 2
 0012 hook_12_spriteOffsetSpecies 08022154 2
 0012 hook_12_spriteOffsetSpecies_escapeFromBall 02259DBC 2
 0012 fix_double_spriteOffsetSpecies 02259C0C 2

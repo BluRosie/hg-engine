@@ -964,3 +964,11 @@ void LONG_CALL BattleBackgroundCallback(void *unkPtr, int unk2, int unk3)
     BattleBgProfile *vanillaTable = (BattleBgProfile *)((u32)sBattleBgProfileTable & ~1);
     vanillaTable[0].callback = originalCallback;
 }
+
+u16 LONG_CALL ov07_0221FB7C(u32 backgroundId, u32 assetIndex)
+{
+    u16 ret;
+
+    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_BACKGROUND_GFX_IDS, (backgroundId * 5 + assetIndex) * sizeof(u16), sizeof(ret));
+    return ret;
+}
