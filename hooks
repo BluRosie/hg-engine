@@ -45,6 +45,8 @@ arm9 GetItemArcData 08077CE8 3
 #mon expansion
 arm9 GetPokemonOwNum 0206A304 1
 arm9 GetMonIconPalette 02074364 3
+arm9 sub_02097F6C 02097F6C 3
+arm9 GetSwarmInfoFromRand 02097F9C 3
 
 # ability expansion
 arm9 GetBoxMonData_EditedCases_hook 0206E6E0 3
