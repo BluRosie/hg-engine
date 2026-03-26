@@ -10,7 +10,7 @@
 #if defined (DISABLE_ITEMS_IN_TRAINER_BATTLE)
 void overrideItemUsage(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    MESSAGE_PARAM mp;
+    BattleMessage *mp;
     int battlerId;
     u32 fight_type = BattleTypeGet(bsys);
 
@@ -20,8 +20,8 @@ void overrideItemUsage(struct BattleSystem *bsys, struct BattleStruct *ctx)
         {
             if (fight_type & BATTLE_TYPE_TRAINER)
             {
-                mp.msg_id = BATTLE_MSG_ITEMS_CANT_BE_USED_HERE; //msg.id  = msg_0197_00593; // Items can't be used here
-                mp.msg_tag = TAG_NONE;
+                mp->id = BATTLE_MSG_ITEMS_CANT_BE_USED_HERE; //msg.id  = msg_0197_00593; // Items can't be used here
+                mp->tag = TAG_NONE;
                 ov12_022639B8(bsys, battlerId, mp);
                 ctx->com_seq_no[battlerId] = SSI_STATE_15;
                 ctx->ret_seq_no[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;

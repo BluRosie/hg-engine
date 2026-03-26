@@ -270,28 +270,6 @@ bx r3
 .pool
 
 
-.global UseItemMonAttrChangeCheck_hook
-UseItemMonAttrChangeCheck_hook:
-push {r1-r7}
-
-mov r0, r5
-mov r1, r4 // so that the memory can be freed
-bl UseItemMonAttrChangeCheck
-
-pop {r1-r7}
-cmp r0, #1
-bne return_to_0207C2D2
-mov r0, #31
-ldr r1, =0x0207C2D0 | 1 // else return 31
-bx r1
-
-return_to_0207C2D2:
-ldr r0, =0x0207C2D2 | 1
-bx r0
-
-.pool
-
-
 .global UseItemMonAttrLoadDiffMessage_hook
 UseItemMonAttrLoadDiffMessage_hook:
 ldr r1, =partyMenuSignal
@@ -809,8 +787,16 @@ bx  r0
 
 _vanillaAddBoxMonHandling:
 add sp, #0x14
-ldr r0, =0x0206F682 | 1
+cmp r7, #0xba
+bls _returnTo0206F684
+ldr r0, =0x0206FA50 | 1
 bx  r0
+
+_returnTo0206F684:
+mov r0, r7
+lsl r0, #1
+ldr r1, =0x0206F684 | 1
+bx  r1
 
 .pool
 

@@ -448,9 +448,8 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                 (sp->oneSelfFlag[sp->defence_client].special_damage)))
         {
-            sp->calc_work = sp->current_move_index;
-            sp->current_move_index = MOVE_GRASSY_TERRAIN;  // need this for UpdateTerrainOverlay
             sp->addeffect_type = ADD_EFFECT_ABILITY;
+            UpdateTerrainOverlay(sp, sp->defence_client, GRASSY_TERRAIN);
             sp->state_client = sp->defence_client;
             sp->battlerIdTemp = sp->defence_client;
             seq_no[0] = SUB_SEQ_CREATE_TERRAIN_OVERLAY;

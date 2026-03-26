@@ -8,5 +8,6 @@ _000:
     PrintMessage 809, TAG_NONE
     Wait 
     WaitButtonABTime 30
+    ResetParadoxAbility ABILITY_PROTOSYNTHESIS
     Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
     End 

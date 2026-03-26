@@ -10,12 +10,14 @@
 - [Setup Instructions (Linux with apt)](#setup-instructions-linux-with-apt)
 - [Setup Instructions (Linux with apk)](#setup-instructions-linux-with-apk)
 - [Setup Instructions (Linux with dnf or yum)](#setup-instructions-linux-with-dnf-or-yum)
+- [Setup Instructions (Linux with pacman)](#setup-instructions-linux-with-pacman)
 - [Setup Instructions (macOS)](#setup-instructions-macos)
 - [Setup Instructions (Windows on WSL)](#setup-instructions-windows-on-wsl)
 - [Setup Instructions (Windows on MSYS2)](#setup-instructions-windows-on-msys2)
 - [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 - [Setup Instructions (Docker)](#setup-instructions-docker)
 - [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
+- [Updating Your Repository](#updating-your-repository)
 - [Credits](#credits)
 
 
@@ -109,18 +111,42 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 
 
 ## Further Setup Instructions (All Platforms) (Continued from Individual Sections)
-1. In Terminal/WSL, run the following commands:
-    * ```mkdir -p ~/git && cd ~/git```
-    * ```git clone --recursive https://github.com/BluRosie/hg-engine.git```
-2. Continue to [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
+**Forking `hg-engine` is highly recommended if you plan to make changes of your own, and is mandatory if you plan on contributing to the main repo.**  
+A fork will give you a repository you can safely customize while making it easier to pull the latest features from the main project.
+
+1. Optionally fork `BluRosie/hg-engine` [via GitHub][github-fork-docs].
+2. If you forked the repository, run the following commands in Terminal/WSL, replacing `[YOUR-USERNAME]` with your GitHub username:
+   * ```mkdir -p ~/git && cd ~/git```
+   * ```git clone --recursive https://github.com/[YOUR-USERNAME]/hg-engine.git```
+   * ```cd hg-engine```
+3. If you forked the repository and want to pull future updates from the main project, add `BluRosie/hg-engine` as an `upstream` remote:
+   * ```git remote add upstream https://github.com/BluRosie/hg-engine.git```
+4. If you did not fork the repository, run the following commands in Terminal/WSL instead:
+   * ```mkdir -p ~/git && cd ~/git```
+   * ```git clone --recursive https://github.com/BluRosie/hg-engine.git```
+   * ```cd hg-engine```
+5. If you cloned `BluRosie/hg-engine` directly and want to pull future updates later, use:
+   * ```git pull origin main```
+6. Continue to [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
 
 ## Setup Instructions (Docker)
-If you are using Docker, there is no need for complicated setup or anything.  You just have to clone the git repository:
-* ```mkdir -p ~/git && cd ~/git```
-* ```git clone --recursive https://github.com/BluRosie/hg-engine.git```
-* ```cd hg-engine```
+**Forking `hg-engine` is highly recommended if you plan to make changes of your own, and is mandatory if you plan on contributing to the main repo.**
+A fork will give you a repository you can safely customize while making it easier to pull the latest features from the main project.
 
-Docker handles all of the setup for you with relative replicability across platforms.  This abstracts a bit of it away from the user and is slightly slower, but such is the price of simplicity.
+1. Optionally fork `BluRosie/hg-engine` [via GitHub][github-fork-docs].
+2. If you forked the repository, run the following commands, replacing `[YOUR-USERNAME]` with your GitHub username:
+   * ```mkdir -p ~/git && cd ~/git```
+   * ```git clone --recursive https://github.com/[YOUR-USERNAME]/hg-engine.git```
+   * ```cd hg-engine```
+3. If you forked the repository and want to pull future updates from the main project, add `BluRosie/hg-engine` as an `upstream` remote:
+   * ```git remote add upstream https://github.com/BluRosie/hg-engine.git```
+4. If you did not fork the repository, run the following commands instead:
+   * ```mkdir -p ~/git && cd ~/git```
+   * ```git clone --recursive https://github.com/BluRosie/hg-engine.git```
+   * ```cd hg-engine```
+5. If you cloned `BluRosie/hg-engine` directly and want to pull future updates later, use:
+   * ```git pull origin main```
+6. Docker handles the setup for you with relative replicability across platforms.  This abstracts a bit of it away from the user and is slightly slower, but such is the price of simplicity.
 
 To set up for the first time, all that needs to be run is:
 ```docker build . -t hg-engine```
@@ -151,6 +177,26 @@ You will still have to `make clean` and `make clean_code` manually when changing
    * It is important to note that this alone will not add new Pokémon to the wild, trainers, etc...; it simply makes them available in your game. It is up to you to place them.
    * You can edit various game data such as trainers, dex entries, Pokémon stats, and more in the files in `armips/data`.
 
+## Updating Your Repository
+### Normal Clone
+If you cloned the repository without forking, follow these steps:
+
+1. Change to your local repository:
+   * ```cd ~/git/hg-engine```
+2. Pull the latest changes from the main repository:
+   * ```git pull origin main```
+
+### Fork
+If you cloned your own fork and added an `upstream` remote, follow these steps:
+
+1. Change to your local repository:
+   * ```cd ~/git/hg-engine```
+2. Fetch the latest changes from the main repository:
+   * ```git fetch upstream```
+3. Merge `upstream/main` into your current branch:
+   * ```git merge upstream/main```
+4. If the CLI indicates merge conflicts, check [this article][github-merge-conflicts] for how to navigate them.
+
 # Credits
 * [CREDITS.md](CREDITS.md).
 * [**Bubble (Base Mega Code)**][TEMPLATE]
@@ -167,3 +213,5 @@ You will still have to `make clean` and `make clean_code` manually when changing
 [diamond]:https://github.com/pret/pokediamond
 [TEMPLATE]: https://github.com/Bubble791/Pokemon-Heart-Gold-Engine
 [LUNOS]: https://www.pokecommunity.com/showthread.php?t=432351
+[github-fork-docs]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
+[github-merge-conflicts]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line

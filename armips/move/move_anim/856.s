@@ -35,18 +35,13 @@ a010_856:
     waitstate
     waitparticle
     unloadparticle 0
+    waitstate
+    unloadparticle 1
+    waitstate
     cmd43
     cmd0C 7, 1
     resetbg 0, 0x1000001
     waitforchangebg
-
-
-
-    unloadparticle 0
-    waitstate
-    unloadparticle 1
-    waitstate
     end
-    
 
 .close

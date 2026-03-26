@@ -3,12 +3,23 @@
 .data
 
 _000:
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_OVERWORLD_WEATHER_ANY, _OverworldWeather
     PlayBattleAnimation BATTLER_CATEGORY_PLAYER, BATTLE_ANIMATION_WEATHER_SUN
-    Wait 
+    Wait
     // The sunlight turned extremely harsh!
     PrintMessage 1441, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_WEATHER
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_EXTREMELY_HARSH_SUNLIGHT
-    End 
+    ResetParadoxAbility ABILITY_PROTOSYNTHESIS
+    // Booster Energy
+    ActivateParadoxAbility ABILITY_PROTOSYNTHESIS
+    End
+
+_OverworldWeather:
+    // But it failed!
+    PrintMessage 796, TAG_NONE
+    Wait
+    WaitButtonABTime 30
+    End
