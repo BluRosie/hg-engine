@@ -32,7 +32,7 @@
             .form = 0,
             .ability = ABILITY_TELEPATHY,
             .item = ITEM_UTILITY_UMBRELLA,
-            .moves = {MOVE_SPLASH, MOVE_RECOVER, MOVE_NONE, MOVE_NONE},
+            .moves = {MOVE_SLEEP_TALK, MOVE_RECOVER, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,

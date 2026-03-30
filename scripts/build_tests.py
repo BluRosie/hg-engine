@@ -61,10 +61,19 @@ def main() -> None:
     data_folder = pathlib.Path(os.path.join(os.getcwd(), "data"))
     build_folder = pathlib.Path(os.path.join(os.getcwd(), "build", "battle_tests"))
     battle_tests_root_folder = pathlib.Path(data_folder, "battle_tests")
-    files = battle_tests_root_folder.rglob("*c")
+    files = list(battle_tests_root_folder.rglob("*c"))
 
     if len(filter_keywords) > 0:
         files = list(filter(lambda x: keywords_in_file(str(x), filter_keywords), files))
+
+    for file_path in list(files):
+        with open(file_path, "r") as file:
+            content = file.read()
+
+        content = content.replace("’", "'").replace("é", "e")
+
+        with open(file_path, "w") as file:
+            file.write(content)
 
     test_files = [
         f'#include "../../data/{os.path.relpath(file, data_folder)}"'

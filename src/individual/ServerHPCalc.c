@@ -41,8 +41,9 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
         sp->client_no_hit[sp->defence_client] = sp->attack_client;
 
         if ((sp->battlemon[sp->defence_client].condition2 & STATUS2_SUBSTITUTE)
-         && (sp->damage < 0)
-         && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_INFILTRATOR))
+            && (sp->damage < 0)
+            && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_INFILTRATOR)
+            && !IsMoveSoundBased(sp->current_move_index))
         {
             if ((sp->battlemon[sp->defence_client].moveeffect.substituteHp + sp->damage) <= 0)
             {
@@ -59,9 +60,6 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
             }
             sp->oneSelfFlag[sp->defence_client].status_flag |= SELF_STATUS_FLAG_SUBSTITUTE_HIT;
             sp->battlerIdTemp = sp->defence_client;
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HIT_SUBSTITUTE);
-            sp->server_seq_no = 22;
-            sp->next_server_seq_no = 29;
         }
         else
         {
@@ -120,6 +118,13 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
             // debug_printf("In ServerHPCalc\n");
             struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
             if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+#ifdef DEBUG_DAMAGE_CALC
+                debug_printf("[ServerHPCalc] move=%d target=%d damage=%d status=%08lx\n",
+                             sp->current_move_index,
+                             sp->defence_client,
+                             sp->damage * -1,
+                             (unsigned long)sp->waza_status_flag);
+#endif
                 // debug_printf("Has more expectations\n")
                 if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_HP_BAR
                     && sp->defence_client == scenario->expectations[scenario->expectationPassCount].battlerIDOrPartySlot) {
@@ -177,15 +182,15 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
             sp->battlerIdTemp = sp->defence_client;
             sp->hp_calc_work = sp->damage;
 
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
-            sp->server_seq_no = 22;
-            sp->next_server_seq_no = 29;
+            if (IsMoveSpreadMove(bw, sp, sp->current_move_index) && !(sp->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE)) {
+                sp->server_status_flag |= SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE;
+            }
 
-            sp->server_status_flag |= SERVER_STATUS_FLAG_MOVE_HIT;
+            if (sp->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE) {
+                if (sp->damageForSpreadMoves[sp->defence_client] == 0) {
+                    sp->damageForSpreadMoves[sp->defence_client] = sp->damage;
+                }
+            }
         }
-    }
-    else
-    {
-        sp->server_seq_no = 29;
     }
 }

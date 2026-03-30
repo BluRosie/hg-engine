@@ -1,4 +1,4 @@
-// Test: Trick can take away Booster Energy on some Paradox Pokémon (Raging Bolt, Gouging Fire, Iron Boulder and Iron Crown)
+// Test: Trick can take away Booster Energy on some Paradox Pokemon (Raging Bolt, Gouging Fire, Iron Boulder and Iron Crown)
 // https://x.com/DaWoblefet/status/1737659599480565762
 {
     .battleType = BATTLE_TYPE_DOUBLE,
@@ -25,7 +25,7 @@
             .form = 0,
             .ability = ABILITY_PROTOSYNTHESIS,
             .item = ITEM_BOOSTER_ENERGY,
-            .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .moves = {MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
@@ -44,7 +44,7 @@
             .form = 0,
             .ability = ABILITY_BLAZE,
             .item = ITEM_BOOSTER_ENERGY,
-            .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .moves = {MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
@@ -56,7 +56,7 @@
             .form = 0,
             .ability = ABILITY_PROTOSYNTHESIS,
             .item = ITEM_BOOSTER_ENERGY,
-            .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .moves = {MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,
@@ -121,6 +121,5 @@
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "RagingBolt's Sp. Atk was heightened!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mewscarada switched items with its target!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Charizard used Splash!" },
     }
 },

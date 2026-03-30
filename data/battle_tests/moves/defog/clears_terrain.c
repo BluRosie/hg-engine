@@ -32,7 +32,7 @@
             .form = 0,
             .ability = ABILITY_FLAME_BODY,
             .item = ITEM_NONE,
-            .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .moves = {MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,

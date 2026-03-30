@@ -79,29 +79,6 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
     // https://web.archive.org/web/20241226231016/https://www.trainertower.com/dawoblefets-damage-dissertation/
 
-    if ((MoldBreakerAbilityCheckInternal(attacker, defender, AttackingMon.ability, DefendingMon.ability, moveno, movesplit, ABILITY_DISGUISE) == TRUE)
-    && (DefendingMon.species == SPECIES_MIMIKYU)
-    // Mimikyu or Mimikyu-Large
-    && (DefendingMon.form == 0 || DefendingMon.form == 2)
-    // Not transformed
-    && !(DefendingMon.condition2 & STATUS2_TRANSFORMED)) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
-        return 0;
-    }
-
-
-    if ((MoldBreakerAbilityCheckInternal(attacker, defender, AttackingMon.ability, DefendingMon.ability, moveno, movesplit, ABILITY_ICE_FACE) == TRUE)
-    && (DefendingMon.species == SPECIES_EISCUE)
-    && (DefendingMon.form == 0)
-    // Not transformed
-    && !(DefendingMon.condition2 & STATUS2_TRANSFORMED)
-    && (movesplit == SPLIT_PHYSICAL)) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
-        return 0;
-    }
-
 
     //=====Step 1. Custom BP=====
 
@@ -307,7 +284,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         // TODO: Implement Round
         break;
     case MOVE_SMELLING_SALTS:
-        if (DefendingMon.condition & STATUS_PARALYSIS) {
+        if (CheckSubstitute(sp, defender) == FALSE && DefendingMon.condition & STATUS_PARALYSIS) {
             movepower *= 2;
         }
         break;
@@ -318,7 +295,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         }
         break;
     case MOVE_WAKE_UP_SLAP:
-        if (DefendingMon.condition & STATUS_SLEEP) {
+        if (CheckSubstitute(sp, defender) == FALSE  && 
+            (DefendingMon.condition & STATUS_SLEEP || MoldBreakerAbilityCheck(sp, defender, defender, ABILITY_COMATOSE))) {
             movepower *= 2;
         }
         break;
@@ -350,11 +328,10 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         break;
     // Item-based
     case MOVE_FLING:
-        // TODO: test Parental Bond interaction
-        movepower = damage_power;
+        movepower = GetHeldItemFlingPower(sp, attacker);
         break;
     case MOVE_NATURAL_GIFT:
-        movepower = damage_power;
+        movepower = GetNaturalGiftPower(sp, attacker);
         break;
     // Other
     case MOVE_BEAT_UP:
