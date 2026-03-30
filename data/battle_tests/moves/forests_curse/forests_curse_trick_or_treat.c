@@ -24,7 +24,7 @@ const struct TestBattleScenario BattleTests[] = {
                 .form = 0,
                 .ability = ABILITY_INNER_FOCUS,
                 .item = ITEM_NONE,
-                .moves = { MOVE_CURSE, MOVE_SPLASH, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_CURSE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -34,8 +34,10 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
-        .enemyParty = { {
+            { .species = SPECIES_NONE }
+        },
+        .enemyParty = {
+            {
                             .species = SPECIES_SMEARGLE,
                             .level = 50,
                             .form = 0,
@@ -51,8 +53,10 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
-        .playerScript = { {
+            { .species = SPECIES_NONE }
+        },
+        .playerScript = {
+            {
                               { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                               { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                               { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
@@ -71,8 +75,10 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
-        .enemyScript = { {
+            }
+        },
+        .enemyScript = {
+            {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                              { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                              { ACTION_MOVE_SLOT_3, BATTLER_PLAYER_FIRST },
@@ -91,7 +97,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
+            }
+        },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ghost type was added to Throh!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Throh cut its own HP and put a curse on the opposing Smeargle!" },

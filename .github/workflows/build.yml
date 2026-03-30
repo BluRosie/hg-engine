@@ -38,19 +38,39 @@ jobs:
         with:
           repository: "BluRosie/pokeheartgold"
 
+      - name: Restore decomp toolchain cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            tools/mwccarm
+            tools/bin
+            sub/ARM7-TS.lcf.template
+            ARM9-TS.lcf.template
+            mwldarm.response.template
+          key: ${{ runner.os }}-pokeheartgold-toolchain-mwccarm-nitrosdk-3_2-060901
+
       - name: Setup Repo (decomp)
         run: |
           mkdir -p ~/download
+          mkdir -p $GITHUB_WORKSPACE/tools
+          mkdir -p $GITHUB_WORKSPACE/sub
           cd ~/download
-          wget https://github.com/pret/pokeheartgold/raw/workflows/assets/mwccarm.zip
-          wget https://github.com/pret/pokeheartgold/raw/workflows/assets/NitroSDK-3_2-060901.7z
-          unzip mwccarm.zip
-          mv mwccarm $GITHUB_WORKSPACE/tools
-          7z x NitroSDK-3_2-060901.7z
-          mv NitroSDK-3_2-060901/tools/bin $GITHUB_WORKSPACE/tools
-          mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM7-TS.lcf.template $GITHUB_WORKSPACE/sub/
-          mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM9-TS.lcf.template $GITHUB_WORKSPACE/
-          mv NitroSDK-3_2-060901/include/nitro/specfiles/mwldarm.response.template $GITHUB_WORKSPACE/
+          if [ ! -d "$GITHUB_WORKSPACE/tools/mwccarm" ]; then
+            wget -q https://github.com/pret/pokeheartgold/raw/workflows/assets/mwccarm.zip
+            unzip -q -o mwccarm.zip
+            rm -rf $GITHUB_WORKSPACE/tools/mwccarm
+            mv mwccarm $GITHUB_WORKSPACE/tools
+          fi
+          if [ ! -d "$GITHUB_WORKSPACE/tools/bin" ] || [ ! -f "$GITHUB_WORKSPACE/sub/ARM7-TS.lcf.template" ] || [ ! -f "$GITHUB_WORKSPACE/ARM9-TS.lcf.template" ] || [ ! -f "$GITHUB_WORKSPACE/mwldarm.response.template" ]; then
+            wget -q https://github.com/pret/pokeheartgold/raw/workflows/assets/NitroSDK-3_2-060901.7z
+            rm -rf NitroSDK-3_2-060901
+            7z x -y NitroSDK-3_2-060901.7z >/dev/null
+            rm -rf $GITHUB_WORKSPACE/tools/bin
+            mv NitroSDK-3_2-060901/tools/bin $GITHUB_WORKSPACE/tools
+            cp NitroSDK-3_2-060901/include/nitro/specfiles/ARM7-TS.lcf.template $GITHUB_WORKSPACE/sub/
+            cp NitroSDK-3_2-060901/include/nitro/specfiles/ARM9-TS.lcf.template $GITHUB_WORKSPACE/
+            cp NitroSDK-3_2-060901/include/nitro/specfiles/mwldarm.response.template $GITHUB_WORKSPACE/
+          fi
         working-directory: ~
 
       - name: Set Swap Space (decomp)
@@ -82,6 +102,26 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
+      - name: Restore Python cache
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: ${{ runner.os }}-hg-engine-venv-${{ hashFiles('requirements.txt') }}
+
+      - name: Restore tool cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            tools/ENCODE_IMG
+            tools/adpcm-xq
+            tools/armips
+            tools/msgenc
+            tools/ndstool
+            tools/nitrogfx
+            tools/ntrWavTool.py
+            tools/o2narc
+          key: ${{ runner.os }}-hg-engine-tools-${{ hashFiles('Makefile', 'tools/source/**') }}
 
       - name: Move built file (2)
         run: |

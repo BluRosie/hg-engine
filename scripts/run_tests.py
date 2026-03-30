@@ -2,6 +2,7 @@ import argparse
 import os
 import pathlib
 import re
+import signal
 import sys
 import time
 
@@ -18,6 +19,9 @@ TEST_CASE_FAIL = -2
 TEST_CASE_KNOWN_FAILING = -3
 
 test_case_names: list[str] = list()
+pass_test_case_names: list[str] = list()
+fail_test_case_names: list[str] = list()
+known_failing_test_case_names: list[str] = list()
 
 
 # https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal
@@ -57,11 +61,15 @@ def get_test_names() -> list[str]:
                     os.path.join(os.getcwd(), "data", match_group.group(1))
                 )
                 with open(test_file_path, "r") as test_file:
-                    test_case_match_group = re.match(
-                        r"// Test: (.+)", test_file.readline().strip()
-                    )
-                    if test_case_match_group:
-                        test_case_names.append(test_case_match_group.group(1))
+                    try:
+                        test_case_match_group = re.match(
+                            r"// Test: (.+)", test_file.readline().strip()
+                        )
+                        if test_case_match_group:
+                            test_case_names.append(test_case_match_group.group(1))
+                    except:
+                        print(f"Error parsing file {test_file_path}!")
+                        raise
 
     return test_case_names
 
@@ -77,11 +85,14 @@ def has_finished_testing() -> bool:
 def callback_function_when_game_put_thing_into_communication_hole(
     address, size
 ) -> None:
-    global \
-        current_test_case, \
-        has_finished_testing_flag, \
-        return_value, \
-        last_activity_time
+    global current_test_case
+    global has_finished_testing_flag
+    global return_value
+    global last_activity_time
+    global test_case_names
+    global pass_test_case_names
+    global fail_test_case_names
+    global known_failing_test_case_names
 
     last_activity_time = time.monotonic()
 
@@ -92,17 +103,20 @@ def callback_function_when_game_put_thing_into_communication_hole(
             f"{bcolors.FAIL}[Fail] {test_case_names[current_test_case]}{bcolors.ENDC}",
             flush=True,
         )
+        fail_test_case_names.append(test_case_names[current_test_case])
         return_value += 1
     elif value == TEST_CASE_PASS:
         print(
             f"{bcolors.OKGREEN}[Pass] {test_case_names[current_test_case]}{bcolors.ENDC}",
             flush=True,
         )
+        pass_test_case_names.append(test_case_names[current_test_case])
     elif value == TEST_CASE_KNOWN_FAILING:
         print(
             f"{bcolors.WARNING}[Known Failing] {test_case_names[current_test_case]}{bcolors.ENDC}",
             flush=True,
         )
+        known_failing_test_case_names.append(test_case_names[current_test_case])
 
     current_test_case += 1
 
@@ -118,6 +132,37 @@ def read_total_tests_from_header() -> int:
         raise RuntimeError(f"Could not find TEST_BATTLE_TOTAL_TESTS in {header_path}")
     return int(m.group(1))
 
+
+def get_test_results() -> str:
+    global test_case_names
+    global pass_test_case_names
+    global fail_test_case_names
+    global known_failing_test_case_names
+
+    results: str = "\n\n"
+    results += "Test results:\n"
+    results += f"Number of tests passed: {len(pass_test_case_names)}\n"
+    results += f"Tests failed ({len(fail_test_case_names)}):\n"
+    for failed_item in fail_test_case_names:
+        results += f"\t{bcolors.FAIL}{failed_item}{bcolors.ENDC}\n"
+    results += f"Tests known failing ({len(known_failing_test_case_names)}):\n"
+
+    for known_failing_item in known_failing_test_case_names:
+        results += f"\t{bcolors.WARNING}{known_failing_item}{bcolors.ENDC}\n"
+
+    return results
+
+
+def end_test(signum, frame):
+    emu.destroy()
+
+    with open("test_logs.txt", "a") as f:
+        f.write(get_test_results())
+
+    sys.exit(signum)
+
+
+signal.signal(signal.SIGINT, end_test)
 
 NUMBER_OF_TESTS_TO_RUN = read_total_tests_from_header()
 
@@ -156,8 +201,11 @@ def main():
 
         emu.cycle(False)
 
-    print("Tests complete!\n", flush=True)
     emu.destroy()
+
+    print("Tests complete!", flush=True)
+    print(get_test_results(), flush=True)
+
     sys.exit(return_value)
 
 

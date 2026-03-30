@@ -1,4 +1,4 @@
-// Test: Protosynthesis boosts the highest stat, either Attack or Special Attack only, not both. Protosynthesis activates even if the Pokémon is holding an Utility Umbrella. 
+// Test: Protosynthesis boosts the highest stat, either Attack or Special Attack only, not both. Protosynthesis activates even if the Pokemon is holding an Utility Umbrella. 
 {
     .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
@@ -32,7 +32,7 @@
             .form = 0,
             .ability = ABILITY_SHADOW_TAG,
             .item = ITEM_NONE,
-            .moves = {MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+            .moves = {MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE},
             .hp = 0,
             .status = 0,
             .condition2 = 0,

@@ -932,7 +932,19 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Eject Pack
                     {
-
+                        /*
+                        if (HeldItemHoldEffectGet(sp, client_no) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP) {
+                            if (sp->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING
+                                && sp->moveConditionsFlags[client_no].anyStatLoweredThisTurn) {
+                                sp->addeffect_type = ADD_EFFECT_STICKY_WEB;
+                                sp->battlerIdTemp = client_no;
+                                sp->state_client = client_no;
+                                scriptnum = SUB_SEQ_HANDLE_SWITCHING_ITEMS;
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                break;
+                            }
+                        }
+                        */
                     }
 
                     // Need to trigger script

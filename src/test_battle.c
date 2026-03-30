@@ -603,6 +603,12 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
     return 1;  // FIGHT
 }
 
+// send out pokemon in order
+int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys, int battler)
+{
+    return 6;
+}
+
 /**
  * @brief Auto-select moves/switches for player battlers in test scenarios
  *
