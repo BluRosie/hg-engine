@@ -19,6 +19,7 @@ def dump_regionaldex_c(data):
     lines = [
         '#include "../include/types.h"',
         '#include "../include/config.h"',
+        '#include "../include/constants/species.h"',
         "",
         "// defines the number for the species in the regional dex. 0 means not in regional dex",
         "const u16 UNUSED RegionalDex[] =",
@@ -28,7 +29,7 @@ def dump_regionaldex_c(data):
     for idx in range(0, len(data), 2):
         value = int.from_bytes(data[idx:idx + 2], "little")
         species = idx // 2
-        lines.append(f"    {value:4d}, // {MONS['SPECIES'][species]}")
+        lines.append(f"    [{MONS['SPECIES'][species]}] = {value},")
 
     lines.extend([
         "};",
