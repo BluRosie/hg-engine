@@ -21,6 +21,8 @@ class Options {
     char padval = '\xFF';
     Elf objfile;
     ofstream narcfile;
+    bool has_nullval = false;
+    unsigned char nullval = '\xFF';
 
     void ReadObjectFile(vector<unsigned char> &rodata, vector<uint32_t> &sizes);
     void OverwritePadding(vector<unsigned char> &rodata, vector<uint32_t> &sizes) const;

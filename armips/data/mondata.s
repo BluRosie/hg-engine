@@ -9233,7 +9233,7 @@ mondata SPECIES_BONSLY, "Bonsly"
     mondexweight SPECIES_BONSLY, "33.1 lbs."
 
 
-mondata SPECIES_MIMEJR, "Mime Jr."
+mondata SPECIES_MIME_JR, "Mime Jr."
     basestats 20, 25, 45, 60, 70, 90
     types TYPE_PSYCHIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 145
@@ -9248,10 +9248,10 @@ mondata SPECIES_MIMEJR, "Mime Jr."
     abilities ABILITY_SOUNDPROOF, ABILITY_FILTER
     runchance 0
     colorflip BODY_COLOR_PINK, 0
-    mondexentry SPECIES_MIMEJR, "In an attempt to confuse its enemy,\nit mimics the enemy’s movements. Then\nit wastes no time in making itself scarce!"
-    mondexclassification SPECIES_MIMEJR, "Mime Pokémon"
-    mondexheight SPECIES_MIMEJR, "2’00”"
-    mondexweight SPECIES_MIMEJR, "28.7 lbs."
+    mondexentry SPECIES_MIME_JR, "In an attempt to confuse its enemy,\nit mimics the enemy’s movements. Then\nit wastes no time in making itself scarce!"
+    mondexclassification SPECIES_MIME_JR, "Mime Pokémon"
+    mondexheight SPECIES_MIME_JR, "2’00”"
+    mondexweight SPECIES_MIME_JR, "28.7 lbs."
 
 
 mondata SPECIES_HAPPINY, "Happiny"

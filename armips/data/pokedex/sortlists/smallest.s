@@ -270,7 +270,7 @@
 .halfword SPECIES_BAGON
 .halfword SPECIES_BELDUM
 .halfword SPECIES_STARAVIA
-.halfword SPECIES_MIMEJR
+.halfword SPECIES_MIME_JR
 .halfword SPECIES_HAPPINY
 .halfword SPECIES_MUNCHLAX
 .halfword SPECIES_SNIVY

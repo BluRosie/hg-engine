@@ -445,7 +445,7 @@
 /* SPECIES_BRONZOR                           */ .word 605
 /* SPECIES_BRONZONG                          */ .word 1870
 /* SPECIES_BONSLY                            */ .word 150
-/* SPECIES_MIMEJR                            */ .word 130
+/* SPECIES_MIME_JR                            */ .word 130
 /* SPECIES_HAPPINY                           */ .word 244
 /* SPECIES_CHATOT                            */ .word 19
 /* SPECIES_SPIRITOMB                         */ .word 1080

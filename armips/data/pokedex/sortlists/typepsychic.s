@@ -50,7 +50,7 @@
 .halfword SPECIES_CHINGLING
 .halfword SPECIES_BRONZOR
 .halfword SPECIES_BRONZONG
-.halfword SPECIES_MIMEJR
+.halfword SPECIES_MIME_JR
 .halfword SPECIES_GALLADE
 .halfword SPECIES_UXIE
 .halfword SPECIES_MESPRIT

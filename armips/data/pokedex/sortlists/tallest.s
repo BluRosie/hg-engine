@@ -629,7 +629,7 @@
 .halfword SPECIES_SNIVY
 .halfword SPECIES_MUNCHLAX
 .halfword SPECIES_HAPPINY
-.halfword SPECIES_MIMEJR
+.halfword SPECIES_MIME_JR
 .halfword SPECIES_STARAVIA
 .halfword SPECIES_BELDUM
 .halfword SPECIES_BAGON

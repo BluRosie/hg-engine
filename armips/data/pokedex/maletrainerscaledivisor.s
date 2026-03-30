@@ -446,7 +446,7 @@
 /* SPECIES_BRONZOR         */ .halfword 0x100
 /* SPECIES_BRONZONG        */ .halfword 0x100
 /* SPECIES_BONSLY          */ .halfword 0x100
-/* SPECIES_MIMEJR          */ .halfword 0x100
+/* SPECIES_MIME_JR          */ .halfword 0x100
 /* SPECIES_HAPPINY         */ .halfword 0x100
 /* SPECIES_CHATOT          */ .halfword 0x100
 /* SPECIES_SPIRITOMB       */ .halfword 0x100

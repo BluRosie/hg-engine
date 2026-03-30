@@ -9,8 +9,13 @@ from dump_scripts.mondata import dump_mondata
 from dump_scripts.moves import dump_moves
 from dump_scripts.encounters import dump_encounters
 from dump_scripts.evodata import dump_evodata
+from dump_scripts.baby_mons import dump_babymons_c
+from dump_scripts.headbutt import dump_headbutt_c
+from dump_scripts.height_table import dump_heighttable_c
 from dump_scripts.levelupdata import dump_levelupdata
+from dump_scripts.sprite_offsets import dump_spriteoffsets_c
 from dump_scripts.trainerdata import dump_trainerdata
+from dump_scripts.regional_dex import dump_regionaldex_c
 
 
 if __name__ == "__main__":
@@ -18,6 +23,17 @@ if __name__ == "__main__":
 		rom = ndspy.rom.NintendoDSRom(f.read())
 
 	os.makedirs("dumped_armips", exist_ok=True)
+	os.makedirs("dumped_c", exist_ok=True)
+
+	for stale_path in (
+		"./dumped_armips/babymons.s",
+		"./dumped_armips/heighttable.s",
+		"./dumped_armips/spriteoffsets.s",
+		"./dumped_armips/headbutt.s",
+		"./dumped_armips/regionaldex.s",
+	):
+		if os.path.exists(stale_path):
+			os.remove(stale_path)
 
 	# Dump mondata
 
@@ -48,6 +64,33 @@ if __name__ == "__main__":
 	evodata_narc = dump_narc(rom, 'a/0/3/4', (EXPANDED_EVO_NARC_FORMAT if EXPANDED else EVO_NARC_FORMAT))
 	with open('./dumped_armips/evodata.s', 'w', encoding="utf-8") as file:
 		file.write(dump_evodata(evodata_narc))
+
+	# Dump regional dex
+
+	regionaldex_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/1/3/8"]])
+	with open('./dumped_c/RegionalDex.c', 'w', encoding="utf-8") as file:
+		file.write(dump_regionaldex_c(regionaldex_narc.files[0]))
+
+	# Dump baby species mappings
+
+	with open('./dumped_c/BabyMons.c', 'w', encoding="utf-8") as file:
+		file.write(dump_babymons_c(rom.files[rom.filenames["poketool/personal/pms.narc"]]))
+
+	# Dump height table
+
+	heighttable_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/0/0/5"]])
+	dump_heighttable_c(heighttable_narc.files, "./dumped_c/HeightTable.c")
+
+	# Dump sprite offsets
+
+	spriteoffsets_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/1/8/0"]])
+	with open('./dumped_c/SpriteOffsets.c', 'w', encoding="utf-8") as file:
+		file.write(dump_spriteoffsets_c(spriteoffsets_narc.files[0]))
+
+	# Dump headbutt trees
+
+	headbutt_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/2/5/2"]])
+	dump_headbutt_c(headbutt_narc.files, "./dumped_c/headbutt")
 
 	# Dump Learnsets
 

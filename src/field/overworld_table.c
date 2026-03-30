@@ -906,7 +906,7 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     { .tag =  970, .gfx =  776, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BRONZOR
     { .tag =  971, .gfx =  777, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BRONZONG
     { .tag =  972, .gfx =  778, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_BONSLY
-    { .tag =  973, .gfx =  779, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MIMEJR
+    { .tag =  973, .gfx =  779, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_MIME_JR
     { .tag =  974, .gfx =  780, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_HAPPINY
     { .tag =  975, .gfx =  781, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CHATOT
     { .tag =  976, .gfx =  782, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_SPIRITOMB

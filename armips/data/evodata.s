@@ -5279,7 +5279,7 @@ evodata SPECIES_BONSLY
     evolution EVO_NONE, 0, SPECIES_NONE
     terminateevodata
 
-evodata SPECIES_MIMEJR
+evodata SPECIES_MIME_JR
     evolution EVO_HAS_MOVE, MOVE_MIMIC, SPECIES_MR_MIME
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

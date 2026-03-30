@@ -442,7 +442,7 @@
 /* SPECIES_BRONZOR         */ .byte 0x0C 
 /* SPECIES_BRONZONG        */ .byte 0x08 
 /* SPECIES_BONSLY          */ .byte 0x09 
-/* SPECIES_MIMEJR          */ .byte 0x01 
+/* SPECIES_MIME_JR          */ .byte 0x01
 /* SPECIES_HAPPINY         */ .byte 0x01 
 /* SPECIES_CHATOT          */ .byte 0x05 
 /* SPECIES_SPIRITOMB       */ .byte 0x07 

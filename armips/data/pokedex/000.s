@@ -442,7 +442,7 @@
 /* SPECIES_BRONZOR         */ .word 0x05 
 /* SPECIES_BRONZONG        */ .word 0x0D 
 /* SPECIES_BONSLY          */ .word 0x05 
-/* SPECIES_MIMEJR          */ .word 0x06 
+/* SPECIES_MIME_JR          */ .word 0x06
 /* SPECIES_HAPPINY         */ .word 0x06 
 /* SPECIES_CHATOT          */ .word 0x05 
 /* SPECIES_SPIRITOMB       */ .word 0x0A 

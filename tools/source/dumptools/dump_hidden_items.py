@@ -88,7 +88,7 @@ def main() -> None:
         type=Path,
     )
     parser.add_argument("--items", default="include/constants/item.h", type=Path)
-    parser.add_argument("--output", default="dumped_c/hidden_items.c", type=Path)
+    parser.add_argument("--output", default="dumped_c/HiddenItems.c", type=Path)
     args = parser.parse_args()
 
     dump_hidden_items(args.reference, args.reference_items, args.items, args.output)

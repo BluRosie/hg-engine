@@ -150,6 +150,7 @@ include data/itemdata/itemdata.mk
 include data/codetables.mk
 include narcs.mk
 include overlays.mk
+include dump.mk
 
 ####################### Build Tools #######################
 MSGENC_SOURCES := $(wildcard tools/source/msgenc/*.cpp) $(wildcard tools/source/msgenc/*.h)
@@ -445,7 +446,7 @@ move_narc: $(NARC_FILES)
 
 
 	@echo "baby mons:"
-	$(ARMIPS) armips/data/babymons.s
+	cp $(BABYMONS_BIN) $(BABYMONS_TARGET)
 
 	@if test -s build/a028/8_00; then \
 		rm -rf build/a028/8_0 build/a028/8_1 build/a028/8_2 build/a028/8_3 build/a028/8_4 build/a028/8_5 build/a028/8_6 build/a028/8_7 build/a028/8_8 build/a028/8_9; \
@@ -490,42 +491,6 @@ move_narc: $(NARC_FILES)
 
 	@echo "hidden item params:"
 	cp $(HIDDEN_ITEM_PARAMS_BIN) $(HIDDEN_ITEM_PARAMS_TARGET)
-
-
-DUMP_SCRIPT_LOCATION := tools/source/dumptools
-# the goal here is to extract the required narcs to the proper folders for the dump scripts to work.
-# learnsets are covered by script migration
-dumprom: $(VENV_ACTIVATE) $(TOOLS)
-	$(MAKE) clean
-	chmod +x $(DUMP_SCRIPT_LOCATION)/*.sh
-
-	./$(DUMP_SCRIPT_LOCATION)/dumprom.sh
-	mkdir -p $(BUILD) $(BUILD_NARC) $(BUILD)/a028/
-# dump human overworlds
-	#./$(DUMP_SCRIPT_LOCATION)/dump_human_overworlds.sh
-# dump everything covered by this script
-	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
-# mondata:  needed by migrate_learnsets.py
-	cp $(MONDATA_TARGET) $(BUILD_NARC)/mondata
-	$(NARCHIVE) extract $(BUILD_NARC)/mondata -o $(MONDATA_DIR)
-	rm $(BUILD_NARC)/mondata
-# learnsets:  needed by migrate_learnsets.py
-	cp $(LEVELUPLEARNSET_TARGET) $(BUILD_NARC)/learnset
-	$(NARCHIVE) extract $(BUILD_NARC)/learnset -o $(LEVELUPLEARNSET_DIR)
-# kowaza:  needed by migrate_learnsets.py
-	cp $(EGGLEARNSET_TARGET) $(BUILD_NARC)/kowaza
-	$(NARCHIVE) extract $(BUILD_NARC)/kowaza -o $(BUILD)/kowaza
-	$(PYTHON) tools/source/dumptools/migrate_learnsets.py
-	rm -rf $(BUILD)
-
-# dump mondata, encounters, evos, moves, trainers
-	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
-	$(MSGENC) -d -c $(CHARMAP) $(MSGDATA_DIR)/7_729 $(BUILD)/trainernames.txt
-	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
-	$(PYTHON) tools/source/dumptools/dump_hidden_items.py
-
-	@echo "Done.  See output in dumped_armips/ and dumped_c/, learnsets are already in data/learnsets/learnsets.json."
-
 
 update_machine_moves: $(VENV_ACTIVATE)
 	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
