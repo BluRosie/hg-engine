@@ -7,8 +7,8 @@ from dump_scripts.dump_tools import *
 # Scripts for dumping parsed narcs to armips
 from dump_scripts.mondata import dump_mondata
 from dump_scripts.moves import dump_moves
-from dump_scripts.encounters import dump_encounters
-from dump_scripts.evodata import dump_evodata
+from dump_scripts.encounters import dump_encounters_c
+from dump_scripts.evodata import dump_evodata_c
 from dump_scripts.baby_mons import dump_babymons_c
 from dump_scripts.headbutt import dump_headbutt_c
 from dump_scripts.height_table import dump_heighttable_c
@@ -27,6 +27,8 @@ if __name__ == "__main__":
 
 	for stale_path in (
 		"./dumped_armips/babymons.s",
+		"./dumped_armips/encounters.s",
+		"./dumped_armips/evodata.s",
 		"./dumped_armips/heighttable.s",
 		"./dumped_armips/spriteoffsets.s",
 		"./dumped_armips/headbutt.s",
@@ -56,14 +58,14 @@ if __name__ == "__main__":
 	# Dump Encounters
 
 	encounters_narc = dump_narc(rom, "a/0/3/7", ENCOUNTER_NARC_FORMAT)
-	with open('./dumped_armips/encounters.s', 'w', encoding="utf-8") as file:
-		file.write(dump_encounters(encounters_narc, EXPANDED))
+	with open('./dumped_c/Encounters.c', 'w', encoding="utf-8") as file:
+		file.write(dump_encounters_c(encounters_narc, EXPANDED))
 
 	# Dump Evolutions
 
 	evodata_narc = dump_narc(rom, 'a/0/3/4', (EXPANDED_EVO_NARC_FORMAT if EXPANDED else EVO_NARC_FORMAT))
-	with open('./dumped_armips/evodata.s', 'w', encoding="utf-8") as file:
-		file.write(dump_evodata(evodata_narc))
+	with open('./dumped_c/EvoData.c', 'w', encoding="utf-8") as file:
+		file.write(dump_evodata_c(evodata_narc, EXPANDED))
 
 	# Dump regional dex
 
