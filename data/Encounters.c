@@ -2,8 +2,6 @@
 #include "../include/constants/encounter_tables.h"
 #include "../include/constants/species.h"
 
-#define ENC_SPECIES_FORM(species, form) ((species) | ((form) << 11))
-
 typedef struct PACKED EncounterSlot {
     u8 minLevel;
     u8 maxLevel;

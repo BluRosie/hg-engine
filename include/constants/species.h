@@ -1,6 +1,8 @@
 #ifndef CONSTANTS_SPECIES_H
 #define CONSTANTS_SPECIES_H
 
+#define MON_WITH_FORM(species, form) ((species) | ((form) << 11))
+
 #define SPECIES_NONE           0
 #define SPECIES_BULBASAUR      1
 #define SPECIES_IVYSAUR        2

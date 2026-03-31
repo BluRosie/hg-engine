@@ -232,8 +232,6 @@ def dump_encounters_c(narc, is_expanded):
 		'#include "../include/constants/encounter_tables.h"',
 		'#include "../include/constants/species.h"',
 		"",
-		"#define ENC_SPECIES_FORM(species, form) ((species) | ((form) << 11))",
-		"",
 		"typedef struct PACKED EncounterSlot {",
 		"    u8 minLevel;",
 		"    u8 maxLevel;",
@@ -339,7 +337,7 @@ def get_species_expr(species_id, is_expanded):
 	if species_id > max_mons:
 		form_id = species_id // max_mons
 		base_form_id = species_id - (max_mons * form_id)
-		return f"ENC_SPECIES_FORM({MONS['SPECIES'][base_form_id]}, {form_id})"
+		return f"MON_WITH_FORM({MONS['SPECIES'][base_form_id]}, {form_id})"
 
 	return MONS["SPECIES"][species_id]
 

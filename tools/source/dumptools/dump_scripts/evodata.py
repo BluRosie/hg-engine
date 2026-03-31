@@ -46,8 +46,6 @@ def dump_evodata_c(narc, is_expanded):
 		'#include "../include/constants/moves.h"',
 		'#include "../include/constants/species.h"',
 		"",
-		"#define EVO_TARGET_FORM(species, form) ((species) | ((form) << 11))",
-		"",
 		"typedef struct EvolutionTable {",
 		"    struct Evolution entries[MAX_EVOS_PER_POKE];",
 		"    u16 terminator;",
@@ -109,7 +107,7 @@ def get_target_expr(species_id, is_expanded):
 		form_id = species_id // max_mons
 		base_form_id = species_id - (max_mons * form_id)
 		target = MONS["SPECIES"][base_form_id]
-		return f"EVO_TARGET_FORM({target}, {form_id})"
+		return f"MON_WITH_FORM({target}, {form_id})"
 
 	return MONS["SPECIES"][species_id]
 
