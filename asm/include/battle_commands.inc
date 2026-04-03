@@ -1437,7 +1437,7 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro AddThirdType arg_0
+    .macro AddType arg_0
     .long 261
     .long \arg_0
     .endm
@@ -1476,7 +1476,105 @@
     .long (((\arg_1 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 268
+    .macro HandleRoost arg_0
+    .long 269
+    .long \arg_0
+    .endm
+
+    .macro HandleSoak arg_0
+    .long 270
+    .long \arg_0
+    .endm
+
+    .macro HandleMagicPowder arg_0
+    .long 271
+    .long \arg_0
+    .endm
+
+    .macro HandleForestsCurse arg_0
+    .long 272
+    .long \arg_0
+    .endm
+
+    .macro HandleTrickOrTreat arg_0
+    .long 273
+    .long \arg_0
+    .endm
+
+    .macro HandleBurnUp arg_0
+    .long 274
+    .long \arg_0
+    .endm
+
+    .macro HandleDoubleShock arg_0
+    .long 275
+    .long \arg_0
+    .endm
+
+    .macro StuffCheeks arg_0
+    .long 276
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .macro SetMoveConditionFlag arg_0, arg_1
+    .long 277
+    .long \arg_0
+    .long \arg_1
+    .endm
+
+    .macro AbilityPopup arg_0:req, arg_1=-1
+    .long 278
+    .long \arg_0
+    .long \arg_1
+    .endm
+
+    .macro ActivateParadoxAbility arg_0
+    .long 279
+    .long \arg_0
+    .endm
+
+    .macro ResetParadoxAbility arg_0
+    .long 280
+    .long \arg_0
+    .endm
+
+    .macro SetCurrentMoveSwitchingStatus arg_0
+    .long 281
+    .long \arg_0
+    .endm
+
+    .macro TrySynchronizeStatus arg_0
+    .long 282
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .macro TryCureStatusBerry arg_0, arg_1
+    .long 283
+    .long \arg_0
+    .long (((\arg_1 - .) / 4) - 1)
+    .endm
+
+    .macro BatchUpdateHealthBar
+    .long 284
+    .endm
+
+    .macro BatchUpdateHealthBarValue
+    .long 285
+    .endm
+
+    .macro BatchFollowupMessage arg_0
+    .long 286
+    .long \arg_0
+    .endm
+
+    .macro BatchEffectivenessMessage arg_0, arg_1, arg_2
+    .long 287
+    .long \arg_0
+    .long \arg_1
+    .long (((\arg_2 - .) / 4) - 1)
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 287
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

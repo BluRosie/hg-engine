@@ -610,6 +610,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             sp->battlemon[sp->attack_client].slow_start_flag = 0;
                             sp->battlemon[sp->attack_client].slow_start_end_flag = 0;
                             ClearBattleMonFlags(sp, sp->attack_client);  // clear extra flags here too
+                            sp->moveConditionsFlags[sp->attack_client].laserFocusTimer = sp->moveConditionsFlags[sp->defence_client].laserFocusTimer;
 
                             for (num = 0; num < 4; num++) {
                                 sp->battlemon[sp->attack_client].move[num] = sp->battlemon[sp->defence_client].move[num];
@@ -629,23 +630,23 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             (sp->battlemon[client_no].hp)) {
                             switch (GetBattlerAbility(sp, client_no)) {
                                 case ABILITY_GRASSY_SURGE:
-                                    sp->calc_work = sp->current_move_index;
-                                    sp->current_move_index = MOVE_GRASSY_TERRAIN;  // need this for UpdateTerrainOverlay
+                                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                                    UpdateTerrainOverlay(sp, client_no, GRASSY_TERRAIN);
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     break;
                                 case ABILITY_MISTY_SURGE:
-                                    sp->calc_work = sp->current_move_index;
-                                    sp->current_move_index = MOVE_MISTY_TERRAIN;  // need this for UpdateTerrainOverlay
+                                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                                    UpdateTerrainOverlay(sp, client_no, MISTY_TERRAIN);
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     break;
                                 case ABILITY_ELECTRIC_SURGE:
-                                    sp->calc_work = sp->current_move_index;
-                                    sp->current_move_index = MOVE_ELECTRIC_TERRAIN;  // need this for UpdateTerrainOverlay
+                                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                                    UpdateTerrainOverlay(sp, client_no, ELECTRIC_TERRAIN);
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     break;
                                 case ABILITY_PSYCHIC_SURGE:
-                                    sp->calc_work = sp->current_move_index;
-                                    sp->current_move_index = MOVE_PSYCHIC_TERRAIN;  // need this for UpdateTerrainOverlay
+                                    sp->addeffect_type = ADD_EFFECT_ABILITY;
+                                    UpdateTerrainOverlay(sp, client_no, PSYCHIC_TERRAIN);
                                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                     break;
                                 default:
@@ -654,9 +655,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                             if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
                                 sp->battlemon[client_no].ability_activated_flag = 1;
+                                sp->battlerIdTemp = client_no; // For ability popup
                                 sp->attack_client = client_no; // this should allow for the seeds to affect the terrain
                                 scriptnum = SUB_SEQ_CREATE_TERRAIN_OVERLAY;
-                                sp->addeffect_type = ADD_EFFECT_ABILITY; // need to restore the current move index after the animation has played
                                 break;
                             }
                         }
@@ -728,6 +729,39 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             sp->battlerIdTemp = client_no;
                             sp->current_move_index = MOVE_TAILWIND;
                             scriptnum = SUB_SEQ_BOOST_STATS;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+
+                    // Orichalcum Pulse
+                    {
+                        if ((sp->battlemon[client_no].hp)
+                        && (sp->battlemon[client_no].ability_activated_flag == 0)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_ORICHALCUM_PULSE)) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
+                            sp->ability_client = client_no; // Use ability_client instead of battlerIdTemp so ActivateParadoxAbility doesn't interfere
+                            scriptnum = SUB_SEQ_ORICHALCUM_PULSE;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+
+                    // Hadron Engine
+                    {
+                        if ((sp->battlemon[client_no].hp)
+                        && (sp->battlemon[client_no].ability_activated_flag == 0)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_HADRON_ENGINE)) {
+                            sp->battlemon[client_no].ability_activated_flag = 1;
+                            sp->battlerIdTemp = client_no;
+                            sp->addeffect_type = ADD_EFFECT_ABILITY;
+                            if (sp->terrainOverlay.type == ELECTRIC_TERRAIN
+                            && sp->terrainOverlay.numberOfTurnsLeft > 0) {
+                                scriptnum = SUB_SEQ_HADRON_ENGINE_NO_TERRAIN_SETUP;
+                            } else {
+                                UpdateTerrainOverlay(sp, client_no, ELECTRIC_TERRAIN);
+                                scriptnum = SUB_SEQ_CREATE_TERRAIN_OVERLAY;
+                            }
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
                         }
@@ -881,14 +915,14 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     }
 
-                    // Protosynthesis
+                    // Protosynthesis and Quark Drive
                     {
-
-                    }
-
-                    // Quark Drive
-                    {
-
+                        scriptnum = ActivateParadoxAbility(bw, sp, client_no);
+                        if (scriptnum > 0) {
+                            // debug_printf("[Paradox Abilities] Activation via SwitchInAbilityCheck\n");
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
                     }
 
                     // Hospitality
@@ -898,7 +932,19 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     // Eject Pack
                     {
-
+                        /*
+                        if (HeldItemHoldEffectGet(sp, client_no) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP) {
+                            if (sp->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING
+                                && sp->moveConditionsFlags[client_no].anyStatLoweredThisTurn) {
+                                sp->addeffect_type = ADD_EFFECT_STICKY_WEB;
+                                sp->battlerIdTemp = client_no;
+                                sp->state_client = client_no;
+                                scriptnum = SUB_SEQ_HANDLE_SWITCHING_ITEMS;
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                break;
+                            }
+                        }
+                        */
                     }
 
                     // Need to trigger script
