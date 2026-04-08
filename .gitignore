@@ -102,3 +102,6 @@ changelog
 /armips/include/generated/
 /include/constants/generated/
 test_logs.txt
+
+/scripts/data/*.json
+/scripts/fixed/*.s
