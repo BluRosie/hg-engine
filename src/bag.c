@@ -88,6 +88,7 @@ RegisterItemResult Bag_TryRegisterItem(BAG_DATA *bag, u16 itemId) {
         bag->registeredItems[1] = itemId;
         result = REG_ITEM_SLOT2;
     }
+    
     return result;
 }
 
