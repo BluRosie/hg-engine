@@ -1,4 +1,4 @@
-from dump_scripts.dump_tools import MONS
+from dump_scripts.dump_tools import lookup_species
 
 
 def dump_babymons(data):
@@ -10,11 +10,11 @@ def dump_babymons(data):
 
     for species in range(0, len(data), 2):
         baby = int.from_bytes(data[species:species + 2], "little")
-        species_const = MONS["SPECIES"][species // 2]
+        species_const = lookup_species(species // 2)
         if baby == 0 and species != 0:
             baby_const = "0"
         else:
-            baby_const = MONS["SPECIES"][baby]
+            baby_const = lookup_species(baby)
         babymons_armips += f"babymon {species_const}, {baby_const}\n"
 
     babymons_armips += "\n.close\n"
@@ -33,8 +33,8 @@ def dump_babymons_c(data):
 
     for species in range(0, len(data), 2):
         baby = int.from_bytes(data[species:species + 2], "little")
-        species_const = MONS["SPECIES"][species // 2]
-        baby_const = MONS["SPECIES"][baby]
+        species_const = lookup_species(species // 2)
+        baby_const = lookup_species(baby)
         lines.append(f"    [{species_const}] = {baby_const},")
 
     lines.extend([

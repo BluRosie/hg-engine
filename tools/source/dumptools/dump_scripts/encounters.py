@@ -320,14 +320,14 @@ def get_enc_macro(species_id, enc_type, is_expanded):
 	if species_id > max_mons:
 		form_id = species_id // max_mons
 		base_form_id = species_id - (max_mons * form_id)
-		species = MONS["SPECIES"][base_form_id]
+		species = lookup_species(base_form_id)
 
 		if enc_type == "pokemon":
 			enc_type = "mon"
 
 		return f"    {enc_type}withform {species}, {form_id}"
 	else:
-		species = MONS["SPECIES"][species_id]
+		species = lookup_species(species_id)
 		return f"    {enc_type} {species}"
 
 
@@ -337,9 +337,9 @@ def get_species_expr(species_id, is_expanded):
 	if species_id > max_mons:
 		form_id = species_id // max_mons
 		base_form_id = species_id - (max_mons * form_id)
-		return f"MON_WITH_FORM({MONS['SPECIES'][base_form_id]}, {form_id})"
+		return f"MON_WITH_FORM({lookup_species(base_form_id)}, {form_id})"
 
-	return MONS["SPECIES"][species_id]
+	return lookup_species(species_id)
 
 
 def get_enc_entries():

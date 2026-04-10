@@ -1,10 +1,10 @@
 from pathlib import Path
 
-from dump_scripts.dump_tools import MONS
+from dump_scripts.dump_tools import lookup_species
 
 
 def _species_name(species):
-    return MONS["SPECIES"][species]
+    return lookup_species(species)
 
 
 def dump_headbutt(files):
@@ -211,14 +211,14 @@ def dump_headbutt_c(files, output_dir):
                 "    {",
             ])
             for species, min_level, max_level in normal_slots:
-                lines.append(f"        {{ {MONS['SPECIES'][species]}, {min_level}, {max_level} }},")
+                lines.append(f"        {{ {lookup_species(species)}, {min_level}, {max_level} }},")
             lines.extend([
                 "    },",
                 "    .specialSlots =",
                 "    {",
             ])
             for species, min_level, max_level in special_slots:
-                lines.append(f"        {{ {MONS['SPECIES'][species]}, {min_level}, {max_level} }},")
+                lines.append(f"        {{ {lookup_species(species)}, {min_level}, {max_level} }},")
             lines.extend([
                 "    },",
             ])

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from dump_scripts.dump_tools import MONS
+from dump_scripts.dump_tools import lookup_species
 
 
 def field_name(value):
@@ -28,7 +28,7 @@ def dump_heighttable(files):
     for species in range(len(files) // 4):
         values = files[species * 4:species * 4 + 4]
         lines.append(
-            f'heightentry {MONS["SPECIES"][species]}, {field_name(values[0])}, {field_name(values[1])}, {field_name(values[2])}, {field_name(values[3])}'
+            f'heightentry {lookup_species(species)}, {field_name(values[0])}, {field_name(values[1])}, {field_name(values[2])}, {field_name(values[3])}'
         )
 
     lines.append("")
@@ -64,7 +64,7 @@ def dump_heighttable_c(files, output_dir):
         for value in values:
             rendered.append("-1" if len(value) == 0 else str(value[0]))
         lines.append(
-            f'    [{MONS["SPECIES"][species]}] = {{ {", ".join(rendered)} }},'
+            f'    [{lookup_species(species)}] = {{ {", ".join(rendered)} }},'
         )
 
     lines.extend([

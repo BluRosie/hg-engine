@@ -8,6 +8,11 @@ EVO_METHOD_C_NAMES = {
 	"EVO_LEVEL_ICY_STONE": "EVO_ROUTE217",
 }
 
+
+def get_method_expr(method_id):
+	method = lookup_const("EVO", method_id)
+	return EVO_METHOD_C_NAMES.get(method, method)
+
 def dump_evodata(narc):
 	evodata_armip = ""
 	evodata_armip += ".nds\n"
@@ -22,7 +27,7 @@ def dump_evodata(narc):
 	is_expanded = True if ("target_7" in narc[0]) else False
 
 	for idx, evo in enumerate(narc):
-		evodata_armip += f'evodata {MONS["SPECIES"][idx]}\n'
+		evodata_armip += f'evodata {lookup_species(idx)}\n'
 
 		for i in range(0,9):
 			if f"target_{i}" in evo:
@@ -58,11 +63,11 @@ def dump_evodata_c(narc, is_expanded):
 	]
 
 	for idx, evo in enumerate(narc):
-		lines.append(f"    [{MONS['SPECIES'][idx]}] = {{")
+		lines.append(f"    [{lookup_species(idx)}] = {{")
 		lines.append("        .entries = {")
 		for i in range(0, MAX_EVOS_PER_POKE):
 			if f"target_{i}" in evo:
-				method = EVO_METHOD_C_NAMES.get(CONSTANTS["EVO"][evo[f"method_{i}"]], CONSTANTS["EVO"][evo[f"method_{i}"]])
+				method = get_method_expr(evo[f"method_{i}"])
 				param = get_param(method, evo[f"param_{i}"])
 				target = get_target_expr(evo[f"target_{i}"], is_expanded)
 				lines.append(f"            {{ {method}, {param}, {target} }},")
@@ -86,16 +91,16 @@ def get_param(evo_method, param):
 	options = {}
 
 	if "ITEM" in evo_method or evo_method == "EVO_STONE":
-		return ITEMS["ITEM"][param]
+		return lookup_item(param)
 
 	if evo_method == "EVO_KNOWS_MOVE" or evo_method == "EVO_HAS_MOVE":
-		return MOVES["MOVE"][param]
+		return lookup_move(param)
 
 	if evo_method == "EVO_HAS_MOVE_TYPE":
-		return CONSTANTS["TYPE"][param]
+		return lookup_const("TYPE", param)
 
 	if "_MON" in evo_method:
-		return MONS["SPECIES"][param]
+		return lookup_species(param)
 
 	return param
 
@@ -106,23 +111,23 @@ def get_target_expr(species_id, is_expanded):
 	if species_id > max_mons:
 		form_id = species_id // max_mons
 		base_form_id = species_id - (max_mons * form_id)
-		target = MONS["SPECIES"][base_form_id]
+		target = lookup_species(base_form_id)
 		return f"MON_WITH_FORM({target}, {form_id})"
 
-	return MONS["SPECIES"][species_id]
+	return lookup_species(species_id)
 
 
 def get_evo_macro(species_id, method_id, param_id, is_expanded):
 	max_mons = 2048 if is_expanded else 1024
 
-	method = CONSTANTS["EVO"][method_id]
+	method = get_method_expr(method_id)
 	param = get_param(method, param_id)
 
 
 	if species_id > max_mons:
 		form_id = species_id // max_mons
 		base_form_id = species_id - (max_mons * form_id)
-		target = MONS["SPECIES"][base_form_id]
+		target = lookup_species(base_form_id)
 		return f"    evolutionwithform {method}, {param}, {target}, {form_id}\n"
 	else:
-		return f"    evolution {method}, {param}, {MONS['SPECIES'][species_id]}\n"
+		return f"    evolution {method}, {param}, {lookup_species(species_id)}\n"

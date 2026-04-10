@@ -39,7 +39,7 @@ def dump_spriteoffsets(data):
         shadowx = signed(data[start + 0x57])
         shadowsize = data[start + 0x58]
         lines.append(
-            f'dataentry {MONS["SPECIES"][species]}, {front}, {back}, {yoff}, {shadowx}, {shadow_name(shadowsize)}'
+            f'dataentry {lookup_species(species)}, {front}, {back}, {yoff}, {shadowx}, {shadow_name(shadowsize)}'
         )
 
     lines.append("")
@@ -81,7 +81,7 @@ def dump_spriteoffsets_c(data):
     count = len(data) // RECORD_SIZE
     for species in range(count):
         start = species * RECORD_SIZE
-        lines.append(f'    [{MONS["SPECIES"][species]}] = {{')
+        lines.append(f'    [{lookup_species(species)}] = {{')
         for label, offset in (("front", 0x00), ("back", 0x2B)):
             lines.append(f"        .{label} = {{")
             lines.append(f"            .unk_00 = {data[start + offset + 0x00]},")
