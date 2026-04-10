@@ -1,36 +1,35 @@
-CXX := g++
-CXXFLAGS := -std=c++17 -O2 -Wall -Wextra -I../../..
 CC := gcc
 CFLAGS := -std=c11 -O2 -Wall -Wextra -I../../..
+TARGET := ../../../tools/movedatagen
 
-SRCS := MoveDataGen.cpp
+SRCS := move_data_gen.c
 DATA_SRC := ../../../data/MoveData.c
 DATA_OBJ := MoveDataData.o
-OBJS := $(SRCS:%.cpp=%.o) $(DATA_OBJ)
+OBJS := $(SRCS:%.c=%.o) $(DATA_OBJ)
 
 .PHONY: all clean
 
-all: movedatagen
+all: $(TARGET)
 	@:
 
-movedatagen: $(OBJS)
-	$(CXX) $(LDFLAGS) -o $@ $^
+$(TARGET): $(OBJS)
+	$(CC) $(LDFLAGS) -o $@ $^
 
 DEPDIR := .deps
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
 $(DEPDIR): ; @mkdir -p $@
 
-%.o: %.cpp
-%.o: %.cpp $(DEPDIR)/%.d | $(DEPDIR)
-	$(CXX) $(CXXFLAGS) $(DEPFLAGS) -c -o $@ $<
+%.o: %.c
+%.o: %.c $(DEPDIR)/%.d | $(DEPDIR)
+	$(CC) $(CFLAGS) $(DEPFLAGS) -c -o $@ $<
 
 $(DATA_OBJ): $(DATA_SRC)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	$(RM) movedatagen movedatagen.exe $(OBJS)
+	$(RM) $(TARGET) movedatagen.exe $(OBJS)
 
-DEPFILES := $(SRCS:%.cpp=$(DEPDIR)/%.d)
+DEPFILES := $(SRCS:%.c=$(DEPDIR)/%.d)
 $(DEPFILES):
 
 include $(wildcard $(DEPFILES))

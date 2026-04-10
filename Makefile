@@ -222,9 +222,8 @@ $(GFX): $(NITROGFX_SOURCES)
 
 TOOLS += $(GFX)
 
-$(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.cpp) data/MoveData.c include/move_data.h
+$(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.c) data/MoveData.c include/move_data.h
 	cd tools/source/movedatagen ; $(MAKE)
-	mv tools/source/movedatagen/movedatagen $(MOVEDATAGEN)
 
 TOOLS += $(MOVEDATAGEN)
 

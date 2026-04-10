@@ -132,15 +132,6 @@ typedef struct MoveSourceEntry {
     const char *description;
 } MoveSourceEntry;
 
-// handle linking in C++
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 extern const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1];
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
