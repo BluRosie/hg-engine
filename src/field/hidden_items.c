@@ -1,5 +1,5 @@
-#include "../../include/constants/item.h"
 #include "../../include/constants/file.h"
+#include "../../include/constants/item.h"
 #include "../../include/map_events_internal.h"
 #include "../../include/pokemon.h"
 #include "../../include/script.h"
