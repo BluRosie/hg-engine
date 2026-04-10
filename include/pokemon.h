@@ -153,7 +153,7 @@
     || (species == SPECIES_IRON_THORNS) || (species == SPECIES_ROARING_MOON) || (species == SPECIES_IRON_VALIANT) || (species == SPECIES_WALKING_WAKE) \
     || (species == SPECIES_IRON_LEAVES) \
     || EXTRA_PARADOX_FORMS(species))
-    
+
 // personal narc fields
 enum
 {
@@ -672,8 +672,18 @@ typedef enum EvoMethod
     EVO_LEVEL_NATURE_LOW_KEY,
     EVO_AMOUNT_OF_CRITICAL_HITS,
     EVO_HURT_IN_BATTLE_AMOUNT,
-    //EVO_DARK_SCROLL,  // implemented through a forme-change-esque cut scene
-    //EVO_WATER_SCROLL, // implemented through a forme-change-esque cut scene
+    EVO_SPIN_CLOCKWISE_LESS_THAN_5_SECONDS_DAY,             // Vanilla Cream
+    EVO_SPIN_COUNTERCLOCKWISE_LESS_THAN_5_SECONDS_DAY,      // Ruby Cream
+    EVO_SPIN_CLOCKWISE_LESS_THAN_5_SECONDS_NIGHT,           // Matcha Cream
+    EVO_SPIN_COUNTERCLOCKWISE_MORE_THAN_5_SECONDS_NIGHT,    // Mint Cream
+    EVO_SPIN_CLOCKWISE_MORE_THAN_5_SECONDS_NIGHT,           // Lemon Cream
+    EVO_SPIN_COUNTERCLOCKWISE_LESS_THAN_5_SECONDS_NIGHT,    // Salted Cream
+    EVO_SPIN_COUNTERCLOCKWISE_MORE_THAN_5_SECONDS_DAY,      // Ruby Swirl
+    EVO_SPIN_CLOCKWISE_MORE_THAN_5_SECONDS_DAY,             // Caramel Swirl
+    EVO_SPIN_MORE_THAN_10_SECONDS_EVENING,                  // Rainbow Swirl
+    EVO_FORM_ARGUMENT,  // Yamask, Stantler, Basculin, Primeape, Bisharp, Gimmighoul
+    EVO_LETS_GO, // Pawmo, Bramblin, Rellor https://xcancel.com/Sibuna_Switch/status/1678027317891694593
+    EVO_DUMMY, // Inaccessible evolution methods
 } EvoMethod;
 
 typedef enum {

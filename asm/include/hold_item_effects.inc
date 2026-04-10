@@ -56,7 +56,7 @@
 .equ HOLD_EFFECT_EXP_SHARE,                           51
 .equ HOLD_EFFECT_SOMETIMES_PRIORITY,                  52
 .equ HOLD_EFFECT_FRIENDSHIP_UP,                       53
-.equ HOLD_EFFECT_HEAL_INFATUATION,                    54
+.equ HOLD_EFFECT_HEAL_MENTAL_CONDITIONS,              54
 .equ HOLD_EFFECT_CHOICE_ATK,                          55
 .equ HOLD_EFFECT_SOMETIMES_FLINCH,                    56
 .equ HOLD_EFFECT_STRENGTHEN_BUG,                      57

@@ -179,10 +179,18 @@ _AfterMessage:
     WaitButtonABTime 30
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SYNCRONIZE, _CleanupSynchronize
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SYNCRONIZE
+    TrySynchronizeStatus _AfterSynchronize
+    CallFromVar BSCRIPT_VAR_TEMP_DATA
+
+_AfterSynchronize:
+    TryCureStatusBerry BATTLER_CATEGORY_DEFENDER, _End
+    CallFromVar BSCRIPT_VAR_TEMP_DATA
     End
 
 _CleanupSynchronize:
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SYNCRONIZE
+    TryCureStatusBerry BATTLER_CATEGORY_SIDE_EFFECT_MON, _End
+    CallFromVar BSCRIPT_VAR_TEMP_DATA
 
 _End:
     End

@@ -318,4 +318,5 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg) {
     default:
         GF_ASSERT(FALSE);
     }
+
 }

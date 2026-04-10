@@ -1018,6 +1018,7 @@ while (currentScenario != NULL && TestBattle_HasMoreExpectations()) {
 }
 
 if (TestBattle_HasMoreExpectations()) {
+    debug_printf("expectation[%d] ❌\n", currentScenario->expectationPassCount);
     if (currentScenario->knownFailing) {
         SendValueThroughCommunicationSendHole(TEST_CASE_KNOWN_FAILING);
     } else {
@@ -1064,7 +1065,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->moveConditionsFlags[client].doubleShockFlag = FALSE;
     sp->oneTurnFlag[client].parental_bond_flag = 0;
     sp->oneTurnFlag[client].parental_bond_is_active = 0;
-    sp->moveConditionsFlags[client].endTurnMoveEffectActivated = 0;
+
     sp->moveConditionsFlags[client].moveFailureThisTurn = 0;
     sp->moveConditionsFlags[client].moveFailureLastTurn = 0;
     sp->moveConditionsFlags[client].powderBlockingFireMove = 0;
@@ -1072,10 +1073,13 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->moveConditionsFlags[client].glaiveRush = 0;
     sp->moveConditionsFlags[client].anyStatLoweredThisTurn = 0;
     sp->moveConditionsFlags[client].throatChopTimer = 0;
+    sp->moveConditionsFlags[client].dragonDartsStatus = 0;
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
     sp->binding_turns[client] = 0;
     sp->protectSuccessTurns[client] = 0;
+    sp->paradoxBoostedStat[client] = 0;
+    sp->boosterEnergyActivated[client] = FALSE;
 
     if (gBattleSystem != NULL)
     {

@@ -25,7 +25,7 @@ const struct TestBattleScenario BattleTests[] = {
                 .form = 1,
                 .ability = ABILITY_SNOW_WARNING,
                 .item = ITEM_NONE,
-                .moves = { MOVE_AURORA_VEIL, MOVE_SPLASH, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_AURORA_VEIL, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -35,14 +35,16 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
-        .enemyParty = { {
+            { .species = SPECIES_NONE }
+        },
+        .enemyParty = {
+            {
                             .species = SPECIES_TYPHLOSION,
                             .level = 100,
                             .form = 0,
                             .ability = ABILITY_BLAZE,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_FLAMETHROWER, MOVE_SPLASH, MOVE_NONE, MOVE_NONE },
+                            .moves = { MOVE_FLAMETHROWER, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
@@ -52,8 +54,10 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
-        .playerScript = { {
+            { .species = SPECIES_NONE }
+        },
+        .playerScript = {
+            {
                               { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                               { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                               { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
@@ -72,8 +76,10 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
-        .enemyScript = { {
+            }
+        },
+        .enemyScript = {
+            {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                              { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
@@ -92,7 +98,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
+            }
+        },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It started to snow!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 105, 106, 108, 109, 109, 111, 112, 114, 115, 117, 117, 118, 120, 121, 123, 124 } },

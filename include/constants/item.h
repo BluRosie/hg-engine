@@ -2587,7 +2587,7 @@
 
 #define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_BURN_DRIVE && item <= ITEM_SHOCK_DRIVE)
 
-#define IS_ITEM_GEM(item) (item >= ITEM_NORMAL_GEM && item <= ITEM_FAIRY_GEM)
+#define IS_ITEM_GEM(item) (item == ITEM_FAIRY_GEM || (item >= ITEM_FIRE_GEM && item <= ITEM_NORMAL_GEM))
 
 #define IS_ITEM_MEMORY(item) (item >= ITEM_FIGHTING_MEMORY && item <= ITEM_FAIRY_MEMORY)
 

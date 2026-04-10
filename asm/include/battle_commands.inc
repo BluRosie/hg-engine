@@ -1528,7 +1528,53 @@
     .long \arg_1
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 278
+    .macro ActivateParadoxAbility arg_0
+    .long 279
+    .long \arg_0
+    .endm
+
+    .macro ResetParadoxAbility arg_0
+    .long 280
+    .long \arg_0
+    .endm
+
+    .macro SetCurrentMoveSwitchingStatus arg_0
+    .long 281
+    .long \arg_0
+    .endm
+
+    .macro TrySynchronizeStatus arg_0
+    .long 282
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .macro TryCureStatusBerry arg_0, arg_1
+    .long 283
+    .long \arg_0
+    .long (((\arg_1 - .) / 4) - 1)
+    .endm
+
+    .macro BatchUpdateHealthBar
+    .long 284
+    .endm
+
+    .macro BatchUpdateHealthBarValue
+    .long 285
+    .endm
+
+    .macro BatchFollowupMessage arg_0
+    .long 286
+    .long \arg_0
+    .endm
+
+    .macro BatchEffectivenessMessage arg_0, arg_1, arg_2
+    .long 287
+    .long \arg_0
+    .long \arg_1
+    .long (((\arg_2 - .) / 4) - 1)
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 287
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)
