@@ -51,6 +51,7 @@ dumpitem.py
 /tools/replacehexwithdec
 /tools/sortmonareadexdata
 /tools/msgenc
+/tools/movedatagen
 /tools/genleveldatatxt.exe
 /tools/genbabymondata.exe
 /tools/gendexsortlists.exe

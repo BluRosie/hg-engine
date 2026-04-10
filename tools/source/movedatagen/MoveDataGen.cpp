@@ -4,7 +4,7 @@
 #include <fstream>
 #include <string>
 
-#include "../../../data/MoveData.c"
+#include "../../../include/move_data.h"
 
 namespace {
 
