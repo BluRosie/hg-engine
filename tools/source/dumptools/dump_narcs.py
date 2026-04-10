@@ -4,9 +4,9 @@ import os
 # Helper methods for reading narcs and parsing .inc files
 from dump_scripts.dump_tools import *
 
-# Scripts for dumping parsed narcs to armips
+# Scripts for dumping parsed narcs to maintained source formats
 from dump_scripts.mondata import dump_mondata
-from dump_scripts.moves import dump_moves
+from dump_scripts.moves import dump_moves_c
 from dump_scripts.encounters import dump_encounters_c
 from dump_scripts.evodata import dump_evodata_c
 from dump_scripts.baby_mons import dump_babymons_c
@@ -30,6 +30,7 @@ if __name__ == "__main__":
 		"./dumped_armips/encounters.s",
 		"./dumped_armips/evodata.s",
 		"./dumped_armips/heighttable.s",
+		"./dumped_armips/moves.s",
 		"./dumped_armips/spriteoffsets.s",
 		"./dumped_armips/headbutt.s",
 		"./dumped_armips/regionaldex.s",
@@ -52,8 +53,9 @@ if __name__ == "__main__":
 	# Dump Moves
 
 	moves_narc = dump_narc(rom, "a/0/1/1", MOVE_NARC_FORMAT)
-	with open('./dumped_armips/moves.s', 'w', encoding="utf-8") as file:
-		file.write(dump_moves(moves_narc))
+	msgdata_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/0/2/7"]])
+	with open("./dumped_c/MoveData.c", "w", encoding="utf-8") as file:
+		file.write(dump_moves_c(moves_narc, msgdata_narc))
 
 	# Dump Encounters
 

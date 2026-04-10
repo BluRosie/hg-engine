@@ -100,6 +100,7 @@ BTX := $(PYTHON) tools/overworld-btx.py
 ENCODEPWIMG := tools/ENCODE_IMG
 GFX := tools/nitrogfx
 MSGENC := tools/msgenc
+MOVEDATAGEN := tools/movedatagen
 NARCHIVE := $(PYTHON) tools/narcpy.py
 NDSTOOL := tools/ndstool
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
@@ -215,6 +216,12 @@ $(GFX): $(NITROGFX_SOURCES)
 	mv tools/source/nitrogfx/nitrogfx $(GFX)
 
 TOOLS += $(GFX)
+
+$(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.cpp) data/MoveData.c include/move_data.h
+	cd tools/source/movedatagen ; $(MAKE)
+	mv tools/source/movedatagen/movedatagen $(MOVEDATAGEN)
+
+TOOLS += $(MOVEDATAGEN)
 
 $(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/*.h)
 	cd tools/source/o2narc ; $(MAKE)
