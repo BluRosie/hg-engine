@@ -1,6 +1,5 @@
 """
-Attempts to reconcile TM/HM/TR changes.
-Reads the shared move source and modifies the item sprite and description accordingly.
+Attempts to reconcile TM/HM/TR changes made in item.c to sprites and text archives
 """
 import re
 import argparse
