@@ -89,11 +89,12 @@ Common install commands:
 - Arch Linux: `sudo pacman -S clang`
 - MSYS2: `pacman -S clang`
 
-Local formatting commands:
-- `make format-check` checks changed `*.c` and `*.h` files
-- `make format-fix` applies formatting to those changed files
+Then run the following command to register the pre-commit hook that will automatically format your code before you commit it.
+```bash
+git config core.hooksPath .githooks
+```
 
-#### 9. Push your changes
+#### 9. Commit and push your changes
 When you push your first commit, you'll need to push the new branch to the remote repo.
 ```bash
 git push --set-upstream origin newFeature

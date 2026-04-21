@@ -3,8 +3,8 @@ name: pr-lint
 on:
   pull_request:
     paths:
-      - '**.c'
-      - '**.h'
+      - 'src/**/*.c'
+      - 'include/**/*.h'
 
 jobs:
   pr-lint:
@@ -17,17 +17,37 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - uses: cpp-linter/cpp-linter-action@v2.15.1
+      - uses: cpp-linter/cpp-linter-action@v2
         id: linter
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           style: 'file'
           tidy-checks: '-*'
-          version: '19'
           files-changed-only: true
-          ignore: '.github|tools'
           file-annotations: false
+          format-review: false
 
       - name: Fail if formatting checks fail
-        if: steps.linter.outputs.clang-format-checks-failed > 0
-        run: exit 1
+        if: ${{ steps.linter.outputs.clang-format-checks-failed != '0' }}
+        run: |
+          echo "Files needing formatting:"
+        
+          git diff --name-only \
+            ${{ github.event.pull_request.base.sha }} \
+            ${{ github.event.pull_request.head.sha }} |
+          while IFS= read -r f; do
+            case "$f" in
+              src/*.c|include/*.h)
+                if ! clang-format --dry-run --Werror "$f" >/dev/null 2>&1; then
+                  echo "$f"
+                fi
+              ;;
+            esac
+          done
+        
+          echo "Format failures: ${{ steps.linter.outputs.clang-format-checks-failed }}"
+          exit 1
