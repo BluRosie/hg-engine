@@ -218,4 +218,7 @@
 // add or remove mythicals as you see fit
 #define VANILLA_MYTHICALS
 
+// UNSEEN_FIST_GENERATION defines the behavior that Unseen Fist should exhibit, where it either completely ignores Protect (<=8) or deals 0.25x Damage (>=9)
+#define UNSEEN_FIST_GENERATION GEN_LATEST
+
 #endif
