@@ -30,6 +30,9 @@ extern struct ILLUSION_STRUCT gIllusionStruct;
  */
 int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 {
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+    debug_printf("in SwitchInAbilityCheck %d\n", sp->server_seq_no);
+#endif
     // Sort clients because abilities may affect speed
     DynamicSortClientExecutionOrder(bw, sp, FALSE);
     int i;
@@ -47,6 +50,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
         {
             case SWITCH_IN_CHECK_WEATHER:  // 022531DE
             {
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+            debug_printf("in SWITCH_IN_CHECK_WEATHER %d\n", sp->switch_in_check_seq_no);
+#endif
                 if (sp->weather_check_flag == 0) {
                     switch (BattleWorkWeatherGet(bw)) {
                         case WEATHER_SYS_RAIN:
@@ -91,6 +97,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 break;
             // https://bulbapedia.bulbagarden.net/wiki/User:FIQ/Turn_sequence
             case SWITCH_IN_CHECK_ENTRY_EFFECT_NEUTRALIZING_GAS_TERA_SHIFT: {
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+                debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_NEUTRALIZING_GAS_TERA_SHIFT %d\n", sp->switch_in_check_seq_no);
+#endif
                 for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
 
@@ -116,6 +125,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
                 break;
             case SWITCH_IN_CHECK_ENTRY_EFFECT_UNNERVE: {
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+                debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_UNNERVE %d\n", sp->switch_in_check_seq_no);
+#endif
                 for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
 
@@ -145,6 +157,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
                 break;
             case SWITCH_IN_CHECK_ENTRY_EFFECT_HEALING_WISH: {
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+                debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_HEALING_WISH %d\n", sp->switch_in_check_seq_no);
+#endif
                 for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
 
@@ -165,6 +180,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
                 break;
             case SWITCH_IN_CHECK_ENTRY_EFFECT_HAZARDS: {
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+                debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_HAZARDS %d\n", sp->switch_in_check_seq_no);
+#endif
                 for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
 
@@ -187,6 +205,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
                 break;
             case SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON: {
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+                debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON %d\n", sp->switch_in_check_seq_no);
+#endif
                 for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
 
@@ -793,6 +814,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
                 break;
             case SWITCH_IN_CHECK_ENTRY_EFFECT_PRIMAL_REVERSION_SEEDS_SCHOOLING_SHIELDS_DOWN: {
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+                debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_PRIMAL_REVERSION_SEEDS_SCHOOLING_SHIELDS_DOWN %d\n", sp->switch_in_check_seq_no);
+#endif
                 for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
 
@@ -857,7 +881,10 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
             }
                 break;
-            case SWITCH_IN_CHECK_ENTRY_EFFECT_WHITE_HERB_FLOWER_GIFT_FORECAST_ICE_FACE_COSTAR_COMMANDER_PROTOSYNTHESIS_QUARK_DRIVE_HOSPITALITY_EJECT_PACK: {
+            case SWITCH_IN_CHECK_ENTRY_EFFECT_WHITE_HERB_FLOWER_GIFT_FORECAST_ICE_FACE_COSTAR_COMMANDER_PROTOSYNTHESIS_QUARK_DRIVE_HOSPITALITY: {
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+                debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_WHITE_HERB_FLOWER_GIFT_FORECAST_ICE_FACE_COSTAR_COMMANDER_PROTOSYNTHESIS_QUARK_DRIVE_HOSPITALITY %d\n", sp->switch_in_check_seq_no);
+#endif 
                 for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
 
@@ -930,23 +957,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     }
 
-                    // Eject Pack
-                    {
-                        /*
-                        if (HeldItemHoldEffectGet(sp, client_no) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP) {
-                            if (sp->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING
-                                && sp->moveConditionsFlags[client_no].anyStatLoweredThisTurn) {
-                                sp->addeffect_type = ADD_EFFECT_STICKY_WEB;
-                                sp->battlerIdTemp = client_no;
-                                sp->state_client = client_no;
-                                scriptnum = SUB_SEQ_HANDLE_SWITCHING_ITEMS;
-                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                                break;
-                            }
-                        }
-                        */
-                    }
-
                     // Need to trigger script
                     if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
                         break;
@@ -992,6 +1002,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 break;
                 // 02253CFC
             case SWITCH_IN_CHECK_ABILITY_HEAL_STATUS:{
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+                debug_printf("in SWITCH_IN_CHECK_ABILITY_HEAL_STATUS %d\n", sp->switch_in_check_seq_no);
+#endif
                 for (i = 0; i < client_set_max; i++)
                 {
                     client_no = sp->turnOrder[i];
@@ -1008,7 +1021,40 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
             }
                 break;
+            case SWITCH_IN_CHECK_ENTRY_EFFECT_EJECT_PACK: {
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+                debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_EJECT_PACK %d\n", sp->switch_in_check_seq_no);
+                debug_printf("faintClient %d, switchClient %d\n", sp->fainting_client, sp->reshuffle_client);
+#endif
+                // only one eject pack can activate
+                sp->switch_in_check_seq_no++;
+                /* for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turnOrder[i];
+
+                    if (HeldItemHoldEffectGet(sp, client_no) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP
+                        && sp->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING) {
+                        if (sp->moveConditionsFlags[client_no].anyStatLoweredThisTurn) {
+                            sp->addeffect_type = ADD_EFFECT_STICKY_WEB;
+                            sp->battlerIdTemp = client_no;
+                            sp->state_client = client_no;
+                            scriptnum = SUB_SEQ_HANDLE_SWITCHING_ITEMS;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+                }
+
+                if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                    sp->switch_in_check_seq_no = 0;
+                    break;
+                }
+               */
+                FALLTHROUGH;
+            }
             case SWITCH_IN_CHECK_END:
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+                debug_printf("in SWITCH_IN_CHECK_END %d\n", sp->switch_in_check_seq_no);
+#endif
                 sp->switch_in_check_seq_no = 0;
                 ret = SWITCH_IN_CHECK_CHECK_END;
                 break;

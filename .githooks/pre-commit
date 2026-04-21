@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Runs linting checks before allowing commits
+
+set -e
+
+echo "Running pre-commit checks..."
+
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(c|h)$' || true)
+if [ -z "$FILES" ]; then
+  echo "No C/C++ files staged."
+  exit 0
+fi
+
+for file in $FILES; do
+  if [ -f "$file" ]; then
+    echo "Formatting $file"
+    clang-format -i "$file"
+    git add "$file"
+  fi
+done
+
+echo "Pre-commit checks complete."

@@ -11,11 +11,23 @@ _000:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_FAINTED, BSCRIPT_VAR_LAST_BATTLER_ID
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SWITCH, BSCRIPT_VAR_MSG_BATTLER_TEMP
 
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_HELD_ITEM, ITEM_EJECT_PACK, _ejectPack
     // {0} is switched out with the Eject Button!
     PrintMessage 1622, TAG_NICKNAME, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     Wait 
     WaitButtonABTime 30
     RemoveItem BATTLER_CATEGORY_MSG_BATTLER_TEMP
+    GoTo _pursuit
+
+
+_ejectPack:
+    // {0} is switched out by the Eject Pack!
+    PrintMessage 1625, TAG_NICKNAME, BATTLER_CATEGORY_MSG_BATTLER_TEMP
+    Wait 
+    WaitButtonABTime 30
+    RemoveItem BATTLER_CATEGORY_MSG_BATTLER_TEMP
+
+_pursuit:
     Call BATTLE_SUBSCRIPT_PURSUIT
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_HP, 0, _end
     TryRestoreStatusOnSwitch BATTLER_CATEGORY_MSG_BATTLER_TEMP, _nostatusrestored
@@ -38,6 +50,5 @@ _end:
     End 
 
 _completeSwitch:
-    SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_DONE
     GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
     End

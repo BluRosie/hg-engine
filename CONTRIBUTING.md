@@ -78,13 +78,29 @@ git reset --hard main
 #### 7. Implement your code
 All of your work should go on this new, clean branch. If you already started work on a different branch, you can [cherry-pick](https://git-scm.com/docs/git-cherry-pick) you old commits onto this new branch, or just copy and paste the changes from the original files.
 
-#### 8. Push your changes
+#### 8. Format your changes
+`hg-engine` uses the repository's `.clang-format` for C and header formatting checks.
+
+Before opening a pull request, make sure `clang-format` is installed and available on your `PATH`.
+
+Common install commands:
+- Debian/Ubuntu/WSL: `sudo apt-get install clang-format`
+- macOS with Homebrew: `brew install clang-format`
+- Arch Linux: `sudo pacman -S clang`
+- MSYS2: `pacman -S clang`
+
+Then run the following command to register the pre-commit hook that will automatically format your code before you commit it.
+```bash
+git config core.hooksPath .githooks
+```
+
+#### 9. Commit and push your changes
 When you push your first commit, you'll need to push the new branch to the remote repo.
 ```bash
 git push --set-upstream origin newFeature
 ```
 
-#### 9. Open Pull Request
+#### 10. Open Pull Request
 Once your work is complete and pushed to the branch on Github, you can open a [pull request from your branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork), targeting the main branch from `hg-engine`. Please fill out the pull request description as completely as possible. If you are updating the battle engine, please add relevant [test cases](data/battle_tests).
 
 ### What happens after I submit a pull request?

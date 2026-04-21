@@ -5313,9 +5313,32 @@ BOOL BtlCmd_TryFaintMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx));
 
-    if (ctx->battlemon[battlerId].hp == 0 && ctx->battlemon[battlerId].species != SPECIES_NONE && ctx->battlemon[battlerId].species != SPECIES_BAD_EGG)
-    {
-        ctx->battlemon[battlerId].species = SPECIES_NONE;
+    switch (battlerId) {
+    case BATTLER_PLAYER:
+        if (ctx->playerSideHasFaintedTeammateThisTurn & TRAINER_1) {
+            return FALSE;
+        }
+        break;
+    case BATTLER_PLAYER2:
+        if (ctx->playerSideHasFaintedTeammateThisTurn & TRAINER_2) {
+            return FALSE;
+        }
+        break;
+    case BATTLER_ENEMY:
+        if (ctx->enemySideHasFaintedTeammateThisTurn & TRAINER_1) {
+            return FALSE;
+        }
+        break;
+    case BATTLER_ENEMY2:
+        if (ctx->enemySideHasFaintedTeammateThisTurn & TRAINER_2) {
+            return FALSE;
+        }
+        break;
+    default:
+        break;
+    }
+
+    if (ctx->battlemon[battlerId].hp == 0) {
         ctx->fainting_client = battlerId;
         ctx->server_status_flag |= MaskOfFlagNo(battlerId) << BATTLE_STATUS_FAINTED_SHIFT;
         ctx->total_hinshi[battlerId]++;

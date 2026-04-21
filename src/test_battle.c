@@ -214,7 +214,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
     ResetScriptIndices();
 
     int enemyCount = 0;
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 6; i++) {
         if (scenario->enemyParty[i].species != 0) {
             enemyCount++;
         }

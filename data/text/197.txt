@@ -1623,9 +1623,9 @@ The effects of Throat Chop prevent\nthe opposing {STRVAR_1 1, 0, 0}\ffrom using 
 {STRVAR_1 1, 0, 0}\nis switched out with the Eject Button!
 The wild {STRVAR_1 1, 0, 0}\nis switched out with the Eject Button!
 The opposing {STRVAR_1 1, 0, 0}\nis switched out with the Eject Button!
-{STRVAR_1 1, 0, 0} held up its\nRed Card against {STRVAR_1 1, 1, 0}!
-{STRVAR_1 1, 0, 0} held up its\nRed Card against\fthe wild {STRVAR_1 1, 1, 0}!
-{STRVAR_1 1, 0, 0} held up its\nRed Card against\fthe opposing {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} is switched out by\nthe Eject Pack!
+The wild {STRVAR_1 1, 0, 0}\nis switched out by\nthe Eject Pack!
+The opposing {STRVAR_1 1, 0, 0}\nis switched out by\nthe Eject Pack!
 It’s super effective on\n{STRVAR_1 1, 0, 0}!
 It’s super effective on the wild\n{STRVAR_1 1, 0, 0}!
 It’s super effective on the opposing\n{STRVAR_1 1, 0, 0}!
@@ -1714,3 +1714,11 @@ The opposing {STRVAR_1 1, 0, 0} is\nno longer tormented!
 {STRVAR_1 1, 0, 0} is no longer\nprevented from healing!
 The wild {STRVAR_1 1, 0, 0} is no longer\nprevented from healing!
 The opposing {STRVAR_1 1, 0, 0} is no longer\nprevented from healing!
+{STRVAR_1 1, 0, 0} held up\nits Red Card against\f{STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} held up\nits Red Card against\fthe wild {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} held up\nits Red Card against\fthe opposing {STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0}\nheld up its Red Card against\f{STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0}\nheld up its Red Card against\fthe wild {STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0}\nheld up its Red Card against\f{STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0}\nheld up its Red Card against\fthe opposing {STRVAR_1 1, 1, 0}!
+

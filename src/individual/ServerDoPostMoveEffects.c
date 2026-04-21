@@ -1646,6 +1646,7 @@ int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bsys, struct BattleS
                 // Any Sat lowered
                 && ctx->moveConditionsFlags[client_no].anyStatLoweredThisTurn) {
 
+                ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
                 ctx->battlerIdTemp = client_no;
                 ctx->state_client = client_no;
 
@@ -1719,7 +1720,7 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
             if (ctx->attack_client != BATTLER_NONE
                 && ctx->battlemon[ctx->attack_client].hp
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
-                && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+                //&& (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
                 // Damage was dealt
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
                     || (ctx->oneSelfFlag[client_no].special_damage))) {
