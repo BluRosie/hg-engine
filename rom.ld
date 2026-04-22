@@ -843,3 +843,13 @@ sBattleBgProfileTable = 0x0226E70C;
 UpdateFriendshipFainted = 0x02248558 | 1;
 
 StringExpandPlaceholders = 0x0200CBBC | 1;
+
+
+
+#roamers
+PlayerLocationHistoryGetBack = 0x0202D9F4 | 1;
+PlayerProfile_GetTrainerID_VisibleHalf = 0x02028F88 | 1;
+SetRoamerData = 0x0202DAB8 | 1;
+Roamers_GetRoamMonStats = 0x0202DA54 | 1;
+Roamer_GetLocation = 0x0202D9F8 | 1;
+ApplyRoamerLocation = 0x02067914 | 1;
