@@ -1,6 +1,6 @@
 #include "../include/constants/maps.h"
 #include "../include/constants/species.h"
-#include "../include/types.h"
+#include "../include/encounter.h"
 
 #define SWARM_MAP_COUNT 20
 
@@ -8,39 +8,7 @@
 #define SWARM_SURFING 1
 #define SWARM_FISHING 2
 
-typedef struct ENC_DATA_LAND {
-    u8 levels[12];
-    u16 species_morn[12];
-    u16 species_day[12];
-    u16 species_nite[12];
-} ENC_DATA_LAND;
-
-typedef struct ENC_DATA_SLOT {
-    u8 level_min;
-    u8 level_max;
-    u16 species;
-} ENC_DATA_SLOT;
-
-typedef struct ENC_DATA {
-    u8 encounterRate_walking;
-    u8 encounterRate_surfing;
-    u8 encounterRate_rockSmash;
-    u8 encounterRate_oldRod;
-    u8 encounterRate_goodRod;
-    u8 encounterRate_superRod;
-    u8 dummy[2];
-    ENC_DATA_LAND landSlots;
-    u16 hoennSoundsSpecies[2];
-    u16 sinnohSoundsSpecies[2];
-    ENC_DATA_SLOT surfSlots[5];
-    ENC_DATA_SLOT rockSmashSlots[2];
-    ENC_DATA_SLOT oldRodSlots[5];
-    ENC_DATA_SLOT goodRodSlots[5];
-    ENC_DATA_SLOT superRodSlots[5];
-    u16 swarmSpecies[4];
-} ENC_DATA;
-
-void LONG_CALL WildEncounters_ReadFromNarc(ENC_DATA *encData, u32 mapno);
+void LONG_CALL WildEncounters_ReadFromNarc(EncounterData *encData, u32 mapno);
 
 const u16 sSwarmMapLUT[SWARM_MAP_COUNT][2] = {
     { MAP_R01, SWARM_GRASS },
@@ -80,20 +48,20 @@ BOOL LONG_CALL sub_02097F6C(u32 rand, u16 mapno, u16 swarmValue)
 
 void LONG_CALL GetSwarmInfoFromRand(u32 rand, u16 *mapno, u16 *species)
 {
-    ENC_DATA encData;
+    EncounterData encData;
     const u16 *swarmMap = sSwarmMapLUT[rand % SWARM_MAP_COUNT];
 
     WildEncounters_ReadFromNarc(&encData, swarmMap[0]);
 
     switch (swarmMap[1]) {
     case SWARM_SURFING:
-        *species = encData.swarmSpecies[1];
+        *species = encData.surfSwarm;
         break;
     case SWARM_FISHING:
-        *species = encData.swarmSpecies[3];
+        *species = encData.fishSwarm;
         break;
     default:
-        *species = encData.swarmSpecies[0];
+        *species = encData.landSwarm;
         break;
     }
 

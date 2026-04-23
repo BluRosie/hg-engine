@@ -228,37 +228,9 @@ def dump_encounters(narc, is_expanded):
 
 def dump_encounters_c(narc, is_expanded):
 	lines = [
-		'#include "../include/types.h"',
 		'#include "../include/constants/encounter_tables.h"',
 		'#include "../include/constants/species.h"',
-		"",
-		"typedef struct PACKED EncounterSlot {",
-		"    u8 minLevel;",
-		"    u8 maxLevel;",
-		"    u16 species;",
-		"} EncounterSlot;",
-		"",
-		"typedef struct PACKED EncounterData {",
-		"    u8 walkingRate;",
-		"    u8 surfRate;",
-		"    u8 rockSmashRate;",
-		"    u8 oldRodRate;",
-		"    u8 goodRodRate;",
-		"    u8 superRodRate;",
-		"    u16 padding;",
-		"    u8 walkingLevels[12];",
-		"    u16 morningSpecies[12];",
-		"    u16 daySpecies[12];",
-		"    u16 nightSpecies[12];",
-		"    u16 hoennSpecies[2];",
-		"    u16 sinnohSpecies[2];",
-		"    EncounterSlot surf[5];",
-		"    EncounterSlot rockSmash[2];",
-		"    EncounterSlot oldRod[5];",
-		"    EncounterSlot goodRod[5];",
-		"    EncounterSlot superRod[5];",
-		"    u16 swarmSpecies[4];",
-		"} EncounterData;",
+		'#include "../include/encounter.h"',
 		"",
 		"u32 __size = sizeof(EncounterData);",
 		"",
@@ -267,38 +239,49 @@ def dump_encounters_c(narc, is_expanded):
 	]
 
 	for idx, enc in enumerate(narc):
+		padding = enc["padding"]
 		lines.append(f"    [{get_encounter_area_name(idx)}] = {{")
-		lines.append(f"        .walkingRate = {enc['walking_rate']},")
-		lines.append(f"        .surfRate = {enc['surf_rate']},")
-		lines.append(f"        .rockSmashRate = {enc['rock_smash_rate']},")
-		lines.append(f"        .oldRodRate = {enc['old_rod_rate']},")
-		lines.append(f"        .goodRodRate = {enc['good_rod_rate']},")
-		lines.append(f"        .superRodRate = {enc['super_rod_rate']},")
-		lines.append(f"        .padding = {enc['padding']},")
-		lines.append("        .walkingLevels = {")
-		lines.append("            " + ", ".join(str(enc[f"walking_{n}_level"]) for n in range(12)))
+		lines.append(f"        .encounterRate_walking = {enc['walking_rate']},")
+		lines.append(f"        .encounterRate_surfing = {enc['surf_rate']},")
+		lines.append(f"        .encounterRate_rockSmash = {enc['rock_smash_rate']},")
+		lines.append(f"        .encounterRate_oldRod = {enc['old_rod_rate']},")
+		lines.append(f"        .encounterRate_goodRod = {enc['good_rod_rate']},")
+		lines.append(f"        .encounterRate_superRod = {enc['super_rod_rate']},")
+		lines.append(f"        .dummy = {{ {padding & 0xFF}, {(padding >> 8) & 0xFF} }},")
+		lines.append("        .landSlots = {")
+		lines.append("            .levels = {")
+		lines.append("                " + ", ".join(str(enc[f"walking_{n}_level"]) for n in range(12)))
+		lines.append("            },")
+		for field_name, prefix, count in (
+			("species_morn", "morning", 12),
+			("species_day", "day", 12),
+			("species_nite", "night", 12),
+		):
+			lines.append(f"            .{field_name} = {{")
+			for n in range(count):
+				lines.append(f"                {get_species_expr(enc[f'{prefix}_{n}_species_id'], is_expanded)},")
+			lines.append("            },")
 		lines.append("        },")
-		for field_name, count in (("morningSpecies", 12), ("daySpecies", 12), ("nightSpecies", 12), ("hoennSpecies", 2), ("sinnohSpecies", 2)):
-			prefix = field_name.replace("Species", "").lower()
+		for field_name, prefix, count in (("hoennSoundsSpecies", "hoenn", 2), ("sinnohSoundsSpecies", "sinnoh", 2)):
 			lines.append(f"        .{field_name} = {{")
 			for n in range(count):
 				lines.append(f"            {get_species_expr(enc[f'{prefix}_{n}_species_id'], is_expanded)},")
 			lines.append("        },")
 		for field_name, prefix, count in (
-			("surf", "surf", 5),
-			("rockSmash", "rock_smash", 2),
-			("oldRod", "old_rod", 5),
-			("goodRod", "good_rod", 5),
-			("superRod", "super_rod", 5),
+			("surfSlots", "surf", 5),
+			("rockSmashSlots", "rock_smash", 2),
+			("oldRodSlots", "old_rod", 5),
+			("goodRodSlots", "good_rod", 5),
+			("superRodSlots", "super_rod", 5),
 		):
 			lines.append(f"        .{field_name} = {{")
 			for n in range(count):
 				lines.append(f"            {{ {enc[f'{prefix}_{n}_min_lvl']}, {enc[f'{prefix}_{n}_max_lvl']}, {get_species_expr(enc[f'{prefix}_{n}_species_id'], is_expanded)} }},")
 			lines.append("        },")
-		lines.append("        .swarmSpecies = {")
-		for n in range(4):
-			lines.append(f"            {get_species_expr(enc[f'swarm_{n}_species_id'], is_expanded)},")
-		lines.append("        },")
+		lines.append(f"        .landSwarm = {get_species_expr(enc['swarm_0_species_id'], is_expanded)},")
+		lines.append(f"        .surfSwarm = {get_species_expr(enc['swarm_1_species_id'], is_expanded)},")
+		lines.append(f"        .nightFish = {get_species_expr(enc['swarm_2_species_id'], is_expanded)},")
+		lines.append(f"        .fishSwarm = {get_species_expr(enc['swarm_3_species_id'], is_expanded)},")
 		lines.append("    },")
 		lines.append("")
 
