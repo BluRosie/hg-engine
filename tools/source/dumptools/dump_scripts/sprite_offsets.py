@@ -50,49 +50,31 @@ def dump_spriteoffsets(data):
 
 def dump_spriteoffsets_c(data):
     lines = [
-        '#include "../include/types.h"',
+        '#include "../include/sprite.h"',
         '#include "../include/constants/species.h"',
         "",
-        "typedef struct PACKED PokepicAnimScript {",
-        "    s8 next;",
-        "    u8 duration;",
-        "    s8 xOffset;",
-        "    s8 unk_03;",
-        "} PokepicAnimScript;",
-        "",
-        "typedef struct PACKED SpriteOffsetSideData {",
-        "    u8 unk_00;",
-        "    u8 anim;",
-        "    u8 unk_02;",
-        "    PokepicAnimScript script[10];",
-        "} SpriteOffsetSideData;",
-        "",
-        "typedef struct PACKED SpriteOffsetEntry {",
-        "    SpriteOffsetSideData front;",
-        "    SpriteOffsetSideData back;",
-        "    s8 yOffset;",
-        "    s8 shadowX;",
-        "    u8 shadowSize;",
-        "} SpriteOffsetEntry;",
-        "",
-        "const SpriteOffsetEntry __data[] = {",
+        "const SpriteFrameData __data[] = {",
     ]
 
     count = len(data) // RECORD_SIZE
     for species in range(count):
         start = species * RECORD_SIZE
         lines.append(f'    [{lookup_species(species)}] = {{')
-        for label, offset in (("front", 0x00), ("back", 0x2B)):
-            lines.append(f"        .{label} = {{")
-            lines.append(f"            .unk_00 = {data[start + offset + 0x00]},")
-            lines.append(f"            .anim = {data[start + offset + 0x01]},")
-            lines.append(f"            .unk_02 = {data[start + offset + 0x02]},")
-            lines.append("            .script = {")
+        for header_name, frames_name, offset in (
+            ("frontHeader", "frontFrames", 0x00),
+            ("backHeader", "backFrames", 0x2B),
+        ):
+            lines.append(f"        .{header_name} = {{")
+            lines.append(f"            .cryDelay = {data[start + offset + 0x00]},")
+            lines.append(f"            .animation = {data[start + offset + 0x01]},")
+            lines.append(f"            .animationDelay = {data[start + offset + 0x02]},")
+            lines.append("        },")
+            lines.append(f"        .{frames_name} = {{")
             script_base = start + offset + 0x03
             for i in range(10):
                 entry = script_base + i * 4
                 lines.append(
-                    "                { .next = %d, .duration = %d, .xOffset = %d, .unk_03 = %d },"
+                    "                { .frameNo = %d, .duration = %d, .horizontalShift = %d, .verticalShift = %d },"
                     % (
                         signed(data[entry + 0x00]),
                         data[entry + 0x01],
@@ -100,10 +82,9 @@ def dump_spriteoffsets_c(data):
                         signed(data[entry + 0x03]),
                     )
                 )
-            lines.append("            },")
             lines.append("        },")
-        lines.append(f"        .yOffset = {signed(data[start + 0x56])},")
-        lines.append(f"        .shadowX = {signed(data[start + 0x57])},")
+        lines.append(f"        .spriteYOffset = {signed(data[start + 0x56])},")
+        lines.append(f"        .shadowXOffset = {signed(data[start + 0x57])},")
         lines.append(f"        .shadowSize = {data[start + 0x58]},")
         lines.append("    },")
 
