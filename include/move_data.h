@@ -3,73 +3,74 @@
 
 #include <stdint.h>
 
-#include "config.h"
 #include "constants/move_effects.h"
 #include "constants/moves.h"
 
-#define TYPE_NORMAL 0
+#include "config.h"
+
+#define TYPE_NORMAL   0
 #define TYPE_FIGHTING 1
-#define TYPE_FLYING 2
-#define TYPE_POISON 3
-#define TYPE_GROUND 4
-#define TYPE_ROCK 5
-#define TYPE_BUG 6
-#define TYPE_GHOST 7
-#define TYPE_STEEL 8
-#define TYPE_MYSTERY 9
-#define TYPE_FAIRY 9
-#define TYPE_FIRE 10
-#define TYPE_WATER 11
-#define TYPE_GRASS 12
+#define TYPE_FLYING   2
+#define TYPE_POISON   3
+#define TYPE_GROUND   4
+#define TYPE_ROCK     5
+#define TYPE_BUG      6
+#define TYPE_GHOST    7
+#define TYPE_STEEL    8
+#define TYPE_MYSTERY  9
+#define TYPE_FAIRY    9
+#define TYPE_FIRE     10
+#define TYPE_WATER    11
+#define TYPE_GRASS    12
 #define TYPE_ELECTRIC 13
-#define TYPE_PSYCHIC 14
-#define TYPE_ICE 15
-#define TYPE_DRAGON 16
-#define TYPE_DARK 17
+#define TYPE_PSYCHIC  14
+#define TYPE_ICE      15
+#define TYPE_DRAGON   16
+#define TYPE_DARK     17
 #define TYPE_TYPELESS 18
-#define TYPE_STELLAR 19
+#define TYPE_STELLAR  19
 
 #define SPLIT_PHYSICAL 0
-#define SPLIT_SPECIAL 1
-#define SPLIT_STATUS 2
+#define SPLIT_SPECIAL  1
+#define SPLIT_STATUS   2
 
-#define FLAG_CONTACT 0x01
-#define FLAG_PROTECT 0x02
-#define FLAG_MAGIC_COAT 0x04
-#define FLAG_SNATCH 0x08
+#define FLAG_CONTACT     0x01
+#define FLAG_PROTECT     0x02
+#define FLAG_MAGIC_COAT  0x04
+#define FLAG_SNATCH      0x08
 #define FLAG_MIRROR_MOVE 0x10
 #define FLAG_KEEP_HP_BAR 0x40
 #define FLAG_HIDE_SHADOW 0x80
 
-#define CONTEST_COOL 0
+#define CONTEST_COOL   0
 #define CONTEST_BEAUTY 1
-#define CONTEST_CUTE 2
-#define CONTEST_SMART 3
-#define CONTEST_TOUGH 4
+#define CONTEST_CUTE   2
+#define CONTEST_SMART  3
+#define CONTEST_TOUGH  4
 
-#define APPEAL_FIRST_NEXT_TURN 0x01
-#define APPEAL_LAST_NEXT_TURN 0x02
-#define APPEAL_UNUSED_3 0x03
-#define APPEAL_VOLTAGE_HEARTS 0x04
-#define APPEAL_BASIC 0x05
-#define APPEAL_UNIQUE_JUDGE 0x06
-#define APPEAL_SUCCESSIVE 0x07
-#define APPEAL_VOLTAGE_ONLY 0x08
-#define APPEAL_ALL_SAME_JUDGE 0x09
-#define APPEAL_LOWER_VOLTAGES 0x0A
-#define APPEAL_DOUBLE_NEXT_SCORE 0x0B
-#define APPEAL_STEAL_VOLTAGE 0x0C
-#define APPEAL_KEEP_VOLTAGE_DOWN 0x0D
-#define APPEAL_RANDOMIZE_NEXT_TURN 0x0E
-#define APPEAL_DOUBLE_ON_FINALE 0x0F
-#define APPEAL_LOW_VOLTAGE_BOOST 0x10
-#define APPEAL_FIRST_HEARTS 0x11
-#define APPEAL_LAST_HEARTS 0x12
-#define APPEAL_KEEP_VOLTAGE_UP 0x13
-#define APPEAL_VOLTAGE_CHAIN_HEARTS 0x14
-#define APPEAL_LATE_BOOST 0x15
+#define APPEAL_FIRST_NEXT_TURN          0x01
+#define APPEAL_LAST_NEXT_TURN           0x02
+#define APPEAL_UNUSED_3                 0x03
+#define APPEAL_VOLTAGE_HEARTS           0x04
+#define APPEAL_BASIC                    0x05
+#define APPEAL_UNIQUE_JUDGE             0x06
+#define APPEAL_SUCCESSIVE               0x07
+#define APPEAL_VOLTAGE_ONLY             0x08
+#define APPEAL_ALL_SAME_JUDGE           0x09
+#define APPEAL_LOWER_VOLTAGES           0x0A
+#define APPEAL_DOUBLE_NEXT_SCORE        0x0B
+#define APPEAL_STEAL_VOLTAGE            0x0C
+#define APPEAL_KEEP_VOLTAGE_DOWN        0x0D
+#define APPEAL_RANDOMIZE_NEXT_TURN      0x0E
+#define APPEAL_DOUBLE_ON_FINALE         0x0F
+#define APPEAL_LOW_VOLTAGE_BOOST        0x10
+#define APPEAL_FIRST_HEARTS             0x11
+#define APPEAL_LAST_HEARTS              0x12
+#define APPEAL_KEEP_VOLTAGE_UP          0x13
+#define APPEAL_VOLTAGE_CHAIN_HEARTS     0x14
+#define APPEAL_LATE_BOOST               0x15
 #define APPEAL_AFTER_MAX_VOLTAGE_HEARTS 0x16
-#define APPEAL_PITY_HEARTS 0x17
+#define APPEAL_PITY_HEARTS              0x17
 
 #if DISALLOW_DEXIT_GEN == 8
 #define FLAG_UNUSABLE_IN_GEN_8 0x20
