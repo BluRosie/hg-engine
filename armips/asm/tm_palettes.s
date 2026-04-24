@@ -1,10 +1,11 @@
 .nds
 .thumb
 
-// Thankyou Drayano!
+// Thank you Drayano!
 // Edits the palettes of modified TMs
 // No palettes for fairy as yet, using psychic as placeholder in interim
 // Between any two TMs we can skip 8 * (TM gap - 1) extra bytes (this is only relevant if in future more TMs are able to be added and bytes need to be skipped; or if you want to delete a TM for some reason. Otherwise no additional TM gap required)
+// IMPORTANT! You need to run "make update_machine_moves", otherwise the changes will not apply.
 
 .open "base/arm9.bin", 0x02000000
 

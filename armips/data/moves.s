@@ -751,7 +751,7 @@ movedata MOVE_ROAR, "Roar"
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
-    accuracy DEBUG_NEEDS_TESTING ? 0 : 100 // come back to check accuracyless later
+    accuracy 0
     pp 20
     effectchance 0
     target RANGE_SINGLE_TARGET
@@ -2242,7 +2242,7 @@ movedata MOVE_POISON_GAS, "Poison Gas"
     accuracy 90
     pp 40
     effectchance 0
-    target DEBUG_NEEDS_TESTING ? RANGE_ADJACENT_OPPONENTS : RANGE_SINGLE_TARGET
+    target RANGE_ADJACENT_OPPONENTS
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_PROTECT
     appeal APPEAL_BASIC
@@ -2866,7 +2866,7 @@ movedata MOVE_COTTON_SPORE, "Cotton Spore"
     accuracy 100
     pp 40
     effectchance 0
-    target DEBUG_NEEDS_TESTING ? RANGE_ADJACENT_OPPONENTS : RANGE_SINGLE_TARGET
+    target RANGE_ADJACENT_OPPONENTS
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_PROTECT
     appeal APPEAL_FIRST_NEXT_TURN
@@ -7185,7 +7185,7 @@ movedata MOVE_CHATTER, "Chatter"
     type TYPE_FLYING
     accuracy 100
     pp 20
-    effectchance DEBUG_NEEDS_TESTING ? 100 : 0 // always confuse
+    effectchance 100 // always confuse
     target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9

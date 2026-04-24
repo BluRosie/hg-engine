@@ -108,8 +108,18 @@
 .equ EVO_LEVEL_NATURE_LOW_KEY, 35
 .equ EVO_AMOUNT_OF_CRITICAL_HITS, 36
 .equ EVO_HURT_IN_BATTLE_AMOUNT, 37
-//EVO_DARK_SCROLL  // implemented through an item use forme-change-esque cut scene
-//EVO_WATER_SCROLL // implemented through an item use forme-change-esque cut scene
+.equ EVO_SPIN_CLOCKWISE_LESS_THAN_5_SECONDS_DAY, 38            // Vanilla Cream
+.equ EVO_SPIN_COUNTERCLOCKWISE_LESS_THAN_5_SECONDS_DAY, 39     // Ruby Cream
+.equ EVO_SPIN_CLOCKWISE_LESS_THAN_5_SECONDS_NIGHT, 40          // Matcha Cream
+.equ EVO_SPIN_COUNTERCLOCKWISE_MORE_THAN_5_SECONDS_NIGHT, 41   // Mint Cream
+.equ EVO_SPIN_CLOCKWISE_MORE_THAN_5_SECONDS_NIGHT, 42          // Lemon Cream
+.equ EVO_SPIN_COUNTERCLOCKWISE_LESS_THAN_5_SECONDS_NIGHT, 43   // Salted Cream
+.equ EVO_SPIN_COUNTERCLOCKWISE_MORE_THAN_5_SECONDS_DAY, 44     // Ruby Swirl
+.equ EVO_SPIN_CLOCKWISE_MORE_THAN_5_SECONDS_DAY, 45            // Caramel Swirl
+.equ EVO_SPIN_MORE_THAN_10_SECONDS_EVENING, 46                 // Rainbow Swirl
+.equ EVO_FORM_ARGUMENT, 47 // Yamask, Stantler, Basculin, Primeape, Bisharp, Gimmighoul
+.equ EVO_LETS_GO, 48 // Pawmo, Bramblin, Rellor https://xcancel.com/Sibuna_Switch/status/1678027317891694593
+.equ EVO_DUMMY, 49 // Inaccessible evolution methods
 
 // shadow size constants
 

@@ -106,7 +106,6 @@ This directory contains individual battle test scenario files. Each test is a se
 
 **IMPORTANT:** End the file with a comma (`,`) - it's part of the array
 
-2. **Include your test** in `data/BattleTests.c`:
 
 ```c
 // Test N: Your test description
@@ -116,6 +115,8 @@ This directory contains individual battle test scenario files. Each test is a se
 ## Running Tests
 ### Build test ROM
 `make AUTO_TEST=Y -j$(nproc)`
+`make AUTO_TEST=Y TEST_FILTER="species moves/move_folder" -j${nproc}`
+
 
 ### Run tests (headless)
 `SDL_VIDEODRIVER=dummy scripts/run_tests.sh`

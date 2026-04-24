@@ -3,7 +3,6 @@
 
 #include "../../../../include/battle.h"
 #include "../../../../include/constants/ability.h"
-#include "../../../../include/constants/battle_message_constants.h"
 #include "../../../../include/constants/item.h"
 #include "../../../../include/constants/moves.h"
 #include "../../../../include/constants/species.h"
@@ -36,8 +35,10 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
-        .enemyParty = { {
+            { .species = SPECIES_NONE }
+        },
+        .enemyParty = {
+            {
                             .species = SPECIES_SHUCKLE,
                             .level = 50,
                             .form = 0,
@@ -53,8 +54,10 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
-        .playerScript = { {
+            { .species = SPECIES_NONE }
+        },
+        .playerScript = {
+            {
                               { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                               { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                               { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
@@ -73,8 +76,10 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
-        .enemyScript = { {
+            }
+        },
+        .enemyScript = {
+            {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                              { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
@@ -93,11 +98,12 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
+            }
+        },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_RAISED_STAT_DRASTICALLY },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_RAISED_STAT_SHARPLY },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_ABILITY_RAISED_STAT },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Steam Engine raised its Speed drastically!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Steam Engine raised its Speed sharply!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Steam Engine raised its Speed!" },
         }
     },
 #ifndef GET_TEST_CASE_ONLY

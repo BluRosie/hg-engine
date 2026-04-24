@@ -3,7 +3,6 @@
 
 #include "../../../../include/battle.h"
 #include "../../../../include/constants/ability.h"
-#include "../../../../include/constants/battle_message_constants.h"
 #include "../../../../include/constants/item.h"
 #include "../../../../include/constants/moves.h"
 #include "../../../../include/constants/species.h"
@@ -36,14 +35,16 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
-        .enemyParty = { {
+            { .species = SPECIES_NONE }
+        },
+        .enemyParty = {
+            {
                             .species = SPECIES_PRIMEAPE,
                             .level = 50,
                             .form = 0,
                             .ability = ABILITY_DEFIANT,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
@@ -55,7 +56,7 @@ const struct TestBattleScenario BattleTests[] = {
                 .form = 0,
                 .ability = ABILITY_DEFIANT,
                 .item = ITEM_NONE,
-                .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -64,8 +65,10 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
-        .playerScript = { {
+            { .species = SPECIES_NONE }
+        },
+        .playerScript = {
+            {
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
@@ -84,8 +87,10 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
-        .enemyScript = { {
+            }
+        },
+        .enemyScript = {
+            {
                              { ACTION_SWITCH_SLOT_1, BATTLER_PLAYER_FIRST },
                              { ACTION_SWITCH_SLOT_0, BATTLER_PLAYER_FIRST },
                              { ACTION_SWITCH_SLOT_1, BATTLER_PLAYER_FIRST },
@@ -104,11 +109,16 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
+            }
+        },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_STAT_FELL },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.messageID = BATTLE_MSG_STAT_RAISED_SHARPLY },
-        }
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Primeape's Speed fell!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Primeape's Defiant raised its Attack sharply!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ariados used Sticky Web!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ariados used Sticky Web!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        },
     },
 #ifndef GET_TEST_CASE_ONLY
 };

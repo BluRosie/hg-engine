@@ -112,6 +112,8 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         client.item_held_effect = BattleItemDataGet(sp, client.item, 1);
         client.item_power = BattleItemDataGet(sp, client.item, 2);
         client.hasMoveFailureLastTurn = sp->moveConditionsFlags[i].moveFailureLastTurn;
+        client.paradoxBoostedStat = sp->paradoxBoostedStat[i];
+        client.boosterEnergyActivated = sp->boosterEnergyActivated[i];
 
         damageCalc.clients[i] = client;
     }
@@ -186,6 +188,32 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     u32 damage = 0;
 
+
+    if ((MoldBreakerAbilityCheckInternal(attacker, defender, attackerAbility, defenderAbility, sp->current_move_index, movesplit, ABILITY_DISGUISE) == TRUE)
+        && (sp->battlemon[defender].species == SPECIES_MIMIKYU)
+        // Mimikyu or Mimikyu-Large
+        && (sp->battlemon[defender].form_no == 0 || sp->battlemon[defender].form_no == 2)
+        // Not transformed
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED))
+        {
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+        sp->damage = 0;
+        return;
+    }
+
+    if ((MoldBreakerAbilityCheckInternal(attacker, defender, attackerAbility, defenderAbility, sp->current_move_index, movesplit, ABILITY_ICE_FACE) == TRUE)
+        && (sp->battlemon[defender].species == SPECIES_EISCUE)
+        && (sp->battlemon[defender].form_no == 0)
+        // Not transformed
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
+        && (movesplit == SPLIT_PHYSICAL)) {
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+        sp->damage = 0;
+        return;
+    }
+
     // Steps 1 - 5
     damage = CalcBaseDamage(bw,
                             sp,
@@ -199,17 +227,41 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     //=====Step 6. General Damage Modifiers=====
 
     // 6.1 Spread Move Modifier
-    // TODO: the vanilla implementation is probably wrong
+
+    int numTargetedFoes = 0;
+    int numTargetedAll = 0;
+
+    if (IsTargetFoes(bw, sp, moveno) || IsTargetFoesAndAlly(bw, sp, moveno)) {
+        int oppLeft = BATTLER_OPPONENT_SIDE_LEFT(attacker);
+        int oppRight = BATTLER_OPPONENT_SIDE_RIGHT(attacker);
+
+        if (sp->battlemon[oppLeft].hp != 0) {
+            numTargetedFoes++;
+            numTargetedAll++;
+        }
+        if (sp->battlemon[oppRight].hp != 0) {
+            numTargetedFoes++;
+            numTargetedAll++;
+        }
+    }
+
+    if (IsTargetFoesAndAlly(bw, sp, moveno)) {
+        int ally = BATTLER_ALLY(attacker);
+
+        if (sp->battlemon[ally].hp != 0) {
+            numTargetedAll++;
+        }
+    }
 
     if ((battle_type & BATTLE_TYPE_DOUBLE) &&
-        (sp->moveTbl[moveno].target == RANGE_ADJACENT_OPPONENTS) &&
-        (CheckNumMonsHit(bw, sp, 1, defender) == 2)) {
+        IsTargetFoes(bw, sp, moveno) &&
+        (numTargetedFoes >= 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 
     if ((battle_type & BATTLE_TYPE_DOUBLE) &&
-        (sp->moveTbl[moveno].target == RANGE_ALL_ADJACENT) &&
-        (CheckNumMonsHit(bw, sp, 0, defender) >= 2)) {
+        IsTargetFoesAndAlly(bw, sp, moveno) &&
+        (numTargetedAll >= 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 

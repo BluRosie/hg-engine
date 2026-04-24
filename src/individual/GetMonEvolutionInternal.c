@@ -275,7 +275,7 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
 
                     for (k = 0; k < 4; k++)
                     {
-                        if (GetMoveData(GetMonData(pokemon, MON_DATA_MOVE1+k, NULL), MOVE_DATA_TYPE) == evoTable[i].param)
+                        if (GetMoveData(GetMonData(pokemon, MON_DATA_MOVE1+k, NULL), MOVE_DATA_TYPE) == evoTable[i].param && friendship >= FRIENDSHIP_EVOLUTION_THRESHOLD)
                         {
                             target = evoTable[i].target & 0x7FF;
                             *method_ret = EVO_HAS_MOVE_TYPE;

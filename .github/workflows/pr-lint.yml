@@ -1,0 +1,53 @@
+name: pr-lint
+
+on:
+  pull_request:
+    paths:
+      - 'src/**/*.c'
+      - 'include/**/*.h'
+
+jobs:
+  pr-lint:
+    if: ${{ github.repository == 'BluRosie/hg-engine' }}
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: read
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: cpp-linter/cpp-linter-action@v2
+        id: linter
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          style: 'file'
+          tidy-checks: '-*'
+          files-changed-only: true
+          file-annotations: false
+          format-review: false
+
+      - name: Fail if formatting checks fail
+        if: ${{ steps.linter.outputs.clang-format-checks-failed != '0' }}
+        run: |
+          echo "Files needing formatting:"
+        
+          git diff --name-only \
+            ${{ github.event.pull_request.base.sha }} \
+            ${{ github.event.pull_request.head.sha }} |
+          while IFS= read -r f; do
+            case "$f" in
+              src/*.c|include/*.h)
+                if ! clang-format --dry-run --Werror "$f" >/dev/null 2>&1; then
+                  echo "$f"
+                fi
+              ;;
+            esac
+          done
+        
+          echo "Format failures: ${{ steps.linter.outputs.clang-format-checks-failed }}"
+          exit 1
