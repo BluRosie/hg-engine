@@ -1455,7 +1455,7 @@ void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u3
  */
 u32 LONG_CALL TryAppendMonMove(struct PartyPokemon *mon, u16 move);
 
-#define gIconPalTable ((u8 *)(0x023D8000 + START_ADDRESS))
+extern u8 gIconPalTable[];
 
 // defined in src/pokemon.c
 

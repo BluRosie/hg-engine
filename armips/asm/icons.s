@@ -13,6 +13,5 @@
 .org 0x02074404
 
 .word NUM_OF_MONS+1
-.word gIconPalTable
 
 .close

@@ -102,7 +102,7 @@
     .create "base/overlay/overlay_0129.bin", 0x023D8000
 .endif
 
-.orga (START_ADDRESS + NUM_OF_TOTAL_MONS_PLUS_FORMS+1)
+.orga 0
 
 .align 16
 .ascii "AI CHANGES HERE" // interesting.

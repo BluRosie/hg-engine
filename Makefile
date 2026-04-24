@@ -415,7 +415,6 @@ move_narc: $(NARC_FILES)
 	cp $(OTHERPOKE_NARC) $(OTHERPOKE_TARGET)
 
 	@echo "pokemon icons:"
-	$(ARMIPS) armips/data/iconpalettetable.s
 	cp $(ICONGFX_NARC) $(ICONGFX_TARGET)
 
 	@echo "wild encounters:"
