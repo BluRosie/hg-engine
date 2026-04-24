@@ -131,7 +131,7 @@
 
 // RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle (Gen 9)
 // comment out the line below to revert back to Gen 8- behavior
-#define RESTORE_ITEMS_AT_BATTLE_END
+//#define RESTORE_ITEMS_AT_BATTLE_END
 
 // AI_CAN_GRAB_ITEMS allows to use Trick, Switcheroo, (Thief still todo) on the Player and actually grab items. This can result in lost items.
 #define AI_CAN_GRAB_ITEMS
@@ -194,10 +194,10 @@
 
 // THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN makes the Thunder & Storm map header weathers set permanent
 // Electric Terrain (and rain) in battle
-//#define THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN
+#define THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN
 
 // FOG_SETS_MISTY_TERRAIN makes the Fog map header weather set permanent Misty Terrain in battle
-//#define FOG_WEATHER_MISTY_TERRAIN
+#define FOG_WEATHER_MISTY_TERRAIN
 
 // NATURAL_GIFT_POWER_GEN defines the power of Natural Gift based on generation. Gen 6 or higher are modernized values.
 #define NATURAL_GIFT_POWER_GEN GEN_LATEST
