@@ -1260,19 +1260,23 @@ BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
 BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStruct *sp)
 {
     int effect;
+    BOOL sheer_force_active = FALSE;
 
     IncrementBattleScriptPtr(sp, 1);
     effect = sp->moveTbl[sp->current_move_index].effect;
 
-    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE)
+    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE || HeldItemHoldEffectGet(sp, sp->defence_client) == HOLD_EFFECT_PREVENT_SECONDARY_EFFECTS)
     {
         // list taken from bulbapedia article on sheer force and the moves affected.
+        // Also applies to covert cloak
         switch (effect)
         {
             case MOVE_EFFECT_FLINCH_HIT:
+            case MOVE_EFFECT_ALWAYS_FLINCH_FIRST_TURN_ONLY:
             case MOVE_EFFECT_RAISE_ALL_STATS_HIT:
             case MOVE_EFFECT_BLIZZARD:
             case MOVE_EFFECT_PARALYZE_HIT:
+            case MOVE_EFFECT_LOWER_ATTACK_HIT:
             case MOVE_EFFECT_LOWER_SPEED_HIT:
             case MOVE_EFFECT_RAISE_SP_ATK_HIT:
             case MOVE_EFFECT_CONFUSE_HIT:
@@ -1289,52 +1293,61 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
             case MOVE_EFFECT_BADLY_POISON_HIT:
             //case MOVE_EFFECT_SECRET_POWER: // need a different way of doing this i think
             case MOVE_EFFECT_LOWER_SP_ATK_HIT:
+            case MOVE_EFFECT_RAISE_DEF_HIT:
+            case MOVE_EFFECT_THROAT_CHOP:
             case MOVE_EFFECT_THUNDER:
             case MOVE_EFFECT_HURRICANE:
             case MOVE_EFFECT_FLINCH_PARALYZE_HIT:
             case MOVE_EFFECT_FLINCH_DOUBLE_DAMAGE_FLY_OR_BOUNCE: // removes the double damage flying too
             case MOVE_EFFECT_LOWER_SP_DEF_2_HIT:
-            case MOVE_EFFECT_LOWER_ATTACK_HIT:
+            case MOVE_EFFECT_PREVENT_ESCAPE_HIT:
             case MOVE_EFFECT_THAW_AND_BURN_HIT: // it does thaw otherwise
             case MOVE_EFFECT_CHATTER: // confuse chance based on volume of cry
             case MOVE_EFFECT_FLINCH_MINIMIZE_DOUBLE_HIT:
             case MOVE_EFFECT_RANDOM_PRIMARY_STATUS_HIT:
             case MOVE_EFFECT_PREVENT_HEALING_HIT: // Psychic Noise
+            case MOVE_EFFECT_SANDSEAR_STORM:
+            case MOVE_EFFECT_BLEAKWIND_STORM:
+            case MOVE_EFFECT_WILDBOLT_STORM:
                 effect = MOVE_EFFECT_HIT;
-                sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+                sheer_force_active = TRUE;
                 break;
 
             case MOVE_EFFECT_POISON_MULTI_HIT: // twineedle
                 effect = MOVE_EFFECT_MULTI_HIT;
-                sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+                sheer_force_active = TRUE;
                 break;
 
             case MOVE_EFFECT_HIGH_CRITICAL_BURN_HIT: // blaze kick
             case MOVE_EFFECT_HIGH_CRITICAL_POISON_HIT: // cross poison
                 effect = MOVE_EFFECT_HIGH_CRITICAL;
-                sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+                sheer_force_active = TRUE;
                 break;
 
             case MOVE_EFFECT_RECOIL_BURN_HIT: // flare blitz
             case MOVE_EFFECT_RECOIL_PARALYZE_HIT:
                 effect = MOVE_EFFECT_RECOIL_THIRD;
-                sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+                sheer_force_active = TRUE;
                 break;
 
             default:
                 sp->battlemon[sp->attack_client].sheer_force_flag = 0;
                 break;
         }
-        // moves boosted by sheer force that still maintain their effect
-        if ((sp->current_move_index == MOVE_SPARKLING_ARIA)
-        // || (sp->current_move_index == MOVE_GENESIS_SUPERNOVA) // doesnt have an eff atm but still on the table
-         || (sp->current_move_index == MOVE_SPIRIT_SHACKLE)
-         || (sp->current_move_index == MOVE_ANCHOR_SHOT)
-        // || (sp->current_move_index == MOVE_EERIE_SPELL) // same as genesis supernova
-         || (sp->current_move_index == MOVE_CEASELESS_EDGE)
-         || (sp->current_move_index == MOVE_STONE_AXE)
-         || (sp->current_move_index == MOVE_ELECTRO_SHOT)) { // according to bulbapedia but only on the electro shot page ?
-            sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+
+        if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) {
+            // moves boosted by sheer force that still maintain their effect
+            if ((sheer_force_active == TRUE)
+            || (sp->current_move_index == MOVE_SPARKLING_ARIA)
+            // || (sp->current_move_index == MOVE_GENESIS_SUPERNOVA) // doesnt have an eff atm but still on the table
+            || (sp->current_move_index == MOVE_SPIRIT_SHACKLE)
+            || (sp->current_move_index == MOVE_ANCHOR_SHOT)
+            // || (sp->current_move_index == MOVE_EERIE_SPELL) // same as genesis supernova
+            || (sp->current_move_index == MOVE_CEASELESS_EDGE)
+            || (sp->current_move_index == MOVE_STONE_AXE)
+            || (sp->current_move_index == MOVE_ELECTRO_SHOT)) { // according to bulbapedia but only on the electro shot page ?
+                sp->battlemon[sp->attack_client].sheer_force_flag = 1;
+            }
         }
     }
 

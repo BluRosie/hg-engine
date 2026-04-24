@@ -1230,13 +1230,16 @@ int LONG_CALL Activate_SparklingAria(void *bsys, struct BattleStruct *ctx)
                 if ((ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client)
                     && (ctx->battlemon[client_no].condition & STATUS_BURN)
                     && (ctx->battlemon[client_no].hp)) {
-                    if (numberOfClientsHitBySparklingAria > 1 || GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST) {
-                        ctx->battlerIdTemp = client_no;
-                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_BURN);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        return TRUE;
-                    }
+                        if ((numberOfClientsHitBySparklingAria > 1)
+                            || (GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST
+                            && HeldItemHoldEffectGet(ctx, client_no) != HOLD_EFFECT_PREVENT_SECONDARY_EFFECTS))
+                        {
+                            ctx->battlerIdTemp = client_no;
+                            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_BURN);
+                            ctx->next_server_seq_no = ctx->server_seq_no;
+                            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                            return TRUE;
+                        }
                 }
             }
         }

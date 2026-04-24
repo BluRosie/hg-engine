@@ -407,7 +407,6 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
 static BOOL MegaEvolutionOrUltraBurst(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     int client_no, i;
     int client_set_max;
-    int seq;
 
     client_set_max = BattleWorkClientSetMaxGet(bsys);
     for (i = 0; i < client_set_max; i++) {

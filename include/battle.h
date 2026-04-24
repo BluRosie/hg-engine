@@ -1680,9 +1680,9 @@ struct BattleSystem {
     // u8 unk240F_0:1;
     // u8 unk240F_1:1;
     // u8 unk240E_F:1;
-    // u8 criticalHpMusic:2;
-    // u8 criticalHpMusicDelay:3;
-    u8 padding[0x2400 - 0x2228];
+	u8 padding[0x2400 - 0x2218];
+    u8 criticalHpMusic:2;
+    u8 criticalHpMusicDelay:3;
     u32 terrain;
     u32 bgId;
     // int location;
