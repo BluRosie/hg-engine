@@ -60,6 +60,7 @@
 #define CODE_ADDON_BATTLE_TESTS             16
 #define CODE_ADDON_BACKGROUND_GFX_IDS       17
 #define CODE_ADDON_HIDDEN_ITEM_PARAMS       18
+#define CODE_ADDON_ICON_PALETTES            19
 
 // a015 file indexes
 #define BAG_HM_ICON 37

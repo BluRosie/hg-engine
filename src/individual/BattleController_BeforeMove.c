@@ -2307,6 +2307,7 @@ BOOL BattleController_CheckStolenBySnatch(struct BattleSystem *bw UNUSED, struct
             if ((sp->server_status_flag & (BATTLE_STATUS_NO_MOVE_SET)) == 0) {
                 sp->moveProtect[sp->attack_client] = 0;
                 sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
+                sp->lastClientMoveType[sp->attack_client] = GetAdjustedMoveType(sp, sp->attack_client, sp->moveNoTemp);
                 sp->waza_no_last = sp->moveNoTemp;
                 sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
             }
@@ -3565,8 +3566,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_CONVERSION_2: {
-            // TODO: Fail if the user has all types that resist the type of the last move used on them by the target.
-            // Stellar type moves fail regardless according to Bulbapedia; this is probably to prevent inverse battle shenanigans.
+            // Type-chart interaction failures are handled in TryConversion2.
             if (ctx->battlemon[ctx->attack_client].is_currently_terastallized) {
                 butItFailedFlag = TRUE;
             }

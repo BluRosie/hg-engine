@@ -1,9 +1,8 @@
-// Test: Flying Press - neutral damage against Rock-type
+// Test: Conversion 2 - Type 3 interaction
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
 #include "../../../../include/constants/ability.h"
-#include "../../../../include/constants/battle_message_constants.h"
 #include "../../../../include/constants/item.h"
 #include "../../../../include/constants/moves.h"
 #include "../../../../include/constants/species.h"
@@ -14,18 +13,19 @@ const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    {   .battleType = BATTLE_TYPE_SINGLE,
+    {
+        .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_HAWLUCHA,
+                .species = SPECIES_AGGRON,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_NO_GUARD,
+                .ability = ABILITY_STALL,
                 .item = ITEM_NONE,
-                .moves = { MOVE_FLYING_PRESS, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_CONVERSION_2, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -37,14 +37,14 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE }
         },
-        .enemyParty = { 
-                        {
-                            .species = SPECIES_ONIX,
+        .enemyParty = {
+            {
+                            .species = SPECIES_SHUCKLE,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_ROCK_HEAD,
+                            .ability = ABILITY_STURDY,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .moves = { MOVE_SLEEP_TALK, MOVE_TRICK_OR_TREAT, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
@@ -58,8 +58,8 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .playerScript = {
             {
+                              { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                              { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
@@ -81,7 +81,7 @@ const struct TestBattleScenario BattleTests[] = {
         .enemyScript = {
             {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_NONE, 0 },
+                             { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
@@ -101,8 +101,8 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 36, 36, 37, 37, 37, 39, 39, 39, 39, 40, 40, 40, 42, 42, 42, 43 } },    
-        },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        }
     },
 #ifndef GET_TEST_CASE_ONLY
 };

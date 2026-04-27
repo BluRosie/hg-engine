@@ -93,7 +93,11 @@ venv: $(VENV_ACTIVATE)
 # divorce this python3 from venv so that it works
 $(VENV_ACTIVATE):
 	$(PYTHON_NO_VENV) -m venv $(VENV)
+ifeq ($(MSYS2), 0)
+	$(PYTHON) -m pip install ndspy==4.1.0
+else
 	$(PYTHON) -m pip install -r $(REQUIREMENTS)
+endif
 
 endif
 
@@ -507,6 +511,9 @@ move_narc: $(NARC_FILES)
 
 	@echo "hidden item params:"
 	cp $(HIDDEN_ITEM_PARAMS_BIN) $(HIDDEN_ITEM_PARAMS_TARGET)
+
+	@echo "icon palette table:"
+	cp $(ICON_PALETTE_TABLE_BIN) $(ICON_PALETTE_TABLE_TARGET)
 
 update_machine_moves: $(VENV_ACTIVATE)
 	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites

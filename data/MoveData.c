@@ -4772,7 +4772,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .effectChance = 0,
         },
         .battle = {
-            .target = RANGE_USER,
+            .target = RANGE_ALL_ADJACENT,
             .priority = 0,
             .flags = 0x00,
         },
@@ -15215,7 +15215,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
             .power = 100,
-            .type = TYPE_FIGHTING,
+            .type = TYPE_FIGHTING, // Handled in src/battle/other_battle_calculators.c
             .accuracy = 95,
             .pp = 10,
             .effectChance = 0,
@@ -15223,7 +15223,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_CONTACT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_PROTECT | FLAG_CONTACT,
         },
         .contest = {
             .appeal = 0,
@@ -15563,7 +15563,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Freeze-Dry",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_FREEZE_HIT,
             .split = SPLIT_SPECIAL,
             .power = 70,
             .type = TYPE_ICE,

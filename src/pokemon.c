@@ -26,7 +26,7 @@ extern u32 word_to_store_form_at;
 u16 ALIGN4 gEvolutionSceneOverride[2][2];
 
 char __attribute__((section (".init"))) sHeaderString[] = "hg-engine rocks!";
-#include "../data/IconPaletteTable.c"
+//#include "../data/IconPaletteTable.c"
 
 /**
  *  @brief set up the indices for the new form system pictures.  if necessary, loop through the form table, searching for the new form index to load sprites from
@@ -417,8 +417,9 @@ u32 LONG_CALL PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
  */
 u32 LONG_CALL GetMonIconPalette(u32 mons, u32 form, u32 isegg)
 {
-    u32 r0 = PokeIconPalNumGet(mons, form, isegg);
-    return gIconPalTable[r0];
+    u32 ret = PokeIconPalNumGet(mons, form, isegg);
+    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_ICON_PALETTES, ret, sizeof(u8));
+    return ret;
 }
 
 /**

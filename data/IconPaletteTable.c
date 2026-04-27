@@ -1,8 +1,6 @@
 #include "../include/types.h"
 #include "../include/constants/species.h"
 
-// this file is included in src/pokemon.c
-
 // clang-format off
 
 u8 gIconPalTable[] = {
