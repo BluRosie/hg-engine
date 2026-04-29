@@ -1595,7 +1595,9 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
                 break;
             }
         }
-        if (battlerIdTarget != ctx->defence_client) {
+        if (battlerIdTarget != ctx->defence_client
+            && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_PROPELLER_TAIL)
+            && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_STALWART)) {
             ctx->oneSelfFlag[battlerIdTarget].lightningRodFlag = TRUE;
             ctx->defence_client = battlerIdTarget;
         }
@@ -1606,7 +1608,10 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
                 break;
             }
         }
-        if (battlerIdTarget != ctx->defence_client && ctx->current_move_index != MOVE_SNIPE_SHOT) {
+        if (battlerIdTarget != ctx->defence_client 
+            && ctx->current_move_index != MOVE_SNIPE_SHOT
+            && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_PROPELLER_TAIL)
+            && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_STALWART)) {
             ctx->oneSelfFlag[battlerIdTarget].stormDrainFlag = TRUE;
             ctx->defence_client = battlerIdTarget;
         }
