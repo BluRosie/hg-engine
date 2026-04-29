@@ -4296,7 +4296,10 @@ int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, i
         battlerIdOpponents[1] = ov12_0223ABB8(bw, battlerIdAttacker, 2);
 
         if (battleType & BATTLE_TYPE_DOUBLE) {
-            if (ctx->scw[side].followMeFlag && ctx->battlemon[ctx->scw[side].battlerIdFollowMe].hp) {
+            if ((GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_PROPELLER_TAIL)
+                && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_STALWART)
+                && ctx->scw[side].followMeFlag
+                && ctx->battlemon[ctx->scw[side].battlerIdFollowMe].hp) {
                 battlerIdTarget = ctx->scw[side].battlerIdFollowMe;
             } else if (ctx->battlemon[battlerIdOpponents[0]].hp && ctx->battlemon[battlerIdOpponents[1]].hp) {
                 // This looks like targeting for Outrage in double battles
@@ -4316,7 +4319,10 @@ int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, i
         int battlerIdTargetTemp = ctx->playerActions[battlerIdAttacker][1]; //.unk4
         //BattleSystem_GetMaxBattlers(battleSystem);
 
-        if (ctx->scw[side].followMeFlag && ctx->battlemon[ctx->scw[side].battlerIdFollowMe].hp) {
+        if ((GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_PROPELLER_TAIL)
+            && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_STALWART)
+            && ctx->scw[side].followMeFlag
+            && ctx->battlemon[ctx->scw[side].battlerIdFollowMe].hp) {
             battlerIdTarget = ctx->scw[side].battlerIdFollowMe;
         } else if (ctx->battlemon[battlerIdTargetTemp].hp) {
             battlerIdTarget = battlerIdTargetTemp;
