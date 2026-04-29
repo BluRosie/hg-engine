@@ -1606,7 +1606,7 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
                 break;
             }
         }
-        if (battlerIdTarget != ctx->defence_client) {
+        if (battlerIdTarget != ctx->defence_client && ctx->current_move_index != MOVE_SNIPE_SHOT) {
             ctx->oneSelfFlag[battlerIdTarget].stormDrainFlag = TRUE;
             ctx->defence_client = battlerIdTarget;
         }
