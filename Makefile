@@ -110,6 +110,7 @@ ENCODEPWIMG := tools/ENCODE_IMG
 GFX := tools/nitrogfx
 MSGENC := tools/msgenc
 MOVEDATAGEN := tools/movedatagen
+SPECIESDATAGEN := tools/speciesdatagen
 NARCHIVE := $(PYTHON) tools/narcpy.py
 NDSTOOL := tools/ndstool
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
@@ -230,6 +231,11 @@ $(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.c) data/MoveData.c include
 	cd tools/source/movedatagen ; $(MAKE)
 
 TOOLS += $(MOVEDATAGEN)
+
+$(SPECIESDATAGEN): $(wildcard tools/source/speciesdatagen/*.c) data/SpeciesData.c include/species_data.h
+	cd tools/source/speciesdatagen ; $(MAKE)
+
+TOOLS += $(SPECIESDATAGEN)
 
 $(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/*.h)
 	cd tools/source/o2narc ; $(MAKE)
@@ -356,7 +362,7 @@ move_narc: $(NARC_FILES)
 	@echo "opening demo files:"
 	cp $(OPENDEMO_NARC) $(OPENDEMO_TARGET)
 
-	@echo "mon data properties:"
+	@echo "mon personal data:"
 	cp $(MONDATA_NARC) $(MONDATA_TARGET)
 
 	@echo "sprite offsets:"

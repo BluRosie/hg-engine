@@ -85,7 +85,8 @@ static void WriteMoveMember(const char *dir, int index, const MoveSourceEntry *e
     data[11] = entry->battle.flags;
     data[12] = entry->contest.appeal;
     data[13] = entry->contest.contestType;
-    WriteLe16(&data[14], 0);
+    data[14] = entry->contest.padding02[0];
+    data[15] = entry->contest.padding02[1];
 
     if (fwrite(data, sizeof(data), 1, file) != 1) {
         perror(path);

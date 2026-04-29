@@ -6,6 +6,7 @@ from dump_scripts.dump_tools import *
 
 # Scripts for dumping parsed narcs to maintained source formats
 from dump_scripts.mondata import dump_mondata
+from dump_scripts.speciesdata_c import dump_species_data_c
 from dump_scripts.moves import dump_moves_c
 from dump_scripts.encounters import dump_encounters_c
 from dump_scripts.evodata import dump_evodata_c
@@ -41,6 +42,8 @@ if __name__ == "__main__":
 	# Dump mondata
 
 	mondata_narc = dump_narc(rom, "a/0/0/2", PERSONAL_NARC_FORMAT)
+	mondata_raw_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/0/0/2"]])
+	msgdata_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/0/2/7"]])
 	EXPANDED = len(mondata_narc) > 508
 
 	if EXPANDED:
@@ -50,10 +53,12 @@ if __name__ == "__main__":
 	with open('./dumped_armips/mondata.s', 'w', encoding="utf-8") as file:
 		file.write(dump_mondata(mondata_narc))
 
+	with open("./dumped_c/SpeciesData.c", "w", encoding="utf-8") as file:
+		file.write(dump_species_data_c(mondata_raw_narc, msgdata_narc))
+
 	# Dump Moves
 
 	moves_narc = dump_narc(rom, "a/0/1/1", MOVE_NARC_FORMAT)
-	msgdata_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/0/2/7"]])
 	with open("./dumped_c/MoveData.c", "w", encoding="utf-8") as file:
 		file.write(dump_moves_c(moves_narc, msgdata_narc))
 

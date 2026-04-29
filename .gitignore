@@ -53,6 +53,7 @@ dumpitem.py
 /tools/sortmonareadexdata
 /tools/msgenc
 /tools/movedatagen
+/tools/speciesdatagen
 /tools/genleveldatatxt.exe
 /tools/genbabymondata.exe
 /tools/gendexsortlists.exe
@@ -106,3 +107,5 @@ changelog
 /include/constants/generated/
 test_logs.txt
 .scratch/
+dumped_armips/
+dumped_c/

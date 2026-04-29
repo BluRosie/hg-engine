@@ -1,34 +1,13 @@
-#ifndef HG_ENGINE_MOVE_DATA_H
-#define HG_ENGINE_MOVE_DATA_H
+#ifndef MOVE_DATA_H
+#define MOVE_DATA_H
 
 #include <stdint.h>
 
 #include "constants/move_effects.h"
 #include "constants/moves.h"
+#include "constants/pokemon.h"
 
 #include "config.h"
-
-#define TYPE_NORMAL   0
-#define TYPE_FIGHTING 1
-#define TYPE_FLYING   2
-#define TYPE_POISON   3
-#define TYPE_GROUND   4
-#define TYPE_ROCK     5
-#define TYPE_BUG      6
-#define TYPE_GHOST    7
-#define TYPE_STEEL    8
-#define TYPE_MYSTERY  9
-#define TYPE_FAIRY    9
-#define TYPE_FIRE     10
-#define TYPE_WATER    11
-#define TYPE_GRASS    12
-#define TYPE_ELECTRIC 13
-#define TYPE_PSYCHIC  14
-#define TYPE_ICE      15
-#define TYPE_DRAGON   16
-#define TYPE_DARK     17
-#define TYPE_TYPELESS 18
-#define TYPE_STELLAR  19
 
 #define SPLIT_PHYSICAL 0
 #define SPLIT_SPECIAL  1
@@ -98,6 +77,13 @@
 #define DEBUG_NEEDS_TESTING 0
 #endif
 
+#ifndef TYPES_H
+typedef uint8_t u8;
+typedef int8_t s8;
+typedef uint16_t u16;
+typedef uint32_t u32;
+#endif
+
 typedef struct MoveNames {
     const char *name;
     const char *capsName;
@@ -105,24 +91,25 @@ typedef struct MoveNames {
 } MoveNames;
 
 typedef struct MoveDataFields {
-    uint16_t effect;
-    uint8_t split;
-    uint8_t power;
-    uint8_t type;
-    uint8_t accuracy;
-    uint8_t pp;
-    uint8_t effectChance;
+    u16 effect;
+    u8 split;
+    u8 power;
+    u8 type;
+    u8 accuracy;
+    u8 pp;
+    u8 effectChance;
 } MoveDataFields;
 
 typedef struct MoveBattleFields {
-    uint16_t target;
-    int8_t priority;
-    uint8_t flags;
+    u16 target;
+    s8 priority;
+    u8 flags;
 } MoveBattleFields;
 
 typedef struct MoveContestFields {
-    uint8_t appeal;
-    uint8_t contestType;
+    u8 appeal;
+    u8 contestType;
+    u8 padding02[2];
 } MoveContestFields;
 
 typedef struct MoveSourceEntry {

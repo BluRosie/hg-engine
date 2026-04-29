@@ -49,7 +49,8 @@ MOVE_NARC_FORMAT = [
 [1, "priority"],
 [1, "properties"],
 [1, "appeal"],
-[1, "contest_type"]]
+[1, "contest_type"],
+[2, "contest_padding"]]
 
 # if this is dumping from a vanilla rom, the data structure is much different
 # new format for vanilla learnset len 4 = [bytes, bits for low field, low field, high field]
