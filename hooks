@@ -91,6 +91,8 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 ServerFlinchCheck 080167B8 3
 #0224C218
 0012 ServerWazaKoyuuCheck 08014944 2
+#choose target from input
+0012 ov12_022506D4 022506D4 6
 
 #battle script command hooks
 #0223E568

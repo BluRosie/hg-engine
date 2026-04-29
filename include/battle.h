@@ -3425,6 +3425,13 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, in
  */
 u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 
+
+/**
+ *  @brief chooses actual target from fight input and checks redirect
+ * https://github.com/pret/pokeheartgold/blob/3de81013775926f80a5abcc5e4f45f793f0c0af1/src/battle/overlay_12_0224E4FC.c#L1356
+ */
+int LONG_CALL ov12_022506D4(struct BattleSystem *bw, struct BattleStruct *sp, int battlerIdAttacker, u16 moveNo, int a4, int range);
+
 /**
  *  @brief check if client_no's ability should activate, specifically at the end of the turn.  loads subseq and returns TRUE if it should
  *
@@ -3896,8 +3903,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
-// BattleSystem_Defender
-int LONG_CALL ov12_022506D4(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 move, int a4, int a5);
 
 void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
 void LONG_CALL BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg);
@@ -4362,5 +4367,8 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
 BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
 
 BOOL LONG_CALL GetTypeEffectivenessData(struct BattleSystem *bsys, int index, u8 *typeMove, u8 *typeMon, u8 *eff);
+
+
+int LONG_CALL ov12_0223ABB8(struct BattleSystem *bsys, int battlerId, int side);
 
 #endif // BATTLE_H
