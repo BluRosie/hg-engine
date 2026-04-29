@@ -1596,6 +1596,7 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
             }
         }
         if (battlerIdTarget != ctx->defence_client
+            && ctx->current_move_index != MOVE_SNIPE_SHOT
             && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_PROPELLER_TAIL)
             && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_STALWART)) {
             ctx->oneSelfFlag[battlerIdTarget].lightningRodFlag = TRUE;
