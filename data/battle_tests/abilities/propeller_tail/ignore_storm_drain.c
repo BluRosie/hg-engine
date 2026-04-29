@@ -119,13 +119,12 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Barraskewda used Liquidation!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Baraskewda used Liquidation!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 69, 70, 70, 72, 72, 73, 75, 75, 76, 76, 78, 78, 79, 79, 81, 82 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mudkip used Water Gun!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus's Storm Drain took the attack!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus's Storm Drain raised its Sp. Atk!" },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
