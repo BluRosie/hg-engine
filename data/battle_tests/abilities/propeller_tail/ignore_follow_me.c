@@ -1,4 +1,4 @@
-// Test: Snipe Shot - Ignore Follow Me
+// Test: Propeller Tail - Ignore Follow Me
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
