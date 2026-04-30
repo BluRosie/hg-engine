@@ -848,6 +848,29 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     debug_printf("[CalcBaseDamage] damage: %d\n", damage);
 #endif
 
+    // Todo Z-Move + Unseen Fist?
+    // Step 10.1 Unseen Fist / Piercing Drill
+    // 0.25x damage into protect
+    if ((FALSE //(attackerAbility == ABILITY_PIERCING_DRILL
+#if UNSEEN_FIST_GENERATION >= 9
+            || (attackerAbility == ABILITY_UNSEEN_FIST))
+#endif
+            //)
+        && sp->oneTurnFlag[defender].protectFlag) {
+        damage = QMul_RoundDown(damage, UQ412__0_25);
+#ifdef DEBUG_DAMAGE_ROLLS
+        for (int u = 0; u < 16; u++) {
+            predamage[u] = QMul_RoundDown(predamage[u], UQ412__0_25);
+        }
+#endif // DEBUG_DAMAGE_ROLLS
+    }
+
+#ifdef DEBUG_DAMAGE_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcBaseDamage] Step 10.1 Unseen Fist / Piercing Drill\n");
+    debug_printf("[CalcBaseDamage] damage: %d\n", damage);
+#endif
+
     // Step 10.5. Tera Raid boss's shield
     // https://x.com/Sibuna_Switch/status/1610483831769018368
     // TODO
