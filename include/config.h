@@ -3,6 +3,10 @@
 
 #define GEN_LATEST 9
 
+// APPLY_ANTIPIRACY will apply the typical anti-piracy code changes to your ROM automatically so that the game runs well on hardware (TWLmenu and R4 are both tested)
+// comment out the lines if you do not want anti-piracy to be applied to your ROM
+#define APPLY_ANTIPIRACY
+
 // FAIRY_TYPE_IMPLEMENTED should be used if you want to implement the fairy type and overwrite type 9 in this project
 // set FAIRY_TYPE_IMPLEMENTED to 0 if you do not want this to happen
 #define FAIRY_TYPE_IMPLEMENTED 1

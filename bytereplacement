@@ -498,3 +498,17 @@ arm9 02000E54 24 00 00 00 04 5C 1E 02
 # nop out rock smash table limiter compare
 0001 02204D1A C0 46 C0 46 C0 46 C0 46 C0 46 C0 46 C0 46 C0 46
 
+
+# honestly will not have any way to revert this because this is so much less intrusive and Just Works
+#ifdef APPLY_ANTIPIRACY
+
+# card checks return TRUE
+0001 021E662C 01 20 70 47
+# neuter dsprotect
+0123 0225F0CC E0 FC FF FF
+0123 0225F184 E0 FC FF FF
+
+#endif
+
+# make sure that the original antipiracy method is patched to vanilla
+arm9 02000A18 1E FF 2F E1

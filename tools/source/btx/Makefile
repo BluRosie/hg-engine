@@ -6,11 +6,12 @@ ifeq ($(HAVE_LIBPNG),1)
 $(error No package 'libpng' found)
 endif
 
-CFLAGS = -Wno-format-security -Wno-format-truncation -Wno-unused-result -DPNG_SKIP_SETJMP_CHECK $(shell pkg-config --cflags libpng zlib)
+CFLAGS = -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-format-security -Wno-format-truncation -std=gnu17 -DPNG_SKIP_SETJMP_CHECK $(shell pkg-config --cflags libpng) -D_GNU_SOURCE=1
 
-LIBS = $(shell pkg-config --libs libpng zlib)
+LIBS = $(shell pkg-config --libs libpng)
 
-SRCS = main.c ../nitrogfx/convert_png.c ../nitrogfx/gfx.c ../nitrogfx/jasc_pal.c ../nitrogfx/util.c
+# maybe eventually rewrite to use cJSON because we have to fucking use it anyway
+SRCS = main.c ../nitrogfx/convert_png.c ../nitrogfx/gfx.c ../nitrogfx/jasc_pal.c ../nitrogfx/util.c ../nitrogfx/json.c ../nitrogfx/cJSON.c
 OBJS = $(SRCS:%.c=%.o)
 
 .PHONY: all clean
