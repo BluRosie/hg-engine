@@ -14,6 +14,7 @@
 typedef uint8_t u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
+typedef int16_t s16;
 #endif
 
 typedef struct SpeciesBaseStats {
@@ -38,6 +39,20 @@ typedef struct SpeciesWildHeldItems {
     u16 common;
     u16 rare;
 } SpeciesWildHeldItems;
+
+typedef struct SpeciesMetrics {
+    u32 heightDecimetres;
+    u32 weightHectograms;
+    u8 bodyType;
+    u16 femaleTrainerScale;
+    u16 femalePokemonScale;
+    u16 maleTrainerScale;
+    u16 malePokemonScale;
+    s16 femaleTrainerYOffset;
+    s16 femalePokemonYOffset;
+    s16 maleTrainerYOffset;
+    s16 malePokemonYOffset;
+} SpeciesMetrics;
 
 typedef struct SpeciesData {
     SpeciesBaseStats baseStats;
@@ -69,6 +84,7 @@ typedef struct SpeciesTextData {
 
 typedef struct SpeciesDataEntry {
     SpeciesData speciesData;
+    SpeciesMetrics metricsData;
     SpeciesTextData textData;
 } SpeciesDataEntry;
 

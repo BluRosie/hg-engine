@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "../../../include/species_data.h"
 
@@ -8,11 +9,21 @@ enum {
     MON_MEMBER_PATH_LENGTH = 40,
     RAWTEXT_PATH_LENGTH = 128,
     MON_MEMBER_SIZE = 44,
+    POKEDEX_MEMBER_PATH_LENGTH = 48,
+    POKEDEX_SORT_METRIC_MEMBER_COUNT = 11,
+    POKEDEX_HEIGHT_BODY_SPECIES_COUNT = 700,
 };
 
 static void WriteLe16(uint8_t *dst, uint16_t value) {
     dst[0] = (uint8_t)(value & 0xFF);
     dst[1] = (uint8_t)(value >> 8);
+}
+
+static void WriteLe32(uint8_t *dst, uint32_t value) {
+    dst[0] = (uint8_t)(value & 0xFF);
+    dst[1] = (uint8_t)((value >> 8) & 0xFF);
+    dst[2] = (uint8_t)((value >> 16) & 0xFF);
+    dst[3] = (uint8_t)((value >> 24) & 0xFF);
 }
 
 static void WriteTextFile(const char *dir, int index, const char *text) {
@@ -85,9 +96,114 @@ static void WriteMonMember(const char *dir, int index, const SpeciesDataEntry *e
     fclose(file);
 }
 
+static void WritePokedexMetricMember(const char *dir, int memberIndex) {
+    char path[POKEDEX_MEMBER_PATH_LENGTH];
+    FILE *file;
+    uint8_t data[(MAX_SPECIES_INCLUDING_FORMS + 1) * 4] = {0};
+    size_t size = 0;
+    int i;
+
+    snprintf(path, sizeof(path), "%s/%03d.bin", dir, memberIndex);
+    file = fopen(path, "wb");
+    if (file == NULL) {
+        perror(path);
+        exit(EXIT_FAILURE);
+    }
+
+    switch (memberIndex) {
+    case 0:
+        size = POKEDEX_HEIGHT_BODY_SPECIES_COUNT * sizeof(uint32_t);
+        for (i = 0; i < POKEDEX_HEIGHT_BODY_SPECIES_COUNT; i++) {
+            WriteLe32(&data[i * 4], sSpeciesData[i].metricsData.heightDecimetres);
+        }
+        break;
+    case 1:
+        size = (MAX_SPECIES_INCLUDING_FORMS + 1) * sizeof(uint32_t);
+        for (i = 0; i <= MAX_SPECIES_INCLUDING_FORMS; i++) {
+            WriteLe32(&data[i * 4], sSpeciesData[i].metricsData.weightHectograms);
+        }
+        break;
+    case 2:
+        size = POKEDEX_HEIGHT_BODY_SPECIES_COUNT;
+        for (i = 0; i < POKEDEX_HEIGHT_BODY_SPECIES_COUNT; i++) {
+            data[i] = sSpeciesData[i].metricsData.bodyType;
+        }
+        break;
+    case 3:
+        size = SPECIES_MEGA_START * sizeof(uint16_t);
+        for (i = 0; i < SPECIES_MEGA_START; i++) {
+            WriteLe16(&data[i * 2], sSpeciesData[i].metricsData.femaleTrainerScale);
+        }
+        break;
+    case 4:
+        size = SPECIES_MEGA_START * sizeof(uint16_t);
+        for (i = 0; i < SPECIES_MEGA_START; i++) {
+            WriteLe16(&data[i * 2], sSpeciesData[i].metricsData.femalePokemonScale);
+        }
+        break;
+    case 5:
+        size = SPECIES_MEGA_START * sizeof(uint16_t);
+        for (i = 0; i < SPECIES_MEGA_START; i++) {
+            WriteLe16(&data[i * 2], sSpeciesData[i].metricsData.maleTrainerScale);
+        }
+        break;
+    case 6:
+        size = SPECIES_MEGA_START * sizeof(uint16_t);
+        for (i = 0; i < SPECIES_MEGA_START; i++) {
+            WriteLe16(&data[i * 2], sSpeciesData[i].metricsData.malePokemonScale);
+        }
+        break;
+    case 7:
+        size = SPECIES_MEGA_START * sizeof(uint16_t);
+        for (i = 0; i < SPECIES_MEGA_START; i++) {
+            WriteLe16(&data[i * 2], (uint16_t)sSpeciesData[i].metricsData.femaleTrainerYOffset);
+        }
+        break;
+    case 8:
+        size = SPECIES_MEGA_START * sizeof(uint16_t);
+        for (i = 0; i < SPECIES_MEGA_START; i++) {
+            WriteLe16(&data[i * 2], (uint16_t)sSpeciesData[i].metricsData.femalePokemonYOffset);
+        }
+        break;
+    case 9:
+        size = SPECIES_MEGA_START * sizeof(uint16_t);
+        for (i = 0; i < SPECIES_MEGA_START; i++) {
+            WriteLe16(&data[i * 2], (uint16_t)sSpeciesData[i].metricsData.maleTrainerYOffset);
+        }
+        break;
+    case 10:
+        size = SPECIES_MEGA_START * sizeof(uint16_t);
+        for (i = 0; i < SPECIES_MEGA_START; i++) {
+            WriteLe16(&data[i * 2], (uint16_t)sSpeciesData[i].metricsData.malePokemonYOffset);
+        }
+        break;
+    default:
+        fclose(file);
+        fprintf(stderr, "Unknown pokedex metric member: %d\n", memberIndex);
+        exit(EXIT_FAILURE);
+    }
+
+    if (fwrite(data, size, 1, file) != 1) {
+        perror(path);
+        fclose(file);
+        exit(EXIT_FAILURE);
+    }
+
+    fclose(file);
+}
+
+static void WritePokedexMetricMembers(const char *dir) {
+    int i;
+
+    for (i = 0; i < POKEDEX_SORT_METRIC_MEMBER_COUNT; i++) {
+        WritePokedexMetricMember(dir, i);
+    }
+}
+
 int main(int argc, char **argv) {
     const char *membersDir;
     const char *rawTextDir;
+    const char *pokedexSortDir = NULL;
     char names237Dir[RAWTEXT_PATH_LENGTH];
     char names238Dir[RAWTEXT_PATH_LENGTH];
     char names817Dir[RAWTEXT_PATH_LENGTH];
@@ -100,13 +216,22 @@ int main(int argc, char **argv) {
     char weights813Dir[RAWTEXT_PATH_LENGTH];
     int i;
 
-    if (argc != 3) {
-        fprintf(stderr, "Usage: %s <members-dir> <rawtext-root>\n", argv[0]);
+    if (argc == 3 && strcmp(argv[1], "--pokedex-sort") == 0) {
+        WritePokedexMetricMembers(argv[2]);
+        return EXIT_SUCCESS;
+    }
+
+    if (argc != 3 && argc != 4) {
+        fprintf(stderr, "Usage: %s <members-dir> <rawtext-root> [pokedex-sort-dir]\n", argv[0]);
+        fprintf(stderr, "   or: %s --pokedex-sort <outdir>\n", argv[0]);
         return EXIT_FAILURE;
     }
 
     membersDir = argv[1];
     rawTextDir = argv[2];
+    if (argc == 4) {
+        pokedexSortDir = argv[3];
+    }
 
     snprintf(names237Dir, sizeof(names237Dir), "%s/237", rawTextDir);
     snprintf(names238Dir, sizeof(names238Dir), "%s/238", rawTextDir);
@@ -131,6 +256,10 @@ int main(int argc, char **argv) {
         WriteTextFile(heights815Dir, i, sSpeciesData[i].textData.height);
         WriteTextFile(weights812Dir, i, sSpeciesData[i].textData.weight);
         WriteTextFile(weights813Dir, i, sSpeciesData[i].textData.weight);
+    }
+
+    if (pokedexSortDir != NULL) {
+        WritePokedexMetricMembers(pokedexSortDir);
     }
 
     return EXIT_SUCCESS;

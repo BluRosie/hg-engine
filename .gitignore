@@ -53,6 +53,7 @@ dumpitem.py
 /tools/sortmonareadexdata
 /tools/msgenc
 /tools/movedatagen
+/tools/pokedexdatagen
 /tools/speciesdatagen
 /tools/genleveldatatxt.exe
 /tools/genbabymondata.exe

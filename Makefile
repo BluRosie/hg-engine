@@ -110,6 +110,7 @@ ENCODEPWIMG := tools/ENCODE_IMG
 GFX := tools/nitrogfx
 MSGENC := tools/msgenc
 MOVEDATAGEN := tools/movedatagen
+POKEDEXDATAGEN := tools/pokedexdatagen
 SPECIESDATAGEN := tools/speciesdatagen
 NARCHIVE := $(PYTHON) tools/narcpy.py
 NDSTOOL := tools/ndstool
@@ -231,6 +232,11 @@ $(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.c) data/MoveData.c include
 	cd tools/source/movedatagen ; $(MAKE)
 
 TOOLS += $(MOVEDATAGEN)
+
+$(POKEDEXDATAGEN): $(wildcard tools/source/pokedexdatagen/*.c) data/PokedexSortData.c data/PokedexAreaData.c include/pokedex_archive_data.h include/constants/pokedex.h
+	cd tools/source/pokedexdatagen ; $(MAKE)
+
+TOOLS += $(POKEDEXDATAGEN)
 
 $(SPECIESDATAGEN): $(wildcard tools/source/speciesdatagen/*.c) data/SpeciesData.c include/species_data.h
 	cd tools/source/speciesdatagen ; $(MAKE)

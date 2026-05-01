@@ -3,6 +3,20 @@ import io
 from dump_scripts.dump_tools import *
 from dump_scripts.moves import decode_msg_bank, escape_c_string
 
+POKEDEX_SORT_METRIC_MEMBERS = [
+    ("heightDecimetres", 0, 4, False),
+    ("weightHectograms", 1, 4, False),
+    ("bodyType", 2, 1, False),
+    ("femaleTrainerScale", 3, 2, False),
+    ("femalePokemonScale", 4, 2, False),
+    ("maleTrainerScale", 5, 2, False),
+    ("malePokemonScale", 6, 2, False),
+    ("femaleTrainerYOffset", 7, 2, True),
+    ("femalePokemonYOffset", 8, 2, True),
+    ("maleTrainerYOffset", 9, 2, True),
+    ("malePokemonYOffset", 10, 2, True),
+]
+
 
 def lookup_ability(value):
     return ABILITIES["ABILITY"].get(value, str(value))
@@ -63,11 +77,38 @@ def get_text_or_default(lines, index, default):
     return default
 
 
-def dump_species_data_c(mondata_narc, msgdata_narc):
+def _read_metric_values(data, width, signed):
+    values = []
+    for offset in range(0, len(data), width):
+        value = int.from_bytes(data[offset:offset + width], "little")
+        if signed and value & (1 << (width * 8 - 1)):
+            value -= 1 << (width * 8)
+        values.append(value)
+    return values
+
+
+def decode_species_metrics(pokedexsort_narc, species_count):
+    metrics = [dict() for _ in range(species_count)]
+
+    if pokedexsort_narc is None:
+        return metrics
+
+    files = pokedexsort_narc.files if hasattr(pokedexsort_narc, "files") else pokedexsort_narc
+
+    for field_name, member_index, width, signed in POKEDEX_SORT_METRIC_MEMBERS:
+        values = _read_metric_values(files[member_index], width, signed)
+        for species in range(min(species_count, len(values))):
+            metrics[species][field_name] = values[species]
+
+    return metrics
+
+
+def dump_species_data(mondata_narc, msgdata_narc, pokedexsort_narc=None):
     if hasattr(mondata_narc, "files"):
         mondata_narc = parse_mondata_files(mondata_narc.files)
 
     text_banks = decode_mon_text_banks(msgdata_narc)
+    metrics_by_species = decode_species_metrics(pokedexsort_narc, len(mondata_narc))
 
     lines = [
         '#include "../include/species_data.h"',
@@ -92,10 +133,18 @@ def dump_species_data_c(mondata_narc, msgdata_narc):
         classification = get_text_or_default(text_banks["classifications"], idx, "????? Pokémon")
         height = get_text_or_default(text_banks["heights"], idx, "???’??”")
         weight = get_text_or_default(text_banks["weights"], idx, "????.? lbs.")
+        metrics = metrics_by_species[idx]
 
         lines.extend(
             [
                 f"    [{species_name}] = {{",
+                "        .textData = {",
+                f'            .name = "{escape_c_string(name)}",',
+                f'            .pokedexEntry = "{escape_c_string(pokedex_entry)}",',
+                f'            .classification = "{escape_c_string(classification)}",',
+                f'            .height = "{escape_c_string(height)}",',
+                f'            .weight = "{escape_c_string(weight)}",',
+                "        },",
                 "        .speciesData = {",
                 "            .baseStats = {",
                 f"                .hp = {mon['base_hp']},",
@@ -130,12 +179,18 @@ def dump_species_data_c(mondata_narc, msgdata_narc):
                 f"            .bodyColor = {lookup_const('BODY', body_color)},",
                 f"            .flipSprite = {flip_sprite},",
                 "        },",
-                "        .textData = {",
-                f'            .name = "{escape_c_string(name)}",',
-                f'            .pokedexEntry = "{escape_c_string(pokedex_entry)}",',
-                f'            .classification = "{escape_c_string(classification)}",',
-                f'            .height = "{escape_c_string(height)}",',
-                f'            .weight = "{escape_c_string(weight)}",',
+                "        .metricsData = {",
+                f"            .heightDecimetres = {metrics.get('heightDecimetres', 0)},",
+                f"            .weightHectograms = {metrics.get('weightHectograms', 0)},",
+                f"            .bodyType = {metrics.get('bodyType', 0)},",
+                f"            .femaleTrainerScale = {metrics.get('femaleTrainerScale', 0)},",
+                f"            .femalePokemonScale = {metrics.get('femalePokemonScale', 0)},",
+                f"            .maleTrainerScale = {metrics.get('maleTrainerScale', 0)},",
+                f"            .malePokemonScale = {metrics.get('malePokemonScale', 0)},",
+                f"            .femaleTrainerYOffset = {metrics.get('femaleTrainerYOffset', 0)},",
+                f"            .femalePokemonYOffset = {metrics.get('femalePokemonYOffset', 0)},",
+                f"            .maleTrainerYOffset = {metrics.get('maleTrainerYOffset', 0)},",
+                f"            .malePokemonYOffset = {metrics.get('malePokemonYOffset', 0)},",
                 "        },",
                 "    },",
                 "",
@@ -145,8 +200,6 @@ def dump_species_data_c(mondata_narc, msgdata_narc):
     lines.extend(
         [
             "};",
-            "",
-            "// clang-format on",
         ]
     )
 

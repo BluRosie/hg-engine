@@ -159,8 +159,6 @@ def dump_moves_c(moves_narc, msgdata_narc):
             '        .description = "",',
             "    },",
             "};",
-            "",
-            "// clang-format on",
         ]
     )
 

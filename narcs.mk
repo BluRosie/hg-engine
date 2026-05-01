@@ -131,7 +131,7 @@ $(MONDATA_NARC): $(MONDATA_DEPENDENCIES)
 
 NARC_FILES += $(MONDATA_NARC)
 REQUIRED_DIRECTORIES += $(MONDATA_DIR) $(MONDATA_NAMES_DIR) $(MONDATA_DESCRIPTIONS_DIR) $(MONDATA_CLASSIFICATIONS_DIR) $(MONDATA_HEIGHTS_DIR) $(MONDATA_WEIGHTS_DIR)
-MSGDATA_COMPILETIME_DEPENDENCIES += $(BUILD)/rawtext/237.txt $(BUILD)/rawtext/238.txt $(BUILD)/rawtext/803.txt $(BUILD)/rawtext/812.txt $(BUILD)/rawtext/813.txt $(BUILD)/rawtext/814.txt $(BUILD)/rawtext/815.txt $(BUILD)/rawtext/817.txt $(BUILD)/rawtext/823.txt
+MSGDATA_COMPILETIME_DEPENDENCIES += $(BUILD)/rawtext/237.txt $(BUILD)/rawtext/238.txt $(BUILD)/rawtext/803.txt $(BUILD)/rawtext/812.txt $(BUILD)/rawtext/813.txt $(BUILD)/rawtext/814.txt $(BUILD)/rawtext/815.txt $(BUILD)/rawtext/816.txt $(BUILD)/rawtext/817.txt $(BUILD)/rawtext/823.txt
 
 
 SPRITEOFFSETS_DIR := $(BUILD)/a180
@@ -164,30 +164,34 @@ REQUIRED_DIRECTORIES += $(HEIGHT_DIR)
 DEXAREA_DIR := $(BUILD)/a133
 DEXAREA_NARC := $(BUILD_NARC)/dexareas.narc
 DEXAREA_TARGET := $(FILESYS)/a/1/3/3
-DEXAREA_RAWDATA_DIR := rawdata/files_from_a133
-DEXAREA_DEPENDENCIES := armips/data/pokedex/areadata.s
+DEXAREA_DEPENDENCIES := data/PokedexAreaData.c include/pokedex_archive_data.h include/constants/pokedex.h $(POKEDEXDATAGEN)
 
 $(DEXAREA_NARC): $(DEXAREA_DEPENDENCIES)
-	$(ARMIPS) $^
-	cp -r $(DEXAREA_RAWDATA_DIR)/. $(DEXAREA_DIR)
+	mkdir -p $(BUILD_NARC)
+	rm -rf $(DEXAREA_DIR)
+	mkdir -p $(DEXAREA_DIR)
+	$(POKEDEXDATAGEN) a133 $(DEXAREA_DIR)
 	$(NARCHIVE) create $@ $(DEXAREA_DIR) -nf
 
 NARC_FILES += $(DEXAREA_NARC)
 REQUIRED_DIRECTORIES += $(DEXAREA_DIR)
 
 
-DEXSORT_DIR := a214
+DEXSORT_DIR := $(BUILD)/a214
 DEXSORT_NARC := $(BUILD_NARC)/a214.narc
 DEXSORT_TARGET := $(FILESYS)/a/2/1/4
-DEXSORT_DEPENDENCIES := armips/data/pokedex/pokedexdata.s
+DEXSORT_DEPENDENCIES := data/PokedexSortData.c include/pokedex_archive_data.h $(POKEDEXDATAGEN) $(SPECIESDATAGEN) data/SpeciesData.c include/species_data.h
 
 $(DEXSORT_NARC): $(DEXSORT_DEPENDENCIES)
+	mkdir -p $(BUILD_NARC)
+	rm -rf $(DEXSORT_DIR)
 	mkdir -p $(DEXSORT_DIR)
-	$(ARMIPS) $^
+	$(SPECIESDATAGEN) --pokedex-sort $(DEXSORT_DIR)
+	$(POKEDEXDATAGEN) a214 $(DEXSORT_DIR)
 	$(NARCHIVE) create $@ $(DEXSORT_DIR) -nf
-	rm -r $(DEXSORT_DIR)
 
 NARC_FILES += $(DEXSORT_NARC)
+REQUIRED_DIRECTORIES += $(DEXSORT_DIR)
 
 
 EVOS_DIR := $(BUILD)/a034

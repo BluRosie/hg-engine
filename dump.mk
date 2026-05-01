@@ -1,7 +1,8 @@
-.PHONY: dumprom dump_prepare dump_learnsets dump_armips_data dump_hidden_items dump_trainernames dump_clean_work dump_reset check_dump_rom
+.PHONY: dumprom dump_prepare dump_learnsets dump_narc_data dump_armips_data dump_hidden_items dump_trainernames dump_clean_work dump_reset check_dump_rom
 
 DUMP_SCRIPT_LOCATION := tools/source/dumptools
 DUMP_WORKDIRS := $(BUILD_NARC) $(BUILD)/a028
+DUMP_MODE ?= c
 
 define DUMP_FOLDER_CREATE
 $1:
@@ -34,8 +35,11 @@ dump_trainernames: dump_prepare
 	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
 	$(MSGENC) -d -c $(CHARMAP) $(MSGDATA_DIR)/7_729 $(BUILD)/trainernames.txt
 
+dump_narc_data: dump_prepare
+	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_narcs.py "$(DUMP_ROM)" "$(DUMP_MODE)"
+
 dump_armips_data: dump_trainernames
-	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_narcs.py "$(DUMP_ROM)"
+	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_narcs.py "$(DUMP_ROM)" armips
 
 dump_hidden_items: dump_prepare
 	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_hidden_items.py
@@ -46,12 +50,17 @@ dump_clean_work:
 dump_reset:
 	rm -rf $(BUILD) $(BASE)
 
-# Dumps data from an explicit ROM into dumped_armips/ and dumped_c/ to help migrate armips/data.
+# Dumps data from an explicit ROM into maintained source form.
+# Default mode is C output in dumped_c/; pass DUMP_MODE=armips for dumped_armips/.
 dumprom: check_dump_rom
 	$(MAKE) dump_reset
 	$(MAKE) dump_prepare DUMP_ROM="$(DUMP_ROM)"
 	$(MAKE) dump_learnsets DUMP_ROM="$(DUMP_ROM)"
-	$(MAKE) dump_armips_data DUMP_ROM="$(DUMP_ROM)"
+	@if [ "$(DUMP_MODE)" = "armips" ]; then \
+		$(MAKE) dump_armips_data DUMP_ROM="$(DUMP_ROM)"; \
+	else \
+		$(MAKE) dump_narc_data DUMP_ROM="$(DUMP_ROM)" DUMP_MODE="$(DUMP_MODE)"; \
+	fi
 	$(MAKE) dump_hidden_items DUMP_ROM="$(DUMP_ROM)"
 	$(MAKE) dump_clean_work
-	@echo "Done. See output in dumped_armips/ and dumped_c/, learnsets are already in data/learnsets/learnsets.json."
+	@echo "Done. See output in dumped_$(DUMP_MODE)/, learnsets are already in data/learnsets/learnsets.json."
