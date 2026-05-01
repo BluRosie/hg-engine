@@ -17,9 +17,30 @@ POKEDEX_SORT_METRIC_MEMBERS = [
     ("malePokemonYOffset", 10, 2, True),
 ]
 
+BODY_TYPE_CONSTANTS = {
+    0: "DEX_SEARCH_BODYTYPE_QUADRUPED",
+    1: "DEX_SEARCH_BODYTYPE_BIPEDAL_TAILLESS",
+    2: "DEX_SEARCH_BODYTYPE_BIPEDAL_TAIL",
+    3: "DEX_SEARCH_BODYTYPE_SERPENTINE",
+    4: "DEX_SEARCH_BODYTYPE_MULTIWING",
+    5: "DEX_SEARCH_BODYTYPE_BIWING",
+    6: "DEX_SEARCH_BODYTYPE_INSECTOID",
+    7: "DEX_SEARCH_BODYTYPE_HEAD_TORSO",
+    8: "DEX_SEARCH_BODYTYPE_HEAD_ARMS",
+    9: "DEX_SEARCH_BODYTYPE_HEAD_LEGS",
+    10: "DEX_SEARCH_BODYTYPE_TENTACLES",
+    11: "DEX_SEARCH_BODYTYPE_FINS",
+    12: "DEX_SEARCH_BODYTYPE_HEAD_ONLY",
+    13: "DEX_SEARCH_BODYTYPE_MULTIBODY",
+}
+
 
 def lookup_ability(value):
     return ABILITIES["ABILITY"].get(value, str(value))
+
+
+def lookup_body_type(value):
+    return BODY_TYPE_CONSTANTS.get(value, str(value))
 
 
 def decode_mon_text_banks(msgdata_narc):
@@ -182,7 +203,7 @@ def dump_species_data(mondata_narc, msgdata_narc, pokedexsort_narc=None):
                 "        .metricsData = {",
                 f"            .heightDecimetres = {metrics.get('heightDecimetres', 0)},",
                 f"            .weightHectograms = {metrics.get('weightHectograms', 0)},",
-                f"            .bodyType = {metrics.get('bodyType', 0)},",
+                f"            .bodyType = {lookup_body_type(metrics.get('bodyType', 0))},",
                 f"            .femaleTrainerScale = {metrics.get('femaleTrainerScale', 0)},",
                 f"            .femalePokemonScale = {metrics.get('femalePokemonScale', 0)},",
                 f"            .maleTrainerScale = {metrics.get('maleTrainerScale', 0)},",
