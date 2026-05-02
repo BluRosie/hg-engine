@@ -466,6 +466,9 @@ move_narc: $(NARC_FILES)
 	@echo "scripts:"
 	cp $(SCR_SEQ_NARC) $(SCR_SEQ_TARGET)
 
+	@echo "headbutt trees:"
+	cp $(HEADBUTT_NARC) $(HEADBUTT_TARGET)
+
 	@echo "trainer gfx:"
 	cp $(TRAINER_GFX_NARC) $(TRAINER_GFX_TARGET)
 
