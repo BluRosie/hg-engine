@@ -83,9 +83,6 @@ def dump_moves_c(moves_narc, msgdata_narc):
     lines = [
         '#include "../include/move_data.h"',
         "",
-        "// clang-format off",
-        "// Dumped from a/0/1/1 and the move text banks in a/0/2/7.",
-        "",
         "const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {",
     ]
 
