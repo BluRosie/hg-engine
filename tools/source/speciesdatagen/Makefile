@@ -5,7 +5,6 @@ TARGET := ../../../tools/speciesdatagen
 SRCS := species_data_gen.c
 DATA_SRC := ../../../data/SpeciesData.c
 DATA_OBJ := SpeciesDataData.o
-DATA_HDR := ../../../include/species_data.h
 OBJS := $(SRCS:%.c=%.o) $(DATA_OBJ)
 
 .PHONY: all clean
@@ -24,7 +23,7 @@ $(DEPDIR): ; @mkdir -p $@
 %.o: %.c $(DEPDIR)/%.d | $(DEPDIR)
 	$(CC) $(CFLAGS) $(DEPFLAGS) -c -o $@ $<
 
-$(DATA_OBJ): $(DATA_SRC) $(DATA_HDR)
+$(DATA_OBJ): $(DATA_SRC) ../../../include/species_data.h ../../../include/config.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:

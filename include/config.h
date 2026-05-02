@@ -219,7 +219,7 @@
 // comment out this line if you do not want this to happen
 #define DISABLE_CRITICAL_HP_WARNING
 
-// Champions-specific move configurations. Set to 0 to use Set to 0 to use Scarlet/Violet values.
+// Champions-specific move configurations. Set to 0 to use Scarlet/Violet values.
 #define CHAMPIONS_POWER_CHANGES         1
 #define CHAMPIONS_TYPE_CHANGES          1
 #define CHAMPIONS_ACC_CHANGES           1

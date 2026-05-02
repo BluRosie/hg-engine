@@ -65,7 +65,7 @@ MOVEDATA_DIR := $(BUILD)/a011
 MOVEDATA_NARC := $(BUILD_NARC)/a011.narc
 MOVEDATA_TARGET := $(FILESYS)/a/0/1/1
 MOVEDATA_BUILD := $(BUILD)/moves
-MOVEDATA_DEPENDENCIES := data/MoveData.c include/move_data.h $(MOVEDATAGEN)
+MOVEDATA_DEPENDENCIES := data/MoveData.c include/move_data.h include/config.h $(MOVEDATAGEN)
 MOVEDATA_NAMES_DIR := $(BUILD)/rawtext/750 $(BUILD)/rawtext/751 $(BUILD)/rawtext/003 $(BUILD)/rawtext/749
 
 $(MOVEDATA_NARC): $(MOVEDATA_DEPENDENCIES)
@@ -113,7 +113,7 @@ NARC_FILES += $(OPENDEMO_NARC)
 MONDATA_DIR := $(BUILD)/a002
 MONDATA_NARC := $(BUILD_NARC)/personal.narc
 MONDATA_TARGET := $(FILESYS)/a/0/0/2
-MONDATA_DEPENDENCIES := data/SpeciesData.c include/species_data.h $(SPECIESDATAGEN)
+MONDATA_DEPENDENCIES := data/SpeciesData.c include/species_data.h include/config.h $(SPECIESDATAGEN)
 MONDATA_NAMES_DIR := $(BUILD)/rawtext/237 $(BUILD)/rawtext/238 $(BUILD)/rawtext/817
 MONDATA_DESCRIPTIONS_DIR := $(BUILD)/rawtext/803
 MONDATA_CLASSIFICATIONS_DIR := $(BUILD)/rawtext/816 $(BUILD)/rawtext/823

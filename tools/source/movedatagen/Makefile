@@ -23,7 +23,7 @@ $(DEPDIR): ; @mkdir -p $@
 %.o: %.c $(DEPDIR)/%.d | $(DEPDIR)
 	$(CC) $(CFLAGS) $(DEPFLAGS) -c -o $@ $<
 
-$(DATA_OBJ): $(DATA_SRC)
+$(DATA_OBJ): $(DATA_SRC) ../../../include/move_data.h ../../../include/config.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:

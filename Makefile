@@ -228,7 +228,7 @@ $(GFX): $(NITROGFX_SOURCES)
 
 TOOLS += $(GFX)
 
-$(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.c) data/MoveData.c include/move_data.h
+$(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.c) data/MoveData.c include/move_data.h include/config.h
 	cd tools/source/movedatagen ; $(MAKE)
 
 TOOLS += $(MOVEDATAGEN)
@@ -238,7 +238,7 @@ $(POKEDEXDATAGEN): $(wildcard tools/source/pokedexdatagen/*.c) data/PokedexSortD
 
 TOOLS += $(POKEDEXDATAGEN)
 
-$(SPECIESDATAGEN): $(wildcard tools/source/speciesdatagen/*.c) data/SpeciesData.c include/species_data.h
+$(SPECIESDATAGEN): $(wildcard tools/source/speciesdatagen/*.c) data/SpeciesData.c include/species_data.h include/config.h
 	cd tools/source/speciesdatagen ; $(MAKE)
 
 TOOLS += $(SPECIESDATAGEN)
