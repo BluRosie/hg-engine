@@ -84,87 +84,51 @@ def dump_headbutt(files):
     return "\n".join(lines)
 
 
-def _write_headbutt_header(output_dir):
-    header = """#ifndef HEADBUTT_DATA_H
-#define HEADBUTT_DATA_H
+def dump_headbutt_single_c(files, output_path, file_names=None):
+    output_path = Path(output_path)
 
-#include "../../include/types.h"
-#include "../../include/constants/species.h"
+    lines = [
+        '#include "../include/types.h"',
+        '#include "../include/constants/species.h"',
+        "",
+        "typedef struct PACKED HeadbuttEncounterSlot {",
+        "    u16 species;",
+        "    u8 minLevel;",
+        "    u8 maxLevel;",
+        "} HeadbuttEncounterSlot;",
+        "",
+        "typedef struct PACKED HeadbuttTreeCoord {",
+        "    s16 x;",
+        "    s16 y;",
+        "} HeadbuttTreeCoord;",
+        "",
+    ]
 
-typedef struct PACKED HeadbuttEncounterSlot {
-    u16 species;
-    u8 minLevel;
-    u8 maxLevel;
-} HeadbuttEncounterSlot;
-
-typedef struct PACKED HeadbuttTreeCoord {
-    s16 x;
-    s16 y;
-} HeadbuttTreeCoord;
-
-#define HEADBUTT_DECLARE_FILE(name, row_count) \\
-    typedef struct PACKED name { \\
-        u16 normalTreeCount; \\
-        u16 specialTreeCount; \\
-        HeadbuttEncounterSlot normalSlots[12]; \\
-        HeadbuttEncounterSlot specialSlots[6]; \\
-        HeadbuttTreeCoord treeCoords[(row_count)][6]; \\
-    } name
-
-#define HEADBUTT_DECLARE_EMPTY_FILE(name) \\
-    typedef struct PACKED name { \\
-        u16 normalTreeCount; \\
-        u16 specialTreeCount; \\
-    } name
-
-#endif
-"""
-    (output_dir / "headbutt.h").write_text(header, encoding="ascii")
-
-
-def _write_headbutt_makefile(output_dir, file_names):
-    lines = []
-    lines.append("HEADBUTT_SOURCES := \\\n" + " \\\n".join(f"\t$(HEADBUTT_DEPENDENCIES_DIR)/{name}" for name in file_names))
-    lines.append("")
-    lines.append("HEADBUTT_OBJS := \\\n" + " \\\n".join(f"\t$(HEADBUTT_OBJ_DIR)/{name[:-2]}.o" for name in file_names))
-    lines.append("")
-    lines.append("HEADBUTT_BINS := \\\n" + " \\\n".join(f"\t$(HEADBUTT_DIR)/{name[:3]}" for name in file_names))
-    lines.append("")
-
-    for name in file_names:
-        stem = name[:-2]
-        index = name[:3]
-        lines.append(f"$(HEADBUTT_OBJ_DIR)/{stem}.o: $(HEADBUTT_DEPENDENCIES_DIR)/{name} $(HEADBUTT_DEPENDENCIES_DIR)/headbutt.h | $(HEADBUTT_OBJ_DIR)")
-        lines.append("\t$(CC) $(CFLAGS) -c $< -o $@")
-        lines.append("")
-        lines.append(f"$(HEADBUTT_DIR)/{index}: $(HEADBUTT_OBJ_DIR)/{stem}.o | $(HEADBUTT_DIR)")
-        lines.append("\t$(OBJCOPY) -O binary $< $@")
-        lines.append("")
-
-    (output_dir / "headbutt.mk").write_text("\n".join(lines), encoding="ascii")
-
-
-def dump_headbutt_c(files, output_dir):
-    output_dir = Path(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
-    file_names = []
-
-    for old_file in output_dir.glob("[0-9][0-9][0-9]*.c"):
-        old_file.unlink()
+    file_rows = []
+    used_field_names = set()
 
     for index, data in enumerate(files):
-        file_name = f"{index:03d}.c"
-        type_name = f"HeadbuttFile_{index:03d}"
-        file_names.append(file_name)
-
+        stem = f"{index:03d}" if file_names is None else file_names[index]
+        type_name = f"HeadbuttFile_{stem}"
+        raw_name = stem.split("_", 1)[1] if "_" in stem else stem
+        parts = [part for part in raw_name.split("_") if part]
+        if not parts:
+            field_name = f"entry{index:03d}"
+        else:
+            field_name = parts[0].lower() + "".join(part[:1].upper() + part[1:] for part in parts[1:])
+            field_name = field_name.replace("Pokmon", "Pokemon")
+        if field_name in used_field_names:
+            field_name = f"{field_name}{index:03d}"
+        used_field_names.add(field_name)
         normal_trees = int.from_bytes(data[0:2], "little")
         special_trees = int.from_bytes(data[2:4], "little")
-        offset = 4
-        normal_slots = []
-        special_slots = []
         rows = []
+        offset = 4
 
         if normal_trees or special_trees:
+            normal_slots = []
+            special_slots = []
+
             for _ in range(12):
                 species = int.from_bytes(data[offset:offset + 2], "little")
                 min_level = data[offset + 2]
@@ -187,59 +151,97 @@ def dump_headbutt_c(files, output_dir):
                     row.append((x, y))
                     offset += 4
                 rows.append(row)
-
-        lines = [
-            '#include "headbutt.h"',
-            '#include "../../include/config.h"',
-            "",
-        ]
-        if rows:
-            lines.append(f"HEADBUTT_DECLARE_FILE({type_name}, {len(rows)});")
         else:
-            lines.append(f"HEADBUTT_DECLARE_EMPTY_FILE({type_name});")
+            normal_slots = []
+            special_slots = []
+
+        file_rows.append((index, type_name, field_name, normal_trees, special_trees, normal_slots, special_slots, rows))
+
+    for _, type_name, _, _, _, _, _, rows in file_rows:
+        lines.append(f"typedef struct PACKED {type_name} {{")
+        lines.append("    u16 normalTreeCount;")
+        lines.append("    u16 specialTreeCount;")
+        if rows:
+            lines.append("    HeadbuttEncounterSlot normalSlots[12];")
+            lines.append("    HeadbuttEncounterSlot specialSlots[6];")
+            lines.append(f"    HeadbuttTreeCoord treeCoords[{len(rows)}][6];")
+        lines.append(f"}} {type_name};")
+        lines.append("")
+
+    lines.extend([
+        "typedef struct PACKED HeadbuttArchiveData {",
+    ])
+
+    for _, type_name, field_name, _, _, _, _, _ in file_rows:
+        lines.append(f"    {type_name} {field_name};")
+
+    lines.extend([
+        "} HeadbuttArchiveData;",
+        "",
+    ])
+
+    lines.extend([
+        "const u32 __size[] =",
+        "{",
+    ])
+
+    for _, type_name, _, _, _, _, _, _ in file_rows:
+        lines.append(f"    sizeof({type_name}),")
+
+    lines.extend([
+        "};",
+        "",
+        "const HeadbuttArchiveData __data =",
+        "{",
+    ])
+
+    for _, _, field_name, normal_trees, special_trees, normal_slots, special_slots, rows in file_rows:
         lines.extend([
-            "",
-            f"const {type_name} UNUSED s{type_name} =",
-            "{",
-            f"    .normalTreeCount = {normal_trees},",
-            f"    .specialTreeCount = {special_trees},",
+            f"    .{field_name} = {{",
+            f"        .normalTreeCount = {normal_trees},",
+            f"        .specialTreeCount = {special_trees},",
         ])
 
         if normal_slots:
             lines.extend([
-                "    .normalSlots =",
-                "    {",
+                "        .normalSlots =",
+                "        {",
             ])
             for species, min_level, max_level in normal_slots:
-                lines.append(f"        {{ {lookup_species(species)}, {min_level}, {max_level} }},")
+                lines.append(f"            {{ {lookup_species(species)}, {min_level}, {max_level} }},")
             lines.extend([
-                "    },",
-                "    .specialSlots =",
-                "    {",
+                "        },",
+                "        .specialSlots =",
+                "        {",
             ])
             for species, min_level, max_level in special_slots:
-                lines.append(f"        {{ {lookup_species(species)}, {min_level}, {max_level} }},")
+                lines.append(f"            {{ {lookup_species(species)}, {min_level}, {max_level} }},")
             lines.extend([
-                "    },",
+                "        },",
             ])
 
         if rows:
             lines.extend([
-                "    .treeCoords =",
-                "    {",
+                "        .treeCoords =",
+                "        {",
             ])
             for row in rows:
                 coords = ", ".join(f"{{ {x}, {y} }}" for x, y in row)
-                lines.append(f"        {{ {coords} }},")
+                lines.append(f"            {{ {coords} }},")
             lines.extend([
-                "    },",
+                "        },",
             ])
 
         lines.extend([
-            "};",
+            "    },",
             "",
         ])
-        (output_dir / file_name).write_text("\n".join(lines), encoding="ascii")
 
-    _write_headbutt_header(output_dir)
-    _write_headbutt_makefile(output_dir, file_names)
+    lines.append("};")
+    lines.append("")
+
+    output_path.write_text("\n".join(lines), encoding="ascii")
+
+
+def dump_headbutt_c(files, output_path):
+    dump_headbutt_single_c(files, output_path)

@@ -108,7 +108,7 @@ def dump_c_outputs(rom, mondata_raw_narc, msgdata_narc, pokedexsort_narc, expand
     dump_pokedex_area_files(pokedexarea_narc.files, "./dumped_c")
 
     headbutt_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/2/5/2"]])
-    dump_headbutt_c(headbutt_narc.files, "./dumped_c/headbutt")
+    dump_headbutt_c(headbutt_narc.files, "./dumped_c/Headbutt.c")
 
 
 def main(argv):
