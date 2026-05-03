@@ -3981,15 +3981,15 @@ trainerdata 57, "Ralph"
     endparty
 
 
-trainerdata 58, "Arnold"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_FISHERMAN
-    nummons 1
+trainerdata 58, "Jones"
+    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | F_EVALUATE_ATTACKS
     battletype SINGLE_BATTLE
     endentry
 
@@ -3997,8 +3997,49 @@ trainerdata 58, "Arnold"
         // mon 0
         ivs 0
         abilityslot 0
-        level 44
-        pokemon SPECIES_SHELLDER
+        level 50
+        pokemon SPECIES_CASCOON
+		item ITEM_LEFTOVERS
+        move MOVE_BODY_PRESS
+        move MOVE_BULK_UP
+		move MOVE_KNOCK_OFF
+		move MOVE_HEADLONG_RUSH
+		ability ABILITY_UNAWARE
+		setivs 31, 31, 31, 31, 31, 31
+		setevs 0, 0, 0, 0, 0, 0
+		nature NATURE_IMPISH
+        ballseal 0
+
+        // mon 1
+        ivs 0
+        abilityslot 0
+        level 50
+        pokemon SPECIES_SILCOON
+		item ITEM_EXPERT_BELT
+        move MOVE_AURA_SPHERE
+        move MOVE_POWER_GEM
+		move MOVE_MOONBLAST
+		move MOVE_SHADOW_BALL
+		ability ABILITY_SHADOW_SHIELD
+		setivs 31, 31, 31, 31, 31, 31
+		setevs 0, 0, 0, 0, 0, 0
+		nature NATURE_MODEST
+        ballseal 0
+
+        // mon 2
+        ivs 0
+        abilityslot 50
+        level 50
+        pokemon SPECIES_DELIBIRD
+		item ITEM_MAGNET
+        move MOVE_THUNDERBOLT
+        move MOVE_DRAGON_PULSE
+		move MOVE_AIR_SLASH
+		move MOVE_THUNDER_WAVE
+		ability ABILITY_LEVITATE
+		setivs 31, 31, 31, 31, 31, 31
+		setevs 0, 0, 0, 0, 0, 0
+		nature NATURE_MODEST
         ballseal 0
     endparty
 

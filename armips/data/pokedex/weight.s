@@ -272,9 +272,9 @@
 /* SPECIES_ZIGZAGOON                         */ .word 175
 /* SPECIES_LINOONE                           */ .word 325
 /* SPECIES_WURMPLE                           */ .word 36
-/* SPECIES_SILCOON                           */ .word 100
+/* SPECIES_SILCOON                           */ .word 700
 /* SPECIES_BEAUTIFLY                         */ .word 284
-/* SPECIES_CASCOON                           */ .word 115
+/* SPECIES_CASCOON                           */ .word 9200
 /* SPECIES_DUSTOX                            */ .word 316
 /* SPECIES_LOTAD                             */ .word 26
 /* SPECIES_LOMBRE                            */ .word 325
@@ -845,8 +845,8 @@
 /* SPECIES_TAPU_LELE                         */ .word 186
 /* SPECIES_TAPU_BULU                         */ .word 455
 /* SPECIES_TAPU_FINI                         */ .word 212
-/* SPECIES_COSMOG                            */ .word 1
-/* SPECIES_COSMOEM                           */ .word 9999
+/* SPECIES_COSMOG                            */ .word 800
+/* SPECIES_COSMOEM                           */ .word 600
 /* SPECIES_SOLGALEO                          */ .word 2300
 /* SPECIES_LUNALA                            */ .word 1200
 /* SPECIES_NIHILEGO                          */ .word 555
@@ -864,7 +864,7 @@
 /* SPECIES_STAKATAKA                         */ .word 8200
 /* SPECIES_BLACEPHALON                       */ .word 130
 /* SPECIES_ZERAORA                           */ .word 445
-/* SPECIES_MELTAN                            */ .word 80
+/* SPECIES_MELTAN                            */ .word 400
 /* SPECIES_MELMETAL                          */ .word 8000
 /* SPECIES_GROOKEY                           */ .word 50
 /* SPECIES_THWACKEY                          */ .word 140

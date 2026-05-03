@@ -4739,8 +4739,8 @@ mondata SPECIES_OCTILLERY, "Octillery"
     mondexweight SPECIES_OCTILLERY, "62.8 lbs."
 
 
-mondata SPECIES_DELIBIRD, "ElecDragon"
-    basestats 70, 80, 70, 75, 115, 90
+mondata SPECIES_DELIBIRD, "E-Dragon"
+    basestats 70, 60, 70, 60, 110, 100
     types TYPE_ELECTRIC, TYPE_DRAGON
     catchrate 80
     baseexp 0 // defined in baseexp.s
@@ -5601,7 +5601,7 @@ mondata SPECIES_WURMPLE, "Wurmple"
 
 
 mondata SPECIES_SILCOON, "Witch"
-    basestats 60, 50, 80, 80, 120, 110
+    basestats 70, 50, 70, 80, 120, 110
     types TYPE_GHOST, TYPE_FAIRY
     catchrate 80
     baseexp 0 // defined in baseexp.s
@@ -5643,7 +5643,7 @@ mondata SPECIES_BEAUTIFLY, "Beautifly"
 
 
 mondata SPECIES_CASCOON, "Giant"
-    basestats 165, 100, 100, 35, 25, 75
+    basestats 125, 75, 100, 35, 25, 100
     types TYPE_GROUND, TYPE_GROUND
     catchrate 80
     baseexp 0 // defined in baseexp.s
@@ -17634,7 +17634,7 @@ mondata SPECIES_TAPU_FINI, "Tapu Fini"
 
 
 mondata SPECIES_COSMOG, "Barbarian"
-    basestats 80, 120, 90, 90, 50, 70
+    basestats 90, 120, 90, 80, 50, 70
     types TYPE_STEEL, TYPE_FIGHTING
     catchrate 80
     baseexp 0 // defined in baseexp.s
@@ -17655,7 +17655,7 @@ mondata SPECIES_COSMOG, "Barbarian"
 
 
 mondata SPECIES_COSMOEM, "Archer"
-    basestats 70, 110, 60, 90, 110, 60
+    basestats 70, 90, 60, 100, 110, 60
     types TYPE_PSYCHIC, TYPE_NORMAL
     catchrate 80
     baseexp 0 // defined in baseexp.s
@@ -18033,7 +18033,7 @@ mondata SPECIES_ZERAORA, "Zeraora"
 
 
 mondata SPECIES_MELTAN, "Phoenix"
-    basestats 75, 95, 80, 75, 95, 80
+    basestats 80, 100, 80, 60, 100, 80
     types TYPE_FIRE, TYPE_FLYING
     catchrate 80
     baseexp 0 // defined in baseexp.s
