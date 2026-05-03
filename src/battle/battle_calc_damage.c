@@ -852,7 +852,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     // Step 10.1 Unseen Fist / Piercing Drill
     // 0.25x damage into protect
     if ((FALSE //(attackerAbility == ABILITY_PIERCING_DRILL
-#if UNSEEN_FIST_GENERATION >= 9
+#if UNSEEN_FIST_GENERATION >= GEN_CHAMPIONS
             || (attackerAbility == ABILITY_UNSEEN_FIST))
 #endif
             //)

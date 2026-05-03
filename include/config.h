@@ -1,6 +1,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#define GEN_CHAMPIONS 99
 #define GEN_LATEST 9
 
 // FAIRY_TYPE_IMPLEMENTED should be used if you want to implement the fairy type and overwrite type 9 in this project
@@ -223,6 +224,6 @@
 #define DISABLE_CRITICAL_HP_WARNING
 
 // UNSEEN_FIST_GENERATION defines the behavior that Unseen Fist should exhibit, where it either completely ignores Protect (<=8) or deals 0.25x Damage (>=9)
-#define UNSEEN_FIST_GENERATION GEN_LATEST
+#define UNSEEN_FIST_GENERATION GEN_CHAMPIONS
 
 #endif

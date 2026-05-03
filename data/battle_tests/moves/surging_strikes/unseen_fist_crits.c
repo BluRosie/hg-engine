@@ -101,7 +101,7 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-#if UNSEEN_FIST_GENERATION >= 9
+#if UNSEEN_FIST_GENERATION >= GEN_CHAMPIONS
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "A critical hit!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 } },
