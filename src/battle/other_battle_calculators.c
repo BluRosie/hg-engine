@@ -4201,3 +4201,140 @@ BOOL LONG_CALL GetTypeEffectivenessData(struct BattleSystem *bsys, int index, u8
 
     return ret;
 }
+
+
+int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, int battlerIdAttacker, u16 moveNo, int a4, int range)
+{
+    int battlerIdTarget = BATTLER_NONE;
+    int moveRange;
+
+    if (moveNo) {
+        moveRange = ctx->moveTbl[moveNo].target;
+    } else {
+        moveRange = range;
+    }
+
+    if (moveRange == RANGE_ADJACENT_OPPONENTS) {
+        int battlerId;
+        int maxBattlers = BattleWorkClientSetMaxGet(bw);
+        void *opponent = bw->opponentData[battlerIdAttacker];
+        u8 flag = ov12_02261258(opponent);
+
+        for (ctx->client_loop = 0; ctx->client_loop < maxBattlers; ctx->client_loop++) {
+            battlerId = ctx->turnOrder[ctx->client_loop];
+            if (ctx->battlemon[battlerId].hp) {
+                opponent = bw->opponentData[battlerId];
+                if (((flag & 1) && !(ov12_02261258(opponent) & 1)) || (!(flag & 1) && (ov12_02261258(opponent) & 1))) {
+                    battlerIdTarget = battlerId;
+                    break;
+                }
+            }
+        }
+
+        if (ctx->client_loop != maxBattlers) {
+            ctx->client_loop++;
+        }
+    } else if (moveRange == RANGE_ALL_ADJACENT) {
+        int battlerId;
+        int maxBattlers = BattleWorkClientSetMaxGet(bw);
+
+        for (ctx->client_loop = 0; ctx->client_loop < maxBattlers; ctx->client_loop++) {
+            battlerId = ctx->turnOrder[ctx->client_loop];
+            if (ctx->battlemon[battlerId].hp) {
+                if (battlerId != battlerIdAttacker) {
+                    battlerIdTarget = battlerId;
+                    break;
+                }
+            }
+        }
+
+        if (ctx->client_loop != maxBattlers) {
+            ctx->client_loop++;
+        }
+    } else if (moveRange == RANGE_SINGLE_TARGET_USER_SIDE && (a4 == 1)) {
+        int battleType = BattleTypeGet(bw);
+
+        if ((battleType & BATTLE_TYPE_DOUBLE) && (BattleRand(bw) % 2) == 0) {
+            battlerIdTarget = BATTLER_ALLY(battlerIdAttacker);
+            if (!ctx->battlemon[battlerIdTarget].hp) {
+                battlerIdTarget = battlerIdAttacker;
+            }
+        } else {
+            battlerIdTarget = battlerIdAttacker;
+        }
+    } else if (moveRange == RANGE_FRONT && (a4 == 1)) {
+        battlerIdTarget = Battler_GetRandomOpposingBattlerId(bw, ctx, battlerIdAttacker);
+    } else if (moveRange == RANGE_OPPONENT_SIDE) {
+        battlerIdTarget = Battler_GetRandomOpposingBattlerId(bw, ctx, battlerIdAttacker);
+    } else if (moveRange == RANGE_USER || moveRange == RANGE_USER_SIDE || moveRange == RANGE_SINGLE_TARGET_SPECIAL || moveRange == RANGE_FIELD) {
+        battlerIdTarget = battlerIdAttacker;
+    } else if (moveRange == RANGE_ALLY) {
+        int battleType = BattleTypeGet(bw);
+
+        if (battleType & BATTLE_TYPE_DOUBLE) {
+            battlerIdTarget = BATTLER_ALLY(battlerIdAttacker);
+        } else {
+            battlerIdTarget = battlerIdAttacker;
+        }
+    } else if (moveRange == RANGE_SINGLE_TARGET_USER_SIDE) {
+        int battleType = BattleTypeGet(bw);
+
+        if (battleType & BATTLE_TYPE_DOUBLE) {
+            battlerIdTarget = ctx->playerActions[battlerIdAttacker][1]; //.unk4
+            if (!ctx->battlemon[battlerIdTarget].hp) {
+                battlerIdTarget = battlerIdAttacker;
+            }
+        } else {
+            battlerIdTarget = battlerIdAttacker;
+        }
+    } else if (moveRange == RANGE_RANDOM_OPPONENT || a4 == 1) {
+        int battleType = BattleTypeGet(bw);
+        int side = IsClientEnemy(bw, battlerIdAttacker) ^ 1;
+        //int side = BattleSystem_GetFieldSide(battleSystem, battlerIdAttacker) ^ 1;
+        int battlerIdOpponents[2];
+        battlerIdOpponents[0] = ov12_0223ABB8(bw, battlerIdAttacker, 0);
+        battlerIdOpponents[1] = ov12_0223ABB8(bw, battlerIdAttacker, 2);
+
+        if (battleType & BATTLE_TYPE_DOUBLE) {
+            if (ctx->current_move_index != MOVE_SNIPE_SHOT
+                && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_PROPELLER_TAIL)
+                && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_STALWART)
+                && ctx->scw[side].followMeFlag
+                && ctx->battlemon[ctx->scw[side].battlerIdFollowMe].hp) {
+                battlerIdTarget = ctx->scw[side].battlerIdFollowMe;
+            } else if (ctx->battlemon[battlerIdOpponents[0]].hp && ctx->battlemon[battlerIdOpponents[1]].hp) {
+                // This looks like targeting for Outrage in double battles
+                side = BattleRand(bw) & 1;
+                battlerIdTarget = battlerIdOpponents[side];
+            } else if (ctx->battlemon[battlerIdOpponents[0]].hp) {
+                battlerIdTarget = battlerIdOpponents[0];
+            } else if (ctx->battlemon[battlerIdOpponents[1]].hp) {
+                battlerIdTarget = battlerIdOpponents[1];
+            }
+        } else if (ctx->battlemon[BATTLER_OPPONENT(battlerIdAttacker)].hp) {
+            battlerIdTarget = BATTLER_OPPONENT(battlerIdAttacker);
+        }
+    } else {
+        int side = IsClientEnemy(bw, battlerIdAttacker) ^ 1;
+        //int side = BattleSystem_GetFieldSide(battleSystem, battlerIdAttacker) ^ 1;
+        int battlerIdTargetTemp = ctx->playerActions[battlerIdAttacker][1]; //.unk4
+        //BattleSystem_GetMaxBattlers(battleSystem);
+
+        if (ctx->current_move_index != MOVE_SNIPE_SHOT
+            && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_PROPELLER_TAIL)
+            && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_STALWART)
+            && ctx->scw[side].followMeFlag
+            && ctx->battlemon[ctx->scw[side].battlerIdFollowMe].hp) {
+            battlerIdTarget = ctx->scw[side].battlerIdFollowMe;
+        } else if (ctx->battlemon[battlerIdTargetTemp].hp) {
+            battlerIdTarget = battlerIdTargetTemp;
+        } else {
+            battlerIdTargetTemp = Battler_GetRandomOpposingBattlerId(bw, ctx, battlerIdAttacker);
+            if (ctx->battlemon[battlerIdTargetTemp].hp) {
+                battlerIdTarget = battlerIdTargetTemp;
+            }
+        }
+    }
+
+    return battlerIdTarget;
+}
