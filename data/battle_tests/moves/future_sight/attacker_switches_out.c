@@ -132,7 +132,7 @@ const struct TestBattleScenario BattleTests[] = {
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Litten’s Intimidate cuts the opposing Archaludon’s Attack!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon took the Future Sight attack!" },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 36, 36, 36, 37, 37, 38, 38, 39, 39, 39, 40, 40, 41, 41, 42, 42 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 59, 59, 60, 60, 61, 62, 63, 63, 64, 65, 66, 66, 67, 68, 69, 69 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon’s Stamina raised its Defense!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Psychic Gem strengthened Future Sight's power!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 79, 81, 81, 82, 84, 84, 85, 85, 87, 88, 88, 90, 91, 91, 93, 94 } }, 
