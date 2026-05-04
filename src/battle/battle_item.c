@@ -342,6 +342,7 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
 
     if (battlerId == BATTLER_NONE) {
         return FALSE;
+    }
 
     itemHeldEffect = HeldItemHoldEffectGet(ctx, battlerId);
     boost = HeldItemAtkGet(ctx, battlerId, ATK_CHECK_NORMAL);
