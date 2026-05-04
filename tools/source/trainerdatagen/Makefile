@@ -1,10 +1,10 @@
 CC := gcc
 CFLAGS := -std=c11 -O2 -Wall -Wextra -I../../..
-TARGET := ../../../tools/speciesdatagen
+TARGET := ../../../tools/trainerdatagen
 
-SRCS := species_data_gen.c
-DATA_SRC := ../../../data/Species.c
-DATA_OBJ := SpeciesDataData.o
+SRCS := trainer_data_gen.c
+DATA_SRC := ../../../data/Trainers.c
+DATA_OBJ := TrainersData.o
 OBJS := $(SRCS:%.c=%.o) $(DATA_OBJ)
 
 .PHONY: all clean
@@ -23,11 +23,11 @@ $(DEPDIR): ; @mkdir -p $@
 %.o: %.c $(DEPDIR)/%.d | $(DEPDIR)
 	$(CC) $(CFLAGS) $(DEPFLAGS) -c -o $@ $<
 
-$(DATA_OBJ): $(DATA_SRC) ../../../include/species_data.h ../../../include/config.h
+$(DATA_OBJ): $(DATA_SRC) ../../../include/trainer_data.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	$(RM) $(TARGET) speciesdatagen.exe $(OBJS)
+	$(RM) $(TARGET) trainerdatagen.exe $(OBJS)
 
 DEPFILES := $(SRCS:%.c=$(DEPDIR)/%.d)
 $(DEPFILES):

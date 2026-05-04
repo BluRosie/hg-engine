@@ -734,7 +734,7 @@ static const PokedexAppData_UnkSub190CArchive sPokedexAreaOverworldMapInfo =
     },
 };
 
-static const PokedexArchiveMember sPokedexAreaBaseMembers[] =
+const PokedexArchiveMember sPokedexAreaBaseMembers[] =
 {
     [0] = { (const u8 *)sPokedexAreaSpecialMapInfo, sizeof(sPokedexAreaSpecialMapInfo) },
     [1] = { (const u8 *)&sPokedexAreaOverworldMapInfo, sizeof(sPokedexAreaOverworldMapInfo) },
@@ -45942,7 +45942,7 @@ static const u32 sPokedexAreaUnusedMember8602[] =
     0x00000000,
 };
 
-static const PokedexU32List sPokedexAreaLists[] =
+const PokedexU32List sPokedexAreaLists[] =
 {
     [0] = { sPokedexAreaSpecialAreasMorning_None, sizeof(sPokedexAreaSpecialAreasMorning_None) / sizeof(*sPokedexAreaSpecialAreasMorning_None) },
     [1075] = { sPokedexAreaSpecialAreasDay_None, sizeof(sPokedexAreaSpecialAreasDay_None) / sizeof(*sPokedexAreaSpecialAreasDay_None) },
@@ -54547,25 +54547,5 @@ static const PokedexU32List sPokedexAreaLists[] =
     [8600] = { sPokedexAreaUnusedMember8602, sizeof(sPokedexAreaUnusedMember8602) / sizeof(*sPokedexAreaUnusedMember8602) },
 };
 
-#ifdef POKEDEX_DATAGEN
-// functions used by pokedexdatagen. not exposed to the final build
-u32 GetPokedexAreaBaseMemberCount(void)
-{
-    return sizeof(sPokedexAreaBaseMembers) / sizeof(*sPokedexAreaBaseMembers);
-}
-
-const PokedexArchiveMember *GetPokedexAreaBaseMember(u32 index)
-{
-    return &sPokedexAreaBaseMembers[index];
-}
-
-u32 GetPokedexAreaListCount(void)
-{
-    return sizeof(sPokedexAreaLists) / sizeof(*sPokedexAreaLists);
-}
-
-const PokedexU32List *GetPokedexAreaList(u32 index)
-{
-    return &sPokedexAreaLists[index];
-}
-#endif
+const u32 sPokedexAreaBaseMemberCount = sizeof(sPokedexAreaBaseMembers) / sizeof(*sPokedexAreaBaseMembers);
+const u32 sPokedexAreaListCount = sizeof(sPokedexAreaLists) / sizeof(*sPokedexAreaLists);

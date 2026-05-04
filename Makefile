@@ -112,6 +112,7 @@ MSGENC := tools/msgenc
 MOVEDATAGEN := tools/movedatagen
 POKEDEXDATAGEN := tools/pokedexdatagen
 SPECIESDATAGEN := tools/speciesdatagen
+TRAINERDATAGEN := tools/trainerdatagen
 NARCHIVE := $(PYTHON) tools/narcpy.py
 NDSTOOL := tools/ndstool
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
@@ -228,20 +229,25 @@ $(GFX): $(NITROGFX_SOURCES)
 
 TOOLS += $(GFX)
 
-$(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.c) data/MoveData.c include/move_data.h include/config.h
+$(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.c) data/Moves.c include/move_data.h include/config.h
 	cd tools/source/movedatagen ; $(MAKE)
 
 TOOLS += $(MOVEDATAGEN)
 
-$(POKEDEXDATAGEN): $(wildcard tools/source/pokedexdatagen/*.c) data/PokedexSortData.c data/PokedexAreaData.c include/pokedex_archive_data.h include/constants/pokedex.h
+$(POKEDEXDATAGEN): $(wildcard tools/source/pokedexdatagen/*.c) data/PokedexSort.c data/PokedexArea.c include/pokedex_archive_data.h include/constants/pokedex.h
 	cd tools/source/pokedexdatagen ; $(MAKE)
 
 TOOLS += $(POKEDEXDATAGEN)
 
-$(SPECIESDATAGEN): $(wildcard tools/source/speciesdatagen/*.c) data/SpeciesData.c include/species_data.h include/config.h
+$(SPECIESDATAGEN): $(wildcard tools/source/speciesdatagen/*.c) data/Species.c include/species_data.h include/config.h
 	cd tools/source/speciesdatagen ; $(MAKE)
 
 TOOLS += $(SPECIESDATAGEN)
+
+$(TRAINERDATAGEN): $(wildcard tools/source/trainerdatagen/*.c) data/Trainers.c include/trainer_data.h include/constants/trainerclass.h include/constants/pokemon.h
+	cd tools/source/trainerdatagen ; $(MAKE)
+
+TOOLS += $(TRAINERDATAGEN)
 
 $(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/*.h)
 	cd tools/source/o2narc ; $(MAKE)

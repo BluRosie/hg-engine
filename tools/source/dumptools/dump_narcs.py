@@ -16,7 +16,7 @@ from dump_scripts.pokedex_data import dump_pokedex_area_files, dump_pokedex_sort
 from dump_scripts.regional_dex import dump_regionaldex_c
 from dump_scripts.speciesdata import dump_species_data
 from dump_scripts.sprite_offsets import dump_spriteoffsets_c
-from dump_scripts.trainerdata import dump_trainerdata
+from dump_scripts.trainerdata import dump_trainerdata, dump_trainerdata_c
 
 VALID_MODES = ("c", "armips")
 ARMIPS_STALE_PATHS = (
@@ -73,11 +73,11 @@ def dump_armips_outputs(mondata_narc, rom, expanded):
 def dump_c_outputs(rom, mondata_raw_narc, msgdata_narc, pokedexsort_narc, expanded):
     os.makedirs("dumped_c", exist_ok=True)
 
-    with open("./dumped_c/SpeciesData.c", "w", encoding="utf-8") as file:
+    with open("./dumped_c/Species.c", "w", encoding="utf-8") as file:
         file.write(dump_species_data(mondata_raw_narc, msgdata_narc, pokedexsort_narc))
 
     moves_narc = dump_narc(rom, "a/0/1/1", MOVE_NARC_FORMAT)
-    with open("./dumped_c/MoveData.c", "w", encoding="utf-8") as file:
+    with open("./dumped_c/Moves.c", "w", encoding="utf-8") as file:
         file.write(dump_moves_c(moves_narc, msgdata_narc))
 
     encounters_narc = dump_narc(rom, "a/0/3/7", ENCOUNTER_NARC_FORMAT)
@@ -85,7 +85,7 @@ def dump_c_outputs(rom, mondata_raw_narc, msgdata_narc, pokedexsort_narc, expand
         file.write(dump_encounters_c(encounters_narc, expanded))
 
     evodata_narc = dump_narc(rom, "a/0/3/4", EXPANDED_EVO_NARC_FORMAT if expanded else EVO_NARC_FORMAT)
-    with open("./dumped_c/EvoData.c", "w", encoding="utf-8") as file:
+    with open("./dumped_c/Evolutions.c", "w", encoding="utf-8") as file:
         file.write(dump_evodata_c(evodata_narc, expanded))
 
     regionaldex_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/1/3/8"]])
@@ -109,6 +109,9 @@ def dump_c_outputs(rom, mondata_raw_narc, msgdata_narc, pokedexsort_narc, expand
 
     headbutt_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/2/5/2"]])
     dump_headbutt_c(headbutt_narc.files, "./dumped_c/Headbutt.c")
+
+    with open("./dumped_c/Trainers.c", "w", encoding="utf-8") as file:
+        file.write(dump_trainerdata_c(rom, msgdata_narc, expanded))
 
 
 def main(argv):

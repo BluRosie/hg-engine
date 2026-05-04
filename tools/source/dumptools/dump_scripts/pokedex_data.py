@@ -359,7 +359,7 @@ def _render_sort_data_c(files):
         lines.append("")
 
     lines.extend([
-        "static const PokedexU16List sPokedexSortLists[] =",
+        "const PokedexU16List sPokedexSortLists[] =",
         "{",
     ])
 
@@ -378,18 +378,7 @@ def _render_sort_data_c(files):
     lines.extend([
         "};",
         "",
-        "#ifdef POKEDEX_DATAGEN",
-        "// functions used by pokedexdatagen. not exposed to the final build",
-        "u32 GetPokedexSortListCount(void)",
-        "{",
-        "    return sizeof(sPokedexSortLists) / sizeof(*sPokedexSortLists);",
-        "}",
-        "",
-        "const PokedexU16List *GetPokedexSortList(u32 index)",
-        "{",
-        "    return &sPokedexSortLists[index];",
-        "}",
-        "#endif",
+        "const u32 sPokedexSortListCount = sizeof(sPokedexSortLists) / sizeof(*sPokedexSortLists);",
         "",
     ])
     return "\n".join(lines)
@@ -477,7 +466,7 @@ def _render_area_data_c(files):
             ])
 
         lines.extend([
-            "static const PokedexArchiveMember sPokedexAreaBaseMembers[] =",
+            "const PokedexArchiveMember sPokedexAreaBaseMembers[] =",
             "{",
             "    [0] = { (const u8 *)sPokedexAreaSpecialMapInfo, sizeof(sPokedexAreaSpecialMapInfo) },",
             "    [1] = { (const u8 *)&sPokedexAreaOverworldMapInfo, sizeof(sPokedexAreaOverworldMapInfo) },",
@@ -502,7 +491,7 @@ def _render_area_data_c(files):
         _append_unused_area_members(lines, refs, files, total_members)
 
         lines.extend([
-            "static const PokedexU32List sPokedexAreaLists[] =",
+            "const PokedexU32List sPokedexAreaLists[] =",
             "{",
         ])
 
@@ -515,28 +504,8 @@ def _render_area_data_c(files):
         lines.extend([
             "};",
             "",
-            "#ifdef POKEDEX_DATAGEN",
-            "// functions used by pokedexdatagen. not exposed to the final build",
-            "u32 GetPokedexAreaBaseMemberCount(void)",
-            "{",
-            "    return sizeof(sPokedexAreaBaseMembers) / sizeof(*sPokedexAreaBaseMembers);",
-            "}",
-            "",
-            "const PokedexArchiveMember *GetPokedexAreaBaseMember(u32 index)",
-            "{",
-            "    return &sPokedexAreaBaseMembers[index];",
-            "}",
-            "",
-            "u32 GetPokedexAreaListCount(void)",
-            "{",
-            "    return sizeof(sPokedexAreaLists) / sizeof(*sPokedexAreaLists);",
-            "}",
-            "",
-            "const PokedexU32List *GetPokedexAreaList(u32 index)",
-            "{",
-            "    return &sPokedexAreaLists[index];",
-            "}",
-            "#endif",
+            "const u32 sPokedexAreaBaseMemberCount = sizeof(sPokedexAreaBaseMembers) / sizeof(*sPokedexAreaBaseMembers);",
+            "const u32 sPokedexAreaListCount = sizeof(sPokedexAreaLists) / sizeof(*sPokedexAreaLists);",
             "",
         ])
 
@@ -564,7 +533,7 @@ def _render_area_data_c(files):
     lines.extend([
         "};",
         "",
-        "static const PokedexArchiveMember sPokedexAreaBaseMembers[] =",
+        "const PokedexArchiveMember sPokedexAreaBaseMembers[] =",
         "{",
         "    [0] = { (const u8 *)sPokedexAreaMember000, sizeof(sPokedexAreaMember000) },",
         "    [1] = { sPokedexAreaMember001, sizeof(sPokedexAreaMember001) },",
@@ -589,7 +558,7 @@ def _render_area_data_c(files):
     _append_unused_area_members(lines, refs, files, total_members)
 
     lines.extend([
-        "static const PokedexU32List sPokedexAreaLists[] =",
+        "const PokedexU32List sPokedexAreaLists[] =",
         "{",
     ])
 
@@ -602,28 +571,8 @@ def _render_area_data_c(files):
     lines.extend([
         "};",
         "",
-        "#ifdef POKEDEX_DATAGEN",
-        "// functions used by pokedexdatagen. not exposed to the final build",
-        "u32 GetPokedexAreaBaseMemberCount(void)",
-        "{",
-        "    return sizeof(sPokedexAreaBaseMembers) / sizeof(*sPokedexAreaBaseMembers);",
-        "}",
-        "",
-        "const PokedexArchiveMember *GetPokedexAreaBaseMember(u32 index)",
-        "{",
-        "    return &sPokedexAreaBaseMembers[index];",
-        "}",
-        "",
-        "u32 GetPokedexAreaListCount(void)",
-        "{",
-        "    return sizeof(sPokedexAreaLists) / sizeof(*sPokedexAreaLists);",
-        "}",
-        "",
-        "const PokedexU32List *GetPokedexAreaList(u32 index)",
-        "{",
-        "    return &sPokedexAreaLists[index];",
-        "}",
-        "#endif",
+        "const u32 sPokedexAreaBaseMemberCount = sizeof(sPokedexAreaBaseMembers) / sizeof(*sPokedexAreaBaseMembers);",
+        "const u32 sPokedexAreaListCount = sizeof(sPokedexAreaLists) / sizeof(*sPokedexAreaLists);",
         "",
     ])
 
@@ -633,12 +582,12 @@ def _render_area_data_c(files):
 def dump_pokedex_sort_files(files, output_dir):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    (output_dir / "PokedexSortData.c").write_text(_render_sort_data_c(files), encoding="ascii")
+    (output_dir / "PokedexSort.c").write_text(_render_sort_data_c(files), encoding="ascii")
     (output_dir / "SortMembers.inc").unlink(missing_ok=True)
 
 
 def dump_pokedex_area_files(files, output_dir):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    (output_dir / "PokedexAreaData.c").write_text(_render_area_data_c(files), encoding="ascii")
+    (output_dir / "PokedexArea.c").write_text(_render_area_data_c(files), encoding="ascii")
     (output_dir / "AreaMembers.inc").unlink(missing_ok=True)

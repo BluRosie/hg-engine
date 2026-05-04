@@ -3,7 +3,7 @@ CFLAGS := -std=c11 -O2 -Wall -Wextra -I../../.. -DPOKEDEX_DATAGEN
 TARGET := ../../../tools/pokedexdatagen
 
 SRCS := pokedex_data_gen.c
-DATA_SRCS := ../../../data/PokedexSortData.c ../../../data/PokedexAreaData.c
+DATA_SRCS := ../../../data/PokedexSort.c ../../../data/PokedexArea.c
 DATA_OBJS := PokedexSortDataData.o PokedexAreaDataData.o
 OBJS := $(SRCS:%.c=%.o) $(DATA_OBJS)
 
@@ -23,10 +23,10 @@ $(DEPDIR): ; @mkdir -p $@
 %.o: %.c $(DEPDIR)/%.d | $(DEPDIR)
 	$(CC) $(CFLAGS) $(DEPFLAGS) -c -o $@ $<
 
-PokedexSortDataData.o: ../../../data/PokedexSortData.c ../../../include/pokedex_archive_data.h
+PokedexSortDataData.o: ../../../data/PokedexSort.c ../../../include/pokedex_archive_data.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-PokedexAreaDataData.o: ../../../data/PokedexAreaData.c ../../../include/pokedex_archive_data.h ../../../include/constants/pokedex.h
+PokedexAreaDataData.o: ../../../data/PokedexArea.c ../../../include/pokedex_archive_data.h ../../../include/constants/pokedex.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:

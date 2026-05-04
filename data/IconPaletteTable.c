@@ -1399,5 +1399,3 @@ u8 gIconPalTable[] = {
     [SPECIES_TERAPAGOS_TERASTAL]                 = 0,
     [SPECIES_TERAPAGOS_STELLAR]                  = 0,
 };
-
-// clang-format on

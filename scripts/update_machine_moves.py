@@ -431,7 +431,7 @@ def build_parser():
     parser = argparse.ArgumentParser(description="Unified TM/TR/HM tools (descriptions + sprites)")
 
     # input
-    parser.add_argument("--moves", default="data/MoveData.c", type=Path, help="Path to shared move data source")
+    parser.add_argument("--moves", default="data/Moves.c", type=Path, help="Path to shared move data source")
     parser.add_argument("--machines", default="src/item.c", type=Path, help="C file defining sMachineMoves[]")
     parser.add_argument("--items-header", default="include/constants/item.h", type=Path, help="Path to include/constants/item.h")
 

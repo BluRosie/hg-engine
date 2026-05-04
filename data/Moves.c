@@ -24949,5 +24949,3 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .description = "",
     },
 };
-
-// clang-format on

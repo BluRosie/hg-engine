@@ -3,7 +3,7 @@ CFLAGS := -std=c11 -O2 -Wall -Wextra -I../../..
 TARGET := ../../../tools/movedatagen
 
 SRCS := move_data_gen.c
-DATA_SRC := ../../../data/MoveData.c
+DATA_SRC := ../../../data/Moves.c
 DATA_OBJ := MoveDataData.o
 OBJS := $(SRCS:%.c=%.o) $(DATA_OBJ)
 

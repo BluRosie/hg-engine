@@ -65,7 +65,7 @@ MOVEDATA_DIR := $(BUILD)/a011
 MOVEDATA_NARC := $(BUILD_NARC)/a011.narc
 MOVEDATA_TARGET := $(FILESYS)/a/0/1/1
 MOVEDATA_BUILD := $(BUILD)/moves
-MOVEDATA_DEPENDENCIES := data/MoveData.c include/move_data.h include/config.h $(MOVEDATAGEN)
+MOVEDATA_DEPENDENCIES := data/Moves.c include/move_data.h include/config.h $(MOVEDATAGEN)
 MOVEDATA_NAMES_DIR := $(BUILD)/rawtext/750 $(BUILD)/rawtext/751 $(BUILD)/rawtext/003 $(BUILD)/rawtext/749
 
 $(MOVEDATA_NARC): $(MOVEDATA_DEPENDENCIES)
@@ -113,7 +113,7 @@ NARC_FILES += $(OPENDEMO_NARC)
 MONDATA_DIR := $(BUILD)/a002
 MONDATA_NARC := $(BUILD_NARC)/personal.narc
 MONDATA_TARGET := $(FILESYS)/a/0/0/2
-MONDATA_DEPENDENCIES := data/SpeciesData.c include/species_data.h include/config.h $(SPECIESDATAGEN)
+MONDATA_DEPENDENCIES := data/Species.c include/species_data.h include/config.h $(SPECIESDATAGEN)
 MONDATA_NAMES_DIR := $(BUILD)/rawtext/237 $(BUILD)/rawtext/238 $(BUILD)/rawtext/817
 MONDATA_DESCRIPTIONS_DIR := $(BUILD)/rawtext/803
 MONDATA_CLASSIFICATIONS_DIR := $(BUILD)/rawtext/816 $(BUILD)/rawtext/823
@@ -164,7 +164,7 @@ REQUIRED_DIRECTORIES += $(HEIGHT_DIR)
 DEXAREA_DIR := $(BUILD)/a133
 DEXAREA_NARC := $(BUILD_NARC)/dexareas.narc
 DEXAREA_TARGET := $(FILESYS)/a/1/3/3
-DEXAREA_DEPENDENCIES := data/PokedexAreaData.c include/pokedex_archive_data.h include/constants/pokedex.h $(POKEDEXDATAGEN)
+DEXAREA_DEPENDENCIES := data/PokedexArea.c include/pokedex_archive_data.h include/constants/pokedex.h $(POKEDEXDATAGEN)
 
 $(DEXAREA_NARC): $(DEXAREA_DEPENDENCIES)
 	mkdir -p $(BUILD_NARC)
@@ -180,7 +180,7 @@ REQUIRED_DIRECTORIES += $(DEXAREA_DIR)
 DEXSORT_DIR := $(BUILD)/a214
 DEXSORT_NARC := $(BUILD_NARC)/a214.narc
 DEXSORT_TARGET := $(FILESYS)/a/2/1/4
-DEXSORT_DEPENDENCIES := data/PokedexSortData.c include/pokedex_archive_data.h $(POKEDEXDATAGEN) $(SPECIESDATAGEN) data/SpeciesData.c include/species_data.h
+DEXSORT_DEPENDENCIES := data/PokedexSort.c include/pokedex_archive_data.h $(POKEDEXDATAGEN) $(SPECIESDATAGEN) data/Species.c include/species_data.h
 
 $(DEXSORT_NARC): $(DEXSORT_DEPENDENCIES)
 	mkdir -p $(BUILD_NARC)
@@ -197,7 +197,7 @@ REQUIRED_DIRECTORIES += $(DEXSORT_DIR)
 EVOS_DIR := $(BUILD)/a034
 EVOS_NARC := $(BUILD_NARC)/a034.narc
 EVOS_TARGET := $(FILESYS)/a/0/3/4
-EVOS_DEPENDENCIES := data/EvoData.c
+EVOS_DEPENDENCIES := data/Evolutions.c
 EVOS_OBJS := $(patsubst data/%.c,$(BUILD)/%.o,$(EVOS_DEPENDENCIES))
 
 $(EVOS_NARC): $(EVOS_DEPENDENCIES)
@@ -230,12 +230,10 @@ TRAINERDATA_NARC := $(BUILD_NARC)/a055.narc
 TRAINERDATA_NARC_2 := $(BUILD_NARC)/a056.narc
 TRAINERDATA_TARGET := $(FILESYS)/a/0/5/5
 TRAINERDATA_TARGET_2 := $(FILESYS)/a/0/5/6
-TRAINERDATA_DEPENDENCIES := armips/data/trainers/trainers.s
+TRAINERDATA_DEPENDENCIES := $(BUILD)/trainers/.generated
 TRAINERDATA_TRAINER_NAMES_DIR := $(BUILD)/rawtext/729
 
 $(TRAINERDATA_NARC): $(TRAINERDATA_DEPENDENCIES)
-	$(PYTHON) scripts/validate_trainers_s.py $(TRAINERDATA_DEPENDENCIES)
-	$(ARMIPS) $^
 	$(NARCHIVE) create $@ $(TRAINERDATA_DIR) -nf
 	$(NARCHIVE) create $(TRAINERDATA_NARC_2) $(TRAINERDATA_DIR_2) -nf
 
@@ -250,18 +248,23 @@ TRAINERTEXT_NARC := $(BUILD_NARC)/trainer_text_map.narc
 TRAINERTEXT_NARC_2 := $(BUILD_NARC)/trainer_text_offsets.narc
 TRAINERTEXT_TARGET := $(FILESYS)/a/0/5/7
 TRAINERTEXT_TARGET_2 := $(FILESYS)/a/1/3/1
-TRAINERTEXT_DEPENDENCIES := armips/data/trainers/trainertext.s
+TRAINERTEXT_DEPENDENCIES := $(BUILD)/trainers/.generated
 
 $(TRAINERTEXT_NARC): $(TRAINERTEXT_DEPENDENCIES)
-	touch $(TRAINERTEXT_DIR)/7_0
-	$(ARMIPS) $^
-	$(PYTHON) scripts/trainer_text.py
 	$(NARCHIVE) create $(TRAINERTEXT_NARC) $(TRAINERTEXT_DIR)
 	$(NARCHIVE) create $(TRAINERTEXT_NARC_2) $(TRAINERTEXT_DIR_2)
 
 NARC_FILES += $(TRAINERTEXT_NARC)
 REQUIRED_DIRECTORIES += $(TRAINERTEXT_DIR) $(TRAINERTEXT_DIR_2) $(BUILD)/rawtext/728
 MSGDATA_COMPILETIME_DEPENDENCIES += $(BUILD)/rawtext/728.txt
+
+$(BUILD)/trainers/.generated: data/Trainers.c include/trainer_data.h include/constants/trainerclass.h include/constants/pokemon.h $(TRAINERDATAGEN)
+	mkdir -p $(BUILD)/trainers
+	mkdir -p $(BUILD_NARC)
+	rm -rf $(TRAINERDATA_DIR) $(TRAINERDATA_DIR_2) $(TRAINERTEXT_DIR) $(TRAINERTEXT_DIR_2) $(BUILD)/rawtext/728 $(BUILD)/rawtext/729
+	mkdir -p $(TRAINERDATA_DIR) $(TRAINERDATA_DIR_2) $(TRAINERTEXT_DIR) $(TRAINERTEXT_DIR_2) $(BUILD)/rawtext/728 $(BUILD)/rawtext/729
+	$(TRAINERDATAGEN) $(TRAINERDATA_DIR) $(TRAINERDATA_DIR_2) $(TRAINERTEXT_DIR) $(TRAINERTEXT_DIR_2) $(BUILD)/rawtext
+	touch $@
 
 #FOOTPRINTS_DIR := $(BUILD)/a069
 FOOTPRINTS_NARC := $(BUILD_NARC)/a069.narc

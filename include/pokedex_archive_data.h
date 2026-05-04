@@ -58,15 +58,12 @@ typedef struct PokedexAppData_UnkSub190CArchive {
     u8 unused[POKEDEX_AREA_OVERWORLD_MAP_INFO_UNUSED_SIZE];
 } PokedexAppData_UnkSub190CArchive;
 
-#ifdef POKEDEX_DATAGEN
-// functions used by pokedexdatagen. not exposed to the final build
-u32 GetPokedexSortListCount(void);
-const PokedexU16List *GetPokedexSortList(u32 index);
+extern const PokedexU16List sPokedexSortLists[];
+extern const u32 sPokedexSortListCount;
 
-u32 GetPokedexAreaBaseMemberCount(void);
-const PokedexArchiveMember *GetPokedexAreaBaseMember(u32 index);
-u32 GetPokedexAreaListCount(void);
-const PokedexU32List *GetPokedexAreaList(u32 index);
-#endif
+extern const PokedexArchiveMember sPokedexAreaBaseMembers[];
+extern const u32 sPokedexAreaBaseMemberCount;
+extern const PokedexU32List sPokedexAreaLists[];
+extern const u32 sPokedexAreaListCount;
 
 #endif

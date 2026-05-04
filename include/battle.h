@@ -4134,7 +4134,7 @@ BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battler
 // TODO: come back here after implementing Raids
 #define I_AM_TERAPAGOS_AND_I_NEED_TO_KO_CARMINES_SINISTCHA(bsys, ctx, attacker) (FALSE)
 
-typedef struct TrainerData {
+typedef struct TrainerHeader {
     /*000*/ u8 trainerType;
     /*001*/ u8 trainerClass;
     /*002*/ u8 unk_2;
@@ -4142,10 +4142,10 @@ typedef struct TrainerData {
     /*004*/ u16 items[4];
     /*00C*/ u32 aiFlags;
     /*010*/ u32 doubleBattle;
-} TrainerData;
+} TrainerHeader;
 
 typedef struct Trainer {
-    struct TrainerData data;
+    TrainerHeader data;
     /*014*/ u16 name[7 + 1];
     // Used in the Frontier
     /*024*/ PMS_DATA winMessage;

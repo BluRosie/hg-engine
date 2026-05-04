@@ -1250,7 +1250,7 @@ static const u16 sPokedexSort_NameYToZ[] =
     SPECIES_ZOROARK, SPECIES_ZORUA, SPECIES_ZUBAT, SPECIES_ZWEILOUS,
 };
 
-static const PokedexU16List sPokedexSortLists[] =
+const PokedexU16List sPokedexSortLists[] =
 {
     [0] = { sPokedexSort_NationalNum, sizeof(sPokedexSort_NationalNum) / sizeof(*sPokedexSort_NationalNum) },
     [1] = { sPokedexSort_RegionalNum, sizeof(sPokedexSort_RegionalNum) / sizeof(*sPokedexSort_RegionalNum) },
@@ -1345,15 +1345,4 @@ static const PokedexU16List sPokedexSortLists[] =
     [90] = { sPokedexSort_NameYToZ, sizeof(sPokedexSort_NameYToZ) / sizeof(*sPokedexSort_NameYToZ) },
 };
 
-#ifdef POKEDEX_DATAGEN
-// functions used by pokedexdatagen. not exposed to the final build
-u32 GetPokedexSortListCount(void)
-{
-    return sizeof(sPokedexSortLists) / sizeof(*sPokedexSortLists);
-}
-
-const PokedexU16List *GetPokedexSortList(u32 index)
-{
-    return &sPokedexSortLists[index];
-}
-#endif
+const u32 sPokedexSortListCount = sizeof(sPokedexSortLists) / sizeof(*sPokedexSortLists);

@@ -36,10 +36,10 @@ static int WriteFile(const char *path, const void *data, size_t size) {
 
 static int WritePokedexSortArchive(const char *outDir) {
     char path[512];
-    u32 member, count = GetPokedexSortListCount();
+    u32 member, count = sPokedexSortListCount;
 
     for (member = 0; member < count; member++) {
-        const PokedexU16List *list = GetPokedexSortList(member);
+        const PokedexU16List *list = &sPokedexSortLists[member];
 
         snprintf(path, sizeof(path), "%s/%03u.bin", outDir, member + POKEDEX_SORT_FIXED_MEMBER_COUNT);
         if (WriteFile(path, list->data, list->count * sizeof(*list->data)) != 0) {
@@ -53,11 +53,11 @@ static int WritePokedexSortArchive(const char *outDir) {
 static int WritePokedexAreaArchive(const char *outDir) {
     char path[512];
     u32 member = 0;
-    u32 baseCount = GetPokedexAreaBaseMemberCount();
-    u32 listCount = GetPokedexAreaListCount();
+    u32 baseCount = sPokedexAreaBaseMemberCount;
+    u32 listCount = sPokedexAreaListCount;
 
     for (; member < baseCount; member++) {
-        const PokedexArchiveMember *baseMember = GetPokedexAreaBaseMember(member);
+        const PokedexArchiveMember *baseMember = &sPokedexAreaBaseMembers[member];
         snprintf(path, sizeof(path), "%s/0_a133_%04u", outDir, member);
         if (WriteFile(path, baseMember->data, baseMember->size) != 0) {
             return 1;
@@ -65,7 +65,7 @@ static int WritePokedexAreaArchive(const char *outDir) {
     }
 
     for (; member < baseCount + listCount; member++) {
-        const PokedexU32List *list = GetPokedexAreaList(member - baseCount);
+        const PokedexU32List *list = &sPokedexAreaLists[member - baseCount];
 
         snprintf(path, sizeof(path), "%s/3_%04u", outDir, member);
         if (WriteFile(path, list->data, list->count * sizeof(*list->data)) != 0) {
