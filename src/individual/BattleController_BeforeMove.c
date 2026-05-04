@@ -301,7 +301,9 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_CHECK_PP\n");
 #endif
 
-            BattleController_CheckPP(bsys, ctx);
+            if (!ctx->futureSightHitTurn) {
+                BattleController_CheckPP(bsys, ctx);
+            }
             ctx->wb_seq_no++;
             return;
         }
@@ -452,8 +454,9 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             // debug_printf("current_move_index: %d\n", ctx->current_move_index);
             // debug_printf("moveNoTemp: %d\n", ctx->moveNoTemp);
 #endif
-
-            BattleController_CheckSubmove(bsys, ctx);
+            if (!ctx->futureSightHitTurn) {
+                BattleController_CheckSubmove(bsys, ctx);
+            }
             ctx->wb_seq_no++;
             return;
         }
@@ -461,8 +464,9 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_THAW_OUT_BY_MOVE\n");
 #endif
-
-            BattleController_CheckThawOut(bsys, ctx);
+            if (!ctx->futureSightHitTurn) {
+                BattleController_CheckThawOut(bsys, ctx);
+            }
             ctx->wb_seq_no++;
             return;
         }
@@ -490,7 +494,8 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #endif
 
             ctx->wb_seq_no++;
-            if (BattlerController_RedirectTarget(bsys, ctx) == TRUE) {
+            if (!ctx->futureSightHitTurn && BattlerController_RedirectTarget(bsys, ctx) == TRUE)
+            {
                 return;
             }
             FALLTHROUGH;
@@ -505,7 +510,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             // debug_printf("moveNoTemp: %d\n", ctx->moveNoTemp);
 #endif
             // debug_printf("before pp: %d\n", ctx->battlemon[ctx->attack_client].pp[0]);
-            if ((ctx->waza_out_check_on_off & 0x8) == 0) {
+            if ((ctx->waza_out_check_on_off & SYSCTL_SKIP_PP_DECREMENT) == 0) {
                 // debug_printf("Enter BattlerController_DecrementPP\n");
                 //  pp检查
                 if (BattlerController_DecrementPP(bsys, ctx) == TRUE)  // 801393Ch
@@ -522,16 +527,17 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_CHOICE_LOCK\n");
 #endif
-
-            // debug_printf("current_move_index: %d\n", ctx->current_move_index);
-            int itemEffect = HeldItemHoldEffectGet(ctx, ctx->attack_client);
-            if (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK) {
-                if (ctx->waza_work != MOVE_STRUGGLE
-                && (ctx->waza_work != MOVE_U_TURN || (ctx->server_status_flag2 & SYSCTL_UTURN_ACTIVE) == FALSE)
-                && (ctx->waza_work != MOVE_BATON_PASS || (ctx->server_status_flag2 & SYSCTL_MOVE_SUCCEEDED) == FALSE)) {
-                    ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice = ctx->current_move_index;
-                } else {
-                    ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice = MOVE_NONE;
+            if (!ctx->futureSightHitTurn) {
+                // debug_printf("current_move_index: %d\n", ctx->current_move_index);
+                int itemEffect = HeldItemHoldEffectGet(ctx, ctx->attack_client);
+                if (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK) {
+                    if (ctx->waza_work != MOVE_STRUGGLE
+                        && (ctx->waza_work != MOVE_U_TURN || (ctx->server_status_flag2 & SYSCTL_UTURN_ACTIVE) == FALSE)
+                        && (ctx->waza_work != MOVE_BATON_PASS || (ctx->server_status_flag2 & SYSCTL_MOVE_SUCCEEDED) == FALSE)) {
+                        ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice = ctx->current_move_index;
+                    } else {
+                        ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice = MOVE_NONE;
+                    }
                 }
             }
             ctx->wb_seq_no++;
@@ -578,7 +584,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #endif
 
             ctx->wb_seq_no++;
-            if (BattleController_CheckMoveFailures1(bsys, ctx)) {
+            if (!ctx->futureSightHitTurn && BattleController_CheckMoveFailures1(bsys, ctx)) {
                 return;
             }
             FALLTHROUGH;
@@ -610,7 +616,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #endif
 
             ctx->wb_seq_no++;
-            if (BattleController_CheckInterruptibleMoves(bsys, ctx)) {
+            if (!ctx->futureSightHitTurn && BattleController_CheckInterruptibleMoves(bsys, ctx)) {
                 return;
             }
             FALLTHROUGH;
@@ -619,8 +625,10 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_PROTEAN_OR_LIBERO\n");
 #endif
+
             u32 type = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index);
-            if ((ctx->battlemon[ctx->attack_client].ability == ABILITY_PROTEAN || ctx->battlemon[ctx->attack_client].ability == ABILITY_LIBERO)
+            if (!ctx->futureSightHitTurn
+                && (ctx->battlemon[ctx->attack_client].ability == ABILITY_PROTEAN || ctx->battlemon[ctx->attack_client].ability == ABILITY_LIBERO)
                 // If the type is not typeless (Struggle)
                 && (type != TYPE_TYPELESS)
                 // If any active type is not the move's type

@@ -91,7 +91,7 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
 #if defined (DISABLE_ITEMS_IN_TRAINER_BATTLE)
     overrideItemUsage(bsys, ctx);
 #endif
-    debug_printf("end BattleScriptCommandHandler progress %d seq %d, next seq %d\n", ctx->battle_progress_flag, ctx->server_seq_no, ctx->next_server_seq_no);
+
     if (ctx->server_seq_no == CONTROLLER_COMMAND_45)
     {
         return TRUE;

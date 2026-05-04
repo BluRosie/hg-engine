@@ -359,15 +359,14 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                         sp->futureSightNoAttacker = TRUE;
                                     }
 
-                                    sp->move_type = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
-                                    
                                     int side = IsClientEnemy(bw, sp->defence_client);
                                     sp->side_condition[side] |= SIDE_STATUS_FUTURE_SIGHT;
 
-                                     debug_printf("laod script\n");
+                                    debug_printf("laod script\n");
                                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FUTURE_SIGHT_HIT);
+                                    sp->waza_out_check_on_off |= (SYSCTL_SKIP_STATUS_CHECK | SYSCTL_SKIP_OBEDIENCE_CHECK | SYSCTL_SKIP_PP_DECREMENT);
                                     sp->next_server_seq_no = CONTROLLER_COMMAND_23;
-                                    sp->wb_seq_no = BEFORE_MOVE_STATE_TYPE_CHART_IMMUNITY;
+                                    //sp->wb_seq_no = BEFORE_MOVE_STATE_TYPE_CHART_IMMUNITY;
                                     sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                                     ret = 1;
                                     sp->futureConditionQueue[sp->scc_work].conditionType.futureConditionType = FUTURE_CONDITION_NONE;
