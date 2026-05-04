@@ -130,16 +130,15 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Intimidate" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Litten’s Intimidate cuts the opposing Archaludon’s Attack!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon took the Future Sight attack!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 77, 77, 78, 78, 79, 81, 82, 82, 83, 84, 86, 86, 87, 88, 90, 90 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Stamina" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon’s Stamina raised its Defense!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Delphox lost some of its HP!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Psychic Gem strengthened Future Sight's power!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Payapa Berry" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 79, 81, 81, 82, 84, 84, 85, 85, 87, 88, 88, 90, 91, 91, 93, 94 } }, 
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Payapa Berry weakened the damage to the opposing Toxapex!" },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
