@@ -201,16 +201,12 @@ def build_btx_from_png_and_mappings():
     write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * palettes) + 2, 4 + 4*palettes, 2)
     #for i in range(0, palettes):
     #    write_field(btxFile, paletteInfoOffset + 0x10 + (0x4 * palettes) + (0x4 * i), paletteMetadata[palNames[i]]["offset"], 4)
-    highestOffset = 0
     for i in range(0, palettes):
         write_field(btxFile, paletteInfoOffset + 0xC + (0x4 * i), paletteMetadata[palNames[i]]["unk0"], 2)
         write_field(btxFile, paletteInfoOffset + 0xE + (0x4 * i), paletteMetadata[palNames[i]]["unk1"], 2)
         write_field(btxFile, paletteInfoOffset + 0x10 + (0x4 * palettes) + (0x4 * i), paletteMetadata[palNames[i]]["offset"] * 4, 4)
         for j in range(0, len(palNames[i])):
             write_field(btxFile, (paletteInfoOffset + 0x10 + (0x8 * palettes) + (16 * i) + j), ord(palNames[i][j]), 1)
-        if (paletteMetadata[palNames[i]]["offset"] > highestOffset):
-            highestOffset = paletteMetadata[palNames[i]]["offset"]
-    highestOffset = highestOffset + 1
 
     textureOffset = (paletteInfoOffset + 0x10 + (0x18 * palettes))
     paletteOffset = textureOffset + textureDataSize*8
