@@ -12,6 +12,29 @@ enum {
     TRAINER_TEXT_ENTRY_SIZE = 4,
 };
 
+static void BuildRawTextPath(char *path, size_t pathSize, const char *dir, int index) {
+    size_t dirLen;
+
+    if (index < 0 || index > 9999) {
+        fprintf(stderr, "Rawtext file index out of range: %d\n", index);
+        exit(EXIT_FAILURE);
+    }
+
+    dirLen = strlen(dir);
+    if (dirLen + sizeof("/0000.txt") > pathSize) {
+        fprintf(stderr, "Rawtext output path too long: %s\n", dir);
+        exit(EXIT_FAILURE);
+    }
+
+    memcpy(path, dir, dirLen);
+    path[dirLen] = '/';
+    path[dirLen + 1] = (char)('0' + ((index / 1000) % 10));
+    path[dirLen + 2] = (char)('0' + ((index / 100) % 10));
+    path[dirLen + 3] = (char)('0' + ((index / 10) % 10));
+    path[dirLen + 4] = (char)('0' + (index % 10));
+    memcpy(path + dirLen + 5, ".txt", sizeof(".txt"));
+}
+
 static int IsPartyMonDefined(const TrainerPokemonData *mon) {
     return mon->species != SPECIES_NONE;
 }
@@ -106,7 +129,7 @@ static void WriteTrainerNameTextFile(const char *dir, int index, const char *nam
     char path[RAWTEXT_PATH_LENGTH];
     FILE *file;
 
-    snprintf(path, sizeof(path), "%s/%04d.txt", dir, index);
+    BuildRawTextPath(path, sizeof(path), dir, index);
     file = OpenTextForWrite(path);
     fputs("{TRNAME}", file);
     fputs(name, file);
@@ -117,7 +140,7 @@ static void WriteTextFile(const char *dir, int index, const char *text) {
     char path[RAWTEXT_PATH_LENGTH];
     FILE *file;
 
-    snprintf(path, sizeof(path), "%s/%04d.txt", dir, index);
+    BuildRawTextPath(path, sizeof(path), dir, index);
     file = OpenTextForWrite(path);
     fputs(text, file);
     fclose(file);

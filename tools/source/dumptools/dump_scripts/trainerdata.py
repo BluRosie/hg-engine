@@ -55,12 +55,6 @@ TEXT_TYPE_NAMES = {
     20: "TRMSG_WIN",
 }
 
-ROM_PARTNER_TRAINER_CLASS_BY_NAME = {
-    "Buck": "TRAINERCLASS_ROM_PKMN_TRAINER_BUCK",
-    "Mira": "TRAINERCLASS_ROM_PKMN_TRAINER_MIRA",
-    "Marley": "TRAINERCLASS_ROM_PKMN_TRAINER_MARLEY",
-}
-
 ABILITY_SLOT_NAMES = {
     0: "TRAINER_POKEMON_ABILITY_1",
     2: "TRAINER_POKEMON_ABILITY_HIDDEN",
@@ -132,12 +126,6 @@ def battle_type_expr(value):
     return "DOUBLE_BATTLE" if value != 0 else "SINGLE_BATTLE"
 
 
-def trainer_class_expr(name, value):
-    if value in (92, 93, 94) and name in ROM_PARTNER_TRAINER_CLASS_BY_NAME:
-        return ROM_PARTNER_TRAINER_CLASS_BY_NAME[name]
-    return lookup_const("TRAINERCLASS", value)
-
-
 def ability_slot_expr(value):
     return ABILITY_SLOT_NAMES.get(value, str(value))
 
@@ -192,7 +180,7 @@ def dump_trainerdata_c(rom, msgdata_narc, expanded):
         lines.append(f"        .name = {c_string(trainer_names[trainer_id])},")
         lines.append("        .data = {")
         lines.append(f"            .trainerType = {trainer_type_expr(trainer['flags'])},")
-        lines.append(f"            .trainerClass = {trainer_class_expr(trainer_names[trainer_id], trainer['class'])},")
+        lines.append(f"            .trainerClass = {lookup_const("TRAINERCLASS", trainer['class'])},")
         lines.append(
             "            .items = { "
             + ", ".join(
