@@ -135,10 +135,14 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE (%d)+(%d)\n", ctx->store_damage[ctx->attack_client], ctx->hit_damage);
+        if (ctx->attack_client != BATTLER_NONE) {
+            debug_printf("in MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE (%d)+(%d)\n", ctx->store_damage[ctx->attack_client], ctx->hit_damage);
+        }
 #endif
 
-        ctx->store_damage[ctx->attack_client] += ctx->hit_damage;
+        if (ctx->attack_client != BATTLER_NONE) {
+            ctx->store_damage[ctx->attack_client] += ctx->hit_damage;
+        }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE:
@@ -387,7 +391,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE, storedDamage[%d] %d\n", ctx->attack_client, ctx->store_damage[ctx->attack_client]);
+        if (ctx->attack_client != BATTLER_NONE) {
+            debug_printf("in MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE, storedDamage[%d] %d\n", ctx->attack_client, ctx->store_damage[ctx->attack_client]);
+        }
 #endif
 
         ctx->swoam_seq_no++;
