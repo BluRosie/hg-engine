@@ -13,6 +13,7 @@
 #include "../../include/constants/move_effects.h"
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
+#include "../../include/constants/system_control.h"
 #include "../../include/constants/weather_numbers.h"
 
 enum EndTurnResolutionOrder {
