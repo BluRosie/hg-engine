@@ -1416,8 +1416,8 @@ int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *
 int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *sp)
 {
     if (!IsAttackerOnField(sp)
-        && GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE
-        && sp->battlemon[sp->attack_client].sheer_force_flag == 1) { // skip over shell bell and life orb if sheer force is active
+        || (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE
+        && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) { // skip over shell bell and life orb if sheer force is active
         return FALSE;
     }
 
