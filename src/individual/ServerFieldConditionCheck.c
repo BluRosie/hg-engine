@@ -338,14 +338,10 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     sp->current_move_index = sp->fcc.future_prediction_wazano[futureCondition.defenderSlot];
                                     sp->futureSightSTAB = sp->futureConditionQueue[sp->scc_work].futureSightSTAB;
 
-                                    //sp->playerActions[sp->attack_client][0] = CONTROLLER_COMMAND_FIGHT_INPUT;
-                                    //sp->playerActions[sp->attack_client][3] = SELECT_FIGHT_COMMAND;
+#ifdef DEBUG_ENDTURN_LOGIC
                                     debug_printf("attacker %d, sp->wish_sel_mons %d, sel_mons_no %d\n", attackerSlot, sp->fcc.wish_sel_mons[attackerSlot], sp->sel_mons_no[attackerSlot]);
                                     debug_printf("attacker %d, sp->wish_sel_mons %d, sel_mons_no %d\n", attackerAlly, sp->fcc.wish_sel_mons[attackerSlot], sp->sel_mons_no[attackerAlly]);
-                                    for (int i = 0; i< 4; ++i) {
-
-                                        debug_printf("execution index %d: command %d\n", sp->executionOrder[i], sp->playerActions[sp->executionOrder[i]][0]);
-                                    }
+#endif
                                     if (sp->fcc.wish_sel_mons[attackerSlot] == sp->sel_mons_no[attackerSlot])
                                     {
                                         sp->attack_client = attackerSlot;
@@ -355,7 +351,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                         sp->attack_client = attackerAlly;
                                     } else
                                     {
+#ifdef DEBUG_ENDTURN_LOGIC
                                         debug_printf("No original attacker\n");
+#endif
                                         sp->attack_client = attackerSlot;
                                         sp->futureSightNoAttacker = TRUE;
                                     }
@@ -363,7 +361,6 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     int side = IsClientEnemy(bw, sp->defence_client);
                                     sp->side_condition[side] |= SIDE_STATUS_FUTURE_SIGHT;
 
-                                    debug_printf("load script\n");
                                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FUTURE_SIGHT_HIT);
                                     sp->waza_out_check_on_off |= (SYSCTL_SKIP_STATUS_CHECK | SYSCTL_SKIP_OBEDIENCE_CHECK | SYSCTL_SKIP_PP_DECREMENT);
                                     sp->next_server_seq_no = CONTROLLER_COMMAND_23;
@@ -372,7 +369,6 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     ret = 1;
                                     sp->futureConditionQueue[sp->scc_work].conditionType.futureConditionType = FUTURE_CONDITION_NONE;
                                     sp->futureConditionQueue[sp->scc_work].defenderSlot =0;
-                                    debug_printf("end block\n");
                                 }
                             }
                             break;
@@ -406,16 +402,11 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         }
                         default:
                             break;
-
-                             debug_printf("loop end\n");
                     }
-                        debug_printf("loop increase\n");
                     sp->scc_work++;
                     break;
                 }
 
-                debug_printf("loop done\n");
-               
                 if (sp->scc_work >= CLIENT_MAX * FUTURE_CONDITION_MAX) {
 #ifdef DEBUG_ENDTURN_LOGIC
                     debug_printf("Start cleaning\n");
@@ -1947,8 +1938,6 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
         }
     } while (ret == 0);
 
-
-    debug_printf("FieldCondition end %d, progress %d, waitingBattlers %d\n", ret, sp->battle_progress_flag, sp->waitingBattlers);
     if (ret == 1) {
         SCIO_BlankMessage(bw);
     }

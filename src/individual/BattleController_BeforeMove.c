@@ -199,9 +199,9 @@ BOOL LONG_CALL AbilityNoTransform(int ability);
  *  @param ctx global battle structure
  */
 void __attribute__((section (".init"))) BattleController_BeforeMove(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-//#ifdef DEBUG_BEFORE_MOVE_LOGIC
+#ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In BattleController_BeforeMove %d, move %d, attacker %d\n", ctx->wb_seq_no, ctx->current_move_index, ctx->attack_client);
-    //#endif
+#endif
 
     if (IsAttackerOnField(ctx)) {
         CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);

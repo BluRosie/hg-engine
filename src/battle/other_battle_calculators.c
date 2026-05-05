@@ -2825,7 +2825,6 @@ int LONG_CALL CanGetNextDefender(struct BattleSystem *bsys, struct BattleStruct 
 void LONG_CALL SetupCurrentMoveContext(struct BattleSystem* bsys, struct BattleStruct* ctx)
 {
     if (ctx->moveContext.currentMoveCalcDone == FALSE) {
-        debug_printf("SetupCurrentMoveContext new\n")
         if (IsMoveSpreadMove(bsys, ctx, ctx->current_move_index)) {
             int oppLeft = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
             int oppRight = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
@@ -2880,7 +2879,6 @@ void LONG_CALL SetupCurrentMoveContext(struct BattleSystem* bsys, struct BattleS
  */
 void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    debug_printf("In ov12_0224C4D8 %d\n", ctx->moveStatusFlagForSpreadMoves[ctx->defence_client]);
     ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[ctx->defence_client];
     int effect = ctx->moveTbl[ctx->current_move_index].effect;
 
@@ -2901,14 +2899,11 @@ void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx
         ST_ServerTotteokiCountCalc(bsys, ctx); // 801B570h
     }
     ST_ServerMetronomeBeforeCheck(bsys, ctx); // 801ED20h
-
-      debug_printf("end ov12_0224C4D8 seq %d, nextseq %d\n", ctx->server_seq_no, ctx->next_server_seq_no);
 }
 
 
 void LONG_CALL ov12_0224C678(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    debug_printf("In ov12_0224C678\n");
 #ifdef DEBUG_BATTLE_SCENARIOS
     debug_printf("move %d damage roll %d%s\n", ctx->current_move_index, ctx->damage, (ctx->critical > 1) ? " (crit)" : "");
 #endif
@@ -2941,18 +2936,6 @@ void LONG_CALL ov12_0224C678(struct BattleSystem *bsys, struct BattleStruct *ctx
             ctx->next_server_seq_no = CONTROLLER_COMMAND_40;
         }
     }
-    /*
-
-    if (effect == MOVE_EFFECT_HIT_IN_3_TURNS) {
-        if (ctx->futureSightHitTurn == FALSE) {
-            ctx->next_server_seq_no = CONTROLLER_COMMAND_40;
-        } else {
-            //ctx->server_status_flag = BATTLE_STATUS_MOVE_SUCCESSFUL | BATTLE_STATUS_MOVE_ANIMATIONS_OFF | BATTLE_STATUS_MESSAGES_OFF;
-            //ctx->server_status_flag2 |= BATTLE_STATUS2_MOVE_SUCCEEDED;
-        }
-    }
-    */
-    debug_printf("end ov12_0224C678 seq %d, nextseq %d, server %d\n", ctx->server_seq_no, ctx->next_server_seq_no, ctx->server_status_flag);
 }
 
 

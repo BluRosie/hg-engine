@@ -3605,7 +3605,6 @@ BOOL BtlCmd_TryWish(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) 
 
 // TODO: Modernize damage
 BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    debug_printf("in BtlCmd_TryFutureSight\n");
     IncrementBattleScriptPtr(ctx, 1);
 
     int adrs = read_battle_script_param(ctx);
@@ -3617,8 +3616,6 @@ BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx) 
         ctx->fcc.future_prediction_wazano[ctx->defence_client] = ctx->current_move_index;
         ctx->fcc.future_prediction_client_no[ctx->defence_client] = ctx->attack_client;
         ctx->fcc.wish_sel_mons[ctx->attack_client] = ctx->sel_mons_no[ctx->attack_client];
-        debug_printf("attacker %d, selMon %d\n", ctx->attack_client, ctx->sel_mons_no[ctx->attack_client]);
-
 
         for (int i = 0; i < CLIENT_MAX * FUTURE_CONDITION_MAX; i++) {
             if (ctx->futureConditionQueue[i].conditionType.futureConditionType == FUTURE_CONDITION_NONE) {
@@ -3629,10 +3626,9 @@ BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx) 
             }
         }
     } else {
-        debug_printf("jump to failure\n");
         IncrementBattleScriptPtr(ctx, adrs);
     }
-    debug_printf("end BtlCmd_TryFutureSight\n");
+
     return FALSE;
 }
 
