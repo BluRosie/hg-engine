@@ -1843,7 +1843,10 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
 
     u8 attacker_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL));
     u8 attacker_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL));
-    u8 attacker_type_3 = sp->battlemon[attack_client].type3;
+    u8 attacker_type_3 = TYPE_TYPELESS;
+    if (attack_client != BATTLER_NONE) {
+        attacker_type_3 = sp->battlemon[attack_client].type3;
+    }
     u8 defender_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL));
     u8 defender_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL));
     u8 defender_type_3 = sp->battlemon[defence_client].type3;
@@ -1931,8 +1934,10 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
      && (base_power))
     {
         flag[0] |= MOVE_STATUS_FLAG_MISS_WONDER_GUARD;
-        sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
-        sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
+        if (attack_client != BATTLER_NONE) {
+            sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
+            sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
+        }
     }
     else
     {
@@ -2132,6 +2137,9 @@ BOOL BattleTryRun(void *bw, struct BattleStruct *sp, int battlerId) {
  *  @return TRUE if the move has positive priority after adjustments
  */
 BOOL LONG_CALL AdjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
+    if (attacker == BATTLER_NONE) {
+        return FALSE;
+    }
     return GetClientActionPriority(NULL, sp, attacker) > 0;
 }
 

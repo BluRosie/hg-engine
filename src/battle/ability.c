@@ -46,7 +46,8 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     int movetype;
 
     // trigger meloetta's relic song form transformation if possible
-    if ((sp->battlemon[attacker].species == SPECIES_MELOETTA)
+    if (attacker != BATTLER_NONE
+     && (sp->battlemon[attacker].species == SPECIES_MELOETTA)
      && (sp->battlemon[attacker].hp)
      && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
      && (sp->battlemon[attacker].form_no < 2))
