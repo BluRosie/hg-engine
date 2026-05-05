@@ -200,15 +200,17 @@ BOOL LONG_CALL AbilityNoTransform(int ability);
  */
 void __attribute__((section (".init"))) BattleController_BeforeMove(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 //#ifdef DEBUG_BEFORE_MOVE_LOGIC
-    debug_printf("In BattleController_BeforeMove %d, move %d\n", ctx->wb_seq_no, ctx->current_move_index);
+    debug_printf("In BattleController_BeforeMove %d, move %d, attacker %d\n", ctx->wb_seq_no, ctx->current_move_index, ctx->attack_client);
     //#endif
 
-    CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
+    if (ctx->attack_client != BATTLER_NONE) {
+        CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
+    }
 
 
     if (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
-        debug_printf("WAZA_STATUS_FLAG_NO_OUT set, check Metronome");
+        debug_printf("WAZA_STATUS_FLAG_NO_OUT set, check Metronome\n");
 #endif
         ctx->server_seq_no = CONTROLLER_COMMAND_26;
         ST_ServerMetronomeBeforeCheck(bsys, ctx);  // 801ED20h

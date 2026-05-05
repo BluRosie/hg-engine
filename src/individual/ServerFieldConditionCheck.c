@@ -363,7 +363,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     int side = IsClientEnemy(bw, sp->defence_client);
                                     sp->side_condition[side] |= SIDE_STATUS_FUTURE_SIGHT;
 
-                                    debug_printf("laod script\n");
+                                    debug_printf("load script\n");
                                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FUTURE_SIGHT_HIT);
                                     sp->waza_out_check_on_off |= (SYSCTL_SKIP_STATUS_CHECK | SYSCTL_SKIP_OBEDIENCE_CHECK | SYSCTL_SKIP_PP_DECREMENT);
                                     sp->next_server_seq_no = CONTROLLER_COMMAND_23;
