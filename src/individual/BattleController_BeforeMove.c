@@ -3398,7 +3398,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     u32 clientPosition = 0;
     u32 maxBattlers = BattleWorkClientSetMaxGet(bsys);
     u32 attackerSpecies = SPECIES_NONE;
-    u32 attackerItem = ITEM_NONE
+    u32 attackerItem = ITEM_NONE;
     if (ctx->attack_client != BATTLER_NONE) {
         attackerSpecies = ctx->battlemon[ctx->attack_client].species;
         attackerItem = ctx->battlemon[ctx->attack_client].item;
