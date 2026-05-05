@@ -228,9 +228,10 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_START\n");
 #endif
-
-            ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_DESTINY_BOND;
-            ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_GRUDGE;
+            if (ctx->attack_client != BATTLER_NONE) {
+                ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_DESTINY_BOND;
+                ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_GRUDGE;
+            }
             // reset new stuff here, because subscript is modified
             // ctx->battlemon[ctx->attack_client].moveeffect.custapBerryFlag = 0;
             // ctx->battlemon[ctx->attack_client].moveeffect.quickClawFlag = 0;
@@ -570,7 +571,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_CONSUME_MICLE_BERRY_FLAG\n");
 #endif
 
-            if (ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy) {
+            if (ctx->attack_client != BATTLER_NONE && ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy) {
                 ctx->boostedAccuracy = TRUE;
                 ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy = 0;
             }
