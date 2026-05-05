@@ -660,7 +660,7 @@ u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int at
  */
 u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, u32 ability)
 {
-    return MoldBreakerAbilityCheckInternal(attacker, defender, GetBattlerAbility(sp, attacker), GetBattlerAbility(sp, defender), sp->current_move_index, sp->moveTbl[sp->current_move_index].split, ability);
+    return MoldBreakerAbilityCheckInternal(attacker, defender, IsAttackerOnField(sp) ? GetBattlerAbility(sp, attacker) : ABILITY_NONE, GetBattlerAbility(sp, defender), sp->current_move_index, sp->moveTbl[sp->current_move_index].split, ability);
 }
 
 /**
