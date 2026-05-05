@@ -4354,4 +4354,6 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
 
 BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
 
+BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx);
+
 #endif // BATTLE_H

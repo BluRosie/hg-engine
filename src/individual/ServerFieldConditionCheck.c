@@ -356,7 +356,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     } else
                                     {
                                         debug_printf("No original attacker\n");
-                                        sp->attack_client = BATTLER_NONE;
+                                        sp->attack_client = attackerSlot;
                                         sp->futureSightNoAttacker = TRUE;
                                     }
 

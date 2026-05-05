@@ -1520,7 +1520,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
     int ability = ABILITY_NONE;
     int attackerHasLaserFocus = 0;
 
-    if (attacker != BATTLER_NONE) {
+    if (IsAttackerOnField(sp)) {
         item = GetBattleMonItem(sp, attacker);
         species = sp->battlemon[attacker].species;
         condition2 = sp->battlemon[attacker].condition2;
@@ -1568,7 +1568,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         multiplier = 3;
     }
 
-    if (multiplier > 1 && attacker != BATTLER_NONE) // log critical hits for current pokemon
+    if (multiplier > 1 && IsAttackerOnField(sp)) // log critical hits for current pokemon
     {
         sp->battlemon[attacker].critical_hits++;
         if (sp->battlemon[attacker].critical_hits == 3)
@@ -1844,7 +1844,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
     u8 attacker_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL));
     u8 attacker_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL));
     u8 attacker_type_3 = TYPE_TYPELESS;
-    if (attack_client != BATTLER_NONE) {
+    if (IsAttackerOnField(sp)) {
         attacker_type_3 = sp->battlemon[attack_client].type3;
     }
     u8 defender_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL));
@@ -1934,7 +1934,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
      && (base_power))
     {
         flag[0] |= MOVE_STATUS_FLAG_MISS_WONDER_GUARD;
-        if (attack_client != BATTLER_NONE) {
+        if (IsAttackerOnField(sp)) {
             sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
             sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
         }
@@ -2137,7 +2137,7 @@ BOOL BattleTryRun(void *bw, struct BattleStruct *sp, int battlerId) {
  *  @return TRUE if the move has positive priority after adjustments
  */
 BOOL LONG_CALL AdjustedMoveHasPositivePriority(struct BattleStruct *sp, int attacker) {
-    if (attacker == BATTLER_NONE) {
+    if (!IsAttackerOnField(sp)) {
         return FALSE;
     }
     return GetClientActionPriority(NULL, sp, attacker) > 0;
@@ -4203,4 +4203,14 @@ u32 LONG_CALL CheckSubstitute(struct BattleStruct* ctx, int client_no)
     }
 
     return ret;
+}
+
+BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx)
+{
+    if ((ctx->futureSightHitTurn && ctx->futureSightNoAttacker)
+       || (ctx->attack_client == BATTLER_NONE))
+    {
+        return FALSE;
+    }
+    return TRUE;
 }

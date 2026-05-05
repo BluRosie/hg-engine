@@ -135,12 +135,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        if (ctx->attack_client != BATTLER_NONE) {
+        if (IsAttackerOnField(ctx)) {
             debug_printf("in MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE (%d)+(%d)\n", ctx->store_damage[ctx->attack_client], ctx->hit_damage);
         }
 #endif
 
-        if (ctx->attack_client != BATTLER_NONE) {
+        if (IsAttackerOnField(ctx)) {
             ctx->store_damage[ctx->attack_client] += ctx->hit_damage;
         }
         ctx->swoam_seq_no++;
@@ -391,7 +391,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        if (ctx->attack_client != BATTLER_NONE) {
+        if (IsAttackerOnField(ctx)) {
             debug_printf("in MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE, storedDamage[%d] %d\n", ctx->attack_client, ctx->store_damage[ctx->attack_client]);
         }
 #endif
@@ -986,7 +986,8 @@ int LONG_CALL Activate_Rowap_Jaboca(void *bsys UNUSED, struct BattleStruct *ctx)
 
             case HOLD_EFFECT_RECOIL_SPECIAL: // Rowap Berry
                 // Attacker is alive after the attack
-                if ((ctx->battlemon[ctx->attack_client].hp)
+                if (IsAttackerOnField(ctx)
+                    && (ctx->battlemon[ctx->attack_client].hp)
                     // Attacker does not have Magic Guard
                     && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_MAGIC_GUARD)
                     // Attacker dealt special damage
@@ -1414,7 +1415,7 @@ int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *
 
 int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *sp)
 {
-    if (sp->attack_client != BATTLER_NONE
+    if (!IsAttackerOnField(sp)
         && GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE
         && sp->battlemon[sp->attack_client].sheer_force_flag == 1) { // skip over shell bell and life orb if sheer force is active
         return FALSE;
@@ -1465,7 +1466,7 @@ int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *s
 
 int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *ctx)
 {
-    if (ctx->attack_client == BATTLER_NONE) {
+    if (IsAttackerOnField(ctx)) {
         return FALSE;
     }
 
@@ -2065,7 +2066,7 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
 
 void LONG_CALL Activate_KO_Count(void *bsys UNUSED, struct BattleStruct *ctx)
 {
-    if (ctx->attack_client == BATTLER_NONE || (ctx->battlemon[ctx->attack_client].hp == 0)) {
+    if (!IsAttackerOnField(ctx) || (ctx->battlemon[ctx->attack_client].hp == 0)) { //TODO confirm
         return;
     }
 

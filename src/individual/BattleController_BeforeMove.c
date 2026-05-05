@@ -203,7 +203,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
     debug_printf("In BattleController_BeforeMove %d, move %d, attacker %d\n", ctx->wb_seq_no, ctx->current_move_index, ctx->attack_client);
     //#endif
 
-    if (ctx->attack_client != BATTLER_NONE) {
+    if (IsAttackerOnField(ctx)) {
         CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
     }
 
@@ -230,7 +230,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_START\n");
 #endif
-            if (ctx->attack_client != BATTLER_NONE) {
+            if (IsAttackerOnField(ctx)) {
                 ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_DESTINY_BOND;
                 ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_GRUDGE;
             }
@@ -573,7 +573,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_CONSUME_MICLE_BERRY_FLAG\n");
 #endif
 
-            if (ctx->attack_client != BATTLER_NONE && ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy) {
+            if (IsAttackerOnField(ctx) && ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy) {
                 ctx->boostedAccuracy = TRUE;
                 ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy = 0;
             }
@@ -1103,14 +1103,14 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
         case BEFORE_MOVE_STATE_GEM_ACTIVATION:
         {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
-            if (ctx->attack_client != BATTLER_NONE)
+            if (IsAttackerOnField(ctx))
                 debug_printf("In BEFORE_MOVE_STATE_GEM_ACTIVATION effect %d, type %d\n", HeldItemHoldEffectGet(ctx, ctx->attack_client), BattleItemDataGet(ctx, ctx->battlemon[ctx->attack_client].item, 2));
 #endif
-            if (ctx->attack_client != BATTLER_NONE)
+            if (IsAttackerOnField(ctx))
                 debug_printf("In BEFORE_MOVE_STATE_GEM_ACTIVATION effect %d, type %d, hit %d\n", HeldItemHoldEffectGet(ctx, ctx->attack_client), BattleItemDataGet(ctx, ctx->battlemon[ctx->attack_client].item, 2), IsAnyBattleMonHit(bsys, ctx));
             ctx->wb_seq_no++;
 
-            if (ctx->attack_client != BATTLER_NONE
+            if (IsAttackerOnField(ctx)
                 && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_POWERING_UP_MOVE_ONCE
                 && (BattleItemDataGet(ctx, ctx->battlemon[ctx->attack_client].item, 2) == ctx->move_type)
                 && (ctx->current_move_index < MOVE_WATER_PLEDGE || ctx->current_move_index > MOVE_GRASS_PLEDGE)
@@ -2116,7 +2116,7 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
     || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_DAZZLING)
     || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_ARMOR_TAIL))
     && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)) {
-        if (ctx->attack_client != BATTLER_NONE && ctx->clientPriority[ctx->attack_client] && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, attacker, defender)) {
+        if (IsAttackerOnField(ctx) && ctx->clientPriority[ctx->attack_client] && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, attacker, defender)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_USE_MOVE);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
@@ -2604,7 +2604,7 @@ BOOL CalcDamageAndSetMoveStatusFlags(struct BattleSystem *bsys, struct BattleStr
         // TODO: Use GetTypeEffectiveness
         ServerDoTypeCalcMod(bsys, ctx, ctx->current_move_index, ctx->move_type, ctx->attack_client, defender, ctx->damageForSpreadMoves[defender], &temp);
         ctx->moveStatusFlagForSpreadMoves[defender] = temp;
-        if (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_NOT_EFFECTIVE && ctx->attack_client != BATTLER_NONE) {
+        if (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_NOT_EFFECTIVE && IsAttackerOnField(ctx)) {
             ctx->moveOutCheck[ctx->attack_client].stoppedFromIneffective = TRUE;
         }
     }
@@ -2706,7 +2706,7 @@ BOOL BattleController_CheckAbilityFailures3(struct BattleSystem *bsys UNUSED, st
 BOOL BattleController_CheckTypeBasedMoveConditionImmunities1(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     int priority = 0;
-    if (ctx->attack_client != BATTLER_NONE)
+    if (IsAttackerOnField(ctx))
         priority = ctx->clientPriority[ctx->attack_client];
 
     // Dark-type Prankster immunity
@@ -3304,7 +3304,7 @@ BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct Battle
     // Apply accuracy / evasion modifiers
     if (!(ctx->waza_out_check_on_off & 0x20) 
         && defender != BATTLER_NONE 
-        && ctx->attack_client != BATTLER_NONE
+        && IsAttackerOnField(ctx)
         && BattleSystem_CheckMoveHit(bsys, ctx, ctx->attack_client, defender, ctx->current_move_index) == TRUE) {
         return FALSE;
     }
@@ -3399,7 +3399,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     u32 maxBattlers = BattleWorkClientSetMaxGet(bsys);
     u32 attackerSpecies = SPECIES_NONE;
     u32 attackerItem = ITEM_NONE;
-    if (ctx->attack_client != BATTLER_NONE) {
+    if (IsAttackerOnField(ctx)) {
         attackerSpecies = ctx->battlemon[ctx->attack_client].species;
         attackerItem = ctx->battlemon[ctx->attack_client].item;
     }
@@ -4103,7 +4103,7 @@ BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED, struc
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
 
     int attackerCondition = 0;
-    if (ctx->attack_client != BATTLER_NONE) {
+    if (IsAttackerOnField(ctx)) {
         attackerCondition = ctx->battlemon[ctx->attack_client].condition;
     }
 
@@ -4819,7 +4819,7 @@ BOOL LONG_CALL AbilityCantSupress(int ability) {
 }
 
 void BattleController_ResetGeneralMoveFailureFlags(struct BattleStruct *ctx, int attack_client, BOOL setsMoveConditionalFailureFlag) {
-    if (attack_client != BATTLER_NONE) {
+    if (IsAttackerOnField(ctx)) {
         ctx->oneTurnFlag[attack_client].parental_bond_flag = 0;
         ctx->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
 

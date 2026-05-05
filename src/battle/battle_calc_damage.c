@@ -31,7 +31,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
 
     BOOL isFutureSightWithoutAttacker = FALSE;
     int moveEffect = sp->moveTbl[moveno].effect;
-    if (attacker == BATTLER_NONE && moveEffect == MOVE_EFFECT_HIT_IN_3_TURNS) { // we set attacker to valid and overwrite stats afterwards
+    if (!IsAttackerOnField(sp) && moveEffect == MOVE_EFFECT_HIT_IN_3_TURNS) { // we set attacker to valid and overwrite stats afterwards
         attacker = sp->fcc.future_prediction_client_no[defender];
         isFutureSightWithoutAttacker = TRUE;
     }
@@ -352,7 +352,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 #endif
 
     // this is beacuse of weirdness, just make sure the value is correct at all times
-    if (attacker != BATTLER_NONE && sp->oneTurnFlag[attacker].parental_bond_flag) {
+    if (IsAttackerOnField(sp) && sp->oneTurnFlag[attacker].parental_bond_flag) {
 #ifdef DEBUG_DAMAGE_CALC
         debug_printf("[CalcBaseDamage] parental_bond_flag: %d\n", sp->oneTurnFlag[attacker].parental_bond_flag);
 #endif
