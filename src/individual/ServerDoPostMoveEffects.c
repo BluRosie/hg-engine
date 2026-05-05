@@ -124,7 +124,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             } else if (ctx->damage != 0 && CheckSubstitute(ctx, ctx->defence_client) == FALSE){
-                debug_printf("in MOVE_PERFORMANCE_STEP_4_DEAL_DAMAGE damage %d, defender %d\n", ctx->damage, ctx->defence_client);
                 ctx->battlerIdTemp = ctx->defence_client;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
                 ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1466,7 +1465,7 @@ int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *s
 
 int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *ctx)
 {
-    if (IsAttackerOnField(ctx)) {
+    if (!IsAttackerOnField(ctx)) {
         return FALSE;
     }
 

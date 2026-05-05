@@ -16,11 +16,6 @@
 
 // int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED,u32 field_cond, u16 pow UNUSED, u8 type UNUSED, u8 attacker, u8 defender, u8 critical) {
 int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *sp, struct DamageCalcStruct *damageCalc) {
-    debug_printf("CalcBaseDamageInternal\n");
-    debug_printf("damageCalc.clients[attacker].attack %d\n", damageCalc->clients[damageCalc->attacker].attack);
-    debug_printf("damageCalc.clients[attacker].defense %d\n", damageCalc->clients[damageCalc->attacker].defense);
-    debug_printf("damageCalc.clients[attacker].sp_attack %d\n", damageCalc->clients[damageCalc->attacker].sp_attack);
-    debug_printf("damageCalc.clients[attacker].sp_defense %d\n", damageCalc->clients[damageCalc->attacker].sp_defense);
     u32 i = 0;
     u32 attack;
     u32 defense;
