@@ -49,7 +49,7 @@ _WildDoublesMessage:
 
 _TotemEncounter:
     // You are challenged by Totem {0}!
-    PrintGlobalMessage 1610, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
+    PrintGlobalMessage 1723, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
     Wait
     WaitButtonABTime 30
     DoubleSize BATTLER_ENEMY
@@ -66,12 +66,12 @@ _TotemEncounter:
 
 _TotemSingleStatMessage:
     // {0}’s aura flared to life! Its {1} rose!
-    PrintGlobalMessage 1611, TAG_NICKNAME_STAT, BATTLER_CATEGORY_ENEMY, BATTLER_CATEGORY_MSG_TEMP
+    PrintGlobalMessage 1724, TAG_NICKNAME_STAT, BATTLER_CATEGORY_ENEMY, BATTLER_CATEGORY_MSG_TEMP
     GoTo _SendOutPokemonMessage
 
 _TotemMultiStatMessage:
     // {0}’s aura flared to life! Its stats rose!
-    PrintGlobalMessage 1612, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
+    PrintGlobalMessage 1725, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
 
 _SendOutPokemonMessage:
     Wait 

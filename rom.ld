@@ -855,3 +855,4 @@ GameStats_Inc = 0x0202D0FC | 1;
 StringExpandPlaceholders = 0x0200CBBC | 1;
 
 ov12_02256694 = 0x02256694 | 1;
+ov07_02233ECC = 0x02233ECC | 1;
