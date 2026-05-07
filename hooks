@@ -140,6 +140,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_CopyStatStages 02242510 3
 0012 BtlCmd_TryFaintMon 0223E22C 3
 0012 BtlCmd_TryRestoreStatusOnSwitch 022450B0 3
+0012 BtlCmd_TryConversion2 02240C98 3 
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -588,3 +589,10 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 
 # determine rock smash table to use for items
 0001 DetermineRockSmashItem_hook 02204E28 1
+
+0012 BattleSystem_GetCriticalHpMusicFlag 0223BD2C 1
+0012 BattleSystem_SetCriticalHpMusicFlag 0223BD3C 1
+
+0012 ov12_0224D23C 0224D23C 3
+0012 ov12_0224DD74 0224DD74 3
+0012 GetTypeEffectivenessData 0225260C 3
