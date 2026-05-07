@@ -4172,7 +4172,7 @@ u32 LONG_CALL CheckSubstitute(struct BattleStruct *ctx, int client_no)
 }
 
 u8 BattleSystem_GetCriticalHpMusicFlag(struct BattleSystem *battleSystem) {
-	#ifdef DISABLE_CRITICAL_HP_WARNING
+	#if DISABLE_CRITICAL_HP_WARNING == 1
 	return 2;
 	#else
 	return battleSystem->criticalHpMusic;
@@ -4180,7 +4180,7 @@ u8 BattleSystem_GetCriticalHpMusicFlag(struct BattleSystem *battleSystem) {
 }
 
 void BattleSystem_SetCriticalHpMusicFlag(struct BattleSystem *battleSystem, u8 flag) {
-	#ifdef DISABLE_CRITICAL_HP_WARNING
+	#if DISABLE_CRITICAL_HP_WARNING == 1
 	battleSystem->criticalHpMusic = 2;
 	#else
 	battleSystem->criticalHpMusic = flag;
