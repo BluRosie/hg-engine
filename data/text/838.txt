@@ -1,50 +1,50 @@
-An item to be held by a Pokémon.\nAttack and Sp. Atk sharply increase if the\nholder is hit with a move it’s weak to.
+An item to be held by a Pokémon.\nAttack and Sp. Atk sharply increase if\nthe holder is hit by a move it’s weak to.
 An item to be held by a Pokémon.\nThis offensive vest raises Sp. Def\nbut prevents the use of status moves.
 A device that allows you to view the\nhologram clips you have received at\nany time.
-A letter that Professor Sycamore wrote to\nyour mother. A faint but pleasant perfume\nseems to cling to the paper.
+A letter that Professor Sycamore wrote\nto your mother. A faint but pleasant\nperfume seems to cling to the paper.
 Attaches roller skates to the bottom\nof your shoes, allowing you to glide\nquickly around and perform tricks.
 An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Fairy-type moves.
 A capsule that allows a Pokémon to\nswitch its current Ability to the\nother Ability its species can have.
 A soft and sweet treat made of fluffy,\npuffy, whipped, and whirled cream.\nIt’s loved by a certain Pokémon.
 A sachet filled with fragrant perfumes\nthat are just slightly overwhelming.\nYet it’s loved by a certain Pokémon.
-An item to be held by a Pokémon.\nThis single-use moss boosts Sp. Def if\nthe holder is hit by a Water-type attack.
-An item to be held by a Pokémon.\nThis single-use snowball boosts Attack\nif the holder is hit by a Ice-type attack.
+An item to be held by a Pokémon.\nBoosts Sp. Def if the holder is hit by\na Water-type attack--but only once.
+An item to be held by a Pokémon.\nBoosts Attack if the holder is hit by\na Ice-type attack--but only once.
 An item to be held by a Pokémon.\nThese goggles protect the holder from\nboth weather-related damage and powder.
 A flute that can play with such a\nbeautiful tone that even sleeping\nPokémon find themselves woken up.
 A fertilizer for growing Berries. However,\nit appears to be unsuitable for the soil\nin the Johto region and has no effect.
 A fertilizer for growing Berries. However,\nit appears to be unsuitable for the soil\nin the Johto region and has no effect.
 A fertilizer for growing Berries. However,\nit appears to be unsuitable for the soil\nin the Johto region and has no effect.
 A fertilizer for growing Berries. However,\nit appears to be unsuitable for the soil\nin the Johto region and has no effect.
-One of a variety of mysterious Mega\nStones. A Gengar holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Gardevoir holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. An Ampharos holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Venusaur holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Charizard holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Blastoise holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Mewtwo holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Mewtwo holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Blaziken holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Medicham holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Houndoom holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. An Aggron holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Banette holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Tyranitar holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Scizor holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Pinsir holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. An Aerodactyl holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Lucario holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. An Abomasnow holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Kangaskhan holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Gyarados holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. An Absol holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Charizard holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. An Alakazam holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Heracross holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Mawile holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Manectric holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Garchomp holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Latias holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Latios holding this stone\nwill be able to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Gengar holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Gardevoir holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nAn Ampharos holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Venusaur holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Charizard holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Blastoise holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Mewtwo holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Mewtwo holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Blaziken holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Medicham holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Houndoom holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nAn Aggron holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Banette holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Tyranitar holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Scizor holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Pinsir holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nAn Aerodactyl holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Lucario holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nAn Abomasnow holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Kangaskhan holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Gyarados holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nAn Absol holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Charizard holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nAn Alakazam holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Heracross holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Mawile holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Manectric holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Garchomp holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Latias holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Latios holding this stone will be\nable to Mega Evolve during battle.
 If a Pokémon holding this Berry is hit\nwith a supereffective Fairy-type move,\nthe power of that move will be weakened.
 If a Pokémon holding this Berry is hit\nwith a physical move, the holder’s\nDefense stat will be boosted.
 If a Pokémon holding this Berry is hit\nwith a special move, the holder’s\nSp. Def stat will be boosted.
@@ -55,7 +55,7 @@ The user employs its psychic power\nto exchange abilities with the foe.
 The foe slams the target with its\nsteel-hard head. It may also make\nthe target flinch.
 The user tells the target a secret, and\nthe target loses its ability to concentrate.\nThis lowers the target’s Sp. Atk stat.
 This pass serves as an ID card for\ngaining access to the Power Plant\nthat lies along Route 13.
-This ring contains an untold power\nthat somehow enables Pokémon carrying\na Mega Stone to Mega Evolve in battle.
+This ring contains an untold power that\nsomehow enables Pokémon carrying a\nMega Stone to Mega Evolve in battle.
 A rather curious stone that\nmight appear valuable to some.\nIt’s all in the eye of the beholder.
 A perfectly normal stone that\nmight appear valuable to some.\nIt’s all in the eye of the beholder.
 This special coupon allows you to\nbuy items at a discount when you are\nshopping at a boutique.
@@ -103,33 +103,33 @@ A very cute dress to be worn during\nthe Contest Spectacular.
 A suit made with the collective\ntechnological know-how of Team Magma.\nIt can withstand any impact.
 A suit made with the collective\ntechnological know-how of Team Aqua.\nIt can withstand any impact.
 Tickets for two to the astronomical\nshow being held at the Mossdeep\nSpace Center.
-This bracelet contains an unknown power\nthat somehow enables a Pokémon carrying\na Mega Stone to Mega Evolve in battle.
-This necklace contains an unknown power\nthat somehow enables a Pokémon carrying\na Mega Stone to Mega Evolve in battle.
-These glasses contain an unknown power\nthat somehow enables a Pokémon carrying\na Mega Stone to Mega Evolve in battle.
-This anchor contains an unknown power\nthat somehow enables a Pokémon carrying\na Mega Stone to Mega Evolve in battle.
-This stickpin contains an unknown power\nthat somehow enables a Pokémon carrying\na Mega Stone to Mega Evolve in battle.
-This tiara contains an unknown power\nthat somehow enables a Pokémon carrying\na Mega Stone to Mega Evolve in battle.
-This anklet contains an unknown power\nthat somehow enables a Pokémon carrying\na Mega Stone to Mega Evolve in battle.
+This bracelet contains an untold power\nthat somehow enables Pokémon carrying\na Mega Stone to Mega Evolve in battle.
+This necklace contains an untold power\nthat somehow enables Pokémon carrying\na Mega Stone to Mega Evolve in battle.
+These glasses contain an untold power\nthat somehow enables Pokémon carrying\na Mega Stone to Mega Evolve in battle.
+This anchor contains an untold power\nthat somehow enables Pokémon carrying\na Mega Stone to Mega Evolve in battle.
+This stickpin contains an untold power\nthat somehow enables Pokémon carrying\na Mega Stone to Mega Evolve in battle.
+This tiara contains an untold power\nthat somehow enables Pokémon carrying\na Mega Stone to Mega Evolve in battle.
+This anklet contains an untold power\nthat somehow enables Pokémon carrying\na Mega Stone to Mega Evolve in battle.
 A meteorite that you got at Mt. Chimney.\nIt gives off a faint glow.
-One of a variety of mysterious Mega\nStones. A Swampert holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Sceptile holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Sableye holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. An Altaria holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Gallade holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. An Audino holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Metagross holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Sharpedo holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Slowbro holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Steelix holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Pidgeot holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Glalie holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Diancie holding this stone\nwill be able to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Swampert holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Sceptile holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Sableye holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nAn Altaria holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Gallade holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nAn Audino holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Metagross holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Sharpedo holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Slowbro holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Steelix holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Pidgeot holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Glalie holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Diancie holding this stone will be\nable to Mega Evolve during battle.
 A bottle believed to have been used\nto seal away the power of a certain\nPokémon long, long ago.
 This cuff contains an unknown power that\nsomehow enables a Pokémon carrying\na Mega Stone to Mega Evolve in battle.
-One of a variety of mysterious Mega\nStones. A Camerupt holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Lopunny holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Salamence holding this stone\nwill be able to Mega Evolve during battle.
-One of a variety of mysterious Mega\nStones. A Beedrill holding this stone\nwill be able to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Camerupt holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Lopunny holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Salamence holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Beedrill holding this stone will be\nable to Mega Evolve during battle.
 A meteorite that you got at Mt. Chimney.\nIt continues to give off a faint glow\nand is slightly warm to the touch.
 A meteorite that you got at Mt. Chimney.\nA pattern has risen to the surface,\nand it’s shining with rainbow-colored light.
 A stone filled with an unexplained power.\nIt makes Pokémon that battle with\na Mega Stone Mega Evolve.

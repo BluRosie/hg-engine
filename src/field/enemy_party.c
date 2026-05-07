@@ -16,6 +16,10 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "../../include/test_battle.h"
+#endif // DEBUG_BATTLE_SCENARIOS
+
 struct BattleSetup LONG_CALL *BattleSetup_New_Tutorial(u32 heapID, FieldSystem *fieldSystem);
 int LONG_CALL BattleSetup_GetWildTransitionEffect(struct BattleSetup *setup);
 int LONG_CALL BattleSetup_GetWildBattleMusic(struct BattleSetup *setup);
@@ -462,6 +466,17 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     // Override parties with test scenario if enabled
     TestBattle_OverrideParties(bp);
 #endif
+
+    // Change battle forms for player party
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 6; j++) {
+            struct PartyPokemon *mon = Party_GetMonByIndex(bp->poke_party[i], j);
+            if (mon != NULL) {
+                ChangeToBattleForm(mon);
+                RecalcPartyPokemonStats(mon);
+            }
+        }
+    }
 }
 
 extern u32 space_for_setmondata;
