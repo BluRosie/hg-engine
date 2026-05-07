@@ -16,7 +16,7 @@ const struct TestBattleScenario BattleTests[] = {
         .battleType = BATTLE_TYPE_DOUBLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
-        .terrain = PSYCHIC_TERRAIN,
+        .terrain = TERRAIN_NONE,
         .playerParty = {
             {
                 .species = SPECIES_DELPHOX,
@@ -36,7 +36,7 @@ const struct TestBattleScenario BattleTests[] = {
                 .form = 0,
                 .ability = ABILITY_TELEPATHY,
                 .item = ITEM_NONE,
-                .moves = { MOVE_SLEEP_TALK, MOVE_PSYCHIC, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_PSYCHIC, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -49,7 +49,7 @@ const struct TestBattleScenario BattleTests[] = {
         .enemyParty = {
             {
                 .species = SPECIES_ARCHALUDON,
-                .level = 70,
+                .level = 50,
                 .form = 0,
                 .ability = ABILITY_STAMINA,
                 .item = ITEM_SITRUS_BERRY,
@@ -88,9 +88,9 @@ const struct TestBattleScenario BattleTests[] = {
               },
             {
                 { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
+                { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
                 { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
-                { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
-                { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
+                { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -110,7 +110,7 @@ const struct TestBattleScenario BattleTests[] = {
             {
                 { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                 { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
