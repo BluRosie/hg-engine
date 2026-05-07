@@ -219,7 +219,7 @@
 #define VANILLA_MYTHICALS
 
 // DISABLE_CRITICAL_HP_WARNING should be used if you want to disable the warning whenever your pokemon is at critical health
-// comment out this line if you do not want this to happen
-#define DISABLE_CRITICAL_HP_WARNING
+// change this value to 0 if you do not want this to happen
+#define DISABLE_CRITICAL_HP_WARNING 1
 
 #endif
