@@ -205,7 +205,12 @@ HeldItemHealCheck = 0x02254E7C | 1;
 HeldItemHoldEffectGet = 0x02255830 | 1;
 HeldItemAtkGet = 0x02255844 | 1;
 IsMovingAfterClient = 0x0225561C | 1;
-CheckSubstitute = 0x02256838 | 1;
+GetHeldItemFlingEffect = 0x022558D0 | 1;
+GetHeldItemFlingPower = 0x022558F8 | 1;
+GetHeldItemModifier = 0x02255844 | 1;
+GetNaturalGiftPower = 0x02255890 | 1;
+GetNaturalGiftType = 0x022558A4 | 1;
+
 GetArceusType = 0x02071C28 | 1;
 BattleWorkBattleStatusFlagGet = 0x0223B514 | 1;
 PokeParaGiratinaFormChange = 0x02071CA0 | 1;
@@ -242,7 +247,6 @@ CreateNicknameTag = 0x022522E0 | 1;
 JumpToMoveEffectScript = 0x02245518 | 1;
 BGCallback_Waza = 0x0226748C | 1;
 TryEatOpponentBerry = 0x02255A2C | 1;
-TryFling = 0x02255F7C | 1;
 
 /* Trainer data expansion */
 gf_get_seed = 0x0201FD2C | 1;
@@ -465,6 +469,7 @@ BattleWorkClientParamGet = 0x0223A7E8 | 1;
 BattleStructureInit = 0x02250F44 | 1;
 BattleStructureCounterInit = 0x02251038 | 1;
 ServerMoveAIInit = 0x0224E384 | 1;
+BattleSystem_GetBattleMon = 0x0224E4FC | 1;
 DumpMoveTableData = 0x02073300 | 1;
 
 GF_ExpHeap_FndGetTotalFreeSize = 0x0201ABEC | 1;
@@ -587,6 +592,13 @@ GrabTimeOfDayFileAdjustment = 0x0223B52C | 1;
 gAnimScrTable = 0x02234DE8;
 DrawFrameAndWindow2	= 0x0200E998 | 1;
 AddWindowParameterized = 0x0201D40C | 1;
+SetBgPriority = 0x0201BB68 | 1;
+ov12_0223C224 = 0x0223C224 | 1;
+ov12_0223C4E8 = 0x0223C4E8 | 1;
+sub_0200E398 = 0x0200E398 | 1;
+sub_0200E5D4 = 0x0200E5D4 | 1;
+TextPrinterCheckActive = 0x02020094 | 1;
+sub_0200E3D8 = 0x0200E3D8 | 1;
 
 TryAppendMonMove = 0x0207137C | 1;
 
@@ -664,7 +676,6 @@ BattleSystem_CheckMoveHit = 0x0224BCC4 | 1;
 ov12_0224B498 = 0x0224B498 | 1;
 ov12_0224BC2C = 0x0224BC2C | 1;
 
-GetNaturalGiftType = 0x022558A4 | 1;
 
 BattleContext_CheckMoveImprisoned = 0x02252C74 | 1;
 BattleContext_CheckMoveUnuseableInGravity = 0x02252DC4 | 1;
@@ -684,6 +695,7 @@ sHoneyGatherChanceTable = 0x0226CA58;
 
 sPlayerBattleCommands = 0x0226CA90;
 BattleSystem_GetBattleOutcomeFlags = 0x0223BD14 | 1;
+BattleSystem_SetBattleOutcomeFlags = 0x0223BD20 | 1;
 ov12_022639B8 = 0x022639B8 | 1;
 
 FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom = 0x02067584 | 1;
@@ -707,6 +719,8 @@ Heap_FreeExplicit = 0x0201AB80 | 1;
 BattleControllerPlayer_ItemInput = 0x0224AAF0 | 1;
 BattleControllerPlayer_PokemonInput = 0x0224AC50 | 1;
 BattleControllerPlayer_RunInput = 0x0224AC94 | 1;
+BattleController_EmitHealthbarUpdate = 0x02263488 | 1;
+BattleController_EmitMonFlicker = 0x0226346C | 1;
 BattleMon_GetMoveIndex = 0x02251C60 | 1;
 CheckTruant = 0x02252C40 | 1;
 CopyBattleMonToPartyMon = 0x02250C40 | 1;
@@ -717,7 +731,6 @@ CanSwitchMon = 0x02252890 | 1;
 BattleMon_AddVar = 0x0224F7AC | 1;
 GetFlavorPreferenceFromPID = 0x020718E8 | 1;
 
-ov12_0224DD74 = 0x0224DD74 | 1;
 ov12_02261258 = 0x02261258 | 1;
 //ov12_02252D14 = 0x02252D14 | 1;
 
@@ -793,11 +806,14 @@ Task_TutorialBattle = 0x0205128C | 1;
 
 GetItemAttrSub = 0x02077E48 | 1;
 
+gSystem = 0x021D110C;
 
 InitBattleMsgData = 0x022478F4 | 1;
 InitBattleMsg = 0x022479C0 | 1;
 BattleController_EmitPrintMessage = 0x022633F0 | 1;
 BattleController_EmitPrintAttackMessage = 0x022633B8 | 1;
+
+BattleScriptGetVarPointer = 0x02245528 | 1;
 
 Mon_UpdateRotomForm	= 0x02071EC0 | 1;
 
@@ -831,7 +847,11 @@ sButtonWindowTemplates = 0x02101654;
 sButtonWindowIDs = 0x021016B4;
 PartyMenu_DisableMainScreenBlend_AfterYesNo = 0x0207CB90 | 1;
 sBattleBgProfileTable = 0x0226E70C;
+UpdateFriendshipFainted = 0x02248558 | 1;
 
 Save_GameStats_Get = 0x0202CF54 | 1;
 GameStats_Inc = 0x0202D0FC | 1;
 
+StringExpandPlaceholders = 0x0200CBBC | 1;
+
+ov12_02256694 = 0x02256694 | 1;

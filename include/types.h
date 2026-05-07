@@ -78,7 +78,7 @@ VecFx32;
 #define FALLTHROUGH __attribute__ ((fallthrough))
 #define PACKED __attribute__((packed))
 
-#ifdef NOCASH_GBA_PRINT
+#if defined(NOCASH_GBA_PRINT) && !defined (DEBUG_BATTLE_SCENARIOS)
 #define NOCASHGBAIDADDR 0x04FFFA00
 #define NOCASHGBAPRINTADDR1 0x04FFFA14 // does not automatically add the newline
 #define NOCASHGBAPRINTADDR2 0x04FFFA18 // does automatically add the newline
@@ -228,6 +228,10 @@ static inline void GXS_SetVisibleWnd(int window) {
 static inline u16 PAD_Read(void) {
     return (u16)(((reg_PAD_KEYINPUT | *(vu16 *)HW_BUTTON_XY_BUF) ^
                   (PAD_PLUS_KEY_MASK | PAD_BUTTON_MASK)) & (PAD_PLUS_KEY_MASK | PAD_BUTTON_MASK));
+}
+
+static inline void G2_SetBG0Priority(int priority) {
+    reg_G2_BG0CNT = (u16)((reg_G2_BG0CNT & ~0x3) | (priority << 0));
 }
 
 #define RGB(r, g, b) (((b & 0x1F) << 10) | ((g & 0x1F) << 5) | (r & 0x1F))

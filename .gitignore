@@ -32,6 +32,7 @@ dumpitem.py
 /tools/genbabymondata
 /tools/gendexsortlists
 /tools/btx0topng
+/tools/btx
 /tools/gentutormovedata
 /tools/gengfxicons.exe
 /tools/genevodatatxt
@@ -81,6 +82,9 @@ armips/asm/offset.s
 .vscode/
 rom_gen*.ld
 .idea/
+.zed
+compile_commands.json
+CLAUDE.md
 
 sdat/*
 *.swav
@@ -98,3 +102,5 @@ changelog
 /data/generated/
 /armips/include/generated/
 /include/constants/generated/
+test_logs.txt
+.scratch/

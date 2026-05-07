@@ -86,8 +86,8 @@ we need to change ldrb -> ldrh (and strb -> strh) when applicable as well
 
 // btl_scr_cmd_d1_trynaturalcure
 // already handled because of hooked change
-.org 0x02245148
-.word ABILITY_OFFSET_WITHIN_BATTLESTRUCT
+//.org 0x02245148
+//.word ABILITY_OFFSET_WITHIN_BATTLESTRUCT
 
 
 // MessageParamTokuseiGet

@@ -316,14 +316,6 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
     return FALSE;
 }
 
-BOOL ScrCmd_BufferItemName(SCRIPTCONTEXT *ctx) {
-    MessageFormat **msgFmt = FieldSysGetAttrAddr(ctx->fsys, 16);
-    u8 idx = ScriptReadByte(ctx);
-    u16 itemId = ScriptGetVar(ctx);
-    BufferItemNameGiveItem(*msgFmt, idx, itemId);
-    return FALSE;
-}
-
 BOOL ScrCmd_WildBattle(SCRIPTCONTEXT *ctx) {
     u32 *winFlag = FieldSysGetAttrAddr(ctx->fsys, 24); // SCRIPTENV_BATTLE_WIN_FLAG = 24
     u16 species = ScriptGetVar(ctx);
