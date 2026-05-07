@@ -70,6 +70,8 @@
 // commenting this line out disables critical captures
 #define IMPLEMENT_CRITICAL_CAPTURE
 
+// if critical capture generation is 9 or above, then the critical capture animation will be triggered if the mon is going to be caught and has already been caught.
+// this will also make the critical capture species only count the regional dex species.
 #define CRITICAL_CAPTURE_GENERATION GEN_LATEST
 
 // IMPLEMENT_NEW_EV_IV_VIEWER defines whether or not pressing L, R, or Select in the pokémon summaries will display EV's, IV's, or the raw stat
