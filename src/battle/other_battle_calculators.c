@@ -1545,7 +1545,6 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 
 void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    debug_printf("ServerHPCalc, server %d\n", ctx->server_status_flag);
     u32 ovyId = OVERLAY_SERVERHPCALC;
     u32 offset = 0x023C0400 | 1;
 
