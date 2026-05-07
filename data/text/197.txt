@@ -1468,7 +1468,7 @@ Fog crept up as thick as soup!
 A veil of water restored\n{STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe wild {STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe opposing {STRVAR_1 1, 0, 0}’s HP!
-The effects of the weather\ndisappeared.
+The effects of the weather disappeared.
 {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The wild {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The opposing {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
@@ -1721,4 +1721,7 @@ The wild {STRVAR_1 1, 0, 0}\nheld up its Red Card against\f{STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}\nheld up its Red Card against\fthe wild {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\nheld up its Red Card against\f{STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\nheld up its Red Card against\fthe opposing {STRVAR_1 1, 1, 0}!
-
+You are challenged by Totem\n{STRVAR_1 1, 0, 0}!
+{STRVAR_1 1, 0, 0}’s aura flared to life!\nIts {STRVAR_1 13, 1, 0} rose!
+{STRVAR_1 1, 0, 0}’s aura flared to life!\nIts stats rose!
+Can’t flee this fight!

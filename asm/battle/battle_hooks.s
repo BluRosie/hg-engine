@@ -742,3 +742,43 @@ bx   r3
 .pool
 
 // End missingno hooks
+
+.global GetPokemon_CheckIfTrainer_hook
+GetPokemon_CheckIfTrainer_hook:
+ldr r0, [r4]
+bl ShouldPreventMonCapture
+cmp r0, #0
+beq _returnTo02246728
+ldr r0, =0x02246710 | 1
+bx r0
+
+_returnTo02246728:
+ldr r0, =0x02246728 | 1
+bx r0
+
+.pool
+
+.global GetPokemon_BallBlocked_hook
+GetPokemon_BallBlocked_hook:
+ldr r0, [r4, #8]
+bl ov07_02233ECC
+ldr r0, [r4, #0]
+bl BattleTypeGet
+movs r1, #1
+lsl r1, r1, #0xe // BATTLE_TYPE_TOTEM = 1 << 14
+tst r0, r1 // if (BattleSystem_GetBattleType(data->battleSystem) & BATTLE_TYPE_TOTEM)
+beq _returnTo02247216
+add r0, r4, #0
+bl PrintTotemDodgeMessage
+add sp, #0x158
+pop {r3, r4, r5, r6, r7, pc}
+_returnTo02247216:
+ldr r1, [pc, #0x170]
+add r0, sp, #0x78
+strh r1, [r0, #2]
+movs r1, #0
+strb r1, [r0, #1]
+ldr r0, =0x02247216 | 1
+bx r0
+
+.pool

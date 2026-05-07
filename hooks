@@ -553,6 +553,7 @@ arm9 ScrCmd_MartBuy 02048060 1
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
 
 arm9 SetupAndStartTutorialBattle 02051334 1
+arm9 ScrCmd_WildBattle 02043E5C 1
 
 # handle missingno in 1vX battles
 0012 BattleControllerPlayer_GetBattleMon 0224873C 2
@@ -600,3 +601,6 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 ov12_0224D23C 0224D23C 3
 0012 ov12_0224DD74 0224DD74 3
 0012 GetTypeEffectivenessData 0225260C 3
+
+0012 GetPokemon_CheckIfTrainer_hook 2246704 0
+0012 GetPokemon_BallBlocked_hook 22471EC 0
