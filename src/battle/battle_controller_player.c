@@ -15,7 +15,7 @@
 #if defined (DISABLE_ITEMS_IN_TRAINER_BATTLE)
 void overrideItemUsage(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    BattleMessage mp;
+    BattleMessage msg;
     int battlerId;
     u32 fight_type = BattleTypeGet(bsys);
 
@@ -25,9 +25,9 @@ void overrideItemUsage(struct BattleSystem *bsys, struct BattleStruct *ctx)
         {
             if (fight_type & BATTLE_TYPE_TRAINER)
             {
-                mp.id = BATTLE_MSG_ITEMS_CANT_BE_USED_HERE; //msg.id  = msg_0197_00593; // Items can't be used here
-                mp.tag = TAG_NONE;
-                ov12_022639B8(bsys, battlerId, mp);
+                msg.id = BATTLE_MSG_ITEMS_CANT_BE_USED_HERE; //msg.id  = msg_0197_00593; // Items can't be used here
+                msg.tag = TAG_NONE;
+                ov12_022639B8(bsys, battlerId, msg);
                 ctx->com_seq_no[battlerId] = SSI_STATE_15;
                 ctx->ret_seq_no[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;
             }
@@ -38,7 +38,7 @@ void overrideItemUsage(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
 void overrideRunButton(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    MESSAGE_PARAM mp;
+    BattleMessage msg;
     int battlerId;
     u32 fight_type = BattleTypeGet(bsys);
 
@@ -50,9 +50,9 @@ void overrideRunButton(struct BattleSystem *bsys, struct BattleStruct *ctx)
             {
                 if (fight_type & BATTLE_TYPE_TOTEM)
                 {
-                    mp.msg_id = 1613; // Can't flee this fight!
-                    mp.msg_tag = TAG_NONE;
-                    ov12_022639B8(bsys, battlerId, mp);
+                    msg.id = 1613; // Can't flee this fight!
+                    msg.tag = TAG_NONE;
+                    ov12_022639B8(bsys, battlerId, msg);
                     ctx->com_seq_no[battlerId] = SSI_STATE_15;
                     ctx->ret_seq_no[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;
                 }
