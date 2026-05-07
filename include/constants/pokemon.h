@@ -104,4 +104,7 @@
 #define NATURE_CAREFUL (23)
 #define NATURE_QUIRKY  (24)
 
+// start of the overworld tags for mon followers
+#define MON_OVERWORLD_TAG_START (1050)
+
 #endif

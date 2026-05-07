@@ -7454,7 +7454,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_DEOXYS_ATTACK] = {
+    [SPECIES_496] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7469,7 +7469,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_DEOXYS_DEFENSE] = {
+    [SPECIES_497] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7484,7 +7484,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_DEOXYS_SPEED] = {
+    [SPECIES_498] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7499,7 +7499,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_WORMADAM_SANDY] = {
+    [SPECIES_499] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7514,7 +7514,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_WORMADAM_TRASHY] = {
+    [SPECIES_500] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7529,7 +7529,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_GIRATINA_ORIGIN] = {
+    [SPECIES_501] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7544,7 +7544,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_SHAYMIN_SKY] = {
+    [SPECIES_502] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7559,7 +7559,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_ROTOM_HEAT] = {
+    [SPECIES_503] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7574,7 +7574,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_ROTOM_WASH] = {
+    [SPECIES_504] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7589,7 +7589,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_ROTOM_FROST] = {
+    [SPECIES_505] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7604,7 +7604,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_ROTOM_FAN] = {
+    [SPECIES_506] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -7619,7 +7619,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         .terminator = 0,
     },
 
-    [SPECIES_ROTOM_MOW] = {
+    [SPECIES_507] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },

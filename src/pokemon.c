@@ -1589,6 +1589,19 @@ u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp)
     return GrabSexFromSpeciesAndForm(species, pid, form);
 }
 
+static u16 sSpeciesToFemaleMapping[][2] = {
+    {SPECIES_VENUSAUR, SPECIES_VENUSAUR_OVERWORLD_FEMALE},
+    {SPECIES_PIKACHU, SPECIES_PIKACHU_OVERWORLD_FEMALE},
+    {SPECIES_EEVEE, SPECIES_EEVEE_OVERWORLD_FEMALE},
+    {SPECIES_MEGANIUM, SPECIES_MEGANIUM_OVERWORLD_FEMALE},
+    {SPECIES_WOBBUFFET, SPECIES_WOBBUFFET_OVERWORLD_FEMALE},
+    {SPECIES_STEELIX, SPECIES_STEELIX_OVERWORLD_FEMALE},
+    {SPECIES_HERACROSS, SPECIES_HERACROSS_OVERWORLD_FEMALE},
+    {SPECIES_COMBEE, SPECIES_COMBEE_OVERWORLD_FEMALE},
+    {SPECIES_HIPPOPOTAS, SPECIES_HIPPOPOTAS_OVERWORLD_FEMALE},
+    {SPECIES_HIPPOWDON, SPECIES_HIPPOWDON_OVERWORLD_FEMALE},
+};
+
 /**
  *  @brief get the pokémon overworld tag from species, form, and gender
  *
@@ -1599,22 +1612,43 @@ u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp)
  */
 u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
 {
-    u32 adjustment = 0, ret = 0;
-    u8 maxForm = 0;
-    if (species > SPECIES_FINNEON) // split between 0x1AC and 0x1E4
-    {
+    u32 ret = 0, maxForm = 0, femaleMatters = FALSE, realSpecies = 0;
+/*
+    if (species > SPECIES_FINNEON) { // split between 0x1AC and 0x1E4
         adjustment = 0x1E4;
     }
-    else
-    {
+    else {
         adjustment = 0x1AC;
     }
+*/
 
-    ret = GetPokemonOwNum(species) + adjustment;
+    realSpecies = GetSpeciesBasedOnForm(species, form);
+	ret = MON_OVERWORLD_TAG_START;
 
     ArchiveDataLoadOfs(&maxForm, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON, sizeof(u8)*species, sizeof(u8));
+	ArchiveDataLoadOfs(&femaleMatters, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON, sizeof(u8)*species, sizeof(u8));
 
-    if (species == SPECIES_PIKACHU) // pikachu forms take gender adjustment into account and are looser with restrictions
+	if (form != 0 && form <= maxForm) { // invalid form just loads bulbasaur
+		ret++;
+	} else if (form != 0) {
+		ret += realSpecies;
+	} else if (isFemale == TRUE && femaleMatters == TRUE) {
+		u32 i;
+		for (i = 0; i < NELEMS(sSpeciesToFemaleMapping); i++) {
+			if (species == sSpeciesToFemaleMapping[i][0]) {
+				ret += sSpeciesToFemaleMapping[i][1];
+				break;
+			}
+		}
+		if (NELEMS(sSpeciesToFemaleMapping) == i) {
+			ret += species;
+		}
+	} else { // default handling.  is technically the same as form != 0 but gender handling has to go between form and default handling
+		ret += species;
+	}
+
+/* old handling below.  getting rid of this for ease of editing
+	if (species == SPECIES_PIKACHU) // pikachu forms take gender adjustment into account and are looser with restrictions
     {
         if (isFemale || form) // both female pikachu and those with forms will need this adjustment
             ret++;
@@ -1631,6 +1665,7 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
         ret += form;
     else if (isFemale && gDimorphismTable[species-1])
         ret += isFemale;
+*/
 
     return ret;
 }

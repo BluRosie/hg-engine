@@ -27777,7 +27777,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_DEOXYS_ATTACK] = {
+    [SPECIES_496] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",
@@ -27833,7 +27833,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_DEOXYS_DEFENSE] = {
+    [SPECIES_497] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",
@@ -27889,7 +27889,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_DEOXYS_SPEED] = {
+    [SPECIES_498] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",
@@ -27945,7 +27945,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_WORMADAM_SANDY] = {
+    [SPECIES_499] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",
@@ -28001,7 +28001,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_WORMADAM_TRASHY] = {
+    [SPECIES_500] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",
@@ -28057,7 +28057,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_GIRATINA_ORIGIN] = {
+    [SPECIES_501] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",
@@ -28113,7 +28113,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_SHAYMIN_SKY] = {
+    [SPECIES_502] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",
@@ -28169,7 +28169,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ROTOM_HEAT] = {
+    [SPECIES_503] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",
@@ -28225,7 +28225,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ROTOM_WASH] = {
+    [SPECIES_504] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",
@@ -28281,7 +28281,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ROTOM_FROST] = {
+    [SPECIES_505] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",
@@ -28337,7 +28337,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ROTOM_FAN] = {
+    [SPECIES_506] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",
@@ -28393,7 +28393,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ROTOM_MOW] = {
+    [SPECIES_507] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "-----",

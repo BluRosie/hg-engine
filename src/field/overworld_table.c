@@ -1,4 +1,5 @@
 #include "../../include/constants/file.h"
+#include "../../include/constants/pokemon.h"
 #include "../../include/constants/species.h"
 #include "../../include/pokemon.h"
 #include "../../include/types.h"
@@ -8,16 +9,22 @@
 #define OVERWORLD_SIZE_LARGE           0x5208
 
 /*
- *  if you would like to add new overworlds, go to
+ *  if you would like to add new npc overworlds, go to
  *  https://ds-pokemon-hacking.github.io/docs/generation-iv/guides/hgss-new_overworlds/
  */
 
-#define NEW_NPC_START     7000
-#define NEW_NPC_GFX_START 1553 // exact number may depend--it is the number of the first overworld gfx that is not used in the overworld table
-#define NEW_NPC_ENTRY(num)                                                               \
-    {                                                                                    \
-        .tag = NEW_NPC_START + num, .gfx = NEW_NPC_GFX_START + num, .callback_params = 0 \
-    }
+// this should stay the same
+#define NEW_NPC_GFX_START (297)
+#define NEW_NPC_TAG_START (7000)
+
+#define NEW_NPC_ENTRY(num) \
+    { .tag = NEW_NPC_TAG_START + num, .gfx = NEW_NPC_GFX_START + num, .callback_params = 0 },
+
+// adjust this depending on the amount of new npc's that you have added
+#define MON_OVERWORLD_GFX_START (297)
+
+#define MON_FOLLOWER_ENTRY(species, cbparams) \
+    { .tag = MON_OVERWORLD_TAG_START + species, .gfx = MON_OVERWORLD_GFX_START + species, .callback_params = cbparams },
 
 struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts that are specifically for pokémon
     {
@@ -303,7 +310,7 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
 
         // npc mons
 
-        { .tag = 994, .gfx = 309, .callback_params = OVERWORLD_SIZE_SMALL },
+        { .tag = MON_OVERWORLD_TAG_START, .gfx = 309, .callback_params = OVERWORLD_SIZE_SMALL },
         { .tag = 995, .gfx = 313, .callback_params = OVERWORLD_SIZE_SMALL },
         { .tag = 996, .gfx = 316, .callback_params = OVERWORLD_SIZE_SMALL },
         { .tag = 997, .gfx = 318, .callback_params = OVERWORLD_SIZE_SMALL },

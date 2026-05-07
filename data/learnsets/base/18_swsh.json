@@ -39014,7 +39014,7 @@
       "MOVE_EXPANDING_FORCE"
     ]
   },
-  "SPECIES_GIRATINA_ORIGIN": {
+  "SPECIES_501": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -39127,7 +39127,7 @@
       "MOVE_DUAL_WINGBEAT"
     ]
   },
-  "SPECIES_ROTOM_HEAT": {
+  "SPECIES_503": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -39224,7 +39224,7 @@
       "MOVE_POLTERGEIST"
     ]
   },
-  "SPECIES_ROTOM_WASH": {
+  "SPECIES_504": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -39321,7 +39321,7 @@
       "MOVE_POLTERGEIST"
     ]
   },
-  "SPECIES_ROTOM_FROST": {
+  "SPECIES_505": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -39418,7 +39418,7 @@
       "MOVE_POLTERGEIST"
     ]
   },
-  "SPECIES_ROTOM_FAN": {
+  "SPECIES_506": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -39515,7 +39515,7 @@
       "MOVE_POLTERGEIST"
     ]
   },
-  "SPECIES_ROTOM_MOW": {
+  "SPECIES_507": {
     "LevelMoves": [
       {
         "Level": 1,

@@ -19346,7 +19346,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_DEOXYS_ATTACK] = {
+    [SPECIES_496] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -19385,7 +19385,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_DEOXYS_DEFENSE] = {
+    [SPECIES_497] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -19424,7 +19424,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_DEOXYS_SPEED] = {
+    [SPECIES_498] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -19463,7 +19463,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_WORMADAM_SANDY] = {
+    [SPECIES_499] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -19502,7 +19502,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_WORMADAM_TRASHY] = {
+    [SPECIES_500] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -19541,7 +19541,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_GIRATINA_ORIGIN] = {
+    [SPECIES_501] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -19580,7 +19580,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_SHAYMIN_SKY] = {
+    [SPECIES_502] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -19619,7 +19619,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_ROTOM_HEAT] = {
+    [SPECIES_503] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -19658,7 +19658,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_ROTOM_WASH] = {
+    [SPECIES_504] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -19697,7 +19697,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_ROTOM_FROST] = {
+    [SPECIES_505] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -19736,7 +19736,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_ROTOM_FAN] = {
+    [SPECIES_506] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -19775,7 +19775,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 1,
     },
-    [SPECIES_ROTOM_MOW] = {
+    [SPECIES_507] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
