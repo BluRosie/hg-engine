@@ -111,7 +111,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Duraludon took the Future Sight attack!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 89, 90, 91, 93, 93, 94, 96, 96, 98, 99, 99, 101, 102, 103, 104, 105 } },
         },
-        .knownFailing = TRUE;
+        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
