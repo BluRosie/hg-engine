@@ -55,7 +55,7 @@ const struct TestBattleScenario BattleTests[] = {
                 .item = ITEM_SITRUS_BERRY,
                 .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
-                .status = 0,
+                .status = STATUS_BURN,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
