@@ -345,8 +345,8 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     if (sp->fcc.wish_sel_mons[attackerSlot] == sp->sel_mons_no[attackerSlot])
                                     {
                                         sp->attack_client = attackerSlot;
-                                    }
-                                    else if (sp->fcc.wish_sel_mons[attackerSlot] == sp->sel_mons_no[attackerAlly])
+                                    } else if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI))
+                                        && (sp->fcc.wish_sel_mons[attackerSlot] == sp->sel_mons_no[attackerAlly]))
                                     {
                                         sp->attack_client = attackerAlly;
                                     } else
