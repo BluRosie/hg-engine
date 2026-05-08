@@ -882,10 +882,10 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
         { .tag = 938, .gfx = 744, .callback_params = OVERWORLD_SIZE_SMALL }, // SPECIES_BASTIODON
         { .tag = 939, .gfx = 745, .callback_params = OVERWORLD_SIZE_SMALL }, // SPECIES_BURMY
         { .tag = 940, .gfx = 746, .callback_params = OVERWORLD_SIZE_SMALL }, // sandy
-        { .tag = 941, .gfx = 747, .callback_params = OVERWORLD_SIZE_SMALL }, // trash
+        { .tag = 941, .gfx = 747, .callback_params = OVERWORLD_SIZE_SMALL }, // trashy
         { .tag = 942, .gfx = 748, .callback_params = OVERWORLD_SIZE_SMALL }, // SPECIES_WORMADAM
         { .tag = 943, .gfx = 749, .callback_params = OVERWORLD_SIZE_SMALL }, // sandy
-        { .tag = 944, .gfx = 750, .callback_params = OVERWORLD_SIZE_SMALL }, // trash
+        { .tag = 944, .gfx = 750, .callback_params = OVERWORLD_SIZE_SMALL }, // trashy
         { .tag = 945, .gfx = 751, .callback_params = OVERWORLD_SIZE_SMALL }, // SPECIES_MOTHIM
         { .tag = 946, .gfx = 752, .callback_params = OVERWORLD_SIZE_SMALL }, // SPECIES_COMBEE
         { .tag = 947, .gfx = 753, .callback_params = OVERWORLD_SIZE_SMALL }, // female
@@ -1377,7 +1377,7 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
         { .tag = 1484, .gfx = 1156, .callback_params = OVERWORLD_SIZE_SMALL }, // SPECIES_TYPE_NULL
         { .tag = 1485, .gfx = 1157, .callback_params = OVERWORLD_SIZE_SMALL }, // SPECIES_SILVALLY
         { .tag = 1486, .gfx = 1413, .callback_params = OVERWORLD_SIZE_SMALL }, // fight
-        { .tag = 1487, .gfx = 1414, .callback_params = OVERWORLD_SIZE_SMALL }, // flying
+        { .tag = 1487, .gfx = 1414, .callback_params = OVERWORLD_SIZE_SMALL }, // fly
         { .tag = 1488, .gfx = 1415, .callback_params = OVERWORLD_SIZE_SMALL }, // poison
         { .tag = 1489, .gfx = 1416, .callback_params = OVERWORLD_SIZE_SMALL }, // ground
         { .tag = 1490, .gfx = 1417, .callback_params = OVERWORLD_SIZE_SMALL }, // rock
