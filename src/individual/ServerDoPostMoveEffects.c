@@ -1603,7 +1603,7 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
 
 int LONG_CALL Activate_FormChange(void *bsys, struct BattleStruct *ctx)
 {
-    if (ctx->attack_client == BATTLER_NONE) {
+    if (!IsAttackerOnField(ctx)) {
         return FALSE;
     }
     // TODO loop over all battlers?
@@ -1725,7 +1725,7 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
 
         case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE: // Red Card
             // Attacker, Defender is alive after the attack
-            if (ctx->attack_client != BATTLER_NONE
+            if (IsAttackerOnField(ctx)
                 && ctx->battlemon[ctx->attack_client].hp
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 //&& (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
