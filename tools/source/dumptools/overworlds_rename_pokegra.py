@@ -36,24 +36,25 @@ if __name__ == '__main__':
                     prefix = line.split(" // ")[1].strip()
                     SpeciesToGfxDict[prefix] = int(line.split(".gfx = ")[1].split(",")[0])
                     #print(f"{prefix}: {SpeciesToGfxDict[prefix]}")
+                    print(f"    MON_FOLLOWER_ENTRY({prefix}, {line.split('.callback_params = ')[1].split(' }')[0]})")
                 elif (" // " in line):
                     suffix = line.split(" // ")[1].strip()
                     SecondarySpeciesGfxDict[prefix + "_" + suffix.upper()] = [int(line.split(".gfx = ")[1].split(",")[0]), prefix, suffix]
+                    print(f"    MON_FOLLOWER_ENTRY({prefix + '_OVERWORLD_' + suffix.upper()}, {line.split('.callback_params = ')[1].split(' }')[0]})")
                     #print(f"{prefix}_{suffix.upper()}: {SecondarySpeciesGfxDict[prefix + '_' + suffix.upper()]}")
-        for entry in SpeciesToGfxDict:
-            shutil.copy(f"data/graphics/overworlds/{int(SpeciesToGfxDict[entry]):04}.png", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.png")
-            shutil.copy(f"data/graphics/overworlds/{int(SpeciesToGfxDict[entry]):04}.json", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.json")
-            shutil.copy(f"data/graphics/overworlds/{int(SpeciesToGfxDict[entry]):04}-tsure_poke0.pal", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld-tsure_poke0.pal")
-            shutil.copy(f"data/graphics/overworlds/{int(SpeciesToGfxDict[entry]):04}-tsure_poke1.pal", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld-tsure_poke1.pal")
-        for entry in SecondarySpeciesGfxDict:
-            shutil.copy(f"data/graphics/overworlds/{int(SecondarySpeciesGfxDict[entry][0]):04}.png", f"data/graphics/sprites/{SecondarySpeciesGfxDict[entry][1][len('SPECIES_'):].lower()}/overworld_{SecondarySpeciesGfxDict[entry][2]}.png")
-            shutil.copy(f"data/graphics/overworlds/{int(SecondarySpeciesGfxDict[entry][0]):04}.json", f"data/graphics/sprites/{SecondarySpeciesGfxDict[entry][1][len('SPECIES_'):].lower()}/overworld_{SecondarySpeciesGfxDict[entry][2]}.json")
-            shutil.copy(f"data/graphics/overworlds/{int(SecondarySpeciesGfxDict[entry][0]):04}-tsure_poke0.pal", f"data/graphics/sprites/{SecondarySpeciesGfxDict[entry][1][len('SPECIES_'):].lower()}/overworld_{SecondarySpeciesGfxDict[entry][2]}-tsure_poke0.pal")
-            shutil.copy(f"data/graphics/overworlds/{int(SecondarySpeciesGfxDict[entry][0]):04}-tsure_poke1.pal", f"data/graphics/sprites/{SecondarySpeciesGfxDict[entry][1][len('SPECIES_'):].lower()}/overworld_{SecondarySpeciesGfxDict[entry][2]}-tsure_poke1.pal")
-        for entry in SpeciesDict:
-            if entry not in SpeciesToGfxDict and "_OVERWORLD_" not in entry:
-                shutil.copy(f"data/graphics/overworlds/0297.png", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.png")
-                shutil.copy(f"data/graphics/overworlds/0297.json", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.json")
-                shutil.copy(f"data/graphics/overworlds/0297-tsure_poke0.pal", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld-tsure_poke0.pal")
-                shutil.copy(f"data/graphics/overworlds/0297-tsure_poke1.pal", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld-tsure_poke1.pal")
-
+#        for entry in SpeciesToGfxDict:
+#            shutil.copy(f"data/graphics/overworlds/{int(SpeciesToGfxDict[entry]):04}.png", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.png")
+#            shutil.copy(f"data/graphics/overworlds/{int(SpeciesToGfxDict[entry]):04}.json", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.json")
+#            shutil.copy(f"data/graphics/overworlds/{int(SpeciesToGfxDict[entry]):04}-tsure_poke0.pal", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld-tsure_poke0.pal")
+#            shutil.copy(f"data/graphics/overworlds/{int(SpeciesToGfxDict[entry]):04}-tsure_poke1.pal", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld-tsure_poke1.pal")
+#        for entry in SecondarySpeciesGfxDict:
+#            shutil.copy(f"data/graphics/overworlds/{int(SecondarySpeciesGfxDict[entry][0]):04}.png", f"data/graphics/sprites/{SecondarySpeciesGfxDict[entry][1][len('SPECIES_'):].lower()}/overworld_{SecondarySpeciesGfxDict[entry][2]}.png")
+#            shutil.copy(f"data/graphics/overworlds/{int(SecondarySpeciesGfxDict[entry][0]):04}.json", f"data/graphics/sprites/{SecondarySpeciesGfxDict[entry][1][len('SPECIES_'):].lower()}/overworld_{SecondarySpeciesGfxDict[entry][2]}.json")
+#            shutil.copy(f"data/graphics/overworlds/{int(SecondarySpeciesGfxDict[entry][0]):04}-tsure_poke0.pal", f"data/graphics/sprites/{SecondarySpeciesGfxDict[entry][1][len('SPECIES_'):].lower()}/overworld_{SecondarySpeciesGfxDict[entry][2]}-tsure_poke0.pal")
+#            shutil.copy(f"data/graphics/overworlds/{int(SecondarySpeciesGfxDict[entry][0]):04}-tsure_poke1.pal", f"data/graphics/sprites/{SecondarySpeciesGfxDict[entry][1][len('SPECIES_'):].lower()}/overworld_{SecondarySpeciesGfxDict[entry][2]}-tsure_poke1.pal")
+#        for entry in SpeciesDict:
+#            if entry not in SpeciesToGfxDict and "_OVERWORLD_" not in entry:
+#                shutil.copy(f"data/graphics/overworlds/0297.png", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.png")
+#                shutil.copy(f"data/graphics/overworlds/0297.json", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.json")
+#                shutil.copy(f"data/graphics/overworlds/0297-tsure_poke0.pal", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld-tsure_poke0.pal")
+#                shutil.copy(f"data/graphics/overworlds/0297-tsure_poke1.pal", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld-tsure_poke1.pal")
