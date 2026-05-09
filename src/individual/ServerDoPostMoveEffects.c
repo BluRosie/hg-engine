@@ -1474,7 +1474,9 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
     switch (GetBattlerAbility(ctx, ctx->attack_client)) {
     case ABILITY_MAGICIAN:
         // https://discord.com/channels/419213663107416084/1368163973366681712/1484346665090678854
-        if (ctx->battlemon[ctx->attack_client].hp
+        // https://discord.com/channels/419213663107416084/1368163973366681712/1502337159007441079
+        if (!ctx->futureSightHitTurn
+            && ctx->battlemon[ctx->attack_client].hp
             && ctx->battlemon[ctx->attack_client].item == ITEM_NONE
             && ctx->moveTbl[ctx->current_move_index].power != 0
             && ctx->gemBoostingMove == FALSE)
