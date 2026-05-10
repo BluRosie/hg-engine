@@ -3539,17 +3539,12 @@ BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx)
     int adrs = read_battle_script_param(ctx);
 
     if (ctx->fcc.future_prediction_count[ctx->defence_client] == 0 && ctx->futureSightHitTurn == FALSE) {
-        int side = IsClientEnemy(bsys, ctx->defence_client), damage;
+        int side = IsClientEnemy(bsys, ctx->defence_client);
         ctx->side_condition[side] |= SIDE_STATUS_FUTURE_SIGHT;
         ctx->fcc.future_prediction_count[ctx->defence_client] = 3;
         ctx->fcc.future_prediction_wazano[ctx->defence_client] = ctx->current_move_index;
         ctx->fcc.future_prediction_client_no[ctx->defence_client] = ctx->attack_client;
         ctx->fcc.wish_sel_mons[ctx->attack_client] = ctx->sel_mons_no[ctx->attack_client];
-        damage = CalcBaseDamage(bsys, ctx, ctx->current_move_index, ctx->side_condition[side], ctx->field_condition, 0, 0, ctx->attack_client, ctx->defence_client, 1) * -1;
-        ctx->fcc.future_prediction_damage[ctx->defence_client] = AdjustDamageForRoll(bsys, ctx, damage);
-        if (ctx->oneTurnFlag[ctx->attack_client].helping_hand_flag) {
-            ctx->fcc.future_prediction_damage[ctx->defence_client] = ctx->fcc.future_prediction_damage[ctx->defence_client] * 15 / 10;
-        }
 
         for (int i = 0; i < CLIENT_MAX * FUTURE_CONDITION_MAX; i++) {
             if (ctx->futureConditionQueue[i].conditionType.futureConditionType == FUTURE_CONDITION_NONE) {
