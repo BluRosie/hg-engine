@@ -19,8 +19,6 @@
 .include "armips/asm/pokedex.s" // code for pokedex expansion, including expanding the save
 .include "armips/asm/overworlds.s" // code for overworlds, specifically repointing gOWTagToFileNum and making dimorphism a byte instead of a halfword.
 
-.include "armips/data/starters.s" // data definitions for which species to use for the starter Pokemon
-
 .include "armips/asm/no_partner_double_battles.s" // allows no partner double battles
 
 .if FAIRY_TYPE_IMPLEMENTED == 1

@@ -62,8 +62,11 @@ arm9 AddBoxMonData_EditedCases_hook 0206F67C 0
 0002 get_form_out_of_encounter_species 02247A1C 4
 #02247B42
 0002 modify_species_encounter_data 02247B42 3
-# starter hidden ability stuff
+# starters
 arm9 set_starter_hidden_ability_hook 02096158 5
+arm9 CreateStarter_SetStarterSpecies_hook 02096094 3
+arm9 CreateStarterMon_hook 020960E6 1
+0061 CreateMonSprites_hook 021E7098 3
 
 #battle hooks
 0012 CalcBaseDamage 02256FF8
