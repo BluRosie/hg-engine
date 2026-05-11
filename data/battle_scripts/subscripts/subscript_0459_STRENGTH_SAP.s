@@ -8,10 +8,10 @@ _000:
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
 
+    StrengthSapCalc // prints num into hp calc work
+
     UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_PARAM, MOVE_SUBSCRIPT_PTR_ATTACK_DOWN_1_STAGE
     Call BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE
-
-    StrengthSapCalc // prints num into hp calc work
 
 _022:
     CheckItemHoldEffect CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, HOLD_EFFECT_LEECH_BOOST, _042
