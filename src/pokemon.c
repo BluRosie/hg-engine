@@ -1589,19 +1589,6 @@ u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp)
     return GrabSexFromSpeciesAndForm(species, pid, form);
 }
 
-
-static u16 sSpeciesToFormMapping[][2] = {
-    {SPECIES_VENUSAUR, SPECIES_VENUSAUR_OVERWORLD_FEMALE},
-    {SPECIES_PIKACHU, SPECIES_PIKACHU_OVERWORLD_FEMALE},
-    {SPECIES_MEGANIUM, SPECIES_MEGANIUM_OVERWORLD_FEMALE},
-    {SPECIES_WOBBUFFET, SPECIES_WOBBUFFET_OVERWORLD_FEMALE},
-    {SPECIES_STEELIX, SPECIES_STEELIX_OVERWORLD_FEMALE},
-    {SPECIES_HERACROSS, SPECIES_HERACROSS_OVERWORLD_FEMALE},
-    {SPECIES_COMBEE, SPECIES_COMBEE_OVERWORLD_FEMALE},
-    {SPECIES_HIPPOPOTAS, SPECIES_HIPPOPOTAS_OVERWORLD_FEMALE},
-    {SPECIES_HIPPOWDON, SPECIES_HIPPOWDON_OVERWORLD_FEMALE},
-};
-
 /**
  *  @brief get the pokémon overworld tag from species, form, and gender
  *
@@ -1612,11 +1599,38 @@ static u16 sSpeciesToFormMapping[][2] = {
  */
 u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
 {
-    u32 adjustment = 1050, ret = 0;
-    u8 maxForm = 0;
+    u32 ret = 1050, formFemaleIndex = 0;
 
-    ret = GetSpeciesBasedOnForm(species, form) + adjustment;
+    formFemaleIndex = OverworldModelLookupHasFemaleForm(species);
 
+    if (species == SPECIES_PIKACHU && isFemale && form == 0) {
+        // pikachu is sooo special because it has female and forms.  the forms are handled by the default handling below
+        ret += SPECIES_PIKACHU_OVERWORLD_FEMALE;
+    } else if (formFemaleIndex) {
+        // if female matters, then we are set to ignore form handling and find the female overworld tag
+        if (isFemale && form == 0 && formFemaleIndex & OW_FEMALE_MASK) {
+            ret += (formFemaleIndex & (~OW_FEMALE_MASK)); // should be set to directly return female overworld returned from OverworldModelLookupHasFemaleForm
+        } else if (form != 0) {
+            ret += (formFemaleIndex + form - 1);
+        } else {
+            ret += species;
+        }
+    } else {
+        ret += GetSpeciesBasedOnForm(species, form);
+    }
+
+    return ret;
+}
+
+/**
+ *  @brief lookup whether or not the species has female overworld form that isn't defined as a completely separate form
+ *
+ *  @param species species index
+ *  @return FALSE if no form or female handling for overworlds; the base index otherwise.  e.g. SPECIES_PICHU would return
+ */
+u32 LONG_CALL OverworldModelLookupHasFemaleForm(u32 species) {
+    u32 ret = 0;
+    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_OVERWORLD_FORM_FEMALE, sizeof(u16)*(species), sizeof(u16));
     return ret;
 }
 

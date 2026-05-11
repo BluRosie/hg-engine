@@ -106,5 +106,6 @@
 
 // start of the overworld tags for mon followers
 #define MON_OVERWORLD_TAG_START (1050)
+#define OW_FEMALE_MASK 0x8000
 
 #endif

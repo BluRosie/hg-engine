@@ -1718,6 +1718,14 @@ u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp);
 u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
 
 /**
+ *  @brief lookup whether or not the species has female overworld form that isn't defined as a completely separate form
+ *
+ *  @param species species index
+ *  @return FALSE if no form or female handling for overworlds; the base index otherwise.  e.g. SPECIES_PICHU would return
+ */
+u32 LONG_CALL OverworldModelLookupHasFemaleForm(u32 species);
+
+/**
  *  @brief give a PartyPokemon to the player given species, level, form, ability, etc.
  *
  *  @param heapId heap to use for memory here

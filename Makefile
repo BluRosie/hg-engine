@@ -506,11 +506,11 @@ move_narc: $(NARC_FILES)
 	@echo "base experience table:"
 	cp $(BASE_EXPERIENCE_TABLE_BIN) $(BASE_EXPERIENCE_TABLE_TARGET)
 
-	@echo "mon overworld data:"
-	$(ARMIPS) $(OVERWORLD_DATA_DEPENDENCIES)
+	@echo "icon palette table:"
+	cp $(ICON_PALETTE_TABLE_BIN) $(ICON_PALETTE_TABLE_TARGET)
 
-	@echo "species to ow gfx table:"
-	cp $(SPECIES_TO_OW_GFX_BIN) $(SPECIES_TO_OW_GFX_TARGET)
+	@echo "species to ow female table:"
+	cp $(SPECIES_TO_OW_FEMALE_BIN) $(SPECIES_TO_OW_FEMALE_TARGET)
 
 	@echo "form data table:"
 	cp $(POKEFORMDATATBL_BIN) $(POKEFORMDATATBL_TARGET)
@@ -535,9 +535,6 @@ move_narc: $(NARC_FILES)
 
 	@echo "hidden item params:"
 	cp $(HIDDEN_ITEM_PARAMS_BIN) $(HIDDEN_ITEM_PARAMS_TARGET)
-
-	@echo "icon palette table:"
-	cp $(ICON_PALETTE_TABLE_BIN) $(ICON_PALETTE_TABLE_TARGET)
 
 update_machine_moves: $(VENV_ACTIVATE)
 	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
