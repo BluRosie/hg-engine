@@ -105,7 +105,7 @@
 .orga 0
 
 .align 16
-.ascii "AI CHANGES HERE" // interesting.
+.ascii "hg-engine rocks!" // interesting.
 .align 16
 
 getmovetarget:
