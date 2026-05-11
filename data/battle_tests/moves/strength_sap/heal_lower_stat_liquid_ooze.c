@@ -128,7 +128,6 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gulpin’s Attack fell!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It sucked up the liquid ooze!" },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
