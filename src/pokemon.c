@@ -430,9 +430,9 @@ u32 LONG_CALL GetMonIconPalette(u32 mons, u32 form, u32 isegg)
  */
 u16 LONG_CALL GetPokemonOwNum(u16 species)
 {
-    u16 ret;
-    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_BASE_OW_PER_MON, sizeof(u16)*species, sizeof(u16));
-    return ret;
+    // new handling just nabs species.  this doesn't generalize 1:1 with a141 access,
+    // but i don't think it needs to for the parts that don't generalize.
+    return species;
 }
 
 /**
@@ -1589,7 +1589,8 @@ u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp)
     return GrabSexFromSpeciesAndForm(species, pid, form);
 }
 
-static u16 sSpeciesToFemaleMapping[][2] = {
+
+static u16 sSpeciesToFormMapping[][2] = {
     {SPECIES_VENUSAUR, SPECIES_VENUSAUR_OVERWORLD_FEMALE},
     {SPECIES_PIKACHU, SPECIES_PIKACHU_OVERWORLD_FEMALE},
     {SPECIES_MEGANIUM, SPECIES_MEGANIUM_OVERWORLD_FEMALE},
@@ -1611,60 +1612,10 @@ static u16 sSpeciesToFemaleMapping[][2] = {
  */
 u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
 {
-    u32 ret = 0, maxForm = 0, femaleMatters = FALSE, realSpecies = 0;
-/*
-    if (species > SPECIES_FINNEON) { // split between 0x1AC and 0x1E4
-        adjustment = 0x1E4;
-    }
-    else {
-        adjustment = 0x1AC;
-    }
-*/
+    u32 adjustment = 1050, ret = 0;
+    u8 maxForm = 0;
 
-    realSpecies = GetSpeciesBasedOnForm(species, form);
-	ret = MON_OVERWORLD_TAG_START;
-
-    ArchiveDataLoadOfs(&maxForm, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON, sizeof(u8)*species, sizeof(u8));
-	ArchiveDataLoadOfs(&femaleMatters, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON, sizeof(u8)*species, sizeof(u8));
-
-	if (form != 0 && form <= maxForm) { // invalid form just loads bulbasaur
-		ret++;
-	} else if (form != 0) {
-		ret += realSpecies;
-	} else if (isFemale == TRUE && femaleMatters == TRUE) {
-		u32 i;
-		for (i = 0; i < NELEMS(sSpeciesToFemaleMapping); i++) {
-			if (species == sSpeciesToFemaleMapping[i][0]) {
-				ret += sSpeciesToFemaleMapping[i][1];
-				break;
-			}
-		}
-		if (NELEMS(sSpeciesToFemaleMapping) == i) {
-			ret += species;
-		}
-	} else { // default handling.  is technically the same as form != 0 but gender handling has to go between form and default handling
-		ret += species;
-	}
-
-/* old handling below.  getting rid of this for ease of editing
-	if (species == SPECIES_PIKACHU) // pikachu forms take gender adjustment into account and are looser with restrictions
-    {
-        if (isFemale || form) // both female pikachu and those with forms will need this adjustment
-            ret++;
-        if (form < maxForm) // invalid pikachu forms will show as female, but that's okay
-            ret += form;
-    }
-    else if (species == SPECIES_SLOWBRO && form)
-    {
-        u32 newform = form - 1;
-        if (newform <= maxForm)
-            ret += newform;
-    }
-    else if (form <= maxForm)
-        ret += form;
-    else if (isFemale && gDimorphismTable[species-1])
-        ret += isFemale;
-*/
+    ret = GetSpeciesBasedOnForm(species, form) + adjustment;
 
     return ret;
 }

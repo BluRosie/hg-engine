@@ -1517,7 +1517,7 @@
 // but are used as constants for overworld mons that aren't significant form differences that require different entries
 // if you would like to add a new one, the _OVERWORLD_ string is necessary in the constant define.
 // these need to be _after_ all real mons
-#define SPECIES_OVERWORLD_GENDER_FORMS_START (MAX_SPECIES_CANONICAL_FORM_NUM + 1)
+#define SPECIES_OVERWORLD_GENDER_FORMS_START (MAX_SPECIES_INCLUDING_FORMS + 1)
 
 #define SPECIES_VENUSAUR_OVERWORLD_FEMALE (SPECIES_OVERWORLD_GENDER_FORMS_START)
 #define SPECIES_PIKACHU_OVERWORLD_FEMALE (SPECIES_OVERWORLD_GENDER_FORMS_START + 1)
@@ -1606,7 +1606,7 @@
 #define SPECIES_SILVALLY_OVERWORLD_DARK (SPECIES_OVERWORLD_GENDER_FORMS_START + 84)
 
 
-#define MAX_SPECIES_OVERWORLD_GENDER_FORMS (SPECIES_HIPPOWDON_OVERWORLD_FEMALE)
+#define MAX_SPECIES_OVERWORLD_GENDER_FORMS (SPECIES_SILVALLY_OVERWORLD_DARK)
 
 
 #endif
