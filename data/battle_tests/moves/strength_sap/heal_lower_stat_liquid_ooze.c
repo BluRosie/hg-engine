@@ -36,7 +36,7 @@ const struct TestBattleScenario BattleTests[] = {
                 .form = 0,
                 .ability = ABILITY_CHLOROPHYLL,
                 .item = ITEM_BIG_ROOT,
-                .moves = { MOVE_STRENGTH_SAP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_STRENGTH_SAP, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = 1, //157
                 .status = 0,
                 .condition2 = 0,
@@ -77,8 +77,8 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .playerScript = {
             {
+                  { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
                   { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                  { ACTION_NONE, 0 },
                   { ACTION_NONE, 0 },
                   { ACTION_NONE, 0 },
                   { ACTION_NONE, 0 },
@@ -88,6 +88,7 @@ const struct TestBattleScenario BattleTests[] = {
               },
             {
                 { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
+                { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -99,7 +100,7 @@ const struct TestBattleScenario BattleTests[] = {
         .enemyScript = {
             {
                  { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                 { ACTION_NONE, 0 },
+                 { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                  { ACTION_NONE, 0 },
                  { ACTION_NONE, 0 },
                  { ACTION_NONE, 0 },
@@ -109,7 +110,7 @@ const struct TestBattleScenario BattleTests[] = {
              },
             {
                 { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                { ACTION_NONE, 0 },
+                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -121,6 +122,8 @@ const struct TestBattleScenario BattleTests[] = {
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Bellsprout used Strength Sap!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew’s Attack fell!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish used Strength Sap!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish's HP is full!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish used Strength Sap!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gulpin’s Attack fell!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It sucked up the liquid ooze!" },
