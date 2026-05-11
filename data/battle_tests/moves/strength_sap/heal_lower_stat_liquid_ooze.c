@@ -31,13 +31,13 @@ const struct TestBattleScenario BattleTests[] = {
                 .moveEffectFlags = 0,
             },
             {
-                .species = ABILITY_CHLOROPHYLL,
-                .level = 50,
+                .species = SPECIES_BELLSPROUT,
+                .level = 64,
                 .form = 0,
-                .ability = ABILITY_WATER_ABSORB,
+                .ability = ABILITY_CHLOROPHYLL,
                 .item = ITEM_BIG_ROOT,
                 .moves = { MOVE_STRENGTH_SAP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                .hp = 1,
+                .hp = 1, //157
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
