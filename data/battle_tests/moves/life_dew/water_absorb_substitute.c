@@ -120,8 +120,14 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew used Substitute!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefairy used Life Dew!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew made a substitute!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Squirtle used Life Dew!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Squirtle’s HP is full!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew’s HP was restored!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefairy used Life Dew!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefairy’s HP was restored!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Poliwag restored HP using its Water Absorb!" },
+            
         },
         .knownFailing = TRUE,
     },
