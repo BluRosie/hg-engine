@@ -2985,19 +2985,65 @@ BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bsys, struct BattleStruct *ctx)
     IncrementBattleScriptPtr(ctx, 1);
 
     u32 attacker = ctx->attack_client;
+
+    u32 attack = BattlePokemonParamGet(ctx, attacker, BATTLE_MON_DATA_ATK, NULL);
+    u32 defense = BattlePokemonParamGet(ctx, attacker, BATTLE_MON_DATA_DEF, NULL);
+    u32 atkstate = BattlePokemonParamGet(ctx, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
+    u32 defstate = BattlePokemonParamGet(ctx, attacker, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
+    u32 level = BattlePokemonParamGet(ctx, attacker, BATTLE_MON_DATA_LEVEL, NULL);
+
+    attack = attack * StatBoostModifiers[atkstate + 6][0];
+    attack /= StatBoostModifiers[atkstate + 6][1];
+    attack = attack % 65536;
+    // TODO: Handle Tabets of Ruin
+
+    defense = defense * StatBoostModifiers[defstate + 6][0];
+    defense /= StatBoostModifiers[defstate + 6][1];
+    defense = defense % 65536;
+    // TODO: Handle Sword of Ruin
+
+    u32 baseDamage = ((2 * level / 5) + 2);
+
+    if (defense != 0) {
+        baseDamage = (baseDamage * 40 /*BP*/ * attack / defense);
+    } else {
+        baseDamage = 0;
+    }
+    baseDamage = (baseDamage / 50) + 2;
+
+#ifdef DEBUG_DAMAGE_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[ConfusionDamage] Base Damage\n");
+    debug_printf("[ConfusionDamage] baseDamage: %d\n", baseDamage);
+    debug_printf("[ConfusionDamage] Rolls: [");
+    for (s32 u = 0; u < 16; u++) {
+        if (u != 0) {
+            debug_printf(",");
+        }
+        debug_printf("%d", baseDamage * (100 - u) / 100);
+    }
+    debug_printf("]\n");
+#endif
+    baseDamage *= (100 - (BattleRand(bsys) % 16)); // 85-100% damage roll
+    baseDamage /= 100;
+
     u32 disguiseAddress = read_battle_script_param(ctx);
 
     ctx->moveOutCheck[attacker].stoppedFromConfusion = TRUE;
     ctx->defence_client = attacker;
     ctx->battlerIdTemp = attacker;
-    ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, 40, 0, attacker, attacker, 1);
-    ctx->hp_calc_work = AdjustDamageForRoll(bsys, ctx, ctx->hp_calc_work);
+    ctx->hp_calc_work = baseDamage;
     ctx->hp_calc_work *= -1;
 
-    if (((ctx->battlemon[attacker].species == SPECIES_MIMIKYU && GetBattlerAbility(ctx, attacker) == ABILITY_DISGUISE)
-            || (ctx->battlemon[attacker].species == SPECIES_EISCUE && GetBattlerAbility(ctx, attacker) == ABILITY_ICE_FACE))
-        && ctx->battlemon[attacker].form_no == 0
-        && ctx->hp_calc_work == 0) {
+    if ((ctx->battlemon[attacker].species == SPECIES_MIMIKYU
+            && (GetBattlerAbility(ctx, attacker) == ABILITY_DISGUISE)
+            && (ctx->battlemon[attacker].form_no == 0 || ctx->battlemon[attacker].form_no == 2)
+            && !(ctx->battlemon[attacker].condition2 & STATUS2_TRANSFORMED))
+        || (ctx->battlemon[attacker].species == SPECIES_EISCUE
+            && (GetBattlerAbility(ctx, attacker) == ABILITY_ICE_FACE)
+            && (ctx->battlemon[attacker].form_no == 0)
+            && !(ctx->battlemon[attacker].condition2 & STATUS2_TRANSFORMED))) {
+        ctx->hp_calc_work = 0;
         BattleFormChange(attacker, 1, bsys, ctx, TRUE);
         ctx->battlerIdTemp = attacker;
         ctx->battlemon[attacker].form_no = 1;
@@ -5166,6 +5212,14 @@ BOOL BtlCmd_TryFaintMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
     IncrementBattleScriptPtr(ctx, 1);
 
     int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx));
+
+	// fix for bad egg fainting from spread moves issue 770
+
+    if (ctx->skill_arc_kind == ARC_BATTLE_SUB_SEQ && ctx->skill_arc_index == SUB_SEQ_BATCH_FOLLOWUP) {
+        if (!IsBattlerSlotValid(bsys, battlerId) || ctx->damageForSpreadMoves[battlerId] == 0) {
+            return FALSE;
+        }
+    }
 
     // skip processing fainted battlers if simultaneous damage active and they didn't take damage from the move
 

@@ -1910,7 +1910,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         // Fling / Natural Gift: Embargo or Magic Room are in effect, or ineligible held item, or no item
         || ((moveEffect == MOVE_EFFECT_FLING || moveEffect == MOVE_EFFECT_NATURAL_GIFT) && (attackClient.moveeffect.embargoFlag || attackClient.item == 0))
         || (moveEffect == MOVE_EFFECT_NATURAL_GIFT && GetNaturalGiftPower(ctx, ctx->attack_client) == 0)
-        || (moveEffect == MOVE_EFFECT_FLING && (IS_ITEM_GEM(attackClient.item) || !CanItemBeRemovedFromClient(attackClient.species, attackClient.item, attackClient.form_no)))
+        || (moveEffect == MOVE_EFFECT_FLING && (IS_ITEM_GEM(attackClient.item) || !CanItemBeRemovedFromClient(attackClient.species, attackClient.item, attackClient.form_no) || attackerAbility == ABILITY_KLUTZ))
     ) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->server_seq_no = CONTROLLER_COMMAND_25;
@@ -2383,7 +2383,10 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
 
 BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender)
 {
-    if ((ctx->current_move_index == MOVE_CURSE && HasType(ctx, ctx->attack_client, TYPE_GHOST))
+    int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    if (moveEffect == MOVE_EFFECT_REMOVE_PROTECT
+        || moveEffect == MOVE_EFFECT_SHADOW_FORCE
+        || (ctx->current_move_index == MOVE_CURSE && HasType(ctx, ctx->attack_client, TYPE_GHOST))
         || (GetBattlerAbility(ctx, attacker) == ABILITY_UNSEEN_FIST
             && IsContactBeingMade(GetBattlerAbility(ctx, attacker), HeldItemHoldEffectGet(ctx, attacker), HeldItemHoldEffectGet(ctx, defender), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag))) {
         return TRUE;
