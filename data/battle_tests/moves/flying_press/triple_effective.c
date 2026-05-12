@@ -95,7 +95,7 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
 
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 144, 144, 144, 144, 144, 150, 150, 150, 150, 162, 162, 162, 162, 162, 162, 168 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 192, 192, 192, 192, 192, 200, 200, 200, 200, 200, 216, 216, 216, 216, 216, 224 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
         },
         .knownFailing = TRUE,
