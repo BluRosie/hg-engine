@@ -1278,14 +1278,14 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
         if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) {
             // moves boosted by sheer force that still maintain their effect
             if ((sheer_force_active == TRUE)
-            || (sp->current_move_index == MOVE_SPARKLING_ARIA)
-            // || (sp->current_move_index == MOVE_GENESIS_SUPERNOVA) // doesnt have an eff atm but still on the table
-            || (sp->current_move_index == MOVE_SPIRIT_SHACKLE)
-            || (sp->current_move_index == MOVE_ANCHOR_SHOT)
-            // || (sp->current_move_index == MOVE_EERIE_SPELL) // same as genesis supernova
-            || (sp->current_move_index == MOVE_CEASELESS_EDGE)
-            || (sp->current_move_index == MOVE_STONE_AXE)
-            || (sp->current_move_index == MOVE_ELECTRO_SHOT)) { // according to bulbapedia but only on the electro shot page ?
+                || (sp->current_move_index == MOVE_SPARKLING_ARIA)
+                // || (sp->current_move_index == MOVE_GENESIS_SUPERNOVA) // doesnt have an eff atm but still on the table
+                || (sp->current_move_index == MOVE_SPIRIT_SHACKLE)
+                || (sp->current_move_index == MOVE_ANCHOR_SHOT)
+                // || (sp->current_move_index == MOVE_EERIE_SPELL) // same as genesis supernova
+                || (sp->current_move_index == MOVE_CEASELESS_EDGE)
+                || (sp->current_move_index == MOVE_STONE_AXE)
+                || (sp->current_move_index == MOVE_ELECTRO_SHOT)) { // according to bulbapedia but only on the electro shot page ?
                 sp->battlemon[sp->attack_client].sheer_force_flag = 1;
             }
         }
@@ -1722,7 +1722,8 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 {
     u32 ovyId, offset;
-    BOOL (*internalFunc)(void *bw, struct BattleStruct *sp);
+    BOOL (*internalFunc)
+    (void *bw, struct BattleStruct *sp);
 
     ovyId = OVERLAY_BTL_SCR_CMD_33_STATBUFFCHANGE;
     offset = 0x023C0400 | 1;
@@ -2985,19 +2986,65 @@ BOOL btl_scr_cmd_FE_calcconfusiondamage(void *bsys, struct BattleStruct *ctx)
     IncrementBattleScriptPtr(ctx, 1);
 
     u32 attacker = ctx->attack_client;
+
+    u32 attack = BattlePokemonParamGet(ctx, attacker, BATTLE_MON_DATA_ATK, NULL);
+    u32 defense = BattlePokemonParamGet(ctx, attacker, BATTLE_MON_DATA_DEF, NULL);
+    u32 atkstate = BattlePokemonParamGet(ctx, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
+    u32 defstate = BattlePokemonParamGet(ctx, attacker, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
+    u32 level = BattlePokemonParamGet(ctx, attacker, BATTLE_MON_DATA_LEVEL, NULL);
+
+    attack = attack * StatBoostModifiers[atkstate + 6][0];
+    attack /= StatBoostModifiers[atkstate + 6][1];
+    attack = attack % 65536;
+    // TODO: Handle Tabets of Ruin
+
+    defense = defense * StatBoostModifiers[defstate + 6][0];
+    defense /= StatBoostModifiers[defstate + 6][1];
+    defense = defense % 65536;
+    // TODO: Handle Sword of Ruin
+
+    u32 baseDamage = ((2 * level / 5) + 2);
+
+    if (defense != 0) {
+        baseDamage = (baseDamage * 40 /*BP*/ * attack / defense);
+    } else {
+        baseDamage = 0;
+    }
+    baseDamage = (baseDamage / 50) + 2;
+
+#ifdef DEBUG_DAMAGE_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[ConfusionDamage] Base Damage\n");
+    debug_printf("[ConfusionDamage] baseDamage: %d\n", baseDamage);
+    debug_printf("[ConfusionDamage] Rolls: [");
+    for (s32 u = 0; u < 16; u++) {
+        if (u != 0) {
+            debug_printf(",");
+        }
+        debug_printf("%d", baseDamage * (100 - u) / 100);
+    }
+    debug_printf("]\n");
+#endif
+    baseDamage *= (100 - (BattleRand(bsys) % 16)); // 85-100% damage roll
+    baseDamage /= 100;
+
     u32 disguiseAddress = read_battle_script_param(ctx);
 
     ctx->moveOutCheck[attacker].stoppedFromConfusion = TRUE;
     ctx->defence_client = attacker;
     ctx->battlerIdTemp = attacker;
-    ctx->hp_calc_work = CalcBaseDamage(bsys, ctx, MOVE_STRUGGLE, 0, 0, 40, 0, attacker, attacker, 1);
-    ctx->hp_calc_work = AdjustDamageForRoll(bsys, ctx, ctx->hp_calc_work);
+    ctx->hp_calc_work = baseDamage;
     ctx->hp_calc_work *= -1;
 
-    if (((ctx->battlemon[attacker].species == SPECIES_MIMIKYU && GetBattlerAbility(ctx, attacker) == ABILITY_DISGUISE)
-            || (ctx->battlemon[attacker].species == SPECIES_EISCUE && GetBattlerAbility(ctx, attacker) == ABILITY_ICE_FACE))
-        && ctx->battlemon[attacker].form_no == 0
-        && ctx->hp_calc_work == 0) {
+    if ((ctx->battlemon[attacker].species == SPECIES_MIMIKYU
+            && (GetBattlerAbility(ctx, attacker) == ABILITY_DISGUISE)
+            && (ctx->battlemon[attacker].form_no == 0 || ctx->battlemon[attacker].form_no == 2)
+            && !(ctx->battlemon[attacker].condition2 & STATUS2_TRANSFORMED))
+        || (ctx->battlemon[attacker].species == SPECIES_EISCUE
+            && (GetBattlerAbility(ctx, attacker) == ABILITY_ICE_FACE)
+            && (ctx->battlemon[attacker].form_no == 0)
+            && !(ctx->battlemon[attacker].condition2 & STATUS2_TRANSFORMED))) {
+        ctx->hp_calc_work = 0;
         BattleFormChange(attacker, 1, bsys, ctx, TRUE);
         ctx->battlerIdTemp = attacker;
         ctx->battlemon[attacker].form_no = 1;
@@ -3784,7 +3831,8 @@ BOOL BtlCmd_CheckSubstitute(void *bsys, struct BattleStruct *ctx)
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 {
     u32 ovyId, offset, ret;
-    BOOL (*internalFunc)(void *bw, struct BattleStruct *sp);
+    BOOL (*internalFunc)
+    (void *bw, struct BattleStruct *sp);
 
     ovyId = OVERLAY_CALCULATEBALLSHAKES;
     offset = 0x023C0400 | 1;
@@ -5169,6 +5217,14 @@ BOOL BtlCmd_TryFaintMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, read_battle_script_param(ctx));
 
+    // fix for bad egg fainting from spread moves issue 770
+
+    if (ctx->skill_arc_kind == ARC_BATTLE_SUB_SEQ && ctx->skill_arc_index == SUB_SEQ_BATCH_FOLLOWUP) {
+        if (!IsBattlerSlotValid(bsys, battlerId) || ctx->damageForSpreadMoves[battlerId] == 0) {
+            return FALSE;
+        }
+    }
+
     // skip processing fainted battlers if simultaneous damage active and they didn't take damage from the move
 
     if ((ctx->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE) && ctx->damageForSpreadMoves[battlerId] == 0) {
@@ -5195,22 +5251,20 @@ BOOL BtlCmd_TryConversion2(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     // If the target has used a move...
     if (ctx->lastClientMoveType[ctx->defence_client] != TYPE_TYPELESS
-    && ctx->waza_no_old[ctx->defence_client] != MOVE_STRUGGLE) // Struggle is actually a Normal-type move, despite not at all functioning like one.
+        && ctx->waza_no_old[ctx->defence_client] != MOVE_STRUGGLE) // Struggle is actually a Normal-type move, despite not at all functioning like one.
     {
         u8 attackingTypeToCheck, typeToChangeTo, effectiveness;
         int moveType = ctx->lastClientMoveType[ctx->defence_client];
 
-        for (int i = 0; i < 1000; i++)
-        {
+        for (int i = 0; i < 1000; i++) {
             // Get a random attacking type, defending type and their corresponding type effectiveness.
             GetTypeEffectivenessData(bsys, 0xffff, &attackingTypeToCheck, &typeToChangeTo, &effectiveness);
 
             if (attackingTypeToCheck == moveType // If the random attacking type matches the defender's move type,
-            && effectiveness <= TYPE_MUL_NOT_EFFECTIVE // The type interaction is 'not very effective' or worse,
-            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type1) != typeToChangeTo // and the defending type does not match any of the attacker's current types.
-            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type2) != typeToChangeTo
-            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type3) != typeToChangeTo)
-            {
+                && effectiveness <= TYPE_MUL_NOT_EFFECTIVE // The type interaction is 'not very effective' or worse,
+                && GetSanitisedType(ctx->battlemon[ctx->attack_client].type1) != typeToChangeTo // and the defending type does not match any of the attacker's current types.
+                && GetSanitisedType(ctx->battlemon[ctx->attack_client].type2) != typeToChangeTo
+                && GetSanitisedType(ctx->battlemon[ctx->attack_client].type3) != typeToChangeTo) {
                 ctx->battlemon[ctx->attack_client].type1 = typeToChangeTo;
                 ctx->battlemon[ctx->attack_client].type2 = typeToChangeTo;
                 ctx->battlemon[ctx->attack_client].type3 = TYPE_TYPELESS;
@@ -5220,19 +5274,17 @@ BOOL BtlCmd_TryConversion2(struct BattleSystem *bsys, struct BattleStruct *ctx)
         }
 
         // If we have no interactions after 1000 random checks, manually iterate through the type chart from top to bottom and change to the first matching type.
-        for (int i = 0; GetTypeEffectivenessData(bsys, i, &attackingTypeToCheck, &typeToChangeTo, &effectiveness); i++)
-        {
+        for (int i = 0; GetTypeEffectivenessData(bsys, i, &attackingTypeToCheck, &typeToChangeTo, &effectiveness); i++) {
 
-            //debug_printf("Attacking type: %d\n", attackingTypeToCheck);
-            //debug_printf("Defending type: %d\n", typeToChangeTo);
-            //debug_printf("Effectiveness: %d\n\n", effectiveness);
+            // debug_printf("Attacking type: %d\n", attackingTypeToCheck);
+            // debug_printf("Defending type: %d\n", typeToChangeTo);
+            // debug_printf("Effectiveness: %d\n\n", effectiveness);
 
             if (attackingTypeToCheck == moveType
-            && effectiveness <= TYPE_MUL_NOT_EFFECTIVE
-            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type1) != typeToChangeTo
-            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type2) != typeToChangeTo
-            && GetSanitisedType(ctx->battlemon[ctx->attack_client].type3) != typeToChangeTo)
-            {
+                && effectiveness <= TYPE_MUL_NOT_EFFECTIVE
+                && GetSanitisedType(ctx->battlemon[ctx->attack_client].type1) != typeToChangeTo
+                && GetSanitisedType(ctx->battlemon[ctx->attack_client].type2) != typeToChangeTo
+                && GetSanitisedType(ctx->battlemon[ctx->attack_client].type3) != typeToChangeTo) {
                 ctx->battlemon[ctx->attack_client].type1 = typeToChangeTo;
                 ctx->battlemon[ctx->attack_client].type2 = typeToChangeTo;
                 ctx->battlemon[ctx->attack_client].type3 = TYPE_TYPELESS;
@@ -5246,7 +5298,6 @@ BOOL BtlCmd_TryConversion2(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     return FALSE;
 }
-
 
 int DivideRoundUp(int num, int denom)
 {

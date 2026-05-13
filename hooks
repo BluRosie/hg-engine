@@ -590,8 +590,12 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 # determine rock smash table to use for items
 0001 DetermineRockSmashItem_hook 02204E28 1
 
+#ifdef DISABLE_CRITICAL_HP_WARNING
+
 0012 BattleSystem_GetCriticalHpMusicFlag 0223BD2C 1
-0012 BattleSystem_SetCriticalHpMusicFlag 0223BD3C 1
+0012 BattleSystem_SetCriticalHpMusicFlag 0223BD3C 2
+
+#endif
 
 0012 ov12_0224D23C 0224D23C 3
 0012 ov12_0224DD74 0224DD74 3

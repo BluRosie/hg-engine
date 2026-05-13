@@ -1,14 +1,8 @@
-#include "../../include/types.h"
 #include "../../include/battle.h"
 #include "../../include/config.h"
-#include "../../include/debug.h"
-#include "../../include/mega.h"
-#include "../../include/overlay.h"
-#include "../../include/pokemon.h"
-#include "../../include/save.h"
 #include "../../include/constants/ability.h"
-#include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
+#include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/file.h"
 #include "../../include/constants/hold_item_effects.h"
 #include "../../include/constants/item.h"
@@ -16,14 +10,19 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
+#include "../../include/debug.h"
+#include "../../include/mega.h"
+#include "../../include/overlay.h"
+#include "../../include/pokemon.h"
 #include "../../include/q412.h"
+#include "../../include/save.h"
+#include "../../include/types.h"
 
 u32 get_shake_chance(int input_value);
 
 extern u8 gSafariBallRateTable[13][2];
 
-u16 MoonBallSpecies[] =
-{
+u16 MoonBallSpecies[] = {
     SPECIES_NIDORINA,
     SPECIES_NIDORINO,
     SPECIES_CLEFAIRY,
@@ -53,7 +52,8 @@ u16 MoonBallSpecies[] =
  *  @param sp global battle structure
  *  @return the amount of shakes a ball undergoes.  or'd with CRITICAL_CAPTURE_MASK for critical captures
  */
-u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, struct BattleStruct *sp) {
+u32 __attribute__((section(".init"))) CalculateBallShakesInternal(void *bw, struct BattleStruct *sp)
+{
     u32 i, speciesCatchRate, ballCaptureRatio, criticalCapture = FALSE;
     u32 heavyBallMod = 0, modifiedCatchRate = 0;
     u64 a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, captureValueCoeffcient = 0, badgePenalty = UQ412__1_0, statusModifier = 0, criticalCatchModifier = 0, speciesInDex = 0, criticalCatchRate = 0, shakeChecks = 4, shakeChance = 0;
@@ -66,20 +66,16 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     }
 
     // location does not need to be adjusted because speciesCatchRate is not used until heavyBallMod is
-    if (sp->item_work == ITEM_SAFARI_BALL)
-    {
+    if (sp->item_work == ITEM_SAFARI_BALL) {
         speciesCatchRate = PokePersonalParaGet(sp->battlemon[sp->defence_client].species, PERSONAL_CATCH_RATE);
         speciesCatchRate = speciesCatchRate * gSafariBallRateTable[sp->safari_get_count][0] / gSafariBallRateTable[sp->safari_get_count][1];
-    }
-    else
-    {
+    } else {
         speciesCatchRate = PokePersonalParaGet(sp->battlemon[sp->defence_client].species, PERSONAL_CATCH_RATE);
     }
 
     ballCaptureRatio = 0x1000;
 
-    switch (sp->item_work)
-    {
+    switch (sp->item_work) {
     case ITEM_MASTER_BALL:
         if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
             return 1 | CRITICAL_CAPTURE_MASK;
@@ -139,7 +135,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         break;
     case ITEM_TIMER_BALL:
 #if TIMER_BALL_GENERATION < 5
-        ballCaptureRatio = (sp->total_turn + 10 ) / 10 * 0x1000;
+        ballCaptureRatio = (sp->total_turn + 10) / 10 * 0x1000;
 #else
         ballCaptureRatio = 1229 * sp->total_turn + 0x1000;
 #endif
@@ -147,12 +143,12 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             ballCaptureRatio = 0x4000;
         }
         break;
-    //case ITEM_LUXURY_BALL:
+    // case ITEM_LUXURY_BALL:
     //
-    //    break;
-    //case ITEM_PREMIER_BALL:
+    //     break;
+    // case ITEM_PREMIER_BALL:
     //
-    //    break;
+    //     break;
     case ITEM_DUSK_BALL:
         if (Battle_GetTimeOfDay(bw) == 3 || Battle_GetTimeOfDay(bw) == 4 || BattleWorkGroundIDGet(bw) == 5) {
 #if DUSK_BALL_GENERATION < 7
@@ -162,9 +158,9 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #endif
         }
         break;
-    //case ITEM_HEAL_BALL:
+    // case ITEM_HEAL_BALL:
     //
-    //    break;
+    //     break;
     case ITEM_QUICK_BALL:
         if (sp->total_turn < 1) {
 #if QUICK_BALL_GENERATION == 4
@@ -174,39 +170,37 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #endif
         }
         break;
-    //case ITEM_CHERISH_BALL:
+    // case ITEM_CHERISH_BALL:
     //
-    //    break;
+    //     break;
     case ITEM_FAST_BALL:
         if (PokePersonalParaGet(sp->battlemon[sp->defence_client].species, PERSONAL_BASE_SPEED) >= 100) {
             ballCaptureRatio = 0x4000;
         }
         break;
-    case ITEM_LEVEL_BALL:
-        {
-            u32 defLevel = sp->battlemon[sp->defence_client].level;
-            u32 atkLevel = sp->battlemon[sp->attack_client].level;
+    case ITEM_LEVEL_BALL: {
+        u32 defLevel = sp->battlemon[sp->defence_client].level;
+        u32 atkLevel = sp->battlemon[sp->attack_client].level;
 
-            if (atkLevel >= 4 * defLevel) {
-                ballCaptureRatio = 0x8000;
-            } else if (atkLevel >= 2 * defLevel) {
-                ballCaptureRatio = 0x4000;
-            } else if (atkLevel > defLevel) { // yes the pattern apparently doesn't hold
-                ballCaptureRatio = 0x2000;
-            }
+        if (atkLevel >= 4 * defLevel) {
+            ballCaptureRatio = 0x8000;
+        } else if (atkLevel >= 2 * defLevel) {
+            ballCaptureRatio = 0x4000;
+        } else if (atkLevel > defLevel) { // yes the pattern apparently doesn't hold
+            ballCaptureRatio = 0x2000;
         }
-        break;
+    } break;
     case ITEM_LURE_BALL: {
 #if LURE_BALL_GENERATION == 4
-        if (Battle_IsFishingEncounter(bw)) {    // HGSS
+        if (Battle_IsFishingEncounter(bw)) { // HGSS
             ballCaptureRatio = 0x3000; // 3x
         }
 #elif LURE_BALL_GENERATION == 7
-        if (Battle_IsFishingEncounter(bw)) {    // SMUSUM
+        if (Battle_IsFishingEncounter(bw)) { // SMUSUM
             ballCaptureRatio = 0x5000; // 5x
         }
 #elif LURE_BALL_GENERATION == 8
-        if (Battle_IsFishingEncounter(bw)) {    //SwSh
+        if (Battle_IsFishingEncounter(bw)) { // SwSh
             ballCaptureRatio = 0x4000; // 4x
         }
 #else
@@ -214,8 +208,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             ballCaptureRatio = 0x4000; // 4x
         }
 #endif
-    }
-        break;
+    } break;
     case ITEM_HEAVY_BALL:
         if (GetPokemonWeight(bw, sp, -1, sp->defence_client) < 999) {
             heavyBallMod = -20;
@@ -227,27 +220,26 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             heavyBallMod = 30;
         }
         break;
-    case ITEM_LOVE_BALL:
-        {
-            u32 gender1 = BattlePokemonParamGet(sp, sp->attack_client, BATTLE_MON_DATA_SEX, NULL);
-            u32 gender2 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_SEX, NULL);
+    case ITEM_LOVE_BALL: {
+        u32 gender1 = BattlePokemonParamGet(sp, sp->attack_client, BATTLE_MON_DATA_SEX, NULL);
+        u32 gender2 = BattlePokemonParamGet(sp, sp->defence_client, BATTLE_MON_DATA_SEX, NULL);
 
-            if (sp->battlemon[sp->attack_client].species == sp->battlemon[sp->defence_client].species
-             && gender1 != gender2
-             && gender1 != POKEMON_GENDER_UNKNOWN
-             && gender2 != POKEMON_GENDER_UNKNOWN) {
-                ballCaptureRatio = 0x8000;
-             }
+        if (sp->battlemon[sp->attack_client].species == sp->battlemon[sp->defence_client].species
+            && gender1 != gender2
+            && gender1 != POKEMON_GENDER_UNKNOWN
+            && gender2 != POKEMON_GENDER_UNKNOWN) {
+            ballCaptureRatio = 0x8000;
         }
-        break;
-    //case ITEM_FRIEND_BALL: // assume that this and the heal ball are handled elsewhere
-    //                       // Friend ball is handled at the end of the function, no clue for heal ball
-    //    break;
+    } break;
+    // case ITEM_FRIEND_BALL: // assume that this and the heal ball are handled elsewhere
+    //                        // Friend ball is handled at the end of the function, no clue for heal ball
+    //     break;
     case ITEM_MOON_BALL:
         for (i = 0; i < NELEMS(MoonBallSpecies); i++) // yes, this is how game freak coded it in heart gold/soul silver
         {
-            if (sp->battlemon[sp->defence_client].species == MoonBallSpecies[i])
+            if (sp->battlemon[sp->defence_client].species == MoonBallSpecies[i]) {
                 break;
+            }
         }
         if (i != NELEMS(MoonBallSpecies)) {
             ballCaptureRatio = 0x4000;
@@ -260,12 +252,12 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         }
         break;
 #endif
-    //case ITEM_PARK_BALL:
+    // case ITEM_PARK_BALL:
     //
-    //    break;
+    //     break;
     case ITEM_DREAM_BALL:
         if (sp->battlemon[sp->defence_client].condition & (STATUS_SLEEP)
-        || (GetBattlerAbility(sp, sp->defence_client) == ABILITY_COMATOSE)) {
+            || (GetBattlerAbility(sp, sp->defence_client) == ABILITY_COMATOSE)) {
             ballCaptureRatio = 0x4000;
         }
         break;
@@ -385,35 +377,34 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #endif
 
     // fuck it be a coward and pre-calulate the values
-    switch(missingBadges) {
-        case 0:
-            badgePenalty = UQ412__1_0;
-            break;
-        case 1:
-            badgePenalty = UQ412__0_8;
-            break;
-        case 2:
-            badgePenalty = UQ412__0_8_exp_2;
-            break;
-        case 3:
-            badgePenalty = UQ412__0_8_exp_3;
-            break;
-        case 4:
-            badgePenalty = UQ412__0_8_exp_4;
-            break;
-        case 5:
-            badgePenalty = UQ412__0_8_exp_5;
-            break;
-        case 6:
-            badgePenalty = UQ412__0_8_exp_6;
-            break;
-        case 7:
-            badgePenalty = UQ412__0_8_exp_7;
-            break;
-        case 8:
-            badgePenalty = UQ412__0_8_exp_8;
-            break;
-
+    switch (missingBadges) {
+    case 0:
+        badgePenalty = UQ412__1_0;
+        break;
+    case 1:
+        badgePenalty = UQ412__0_8;
+        break;
+    case 2:
+        badgePenalty = UQ412__0_8_exp_2;
+        break;
+    case 3:
+        badgePenalty = UQ412__0_8_exp_3;
+        break;
+    case 4:
+        badgePenalty = UQ412__0_8_exp_4;
+        break;
+    case 5:
+        badgePenalty = UQ412__0_8_exp_5;
+        break;
+    case 6:
+        badgePenalty = UQ412__0_8_exp_6;
+        break;
+    case 7:
+        badgePenalty = UQ412__0_8_exp_7;
+        break;
+    case 8:
+        badgePenalty = UQ412__0_8_exp_8;
+        break;
     }
 
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
@@ -571,9 +562,9 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     debug_printf("  This is a %d.%d percent chance of capture.\n\n", shakeChanceCalculation / 100, shakeChanceCalculation % 100);
 #endif
 
-    if (speciesCatchRate > 255)
+    if (speciesCatchRate > 255) {
         i = 4;
-    else {
+    } else {
         for (i = 0; i < shakeChecks; i++) { // there are 4 shake checks apparently
             u32 rand = BattleRand(bw);
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
@@ -594,11 +585,12 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #else
             u32 friendship = 150;
 #endif
-            SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), MON_DATA_FRIENDSHIP, &friendship);
+            SetMonData(Battle_GetClientPartyMon(bw, sp->defence_client, 0), MON_DATA_FRIENDSHIP, &friendship);
         }
 #ifdef IMPLEMENT_CRITICAL_CAPTURE
-        if (criticalCapture) // succeeded the one chance it had
+        if (criticalCapture) { // succeeded the one chance it had
             i = i | CRITICAL_CAPTURE_MASK;
+        }
 #endif
     }
 //====End of Step 11=====
@@ -609,7 +601,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     if (sp->item_work == ITEM_FRIEND_BALL && (i & ~CRITICAL_CAPTURE_MASK) >= 4) // this code still necessary for the case that IMPLEMENT_CRITICAL_CAPTURE isn't defined
     {
         u32 friendship = 200;
-        SetMonData(Battle_GetClientPartyMon(bw,sp->defence_client,0), MON_DATA_FRIENDSHIP, &friendship);
+        SetMonData(Battle_GetClientPartyMon(bw, sp->defence_client, 0), MON_DATA_FRIENDSHIP, &friendship);
     }
 
 #ifdef GUARANTEE_CAPTURES
@@ -620,9 +612,9 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #else
     // if the capture is successful, and the target species is already registered, use the critical capture animation, otherwise there should still be 0-3 shakes.
     // https://xcancel.com/Sibuna_Switch/status/1847665451809075315#m
-#ifdef IMPLEMENT_CRITICAL_CAPTURE
+#if defined(IMPLEMENT_CRITICAL_CAPTURE) && CRITICAL_CAPTURE_GENERATION >= 9
     if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
-        return ((i == 4 || i == (1 | CRITICAL_CAPTURE_MASK)) ? (1 | CRITICAL_CAPTURE_MASK) : (i));
+        return (i == 4 || i == (1 | CRITICAL_CAPTURE_MASK)) ? (1 | CRITICAL_CAPTURE_MASK) : (i);
     }
 #endif
     return i & ~CRITICAL_CAPTURE_MASK; //(i == (0 | CRITICAL_CAPTURE_MASK) ? 0 : i);
@@ -631,106 +623,106 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 
 // fuck it be a coward and pre-calulate the values
 const u16 getShakeChancesLookupTable[] = {
-    [0]   = 0,
-    [1]   = 23186,
-    [2]   = 26405,
-    [3]   = 28490,
-    [4]   = 30070,
-    [5]   = 31355,
-    [6]   = 32447,
-    [7]   = 33395,
-    [8]   = 34243,
-    [9]   = 35007,
-    [10]  = 35705,
-    [11]  = 36348,
-    [12]  = 36949,
-    [13]  = 37506,
-    [14]  = 38032,
-    [15]  = 38529,
-    [16]  = 38994,
-    [17]  = 39441,
-    [18]  = 39868,
-    [19]  = 40275,
-    [20]  = 40659,
-    [21]  = 41038,
-    [22]  = 41393,
-    [23]  = 41740,
-    [24]  = 42074,
-    [25]  = 42400,
-    [26]  = 42710,
-    [27]  = 43018,
-    [28]  = 43310,
-    [29]  = 43598,
-    [30]  = 43876,
-    [31]  = 44143,
-    [32]  = 44406,
-    [33]  = 44664,
-    [34]  = 44918,
-    [35]  = 45160,
-    [36]  = 45397,
-    [37]  = 45636,
-    [38]  = 45862,
-    [39]  = 46083,
-    [40]  = 46305,
-    [41]  = 46522,
-    [42]  = 46733,
-    [43]  = 46937,
-    [44]  = 47143,
-    [45]  = 47343,
-    [46]  = 47535,
-    [47]  = 47730,
-    [48]  = 47917,
-    [49]  = 48098,
-    [50]  = 48288,
-    [51]  = 48462,
-    [52]  = 48638,
-    [53]  = 48815,
-    [54]  = 48984,
-    [55]  = 49155,
-    [56]  = 49317,
-    [57]  = 49490,
-    [58]  = 49645,
-    [59]  = 49802,
-    [60]  = 49960,
-    [61]  = 50118,
-    [62]  = 50268,
-    [63]  = 50419,
-    [64]  = 50571,
-    [65]  = 50715,
-    [66]  = 50868,
-    [67]  = 51004,
-    [68]  = 51150,
-    [69]  = 51286,
-    [70]  = 51424,
-    [71]  = 51562,
-    [72]  = 51701,
-    [73]  = 51831,
-    [74]  = 51972,
-    [75]  = 52103,
-    [76]  = 52224,
-    [77]  = 52357,
-    [78]  = 52480,
-    [79]  = 52613,
-    [80]  = 52737,
-    [81]  = 52852,
-    [82]  = 52977,
-    [83]  = 53102,
-    [84]  = 53218,
-    [85]  = 53335,
-    [86]  = 53451,
-    [87]  = 53569,
-    [88]  = 53687,
-    [89]  = 53794,
-    [90]  = 53913,
-    [91]  = 54022,
-    [92]  = 54130,
-    [93]  = 54240,
-    [94]  = 54350,
-    [95]  = 54460,
-    [96]  = 54571,
-    [97]  = 54671,
-    [98]  = 54782,
-    [99]  = 54883,
+    [0] = 0,
+    [1] = 23186,
+    [2] = 26405,
+    [3] = 28490,
+    [4] = 30070,
+    [5] = 31355,
+    [6] = 32447,
+    [7] = 33395,
+    [8] = 34243,
+    [9] = 35007,
+    [10] = 35705,
+    [11] = 36348,
+    [12] = 36949,
+    [13] = 37506,
+    [14] = 38032,
+    [15] = 38529,
+    [16] = 38994,
+    [17] = 39441,
+    [18] = 39868,
+    [19] = 40275,
+    [20] = 40659,
+    [21] = 41038,
+    [22] = 41393,
+    [23] = 41740,
+    [24] = 42074,
+    [25] = 42400,
+    [26] = 42710,
+    [27] = 43018,
+    [28] = 43310,
+    [29] = 43598,
+    [30] = 43876,
+    [31] = 44143,
+    [32] = 44406,
+    [33] = 44664,
+    [34] = 44918,
+    [35] = 45160,
+    [36] = 45397,
+    [37] = 45636,
+    [38] = 45862,
+    [39] = 46083,
+    [40] = 46305,
+    [41] = 46522,
+    [42] = 46733,
+    [43] = 46937,
+    [44] = 47143,
+    [45] = 47343,
+    [46] = 47535,
+    [47] = 47730,
+    [48] = 47917,
+    [49] = 48098,
+    [50] = 48288,
+    [51] = 48462,
+    [52] = 48638,
+    [53] = 48815,
+    [54] = 48984,
+    [55] = 49155,
+    [56] = 49317,
+    [57] = 49490,
+    [58] = 49645,
+    [59] = 49802,
+    [60] = 49960,
+    [61] = 50118,
+    [62] = 50268,
+    [63] = 50419,
+    [64] = 50571,
+    [65] = 50715,
+    [66] = 50868,
+    [67] = 51004,
+    [68] = 51150,
+    [69] = 51286,
+    [70] = 51424,
+    [71] = 51562,
+    [72] = 51701,
+    [73] = 51831,
+    [74] = 51972,
+    [75] = 52103,
+    [76] = 52224,
+    [77] = 52357,
+    [78] = 52480,
+    [79] = 52613,
+    [80] = 52737,
+    [81] = 52852,
+    [82] = 52977,
+    [83] = 53102,
+    [84] = 53218,
+    [85] = 53335,
+    [86] = 53451,
+    [87] = 53569,
+    [88] = 53687,
+    [89] = 53794,
+    [90] = 53913,
+    [91] = 54022,
+    [92] = 54130,
+    [93] = 54240,
+    [94] = 54350,
+    [95] = 54460,
+    [96] = 54571,
+    [97] = 54671,
+    [98] = 54782,
+    [99] = 54883,
     [100] = 54984,
     [101] = 55086,
     [102] = 55188,
@@ -891,7 +883,8 @@ const u16 getShakeChancesLookupTable[] = {
 /// @brief Returns a pre-calculated value of the shake chance
 /// @param input_value
 /// @return shake chance
-u32 get_shake_chance(int input_value) {
+u32 get_shake_chance(int input_value)
+{
     if (input_value == 255 * UQ412__1_0) {
         return 65536;
     }
