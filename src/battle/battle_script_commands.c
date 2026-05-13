@@ -5199,6 +5199,10 @@ BOOL btl_scr_cmd_11B_TryCureStatusBerry(void *bsys, struct BattleStruct *ctx)
         ctx->battlerIdTemp = battler;
         ctx->item_work = GetBattleMonItem(ctx, battler);
         ctx->temp_work = script;
+
+        if (IS_ITEM_BERRY(ctx->item_work)) {
+            ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battler)][ctx->sel_mons_no[battler]].berryEatenAndCanBelch = TRUE;
+        }
     } else {
         IncrementBattleScriptPtr(ctx, failAddress);
     }
