@@ -68,19 +68,31 @@
 #define TYPE_MUL_TRIPLE_SUPER_EFFECTIVE 40
 // #define TYPE_MUL_QUADRUPLE_SUPER_EFFECTIVE 50
 
-// #define EFFECTIVENESS_MULT_QUADRUPLE_NOT_EFFECTIVE   625
-#define EFFECTIVENESS_MULT_TRIPLE_NOT_EFFECTIVE   125
-#define EFFECTIVENESS_MULT_DOUBLE_NOT_EFFECTIVE   250
-#define EFFECTIVENESS_MULT_NOT_EFFECTIVE          500
-#define EFFECTIVENESS_MULT_NORMAL                 1000
-#define EFFECTIVENESS_MULT_SUPER_EFFECTIVE        2000
-#define EFFECTIVENESS_MULT_DOUBLE_SUPER_EFFECTIVE 4000
-#define EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE 8000
-// #define EFFECTIVENESS_MULT_QUADRUPLE_SUPER_EFFECTIVE 160000
+// #define EFFECTIVENESS_MULT_QUADRUPLE_NOT_EFFECTIVE   62500
+#define EFFECTIVENESS_MULT_TRIPLE_NOT_EFFECTIVE   125000
+#define EFFECTIVENESS_MULT_DOUBLE_NOT_EFFECTIVE   250000
+#define EFFECTIVENESS_MULT_NOT_EFFECTIVE          500000
+#define EFFECTIVENESS_MULT_NORMAL                 1000000
+#define EFFECTIVENESS_MULT_SUPER_EFFECTIVE        2000000
+#define EFFECTIVENESS_MULT_DOUBLE_SUPER_EFFECTIVE 4000000
+#define EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE 8000000
+// #define EFFECTIVENESS_MULT_QUADRUPLE_SUPER_EFFECTIVE 160000000
 
 // Special type table IDs
+#define TYPE_RING_TARGET 0xFD
 #define TYPE_FORESIGHT 0xFE
 #define TYPE_ENDTABLE  0xFF
+
+// Used in place of NELEMS
+#if (FAIRY_TYPE_IMPLEMENTED == 1 && TYPE_EFFECTIVENESS_GEN >= 6) // Gen VI+ vanilla typechart.
+#define TYPE_EFFECTIVENESS_ENTRIES 122
+#elif (FAIRY_TYPE_IMPLEMENTED == 1 && TYPE_EFFECTIVENESS_GEN < 6) // Weird config combination.
+#define TYPE_EFFECTIVENESS_ENTRIES 124
+#elif (FAIRY_TYPE_IMPLEMENTED != 1 && TYPE_EFFECTIVENESS_GEN >= 6) // Weird config combination.
+#define TYPE_EFFECTIVENESS_ENTRIES 112
+#else
+#define TYPE_EFFECTIVENESS_ENTRIES 110 // Gen IV vanilla typechart.
+#endif
 
 // Contest types
 #define COOL   0
@@ -1448,14 +1460,14 @@ struct BattleStruct {
     /*0x3044*/ u32 current_move_index;
     // u8 unk_bytes4[0x74];
 
-    /*0x3048*/ u32 waza_no_last;
+    /*0x3048*/ u32 waza_no_last;                    // The most recently used move in the battle (other than the current one).
     /*0x304C*/ u32 waza_no_keep[CLIENT_MAX];
 
     /*0x305C*/ u16 moveProtect[CLIENT_MAX];
-    /*0x3064*/ u16 waza_no_hit[CLIENT_MAX];
-    /*0x306C*/ u16 waza_no_hit_client[CLIENT_MAX];
-    /*0x3074*/ u16 waza_no_hit_type[CLIENT_MAX];
-    /*0x307C*/ u16 waza_no_old[CLIENT_MAX];
+    /*0x3064*/ u16 waza_no_hit[CLIENT_MAX];         // The last move that hit each client.
+    /*0x306C*/ u16 waza_no_hit_client[CLIENT_MAX];  // The last client that hit each client.
+    /*0x3074*/ u16 waza_no_hit_type[CLIENT_MAX];    // The type of the last move that hit each client.
+    /*0x307C*/ u16 waza_no_old[CLIENT_MAX];         // The last move used by each client.
     /*0x3084*/ u16 waza_no_oumu[CLIENT_MAX];
     /*0x308C*/ u16 waza_no_oumu_hit[CLIENT_MAX][CLIENT_MAX];
     /*0x30AC*/ u16 waza_no_sketch[CLIENT_MAX];
@@ -1463,9 +1475,9 @@ struct BattleStruct {
 
     /*0x30BC*/ u16 waza_no_pos[CLIENT_MAX];
     /*0x30C4*/ //u8 unk_bytes_4[0x44];
-    /*0x30C4*/ u16 waza_no_texture2[CLIENT_MAX];
-    /*0x30CC*/ u16 waza_no_texture2_client[CLIENT_MAX];
-    /*0x30D4*/ u16 waza_no_texture2_type[CLIENT_MAX];
+    /*0x30C4*/ u16 lastClientDamagingMove[CLIENT_MAX];  // Currently unused due to modernization.
+    /*0x30CC*/ u16 lastClientDamagedBy[CLIENT_MAX];     // Same here.
+    /*0x30D4*/ u16 lastClientMoveType[CLIENT_MAX];   // Used for modernized Conversion 2. Originally stored only the most recent damaging move.
     /*0x30DC*/ u16 waza_no_metronome[CLIENT_MAX];
     /*0x30E4*/ int store_damage[CLIENT_MAX];
     /*0x30F4*/ int client_no_hit[CLIENT_MAX];
@@ -1680,9 +1692,9 @@ struct BattleSystem {
     // u8 unk240F_0:1;
     // u8 unk240F_1:1;
     // u8 unk240E_F:1;
-    // u8 criticalHpMusic:2;
-    // u8 criticalHpMusicDelay:3;
-    u8 padding[0x2400 - 0x2228];
+	u8 padding[0x2400 - 0x2218];
+    u8 criticalHpMusic:2;
+    u8 criticalHpMusicDelay:3;
     u32 terrain;
     u32 bgId;
     // int location;
@@ -2014,7 +2026,7 @@ enum
     MOVE_PERFORMANCE_STEP_18_0_PLEDGE_MOVES_COMBINATION,
     MOVE_PERFORMANCE_STEP_19_0_FORM_CHANGE,
     MOVE_PERFORMANCE_STEP_20_0_LIFE_ORB_SHELL_BELL,
-    MOVE_PERFORMANCE_STEP_21_0_MOVE_DEFENDER_ITEMS_4,
+    MOVE_PERFORMANCE_STEP_21_0_ALL_ITEMS,
     MOVE_PERFORMANCE_STEP_22_0_EMERGENCY_EXIT_WIMP_OUT,
     MOVE_PERFORMANCE_STEP_23_0_U_TURN_VOLT_SWITCH,
     MOVE_PERFORMANCE_STEP_24_0_PICKPOCKET,
@@ -3934,7 +3946,9 @@ BOOL LONG_CALL AddType(struct BattleStruct *ctx, int battlerId, int type);
 
 BOOL LONG_CALL RemoveType(struct BattleStruct *ctx, int battlerId, int type);
 
-void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys, struct BattleStruct *ctx);
+void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
+void LONG_CALL ov12_0224D23C(struct BattleSystem *bsys, struct BattleStruct *ctx);
+void LONG_CALL ov12_02256694(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 u8 LONG_CALL ov12_02261258(struct CLIENT_PARAM *opponentData);
 
@@ -4224,7 +4238,7 @@ void LONG_CALL BattleMessage_BufferBoxName(struct BattleSystem *bsys, int buffer
 
 int LONG_CALL MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int defender);
 
-u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u32 held_effect, u8 defender_type, u8 defaultEffectiveness);
+u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u8 defender_type, u8 defaultEffectiveness);
 
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag);
 
@@ -4311,6 +4325,8 @@ void LONG_CALL InitBattleMsg(struct BattleSystem *bw, struct BattleStruct *sp, B
 void LONG_CALL BattleController_EmitPrintMessage(struct BattleSystem *bw, struct BattleStruct *sp, BattleMessage *msg);
 void LONG_CALL BattleController_EmitPrintAttackMessage(struct BattleSystem *bw, struct BattleStruct *sp);
 
+void *LONG_CALL BattleScriptGetVarPointer(struct BattleSystem *bw, struct BattleStruct *sp, int var);
+
 void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
 
 
@@ -4344,5 +4360,7 @@ u32 LONG_CALL sub_0200E3D8(void);
 void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSystem, MsgData *data, BattleMessage *msg);
 
 BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
+
+BOOL LONG_CALL GetTypeEffectivenessData(struct BattleSystem *bsys, int index, u8 *typeMove, u8 *typeMon, u8 *eff);
 
 #endif // BATTLE_H

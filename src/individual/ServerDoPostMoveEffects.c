@@ -16,7 +16,7 @@
 
 
 void UNUSED ServerDoPostMoveEffectsInternal(void *bsys, struct BattleStruct *ctx);
-int LONG_CALL ActivateDefenderItems4(void *bsys, struct BattleStruct *sp);
+int LONG_CALL Activate_AllBattlerItems(void *bsys, struct BattleStruct *sp);
 int LONG_CALL ShowDamageReductionBerryMessage(void *bsys UNUSED, struct BattleStruct *sp);
 
 int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, struct BattleStruct *sp, int *seq_no);
@@ -356,9 +356,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_13_0_MULTIHIT_MOVE_ATTACKER_ITEMS_4 %d\n", ctx->swoam_seq_no);
 #endif
-        //TODO confirm
-        if (TryUseHeldItem(bsys, ctx, ctx->attack_client) == TRUE) {
-            return;
+        if (ctx->multiHitCount > 0) {
+            if (TryUseHeldItem(bsys, ctx, ctx->attack_client) == TRUE) {
+                return;
+            }
         }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
@@ -368,7 +369,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4 %d\n", ctx->swoam_seq_no);
 #endif
 
-        // TODO confirm
         if (ctx->multiHitCount > 0) {
             if (TryUseHeldItem(bsys, ctx, ctx->defence_client) == TRUE) {
                 return;
@@ -498,12 +498,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             return;
         }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_21_0_MOVE_DEFENDER_ITEMS_4: //speed order
+    case MOVE_PERFORMANCE_STEP_21_0_ALL_ITEMS: // speed order
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_21_0_MOVE_DEFENDER_ITEMS_4 %d\n", ctx->swoam_seq_no);
+        debug_printf("in MOVE_PERFORMANCE_STEP_21_0_ALL_ITEMS %d\n", ctx->swoam_seq_no);
 #endif
         //TODO split tryUseHeldItems?
-        if (ActivateDefenderItems4(bsys, ctx) == TRUE) {
+        if (Activate_AllBattlerItems(bsys, ctx) == TRUE) {
             return;
         }
         ctx->swoam_seq_no++;
@@ -784,16 +784,14 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 }*/
 
 
-int LONG_CALL ActivateDefenderItems4(void *bsys, struct BattleStruct *ctx)
+int LONG_CALL Activate_AllBattlerItems(void *bsys, struct BattleStruct *ctx)
 {
     for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++)
     {
         int client_no = ctx->turnOrder[battler];
-        if (client_no != ctx->attack_client)
+        if (TryUseHeldItem(bsys, ctx, client_no) == TRUE)
         {
-            if (TryUseHeldItem(bsys, ctx, client_no) == TRUE) {
-                return TRUE;
-            }
+            return TRUE;
         }
     }
     return FALSE;
@@ -1230,13 +1228,16 @@ int LONG_CALL Activate_SparklingAria(void *bsys, struct BattleStruct *ctx)
                 if ((ctx->oneSelfFlag[client_no].special_damager == ctx->attack_client)
                     && (ctx->battlemon[client_no].condition & STATUS_BURN)
                     && (ctx->battlemon[client_no].hp)) {
-                    if (numberOfClientsHitBySparklingAria > 1 || GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST) {
-                        ctx->battlerIdTemp = client_no;
-                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_BURN);
-                        ctx->next_server_seq_no = ctx->server_seq_no;
-                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                        return TRUE;
-                    }
+                        if ((numberOfClientsHitBySparklingAria > 1)
+                            || (GetBattlerAbility(ctx, client_no) != ABILITY_SHIELD_DUST
+                            && HeldItemHoldEffectGet(ctx, client_no) != HOLD_EFFECT_PREVENT_SECONDARY_EFFECTS))
+                        {
+                            ctx->battlerIdTemp = client_no;
+                            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_BURN);
+                            ctx->next_server_seq_no = ctx->server_seq_no;
+                            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                            return TRUE;
+                        }
                 }
             }
         }

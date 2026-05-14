@@ -1574,7 +1574,13 @@
     .long (((\arg_2 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 287
+    .macro DivideVarByValueRoundUp var, val
+    .long 288
+    .long \var
+    .long \val
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 288
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)
