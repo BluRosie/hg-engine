@@ -2980,6 +2980,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     BOOL hasFlowerVeil = HasType(ctx, defender, TYPE_GRASS) && (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FLOWER_VEIL) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, BATTLER_ALLY(defender), ABILITY_FLOWER_VEIL));
 
     int subscriptToRun = 0;
+    ctx->battlerIdTemp = defender;
 
     switch (moveEffect) {
     case MOVE_EFFECT_ATK_DOWN:
