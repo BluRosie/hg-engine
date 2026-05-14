@@ -1039,6 +1039,7 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
         // case MOVE_EFFECT_TELEKINESIS:
         // case MOVE_EFFECT_SMACK_DOWN: thousand arrows
         // case MOVE_EFFECT_SECRET_POWER:
+    case MOVE_EFFECT_WHIRLPOOL:
     case MOVE_EFFECT_BIND_HIT: // fire spin/wrap/infestation
         if (ctx->attack_client != BATTLER_NONE
             && (ctx->battlemon[ctx->attack_client].hp != 0)
