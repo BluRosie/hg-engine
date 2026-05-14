@@ -16,7 +16,7 @@
 
 
 void UNUSED ServerDoPostMoveEffectsInternal(void *bsys, struct BattleStruct *ctx);
-int LONG_CALL ActivateDefenderItems4(void *bsys, struct BattleStruct *sp);
+int LONG_CALL Activate_AllBattlerItems(void *bsys, struct BattleStruct *sp);
 int LONG_CALL ShowDamageReductionBerryMessage(void *bsys UNUSED, struct BattleStruct *sp);
 
 int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, struct BattleStruct *sp, int *seq_no);
@@ -134,10 +134,14 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE (%d)+(%d)\n", ctx->store_damage[ctx->attack_client], ctx->hit_damage);
+        if (IsAttackerOnField(ctx)) {
+            debug_printf("in MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE (%d)+(%d)\n", ctx->store_damage[ctx->attack_client], ctx->hit_damage);
+        }
 #endif
 
-        ctx->store_damage[ctx->attack_client] += ctx->hit_damage;
+        if (IsAttackerOnField(ctx)) {
+            ctx->store_damage[ctx->attack_client] += ctx->hit_damage;
+        }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE:
@@ -322,18 +326,34 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     }
-    case MOVE_PERFORMANCE_STEP_11_0_FAINTING:
+    case MOVE_PERFORMANCE_STEP_11_0_FINAL_GAMBIT: {
+
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_11_0_FAINTING %d\n", ctx->swoam_seq_no);
+        debug_printf("in MOVE_PERFORMANCE_STEP_11_0_FINAL_GAMBIT %d\n", ctx->swoam_seq_no);
+#endif
+        ctx->swoam_seq_no++;
+        if (ctx->current_move_index == MOVE_FINAL_GAMBIT && ctx->battlemon[ctx->attack_client].hp) {
+            ctx->fainting_client = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FAINT);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+        FALLTHROUGH;
+    }
+    case MOVE_PERFORMANCE_STEP_11_1_FAINTING: {
+
+#ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_11_1_FAINTING %d\n", ctx->swoam_seq_no);
 #endif
 
-        // TODO
-        if (CheckIfAnyoneShouldFaint(ctx, ctx->server_seq_no, ctx->server_seq_no, 0/*check grudge/destiny bond*/) == TRUE) {
+        if (CheckIfAnyoneShouldFaint(ctx, ctx->server_seq_no, ctx->server_seq_no, 0 /*check grudge/destiny bond*/) == TRUE) {
             Activate_KO_Count(bsys, ctx);
             return;
         }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
+    }
     case MOVE_PERFORMANCE_STEP_12_0_RESET_UNNERVE_NEUTRALIZING_GAS_IF_FAINTED: // switch in ability check?
     {
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
@@ -356,9 +376,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_13_0_MULTIHIT_MOVE_ATTACKER_ITEMS_4 %d\n", ctx->swoam_seq_no);
 #endif
-        //TODO confirm
-        if (TryUseHeldItem(bsys, ctx, ctx->attack_client) == TRUE) {
-            return;
+        if (ctx->multiHitCount > 0) {
+            if (TryUseHeldItem(bsys, ctx, ctx->attack_client) == TRUE) {
+                return;
+            }
         }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
@@ -368,7 +389,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4 %d\n", ctx->swoam_seq_no);
 #endif
 
-        // TODO confirm
         if (ctx->multiHitCount > 0) {
             if (TryUseHeldItem(bsys, ctx, ctx->defence_client) == TRUE) {
                 return;
@@ -386,7 +406,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE, storedDamage[%d] %d\n", ctx->attack_client, ctx->store_damage[ctx->attack_client]);
+        if (IsAttackerOnField(ctx)) {
+            debug_printf("in MOVE_PERFORMANCE_STEP_15_0_RECOIL_DAMAGE, storedDamage[%d] %d\n", ctx->attack_client, ctx->store_damage[ctx->attack_client]);
+        }
 #endif
 
         ctx->swoam_seq_no++;
@@ -498,12 +520,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             return;
         }
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_21_0_MOVE_DEFENDER_ITEMS_4: //speed order
+    case MOVE_PERFORMANCE_STEP_21_0_ALL_ITEMS: // speed order
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_21_0_MOVE_DEFENDER_ITEMS_4 %d\n", ctx->swoam_seq_no);
+        debug_printf("in MOVE_PERFORMANCE_STEP_21_0_ALL_ITEMS %d\n", ctx->swoam_seq_no);
 #endif
         //TODO split tryUseHeldItems?
-        if (ActivateDefenderItems4(bsys, ctx) == TRUE) {
+        if (Activate_AllBattlerItems(bsys, ctx) == TRUE) {
             return;
         }
         ctx->swoam_seq_no++;
@@ -784,16 +806,14 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 }*/
 
 
-int LONG_CALL ActivateDefenderItems4(void *bsys, struct BattleStruct *ctx)
+int LONG_CALL Activate_AllBattlerItems(void *bsys, struct BattleStruct *ctx)
 {
     for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++)
     {
         int client_no = ctx->turnOrder[battler];
-        if (client_no != ctx->attack_client)
+        if (TryUseHeldItem(bsys, ctx, client_no) == TRUE)
         {
-            if (TryUseHeldItem(bsys, ctx, client_no) == TRUE) {
-                return TRUE;
-            }
+            return TRUE;
         }
     }
     return FALSE;
@@ -979,7 +999,8 @@ int LONG_CALL Activate_Rowap_Jaboca(void *bsys UNUSED, struct BattleStruct *ctx)
 
             case HOLD_EFFECT_RECOIL_SPECIAL: // Rowap Berry
                 // Attacker is alive after the attack
-                if ((ctx->battlemon[ctx->attack_client].hp)
+                if (IsAttackerOnField(ctx)
+                    && (ctx->battlemon[ctx->attack_client].hp)
                     // Attacker does not have Magic Guard
                     && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_MAGIC_GUARD)
                     // Attacker dealt special damage
@@ -1410,9 +1431,9 @@ int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *
 
 int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *sp)
 {
-    if (sp->attack_client != BATTLER_NONE
-        && GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE
-        && sp->battlemon[sp->attack_client].sheer_force_flag == 1) { // skip over shell bell and life orb if sheer force is active
+    if (!IsAttackerOnField(sp)
+        || (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE
+        && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) { // skip over shell bell and life orb if sheer force is active
         return FALSE;
     }
 
@@ -1461,7 +1482,7 @@ int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *s
 
 int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *ctx)
 {
-    if (ctx->attack_client == BATTLER_NONE) {
+    if (!IsAttackerOnField(ctx)) {
         return FALSE;
     }
 
@@ -1469,7 +1490,9 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
     switch (GetBattlerAbility(ctx, ctx->attack_client)) {
     case ABILITY_MAGICIAN:
         // https://discord.com/channels/419213663107416084/1368163973366681712/1484346665090678854
-        if (ctx->battlemon[ctx->attack_client].hp
+        // https://discord.com/channels/419213663107416084/1368163973366681712/1502337159007441079
+        if (!ctx->futureSightHitTurn
+            && ctx->battlemon[ctx->attack_client].hp
             && ctx->battlemon[ctx->attack_client].item == ITEM_NONE
             && ctx->moveTbl[ctx->current_move_index].power != 0
             && ctx->gemBoostingMove == FALSE)
@@ -1598,7 +1621,7 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
 
 int LONG_CALL Activate_FormChange(void *bsys, struct BattleStruct *ctx)
 {
-    if (ctx->attack_client == BATTLER_NONE) {
+    if (!IsAttackerOnField(ctx)) {
         return FALSE;
     }
     // TODO loop over all battlers?
@@ -1720,7 +1743,7 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
 
         case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE: // Red Card
             // Attacker, Defender is alive after the attack
-            if (ctx->attack_client != BATTLER_NONE
+            if (IsAttackerOnField(ctx)
                 && ctx->battlemon[ctx->attack_client].hp
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 //&& (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
@@ -1983,6 +2006,9 @@ int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
     case MOVE_EFFECT_RECOIL_HALF: // head smash, light of ruin
         seq_no = SUB_SEQ_RECOIL_1_2;
         break;
+    case MOVE_EFFECT_RECOIL_HALF_MAX_HP: //chloroplast
+        seq_no = SUB_SEQ_RECOIL_HALF_MAX_HP;
+        break;
     default:
         break;
     }
@@ -2061,7 +2087,7 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
 
 void LONG_CALL Activate_KO_Count(void *bsys UNUSED, struct BattleStruct *ctx)
 {
-    if (ctx->attack_client == BATTLER_NONE || (ctx->battlemon[ctx->attack_client].hp == 0)) {
+    if (!IsAttackerOnField(ctx) || (ctx->battlemon[ctx->attack_client].hp == 0)) { //TODO confirm
         return;
     }
 

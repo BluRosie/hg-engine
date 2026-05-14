@@ -93,7 +93,11 @@ venv: $(VENV_ACTIVATE)
 # divorce this python3 from venv so that it works
 $(VENV_ACTIVATE):
 	$(PYTHON_NO_VENV) -m venv $(VENV)
+ifeq ($(MSYS2), 0)
+	$(PYTHON) -m pip install ndspy==4.1.0
+else
 	$(PYTHON) -m pip install -r $(REQUIREMENTS)
+endif
 
 endif
 
@@ -253,6 +257,8 @@ define SRC_OBJ_INC_DEFINE
 $1: $2 $(LEARNSETS_HEADER) $(BATTLETESTS_HEADER) | $(dir $1)
 	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
 	@#printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
+
+-include $(basename $1).d
 endef
 
 ifneq (1,$(NOSCAN))

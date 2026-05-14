@@ -103,7 +103,6 @@ const struct TestBattleScenario BattleTests[] = {
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 36, 36, 37, 37, 37, 39, 39, 39, 39, 40, 40, 40, 42, 42, 42, 43 } },    
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
