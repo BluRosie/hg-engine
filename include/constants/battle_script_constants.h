@@ -506,8 +506,9 @@
 #define SUB_SEQ_BATCH_FOLLOWUP                        (496)
 #define SUB_SEQ_SUBSTITUTE_FADES                      (497)
 #define SUB_SEQ_HANDLE_WIMP_OUT                       (498)
+#define SUB_SEQ_RECOIL_HALF_MAX_HP                    (499)
 
-#define MAX_BASE_SUBSCRIPT_NUM 498
+#define MAX_BASE_SUBSCRIPT_NUM 499
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

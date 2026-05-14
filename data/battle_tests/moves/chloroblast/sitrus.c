@@ -1,4 +1,4 @@
-// Test: Struggle - Technician, Life Orb chip
+// Test: Chloroblast - Recoil half max HP, Sitrus triggers
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -14,19 +14,18 @@ const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    {
-        .battleType = BATTLE_TYPE_SINGLE,
+    {   .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_SCIZOR,
-                .level = 50,
-                .form = 0,
-                .ability = ABILITY_TECHNICIAN,
-                .item = ITEM_LIFE_ORB,
-                .moves = { MOVE_STRUGGLE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .species = SPECIES_ELECTRODE,
+                .level = 51,
+                .form = 1,
+                .ability = ABILITY_NO_GUARD,
+                .item = ITEM_SITRUS_BERRY,
+                .moves = { MOVE_CHLOROBLAST, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -36,12 +35,14 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
-        .enemyParty = { {
-                            .species = SPECIES_GARCHOMP,
+            { .species = SPECIES_NONE }
+        },
+        .enemyParty = { 
+                        {
+                            .species = SPECIES_MASQUERAIN,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_ROUGH_SKIN,
+                            .ability = ABILITY_INTIMIDATE,
                             .item = ITEM_NONE,
                             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
@@ -53,8 +54,10 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE } },
-        .playerScript = { {
+            { .species = SPECIES_NONE }
+        },
+        .playerScript = {
+            {
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
@@ -73,8 +76,10 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
-        .enemyScript = { {
+            }
+        },
+        .enemyScript = {
+            {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
@@ -93,11 +98,12 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            } },
+            }
+        },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 49, 49, 51, 51, 52, 52, 52, 53, 53, 55, 55, 56, 56, 57, 57, 58 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Scizor!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Scizor lost some of its HP!" },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 21, 21, 22, 22, 22, 22, 22, 23, 23, 23, 24, 24, 24, 24, 25, 25 } },        
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective..." },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Electrode restored its health using its Sitrus Berry!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY
