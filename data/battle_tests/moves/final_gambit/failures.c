@@ -1,4 +1,4 @@
-// Test: Strength Sap - Heal, Lower Attack, Liquid Ooze
+// Test: Final Gambit - Failure into immunity, protect
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -19,25 +19,25 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_ODDISH,
+                .species = SPECIES_MANKEY,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_CHLOROPHYLL,
+                .ability = ABILITY_VITAL_SPIRIT,
                 .item = ITEM_NONE,
-                .moves = { MOVE_STRENGTH_SAP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_FINAL_GAMBIT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
             {
-                .species = SPECIES_BELLSPROUT,
-                .level = 64,
+                .species = SPECIES_STARLY,
+                .level = 50,
                 .form = 0,
-                .ability = ABILITY_CHLOROPHYLL,
-                .item = ITEM_BIG_ROOT,
-                .moves = { MOVE_STRENGTH_SAP, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
-                .hp = 1, //157
+                .ability = ABILITY_VITAL_SPIRIT,
+                .item = ITEM_NONE,
+                .moves = { MOVE_FINAL_GAMBIT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
@@ -48,37 +48,37 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .enemyParty = {
             {
-                .species = SPECIES_GULPIN,
+                .species = SPECIES_GIBLE,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_LIQUID_OOZE,
+                .ability = ABILITY_ROUGH_SKIN,
                 .item = ITEM_NONE,
-                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_PROTECT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
-            {
-                .species = SPECIES_MEW,
-                .level = 50,
-                .form = 0,
-                .ability = ABILITY_SYNCHRONIZE,
-                .item = ITEM_NONE,
-                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                .hp = FULL_HP,
-                .status = 0,
-                .condition2 = 0,
-                .moveEffectFlags = 0,
-            },
+        {
+            .species = SPECIES_GASTLY,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_LEVITATE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .playerScript = {
             {
-                  { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
                   { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                  { ACTION_NONE, 0 },
                   { ACTION_NONE, 0 },
                   { ACTION_NONE, 0 },
                   { ACTION_NONE, 0 },
@@ -88,7 +88,6 @@ const struct TestBattleScenario BattleTests[] = {
               },
             {
                 { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
-                { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -100,7 +99,7 @@ const struct TestBattleScenario BattleTests[] = {
         .enemyScript = {
             {
                  { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                 { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                 { ACTION_NONE, 0 },
                  { ACTION_NONE, 0 },
                  { ACTION_NONE, 0 },
                  { ACTION_NONE, 0 },
@@ -110,7 +109,7 @@ const struct TestBattleScenario BattleTests[] = {
              },
             {
                 { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -120,13 +119,10 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Bellsprout used Strength Sap!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew's Attack fell!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish used Strength Sap!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish's HP is full!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish used Strength Sap!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gulpin's Attack fell!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It sucked up the liquid ooze!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mankey used Final Gambit!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gible protected itself!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly used Final Gambit!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect the opposing Gastly..." },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

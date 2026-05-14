@@ -1480,7 +1480,7 @@ const u8 CriticalRateTable[] = {
 int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, int critical_count, u32 side_condition)
 {
     u16 temp;
-    u16 item;
+    u16 item = ITEM_NONE;
     int hold_effect;
     u16 species = SPECIES_NONE;
     u32 defender_condition;
@@ -1650,6 +1650,10 @@ u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u8 defender_type, u8 defaultEf
 // TODO: Refactor this function
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag)
 {
+    if (sp->current_move_index == MOVE_STRUGGLE) {
+        return TYPE_MUL_NORMAL;
+    }
+
     int typeTableEntryNo = 0; // Used to cycle through all (non-neutral) type interactions.
 
     // https://xcancel.com/Sibuna_Switch/status/1827463371383328877#m
@@ -1736,7 +1740,7 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
                 }
             }
         }
-        else if (sp->current_move_index == MOVE_FLYING_PRESS 
+        else if (sp->current_move_index == MOVE_FLYING_PRESS
         && TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_FLYING)
         {
             if (sp->battlemon[defence_client].is_currently_terastallized && defender_tera_type != TYPE_STELLAR)
@@ -1789,7 +1793,7 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
     // Returns the correct multiplier but moved to the right 3 decimal places.
     int typeMul = (type1Effectiveness * type1Effectiveness_Dual) * (type2Effectiveness * type2Effectiveness_Dual) * (type3Effectiveness * type3Effectiveness_Dual);
     // Unfortunately this can't be directly converted into the double or triple flags, so we're stuck with this switch statement.
-    
+
     switch (typeMul)
     {
     case EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE:
@@ -1929,7 +1933,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
                     }
                 }
             }
-        } else if (sp->current_move_index == MOVE_FLYING_PRESS 
+        } else if (sp->current_move_index == MOVE_FLYING_PRESS
         && TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_FLYING) {
             if (sp->battlemon[defence_client].is_currently_terastallized && defender_tera_type != TYPE_STELLAR) {
                 if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_tera_type) {
@@ -3062,8 +3066,8 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
 {
     int type;
 
-    int species, form;
-    struct PartyPokemon *mon;
+    int species = 0, form = 0;
+    struct PartyPokemon *mon = NULL;
 
     // BUGFIX
     type = ctx->move_type;
@@ -4208,21 +4212,15 @@ u32 LONG_CALL CheckSubstitute(struct BattleStruct *ctx, int client_no)
     return ret;
 }
 
+#ifdef DISABLE_CRITICAL_HP_WARNING
 u8 BattleSystem_GetCriticalHpMusicFlag(struct BattleSystem *battleSystem UNUSED) {
-	#ifdef DISABLE_CRITICAL_HP_WARNING
 	return 2;
-	#else
-	return battleSystem->criticalHpMusic;
-	#endif
 }
 
 void BattleSystem_SetCriticalHpMusicFlag(struct BattleSystem *battleSystem, u8 flag UNUSED) {
-	#ifdef DISABLE_CRITICAL_HP_WARNING
 	battleSystem->criticalHpMusic = 2;
-	#else
-	battleSystem->criticalHpMusic = flag;
-	#endif
 }
+#endif
 
 BOOL LONG_CALL GetTypeEffectivenessData(struct BattleSystem *bsys, int index, u8 *typeMove, u8 *typeMon, u8 *eff) {
     BOOL ret = TRUE;

@@ -8300,7 +8300,7 @@ movedata MOVE_RETALIATE, "Retaliate"
     movedescription MOVE_RETALIATE, "If an ally fainted\nin the previous\nturn, this attack’s\ndamage increases."
 
 movedata MOVE_FINAL_GAMBIT, "Final Gambit"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_FINAL_GAMBIT
     pss SPLIT_SPECIAL
     basepower 1
     type TYPE_FIGHTING
@@ -8309,7 +8309,7 @@ movedata MOVE_FINAL_GAMBIT, "Final Gambit"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT
     appeal 0x00
     contesttype CONTEST_TOUGH
     terminatedata
@@ -13429,7 +13429,7 @@ movedata MOVE_WAVE_CRASH, "Wave Crash"
     movedescription MOVE_WAVE_CRASH, "The user shrouds\nitself in water and\nslams into the target.\nThis also damages the\nuser quite a lot."
 
 movedata MOVE_CHLOROBLAST, "Chloroblast"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_RECOIL_HALF_MAX_HP
     pss SPLIT_SPECIAL
     basepower 150
     type TYPE_GRASS
@@ -13438,7 +13438,7 @@ movedata MOVE_CHLOROBLAST, "Chloroblast"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
