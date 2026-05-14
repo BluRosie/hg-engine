@@ -450,14 +450,14 @@ A watering can shaped like a PSYDUCK.\nIt helps promote healthy growth of\nBerri
 A case for storing Poffin cooked from\nBerries.\n
 A folding Bicycle that enables much\nfaster movement than the Running\nShoes.
 A key to one of the suites at the\nluxury hotel by a lake. For some odd\nreason, it often disappears.
-A letter from Prof. Oak.\nWritten in it is a request for you to\ngo to Rt. 224.
+A diploma certifying your graduation\nfrom the Trainers School in\nViolet City.
 A feather that glows like the moon.\nIt is said to possess the power to\ndispel nightmares.
 A card needed for entering the inn in\nCanalave City. Oddly, the last date\nmarked on it was 50 years ago.
 A flute that puts out echoing sounds\nthat do not seem to be of this world.\nIt is unknown who made it.
 The ticket required for sailing on the\nferry S.S. Aqua. It has a drawing of a\nship on it.
 The pass required for entering Pokémon\nContests. It has a drawing of an award\nribbon on it.
 A stone formed when boulders melted in\nintensely hot magma, then hardened.\nMagma remains sealed inside.
-A parcel entrusted in your care.\nYou are supposed to deliver it to your\nchildhood friend who left Twinleaf Town.
+A parcel entrusted in your care.\nYou are supposed to deliver it to Mr.\nPokémon on Route 30.
 A coupon to be exchanged for a\nPokémon Watch (Pokétch for short).\nThree coupons are needed.
 A coupon to be exchanged for a\nPokémon Watch (Pokétch for short).\nThree coupons are needed.
 A coupon to be exchanged for a\nPokémon Watch (Pokétch for short).\nThree coupons are needed.
@@ -482,7 +482,7 @@ A ticket required for riding the Magnet\nTrain. It allows you to ride whenever\n
 An important machine part for the\nPower Plant that was stolen.
 A strange, silvery feather\nthat sparkles.
 A mystical, rainbow feather\nthat sparkles.
-A mysterious Egg obtained from Mr.\nPokémon. What’s in the Egg is unknown.
+A mysterious Egg obtained from in\nOld Bark Woods. What’s in the Egg\nis unknown.
 A red Apricorn.\nIt assails your nostrils.
 A yellow Apricorn.\nIt has an invigorating scent.
 A blue Apricorn.\nIt smells a bit like grass.

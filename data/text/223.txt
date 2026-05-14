@@ -450,7 +450,7 @@ a {COLOR 255}Sprayduck{COLOR 0}
 a {COLOR 255}Poffin Case{COLOR 0}
 a {COLOR 255}Bicycle{COLOR 0}
 a {COLOR 255}Suite Key{COLOR 0}
-{COLOR 255}Oak’s Letter{COLOR 0}
+{COLOR 255}Diploma{COLOR 0}
 a {COLOR 255}Lunar Wing{COLOR 0}
 a {COLOR 255}Member Card{COLOR 0}
 an {COLOR 255}Azure Flute{COLOR 0}

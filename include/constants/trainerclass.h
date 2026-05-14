@@ -133,6 +133,8 @@
 #define TRAINERCLASS_BUG_CATCHER_F          129
 #define TRAINERCLASS_SHRINE_MAIDEN          130
 #define TRAINERCLASS_TEACHER_REY            131
+#define TRAINERCLASS_UNOVA_ACE_M            132
+#define TRAINERCLASS_UNOVA_ACE_F            133
 
 // Only used to display attributes of phone contacts
 #define TRAINERCLASS_PHONE_MOM               200

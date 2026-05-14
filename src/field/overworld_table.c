@@ -1681,6 +1681,14 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     NEW_NPC_ENTRY(1), // Shrine Maiden
     NEW_NPC_ENTRY(2), // Rei
     NEW_NPC_ENTRY(3), // Mystery Egg
+    NEW_NPC_ENTRY(4), // Unovan Ace M
+    NEW_NPC_ENTRY(5), // Unvocan Ace F
+    NEW_NPC_ENTRY(6), // Bird Keeper F
+    NEW_NPC_ENTRY(7), // Bird Keeper M
+    NEW_NPC_ENTRY(8), // Pokémon Breeder F
+    NEW_NPC_ENTRY(9), // Pokémon Breeder M
+    NEW_NPC_ENTRY(10), // Pokémon Ranger F
+    NEW_NPC_ENTRY(11), // Pokémon Ranger M
     { 0xFFFF, 0, 0},
 };
 

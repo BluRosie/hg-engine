@@ -531,6 +531,8 @@
 .equ TRAINERCLASS_BUG_CATCHER_F,          129
 .equ TRAINERCLASS_SHRINE_MAIDEN,          130
 .equ TRAINERCLASS_TEACHER_REY,            131
+.equ TRAINERCLASS_UNOVA_ACE_M,            132
+.equ TRAINERCLASS_UNOVA_ACE_F,            133
 
 // trainer data flags
 

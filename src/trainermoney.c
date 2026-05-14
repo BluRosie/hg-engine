@@ -9,8 +9,8 @@ struct TrainerMoney
 
 struct TrainerMoney PrizeMoney[] = // 0x34C04 in Overlay 12; 2 bytes for trainer class ID, 2 bytes for modifier; 516 bytes in total in vanilla
 {
-    { .class = TRAINERCLASS_PKMN_TRAINER_ETHAN, .multiplier = 0 },
-    { .class = TRAINERCLASS_PKMN_TRAINER_LYRA, .multiplier = 0 },
+    { .class = TRAINERCLASS_PKMN_TRAINER_ETHAN, .multiplier = 16 },
+    { .class = TRAINERCLASS_PKMN_TRAINER_LYRA, .multiplier = 16 },
     { .class = TRAINERCLASS_YOUNGSTER, .multiplier = 4 },
     { .class = TRAINERCLASS_LASS, .multiplier = 4 },
     { .class = TRAINERCLASS_CAMPER, .multiplier = 4 },
@@ -141,4 +141,6 @@ struct TrainerMoney PrizeMoney[] = // 0x34C04 in Overlay 12; 2 bytes for trainer
     { .class = TRAINERCLASS_BUG_CATCHER_F, .multiplier = 4 },
     { .class = TRAINERCLASS_SHRINE_MAIDEN, .multiplier = 12 },
     { .class = TRAINERCLASS_TEACHER_REY, .multiplier = 12 },
+    { .class = TRAINERCLASS_UNOVA_ACE_M, .multiplier = 15 },
+    { .class = TRAINERCLASS_UNOVA_ACE_F, .multiplier = 15 },
 };

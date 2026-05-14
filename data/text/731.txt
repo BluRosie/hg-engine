@@ -130,3 +130,5 @@ a ₧₦ Trainer
 a Bug Catcher
 a Shrine Maiden
 a Teacher
+an Ace Trainer
+an Ace Trainer

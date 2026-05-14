@@ -1373,6 +1373,30 @@
 #define SEQ_SE_GS_GEARSEALHAMERU             2376
 #define SEQ_SE_GS_XBUTTON_SYUKUSHOU          2377
 #define SEQ_SE_END                           2378
+#define SEQ_BATTLE_CYNTHIA                   2379
+#define SEQ_EYE_CHAMP_SINNOH                 2380
+#define SEQ_BATTLE_STEVEN                    2381
+#define SEQ_ETERNA_FOREST                    2382
+#define SEQ_SINNOH_TRAINER                   2383
+#define SEQ_SINNOH_GYM_LEADER                2384
+#define SEQ_BATTLE_REY                       2385
+#define SEQ_HOENN_WILD_BATTLE                2386
+#define SEQ_ALMIA_JINGLE                     2387
+#define SEQ_ROCKET_MOTTO                     2388
+#define SEQ_MT_CORONET                       2389
+#define SEQ_BOWA2_OW                         2390
+#define SEQ_BATTLE_KANTOCHAMP                2391
+#define SEQ_BATTLE_N                         2392
+#define SEQ_SPEAR_PILLAR                     2393
+#define SEQ_HALL_OF_ORIGIN                   2394
+#define SEQ_AZURE_FLUTE                      2395
+#define SEQ_VIOLET_NIGHT                     2396
+#define SEQ_RANGER_BASE                      2397
+#define SEQ_EYE_MOUNT                        2398
+#define SEQ_EYE_FIGHT                        2399
+#define SEQ_EYE_RICH                         2400
+#define SEQ_EYE_ELITE                        2401
+#define SEQ_VS_UNOVA                         2402
 
 //Sounds marked BANK, WAVE, PLAYER, GROUP not ported over from pokeheartgold/include/constants/sndseq.h
 
@@ -1422,6 +1446,7 @@ enum {
     ANIM_MUSIC_COMBO_JOHTO_WILD_THEME,
     ANIM_MUSIC_COMBO_KIMONO_GIRL,
     ANIM_MUSIC_COMBO_RED,
+    ANIM_MUSIC_COMBO_UNOVA,
 };
 
 #endif //POKEHEARTGOLD_CONSTANTS_SNDSEQ_H

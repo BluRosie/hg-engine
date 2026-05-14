@@ -165,16 +165,16 @@ pokemon SPECIES_PIDGEY
 // night encounter slots
 pokemon SPECIES_HOOTHOOT
 pokemon SPECIES_SENTRET
-pokemon SPECIES_HOOTHOOT
 pokemon SPECIES_SPINARAK
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
+pokemon SPECIES_SENTRET
 pokemon SPECIES_SPINARAK
-pokemon SPECIES_SPINARAK
+pokemon SPECIES_PIDGEY
+pokemon SPECIES_SENTRET
 pokemon SPECIES_RATTATA
-pokemon SPECIES_HOOTHOOT
 pokemon SPECIES_RATTATA
-pokemon SPECIES_HOOTHOOT
+pokemon SPECIES_PIDGEY
+pokemon SPECIES_RATTATA
+pokemon SPECIES_PIDGEY
 
 // hoenn encounter slots
 pokemon SPECIES_PLUSLE
@@ -244,10 +244,10 @@ rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5
+walklevels 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6
 // walklevels specifies the levels of each slot.  each slot gets its own individual level without a range, which is different compared to the encounter format of later entries.
 // replace "pokemon SPECIES_*" with "monwithform SPECIES_*, formid" to get the specific form of a pokemon.  if i want a galarian darumaka, i'd put "monwithform SPECIES_DARUMAKA, 1"
-// probabilities:  60, 30, 5, 4, 1
+// probabilities:  20, 20, 10, 10, 10, 10, 5, 5, 4, 4, 1, 1
 
 // morning encounter slots
 pokemon SPECIES_BUDEW
@@ -278,18 +278,18 @@ pokemon SPECIES_HOPPIP
 pokemon SPECIES_CHERUBI
 
 // night encounter slots
-pokemon SPECIES_HOOTHOOT
+pokemon SPECIES_BUDEW
+pokemon SPECIES_ODDISH
+pokemon SPECIES_BUDEW
+pokemon SPECIES_ODDISH
 pokemon SPECIES_SPINARAK
-pokemon SPECIES_HOOTHOOT
 pokemon SPECIES_SPINARAK
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
+pokemon SPECIES_CHERUBI
 pokemon SPECIES_WEEDLE
-pokemon SPECIES_RATTATA
 pokemon SPECIES_WEEDLE
-pokemon SPECIES_RATTATA
+pokemon SPECIES_CHERUBI
+pokemon SPECIES_WEEDLE
+pokemon SPECIES_CHERUBI
 
 // hoenn encounter slots
 pokemon SPECIES_NONE
@@ -369,7 +369,7 @@ walklevels 3, 4, 3, 4, 4, 4, 3, 5, 5, 5, 5, 5
 pokemon SPECIES_PIDGEY
 pokemon SPECIES_SENTRET
 pokemon SPECIES_LEDYBA
-pokemon SPECIES_CATERPIE
+pokemon SPECIES_WEEDLE
 pokemon SPECIES_CATERPIE
 pokemon SPECIES_SPEAROW
 pokemon SPECIES_SENTRET
@@ -395,17 +395,17 @@ pokemon SPECIES_AZURILL
 
 // night encounter slots
 pokemon SPECIES_HOOTHOOT
+pokemon SPECIES_SENTRET
+pokemon SPECIES_SPINARAK
 pokemon SPECIES_WEEDLE
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_SPINARAK
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_SPINARAK
+pokemon SPECIES_WEEDLE
+pokemon SPECIES_SPEAROW
+pokemon SPECIES_SENTRET
 pokemon SPECIES_KAKUNA
 pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_AZURILL
 pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_AZURILL
 
 // hoenn encounter slots
 pokemon SPECIES_WHISMUR
@@ -511,12 +511,12 @@ pokemon SPECIES_PICHU
 
 // night encounter slots
 pokemon SPECIES_HOOTHOOT
+pokemon SPECIES_SENTRET
+pokemon SPECIES_SPINARAK
 pokemon SPECIES_WEEDLE
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_SPINARAK
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_SPINARAK
+pokemon SPECIES_WEEDLE
+pokemon SPECIES_SPEAROW
+pokemon SPECIES_SENTRET
 pokemon SPECIES_KAKUNA
 pokemon SPECIES_RATTATA
 pokemon SPECIES_PICHU
@@ -903,7 +903,7 @@ rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 6, 4, 6, 4, 6, 6, 6, 6, 6, 4, 6, 4
+walklevels 8, 6, 8, 6, 7, 7, 8, 8, 9, 7, 9, 7
 // walklevels specifies the levels of each slot.  each slot gets its own individual level without a range, which is different compared to the encounter format of later entries.
 // replace "pokemon SPECIES_*" with "monwithform SPECIES_*, formid" to get the specific form of a pokemon.  if i want a galarian darumaka, i'd put "monwithform SPECIES_DARUMAKA, 1"
 // probabilities:  60, 30, 5, 4, 1
@@ -911,44 +911,44 @@ walklevels 6, 4, 6, 4, 6, 6, 6, 6, 6, 4, 6, 4
 // morning encounter slots
 pokemon SPECIES_BELLSPROUT
 pokemon SPECIES_RATTATA
-pokemon SPECIES_BELLSPROUT
-pokemon SPECIES_RATTATA
+pokemon SPECIES_WOOPER
+pokemon SPECIES_SENTRET
 pokemon SPECIES_MAREEP
 pokemon SPECIES_MAREEP
 pokemon SPECIES_HOPPIP
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_BURMY
+pokemon SPECIES_BURMY
+pokemon SPECIES_GROWLITHE
+pokemon SPECIES_BURMY
+pokemon SPECIES_GROWLITHE
 
 // day encounter slots
 pokemon SPECIES_BELLSPROUT
 pokemon SPECIES_RATTATA
-pokemon SPECIES_BELLSPROUT
-pokemon SPECIES_RATTATA
+pokemon SPECIES_WOOPER
+pokemon SPECIES_SENTRET
 pokemon SPECIES_MAREEP
 pokemon SPECIES_MAREEP
 pokemon SPECIES_HOPPIP
-pokemon SPECIES_HOPPIP
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
+pokemon SPECIES_VENONAT
+pokemon SPECIES_VENONAT
+pokemon SPECIES_GROWLITHE
+pokemon SPECIES_VENONAT
+pokemon SPECIES_GROWLITHE
 
 // night encounter slots
-pokemon SPECIES_WOOPER
+pokemon SPECIES_BELLSPROUT
 pokemon SPECIES_RATTATA
 pokemon SPECIES_WOOPER
-pokemon SPECIES_RATTATA
-pokemon SPECIES_BELLSPROUT
-pokemon SPECIES_BELLSPROUT
+pokemon SPECIES_SENTRET
 pokemon SPECIES_MAREEP
 pokemon SPECIES_MAREEP
-pokemon SPECIES_WOOPER
 pokemon SPECIES_ZUBAT
-pokemon SPECIES_WOOPER
 pokemon SPECIES_ZUBAT
+pokemon SPECIES_VENONAT
+pokemon SPECIES_GROWLITHE
+pokemon SPECIES_VENONAT
+pokemon SPECIES_GROWLITHE
 
 // hoenn encounter slots
 pokemon SPECIES_WHISMUR
@@ -14904,12 +14904,12 @@ pokemon SPECIES_PICHU
 
 // night encounter slots
 pokemon SPECIES_CATERPIE
-pokemon SPECIES_SPINARAK
+pokemon SPECIES_WEEDLE
 pokemon SPECIES_CATERPIE
-pokemon SPECIES_SPINARAK
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
+pokemon SPECIES_WEEDLE
+pokemon SPECIES_PIDGEY
+pokemon SPECIES_PIDGEY
+pokemon SPECIES_PIDGEY
 pokemon SPECIES_METAPOD
 pokemon SPECIES_KAKUNA
 pokemon SPECIES_PICHU
@@ -14984,7 +14984,7 @@ rocksmashrate 0
 oldrodrate 25
 goodrodrate 50
 superrodrate 75
-walklevels 4, 4, 5, 5, 4, 5, 6, 6, 4, 5, 4, 5
+walklevels 4, 4, 5, 5, 4, 5, 6, 6, 5, 6, 5, 6
 // walklevels specifies the levels of each slot.  each slot gets its own individual level without a range, which is different compared to the encounter format of later entries.
 // replace "pokemon SPECIES_*" with "monwithform SPECIES_*, formid" to get the specific form of a pokemon.  if i want a galarian darumaka, i'd put "monwithform SPECIES_DARUMAKA, 1"
 // probabilities:  20, 20, 10, 10, 10, 10, 5, 5, 4, 4, 1, 1
@@ -15019,10 +15019,10 @@ pokemon SPECIES_KRABBY
 
 // night encounter slots
 pokemon SPECIES_RATTATA
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_RATTATA
+pokemon SPECIES_BUDEW
+pokemon SPECIES_SENTRET
 pokemon SPECIES_BUIZEL
-pokemon SPECIES_HOOTHOOT
+pokemon SPECIES_WINGULL
 pokemon SPECIES_HOOTHOOT
 pokemon SPECIES_BUIZEL
 pokemon SPECIES_HOOTHOOT
