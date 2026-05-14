@@ -126,7 +126,7 @@
 #define SUB_SEQ_SYNCHRONIZE                     (118)
 #define SUB_SEQ_OMNIBOOST                       (119)
 #define SUB_SEQ_BELLY_DRUM                      (120)
-#define SUB_SEQ_FUTURE_SIGHT_DAMAGE             (121)
+#define SUB_SEQ_FUTURE_SIGHT_HIT                (121)
 #define SUB_SEQ_TELEPORT                        (122)
 #define SUB_SEQ_FUTURE_SIGHT_ATTACK_MESSAGE     (123)
 #define SUB_SEQ_STOCKPILE                       (124)
@@ -507,8 +507,9 @@
 #define SUB_SEQ_SUBSTITUTE_FADES                      (497)
 #define SUB_SEQ_HANDLE_WIMP_OUT                       (498)
 #define SUB_SEQ_RECOIL_HALF_MAX_HP                    (499)
+#define SUB_SEQ_FUTURE_SIGHT_DAMAGE                   (500)
 
-#define MAX_BASE_SUBSCRIPT_NUM 499
+#define MAX_BASE_SUBSCRIPT_NUM 500
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
