@@ -65,7 +65,7 @@ const struct TestBattleScenario BattleTests[] = {
                 .species = SPECIES_BELDUM,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_CLEAR_BODY,
+                .ability = ABILITY_LIGHT_METAL,
                 .item = ITEM_NONE,
                 .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
@@ -128,6 +128,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective..." },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gossifleur's Cotton Down cuts Squirtle's Speed!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gossifleur's Cotton Down cuts Charmander's Speed!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gossifleur's Cotton Down cuts the opposing Beldum's Speed!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY
