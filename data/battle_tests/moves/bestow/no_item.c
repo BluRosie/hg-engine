@@ -39,13 +39,13 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .enemyParty = {
             {
-                            .species = SPECIES_MEGANIUM,
+                            .species = SPECIES_DELIBIRD,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_LEAF_GUARD,
+                            .ability = ABILITY_STALL,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                            .hp = 60,
+                            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
                             .moveEffectFlags = 0,

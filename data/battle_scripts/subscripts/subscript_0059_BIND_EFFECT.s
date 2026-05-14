@@ -47,6 +47,7 @@ _PlayAnimation_SnapTrap:
 _PlayAnimation_ThunderCage:
     // TODO: Implement Thunder Cage bind animation.
     PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_DAMAGE_WRAP
+    GoTo _DealDamage
 
 _DealDamage:
     Wait 
