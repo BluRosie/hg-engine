@@ -897,7 +897,7 @@ int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp)
         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
         && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage)))
     {
-        for (; sp->clientLoopForAbility < SPREAD_ABILITY_LOOP_MAX; )
+        for (; sp->clientLoopForAbility <= SPREAD_ABILITY_LOOP_MAX; )
         {
 
             switch (sp->clientLoopForAbility) {
