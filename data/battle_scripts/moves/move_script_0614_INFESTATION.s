@@ -4,5 +4,5 @@
 
 _000:
     // {0} was trapped in the vortex!
-    BufferMessage 242, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
+    BufferMessage 1726, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     GoToEffectScript 

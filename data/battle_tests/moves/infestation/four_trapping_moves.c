@@ -1,4 +1,4 @@
-// Test: Infestation and friends
+// Test: Infestation and 3 other trapping moves
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -89,7 +89,6 @@ const struct TestBattleScenario BattleTests[] = {
             {
                 { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
                 { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
-                { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
