@@ -124,6 +124,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ekans became trapped in the vortex!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander has been afflicted with an infestation by the opposing Dewpider!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander is hurt by Infestation!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ekans is hurt by Whirlpool!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Squirtle is hurt by Wrap!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dewpider is hurt by Fire Spin!" },
         },
