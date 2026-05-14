@@ -44,7 +44,7 @@ const struct TestBattleScenario BattleTests[] = {
                             .form = 0,
                             .ability = ABILITY_STALL,
                             .item = ITEM_TIN_OF_BEANS,
-                            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
@@ -101,6 +101,7 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         },
     },
