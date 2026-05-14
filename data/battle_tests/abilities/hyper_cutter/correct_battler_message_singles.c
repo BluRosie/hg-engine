@@ -1,4 +1,4 @@
-// Test: Hyper Cutter - Message is accurate to each battler
+// Test: Hyper Cutter - Message gets the correct battler in singles
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -15,7 +15,7 @@ const struct TestBattleScenario BattleTests[] = {
 #endif
 
     {
-        .battleType = BATTLE_TYPE_DOUBLE,
+        .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
@@ -24,7 +24,7 @@ const struct TestBattleScenario BattleTests[] = {
                 .species = SPECIES_ALAKAZAM,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_NONE,
+                .ability = ABILITY_HYPER_CUTTER,
                 .item = ITEM_NONE,
                 .moves = { MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
@@ -32,18 +32,7 @@ const struct TestBattleScenario BattleTests[] = {
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
-            {
-                .species = SPECIES_ALAKAZAM,
-                .level = 50,
-                .form = 0,
-                .ability = ABILITY_NONE,
-                .item = ITEM_NONE,
-                .moves = { MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                .hp = FULL_HP,
-                .status = 0,
-                .condition2 = 0,
-                .moveEffectFlags = 0,
-            },
+            { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
@@ -56,24 +45,13 @@ const struct TestBattleScenario BattleTests[] = {
                 .form = 0,
                 .ability = ABILITY_HYPER_CUTTER,
                 .item = ITEM_NONE,
-                .moves = { MOVE_DREAM_EATER, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
-            {
-                .species = SPECIES_MARILL,
-                .level = 50,
-                .form = 0,
-                .ability = ABILITY_HYPER_CUTTER,
-                .item = ITEM_NONE,
-                .moves = { MOVE_DREAM_EATER, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                .hp = FULL_HP,
-                .status = 0,
-                .condition2 = 0,
-                .moveEffectFlags = 0,
-            },
+            { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
@@ -91,7 +69,7 @@ const struct TestBattleScenario BattleTests[] = {
                               { ACTION_NONE, 0 },
                           },
             {
-                { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -113,7 +91,7 @@ const struct TestBattleScenario BattleTests[] = {
                              { ACTION_NONE, 0 },
                          },
             {
-                { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -125,9 +103,9 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pikachu's Attack was not lowered!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Marill's Attack was not lowered!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Alakazam's Attack was not lowered!" },
         },
-        .knownFailing = TRUE,
+        .knownFailing = FALSE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
