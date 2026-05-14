@@ -3,6 +3,6 @@
 .data
 
 _000:
-    // {0} was trapped in the vortex!
-    BufferMessage 1726, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
+    // {0} has been afflicted with an infestation by {1}!
+    BufferMessage 1726, TAG_NICKNAME_NICKNAME, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_ATTACKER
     GoToEffectScript 
