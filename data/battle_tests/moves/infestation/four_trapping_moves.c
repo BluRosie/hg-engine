@@ -119,15 +119,14 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander used Incinerate!" },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 19, 19, 19, 19, 19, 19, 19, 21, 21, 21, 21, 22, 22, 22, 22, 23 } },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 16, 16, 16, 16, 16, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 19 } }, 
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective on the opposing Mudkip or Squirtle." },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mudkip's Sitrus Berry was burned up!" }, 
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Squirtle's Water Gem was burned up!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander lost some of its HP!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dewpider became trapped in the fiery vortex!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Squirtle was wrapped by Ekans!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ekans became trapped in the vortex!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander has been afflicted with an infestation by the opposing Dewpider!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander is hurt by Infestation!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Squirtle is hurt by Wrap!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dewpider is hurt by Fire Spin!" },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
