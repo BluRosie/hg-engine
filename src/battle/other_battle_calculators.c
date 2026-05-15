@@ -3590,7 +3590,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         && ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch == FALSE) {
         msg->tag = TAG_NICKNAME;
         // { STRVAR_1 1, 0, 0 } hasn’t eaten any held Berries,\nso it can’t possibly belch!
-        msg->id = BATTLE_MSG_CANT_POSSIBLY_USE_BELCN;
+        msg->id = BATTLE_MSG_CANT_POSSIBLY_USE_BELCH;
         msg->param[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_STUFF_CHEEKS) & No2Bit(movePos)) {
