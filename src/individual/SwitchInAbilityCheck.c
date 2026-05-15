@@ -891,6 +891,10 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     // White Herb, etc
                     {
                         if (HeldItemHealCheck(bw, sp, client_no, &scriptnum) == TRUE) {
+
+                            if (IS_ITEM_BERRY(GetBattleMonItem(sp, client_no))) {
+                                sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].berryEatenAndCanBelch = TRUE;
+                            }
                             sp->battlerIdTemp = client_no;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
