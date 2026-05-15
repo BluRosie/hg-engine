@@ -1,4 +1,4 @@
-// Test: Belch - can be selected in champions
+// Test: Belch - can be selected in champions and fails without berry eaten
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
