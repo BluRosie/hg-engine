@@ -224,4 +224,7 @@
 // comment out this line if you do not want this to happen
 #define DISABLE_CRITICAL_HP_WARNING
 
+// PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION actiavtes the struggle check for Belch/Stuff Cheeks in Generations before Champions
+#define PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION 99
+
 #endif

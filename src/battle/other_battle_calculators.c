@@ -3488,7 +3488,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             && (struggleCheckFlags & STRUGGLE_CHECK_THROAT_CHOPPED)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
-
+#if PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION <= GEN_LATEST
         if (ctx->battlemon[battlerId].move[movePos] == MOVE_BELCH
             && ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch == FALSE
             && (struggleCheckFlags & STRUGGLE_CHECK_BELCH)) {
@@ -3499,6 +3499,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             && (struggleCheckFlags & STRUGGLE_CHECK_STUFF_CHEEKS)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
+#endif
     }
     return nonSelectableMoves;
 }
