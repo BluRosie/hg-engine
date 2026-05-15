@@ -1,6 +1,12 @@
 ## Base Learnset Files
 
-Base learnset files for each game. Used by `scripts/generate_learnsets.py` to build a learnset for specific generations.
+Base learnset files for each game. These are pulled mostly from pokeapi and are meant
+to be reference learnset files for each generation. `learnsets.json` is the file you
+want to update. That file is generated from the base files and is intended as a NatDex
+learnset to build on.
+
+Note: some slight modifications diverge the learnsets from pokeapi a little bit because
+pokeapi was missing a couple of patches that modified learnsets slightly.
 
 ### Flags
 
@@ -29,7 +35,7 @@ Takes the latest available maingame learnsets for each mon. For example, Raticat
 Note this ignores the Pokemon GO learnsets and Legends ZA.
 
 ```bash
-python3 scripts/build_learnsets.py --generate data/learnsets/learnsets.json --cutoff go --inherit-level --inherit-egg --inherit-machine --inherit-tutor --ignore-files 20_la.json 99_go.json
+python3 scripts/build_learnsets.py --generate data/learnsets/learnsets.json --cutoff go --inherit-level --inherit-egg --inherit-machine --inherit-tutor --ignore-files 20_la.json 22_za.json 99_go.json
 ```
 
 #### Custom
