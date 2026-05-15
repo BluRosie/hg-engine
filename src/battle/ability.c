@@ -191,15 +191,14 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // TODO
     // Handle Wonder Guard
 
-    // TODO: Confirm location in-game
-    // handle good as gold
-    /*if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE)
+    // Handle Good as Gold: status moves used by another battler fail against this target.
+    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE
+     && attacker != defender
+     && GetMoveSplit(sp, sp->current_move_index) == SPLIT_STATUS
+     && (sp->moveTbl[sp->current_move_index].target & (RANGE_USER | RANGE_USER_SIDE)) == 0)
     {
-        if (GetMoveSplit(sp, sp->current_move_index) == SPLIT_STATUS)
-        {
-            scriptnum = SUB_SEQ_HANDLE_JUST_FAIL;
-        }
-    } */
+        scriptnum = SUB_SEQ_DOESNT_AFFECT_ABILITY;
+    }
 
     return scriptnum;
 }
