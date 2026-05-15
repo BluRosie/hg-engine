@@ -3466,9 +3466,11 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             }
         }
         if (struggleCheckFlags & STRUGGLE_CHECK_GIGATON_HAMMER) {
-            // Encore allows Gigaton Hammer to be used twice in a row, but on subsequent turns of the Encore the user will be forced to Struggle.
+            // Encore allows these moves to be used twice in a row, but on subsequent turns of the Encore the user will be forced to Struggle.
             if (!(ctx->battlemon[battlerId].moveeffect.encoredMove && ctx->battlemon[battlerId].moveeffect.encoredTurns == 3)) {
-                if (ctx->waza_no_old[battlerId] == ctx->battlemon[battlerId].move[movePos] && ctx->waza_no_old[battlerId] == MOVE_GIGATON_HAMMER) {
+                if (ctx->waza_no_old[battlerId] == ctx->battlemon[battlerId].move[movePos]
+                 && (ctx->waza_no_old[battlerId] == MOVE_GIGATON_HAMMER
+                  || ctx->waza_no_old[battlerId] == MOVE_BLOOD_MOON)) {
                     nonSelectableMoves |= No2Bit(movePos);
                 }
             }
