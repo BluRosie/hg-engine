@@ -2,6 +2,7 @@
 #define CONFIG_H
 
 #define GEN_LATEST 9
+#define GEN_CHAMPIONS 99
 
 // FAIRY_TYPE_IMPLEMENTED should be used if you want to implement the fairy type and overwrite type 9 in this project
 // set FAIRY_TYPE_IMPLEMENTED to 0 if you do not want this to happen
@@ -225,6 +226,6 @@
 #define DISABLE_CRITICAL_HP_WARNING
 
 // PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION actiavtes the struggle check for Belch/Stuff Cheeks in Generations before Champions
-#define PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION 99
+#define PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION GEN_CHAMPIONS
 
 #endif

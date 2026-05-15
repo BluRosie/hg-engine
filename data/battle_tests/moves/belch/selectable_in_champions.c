@@ -55,7 +55,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .playerScript = {
             {
-#if PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION <= GEN_LATEST
+#if PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION < GEN_CHAMPIONS
                   { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
 #else
                   { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
@@ -101,7 +101,7 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-#if PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION <= GEN_LATEST
+#if PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION < GEN_CHAMPIONS
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gulpin used Sleep Talk!" },
 #else
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gulpin used Belch!" },
