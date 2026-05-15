@@ -1924,7 +1924,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         && ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].berryEatenAndCanBelch == FALSE) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
 
-        ctx->mp.id = BATTLE_MSG_CANNOT_BELCH;
+        ctx->mp.id = BATTLE_MSG_CANT_POSSIBLY_USE_BELCH;
         ctx->mp.tag = TAG_NICKNAME;
         ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->attack_client);
 
