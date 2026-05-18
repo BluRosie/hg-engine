@@ -86,13 +86,16 @@ _bypassSafeguard:
 _182:
     PlayBattleAnimation BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLE_ANIMATION_ASLEEP
     Wait
-.if SLEEP_TURNS_GENERATION < 5
-    Random 3, 2
-.elseif SLEEP_TURNS_GENERATION == GEN_CHAMPIONS
+
+
+.if SLEEP_TURNS_GENERATION == GEN_CHAMPIONS
     Random 1, 2
-.else 
+.elseif SLEEP_TURNS_GENERATION >= 5
     Random 2, 2
+.else 
+    Random 3, 2
 .endif
+
     CompareVarToValue OPCODE_LTE, BSCRIPT_VAR_CALC_TEMP, 3, _lowerThanThreeTurns
     UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, 3
 _lowerThanThreeTurns:
