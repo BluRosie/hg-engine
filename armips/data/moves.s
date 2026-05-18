@@ -5394,7 +5394,7 @@ movedata MOVE_HOWL, "Howl"
     accuracy 0
     pp 40
     effectchance 0
-    target RANGE_USER
+    target RANGE_USER_SIDE
     priority 0
     flags FLAG_SNATCH
     appeal APPEAL_DOUBLE_NEXT_SCORE
