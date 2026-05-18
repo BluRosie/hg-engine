@@ -189,6 +189,42 @@ BOOL LONG_CALL AbilityNoTransform(int ability);
 
 // 08014ACC
 
+static BOOL Build011C_IsActiveBattler(struct BattleStruct *ctx, int battlerId)
+{
+    return battlerId >= 0
+        && battlerId < CLIENT_MAX
+        && ctx->battlemon[battlerId].hp;
+}
+
+static BOOL Build009B_IsPlusMinusAbility(u32 ability)
+{
+    return ability == ABILITY_PLUS || ability == ABILITY_MINUS;
+}
+
+static BOOL Build011C_CanMagneticFluxBattler(struct BattleStruct *ctx, int battlerId)
+{
+    return Build011C_IsActiveBattler(ctx, battlerId)
+        && Build009B_IsPlusMinusAbility(GetBattlerAbility(ctx, battlerId))
+        && (ctx->battlemon[battlerId].states[STAT_DEFENSE] < 12
+            || ctx->battlemon[battlerId].states[STAT_SPDEF] < 12);
+}
+
+static BOOL Build011C_CanMagneticFlux(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int ally = BATTLER_ALLY(ctx->attack_client);
+
+    if (Build011C_CanMagneticFluxBattler(ctx, ctx->attack_client)) {
+        return TRUE;
+    }
+
+    if ((BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI))
+        && Build011C_CanMagneticFluxBattler(ctx, ally)) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 /**
  *  @brief run through everything before any of the moves are used
  *         modified with sweat and tears
@@ -3766,6 +3802,12 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         case MOVE_AROMATIC_MIST:
         case MOVE_HOLD_HANDS: {
             if (!(BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) || ctx->battlemon[BATTLER_ALLY(ctx->attack_client)].hp == 0) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_MAGNETIC_FLUX: {
+            if (!Build011C_CanMagneticFlux(bsys, ctx)) {
                 butItFailedFlag = TRUE;
             }
             break;
