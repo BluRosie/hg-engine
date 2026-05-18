@@ -9500,7 +9500,7 @@ movedata MOVE_PLAY_NICE, "Play Nice"
     movedescription MOVE_PLAY_NICE, "The user and the\ntarget become pals,\nlowering the target's\nAttack stat.\nBypasses Protect."
 
 movedata MOVE_CONFIDE, "Confide"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_SP_ATK_DOWN
     pss SPLIT_STATUS
     basepower 0
     type TYPE_NORMAL
@@ -9509,7 +9509,7 @@ movedata MOVE_CONFIDE, "Confide"
     effectchance 100
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_CUTE
     terminatedata
