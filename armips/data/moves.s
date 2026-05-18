@@ -9621,7 +9621,7 @@ movedata MOVE_AROMATIC_MIST, "Aromatic Mist"
     effectchance 0
     target RANGE_ALLY
     priority 0
-    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT
     appeal 0x00
     contesttype CONTEST_BEAUTY
     terminatedata
