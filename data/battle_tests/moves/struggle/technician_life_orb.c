@@ -99,7 +99,6 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Scizor!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Scizor lost some of its HP!" },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };

@@ -955,6 +955,24 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     // Hospitality
                     {
 
+                        if (BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI)) {
+                            int ally = BATTLER_ALLY(client_no);
+                            if ((sp->battlemon[client_no].ability_activated_flag == 0)
+                                && (sp->battlemon[client_no].hp)
+                                && (GetBattlerAbility(sp, client_no) == ABILITY_HOSPITALITY)
+                                && (sp->battlemon[ally].hp)
+                                && (sp->battlemon[ally].hp != sp->battlemon[ally].maxhp)) {
+
+                                sp->battlemon[client_no].ability_activated_flag = 1;
+                                sp->hp_calc_work = sp->battlemon[ally].maxhp / 4;
+                                sp->battlerIdTemp = client_no;
+                                sp->state_client = ally;
+
+                                scriptnum = SUB_SEQ_HANDLE_HOSPITALITY;
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                break;
+                            }
+                        }
                     }
 
                     // Need to trigger script
