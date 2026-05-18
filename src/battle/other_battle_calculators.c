@@ -2794,9 +2794,6 @@ int LONG_CALL IsMoveSpreadMove(struct BattleSystem *bsys, struct BattleStruct *c
 {
     if ((ctx->moveTbl[move].target == RANGE_ADJACENT_OPPONENTS)
         || (ctx->moveTbl[move].target == RANGE_ALL_ADJACENT)
-        || (ctx->moveTbl[move].target == RANGE_USER_SIDE 
-            && (move == MOVE_HOWL
-                || move == MOVE_LIFE_DEW))
         || (move == MOVE_EXPANDING_FORCE
             && ctx->terrainOverlay.numberOfTurnsLeft > 0
             && ctx->terrainOverlay.type == PSYCHIC_TERRAIN
@@ -2808,8 +2805,7 @@ int LONG_CALL IsMoveSpreadMove(struct BattleSystem *bsys, struct BattleStruct *c
 
 int LONG_CALL IsTargetFoesAndAlly(struct BattleSystem *bsys, struct BattleStruct *ctx, int move)
 {
-    if (ctx->moveTbl[move].target == RANGE_ALL_ADJACENT
-        || (ctx->moveTbl[move].target == RANGE_USER_SIDE && (move == MOVE_HOWL || move == MOVE_LIFE_DEW))) {
+    if (ctx->moveTbl[move].target == RANGE_ALL_ADJACENT) {
         return BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI);
     }
     return FALSE;
