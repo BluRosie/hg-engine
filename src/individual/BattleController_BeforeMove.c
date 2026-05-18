@@ -173,6 +173,7 @@ BOOL LONG_CALL AbilityNoTrace(int ability);
 /// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityFailSkillSwap(int ability);
+static BOOL Build011C_CanAromaticMist(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 /// @brief Check if ability can't be suppressed by Gastro Acid. See notes for DisabledByNeutralizingGas.
 /// @param ability
@@ -3367,6 +3368,19 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
     return FALSE;
 }
 
+static BOOL Build011C_CanAromaticMist(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int ally = BATTLER_ALLY(ctx->attack_client);
+
+    if ((BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI))
+    && ctx->battlemon[ally].hp
+    && ctx->battlemon[ally].states[STAT_SPDEF] < 12) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 // TODO: implement remaining mechanics
 BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     //int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
@@ -3763,9 +3777,14 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             break;
         }
         case MOVE_ALLY_SWITCH:
-        case MOVE_AROMATIC_MIST:
         case MOVE_HOLD_HANDS: {
             if (!(BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) || ctx->battlemon[BATTLER_ALLY(ctx->attack_client)].hp == 0) {
+                butItFailedFlag = TRUE;
+            }
+            break;
+        }
+        case MOVE_AROMATIC_MIST: {
+            if (!Build011C_CanAromaticMist(bsys, ctx)) {
                 butItFailedFlag = TRUE;
             }
             break;
