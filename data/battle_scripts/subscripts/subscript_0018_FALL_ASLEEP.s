@@ -98,9 +98,6 @@ _lowerThanThreeTurns:
     Random 3, 2
 .endif
 
-    CompareVarToValue OPCODE_LTE, BSCRIPT_VAR_CALC_TEMP, 3, _lowerThanThreeTurns
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, 3
-_lowerThanThreeTurns:
     UpdateMonDataFromVar OPCODE_FLAG_ON, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, BSCRIPT_VAR_CALC_TEMP
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _205
     // {0} fell asleep!
