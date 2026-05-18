@@ -2,161 +2,166 @@
 #define POKEMON_H
 
 #include "config.h"
-//#include "save.h"
-#include "types.h"
+// #include "save.h"
+#include "constants/pokemon.h"
+
 #include "party_menu.h"
 #include "trainer_data.h"
+#include "types.h"
 #include "window.h"
 
-#define POKEMON_GENDER_MALE 0
-#define POKEMON_GENDER_FEMALE 1
+#define POKEMON_GENDER_MALE    0
+#define POKEMON_GENDER_FEMALE  1
 #define POKEMON_GENDER_UNKNOWN 2
 
-#define MONS_MALE       (0)
-#define MONS_FEMALE     (254)
-#define MONS_UNKNOWN    (255)
+#define MONS_MALE    (0)
+#define MONS_FEMALE  (254)
+#define MONS_UNKNOWN (255)
 
 // MON_DATA_RESERVED_113 (2 bits) fields
-#define DUMMY_P2_1_HIDDEN_ABILITY_MASK (0x01)
+#define DUMMY_P2_1_HIDDEN_ABILITY_MASK             (0x01)
 #define DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS (0x02)
 
 // MON_DATA_RESERVED_114 (16 bits) fields
-#define DUMMY_P2_2_CHANGE_ABILITY_SLOT (0x0001)
-#define DUMMY_P2_2_NATURE_OVERRIDE (0x003E)
-#define DUMMY_P2_2_HP_IV_OVERRIDE (0x0040)
-#define DUMMY_P2_2_ATTACK_IV_OVERRIDE (0x0080)
-#define DUMMY_P2_2_DEFENSE_IV_OVERRIDE (0x0100)
-#define DUMMY_P2_2_SPEED_IV_OVERRIDE (0x0200)
-#define DUMMY_P2_2_SP_ATTACK_IV_OVERRIDE (0x0400)
+#define DUMMY_P2_2_CHANGE_ABILITY_SLOT    (0x0001)
+#define DUMMY_P2_2_NATURE_OVERRIDE        (0x003E)
+#define DUMMY_P2_2_HP_IV_OVERRIDE         (0x0040)
+#define DUMMY_P2_2_ATTACK_IV_OVERRIDE     (0x0080)
+#define DUMMY_P2_2_DEFENSE_IV_OVERRIDE    (0x0100)
+#define DUMMY_P2_2_SPEED_IV_OVERRIDE      (0x0200)
+#define DUMMY_P2_2_SP_ATTACK_IV_OVERRIDE  (0x0400)
 #define DUMMY_P2_2_SP_DEFENSE_IV_OVERRIDE (0x0800)
 
 // MON_DATA_UNK_121  (8 bits) fields
 
-
-#define SET_MON_HIDDEN_ABILITY_BIT(mon) { \
-    u8 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_113, 0); \
-    tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
-    SetMonData(mon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
-}
-#define SET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon) { \
-    u8 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_113, 0); \
-    tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
-    SetBoxMonData(boxmon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
-}
-#define TOGGLE_MON_HIDDEN_ABILITY_BIT(mon) { \
-    u8 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_113, 0); \
-    tempvarassumeunused ^= DUMMY_P2_1_HIDDEN_ABILITY_MASK; \
-    SetMonData(mon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
-}
-#define GET_MON_HIDDEN_ABILITY_BIT(mon) (GetMonData(mon, MON_DATA_RESERVED_113, 0) & DUMMY_P2_1_HIDDEN_ABILITY_MASK)
+#define SET_MON_HIDDEN_ABILITY_BIT(mon)                                     \
+    {                                                                       \
+        u8 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_113, 0); \
+        tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK;              \
+        SetMonData(mon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
+    }
+#define SET_BOX_MON_HIDDEN_ABILITY_BIT(boxmon)                                    \
+    {                                                                             \
+        u8 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_113, 0); \
+        tempvarassumeunused |= DUMMY_P2_1_HIDDEN_ABILITY_MASK;                    \
+        SetBoxMonData(boxmon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
+    }
+#define TOGGLE_MON_HIDDEN_ABILITY_BIT(mon)                                  \
+    {                                                                       \
+        u8 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_113, 0); \
+        tempvarassumeunused ^= DUMMY_P2_1_HIDDEN_ABILITY_MASK;              \
+        SetMonData(mon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
+    }
+#define GET_MON_HIDDEN_ABILITY_BIT(mon)     (GetMonData(mon, MON_DATA_RESERVED_113, 0) & DUMMY_P2_1_HIDDEN_ABILITY_MASK)
 #define GET_BOX_MON_HIDDEN_ABILITY_BIT(mon) (GetBoxMonData(mon, MON_DATA_RESERVED_113, 0) & DUMMY_P2_1_HIDDEN_ABILITY_MASK)
 
-
-#define SET_MON_CRITICAL_HIT_EVOLUTION_BIT(mon) { \
-    u8 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_113, 0); \
-    tempvarassumeunused |= DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS; \
-    SetMonData(mon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
-}
-#define SET_BOX_MON_CRITICAL_HIT_EVOLUTION_BIT(boxmon) { \
-    u8 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_113, 0); \
-    tempvarassumeunused |= DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS; \
-    SetBoxMonData(boxmon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
-}
+#define SET_MON_CRITICAL_HIT_EVOLUTION_BIT(mon)                             \
+    {                                                                       \
+        u8 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_113, 0); \
+        tempvarassumeunused |= DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS;  \
+        SetMonData(mon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
+    }
+#define SET_BOX_MON_CRITICAL_HIT_EVOLUTION_BIT(boxmon)                            \
+    {                                                                             \
+        u8 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_113, 0); \
+        tempvarassumeunused |= DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS;        \
+        SetBoxMonData(boxmon, MON_DATA_RESERVED_113, (u8 *)&tempvarassumeunused); \
+    }
 #define GET_MON_CRITICAL_HIT_EVOLUTION_BIT(mon) (GetMonData(mon, MON_DATA_RESERVED_113, 0) & DUMMY_P2_1_HAS_HIT_NECESSARY_CRITICAL_HITS)
 
-
-#define SET_MON_SWAP_ABILITY_SLOT_BIT(mon) { \
-    u16 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_114, 0); \
-    tempvarassumeunused |= DUMMY_P2_2_CHANGE_ABILITY_SLOT; \
-    SetMonData(mon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused); \
-}
-#define SET_BOX_MON_SWAP_ABILITY_SLOT_BIT(boxmon) { \
-    u16 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0); \
-    tempvarassumeunused |= DUMMY_P2_2_CHANGE_ABILITY_SLOT; \
-    SetBoxMonData(boxmon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused); \
-}
-#define TOGGLE_MON_SWAP_ABILITY_SLOT_BIT(mon) { \
-    u16 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_114, 0); \
-    tempvarassumeunused ^= DUMMY_P2_2_CHANGE_ABILITY_SLOT; \
-    SetMonData(mon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused); \
-}
-#define GET_MON_SWAP_ABILITY_SLOT_BIT(mon) (GetMonData(mon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_CHANGE_ABILITY_SLOT)
+#define SET_MON_SWAP_ABILITY_SLOT_BIT(mon)                                   \
+    {                                                                        \
+        u16 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_114, 0); \
+        tempvarassumeunused |= DUMMY_P2_2_CHANGE_ABILITY_SLOT;               \
+        SetMonData(mon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused);  \
+    }
+#define SET_BOX_MON_SWAP_ABILITY_SLOT_BIT(boxmon)                                  \
+    {                                                                              \
+        u16 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0); \
+        tempvarassumeunused |= DUMMY_P2_2_CHANGE_ABILITY_SLOT;                     \
+        SetBoxMonData(boxmon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused);  \
+    }
+#define TOGGLE_MON_SWAP_ABILITY_SLOT_BIT(mon)                                \
+    {                                                                        \
+        u16 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_114, 0); \
+        tempvarassumeunused ^= DUMMY_P2_2_CHANGE_ABILITY_SLOT;               \
+        SetMonData(mon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused);  \
+    }
+#define GET_MON_SWAP_ABILITY_SLOT_BIT(mon)        (GetMonData(mon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_CHANGE_ABILITY_SLOT)
 #define GET_BOX_MON_SWAP_ABILITY_SLOT_BIT(boxmon) (GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_CHANGE_ABILITY_SLOT)
 
-
-#define SET_MON_NATURE_OVERRIDE(mon, nature) { \
-    u16 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_114, 0); \
-    tempvarassumeunused &= ~DUMMY_P2_2_NATURE_OVERRIDE; \
-    tempvarassumeunused |= ((nature+1) << 1) & DUMMY_P2_2_NATURE_OVERRIDE; \
-    SetMonData(mon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused); \
-}
-#define SET_BOX_MON_NATURE_OVERRIDE(boxmon, nature) { \
-    u16 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0); \
-    tempvarassumeunused &= ~DUMMY_P2_2_NATURE_OVERRIDE; \
-    tempvarassumeunused |= ((nature+1) << 1) & DUMMY_P2_2_NATURE_OVERRIDE; \
-    SetBoxMonData(boxmon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused); \
-}
-#define GET_MON_NATURE_OVERRIDE(mon) (((GetMonData(mon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_NATURE_OVERRIDE) >> 1) & 0x1F)
+#define SET_MON_NATURE_OVERRIDE(mon, nature)                                     \
+    {                                                                            \
+        u16 tempvarassumeunused = GetMonData(mon, MON_DATA_RESERVED_114, 0);     \
+        tempvarassumeunused &= ~DUMMY_P2_2_NATURE_OVERRIDE;                      \
+        tempvarassumeunused |= ((nature + 1) << 1) & DUMMY_P2_2_NATURE_OVERRIDE; \
+        SetMonData(mon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused);      \
+    }
+#define SET_BOX_MON_NATURE_OVERRIDE(boxmon, nature)                                \
+    {                                                                              \
+        u16 tempvarassumeunused = GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0); \
+        tempvarassumeunused &= ~DUMMY_P2_2_NATURE_OVERRIDE;                        \
+        tempvarassumeunused |= ((nature + 1) << 1) & DUMMY_P2_2_NATURE_OVERRIDE;   \
+        SetBoxMonData(boxmon, MON_DATA_RESERVED_114, (u8 *)&tempvarassumeunused);  \
+    }
+#define GET_MON_NATURE_OVERRIDE(mon)        (((GetMonData(mon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_NATURE_OVERRIDE) >> 1) & 0x1F)
 #define GET_BOX_MON_NATURE_OVERRIDE(boxmon) (((GetBoxMonData(boxmon, MON_DATA_RESERVED_114, 0) & DUMMY_P2_2_NATURE_OVERRIDE) >> 1) & 0x1F)
 
-
 // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9900134
-#define IS_SPECIES_LEGENDARY(species) ((species == SPECIES_MEWTWO) || (species == SPECIES_LUGIA) || (species == SPECIES_HO_OH) \
-    || (species == SPECIES_KYOGRE) || (species == SPECIES_GROUDON) || (species == SPECIES_RAYQUAZA) || (species == SPECIES_DIALGA) \
-    || (species == SPECIES_PALKIA) || (species == SPECIES_GIRATINA) || (species == SPECIES_RESHIRAM) || (species == SPECIES_ZEKROM) \
-    || (species == SPECIES_KYUREM) || (species == SPECIES_XERNEAS) || (species == SPECIES_YVELTAL) || (species == SPECIES_ZYGARDE) \
-    || (species == SPECIES_COSMOG) || (species == SPECIES_COSMOEM) || (species == SPECIES_SOLGALEO) || (species == SPECIES_LUNALA) \
+#define IS_SPECIES_LEGENDARY(species) ((species == SPECIES_MEWTWO) || (species == SPECIES_LUGIA) || (species == SPECIES_HO_OH)          \
+    || (species == SPECIES_KYOGRE) || (species == SPECIES_GROUDON) || (species == SPECIES_RAYQUAZA) || (species == SPECIES_DIALGA)      \
+    || (species == SPECIES_PALKIA) || (species == SPECIES_GIRATINA) || (species == SPECIES_RESHIRAM) || (species == SPECIES_ZEKROM)     \
+    || (species == SPECIES_KYUREM) || (species == SPECIES_XERNEAS) || (species == SPECIES_YVELTAL) || (species == SPECIES_ZYGARDE)      \
+    || (species == SPECIES_COSMOG) || (species == SPECIES_COSMOEM) || (species == SPECIES_SOLGALEO) || (species == SPECIES_LUNALA)      \
     || (species == SPECIES_NECROZMA) || (species == SPECIES_ZACIAN) || (species == SPECIES_ZAMAZENTA) || (species == SPECIES_ETERNATUS) \
     || (species == SPECIES_CALYREX) || (species == SPECIES_KORAIDON) || (species == SPECIES_MIRAIDON) || (species == SPECIES_TERAPAGOS))
 
 #ifdef VANILLA_MYTHICALS
-#define EXTRA_MYTHICALS(species) ( (species == SPECIES_SHIINOTIC) )
+#define EXTRA_MYTHICALS(species) ((species == SPECIES_SHIINOTIC))
 #else
 #define EXTRA_MYTHICALS(species) ( (species == SPECIES_MARSHADOW) )/* || (species == OTHER_SPECIES_TO_ADD)*/)
 #endif
 
-#define IS_SPECIES_MYTHICAL(species) ((species == SPECIES_MEW) || (species == SPECIES_CELEBI) || (species == SPECIES_JIRACHI) \
-    || (species == SPECIES_DEOXYS) || (species == SPECIES_PHIONE) || (species == SPECIES_MANAPHY) || (species == SPECIES_DARKRAI) \
-    || (species == SPECIES_SHAYMIN) || (species == SPECIES_ARCEUS) || (species == SPECIES_VICTINI) || (species == SPECIES_KELDEO) \
-    || (species == SPECIES_MELOETTA) || (species == SPECIES_GENESECT) || (species == SPECIES_DIANCIE) || (species == SPECIES_HOOPA) \
-    || (species == SPECIES_VOLCANION) || (species == SPECIES_MAGEARNA) || (species == SPECIES_ZERAORA) \
-    || (species == SPECIES_MELTAN) || (species == SPECIES_MELMETAL) || (species == SPECIES_ZARUDE) || (species == SPECIES_PECHARUNT)\
+#define IS_SPECIES_MYTHICAL(species) ((species == SPECIES_MEW) || (species == SPECIES_CELEBI) || (species == SPECIES_JIRACHI)        \
+    || (species == SPECIES_DEOXYS) || (species == SPECIES_PHIONE) || (species == SPECIES_MANAPHY) || (species == SPECIES_DARKRAI)    \
+    || (species == SPECIES_SHAYMIN) || (species == SPECIES_ARCEUS) || (species == SPECIES_VICTINI) || (species == SPECIES_KELDEO)    \
+    || (species == SPECIES_MELOETTA) || (species == SPECIES_GENESECT) || (species == SPECIES_DIANCIE) || (species == SPECIES_HOOPA)  \
+    || (species == SPECIES_VOLCANION) || (species == SPECIES_MAGEARNA) || (species == SPECIES_ZERAORA)                               \
+    || (species == SPECIES_MELTAN) || (species == SPECIES_MELMETAL) || (species == SPECIES_ZARUDE) || (species == SPECIES_PECHARUNT) \
     || EXTRA_MYTHICALS(species))
 
-#define IS_SPECIES_SUBLEGEND(species) ((species == SPECIES_ARTICUNO) || (species == SPECIES_ZAPDOS) || (species == SPECIES_MOLTRES) \
-    || (species == SPECIES_RAIKOU) || (species == SPECIES_ENTEI) || (species == SPECIES_SUICUNE) || (species == SPECIES_REGIROCK) \
-    || (species == SPECIES_REGICE) || (species == SPECIES_REGISTEEL) || (species == SPECIES_LATIAS) || (species == SPECIES_LATIOS) \
-    || (species == SPECIES_UXIE) || (species == SPECIES_MESPRIT) || (species == SPECIES_AZELF) || (species == SPECIES_HEATRAN) \
-    || (species == SPECIES_REGIGIGAS) || (species == SPECIES_CRESSELIA) || (species == SPECIES_COBALION) || (species == SPECIES_TERRAKION) \
-    || (species == SPECIES_VIRIZION) || (species == SPECIES_TORNADUS) || (species == SPECIES_THUNDURUS) || (species == SPECIES_LANDORUS) \
-    || (species == SPECIES_TYPE_NULL) || (species == SPECIES_SILVALLY) || (species == SPECIES_TAPU_KOKO) || (species == SPECIES_TAPU_LELE) \
-    || (species == SPECIES_TAPU_BULU) || (species == SPECIES_TAPU_FINI) || (species == SPECIES_KUBFU) || (species == SPECIES_URSHIFU) \
+#define IS_SPECIES_SUBLEGEND(species) ((species == SPECIES_ARTICUNO) || (species == SPECIES_ZAPDOS) || (species == SPECIES_MOLTRES)         \
+    || (species == SPECIES_RAIKOU) || (species == SPECIES_ENTEI) || (species == SPECIES_SUICUNE) || (species == SPECIES_REGIROCK)           \
+    || (species == SPECIES_REGICE) || (species == SPECIES_REGISTEEL) || (species == SPECIES_LATIAS) || (species == SPECIES_LATIOS)          \
+    || (species == SPECIES_UXIE) || (species == SPECIES_MESPRIT) || (species == SPECIES_AZELF) || (species == SPECIES_HEATRAN)              \
+    || (species == SPECIES_REGIGIGAS) || (species == SPECIES_CRESSELIA) || (species == SPECIES_COBALION) || (species == SPECIES_TERRAKION)  \
+    || (species == SPECIES_VIRIZION) || (species == SPECIES_TORNADUS) || (species == SPECIES_THUNDURUS) || (species == SPECIES_LANDORUS)    \
+    || (species == SPECIES_TYPE_NULL) || (species == SPECIES_SILVALLY) || (species == SPECIES_TAPU_KOKO) || (species == SPECIES_TAPU_LELE)  \
+    || (species == SPECIES_TAPU_BULU) || (species == SPECIES_TAPU_FINI) || (species == SPECIES_KUBFU) || (species == SPECIES_URSHIFU)       \
     || (species == SPECIES_REGIELEKI) || (species == SPECIES_REGIDRAGO) || (species == SPECIES_GLASTRIER) || (species == SPECIES_SPECTRIER) \
-    || (species == SPECIES_ENAMORUS) || (species == SPECIES_TING_LU) || (species == SPECIES_CHIEN_PAO) || (species == SPECIES_WO_CHIEN) \
-    || (species == SPECIES_CHI_YU) || (species == SPECIES_OGERPON) || (species == SPECIES_OKIDOGI) || (species == SPECIES_MUNKIDORI) \
+    || (species == SPECIES_ENAMORUS) || (species == SPECIES_TING_LU) || (species == SPECIES_CHIEN_PAO) || (species == SPECIES_WO_CHIEN)     \
+    || (species == SPECIES_CHI_YU) || (species == SPECIES_OGERPON) || (species == SPECIES_OKIDOGI) || (species == SPECIES_MUNKIDORI)        \
     || (species == SPECIES_FEZANDIPITI))
 
-#define IS_SPECIES_ULTRA_BEAST(species) ( (species == SPECIES_NIHILEGO) || (species == SPECIES_BUZZWOLE) || (species == SPECIES_PHEROMOSA) \
+#define IS_SPECIES_ULTRA_BEAST(species) ((species == SPECIES_NIHILEGO) || (species == SPECIES_BUZZWOLE) || (species == SPECIES_PHEROMOSA) \
     || (species == SPECIES_XURKITREE) || (species == SPECIES_CELESTEELA) || (species == SPECIES_KARTANA) || (species == SPECIES_GUZZLORD) \
     || (species == SPECIES_POIPOLE) || (species == SPECIES_NAGANADEL) || (species == SPECIES_STAKATAKA) || (species == SPECIES_BLACEPHALON))
 
 #ifdef VANILLA_PARADOX_BOOSTER_ENERGY_BEHAVIOUR
 #define EXTRA_PARADOX_FORMS(species) 0
 #else
-#define EXTRA_PARADOX_FORMS(species) ( (species == SPECIES_GOUGING_FIRE) || (species == SPECIES_RAGING_BOLT) || \
-    (species == SPECIES_IRON_BOULDER) || (species == SPECIES_IRON_CROWN))
+#define EXTRA_PARADOX_FORMS(species) ((species == SPECIES_GOUGING_FIRE) || (species == SPECIES_RAGING_BOLT) || (species == SPECIES_IRON_BOULDER) || (species == SPECIES_IRON_CROWN))
 #endif
 
-#define IS_SPECIES_PARADOX_FORM(species) ((species == SPECIES_GREAT_TUSK) || (species == SPECIES_SCREAM_TAIL) || (species == SPECIES_BRUTE_BONNET) \
+#define IS_SPECIES_PARADOX_FORM(species) ((species == SPECIES_GREAT_TUSK) || (species == SPECIES_SCREAM_TAIL) || (species == SPECIES_BRUTE_BONNET)     \
     || (species == SPECIES_FLUTTER_MANE) || (species == SPECIES_SLITHER_WING) || (species == SPECIES_SANDY_SHOCKS) || (species == SPECIES_IRON_TREADS) \
-    || (species == SPECIES_IRON_BUNDLE) || (species == SPECIES_IRON_HANDS) || (species == SPECIES_IRON_JUGULIS) || (species == SPECIES_IRON_MOTH) \
+    || (species == SPECIES_IRON_BUNDLE) || (species == SPECIES_IRON_HANDS) || (species == SPECIES_IRON_JUGULIS) || (species == SPECIES_IRON_MOTH)      \
     || (species == SPECIES_IRON_THORNS) || (species == SPECIES_ROARING_MOON) || (species == SPECIES_IRON_VALIANT) || (species == SPECIES_WALKING_WAKE) \
-    || (species == SPECIES_IRON_LEAVES) \
+    || (species == SPECIES_IRON_LEAVES)                                                                                                                \
     || EXTRA_PARADOX_FORMS(species))
 
 // personal narc fields
-enum
-{
+enum {
     PERSONAL_BASE_HP = 0,
     PERSONAL_BASE_ATTACK,
     PERSONAL_BASE_DEFENSE,
@@ -194,35 +199,35 @@ enum
 
 #define MAX_IVS (31)
 
-#define RND_NO_SET  (0)
-#define RND_SET (1)
+#define RND_NO_SET (0)
+#define RND_SET    (1)
 
-#define ID_NO_SET   (0)
-#define ID_SET  (1)
-#define ID_NO_SHINY (2)
-#define NO_MOVES_SET    (0xffff)
-#define SAME_MOVES_SET  (0xfffe)
+#define ID_NO_SET      (0)
+#define ID_SET         (1)
+#define ID_NO_SHINY    (2)
+#define NO_MOVES_SET   (0xffff)
+#define SAME_MOVES_SET (0xfffe)
 
 typedef struct SEAL {
-    u8 kind;           // ID of the seal
-    u8 x;              // X coordinate on the capsule
-    u8 y;              // Y coordinate on the capsule
+    u8 kind; // ID of the seal
+    u8 x; // X coordinate on the capsule
+    u8 y; // Y coordinate on the capsule
 } SEAL;
 
 /*
  * Capsule that you put on your ball
  */
 typedef struct CAPSULE {
-    SEAL seals[8];  // The seals on the capsule
+    SEAL seals[8]; // The seals on the capsule
 } CAPSULE;
 
 typedef struct {
     /* 0x00 */ u16 species;
     /* 0x02 */ u16 heldItem;
     /* 0x04 */ u32 otID; // low 16: visible; high 16: secret
-    /* 0x08 */ u32 exp:21; // low 21 are all that is used!
-               u32 unused:10;
-               u32 abilityMSB:1; // msb of previous experience field is the exp
+    /* 0x08 */ u32 exp : 21; // low 21 are all that is used!
+    u32 unused : 10;
+    u32 abilityMSB : 1; // msb of previous experience field is the exp
     /* 0x0C */ u8 friendship;
     /* 0x0D */ u8 ability; // taking a bit from exp
     /* 0x0E */ u8 markings; // circle, triangle, square, heart, star, diamond
@@ -241,22 +246,22 @@ typedef struct {
     /* 0x1B */ u8 sheen;
     // TODO: Finish SinnohRibbonSet1
     /* 0x1C */ u32 sinnohRibbons;
-//    u8 sinnohChampRibbon:1, abilityRibbon:1;
-//    u8 field_0x1d;
-//    u8 gorgeousRoyalRibbon:1, footprintRibbon:1;
-//    u8 field_0x1f;
+    //    u8 sinnohChampRibbon:1, abilityRibbon:1;
+    //    u8 field_0x1d;
+    //    u8 gorgeousRoyalRibbon:1, footprintRibbon:1;
+    //    u8 field_0x1f;
 } PokemonDataBlockA;
 
 typedef struct {
     /* 0x00 */ u16 moves[4];
     /* 0x08 */ u8 movePP[4];
     /* 0x0C */ u8 movePpUps[4];
-    /* 0x10 */ u32 hpIV:5, atkIV:5, defIV:5, spdIV:5, spatkIV:5, spdefIV:5, isEgg:1, isNicknamed:1;
+    /* 0x10 */ u32 hpIV : 5, atkIV : 5, defIV : 5, spdIV : 5, spatkIV : 5, spdefIV : 5, isEgg : 1, isNicknamed : 1;
     // TODO: Finish HoennRibbonSet
     /* 0x14 */ u32 ribbonFlags; // cool, ...
-    /* 0x18 */ u8 fatefulEncounter:1, gender:2, alternateForm:5;
-    /* 0x19 */ u8 HGSS_shinyLeaves:6;
-    /* 0x19 */ u8 unk_19_6:2;
+    /* 0x18 */ u8 fatefulEncounter : 1, gender : 2, alternateForm : 5;
+    /* 0x19 */ u8 HGSS_shinyLeaves : 6;
+    /* 0x19 */ u8 unk_19_6 : 2;
     /* 0x1A */ u16 Unused;
     /* 0x1C */ u16 Platinum_EggLocation;
     /* 0x1E */ u16 Platinum_MetLocation;
@@ -278,8 +283,8 @@ typedef struct {
     /* 0x18 */ u16 DP_MetLocation;
     /* 0x1A */ u8 pokerus;
     /* 0x1B */ u8 pokeball;
-    /* 0x1C */ u8 metLevel:7;
-    u8 metGender:1;
+    /* 0x1C */ u8 metLevel : 7;
+    u8 metGender : 1;
     /* 0x1D */ u8 encounterType;
     /* 0x1E */ u8 HGSS_Pokeball;
     /* 0x1F */ s8 mood;
@@ -294,25 +299,24 @@ typedef union {
 
 struct BoxPokemon {
     /* 0x000 */ u32 pid;
-    /* 0x004 */ u16 party_lock:1;
-                u16 box_lock:1;
-                u16 checksum_fail:1;
-                u16 Unused:13;    // Might be used for validity checks
-    /* 0x006 */ u16 checksum;  // Stored checksum of pokemon
+    /* 0x004 */ u16 party_lock : 1;
+    u16 box_lock : 1;
+    u16 checksum_fail : 1;
+    u16 Unused : 13; // Might be used for validity checks
+    /* 0x006 */ u16 checksum; // Stored checksum of pokemon
     /* 0x008 */ PokemonDataBlock substructs[4];
 };
 
-union MailPatternData
-{
+union MailPatternData {
     u16 raw;
     struct {
-        u16 icon:12;
-        u16 pal:4;
+        u16 icon : 12;
+        u16 pal : 4;
     };
 };
 
-#define MAILMSG_BANK_NONE           (0xFFFF)
-#define MAILMSG_FIELDS_MAX          (2)
+#define MAILMSG_BANK_NONE  (0xFFFF)
+#define MAILMSG_FIELDS_MAX (2)
 
 typedef struct MailMessage {
     u16 msg_bank;
@@ -320,8 +324,7 @@ typedef struct MailMessage {
     u16 fields[MAILMSG_FIELDS_MAX];
 } MAIL_MESSAGE;
 
-typedef struct Mail
-{
+typedef struct Mail {
     u32 author_otId;
     u8 author_gender;
     u8 author_language;
@@ -353,15 +356,13 @@ struct PartyPokemon {
     /* 0x088 */ PARTYONLYMON party;
 }; // size: 0xEC
 
-struct Party
-{
+struct Party {
     s32 maxPossibleCount;
     s32 count;
     struct PartyPokemon members[6];
 };
 
-enum
-{
+enum {
     MON_DATA_PERSONALITY = 0,
     MON_DATA_PARTY_LOCK,
     MON_DATA_BOX_LOCK,
@@ -553,8 +554,7 @@ enum
     MON_DATA_END
 };
 
-struct OVERWORLD_TAG
-{
+struct OVERWORLD_TAG {
     u16 tag;
     u16 gfx; // index in a081
     u16 callback_params;
@@ -590,32 +590,31 @@ typedef struct FollowMon {
 typedef struct FieldSystem {
     /*  0x0 */ u8 unk0[0x8];
     /*  0x8 */ void *bg_config;
-    /*  0xc */ void *savedata;//SAVEDATA* savedata;
-    /* 0x10 */ void *taskman;//TaskManager* taskman;
-    /* 0x14 */ MAP_EVENTS* map_events; // what we are here for
+    /*  0xc */ void *savedata; // SAVEDATA* savedata;
+    /* 0x10 */ void *taskman; // TaskManager* taskman;
+    /* 0x14 */ MAP_EVENTS *map_events; // what we are here for
     /* 0x18 */ u8 unk18[0x8];
-    /* 0x20 */ Location * location;
+    /* 0x20 */ Location *location;
     /* 0x24 */ u8 unk24[0xC];
-    /* 0x30 */ void */*MAPMATRIX**/ map_matrix;
+    /* 0x30 */ void * /*MAPMATRIX**/ map_matrix;
     /* 0x34 */ u8 unk34[0x8];
-    /* 0x3C */ void */*MapObjectMan**/ mapObjectMan;
+    /* 0x3C */ void * /*MapObjectMan**/ mapObjectMan;
     /* 0x40 */ FIELD_PLAYER_AVATAR *playerAvatar;
     /* 0x44 */ u8 unk44[0x8];
-    /* 0x4C */ void * fog_data;
+    /* 0x4C */ void *fog_data;
     /* 0x50 */ u8 unk50[0x5C];
     /* 0xAC */ u32 unkAC;
     /* 0xB0 */ u8 unkB0[0x4];
     /* 0xB4 */ s64 unkB4;
     /* 0xBC */ u8 unkBC[0x28];
     /* 0xE4 */ FollowMon followMon;
-    //u8 unk104[4];
-    //void *unk108;//struct FieldSystemUnk108 *unk108;
-    //u8 filler_10C[8];
-    //void *unk114;//struct UnkFsysSub_114* unk114;
-    //void *bugContest;//BUGCONTEST* bugContest;
-    //u8 unk11C[0xC];
+    // u8 unk104[4];
+    // void *unk108;//struct FieldSystemUnk108 *unk108;
+    // u8 filler_10C[8];
+    // void *unk114;//struct UnkFsysSub_114* unk114;
+    // void *bugContest;//BUGCONTEST* bugContest;
+    // u8 unk11C[0xC];
 } FieldSystem; // size: 0x128
-
 
 struct IconFormChangeData {
     int state;
@@ -627,13 +626,10 @@ struct IconFormChangeData {
     void *particleSystem; // SPLEmitter from pokeheartgold
 };
 
-
 struct SAVE_MISC_DATA;
 
-
 // defines from pokeheartgold + new ones
-typedef enum EvoMethod
-{
+typedef enum EvoMethod {
     EVO_NONE = 0,
     EVO_FRIENDSHIP,
     EVO_FRIENDSHIP_DAY,
@@ -672,16 +668,16 @@ typedef enum EvoMethod
     EVO_LEVEL_NATURE_LOW_KEY,
     EVO_AMOUNT_OF_CRITICAL_HITS,
     EVO_HURT_IN_BATTLE_AMOUNT,
-    EVO_SPIN_CLOCKWISE_LESS_THAN_5_SECONDS_DAY,             // Vanilla Cream
-    EVO_SPIN_COUNTERCLOCKWISE_LESS_THAN_5_SECONDS_DAY,      // Ruby Cream
-    EVO_SPIN_CLOCKWISE_LESS_THAN_5_SECONDS_NIGHT,           // Matcha Cream
-    EVO_SPIN_COUNTERCLOCKWISE_MORE_THAN_5_SECONDS_NIGHT,    // Mint Cream
-    EVO_SPIN_CLOCKWISE_MORE_THAN_5_SECONDS_NIGHT,           // Lemon Cream
-    EVO_SPIN_COUNTERCLOCKWISE_LESS_THAN_5_SECONDS_NIGHT,    // Salted Cream
-    EVO_SPIN_COUNTERCLOCKWISE_MORE_THAN_5_SECONDS_DAY,      // Ruby Swirl
-    EVO_SPIN_CLOCKWISE_MORE_THAN_5_SECONDS_DAY,             // Caramel Swirl
-    EVO_SPIN_MORE_THAN_10_SECONDS_EVENING,                  // Rainbow Swirl
-    EVO_FORM_ARGUMENT,  // Yamask, Stantler, Basculin, Primeape, Bisharp, Gimmighoul
+    EVO_SPIN_CLOCKWISE_LESS_THAN_5_SECONDS_DAY, // Vanilla Cream
+    EVO_SPIN_COUNTERCLOCKWISE_LESS_THAN_5_SECONDS_DAY, // Ruby Cream
+    EVO_SPIN_CLOCKWISE_LESS_THAN_5_SECONDS_NIGHT, // Matcha Cream
+    EVO_SPIN_COUNTERCLOCKWISE_MORE_THAN_5_SECONDS_NIGHT, // Mint Cream
+    EVO_SPIN_CLOCKWISE_MORE_THAN_5_SECONDS_NIGHT, // Lemon Cream
+    EVO_SPIN_COUNTERCLOCKWISE_LESS_THAN_5_SECONDS_NIGHT, // Salted Cream
+    EVO_SPIN_COUNTERCLOCKWISE_MORE_THAN_5_SECONDS_DAY, // Ruby Swirl
+    EVO_SPIN_CLOCKWISE_MORE_THAN_5_SECONDS_DAY, // Caramel Swirl
+    EVO_SPIN_MORE_THAN_10_SECONDS_EVENING, // Rainbow Swirl
+    EVO_FORM_ARGUMENT, // Yamask, Stantler, Basculin, Primeape, Bisharp, Gimmighoul
     EVO_LETS_GO, // Pawmo, Bramblin, Rellor https://xcancel.com/Sibuna_Switch/status/1678027317891694593
     EVO_DUMMY, // Inaccessible evolution methods
 } EvoMethod;
@@ -712,8 +708,7 @@ typedef struct
 
 #define NEEDS_REVERSION 0x8000
 
-typedef struct EncounterInfo
-{
+typedef struct EncounterInfo {
     u32 trainerID;
     BOOL unk4;
     BOOL unk8;
@@ -723,7 +718,6 @@ typedef struct EncounterInfo
     u8 unkE[2];
     u8 unk11;
 } EncounterInfo; // size = 0x12
-
 
 // Daycare structures
 typedef struct DaycareMail {
@@ -746,10 +740,8 @@ typedef struct Daycare {
     u8 padding_1DD[3];
 } Daycare;
 
-
 // BattleMove fields for GetMoveData below
-enum
-{
+enum {
     MOVE_DATA_EFFECT,
     MOVE_DATA_PSS_SPLIT,
     MOVE_DATA_BASE_POWER,
@@ -763,34 +755,6 @@ enum
     MOVE_DATA_UNK,
 };
 
-
-// natures
-#define NATURE_HARDY    (0)
-#define NATURE_LONELY   (1)
-#define NATURE_BRAVE    (2)
-#define NATURE_ADAMANT  (3)
-#define NATURE_NAUGHTY  (4)
-#define NATURE_BOLD     (5)
-#define NATURE_DOCILE   (6)
-#define NATURE_RELAXED  (7)
-#define NATURE_IMPISH   (8)
-#define NATURE_LAX      (9)
-#define NATURE_TIMID   (10)
-#define NATURE_HASTY   (11)
-#define NATURE_SERIOUS (12)
-#define NATURE_JOLLY   (13)
-#define NATURE_NAIVE   (14)
-#define NATURE_MODEST  (15)
-#define NATURE_MILD    (16)
-#define NATURE_QUIET   (17)
-#define NATURE_BASHFUL (18)
-#define NATURE_RASH    (19)
-#define NATURE_CALM    (20)
-#define NATURE_GENTLE  (21)
-#define NATURE_SASSY   (22)
-#define NATURE_CAREFUL (23)
-#define NATURE_QUIRKY  (24)
-
 #define FLAVOR_SPICY  0
 #define FLAVOR_DRY    1
 #define FLAVOR_SWEET  2
@@ -802,44 +766,16 @@ enum
 
 #define MAX_EVOS_PER_POKE (9)
 
-
 #define gDimorphismTable ((u8 *)(0x020FECAE))
 
-
-/**Trainer Data File Bitfield**/
-#define TRAINER_DATA_TYPE_NOTHING 0x00
-#define TRAINER_DATA_TYPE_MOVES 0x01
-#define TRAINER_DATA_TYPE_ITEMS 0x02
-#define TRAINER_DATA_TYPE_ABILITY 0x04
-#define TRAINER_DATA_TYPE_BALL 0x08
-#define TRAINER_DATA_TYPE_IV_EV_SET 0x10
-#define TRAINER_DATA_TYPE_NATURE_SET 0x20
-#define TRAINER_DATA_TYPE_SHINY_LOCK 0x40
-#define TRAINER_DATA_TYPE_ADDITIONAL_FLAGS 0x80 //whether or not to read extra flags in trpoke entry
-
-
-/**Trainer Pokemon File Extra Bitfield**/
-#define TRAINER_DATA_EXTRA_TYPE_NOTHING 0x00
-#define TRAINER_DATA_EXTRA_TYPE_STATUS 0x01
-#define TRAINER_DATA_EXTRA_TYPE_HP 0x02
-#define TRAINER_DATA_EXTRA_TYPE_ATK 0x04
-#define TRAINER_DATA_EXTRA_TYPE_DEF 0x08
-#define TRAINER_DATA_EXTRA_TYPE_SPEED 0x10
-#define TRAINER_DATA_EXTRA_TYPE_SP_ATK 0x20
-#define TRAINER_DATA_EXTRA_TYPE_SP_DEF 0x40
-#define TRAINER_DATA_EXTRA_TYPE_PP_COUNTS 0x80
-#define TRAINER_DATA_EXTRA_TYPE_NICKNAME 0x100
-
 // kinda weird, specifically tracked in the RAM
-typedef struct WildEncounterWork
-{
-    u16 species:11;
-    u16 form:5;
+typedef struct WildEncounterWork {
+    u16 species : 11;
+    u16 form : 5;
     u16 padding;
     u16 maxLevel;
     u16 minLevel;
 } WildEncounterWork;
-
 
 /**
  *  @brief allocate enough space for a PartyPokemon and zero it out
@@ -977,7 +913,7 @@ u32 LONG_CALL GetBoxMonData(struct BoxPokemon *boxmon, int field, void *buffer);
  *  @param field MON_DATA_* constant to determine which data to set
  *  @param buffer pointer to data to set.  always a pointer, even for simple values
  */
-void  LONG_CALL SetBoxMonData(struct BoxPokemon *boxmon, int id, const void *buf);
+void LONG_CALL SetBoxMonData(struct BoxPokemon *boxmon, int id, const void *buf);
 
 /**
  *  @brief grab the pointer to a member in a Party
@@ -986,7 +922,7 @@ void  LONG_CALL SetBoxMonData(struct BoxPokemon *boxmon, int id, const void *buf
  *  @param pos position to grab
  *  @return PartyPokemon requested
  */
-struct PartyPokemon * LONG_CALL Party_GetMonByIndex(struct Party *party, int pos);
+struct PartyPokemon *LONG_CALL Party_GetMonByIndex(struct Party *party, int pos);
 
 /**
  *  @brief grab personal field accounting for form (for vanilla forms)
@@ -1350,7 +1286,7 @@ void LONG_CALL SetEggStats(struct PartyPokemon *pokemon, int species, u8 metLoca
  *
  *  @param saveMiscData misc save data, i.e. Sav2_Misc_get(SaveBlock2_get())
  */
-void LONG_CALL SaveMisc_SetTogepiPersonalityGender(struct SAVE_MISC_DATA * saveMiscData, int personality, u8 gender);
+void LONG_CALL SaveMisc_SetTogepiPersonalityGender(struct SAVE_MISC_DATA *saveMiscData, int personality, u8 gender);
 
 /**
  *  @brief grab hatched togepi pid and gender
@@ -1359,7 +1295,7 @@ void LONG_CALL SaveMisc_SetTogepiPersonalityGender(struct SAVE_MISC_DATA * saveM
  *  @param pid pointer to store saved togepi pid to
  *  @param gender pointer to store saved togepi gender to
  */
-void LONG_CALL SaveMisc_GetTogepiPersonalityGender(struct SAVE_MISC_DATA * saveMiscData, int *pid, u8 *gender);
+void LONG_CALL SaveMisc_GetTogepiPersonalityGender(struct SAVE_MISC_DATA *saveMiscData, int *pid, u8 *gender);
 
 /**
  *  @brief clear a PartyPokemon and carry over certain persistent values
@@ -1430,11 +1366,11 @@ int LONG_CALL GetExpByGrowthRateAndLevel(int growthrate, u32 level);
  */
 void LONG_CALL RestoreBoxMonPP(struct BoxPokemon *boxMon);
 
-#define LEVEL_UP_LEARNSET_END 0xFFFF
-#define LEVEL_UP_LEARNSET_LEVEL_MASK 0xFFFF0000
-#define LEVEL_UP_LEARNSET_MOVE_MASK 0xFFFF
+#define LEVEL_UP_LEARNSET_END         0xFFFF
+#define LEVEL_UP_LEARNSET_LEVEL_MASK  0xFFFF0000
+#define LEVEL_UP_LEARNSET_MOVE_MASK   0xFFFF
 #define LEVEL_UP_LEARNSET_LEVEL_SHIFT 16
-#define LEVEL_UP_LEARNSET_MOVE(move) (move & LEVEL_UP_LEARNSET_MOVE_MASK)
+#define LEVEL_UP_LEARNSET_MOVE(move)  (move & LEVEL_UP_LEARNSET_MOVE_MASK)
 #define LEVEL_UP_LEARNSET_LEVEL(move) ((move & LEVEL_UP_LEARNSET_LEVEL_MASK) >> LEVEL_UP_LEARNSET_LEVEL_SHIFT)
 
 /**
@@ -1455,7 +1391,7 @@ void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u3
  */
 u32 LONG_CALL TryAppendMonMove(struct PartyPokemon *mon, u16 move);
 
-#define gIconPalTable ((u8 *)(0x023D8000 + START_ADDRESS))
+extern u8 gIconPalTable[];
 
 // defined in src/pokemon.c
 
@@ -1577,11 +1513,11 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon);
  */
 u32 LONG_CALL GetSpeciesBaseExp(u32 species, u32 form);
 
-//struct OVERWORLD_TAG * LONG_CALL grab_overworld_ptr(u16 tag);
+// struct OVERWORLD_TAG * LONG_CALL grab_overworld_ptr(u16 tag);
 
-//u16 LONG_CALL get_a081_index_from_tag(u16 tag);
+// u16 LONG_CALL get_a081_index_from_tag(u16 tag);
 
-//u32 LONG_CALL grab_overworld_a081_index(u16 species, u32 form, u32 isFemale);
+// u32 LONG_CALL grab_overworld_a081_index(u16 species, u32 form, u32 isFemale);
 
 /**
  *  @brief get genesect type from held item
@@ -1613,7 +1549,7 @@ void LONG_CALL ArceusBoxPokemonFormeChange(struct BoxPokemon *bp);
  *  @param bp struct BoxPokemon whose form to update
  *  @return TRUE if form needs updating; FALSE otherwise
  */
-BOOL LONG_CALL HandleBoxPokemonFormeChanges(struct BoxPokemon* bp);
+BOOL LONG_CALL HandleBoxPokemonFormeChanges(struct BoxPokemon *bp);
 
 /**
  *  @brief check if a reveal glass can be used on a PartyPokemon
@@ -1719,7 +1655,7 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp);
  */
 BOOL LONG_CALL Party_UpdateDeerlingSeasonForm(struct Party *party);
 
-//BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const struct RTCTime *time);
+// BOOL LONG_CALL Party_TryResetShaymin(struct Party *party, int min_max, const struct RTCTime *time);
 
 /**
  *  @brief load egg moves to dest and return amount of egg moves. reads from data/generated/EggLearnsets.c
@@ -1782,6 +1718,14 @@ u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp);
 u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
 
 /**
+ *  @brief lookup whether or not the species has female overworld form that isn't defined as a completely separate form
+ *
+ *  @param species species index
+ *  @return FALSE if no form or female handling for overworlds; the base index otherwise.  e.g. SPECIES_PICHU would return
+ */
+u32 LONG_CALL OverworldModelLookupHasFemaleForm(u32 species);
+
+/**
  *  @brief give a PartyPokemon to the player given species, level, form, ability, etc.
  *
  *  @param heapId heap to use for memory here
@@ -1797,7 +1741,7 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
  */
 BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int forme, u8 ability, u16 heldItem, int ball, int encounterType);
 
-//BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam);
+// BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam);
 
 /**
  *  @brief create BoxPokemon given the parameters
@@ -1906,6 +1850,5 @@ s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor);
 BOOL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defaultSlot);
 
 BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID);
-
 
 #endif

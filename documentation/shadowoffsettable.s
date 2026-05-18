@@ -443,7 +443,7 @@
 /* SPECIES_BRONZOR         */ .byte 0
 /* SPECIES_BRONZONG        */ .byte 2
 /* SPECIES_BONSLY          */ .byte 0
-/* SPECIES_MIMEJR          */ .byte 1
+/* SPECIES_MIME_JR          */ .byte 1
 /* SPECIES_HAPPINY         */ .byte 1
 /* SPECIES_CHATOT          */ .byte -2
 /* SPECIES_SPIRITOMB       */ .byte -2

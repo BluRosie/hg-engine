@@ -172,13 +172,17 @@ def build_move_map(moves_csv, move_consts):
 
 def parse_baby_species_map(path):
     mapping: Dict[str, str] = {}
-    pat = re.compile(r"^\s*babymon\s+(SPECIES_[A-Z0-9_]+)\s*,\s*(SPECIES_[A-Z0-9_]+)")
+    pats = [
+        re.compile(r"^\s*babymon\s+(SPECIES_[A-Z0-9_]+)\s*,\s*(SPECIES_[A-Z0-9_]+|0)"),
+        re.compile(r"^\s*\[\s*(SPECIES_[A-Z0-9_]+)\s*\]\s*=\s*(SPECIES_[A-Z0-9_]+)\s*,"),
+    ]
     for line in path.read_text(encoding="utf-8").splitlines():
-        m = pat.match(line)
-        if not m:
-            continue
-        species_const, baby_const = m.groups()
-        mapping[species_const] = baby_const
+        for pat in pats:
+            m = pat.match(line)
+            if m:
+                species_const, baby_const = m.groups()
+                mapping[species_const] = "SPECIES_NONE" if baby_const == "0" else baby_const
+                break
     return mapping
 
 
@@ -352,7 +356,7 @@ if __name__ == "__main__":
             "TutorMoves": data["TutorMoves"],
         }
 
-    baby_map = parse_baby_species_map(repo_root / "armips/data/babymons.s")
+    baby_map = parse_baby_species_map(repo_root / "data/BabyMons.c")
     propagate_egg_moves_by_baby_species(out, baby_map)
 
     form_to_base_map = parse_form_to_base_species_map(repo_root / "data/FormToSpeciesMapping.c")

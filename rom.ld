@@ -59,6 +59,7 @@ ZeroMonData = 0x0206DCE4 |1;
 PokeParaSet = 0x0206DE38 |1;
 PokeParaSetChr = 0x0206E108 |1;
 PokeParaSetSexChr = 0x0206E14C |1;
+GetMonSpriteCharAndPlttNarcIdsEx = 0x020701E4 |1;
 PokeCopyPPtoPP = 0x0207188C |1;
 GetMonData = 0x0206E540 |1;
 GetBoxMonData = 0x0206E640 |1;
@@ -113,10 +114,20 @@ GF_CpuCopy8 = 0x0204D450;
 GetEvScriptWorkMemberAdrs = 0x020402F0 |1;
 WORDSET_RegisterAbilityName = 0x0200C060|1;
 EventSet_Script = 0x0203FE74 |1;
+FieldSysGetAttrAddrInternal = 0x020401B4 | 1;
+FieldSystem_FlagCheck = 0x020403FC | 1;
+Field_GetBgEvents = 0x0203B6D8 | 1;
+Field_GetNumBgEvents = 0x0203B6E0 | 1;
+WildEncounters_ReadFromNarc = 0x0203B88C | 1;
 
 sys_AllocMemory = 0x0201AA8C | 1;
 sys_FreeMemoryEz = 0x0201AB0C | 1;
 sys_AllocMemoryLo = 0x0201AACC | 1;
+Heap_Alloc = 0x0201AA8C | 1;
+PlayerAvatar_GetXCoord = 0x0205C67C | 1;
+PlayerAvatar_GetZCoord = 0x0205C688 | 1;
+HiddenItemScriptNoToFlagId = 0x0204055C | 1;
+HiddenItemScriptNoToHiddenItemIdx = 0x0204056C | 1;
 
 /*TextBox*/
 TalkWinGraphicSet = 0x0200E644 |1;
@@ -305,6 +316,7 @@ SetScriptFlagPassSave = 0x0206659C | 1;
 ClearScriptFlagPassSave = 0x020665A4 | 1;
 CheckScriptFlagPassSave = 0x020665AC | 1;
 Sav2_PlayerData_GetProfileAddr = 0x02028E9C | 1;
+Save_PlayerData_GetOptionsAddr = 0x02028EA8 | 1;
 
 /* rtc functions */
 Party_ResetAllShayminToLandForme = 0x02071E2C | 1;
@@ -753,6 +765,12 @@ BattleMessage_BufferBoxName = 0x0223CEE4 | 1;
 _GetNpcTradeName = 0x02259C1C | 1;
 MonSetTrainerMemo = 0x0208F260 | 1;
 MapHeader_GetMapSec = 0x0203B36C | 1;
+ChooseStarter_LaunchApp = 0x0203F808 | 1;
+sub_0203E30C = 0x0203E30C | 1;
+FieldSystem_ApplicationIsRunning = 0x020505A0 | 1;
+FieldSystem_LoadFieldOverlay = 0x020505C0 | 1;
+sub_020505C8 = 0x020505C8 | 1;
+BeginNormalPaletteFade = 0x0200FA24 | 1;
 
 OS_DisableInterrupts = 0x020D3A38;
 NNS_FndAllocFromExpHeapEx = 0x020B53A0;
@@ -846,3 +864,4 @@ UpdateFriendshipFainted = 0x02248558 | 1;
 StringExpandPlaceholders = 0x0200CBBC | 1;
 
 ov12_02256694 = 0x02256694 | 1;
+sStarterChoiceCries = 0x021E7398;

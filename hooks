@@ -30,6 +30,7 @@ arm9 LoadEggMoves 0806C488 2
 #arm9 InheritMoves 0206C510 3 # come back later for egg move expansion
 arm9 GetMonEvolution 02070E34
 0007 hook_7_spriteOffsetSpecies 08018A48 3
+0007 ov07_0221FB7C 0221FB7C 2
 0012 hook_12_spriteOffsetSpecies 08022154 2
 0012 hook_12_spriteOffsetSpecies_escapeFromBall 02259DBC 2
 0012 fix_double_spriteOffsetSpecies 02259C0C 2
@@ -44,6 +45,8 @@ arm9 GetItemArcData 08077CE8 3
 #mon expansion
 arm9 GetPokemonOwNum 0206A304 1
 arm9 GetMonIconPalette 02074364 3
+arm9 sub_02097F6C 02097F6C 3
+arm9 GetSwarmInfoFromRand 02097F9C 3
 
 # ability expansion
 arm9 GetBoxMonData_EditedCases_hook 0206E6E0 3
@@ -59,8 +62,11 @@ arm9 AddBoxMonData_EditedCases_hook 0206F67C 0
 0002 get_form_out_of_encounter_species 02247A1C 4
 #02247B42
 0002 modify_species_encounter_data 02247B42 3
-# starter hidden ability stuff
+# starters
 arm9 set_starter_hidden_ability_hook 02096158 5
+arm9 CreateStarter_SetStarterSpecies_hook 02096094 3
+arm9 CreateStarterMon_hook 020960E6 1
+0061 CreateMonSprites_hook 021E7098 3
 
 #battle hooks
 0012 CalcBaseDamage 02256FF8
@@ -140,7 +146,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_CopyStatStages 02242510 3
 0012 BtlCmd_TryFaintMon 0223E22C 3
 0012 BtlCmd_TryRestoreStatusOnSwitch 022450B0 3
-0012 BtlCmd_TryConversion2 02240C98 3 
+0012 BtlCmd_TryConversion2 02240C98 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -186,12 +192,17 @@ arm9 ScrCmd_GiveEgg 0204D248 1
 0001 ScrCmd_GiveTogepiEgg 022020CC 1
 arm9 sub_0206D328 0206D328 2
 
+arm9 HiddenItemGetUnk3 02040578 1
+arm9 GetHiddenItemParams 020405AC 2
+arm9 AllocAndFetchNearbyHiddenItems 02040614 2
+
 #hof/pokeathlon/pokewalker fix
 0063 grab_overworld_a081_index 080025E4 3
 0064 grab_overworld_a081_index 021E6E30 3
 0096 grab_overworld_a081_index 080038B8 3
 0112 grab_overworld_a081_index 021F0E14 3
 arm9 get_mon_ow_tag 08069D70 3
+arm9 OverworldModelLookupHasFemaleForm 0206A338 3
 
 #genesect formes
 arm9 ArceusBoxPokemonFormeChange 08071BD0 3

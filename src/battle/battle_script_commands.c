@@ -4784,8 +4784,6 @@ enum {
 #define ABILITY_POPUP_Y_COORD_PLAYER 8
 #define ABILITY_POPUP_Y_COORD_ENEMY  1
 
-// void AbilityPopup_DrawWindowAtCoordinates(struct Window *window, )
-
 void AbilityPopup_SlideIn(void *data)
 {
     struct ABILITY_POPUP_WORK *work = (struct ABILITY_POPUP_WORK *)data;

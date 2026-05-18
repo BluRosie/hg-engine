@@ -502,3 +502,17 @@ arm9 02000E54 24 00 00 00 04 5C 1E 02
 0012 0223BD2C 02 49 40 5C C0 06 80 0F
 0012 0223BD3C 18 B4 05 4B 89 07 C4 5C
 #endif
+
+# honestly will not have any way to revert this because this is so much less intrusive and Just Works
+#ifdef APPLY_ANTIPIRACY
+
+# card checks return TRUE
+0001 021E662C 01 20 70 47
+# neuter dsprotect
+0123 0225F0CC E0 FC FF FF
+0123 0225F184 E0 FC FF FF
+
+#endif
+
+# make sure that the original antipiracy method is patched to vanilla
+arm9 02000A18 1E FF 2F E1

@@ -175,7 +175,7 @@ static int buildBtxFromPngAndMappings(void) {
 	char tempStr[MAX_STRING_SIZE] = {0};
 	char *subStr = NULL;
 	struct BTX0_JSON json = {0}; // stack yay
-	int strLen = 0, i = 0, j = 0, suffix = 0;
+	int strLen = 0, i = 0, j = 0;
 	int frameDumping = FALSE, palDumping = FALSE, currIndex = -1;
 
 	if (btxFile == NULL) {
@@ -308,7 +308,6 @@ static int buildBtxFromPngAndMappings(void) {
 		int textureOffset = (paletteInfoOffset + 0x10 + (0x18 * json.numPalettes));
 		int paletteOffset = textureOffset + 8 * textureDataSize;
 		int newBaseOffset;
-		FILE *source;
 
 		writeField(btxFile, paletteInfoOffset + 1, json.numPalettes, 1);
 		writeField(btxFile, paletteInfoOffset + 2, 0x10 + json.numPalettes * 0x18, 2);
@@ -449,7 +448,8 @@ static inline unsigned int bit_to_num(unsigned int num) {
 	int i;
 	for (i = 0; i < 32; i++) {
 		if (num == (1 << i)) {
-			return i;
+			break;
 		}
 	}
+	return i;
 }

@@ -1,4 +1,10 @@
+import json
+import struct
+
+import ndspy.narc
+
 from dump_scripts.dump_tools import *
+from dump_scripts.moves import decode_msg_bank
 
 AI_FLAG_DEFINES = [
     "F_PRIORITIZE_SUPER_EFFECTIVE",
@@ -26,6 +32,203 @@ TRAINER_PARTY_MON_FLAG_DEFINES = [
     "TRAINER_DATA_TYPE_NATURE_SET",
     "TRAINER_DATA_TYPE_SHINY_LOCK",
 ]
+
+TEXT_TYPE_NAMES = {
+    0: "TRMSG_INTRO",
+    1: "TRMSG_LOSE",
+    2: "TRMSG_AFTER",
+    3: "TRMSG_DBL_INTRO_1",
+    4: "TRMSG_DBL_LOSE_1",
+    5: "TRMSG_DBL_AFTER_1",
+    6: "TRMSG_DBL_1POKE_1",
+    7: "TRMSG_DBL_INTRO_2",
+    8: "TRMSG_DBL_LOSE_2",
+    9: "TRMSG_DBL_AFTER_2",
+    10: "TRMSG_DBL_1POKE_2",
+    13: "TRMSG_HIT_POKE_FIRST_TIME",
+    14: "TRMSG_CURRENT_POKE_HALF",
+    15: "TRMSG_LAST_POKE",
+    16: "TRMSG_LAST_POKE_HALF",
+    17: "TRMSG_PHONE_REMATCH_INTRO",
+    18: "TRMSG_PHONE_REMATCH_DBL_INTRO_1",
+    19: "TRMSG_PHONE_REMATCH_DBL_INTRO_2",
+    20: "TRMSG_WIN",
+}
+
+ABILITY_SLOT_NAMES = {
+    0: "TRAINER_POKEMON_ABILITY_1",
+    2: "TRAINER_POKEMON_ABILITY_HIDDEN",
+    32: "TRAINER_POKEMON_ABILITY_2",
+}
+
+
+def c_string(value):
+    escaped = (
+        value.replace("\n", "\\n")
+        .replace("\r", "\\r")
+    )
+    return json.dumps(escaped, ensure_ascii=False)
+
+
+def decode_trainer_names(msgdata_narc):
+    names = []
+    for line in decode_msg_bank(msgdata_narc, 729):
+        names.append(line.removeprefix("{TRNAME}"))
+    return names
+
+
+def decode_trainer_text(msgdata_narc):
+    return decode_msg_bank(msgdata_narc, 728)
+
+
+def parse_text_archives(rom, decoded_text_lines):
+    text_map = ndspy.narc.NARC(rom.files[rom.filenames["a/0/5/7"]]).files[0]
+    text_offsets = ndspy.narc.NARC(rom.files[rom.filenames["a/1/3/1"]]).files[0]
+
+    entries = []
+    for offset in range(0, len(text_map), 4):
+        trainer_id, text_type = struct.unpack_from("<HH", text_map, offset)
+        entries.append((trainer_id, text_type))
+
+    if len(entries) != len(decoded_text_lines):
+        raise ValueError(
+            f"trainer text row count mismatch: map has {len(entries)} rows, bank 728 has {len(decoded_text_lines)} lines"
+        )
+
+    trainer_text = {}
+    text_order = []
+    seen_trainers = set()
+    for index, (trainer_id, text_type) in enumerate(entries):
+        if trainer_id not in trainer_text:
+            trainer_text[trainer_id] = []
+        trainer_text[trainer_id].append({
+            "type": TEXT_TYPE_NAMES.get(text_type, str(text_type)),
+            "text": decoded_text_lines[index],
+        })
+        if trainer_id not in seen_trainers:
+            seen_trainers.add(trainer_id)
+            text_order.append(trainer_id)
+
+    return trainer_text, text_order, len(text_offsets) // 2
+
+
+def trainer_type_expr(flags):
+    if flags == 0:
+        return "TRAINER_DATA_TYPE_NOTHING"
+    return flags_to_string(flags, TRAINER_PARTY_MON_FLAG_DEFINES)
+
+
+def ai_flags_expr(flags):
+    return flags_to_string(flags, AI_FLAG_DEFINES) if flags != 0 else "0"
+
+
+def battle_type_expr(value):
+    return "DOUBLE_BATTLE" if value != 0 else "SINGLE_BATTLE"
+
+
+def ability_slot_expr(value):
+    return ABILITY_SLOT_NAMES.get(value, str(value))
+
+
+def species_expr(mon, expanded):
+    species_id = mon["species_id"]
+    form = species_id // (2048 if expanded else 1024)
+    base_species = species_id & ((2048 if expanded else 1024) - 1)
+    species = lookup_species(base_species)
+    if form == 0:
+        return species
+    return f"MON_WITH_FORM({species}, {form})"
+
+
+def write_party_mon_c(lines, mon, flags, expanded, indent):
+    pad = " " * indent
+    species = species_expr(mon, expanded)
+
+    lines.append(f"{pad}{{")
+    lines.append(f"{pad}    .ivs = {mon['ivs']},")
+    lines.append(f"{pad}    .abilitySlot = {ability_slot_expr(mon['ability'])},")
+    lines.append(f"{pad}    .level = {mon['level']},")
+    lines.append(f"{pad}    .species = {species},")
+
+    if flags & 0x02:
+        lines.append(f"{pad}    .item = {lookup_item(mon['item_id'])},")
+    if flags & 0x01:
+        lines.append(
+            f"{pad}    .moves = {{ {lookup_move(mon['move_1'])}, {lookup_move(mon['move_2'])}, "
+            f"{lookup_move(mon['move_3'])}, {lookup_move(mon['move_4'])} }},"
+        )
+
+    lines.append(f"{pad}    .ballSeal = {mon['ballseal']},")
+    lines.append(f"{pad}}},")
+
+
+def dump_trainerdata_c(rom, msgdata_narc, expanded):
+    trdata_narc = dump_narc(rom, "a/0/5/5", TRDATA_NARC_FORMAT)
+    trpok_narc = dump_trpok_narc(rom, "a/0/5/6", trdata_narc)
+    trainer_names = decode_trainer_names(msgdata_narc)
+    trainer_text, text_order, _text_offset_count = parse_text_archives(rom, decode_trainer_text(msgdata_narc))
+
+    lines = [
+        '#include "../include/trainer_data.h"',
+        "",
+        "const TrainerData sTrainerData[] = {",
+    ]
+
+    for trainer_id, trainer in enumerate(trdata_narc):
+        party = trpok_narc[trainer_id]
+        lines.append(f"    [{trainer_id}] = {{")
+        lines.append(f"        .name = {c_string(trainer_names[trainer_id])},")
+        lines.append("        .data = {")
+        lines.append(f"            .trainerType = {trainer_type_expr(trainer['flags'])},")
+        lines.append(f"            .trainerClass = {lookup_const("TRAINERCLASS", trainer['class'])},")
+        lines.append(
+            "            .items = { "
+            + ", ".join(
+                [
+                    lookup_item(trainer["item_1"]),
+                    lookup_item(trainer["item_2"]),
+                    lookup_item(trainer["item_3"]),
+                    lookup_item(trainer["item_4"]),
+                ]
+            )
+            + " },"
+        )
+        lines.append(f"            .aiFlags = {ai_flags_expr(trainer['ai'])},")
+        lines.append(f"            .battleType = {battle_type_expr(trainer['battle_type'])},")
+        lines.append("        },")
+
+        if party:
+            lines.append("        .party = {")
+            for mon_index in range(len(party)):
+                write_party_mon_c(lines, party[mon_index], trainer["flags"], expanded, 12)
+            lines.append("        },")
+
+        if trainer_text.get(trainer_id):
+            lines.append("        .text = {")
+            for entry in trainer_text[trainer_id]:
+                lines.append("            {")
+                lines.append(f"                .type = {entry['type']},")
+                lines.append(f"                .text = {c_string(entry['text'])},")
+                lines.append("            },")
+            lines.append("        },")
+
+        lines.append("    },")
+        lines.append("")
+
+    lines.extend([
+        "};",
+        "",
+        "const u16 sTrainerTextOrder[] = {",
+    ])
+    for trainer_id in text_order:
+        lines.append(f"    {trainer_id},")
+    lines.extend([
+        "};",
+        "",
+        "const u32 sTrainerDataCount = sizeof(sTrainerData) / sizeof(sTrainerData[0]);",
+        "const u32 sTrainerTextOrderCount = sizeof(sTrainerTextOrder) / sizeof(sTrainerTextOrder[0]);",
+    ])
+    return "\n".join(lines)
 
 def dump_trainerdata(trdata_narc, trpok_narc, is_expanded):
     trainerdata_armips = ""
