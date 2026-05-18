@@ -87,11 +87,13 @@ _182:
     PlayBattleAnimation BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLE_ANIMATION_ASLEEP
     Wait
 
-
-.if SLEEP_TURNS_GENERATION == GEN_CHAMPIONS
-    Random 1, 2
-.elseif SLEEP_TURNS_GENERATION >= 5
+.if SLEEP_TURNS_GENERATION >= 5
     Random 2, 2
+.if SLEEP_TURNS_GENERATION == GEN_CHAMPIONS
+    CompareVarToValue OPCODE_LTE, BSCRIPT_VAR_CALC_TEMP, 3, _lowerThanThreeTurns
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, 3
+_lowerThanThreeTurns:
+.endif
 .else 
     Random 3, 2
 .endif
