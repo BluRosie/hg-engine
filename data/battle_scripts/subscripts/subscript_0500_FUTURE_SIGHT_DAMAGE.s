@@ -3,4 +3,6 @@
 .data
 
 _000:
-    GoToEffectScript 
+    CalcCrit 
+    CalcDamage 
+    End

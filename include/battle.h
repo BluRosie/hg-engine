@@ -1277,7 +1277,9 @@ typedef union ConditionType
 
 typedef struct FutureCondition {
     ConditionType conditionType;
-    u8 affectedClient;
+    u8 defenderSlot;
+    u8 futureSightSTAB : 1;
+    u8 padding : 7;
 } FutureCondition;
 
 typedef struct OnceOnlyAbilityFlags {
@@ -1557,7 +1559,10 @@ struct BattleStruct {
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
                u8 gemBoostingMove: 1;
-               u8 gemBoostingMovePadding : 7;
+               u8 futureSightHitTurn: 1;
+               u8 futureSightNoAttacker : 1;
+               u8 futureSightSTAB : 1;
+               u8 gemBoostingMovePadding : 4;
 
                int currentMoveSwitchStatus;
                
@@ -2233,6 +2238,10 @@ struct PACKED sDamageCalc
     u16 item;
     u16 item_held_effect;
     u8  item_power;
+
+    u8 type1;
+    u8 type2;
+    u8 type3;
 
     u32 condition;
     u32 condition2;
@@ -4361,7 +4370,7 @@ u32 LONG_CALL sub_0200E3D8(void);
 void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSystem, MsgData *data, BattleMessage *msg);
 
 BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
-
 BOOL LONG_CALL GetTypeEffectivenessData(struct BattleSystem *bsys, int index, u8 *typeMove, u8 *typeMon, u8 *eff);
+BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx);
 
 #endif // BATTLE_H
