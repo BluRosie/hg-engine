@@ -86,7 +86,13 @@ _bypassSafeguard:
 _182:
     PlayBattleAnimation BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLE_ANIMATION_ASLEEP
     Wait
+.if SNOW_WARNING_GENERATION < 5
+    Random 3, 2
+.else if SNOW_WARNING_GENERATION == GEN_CHAMPIONS
+    Random 1, 2
+.else 
     Random 2, 2
+.endif
     CompareVarToValue OPCODE_LTE, BSCRIPT_VAR_CALC_TEMP, 3, _lowerThanThreeTurns
     UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, 3
 _lowerThanThreeTurns:
