@@ -600,7 +600,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                          && IsValidImposterTarget(bw, sp, client_no)
                          && ((!(BattleTypeGet(bw) & BATTLE_TYPE_TRAINER)) ? (sp->battlemon[client_no].species == SPECIES_DITTO || sp->battlemon[client_no].species == SPECIES_MEW) : TRUE)) {
                             u32 num;
-                            sp->battlemon[client_no].imposter_flag = 1;
                             scriptnum = SUB_SEQ_HANDLE_IMPOSTER;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
 
@@ -631,6 +630,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             sp->battlemon[sp->attack_client].slow_start_flag = 0;
                             sp->battlemon[sp->attack_client].slow_start_end_flag = 0;
                             ClearBattleMonFlags(sp, sp->attack_client);  // clear extra flags here too
+                            sp->battlemon[client_no].imposter_flag = 1;
                             sp->moveConditionsFlags[sp->attack_client].laserFocusTimer = sp->moveConditionsFlags[sp->defence_client].laserFocusTimer;
 
                             for (num = 0; num < 4; num++) {
