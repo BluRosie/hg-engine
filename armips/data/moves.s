@@ -2834,7 +2834,7 @@ movedata MOVE_CONVERSION_2, "Conversion 2"
     accuracy 0
     pp 30
     effectchance 0
-    target DEBUG_NEEDS_TESTING ? RANGE_ALL_ADJACENT : RANGE_USER
+    target RANGE_ALL_ADJACENT
     priority 0
     flags 0
     appeal APPEAL_PITY_HEARTS
@@ -8300,7 +8300,7 @@ movedata MOVE_RETALIATE, "Retaliate"
     movedescription MOVE_RETALIATE, "If an ally fainted\nin the previous\nturn, this attack’s\ndamage increases."
 
 movedata MOVE_FINAL_GAMBIT, "Final Gambit"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_FINAL_GAMBIT
     pss SPLIT_SPECIAL
     basepower 1
     type TYPE_FIGHTING
@@ -8309,7 +8309,7 @@ movedata MOVE_FINAL_GAMBIT, "Final Gambit"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT
     appeal 0x00
     contesttype CONTEST_TOUGH
     terminatedata
@@ -9023,13 +9023,13 @@ movedata MOVE_FLYING_PRESS, "Flying Press"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
     basepower 100
-    type TYPE_FIGHTING
+    type TYPE_FIGHTING // Handled in src/battle/other_battle_calculators.c
     accuracy 95
     pp 10
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_CONTACT
     appeal 0x00
     contesttype CONTEST_TOUGH
     terminatedata
@@ -9228,10 +9228,10 @@ movedata MOVE_PETAL_BLIZZARD, "Petal Blizzard"
     movedescription MOVE_PETAL_BLIZZARD, "The user stirs up a\nviolent petal blizzard\nand attacks everything\naround it."
 
 movedata MOVE_FREEZE_DRY, "Freeze-Dry"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_FREEZE_HIT
     pss SPLIT_SPECIAL
     basepower 70
-    type TYPE_ICE
+    type TYPE_ICE // Handled in src/battle/other_battle_calculators.c
     accuracy 100
     pp 20
     effectchance 10
@@ -12092,7 +12092,7 @@ movedata MOVE_DRAGON_DARTS, "Dragon Darts"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_KEEP_HP_BAR | FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
@@ -13429,7 +13429,7 @@ movedata MOVE_WAVE_CRASH, "Wave Crash"
     movedescription MOVE_WAVE_CRASH, "The user shrouds\nitself in water and\nslams into the target.\nThis also damages the\nuser quite a lot."
 
 movedata MOVE_CHLOROBLAST, "Chloroblast"
-    battleeffect MOVE_EFFECT_HIT
+    battleeffect MOVE_EFFECT_RECOIL_HALF_MAX_HP
     pss SPLIT_SPECIAL
     basepower 150
     type TYPE_GRASS
@@ -13438,7 +13438,7 @@ movedata MOVE_CHLOROBLAST, "Chloroblast"
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0
-    flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_UNIMPLEMENTED
+    flags FLAG_PROTECT | FLAG_MIRROR_MOVE
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata

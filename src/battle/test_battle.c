@@ -137,7 +137,9 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
     enum ExpectationType expectationType = scenario->expectations[scenario->expectationPassCount].expectationType;
     if (expectationType != EXPECTATION_TYPE_MESSAGE
         && expectationType != EXPECTATION_TYPE_MESSAGE_CONTAINS
-        && expectationType != EXPECTATION_TYPE_ATTACK_MESSAGE) {
+        && expectationType != EXPECTATION_TYPE_ATTACK_MESSAGE
+        && expectationType != EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN
+        && expectationType != EXPECTATION_TYPE_NOT_MESSAGE) {
         debug_printf("\n");
         return;
     }
@@ -156,7 +158,11 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
     BOOL messageMatch = FALSE;
     if (expectationType == EXPECTATION_TYPE_MESSAGE_CONTAINS) {
         messageMatch = MessageContains(actualMessage, expectedMessage);
-    } else {
+    }
+    else if (expectationType == EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN){
+        messageMatch = !MessageContains(actualMessage, expectedMessage);
+    }
+    else {
         messageMatch = TRUE;
         for (int i = 0; i < TEST_BATTLE_MESSAGE_LEN; i++) {
             if (actualMessage[i] != expectedMessage[i]) {
@@ -166,6 +172,9 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
             if (actualMessage[i] == '\0') {
                 break;
             }
+        }
+        if (expectationType == EXPECTATION_TYPE_NOT_MESSAGE){
+            messageMatch = !messageMatch;
         }
     }
 

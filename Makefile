@@ -93,7 +93,11 @@ venv: $(VENV_ACTIVATE)
 # divorce this python3 from venv so that it works
 $(VENV_ACTIVATE):
 	$(PYTHON_NO_VENV) -m venv $(VENV)
+ifeq ($(MSYS2), 0)
+	$(PYTHON) -m pip install ndspy==4.1.0
+else
 	$(PYTHON) -m pip install -r $(REQUIREMENTS)
+endif
 
 endif
 
@@ -101,7 +105,7 @@ endif
 ADPCMXQ := tools/adpcm-xq
 ARMIPS := tools/armips
 BLZ := tools/blz
-BTX := $(PYTHON) tools/overworld-btx.py
+BTX := tools/btx
 ENCODEPWIMG := tools/ENCODE_IMG
 GFX := tools/nitrogfx
 MSGENC := tools/msgenc
@@ -232,8 +236,14 @@ $(ENCODEPWIMG):
 
 TOOLS += $(ENCODEPWIMG)
 
+$(BTX):
+	cd tools/source/btx ; $(MAKE)
+	mv tools/source/btx/btx $(BTX)
+
+TOOLS += $(BTX)
+
 ####################### Build #######################
-$(BUILD)/rom_gen.ld:$(LINK) $(OUTPUT) rom.ld $(VENV_ACTIVATE)
+$(BUILD)/rom_gen.ld:$(LINK) $(OUTPUT) rom.ld
 	cp rom.ld $(BUILD)/rom_gen.ld
 	$(PYTHON) scripts/generate_ld.py $(BUILD)/rom_gen.ld $(LINK)
 
@@ -247,6 +257,8 @@ define SRC_OBJ_INC_DEFINE
 $1: $2 $(LEARNSETS_HEADER) $(BATTLETESTS_HEADER) | $(dir $1)
 	$(CC) -MMD -MF $(basename $1).d $(CFLAGS) -c $2 -o $1
 	@#printf "\t$(CC) $(CFLAGS) -c $2 -o $1" >> $(basename $1).d
+
+-include $(basename $1).d
 endef
 
 ifneq (1,$(NOSCAN))
@@ -270,7 +282,7 @@ $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
 # only reextract from the rom if the romname is newer than the extracted arm9.bin
-$(BASE)/arm9.bin: $(ROMNAME) $(NDSTOOL)
+$(BASE)/arm9.bin: $(ROMNAME) $(NDSTOOL) $(VENV_ACTIVATE)
 	rm -rf $(BASE)
 	@mkdir -p $(REQUIRED_DIRECTORIES)
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin

@@ -46,7 +46,8 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     int movetype;
 
     // trigger meloetta's relic song form transformation if possible
-    if ((sp->battlemon[attacker].species == SPECIES_MELOETTA)
+    if (IsAttackerOnField(sp)
+     && (sp->battlemon[attacker].species == SPECIES_MELOETTA)
      && (sp->battlemon[attacker].hp)
      && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
      && (sp->battlemon[attacker].form_no < 2))
@@ -69,7 +70,9 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // 02252F24
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE)
     {
-        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->moveTbl[sp->current_move_index].power))
+        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) 
+        //    && (sp->moveTbl[sp->current_move_index].power) //as of Gen5
+            )
         {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
             scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
@@ -293,7 +296,7 @@ u8 LONG_CALL BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client)
 
 /**
  *  @brief grab which of the client's stat after statstates (excluding HP) are the highest for paradox abilities
- * 
+ *
  *  @param ctx global battle structure
  *  @param client battler whose stats to compare among themselves
  *  @return the highest stat
@@ -331,11 +334,11 @@ u8 LONG_CALL ParadoxGreatestStatHelper(struct BattleStruct *ctx, u32 client)
 
 /**
  *  @brief Get stat value with stat stages.
- * 
+ *
  *  @param ctx BattleContext
  *  @param client battlemon whose stat with stat stages to get
  *  @param stat STAT_ATTACK to STAT_SPEED
- *  
+ *
  *  @return stat value
  */
 u16 LONG_CALL GetStatValueWithStages(struct BattleStruct *ctx, u32 client, u8 stat)
@@ -353,7 +356,7 @@ u16 LONG_CALL GetStatValueWithStages(struct BattleStruct *ctx, u32 client, u8 st
  *  @brief Function to activate paradox abilities Protosynthesis and Quark Drive.
  *         Used in multiple stages of SwitchInAbilityCheck due to it activating
  *         after any weather or terrain is changed respectively.
- * 
+ *
  *  @param bsys BattleSystem
  *  @param ctx BattleContext
  *  @param client client to activate paradox ability
@@ -405,7 +408,7 @@ u16 LONG_CALL ActivateParadoxAbility(void *bsys, struct BattleStruct *ctx, u8 cl
             break;
         }
     }
-    
+
     if (seq_no) {
         u8 stat = ParadoxGreatestStatHelper(ctx, client);
         ctx->paradoxBoostedStat[client] = stat;
@@ -419,7 +422,7 @@ u16 LONG_CALL ActivateParadoxAbility(void *bsys, struct BattleStruct *ctx, u8 cl
 
 /**
  *  @brief Update terrain overlay type and number of turns, used in SwitchInAbilityCheck and Battle Commands
- * 
+ *
  *  @param ctx BattleContext
  *  @param client which client causes the terrain to update
  *  @param terrainType TerrainOverlayType
@@ -475,6 +478,7 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, in
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) ||
                     (sp->oneSelfFlag[sp->defence_client].special_damage))
                 && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+                && (HeldItemHoldEffectGet(sp, sp->defence_client) != HOLD_EFFECT_PREVENT_SECONDARY_EFFECTS)
                 && (CheckSubstitute(sp, sp->defence_client) == FALSE)
 #ifndef DEBUG_BATTLE_SCENARIOS
                 && (BattleRand(bw) % 10 < 3)
@@ -659,7 +663,7 @@ u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int at
  */
 u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, u32 ability)
 {
-    return MoldBreakerAbilityCheckInternal(attacker, defender, GetBattlerAbility(sp, attacker), GetBattlerAbility(sp, defender), sp->current_move_index, sp->moveTbl[sp->current_move_index].split, ability);
+    return MoldBreakerAbilityCheckInternal(attacker, defender, IsAttackerOnField(sp) ? GetBattlerAbility(sp, attacker) : ABILITY_NONE, GetBattlerAbility(sp, defender), sp->current_move_index, sp->moveTbl[sp->current_move_index].split, ability);
 }
 
 /**
@@ -811,6 +815,10 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
     int atk;
     u32 sereneGraceShift = 0; // it's less cycles this way okay probably
 
+    if (HeldItemHoldEffectGet(sp, sp->defence_client) == HOLD_EFFECT_PREVENT_SECONDARY_EFFECTS){
+        return ret;
+    }
+
     heldeffect = HeldItemHoldEffectGet(sp, sp->attack_client);
     atk = HeldItemAtkGet(sp, sp->attack_client, 0);
 
@@ -931,6 +939,7 @@ void ServerWazaOutAfterMessage(void *bsys, struct BattleStruct *ctx)
 {
     SetupCurrentMoveContext(bsys, ctx);
     ctx->server_seq_no = CONTROLLER_COMMAND_31;
+    ctx->next_server_seq_no = CONTROLLER_COMMAND_31;
     ctx->swoam_seq_no = 0;
     return;
     /*
@@ -1196,6 +1205,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
         sp->magicBounceTracker = TRUE;
         sp->moveProtect[sp->attack_client] = 0;
         sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
+        sp->lastClientMoveType[sp->attack_client] = GetAdjustedMoveType(sp, sp->attack_client, sp->moveNoTemp);
         sp->waza_no_last = sp->moveNoTemp;
         sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
         LoadBattleSubSeqScript(sp, 1, SUB_SEQ_MAGIC_COAT);
@@ -1218,6 +1228,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
                 sp->moveProtect[sp->attack_client] = 0;
                 sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
                 sp->waza_no_last = sp->moveNoTemp;
+                sp->lastClientMoveType[sp->attack_client] = GetAdjustedMoveType(sp, sp->attack_client, sp->moveNoTemp);
                 sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
             }
             LoadBattleSubSeqScript(sp, 1, SUB_SEQ_SNATCH);
