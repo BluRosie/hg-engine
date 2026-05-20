@@ -124,6 +124,11 @@ strh r0, [r2, r1]
 .word ABILITY_OFFSET_WITHIN_BATTLESTRUCT
 
 
+// edits to GetBattlerVar - https://github.com/pret/pokeheartgold/blob/77a632e01831822a771760d1afdbfbcd7d3bd96b/asm/overlay_12_0224E4FC.s#L1282-L1284
+.org 0x0224EF36
+add r4, #NEW_ABILITY_OFFSET
+ldrh r0, [r4]
+
 // edits to SetBattlerVar
 .org 0x0224F320
 ldrh r0, [r3]
