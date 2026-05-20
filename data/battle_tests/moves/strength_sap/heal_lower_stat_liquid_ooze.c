@@ -95,7 +95,6 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-                { ACTION_NONE, 0 },
             } },
         .enemyScript = {
             {
