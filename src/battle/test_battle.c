@@ -178,9 +178,18 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
         }
     }
 
-    if (messageMatch) {
-        debug_printf(" ✅");
+    if (messageMatch && !scenario->markAsFail) {
+        if (expectationType == EXPECTATION_TYPE_MESSAGE) {
+            debug_printf(" ✅");
+        } else {
+            debug_printf(" ✔️");
+        }
         scenario->expectationPassCount++;
+    } else {
+        if ((expectationType == EXPECTATION_TYPE_NOT_MESSAGE || expectationType == EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN) && !scenario->markAsFail) {
+            debug_printf(" ❌");
+            scenario->markAsFail = TRUE;
+        }
     }
     debug_printf("\n");
 #endif // DEBUG_BATTLE_SCENARIOS
