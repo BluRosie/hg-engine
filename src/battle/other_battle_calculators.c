@@ -3518,7 +3518,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             && (struggleCheckFlags & STRUGGLE_CHECK_THROAT_CHOPPED)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
-
+#if PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION <= GEN_LATEST
         if (ctx->battlemon[battlerId].move[movePos] == MOVE_BELCH
             && ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch == FALSE
             && (struggleCheckFlags & STRUGGLE_CHECK_BELCH)) {
@@ -3529,6 +3529,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             && (struggleCheckFlags & STRUGGLE_CHECK_STUFF_CHEEKS)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
+#endif
     }
     return nonSelectableMoves;
 }
@@ -3619,7 +3620,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         && ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch == FALSE) {
         msg->tag = TAG_NICKNAME;
         // { STRVAR_1 1, 0, 0 } hasn’t eaten any held Berries,\nso it can’t possibly belch!
-        msg->id = BATTLE_MSG_CANT_POSSIBLY_USE_BELCN;
+        msg->id = BATTLE_MSG_CANT_POSSIBLY_USE_BELCH;
         msg->param[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_STUFF_CHEEKS) & No2Bit(movePos)) {

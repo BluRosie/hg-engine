@@ -903,7 +903,7 @@ int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp)
         && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
         && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage)))
     {
-        for (; sp->clientLoopForAbility < SPREAD_ABILITY_LOOP_MAX; )
+        for (; sp->clientLoopForAbility <= SPREAD_ABILITY_LOOP_MAX; )
         {
 
             switch (sp->clientLoopForAbility) {
@@ -1046,6 +1046,7 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
         // case MOVE_EFFECT_TELEKINESIS:
         // case MOVE_EFFECT_SMACK_DOWN: thousand arrows
         // case MOVE_EFFECT_SECRET_POWER:
+    case MOVE_EFFECT_WHIRLPOOL:
     case MOVE_EFFECT_BIND_HIT: // fire spin/wrap/infestation
         if (ctx->attack_client != BATTLER_NONE
             && (ctx->battlemon[ctx->attack_client].hp != 0)

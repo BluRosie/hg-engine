@@ -1934,6 +1934,24 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         return TRUE;
     }
 
+#if PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION >= GEN_CHAMPIONS
+    if (ctx->current_move_index == MOVE_BELCH 
+        && ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].berryEatenAndCanBelch == FALSE) {
+        BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+
+        ctx->mp.id = BATTLE_MSG_CANT_POSSIBLY_USE_BELCH;
+        ctx->mp.tag = TAG_NICKNAME;
+        ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->attack_client);
+
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_BELCH);
+        ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->wb_seq_no = BEFORE_MOVE_START;
+        return TRUE;
+    }
+#endif
+
     // Counter / Mirror Coat / Metal Burst when user hasn't been damaged
     // TODO: Copied from BtlCmd_Counter, BtlCmd_TryMetalBurst, contradicts existing documentation
     int battlerId;

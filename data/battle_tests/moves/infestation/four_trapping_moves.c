@@ -1,4 +1,4 @@
-// Test: Strength Sap - Heal, Lower Attack, Liquid Ooze
+// Test: Infestation and 3 other trapping moves
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -19,25 +19,25 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_ODDISH,
+                .species = SPECIES_CHARMANDER,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_CHLOROPHYLL,
-                .item = ITEM_NONE,
-                .moves = { MOVE_STRENGTH_SAP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .ability = ABILITY_NO_GUARD,
+                .item = ITEM_LIFE_ORB,
+                .moves = { MOVE_FIRE_SPIN, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
             {
-                .species = SPECIES_BELLSPROUT,
-                .level = 64,
+                .species = SPECIES_EKANS,
+                .level = 50,
                 .form = 0,
-                .ability = ABILITY_CHLOROPHYLL,
-                .item = ITEM_BIG_ROOT,
-                .moves = { MOVE_STRENGTH_SAP, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
-                .hp = 1, //157
+                .ability = ABILITY_NO_GUARD,
+                .item = ITEM_NONE,
+                .moves = { MOVE_WRAP, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
@@ -48,24 +48,24 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .enemyParty = {
             {
-                .species = SPECIES_GULPIN,
+                .species = SPECIES_DEWPIDER,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_LIQUID_OOZE,
+                .ability = ABILITY_WATER_BUBBLE,
                 .item = ITEM_NONE,
-                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_INFESTATION, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
             {
-                .species = SPECIES_MEW,
+                .species = SPECIES_SQUIRTLE,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_SYNCHRONIZE,
-                .item = ITEM_NONE,
-                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .ability = ABILITY_TORRENT,
+                .item = ITEM_WATER_GEM,
+                .moves = { MOVE_WHIRLPOOL, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -77,8 +77,8 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .playerScript = {
             {
-                  { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
                   { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                  { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
                   { ACTION_NONE, 0 },
                   { ACTION_NONE, 0 },
                   { ACTION_NONE, 0 },
@@ -99,7 +99,7 @@ const struct TestBattleScenario BattleTests[] = {
         .enemyScript = {
             {
                  { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                 { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                 { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                  { ACTION_NONE, 0 },
                  { ACTION_NONE, 0 },
                  { ACTION_NONE, 0 },
@@ -108,8 +108,8 @@ const struct TestBattleScenario BattleTests[] = {
                  { ACTION_NONE, 0 },
              },
             {
-                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
+                { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_SECOND },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -119,13 +119,14 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Bellsprout used Strength Sap!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew's Attack fell!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish used Strength Sap!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish's HP is full!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish used Strength Sap!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gulpin's Attack fell!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It sucked up the liquid ooze!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dewpider became trapped in the fiery vortex!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Squirtle was wrapped by Ekans!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ekans became trapped in the vortex!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander has been afflicted with an infestation by the opposing Dewpider!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander is hurt by Infestation!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ekans is hurt by Whirlpool!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Squirtle is hurt by Wrap!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dewpider is hurt by Fire Spin!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

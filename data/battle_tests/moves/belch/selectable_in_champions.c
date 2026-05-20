@@ -1,4 +1,4 @@
-// Test: Strength Sap - Heal, Lower Attack, Liquid Ooze
+// Test: Belch - can be selected in champions and fails without berry eaten
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -13,72 +13,54 @@ const struct TestBattleScenario BattleTests[] = {
 #endif
 
     {
-        .battleType = BATTLE_TYPE_DOUBLE,
+        .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_ODDISH,
+                .species = SPECIES_GULPIN,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_CHLOROPHYLL,
+                .ability = ABILITY_NO_GUARD,
                 .item = ITEM_NONE,
-                .moves = { MOVE_STRENGTH_SAP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_BELCH, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
-            {
-                .species = SPECIES_BELLSPROUT,
-                .level = 64,
-                .form = 0,
-                .ability = ABILITY_CHLOROPHYLL,
-                .item = ITEM_BIG_ROOT,
-                .moves = { MOVE_STRENGTH_SAP, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
-                .hp = 1, //157
-                .status = 0,
-                .condition2 = 0,
-                .moveEffectFlags = 0,
-            },
+            { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .enemyParty = {
             {
-                .species = SPECIES_GULPIN,
+                .species = SPECIES_SPOINK,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_LIQUID_OOZE,
-                .item = ITEM_NONE,
+                .ability = ABILITY_GLUTTONY,
+                .item = MOVE_NONE,
                 .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
-            {
-                .species = SPECIES_MEW,
-                .level = 50,
-                .form = 0,
-                .ability = ABILITY_SYNCHRONIZE,
-                .item = ITEM_NONE,
-                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                .hp = FULL_HP,
-                .status = 0,
-                .condition2 = 0,
-                .moveEffectFlags = 0,
-            },
+            { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .playerScript = {
             {
-                  { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
+#if PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION < GEN_CHAMPIONS
+                  { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
+#else
                   { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+#endif
+                  { ACTION_NONE, 0 },
                   { ACTION_NONE, 0 },
                   { ACTION_NONE, 0 },
                   { ACTION_NONE, 0 },
@@ -87,8 +69,8 @@ const struct TestBattleScenario BattleTests[] = {
                   { ACTION_NONE, 0 },
               },
             {
-                { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
-                { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
+                { ACTION_NONE, 0 },
+                { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -99,7 +81,7 @@ const struct TestBattleScenario BattleTests[] = {
         .enemyScript = {
             {
                  { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                 { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                 { ACTION_NONE, 0 },
                  { ACTION_NONE, 0 },
                  { ACTION_NONE, 0 },
                  { ACTION_NONE, 0 },
@@ -108,8 +90,8 @@ const struct TestBattleScenario BattleTests[] = {
                  { ACTION_NONE, 0 },
              },
             {
-                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                { ACTION_NONE, 0 },
+                { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -119,13 +101,12 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Bellsprout used Strength Sap!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew's Attack fell!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish used Strength Sap!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish's HP is full!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish used Strength Sap!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gulpin's Attack fell!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It sucked up the liquid ooze!" },
+#if PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION < GEN_CHAMPIONS
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gulpin used Sleep Talk!" },
+#else
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gulpin used Belch!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gulpin hasn't eaten any held Berries, so it can't possibly belch!" },
+#endif
         },
     },
 #ifndef GET_TEST_CASE_ONLY

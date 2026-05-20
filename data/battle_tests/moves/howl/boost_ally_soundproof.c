@@ -1,44 +1,43 @@
-// Test: Cotton Down - Doubles
+// Test: Howl - boost partner, soundproof blocks boost
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
 #include "../../../../include/constants/ability.h"
-#include "../../../../include/constants/battle_message_constants.h"
 #include "../../../../include/constants/item.h"
 #include "../../../../include/constants/moves.h"
 #include "../../../../include/constants/species.h"
 #include "../../../../include/test_battle.h"
 
-// each test file is a separate .c file in battle_tests/ for better organization
 const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    { .battleType = BATTLE_TYPE_DOUBLE,
+    {
+        .battleType = BATTLE_TYPE_DOUBLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_SQUIRTLE,
+                .species = SPECIES_GROWLITHE,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_TORRENT,
+                .ability = ABILITY_FLASH_FIRE,
                 .item = ITEM_NONE,
-                .moves = { MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                .hp = FULL_HP,
+                .moves = { MOVE_HOWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = 1,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
             {
-                .species = SPECIES_CHARMANDER,
+                .species = SPECIES_VOLTORB,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_BLAZE,
+                .ability = ABILITY_SOUNDPROOF,
                 .item = ITEM_NONE,
                 .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                .hp = FULL_HP,
+                .hp = 1,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
@@ -46,26 +45,24 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE }
-        },
-        .enemyParty = {
-            {
-                            .species = SPECIES_GOSSIFLEUR,
+            { .species = SPECIES_NONE } },
+        .enemyParty = { {
+                            .species = SPECIES_HOUNDOUR,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_COTTON_DOWN,
+                            .ability = ABILITY_FLASH_FIRE,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .moves = { MOVE_HOWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
                             .moveEffectFlags = 0,
                         },
             {
-                .species = SPECIES_BELDUM,
+                .species = SPECIES_TEDDIURSA,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_LIGHT_METAL,
+                .ability = ABILITY_GLUTTONY,
                 .item = ITEM_NONE,
                 .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
@@ -76,10 +73,8 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE }
-        },
-        .playerScript = {
-            {
+            { .species = SPECIES_NONE } },
+        .playerScript = { {
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
@@ -98,10 +93,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            }
-        },
-        .enemyScript = {
-            {
+            } },
+        .enemyScript = { {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
@@ -112,7 +105,7 @@ const struct TestBattleScenario BattleTests[] = {
                              { ACTION_NONE, 0 },
                          },
             {
-                { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -120,17 +113,17 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
-            }
-        },
+            } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle used Water Gun!" },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective..." },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gossifleur's Cotton Down cuts Squirtle's Speed!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gossifleur's Cotton Down cuts Charmander's Speed!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gossifleur's Cotton Down cuts the opposing Beldum's Speed!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Houndour's Attack rose!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Teddiursa's Attack rose!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Growlithe's Attack rose!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Voltorb's Soundproof blocks Howl!" },
+
         },
+        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
+// each test file is a separate .c file in battle_tests/ for better organization
 #endif
