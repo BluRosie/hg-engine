@@ -1296,6 +1296,67 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
     return FALSE;
 }
 
+BOOL LONG_CALL BtlCmd_CompareMonDataToValue(struct BattleSystem *battleSystem, struct BattleStruct *ctx) {
+    // debug_printf("In BtlCmd_CompareMonDataToValue\n");
+    IncrementBattleScriptPtr(ctx, 1);
+
+    u32 opcode = read_battle_script_param(ctx);
+    u32 side = read_battle_script_param(ctx);
+    u32 varId = read_battle_script_param(ctx);
+    int cmp = read_battle_script_param(ctx);
+    u32 adrs = read_battle_script_param(ctx);
+    u32 battlerId = GrabClientFromBattleScriptParam(battleSystem, ctx, side);
+
+    // We changed the ability storage location
+    int var = varId == BATTLE_MON_DATA_ABILITY ? ctx->battlemon[battlerId].ability : GetBattlerVar(ctx, battlerId, varId, NULL);
+
+    // debug_printf("side: %d, varId: %d, cmp: %d, var: %d\n", side, varId, cmp, var);
+    switch (opcode) {
+    case OPCODE_EQU:
+        if (var != cmp) {
+            adrs = 0;
+        }
+        break;
+    case OPCODE_NEQ:
+        if (var == cmp) {
+            adrs = 0;
+        }
+        break;
+    case OPCODE_GT:
+        if (var <= cmp) {
+            adrs = 0;
+        }
+        break;
+    case OPCODE_LTE:
+        if (var > cmp) {
+            adrs = 0;
+        }
+        break;
+    case OPCODE_FLAG_SET:
+        if (!(var & cmp)) {
+            adrs = 0;
+        }
+        break;
+    case OPCODE_FLAG_NOT:
+        if (var & cmp) {
+            adrs = 0;
+        }
+        break;
+    case OPCODE_AND:
+        if ((var & cmp) != cmp) {
+            adrs = 0;
+        }
+        break;
+    }
+
+    if (adrs) {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
+
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
