@@ -5394,6 +5394,7 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
                        ctx->battlemon[battlerId].movePPCur[moveIndex]--;
                    }
                    */
+                    ctx->pursuitContext.isActive = TRUE;
                     ov12_02252D14(bsys, ctx);
                     ctx->attack_client = battlerId;
                     ctx->defence_client = ctx->reshuffle_client;

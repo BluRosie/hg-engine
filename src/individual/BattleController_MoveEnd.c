@@ -25,6 +25,12 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     int script;
     u32 battleType = BattleTypeGet(bsys);
 
+    if (ctx->pursuitContext.isActive == TRUE)
+    {
+        ctx->attack_client = ctx->pursuitContext.originalAttacker;
+        ctx->defence_client = ctx->pursuitContext.originalDefender;
+    }
+
     if (!(battleType & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_PAL_PARK))) {
         if (ov12_0224DD18(ctx, ctx->server_seq_no, ctx->server_seq_no) == TRUE) {
             return;
