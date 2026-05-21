@@ -604,7 +604,7 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
 }
 
 // send out pokemon in order
-int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys, int battler)
+int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys UNUSED, int battler UNUSED)
 {
     return 6;
 }

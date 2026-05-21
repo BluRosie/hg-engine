@@ -58,6 +58,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     u8 originalMoveType = damageCalc->originalMoveType;
     u16 moveEffect = damageCalc->moveEffect;
     u8 moveFlag = damageCalc->moveFlag;
+    u32 weather = GetWeather(bw, sp, attacker);
 
     for (u32 i = 0; i < damageCalc->maxBattlers; i++) {
         battlerAbilities[i] = damageCalc->clients[i].ability;
@@ -299,14 +300,9 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         }
         break;
     case MOVE_WEATHER_BALL:
-        if (AttackingMon.ability == ABILITY_MEGA_SOL) {
+        if ((weather & FIELD_CONDITION_WEATHER)
+            && !(weather & (WEATHER_STRONG_WINDS | WEATHER_SNOW_ANY))) {
             movepower *= 2;
-            break;
-        } else if (noCloudNineAndAirLock) {
-            if ((field_cond & FIELD_CONDITION_WEATHER)
-                && !(field_cond & (WEATHER_STRONG_WINDS | WEATHER_SNOW_ANY))) {
-                movepower *= 2;
-            }
         }
         break;
     case MOVE_WATER_SHURIKEN:
@@ -699,7 +695,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
             // Sand Force boosts damage in sand for certain move types
             if ((AttackingMon.ability == ABILITY_SAND_FORCE)
-                && (field_cond & WEATHER_SANDSTORM_ANY)
+                && (weather & WEATHER_SANDSTORM_ANY)
                 && (movetype == TYPE_GROUND || movetype == TYPE_ROCK || movetype == TYPE_STEEL)) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
                 continue;
@@ -1056,29 +1052,27 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             }
 
             // handle weather boosts
-            if (noCloudNineAndAirLock) {
-                if ((field_cond & WEATHER_SUNNY_ANY)
-                    && (AttackingMon.ability == ABILITY_SOLAR_POWER)
-                    && (movesplit == SPLIT_SPECIAL)) {
-                    attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
-                }
-                if ((!flowerGiftAppliedForAttackModifier)
-                    && (field_cond & WEATHER_SUNNY_ANY)
-                    && (AttackingMon.ability == ABILITY_FLOWER_GIFT)
-                    && (movesplit == SPLIT_PHYSICAL)) {
-                    flowerGiftAppliedForAttackModifier = TRUE;
-                    attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
-                }
-                // handle Orichalcum Pulse
-                // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-20#post-9423025
-                if ((AttackingMon.ability == ABILITY_ORICHALCUM_PULSE)
-                    && (field_cond & WEATHER_SUNNY_ANY)
-                    // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9426805
-                    // TODO: For Orichalcum Pulse itself - still shows "sending its ancient pulse into a frenzy!" message even with Utility Umbrella disabling the attack boost.
-                    && !(AttackingMon.item_held_effect == HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN)
-                    && (movesplit == SPLIT_PHYSICAL)) {
-                    attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3333);
-                }
+            if ((weather & WEATHER_SUNNY_ANY)
+                && (AttackingMon.ability == ABILITY_SOLAR_POWER)
+                && (movesplit == SPLIT_SPECIAL)) {
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
+            }
+            if ((!flowerGiftAppliedForAttackModifier)
+                && (weather & WEATHER_SUNNY_ANY)
+                && (AttackingMon.ability == ABILITY_FLOWER_GIFT)
+                && (movesplit == SPLIT_PHYSICAL)) {
+                flowerGiftAppliedForAttackModifier = TRUE;
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
+            }
+            // handle Orichalcum Pulse
+            // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-20#post-9423025
+            if ((AttackingMon.ability == ABILITY_ORICHALCUM_PULSE)
+                && (weather & WEATHER_SUNNY_ANY)
+                // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9426805
+                // TODO: For Orichalcum Pulse itself - still shows "sending its ancient pulse into a frenzy!" message even with Utility Umbrella disabling the attack boost.
+                && !(AttackingMon.item_held_effect == HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN)
+                && (movesplit == SPLIT_PHYSICAL)) {
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3333);
             }
 
             // handle Guts
@@ -1179,14 +1173,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
         if (BATTLER_ALLY(attacker) == damageCalc->rawSpeedNonRNGClientOrder[i]) {
             // handle weather boosts
-            if (noCloudNineAndAirLock) {
-                if ((!flowerGiftAppliedForAttackModifier)
-                    && (field_cond & WEATHER_SUNNY_ANY)
-                    && (AttackingMonAlly.ability == ABILITY_FLOWER_GIFT)
-                    && (movesplit == SPLIT_PHYSICAL)) {
-                    flowerGiftAppliedForAttackModifier = TRUE;
-                    attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
-                }
+            if ((!flowerGiftAppliedForAttackModifier)
+                && (weather & WEATHER_SUNNY_ANY)
+                && (AttackingMonAlly.ability == ABILITY_FLOWER_GIFT)
+                && (movesplit == SPLIT_PHYSICAL)) {
+                flowerGiftAppliedForAttackModifier = TRUE;
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
             }
         }
 
@@ -1382,15 +1374,13 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 #endif
 
     // Step 4.7. Sandstorm + Rock-type
-    if ((noCloudNineAndAirLock) && (AttackingMon.ability != ABILITY_MEGA_SOL)) {
-        if ((field_cond & WEATHER_SANDSTORM_ANY)
-            && HasType(sp, defender, TYPE_ROCK)) {
-            sp_defense = QMul_RoundDown(sp_defense, UQ412__1_5);
-        }
-        if ((field_cond & WEATHER_SNOW_ANY)
-            && HasType(sp, defender, TYPE_ICE)) {
-            defense = QMul_RoundDown(defense, UQ412__1_5);
-        }
+    if ((weather & WEATHER_SANDSTORM_ANY)
+        && HasType(sp, defender, TYPE_ROCK)) {
+        sp_defense = QMul_RoundDown(sp_defense, UQ412__1_5);
+    }
+    if ((weather & WEATHER_SNOW_ANY)
+        && HasType(sp, defender, TYPE_ICE)) {
+        defense = QMul_RoundDown(defense, UQ412__1_5);
     }
 
 #ifdef DEBUG_DAMAGE_CALC
@@ -1419,14 +1409,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     for (i = 0; i < maxBattlers; i++) {
         if (defender == damageCalc->rawSpeedNonRNGClientOrder[i]) {
             // handle weather boosts
-            if (noCloudNineAndAirLock) {
-                if ((!flowerGiftAppliedForDefenseModifier)
-                    && (field_cond & WEATHER_SUNNY_ANY)
-                    && (MoldBreakerAbilityCheck(sp, attack, defender, ABILITY_FLOWER_GIFT))
-                    && (movesplit == SPLIT_SPECIAL)) {
-                    flowerGiftAppliedForDefenseModifier = TRUE;
-                    defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
-                }
+            if ((!flowerGiftAppliedForDefenseModifier)
+                && (weather & WEATHER_SUNNY_ANY)
+                && (MoldBreakerAbilityCheck(sp, attack, defender, ABILITY_FLOWER_GIFT))
+                && (movesplit == SPLIT_SPECIAL)) {
+                flowerGiftAppliedForDefenseModifier = TRUE;
+                defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
             }
 
             // handle Marvel Scale
@@ -1459,14 +1447,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
         if (BATTLER_ALLY(defender) == damageCalc->rawSpeedNonRNGClientOrder[i]) {
             // handle weather boosts
-            if (noCloudNineAndAirLock) {
-                if ((!flowerGiftAppliedForDefenseModifier)
-                    && (field_cond & WEATHER_SUNNY_ANY)
-                    && (MoldBreakerAbilityCheck(sp, attacker, BATTLER_ALLY(defender), ABILITY_FLOWER_GIFT))
-                    && (movesplit == SPLIT_SPECIAL)) {
-                    flowerGiftAppliedForDefenseModifier = TRUE;
-                    defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
-                }
+            if ((!flowerGiftAppliedForDefenseModifier)
+                && (weather & WEATHER_SUNNY_ANY)
+                && (MoldBreakerAbilityCheck(sp, attacker, BATTLER_ALLY(defender), ABILITY_FLOWER_GIFT))
+                && (movesplit == SPLIT_SPECIAL)) {
+                flowerGiftAppliedForDefenseModifier = TRUE;
+                defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
             }
         }
     }

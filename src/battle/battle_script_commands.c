@@ -3444,27 +3444,23 @@ BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp)
     // sprintf(buf, "In BtlCmd_WeatherHPRecovery\n");
     // debugsyscall(buf);
 
-    // mega sol always treats as if harsh sun is up so it needs to go before cloud nine / strong winds
-    if ((sp->current_move_index != MOVE_SHORE_UP) &&
-        (GetBattlerAbility(sp, sp->attack_client) == ABILITY_MEGA_SOL)) {
-        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * 20, 30);
+    int attacker = sp->attack_client;
+    u32 weather = GetWeather(bw, sp, attacker);
+
     // For Strong Winds, the moves Moonlight, Morning Sun, and Synthesis continue to recover ½ of max HP, as they do in clear weather.
-    } else if (!(sp->field_condition & FIELD_CONDITION_WEATHER)
-    || (sp->field_condition & WEATHER_STRONG_WINDS)
-    || CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE)
-    || CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+    if (!(weather & FIELD_CONDITION_WEATHER) || (weather & WEATHER_STRONG_WINDS)) {
         // sprintf(buf, "Recover half\n");
         // debugsyscall(buf);
-        sp->hp_calc_work = sp->battlemon[sp->attack_client].maxhp / 2;
-    } else if ((sp->current_move_index != MOVE_SHORE_UP && sp->field_condition & WEATHER_SUNNY_ANY)
-        || (sp->current_move_index == MOVE_SHORE_UP && sp->field_condition & WEATHER_SANDSTORM_ANY)) {
+        sp->hp_calc_work = sp->battlemon[attacker].maxhp / 2;
+    } else if ((sp->current_move_index != MOVE_SHORE_UP && weather & WEATHER_SUNNY_ANY)
+        || (sp->current_move_index == MOVE_SHORE_UP && weather & WEATHER_SANDSTORM_ANY)) {
         // sprintf(buf, "Recover 2/3\n");
         // debugsyscall(buf);
-        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * 20, 30);
+        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[attacker].maxhp * 20, 30);
     } else {
         // sprintf(buf, "Recover 1/4\n");
         // debugsyscall(buf);
-        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp, 4);
+        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[attacker].maxhp, 4);
     }
 
     return FALSE;
@@ -3478,32 +3474,29 @@ BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp)
     // sprintf(buf, "In BtlCmd_CalcWeatherBallParams\n");
     // debugsyscall(buf);
 
-    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_MEGA_SOL) {
-        sp->damage_power = sp->moveTbl[sp->current_move_index].power * 2;
-        sp->move_type = TYPE_FIRE;
-    } else if (!CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-        if ((sp->field_condition & FIELD_CONDITION_WEATHER) && !(sp->field_condition & WEATHER_STRONG_WINDS)) {
-            sp->damage_power = sp->moveTbl[sp->current_move_index].power * 2;
-            if (sp->field_condition & WEATHER_RAIN_ANY) {
-                sp->move_type = TYPE_WATER;
-            }
-            if (sp->field_condition & WEATHER_SANDSTORM_ANY) {
-                sp->move_type = TYPE_ROCK;
-            }
-            if (sp->field_condition & WEATHER_SUNNY_ANY) {
-                sp->move_type = TYPE_FIRE;
-            }
-            if (sp->field_condition & WEATHER_HAIL_ANY) {
-                sp->move_type = TYPE_ICE;
-            }
-            // In Pokémon XD: Gale of Darkness, when used during a shadowy aura, Weather Ball's power doubles to 100, and the move becomes a typeless physical move
-            if (sp->field_condition & WEATHER_SHADOWY_AURA_ANY) {
-                sp->move_type = TYPE_TYPELESS;
-            }
+    int attacker = sp->attack_client;
+    u32 weather = GetWeather(bw, sp, attacker);
 
-        } else {
-            sp->damage_power = sp->moveTbl[sp->current_move_index].power;
+    if ((weather & FIELD_CONDITION_WEATHER) && !(weather & WEATHER_STRONG_WINDS)) {
+        sp->damage_power = sp->moveTbl[sp->current_move_index].power * 2;
+        if (weather & WEATHER_RAIN_ANY) {
+            sp->move_type = TYPE_WATER;
         }
+        if (weather & WEATHER_SANDSTORM_ANY) {
+            sp->move_type = TYPE_ROCK;
+        }
+        if (weather & WEATHER_SUNNY_ANY) {
+            sp->move_type = TYPE_FIRE;
+        }
+        if (weather & WEATHER_HAIL_ANY) {
+            sp->move_type = TYPE_ICE;
+        }
+        // In Pokémon XD: Gale of Darkness, when used during a shadowy aura, Weather Ball's power doubles to 100, and the move becomes a typeless physical move
+        if (weather & WEATHER_SHADOWY_AURA_ANY) {
+            sp->move_type = TYPE_TYPELESS;
+        }
+    } else {
+        sp->damage_power = sp->moveTbl[sp->current_move_index].power;
     }
 
     return FALSE;
@@ -3521,54 +3514,56 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
     int item = GetBattleMonItem(ctx, battlerId);
     int hold_effect = BattleItemDataGet(ctx, item, 1);
     int ability = GetBattlerAbility(ctx, battlerId);
+    u32 weather = GetWeather(bsys, ctx, 0xFF);
 
-    if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0 && CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0) {
-        if (ctx->field_condition & WEATHER_SANDSTORM_ANY) {
-            if (!HasType(ctx, battlerId, TYPE_ROCK) && !HasType(ctx, battlerId, TYPE_STEEL) && !HasType(ctx, battlerId, TYPE_GROUND) && ctx->battlemon[battlerId].hp && ability != ABILITY_SAND_VEIL && ability != ABILITY_MAGIC_GUARD && ability != ABILITY_OVERCOAT && ability != ABILITY_SAND_RUSH && ability != ABILITY_SAND_FORCE && hold_effect != HOLD_EFFECT_SPORE_POWDER_IMMUNITY && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
-                ctx->waza_work = MOVE_SANDSTORM;
+    if (weather & WEATHER_SANDSTORM_ANY) {
+        if (!HasType(ctx, battlerId, TYPE_ROCK) && !HasType(ctx, battlerId, TYPE_STEEL) && !HasType(ctx, battlerId, TYPE_GROUND)
+            && ctx->battlemon[battlerId].hp
+            && ability != ABILITY_SAND_VEIL && ability != ABILITY_MAGIC_GUARD && ability != ABILITY_OVERCOAT && ability != ABILITY_SAND_RUSH && ability != ABILITY_SAND_FORCE
+            && hold_effect != HOLD_EFFECT_SPORE_POWDER_IMMUNITY && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
+            ctx->waza_work = MOVE_SANDSTORM;
+            ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, 16);
+        }
+    }
+    if (weather & WEATHER_SUNNY_ANY) {
+        if (ctx->battlemon[battlerId].hp && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
+            if (ability == ABILITY_DRY_SKIN || ability == ABILITY_SOLAR_POWER) {
+                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, 8);
+            }
+            if (ability == ABILITY_SOLAR_POWER) {
+                ctx->temp_work = 2;
+            }
+        }
+    }
+    if (weather & WEATHER_HAIL_ANY) {
+        if (ctx->battlemon[battlerId].hp && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
+            if (ability == ABILITY_ICE_BODY) {
+                if (ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp) {
+                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
+                }
+            } else if (!HasType(ctx, battlerId, TYPE_ICE) && ability != ABILITY_SNOW_CLOAK && ability != ABILITY_MAGIC_GUARD && ability != ABILITY_OVERCOAT && hold_effect != HOLD_EFFECT_SPORE_POWDER_IMMUNITY) {
+                ctx->waza_work = MOVE_HAIL;
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, 16);
             }
         }
-        if (ctx->field_condition & WEATHER_SUNNY_ANY) {
-            if (ctx->battlemon[battlerId].hp && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
-                if (ability == ABILITY_DRY_SKIN || ability == ABILITY_SOLAR_POWER) {
-                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, 8);
-                }
-                if (ability == ABILITY_SOLAR_POWER) {
-                    ctx->temp_work = 2;
-                }
-            }
-        }
-        if (ctx->field_condition & WEATHER_HAIL_ANY) {
-            if (ctx->battlemon[battlerId].hp && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
-                if (ability == ABILITY_ICE_BODY) {
-                    if (ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp) {
-                        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
-                    }
-                } else if (!HasType(ctx, battlerId, TYPE_ICE) && ability != ABILITY_SNOW_CLOAK && ability != ABILITY_MAGIC_GUARD && ability != ABILITY_OVERCOAT && hold_effect != HOLD_EFFECT_SPORE_POWDER_IMMUNITY) {
-                    ctx->waza_work = MOVE_HAIL;
-                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, 16);
-                }
-            }
-        }
+    }
 
-        if (ctx->field_condition & WEATHER_SNOW_ANY) {
-            if (ctx->battlemon[battlerId].hp && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
-                if (ability == ABILITY_ICE_BODY) {
-                    if (ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp) {
-                        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
-                    }
+    if (weather & WEATHER_SNOW_ANY) {
+        if (ctx->battlemon[battlerId].hp && !(ctx->battlemon[battlerId].effect_of_moves & 0x40080)) {
+            if (ability == ABILITY_ICE_BODY) {
+                if (ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp) {
+                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
                 }
             }
         }
+    }
 
-        if (ctx->field_condition & WEATHER_RAIN_ANY) {
-            if (ctx->battlemon[battlerId].hp && ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp && ability == ABILITY_RAIN_DISH) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
-            }
-            if (ctx->battlemon[battlerId].hp && ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp && ability == ABILITY_DRY_SKIN) {
-                ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 8);
-            }
+    if (weather & WEATHER_RAIN_ANY) {
+        if (ctx->battlemon[battlerId].hp && ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp && ability == ABILITY_RAIN_DISH) {
+            ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 16);
+        }
+        if (ctx->battlemon[battlerId].hp && ctx->battlemon[battlerId].hp < (s32)ctx->battlemon[battlerId].maxhp && ability == ABILITY_DRY_SKIN) {
+            ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 8);
         }
     }
 

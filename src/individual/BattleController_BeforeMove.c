@@ -1533,7 +1533,7 @@ void CheckDragonDartsDiverting(struct BattleSystem* bsys, struct BattleStruct* c
         hitThroughSemi = FALSE;
     }
     BOOL monProtected = FALSE;
-    if(ctx->oneTurnFlag[defender].protectFlag 
+    if(ctx->oneTurnFlag[defender].protectFlag
         && (CheckProtectedByAlly(ctx, BATTLER_ALLY(ctx->defence_client), &protectedMoveMessage) || CheckProtectedBySelf(ctx, ctx->defence_client, &protectedMoveMessage)))
     {
         monProtected = TRUE;
@@ -1548,7 +1548,7 @@ void CheckDragonDartsDiverting(struct BattleSystem* bsys, struct BattleStruct* c
         hitWithAccuracy = FALSE;
         ctx->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
     }
-    
+
 
     if (hitThroughSemi == FALSE || monProtected == TRUE || hitThroughAbility == FALSE || canHitType == TYPE_MUL_NO_EFFECT || hitWithAccuracy == FALSE) {
         if (ctx->battlemon[BATTLER_ALLY(ctx->defence_client)].hp) {
@@ -1798,26 +1798,27 @@ void BattleController_CheckSubmove(struct BattleSystem *bsys UNUSED, struct Batt
 }
 
 BOOL BattleController_CheckPrimalWeather(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    // Handle Extremely Harsh Sunlight and Heavy Rain
-    if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-        if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) && (ctx->move_type == TYPE_WATER) && (ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS)) {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANCEL_WATER_MOVE);
-            ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
-            ctx->wb_seq_no = BEFORE_MOVE_START;
-            return TRUE;
-        }
+    u32 weather = GetWeather(bsys, ctx, ctx->attack_client);
 
-        if ((ctx->field_condition & WEATHER_HEAVY_RAIN) && (ctx->move_type == TYPE_FIRE) && (ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS)) {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANCEL_FIRE_MOVE);
-            ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
-            ctx->wb_seq_no = BEFORE_MOVE_START;
-            return TRUE;
-        }
+    // Handle Extremely Harsh Sunlight and Heavy Rain
+    if ((weather & WEATHER_EXTREMELY_HARSH_SUNLIGHT) && (ctx->move_type == TYPE_WATER) && (ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS)) {
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANCEL_WATER_MOVE);
+        ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->wb_seq_no = BEFORE_MOVE_START;
+        return TRUE;
     }
+
+    if ((weather & WEATHER_HEAVY_RAIN) && (ctx->move_type == TYPE_FIRE) && (ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS)) {
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANCEL_FIRE_MOVE);
+        ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->wb_seq_no = BEFORE_MOVE_START;
+        return TRUE;
+    }
+
     return FALSE;
 }
 
@@ -1856,6 +1857,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     int cnt = GetBattlerLearnedMoveCount(bsys, ctx, ctx->attack_client);
     int move;
     int attackerAbility = GetBattlerAbility(ctx, ctx->attack_client);
+    u32 weather = GetWeather(bsys, ctx, 0xFF);  // Mega Sol does not affect Aurora Veil
 
     // For Sucker Punch
     if (ctx->battlemon[ctx->defence_client].moveeffect.encoredMove && ctx->battlemon[ctx->defence_client].moveeffect.encoredMove == ctx->battlemon[ctx->defence_client].move[ctx->battlemon[ctx->defence_client].moveeffect.encoredMoveIndex]) {
@@ -1893,7 +1895,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     }
 
     // Aurora Veil when it is not hailing
-    if ((currentMoveIndex == MOVE_AURORA_VEIL && !(ctx->field_condition & WEATHER_HAIL_ANY || ctx->field_condition & WEATHER_SNOW_ANY))
+    if ((currentMoveIndex == MOVE_AURORA_VEIL && !(weather & WEATHER_HAIL_ANY || weather & WEATHER_SNOW_ANY))
         // Clangorous Soul when user lacks HP to execute the move
         || ((currentMoveIndex == MOVE_CLANGOROUS_SOUL) && (attackClient.hp < (s32)(attackClient.maxhp / 3)))
         // Fake Out / First Impression / Mat Block after user has already performed an action
@@ -2142,9 +2144,12 @@ BOOL BattleController_CheckInterruptibleMoves(struct BattleSystem *bsys UNUSED, 
 
 // TODO: Check correctness
 // TODO: Implement new mechanics
-BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
+BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys, struct BattleStruct *ctx) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     BOOL needToRunScript = FALSE;
+    u32 weatherConsideringMegaSol = GetWeather(bsys, ctx, ctx->attack_client);
+    u32 weatherIgnoringMegaSol = GetWeather(bsys, ctx, 0xFF);
+
     if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE)) {
         switch (moveEffect) {
             case MOVE_EFFECT_BIDE:
@@ -2164,13 +2169,8 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
                 needToRunScript = TRUE;
                 break;
             case MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS:
-                if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-                    if ((ctx->field_condition & WEATHER_SUNNY_ANY)) {
-                        needToRunScript = FALSE;
-                    } else {
-                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUN_SKIPS_CHARGE_TURN);
-                        needToRunScript = TRUE;
-                    }
+                if (weatherConsideringMegaSol & WEATHER_SUNNY_ANY) {
+                    needToRunScript = FALSE;
                 } else {
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUN_SKIPS_CHARGE_TURN);
                     needToRunScript = TRUE;
@@ -2201,13 +2201,8 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
                 needToRunScript = TRUE;
                 break;
             case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
-                if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-                    if ((ctx->field_condition & WEATHER_RAIN_ANY)) {
-                        needToRunScript = FALSE;
-                    } else {
-                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELECTRO_SHOT_CHARGE_TURN);
-                        needToRunScript = TRUE;
-                    }
+                if (weatherIgnoringMegaSol & WEATHER_RAIN_ANY) {
+                    needToRunScript = FALSE;
                 } else {
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELECTRO_SHOT_CHARGE_TURN);
                     needToRunScript = TRUE;
@@ -2249,6 +2244,8 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys UNUSED, struct 
 BOOL BattleController_CheckPowerHerb(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     BOOL needToRunScript = FALSE;
+    u32 weatherConsideringMegaSol = GetWeather(bsys, ctx, ctx->attack_client);
+    u32 weatherIgnoringMegaSol = GetWeather(bsys, ctx, 0xFF);
 
     // debug_printf("locked into move: %d\n", (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE));
     // debug_printf("hold effect: %d\n", HeldItemHoldEffectGet(ctx, ctx->attack_client));
@@ -2258,20 +2255,18 @@ BOOL BattleController_CheckPowerHerb(struct BattleSystem *bsys UNUSED, struct Ba
     case MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS:
         if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE) && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
             needToRunScript = TRUE;
-            if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-                if ((ctx->field_condition & WEATHER_SUNNY_ANY)) {
-                    needToRunScript = FALSE;
-                }
+
+            if (weatherConsideringMegaSol & WEATHER_SUNNY_ANY) {
+                needToRunScript = FALSE;
             }
         }
         break;
     case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
         if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE) && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
             needToRunScript = TRUE;
-            if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-                if ((ctx->field_condition & WEATHER_RAIN_ANY)) {
-                    needToRunScript = FALSE;
-                }
+
+            if (weatherIgnoringMegaSol & WEATHER_RAIN_ANY) {
+                needToRunScript = FALSE;
             }
         }
         break;
@@ -2547,11 +2542,11 @@ BOOL BattleController_CheckPsychicTerrain(struct BattleSystem *bsys UNUSED, stru
     // Handle Psychic Terrain
     // Block any natural priority move or a move made priority by an ability, if the terrain is Psychic Terrain
     // Courtesy of Dray (https://github.com/Drayano60)
-    if (ctx->terrainOverlay.type == PSYCHIC_TERRAIN 
+    if (ctx->terrainOverlay.type == PSYCHIC_TERRAIN
         && !ctx->futureSightHitTurn
-        && ctx->terrainOverlay.numberOfTurnsLeft > 0 
+        && ctx->terrainOverlay.numberOfTurnsLeft > 0
         && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)
-        && ctx->clientPriority[ctx->attack_client] 
+        && ctx->clientPriority[ctx->attack_client]
         && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, ctx->attack_client, defender)) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
@@ -2913,7 +2908,7 @@ BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct
 // TODO: Implement new mechanics
 int BattlerController_CheckSubstituteBlockingStatDropsOrDecorate(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
-    if (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_INFILTRATOR 
+    if (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_INFILTRATOR
         && ctx->battlemon[defender].condition2 & STATUS2_SUBSTITUTE
         && !IsMoveSoundBased(ctx->current_move_index)) {
         if (ctx->attack_client != defender) {
@@ -3305,8 +3300,8 @@ BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct Battle
     }
 
     // Apply accuracy / evasion modifiers
-    if (!(ctx->waza_out_check_on_off & 0x20) 
-        && defender != BATTLER_NONE 
+    if (!(ctx->waza_out_check_on_off & 0x20)
+        && defender != BATTLER_NONE
         && IsAttackerOnField(ctx)
         && BattleSystem_CheckMoveHit(bsys, ctx, ctx->attack_client, defender, ctx->current_move_index) == TRUE) {
         return FALSE;

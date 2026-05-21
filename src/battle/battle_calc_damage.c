@@ -253,6 +253,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         attackerItemHeldEffect = HeldItemHoldEffectGet(sp, attacker);
     }
     u32 defenderAbility = GetBattlerAbility(sp, defender);
+    u32 weather = GetWeather(bw, sp, attacker);
 
     u32 damage = 0;
 
@@ -379,25 +380,9 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     // 6.3 Weather Modifier
 
-    if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_MEGA_SOL) {
-            switch (type) {
-                case TYPE_FIRE:
-                    damage = QMul_RoundDown(damage, UQ412__1_5);
-                    break;
-                case TYPE_WATER:
-                    // If the current weather is Sunny Day and the user is not holding Utility Umbrella, this move's damage is multiplied by 1.5 instead of halved for being Water type.
-                    if (moveno == MOVE_HYDRO_STEAM && GetBattleMonItem(sp, attacker) != ITEM_UTILITY_UMBRELLA) {
-                        damage = QMul_RoundDown(damage, UQ412__1_5);
-                    } else {
-                        damage = QMul_RoundDown(damage, UQ412__0_5);
-                    }
-                    break;
-            }
-        }
-
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0) &&
         (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
-        if ((sp->field_condition & WEATHER_RAIN_ANY) && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MEGA_SOL)) {
+        if ((weather & WEATHER_RAIN_ANY)) {
             switch (type) {
                 case TYPE_FIRE:
                     damage = QMul_RoundDown(damage, UQ412__0_5);
@@ -408,7 +393,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
             }
         }
 
-        if ((sp->field_condition & WEATHER_SUNNY_ANY) && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MEGA_SOL)) {
+        if ((weather & WEATHER_SUNNY_ANY)) {
             switch (type) {
                 case TYPE_FIRE:
                     damage = QMul_RoundDown(damage, UQ412__1_5);
