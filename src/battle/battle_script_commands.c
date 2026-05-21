@@ -2944,6 +2944,7 @@ BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
 
     int script = 0;
     int failAddress = read_battle_script_param(sp);
+    sp->temp_work = 0;
 
     if (newBS.needMega[sp->attack_client] == MEGA_NEED && sp->battlemon[sp->attack_client].hp) {
         if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {

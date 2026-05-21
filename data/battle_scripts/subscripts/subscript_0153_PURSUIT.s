@@ -5,7 +5,6 @@
 _000:
     Call BATTLE_SUBSCRIPT_PUSH_ATTACKER_AND_DEFENDER
 
-_loop:
     TryMegaOrUltraBurstDuringPursuit _noMega
     CallFromVar BSCRIPT_VAR_TEMP_DATA
     // Handle cases such as Mega Manectric's Intimidate ability (Switch -> Mega Evolution -> Intimidate -> Pursuit)
@@ -14,19 +13,6 @@ _loop:
 
 _noMega:
     TryPursuit _end
-   
-
-_102:
-    GoTo _resetLoop
-
-
-_resetLoop:
-    //Call BATTLE_SUBSCRIPT_POP_ATTACKER_AND_DEFENDER
-    //UpdateVarFromVar OPCODE_GET, BSCRIPT_VAR_MOVE_NO_TEMP, BSCRIPT_VAR_MOVE_NO_CUR
-    //GoTo _loop
-
-
-// rest of the file is only done if the defender is fainting after getting hit
 
 _end:
     // fix bug where pursuit on the rightside client was preventing the next attack message/move animation from playing
