@@ -275,10 +275,6 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             movepower *= 2;
         }
         break;
-    case MOVE_PURSUIT:
-        // TODO: Handle this massive headache later
-        movepower = movepower * damage_value / 10;
-        break;
     case MOVE_ROUND:
         // TODO: Implement Round
         break;
@@ -412,7 +408,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         debug_printf("ctx->playerActions[%d][1] = %d\n", defender, sp->playerActions[defender][1]);
         debug_printf("ctx->playerActions[%d][2] = %d\n", defender, sp->playerActions[defender][2]);
         debug_printf("ctx->playerActions[%d][3] = %d\n", defender, sp->playerActions[defender][3]);
-        if (defender == sp->reshuffle_client && (sp->playerActions[defender][3] == CONTROLLER_COMMAND_40)) {
+        //if (defender == sp->reshuffle_client && (sp->playerActions[defender][3] == CONTROLLER_COMMAND_40)) {
+        if (sp->pursuitContext.isActive) {
             basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
         }
         break;
