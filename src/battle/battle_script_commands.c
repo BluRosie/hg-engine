@@ -2914,6 +2914,7 @@ BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp)
 
     int script;
     int failAddress = read_battle_script_param(sp);
+    sp->temp_work = 0;
 
     script = SwitchInAbilityCheck(bw, sp);
     if (script) {
