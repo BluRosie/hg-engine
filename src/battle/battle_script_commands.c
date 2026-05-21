@@ -5385,6 +5385,7 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
                     ctx->defence_client = ctx->reshuffle_client;
                     // ctx->damage_value = 20;
                     ctx->current_move_index = moveNo;
+                    ctx->moveNoTemp = moveNo;
                     ctx->waza_no_old[ctx->attack_client] = moveNo;
                     ctx->playerActions[ctx->attack_client][0] = CONTROLLER_COMMAND_40;
                     ctx->moveContext.currentMoveCalcDone = FALSE;
