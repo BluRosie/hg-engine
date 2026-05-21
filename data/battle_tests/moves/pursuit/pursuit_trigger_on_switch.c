@@ -85,8 +85,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .enemyScript = { {
-                             { ACTION_SWITCH_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_SWITCH_SLOT_1, BATTLER_PLAYER_FIRST },
+                             { ACTION_SWITCH_SLOT_1, 0 },
+                             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
