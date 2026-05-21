@@ -5370,7 +5370,8 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
     adrs = read_battle_script_param(ctx);
     maxBattlers = BattleWorkClientSetMaxGet(bsys);
 
-    for (battlerId = 0; battlerId < maxBattlers; battlerId++) {
+    for (client_no = 0; client_no < maxBattlers; client_no++) {
+        int battlerId = ctx->turnOrder[client_no];
         if (ctx->playerActions[battlerId][0] != CONTROLLER_COMMAND_40
             && ctx->battlemon[battlerId].hp
             //&& !(ctx->battlemon[battlerId].status & 39)
@@ -5394,11 +5395,15 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
                        ctx->battlemon[battlerId].movePPCur[moveIndex]--;
                    }
                    */
+                    if (ctx->pursuitContext.isActive == FALSE)
+                    {
+                        ctx->pursuitContext.originalAttacker = ctx->attack_client;
+                        ctx->pursuitContext.originalDefender = ctx->defence_client;
+                    }
                     ctx->pursuitContext.isActive = TRUE;
                     ov12_02252D14(bsys, ctx);
                     ctx->attack_client = battlerId;
                     ctx->defence_client = ctx->reshuffle_client;
-                    // ctx->damage_value = 20;
                     ctx->current_move_index = moveNo;
                     ctx->moveNoTemp = moveNo;
                     ctx->waza_no_old[ctx->attack_client] = moveNo;
@@ -5413,7 +5418,7 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
         }
     }
 
-    if (battlerId == maxBattlers) {
+    if (client_no == maxBattlers) {
         IncrementBattleScriptPtr(ctx, adrs);
     } else {
         /* int itemEffect = GetBattlerHeldItemEffect(ctx, ctx->attack_client);
