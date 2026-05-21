@@ -3,30 +3,30 @@
 .data
 
 _000:
-    PrintAttackMessage 
-    Wait 
+    PrintAttackMessage
+    Wait
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_MAXHP, BSCRIPT_VAR_HP_CALC
     DivideVarByValueRoundUp BSCRIPT_VAR_HP_CALC, 4
     // basically just the recover hp subscript
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_MAXHP, BSCRIPT_VAR_CALC_TEMP
     CompareMonDataToVar OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HP, BSCRIPT_VAR_CALC_TEMP, _036
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
-    Wait 
+    Wait
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_RECOVER_HP_VISUAL, _026
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_RESTORE_HP
-    Wait 
+    Wait
 
 _026:
     // update hp call but just using attacker > battler temp
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     UpdateHealthBar BATTLER_CATEGORY_ATTACKER
-    Wait 
+    Wait
     UpdateHealthBarValue BATTLER_CATEGORY_ATTACKER
 
-    // {0} regained health!
-    PrintMessage 184, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
-    Wait 
+    // {0} had its HP restored.
+    PrintMessage 1396, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
+    Wait
     WaitButtonABTime 30
     GoTo _doublescheck
 
@@ -34,7 +34,7 @@ _036:
     WaitButtonABTime 30
     // {0}’s HP is full!
     PrintMessage 187, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _doublescheck:
@@ -53,22 +53,22 @@ _ally:
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_MAXHP, BSCRIPT_VAR_CALC_TEMP
     CompareMonDataToVar OPCODE_EQU, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_HP, BSCRIPT_VAR_CALC_TEMP, _056
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER_PARTNER
-    Wait 
+    Wait
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_RECOVER_HP_VISUAL, _046
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER_PARTNER, BATTLE_ANIMATION_RESTORE_HP
-    Wait 
+    Wait
 
 _046:
     // update hp call but just using attacker partner > battler temp
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     UpdateHealthBar BATTLER_CATEGORY_ATTACKER_PARTNER
-    Wait 
+    Wait
     UpdateHealthBarValue BATTLER_CATEGORY_ATTACKER_PARTNER
-    
-    // {0} regained health!
-    PrintMessage 184, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER_PARTNER
-    Wait 
+
+    // {0} had its HP restored.
+    PrintMessage 1396, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER_PARTNER
+    Wait
     WaitButtonABTime 30
     GoTo _end
 
@@ -76,7 +76,7 @@ _056:
     WaitButtonABTime 30
     // {0}’s HP is full!
     PrintMessage 187, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER_PARTNER
-    Wait 
+    Wait
     WaitButtonABTime 30
     GoTo _end
 
@@ -85,36 +85,39 @@ _absorb:
     CompareMonDataToVar OPCODE_EQU, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_HP, BSCRIPT_VAR_CALC_TEMP, _useless
 
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_MAXHP, BSCRIPT_VAR_HP_CALC
+
+    AbilityPopup BATTLER_CATEGORY_ATTACKER_PARTNER
+
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 4
     // update hp call but just using attacker partner > battler temp
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     UpdateHealthBar BATTLER_CATEGORY_ATTACKER_PARTNER
-    Wait 
+    Wait
     UpdateHealthBarValue BATTLER_CATEGORY_ATTACKER_PARTNER
-    // {0} regained health!
-    PrintMessage 184, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER_PARTNER
-    Wait 
+    // {0} had its HP restored.
+    PrintMessage 1396, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER_PARTNER
+    Wait
     WaitButtonABTime 30
     GoTo _end
 
 _boost:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_STAT_CHANGE_SPATK, 12, _useless
     PlayBattleAnimation BATTLER_CATEGORY_ATTACKER_PARTNER, BATTLE_ANIMATION_STAT_BOOST
-    Wait 
+    Wait
     UpdateMonData OPCODE_ADD, BATTLER_CATEGORY_ATTACKER_PARTNER, BMON_DATA_STAT_CHANGE_SPATK, 1
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MESSAGE, 4
     // {0}’s {1} raised its {2}!
     PrintMessage 622, TAG_NICKNAME_ABILITY_STAT, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP
-    Wait 
+    Wait
     WaitButtonABTime 30
     GoTo _end
-    
+
 _useless:
     // {0}’s {1} made {2} useless!
     PrintMessage 638, TAG_NICKNAME_ABILITY_MOVE, BATTLER_CATEGORY_ATTACKER_PARTNER, BATTLER_CATEGORY_ATTACKER_PARTNER, BATTLER_CATEGORY_ATTACKER
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _end:
-    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK 
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK
     End

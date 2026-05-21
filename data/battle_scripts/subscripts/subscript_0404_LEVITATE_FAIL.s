@@ -3,12 +3,13 @@
 .data
 
 _000:
-    PrintAttackMessage 
-    Wait 
+    PrintAttackMessage
+    Wait
     WaitButtonABTime 30
+    AbilityPopup BATTLER_CATEGORY_MSG_TEMP
     // It doesn’t affect {0}...
     PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
-    Wait 
+    Wait
     WaitButtonABTime 30
     // now handle high jump kick
     Call BATTLE_SUBSCRIPT_CRASH_ON_MISS
