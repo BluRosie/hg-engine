@@ -105,6 +105,7 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
+            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "withdrew Forretress!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon used Pursuit!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 32, 32, 32, 32, 32, 35, 35, 35, 35, 35, 36, 36, 36, 36, 36, 39 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon lost some of its HP!" },
