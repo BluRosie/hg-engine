@@ -101,6 +101,8 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->moveContext.isAllyHit = FALSE;
     ctx->moveContext.currentMoveCalcDone = FALSE;
 
+    ctx->pursuitContext.isActive = FALSE;
+
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 
     if (ctx->oneSelfFlag[ctx->attack_client].trickRoomFlag) {

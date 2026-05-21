@@ -1326,6 +1326,12 @@ typedef struct MovePerformanceContext {
     int hitSubstitute[3];  
 } MovePerformanceContext;
 
+typedef struct PursuitContext {
+    u8 isActive;
+    u8 originalDefender;
+    u8 originalAttacker;
+} PursuitContext;
+
 
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
@@ -1570,6 +1576,7 @@ struct BattleStruct {
                u8 paradoxBoostedStat[CLIENT_MAX];
                BOOL boosterEnergyActivated[CLIENT_MAX];
                MovePerformanceContext moveContext;
+               PursuitContext pursuitContext;
 };
 
 

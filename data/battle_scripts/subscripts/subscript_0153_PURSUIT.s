@@ -23,7 +23,7 @@ _102:
 _resetLoop:
     //Call BATTLE_SUBSCRIPT_POP_ATTACKER_AND_DEFENDER
     //UpdateVarFromVar OPCODE_GET, BSCRIPT_VAR_MOVE_NO_TEMP, BSCRIPT_VAR_MOVE_NO_CUR
-    GoTo _loop
+    //GoTo _loop
 
 
 // rest of the file is only done if the defender is fainting after getting hit
