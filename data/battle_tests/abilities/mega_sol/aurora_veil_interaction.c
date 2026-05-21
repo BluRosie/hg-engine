@@ -1,4 +1,4 @@
-// Test: Mega Sol - Growth works when Sun is up
+// Test: Mega Sol - Aurora Veil interaction
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_TAUROS,
+            .species = SPECIES_NINETALES,
             .level = 50,
-            .form = 0,
-            .ability = ABILITY_ANGER_POINT,
+            .form = 1,
+            .ability = ABILITY_SNOW_WARNING,
             .item = ITEM_NONE,
-            .moves = { MOVE_SUNNY_DAY, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_AURORA_VEIL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -31,8 +31,8 @@ BEGIN_TEST
                         .form = 0,
                         .ability = ABILITY_OVERGROW,
                         .item = ITEM_MEGANIUMITE,
-                        .moves = { MOVE_GROWTH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .moves = { MOVE_AURORA_VEIL, MOVE_WEATHER_BALL, MOVE_NONE, MOVE_NONE },
+                        .hp = 76,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -44,7 +44,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -63,8 +63,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                         { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,9 +83,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Growth!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Attack rose sharply!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Sp. Atk rose sharply!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ninetales used Aurora Veil!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Aurora Veil made your side stronger against physical and special moves!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Aurora Veil!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Aurora Veil made the opposing side stronger against physical and special moves!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Weather Ball!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 77, 78, 79, 80, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91 } },
     }
 }
 END_TEST

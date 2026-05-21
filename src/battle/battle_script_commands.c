@@ -4943,7 +4943,7 @@ BOOL btl_scr_cmd_116_abilitypopup(void *bw, struct BattleStruct *sp)
             sp->skill_seq_no -= 3; // reset position to current command so script does not continue
 
             if (ability == -1) {
-                ability = sp->battlemon[sp->battlerIdTemp].ability;
+                ability = sp->battlemon[battler].ability;
             }
 
             sp->abilityPopupWork = work;

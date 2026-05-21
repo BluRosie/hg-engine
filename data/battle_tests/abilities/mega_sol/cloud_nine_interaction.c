@@ -1,4 +1,4 @@
-// Test: Mega Sol - Growth works when Sun is up
+// Test: Mega Sol - Ignores Cloud Nine
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_TAUROS,
-            .level = 50,
+            .species = SPECIES_ACCELGOR,
+            .level = 100,
             .form = 0,
-            .ability = ABILITY_ANGER_POINT,
+            .ability = ABILITY_CLOUD_NINE,
             .item = ITEM_NONE,
-            .moves = { MOVE_SUNNY_DAY, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_RAIN_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -31,8 +31,8 @@ BEGIN_TEST
                         .form = 0,
                         .ability = ABILITY_OVERGROW,
                         .item = ITEM_MEGANIUMITE,
-                        .moves = { MOVE_GROWTH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .moves = { MOVE_FLAMETHROWER, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .hp = 76,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -44,7 +44,6 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -63,8 +62,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,9 +81,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Growth!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Attack rose sharply!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Sp. Atk rose sharply!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The effects of the weather disappeared." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It started to rain!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Flamethrower!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 108, 110, 110, 112, 112, 114, 116, 116, 118, 120, 120, 122, 124, 124, 126, 128 } },
     }
 }
 END_TEST

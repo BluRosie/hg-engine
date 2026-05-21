@@ -1,4 +1,4 @@
-// Test: Mega Sol - Growth works when Sun is up
+// Test: Mega Sol - Ignores Sand Veil and Rock type special defense boost
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_TAUROS,
+            .species = SPECIES_GOLEM,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_ANGER_POINT,
+            .ability = ABILITY_SAND_VEIL,
             .item = ITEM_NONE,
-            .moves = { MOVE_SUNNY_DAY, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SANDSTORM, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -31,8 +31,8 @@ BEGIN_TEST
                         .form = 0,
                         .ability = ABILITY_OVERGROW,
                         .item = ITEM_MEGANIUMITE,
-                        .moves = { MOVE_GROWTH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .moves = { MOVE_ABSORB, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+                        .hp = 76,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -44,7 +44,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -63,8 +63,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,9 +83,9 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Growth!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Attack rose sharply!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Sp. Atk rose sharply!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem used Sandstorm!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Absorb!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 88, 88, 88, 88, 96, 96, 96, 96, 96, 96, 100, 100, 100, 100, 100, 108 } },
     }
 }
 END_TEST

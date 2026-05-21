@@ -1,4 +1,4 @@
-// Test: Mega Sol - Growth works when Sun is up
+// Test: As One - Ability popups
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_TAUROS,
+            .species = SPECIES_CALYREX,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_ANGER_POINT,
+            .ability = ABILITY_AS_ONE_GLASTRIER,
             .item = ITEM_NONE,
-            .moves = { MOVE_SUNNY_DAY, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -26,12 +26,12 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_MEGANIUM,
+                        .species = SPECIES_CALYREX,
                         .level = 50,
-                        .form = 0,
-                        .ability = ABILITY_OVERGROW,
-                        .item = ITEM_MEGANIUMITE,
-                        .moves = { MOVE_GROWTH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .form = 1,
+                        .ability = ABILITY_AS_ONE_SPECTRIER,
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -43,7 +43,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .playerScript = { {
-                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -63,7 +63,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,9 +83,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Growth!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Attack rose sharply!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Sp. Atk rose sharply!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Calyrex's As One" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Calyrex has two Abilities!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing side is too nervous to eat Berries!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Calyrex's As One" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Calyrex has two Abilities!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Your side is too nervous to eat Berries!" },
     }
 }
 END_TEST

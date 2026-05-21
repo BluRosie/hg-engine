@@ -1,4 +1,4 @@
-// Test: Mega Sol - Weather Ball is Fire type regardless of weather
+// Test: Mega Sol - Damage is calculated as if Sun is up
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
