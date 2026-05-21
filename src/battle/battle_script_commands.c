@@ -5410,7 +5410,12 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
                     ctx->moveNoTemp = moveNo;
                     ctx->waza_no_old[ctx->attack_client] = moveNo;
                     ctx->playerActions[ctx->attack_client][0] = CONTROLLER_COMMAND_40;
+
+                    ctx->moveContext.hitFoesCount = 0;
+                    ctx->moveContext.hitSubstituteCount = 0;
+                    ctx->moveContext.isAllyHit = FALSE;
                     ctx->moveContext.currentMoveCalcDone = FALSE;
+
                     CopyBattleMonToPartyMon(bsys, ctx, battlerId);
                     ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
                     ctx->server_seq_no = CONTROLLER_COMMAND_23;
