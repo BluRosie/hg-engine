@@ -406,6 +406,16 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     }
 
     switch (moveno) {
+    case MOVE_PURSUIT:
+        debug_printf("Pursuit atk %d, def %d\n", attacker, defender);
+        debug_printf("ctx->playerActions[%d][0] = %d\n", defender, ctx->playerActions[defender][0]);
+        debug_printf("ctx->playerActions[%d][1] = %d\n", defender, ctx->playerActions[defender][1]);
+        debug_printf("ctx->playerActions[%d][2] = %d\n", defender, ctx->playerActions[defender][2]);
+        debug_printf("ctx->playerActions[%d][3] = %d\n", defender, ctx->playerActions[defender][3]);
+        if (defender == ctx->reshuffle_client && (ctx->playerActions[defender][0] = CONTROLLER_COMMAND_40 || ctx->playerActions[defender][3] == 3) {
+            basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
+        }
+        break;
     case MOVE_FACADE:
         if (AttackingMon.condition & STATUS_FACADE_BOOST) {
             basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
