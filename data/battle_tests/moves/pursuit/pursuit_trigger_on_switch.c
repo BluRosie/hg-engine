@@ -66,7 +66,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE } },
         .playerScript = { {
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                              { ACTION_NONE, 0 },
+                              { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
@@ -86,7 +86,7 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .enemyScript = { {
                              { ACTION_SWITCH_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_NONE, 0 },
+                             { ACTION_SWITCH_SLOT_1, BATTLER_PLAYER_FIRST },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
