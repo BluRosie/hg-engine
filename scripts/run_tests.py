@@ -44,6 +44,9 @@ last_activity_time = time.monotonic()
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--video", action="store_true")
+parser.add_argument("-c", "--continuous_integration", action="store_true")
+
+ci = False
 
 emu = DeSmuME()
 emu_memory = emu.memory
@@ -120,6 +123,12 @@ def callback_function_when_game_put_thing_into_communication_hole(
 
     current_test_case += 1
 
+    global ci
+    if ci:
+        print('##[endgroup]')
+        if not has_finished_testing():
+            print(f'##[group]{test_case_names[current_test_case]}')
+
 
 def read_total_tests_from_header() -> int:
     header_path = "include/constants/generated/test_battle.h"
@@ -184,8 +193,15 @@ def main():
         # Create the window for the emulator
         window = emu.create_sdl_window()
 
+    global ci
+    if args.continuous_integration:
+        ci = True
+
     global test_case_names
     test_case_names = get_test_names()
+
+    if ci:
+        print(f'##[group]{test_case_names[0]}')
 
     # Run the emulation as fast as possible until testing complete
     while not has_finished_testing():
