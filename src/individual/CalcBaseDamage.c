@@ -412,7 +412,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         debug_printf("ctx->playerActions[%d][1] = %d\n", defender, ctx->playerActions[defender][1]);
         debug_printf("ctx->playerActions[%d][2] = %d\n", defender, ctx->playerActions[defender][2]);
         debug_printf("ctx->playerActions[%d][3] = %d\n", defender, ctx->playerActions[defender][3]);
-        if (defender == ctx->reshuffle_client && (ctx->playerActions[defender][0] = CONTROLLER_COMMAND_40 || ctx->playerActions[defender][3] == 3) {
+        if (defender == ctx->reshuffle_client && (ctx->playerActions[defender][0] = CONTROLLER_COMMAND_40 || ctx->playerActions[defender][3] == 3)) {
             basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
         }
         break;
