@@ -1580,6 +1580,11 @@
     .long \val
     .endm
 
+    .macro IsPursuitActive arg_0
+    .long 289
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
     .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 288
 
     // .macro YourCustomCommand

@@ -49,6 +49,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In ServerBeforeActInternal\n");
 #endif
+    debug_printf("In ServerBeforeActInternal\n");
     ret = 0;
     u32 flag = FALSE;
     client_set_max = BattleWorkClientSetMaxGet(bw);

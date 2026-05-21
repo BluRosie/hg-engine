@@ -21,9 +21,15 @@
  * https://github.com/pret/pokeplatinum/blob/447c17a0f12b4a7656dded8aaa6e41ae9694cd09/src/battle/battle_controller.c#L3965
  */
 void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    // debug_printf("In BattleController_MoveEnd\n");
+    debug_printf("In BattleController_MoveEnd\n");
     int script;
     u32 battleType = BattleTypeGet(bsys);
+
+    if (ctx->pursuitContext.isActive == TRUE)
+    {
+        ctx->attack_client = ctx->pursuitContext.originalAttacker;
+        ctx->defence_client = ctx->pursuitContext.originalDefender;
+    }
 
     if (!(battleType & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_PAL_PARK))) {
         if (ov12_0224DD18(ctx, ctx->server_seq_no, ctx->server_seq_no) == TRUE) {
@@ -100,6 +106,8 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->moveContext.hitSubstituteCount = 0;
     ctx->moveContext.isAllyHit = FALSE;
     ctx->moveContext.currentMoveCalcDone = FALSE;
+
+    ctx->pursuitContext.isActive = FALSE;
 
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 
