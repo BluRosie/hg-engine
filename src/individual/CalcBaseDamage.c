@@ -46,7 +46,6 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     int damage_value = damageCalc->damage_value;
     // u8 magnitude = damageCalc->magnitude;
     BOOL gemBoostingMove = damageCalc->gemBoostingMove;
-    BOOL noCloudNineAndAirLock = damageCalc->noCloudNineAndAirLock;
     BOOL fieldHasFairyAura = damageCalc->fieldHasFairyAura;
     BOOL fieldHasDarkAura = damageCalc->fieldHasDarkAura;
     BOOL fieldHasAuraBreak = damageCalc->fieldHasAuraBreak;
@@ -514,11 +513,9 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
     // Field effects (weather conditions, Terrains, Imprison, Ion Deluge, Magic Room, Gravity, etc.):
 
-    if ((noCloudNineAndAirLock) && (AttackingMon.ability != ABILITY_MEGA_SOL)) {
-        if ((weather & (FIELD_STATUS_FOG | WEATHER_HAIL_ANY | WEATHER_SANDSTORM_ANY | WEATHER_RAIN_ANY | WEATHER_SNOW_ANY))
-            && (moveno == MOVE_SOLAR_BEAM || moveno == MOVE_SOLAR_BLADE)) {
-            basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__0_5);
-        }
+    if ((weather & (FIELD_STATUS_FOG | WEATHER_HAIL_ANY | WEATHER_SANDSTORM_ANY | WEATHER_RAIN_ANY | WEATHER_SNOW_ANY))
+        && (moveno == MOVE_SOLAR_BEAM || moveno == MOVE_SOLAR_BLADE)) {
+        basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__0_5);
     }
 
     // handle Terrain overlays

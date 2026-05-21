@@ -1652,13 +1652,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 }
                                 case ABILITY_HARVEST: {
                                     if ((sp->battlemon[battlerId].hp)
-                                    && IS_ITEM_BERRY(sp->recycle_item[battlerId])
-                                    && ((BattleRand(bw) % 2 == 0) // 50% chance
-                                    // OR sun is active + abilities are not fucking it
-                                    || ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
-                                    && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)
-                                    && (GetWeather(bw, sp, 0xFF) & WEATHER_SUNNY_ANY))))
-                                    {
+                                        && IS_ITEM_BERRY(sp->recycle_item[battlerId])
+                                        && ((GetWeather(bw, sp, 0xFF) & WEATHER_SUNNY_ANY) /* OR sun is active + abilities are not fucking it */
+                                            || (BattleRand(bw) % 2 == 0) /* 50% chance */)) {
                                         sp->item_work = sp->recycle_item[battlerId];
                                         sp->recycle_item[battlerId] = 0;
                                         sp->battlemon[battlerId].item = sp->item_work;

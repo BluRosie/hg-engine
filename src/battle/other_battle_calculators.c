@@ -621,24 +621,18 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
         accuracy = accuracy > 50 ? 50 : accuracy;
     }
 
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
-        && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
-        if ((weather & WEATHER_SUNNY_ANY)
-            // thunder sucks in the sun
-            && ((sp->moveTbl[move_no].effect == MOVE_EFFECT_THUNDER)
-                // so does hurricane
-                || (sp->moveTbl[move_no].effect == MOVE_EFFECT_HURRICANE))) {
-            accuracy = 50;
-        }
+    if ((weather & WEATHER_SUNNY_ANY)
+        // thunder sucks in the sun
+        && ((sp->moveTbl[move_no].effect == MOVE_EFFECT_THUNDER)
+            // so does hurricane
+            || (sp->moveTbl[move_no].effect == MOVE_EFFECT_HURRICANE))) {
+        accuracy = 50;
     }
 
     // 5.5 We handle Fog here because there is no vanilla Gen 5+ implementation
 
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
-        && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
-        if (weather & FIELD_STATUS_FOG) {
-            accuracy = accuracy * 6 / 10;
-        }
+    if (weather & FIELD_STATUS_FOG) {
+        accuracy = accuracy * 6 / 10;
     }
 
     // 6. Chain the accuracy and evasion modifiers
