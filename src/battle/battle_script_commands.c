@@ -5374,7 +5374,8 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     for (client_no = 0; client_no < maxBattlers; client_no++) {
         int battlerId = ctx->turnOrder[client_no];
-        if (ctx->playerActions[battlerId][0] != CONTROLLER_COMMAND_40
+        if (ctx->battlemon[ctx->reshuffle_client].hp
+            && ctx->playerActions[battlerId][0] != CONTROLLER_COMMAND_40
             && ctx->battlemon[battlerId].hp
             //&& !(ctx->battlemon[battlerId].status & 39)
             //&& !CheckTruant(ctx, battlerId)
