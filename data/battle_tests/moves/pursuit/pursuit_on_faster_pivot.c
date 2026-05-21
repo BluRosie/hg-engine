@@ -116,7 +116,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 33, 34, 34, 34, 36, 36, 36, 36, 37, 37, 37, 37, 39, 39, 39, 40 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Manectric went back to" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon used Pursuit!" },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 49, 49, 49, 51, 51, 52, 52, 52, 54, 54, 55, 55, 55, 57, 57, 58 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 64, 64, 64, 66, 66, 68, 68, 68, 70, 70, 71, 71, 71, 74, 74, 75 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon lost some of its HP!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gyarados's Intimidate cuts Umbreon's Attack!" },
         },
