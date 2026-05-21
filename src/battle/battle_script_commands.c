@@ -5363,7 +5363,7 @@ BOOL btl_scr_cmd_121_IsPursuitActive(void *bsys, struct BattleStruct *ctx)
 
 BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    int adrs, battlerId, maxBattlers, moveNo, moveIndex;
+    int adrs, battlerId, maxBattlers, moveNo, moveIndex, client_no;
 
     IncrementBattleScriptPtr(ctx, 1);
 
