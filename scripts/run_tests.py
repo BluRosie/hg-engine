@@ -196,6 +196,8 @@ def end_test(signum, frame):
 
 signal.signal(signal.SIGINT, end_test)
 
+test_case_names, skipped_test_case_names = get_test_names()
+
 NUMBER_OF_TESTS_TO_RUN = read_total_tests_from_header()
 
 
@@ -219,9 +221,6 @@ def main():
     global ci
     if args.continuous_integration:
         ci = True
-
-    global test_case_names, skipped_test_case_names
-    test_case_names, skipped_test_case_names = get_test_names()
 
     if ci:
         print(f'##[group]{test_case_names[0]}')

@@ -1,6 +1,5 @@
 // Test: Hadron Engine shows a different message when Electric Terrain is up
 // SKIP
-
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

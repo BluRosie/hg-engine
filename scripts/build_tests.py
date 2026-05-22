@@ -89,7 +89,7 @@ def main() -> None:
     with open(os.path.join(build_folder, "BattleTests.c"), "w") as file:
         file.write(template.substitute({"tests": tests}))
 
-    write_test_battle_header(len(test_files))
+    write_test_battle_header(len(test_files) - len(skippedFiles))
 
 
 if __name__ == "__main__":
