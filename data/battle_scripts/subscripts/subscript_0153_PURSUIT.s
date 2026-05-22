@@ -5,14 +5,14 @@
 _000:
     Call BATTLE_SUBSCRIPT_PUSH_ATTACKER_AND_DEFENDER
 
+_noMega:
+    TryPursuit _end
     TryMegaOrUltraBurstDuringPursuit _noMega
     CallFromVar BSCRIPT_VAR_TEMP_DATA
     // Handle cases such as Mega Manectric's Intimidate ability (Switch -> Mega Evolution -> Intimidate -> Pursuit)
     // 處理例如超級雷電獸的威嚇特性 （切換中 -> 超級進化 -> 威嚇 -> 追打）
     Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
-
 _noMega:
-    TryPursuit _end
 
 _end:
     // fix bug where pursuit on the rightside client was preventing the next attack message/move animation from playing

@@ -1,4 +1,4 @@
-// Test: Pursuit - trigger both pursuit on hard switch in doubles and mega
+// Test: Pursuit - trigger both pursuit on hard switch in doubles and mega against Proto-Groudon
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -20,12 +20,24 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_MANECTRIC,
+                .species = SPECIES_LECHONK,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_LIGHTNING_ROD,
-                .item = ITEM_MANECTITE,
-                .moves = { MOVE_PURSUIT, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+                .ability = ABILITY_GLUTTONY,
+                .item = ITEM_NONE,
+                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
+                .status = 0,
+                .condition2 = 0,
+                .moveEffectFlags = 0,
+            },
+            {
+                .species = SPECIES_SNOM,
+                .level = 50,
+                .form = 0,
+                .ability = ABILITY_ICE_SCALES,
+                .item = ITEM_NONE,
+                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -44,15 +56,13 @@ const struct TestBattleScenario BattleTests[] = {
                 .moveEffectFlags = 0,
             },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .enemyParty = { {
-                            .species = SPECIES_GARCHOMP,
+                            .species = SPECIES_GROUDON,
                             .level = 50,
                             .form = 0,
-                            .ability = ABILITY_ROUGH_SKIN,
-                            .item = ITEM_NONE,
+                            .ability = ABILITY_DROUGHT,
+                            .item = ITEM_RED_ORB,
                             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
@@ -87,8 +97,8 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .playerScript = { {
+                              { ACTION_SWITCH_SLOT_2, 0 },
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
-                              { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
@@ -97,8 +107,8 @@ const struct TestBattleScenario BattleTests[] = {
                               { ACTION_NONE, 0 },
                           },
             {
+                { ACTION_SWITCH_SLOT_3, 0 },
                 { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
-                { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -107,9 +117,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .enemyScript = { {
-                             { ACTION_SWITCH_SLOT_2, 0 },
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_NONE, 0 },
+                             { ACTION_SWITCH_SLOT_2, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
@@ -127,12 +136,11 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "withdrew Garchomp!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "withdrew Groudon!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric has Mega Evolved into Mega Manectric!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric used Pursuit!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom has Mega Evolved into Mega Houndoom!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom used Pursuit!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Houndoom!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gyarados's Intimidate cuts Manectric's Attack!" },
         },
         .knownFailing = TRUE,

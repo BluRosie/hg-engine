@@ -5378,7 +5378,7 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
             && ctx->playerActions[battlerId][0] != CONTROLLER_COMMAND_40
             && ctx->battlemon[battlerId].hp
             //&& !(ctx->battlemon[battlerId].status & 39)
-            //&& !CheckTruant(ctx, battlerId)
+            && !CheckTruant(ctx, battlerId)
             && IsClientEnemy(bsys, battlerId) != IsClientEnemy(bsys, ctx->reshuffle_client)) {
             //&& BattleSystem_GetFieldSide(battleSystem, battlerId) != BattleSystem_GetFieldSide(battleSystem, ctx->battlerIdSwitch)) {
 
