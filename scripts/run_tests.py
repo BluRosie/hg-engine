@@ -175,15 +175,16 @@ def get_test_results() -> str:
     results: str = "\n\n"
     results += "Test results:\n"
     results += f"Number of tests passed: {len(pass_test_case_names)}\n"
+
     results += f"Tests failed ({len(fail_test_case_names)}):\n"
-    results += f"Tests skipped ({len(skipped_test_case_names)}):\n"
     for failed_item in fail_test_case_names:
         results += f"\t{bcolors.FAIL}{failed_item}{bcolors.ENDC}\n"
-    results += f"Tests known failing ({len(known_failing_test_case_names)}):\n"
 
+    results += f"Tests known failing ({len(known_failing_test_case_names)}):\n"
     for known_failing_item in known_failing_test_case_names:
         results += f"\t{bcolors.WARNING}{known_failing_item}{bcolors.ENDC}\n"
 
+    results += f"Tests skipped ({len(skipped_test_case_names)}):\n"
     for skipped_item in skipped_test_case_names:
         results += f"\t{bcolors.WARNING}{skipped_item}{bcolors.ENDC}\n"
 
