@@ -1,4 +1,4 @@
-// Test: Pursuit - trigger on hard switch with two Megas
+// Test: Pursuit - trigger on hard switch with two Megas in singles
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"

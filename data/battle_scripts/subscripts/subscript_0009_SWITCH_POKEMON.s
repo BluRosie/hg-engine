@@ -11,6 +11,10 @@ _007:
     PrintRecallMessage BATTLER_CATEGORY_SWITCHED_MON
     Wait 
     Call BATTLE_SUBSCRIPT_PURSUIT
+    IsPursuitActive _noPursuit
+    End
+
+_noPursuit:
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_HP, 0, _020
     GoTo _026
 
@@ -21,6 +25,7 @@ _020:
     Wait 
 
 _026:
+    SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_DONE
     Call BATTLE_SUBSCRIPT_TRY_CLEAR_PRIMAL_WEATHERS
     SwitchAndUpdateMon BATTLER_CATEGORY_SWITCHED_MON
     LoadPartyGaugeGraphics 
