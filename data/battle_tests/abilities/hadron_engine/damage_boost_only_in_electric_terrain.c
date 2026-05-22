@@ -1,5 +1,4 @@
 // Test: Hadron Engine only boosts Special Damage in Electric Terrain
-// SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
