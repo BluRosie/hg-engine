@@ -470,10 +470,10 @@ void LONG_CALL TestBattle_QueueNextTest()
     if (!overridden) {
         u32 value = ReadValueThroughCommunicationSendHole();
         u32 currentIndex = value & 0xFFFF;
-        debug_printf("First test index: %d\n", currentIndex);
+        // debug_printf("First test index: %d\n", currentIndex);
         SetCurrentTestIndex(currentIndex);
         gTestEndIndex = value >> 16;
-        debug_printf("Last test index: %d\n", gTestEndIndex - 1);
+        // debug_printf("Last test index: %d\n", gTestEndIndex - 1);
         overridden = TRUE;
     }
     if (IsTestComplete()) {
