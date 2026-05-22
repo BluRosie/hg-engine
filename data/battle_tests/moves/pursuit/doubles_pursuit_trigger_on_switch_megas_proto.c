@@ -55,6 +55,18 @@ const struct TestBattleScenario BattleTests[] = {
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
+            {
+                .species = SPECIES_MANECTRIC,
+                .level = 50,
+                .form = 0,
+                .ability = ABILITY_LIGHTNING_ROD,
+                .item = ITEM_MANECTITE,
+                .moves = { MOVE_PURSUIT, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
+                .status = 0,
+                .condition2 = 0,
+                .moveEffectFlags = 0,
+            },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .enemyParty = { {
