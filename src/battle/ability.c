@@ -70,7 +70,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // 02252F24
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE)
     {
-        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) 
+        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
         //    && (sp->moveTbl[sp->current_move_index].power) //as of Gen5
             )
         {
@@ -459,7 +459,7 @@ void LONG_CALL UpdateTerrainOverlay(struct BattleStruct *ctx, u8 client, enum Te
  *  @param seq_no the subscript number to load and run
  *  @return TRUE if a script should be run and is in *seq_no; FALSE otherwise
  */
-BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
+BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
 

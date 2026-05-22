@@ -26,7 +26,7 @@ def GrabSpeciesDict(speciesDict: dict):
         for line in f:
             if len(line.split()) > 1:
                 test = line.split()[1].strip()
-                if 'SPECIES' in test and not '_START' in test and not '_SPECIES_H' in test and not '_NUM (' in line and not 'MAX_' in test:
+                if 'SPECIES' in test and not '_START' in test and not '_SPECIES_H' in test and not '_NUM (' in line and not 'INCLUDING_' in test:
                     if dump:
                         speciesDict[speciesEntry] = test
                     else:

@@ -1323,7 +1323,7 @@ typedef struct MovePerformanceContext {
     u8 currentMoveCalcDone : 1;
     u8 padding : 1;
     int hitFoes[2];
-    int hitSubstitute[3];  
+    int hitSubstitute[3];
 } MovePerformanceContext;
 
 
@@ -1565,7 +1565,7 @@ struct BattleStruct {
                u8 gemBoostingMovePadding : 4;
 
                int currentMoveSwitchStatus;
-               
+
                MoveConditionsFlags moveConditionsFlags[CLIENT_MAX];
                u8 paradoxBoostedStat[CLIENT_MAX];
                BOOL boosterEnergyActivated[CLIENT_MAX];
@@ -2004,7 +2004,7 @@ enum
     MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE,
     MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE,
     MOVE_PERFORMANCE_STEP_6_NOT_SE_TYPE_EFFECTIVENESS_MESSAGE,
-    
+
     MOVE_PERFORMANCE_STEP_7_CRITICAL_HIT_ALLY,
     MOVE_PERFORMANCE_STEP_7_CRITICAL_HIT_FOES,
     MOVE_PERFORMANCE_HIT_SUBSTITUTE,
@@ -2012,7 +2012,7 @@ enum
     MOVE_PERFORMANCE_STEP_8_STURDY_FOCUS_SASH_ALLY,
     MOVE_PERFORMANCE_STEP_9_SECONDARY_EFFECTS_ALLY,
     MOVE_PERFORMANCE_STEP_10_ADDITIONAL_EFFECTS_ALLY,
-    
+
     MOVE_PERFORMANCE_STEP_8_STURDY_FOCUS_SASH_FOES,
     MOVE_PERFORMANCE_STEP_9_SECONDARY_EFFECTS_FOES,
     MOVE_PERFORMANCE_STEP_10_ADDITIONAL_EFFECTS_FOES,
@@ -2328,7 +2328,7 @@ extern u16 StrongJawMovesTable[10];
 
 extern u16 MegaLauncherMovesTable[7];
 
-extern u16 SharpnessMovesTable[24];
+extern u16 SharpnessMovesTable[27];
 
 extern u16 sLowKickWeightToPower[6][2];
 
@@ -2897,6 +2897,7 @@ BOOL LONG_CALL ShouldDelayTurnEffectivenessChecking(struct BattleStruct *sp, u32
  */
 BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
 
+u32 LONG_CALL GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker);
 
 BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no);
 
@@ -3292,6 +3293,8 @@ enum
     BTL_PARAM_BATTLER_ENEMY              = 0x4000,
     BTL_PARAM_BATTLER_ACROSS             = 0x2000,
 };
+
+int LONG_CALL GetBattlerVar(struct BattleStruct *ctx, int battlerId, u32 varId, void *data);
 
 /**
  *  @brief resolve read battle script parameter into a specific battler type.  determined by BTL_PARAM_* consts right above func definition
@@ -3890,7 +3893,7 @@ int LONG_CALL GetHeldItemFlingEffect(struct BattleStruct *ctx, int battlerId);
 int LONG_CALL GetHeldItemFlingPower(struct BattleStruct *ctx, int battlerId);
 int LONG_CALL GetHeldItemModifier(struct BattleStruct *ctx, int battlerId, int flag);
 int LONG_CALL GetNaturalGiftPower(struct BattleStruct *ctx, int battlerId);
-int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId); 
+int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
 
 BOOL LONG_CALL BattleContext_CheckMoveImprisoned(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 

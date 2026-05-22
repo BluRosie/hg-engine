@@ -1619,7 +1619,7 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
     { .tag = 1739, .gfx = 1525, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CETODDLE
     { .tag = 1740, .gfx = 1526, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_CETITAN
     { .tag = 1741, .gfx = 1527, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_VELUZA
-    { .tag = 1742, .gfx = 1528, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_DONDOZO
+    { .tag = 1742, .gfx = 1528, .callback_params = OVERWORLD_SIZE_LARGE}, // SPECIES_DONDOZO
     { .tag = 1743, .gfx = 1529, .callback_params = OVERWORLD_SIZE_SMALL}, // SPECIES_TATSUGIRI
     { .tag = 1744, .gfx = 1530, .callback_params = OVERWORLD_SIZE_SMALL}, // droopy
     { .tag = 1745, .gfx = 1531, .callback_params = OVERWORLD_SIZE_SMALL}, // stretchy

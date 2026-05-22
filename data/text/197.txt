@@ -146,8 +146,8 @@ The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any higher!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any lower!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any lower!
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any lower!
-The effect of your team’s\n{STRVAR_1 6, 0, 0} wore off!
-The effect of the opposing\n{STRVAR_1 6, 0, 0} wore off!
+(Unused)
+(Unused)
 {STRVAR_1 1, 0, 0} is\nconfused!
 The wild {STRVAR_1 1, 0, 0} is\nconfused!
 The opposing {STRVAR_1 1, 0, 0} is\nconfused!
@@ -188,21 +188,21 @@ The opposing {STRVAR_1 1, 0, 0}’s HP\nwas restored!
 {STRVAR_1 1, 0, 0}’s\nHP is full!
 The wild {STRVAR_1 1, 0, 0}’s\nHP is full!
 The opposing {STRVAR_1 1, 0, 0}’s\nHP is full!
-Light Screen made your team\nstronger against special moves!
-Light Screen made the opposing team\nstronger against special moves!
-Light Screen made your team\nstronger against special moves!
-Light Screen made the opposing team\nstronger against special moves!
-Reflect made your team\nstronger against physical moves!
-Reflect made the opposing team\nstronger against physical moves!
-Reflect made your team\nstronger against physical moves!
-Reflect made the opposing team\nstronger against physical moves!
-Your team became cloaked in\na mystical veil!
-The opposing team became\ncloaked in a mystical veil!
+Light Screen made your side\nstronger against special moves!
+Light Screen made the opposing side\nstronger against special moves!
+Light Screen made your side\nstronger against special moves!
+Light Screen made the opposing side\nstronger against special moves!
+Reflect made your side\nstronger against physical moves!
+Reflect made the opposing side\nstronger against physical moves!
+Reflect made your side\nstronger against physical moves!
+Reflect made the opposing side\nstronger against physical moves!
+Your side became cloaked in\na mystical veil!
+The opposing side became\ncloaked in a mystical veil!
 {STRVAR_1 1, 0, 0} is\nprotected by Safeguard!
 The wild {STRVAR_1 1, 0, 0} is\nprotected by Safeguard!
 The opposing {STRVAR_1 1, 0, 0} is\nprotected by Safeguard!
-Your team is no longer\nprotected by Safeguard!
-The opposing team is no longer\nprotected by Safeguard!
+Your side is no longer\nprotected by the mystical veil!
+The opposing side is no longer\nprotected by the mystical veil!
 {STRVAR_1 1, 0, 0} went\nto sleep!
 The wild {STRVAR_1 1, 0, 0} went\nto sleep!
 The opposing {STRVAR_1 1, 0, 0} went\nto sleep!
@@ -286,8 +286,8 @@ The opposing {STRVAR_1 1, 0, 0} protected\nitself!
 {STRVAR_1 1, 1, 0} is buffeted\nby the {STRVAR_1 6, 0, 0}!
 The wild {STRVAR_1 1, 1, 0} is buffeted\nby the {STRVAR_1 6, 0, 0}!
 The opposing {STRVAR_1 1, 1, 0} is buffeted\nby the {STRVAR_1 6, 0, 0}!
-Your team’s {STRVAR_1 6, 0, 0}\nwore off!
-The opposing team’s {STRVAR_1 6, 0, 0}\nwore off!
+Your side’s {STRVAR_1 6, 0, 0}\nwore off!
+The opposing side’s {STRVAR_1 6, 0, 0}\nwore off!
 {STRVAR_1 1, 0, 0} was seeded!
 The wild {STRVAR_1 1, 0, 0}\nwas seeded!
 The opposing {STRVAR_1 1, 0, 0}\nwas seeded!
@@ -425,8 +425,8 @@ The opposing {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on the opposing\
 {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
 The wild {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
 The opposing {STRVAR_1 1, 0, 0} is afflicted\nby the curse!
-Spikes were scattered\non the ground all around\fyour team!
-Spikes were scattered\non the ground all around\fthe opposing team!
+Spikes were scattered\non the ground all around\fyour side!
+Spikes were scattered\non the ground all around\fthe opposing side!
 {STRVAR_1 1, 0, 0} was hurt\nby the spikes!
 The wild {STRVAR_1 1, 0, 0} was hurt\nby the spikes!
 The opposing {STRVAR_1 1, 0, 0} was hurt\nby the spikes!
@@ -1061,10 +1061,10 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 2, 0} because of\f{STR
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwore off!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} wore off!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} wore off!
-Poison spikes were scattered\non the ground all around\fyour team!
-Poison spikes were scattered\non the ground all around\fthe opposing team!
-The poison spikes disappeared from\nthe ground around your team!
-The poison spikes disappeared from\nthe ground around the opposing team!
+Poison spikes were scattered\non the ground all around\fyour side!
+Poison spikes were scattered\non the ground all around\fthe opposing side!
+The poison spikes disappeared from\nthe ground around your side!
+The poison spikes disappeared from\nthe ground around the opposing side!
 {STRVAR_1 1, 0, 0} went back\nto {STRVAR_1 3, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} went back\nto {STRVAR_1 3, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} went back\nto {STRVAR_1 3, 1, 0}!
@@ -1075,8 +1075,8 @@ The opposing {STRVAR_1 1, 0, 0} twisted\nthe dimensions!
 The wild {STRVAR_1 1, 0, 0} restored\nthe twisted dimensions!
 The opposing {STRVAR_1 1, 0, 0} restored\nthe twisted dimensions!
 The twisted dimensions returned to\nnormal!
-Pointed stones float in the air\naround your team!
-Pointed stones float in the air\naround the opposing team!
+Pointed stones float in the air\naround your side!
+Pointed stones float in the air\naround the opposing side!
 Pointed stones dug into\n{STRVAR_1 1, 0, 0}!
 Pointed stones dug into\nthe wild {STRVAR_1 1, 0, 0}!
 Pointed stones dug into\nthe opposing {STRVAR_1 1, 0, 0}!
@@ -1228,10 +1228,10 @@ All right! I got its HP down!\nTime to throw a Poké Ball!{YESNO 0}
 OK! Its HP is down!\nIt’s ready for a Poké Ball!{YESNO 0}
 {STRVAR_1 3, 0, 0} used\na Poké Ball!
 {STRVAR_1 1, 0, 0} got over its status\ntrouble!
-The Tailwind blew from behind\nyour team!
-The Tailwind blew from behind\nthe opposing team!
-Your team’s Tailwind\npetered out!
-The opposing team’s Tailwind\npetered out!
+A tailwind started blowing\non your side!
+A tailwind started blowing\non the opposing side!
+Your side’s tailwind\npetered out!
+The opposing side’s tailwind\npetered out!
 But there was no target...
 It failed to affect\n{STRVAR_1 1, 0, 0}!
 It failed to affect\nthe wild {STRVAR_1 1, 0, 0}!
@@ -1280,9 +1280,9 @@ The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nis reacting to the {STRV
 {STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\nhas Mega Evolved into\fMega {STRVAR_1 5, 1, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes the opposing\nteam too nervous to eat Berries!
-The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes\nyour team too nervous to eat Berries!
-The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} makes\nyour team too nervous to eat Berries!
+The opposing side is too nervous to eat Berries!
+Your side is too nervous to eat Berries!
+Your side is too nervous to eat Berries!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade it the {STRVAR_1 15, 2, 0} type!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!
@@ -1512,8 +1512,8 @@ The opposing {STRVAR_1 1, 0, 0}’s\naccuracy was not lowered!
 {STRVAR_1 1, 0, 0}\nsurrounded itself with a veil\fof petals!
 The wild {STRVAR_1 1, 0, 0}\nsurrounded itself with a veil\fof petals!
 The opposing {STRVAR_1 1, 0, 0}\nsurrounded itself with a veil\fof petals!
-A sticky web has been laid out on the\nground around your team!
-A sticky web has been laid out on the\nground around the opposing team!
+A sticky web has been laid out on the\nground on your side!
+A sticky web has been laid out on the\nground on the opposing side!
 {STRVAR_1 1, 0, 0} was caught\nin a sticky web!
 The wild {STRVAR_1 1, 0, 0} was caught\nin a sticky web!
 The opposing {STRVAR_1 1, 0, 0} was caught\nin a sticky web!
@@ -1548,12 +1548,12 @@ The wild {STRVAR_1 1, 0, 0} is going all out\nfor this attack!
 The opposing {STRVAR_1 1, 0, 0} is going all out\nfor this attack!
 Neither Pokémon can run away!
 Tidying up complete!
-The pointed stones disappeared from\naround your team!
-The pointed stones disappeared from\naround the opposing team!
-The spikes disappeared from the ground\naround your team!
-The spikes disappeared from the ground\naround the opposing team!
-The sticky web has disappeared from the\nground around you!
-The sticky web has disappeared from the\nground around the opposing team!
+The pointed stones disappeared from\naround your side!
+The pointed stones disappeared from\naround the opposing side!
+The spikes disappeared from the ground\naround your side!
+The spikes disappeared from the ground\naround the opposing side!
+The sticky web has disappeared from the\nground on your side!
+The sticky web has disappeared from the\nground on the opposing side!
 {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
 The wild {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
 The opposing {STRVAR_1 1, 0, 0} can’t be hit\nby attacks from its ally Pokémon!
@@ -1586,10 +1586,10 @@ Ghost type was added\nto the opposing {STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
 The wild {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
 The opposing {STRVAR_1 1, 0, 0} transformed\ninto the Psychic type!
-Aurora Veil made your team stronger\nagainst physical and special moves!
-Aurora Veil made the opposing team\nstronger against physical and special\fmoves!
-Aurora Veil made your team stronger\nagainst physical and special moves!
-Aurora Veil made the opposing team\nstronger against physical and special\fmoves!
+Aurora Veil made your side stronger\nagainst physical and special moves!
+Aurora Veil made the opposing side\nstronger against physical and special\fmoves!
+Aurora Veil made your side stronger\nagainst physical and special moves!
+Aurora Veil made the opposing side\nstronger against physical and special\fmoves!
 {STRVAR_1 1, 0, 0} picked up\n{STRVAR_1 8, 1, 0}!\fPut it in the bag.
 Some of your party has\npicked up items!\fPut them in the bag.
 {STRVAR_1 1, 0, 0}\ncan’t fall asleep due to a veil\fof sweetness!
@@ -1673,7 +1673,7 @@ It’s not very effective on the opposing\n{STRVAR_1 1, 0, 0}, {STRVAR_1 1, 1, 0
 (Placeholder)
 (Placeholder)
 (Placeholder)
-(Placeholder) 
+(Placeholder)
 A critical hit on {STRVAR_1 1, 0, 0}!
 A critical hit on the wild\n{STRVAR_1 1, 0, 0}!
 A critical hit on the opposing\n{STRVAR_1 1, 0, 0}!

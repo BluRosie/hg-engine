@@ -267,6 +267,7 @@ ClientCommandReset = 0x02259928 | 1;
 BattleWorkPokePartyGet = 0x0223A7F4 | 1;
 PokeParty_GetPokeCount = 0x02074640 | 1;
 Party_GetMonByIndex = 0x02074644 | 1;
+GetBattlerVar = 0x0224EDE0 | 1;
 SideClientNoGet = 0x0224768C | 1;
 BattleWorkClientNoGet = 0x0223AAD8 | 1;
 BattleWorkPartnerClientNoGet = 0x0223AB6C | 1;
