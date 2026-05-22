@@ -11,6 +11,7 @@ from desmume.emulator import DeSmuME, DeSmuME_Memory
 # Settings
 SHOW_VIDEO_OUTPUT = False
 TEST_START_INDEX = 0
+TEST_END_INDEX = 0
 IDLE_TIMEOUT_SECONDS = 1 * 60  # 1 minute
 
 g_EmulatorCommunicationSendHoleAddress = 0x02FFF81C
@@ -39,7 +40,7 @@ class bcolors:
 
 
 has_finished_testing_flag = False
-current_test_case = TEST_START_INDEX
+current_test_case = 0
 return_value = 0
 last_activity_time = time.monotonic()
 
@@ -99,9 +100,11 @@ def get_test_names() -> tuple[list[str], list[str]]:
 def read_communication_hole_value():
     return emu_memory.signed[g_EmulatorCommunicationSendHoleAddress]
 
+def write_communication_hole_value(value: int):
+    emu_memory.write_long(g_EmulatorCommunicationSendHoleAddress, value)
 
 def has_finished_testing() -> bool:
-    return current_test_case == NUMBER_OF_TESTS_TO_RUN
+    return current_test_case == TOTAL_NUMBER_OF_TESTS
 
 
 def callback_function_when_game_put_thing_into_communication_hole(
@@ -139,6 +142,8 @@ def callback_function_when_game_put_thing_into_communication_hole(
             flush=True,
         )
         known_failing_test_case_names.append(test_case_names[current_test_case])
+    else:
+        return
 
     current_test_case += 1
 
@@ -198,16 +203,30 @@ signal.signal(signal.SIGINT, end_test)
 
 test_case_names, skipped_test_case_names = get_test_names()
 
-NUMBER_OF_TESTS_TO_RUN = read_total_tests_from_header()
+TOTAL_NUMBER_OF_TESTS = read_total_tests_from_header()
 
 
 def main():
     args = parser.parse_args()
 
+    global TEST_START_INDEX, TEST_END_INDEX, TOTAL_NUMBER_OF_TESTS
+    TEST_START_INDEX = 0
+    TEST_END_INDEX = TOTAL_NUMBER_OF_TESTS
+    TOTAL_NUMBER_OF_TESTS = TEST_END_INDEX - TEST_START_INDEX + 1
+
+    global test_case_names
+    test_case_names = test_case_names[TEST_START_INDEX:TEST_END_INDEX+1]
+
+
+
     memory.register_write(
         g_EmulatorCommunicationSendHoleAddress,
         callback_function_when_game_put_thing_into_communication_hole,
     )
+
+    global ci
+    if args.continuous_integration:
+        ci = True
 
     emu.open("test.nds")
     emu.backup.import_file("test.sav")
@@ -218,12 +237,13 @@ def main():
         # Create the window for the emulator
         window = emu.create_sdl_window()
 
-    global ci
-    if args.continuous_integration:
-        ci = True
-
     if ci:
         print(f'##[group]{test_case_names[0]}')
+
+    for i in range(120):
+        emu.cycle(False)
+
+    write_communication_hole_value(TEST_START_INDEX + (TEST_END_INDEX + 1 << 16))
 
     # Run the emulation as fast as possible until testing complete
     while not has_finished_testing():
