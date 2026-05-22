@@ -66,6 +66,9 @@ def main() -> None:
     if len(filter_keywords) > 0:
         files = list(filter(lambda x: keywords_in_file(str(x), filter_keywords), files))
 
+    skippedFiles = list(filter(lambda x: keywords_in_file(str(x), ['// SKIP']), files))
+    print(skippedFiles)
+
     for file_path in list(files):
         with open(file_path, "r") as file:
             content = file.read()
@@ -76,7 +79,7 @@ def main() -> None:
             file.write(content)
 
     test_files = [
-        f'#include "../../data/{os.path.relpath(file, data_folder)}"'
+        f'#include "../../data/{os.path.relpath(file, data_folder)}"' if file not in skippedFiles else f'// #include "../../data/{os.path.relpath(file, data_folder)}"'
         for file in sorted(files)
     ]
 
@@ -86,7 +89,7 @@ def main() -> None:
     with open(os.path.join(build_folder, "BattleTests.c"), "w") as file:
         file.write(template.substitute({"tests": tests}))
 
-    write_test_battle_header(len(test_files))
+    write_test_battle_header(len(test_files) - len(skippedFiles))
 
 
 if __name__ == "__main__":
