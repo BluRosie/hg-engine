@@ -104,7 +104,7 @@ def write_communication_hole_value(value: int):
     emu_memory.write_long(g_EmulatorCommunicationSendHoleAddress, value)
 
 def has_finished_testing() -> bool:
-    return current_test_case == TOTAL_NUMBER_OF_TESTS
+    return current_test_case >= TOTAL_NUMBER_OF_TESTS
 
 
 def callback_function_when_game_put_thing_into_communication_hole(
@@ -213,10 +213,10 @@ def main():
     global TEST_START_INDEX, TEST_END_INDEX, TOTAL_NUMBER_OF_TESTS
     TEST_START_INDEX = 0
     TEST_END_INDEX = TOTAL_NUMBER_OF_TESTS
-    TOTAL_NUMBER_OF_TESTS = TEST_END_INDEX - TEST_START_INDEX + 1
+    TOTAL_NUMBER_OF_TESTS = TEST_END_INDEX - TEST_START_INDEX
 
     global test_case_names
-    test_case_names = test_case_names[TEST_START_INDEX:TEST_END_INDEX+1]
+    test_case_names = test_case_names[TEST_START_INDEX:TEST_END_INDEX]
 
 
 
@@ -244,7 +244,7 @@ def main():
     for i in range(120):
         emu.cycle(False)
 
-    write_communication_hole_value(TEST_START_INDEX + (TEST_END_INDEX + 1 << 16))
+    write_communication_hole_value(TEST_START_INDEX + (TEST_END_INDEX << 16))
 
     # Run the emulation as fast as possible until testing complete
     while not has_finished_testing():
