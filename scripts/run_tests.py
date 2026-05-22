@@ -19,6 +19,7 @@ TEST_CASE_FAIL = -2
 TEST_CASE_KNOWN_FAILING = -3
 
 test_case_names: list[str] = list()
+skipped_test_case_names: list[str] = list()
 pass_test_case_names: list[str] = list()
 fail_test_case_names: list[str] = list()
 known_failing_test_case_names: list[str] = list()
@@ -53,9 +54,10 @@ emu_memory = emu.memory
 memory = DeSmuME_Memory(emu)
 
 
-def get_test_names() -> list[str]:
+def get_test_names() -> tuple[list[str], list[str]]:
     build_folder = pathlib.Path(os.path.join(os.getcwd(), "build", "battle_tests"))
     test_case_names: list[str] = list()
+    skipped_test_case_names: list[str] = list()
     with open(os.path.join(build_folder, "BattleTests.c"), "r") as file:
         for line in file:
             match_group = re.match(r'#include "../../data/(.+)"', line)
@@ -73,8 +75,25 @@ def get_test_names() -> list[str]:
                     except:
                         print(f"Error parsing file {test_file_path}!")
                         raise
+            else:
+                match_group = re.match(r'// #include "../../data/(.+)"', line)
+                if match_group:
+                    test_file_path = pathlib.Path(
+                        os.path.join(os.getcwd(), "data", match_group.group(1))
+                    )
+                    with open(test_file_path, "r") as test_file:
+                        try:
+                            test_case_match_group = re.match(
+                                r"// Test: (.+)", test_file.readline().strip()
+                            )
+                            if test_case_match_group:
+                                skipped_test_case_names.append(test_case_match_group.group(1))
+                        except:
+                            print(f"Error parsing file {test_file_path}!")
+                            raise
 
-    return test_case_names
+
+    return (test_case_names, skipped_test_case_names)
 
 
 def read_communication_hole_value():
@@ -152,12 +171,16 @@ def get_test_results() -> str:
     results += "Test results:\n"
     results += f"Number of tests passed: {len(pass_test_case_names)}\n"
     results += f"Tests failed ({len(fail_test_case_names)}):\n"
+    results += f"Tests skipped ({len(skipped_test_case_names)}):\n"
     for failed_item in fail_test_case_names:
         results += f"\t{bcolors.FAIL}{failed_item}{bcolors.ENDC}\n"
     results += f"Tests known failing ({len(known_failing_test_case_names)}):\n"
 
     for known_failing_item in known_failing_test_case_names:
         results += f"\t{bcolors.WARNING}{known_failing_item}{bcolors.ENDC}\n"
+
+    for skipped_item in skipped_test_case_names:
+        results += f"\t{bcolors.WARNING}{skipped_item}{bcolors.ENDC}\n"
 
     return results
 
@@ -197,8 +220,8 @@ def main():
     if args.continuous_integration:
         ci = True
 
-    global test_case_names
-    test_case_names = get_test_names()
+    global test_case_names, skipped_test_case_names
+    test_case_names, skipped_test_case_names = get_test_names()
 
     if ci:
         print(f'##[group]{test_case_names[0]}')
