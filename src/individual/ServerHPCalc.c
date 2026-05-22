@@ -140,8 +140,8 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                     }
                     // debug_printf("\n");
                 }
-                debug_printf("\n");
             }
+            debug_printf("\n");
 #endif
 
             /**
