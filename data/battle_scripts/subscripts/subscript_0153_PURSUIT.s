@@ -5,7 +5,6 @@
 _000:
     Call BATTLE_SUBSCRIPT_PUSH_ATTACKER_AND_DEFENDER
 
-_noMega:
     TryPursuit _end
     TryMegaOrUltraBurstDuringPursuit _noMega
     CallFromVar BSCRIPT_VAR_TEMP_DATA
