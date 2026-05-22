@@ -1308,7 +1308,7 @@ BOOL LONG_CALL BtlCmd_CompareMonDataToValue(struct BattleSystem *battleSystem, s
     u32 battlerId = GrabClientFromBattleScriptParam(battleSystem, ctx, side);
 
     // We changed the ability storage location
-    int var = varId == BATTLE_MON_DATA_ABILITY ? ctx->battlemon[battlerId].ability : GetBattlerVar(ctx, battlerId, varId, NULL);
+    int var = GetBattlerVar(ctx, battlerId, varId, NULL);
 
     // debug_printf("side: %d, varId: %d, cmp: %d, var: %d\n", side, varId, cmp, var);
     switch (opcode) {
