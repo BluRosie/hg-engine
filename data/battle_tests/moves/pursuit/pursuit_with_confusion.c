@@ -1,4 +1,4 @@
-// Test: Pursuit - trigger on hard switch
+// Test: Pursuit - trigger on hard switch, confusion checks
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -108,7 +108,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon became confused!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon is confused!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "withdrew Garchomp!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon is confused!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "s confus!" }, //"snapped out of its confusion" or "is confused"
         },
     },
 #ifndef GET_TEST_CASE_ONLY
