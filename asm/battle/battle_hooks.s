@@ -760,25 +760,11 @@ bx r0
 
 .global GetPokemon_BallBlocked_hook
 GetPokemon_BallBlocked_hook:
-ldr r0, [r4, #8]
-bl ov07_02233ECC
-ldr r0, [r4, #0]
-bl BattleTypeGet
-movs r1, #1
-lsl r1, r1, #0xe // BATTLE_TYPE_TOTEM = 1 << 14
-tst r0, r1 // if (BattleSystem_GetBattleType(data->battleSystem) & BATTLE_TYPE_TOTEM)
-beq _returnTo02247216
-add r0, r4, #0
-bl PrintTotemDodgeMessage
-add sp, #0x158
-pop {r3, r4, r5, r6, r7, pc}
-_returnTo02247216:
-ldr r1, [pc, #0x170]
-add r0, sp, #0x78
-strh r1, [r0, #2]
-movs r1, #0
-strb r1, [r0, #1]
-ldr r0, =0x02247216 | 1
-bx r0
+// no need to preserve original instructions since we are rewriting the case entirely
+mov r0, r4 // data is in r4, move to r0 for positional argument into PrintBallBlockedMessage
+bl PrintBallBlockedMessage // (data, msgData)
+ldr r0, [r4, #0x28] // overwrite r0 with our current state, as it has already been set, to prevent it from getting scrambled.
+ldr r5, = 0x022470CA | 1 // near end of case. r0 and r4 are still in use
+bx r5
 
 .pool

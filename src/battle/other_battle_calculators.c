@@ -4201,12 +4201,21 @@ BOOL LONG_CALL ShouldPreventMonCapture(struct BattleSystem *bsys)
     return BattleTypeGet(bsys) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_TOTEM);
 }
 
-void LONG_CALL PrintTotemDodgeMessage(struct tcb_skill_intp_work *data, MsgData *msgData)
+BOOL LONG_CALL ov07_02232F60(void *ballData, s32 ballAnim_Unused);
+void LONG_CALL ov07_02233ECC(void *ballData);
+
+void LONG_CALL PrintBallBlockedMessage(struct tcb_skill_intp_work *data)
 {
-    BattleMessage msg;
-    msg.id = 0x35D; // It dodged your thrown Poké Ball!\nThis Pokémon can’t be caught!
-    msg.tag = TAG_NONE;
-    data->work[0] = BattleMSG_Print(data->bw, msgData, &msg, BattleWorkConfigMsgSpeedGet(data->bw));
-    data->work[1] = 0x1E;
-    data->seq_no = 28; // STATE_GET_POKEMON_DONE_NO_STEALING
+    if (!ov07_02232F60(data->bms, 2)) // BALL_ANIM_DEFLECT
+    {
+        ov07_02233ECC(data->bms);
+        BattleMessage msg;
+        BOOL isTrainerBattle = BattleTypeGet(data->bw) & BATTLE_TYPE_TRAINER;
+        msg.id = isTrainerBattle ? 0x35B : 0x35D; // It dodged your thrown Poké Ball! This Pokémon can’t be caught!
+        msg.tag = TAG_NONE;
+        data->work[0] = BattleMSG_Print(data->bw, BattleWorkFightMsgGet(data->bw), &msg, BattleWorkConfigMsgSpeedGet(data->bw));
+        data->work[1] = 30;
+        data->seq_no = isTrainerBattle ? 27 : 28; // STATE_GET_POKEMON_DONE_NO_STEALING
+        // debug_printf("Case: %d\n", data->seq_no);
+    }
 }
