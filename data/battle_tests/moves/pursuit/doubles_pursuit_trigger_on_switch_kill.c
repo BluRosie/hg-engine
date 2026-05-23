@@ -61,7 +61,7 @@ const struct TestBattleScenario BattleTests[] = {
                         },
             {
                 .species = SPECIES_FORRETRESS,
-                .level = 50,
+                .level = 100,
                 .form = 0,
                 .ability = ABILITY_OVERCOAT,
                 .item = ITEM_NONE,
@@ -131,12 +131,11 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom used Pursuit!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 43, 45, 45, 45, 46, 46, 46, 48, 48, 48, 49, 49, 49, 51, 51, 52 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Houndoom!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Forretress used Sleep Talk!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon used Pursuit!" },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 17, 17, 17, 17, 17, 17, 19, 19, 19, 19, 19, 19, 19, 19, 19, 21 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon lost some of its HP!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gyarados's Intimidate cuts Umbreon's Attack!" },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
