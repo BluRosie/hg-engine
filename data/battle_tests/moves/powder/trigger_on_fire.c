@@ -81,7 +81,7 @@ const struct TestBattleScenario BattleTests[] = {
         .enemyScript = {
             {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                             { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
@@ -101,9 +101,13 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Golem!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones float in the air around the opposing team!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem lost some of its HP!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Vivillon used Powder!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon is covered in powder!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon used Fire Blast!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "When the flame touched the powder on the Pokémon, it exploded!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Vivillon used Powder!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon used Tackle!" },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 33, 33, 33, 34, 34, 35, 35, 35, 36, 36, 37, 37, 37, 38, 38, 39 } },            
         },
     },
 #ifndef GET_TEST_CASE_ONLY
