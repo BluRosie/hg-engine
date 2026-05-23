@@ -36,7 +36,7 @@
 //#define GUARANTEE_CAPTURES
 
 // Uncomment this when you want to enable all gimmicks while testing
-// #define DEBUG_ENABLE_ALL_GIMMICKS
+//#define DEBUG_ENABLE_ALL_GIMMICKS
 
 // DEBUG_SQRT prints debug information for the gpio sqrt function
 //#define DEBUG_SQRT
