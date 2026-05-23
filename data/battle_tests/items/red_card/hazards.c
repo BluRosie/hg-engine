@@ -127,6 +127,7 @@ const struct TestBattleScenario BattleTests[] = {
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Marshtomp used Bulldoze!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Treecko was dragged out!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Treecko was hurt by the spikes!" },
         },
 }
 ,
