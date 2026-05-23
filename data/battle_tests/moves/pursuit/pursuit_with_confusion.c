@@ -108,7 +108,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon became confused!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon is confused!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "withdrew Garchomp!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "confus!" }, //"snapped out of its confusion" or "is confused"
+            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "confus" }, //"snapped out of its confusion" or "is confused"
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Rival sent out Gyarados!" },
         },
     },
