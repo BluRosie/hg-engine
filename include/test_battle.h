@@ -78,7 +78,8 @@ struct PACKED TestBattleScenario {
     struct Expectations expectations[MAX_EXPECTATIONS];
 
     u8 expectationPassCount;
-    u8 knownFailing;
+    u8 knownFailing : 1;
+    u8 markAsFail : 7;
 };
 
 #define FULL_HP 0

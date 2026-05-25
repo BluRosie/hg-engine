@@ -116,6 +116,7 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
 
 #ifdef DEBUG_BATTLE_SCENARIOS
             // debug_printf("In ServerHPCalc\n");
+            debug_printf("[Move %d     Damage %d%s]", sp->current_move_index, sp->damage, (sp->critical > 1) ? " (crit)" : "");
             struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
             if (scenario != NULL && TestBattle_HasMoreExpectations()) {
 #ifdef DEBUG_DAMAGE_CALC
@@ -130,8 +131,9 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                     && sp->defence_client == scenario->expectations[scenario->expectationPassCount].battlerIDOrPartySlot) {
                     for (int i = 0; i < 16; i++) {
                         // debug_printf("sp->damage: %d, expect: %d\n", sp->damage, scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]);
-                        if (sp->damage == scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]
-                            || sp->damage * -1 == scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]) {
+                        if ((u32)sp->damage == scenario->expectations[scenario->expectationPassCount].expectationValue.hpRecovered[i]
+                            || (u32)(sp->damage * -1) == scenario->expectations[scenario->expectationPassCount].expectationValue.hpTaken[i]) {
+                                debug_printf(" ✅");
                                 scenario->expectationPassCount++;
                                 break;
                         }
@@ -139,6 +141,7 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                     // debug_printf("\n");
                 }
             }
+            debug_printf("\n");
 #endif
 
             /**
