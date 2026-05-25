@@ -20,6 +20,7 @@ _noPursuit:
     WaitMonSelection 
 
 _001:
+    Call BATTLE_SUBSCRIPT_TRY_CLEAR_PRIMAL_WEATHERS
     SwitchAndUpdateMon BATTLER_CATEGORY_SWITCHED_MON
     LoadPartyGaugeGraphics 
     ShowPartyGauge BATTLER_CATEGORY_SWITCHED_MON

@@ -3,7 +3,7 @@
 .data
 
 _000:
-    SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_PENDING
+    SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_DONE
     TryRestoreStatusOnSwitch BATTLER_CATEGORY_SWITCHED_MON, _007
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_STATUS, STATUS_NONE
 
@@ -25,7 +25,6 @@ _020:
     Wait 
 
 _026:
-    SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_DONE
     Call BATTLE_SUBSCRIPT_TRY_CLEAR_PRIMAL_WEATHERS
     SwitchAndUpdateMon BATTLER_CATEGORY_SWITCHED_MON
     LoadPartyGaugeGraphics 

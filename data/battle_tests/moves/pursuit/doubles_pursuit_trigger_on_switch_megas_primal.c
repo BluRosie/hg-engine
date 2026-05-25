@@ -1,4 +1,4 @@
-// Test: Pursuit - trigger both pursuit on hard switch in doubles and mega against Pirmal-Groudon
+// Test: Pursuit - trigger pursuit on hard switch in doubles and mega against Pirmal-Groudon
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -119,7 +119,7 @@ const struct TestBattleScenario BattleTests[] = {
                               { ACTION_NONE, 0 },
                           },
             {
-                { ACTION_SWITCH_SLOT_3, 0 },
+                { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
                 { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -148,10 +148,13 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Groudon’s Primal Reversion! It reverted to its primal state!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The sunlight turned extremely harsh!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "withdrew Groudon!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric used Pursuit!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom’s Houndoominite is reacting to the Key Stone!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom has Mega Evolved into Mega Houndoom!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom used Pursuit!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The harsh sunlight faded." },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gyarados's Intimidate cuts Manectric's Attack!" },
         },
         .knownFailing = TRUE,
