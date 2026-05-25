@@ -94,8 +94,7 @@ const struct TestBattleScenario BattleTests[] = {
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wyrdeer used Tackle!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Throat Spray" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Farigiraf used Hyper Voice!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Throat Spray" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Throat Spray boosted Farigiraf’s Sp. Atk!" },
         },
 }
 ,

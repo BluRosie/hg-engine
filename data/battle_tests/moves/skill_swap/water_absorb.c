@@ -95,11 +95,11 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye used Skill Swap!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye swapped abilities with its target!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye swapped Abilities with its target!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Poliwag used Water Gun!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye restored HP using its Water Absorb!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye’s Water Absorb" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye had its HP restored." },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
