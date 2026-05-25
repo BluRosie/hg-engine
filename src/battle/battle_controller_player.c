@@ -37,6 +37,7 @@ void overrideItemUsage(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
 BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
+
 #ifdef DEBUG_BATTLE_SCENARIOS
     if (!ctx->hasLoadedTerrainOver && ctx->terrainOverlay.type != TERRAIN_NONE && ctx->server_seq_no >= CONTROLLER_COMMAND_SELECTION_SCREEN_INIT &&
         bsys != NULL && bsys->bgConfig != NULL && bsys->bg_area != NULL && bsys->pal_area != NULL) {

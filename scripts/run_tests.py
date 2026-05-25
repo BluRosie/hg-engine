@@ -11,6 +11,7 @@ from desmume.emulator import DeSmuME, DeSmuME_Memory
 # Settings
 SHOW_VIDEO_OUTPUT = False
 TEST_START_INDEX = 0
+TEST_END_INDEX = 0
 IDLE_TIMEOUT_SECONDS = 1 * 60  # 1 minute
 
 g_EmulatorCommunicationSendHoleAddress = 0x02FFF81C
@@ -19,6 +20,7 @@ TEST_CASE_FAIL = -2
 TEST_CASE_KNOWN_FAILING = -3
 
 test_case_names: list[str] = list()
+skipped_test_case_names: list[str] = list()
 pass_test_case_names: list[str] = list()
 fail_test_case_names: list[str] = list()
 known_failing_test_case_names: list[str] = list()
@@ -38,21 +40,25 @@ class bcolors:
 
 
 has_finished_testing_flag = False
-current_test_case = TEST_START_INDEX
+current_test_case = 0
 return_value = 0
 last_activity_time = time.monotonic()
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-v", "--video", action="store_true")
+parser.add_argument("-c", "--continuous_integration", action="store_true")
+
+ci = False
 
 emu = DeSmuME()
 emu_memory = emu.memory
 memory = DeSmuME_Memory(emu)
 
 
-def get_test_names() -> list[str]:
+def get_test_names() -> tuple[list[str], list[str]]:
     build_folder = pathlib.Path(os.path.join(os.getcwd(), "build", "battle_tests"))
     test_case_names: list[str] = list()
+    skipped_test_case_names: list[str] = list()
     with open(os.path.join(build_folder, "BattleTests.c"), "r") as file:
         for line in file:
             match_group = re.match(r'#include "../../data/(.+)"', line)
@@ -70,16 +76,35 @@ def get_test_names() -> list[str]:
                     except:
                         print(f"Error parsing file {test_file_path}!")
                         raise
+            else:
+                match_group = re.match(r'// #include "../../data/(.+)"', line)
+                if match_group:
+                    test_file_path = pathlib.Path(
+                        os.path.join(os.getcwd(), "data", match_group.group(1))
+                    )
+                    with open(test_file_path, "r") as test_file:
+                        try:
+                            test_case_match_group = re.match(
+                                r"// Test: (.+)", test_file.readline().strip()
+                            )
+                            if test_case_match_group:
+                                skipped_test_case_names.append(test_case_match_group.group(1))
+                        except:
+                            print(f"Error parsing file {test_file_path}!")
+                            raise
 
-    return test_case_names
+
+    return (test_case_names, skipped_test_case_names)
 
 
 def read_communication_hole_value():
     return emu_memory.signed[g_EmulatorCommunicationSendHoleAddress]
 
+def write_communication_hole_value(value: int):
+    emu_memory.write_long(g_EmulatorCommunicationSendHoleAddress, value)
 
 def has_finished_testing() -> bool:
-    return current_test_case == NUMBER_OF_TESTS_TO_RUN
+    return current_test_case >= TOTAL_NUMBER_OF_TESTS
 
 
 def callback_function_when_game_put_thing_into_communication_hole(
@@ -117,8 +142,16 @@ def callback_function_when_game_put_thing_into_communication_hole(
             flush=True,
         )
         known_failing_test_case_names.append(test_case_names[current_test_case])
+    else:
+        return
 
     current_test_case += 1
+
+    global ci
+    if ci:
+        print('##[endgroup]')
+        if not has_finished_testing():
+            print(f'##[group]{test_case_names[current_test_case]}')
 
 
 def read_total_tests_from_header() -> int:
@@ -142,13 +175,18 @@ def get_test_results() -> str:
     results: str = "\n\n"
     results += "Test results:\n"
     results += f"Number of tests passed: {len(pass_test_case_names)}\n"
+
     results += f"Tests failed ({len(fail_test_case_names)}):\n"
     for failed_item in fail_test_case_names:
         results += f"\t{bcolors.FAIL}{failed_item}{bcolors.ENDC}\n"
-    results += f"Tests known failing ({len(known_failing_test_case_names)}):\n"
 
+    results += f"Tests known failing ({len(known_failing_test_case_names)}):\n"
     for known_failing_item in known_failing_test_case_names:
         results += f"\t{bcolors.WARNING}{known_failing_item}{bcolors.ENDC}\n"
+
+    results += f"Tests skipped ({len(skipped_test_case_names)}):\n"
+    for skipped_item in skipped_test_case_names:
+        results += f"\t{bcolors.WARNING}{skipped_item}{bcolors.ENDC}\n"
 
     return results
 
@@ -164,16 +202,32 @@ def end_test(signum, frame):
 
 signal.signal(signal.SIGINT, end_test)
 
-NUMBER_OF_TESTS_TO_RUN = read_total_tests_from_header()
+test_case_names, skipped_test_case_names = get_test_names()
+
+TOTAL_NUMBER_OF_TESTS = read_total_tests_from_header()
 
 
 def main():
     args = parser.parse_args()
 
+    global TEST_START_INDEX, TEST_END_INDEX, TOTAL_NUMBER_OF_TESTS
+    TEST_START_INDEX = 0
+    TEST_END_INDEX = TOTAL_NUMBER_OF_TESTS
+    TOTAL_NUMBER_OF_TESTS = TEST_END_INDEX - TEST_START_INDEX
+
+    global test_case_names
+    test_case_names = test_case_names[TEST_START_INDEX:TEST_END_INDEX]
+
+
+
     memory.register_write(
         g_EmulatorCommunicationSendHoleAddress,
         callback_function_when_game_put_thing_into_communication_hole,
     )
+
+    global ci
+    if args.continuous_integration:
+        ci = True
 
     emu.open("test.nds")
     emu.backup.import_file("test.sav")
@@ -184,8 +238,13 @@ def main():
         # Create the window for the emulator
         window = emu.create_sdl_window()
 
-    global test_case_names
-    test_case_names = get_test_names()
+    if ci:
+        print(f'##[group]{test_case_names[0]}')
+
+    for i in range(120):
+        emu.cycle(False)
+
+    write_communication_hole_value(TEST_START_INDEX + (TEST_END_INDEX << 16))
 
     # Run the emulation as fast as possible until testing complete
     while not has_finished_testing():

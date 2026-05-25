@@ -117,11 +117,18 @@ arm9 sMahoganyPostRocketHideout 0210FAB0
 #endif
 
 #ifdef POKEATHLON_SHOP_EXPANSION
-arm9 sPokeathlonShopSunday 0210FA20
-arm9 sPokeathlonShopMonday 0210FA24
-arm9 sPokeathlonShopTuesday 0210FA28
-arm9 sPokeathlonShopWednesday 0210FA2C
-arm9 sPokeathlonShopThursday 0210FA30
-arm9 sPokeathlonShopFriday 0210FA34
-arm9 sPokeathlonShopSaturday 0210FA38
+arm9 sPokeathlonShop_Sunday 0210FA04
+arm9 sPokeathlonShop_Monday 0210FA08
+arm9 sPokeathlonShop_Tuesday 0210FA0C
+arm9 sPokeathlonShop_Wednesday 0210FA10
+arm9 sPokeathlonShop_Thursday 0210FA14
+arm9 sPokeathlonShop_Friday 0210FA18
+arm9 sPokeathlonShop_Saturday 0210FA1C
+arm9 sPokeathlonShop_NatdexSunday 0210FA20
+arm9 sPokeathlonShop_NatdexMonday 0210FA24
+arm9 sPokeathlonShop_NatdexTuesday 0210FA28
+arm9 sPokeathlonShop_NatdexWednesday 0210FA2C
+arm9 sPokeathlonShop_NatdexThursday 0210FA30
+arm9 sPokeathlonShop_NatdexFriday 0210FA34
+arm9 sPokeathlonShop_NatdexSaturday 0210FA38
 #endif

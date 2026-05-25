@@ -105,6 +105,9 @@ def resolve_move_name(move_id: int) -> str:
 
 
 def convert_entry(entry: Dict[str, Any]) -> Dict[str, Any]:
+    if not entry.get("IsPresentInGame"):
+        return {}
+
     sp_id = entry["Info"]["SpeciesNational"]
     form = entry["Info"]["Form"]
     key = resolve_species_name(sp_id, form)

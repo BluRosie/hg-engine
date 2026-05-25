@@ -58,9 +58,6 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
 #ifdef DEBUG_BATTLE_SCENARIOS
 
     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
-    if (scenario == NULL || !TestBattle_HasMoreExpectations()) {
-        return;
-    }
 
     char actualMessage[TEST_BATTLE_MESSAGE_LEN] = { 0 };
     int out = 0;
@@ -74,6 +71,12 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
             actualMessage[out] = '\0';
             i = battleSystem->msgBuffer->size;
             continue;
+        case 0x01AC:
+            character = '?';
+            break;
+        case 0x01A8:
+            character = '$';
+            break;
         case 0x01BE:
             character = '-';
             break;
@@ -134,6 +137,11 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
     }
     actualMessage[out] = '\0';
 
+    if (scenario == NULL || !TestBattle_HasMoreExpectations()) {
+        debug_printf("\n");
+        return;
+    }
+
     enum ExpectationType expectationType = scenario->expectations[scenario->expectationPassCount].expectationType;
     if (expectationType != EXPECTATION_TYPE_MESSAGE
         && expectationType != EXPECTATION_TYPE_MESSAGE_CONTAINS
@@ -178,9 +186,18 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
         }
     }
 
-    if (messageMatch) {
-        debug_printf(" ✅");
+    if (messageMatch && !scenario->markAsFail) {
+        if (expectationType == EXPECTATION_TYPE_MESSAGE) {
+            debug_printf(" ✅");
+        } else {
+            debug_printf(" ✔️");
+        }
         scenario->expectationPassCount++;
+    } else {
+        if ((expectationType == EXPECTATION_TYPE_NOT_MESSAGE || expectationType == EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN) && !scenario->markAsFail) {
+            debug_printf(" ❌");
+            scenario->markAsFail = TRUE;
+        }
     }
     debug_printf("\n");
 #endif // DEBUG_BATTLE_SCENARIOS

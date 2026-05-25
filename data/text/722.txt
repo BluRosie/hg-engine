@@ -309,3 +309,11 @@ Transforms into Terastal Form\nupon entering battle.
 Resists all damage when\nHP is full.
 Reduces effects of weather\nand terrain to zero.
 Poison-inflicting moves\nwill also cause confusion.
+The Pokémon’s contact\nmoves ignore protections.
+Normal-type moves become\nDragon-type and powered up.
+Placeholder
+Placeholder
+All moves act as if\nHarsh Sunlight is active.
+Placeholder
+Placeholder
+Burns the attacker upon\ntaking damage.
