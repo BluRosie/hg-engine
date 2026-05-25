@@ -11,16 +11,16 @@
 
 struct MegaStruct
 {
-    u16 monindex;
-    u16 itemindex:11;
-    u16 form:5;
+    u32 monindex:12;
+    u32 itemindex:12;
+    u32 form:8;
 };
 
 struct MegaStructMove
 {
-    u16 monindex;
-    u16 moveindex:11;
-    u16 form:5;
+    u32 monindex:12;
+    u32 moveindex:12;
+    u32 form:8;
 };
 
 #ifdef MEGA_EVOLUTIONS
@@ -57,8 +57,28 @@ const struct MegaStruct sMegaTable[] =
         .form = 1,
     },
     {
+        .monindex = SPECIES_RAICHU,
+        .itemindex = ITEM_RAICHUNITE_X,
+        .form = 2,
+    },
+    {
+        .monindex = SPECIES_RAICHU,
+        .itemindex = ITEM_RAICHUNITE_Y,
+        .form = 3,
+    },
+    {
+        .monindex = SPECIES_CLEFABLE,
+        .itemindex = ITEM_CLEFABLITE,
+        .form = 1,
+    },
+    {
         .monindex = SPECIES_ALAKAZAM,
         .itemindex = ITEM_ALAKAZITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_VICTREEBEL,
+        .itemindex = ITEM_VICTREEBELITE,
         .form = 1,
     },
     {
@@ -77,6 +97,11 @@ const struct MegaStruct sMegaTable[] =
         .form = 1,
     },
     {
+        .monindex = SPECIES_STARMIE,
+        .itemindex = ITEM_STARMINITE,
+        .form = 1,
+    },
+    {
         .monindex = SPECIES_PINSIR,
         .itemindex = ITEM_PINSIRITE,
         .form = 1,
@@ -92,6 +117,11 @@ const struct MegaStruct sMegaTable[] =
         .form = 1,
     },
     {
+        .monindex = SPECIES_DRAGONITE,
+        .itemindex = ITEM_DRAGONINITE,
+        .form = 1,
+    },
+    {
         .monindex = SPECIES_MEWTWO,
         .itemindex = ITEM_MEWTWONITE_X,
         .form = 1,
@@ -101,6 +131,16 @@ const struct MegaStruct sMegaTable[] =
         .itemindex = ITEM_MEWTWONITE_Y,
         .form = 2,
     }, // y
+    {
+        .monindex = SPECIES_MEGANIUM,
+        .itemindex = ITEM_MEGANIUMITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_FERALIGATR,
+        .itemindex = ITEM_FERALIGITE,
+        .form = 1,
+    },
     {
         .monindex = SPECIES_AMPHAROS,
         .itemindex = ITEM_AMPHAROSITE,
@@ -119,6 +159,11 @@ const struct MegaStruct sMegaTable[] =
     {
         .monindex = SPECIES_HERACROSS,
         .itemindex = ITEM_HERACRONITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_SKARMORY,
+        .itemindex = ITEM_SKARMORITE,
         .form = 1,
     },
     {
@@ -197,9 +242,19 @@ const struct MegaStruct sMegaTable[] =
         .form = 1,
     },
     {
+        .monindex = SPECIES_CHIMECHO,
+        .itemindex = ITEM_CHIMECHITE,
+        .form = 1,
+    },
+    {
         .monindex = SPECIES_ABSOL,
         .itemindex = ITEM_ABSOLITE,
         .form = 1,
+    },
+    {
+        .monindex = SPECIES_ABSOL,
+        .itemindex = ITEM_ABSOLITE_Z,
+        .form = 2,
     },
     {
         .monindex = SPECIES_GLALIE,
@@ -227,6 +282,16 @@ const struct MegaStruct sMegaTable[] =
         .form = 1,
     },
     {
+        .monindex = SPECIES_LATIOS,
+        .itemindex = ITEM_LATIOSITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_STARAPTOR,
+        .itemindex = ITEM_STARAPTITE,
+        .form = 1,
+    },
+    {
         .monindex = SPECIES_LOPUNNY,
         .itemindex = ITEM_LOPUNNITE,
         .form = 1,
@@ -237,9 +302,19 @@ const struct MegaStruct sMegaTable[] =
         .form = 1,
     },
     {
+        .monindex = SPECIES_GARCHOMP,
+        .itemindex = ITEM_GARCHOMPITE_Z,
+        .form = 2,
+    },
+    {
         .monindex = SPECIES_LUCARIO,
         .itemindex = ITEM_LUCARIONITE,
         .form = 1,
+    },
+    {
+        .monindex = SPECIES_LUCARIO,
+        .itemindex = ITEM_LUCARIONITE_Z,
+        .form = 2,
     },
     {
         .monindex = SPECIES_ABOMASNOW,
@@ -252,13 +327,158 @@ const struct MegaStruct sMegaTable[] =
         .form = 1,
     },
     {
+        .monindex = SPECIES_FROSLASS,
+        .itemindex = ITEM_FROSLASSITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_EMBOAR,
+        .itemindex = ITEM_EMBOARITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_EXCADRILL,
+        .itemindex = ITEM_EXCADRITE,
+        .form = 1,
+    },
+    {
         .monindex = SPECIES_AUDINO,
         .itemindex = ITEM_AUDINITE,
         .form = 1,
     },
     {
+        .monindex = SPECIES_SCOLIPEDE,
+        .itemindex = ITEM_SCOLIPITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_SCRAFTY,
+        .itemindex = ITEM_SCRAFTINITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_EELEKTROSS,
+        .itemindex = ITEM_EELEKTROSSITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_CHANDELURE,
+        .itemindex = ITEM_CHANDELURITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_GOLURK,
+        .itemindex = ITEM_GOLURKITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_CHESNAUGHT,
+        .itemindex = ITEM_CHESNAUGHTITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_DELPHOX,
+        .itemindex = ITEM_DELPHOXITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_GRENINJA,
+        .itemindex = ITEM_GRENINJITE,
+        .form = 3,
+    },
+    {
+        .monindex = SPECIES_PYROAR,
+        .itemindex = ITEM_PYROARITE,
+        .form = 2,
+    },
+    {
+        .monindex = SPECIES_FLOETTE,
+        .itemindex = ITEM_FLOETTITE,
+        .form = 6,
+    },
+    {
+        .monindex = SPECIES_MEOWSTIC,
+        .itemindex = ITEM_MEOWSTICITE,
+        .form = 2,
+    },
+    {
+        .monindex = SPECIES_MALAMAR,
+        .itemindex = ITEM_MALAMARITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_BARBARACLE,
+        .itemindex = ITEM_BARBARACITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_DRAGALGE,
+        .itemindex = ITEM_DRAGALGITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_HAWLUCHA,
+        .itemindex = ITEM_HAWLUCHANITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_ZYGARDE,
+        .itemindex = ITEM_ZYGARDITE,
+        .form = 6,
+    },
+    {
         .monindex = SPECIES_DIANCIE,
         .itemindex = ITEM_DIANCITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_CRABOMINABLE,
+        .itemindex = ITEM_CRABOMINITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_GOLISOPOD,
+        .itemindex = ITEM_GOLISOPITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_DRAMPA,
+        .itemindex = ITEM_DRAMPANITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_MAGEARNA,
+        .itemindex = ITEM_MAGEARNITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_ZERAORA,
+        .itemindex = ITEM_ZERAORITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_FALINKS,
+        .itemindex = ITEM_FALINKSITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_SCOVILLAIN,
+        .itemindex = ITEM_SCOVILLAINITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_GLIMMORA,
+        .itemindex = ITEM_GLIMMORANITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_TATSUGIRI,
+        .itemindex = ITEM_TATSUGIRINITE,
+        .form = 1,
+    },
+    {
+        .monindex = SPECIES_BAXCALIBUR,
+        .itemindex = ITEM_BAXCALIBRITE,
         .form = 1,
     },
 };

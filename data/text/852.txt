@@ -727,3 +727,130 @@
 {COLOR 255}copies of the Scarlet Book{COLOR 0}
 {COLOR 255}copies of the Violet Book{COLOR 0}
 {COLOR 255}copies of Briar’s Book{COLOR 0}
+{COLOR 255}Seeds of Mastery{COLOR 0}
+{COLOR 255}Clefablites{COLOR 0}
+{COLOR 255}Victreebelites{COLOR 0}
+{COLOR 255}Starminites{COLOR 0}
+{COLOR 255}Dragoninites{COLOR 0}
+{COLOR 255}Meganiumites{COLOR 0}
+{COLOR 255}Feraligites{COLOR 0}
+{COLOR 255}Skarmorites{COLOR 0}
+{COLOR 255}Froslassites{COLOR 0}
+{COLOR 255}Heatranites{COLOR 0}
+{COLOR 255}Darkranites{COLOR 0}
+{COLOR 255}Emboarites{COLOR 0}
+{COLOR 255}Excadrites{COLOR 0}
+{COLOR 255}Scolipites{COLOR 0}
+{COLOR 255}Scraftinites{COLOR 0}
+{COLOR 255}Eelektrossites{COLOR 0}
+{COLOR 255}Chandelurites{COLOR 0}
+{COLOR 255}Chesnaughtites{COLOR 0}
+{COLOR 255}Delphoxites{COLOR 0}
+{COLOR 255}Greninjites{COLOR 0}
+{COLOR 255}Pyroarites{COLOR 0}
+{COLOR 255}Floettites{COLOR 0}
+{COLOR 255}Malamarites{COLOR 0}
+{COLOR 255}Barbaracites{COLOR 0}
+{COLOR 255}Dragalgites{COLOR 0}
+{COLOR 255}Hawluchanites{COLOR 0}
+{COLOR 255}Zygardites{COLOR 0}
+{COLOR 255}Drampanites{COLOR 0}
+{COLOR 255}Zeraorites{COLOR 0}
+{COLOR 255}Falinksites{COLOR 0}
+{COLOR 255}Key to Room 202{COLOR 0}
+{COLOR 255}Super Lumiose Galettes{COLOR 0}
+{COLOR 255}Lab Key Card A{COLOR 0}
+{COLOR 255}Lab Key Card B{COLOR 0}
+{COLOR 255}Lab Key Card C{COLOR 0}
+???
+???
+{COLOR 255}Pebbles{COLOR 0}
+{COLOR 255}Cherished Rings{COLOR 0}
+{COLOR 255}Autographed Plush{COLOR 0}
+{COLOR 255}Tasty Trash{COLOR 0}
+{COLOR 255}Revitalizing Twig{COLOR 0}
+{COLOR 255}Lida’s Things{COLOR 0}
+{COLOR 255}Lumiosian Butters{COLOR 0}
+{COLOR 255}Nice Buttesr{COLOR 0}
+{COLOR 255}Great Butters{COLOR 0}
+{COLOR 255}Amazing Butters{COLOR 0}
+{COLOR 255}Supreme Butters{COLOR 0}
+{COLOR 255}Hyperspace Butters{COLOR 0}
+{COLOR 255}Hoennian Salts{COLOR 0}
+{COLOR 255}Épice Noires{COLOR 0}
+{COLOR 255}Arbolivia Oils{COLOR 0}
+{COLOR 255}Popping Candies{COLOR 0}
+{COLOR 255}Important Letters{COLOR 0}
+{COLOR 255}Cherished Rings{COLOR 0}
+{COLOR 255}Dirty Scarf{COLOR 0}
+???
+???
+???
+???
+{COLOR 255}Mega Shards{COLOR 0}
+{COLOR 255}Colorful Screws{COLOR 0}
+{COLOR 255}Red Canari Plush{COLOR 0}
+{COLOR 255}Red Canari Plush{COLOR 0}
+{COLOR 255}Red Canari Plush{COLOR 0}
+{COLOR 255}Gold Canari Plush{COLOR 0}
+{COLOR 255}Gold Canari Plush{COLOR 0}
+{COLOR 255}Gold Canari Plush{COLOR 0}
+{COLOR 255}Pink Canari Plush{COLOR 0}
+{COLOR 255}Pink Canari Plush{COLOR 0}
+{COLOR 255}Pink Canari Plush{COLOR 0}
+{COLOR 255}Green Canari Plush{COLOR 0}
+{COLOR 255}Green Canari Plush{COLOR 0}
+{COLOR 255}Green Canari Plush{COLOR 0}
+{COLOR 255}Blue Canari Plush{COLOR 0}
+{COLOR 255}Blue Canari Plush{COLOR 0}
+{COLOR 255}Blue Canari Plush{COLOR 0}
+{COLOR 255}Raichunite Xs{COLOR 0}
+{COLOR 255}Raichunite Ys{COLOR 0}
+{COLOR 255}Chimechites{COLOR 0}
+{COLOR 255}Absolite Zs{COLOR 0}
+{COLOR 255}Staraptites{COLOR 0}
+{COLOR 255}Garchompite Zs{COLOR 0}
+{COLOR 255}Lucarionite Zs{COLOR 0}
+{COLOR 255}Golurkites{COLOR 0}
+{COLOR 255}Meowsticites{COLOR 0}
+{COLOR 255}Crabominites{COLOR 0}
+{COLOR 255}Golisopites{COLOR 0}
+{COLOR 255}Magearnites{COLOR 0}
+{COLOR 255}Scovillainites{COLOR 0}
+{COLOR 255}Baxcalibrites{COLOR 0}
+{COLOR 255}Tatsugirinites{COLOR 0}
+{COLOR 255}Glimmoranites{COLOR 0}
+{COLOR 255}Hyper Cheri Berries{COLOR 0}
+{COLOR 255}Hyper Chesto Berries{COLOR 0}
+{COLOR 255}Hyper Pecha Berries{COLOR 0}
+{COLOR 255}Hyper Rawst Berries{COLOR 0}
+{COLOR 255}Hyper Aspear Berries{COLOR 0}
+{COLOR 255}Hyper Oran Berries{COLOR 0}
+{COLOR 255}Hyper Persim Berries{COLOR 0}
+{COLOR 255}Hyper Lum Berries{COLOR 0}
+{COLOR 255}Hyper Sitrus Berries{COLOR 0}
+{COLOR 255}Hyper Pomeg Berries{COLOR 0}
+{COLOR 255}Hyper Kelpsy Berries{COLOR 0}
+{COLOR 255}Hyper Qualot Berries{COLOR 0}
+{COLOR 255}Hyper Hondew Berries{COLOR 0}
+{COLOR 255}Hyper Grepa Berries{COLOR 0}
+{COLOR 255}Hyper Tamato Berries{COLOR 0}
+{COLOR 255}Hyper Occa Berries{COLOR 0}
+{COLOR 255}Hyper Passho Berries{COLOR 0}
+{COLOR 255}Hyper Wacan Berries{COLOR 0}
+{COLOR 255}Hyper Rindo Berries{COLOR 0}
+{COLOR 255}Hyper Yache Berries{COLOR 0}
+{COLOR 255}Hyper Chople Berries{COLOR 0}
+{COLOR 255}Hyper Kebia Berries{COLOR 0}
+{COLOR 255}Hyper Shuca Berries{COLOR 0}
+{COLOR 255}Hyper Coba Berries{COLOR 0}
+{COLOR 255}Hyper Payapa Berries{COLOR 0}
+{COLOR 255}Hyper Tanga Berries{COLOR 0}
+{COLOR 255}Hyper Charti Berries{COLOR 0}
+{COLOR 255}Hyper Kasib Berries{COLOR 0}
+{COLOR 255}Hyper Haban Berries{COLOR 0}
+{COLOR 255}Hyper Colbur Berries{COLOR 0}
+{COLOR 255}Hyper Babiri Berries{COLOR 0}
+{COLOR 255}Hyper Chilan Berries{COLOR 0}
+{COLOR 255}Hyper Roseli Berries{COLOR 0}
+{COLOR 255}Canari Breads{COLOR 0}

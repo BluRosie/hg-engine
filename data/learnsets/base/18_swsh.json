@@ -43972,24 +43972,12 @@
         "Move": "MOVE_HAMMER_ARM"
       },
       {
-        "Level": 0,
-        "Move": "MOVE_ICICLE_CRASH"
-      },
-      {
         "Level": 1,
         "Move": "MOVE_HAMMER_ARM"
       },
       {
         "Level": 1,
-        "Move": "MOVE_ICICLE_CRASH"
-      },
-      {
-        "Level": 1,
         "Move": "MOVE_EMBER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_POWDER_SNOW"
       },
       {
         "Level": 1,
@@ -44005,19 +43993,11 @@
       },
       {
         "Level": 12,
-        "Move": "MOVE_AVALANCHE"
-      },
-      {
-        "Level": 12,
         "Move": "MOVE_INCINERATE"
       },
       {
         "Level": 16,
         "Move": "MOVE_WORK_UP"
-      },
-      {
-        "Level": 20,
-        "Move": "MOVE_ICE_FANG"
       },
       {
         "Level": 20,
@@ -44032,20 +44012,12 @@
         "Move": "MOVE_FIRE_PUNCH"
       },
       {
-        "Level": 28,
-        "Move": "MOVE_ICE_PUNCH"
-      },
-      {
         "Level": 32,
         "Move": "MOVE_UPROAR"
       },
       {
         "Level": 38,
         "Move": "MOVE_BELLY_DRUM"
-      },
-      {
-        "Level": 44,
-        "Move": "MOVE_BLIZZARD"
       },
       {
         "Level": 44,
@@ -44117,12 +44089,7 @@
       "MOVE_BULLDOZE",
       "MOVE_WORK_UP",
       "MOVE_MYSTICAL_FIRE",
-      "MOVE_BODY_PRESS",
-      "MOVE_ICE_PUNCH",
-      "MOVE_ICE_BEAM",
-      "MOVE_BLIZZARD",
-      "MOVE_AVALANCHE",
-      "MOVE_ICE_FANG"
+      "MOVE_BODY_PRESS"
     ],
     "EggMoves": [
       "MOVE_TAKE_DOWN",

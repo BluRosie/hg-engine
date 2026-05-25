@@ -15,6 +15,9 @@
 
 #define TEST_START_INDEX 0
 
+static u32 gTestEndIndex = TEST_BATTLE_TOTAL_TESTS;
+static BOOL overridden = FALSE;
+
 // Layout:
 //   bits 0-3:   scriptIndex[0] (0-8)
 //   bits 4-7:   scriptIndex[1] (0-8)
@@ -99,6 +102,10 @@ int *g_EmulatorCommunicationSendHole = (int*)0x02FFF81C;
 
 void LONG_CALL SendValueThroughCommunicationSendHole(int value) {
     *g_EmulatorCommunicationSendHole = value;
+}
+
+int LONG_CALL ReadValueThroughCommunicationSendHole() {
+    return *g_EmulatorCommunicationSendHole;
 }
 
 struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario()
@@ -202,7 +209,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
 {
     int testIndex = GetCurrentTestIndex();
     SetTestComplete(FALSE);
-    SetHasMoreTests((testIndex + 1) < TEST_BATTLE_TOTAL_TESTS);
+    SetHasMoreTests((testIndex + 1) < gTestEndIndex);
 
     AllocAndLoadScenario();
     if (sCurrentScenario == NULL) {
@@ -460,6 +467,15 @@ BOOL LONG_CALL TestBattle_IsComplete()
 
 void LONG_CALL TestBattle_QueueNextTest()
 {
+    if (!overridden) {
+        u32 value = ReadValueThroughCommunicationSendHole();
+        u32 currentIndex = value & 0xFFFF;
+        // debug_printf("First test index: %d\n", currentIndex);
+        SetCurrentTestIndex(currentIndex);
+        gTestEndIndex = value >> 16;
+        // debug_printf("Last test index: %d\n", gTestEndIndex - 1);
+        overridden = TRUE;
+    }
     if (IsTestComplete()) {
         SetCurrentTestIndex(GetCurrentTestIndex() + 1);
         SetTestComplete(FALSE);
@@ -604,7 +620,7 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
 }
 
 // send out pokemon in order
-int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys, int battler)
+int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys UNUSED, int battler UNUSED)
 {
     return 6;
 }

@@ -405,8 +405,10 @@
 #define MOVE_EFFECT_LASER_FOCUS                             399
 #define MOVE_EFFECT_GLAIVE_RUSH                             400 
 #define MOVE_EFFECT_THROAT_CHOP                             401
+#define MOVE_EFFECT_FINAL_GAMBIT                            402
+#define MOVE_EFFECT_RECOIL_HALF_MAX_HP                      403
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            401
+#define MAX_BASE_MOVE_EFFECT_NUM                            403
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
