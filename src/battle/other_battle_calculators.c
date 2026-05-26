@@ -4392,7 +4392,7 @@ void LONG_CALL HandleTransform(struct BattleStruct *sp)
     sp->battlemon[sp->attack_client].slow_start_flag = 0;
     sp->battlemon[sp->attack_client].slow_start_end_flag = 0;
     ClearBattleMonFlags(sp, sp->attack_client); // clear extra flags here too
-    sp->battlemon[client_no].imposter_flag = 1;
+    sp->battlemon[sp->attack_client].imposter_flag = 1;
     sp->moveConditionsFlags[sp->attack_client].laserFocusTimer = sp->moveConditionsFlags[sp->defence_client].laserFocusTimer;
 
     for (int num = 0; num < 4; num++) {
