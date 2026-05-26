@@ -15,7 +15,7 @@ def GrabSpeciesDict(speciesDict: dict):
         for line in f:
             if len(line.split()) > 1:
                 test = line.split()[1].strip()
-                if 'SPECIES' in test and not '_START' in test and not '_SPECIES_H' in test and not '_NUM (' in line and not 'MAX_' in test:
+                if 'SPECIES' in test and not '_START' in test and not '_SPECIES_H' in test and not '_NUM (' in line and (not 'MAX_' in test or 'GIGANTAMAX' in test):
                     if dump:
                         speciesDict[speciesEntry] = test
                     else:
@@ -40,8 +40,16 @@ if __name__ == '__main__':
                 elif (" // " in line):
                     suffix = line.split(" // ")[1].strip()
                     SecondarySpeciesGfxDict[prefix + "_" + suffix.upper()] = [int(line.split(".gfx = ")[1].split(",")[0]), prefix, suffix]
-                    print(f"    MON_FOLLOWER_ENTRY({prefix + '_OVERWORLD_' + suffix.upper()}, {line.split('.callback_params = ')[1].split(' }')[0]})")
+                    #print(f"    MON_FOLLOWER_ENTRY({prefix + '_OVERWORLD_' + suffix.upper()}, {line.split('.callback_params = ')[1].split(' }')[0]})")
                     #print(f"{prefix}_{suffix.upper()}: {SecondarySpeciesGfxDict[prefix + '_' + suffix.upper()]}")
+        for entry in SpeciesDict:
+            if not os.path.exists(f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.png"):
+                shutil.copy("data/graphics/sprites/bulbasaur/overworld.png", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.png")
+                shutil.copy("data/graphics/sprites/bulbasaur/overworld.json", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.json")
+                shutil.copy("data/graphics/sprites/bulbasaur/overworld-tsure_poke0.pal", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld-tsure_poke0.pal")
+                shutil.copy("data/graphics/sprites/bulbasaur/overworld-tsure_poke1.pal", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld-tsure_poke1.pal")
+            else:
+                print(f"File data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.png exists.")
 #        for entry in SpeciesToGfxDict:
 #            shutil.copy(f"data/graphics/overworlds/{int(SpeciesToGfxDict[entry]):04}.png", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.png")
 #            shutil.copy(f"data/graphics/overworlds/{int(SpeciesToGfxDict[entry]):04}.json", f"data/graphics/sprites/{entry[len('SPECIES_'):].lower()}/overworld.json")
