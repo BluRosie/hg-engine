@@ -1580,7 +1580,7 @@
     .long \val
     .endm
 
-    .macro DoubleSize arg_0
+    .macro DoubleWeightTotem arg_0
     .long 289
     .long \arg_0
     .endm

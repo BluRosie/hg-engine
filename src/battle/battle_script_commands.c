@@ -127,7 +127,7 @@ BOOL btl_scr_cmd_11D_BatchUpdateHealthBarValue(void *bsys, struct BattleStruct *
 BOOL btl_scr_cmd_11E_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_11F_BatchEffectivenessMessage(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_121_doublesize(void *bw UNUSED, struct BattleStruct *sp);
+BOOL btl_scr_cmd_121_DoubleWeight_Totem(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -456,7 +456,7 @@ const u8 *BattleScrCmdNames[] = {
     "BatchFollowupMessage",
     "BatchEffectivenessMessage",
     "DivideVarByValueRoundUp",
-    "DoubleSize",
+    "DoubleWeightTotem",
     // "YourCustomCommand",
 };
 
@@ -532,7 +532,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x11E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11E_BatchFollowupMessage,
     [0x11F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11F_BatchEffectivenessMessage,
     [0x120 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_120_DivideVarByValueRoundUp,
-    [0x121 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_121_doublesize,
+    [0x121 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_121_DoubleWeight_Totem,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -5347,13 +5347,36 @@ BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ct
     return FALSE;
 }
 
-BOOL btl_scr_cmd_121_doublesize(void *bw UNUSED, struct BattleStruct *sp)
+u16 TotemSpecies[] = 
 {
-    IncrementBattleScriptPtr(sp, 1);
+    SPECIES_RATICATE_ALOLAN_LARGE,
+    SPECIES_MAROWAK_ALOLAN_LARGE,
+    SPECIES_GUMSHOOS_LARGE,
+    SPECIES_VIKAVOLT_LARGE,
+    SPECIES_RIBOMBEE_LARGE,
+    SPECIES_ARAQUANID_LARGE,
+    SPECIES_LURANTIS_LARGE,
+    SPECIES_SALAZZLE_LARGE,
+    SPECIES_TOGEDEMARU_LARGE,
+    SPECIES_MIMIKYU_LARGE,
+    SPECIES_MIMIKYU_BUSTED_LARGE,
+    SPECIES_KOMMO_O_LARGE,
+    // Add custom Totem species to this list to make sure they use the appropriate weight in battle.
+    // Don't bother making a custom species unless you plan for them to be caught.
+};
 
-    s32 battlerID = read_battle_script_param(sp);
-    sp->battlemon[battlerID].weight *= 2;
-    // Height is actually not tracked in any mechanical way for battle, even internally.
-    // sp->battlemon[battlerID].height *= 2;
+BOOL btl_scr_cmd_121_DoubleWeight_Totem(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    s32 battlerID = read_battle_script_param(ctx);
+    for (int i = 0; i < NELEMS(TotemSpecies); i++)
+    {
+        if (ctx->battlemon[battlerID].species == TotemSpecies[i])
+        {
+            return FALSE;
+        }
+    }
+    ctx->battlemon[battlerID].weight *= 2;
     return FALSE;
 }

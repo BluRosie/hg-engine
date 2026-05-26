@@ -52,7 +52,7 @@ _TotemEncounter:
     PrintGlobalMessage 1723, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
     Wait
     WaitButtonABTime 30
-    DoubleSize BATTLER_ENEMY
+    DoubleWeightTotem BATTLER_ENEMY
     // To enable Totem stat boosts for a particular species, use the following code as a template:
     // CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ENEMY, BMON_DATA_SPECIES, SPECIES_GYARADOS, _TotemStatBoost_Gyarados
     GoTo _SendOutPokemonMessage
