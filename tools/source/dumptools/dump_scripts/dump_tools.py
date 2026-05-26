@@ -422,6 +422,7 @@ def parse_inc_file(file_path: str) -> Dict[str, Dict[int, str]]:
                 continue
 
         if not progress and variables:
+            print(variables)
             raise ValueError("Unable to resolve all variable dependencies")
 
     return dict(result)

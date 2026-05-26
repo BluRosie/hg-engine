@@ -1005,7 +1005,7 @@ while (currentScenario != NULL && TestBattle_HasMoreExpectations()) {
         // debug_printf("Checking form\n");
         struct Party *party = SaveData_GetPlayerPartyPtr(SaveBlock2_get());
         struct PartyPokemon partyPokemon = party->members[currentScenario->expectations[currentScenario->expectationPassCount].battlerIDOrPartySlot];
-        int expectedForm = currentScenario->expectations[currentScenario->expectationPassCount].expectationValue.formID;
+        u32 expectedForm = currentScenario->expectations[currentScenario->expectationPassCount].expectationValue.formID;
         // debug_printf("expected form %d\n", expectedForm);
         if (GetMonData(&partyPokemon, MON_DATA_FORM, NULL) == expectedForm) {
             // debug_printf("Form matches expectation\n");
@@ -1174,6 +1174,10 @@ u32 LONG_CALL GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 a
         else if (ability == ABILITY_GALVANIZE)
         {
             typeLocal = TYPE_ELECTRIC;
+        }
+        if (ability == ABILITY_DRAGONIZE)
+        {
+            typeLocal = TYPE_DRAGON;
         }
         else // needs to be for sure initialized
         {

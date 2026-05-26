@@ -253,6 +253,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         attackerItemHeldEffect = HeldItemHoldEffectGet(sp, attacker);
     }
     u32 defenderAbility = GetBattlerAbility(sp, defender);
+    u32 weather = GetWeather(bw, sp, attacker);
 
     u32 damage = 0;
 
@@ -379,33 +380,30 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     // 6.3 Weather Modifier
 
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0) &&
-        (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
-        if (sp->field_condition & WEATHER_RAIN_ANY) {
-            switch (type) {
-                case TYPE_FIRE:
-                    damage = QMul_RoundDown(damage, UQ412__0_5);
-                    break;
-                case TYPE_WATER:
-                    damage = QMul_RoundDown(damage, UQ412__1_5);
-                    break;
-            }
+    if (weather & WEATHER_RAIN_ANY) {
+        switch (type) {
+        case TYPE_FIRE:
+            damage = QMul_RoundDown(damage, UQ412__0_5);
+            break;
+        case TYPE_WATER:
+            damage = QMul_RoundDown(damage, UQ412__1_5);
+            break;
         }
+    }
 
-        if (sp->field_condition & WEATHER_SUNNY_ANY) {
-            switch (type) {
-                case TYPE_FIRE:
-                    damage = QMul_RoundDown(damage, UQ412__1_5);
-                    break;
-                case TYPE_WATER:
-                    // If the current weather is Sunny Day and the user is not holding Utility Umbrella, this move's damage is multiplied by 1.5 instead of halved for being Water type.
-                    if (moveno == MOVE_HYDRO_STEAM && attackerItemHeldEffect != HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN) {
-                        damage = QMul_RoundDown(damage, UQ412__1_5);
-                    } else {
-                        damage = QMul_RoundDown(damage, UQ412__0_5);
-                    }
-                    break;
+    if (weather & WEATHER_SUNNY_ANY) {
+        switch (type) {
+        case TYPE_FIRE:
+            damage = QMul_RoundDown(damage, UQ412__1_5);
+            break;
+        case TYPE_WATER:
+            // If the current weather is Sunny Day and the user is not holding Utility Umbrella, this move's damage is multiplied by 1.5 instead of halved for being Water type.
+            if (moveno == MOVE_HYDRO_STEAM && attackerItemHeldEffect != HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN) {
+                damage = QMul_RoundDown(damage, UQ412__1_5);
+            } else {
+                damage = QMul_RoundDown(damage, UQ412__0_5);
             }
+            break;
         }
     }
 #ifdef DEBUG_DAMAGE_CALC
@@ -923,6 +921,29 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_DAMAGE_CALC
     debug_printf("\n=================\n");
     debug_printf("[CalcBaseDamage] Step 10. Z-move into Protecting Move Modifier\n");
+    debug_printf("[CalcBaseDamage] damage: %d\n", damage);
+#endif
+
+    // Todo Z-Move + Unseen Fist?
+    // Step 10.1 Unseen Fist / Piercing Drill
+    // 0.25x damage into protect
+    if ((FALSE //(attackerAbility == ABILITY_PIERCING_DRILL
+#if UNSEEN_FIST_GENERATION >= GEN_CHAMPIONS
+            || (attackerAbility == ABILITY_UNSEEN_FIST))
+#endif
+            //)
+        && sp->oneTurnFlag[defender].protectFlag) {
+        damage = QMul_RoundDown(damage, UQ412__0_25);
+#ifdef DEBUG_DAMAGE_ROLLS
+        for (int u = 0; u < 16; u++) {
+            predamage[u] = QMul_RoundDown(predamage[u], UQ412__0_25);
+        }
+#endif // DEBUG_DAMAGE_ROLLS
+    }
+
+#ifdef DEBUG_DAMAGE_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcBaseDamage] Step 10.1 Unseen Fist / Piercing Drill\n");
     debug_printf("[CalcBaseDamage] damage: %d\n", damage);
 #endif
 

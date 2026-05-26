@@ -3,11 +3,11 @@
 .data
 
 _000:
-    PrintAttackMessage 
-    Wait 
+    PrintAttackMessage
+    Wait
     WaitButtonABTime 30
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_LOST_FOCUS, _011
-    PrintBufferedMessage 
+    PrintBufferedMessage
     GoTo _179
 
 _011:
@@ -34,11 +34,10 @@ _063:
 
 _069:
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_LEVITATE_IMMUNE, _081
-    // {0} makes Ground moves miss by using {1}!
-    PrintMessage 21, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER
-    //TODO: Add ability popup
+    // Does not go through here anymore
+    AbilityPopup BATTLER_CATEGORY_DEFENDER
     // It doesn’t affect {0}...
-    // PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
+    PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     GoTo _179
 
 _081:
@@ -92,7 +91,7 @@ _175:
     PrintMessage 24, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
 
 _179:
-    Wait 
+    Wait
     WaitButtonABTime 30
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MISS_MESSAGE, _189
     Call BATTLE_SUBSCRIPT_SHOW_PREPARED_MESSAGE
@@ -100,4 +99,4 @@ _179:
 _189:
     UnlockMoveChoice BATTLER_CATEGORY_ATTACKER
     Call BATTLE_SUBSCRIPT_CRASH_ON_MISS
-    End 
+    End

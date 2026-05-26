@@ -1,4 +1,6 @@
-// Test: Hadron Engine shows a different message when Electric Terrain is up
+// Test: Hadron Engine shows a different message when Electric Terrain is ups
+#include "../../battle_tests.h"
+BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
@@ -94,4 +96,5 @@
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Miraidon used the Electric Terrain to energize its futuristic engine!" },
     }
-},
+}
+END_TEST

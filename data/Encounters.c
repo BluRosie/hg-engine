@@ -4,7 +4,8 @@
 
 u32 __size = sizeof(EncounterData);
 
-const EncounterData __data[] = {
+const EncounterData __data[] =
+{
     [ENCDATA_T20_NEW_BARK_TOWN] = {
         .encounterRate_walking = 0,
         .encounterRate_surfing = 15,
@@ -15,7 +16,8 @@ const EncounterData __data[] = {
         .dummy = { 0, 0 },
         .landSlots = {
             .levels = {
-                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -114,7 +116,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 2, 3, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4 },
+            .levels = {
+                2, 3, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4
+            },
             .species_morn = {
                 SPECIES_PIDGEY,
                 SPECIES_SENTRET,
@@ -213,7 +217,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -312,7 +318,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 2, 3, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4 },
+            .levels = {
+                2, 3, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4
+            },
             .species_morn = {
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
@@ -411,7 +419,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 3, 4, 3, 4, 3, 3, 5, 5, 5, 5, 5, 5 },
+            .levels = {
+                3, 4, 3, 4, 3, 3, 5, 5, 5, 5, 5, 5
+            },
             .species_morn = {
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
@@ -510,7 +520,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -609,7 +621,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 3, 4, 3, 4, 5, 5, 3, 3, 6, 5, 6, 5 },
+            .levels = {
+                3, 4, 3, 4, 5, 5, 3, 3, 6, 5, 6, 5
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -708,7 +722,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 3, 4, 3, 4, 5, 5, 3, 3, 6, 5, 6, 5 },
+            .levels = {
+                3, 4, 3, 4, 5, 5, 3, 3, 6, 5, 6, 5
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -807,7 +823,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 6, 4, 6, 4, 6, 6, 6, 6, 6, 4, 6, 4 },
+            .levels = {
+                6, 4, 6, 4, 6, 6, 6, 6, 6, 4, 6, 4
+            },
             .species_morn = {
                 SPECIES_BELLSPROUT,
                 SPECIES_RATTATA,
@@ -906,7 +924,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 20, 22, 20, 22, 18, 18, 24, 24, 20, 22, 20, 22 },
+            .levels = {
+                20, 22, 20, 22, 18, 18, 24, 24, 20, 22, 20, 22
+            },
             .species_morn = {
                 SPECIES_NATU,
                 SPECIES_NATU,
@@ -1005,7 +1025,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 },
+            .levels = {
+                5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
+            },
             .species_morn = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1104,7 +1126,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 },
+            .levels = {
+                5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
+            },
             .species_morn = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1203,7 +1227,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 },
+            .levels = {
+                5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
+            },
             .species_morn = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1302,7 +1328,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 },
+            .levels = {
+                5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
+            },
             .species_morn = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1401,7 +1429,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 6, 6, 6, 6, 5, 5, 4, 4, 7, 6, 7, 6 },
+            .levels = {
+                6, 6, 6, 6, 5, 5, 4, 4, 7, 6, 7, 6
+            },
             .species_morn = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
@@ -1500,7 +1530,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 8, 8, 8, 8, 7, 7, 8, 8, 9, 6, 9, 6 },
+            .levels = {
+                8, 8, 8, 8, 7, 7, 8, 8, 9, 6, 9, 6
+            },
             .species_morn = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
@@ -1599,7 +1631,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 22, 22, 22, 22, 22, 22, 21, 21, 20, 23, 20, 23 },
+            .levels = {
+                22, 22, 22, 22, 22, 22, 21, 21, 20, 23, 20, 23
+            },
             .species_morn = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
@@ -1698,7 +1732,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 6, 7, 6, 7, 6, 6, 6, 6, 8, 4, 8, 4 },
+            .levels = {
+                6, 7, 6, 7, 6, 6, 6, 6, 8, 4, 8, 4
+            },
             .species_morn = {
                 SPECIES_HOPPIP,
                 SPECIES_RATTATA,
@@ -1797,7 +1833,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 5, 6, 5, 6, 7, 7, 6, 6, 8, 8, 8, 8 },
+            .levels = {
+                5, 6, 5, 6, 7, 7, 6, 6, 8, 8, 8, 8
+            },
             .species_morn = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1896,7 +1934,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 21, 23, 21, 23, 19, 19, 21, 21, 23, 23, 23, 23 },
+            .levels = {
+                21, 23, 21, 23, 19, 19, 21, 21, 23, 23, 23, 23
+            },
             .species_morn = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1995,7 +2035,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 5, 6, 5, 6, 6, 6, 5, 5, 5, 6, 5, 6 },
+            .levels = {
+                5, 6, 5, 6, 6, 6, 5, 5, 5, 6, 5, 6
+            },
             .species_morn = {
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
@@ -2094,7 +2136,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 10, 11, 10, 11, 12, 12, 10, 10, 13, 10, 13, 10 },
+            .levels = {
+                10, 11, 10, 11, 12, 12, 10, 10, 13, 10, 13, 10
+            },
             .species_morn = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
@@ -2193,7 +2237,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 12, 12, 12, 12, 14, 14, 10, 10, 14, 10, 14, 12 },
+            .levels = {
+                12, 12, 12, 12, 14, 14, 10, 10, 14, 10, 14, 12
+            },
             .species_morn = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
@@ -2292,7 +2338,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 10, 10, 10, 10, 12, 12, 12, 12, 10, 14, 10, 14 },
+            .levels = {
+                10, 10, 10, 10, 12, 12, 12, 12, 10, 14, 10, 14
+            },
             .species_morn = {
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
@@ -2391,7 +2439,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 10, 10, 10, 10, 12, 12, 12, 12, 10, 14, 10, 14 },
+            .levels = {
+                10, 10, 10, 10, 12, 12, 12, 12, 10, 14, 10, 14
+            },
             .species_morn = {
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
@@ -2490,7 +2540,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 12, 12, 12, 12, 13, 13, 13, 13, 13, 15, 13, 15 },
+            .levels = {
+                12, 12, 12, 12, 13, 13, 13, 13, 13, 15, 13, 15
+            },
             .species_morn = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
@@ -2589,7 +2641,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 13, 15, 13, 15, 15, 15, 14, 14, 15, 15, 15, 15 },
+            .levels = {
+                13, 15, 13, 15, 15, 15, 14, 14, 15, 15, 15, 15
+            },
             .species_morn = {
                 SPECIES_PIDGEY,
                 SPECIES_STANTLER,
@@ -2688,7 +2742,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -2787,7 +2843,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 13, 14, 13, 14, 15, 15, 14, 14, 16, 15, 16, 15 },
+            .levels = {
+                13, 14, 13, 14, 15, 15, 14, 14, 16, 15, 16, 15
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
@@ -2886,7 +2944,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 14, 14, 14, 14, 16, 16, 16, 16, 15, 14, 15, 14 },
+            .levels = {
+                14, 14, 14, 14, 16, 16, 16, 16, 15, 14, 15, 14
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
@@ -2985,7 +3045,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3084,7 +3146,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3183,7 +3247,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3282,7 +3348,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3381,7 +3449,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3480,7 +3550,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3579,7 +3651,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3678,7 +3752,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3777,7 +3853,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 16, 16, 16, 16, 16, 16, 16, 16, 13, 13, 13, 13 },
+            .levels = {
+                16, 16, 16, 16, 16, 16, 16, 16, 13, 13, 13, 13
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
@@ -3876,7 +3954,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 16, 17, 16, 17, 16, 16, 16, 16, 15, 15, 15, 15 },
+            .levels = {
+                16, 17, 16, 17, 16, 16, 16, 16, 15, 15, 15, 15
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
@@ -3975,7 +4055,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4074,7 +4156,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4173,7 +4257,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4272,7 +4358,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
@@ -4371,7 +4459,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
@@ -4470,7 +4560,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4569,7 +4661,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
@@ -4668,7 +4762,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4767,7 +4863,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 23, 24, 23, 24, 25, 25, 23, 23, 24, 25, 24, 25 },
+            .levels = {
+                23, 24, 23, 24, 25, 25, 23, 23, 24, 25, 24, 25
+            },
             .species_morn = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
@@ -4866,7 +4964,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4965,7 +5065,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5064,7 +5166,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5163,7 +5267,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 15, 13, 15, 13, 14, 14, 16, 16, 15, 17, 15, 17 },
+            .levels = {
+                15, 13, 15, 13, 14, 14, 16, 16, 15, 17, 15, 17
+            },
             .species_morn = {
                 SPECIES_MANKEY,
                 SPECIES_MAREEP,
@@ -5262,7 +5368,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 13, 15, 13, 15, 14, 14, 14, 14, 14, 16, 14, 15 },
+            .levels = {
+                13, 15, 13, 15, 14, 14, 14, 14, 14, 16, 14, 15
+            },
             .species_morn = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5361,7 +5469,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 13, 13, 13, 13, 15, 15, 14, 14, 15, 14, 15, 14 },
+            .levels = {
+                13, 13, 13, 13, 15, 15, 14, 14, 15, 14, 15, 14
+            },
             .species_morn = {
                 SPECIES_GEODUDE,
                 SPECIES_MACHOP,
@@ -5460,7 +5570,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 31, 32, 31, 32, 31, 31, 30, 30, 28, 30, 28, 30 },
+            .levels = {
+                31, 32, 31, 32, 31, 31, 30, 30, 28, 30, 28, 30
+            },
             .species_morn = {
                 SPECIES_GRAVELER,
                 SPECIES_MACHOKE,
@@ -5559,7 +5671,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 15, 17, 15, 17, 16, 16, 16, 16, 16, 16, 16, 16 },
+            .levels = {
+                15, 17, 15, 17, 16, 16, 16, 16, 16, 16, 16, 16
+            },
             .species_morn = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5658,7 +5772,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 15, 15, 15, 15, 17, 17, 15, 15, 16, 17, 16, 17 },
+            .levels = {
+                15, 15, 15, 15, 17, 17, 15, 15, 16, 17, 16, 17
+            },
             .species_morn = {
                 SPECIES_FLAAFFY,
                 SPECIES_GIRAFARIG,
@@ -5757,7 +5873,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5856,7 +5974,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 23, 22, 23, 22, 22, 22, 24, 24, 24, 26, 24, 26 },
+            .levels = {
+                23, 22, 23, 22, 22, 22, 24, 24, 24, 26, 24, 26
+            },
             .species_morn = {
                 SPECIES_TANGELA,
                 SPECIES_WEEPINBELL,
@@ -5955,7 +6075,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22 },
+            .levels = {
+                21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22
+            },
             .species_morn = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
@@ -6054,7 +6176,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22 },
+            .levels = {
+                21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22
+            },
             .species_morn = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
@@ -6153,7 +6277,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23 },
+            .levels = {
+                22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
+            },
             .species_morn = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
@@ -6252,7 +6378,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23 },
+            .levels = {
+                22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
+            },
             .species_morn = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
@@ -6351,7 +6479,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6450,7 +6580,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6549,7 +6681,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6648,7 +6782,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 23, 23, 23, 23, 24, 24, 20, 20, 25, 27, 25, 27 },
+            .levels = {
+                23, 23, 23, 23, 24, 24, 20, 20, 25, 27, 25, 27
+            },
             .species_morn = {
                 SPECIES_GEODUDE,
                 SPECIES_GRAVELER,
@@ -6747,7 +6883,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 3, 2, 3, 2, 2, 2, 2, 2, 3, 4, 3, 4 },
+            .levels = {
+                3, 2, 3, 2, 2, 2, 2, 2, 3, 4, 3, 4
+            },
             .species_morn = {
                 SPECIES_GEODUDE,
                 SPECIES_SPEAROW,
@@ -6846,7 +6984,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 3, 2, 3, 2, 2, 2, 4, 4, 3, 4, 3, 4 },
+            .levels = {
+                3, 2, 3, 2, 2, 2, 4, 4, 3, 4, 3, 4
+            },
             .species_morn = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -6945,7 +7085,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 23, 23, 23, 23, 25, 25, 20, 20, 25, 23, 25, 23 },
+            .levels = {
+                23, 23, 23, 23, 25, 25, 20, 20, 25, 23, 25, 23
+            },
             .species_morn = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -7044,7 +7186,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 35, 35, 34, 33, 32, 31, 32, 31, 34, 31, 33, 40 },
+            .levels = {
+                35, 35, 34, 33, 32, 31, 32, 31, 34, 31, 33, 40
+            },
             .species_morn = {
                 SPECIES_FARFETCHD,
                 SPECIES_MILTANK,
@@ -7143,7 +7287,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7242,7 +7388,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7341,7 +7489,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 28, 32, 28, 29, 30, 32, 27, 26, 27, 26, 27, 26 },
+            .levels = {
+                28, 32, 28, 29, 30, 32, 27, 26, 27, 26, 27, 26
+            },
             .species_morn = {
                 SPECIES_ZUBAT,
                 SPECIES_GOLBAT,
@@ -7440,7 +7590,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 32, 34, 28, 34, 32, 34, 29, 28, 32, 28, 27, 26 },
+            .levels = {
+                32, 34, 28, 34, 32, 34, 29, 28, 32, 28, 27, 26
+            },
             .species_morn = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
@@ -7539,7 +7691,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 33, 35, 30, 35, 33, 35, 30, 29, 33, 29, 28, 27 },
+            .levels = {
+                33, 35, 30, 35, 33, 35, 30, 29, 33, 29, 28, 27
+            },
             .species_morn = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
@@ -7638,7 +7792,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 35, 36, 32, 34, 34, 36, 32, 31, 34, 36, 32, 31 },
+            .levels = {
+                35, 36, 32, 34, 34, 36, 32, 31, 34, 36, 32, 31
+            },
             .species_morn = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
@@ -7737,7 +7893,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 37, 40, 34, 34, 38, 38, 39, 38, 37, 38, 40, 40 },
+            .levels = {
+                37, 40, 34, 34, 38, 38, 39, 38, 37, 38, 40, 40
+            },
             .species_morn = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
@@ -7836,7 +7994,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 45, 48, 45, 48, 48, 47, 45, 45, 48, 20, 48, 15 },
+            .levels = {
+                45, 48, 45, 48, 48, 47, 45, 45, 48, 20, 48, 15
+            },
             .species_morn = {
                 SPECIES_QUAGSIRE,
                 SPECIES_STEELIX,
@@ -7935,7 +8095,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 45, 48, 46, 48, 48, 50, 45, 45, 48, 20, 48, 15 },
+            .levels = {
+                45, 48, 46, 48, 48, 50, 45, 45, 48, 20, 48, 15
+            },
             .species_morn = {
                 SPECIES_QUAGSIRE,
                 SPECIES_SNEASEL,
@@ -8034,7 +8196,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 50, 48, 45, 48, 47, 47, 45, 45, 48, 20, 48, 15 },
+            .levels = {
+                50, 48, 45, 48, 47, 47, 45, 45, 48, 20, 48, 15
+            },
             .species_morn = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
@@ -8133,7 +8297,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -8232,7 +8398,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 22, 19, 20, 22, 19, 20, 18, 20, 20, 22, 23, 23 },
+            .levels = {
+                22, 19, 20, 22, 19, 20, 18, 20, 20, 22, 23, 23
+            },
             .species_morn = {
                 SPECIES_GOLBAT,
                 SPECIES_GEODUDE,
@@ -8331,7 +8499,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24 },
+            .levels = {
+                20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -8430,7 +8600,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 41, 42, 41, 42, 42, 42, 44, 44, 41, 43, 41, 43 },
+            .levels = {
+                41, 42, 41, 42, 42, 42, 44, 44, 41, 43, 41, 43
+            },
             .species_morn = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
@@ -8529,7 +8701,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 42, 44, 42, 44, 43, 43, 42, 41, 45, 20, 45, 15 },
+            .levels = {
+                42, 44, 42, 44, 43, 43, 42, 41, 45, 20, 45, 15
+            },
             .species_morn = {
                 SPECIES_ONIX,
                 SPECIES_DONPHAN,
@@ -8628,7 +8802,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 51, 48, 51, 48, 48, 48, 50, 50, 51, 20, 51, 15 },
+            .levels = {
+                51, 48, 51, 48, 48, 48, 50, 50, 51, 20, 51, 15
+            },
             .species_morn = {
                 SPECIES_GOLBAT,
                 SPECIES_ONIX,
@@ -8727,7 +8903,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 45, 48, 45, 46, 48, 47, 45, 45, 48, 20, 48, 15 },
+            .levels = {
+                45, 48, 45, 46, 48, 47, 45, 45, 48, 20, 48, 15
+            },
             .species_morn = {
                 SPECIES_QUAGSIRE,
                 SPECIES_GOLDUCK,
@@ -8826,7 +9004,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 45, 48, 45, 48, 47, 47, 30, 45, 48, 20, 48, 15 },
+            .levels = {
+                45, 48, 45, 48, 47, 47, 30, 45, 48, 20, 48, 15
+            },
             .species_morn = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
@@ -8925,7 +9105,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9024,7 +9206,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 100,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20 },
+            .levels = {
+                20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -9123,7 +9307,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9222,7 +9408,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9321,7 +9509,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9420,7 +9610,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9519,7 +9711,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9618,7 +9812,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9717,7 +9913,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9816,7 +10014,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9915,7 +10115,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10014,7 +10216,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10113,7 +10317,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 25, 20, 20, 21, 22, 24, 21, 20, 20, 22, 22, 24 },
+            .levels = {
+                25, 20, 20, 21, 22, 24, 21, 20, 20, 22, 22, 24
+            },
             .species_morn = {
                 SPECIES_FARFETCHD,
                 SPECIES_TAUROS,
@@ -10212,7 +10418,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 28, 28, 28, 28, 32, 32, 30, 30, 30, 30, 30, 30 },
+            .levels = {
+                28, 28, 28, 28, 32, 32, 30, 30, 30, 30, 30, 30
+            },
             .species_morn = {
                 SPECIES_DODUO,
                 SPECIES_SANDSLASH,
@@ -10311,7 +10519,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 28, 28, 28, 28, 30, 30, 30, 30, 32, 30, 32, 30 },
+            .levels = {
+                28, 28, 28, 28, 30, 30, 30, 30, 32, 30, 32, 30
+            },
             .species_morn = {
                 SPECIES_DODUO,
                 SPECIES_RATICATE,
@@ -10410,7 +10620,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 39, 40, 39, 40, 40, 40, 42, 42, 41, 43, 41, 43 },
+            .levels = {
+                39, 40, 39, 40, 40, 40, 42, 42, 41, 43, 41, 43
+            },
             .species_morn = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
@@ -10509,7 +10721,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 6, 8, 6, 8, 8, 8, 12, 12, 10, 8, 10, 8 },
+            .levels = {
+                6, 8, 6, 8, 8, 8, 12, 12, 10, 8, 10, 8
+            },
             .species_morn = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -10608,7 +10822,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 6, 8, 6, 8, 8, 8, 12, 12, 10, 8, 10, 8 },
+            .levels = {
+                6, 8, 6, 8, 8, 8, 12, 12, 10, 8, 10, 8
+            },
             .species_morn = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -10707,7 +10923,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 10, 10, 10, 10, 12, 12, 8, 8, 14, 13, 14, 13 },
+            .levels = {
+                10, 10, 10, 10, 12, 12, 8, 8, 14, 13, 14, 13
+            },
             .species_morn = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
@@ -10806,7 +11024,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 12, 12, 12, 12, 16, 16, 10, 10, 14, 14, 14, 14 },
+            .levels = {
+                12, 12, 12, 12, 16, 16, 10, 10, 14, 14, 14, 14
+            },
             .species_morn = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
@@ -10905,7 +11125,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35 },
+            .levels = {
+                32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
+            },
             .species_morn = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
@@ -11004,7 +11226,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 2, 2, 2, 2, 3, 3, 3, 3, 6, 4, 6, 4 },
+            .levels = {
+                2, 2, 2, 2, 3, 3, 3, 3, 6, 4, 6, 4
+            },
             .species_morn = {
                 SPECIES_PIDGEY,
                 SPECIES_RATTATA,
@@ -11103,7 +11327,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 3, 3, 3, 3, 5, 5, 7, 8, 7, 10, 7, 4 },
+            .levels = {
+                3, 3, 3, 3, 5, 5, 7, 8, 7, 10, 7, 4
+            },
             .species_morn = {
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
@@ -11202,7 +11428,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 5, 5, 5, 5, 8, 8, 6, 6, 10, 8, 10, 8 },
+            .levels = {
+                5, 5, 5, 5, 8, 8, 6, 6, 10, 8, 10, 8
+            },
             .species_morn = {
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
@@ -11301,7 +11529,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 5, 5, 5, 5, 8, 8, 6, 6, 10, 8, 10, 8 },
+            .levels = {
+                5, 5, 5, 5, 8, 8, 6, 6, 10, 8, 10, 8
+            },
             .species_morn = {
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
@@ -11400,7 +11630,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 13, 13, 13, 13, 14, 14, 15, 15, 12, 14, 12, 14 },
+            .levels = {
+                13, 13, 13, 13, 14, 14, 15, 15, 12, 14, 12, 14
+            },
             .species_morn = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
@@ -11499,7 +11731,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 13, 13, 13, 13, 14, 14, 15, 15, 12, 14, 12, 14 },
+            .levels = {
+                13, 13, 13, 13, 14, 14, 15, 15, 12, 14, 12, 14
+            },
             .species_morn = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
@@ -11598,7 +11832,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 17, 17, 17, 17, 18, 18, 19, 19, 19, 15, 19, 15 },
+            .levels = {
+                17, 17, 17, 17, 18, 18, 19, 19, 19, 15, 19, 15
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
@@ -11697,7 +11933,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 17, 19, 17, 19, 15, 15, 18, 18, 17, 15, 17, 15 },
+            .levels = {
+                17, 19, 17, 19, 15, 15, 18, 18, 17, 15, 17, 15
+            },
             .species_morn = {
                 SPECIES_PIDGEOTTO,
                 SPECIES_PIDGEOTTO,
@@ -11796,7 +12034,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 13, 15, 13, 15, 13, 13, 15, 15, 15, 15, 15, 15 },
+            .levels = {
+                13, 15, 13, 15, 13, 13, 15, 15, 15, 15, 15, 15
+            },
             .species_morn = {
                 SPECIES_MANKEY,
                 SPECIES_RATTATA,
@@ -11895,7 +12135,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 16, 17, 16, 17, 16, 16, 18, 18, 18, 15, 18, 15 },
+            .levels = {
+                16, 17, 16, 17, 16, 16, 18, 18, 18, 15, 18, 15
+            },
             .species_morn = {
                 SPECIES_SPEAROW,
                 SPECIES_VOLTORB,
@@ -11994,7 +12236,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 14, 15, 14, 15, 15, 15, 16, 16, 16, 16, 16, 16 },
+            .levels = {
+                14, 15, 14, 15, 15, 15, 16, 16, 16, 16, 16, 16
+            },
             .species_morn = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
@@ -12093,7 +12337,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 23, 23, 23, 23, 25, 25, 22, 22, 24, 24, 24, 25 },
+            .levels = {
+                23, 23, 23, 23, 25, 25, 22, 22, 24, 24, 24, 25
+            },
             .species_morn = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
@@ -12192,7 +12438,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 23, 23, 23, 23, 25, 25, 24, 24, 26, 26, 26, 25 },
+            .levels = {
+                23, 23, 23, 23, 25, 25, 24, 24, 26, 26, 26, 25
+            },
             .species_morn = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
@@ -12291,7 +12539,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 23, 23, 23, 23, 25, 25, 22, 22, 24, 24, 24, 25 },
+            .levels = {
+                23, 23, 23, 23, 25, 25, 22, 22, 24, 24, 24, 25
+            },
             .species_morn = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
@@ -12390,7 +12640,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 26, 27, 26, 27, 28, 28, 29, 29, 27, 30, 27, 30 },
+            .levels = {
+                26, 27, 26, 27, 28, 28, 29, 29, 27, 30, 27, 30
+            },
             .species_morn = {
                 SPECIES_GRIMER,
                 SPECIES_FEAROW,
@@ -12489,7 +12741,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 28, 27, 28, 27, 29, 29, 30, 30, 29, 32, 29, 32 },
+            .levels = {
+                28, 27, 28, 27, 29, 29, 30, 30, 29, 32, 29, 32
+            },
             .species_morn = {
                 SPECIES_FEAROW,
                 SPECIES_GRIMER,
@@ -12588,7 +12842,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 26, 27, 26, 27, 28, 28, 29, 29, 27, 30, 27, 30 },
+            .levels = {
+                26, 27, 26, 27, 28, 28, 29, 29, 27, 30, 27, 30
+            },
             .species_morn = {
                 SPECIES_GRIMER,
                 SPECIES_FEAROW,
@@ -12687,7 +12943,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 30, 25, 30, 25, 35, 35, 20, 20, 30, 28, 30, 28 },
+            .levels = {
+                30, 25, 30, 25, 35, 35, 20, 20, 30, 28, 30, 28
+            },
             .species_morn = {
                 SPECIES_TANGELA,
                 SPECIES_TANGELA,
@@ -12786,7 +13044,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 3, 3, 3, 3, 5, 5, 4, 4, 6, 7, 6, 7 },
+            .levels = {
+                3, 3, 3, 3, 5, 5, 4, 4, 6, 7, 6, 7
+            },
             .species_morn = {
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
@@ -12885,7 +13145,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 8, 10, 8, 10, 9, 9, 12, 12, 8, 14, 8, 14 },
+            .levels = {
+                8, 10, 8, 10, 9, 9, 12, 12, 8, 14, 8, 14
+            },
             .species_morn = {
                 SPECIES_BELLSPROUT,
                 SPECIES_BELLSPROUT,
@@ -12984,7 +13246,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 8, 10, 8, 10, 8, 8, 9, 9, 10, 14, 10, 14 },
+            .levels = {
+                8, 10, 8, 10, 8, 8, 9, 9, 10, 14, 10, 14
+            },
             .species_morn = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
@@ -13083,7 +13347,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 22, 22, 22, 22, 22, 22, 21, 21, 20, 23, 20, 23 },
+            .levels = {
+                22, 22, 22, 22, 22, 22, 21, 21, 20, 23, 20, 23
+            },
             .species_morn = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
@@ -13182,7 +13448,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 15, 17, 15, 17, 19, 19, 13, 13, 19, 24, 19, 29 },
+            .levels = {
+                15, 17, 15, 17, 19, 19, 13, 13, 19, 24, 19, 29
+            },
             .species_morn = {
                 SPECIES_DIGLETT,
                 SPECIES_DIGLETT,
@@ -13281,7 +13549,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35 },
+            .levels = {
+                32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
+            },
             .species_morn = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
@@ -13380,7 +13650,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35 },
+            .levels = {
+                32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
+            },
             .species_morn = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
@@ -13479,7 +13751,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 3, 3, 3, 3, 5, 5, 7, 8, 7, 10, 7, 4 },
+            .levels = {
+                3, 3, 3, 3, 5, 5, 7, 8, 7, 10, 7, 4
+            },
             .species_morn = {
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
@@ -13578,7 +13852,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 3, 3, 3, 3, 5, 5, 7, 7, 7, 4, 7, 4 },
+            .levels = {
+                3, 3, 3, 3, 5, 5, 7, 7, 7, 4, 7, 4
+            },
             .species_morn = {
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
@@ -13677,7 +13953,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 0,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+            .levels = {
+                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            },
             .species_morn = {
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -13776,7 +14054,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 39, 38, 38, 38, 40, 39, 40, 37, 39, 40, 39, 40 },
+            .levels = {
+                39, 38, 38, 38, 40, 39, 40, 37, 39, 40, 39, 40
+            },
             .species_morn = {
                 SPECIES_MACHOKE,
                 SPECIES_PARASECT,
@@ -13875,7 +14155,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 42, 40, 41, 39, 41, 42, 41, 42, 41, 42, 41, 42 },
+            .levels = {
+                42, 40, 41, 39, 41, 42, 41, 42, 41, 42, 41, 42
+            },
             .species_morn = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,
@@ -13974,7 +14256,9 @@ const EncounterData __data[] = {
         .encounterRate_superRod = 75,
         .dummy = { 0, 0 },
         .landSlots = {
-            .levels = { 46, 45, 47, 45, 45, 45, 46, 47, 47, 49, 47, 49 },
+            .levels = {
+                46, 45, 47, 45, 45, 45, 46, 47, 47, 49, 47, 49
+            },
             .species_morn = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,

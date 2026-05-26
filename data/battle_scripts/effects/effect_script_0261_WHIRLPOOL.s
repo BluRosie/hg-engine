@@ -3,7 +3,6 @@
 .data
 
 _000:
-
     CalcCrit 
     CalcDamage 
     End 

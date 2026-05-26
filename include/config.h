@@ -1,7 +1,13 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#define GEN_CHAMPIONS 99
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+#define GEN_LATEST GEN_CHAMPIONS
+#else
 #define GEN_LATEST 9
+#endif
 
 // APPLY_ANTIPIRACY will apply the typical anti-piracy code changes to your ROM automatically so that the game runs well on hardware (TWLmenu and R4 are both tested)
 // comment out the lines if you do not want anti-piracy to be applied to your ROM
@@ -220,6 +226,12 @@
 // DISABLE_CRITICAL_HP_WARNING should be used if you want to disable the warning whenever your pokemon is at critical health
 // comment out this line if you do not want this to happen
 #define DISABLE_CRITICAL_HP_WARNING
+
+// UNSEEN_FIST_GENERATION defines the behavior that Unseen Fist should exhibit, where it either completely ignores Protect (<=8) or deals 0.25x Damage (>=9)
+#define UNSEEN_FIST_GENERATION GEN_CHAMPIONS
+
+// PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION actiavtes the struggle check for Belch/Stuff Cheeks in Generations before Champions
+#define PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION GEN_LATEST
 
 // Champions-specific move configurations. Set to 0 to use Scarlet/Violet values.
 #define CHAMPIONS_POWER_CHANGES         1

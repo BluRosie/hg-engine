@@ -24,6 +24,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "\\n\\n\\n\\n",
     },
@@ -51,6 +52,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is physically\\npounded with a long\\ntail or a foreleg,\\netc.\\n",
     },
@@ -78,6 +80,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith a sharp chop.\\nIt has a high\\ncritical-hit ratio.\\n",
     },
@@ -105,6 +108,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is slapped\\nrepeatedly, back\\nand forth, two to\\nfive times in a row.\\n",
     },
@@ -132,6 +136,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is hit with\\na flurry of punches\\nthat strike two to\\nfive times in a row.\\n",
     },
@@ -159,6 +164,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is slugged\\nby a punch thrown\\nwith muscle-packed\\npower.\\n",
     },
@@ -186,6 +192,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_PITY_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Numerous coins are\\nhurled at the foe to\\ninflict damage.\\nMoney is earned\\nafter battle.",
     },
@@ -213,6 +220,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is punched\\nwith a fiery fist.\\nIt may leave the\\ntarget with a burn.\\n",
     },
@@ -240,6 +248,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is punched\\nwith an icy fist.\\nIt may leave the\\ntarget frozen.\\n",
     },
@@ -267,6 +276,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is punched\\nwith an electrified\\nfist. It may leave\\nthe target with\\nparalysis.",
     },
@@ -294,6 +304,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "Hard, pointed, and\\nsharp claws rake the\\nfoe to inflict damage.\\n\\n",
     },
@@ -321,6 +332,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "Huge, impressive\\npincers grip and\\nsqueeze the foe.\\n\\n",
     },
@@ -348,6 +360,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_ALL_SAME_JUDGE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A vicious, tearing\\nattack with pincers.\\nThe foe will faint\\ninstantly if this\\nattack hits.",
     },
@@ -375,6 +388,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_UNIQUE_JUDGE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A two-turn attack.\\nBlades of wind hit the\\nfoe on the second\\nturn. It has a high\\ncritical-hit ratio.",
     },
@@ -402,6 +416,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "A frenetic dance to\\nuplift the fighting\\nspirit. It sharply\\nraises the user’s\\nAttack stat.",
     },
@@ -429,6 +444,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is cut with a\\nscythe or a claw.\\nIt can also be used\\nto cut down thin\\ntrees.",
     },
@@ -456,6 +472,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A gust of wind is\\nwhipped up by wings\\nand launched at the\\nfoe to inflict damage.\\n",
     },
@@ -483,6 +500,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is struck\\nwith large, imposing\\nwings spread wide\\nto inflict damage.\\n",
     },
@@ -510,6 +528,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_ALL_SAME_JUDGE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is blown away,\\nto be replaced by\\nanother Pokémon\\nin its party. In the\\nwild, the battle ends.",
     },
@@ -537,6 +556,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_UNIQUE_JUDGE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user soars, then\\nstrikes on the second\\nturn. It can also be\\nused for flying to\\nany familiar town.",
     },
@@ -564,6 +584,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A long body or\\ntentacles are used\\nto bind and squeeze\\nthe foe for two to\\nfive turns.",
     },
@@ -591,6 +612,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is slammed\\nwith a long tail,\\nvines, etc., to inflict\\ndamage.\\n",
     },
@@ -618,6 +640,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is struck\\nwith slender, whiplike\\nvines to inflict\\ndamage.\\n",
     },
@@ -645,6 +668,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is stomped\\nwith a big foot.\\nIt may also make the\\ntarget flinch.\\n",
     },
@@ -672,6 +696,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is quickly\\nkicked twice in\\nsuccession using both\\nfeet.\\n",
     },
@@ -699,6 +724,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nby a kick launched\\nwith muscle-packed\\npower.\\n",
     },
@@ -726,6 +752,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user jumps up\\nhigh, then strikes\\nwith a kick. If the\\nkick misses, the\\nuser hurts itself.",
     },
@@ -753,6 +780,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lashes \\nout with a quick,\\nspinning kick. It\\nmay also make the\\ntarget flinch.",
     },
@@ -780,6 +808,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "Sand is hurled in the\\nfoe’s face, reducing\\nits accuracy.\\n\\n",
     },
@@ -807,6 +836,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nits head. It may make\\nthe foe flinch. To find\\nPokémon, hit trees.",
     },
@@ -834,6 +864,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is jabbed\\nwith a sharply\\npointed horn to\\ninflict damage.\\n",
     },
@@ -861,6 +892,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is jabbed\\nrepeatedly with a\\nhorn or beak two to\\nfive times in a row.\\n",
     },
@@ -888,6 +920,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_ALL_SAME_JUDGE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is stabbed\\nwith a horn rotating\\nlike a drill.\\nThe foe instantly\\nfaints if it hits.",
     },
@@ -915,6 +948,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A physical attack\\nin which the user\\ncharges and slams\\ninto the foe with\\nits whole body.",
     },
@@ -942,6 +976,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user drops onto\\nthe foe with its full\\nbody weight.\\nIt may leave the foe\\nparalyzed.",
     },
@@ -969,6 +1004,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A long body or vines\\nare used to wrap and\\nsqueeze the foe for\\ntwo to five turns.\\n",
     },
@@ -996,6 +1032,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A reckless, full-body\\ncharge attack for\\nslamming into the foe.\\nIt also damages the\\nuser a little.",
     },
@@ -1023,6 +1060,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rampages\\nand attacks for two\\nto three turns.\\nIt then becomes\\nconfused, however.",
     },
@@ -1050,6 +1088,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_ALL_SAME_JUDGE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A reckless, life-\\nrisking tackle.\\nIt also damages the\\nuser by a fairly large\\namount, however.",
     },
@@ -1077,6 +1116,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user wags its tail\\ncutely, making the\\nfoe less wary.\\nThe target’s Defense\\nstat is lowered.",
     },
@@ -1104,6 +1144,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is stabbed\\nwith a poisonous\\nbarb of some sort.\\nIt may also poison\\nthe target.",
     },
@@ -1131,6 +1172,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is stabbed\\ntwice by a pair of\\nstingers.\\nIt may also poison\\nthe target.",
     },
@@ -1158,6 +1200,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Sharp pins are shot\\nat the foe in rapid\\nsuccession.\\nThey hit two to five\\ntimes in a row.",
     },
@@ -1185,6 +1228,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is given an\\nintimidating leer with\\nsharp eyes.\\nThe target’s Defense\\nstat is reduced.",
     },
@@ -1212,6 +1256,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is bitten with\\nviciously sharp fangs.\\nIt may make the\\ntarget flinch.\\n",
     },
@@ -1239,6 +1284,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user growls in an\\nendearing way, making\\nthe foe less wary.\\nThe target’s Attack\\nstat is lowered.",
     },
@@ -1266,6 +1312,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is scared off,\\nto be replaced by\\nanother Pokémon in\\nits party. In the\\nwild, the battle ends.",
     },
@@ -1293,6 +1340,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "A soothing lullaby is\\nsung in a calming\\nvoice that puts the\\nfoe into a deep\\nslumber.",
     },
@@ -1320,6 +1368,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user generates\\nodd sound waves from\\nits body.\\nIt may confuse the\\ntarget.",
     },
@@ -1347,6 +1396,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is hit with a\\ndestructive shock\\nwave that always\\ninflicts 20 HP damage.\\n",
     },
@@ -1374,6 +1424,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "For several turns,\\nthis move prevents\\nthe foe from using\\nthe move it last\\nused.",
     },
@@ -1401,6 +1452,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith a spray of harsh\\nacid. It may also\\nlower the target’s\\nSp. Def stat.",
     },
@@ -1428,6 +1480,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith small flames.\\nThe target may also\\nbe left with a burn.\\n",
     },
@@ -1455,6 +1508,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is scorched\\nwith an intense blast\\nof fire. The target\\nmay also be left with\\na burn.",
     },
@@ -1482,6 +1536,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user cloaks its\\nbody with a white mist\\nthat prevents any of\\nits stats from being\\ncut for five turns.",
     },
@@ -1509,6 +1564,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is blasted\\nwith a forceful shot\\nof water.\\n\\n",
     },
@@ -1536,6 +1592,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is blasted by\\na huge volume of\\nwater launched under\\ngreat pressure.\\n",
     },
@@ -1563,6 +1620,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "It swamps the entire\\nbattlefield with a\\ngiant wave.\\nIt can also be used\\nfor crossing water.",
     },
@@ -1590,6 +1648,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is struck\\nwith an icy-cold\\nbeam of energy.\\nIt may also freeze\\nthe target solid.",
     },
@@ -1617,6 +1676,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "A howling blizzard is\\nsummoned to strike\\nthe foe.\\nIt may also freeze\\nthe target solid.",
     },
@@ -1644,6 +1704,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith a peculiar ray.\\nIt may also leave the\\ntarget confused.\\n",
     },
@@ -1671,6 +1732,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_NEXT_TURN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "A spray of bubbles is\\nforcefully ejected\\nat the foe.\\nIt may also lower the\\ntarget’s Speed stat.",
     },
@@ -1698,6 +1760,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is hit with a\\nrainbow-colored beam.\\nIt may also lower the\\ntarget’s Attack\\nstat.",
     },
@@ -1725,6 +1788,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith a powerful beam.\\nThe user must rest\\non the next turn to\\nregain its energy.",
     },
@@ -1752,6 +1816,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is jabbed\\nwith a sharply\\npointed beak or\\nhorn.\\n",
     },
@@ -1779,6 +1844,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A corkscrewing\\nattack with the\\nsharp beak acting\\nas a drill.\\n",
     },
@@ -1806,6 +1872,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user grabs the\\nfoe and recklessly\\ndives for the ground.\\nIt also hurts the\\nuser slightly.",
     },
@@ -1833,6 +1900,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A powerful low kick\\nthat makes the foe\\nfall over. It inflicts\\ngreater damage on\\nheavier foes.",
     },
@@ -1860,6 +1928,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A retaliation move\\nthat counters any\\nphysical attack,\\ninflicting double the\\ndamage taken.",
     },
@@ -1887,6 +1956,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is thrown\\nusing the power of\\ngravity. It inflicts\\ndamage equal to\\nthe user’s level.",
     },
@@ -1914,6 +1984,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is slugged\\nwith a punch thrown\\nat maximum power.\\nIt can also be used\\nto move boulders.",
     },
@@ -1941,6 +2012,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A nutrient-draining\\nattack. The user’s\\nHP is restored by\\nhalf the damage taken\\nby the target.",
     },
@@ -1968,6 +2040,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A nutrient-draining\\nattack. The user’s\\nHP is restored by\\nhalf the damage taken\\nby the target.",
     },
@@ -1995,6 +2068,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A seed is planted on\\nthe foe. It steals\\nsome HP from the foe\\nto heal the user on\\nevery turn.",
     },
@@ -2009,7 +2083,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .effect = MOVE_EFFECT_SP_ATK_UP,
             .split = SPLIT_STATUS,
             .power = 0,
-            .type = ((CHAMPIONS_TYPE_CHANGES) ? (TYPE_GRASS) : (TYPE_NORMAL)),
+            .type = TYPE_GRASS,
             .accuracy = 0,
             .pp = 20,
             .effectChance = 0,
@@ -2022,6 +2096,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user’s body is\\nforced to grow all at\\nonce. It raises the\\nSp. Atk stat.\\n",
     },
@@ -2049,6 +2124,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Sharp-edged leaves\\nare launched to slash\\nat the foe. It has a\\nhigh critical-hit\\nratio.",
     },
@@ -2076,6 +2152,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_UNIQUE_JUDGE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A two-turn attack.\\nThe user gathers\\nlight, then blasts a\\nbundled beam on the\\nsecond turn.",
     },
@@ -2103,6 +2180,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A cloud of poisonous\\ndust is scattered on\\nthe foe.\\nIt may poison the\\ntarget.",
     },
@@ -2130,6 +2208,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user scatters a\\ncloud of paralyzing\\npowder.\\nIt may paralyze the\\ntarget.",
     },
@@ -2157,6 +2236,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user scatters a\\nbig cloud of sleep-\\ninducing dust around\\nthe foe.\\n",
     },
@@ -2184,6 +2264,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nscattering petals for\\ntwo to three turns.\\nThe user then\\nbecomes confused.",
     },
@@ -2211,6 +2292,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is bound with\\nsilk blown from the\\nuser’s mouth.\\nIt reduces the\\ntarget’s Speed stat.",
     },
@@ -2238,6 +2320,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is stricken\\nby a shock wave.\\nThis attack always\\ninflicts 40 HP\\ndamage.",
     },
@@ -2265,6 +2348,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe becomes\\ntrapped within a\\nfierce vortex of fire\\nthat rages for two\\nto five turns.",
     },
@@ -2292,6 +2376,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A jolt of electricity\\nis hurled at the foe\\nto inflict damage.\\nIt may also leave the\\nfoe paralyzed.",
     },
@@ -2319,6 +2404,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A strong electric\\nblast is loosed at\\nthe foe.\\nIt may also leave the\\nfoe paralyzed.",
     },
@@ -2346,6 +2432,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A weak electric\\ncharge is launched at\\nthe foe.\\nIt causes paralysis if\\nit hits.",
     },
@@ -2373,6 +2460,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A wicked thunderbolt\\nis dropped on the foe\\nto inflict damage.\\nIt may also leave the\\ntarget paralyzed.",
     },
@@ -2400,6 +2488,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user picks up\\nand throws a small\\nrock at the foe to\\nattack.\\n",
     },
@@ -2427,6 +2516,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user sets off an\\nearthquake that hits\\nall the Pokémon in\\nthe battle.\\n",
     },
@@ -2454,6 +2544,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_ALL_SAME_JUDGE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user opens up a\\nfissure in the ground\\nand drops the foe in.\\nThe target instantly\\nfaints if it hits.",
     },
@@ -2481,6 +2572,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_UNIQUE_JUDGE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user burrows,\\nthen attacks on the\\nsecond turn.\\nIt can also be used\\nto exit dungeons.",
     },
@@ -2508,6 +2600,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A move that leaves\\nthe target badly\\npoisoned.\\nIts poison damage\\nworsens every turn.",
     },
@@ -2535,6 +2628,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is hit by a\\nweak telekinetic\\nforce. It may also\\nleave the foe\\nconfused.",
     },
@@ -2562,6 +2656,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is hit by a\\nstrong telekinetic\\nforce. It may also\\nreduce the foe’s\\nSp. Def stat.",
     },
@@ -2589,6 +2684,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user employs\\nhypnotic suggestion\\nto make the target\\nfall into a deep\\nsleep.",
     },
@@ -2616,6 +2712,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user meditates\\nto awaken the power\\ndeep within its body\\nand raise its Attack\\nstat.",
     },
@@ -2643,6 +2740,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user relaxes and\\nlightens its body to\\nmove faster.\\nIt sharply boosts\\nthe Speed stat.",
     },
@@ -2670,6 +2768,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lunges at\\nthe foe at a speed\\nthat makes it almost\\ninvisible. It is sure\\nto strike first.",
     },
@@ -2697,6 +2796,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "While this move is in\\nuse, it gains attack\\npower each time the\\nuser is hit in battle.\\n",
     },
@@ -2724,6 +2824,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Use it to flee from\\nany wild Pokémon.\\nIt can also warp to\\nthe last Pokémon\\nCenter visited.",
     },
@@ -2751,6 +2852,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user makes the\\nfoe see a mirage.\\nIt inflicts damage\\nmatching the user’s\\nlevel.",
     },
@@ -2778,6 +2880,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_STEAL_VOLTAGE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user copies the\\nmove last used by\\nthe foe. The move can\\nbe used for the rest\\nof the battle.",
     },
@@ -2805,6 +2908,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOWER_VOLTAGES,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "An earsplitting\\nscreech is emitted to\\nsharply reduce the\\nfoe’s Defense stat.\\n",
     },
@@ -2832,6 +2936,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "By moving rapidly, the\\nuser makes illusory\\ncopies of itself to\\nraise its evasiveness.\\n",
     },
@@ -2859,6 +2964,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A self-healing move.\\nThe user restores its\\nown HP by up to half\\nof its max HP.\\n",
     },
@@ -2886,6 +2992,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user stiffens all\\nthe muscles in its\\nbody to raise its\\nDefense stat.\\n",
     },
@@ -2913,6 +3020,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user compresses\\nits body to make\\nitself look smaller.\\nThe user’s evasion\\nstat is boosted.",
     },
@@ -2940,6 +3048,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOWER_VOLTAGES,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user releases an\\nobscuring cloud of\\nsmoke or ink.\\nIt reduces the foe’s\\naccuracy.",
     },
@@ -2967,6 +3076,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOWER_VOLTAGES,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is exposed\\nto a sinister ray\\nthat triggers\\nconfusion.\\n",
     },
@@ -2994,6 +3104,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user withdraws\\nits body into its hard\\nshell, raising its\\nDefense stat.\\n",
     },
@@ -3021,6 +3132,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user curls up to\\nconceal weak spots\\nand raise its Defense\\nstat.\\n",
     },
@@ -3048,6 +3160,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user throws up a\\nsturdy wall that\\nsharply raises its\\nDefense stat.\\n",
     },
@@ -3075,6 +3188,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "A wondrous wall of\\nlight is put up to\\nsuppress damage from\\nspecial attacks for\\nfive turns.",
     },
@@ -3102,6 +3216,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user creates a\\nhaze that eliminates\\nevery stat change\\namong all the Pokémon\\nengaged in battle.",
     },
@@ -3129,6 +3244,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A wondrous wall of\\nlight is put up to\\nsuppress damage from\\nphysical attacks for\\nfive turns.",
     },
@@ -3156,6 +3272,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user takes a\\ndeep breath and\\nfocuses to raise the\\ncritical-hit ratio of\\nits attacks.",
     },
@@ -3183,6 +3300,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user endures\\nattacks for two\\nturns, then strikes\\nback to cause double\\nthe damage taken.",
     },
@@ -3210,6 +3328,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_RANDOMIZE_NEXT_TURN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user waggles a\\nfinger and stimulates\\nthe brain into\\nrandomly using nearly\\nany move.",
     },
@@ -3237,6 +3356,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user counters\\nthe foe by mimicking\\nthe move last used\\nby the foe.",
     },
@@ -3264,6 +3384,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_ALL_SAME_JUDGE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user blows up to\\ninflict damage on all\\nPokémon in battle.\\nThe user faints upon\\nusing this move.",
     },
@@ -3291,6 +3412,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A large egg is hurled\\nwith maximum force at\\nthe foe to inflict\\ndamage.\\n",
     },
@@ -3318,6 +3440,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is licked with\\na long tongue, causing\\ndamage.\\nIt may also paralyze\\nthe target.",
     },
@@ -3345,6 +3468,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith a discharge of\\nfilthy gases.\\nIt may also poison\\nthe target.",
     },
@@ -3372,6 +3496,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "Unsanitary sludge is\\nhurled at the foe.\\nIt may also poison\\nthe target.\\n",
     },
@@ -3399,6 +3524,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user clubs the\\nfoe with a bone.\\nIt may also make the\\ntarget flinch.\\n",
     },
@@ -3426,6 +3552,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith an intense blast\\nof all-consuming fire.\\nIt may also leave the\\ntarget with a burn.",
     },
@@ -3453,6 +3580,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user charges at\\nthe foe rapidly, and\\nmay make it flinch.\\nIt can also be used\\nto climb a waterfall.",
     },
@@ -3480,6 +3608,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is clamped\\nand squeezed by\\nthe user’s very thick\\nand sturdy shell for\\ntwo to five turns.",
     },
@@ -3507,6 +3636,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Star-shaped rays are\\nshot at the foe.\\nThis attack never\\nmisses.\\n",
     },
@@ -3534,6 +3664,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_UNIQUE_JUDGE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tucks in its\\nhead to raise its\\nDefense in the first\\nturn, then rams the\\nfoe on the next turn.",
     },
@@ -3561,6 +3692,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Sharp spikes are\\nfired at the foe to\\nstrike two to five\\ntimes in rapid\\nsuccession.",
     },
@@ -3588,6 +3720,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith long, creeping\\ntentacles or vines.\\nIt may also lower the\\ntarget’s Speed.",
     },
@@ -3615,6 +3748,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user temporarily\\nempties its mind to\\nforget its concerns.\\nIt sharply raises the\\nuser’s Sp. Def stat.",
     },
@@ -3642,6 +3776,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user distracts\\nthe foe by bending a\\nspoon.\\nIt may lower the\\ntarget’s accuracy.",
     },
@@ -3669,6 +3804,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user restores its\\nown HP by up to half\\nof its maximum HP.\\nIt may also be used\\nto heal an ally’s HP.",
     },
@@ -3696,6 +3832,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith a knee kick from\\na jump. If it misses,\\nthe user is hurt\\ninstead.",
     },
@@ -3723,6 +3860,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user intimidates\\nthe foe with the\\npattern on its belly\\nto cause paralysis.\\n",
     },
@@ -3750,6 +3888,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack that works\\nonly on a sleeping\\nfoe. It absorbs half\\nthe damage caused to\\nheal the user’s HP.",
     },
@@ -3777,6 +3916,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A cloud of poison gas\\nis sprayed in the\\nfoe’s face.\\nIt may poison the\\ntarget.",
     },
@@ -3804,6 +3944,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "Round objects are\\nhurled at the foe to\\nstrike two to five\\ntimes in a row.\\n",
     },
@@ -3831,6 +3972,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A blood-draining\\nattack. The user’s\\nHP is restored by\\nhalf the damage taken\\nby the target.",
     },
@@ -3858,6 +4000,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "With a scary face, the\\nuser tries to force a\\nkiss on the foe. If it\\nsucceeds, the target\\nfalls asleep.",
     },
@@ -3885,6 +4028,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_UNIQUE_JUDGE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A second-turn attack\\nmove with a high\\ncritical-hit ratio.\\nIt may also make the\\ntarget flinch.",
     },
@@ -3912,6 +4056,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_PITY_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user transforms\\ninto a copy of the\\nfoe right down to\\nhaving the same move\\nset.",
     },
@@ -3925,7 +4070,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_SPEED_HIT,
             .split = SPLIT_SPECIAL,
-            .power = 40,
+            .power = 20,
             .type = TYPE_WATER,
             .accuracy = 100,
             .pp = 30,
@@ -3939,6 +4084,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_NEXT_TURN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "A spray of countless\\nbubbles is jetted at\\nthe foe.\\nIt may also lower the\\ntarget’s Speed stat.",
     },
@@ -3966,6 +4112,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is hit with\\nrhythmically launched\\npunches that may also\\nleave it confused.\\n",
     },
@@ -3993,6 +4140,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOWER_VOLTAGES,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user scatters\\nbursts of spores\\nthat induce sleep.\\n\\n",
     },
@@ -4020,6 +4168,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOWER_VOLTAGES,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user flashes a\\nlight that cuts the\\nfoe’s accuracy.\\nIt can also be used\\nto illuminate caves.",
     },
@@ -4047,6 +4196,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith an odd, hot\\nenergy wave.\\nThe attack varies in\\nintensity.",
     },
@@ -4074,6 +4224,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user just flops\\nand splashes around\\nto no effect at all...\\n\\n",
     },
@@ -4101,6 +4252,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user alters its\\ncellular structure to\\nliquefy itself,\\nsharply raising its\\nDefense stat.",
     },
@@ -4116,7 +4268,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 100,
             .type = TYPE_WATER,
-            .accuracy = ((CHAMPIONS_ACC_CHANGES) ? (95) : (90)),
+            .accuracy = 95,
             .pp = 10,
             .effectChance = 0,
         },
@@ -4128,6 +4280,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is hammered\\nwith a large pincer.\\nThis move has a high\\ncritical-hit ratio.\\n",
     },
@@ -4155,6 +4308,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_ALL_SAME_JUDGE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user explodes to\\ninflict damage on all\\nPokémon in battle.\\nThe user faints upon\\nusing this move.",
     },
@@ -4182,6 +4336,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is raked with\\nsharp claws or\\nscythes for two to\\nfive times in quick\\nsuccession.",
     },
@@ -4209,6 +4364,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user throws the\\nbone it holds. The\\nbone loops to hit the\\nfoe twice, coming and\\ngoing.",
     },
@@ -4236,6 +4392,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user goes to\\nsleep for two turns.\\nIt fully restores the\\nuser’s HP and heals\\nany status problem.",
     },
@@ -4263,6 +4420,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "Large boulders are\\nhurled at the foe to\\ninflict damage.\\nIt may also make the\\ntarget flinch.",
     },
@@ -4290,6 +4448,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user bites hard\\non the foe with its\\nsharp front fangs.\\nIt may also make the\\ntarget flinch.",
     },
@@ -4317,6 +4476,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user reduces its\\npolygon count to\\nmake itself more\\njagged, raising the\\nAttack stat.",
     },
@@ -4344,6 +4504,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_PITY_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user changes its\\ntype to become the\\nsame type as one of\\nits moves.\\n",
     },
@@ -4371,6 +4532,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user strikes with\\na simultaneous three-\\nbeam attack. May also\\nparalyze, burn, or\\nfreeze the target.",
     },
@@ -4398,6 +4560,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user chomps hard\\non the foe with its\\nsharp front fangs.\\nIt cuts the target’s\\nHP to half.",
     },
@@ -4425,6 +4588,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith a slash of\\nclaws, etc.\\nIt has a high\\ncritical-hit ratio.",
     },
@@ -4452,6 +4616,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_PITY_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user makes a\\ncopy of itself using\\nsome of its HP.\\nThe copy serves as\\nthe user’s decoy.",
     },
@@ -4479,6 +4644,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack that is\\nused in desperation\\nonly if the user has\\nno PP. It also hurts\\nthe user slightly.",
     },
@@ -4506,6 +4672,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_PITY_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "It enables the user\\nto permanently learn\\nthe move last used by\\nthe foe. Once used,\\nSketch disappears.",
     },
@@ -4533,6 +4700,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A consecutive three-\\nkick attack that\\nbecomes more\\npowerful with each \\nsuccessive hit.",
     },
@@ -4560,6 +4728,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_STEAL_VOLTAGE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks and\\nsteals the foe’s held\\nitem simultaneously.\\nIt can’t steal if the\\nuser holds an item.",
     },
@@ -4587,6 +4756,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user ensnares\\nthe foe with a thin,\\ngooey silk so it can’t\\nflee from battle.\\n",
     },
@@ -4614,6 +4784,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user senses the\\nfoe’s movements\\nwith its mind to\\nensure its next\\nattack does not miss.",
     },
@@ -4641,6 +4812,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A sleeping foe is\\nshown a nightmare\\nthat inflicts some\\ndamage every turn.\\n",
     },
@@ -4668,6 +4840,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user cloaks\\nitself in fire and\\ncharges at the foe.\\nIt may also leave the\\ntarget with a burn.",
     },
@@ -4695,6 +4868,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack that can\\nbe used only if the\\nuser is asleep. The\\nharsh noise may also\\nmake the foe flinch.",
     },
@@ -4722,6 +4896,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A move that works\\ndifferently for the\\nGhost type than for\\nall the other types.\\n",
     },
@@ -4749,6 +4924,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user flails about\\naimlessly to attack.\\nIt becomes more\\npowerful the less HP\\nthe user has.",
     },
@@ -4776,6 +4952,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_PITY_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user changes its\\ntype to make itself\\nresistant to the type\\nof the attack it\\nlast took.",
     },
@@ -4803,6 +4980,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A vortex of air is\\nshot at the foe to\\ninflict damage.\\nIt has a high\\ncritical-hit ratio.",
     },
@@ -4830,6 +5008,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user releases\\ncottonlike spores\\nthat cling to the\\nfoe, sharply reducing\\nits Speed stat.",
     },
@@ -4857,6 +5036,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "An all-out attack\\nthat becomes more\\npowerful the less\\nHP the user has.\\n",
     },
@@ -4884,6 +5064,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user looses its\\ngrudge on the move\\nlast used by the foe\\nby cutting 4 PP from\\nit.",
     },
@@ -4911,6 +5092,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\na chilling gust of\\npowdery snow.\\nIt may also freeze\\nthe target.",
     },
@@ -4927,7 +5109,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -4938,6 +5120,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "It enables the user\\nto evade all attacks.\\nIts chance of failing\\nrises if it is used in\\nsuccession.",
     },
@@ -4965,6 +5148,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user throws a\\npunch at blinding\\nspeed.\\nIt is certain to\\nstrike first.",
     },
@@ -4992,6 +5176,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_NEXT_TURN,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user frightens\\nthe foe with a scary\\nface to sharply\\nreduce its Speed\\nstat.",
     },
@@ -5019,6 +5204,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user draws up to\\nthe foe disarmingly,\\nthen throws a sucker\\npunch.\\nIt hits without fail.",
     },
@@ -5046,6 +5232,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user kisses the\\nfoe with a sweet,\\nangelic cuteness that\\ncauses confusion.\\n",
     },
@@ -5073,6 +5260,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user maximizes\\nits Attack stat in\\nexchange for HP\\nequal to half its max\\nHP.",
     },
@@ -5100,6 +5288,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nhurling filthy sludge\\nat the foe.\\nIt may also poison\\nthe target.",
     },
@@ -5127,6 +5316,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hurls mud in\\nthe foe’s face to\\ninflict damage and\\nlower its accuracy.\\n",
     },
@@ -5154,6 +5344,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nspraying ink in the\\nfoe’s face or eyes.\\nIt may also lower the\\ntarget’s accuracy.",
     },
@@ -5181,6 +5372,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lays a trap\\nof spikes at the\\nfoe’s feet. The trap\\nhurts foes that\\nswitch into battle.",
     },
@@ -5208,6 +5400,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user fires an\\nelectric blast like a\\ncannon to inflict\\ndamage and cause\\nparalysis.",
     },
@@ -5235,6 +5428,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Enables the user to\\nhit a Ghost type with\\nany type of move. It\\nalso enables the user\\nto hit an evasive foe.",
     },
@@ -5262,6 +5456,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_ALL_SAME_JUDGE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "When this move is\\nused, if the user\\nfaints, the foe that\\nlanded the knockout\\nhit also faints.",
     },
@@ -5289,6 +5484,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOWER_VOLTAGES,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "Any Pokémon that\\nhears this song\\nfaints in three turns,\\nunless it switches\\nout of battle.",
     },
@@ -5316,6 +5512,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_NEXT_TURN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\na gust of chilled air.\\nIt also lowers the\\ntarget’s Speed stat.\\n",
     },
@@ -5343,6 +5540,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "It enables the user\\nto evade all attacks.\\nIts chance of failing\\nrises if it is used in\\nsuccession.",
     },
@@ -5356,7 +5554,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_MULTI_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (30) : (25)),
+            .power = 30,
             .type = TYPE_GROUND,
             .accuracy = 90,
             .pp = 10,
@@ -5370,6 +5568,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user strikes at\\nthe foe with a hard\\nbone two to five\\ntimes in a row.\\n",
     },
@@ -5397,6 +5596,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user takes sure\\naim at the foe.\\nIt ensures the next\\nattack does not fail\\nto hit the target.",
     },
@@ -5424,6 +5624,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rampages\\nand attacks for two\\nto three turns.\\nHowever, it then\\nbecomes confused.",
     },
@@ -5440,7 +5641,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_ROCK,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -5451,6 +5652,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A five-turn sand-\\nstorm is summoned\\nto hurt all combatant\\ntypes except Rock, \\nGround, and Steel.",
     },
@@ -5478,6 +5680,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A nutrient-draining\\nattack. The user’s\\nHP is restored by\\nhalf the damage taken\\nby the target.",
     },
@@ -5505,6 +5708,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user endures any\\nattack with at least\\n1 HP. Its chance of\\nfailing rises if it is\\nused in succession.",
     },
@@ -5532,6 +5736,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user charmingly\\nstares at the foe,\\nmaking it less wary.\\nThe target’s Attack\\nis sharply lowered.",
     },
@@ -5559,6 +5764,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user continually\\nrolls into the foe\\nover five turns. It\\nbecomes stronger\\neach time it hits.",
     },
@@ -5586,6 +5792,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A restrained attack\\nthat prevents the\\nfoe from fainting.\\nThe target is left\\nwith at least 1 HP.",
     },
@@ -5613,6 +5820,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user enrages the\\nfoe into confusion.\\nHowever, it also\\nsharply raises the\\nfoe’s Attack stat.",
     },
@@ -5640,6 +5848,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user restores its\\nown HP by up to half\\nof its maximum HP.\\nIt may also be used\\nto heal an ally’s HP.",
     },
@@ -5667,6 +5876,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user throws an\\nelectrically charged\\ntackle at the foe.\\nIt may also leave the\\ntarget paralyzed.",
     },
@@ -5694,6 +5904,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is slashed\\nwith scythes or\\nclaws. Its power\\nincreases if it hits\\nin succession.",
     },
@@ -5721,6 +5932,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is hit with\\nwings of steel.\\nIt may also raise the\\nuser’s Defense stat.\\n",
     },
@@ -5748,6 +5960,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOWER_VOLTAGES,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user affixes the\\nfoe with a dark,\\narresting look.\\nThe target becomes\\nunable to flee.",
     },
@@ -5775,6 +5988,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "If it is the opposite\\ngender of the user,\\nthe foe becomes\\ninfatuated and less\\nlikely to attack.",
     },
@@ -5802,6 +6016,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "While it is asleep, the\\nuser randomly uses\\none of the moves it\\nknows.\\n",
     },
@@ -5829,6 +6044,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user makes a\\nsoothing bell chime\\nto heal the status\\nproblems of all the\\nparty Pokémon.",
     },
@@ -5856,6 +6072,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "A full-power attack\\nthat grows more\\npowerful the more\\nthe user likes its\\nTrainer.",
     },
@@ -5883,6 +6100,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\ngiving the foe a\\nbooby-trapped gift.\\nIt restores HP\\nsometimes, however.",
     },
@@ -5910,6 +6128,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "A full-power attack\\nthat grows more\\npowerful the less\\nthe user likes its\\nTrainer.",
     },
@@ -5937,6 +6156,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user creates a\\nprotective field that\\nprevents status\\nproblems for five\\nturns.",
     },
@@ -5964,6 +6184,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOWER_VOLTAGES,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user adds its HP\\nto the foe’s HP, then\\nequally shares the\\ncombined HP with the\\nfoe.",
     },
@@ -5991,6 +6212,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is razed with\\na mystical fire of\\ngreat intensity.\\nIt may also leave the\\ntarget with a burn.",
     },
@@ -6018,6 +6240,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user looses a\\nground-shaking quake\\naffecting everyone in\\nbattle. Its power\\nvaries.",
     },
@@ -6045,6 +6268,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is punched\\nwith the user’s full,\\nconcentrated power.\\nIt confuses the foe\\nif it hits.",
     },
@@ -6072,6 +6296,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Using its tough\\nand impressive\\nhorn, the user\\nrams into the foe \\nwith no letup.\\n",
     },
@@ -6099,6 +6324,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user exhales\\na mighty gust that\\ninflicts damage.\\nIt may also paralyze\\nthe target.",
     },
@@ -6126,6 +6352,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user switches\\nplaces with a party\\nPokémon in waiting,\\npassing along any\\nstat changes.",
     },
@@ -6153,6 +6380,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user compels the\\nfoe to keep using\\nonly the move it last\\nused for three to\\nseven turns.",
     },
@@ -6180,6 +6408,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack move that\\ninflicts double damage\\nif used on a foe that\\nis switching out of\\nbattle.",
     },
@@ -6207,6 +6436,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A spin attack that\\ncan also eliminate\\nsuch moves as Bind,\\nWrap, Leech Seed,\\nand Spikes.",
     },
@@ -6234,6 +6464,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "A sweet scent that\\nlowers the foe’s\\nevasiveness. It also\\nlures wild Pokémon\\nif used in grass, etc.",
     },
@@ -6261,6 +6492,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is slammed\\nwith a steel-hard\\ntail. It may also\\nlower the target’s\\nDefense stat.",
     },
@@ -6288,6 +6520,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is raked\\nwith steel claws.\\nIt may also raise the\\nuser’s Attack stat.\\n",
     },
@@ -6315,6 +6548,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_NEXT_TURN,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user allows the\\nfoe to attack first.\\nIn return, this throw\\nmove is guaranteed\\nnot to miss.",
     },
@@ -6342,6 +6576,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user restores its\\nown HP.\\nThe amount of HP\\nregained varies with\\nthe weather.",
     },
@@ -6369,6 +6604,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user restores its\\nown HP.\\nThe amount of HP\\nregained varies with\\nthe weather.",
     },
@@ -6396,6 +6632,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user restores its\\nown HP.\\nThe amount of HP\\nregained varies with\\nthe weather.",
     },
@@ -6423,6 +6660,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_PITY_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A unique attack that\\nvaries in type\\ndepending on the\\nPokémon using it.",
     },
@@ -6450,6 +6688,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user delivers a\\ndouble chop with its\\nforearms crossed.\\nIt has a high\\ncritical-hit ratio.",
     },
@@ -6477,6 +6716,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user whips up a\\nvicious tornado to\\ntear at the foe.\\nIt may also make the\\nfoe flinch.",
     },
@@ -6504,6 +6744,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user summons a\\nheavy rain that falls\\nfor five turns,\\npowering up Water-\\ntype moves.",
     },
@@ -6531,6 +6772,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user intensifies\\nthe sun for five\\nturns, powering up\\nFire-type moves.\\n",
     },
@@ -6558,6 +6800,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user crunches up\\nthe foe with sharp\\nfangs. It may also\\nlower the target’s\\nDefense stat.",
     },
@@ -6585,6 +6828,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "A retaliation move\\nthat counters any\\nspecial attack,\\ninflicting double the\\ndamage taken.",
     },
@@ -6612,6 +6856,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hypnotizes\\nitself into copying\\nany stat change\\nmade by the foe.\\n",
     },
@@ -6639,6 +6884,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user charges the\\nfoe at blinding speed.\\nThis attack always\\ngoes before any\\nother move.",
     },
@@ -6666,6 +6912,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\na prehistoric power.\\nIt may also raise all\\nthe user’s stats at\\nonce.",
     },
@@ -6693,6 +6940,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hurls a\\nshadowy blob at the\\nfoe. It may also\\nlower the foe’s\\nSp. Def stat.",
     },
@@ -6720,6 +6968,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Two turns after this\\nmove is used, the foe\\nis attacked with a\\nhunk of psychic\\nenergy.",
     },
@@ -6747,6 +6996,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hits with a\\npunch that may lower\\nthe target’s Defense.\\nIt can also smash\\ncracked boulders.",
     },
@@ -6774,6 +7024,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "Traps the foe inside a\\nwhirlpool that lasts\\nfor two to five turns.\\nThe user can pass\\nthrough whirlpools.",
     },
@@ -6801,6 +7052,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user gets all the\\nparty Pokémon to\\nattack the foe. The\\nmore party Pokémon,\\nthe more damage.",
     },
@@ -6828,6 +7080,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack that hits\\nfirst and makes the\\ntarget flinch. It only\\nworks the first turn\\nthe user is in battle.",
     },
@@ -6855,6 +7108,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOWER_VOLTAGES,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks in\\nan uproar for two to\\nfive turns. Over that\\ntime, no one can fall\\nasleep.",
     },
@@ -6882,6 +7136,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user charges\\nup power, and raises\\nboth its Defense and\\nSp. Def. The move can\\nbe used three times.",
     },
@@ -6909,6 +7164,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The power stored\\nusing the move\\nStockpile is released\\nat once in an attack.\\n",
     },
@@ -6936,6 +7192,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The power stored\\nusing the move\\nStockpile is absorbed\\nby the user to heal\\nits HP.",
     },
@@ -6963,6 +7220,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user exhales a\\nheated breath on the\\nfoe to attack. It may\\nalso leave the target\\nwith a burn.",
     },
@@ -6979,7 +7237,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_ICE,
             .accuracy = 0,
-            .pp = 10,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -6990,6 +7248,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user summons a\\nhailstorm lasting five\\nturns. It damages all\\nPokémon except the\\nIce type.",
     },
@@ -7017,6 +7276,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user torments\\nand enrages the foe,\\nmaking it incapable of\\nusing the same move\\ntwice in a row.",
     },
@@ -7044,6 +7304,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Flattery is used to\\nconfuse the foe.\\nHowever, it also\\nraises the target’s\\nSp. Atk stat.",
     },
@@ -7071,6 +7332,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shoots a\\nsinister, bluish white\\nflame at the foe to\\ninflict a burn.\\n",
     },
@@ -7098,6 +7360,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_ALL_SAME_JUDGE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user faints upon\\nusing this move.\\nIn return, it sharply\\nlowers the target’s\\nAttack and Sp. Atk.",
     },
@@ -7125,6 +7388,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack move that\\ndoubles its power if\\nthe user is poisoned,\\nparalyzed, or has a\\nburn.",
     },
@@ -7152,6 +7416,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_UNIQUE_JUDGE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user focuses its\\nmind before launching\\na punch. It will fail\\nif the user is hit\\nbefore it is used.",
     },
@@ -7179,6 +7444,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "This attack inflicts\\ndouble damage on a\\nparalyzed foe. It\\nalso cures the foe’s\\nparalysis, however.",
     },
@@ -7206,6 +7472,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_RANDOMIZE_NEXT_TURN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user draws\\nattention to itself,\\nmaking all foes take\\naim only at the user.\\n",
     },
@@ -7233,6 +7500,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_RANDOMIZE_NEXT_TURN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack that makes\\nuse of nature’s\\npower. Its effects\\nvary depending on the\\nuser’s environment.",
     },
@@ -7260,6 +7528,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user boosts the\\npower of the Electric\\nmove it uses next.\\nIt also raises the\\nuser’s Sp. Def stat.",
     },
@@ -7287,6 +7556,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is taunted\\ninto a rage that\\nallows it to use only\\nattack moves for two\\nto four turns.",
     },
@@ -7314,6 +7584,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A move that boosts\\nthe power of the\\nally’s attack in a\\nDouble Battle.\\n",
     },
@@ -7341,6 +7612,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_STEAL_VOLTAGE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user catches the\\nfoe off guard and\\nswaps the foe’s held\\nitem with its own.\\n",
     },
@@ -7368,6 +7640,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_PITY_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user mimics the\\nfoe completely,\\ncopying the foe’s\\nnatural ability.\\n",
     },
@@ -7395,6 +7668,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "A self-healing move.\\nThe user restores its\\nown HP by up to half\\nof its maximum HP\\nin the next turn.",
     },
@@ -7422,6 +7696,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_RANDOMIZE_NEXT_TURN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hurriedly\\nand randomly uses a\\nmove among those\\nknown by other\\nPokémon in the party.",
     },
@@ -7449,6 +7724,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lays roots\\nthat restore HP on\\nevery turn.\\nBecause it is rooted,\\nit can’t switch out.",
     },
@@ -7476,6 +7752,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\nfoe with great power.\\nHowever, it also\\nlowers the user’s\\nAttack and Defense.",
     },
@@ -7503,6 +7780,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "A barrier reflects\\nback to the foe\\nmoves like Leech\\nSeed and moves\\nthat damage status.",
     },
@@ -7530,6 +7808,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_STEAL_VOLTAGE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user recycles a\\nheld item that\\nhas been used in\\nbattle so it can be\\nused again.",
     },
@@ -7557,6 +7836,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack move that\\ninflicts double the\\ndamage if the user\\nhas been hurt by the\\nfoe in the same turn.",
     },
@@ -7584,6 +7864,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\ntough fists, etc. It\\ncan also break any\\nbarrier such as Light\\nScreen and Reflect.",
     },
@@ -7611,6 +7892,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lets loose a\\nhuge yawn that lulls\\nthe foe into falling\\nasleep on the next\\nturn.",
     },
@@ -7638,6 +7920,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slaps down\\nthe foe’s held item,\\npreventing the item\\nfrom being used\\nduring the battle.",
     },
@@ -7665,6 +7948,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack move that\\ncuts down the foe’s\\nHP to equal the\\nuser’s HP.\\n",
     },
@@ -7692,6 +7976,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks in\\nan explosive fury.\\nThe lower the user’s\\nHP, the less powerful\\nthis attack becomes.",
     },
@@ -7719,6 +8004,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_STEAL_VOLTAGE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user employs its\\npsychic power to\\nexchange abilities\\nwith the foe.\\n",
     },
@@ -7746,6 +8032,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "If the foe knows any\\nmove also known by\\nthe user, the foe\\nis prevented\\nfrom using it.",
     },
@@ -7773,6 +8060,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rests\\nto cure itself of a\\npoisoning, burn, or\\nparalysis.\\n",
     },
@@ -7800,6 +8088,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOWER_VOLTAGES,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "If the user faints,\\nthe user’s grudge\\nfully depletes the PP\\nof the foe’s move\\nthat knocked it out.",
     },
@@ -7827,6 +8116,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_STEAL_VOLTAGE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user steals the\\neffects of any\\nhealing or stat-\\nchanging move the foe\\nattempts to use.",
     },
@@ -7854,6 +8144,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_RANDOMIZE_NEXT_TURN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\na secret power. Its\\nadded effects vary\\ndepending on the\\nuser’s environment.",
     },
@@ -7881,6 +8172,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_UNIQUE_JUDGE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "A two-turn attack.\\nThe user dives\\nunderwater on the\\nfirst turn, then hits\\non the next turn.",
     },
@@ -7908,6 +8200,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user looses a\\nflurry of open-palmed\\narm thrusts that hit\\ntwo to five times in a\\nrow.",
     },
@@ -7935,6 +8228,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user’s type is\\nchanged depending on\\nits environment, such\\nas at water’s edge, in\\ngrass, or in a cave.",
     },
@@ -7962,6 +8256,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user stares at\\nflashing lights to\\nfocus its mind,\\nsharply raising its\\nSp. Atk stat.",
     },
@@ -7989,6 +8284,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user looses a\\ndamaging burst of\\nlight. It may also\\nreduce the target’s\\nSp. Def stat.",
     },
@@ -8016,6 +8312,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A mistlike flurry of\\ndown envelops and\\ndamages the foe. It\\nmay also lower the\\ntarget’s Sp. Atk.",
     },
@@ -8043,6 +8340,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user covers the\\nfoe with a mass of\\ndown that sharply\\nlowers the Attack\\nstat.",
     },
@@ -8070,6 +8368,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_RANDOMIZE_NEXT_TURN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user performs a\\nwobbly dance that\\nconfuses all the\\nPokémon in battle.\\n",
     },
@@ -8097,6 +8396,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user launches a\\nkick with a high\\ncritical-hit ratio.\\nIt may also leave the\\ntarget with a burn.",
     },
@@ -8124,6 +8424,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user covers\\nitself with mud. It\\nweakens Electric-\\ntype moves while the\\nuser is in the battle.",
     },
@@ -8151,6 +8452,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user continually\\nrolls into the foe\\nover five turns. It\\nbecomes stronger\\neach time it hits.",
     },
@@ -8178,6 +8480,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nwildly swinging its\\nthorny arms.\\nIt may also make the\\ntarget flinch.",
     },
@@ -8205,6 +8508,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slacks off,\\nrestoring its own HP\\nby up to half of its\\nmaximum HP.\\n",
     },
@@ -8232,6 +8536,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lets loose\\na horribly echoing\\nshout with the\\npower to inflict\\ndamage.",
     },
@@ -8259,6 +8564,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user bites the\\nfoe with toxic fangs.\\nIt may also leave the\\nfoe badly poisoned.\\n",
     },
@@ -8286,6 +8592,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slashes the\\nfoe with hard and\\nsharp claws.\\nIt may also lower the\\ntarget’s Defense.",
     },
@@ -8313,6 +8620,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is razed by\\na fiery explosion.\\nThe user must rest\\non the next turn,\\nhowever.",
     },
@@ -8340,6 +8648,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is hit with\\na watery blast.\\nThe user must rest\\non the next turn,\\nhowever.",
     },
@@ -8367,6 +8676,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is hit with a\\nhard punch fired\\nlike a meteor.\\nIt may also raise\\nthe user’s Attack.",
     },
@@ -8394,6 +8704,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\nfoe while shouting in\\na startling fashion.\\nIt may also make the\\ntarget flinch.",
     },
@@ -8421,6 +8732,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack move that\\nvaries in power and\\ntype depending on\\nthe weather.\\n",
     },
@@ -8448,6 +8760,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user releases a\\nsoothing scent that\\nheals all status\\nproblems affecting\\nthe user’s party.",
     },
@@ -8475,6 +8788,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user feigns\\ncrying to make the\\nfoe feel flustered,\\nsharply lowering its\\nSp. Def stat.",
     },
@@ -8502,6 +8816,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user launches\\nrazorlike wind to\\nslash the foe.\\nIt has a high\\ncritical-hit ratio.",
     },
@@ -8529,6 +8844,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\nfoe at full power.\\nThe attack’s recoil\\nsharply reduces the\\nuser’s Sp. Atk stat.",
     },
@@ -8556,6 +8872,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Enables the user to\\nhit a Ghost type with\\nany type of move. It\\nalso enables the user\\nto hit an evasive foe.",
     },
@@ -8583,6 +8900,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_NEXT_TURN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Boulders are hurled\\nat the foe. It also\\nlowers the foe’s\\nSpeed by preventing\\nits movement.",
     },
@@ -8610,6 +8928,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith powdery scales\\nblown by wind.\\nIt may also raise all\\nthe user’s stats.",
     },
@@ -8637,6 +8956,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOWER_VOLTAGES,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "A horrible sound like\\nscraping metal is\\nemitted to sharply\\nreduce the foe’s\\nSp. Def stat.",
     },
@@ -8664,6 +8984,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user plays a\\npleasant melody that\\nlulls the foe into a\\ndeep sleep.\\n",
     },
@@ -8691,6 +9012,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tickles the\\nfoe into laughing,\\nreducing its Attack\\nand Defense stats.\\n",
     },
@@ -8718,6 +9040,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user absorbs a\\nmystical power from\\nspace to raise its\\nDefense and Sp. Def\\nstats.",
     },
@@ -8745,6 +9068,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user spouts\\nwater to damage the\\nfoe. The lower the\\nuser’s HP, the less\\npowerful it becomes.",
     },
@@ -8772,6 +9096,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\na sinister beam of\\nlight. It may also\\nconfuse the target.\\n",
     },
@@ -8799,6 +9124,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user throws a\\npunch at the foe from\\nthe shadows.\\nThe punch lands\\nwithout fail.",
     },
@@ -8826,6 +9152,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nan odd, unseeable\\npower.\\nIt may also make the\\nfoe flinch.",
     },
@@ -8853,6 +9180,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\nfoe with an uppercut\\nthrown skyward\\nwith force.\\n",
     },
@@ -8880,6 +9208,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user traps the\\nfoe inside a harshly\\nraging sandstorm for\\ntwo to five turns.\\n",
     },
@@ -8907,6 +9236,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_ALL_SAME_JUDGE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith a blast of\\nabsolute-zero cold.\\nThe foe instantly\\nfaints if it hits.",
     },
@@ -8934,6 +9264,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nshooting out muddy\\nwater.\\nIt may also lower the\\nfoe’s accuracy.",
     },
@@ -8961,6 +9292,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user forcefully\\nshoots seeds at the\\nfoe. Two to five\\nseeds are shot in\\nrapid succession.",
     },
@@ -8988,6 +9320,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user confounds\\nthe foe with speed,\\nthen slashes.\\nThe attack lands\\nwithout fail.",
     },
@@ -9015,6 +9348,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user launches\\nsharp icicles at the\\nfoe. It strikes two\\nto five times in a\\nrow.",
     },
@@ -9042,6 +9376,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hardens\\nits body’s surface\\nlike iron, sharply\\nraising its Defense\\nstat.",
     },
@@ -9069,6 +9404,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user blocks the\\nfoe’s way with arms\\nspread wide to\\nprevent escape.\\n",
     },
@@ -9096,6 +9432,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user howls loudly\\nto raise its spirit,\\nboosting its Attack\\nstat.\\n",
     },
@@ -9123,6 +9460,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slashes the\\nfoe with huge, sharp\\nclaws.\\n\\n",
     },
@@ -9150,6 +9488,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is slammed\\nwith an enormous\\ntree.\\nThe user can’t move\\non the next turn.",
     },
@@ -9177,6 +9516,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tenses its\\nmuscles to bulk up\\nits body, boosting\\nboth its Attack and\\nDefense stats.",
     },
@@ -9204,6 +9544,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_UNIQUE_JUDGE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user bounces up\\nhigh, then drops on\\nthe foe on the second\\nturn. It may also\\nparalyze the foe.",
     },
@@ -9231,6 +9572,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_NEXT_TURN,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nhurling a blob of mud\\nat the foe.\\nIt also reduces the\\ntarget’s Speed.",
     },
@@ -9258,6 +9600,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack with a\\nhigh critical-hit\\nratio. This tail \\nattack may also \\npoison the foe.",
     },
@@ -9285,6 +9628,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_STEAL_VOLTAGE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user endearingly\\napproaches the foe,\\nthen steals the item\\nthe foe is holding.\\n",
     },
@@ -9312,6 +9656,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user electrifies\\nitself, then charges\\nat the foe. It causes\\nconsiderable damage\\nto the user as well.",
     },
@@ -9339,6 +9684,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user scatters\\ncurious leaves that\\nchase the foe.\\nThis attack will not\\nmiss.",
     },
@@ -9366,6 +9712,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user soaks itself\\nwith water. The move\\nweakens Fire-type\\nmoves while the user\\nis in the battle.",
     },
@@ -9393,6 +9740,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user quietly\\nfocuses its mind and\\ncalms its spirit to\\nraise its Sp. Atk and\\nSp. Def stats.",
     },
@@ -9420,6 +9768,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is slashed\\nwith a sharp leaf.\\nIt has a high\\ncritical-hit ratio.\\n",
     },
@@ -9447,6 +9796,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user vigorously\\nperforms a mystic,\\npowerful dance that\\nboosts its Attack and\\nSpeed stats.",
     },
@@ -9474,6 +9824,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hurls hard\\nrocks at the foe.\\nTwo to five rocks are\\nlaunched in quick\\nsuccession.",
     },
@@ -9501,6 +9852,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user strikes the\\nfoe with a quick jolt\\nof electricity.\\nThis attack cannot be\\nevaded.",
     },
@@ -9528,6 +9880,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\nfoe with a pulsing\\nblast of water.\\nIt may also confuse\\nthe foe.",
     },
@@ -9555,6 +9908,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Two turns after this\\nmove is used, the\\nuser blasts the foe\\nwith a concentrated\\nbundle of light.",
     },
@@ -9582,6 +9936,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\nfoe at full power.\\nThe attack’s recoil\\nsharply reduces the\\nuser’s Sp. Atk stat.",
     },
@@ -9609,6 +9964,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lands and\\nrests its body.\\nIt restores the\\nuser’s HP by up to\\nhalf of its max HP.",
     },
@@ -9636,6 +9992,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "Gravity is intensified\\nfor five turns, making\\nmoves involving flying\\nunusable and\\nnegating Levitation.",
     },
@@ -9663,6 +10020,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "Enables the user to\\nhit a Dark type with\\nany type of move. It\\nalso enables the user\\nto hit an evasive foe.",
     },
@@ -9690,6 +10048,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "This attack inflicts\\nhigh damage on a\\nsleeping foe. It\\nalso wakes the foe\\nup, however.",
     },
@@ -9717,6 +10076,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_NEXT_TURN,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user swings and\\nhits with its strong\\nand heavy fist.\\nIt lowers the user’s\\nSpeed, however.",
     },
@@ -9744,6 +10104,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tackles the\\nfoe with a high-speed\\nspin. The slower the\\nuser, the greater\\nthe damage.",
     },
@@ -9771,6 +10132,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user faints. In\\nreturn, the Pokémon\\ntaking its place will\\nhave its HP restored\\nand status cured.",
     },
@@ -9798,6 +10160,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "If the foe’s HP is\\ndown to about half,\\nthis attack will hit\\nwith double the\\npower.",
     },
@@ -9825,6 +10188,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user draws power\\nto attack by using\\nits held Berry.\\nThe Berry determines\\nits type and power.",
     },
@@ -9852,6 +10216,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack that hits a\\nfoe using Protect or\\nDetect. It also lifts\\nthe effects of those\\nmoves.",
     },
@@ -9879,6 +10244,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_STEAL_VOLTAGE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user pecks the\\nfoe. If the foe is\\nholding a Berry, the\\nuser plucks it and\\ngains its effect.",
     },
@@ -9906,6 +10272,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user whips up a\\nturbulent whirlwind\\nthat ups the Speed\\nof all party Pokémon\\nfor three turns.",
     },
@@ -9933,6 +10300,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user applies\\npressure to stress\\npoints, sharply\\nboosting one of its\\nstats.",
     },
@@ -9960,6 +10328,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user retaliates\\nagainst the foe that\\nlast inflicted damage\\non it with much\\ngreater power.",
     },
@@ -9987,6 +10356,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "After making its\\nattack, the user\\nrushes back to switch\\nplaces with a party\\nPokémon in waiting.",
     },
@@ -10014,6 +10384,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user fights the\\nfoe up close without\\nguarding itself. It\\nalso cuts the user’s\\nDefense and Sp. Def.",
     },
@@ -10041,6 +10412,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_UNIQUE_JUDGE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "If the user can use\\nthis attack after the\\nfoe attacks, its\\npower is doubled.\\n",
     },
@@ -10068,6 +10440,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "If the foe has\\nalready taken some\\ndamage in the same\\nturn, this attack’s\\npower is doubled.",
     },
@@ -10095,6 +10468,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "It prevents the foe\\nfrom using its held\\nitem. Its Trainer is\\nalso prevented from\\nusing items on it.",
     },
@@ -10122,6 +10496,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_PITY_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user flings its\\nheld item at the foe\\nto attack. Its power\\nand effects depend\\non the item.",
     },
@@ -10149,6 +10524,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Using its psychic\\npower of suggestion,\\nthe user transfers\\nits status problems\\nto the target.",
     },
@@ -10176,6 +10552,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The fewer PP this\\nmove has, the more\\npower it has for\\nattack.\\n",
     },
@@ -10203,6 +10580,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user prevents\\nthe foe from using\\nany HP-recovery\\nmoves for five turns.\\n",
     },
@@ -10230,6 +10608,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user powerfully\\nwrings the foe.\\nThe more HP the foe\\nhas, the greater this\\nattack’s power.",
     },
@@ -10257,6 +10636,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user employs its\\npsychic power to\\nswitch its Attack\\nwith its Defense\\nstat.",
     },
@@ -10284,6 +10664,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hurls up its\\nstomach acids on\\nthe foe. The fluid\\neliminates the effect\\nof the foe’s ability.",
     },
@@ -10311,6 +10692,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user chants an\\nincantation toward\\nthe sky, preventing\\nthe foe from landing\\ncritical hits.",
     },
@@ -10338,6 +10720,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tries to cut\\nahead of the foe to\\nsteal and use the\\nfoe’s intended move\\nwith greater power.",
     },
@@ -10365,6 +10748,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_STEAL_VOLTAGE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user mimics the\\nmove used immediately\\nbefore it. The move\\nfails if no other move\\nhas been used yet.",
     },
@@ -10392,6 +10776,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user employs its\\npsychic power to\\nswitch changes to\\nits Attack and\\nSp. Atk with the foe.",
     },
@@ -10419,6 +10804,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user employs its\\npsychic power to\\nswitch changes to\\nits Defense and\\nSp. Def with the foe.",
     },
@@ -10446,6 +10832,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_PITY_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "This attack’s power\\nincreases the more\\nthe foe has powered\\nup with stat changes.\\n",
     },
@@ -10473,6 +10860,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LATE_BOOST,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "This move can be used\\nonly after the user\\nhas used all the\\nother moves it knows\\nin the battle.",
     },
@@ -10500,6 +10888,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "A seed that causes\\nworry is planted on\\nthe foe. It prevents\\nsleep by making its\\nability Insomnia.",
     },
@@ -10527,6 +10916,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "This move enables the\\nuser to attack first.\\nIt fails if the foe is\\nnot readying an\\nattack, however.",
     },
@@ -10554,6 +10944,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lays a trap\\nof poison spikes at\\nthe foe’s feet. They\\npoison foes that\\nswitch into battle.",
     },
@@ -10581,6 +10972,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user employs its\\npsychic power to\\nswitch stat changes\\nwith the foe.\\n",
     },
@@ -10608,6 +11000,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user envelops\\nitself in a veil made\\nof water. It regains\\nsome HP on every\\nturn.",
     },
@@ -10635,6 +11028,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user levitates\\nusing electrically\\ngenerated magnetism\\nfor five turns.\\n",
     },
@@ -10662,6 +11056,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user cloaks\\nitself in fire and\\ncharges at the foe.\\nThe user sustains\\nserious damage, too.",
     },
@@ -10689,6 +11084,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith a shock wave.\\nIt may also leave the\\ntarget paralyzed.\\n",
     },
@@ -10716,6 +11112,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user looses a\\nblast of aura power\\nfrom deep within its\\nbody. This move is\\ncertain to hit.",
     },
@@ -10743,6 +11140,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user polishes its\\nbody to reduce drag.\\nIt can sharply raise\\nthe Speed stat.\\n",
     },
@@ -10770,6 +11168,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is stabbed\\nwith a tentacle or\\narm steeped in\\npoison. It may also\\npoison the foe.",
     },
@@ -10797,6 +11196,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user releases a\\nhorrible aura imbued\\nwith dark thoughts.\\nIt may also make the\\ntarget flinch.",
     },
@@ -10813,7 +11213,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 70,
             .type = TYPE_DARK,
             .accuracy = 100,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (20) : (15)),
+            .pp = 20,
             .effectChance = 0,
         },
         .battle = {
@@ -10824,6 +11224,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slashes the\\nfoe the instant an\\nopportunity arises.\\nIt has a high\\ncritical-hit ratio.",
     },
@@ -10851,6 +11252,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nswinging its tail as if\\nit were a vicious wave\\nin a raging storm.\\n",
     },
@@ -10878,6 +11280,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slams a\\nbarrage of hard-\\nshelled seeds\\ndown on the foe\\nfrom above.",
     },
@@ -10905,6 +11308,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\na blade of air that\\nslices even the sky.\\nIt may also make the\\ntarget flinch.",
     },
@@ -10932,6 +11336,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slashes at\\nthe foe by crossing\\nits scythes or claws\\nas if they were a pair\\nof scissors.",
     },
@@ -10959,6 +11364,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user vibrates its\\nwings to generate a\\ndamaging sound wave.\\nIt may also lower the\\nfoe’s Sp. Def stat.",
     },
@@ -10986,6 +11392,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is attacked\\nwith a shock wave\\ngenerated by the\\nuser’s gaping mouth.\\n",
     },
@@ -11013,6 +11420,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tackles the\\nfoe while exhibiting\\noverwhelming menace.\\nIt may also make the\\ntarget flinch.",
     },
@@ -11040,6 +11448,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\na ray of light that\\nsparkles as if it were\\nmade of gemstones.\\n",
     },
@@ -11067,6 +11476,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "An energy-draining\\npunch. The user’s\\nHP is restored by\\nhalf the damage taken\\nby the target.",
     },
@@ -11094,6 +11504,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user whirls its\\nfists to send a wave\\nof pure vacuum at\\nthe foe. This move\\nalways goes first.",
     },
@@ -11121,6 +11532,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user heightens\\nits mental focus and\\nunleashes its power.\\nIt may also lower the\\ntarget’s Sp. Def.",
     },
@@ -11148,6 +11560,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user draws power\\nfrom nature and\\nfires it at the foe.\\nIt may also lower the\\ntarget’s Sp. Def.",
     },
@@ -11175,6 +11588,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tucks in\\nits wings and charges\\nfrom a low altitude.\\nThe user also takes\\nserious damage.",
     },
@@ -11202,6 +11616,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user makes the\\nground under the foe\\nerupt with power.\\nIt may also lower the\\ntarget’s Sp. Def.",
     },
@@ -11229,6 +11644,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_STEAL_VOLTAGE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user trades held\\nitems with the foe\\nfaster than the eye\\ncan follow.\\n",
     },
@@ -11256,6 +11672,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user charges at\\nthe foe using every\\nbit of its power.\\nThe user must rest\\non the next turn.",
     },
@@ -11283,6 +11700,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user stimulates\\nits brain by thinking\\nbad thoughts.\\nIt sharply raises the\\nuser’s Sp. Atk.",
     },
@@ -11310,6 +11728,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user strikes\\nwith a tough punch as\\nfast as a bullet.\\nThis move always goes\\nfirst.",
     },
@@ -11337,6 +11756,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack move that\\ninflicts double the\\ndamage if the user\\nhas been hurt by the\\nfoe in the same turn.",
     },
@@ -11364,6 +11784,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user flash\\nfreezes chunks of\\nice and hurls them.\\nThis move always goes\\nfirst.",
     },
@@ -11391,6 +11812,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slashes with\\na sharp claw made\\nfrom shadows.\\nIt has a high\\ncritical-hit ratio.",
     },
@@ -11418,6 +11840,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user bites with\\nelectrified fangs.\\nIt may also make the\\nfoe flinch or become\\nparalyzed.",
     },
@@ -11445,6 +11868,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user bites with\\ncold-infused fangs.\\nIt may also make the\\nfoe flinch or freeze.\\n",
     },
@@ -11472,6 +11896,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user bites with\\nflame-cloaked fangs.\\nIt may also make the\\nfoe flinch or sustain\\na burn.",
     },
@@ -11499,6 +11924,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user extends its\\nshadow and attacks\\nthe foe from behind.\\nThis move always goes\\nfirst.",
     },
@@ -11526,6 +11952,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user launches a\\nhard-packed mud ball\\nto attack.\\nIt may also lower the\\ntarget’s accuracy.",
     },
@@ -11553,6 +11980,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tears at\\nthe foe with blades\\nformed by psychic\\npower. It has a high\\ncritical-hit ratio.",
     },
@@ -11580,6 +12008,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user focuses its\\nwillpower to its head\\nand rams the foe.\\nIt may also make the\\ntarget flinch.",
     },
@@ -11607,6 +12036,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user looses a\\nflash of energy from\\nits polished body.\\nIt may also lower the\\ntarget’s accuracy.",
     },
@@ -11634,6 +12064,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user gathers all\\nits light energy and\\nreleases it at once.\\nIt may also lower the\\nfoe’s Sp. Def stat.",
     },
@@ -11661,6 +12092,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A charging attack\\nthat may also leave\\nthe foe confused.\\nIt can also be used\\nto scale rocky walls.",
     },
@@ -11688,6 +12120,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "It reduces the foe’s\\nevasion stat. It also\\nremoves spikes,\\nlight screens, etc.",
     },
@@ -11715,6 +12148,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_RANDOMIZE_NEXT_TURN,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user creates a\\nbizarre area in which\\nslower Pokémon get\\nto move first for five\\nturns.",
     },
@@ -11742,6 +12176,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Comets are summoned\\ndown from the sky.\\nThe attack’s recoil\\nsharply reduces the\\nuser’s Sp. Atk stat.",
     },
@@ -11769,6 +12204,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A flare of electricity\\nis loosed to strike\\nall Pokémon in battle.\\nIt may also cause\\nparalysis.",
     },
@@ -11796,6 +12232,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "An inferno of scarlet\\nflames washes over\\nall Pokémon in battle.\\nIt may also inflict\\nburns.",
     },
@@ -11823,6 +12260,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "A storm of sharp\\nleaves is whipped up.\\nThe attack’s recoil\\nsharply reduces the\\nuser’s Sp. Atk stat.",
     },
@@ -11850,6 +12288,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user violently\\nwhirls its vines or\\ntentacles to harshly\\nlash the foe.\\n",
     },
@@ -11877,6 +12316,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user launches a\\nhuge boulder at the\\nfoe to attack.\\nIt must rest on the\\nnext turn, however.",
     },
@@ -11904,6 +12344,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A slashing attack\\nthat may also leave\\nthe target poisoned.\\nIt has a high\\ncritical-hit ratio.",
     },
@@ -11931,6 +12372,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shoots\\nfilthy garbage at the\\nfoe to attack.\\nIt may also poison\\nthe target.",
     },
@@ -11948,7 +12390,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .type = TYPE_STEEL,
             .accuracy = 100,
             .pp = 15,
-            .effectChance = ((CHAMPIONS_EFFECT_CHANCE_CHANGES) ? (20) : (30)),
+            .effectChance = 20,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -11958,6 +12400,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe slams the\\ntarget with its\\nsteel-hard head.\\nIt may also make the\\ntarget flinch.",
     },
@@ -11985,6 +12428,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user launches a\\nsteel bomb that\\nsticks to the target.\\nThis attack will not\\nmiss.",
     },
@@ -12012,6 +12456,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user stabs the\\nfoe with a sharpened\\nstone. It has a high\\ncritical-hit ratio.\\n",
     },
@@ -12039,6 +12484,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "If it is the opposite\\ngender of the user,\\nthe foe is charmed\\ninto sharply lowering\\nits Sp. Atk stat.",
     },
@@ -12066,6 +12512,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_DOWN,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lays a trap\\nof levitating stones\\naround the foe. The\\ntrap hurts foes that\\nswitch into battle.",
     },
@@ -12093,6 +12540,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user snares the\\nfoe with grass and\\ntrips it. The heavier\\nthe foe, the greater\\nthe damage.",
     },
@@ -12120,6 +12568,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_PITY_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\nusing a sound wave\\nbased on words it has\\nlearned. It may also\\nconfuse the foe.",
     },
@@ -12147,6 +12596,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_RANDOMIZE_NEXT_TURN,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user releases\\ncountless shots of\\nlight. Its type varies\\nwith the kind of Plate\\nthe user is holding.",
     },
@@ -12174,6 +12624,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_STEAL_VOLTAGE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user bites the\\nfoe. If the foe is\\nholding a Berry, the\\nuser eats it and\\ngains its effect.",
     },
@@ -12201,6 +12652,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user fires a\\nconcentrated bundle\\nof electricity. It may\\nalso raise the user’s\\nSp. Atk stat.",
     },
@@ -12228,6 +12680,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slams its\\nrugged body into the\\nfoe to attack. The\\nuser also sustains\\nserious damage.",
     },
@@ -12255,6 +12708,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_NEXT_TURN,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lunges at\\nthe foe at a speed\\nthat makes it almost\\ninvisible. It is sure\\nto strike first.",
     },
@@ -12282,6 +12736,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user calls out\\nits underlings to\\npummel the foe.\\nIt has a high\\ncritical-hit ratio.",
     },
@@ -12309,6 +12764,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user calls out\\nits underlings to\\nshield its body,\\nraising its Defense\\nand Sp. Def stats.",
     },
@@ -12336,6 +12792,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user calls out\\nits underlings to heal\\nit. The user regains\\nup to half of its\\nmax HP.",
     },
@@ -12363,6 +12820,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user delivers a\\nlife-endangering\\nattack at full power.\\nThe user also takes\\nterrible damage.",
     },
@@ -12390,6 +12848,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slams the\\nfoe with a long tail,\\nvines, etc. The\\ntarget is hit\\ntwice in a row.",
     },
@@ -12417,6 +12876,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user blasts the\\nfoe with power that\\ndistorts even time.\\nThe user must rest\\non the next turn.",
     },
@@ -12444,6 +12904,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_VOLTAGE_HEARTS,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tears the\\nfoe along with the\\nspace around it.\\nThis move has a high\\ncritical-hit ratio.",
     },
@@ -12471,6 +12932,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user faints. In\\nreturn, the Pokémon\\ntaking its place will\\nhave its status and\\nHP fully restored.",
     },
@@ -12498,6 +12960,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_ON_FINALE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is crushed\\nwith great force.\\nThe attack is more\\npowerful the more HP\\nthe foe has left.",
     },
@@ -12525,6 +12988,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_SUCCESSIVE,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe becomes\\ntrapped within a\\nmaelstrom of fire\\nthat rages for two\\nto five turns.",
     },
@@ -12552,6 +13016,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_KEEP_VOLTAGE_UP,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is dragged\\ninto a world of total\\ndarkness that puts it\\nto sleep.\\n",
     },
@@ -12579,6 +13044,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user generates\\na shock wave from\\nwithin its body.\\nIt may also lower the\\ntarget’s Sp. Def.",
     },
@@ -12606,6 +13072,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_DOUBLE_NEXT_SCORE,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user creates a\\ngust of repulsive\\nwind. It may also\\nraise all the user’s\\nstats at once.",
     },
@@ -12633,6 +13100,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_AFTER_MAX_VOLTAGE_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user disappears,\\nthen strikes the foe\\non the second turn.\\nIt hits even if the\\nfoe protects itself.",
     },
@@ -12660,6 +13128,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "--",
     },
@@ -12687,6 +13156,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_FIRST_HEARTS,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "--",
     },
@@ -12714,6 +13184,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LAST_HEARTS,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "--",
     },
@@ -12741,6 +13212,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user sharpens\\nits claws to boost\\nits Attack and\\nAccuracy.",
     },
@@ -12768,6 +13240,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user protects\\nitself and its\\nallies from wide-\\nranged attacks.",
     },
@@ -12795,6 +13268,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user employs its\\npsychic power to\\naverage its Defense\\nand Sp. Def stats\\nwith the target.",
     },
@@ -12822,6 +13296,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user employs its\\npsychic power to\\naverage its Attack\\nand Sp. Atk stats\\nwith the target.",
     },
@@ -12849,6 +13324,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user creates a\\nbizarre area where\\nPokémon’s Defense\\nand Sp. Def swap\\nfor five turns.",
     },
@@ -12876,6 +13352,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "An odd psychic wave\\nattacks the target.\\nThis attack does\\nphysical damage.",
     },
@@ -12903,6 +13380,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is soaked\\nby a special acid.\\nIts power doubles if\\nthe foe is poisoned.",
     },
@@ -12930,6 +13408,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user sheds part\\nof its body to make\\nitself lighter and\\nsharply raise its\\nSpeed stat.",
     },
@@ -12957,6 +13436,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user scatters\\na cloud of powder,\\nmaking foes attack\\nonly the user.",
     },
@@ -12984,6 +13464,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user makes the\\ntarget float with\\npsychic power. The\\ntarget is easier to\\nhit for three turns.",
     },
@@ -13011,6 +13492,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user creates a\\nbizarre area in\\nwhich Pokémon’s held\\nitems lose effect\\nfor five turns.",
     },
@@ -13038,6 +13520,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A projectile is\\nthrown at the\\nopponent. A flying\\nPokémon will fall\\nto the ground.",
     },
@@ -13065,6 +13548,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user strikes\\nthe foe fiercely.\\nIt always results in\\na critical hit.",
     },
@@ -13092,6 +13576,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\nthe foe with a\\nbursting flame.",
     },
@@ -13119,6 +13604,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The area around the\\nuser is swamped by\\na giant sludge wave.\\nIt may also poison\\nthose hit.",
     },
@@ -13146,6 +13632,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user mystically\\ndances, raising its\\nSp. Atk, Sp. Def,\\nand Speed.",
     },
@@ -13173,6 +13660,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slams into\\nthe target. The\\ngreater the weight\\ndifference, the\\ngreater the damage.",
     },
@@ -13200,6 +13688,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Using an odd shock\\nwave, the user\\ndamages same-type\\nPokémon in the\\nsurrounding area.",
     },
@@ -13227,6 +13716,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hurls an\\nelectric orb. The\\nfaster the user is\\nthan the foe, the\\ngreater the damage.",
     },
@@ -13254,6 +13744,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shoots a\\ntorrent of water at\\nthe target and\\nchanges the target’s\\ntype to Water.",
     },
@@ -13281,6 +13772,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user cloaks\\nitself in flames and\\nattacks. It also ups\\nthe user’s Speed.",
     },
@@ -13308,6 +13800,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user coils up,\\nraising its Attack,\\nDefense, and\\naccuracy.",
     },
@@ -13335,6 +13828,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\nthe foe’s legs,\\nlowering its\\nSpeed stat.",
     },
@@ -13362,6 +13856,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user spits fluid\\nthat melts the foe.\\nIt harshly lowers\\nthe foe’s Sp. Def.",
     },
@@ -13389,6 +13884,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user turns the\\ntarget’s power\\nagainst it. Power\\nincreases with the\\nfoe’s Attack stat.",
     },
@@ -13416,6 +13912,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user’s\\nmysterious psychic\\nwave changes the\\ntarget’s Ability to\\nSimple.",
     },
@@ -13443,6 +13940,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user dances\\nwith an odd rhythm,\\nmaking the target’s\\nAbility the same as\\nthe user’s Ability.",
     },
@@ -13470,6 +13968,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user helps the\\ntarget and makes it\\nuse its move right\\nafter the user.",
     },
@@ -13497,6 +13996,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\nwith a song. Others\\ncan join in, doing\\nmore damage.",
     },
@@ -13524,6 +14024,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\nthe target with a\\nharsh echo.\\nIf used every turn,\\npower increases.",
     },
@@ -13551,6 +14052,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "An attack which is\\nnot affected by the\\ntarget’s stat\\nchanges.",
     },
@@ -13578,6 +14080,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user throws a\\nclump of special\\nmud that reverts\\nall stat changes.",
     },
@@ -13605,6 +14108,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\nwith a stored power\\nthat grows with\\neach raised stat.",
     },
@@ -13632,6 +14136,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user protects\\nitself and its\\nallies from priority\\nmoves.",
     },
@@ -13659,6 +14164,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user teleports\\nusing a strange\\npower and switches\\nplaces with one of\\nits allies.",
     },
@@ -13686,6 +14192,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "Boiling water is\\nshot at the foe.\\nIt may also cause\\na burn.",
     },
@@ -13713,6 +14220,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "Sharply raises\\nAttack, Sp. Atk, and\\nSpeed, but lowers\\nDefense and Sp. Def.",
     },
@@ -13740,6 +14248,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user emits a\\nhealing pulse that\\nrestores a target’s\\nHP by up to half.",
     },
@@ -13767,6 +14276,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "This attack does\\ndouble damage to a\\ntarget affected by\\na status problem.",
     },
@@ -13794,6 +14304,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "It takes the enemy\\ninto the sky,\\nwhere it can’t\\nattack. It is\\ndropped next turn.",
     },
@@ -13821,6 +14332,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Rotating its gears,\\nthe user raises its\\nAttack and sharply\\nraises its Speed.",
     },
@@ -13848,6 +14360,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is made to\\nswitch out with an\\nally. In the wild,\\nthe battle ends.",
     },
@@ -13875,6 +14388,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user burns\\nthe foe completely,\\nrendering a held\\nBerry useless.",
     },
@@ -13902,6 +14416,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user suppresses\\nthe target and makes\\nits move go last.",
     },
@@ -13929,6 +14444,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A nimble attack\\nthat does double\\ndamage if the user\\nhas no held item.",
     },
@@ -13956,6 +14472,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user reflects\\nthe target’s type,\\nmaking it the same\\ntype as the target.",
     },
@@ -13983,6 +14500,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "If an ally fainted\\nin the previous\\nturn, this attack’s\\ndamage increases.",
     },
@@ -13994,7 +14512,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Final Gambit",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_FINAL_GAMBIT,
             .split = SPLIT_SPECIAL,
             .power = 1,
             .type = TYPE_FIGHTING,
@@ -14005,11 +14523,12 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user risks all,\\ndealing damage\\nequal to its HP\\nand then fainting\\nfrom exhaustion.",
     },
@@ -14037,6 +14556,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user passes its\\nheld item to the\\ntarget when the\\ntarget isn’t\\nholding an item.",
     },
@@ -14064,6 +14584,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is engulfed\\nby an intense fire\\nthat is sure to\\nleave a burn.",
     },
@@ -14091,6 +14612,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "When combined with\\nits fire equivalent,\\nits power increases\\nand a rainbow\\nappears.",
     },
@@ -14118,6 +14640,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "When used with its\\ngrass equivalent,\\nits power increases\\nand a vast sea of\\nfire appears.",
     },
@@ -14145,6 +14668,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "When used with its\\nwater equivalent,\\nits power increases\\nand a vast swamp\\nappears.",
     },
@@ -14172,6 +14696,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "After attacking,\\nthe user switches\\nplaces with a\\nparty Pokémon.",
     },
@@ -14199,6 +14724,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "While resisting, the\\nuser attacks the\\nfoe, lowering its\\nSp. Atk stat.",
     },
@@ -14226,6 +14752,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hits all\\nPokémon in battle\\nby stomping. Lowers\\nSpeed of those hit.",
     },
@@ -14253,6 +14780,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user blows\\ncold air at the foe.\\nIt always results in\\na critical hit.",
     },
@@ -14280,6 +14808,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is made to\\nswitch out with an\\nally. In the wild,\\nthe battle ends.",
     },
@@ -14307,6 +14836,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rouses\\nitself to raise\\nits Attack and\\nSp. Atk stats.",
     },
@@ -14334,6 +14864,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user traps the\\nfoe in an electric\\nnet. It also lowers\\nthe foe’s Speed.",
     },
@@ -14361,6 +14892,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user throws an\\nelectrified tackle.\\nIt hurts the user\\na little.",
     },
@@ -14388,6 +14920,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rotates\\nits body like a\\ndrill. It has a high\\ncritical-hit ratio.",
     },
@@ -14415,6 +14948,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hits\\nthe foe with two\\nbrutal strikes\\nin one turn.",
     },
@@ -14442,6 +14976,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is hit\\nafter a cute act.\\nIt may also make\\nthe foe flinch.",
     },
@@ -14469,6 +15004,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "A harsh attack that\\nabsorbs half the\\ndamage it inflicted\\nto restore HP.",
     },
@@ -14496,6 +15032,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nslicing with a long\\nhorn. The target’s\\nstat changes are\\nignored.",
     },
@@ -14523,6 +15060,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The foe is cut\\nby sharp shells.\\nIt may also lower\\nthe foe’s Defense.",
     },
@@ -14550,6 +15088,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slams down\\nwith fire. The more\\nthe user outweighs\\nthe foe, the greater\\nthe damage.",
     },
@@ -14577,6 +15116,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Sharp leaves circle\\nthe foe. It may also\\nlower the foe’s\\naccuracy.",
     },
@@ -14604,6 +15144,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user crushes\\nthe foe with its\\nbody. It may also\\nmake the foe flinch.",
     },
@@ -14631,6 +15172,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user protects\\nitself with cotton,\\ndrastically raising\\nits Defense.",
     },
@@ -14644,7 +15186,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_ACCURACY_HIT,
             .split = SPLIT_SPECIAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (85)),
+            .power = 90,
             .type = TYPE_DARK,
             .accuracy = 95,
             .pp = 10,
@@ -14658,6 +15200,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user releases a\\npitch-black blast\\nat its target. May\\nalso lower target’s\\naccuracy.",
     },
@@ -14685,6 +15228,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "An odd psychic wave\\nattacks the target.\\nThis attack does\\nphysical damage.",
     },
@@ -14712,6 +15256,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The use attacks by\\nhitting the target\\nwith its hard tail.\\nIt hits two to five\\ntimes in a row.",
     },
@@ -14739,6 +15284,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nwrapping its opponent\\nin a fierce wind.\\nThis may also confuse\\nthe target.",
     },
@@ -14766,6 +15312,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user charges its\\nhead into its foe,\\nusing its guard hair.\\nIt slightly damages\\nthe user.",
     },
@@ -14779,9 +15326,9 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT_TWICE,
             .split = SPLIT_PHYSICAL,
-            .power = 50,
+            .power = 60,
             .type = TYPE_STEEL,
-            .accuracy = 85,
+            .accuracy = 90,
             .pp = 15,
             .effectChance = 0,
         },
@@ -14793,6 +15340,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nthrowing two steel\\ngears at it target.\\nThis attack hits\\ntwice in a row.",
     },
@@ -14820,6 +15368,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user torches\\neverything around it\\nin an inferno of\\nscarlet flames. It\\nmay burn the foes.",
     },
@@ -14847,6 +15396,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user fires a beam\\nof light at its foe.\\nThe type changes\\ndepending on the\\nDrive held.",
     },
@@ -14874,6 +15424,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user sings an\\nancient song and\\nattacks the hearts of\\nthe listeners. It\\nmay induce sleep.",
     },
@@ -14901,6 +15452,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user cuts with\\nits long horn. The\\nodd power in the\\nhorn does physical\\ndamage to the foe.",
     },
@@ -14928,6 +15480,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nblowing freezing cold\\nair at opposing\\nPokémon. This lowers\\ntheir Speed.",
     },
@@ -14955,6 +15508,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user surrounds\\nitself with abundant\\nelectricity that can\\nparalyze and charges\\nits target.",
     },
@@ -14982,6 +15536,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nengulfing the foe in\\na severe, beautiful,\\nblue flame. It may\\nburn the foe.",
     },
@@ -15009,6 +15564,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "Cloaked in flames,\\nthe user dances.\\nIt may also raise\\nthe user’s Sp. Atk.",
     },
@@ -15036,6 +15592,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "A two-turn attack\\nthat hits the foe\\nwith electrically\\ncharged ice. It may\\nparalyze the foe.",
     },
@@ -15063,6 +15620,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "A two-turn attack\\nthat surrounds the\\nfoe with ultracold,\\nfreezing wind. It\\nmay burn the foe.",
     },
@@ -15090,6 +15648,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user barks\\nmenacingly. It\\nalso lowers the\\nfoe’s Sp. Atk.",
     },
@@ -15117,6 +15676,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "Icicles are dropped\\non the foe. It may\\nalso make the foe\\nflinch.",
     },
@@ -15144,6 +15704,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hurls the\\nhot flame on its\\nforehead. It lowers\\nthe user’s Def, Sp.\\nDef, and Speed.",
     },
@@ -15171,6 +15732,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user brings down\\na giant flame.\\nIt does more damage\\nwhen influenced by\\nan enormous bolt.",
     },
@@ -15198,6 +15760,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user throws down\\na giant bolt.\\nIt does more damage\\nwhen influenced by\\nan enormous flame.",
     },
@@ -15212,7 +15775,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
             .power = 100,
-            .type = TYPE_FIGHTING, // Handled in src/battle/other_battle_calculators.c
+            .type = TYPE_FIGHTING,
             .accuracy = 95,
             .pp = 10,
             .effectChance = 0,
@@ -15220,11 +15783,12 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_PROTECT | FLAG_CONTACT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT,
         },
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user dives down\\nonto the target from\\nthe sky. This move is\\nFighting and Flying\\ntype simultaneously.",
     },
@@ -15252,6 +15816,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Using a pulled-up mat\\nas a shield, the user\\nprotects itself and\\nits allies from\\ndamaging moves.",
     },
@@ -15279,6 +15844,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lets out a\\ndamaging belch at the\\ntarget. The user must\\neat a held Berry to\\nuse this move.",
     },
@@ -15306,6 +15872,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "By making it easier\\nfor plants to grow,\\nthe user raises the\\nAttack and Sp. Atk\\nstats of Grass-types.",
     },
@@ -15333,6 +15900,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user weaves a web\\naround the opposing\\nteam, which lowers\\ntheir Speed stat upon\\nswitching into battle.",
     },
@@ -15360,6 +15928,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "When the user knocks\\nout a target with\\nthis move, the\\nuser’s Attack stat\\nrises drastically.",
     },
@@ -15387,6 +15956,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user disappears,\\nthen strikes the foe\\non the second turn.\\nIt hits even if the\\nfoe protects itself.",
     },
@@ -15414,6 +15984,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user takes the\\ntarget\\ntrick-or-treating.\\nThis adds Ghost type\\nto the target’s type.",
     },
@@ -15441,6 +16012,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "Letting out a noble\\nroar, the user\\nintimidates the target\\nand lowers its Attack\\nand Sp. Atk stats.",
     },
@@ -15468,6 +16040,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user disperses\\nelectrically charged\\nparticles, which\\nchanges Normal-type\\nmoves to Electric.",
     },
@@ -15495,6 +16068,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "An energy-draining\\nshockwave. The user’s\\nHP is restored by\\nhalf the damage taken\\nby those hit.",
     },
@@ -15522,6 +16096,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user puts a forest\\ncurse on the target.\\nThis adds Grass type\\nto the target’s type.",
     },
@@ -15549,6 +16124,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user stirs up a\\nviolent petal blizzard\\nand attacks everything\\naround it.",
     },
@@ -15576,6 +16152,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rapidly cools\\nthe target, possibly\\nleaving them frozen.\\nThis move is super\\neffective on Water.",
     },
@@ -15603,6 +16180,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "Letting out a charming\\ncry, the user does\\nemotional damage to\\nopposing Pokémon. This\\nattack never misses.",
     },
@@ -15630,6 +16208,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "With a parting threat,\\nthe user lowers the\\ntarget’s Attack and\\nSp. Atk stats.\\nThen it switches out.",
     },
@@ -15657,6 +16236,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "All stat changes\\naffecting the target\\nturn topsy-turvy and\\nbecome the opposite of\\nwhat they were.",
     },
@@ -15684,6 +16264,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "An energy-stealing\\nkiss. The user’s\\nHP is restored by\\nhalf the damage taken\\nby the target.",
     },
@@ -15711,6 +16292,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user protects\\nitself and its allies\\nfrom status moves\\nwith a mysterious\\npower.",
     },
@@ -15738,6 +16320,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user raises the\\nDefense stats of all\\nGrass-type Pokémon\\nin battle with a\\nmysterious power.",
     },
@@ -15765,6 +16348,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user turns the\\nground into Grassy\\nTerrain for five\\nturns. This powers up\\nGrass-type moves.",
     },
@@ -15792,6 +16376,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "Sets a Misty Terrain\\nfor five turns. This\\nprevents status\\nailments and weakens\\nDragon-Type moves.",
     },
@@ -15819,6 +16404,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "If the target is\\nelectrified, their\\nmoves become Electric\\ntype for the rest of\\nthat turn.",
     },
@@ -15846,6 +16432,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nplaying rough with the\\ntarget. This may also\\nlower the target’s\\nAttack stat.",
     },
@@ -15873,6 +16460,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nstirring up a fairy\\nwind to strike the\\ntarget.",
     },
@@ -15890,7 +16478,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .type = TYPE_FAIRY,
             .accuracy = 100,
             .pp = 15,
-            .effectChance = ((CHAMPIONS_EFFECT_CHANCE_CHANGES) ? (10) : (30)),
+            .effectChance = 10,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -15900,6 +16488,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "Borrowing the power of\\nthe moon, the user\\nattacks the target.\\nThis may also lower the\\ntarget’s Sp. Atk stat.",
     },
@@ -15927,6 +16516,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\neverything around it\\nwith the destructive\\npower of a terrible\\nexplosive sound.",
     },
@@ -15954,6 +16544,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "By locking down the\\nbattlefield, the user\\nkeeps all Pokémon\\nfrom fleeing during\\nthe next turn.",
     },
@@ -15970,7 +16561,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_STEEL,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -15981,6 +16572,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user protects\\nitself from damage\\nwhile lowering the\\nAttack of any attacker\\nthat makes contact.",
     },
@@ -16008,6 +16600,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user and the\\ntarget become pals,\\nlowering the target’s\\nAttack stat.\\nBypasses Protect.",
     },
@@ -16035,6 +16628,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tells the\\ntarget a secret,\\nmaking it lose focus.\\nThis lowers the\\ntarget’s Sp. Atk stat.",
     },
@@ -16062,6 +16656,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "A storm of diamonds\\nwhips opposing\\nPokémon. This may also\\nsharply boost the\\nuser’s Defense stat.",
     },
@@ -16089,6 +16684,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user immerses the\\ntarget in superheated\\nsteam.\\nThis may also leave\\nthe target with a burn.",
     },
@@ -16116,6 +16712,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Using a hyperspace\\nhole, the user strikes\\nfrom far away. This\\ncan hit a target using\\nProtect or Detect.",
     },
@@ -16143,6 +16740,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hits the\\ntarget with throwing\\nstars two to five\\ntimes. This move\\nalways goes first.",
     },
@@ -16170,6 +16768,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nbreathing a special,\\nhot fire.\\nThis also lowers the\\ntarget’s Sp. Atk stat.",
     },
@@ -16186,7 +16785,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_GRASS,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -16197,6 +16796,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user is protected\\nfrom attacks, while\\nalso damaging any\\nattacker who makes\\ndirect contact.",
     },
@@ -16224,6 +16824,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user boosts the\\nSp. Def stat of an\\nally Pokémon by using\\na mysterious aroma.",
     },
@@ -16251,6 +16852,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user emits an\\neerie impulse from its\\nbody, harshly lowering\\nthe target’s Sp. Atk\\nstat.",
     },
@@ -16278,6 +16880,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Foes are drenched in\\na poisonous liquid.\\nThis lowers the Attack,\\nSp. Atk, and Speed of\\na poisoned target.",
     },
@@ -16305,6 +16908,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user covers the\\ntarget in an explosive\\npowder that damages\\nthe target if they use\\na Fire-type move.",
     },
@@ -16332,6 +16936,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user absorbs energy\\nand sharply boosts its\\nSp. Atk, Sp. Def, and\\nSpeed stats on the next\\nturn.",
     },
@@ -16359,6 +16964,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "Magnetic fields boost\\nthe Defense and Sp. Def\\nstats of ally Pokémon\\nwith the Plus or Minus\\nAbility.",
     },
@@ -16386,6 +16992,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "Using Happy Hour\\ndoubles the amount of\\nprize money received\\nafter battle.",
     },
@@ -16413,6 +17020,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_BASIC,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "For five turns, Pokémon\\non the ground have\\npowered up Electric-type\\nmoves and can no longer\\nfall asleep.",
     },
@@ -16440,6 +17048,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user damages\\nopposing Pokémon by\\nemitting a powerful\\nflash.",
     },
@@ -16467,6 +17076,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The Pokémon\\ncongratulates you on\\nyour special day!",
     },
@@ -16494,6 +17104,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user and an ally\\nhold hands.\\nThis makes them very\\nhappy.",
     },
@@ -16521,6 +17132,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user stares at\\nthe target with its\\nbaby-eyes, lowering\\nits Attack stat.\\nAlways goes first.",
     },
@@ -16548,6 +17160,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user nuzzles its\\nelectrified cheeks\\nagainst the target.\\nThis also leaves the\\ntarget with paralysis.",
     },
@@ -16575,6 +17188,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user holds back\\nwhen it attacks, and\\nthe target is left\\nwith at least 1 HP.",
     },
@@ -16602,6 +17216,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The target is infested\\nand attacked for four\\nto five turns.\\nThe target can’t flee\\nduring this time.",
     },
@@ -16629,6 +17244,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "Striking opponents\\nover and over makes\\nthe user’s fists\\nharder. Hitting a\\ntarget raises Attack.",
     },
@@ -16656,6 +17272,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user absorbs the\\ntarget’s HP. The user’s\\nHP is restored by over\\nhalf the damage taken\\nby the target.",
     },
@@ -16683,6 +17300,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "This move can hit\\nopposing Pokémon that\\nare in the air. Those\\nPokémon are knocked\\ndown to the ground.",
     },
@@ -16710,6 +17328,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\na wave that crawls\\nalong the ground.\\nThose it hits can’t\\nflee from battle.",
     },
@@ -16737,6 +17356,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user gathers the\\nenergy of the land and\\nfocuses that power on\\nopposing Pokémon to\\ninflict damage.",
     },
@@ -16764,6 +17384,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "Drawing power from the\\nEternal Flower, the user\\nfires a powerful beam of\\nlight. This also damages\\nthe user terribly.",
     },
@@ -16791,6 +17412,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\nopposing Pokémon with\\ncountless beams of\\nlight that glow a deep\\nand brilliant blue.",
     },
@@ -16818,6 +17440,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\nopposing Pokémon by\\nmanifesting the power\\nof the land in\\nfearsome stone blades",
     },
@@ -16845,6 +17468,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\ndropping out of the sky\\nat high speed. This also\\nlowers the user’s\\nDefense and Sp. Def.",
     },
@@ -16872,6 +17496,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_TOUGH,
+            .padding02 = { 0, 0 },
         },
         .description = "The user unleashes a\\nbarrage that ignores the\\neffects of protection\\nmoves. This also lowers\\nthe user’s Defense.",
     },
@@ -16899,6 +17524,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user crashes into\\nthe target at full speed\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -16926,6 +17552,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user crashes into\\nthe target at full speed\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -16953,6 +17580,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user fires an\\nenergy orb created by\\nits Z-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -16980,6 +17608,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user fires an\\nenergy orb created by\\nits Z-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17007,6 +17636,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user plummets toward\\nthe target at full speed\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17034,6 +17664,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user plummets toward\\nthe target at full speed\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17061,6 +17692,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user creates a\\npoisonous swamp using\\nits Z-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17088,6 +17720,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user creates a\\npoisonous swamp using\\nits Z-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17115,6 +17748,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slams into the\\ntarget from underground\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17142,6 +17776,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slams into the\\ntarget from underground\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17169,6 +17804,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user drops a huge\\nmountain onto the target\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17196,6 +17832,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user drops a huge\\nmountain onto the target\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17223,6 +17860,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user spits threads\\nat the target made\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17250,6 +17888,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user spits threads\\nat the target made\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17277,6 +17916,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Deep-seated grudges are\\nsummoned by the user’s\\nZ-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17304,6 +17944,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Deep-seated grudges are\\nsummoned by the user’s\\nZ-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17331,6 +17972,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user spins very fast\\nand rams into the target\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17358,6 +18000,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user spins very fast\\nand rams into the target\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17385,6 +18028,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user breathes a\\nstream of intense fire\\nusing its Z-Power. The\\npower varies depending\\non the original move.",
     },
@@ -17412,6 +18056,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user breathes a\\nstream of intense fire\\nusing its Z-Power. The\\npower varies depending\\non the original move.",
     },
@@ -17439,6 +18084,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user creates a huge\\nwhirling current using\\nits Z-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17466,6 +18112,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user creates a huge\\nwhirling current using\\nits Z-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17493,6 +18140,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nenergy drawn from plants\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17520,6 +18168,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nenergy drawn from plants\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17547,6 +18196,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user summons a\\nstrong electric current\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17574,6 +18224,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user summons a\\nstrong electric current\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17601,6 +18252,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hurts the\\ntarget’s mind using\\nits Z-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17628,6 +18280,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hurts the\\ntarget’s mind using\\nits Z-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17655,6 +18308,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user freezes the\\ntarget using its\\nZ-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17682,6 +18336,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user freezes the\\ntarget using its\\nZ-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17709,6 +18364,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user materializes\\nand projects its aura\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17736,6 +18392,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user materializes\\nand projects its aura\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17763,6 +18420,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user sucks the\\ntarget into dark energy\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17790,6 +18448,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user sucks the\\ntarget into dark energy\\nusing its Z-Power. The\\npower varies, depending\\non the original move.",
     },
@@ -17817,6 +18476,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user totally toys\\nwith the target using\\nits Z-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17844,6 +18504,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user totally toys\\nwith the target using\\nits Z-Power. The power\\nvaries, depending on\\nthe original move.",
     },
@@ -17871,6 +18532,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Pikachu surrounds\\nitself with maximum\\nelectricity using its\\nZ-Power and pounces on\\nits target.",
     },
@@ -17898,6 +18560,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user restores its\\nown HP by up to half\\nits max HP.\\nIt regains more HP\\nin a sandstorm.",
     },
@@ -17911,7 +18574,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_FIRST_TURN_ONLY,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (100) : (90)),
+            .power = 100,
             .type = TYPE_BUG,
             .accuracy = 100,
             .pp = 10,
@@ -17925,6 +18588,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Although this move has\\ngreat power, it works\\nonly on the first turn\\neach time the user\\nenters battle.",
     },
@@ -17941,7 +18605,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_POISON,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -17952,6 +18616,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user protects\\nitself from attacks\\nwhile poisoning any\\nattacker that makes\\ndirect contact.",
     },
@@ -17965,7 +18630,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_PREVENT_ESCAPE_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (80)),
+            .power = 90,
             .type = TYPE_GHOST,
             .accuracy = 100,
             .pp = 10,
@@ -17979,6 +18644,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks while\\nsimultaneously stitching\\nthe target’s shadow to\\nthe ground to prevent\\nthe target from fleeing.",
     },
@@ -18006,6 +18672,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user swings both\\narms and hits the\\ntarget, ignoring changes\\nto the target’s Defense\\nand Evasion.",
     },
@@ -18033,6 +18700,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user bursts into\\nsong, emitting bubbles.\\nAny Pokémon suffering\\nfrom a burn will be\\ncured by their touch.",
     },
@@ -18060,6 +18728,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user swings and\\nhits with its strong,\\nheavy fist.\\nIt lowers the user’s\\nSpeed, however.",
     },
@@ -18087,6 +18756,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user restores the\\ntarget’s HP by up to\\nhalf of its max HP. It\\nrestores more HP when\\nthe terrain is grass.",
     },
@@ -18114,6 +18784,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user fiercely\\nattacks the target\\nusing its entire body.",
     },
@@ -18141,6 +18812,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user restores its\\nHP by the same amount\\nas the target’s Attack\\nstat. It also lowers the\\ntarget’s Attack stat.",
     },
@@ -18168,6 +18840,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user fills a blade\\nwith light’s energy on\\nthe first turn, then\\nattacks on the next\\nturn.",
     },
@@ -18195,6 +18868,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\npelting the target\\nwith leaves.",
     },
@@ -18222,6 +18896,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shines a\\nspotlight on the target\\nso that only the target\\nwill be attacked during\\nthe turn.",
     },
@@ -18249,6 +18924,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shoots\\npoisonous threads\\nto poison the target\\nand lower the\\ntarget’s Speed stat.",
     },
@@ -18276,6 +18952,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user concentrates\\nintensely.\\nThe attack on the next\\nturn always results in\\na critical hit.",
     },
@@ -18303,6 +18980,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user engages its\\ngears to raise the\\nAttack and Sp. Atk\\nstats of ally Pokémon\\nwith Plus or Minus.",
     },
@@ -18330,6 +19008,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\ntarget’s throat,\\npreventing the target\\nfrom using sound-based\\nmoves for two turns.",
     },
@@ -18357,6 +19036,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nan exploding pollen\\npuff. If the target is\\nan ally, it restores\\nits HP instead.",
     },
@@ -18370,7 +19050,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_PREVENT_ESCAPE_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = 80,
+            .power = 90,
             .type = TYPE_STEEL,
             .accuracy = 100,
             .pp = 20,
@@ -18384,6 +19064,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user entangles the\\ntarget with its anchor\\nchain while attacking.\\nThe target becomes\\nunable to flee.",
     },
@@ -18411,6 +19092,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This protects Pokémon\\non the ground from\\npriority moves and\\npowers up Psychic-type\\nmoves for five turns.",
     },
@@ -18438,6 +19120,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user makes a lunge\\nat the target, attacking\\nwith full force.\\nThis also lowers the\\ntarget’s Attack stat.",
     },
@@ -18451,7 +19134,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_DEFENSE_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (80)),
+            .power = 90,
             .type = TYPE_FIRE,
             .accuracy = 100,
             .pp = 15,
@@ -18465,6 +19148,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user strikes the\\ntarget with a burning\\nlash.\\nThis also lowers the\\ntarget’s Defense stat.",
     },
@@ -18492,6 +19176,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user flaunts its\\nstrength. The more the\\nuser’s stats are\\nboosted, the greater\\nthe move’s power.",
     },
@@ -18519,6 +19204,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "To inflict massive\\ndamage, the user burns\\nitself out. After using\\nthis move, the user will\\nno longer be Fire type.",
     },
@@ -18546,6 +19232,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user exchanges\\nSpeed stats with the\\ntarget.",
     },
@@ -18573,6 +19260,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user stabs the\\ntarget with a sharp\\nhorn.\\nThis attack never\\nmisses.",
     },
@@ -18589,7 +19277,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_POISON,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (20)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -18600,6 +19288,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user cures the\\ntarget’s status\\ncondition. If the move\\nsucceeds, it also\\nrestores the user’s HP.",
     },
@@ -18613,7 +19302,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_SPECIAL,
-            .power = 90,
+            .power = 100,
             .type = TYPE_NORMAL,
             .accuracy = 100,
             .pp = 15,
@@ -18627,6 +19316,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\ntarget by dancing with\\nall its might. This\\nmove becomes the same\\ntype as the user’s type.",
     },
@@ -18654,6 +19344,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "If a target has already\\nused their move this\\nturn, this move\\neliminates the effects\\nof their Ability.",
     },
@@ -18667,7 +19358,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_ATTACK_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (85) : (70)),
+            .power = 85,
             .type = TYPE_GRASS,
             .accuracy = 100,
             .pp = 15,
@@ -18681,6 +19372,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lands an\\nintense kick of tropical\\norigins on the target.\\nThis also lowers the\\ntarget’s Attack stat.",
     },
@@ -18708,6 +19400,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user instructs the\\ntarget to reuse the\\nmove last used by the\\ntarget.",
     },
@@ -18721,10 +19414,10 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (120) : (100)),
+            .power = 120,
             .type = TYPE_FLYING,
             .accuracy = 100,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (15)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -18735,6 +19428,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user heats up its\\nbeak before attacking.\\nMaking contact before\\nthe user attacks\\nresults in a burn.",
     },
@@ -18762,6 +19456,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rubs its\\nscales to make a huge\\nnoise. The user’s\\nDefense stat is lowered\\nafter the attack.",
     },
@@ -18775,7 +19470,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = 90,
+            .power = 100,
             .type = TYPE_DRAGON,
             .accuracy = 100,
             .pp = 15,
@@ -18789,6 +19484,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user wields its\\nbody like a hammer to\\nattack the target and\\ninflict damage.",
     },
@@ -18816,6 +19512,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user swings its\\nbody around violently\\nto inflict damage on\\neverything in its\\nvicinity.",
     },
@@ -18843,6 +19540,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "This move reduces damage\\nfrom most moves for five\\nturns. It can be used\\nonly when it is snowing.",
     },
@@ -18870,6 +19568,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user, Decidueye,\\ncreates countless\\narrows using its Z-Power\\nand shoots the target\\nwith full force.",
     },
@@ -18897,6 +19596,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user, Incineroar,\\nstrengthens its body\\nusing its Z-Power and\\ncrashes into the target\\nwith full force.",
     },
@@ -18924,6 +19624,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user, Primarina,\\nsummons a massive\\namount of water using its\\nZ-Power and attacks the\\ntarget with full force.",
     },
@@ -18951,6 +19652,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The Land Spirit Pokémon\\nuses its Z-Power to\\nattack with Alola’s\\nenergy. This reduces the\\ntarget’s HP greatly.",
     },
@@ -18978,6 +19680,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "After obtaining\\nZ-Power, Marshadow\\npunches and kicks the\\ntarget consecutively\\nwith full force.",
     },
@@ -19005,6 +19708,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "After obtaining\\nZ-Power, Alolan Raichu\\nattacks the target with\\nfull force, leaving\\nthem with paralysis.",
     },
@@ -19032,6 +19736,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Z-Power brings out the\\ntrue capabilities of\\nSnorlax, which excitedly\\nmoves its enormous body\\nto attack the target.",
     },
@@ -19059,6 +19764,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "After obtaining\\nZ-Power, Eevee gets\\nenergy from its evolved\\nfriends and boosts its\\nstats sharply.",
     },
@@ -19086,6 +19792,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "After obtaining\\nZ-Power, Mew attacks\\nthe target and charges\\nthe terrain with\\npsychic energy.",
     },
@@ -19102,7 +19809,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 150,
             .type = TYPE_FIRE,
             .accuracy = 100,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (10) : (5)),
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -19113,6 +19820,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user sets a shell\\ntrap. If hit by a\\nphysical move, the\\ntrap will explode and\\ninflict damage.",
     },
@@ -19140,6 +19848,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user unleashes a\\nstrong beam.\\nThe attack’s recoil\\nharshly lowers the\\nuser’s Sp. Atk stat.",
     },
@@ -19167,6 +19876,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user bites the\\ntarget with its psychic\\ncapabilities. This can\\nalso destroy Light\\nScreen and Reflect.",
     },
@@ -19194,6 +19904,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Driven by frustration,\\nthe user attacks. This\\nmove’s power is\\ndoubled if the user’s\\nprevious move failed.",
     },
@@ -19221,6 +19932,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user beats the\\ntarget with a bone that\\ncontains a spirit. This\\nmay also lower the\\ntarget’s Defense stat.",
     },
@@ -19248,6 +19960,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user smashes into\\nthe target at high\\nspeed.\\nThis move always goes\\nfirst.",
     },
@@ -19275,6 +19988,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slams into\\nthe target using a\\nblast of water. This\\nmay also lower the\\ntarget’s Defense stat.",
     },
@@ -19302,6 +20016,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shoots\\npowerful lasers using\\nthe power of a prism.\\nThe user can’t move on\\nthe next turn.",
     },
@@ -19329,6 +20044,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hides in the\\ntarget’s shadow,\\nsteals the target’s\\nstat boosts,\\nand then attacks",
     },
@@ -19356,6 +20072,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nmeteoric force. This\\nmove can be used on\\nthe target regardless\\nof its Ability.",
     },
@@ -19383,6 +20100,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user emits a\\nsinister ray. This\\nmove can be used on\\nthe target regardless\\nof its Ability.",
     },
@@ -19410,6 +20128,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tears up,\\nlowering the target’s\\nAttack and Sp. Atk\\nstats.\\nBypasses Protect.",
     },
@@ -19437,6 +20156,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user crashes into\\nthe target, delivering\\na powerful electric\\nshock. This may also\\nmake the target flinch.",
     },
@@ -19464,6 +20184,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hits the\\ntarget with the full\\nwrath of nature.\\nThis cuts the target’s\\nHP in half.",
     },
@@ -19491,6 +20212,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Cloaking itself in high\\nenergy, the user slams\\ninto the target. The\\nmemory held determines\\nthe move’s type.",
     },
@@ -19518,6 +20240,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Pikachu (wearing a\\ncap) unleashes a jolt\\nof electricity using\\nits Z-Power. Critical\\nhits land more easily.",
     },
@@ -19545,6 +20268,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\neverything around it by\\ncausing its own head to\\nexplode. This also\\ndamages the user.",
     },
@@ -19572,6 +20296,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nelectrically charged\\nfists. This move\\nchanges Normal-type\\nmoves to Electric.",
     },
@@ -19599,6 +20324,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with a\\npillar of light. This\\ncan inflict damage using\\nAttack or Sp. Atk-\\nwhichever is higher.",
     },
@@ -19626,6 +20352,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Necrozma inflicts damage\\nusing Attack or Sp. Atk-\\nwhichever is higher.\\nThis move ignores the\\ntarget’s Ability.",
     },
@@ -19653,6 +20380,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "After obtaining Z-Power,\\nSolgaleo attacks the\\ntarget. This move can\\nignore the effect of the\\ntarget’s Ability.",
     },
@@ -19680,6 +20408,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "After obtaining Z-Power,\\nLunala attacks the\\ntarget. This move can\\nignore the effect of the\\ntarget’s Ability.",
     },
@@ -19707,6 +20436,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "After obtaining\\nZ-Power, the user,\\nMimikyu, punches the\\ntarget with full\\nforce.",
     },
@@ -19734,6 +20464,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "After obtaining\\nZ-Power, Lycanroc\\nattacks the target.\\nThis move also\\ndestroys terrain.",
     },
@@ -19761,6 +20492,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "After obtaining Z-Power, Kommo-o attacks. This move boosts the all the user’s stats at once.",
     },
@@ -19788,6 +20520,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nhigh-speed bursts of\\nelectricity. This move\\nboosts Evasion and\\nalways goes first.",
     },
@@ -19815,6 +20548,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user charges a huge\\nwave with electricity.\\nThis may also leave the\\nopposing Pokémon with\\nparalysis.",
     },
@@ -19842,6 +20576,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user floats in the\\nair, then dives at a\\nsteep angle to attack.\\nThis may also make the\\ntarget flinch.",
     },
@@ -19869,6 +20604,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The more Pikachu\\nloves its Trainer,\\nthe greater the\\nmove’s power.\\nIt never misses.",
     },
@@ -19896,6 +20632,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nshooting water\\nbubbles, which restore\\nits HP by half the\\ndamage dealt.",
     },
@@ -19923,6 +20660,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shoots a jolt\\nof electricity to\\nattack the target.\\nThis also leaves the\\ntarget with paralysis.",
     },
@@ -19950,6 +20688,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user cloaks itself\\nin fire and charges at\\nthe target.\\nThis also leaves the\\ntarget with a burn.",
     },
@@ -19977,6 +20716,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user bombards the\\ntarget with\\ntelekinetic force,\\nsuppressing damage\\nfrom special moves.",
     },
@@ -20004,6 +20744,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user acts bad and\\nattacks the target,\\nsuppressing damage\\nfrom physical moves.",
     },
@@ -20031,6 +20772,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user scatters\\nseeds to attack the\\ntarget. The seeds\\ndrain the target’s HP\\nevery turn.",
     },
@@ -20058,6 +20800,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with a\\ncrystal made of frozen\\nhaze. It eliminates\\nevery stat change among\\nall Pokémon in battle.",
     },
@@ -20085,6 +20828,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nan overpowering scent.\\nThis also heals all\\nstatus conditions of\\nthe user’s party.",
     },
@@ -20112,6 +20856,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The more Eevee\\nloves its Trainer,\\nthe greater the\\nmove’s power.\\nIt never misses.",
     },
@@ -20139,6 +20884,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user spins on its\\nnut, striking the target\\nwith its arms twice in a\\nrow. This may also make\\nthe target flinch.",
     },
@@ -20166,6 +20912,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This move protects the\\nuser from all attacks.\\nIts chance of failing\\nrises if it is used in\\nsuccession.",
     },
@@ -20193,6 +20940,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user condenses\\nenergy within its body\\nand unleashes that\\nenergy from its core\\nto inflict damage.",
     },
@@ -20206,7 +20954,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIGH_CRITICAL,
             .split = SPLIT_SPECIAL,
-            .power = 80,
+            .power = 85,
             .type = TYPE_WATER,
             .accuracy = 100,
             .pp = 15,
@@ -20220,6 +20968,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user ignores\\nopposing Pokémon’s moves\\nand Abilities that draw\\nin moves, allowing it to\\nhit the chosen target.",
     },
@@ -20247,6 +20996,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This move prevents the\\nuser and the target from\\nswitching out until\\neither of them faints or\\nleaves the field.",
     },
@@ -20274,6 +21024,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user eats its\\nheld Berry, then\\nsharply boosts its\\nDefense stat.",
     },
@@ -20301,6 +21052,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This move boosts all\\nthe user’s stats but\\nprevents the user\\nfrom switching out\\nor fleeing.",
     },
@@ -20328,6 +21080,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
+            .padding02 = { 0, 0 },
         },
         .description = "The user pours tar on\\nthe target, dropping\\ntheir Speed stat.\\nFire attacks deal\\nmore damage.",
     },
@@ -20355,6 +21108,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "The user scatters a\\ncloud of magic powder\\nthat changes the\\ntarget’s type to\\nPsychic.",
     },
@@ -20377,11 +21131,12 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks twice\\nusing Dreepy. If there\\nare two opposing\\nPokémon, this move\\nhits each of them once.",
     },
@@ -20409,6 +21164,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user has teatime\\nwith all the Pokémon\\ncurrently in the battle.\\nEach Pokémon eats its\\nheld Berry.",
     },
@@ -20436,6 +21192,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user prevents the\\ntarget from fleeing.\\nThis move also lowers\\nthe target’s Defense\\nand Sp. Def every turn.",
     },
@@ -20449,7 +21206,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_DOUBLE_POWER_IF_FASTER,
             .split = SPLIT_PHYSICAL,
-            .power = 85,
+            .power = 80,
             .type = TYPE_ELECTRIC,
             .accuracy = 100,
             .pp = 10,
@@ -20463,6 +21220,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user stabs with its\\nelectrified beak. This\\nmove’s power is doubled\\nif the user moves before\\nthe target.",
     },
@@ -20476,7 +21234,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_DOUBLE_POWER_IF_FASTER,
             .split = SPLIT_PHYSICAL,
-            .power = 85,
+            .power = 80,
             .type = TYPE_WATER,
             .accuracy = 100,
             .pp = 10,
@@ -20490,6 +21248,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rends with its\\nhard gills. If the user\\nattacks before the\\ntarget, the power of\\nthis move is doubled.",
     },
@@ -20517,6 +21276,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "With its mysterious\\npower, the user swaps\\nthe effects on either\\nside of the field.",
     },
@@ -20544,6 +21304,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Fire-type\\nattack Dynamax Pokémon\\nuse. The user\\nintensifies the sun\\nfor five turns.",
     },
@@ -20571,6 +21332,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Bug-type\\nattack Dynamax Pokémon\\nuse. This lowers the\\ntarget’s Sp. Atk stat.",
     },
@@ -20598,6 +21360,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is an Electric-type\\nattack Dynamax Pokémon\\nuse. The user turns the\\nground into Electric\\nTerrain for five turns.",
     },
@@ -20625,6 +21388,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Normal-type\\nattack Dynamax Pokémon\\nuse. This lowers the\\ntarget’s Speed stat.",
     },
@@ -20652,6 +21416,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Fighting-type\\nattack Dynamax Pokémon\\nuse. This boosts ally\\nPokémon’s Attack stats.",
     },
@@ -20679,6 +21444,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Ghost-type\\nattack Dynamax Pokémon\\nuse. This lowers the\\ntarget’s Defense stat.",
     },
@@ -20706,6 +21472,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is an Ice-type\\nattack Dynamax Pokémon\\nuse. The user summons\\na snowstorm lasting\\nfive turns.",
     },
@@ -20733,6 +21500,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Poison-type\\nattack Dynamax Pokémon\\nuse. This boosts ally\\nPokémon’s Sp. Atk\\nstats.",
     },
@@ -20760,6 +21528,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Water-type\\nattack Dynamax Pokémon\\nuse. The user summons\\na heavy rain that\\nfalls for five turns.",
     },
@@ -20787,6 +21556,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Flying-type\\nattack Dynamax Pokémon\\nuse. This boosts ally\\nPokémon’s Speed stats.",
     },
@@ -20814,6 +21584,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Fairy-type\\nattack Dynamax Pokémon\\nuse. The user turns the\\nground into Misty\\nTerrain for five turns.",
     },
@@ -20841,6 +21612,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Dragon-type\\nattack Dynamax Pokémon\\nuse. This lowers the\\ntarget’s Attack stat.",
     },
@@ -20868,6 +21640,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Psychic-type\\nattack Dynamax Pokémon\\nuse. The user turns the\\nground into Psychic\\nTerrain for five turns.",
     },
@@ -20895,6 +21668,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Rock-type\\nattack Dynamax Pokémon\\nuse. The user summons\\na sandstorm lasting\\nfive turns.",
     },
@@ -20922,6 +21696,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Ground-type\\nattack Dynamax Pokémon\\nuse. This boosts ally\\nPokémon’s Sp. Def\\nstats.",
     },
@@ -20949,6 +21724,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Dark-type\\nattack Dynamax Pokémon\\nuse. This lowers the\\ntarget’s Sp. Def stat.",
     },
@@ -20976,6 +21752,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Grass-type\\nattack Dynamax Pokémon\\nuse. The user turns the\\nground into Grassy\\nTerrain for five turns.",
     },
@@ -21003,6 +21780,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is a Steel-type\\nattack Dynamax Pokémon\\nuse. This boosts ally\\nPokémon’s Defense\\nstats.",
     },
@@ -21018,7 +21796,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_DRAGON,
-            .accuracy = 100,
+            .accuracy = 0,
             .pp = 5,
             .effectChance = 100,
         },
@@ -21030,6 +21808,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user boosts all\\nits stats by using\\nsome of its own HP.",
     },
@@ -21057,6 +21836,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slams its\\nbody into the target.\\nThe higher the user’s\\nDefense stat, the\\ngreater the damage.",
     },
@@ -21084,6 +21864,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user sharply\\nboosts the target’s\\nAttack and Sp. Atk\\nstats by decorating\\nthe target.",
     },
@@ -21111,6 +21892,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user plays its drum,\\ncontrolling the drum’s\\nroots to attack the\\ntarget. This also lowers\\nthe target’s Speed stat.",
     },
@@ -21125,7 +21907,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
             .power = 35,
-            .type = ((CHAMPIONS_TYPE_CHANGES) ? (TYPE_STEEL) : (TYPE_GRASS)),
+            .type = TYPE_STEEL,
             .accuracy = 100,
             .pp = 15,
             .effectChance = 100,
@@ -21138,6 +21920,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user snares the\\ntarget in a snap trap\\nthat inflicts damage\\nfor four to five\\nturns.",
     },
@@ -21165,6 +21948,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user ignites a small\\nstone and launches it as\\na fiery ball. This may\\nalso leave the target\\nwith a burn.",
     },
@@ -21192,6 +21976,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user wields a\\nlarge, powerful sword\\nusing its whole body\\nand cuts the target\\nin a vigorous attack.",
     },
@@ -21219,6 +22004,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user’s body\\nbecomes a firm shield\\nand slams into the\\ntarget fiercely.",
     },
@@ -21246,6 +22032,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Morpeko attacks and\\nboosts its Speed stat.\\nThis move’s type\\nchanges depending on\\nthe user’s form.",
     },
@@ -21273,6 +22060,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user swings its\\ntough tail and attacks\\nopposing Pokémon.\\nThis also lowers their\\nAttack stats.",
     },
@@ -21300,6 +22088,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\ntarget by poking it\\nwith a sharply\\npointed branch.",
     },
@@ -21327,6 +22116,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\ntwanging a guitar or\\nbass guitar, causing a\\nhuge echo and strong\\nvibration.",
     },
@@ -21340,7 +22130,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_SP_DEF_HIT,
             .split = SPLIT_SPECIAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (80)),
+            .power = 90,
             .type = TYPE_GRASS,
             .accuracy = 100,
             .pp = 10,
@@ -21354,6 +22144,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with an\\nacidic liquid created\\nfrom tart apples. This\\nalso lowers the target’s\\nSp. Def stat.",
     },
@@ -21367,7 +22158,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_DEFENSE_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (80)),
+            .power = 90,
             .type = TYPE_GRASS,
             .accuracy = 100,
             .pp = 10,
@@ -21381,6 +22172,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user inflicts\\ndamage by dropping\\nan apple from above.\\nThis also lowers the\\ntarget’s Defense stat.",
     },
@@ -21408,6 +22200,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nenough force to break\\nthe target’s spirit.\\nThis also lowers the\\ntarget’s Sp. Atk stat.",
     },
@@ -21435,6 +22228,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\ntarget by emitting\\nsteam.\\nThis may also\\nconfuse the target.",
     },
@@ -21462,6 +22256,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user scatters\\nmysterious water around\\nand restores the HP of\\nitself and its allies\\ncurrently in battle.",
     },
@@ -21478,7 +22273,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_DARK,
             .accuracy = 100,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -21489,6 +22284,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user protects itself\\nfrom damage while\\nharshly lowering the\\nDefense of any attacker\\nthat makes contact.",
     },
@@ -21516,6 +22312,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user pretends to\\nbow its head, but then\\nit stabs the target\\nwith its hair. This\\nattack never misses.",
     },
@@ -21543,6 +22340,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\nwildly with its thick\\nleek.\\nThe user can’t move\\non the next turn.",
     },
@@ -21570,6 +22368,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This is Eternatus’s\\nmost powerful attack\\nin its original form.\\nThe user can’t move\\non the next turn.",
     },
@@ -21597,6 +22396,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user fires a beam\\nof steel that it\\ncollected from its\\nentire body. This also\\ndamages the user.",
     },
@@ -21624,6 +22424,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nits psychic power. This\\nmove’s power goes up and\\ndamages all opponents on\\nPsychic Terrain.",
     },
@@ -21651,6 +22452,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks while\\ndestroying the terrain.\\nThis move fails if the\\nground hasn’t turned\\ninto a terrain.",
     },
@@ -21678,6 +22480,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nshooting scales two to\\nfive times in a row.\\nThis raises Speed\\nbut lowers Defense.",
     },
@@ -21705,6 +22508,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user gathers\\nenergy from space to\\nraise its Sp. Atk on\\nthe first turn, then\\nattacks on the next.",
     },
@@ -21732,6 +22536,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "This move is either\\nphysical or special,\\nwhichever will inflict\\nmore damage. This may\\nalso poison the target.",
     },
@@ -21759,6 +22564,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks\\neverything around it\\nand faints. This move’s\\npower is boosted on\\nMisty Terrain.",
     },
@@ -21786,6 +22592,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Gliding on the ground,\\nthe user attacks the\\ntarget. This move\\nalways goes first on\\nGrassy Terrain.",
     },
@@ -21813,6 +22620,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nelectricity rising from\\nthe ground. Its power is\\ndoubled if the target is\\non Electric Terrain.",
     },
@@ -21840,6 +22648,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user utilizes the\\nenergy of the terrain.\\nThis move’s type and\\npower change depending\\non the current terrain.",
     },
@@ -21867,6 +22676,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user skitters\\nbehind the target to\\nattack.\\nThis also lowers the\\ntarget’s Sp. Atk stat.",
     },
@@ -21894,6 +22704,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nenergy from jealousy.\\nThis burns all opposing\\nPokémon that have had\\ntheir stats boosted.",
     },
@@ -21921,6 +22732,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user vents its\\nfrustration. Its power is\\ndoubled if the user’s\\nstats were lowered\\nduring this turn.",
     },
@@ -21948,6 +22760,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\ncontrolling the\\ntarget’s item. This\\nmove fails if the foe\\nisn’t holding an item.",
     },
@@ -21975,6 +22788,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user surrounds\\neverything around it\\nwith highly acidic gas\\nand melts away items\\nheld by other Pokémon.",
     },
@@ -22002,6 +22816,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user properly\\ncoaches its ally\\nPokémon, boosting\\ntheir Attack and\\nDefense stats.",
     },
@@ -22029,6 +22844,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "After making its\\nattack, the user\\nrushes back to switch\\nplaces with a party\\nPokémon in waiting.",
     },
@@ -22056,6 +22872,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A consecutive\\nthree-kick attack\\nthat becomes more\\npowerful with each\\nsuccessful hit.",
     },
@@ -22083,6 +22900,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slams the\\ntarget with its wings\\nto inflict damage.\\nThe target is hit\\ntwice in a row.",
     },
@@ -22110,6 +22928,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user throws\\nscorching sand at\\nthe target to attack.\\nThe target may also\\nbe left with a burn.",
     },
@@ -22137,6 +22956,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user restores HP and\\ncures status conditions\\nfor itself and its ally\\nPokémon currently in the\\nbattle.",
     },
@@ -22150,7 +22970,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_ALWAYS_CRITICAL,
             .split = SPLIT_PHYSICAL,
-            .power = 75,
+            .power = 80,
             .type = TYPE_DARK,
             .accuracy = 100,
             .pp = 5,
@@ -22164,6 +22984,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user strikes\\nthe target with a\\nfierce blow.\\nThis move always\\nlands a critical hit.",
     },
@@ -22191,6 +23012,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user strikes the\\ntarget with a flowing\\nmotion three times in\\na row. This move always\\nlands a critical hit.",
     },
@@ -22218,6 +23040,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user traps the\\ntarget inside a cage of\\nsparking electricity\\nthat inflicts damage\\nfor four to five turns.",
     },
@@ -22245,6 +23068,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user converts its\\nlife-force into power.\\nThe lower the user’s\\nHP, the lower the\\nmove’s power.",
     },
@@ -22272,6 +23096,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shoots its\\npsychic power from\\nits eyes to attack.\\nThis may also leave\\nthe target frozen.",
     },
@@ -22299,6 +23124,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user transforms its\\nwrath into a fire-like\\naura to attack. This may\\nalso make opposing\\nPokémon flinch.",
     },
@@ -22326,6 +23152,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "With lightning-like\\nmovement, the user\\ndelivers a kick. This\\nalso lowers the\\ntarget’s Defense stat.",
     },
@@ -22339,7 +23166,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = 120,
+            .power = 130,
             .type = TYPE_ICE,
             .accuracy = 100,
             .pp = 5,
@@ -22353,6 +23180,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nhurling a\\nblizzard-cloaked\\nicicle lance at\\nopposing Pokémon.",
     },
@@ -22366,7 +23194,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_SPECIAL,
-            .power = 120,
+            .power = 110,
             .type = TYPE_GHOST,
             .accuracy = 100,
             .pp = 5,
@@ -22380,6 +23208,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nsending a frightful\\namount of small\\nghosts at opposing\\nPokémon.",
     },
@@ -22407,6 +23236,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nits tremendous psychic\\npower. This also drains\\n3 PP from the move last\\nused by the target.",
     },
@@ -22424,7 +23254,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .type = TYPE_POISON,
             .accuracy = 100,
             .pp = 15,
-            .effectChance = ((CHAMPIONS_EFFECT_CHANCE_CHANGES) ? (30) : (50)),
+            .effectChance = 30,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -22434,6 +23264,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lashes out\\nat the target with\\nruinous claws. May\\nalso poison, paralyze,\\nor sleep the target.",
     },
@@ -22447,7 +23278,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_RAISE_DEF_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (70)),
+            .power = 90,
             .type = TYPE_PSYCHIC,
             .accuracy = 90,
             .pp = 10,
@@ -22461,6 +23292,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Cloaked in psychic\\nenergy, the user slams\\ninto the target. This\\nalso boosts the user’s\\nDefense stat.",
     },
@@ -22488,6 +23320,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user swaps its\\nAttack and Defense\\nstats.",
     },
@@ -22515,6 +23348,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user swings its\\nstone axes at the\\ntarget. Splinters left\\nbehind by this attack\\nfloat around the target.",
     },
@@ -22542,6 +23376,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user wraps foes in\\nfierce winds brimming\\nwith love and hate.\\nThis may also lower\\ntheir Attack stats.",
     },
@@ -22569,6 +23404,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nemitting a mysterious\\npower.\\nThis also boosts the\\nuser’s Sp. Atk stat.",
     },
@@ -22596,6 +23432,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rampages\\naround spewing flames\\nfor two to three turns.\\nThe user then becomes\\nconfused.",
     },
@@ -22623,6 +23460,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shrouds\\nitself in water and\\nslams into the target.\\nThis also damages the\\nuser quite a lot.",
     },
@@ -22634,7 +23472,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Chloroblast",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_RECOIL_HALF_MAX_HP,
             .split = SPLIT_SPECIAL,
             .power = 150,
             .type = TYPE_GRASS,
@@ -22645,11 +23483,12 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user launches its\\namassed chlorophyll\\nto inflict damage on\\nthe target. This also\\ndamages the user.",
     },
@@ -22663,7 +23502,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_FLINCH_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (120) : (100)),
+            .power = 120,
             .type = TYPE_ICE,
             .accuracy = 85,
             .pp = 10,
@@ -22677,6 +23516,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user hurls giant\\nchunks of ice at the\\ntarget to inflict\\ndamage. This may also\\nmake the target flinch.",
     },
@@ -22704,6 +23544,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user performs an\\nintense dance to usher\\nin victory, boosting\\nits Attack, Defense,\\nand Speed stats.",
     },
@@ -22731,6 +23572,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user smashes into\\nthe target in a\\nfull-body tackle. This\\nalso lowers the user’s\\nDefense and Sp. Def.",
     },
@@ -22758,6 +23600,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user launches barbs\\nwhich may poison the\\ntarget. Its power is\\ndoubled if the target\\nis already poisoned.",
     },
@@ -22785,6 +23628,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slashes with\\naura-enriched wings and\\nboosts its Speed. This\\nmove has a heightened\\ncritical hit chance.",
     },
@@ -22812,6 +23656,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\ntarget with spine-\\nchilling resentment.\\nThis also lowers the\\ntarget’s Attack stat.",
     },
@@ -22839,6 +23684,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user makes its\\nskin as hard as an\\niron shield,\\nsharply boosting\\nits Defense stat.",
     },
@@ -22866,6 +23712,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user kicks and fires\\nthree arrows. This has a\\nhigh critical hit chance\\nand may lower Defense or\\nmake the target flinch.",
     },
@@ -22879,7 +23726,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_BURN_HIT_DOUBLE_POWER_ON_STATUS,
             .split = SPLIT_SPECIAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (65) : (60)),
+            .power = 65,
             .type = TYPE_GHOST,
             .accuracy = 100,
             .pp = 15,
@@ -22893,6 +23740,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user summons myriad\\nfireballs which may burn\\nthe target. Its power is\\ndoubled if the target\\nhas a status condition.",
     },
@@ -22920,6 +23768,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slashes its\\nshell blade at the\\ntarget. Shell\\nsplinters left behind\\nremain as spikes.",
     },
@@ -22947,6 +23796,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nsavagely cold winds.\\nThis may also lower\\nthe Speed stats of\\nopposing Pokémon.",
     },
@@ -22974,6 +23824,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user savagely\\nattacks with\\nlightning and wind.\\nIt may also leave\\nopponents paralyzed.",
     },
@@ -23001,6 +23852,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user wraps opposing\\nPokémon in fierce winds\\nand searingly hot sand.\\nThis may also leave them\\nwith a burn.",
     },
@@ -23028,6 +23880,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user receives a\\nblessing from the moon,\\nrestoring HP and curing\\nstatus conditions for\\nitself and its allies.",
     },
@@ -23044,7 +23897,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_PSYCHIC,
             .accuracy = 0,
-            .pp = 15,
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -23055,6 +23908,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user lifts its\\nspirits, curing its\\nown status conditions\\nand boosting its Sp.\\nAtk and Sp. Def stats.",
     },
@@ -23082,6 +23936,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "If Terastallized, the\\nuser unleashes energy of\\nits Tera Type. It can\\nuse Attack or Sp. Atk-\\nwhichever is higher.",
     },
@@ -23109,6 +23964,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user spins a silken\\ntrap, protecting itself\\nwhile lowering the Speed\\nof any attacker that\\nmakes direct contact.",
     },
@@ -23136,6 +23992,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slams its heel\\ndown upon the target,\\nwhich may also confuse\\nthem. If it misses, the\\nuser is hurt instead.",
     },
@@ -23163,6 +24020,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks to\\navenge its allies. The\\nmore defeated allies\\nin the user’s party,\\nthe greater its power.",
     },
@@ -23190,6 +24048,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user unleashes a\\npeculiar light that even\\naffects the mind. This\\nalso harshly lowers the\\ntarget’s Sp. Def stat.",
     },
@@ -23217,6 +24076,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nelegant poise. If it has\\na Tatsugiri in its\\nmouth, this move boosts\\none of the user’s stats.",
     },
@@ -23244,6 +24104,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user summons a\\ntorrent around its\\nfist and punches at\\nblinding speed. It is\\nsure to strike first.",
     },
@@ -23271,6 +24132,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user’s incredibly\\nspicy extract sharply\\nboosts the target’s\\nAttack stat and harshly\\nlowers their Defense.",
     },
@@ -23287,7 +24149,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 100,
             .type = TYPE_STEEL,
             .accuracy = 100,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (10) : (5)),
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -23298,6 +24160,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user spins furiously\\nby straining its legs,\\ninflicting damage while\\nharshly lowering the\\nuser’s Speed stat.",
     },
@@ -23325,6 +24188,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user’s fellows\\ngather in droves to\\nperform a combo attack\\nthat hits the target one\\nto ten times in a row.",
     },
@@ -23352,6 +24216,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user covers its\\nfeet in ice and twirls\\naround, slamming into\\nthe target. It also\\ndestroys the terrain.",
     },
@@ -23379,6 +24244,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user charges\\nrecklessly. Attacks on\\nthe user on the next\\nturn always hit and will\\ninflict double damage.",
     },
@@ -23406,6 +24272,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user’s loving\\nblessing revives a party\\nPokémon that has fainted\\nand restores half that\\nPokémon’s max HP.",
     },
@@ -23433,6 +24300,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user salt cures the\\ntarget, dealing damage\\nevery turn. Steel and\\nWater types are strongly\\naffected by this move.",
     },
@@ -23446,7 +24314,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT_THREE_TIMES,
             .split = SPLIT_PHYSICAL,
-            .power = 30,
+            .power = 35,
             .type = TYPE_WATER,
             .accuracy = 95,
             .pp = 10,
@@ -23460,6 +24328,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user performs a\\nperfectly timed triple\\ndive, hitting the target\\nwith splashes of water\\nthree times in a row.",
     },
@@ -23487,6 +24356,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A spin attack that can\\neliminate such moves as\\nBind, Wrap and Leech\\nSeed. It also poisons\\nopposing Pokémon.",
     },
@@ -23514,6 +24384,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The target’s essence is\\ncaptured in a sketch.\\nThis makes the Abilities\\nof the user and its ally\\nmatch the target’s.",
     },
@@ -23541,6 +24412,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user sharply\\nboosts its Attack,\\nSp. Atk, and Speed\\nstats by using its\\nown HP.",
     },
@@ -23568,6 +24440,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user slashes at the\\ntarget after kowtowing\\nto make the target let\\ndown its guard. This\\nattack never misses.",
     },
@@ -23595,6 +24468,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user throws a rigged\\nbouquet of flowers at\\nthe target. This attack\\nnever misses and always\\nlands a critical hit.",
     },
@@ -23622,6 +24496,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user blows out\\nraging flames as if\\nsinging, scorching the\\ntarget. This also boosts\\nthe user’s Sp. Atk stat.",
     },
@@ -23649,6 +24524,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user toys with the\\ntarget and attacks using\\nlight and fluid dance\\nsteps. This also boosts\\nthe user’s Speed stat.",
     },
@@ -23676,6 +24552,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user performs a\\ntackle like a raging\\nbull. It can also break\\nbarriers, such as Light\\nScreen and Reflect.",
     },
@@ -23691,7 +24568,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 120,
             .type = TYPE_STEEL,
-            .accuracy = 100,
+            .accuracy = 95,
             .pp = 5,
             .effectChance = 0,
         },
@@ -23703,6 +24580,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user throws out a\\nmass of coins. This also\\nlowers the user’s Sp.\\nAtk stat. Money is\\nearned after the battle.",
     },
@@ -23730,6 +24608,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rends with an\\nethereal blade. Its\\npower is boosted by 50\\npercent if the user is\\non Electric Terrain.",
     },
@@ -23757,6 +24636,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user blasts out\\nboiling-hot water. Its\\npower is not lowered in\\nharsh sunlight but\\nrather boosted by 50%.",
     },
@@ -23784,6 +24664,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user summons a\\nruinous disaster.\\nThis cuts the\\ntarget’s HP in half.",
     },
@@ -23811,6 +24692,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user causes a\\nmassive prehistoric\\nexplosion. This move’s\\npower is boosted more if\\nit’s super effective.",
     },
@@ -23838,6 +24720,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user pierces its\\ntarget with futuristic\\nelectricity. This move’s\\npower is boosted more if\\nit’s supereffective.",
     },
@@ -23865,6 +24748,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user creates\\na decoy using its own\\nHP, then swaps places\\nwith a party Pokémon\\nin waiting.",
     },
@@ -23892,6 +24776,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tells a\\nchillingly bad joke\\nbefore switching out.\\nThis summons a snowstorm\\nlasting five turns.",
     },
@@ -23919,6 +24804,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user tidies up and\\nremoves entry hazards\\nand Substitutes. This\\nalso boosts the user’s\\nAttack and Speed stats.",
     },
@@ -23935,7 +24821,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_ICE,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -23946,6 +24832,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user summons a\\nsnowstorm lasting five\\nturns. This boosts the\\nDefense stats of Ice\\ntypes.",
     },
@@ -23973,6 +24860,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\npouncing on the\\ntarget.\\nThis also lowers the\\ntarget’s Speed stat.",
     },
@@ -24000,6 +24888,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks as if\\nleaping out from tall\\ngrass. The user’s\\nnimble footwork raises\\nits Speed stat.",
     },
@@ -24027,6 +24916,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks the\\ntarget by showering it\\nwith cold water. This\\nalso lowers the target’s\\nAttack stat.",
     },
@@ -24040,7 +24930,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = 100,
+            .power = 120,
             .type = TYPE_NORMAL,
             .accuracy = 100,
             .pp = 5,
@@ -24054,6 +24944,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user spins at high\\nspeed to pierce the\\ntarget. This attack can\\nhit through a move such\\nas Protect or Detect.",
     },
@@ -24081,6 +24972,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shoots\\nmystical beams from its\\neyes to inflict damage.\\nThe target is hit twice\\nin a row.",
     },
@@ -24108,6 +25000,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user converts its\\nrage into energy to\\nattack. The more the\\nuser has been attacked,\\nthe greater the power.",
     },
@@ -24135,6 +25028,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shoots its own\\narmor out as blazing\\nprojectiles. It also\\ncuts the user’s Defense\\nand Sp. Def stats.",
     },
@@ -24162,6 +25056,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user focuses its\\nbitter feelings into a\\nslash. The user’s HP\\nis restored by up to\\nhalf the damage taken.",
     },
@@ -24189,6 +25084,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user discharges\\nall the electricity\\nfrom its body. After\\nthis, the user loses\\nthe Electric type.",
     },
@@ -24216,6 +25112,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user swings its\\nwhole body around to\\nattack with its huge\\nhammer. This move can’t\\nbe used twice in a row.",
     },
@@ -24243,6 +25140,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user retaliates\\nagainst the foe that\\nlast inflicted damage\\non it with much\\ngreater power.",
     },
@@ -24270,6 +25168,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user expels\\npressurized water to\\ncut at the target like\\na blade. It has a high\\ncritical-hit ratio.",
     },
@@ -24297,6 +25196,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rams into the\\ntarget with blazing\\nenergy. This may also\\nleave the target with\\na burn.",
     },
@@ -24324,6 +25224,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rams into the\\ntarget with malicious\\nintent. This may put\\nthe target to sleep.",
     },
@@ -24351,6 +25252,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rams into the\\ntarget with a\\npoisonous end. This\\nmay also poison the\\ntarget.",
     },
@@ -24378,6 +25280,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rams into the\\ntarget with great\\nforce. This may also\\nleave the target with\\nparalysis.",
     },
@@ -24405,6 +25308,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user rams into the\\ntarget with a fae-like\\nforce. This may also\\nconfuse the target.",
     },
@@ -24418,7 +25322,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_SPECIAL,
-            .power = 140,
+            .power = 130,
             .type = TYPE_NORMAL,
             .accuracy = 100,
             .pp = 5,
@@ -24432,6 +25336,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user unleashes the\\nfull brunt of its spirit\\nfrom a full moon.\\nThis move can’t be used\\ntwice in a row.",
     },
@@ -24459,6 +25364,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user fires a blast\\nof tea, restoring HP\\nby up to half the\\ndamage dealt. This may\\nalso burn the target.",
     },
@@ -24474,7 +25380,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 60,
             .type = TYPE_GRASS,
-            .accuracy = ((CHAMPIONS_ACC_CHANGES) ? (90) : (85)),
+            .accuracy = 90,
             .pp = 10,
             .effectChance = 100,
         },
@@ -24486,6 +25392,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user sets off a\\ngooey explosion, which\\ncauses the target’s\\nSpeed stat to drop each\\nturn for three turns.",
     },
@@ -24513,6 +25420,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user strikes with a\\ncudgel. It has a high\\ncritical hit chance, and\\nits type changes with\\nthe user’s mask.",
     },
@@ -24540,6 +25448,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "A two-turn attack.\\nThe user gathers\\nlight, then fires a\\nhigh voltage shot\\non the second turn.",
     },
@@ -24567,6 +25476,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user bombards the\\ntarget with crystalline\\npower. When used by\\nStellar Terapagos, this\\nmove damages all foes.",
     },
@@ -24594,6 +25504,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user shoots a beam\\nof light. Sometimes\\nthe user’s heads shoot\\nin unison, doubling\\nthe move’s power.",
     },
@@ -24621,6 +25532,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user’s intensely hot\\nfur protects it from\\nattacks and also burns\\nany attacker that makes\\ndirect contact with it.",
     },
@@ -24648,6 +25560,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks first\\nwith a jolt of\\nelectricity. This move\\nfails if the target is\\nnot readying an attack.",
     },
@@ -24675,6 +25588,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Light from atop the\\nuser’s head cleaves the\\ntarget. This move hits\\neven if the target\\nprotects itself.",
     },
@@ -24702,6 +25616,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks by\\nlaunching particle\\nblades at the target\\ntwice in a row. This\\nattack never misses.",
     },
@@ -24729,6 +25644,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The target is crushed by\\nthe user. The more HP\\nthe target has left, the\\ngreater the move’s\\npower.",
     },
@@ -24756,6 +25672,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "Allies’ morale is raised\\nwith a draconic cry,\\nboosting their critical\\nhit rate. This rouses\\nDragon types more.",
     },
@@ -24783,6 +25700,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks using\\nits angelic voice. This\\nalso confuses the target\\nif its stats have been\\nboosted during the turn.",
     },
@@ -24810,6 +25728,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user desperately\\nattacks the target. This\\nmove’s power is doubled\\nif the user’s previous\\nmove failed.",
     },
@@ -24837,6 +25756,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user electrifies its\\nbody and drops onto the\\ntarget. If this move\\nmisses, the user takes\\ndamage instead.",
     },
@@ -24864,6 +25784,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user attacks with\\nunpleasant sound waves.\\nFor two turns, the\\ntarget is prevented\\nfrom recovering HP.",
     },
@@ -24891,6 +25812,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user strikes\\nreactively, making the\\ntarget flinch. This move\\nfails if the target is\\nnot readying a priority\\rmove.",
     },
@@ -24918,6 +25840,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
+            .padding02 = { 0, 0 },
         },
         .description = "The user pours toxins\\ninto the target through\\na corrosive chain. This\\nmay also leave the\\ntarget badly poisoned.",
     },
@@ -24945,6 +25868,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "",
     },

@@ -22777,482 +22777,482 @@ static const u32 sPokedexAreaRoutesAndCitiesSpecial_BadEgg[] =
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_DeoxysAttack[] =
+static const u32 sPokedexAreaSpecialAreasMorning_496[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_DeoxysAttack[] =
+static const u32 sPokedexAreaSpecialAreasDay_496[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_DeoxysAttack[] =
+static const u32 sPokedexAreaSpecialAreasNight_496[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_DeoxysAttack[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_496[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_DeoxysAttack[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_496[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_DeoxysAttack[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_496[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_DeoxysAttack[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_496[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_DeoxysAttack[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_496[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_DeoxysDefense[] =
+static const u32 sPokedexAreaSpecialAreasMorning_497[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_DeoxysDefense[] =
+static const u32 sPokedexAreaSpecialAreasDay_497[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_DeoxysDefense[] =
+static const u32 sPokedexAreaSpecialAreasNight_497[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_DeoxysDefense[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_497[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_DeoxysDefense[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_497[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_DeoxysDefense[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_497[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_DeoxysDefense[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_497[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_DeoxysDefense[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_497[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_DeoxysSpeed[] =
+static const u32 sPokedexAreaSpecialAreasMorning_498[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_DeoxysSpeed[] =
+static const u32 sPokedexAreaSpecialAreasDay_498[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_DeoxysSpeed[] =
+static const u32 sPokedexAreaSpecialAreasNight_498[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_DeoxysSpeed[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_498[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_DeoxysSpeed[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_498[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_DeoxysSpeed[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_498[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_DeoxysSpeed[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_498[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_DeoxysSpeed[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_498[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_WormadamSandy[] =
+static const u32 sPokedexAreaSpecialAreasMorning_499[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_WormadamSandy[] =
+static const u32 sPokedexAreaSpecialAreasDay_499[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_WormadamSandy[] =
+static const u32 sPokedexAreaSpecialAreasNight_499[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_WormadamSandy[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_499[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_WormadamSandy[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_499[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_WormadamSandy[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_499[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_WormadamSandy[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_499[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_WormadamSandy[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_499[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_WormadamTrashy[] =
+static const u32 sPokedexAreaSpecialAreasMorning_500[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_WormadamTrashy[] =
+static const u32 sPokedexAreaSpecialAreasDay_500[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_WormadamTrashy[] =
+static const u32 sPokedexAreaSpecialAreasNight_500[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_WormadamTrashy[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_500[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_WormadamTrashy[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_500[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_WormadamTrashy[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_500[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_WormadamTrashy[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_500[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_WormadamTrashy[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_500[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_GiratinaOrigin[] =
+static const u32 sPokedexAreaSpecialAreasMorning_501[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_GiratinaOrigin[] =
+static const u32 sPokedexAreaSpecialAreasDay_501[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_GiratinaOrigin[] =
+static const u32 sPokedexAreaSpecialAreasNight_501[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_GiratinaOrigin[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_501[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_GiratinaOrigin[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_501[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_GiratinaOrigin[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_501[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_GiratinaOrigin[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_501[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_GiratinaOrigin[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_501[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_ShayminSky[] =
+static const u32 sPokedexAreaSpecialAreasMorning_502[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_ShayminSky[] =
+static const u32 sPokedexAreaSpecialAreasDay_502[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_ShayminSky[] =
+static const u32 sPokedexAreaSpecialAreasNight_502[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_ShayminSky[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_502[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_ShayminSky[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_502[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_ShayminSky[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_502[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_ShayminSky[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_502[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_ShayminSky[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_502[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_RotomHeat[] =
+static const u32 sPokedexAreaSpecialAreasMorning_503[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_RotomHeat[] =
+static const u32 sPokedexAreaSpecialAreasDay_503[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_RotomHeat[] =
+static const u32 sPokedexAreaSpecialAreasNight_503[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_RotomHeat[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_503[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_RotomHeat[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_503[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_RotomHeat[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_503[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_RotomHeat[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_503[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_RotomHeat[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_503[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_RotomWash[] =
+static const u32 sPokedexAreaSpecialAreasMorning_504[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_RotomWash[] =
+static const u32 sPokedexAreaSpecialAreasDay_504[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_RotomWash[] =
+static const u32 sPokedexAreaSpecialAreasNight_504[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_RotomWash[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_504[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_RotomWash[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_504[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_RotomWash[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_504[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_RotomWash[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_504[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_RotomWash[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_504[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_RotomFrost[] =
+static const u32 sPokedexAreaSpecialAreasMorning_505[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_RotomFrost[] =
+static const u32 sPokedexAreaSpecialAreasDay_505[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_RotomFrost[] =
+static const u32 sPokedexAreaSpecialAreasNight_505[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_RotomFrost[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_505[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_RotomFrost[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_505[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_RotomFrost[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_505[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_RotomFrost[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_505[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_RotomFrost[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_505[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_RotomFan[] =
+static const u32 sPokedexAreaSpecialAreasMorning_506[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_RotomFan[] =
+static const u32 sPokedexAreaSpecialAreasDay_506[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_RotomFan[] =
+static const u32 sPokedexAreaSpecialAreasNight_506[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_RotomFan[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_506[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_RotomFan[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_506[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_RotomFan[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_506[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_RotomFan[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_506[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_RotomFan[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_506[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasMorning_RotomMow[] =
+static const u32 sPokedexAreaSpecialAreasMorning_507[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasDay_RotomMow[] =
+static const u32 sPokedexAreaSpecialAreasDay_507[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasNight_RotomMow[] =
+static const u32 sPokedexAreaSpecialAreasNight_507[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesMorning_RotomMow[] =
+static const u32 sPokedexAreaRoutesAndCitiesMorning_507[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesDay_RotomMow[] =
+static const u32 sPokedexAreaRoutesAndCitiesDay_507[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesNight_RotomMow[] =
+static const u32 sPokedexAreaRoutesAndCitiesNight_507[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaSpecialAreasSpecial_RotomMow[] =
+static const u32 sPokedexAreaSpecialAreasSpecial_507[] =
 {
     DEX_END_AREA_DATA,
 };
 
-static const u32 sPokedexAreaRoutesAndCitiesSpecial_RotomMow[] =
+static const u32 sPokedexAreaRoutesAndCitiesSpecial_507[] =
 {
     DEX_END_AREA_DATA,
 };
@@ -49912,102 +49912,102 @@ const PokedexU32List sPokedexAreaLists[] =
     [5870] = { sPokedexAreaRoutesAndCitiesNight_BadEgg, sizeof(sPokedexAreaRoutesAndCitiesNight_BadEgg) / sizeof(*sPokedexAreaRoutesAndCitiesNight_BadEgg) },
     [6945] = { sPokedexAreaSpecialAreasSpecial_BadEgg, sizeof(sPokedexAreaSpecialAreasSpecial_BadEgg) / sizeof(*sPokedexAreaSpecialAreasSpecial_BadEgg) },
     [8020] = { sPokedexAreaRoutesAndCitiesSpecial_BadEgg, sizeof(sPokedexAreaRoutesAndCitiesSpecial_BadEgg) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_BadEgg) },
-    [496] = { sPokedexAreaSpecialAreasMorning_DeoxysAttack, sizeof(sPokedexAreaSpecialAreasMorning_DeoxysAttack) / sizeof(*sPokedexAreaSpecialAreasMorning_DeoxysAttack) },
-    [1571] = { sPokedexAreaSpecialAreasDay_DeoxysAttack, sizeof(sPokedexAreaSpecialAreasDay_DeoxysAttack) / sizeof(*sPokedexAreaSpecialAreasDay_DeoxysAttack) },
-    [2646] = { sPokedexAreaSpecialAreasNight_DeoxysAttack, sizeof(sPokedexAreaSpecialAreasNight_DeoxysAttack) / sizeof(*sPokedexAreaSpecialAreasNight_DeoxysAttack) },
-    [3721] = { sPokedexAreaRoutesAndCitiesMorning_DeoxysAttack, sizeof(sPokedexAreaRoutesAndCitiesMorning_DeoxysAttack) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_DeoxysAttack) },
-    [4796] = { sPokedexAreaRoutesAndCitiesDay_DeoxysAttack, sizeof(sPokedexAreaRoutesAndCitiesDay_DeoxysAttack) / sizeof(*sPokedexAreaRoutesAndCitiesDay_DeoxysAttack) },
-    [5871] = { sPokedexAreaRoutesAndCitiesNight_DeoxysAttack, sizeof(sPokedexAreaRoutesAndCitiesNight_DeoxysAttack) / sizeof(*sPokedexAreaRoutesAndCitiesNight_DeoxysAttack) },
-    [6946] = { sPokedexAreaSpecialAreasSpecial_DeoxysAttack, sizeof(sPokedexAreaSpecialAreasSpecial_DeoxysAttack) / sizeof(*sPokedexAreaSpecialAreasSpecial_DeoxysAttack) },
-    [8021] = { sPokedexAreaRoutesAndCitiesSpecial_DeoxysAttack, sizeof(sPokedexAreaRoutesAndCitiesSpecial_DeoxysAttack) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_DeoxysAttack) },
-    [497] = { sPokedexAreaSpecialAreasMorning_DeoxysDefense, sizeof(sPokedexAreaSpecialAreasMorning_DeoxysDefense) / sizeof(*sPokedexAreaSpecialAreasMorning_DeoxysDefense) },
-    [1572] = { sPokedexAreaSpecialAreasDay_DeoxysDefense, sizeof(sPokedexAreaSpecialAreasDay_DeoxysDefense) / sizeof(*sPokedexAreaSpecialAreasDay_DeoxysDefense) },
-    [2647] = { sPokedexAreaSpecialAreasNight_DeoxysDefense, sizeof(sPokedexAreaSpecialAreasNight_DeoxysDefense) / sizeof(*sPokedexAreaSpecialAreasNight_DeoxysDefense) },
-    [3722] = { sPokedexAreaRoutesAndCitiesMorning_DeoxysDefense, sizeof(sPokedexAreaRoutesAndCitiesMorning_DeoxysDefense) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_DeoxysDefense) },
-    [4797] = { sPokedexAreaRoutesAndCitiesDay_DeoxysDefense, sizeof(sPokedexAreaRoutesAndCitiesDay_DeoxysDefense) / sizeof(*sPokedexAreaRoutesAndCitiesDay_DeoxysDefense) },
-    [5872] = { sPokedexAreaRoutesAndCitiesNight_DeoxysDefense, sizeof(sPokedexAreaRoutesAndCitiesNight_DeoxysDefense) / sizeof(*sPokedexAreaRoutesAndCitiesNight_DeoxysDefense) },
-    [6947] = { sPokedexAreaSpecialAreasSpecial_DeoxysDefense, sizeof(sPokedexAreaSpecialAreasSpecial_DeoxysDefense) / sizeof(*sPokedexAreaSpecialAreasSpecial_DeoxysDefense) },
-    [8022] = { sPokedexAreaRoutesAndCitiesSpecial_DeoxysDefense, sizeof(sPokedexAreaRoutesAndCitiesSpecial_DeoxysDefense) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_DeoxysDefense) },
-    [498] = { sPokedexAreaSpecialAreasMorning_DeoxysSpeed, sizeof(sPokedexAreaSpecialAreasMorning_DeoxysSpeed) / sizeof(*sPokedexAreaSpecialAreasMorning_DeoxysSpeed) },
-    [1573] = { sPokedexAreaSpecialAreasDay_DeoxysSpeed, sizeof(sPokedexAreaSpecialAreasDay_DeoxysSpeed) / sizeof(*sPokedexAreaSpecialAreasDay_DeoxysSpeed) },
-    [2648] = { sPokedexAreaSpecialAreasNight_DeoxysSpeed, sizeof(sPokedexAreaSpecialAreasNight_DeoxysSpeed) / sizeof(*sPokedexAreaSpecialAreasNight_DeoxysSpeed) },
-    [3723] = { sPokedexAreaRoutesAndCitiesMorning_DeoxysSpeed, sizeof(sPokedexAreaRoutesAndCitiesMorning_DeoxysSpeed) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_DeoxysSpeed) },
-    [4798] = { sPokedexAreaRoutesAndCitiesDay_DeoxysSpeed, sizeof(sPokedexAreaRoutesAndCitiesDay_DeoxysSpeed) / sizeof(*sPokedexAreaRoutesAndCitiesDay_DeoxysSpeed) },
-    [5873] = { sPokedexAreaRoutesAndCitiesNight_DeoxysSpeed, sizeof(sPokedexAreaRoutesAndCitiesNight_DeoxysSpeed) / sizeof(*sPokedexAreaRoutesAndCitiesNight_DeoxysSpeed) },
-    [6948] = { sPokedexAreaSpecialAreasSpecial_DeoxysSpeed, sizeof(sPokedexAreaSpecialAreasSpecial_DeoxysSpeed) / sizeof(*sPokedexAreaSpecialAreasSpecial_DeoxysSpeed) },
-    [8023] = { sPokedexAreaRoutesAndCitiesSpecial_DeoxysSpeed, sizeof(sPokedexAreaRoutesAndCitiesSpecial_DeoxysSpeed) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_DeoxysSpeed) },
-    [499] = { sPokedexAreaSpecialAreasMorning_WormadamSandy, sizeof(sPokedexAreaSpecialAreasMorning_WormadamSandy) / sizeof(*sPokedexAreaSpecialAreasMorning_WormadamSandy) },
-    [1574] = { sPokedexAreaSpecialAreasDay_WormadamSandy, sizeof(sPokedexAreaSpecialAreasDay_WormadamSandy) / sizeof(*sPokedexAreaSpecialAreasDay_WormadamSandy) },
-    [2649] = { sPokedexAreaSpecialAreasNight_WormadamSandy, sizeof(sPokedexAreaSpecialAreasNight_WormadamSandy) / sizeof(*sPokedexAreaSpecialAreasNight_WormadamSandy) },
-    [3724] = { sPokedexAreaRoutesAndCitiesMorning_WormadamSandy, sizeof(sPokedexAreaRoutesAndCitiesMorning_WormadamSandy) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_WormadamSandy) },
-    [4799] = { sPokedexAreaRoutesAndCitiesDay_WormadamSandy, sizeof(sPokedexAreaRoutesAndCitiesDay_WormadamSandy) / sizeof(*sPokedexAreaRoutesAndCitiesDay_WormadamSandy) },
-    [5874] = { sPokedexAreaRoutesAndCitiesNight_WormadamSandy, sizeof(sPokedexAreaRoutesAndCitiesNight_WormadamSandy) / sizeof(*sPokedexAreaRoutesAndCitiesNight_WormadamSandy) },
-    [6949] = { sPokedexAreaSpecialAreasSpecial_WormadamSandy, sizeof(sPokedexAreaSpecialAreasSpecial_WormadamSandy) / sizeof(*sPokedexAreaSpecialAreasSpecial_WormadamSandy) },
-    [8024] = { sPokedexAreaRoutesAndCitiesSpecial_WormadamSandy, sizeof(sPokedexAreaRoutesAndCitiesSpecial_WormadamSandy) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_WormadamSandy) },
-    [500] = { sPokedexAreaSpecialAreasMorning_WormadamTrashy, sizeof(sPokedexAreaSpecialAreasMorning_WormadamTrashy) / sizeof(*sPokedexAreaSpecialAreasMorning_WormadamTrashy) },
-    [1575] = { sPokedexAreaSpecialAreasDay_WormadamTrashy, sizeof(sPokedexAreaSpecialAreasDay_WormadamTrashy) / sizeof(*sPokedexAreaSpecialAreasDay_WormadamTrashy) },
-    [2650] = { sPokedexAreaSpecialAreasNight_WormadamTrashy, sizeof(sPokedexAreaSpecialAreasNight_WormadamTrashy) / sizeof(*sPokedexAreaSpecialAreasNight_WormadamTrashy) },
-    [3725] = { sPokedexAreaRoutesAndCitiesMorning_WormadamTrashy, sizeof(sPokedexAreaRoutesAndCitiesMorning_WormadamTrashy) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_WormadamTrashy) },
-    [4800] = { sPokedexAreaRoutesAndCitiesDay_WormadamTrashy, sizeof(sPokedexAreaRoutesAndCitiesDay_WormadamTrashy) / sizeof(*sPokedexAreaRoutesAndCitiesDay_WormadamTrashy) },
-    [5875] = { sPokedexAreaRoutesAndCitiesNight_WormadamTrashy, sizeof(sPokedexAreaRoutesAndCitiesNight_WormadamTrashy) / sizeof(*sPokedexAreaRoutesAndCitiesNight_WormadamTrashy) },
-    [6950] = { sPokedexAreaSpecialAreasSpecial_WormadamTrashy, sizeof(sPokedexAreaSpecialAreasSpecial_WormadamTrashy) / sizeof(*sPokedexAreaSpecialAreasSpecial_WormadamTrashy) },
-    [8025] = { sPokedexAreaRoutesAndCitiesSpecial_WormadamTrashy, sizeof(sPokedexAreaRoutesAndCitiesSpecial_WormadamTrashy) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_WormadamTrashy) },
-    [501] = { sPokedexAreaSpecialAreasMorning_GiratinaOrigin, sizeof(sPokedexAreaSpecialAreasMorning_GiratinaOrigin) / sizeof(*sPokedexAreaSpecialAreasMorning_GiratinaOrigin) },
-    [1576] = { sPokedexAreaSpecialAreasDay_GiratinaOrigin, sizeof(sPokedexAreaSpecialAreasDay_GiratinaOrigin) / sizeof(*sPokedexAreaSpecialAreasDay_GiratinaOrigin) },
-    [2651] = { sPokedexAreaSpecialAreasNight_GiratinaOrigin, sizeof(sPokedexAreaSpecialAreasNight_GiratinaOrigin) / sizeof(*sPokedexAreaSpecialAreasNight_GiratinaOrigin) },
-    [3726] = { sPokedexAreaRoutesAndCitiesMorning_GiratinaOrigin, sizeof(sPokedexAreaRoutesAndCitiesMorning_GiratinaOrigin) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_GiratinaOrigin) },
-    [4801] = { sPokedexAreaRoutesAndCitiesDay_GiratinaOrigin, sizeof(sPokedexAreaRoutesAndCitiesDay_GiratinaOrigin) / sizeof(*sPokedexAreaRoutesAndCitiesDay_GiratinaOrigin) },
-    [5876] = { sPokedexAreaRoutesAndCitiesNight_GiratinaOrigin, sizeof(sPokedexAreaRoutesAndCitiesNight_GiratinaOrigin) / sizeof(*sPokedexAreaRoutesAndCitiesNight_GiratinaOrigin) },
-    [6951] = { sPokedexAreaSpecialAreasSpecial_GiratinaOrigin, sizeof(sPokedexAreaSpecialAreasSpecial_GiratinaOrigin) / sizeof(*sPokedexAreaSpecialAreasSpecial_GiratinaOrigin) },
-    [8026] = { sPokedexAreaRoutesAndCitiesSpecial_GiratinaOrigin, sizeof(sPokedexAreaRoutesAndCitiesSpecial_GiratinaOrigin) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_GiratinaOrigin) },
-    [502] = { sPokedexAreaSpecialAreasMorning_ShayminSky, sizeof(sPokedexAreaSpecialAreasMorning_ShayminSky) / sizeof(*sPokedexAreaSpecialAreasMorning_ShayminSky) },
-    [1577] = { sPokedexAreaSpecialAreasDay_ShayminSky, sizeof(sPokedexAreaSpecialAreasDay_ShayminSky) / sizeof(*sPokedexAreaSpecialAreasDay_ShayminSky) },
-    [2652] = { sPokedexAreaSpecialAreasNight_ShayminSky, sizeof(sPokedexAreaSpecialAreasNight_ShayminSky) / sizeof(*sPokedexAreaSpecialAreasNight_ShayminSky) },
-    [3727] = { sPokedexAreaRoutesAndCitiesMorning_ShayminSky, sizeof(sPokedexAreaRoutesAndCitiesMorning_ShayminSky) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_ShayminSky) },
-    [4802] = { sPokedexAreaRoutesAndCitiesDay_ShayminSky, sizeof(sPokedexAreaRoutesAndCitiesDay_ShayminSky) / sizeof(*sPokedexAreaRoutesAndCitiesDay_ShayminSky) },
-    [5877] = { sPokedexAreaRoutesAndCitiesNight_ShayminSky, sizeof(sPokedexAreaRoutesAndCitiesNight_ShayminSky) / sizeof(*sPokedexAreaRoutesAndCitiesNight_ShayminSky) },
-    [6952] = { sPokedexAreaSpecialAreasSpecial_ShayminSky, sizeof(sPokedexAreaSpecialAreasSpecial_ShayminSky) / sizeof(*sPokedexAreaSpecialAreasSpecial_ShayminSky) },
-    [8027] = { sPokedexAreaRoutesAndCitiesSpecial_ShayminSky, sizeof(sPokedexAreaRoutesAndCitiesSpecial_ShayminSky) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_ShayminSky) },
-    [503] = { sPokedexAreaSpecialAreasMorning_RotomHeat, sizeof(sPokedexAreaSpecialAreasMorning_RotomHeat) / sizeof(*sPokedexAreaSpecialAreasMorning_RotomHeat) },
-    [1578] = { sPokedexAreaSpecialAreasDay_RotomHeat, sizeof(sPokedexAreaSpecialAreasDay_RotomHeat) / sizeof(*sPokedexAreaSpecialAreasDay_RotomHeat) },
-    [2653] = { sPokedexAreaSpecialAreasNight_RotomHeat, sizeof(sPokedexAreaSpecialAreasNight_RotomHeat) / sizeof(*sPokedexAreaSpecialAreasNight_RotomHeat) },
-    [3728] = { sPokedexAreaRoutesAndCitiesMorning_RotomHeat, sizeof(sPokedexAreaRoutesAndCitiesMorning_RotomHeat) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_RotomHeat) },
-    [4803] = { sPokedexAreaRoutesAndCitiesDay_RotomHeat, sizeof(sPokedexAreaRoutesAndCitiesDay_RotomHeat) / sizeof(*sPokedexAreaRoutesAndCitiesDay_RotomHeat) },
-    [5878] = { sPokedexAreaRoutesAndCitiesNight_RotomHeat, sizeof(sPokedexAreaRoutesAndCitiesNight_RotomHeat) / sizeof(*sPokedexAreaRoutesAndCitiesNight_RotomHeat) },
-    [6953] = { sPokedexAreaSpecialAreasSpecial_RotomHeat, sizeof(sPokedexAreaSpecialAreasSpecial_RotomHeat) / sizeof(*sPokedexAreaSpecialAreasSpecial_RotomHeat) },
-    [8028] = { sPokedexAreaRoutesAndCitiesSpecial_RotomHeat, sizeof(sPokedexAreaRoutesAndCitiesSpecial_RotomHeat) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_RotomHeat) },
-    [504] = { sPokedexAreaSpecialAreasMorning_RotomWash, sizeof(sPokedexAreaSpecialAreasMorning_RotomWash) / sizeof(*sPokedexAreaSpecialAreasMorning_RotomWash) },
-    [1579] = { sPokedexAreaSpecialAreasDay_RotomWash, sizeof(sPokedexAreaSpecialAreasDay_RotomWash) / sizeof(*sPokedexAreaSpecialAreasDay_RotomWash) },
-    [2654] = { sPokedexAreaSpecialAreasNight_RotomWash, sizeof(sPokedexAreaSpecialAreasNight_RotomWash) / sizeof(*sPokedexAreaSpecialAreasNight_RotomWash) },
-    [3729] = { sPokedexAreaRoutesAndCitiesMorning_RotomWash, sizeof(sPokedexAreaRoutesAndCitiesMorning_RotomWash) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_RotomWash) },
-    [4804] = { sPokedexAreaRoutesAndCitiesDay_RotomWash, sizeof(sPokedexAreaRoutesAndCitiesDay_RotomWash) / sizeof(*sPokedexAreaRoutesAndCitiesDay_RotomWash) },
-    [5879] = { sPokedexAreaRoutesAndCitiesNight_RotomWash, sizeof(sPokedexAreaRoutesAndCitiesNight_RotomWash) / sizeof(*sPokedexAreaRoutesAndCitiesNight_RotomWash) },
-    [6954] = { sPokedexAreaSpecialAreasSpecial_RotomWash, sizeof(sPokedexAreaSpecialAreasSpecial_RotomWash) / sizeof(*sPokedexAreaSpecialAreasSpecial_RotomWash) },
-    [8029] = { sPokedexAreaRoutesAndCitiesSpecial_RotomWash, sizeof(sPokedexAreaRoutesAndCitiesSpecial_RotomWash) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_RotomWash) },
-    [505] = { sPokedexAreaSpecialAreasMorning_RotomFrost, sizeof(sPokedexAreaSpecialAreasMorning_RotomFrost) / sizeof(*sPokedexAreaSpecialAreasMorning_RotomFrost) },
-    [1580] = { sPokedexAreaSpecialAreasDay_RotomFrost, sizeof(sPokedexAreaSpecialAreasDay_RotomFrost) / sizeof(*sPokedexAreaSpecialAreasDay_RotomFrost) },
-    [2655] = { sPokedexAreaSpecialAreasNight_RotomFrost, sizeof(sPokedexAreaSpecialAreasNight_RotomFrost) / sizeof(*sPokedexAreaSpecialAreasNight_RotomFrost) },
-    [3730] = { sPokedexAreaRoutesAndCitiesMorning_RotomFrost, sizeof(sPokedexAreaRoutesAndCitiesMorning_RotomFrost) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_RotomFrost) },
-    [4805] = { sPokedexAreaRoutesAndCitiesDay_RotomFrost, sizeof(sPokedexAreaRoutesAndCitiesDay_RotomFrost) / sizeof(*sPokedexAreaRoutesAndCitiesDay_RotomFrost) },
-    [5880] = { sPokedexAreaRoutesAndCitiesNight_RotomFrost, sizeof(sPokedexAreaRoutesAndCitiesNight_RotomFrost) / sizeof(*sPokedexAreaRoutesAndCitiesNight_RotomFrost) },
-    [6955] = { sPokedexAreaSpecialAreasSpecial_RotomFrost, sizeof(sPokedexAreaSpecialAreasSpecial_RotomFrost) / sizeof(*sPokedexAreaSpecialAreasSpecial_RotomFrost) },
-    [8030] = { sPokedexAreaRoutesAndCitiesSpecial_RotomFrost, sizeof(sPokedexAreaRoutesAndCitiesSpecial_RotomFrost) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_RotomFrost) },
-    [506] = { sPokedexAreaSpecialAreasMorning_RotomFan, sizeof(sPokedexAreaSpecialAreasMorning_RotomFan) / sizeof(*sPokedexAreaSpecialAreasMorning_RotomFan) },
-    [1581] = { sPokedexAreaSpecialAreasDay_RotomFan, sizeof(sPokedexAreaSpecialAreasDay_RotomFan) / sizeof(*sPokedexAreaSpecialAreasDay_RotomFan) },
-    [2656] = { sPokedexAreaSpecialAreasNight_RotomFan, sizeof(sPokedexAreaSpecialAreasNight_RotomFan) / sizeof(*sPokedexAreaSpecialAreasNight_RotomFan) },
-    [3731] = { sPokedexAreaRoutesAndCitiesMorning_RotomFan, sizeof(sPokedexAreaRoutesAndCitiesMorning_RotomFan) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_RotomFan) },
-    [4806] = { sPokedexAreaRoutesAndCitiesDay_RotomFan, sizeof(sPokedexAreaRoutesAndCitiesDay_RotomFan) / sizeof(*sPokedexAreaRoutesAndCitiesDay_RotomFan) },
-    [5881] = { sPokedexAreaRoutesAndCitiesNight_RotomFan, sizeof(sPokedexAreaRoutesAndCitiesNight_RotomFan) / sizeof(*sPokedexAreaRoutesAndCitiesNight_RotomFan) },
-    [6956] = { sPokedexAreaSpecialAreasSpecial_RotomFan, sizeof(sPokedexAreaSpecialAreasSpecial_RotomFan) / sizeof(*sPokedexAreaSpecialAreasSpecial_RotomFan) },
-    [8031] = { sPokedexAreaRoutesAndCitiesSpecial_RotomFan, sizeof(sPokedexAreaRoutesAndCitiesSpecial_RotomFan) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_RotomFan) },
-    [507] = { sPokedexAreaSpecialAreasMorning_RotomMow, sizeof(sPokedexAreaSpecialAreasMorning_RotomMow) / sizeof(*sPokedexAreaSpecialAreasMorning_RotomMow) },
-    [1582] = { sPokedexAreaSpecialAreasDay_RotomMow, sizeof(sPokedexAreaSpecialAreasDay_RotomMow) / sizeof(*sPokedexAreaSpecialAreasDay_RotomMow) },
-    [2657] = { sPokedexAreaSpecialAreasNight_RotomMow, sizeof(sPokedexAreaSpecialAreasNight_RotomMow) / sizeof(*sPokedexAreaSpecialAreasNight_RotomMow) },
-    [3732] = { sPokedexAreaRoutesAndCitiesMorning_RotomMow, sizeof(sPokedexAreaRoutesAndCitiesMorning_RotomMow) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_RotomMow) },
-    [4807] = { sPokedexAreaRoutesAndCitiesDay_RotomMow, sizeof(sPokedexAreaRoutesAndCitiesDay_RotomMow) / sizeof(*sPokedexAreaRoutesAndCitiesDay_RotomMow) },
-    [5882] = { sPokedexAreaRoutesAndCitiesNight_RotomMow, sizeof(sPokedexAreaRoutesAndCitiesNight_RotomMow) / sizeof(*sPokedexAreaRoutesAndCitiesNight_RotomMow) },
-    [6957] = { sPokedexAreaSpecialAreasSpecial_RotomMow, sizeof(sPokedexAreaSpecialAreasSpecial_RotomMow) / sizeof(*sPokedexAreaSpecialAreasSpecial_RotomMow) },
-    [8032] = { sPokedexAreaRoutesAndCitiesSpecial_RotomMow, sizeof(sPokedexAreaRoutesAndCitiesSpecial_RotomMow) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_RotomMow) },
+    [496] = { sPokedexAreaSpecialAreasMorning_496, sizeof(sPokedexAreaSpecialAreasMorning_496) / sizeof(*sPokedexAreaSpecialAreasMorning_496) },
+    [1571] = { sPokedexAreaSpecialAreasDay_496, sizeof(sPokedexAreaSpecialAreasDay_496) / sizeof(*sPokedexAreaSpecialAreasDay_496) },
+    [2646] = { sPokedexAreaSpecialAreasNight_496, sizeof(sPokedexAreaSpecialAreasNight_496) / sizeof(*sPokedexAreaSpecialAreasNight_496) },
+    [3721] = { sPokedexAreaRoutesAndCitiesMorning_496, sizeof(sPokedexAreaRoutesAndCitiesMorning_496) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_496) },
+    [4796] = { sPokedexAreaRoutesAndCitiesDay_496, sizeof(sPokedexAreaRoutesAndCitiesDay_496) / sizeof(*sPokedexAreaRoutesAndCitiesDay_496) },
+    [5871] = { sPokedexAreaRoutesAndCitiesNight_496, sizeof(sPokedexAreaRoutesAndCitiesNight_496) / sizeof(*sPokedexAreaRoutesAndCitiesNight_496) },
+    [6946] = { sPokedexAreaSpecialAreasSpecial_496, sizeof(sPokedexAreaSpecialAreasSpecial_496) / sizeof(*sPokedexAreaSpecialAreasSpecial_496) },
+    [8021] = { sPokedexAreaRoutesAndCitiesSpecial_496, sizeof(sPokedexAreaRoutesAndCitiesSpecial_496) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_496) },
+    [497] = { sPokedexAreaSpecialAreasMorning_497, sizeof(sPokedexAreaSpecialAreasMorning_497) / sizeof(*sPokedexAreaSpecialAreasMorning_497) },
+    [1572] = { sPokedexAreaSpecialAreasDay_497, sizeof(sPokedexAreaSpecialAreasDay_497) / sizeof(*sPokedexAreaSpecialAreasDay_497) },
+    [2647] = { sPokedexAreaSpecialAreasNight_497, sizeof(sPokedexAreaSpecialAreasNight_497) / sizeof(*sPokedexAreaSpecialAreasNight_497) },
+    [3722] = { sPokedexAreaRoutesAndCitiesMorning_497, sizeof(sPokedexAreaRoutesAndCitiesMorning_497) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_497) },
+    [4797] = { sPokedexAreaRoutesAndCitiesDay_497, sizeof(sPokedexAreaRoutesAndCitiesDay_497) / sizeof(*sPokedexAreaRoutesAndCitiesDay_497) },
+    [5872] = { sPokedexAreaRoutesAndCitiesNight_497, sizeof(sPokedexAreaRoutesAndCitiesNight_497) / sizeof(*sPokedexAreaRoutesAndCitiesNight_497) },
+    [6947] = { sPokedexAreaSpecialAreasSpecial_497, sizeof(sPokedexAreaSpecialAreasSpecial_497) / sizeof(*sPokedexAreaSpecialAreasSpecial_497) },
+    [8022] = { sPokedexAreaRoutesAndCitiesSpecial_497, sizeof(sPokedexAreaRoutesAndCitiesSpecial_497) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_497) },
+    [498] = { sPokedexAreaSpecialAreasMorning_498, sizeof(sPokedexAreaSpecialAreasMorning_498) / sizeof(*sPokedexAreaSpecialAreasMorning_498) },
+    [1573] = { sPokedexAreaSpecialAreasDay_498, sizeof(sPokedexAreaSpecialAreasDay_498) / sizeof(*sPokedexAreaSpecialAreasDay_498) },
+    [2648] = { sPokedexAreaSpecialAreasNight_498, sizeof(sPokedexAreaSpecialAreasNight_498) / sizeof(*sPokedexAreaSpecialAreasNight_498) },
+    [3723] = { sPokedexAreaRoutesAndCitiesMorning_498, sizeof(sPokedexAreaRoutesAndCitiesMorning_498) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_498) },
+    [4798] = { sPokedexAreaRoutesAndCitiesDay_498, sizeof(sPokedexAreaRoutesAndCitiesDay_498) / sizeof(*sPokedexAreaRoutesAndCitiesDay_498) },
+    [5873] = { sPokedexAreaRoutesAndCitiesNight_498, sizeof(sPokedexAreaRoutesAndCitiesNight_498) / sizeof(*sPokedexAreaRoutesAndCitiesNight_498) },
+    [6948] = { sPokedexAreaSpecialAreasSpecial_498, sizeof(sPokedexAreaSpecialAreasSpecial_498) / sizeof(*sPokedexAreaSpecialAreasSpecial_498) },
+    [8023] = { sPokedexAreaRoutesAndCitiesSpecial_498, sizeof(sPokedexAreaRoutesAndCitiesSpecial_498) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_498) },
+    [499] = { sPokedexAreaSpecialAreasMorning_499, sizeof(sPokedexAreaSpecialAreasMorning_499) / sizeof(*sPokedexAreaSpecialAreasMorning_499) },
+    [1574] = { sPokedexAreaSpecialAreasDay_499, sizeof(sPokedexAreaSpecialAreasDay_499) / sizeof(*sPokedexAreaSpecialAreasDay_499) },
+    [2649] = { sPokedexAreaSpecialAreasNight_499, sizeof(sPokedexAreaSpecialAreasNight_499) / sizeof(*sPokedexAreaSpecialAreasNight_499) },
+    [3724] = { sPokedexAreaRoutesAndCitiesMorning_499, sizeof(sPokedexAreaRoutesAndCitiesMorning_499) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_499) },
+    [4799] = { sPokedexAreaRoutesAndCitiesDay_499, sizeof(sPokedexAreaRoutesAndCitiesDay_499) / sizeof(*sPokedexAreaRoutesAndCitiesDay_499) },
+    [5874] = { sPokedexAreaRoutesAndCitiesNight_499, sizeof(sPokedexAreaRoutesAndCitiesNight_499) / sizeof(*sPokedexAreaRoutesAndCitiesNight_499) },
+    [6949] = { sPokedexAreaSpecialAreasSpecial_499, sizeof(sPokedexAreaSpecialAreasSpecial_499) / sizeof(*sPokedexAreaSpecialAreasSpecial_499) },
+    [8024] = { sPokedexAreaRoutesAndCitiesSpecial_499, sizeof(sPokedexAreaRoutesAndCitiesSpecial_499) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_499) },
+    [500] = { sPokedexAreaSpecialAreasMorning_500, sizeof(sPokedexAreaSpecialAreasMorning_500) / sizeof(*sPokedexAreaSpecialAreasMorning_500) },
+    [1575] = { sPokedexAreaSpecialAreasDay_500, sizeof(sPokedexAreaSpecialAreasDay_500) / sizeof(*sPokedexAreaSpecialAreasDay_500) },
+    [2650] = { sPokedexAreaSpecialAreasNight_500, sizeof(sPokedexAreaSpecialAreasNight_500) / sizeof(*sPokedexAreaSpecialAreasNight_500) },
+    [3725] = { sPokedexAreaRoutesAndCitiesMorning_500, sizeof(sPokedexAreaRoutesAndCitiesMorning_500) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_500) },
+    [4800] = { sPokedexAreaRoutesAndCitiesDay_500, sizeof(sPokedexAreaRoutesAndCitiesDay_500) / sizeof(*sPokedexAreaRoutesAndCitiesDay_500) },
+    [5875] = { sPokedexAreaRoutesAndCitiesNight_500, sizeof(sPokedexAreaRoutesAndCitiesNight_500) / sizeof(*sPokedexAreaRoutesAndCitiesNight_500) },
+    [6950] = { sPokedexAreaSpecialAreasSpecial_500, sizeof(sPokedexAreaSpecialAreasSpecial_500) / sizeof(*sPokedexAreaSpecialAreasSpecial_500) },
+    [8025] = { sPokedexAreaRoutesAndCitiesSpecial_500, sizeof(sPokedexAreaRoutesAndCitiesSpecial_500) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_500) },
+    [501] = { sPokedexAreaSpecialAreasMorning_501, sizeof(sPokedexAreaSpecialAreasMorning_501) / sizeof(*sPokedexAreaSpecialAreasMorning_501) },
+    [1576] = { sPokedexAreaSpecialAreasDay_501, sizeof(sPokedexAreaSpecialAreasDay_501) / sizeof(*sPokedexAreaSpecialAreasDay_501) },
+    [2651] = { sPokedexAreaSpecialAreasNight_501, sizeof(sPokedexAreaSpecialAreasNight_501) / sizeof(*sPokedexAreaSpecialAreasNight_501) },
+    [3726] = { sPokedexAreaRoutesAndCitiesMorning_501, sizeof(sPokedexAreaRoutesAndCitiesMorning_501) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_501) },
+    [4801] = { sPokedexAreaRoutesAndCitiesDay_501, sizeof(sPokedexAreaRoutesAndCitiesDay_501) / sizeof(*sPokedexAreaRoutesAndCitiesDay_501) },
+    [5876] = { sPokedexAreaRoutesAndCitiesNight_501, sizeof(sPokedexAreaRoutesAndCitiesNight_501) / sizeof(*sPokedexAreaRoutesAndCitiesNight_501) },
+    [6951] = { sPokedexAreaSpecialAreasSpecial_501, sizeof(sPokedexAreaSpecialAreasSpecial_501) / sizeof(*sPokedexAreaSpecialAreasSpecial_501) },
+    [8026] = { sPokedexAreaRoutesAndCitiesSpecial_501, sizeof(sPokedexAreaRoutesAndCitiesSpecial_501) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_501) },
+    [502] = { sPokedexAreaSpecialAreasMorning_502, sizeof(sPokedexAreaSpecialAreasMorning_502) / sizeof(*sPokedexAreaSpecialAreasMorning_502) },
+    [1577] = { sPokedexAreaSpecialAreasDay_502, sizeof(sPokedexAreaSpecialAreasDay_502) / sizeof(*sPokedexAreaSpecialAreasDay_502) },
+    [2652] = { sPokedexAreaSpecialAreasNight_502, sizeof(sPokedexAreaSpecialAreasNight_502) / sizeof(*sPokedexAreaSpecialAreasNight_502) },
+    [3727] = { sPokedexAreaRoutesAndCitiesMorning_502, sizeof(sPokedexAreaRoutesAndCitiesMorning_502) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_502) },
+    [4802] = { sPokedexAreaRoutesAndCitiesDay_502, sizeof(sPokedexAreaRoutesAndCitiesDay_502) / sizeof(*sPokedexAreaRoutesAndCitiesDay_502) },
+    [5877] = { sPokedexAreaRoutesAndCitiesNight_502, sizeof(sPokedexAreaRoutesAndCitiesNight_502) / sizeof(*sPokedexAreaRoutesAndCitiesNight_502) },
+    [6952] = { sPokedexAreaSpecialAreasSpecial_502, sizeof(sPokedexAreaSpecialAreasSpecial_502) / sizeof(*sPokedexAreaSpecialAreasSpecial_502) },
+    [8027] = { sPokedexAreaRoutesAndCitiesSpecial_502, sizeof(sPokedexAreaRoutesAndCitiesSpecial_502) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_502) },
+    [503] = { sPokedexAreaSpecialAreasMorning_503, sizeof(sPokedexAreaSpecialAreasMorning_503) / sizeof(*sPokedexAreaSpecialAreasMorning_503) },
+    [1578] = { sPokedexAreaSpecialAreasDay_503, sizeof(sPokedexAreaSpecialAreasDay_503) / sizeof(*sPokedexAreaSpecialAreasDay_503) },
+    [2653] = { sPokedexAreaSpecialAreasNight_503, sizeof(sPokedexAreaSpecialAreasNight_503) / sizeof(*sPokedexAreaSpecialAreasNight_503) },
+    [3728] = { sPokedexAreaRoutesAndCitiesMorning_503, sizeof(sPokedexAreaRoutesAndCitiesMorning_503) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_503) },
+    [4803] = { sPokedexAreaRoutesAndCitiesDay_503, sizeof(sPokedexAreaRoutesAndCitiesDay_503) / sizeof(*sPokedexAreaRoutesAndCitiesDay_503) },
+    [5878] = { sPokedexAreaRoutesAndCitiesNight_503, sizeof(sPokedexAreaRoutesAndCitiesNight_503) / sizeof(*sPokedexAreaRoutesAndCitiesNight_503) },
+    [6953] = { sPokedexAreaSpecialAreasSpecial_503, sizeof(sPokedexAreaSpecialAreasSpecial_503) / sizeof(*sPokedexAreaSpecialAreasSpecial_503) },
+    [8028] = { sPokedexAreaRoutesAndCitiesSpecial_503, sizeof(sPokedexAreaRoutesAndCitiesSpecial_503) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_503) },
+    [504] = { sPokedexAreaSpecialAreasMorning_504, sizeof(sPokedexAreaSpecialAreasMorning_504) / sizeof(*sPokedexAreaSpecialAreasMorning_504) },
+    [1579] = { sPokedexAreaSpecialAreasDay_504, sizeof(sPokedexAreaSpecialAreasDay_504) / sizeof(*sPokedexAreaSpecialAreasDay_504) },
+    [2654] = { sPokedexAreaSpecialAreasNight_504, sizeof(sPokedexAreaSpecialAreasNight_504) / sizeof(*sPokedexAreaSpecialAreasNight_504) },
+    [3729] = { sPokedexAreaRoutesAndCitiesMorning_504, sizeof(sPokedexAreaRoutesAndCitiesMorning_504) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_504) },
+    [4804] = { sPokedexAreaRoutesAndCitiesDay_504, sizeof(sPokedexAreaRoutesAndCitiesDay_504) / sizeof(*sPokedexAreaRoutesAndCitiesDay_504) },
+    [5879] = { sPokedexAreaRoutesAndCitiesNight_504, sizeof(sPokedexAreaRoutesAndCitiesNight_504) / sizeof(*sPokedexAreaRoutesAndCitiesNight_504) },
+    [6954] = { sPokedexAreaSpecialAreasSpecial_504, sizeof(sPokedexAreaSpecialAreasSpecial_504) / sizeof(*sPokedexAreaSpecialAreasSpecial_504) },
+    [8029] = { sPokedexAreaRoutesAndCitiesSpecial_504, sizeof(sPokedexAreaRoutesAndCitiesSpecial_504) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_504) },
+    [505] = { sPokedexAreaSpecialAreasMorning_505, sizeof(sPokedexAreaSpecialAreasMorning_505) / sizeof(*sPokedexAreaSpecialAreasMorning_505) },
+    [1580] = { sPokedexAreaSpecialAreasDay_505, sizeof(sPokedexAreaSpecialAreasDay_505) / sizeof(*sPokedexAreaSpecialAreasDay_505) },
+    [2655] = { sPokedexAreaSpecialAreasNight_505, sizeof(sPokedexAreaSpecialAreasNight_505) / sizeof(*sPokedexAreaSpecialAreasNight_505) },
+    [3730] = { sPokedexAreaRoutesAndCitiesMorning_505, sizeof(sPokedexAreaRoutesAndCitiesMorning_505) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_505) },
+    [4805] = { sPokedexAreaRoutesAndCitiesDay_505, sizeof(sPokedexAreaRoutesAndCitiesDay_505) / sizeof(*sPokedexAreaRoutesAndCitiesDay_505) },
+    [5880] = { sPokedexAreaRoutesAndCitiesNight_505, sizeof(sPokedexAreaRoutesAndCitiesNight_505) / sizeof(*sPokedexAreaRoutesAndCitiesNight_505) },
+    [6955] = { sPokedexAreaSpecialAreasSpecial_505, sizeof(sPokedexAreaSpecialAreasSpecial_505) / sizeof(*sPokedexAreaSpecialAreasSpecial_505) },
+    [8030] = { sPokedexAreaRoutesAndCitiesSpecial_505, sizeof(sPokedexAreaRoutesAndCitiesSpecial_505) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_505) },
+    [506] = { sPokedexAreaSpecialAreasMorning_506, sizeof(sPokedexAreaSpecialAreasMorning_506) / sizeof(*sPokedexAreaSpecialAreasMorning_506) },
+    [1581] = { sPokedexAreaSpecialAreasDay_506, sizeof(sPokedexAreaSpecialAreasDay_506) / sizeof(*sPokedexAreaSpecialAreasDay_506) },
+    [2656] = { sPokedexAreaSpecialAreasNight_506, sizeof(sPokedexAreaSpecialAreasNight_506) / sizeof(*sPokedexAreaSpecialAreasNight_506) },
+    [3731] = { sPokedexAreaRoutesAndCitiesMorning_506, sizeof(sPokedexAreaRoutesAndCitiesMorning_506) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_506) },
+    [4806] = { sPokedexAreaRoutesAndCitiesDay_506, sizeof(sPokedexAreaRoutesAndCitiesDay_506) / sizeof(*sPokedexAreaRoutesAndCitiesDay_506) },
+    [5881] = { sPokedexAreaRoutesAndCitiesNight_506, sizeof(sPokedexAreaRoutesAndCitiesNight_506) / sizeof(*sPokedexAreaRoutesAndCitiesNight_506) },
+    [6956] = { sPokedexAreaSpecialAreasSpecial_506, sizeof(sPokedexAreaSpecialAreasSpecial_506) / sizeof(*sPokedexAreaSpecialAreasSpecial_506) },
+    [8031] = { sPokedexAreaRoutesAndCitiesSpecial_506, sizeof(sPokedexAreaRoutesAndCitiesSpecial_506) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_506) },
+    [507] = { sPokedexAreaSpecialAreasMorning_507, sizeof(sPokedexAreaSpecialAreasMorning_507) / sizeof(*sPokedexAreaSpecialAreasMorning_507) },
+    [1582] = { sPokedexAreaSpecialAreasDay_507, sizeof(sPokedexAreaSpecialAreasDay_507) / sizeof(*sPokedexAreaSpecialAreasDay_507) },
+    [2657] = { sPokedexAreaSpecialAreasNight_507, sizeof(sPokedexAreaSpecialAreasNight_507) / sizeof(*sPokedexAreaSpecialAreasNight_507) },
+    [3732] = { sPokedexAreaRoutesAndCitiesMorning_507, sizeof(sPokedexAreaRoutesAndCitiesMorning_507) / sizeof(*sPokedexAreaRoutesAndCitiesMorning_507) },
+    [4807] = { sPokedexAreaRoutesAndCitiesDay_507, sizeof(sPokedexAreaRoutesAndCitiesDay_507) / sizeof(*sPokedexAreaRoutesAndCitiesDay_507) },
+    [5882] = { sPokedexAreaRoutesAndCitiesNight_507, sizeof(sPokedexAreaRoutesAndCitiesNight_507) / sizeof(*sPokedexAreaRoutesAndCitiesNight_507) },
+    [6957] = { sPokedexAreaSpecialAreasSpecial_507, sizeof(sPokedexAreaSpecialAreasSpecial_507) / sizeof(*sPokedexAreaSpecialAreasSpecial_507) },
+    [8032] = { sPokedexAreaRoutesAndCitiesSpecial_507, sizeof(sPokedexAreaRoutesAndCitiesSpecial_507) / sizeof(*sPokedexAreaRoutesAndCitiesSpecial_507) },
     [508] = { sPokedexAreaSpecialAreasMorning_508, sizeof(sPokedexAreaSpecialAreasMorning_508) / sizeof(*sPokedexAreaSpecialAreasMorning_508) },
     [1583] = { sPokedexAreaSpecialAreasDay_508, sizeof(sPokedexAreaSpecialAreasDay_508) / sizeof(*sPokedexAreaSpecialAreasDay_508) },
     [2658] = { sPokedexAreaSpecialAreasNight_508, sizeof(sPokedexAreaSpecialAreasNight_508) / sizeof(*sPokedexAreaSpecialAreasNight_508) },

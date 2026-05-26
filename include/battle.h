@@ -2242,7 +2242,7 @@ extern u16 StrongJawMovesTable[10];
 
 extern u16 MegaLauncherMovesTable[7];
 
-extern u16 SharpnessMovesTable[24];
+extern u16 SharpnessMovesTable[27];
 
 extern u16 sLowKickWeightToPower[6][2];
 
@@ -2796,6 +2796,8 @@ BOOL LONG_CALL ShouldDelayTurnEffectivenessChecking(struct BattleStruct *sp, u32
  */
 BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
 
+u32 LONG_CALL GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker);
+
 BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no);
 
 /**
@@ -3164,6 +3166,8 @@ enum {
     BTL_PARAM_BATTLER_ACROSS = 0x2000,
 };
 
+int LONG_CALL GetBattlerVar(struct BattleStruct *ctx, int battlerId, u32 varId, void *data);
+
 /**
  *  @brief resolve read battle script parameter into a specific battler type.  determined by BTL_PARAM_* consts right above func definition
  *
@@ -3305,6 +3309,13 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, in
  *  @return TRUE to signal that the battle subscript was loaded and to run it; FALSE otherwise
  */
 u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
+
+
+/**
+ *  @brief chooses actual target from fight input and checks redirect
+ * https://github.com/pret/pokeheartgold/blob/3de81013775926f80a5abcc5e4f45f793f0c0af1/src/battle/overlay_12_0224E4FC.c#L1356
+ */
+int LONG_CALL ov12_022506D4(struct BattleSystem *bw, struct BattleStruct *sp, int battlerIdAttacker, u16 moveNo, int a4, int range);
 
 /**
  *  @brief check if client_no's ability should activate, specifically at the end of the turn.  loads subseq and returns TRUE if it should
@@ -3771,8 +3782,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
-// BattleSystem_Defender
-int LONG_CALL ov12_022506D4(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 move, int a4, int a5);
 
 void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
 void LONG_CALL BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg);
@@ -4234,5 +4243,8 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
 BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
 BOOL LONG_CALL GetTypeEffectivenessData(struct BattleSystem *bsys, int index, u8 *typeMove, u8 *typeMon, u8 *eff);
 BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx);
+
+
+int LONG_CALL ov12_0223ABB8(struct BattleSystem *bsys, int battlerId, int side);
 
 #endif // BATTLE_H

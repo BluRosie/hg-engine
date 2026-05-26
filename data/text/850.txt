@@ -727,3 +727,125 @@ A rock that fell to earth from space.\nIt’s warm to the touch. It changes the\
 A record of an expedition to the\nGreat Crater of Paldea, given\nto you by Professor Sada.\rThe book has the name “Sada” written\non it in clumsy handwriting.
 A record of an expedition to the\nGreat Crater of Paldea, given\nto you by Professor Turo.\rThe book has the name “Turo” written\non it in clumsy handwriting.
 A proof copy of the\nexploration notes covering\nthe Area Zero Underdepths.\rIt’s filled with long paragraphs\ndescribing what happened,\nalong with Briar’s thoughts.
+TEMP
+A variety of the mysterious Mega Stones.\nA Clefable holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Victreebel holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Starmie holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Dragonite holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Meganium holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Feraligatr holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Skarmory holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Froslass holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Heatran holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Darkrai holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Emboar holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Excadrill holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Scolipede holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Scrafty holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Eelektross holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Chandelure holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Chesnaught holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Delphox holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Greninja holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Pyroar holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Floette holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Malamar holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Barbaracle holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Dragalge holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Hawlucha holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Zygarde holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Drampa holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Falinks holding this stone will be\nable to Mega Evolve during battle.
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+A variety of the mysterious Mega Stones.\nA Raichu holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Raichu holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Chimecho holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nAn Absol holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Staraptor holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Garchomp holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Lucario holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Golurk holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Meowstic holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Crabominable holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Golisopod holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Magearna holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Scovillain holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Baxcalibur holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Tatsugiri holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Glimmora holding this stone will be\nable to Mega Evolve during battle.
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP
+TEMP

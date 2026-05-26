@@ -4,6 +4,7 @@ import argparse
 import os
 import re
 from pathlib import Path
+from typing import Optional
 
 
 REFERENCE_ROW_RE = re.compile(
@@ -31,7 +32,7 @@ def load_item_id_to_name(constants_path: Path) -> dict[int, str]:
         items[int(match.group(2))] = match.group(1)
     return items
 
-def parse_reference_rows(reference_path: Path) -> list[tuple[str, int, int, int, int, str | None]]:
+def parse_reference_rows(reference_path: Path) -> list[tuple[str, int, int, int, int, Optional[str]]]:
     rows = []
     for raw_line in reference_path.read_text().splitlines():
         match = REFERENCE_ROW_RE.match(raw_line)

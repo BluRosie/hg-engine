@@ -180,7 +180,7 @@ def dump_trainerdata_c(rom, msgdata_narc, expanded):
         lines.append(f"        .name = {c_string(trainer_names[trainer_id])},")
         lines.append("        .data = {")
         lines.append(f"            .trainerType = {trainer_type_expr(trainer['flags'])},")
-        lines.append(f"            .trainerClass = {lookup_const("TRAINERCLASS", trainer['class'])},")
+        lines.append(f"            .trainerClass = {lookup_const('TRAINERCLASS', trainer['class'])},")
         lines.append(
             "            .items = { "
             + ", ".join(
