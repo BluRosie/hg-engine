@@ -1,4 +1,4 @@
-// Test: Spicy Spray - trigger on any damage type
+// Test: Spicy Spray - can't burn Fire Type
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -15,24 +15,35 @@ const struct TestBattleScenario BattleTests[] = {
 #endif
 
     {
-        .battleType = BATTLE_TYPE_SINGLE,
+        .battleType = BATTLE_TYPE_DOUBLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_PELIPPER,
+                .species = SPECIES_CHARIZARD,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_KEEN_EYE,
-                .item = ITEM_NONE,
-                .moves = { MOVE_WATER_PULSE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .ability = ABILITY_BLAZE,
+                .item = ITEM_CHOICE_SCARF,
+                .moves = { MOVE_SLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
-            { .species = SPECIES_NONE },
+            {
+                .species = SPECIES_URSALUNA,
+                .level = 50,
+                .form = 0,
+                .ability = ABILITY_NO_GUARD,
+                .item = ITEM_CHOICE_SCARF,
+                .moves = { MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
+                .status = STATUS_BURN,
+                .condition2 = 0,
+                .moveEffectFlags = 0,
+            },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
@@ -49,7 +60,18 @@ const struct TestBattleScenario BattleTests[] = {
                             .condition2 = 0,
                             .moveEffectFlags = 0,
                         },
-            { .species = SPECIES_NONE },
+            {
+                .species = SPECIES_SNOM,
+                .level = 50,
+                .form = 0,
+                .ability = ABILITY_ICE_SCALES,
+                .item = ITEM_NONE,
+                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
+                .status = 0,
+                .condition2 = 0,
+                .moveEffectFlags = 0,
+            },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
@@ -65,7 +87,7 @@ const struct TestBattleScenario BattleTests[] = {
                               { ACTION_NONE, 0 },
                           },
             {
-                { ACTION_NONE, 0 },
+                { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -85,7 +107,7 @@ const struct TestBattleScenario BattleTests[] = {
                              { ACTION_NONE, 0 },
                          },
             {
-                { ACTION_NONE, 0 },
+                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -95,10 +117,12 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pelipper used Water Pulse!" },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 37, 37, 39, 39, 39, 40, 40, 40, 40, 42, 42, 42, 43, 43, 43, 45 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Scovillain's Spicy Spray" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Scovillain's Spicy Spray burned Pelipper!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charizard used Slash!" },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 27, 27, 27, 28, 28, 28, 29, 29, 29, 30, 30, 30, 31, 31, 31, 32 } },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect Charizard..." },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ursaluna used Tackle!" },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 34, 36, 36, 36, 36, 37, 37, 37, 39, 39, 39, 39, 40, 40, 40, 42 } },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "burn" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY
