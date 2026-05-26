@@ -2405,7 +2405,8 @@ BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender)
     if (moveEffect == MOVE_EFFECT_REMOVE_PROTECT
         || moveEffect == MOVE_EFFECT_SHADOW_FORCE
         || (ctx->current_move_index == MOVE_CURSE && HasType(ctx, attacker, TYPE_GHOST))
-        || (ability == ABILITY_UNSEEN_FIST // || ability == ABILITY_PIERCING_DRILL (?)
+        || ((ability == ABILITY_UNSEEN_FIST
+                || ability == ABILITY_PIERCING_DRILL)
             && IsContactBeingMade(ability, HeldItemHoldEffectGet(ctx, attacker), HeldItemHoldEffectGet(ctx, defender), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag))) {
         return TRUE;
     }
