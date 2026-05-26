@@ -1611,7 +1611,10 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
                 break;
             }
         }
-        if (battlerIdTarget != ctx->defence_client) {
+        if (battlerIdTarget != ctx->defence_client
+            && ctx->current_move_index != MOVE_SNIPE_SHOT
+            && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_PROPELLER_TAIL)
+            && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_STALWART)) {
             ctx->oneSelfFlag[battlerIdTarget].lightningRodFlag = TRUE;
             ctx->defence_client = battlerIdTarget;
         }
@@ -1622,7 +1625,10 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
                 break;
             }
         }
-        if (battlerIdTarget != ctx->defence_client) {
+        if (battlerIdTarget != ctx->defence_client 
+            && ctx->current_move_index != MOVE_SNIPE_SHOT
+            && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_PROPELLER_TAIL)
+            && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_STALWART)) {
             ctx->oneSelfFlag[battlerIdTarget].stormDrainFlag = TRUE;
             ctx->defence_client = battlerIdTarget;
         }
@@ -2412,12 +2418,13 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
 
 BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender)
 {
-    int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    u32 ability = GetBattlerAbility(ctx, attacker);
     if (moveEffect == MOVE_EFFECT_REMOVE_PROTECT
         || moveEffect == MOVE_EFFECT_SHADOW_FORCE
-        || (ctx->current_move_index == MOVE_CURSE && HasType(ctx, ctx->attack_client, TYPE_GHOST))
-        || (GetBattlerAbility(ctx, attacker) == ABILITY_UNSEEN_FIST
-            && IsContactBeingMade(GetBattlerAbility(ctx, attacker), HeldItemHoldEffectGet(ctx, attacker), HeldItemHoldEffectGet(ctx, defender), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag))) {
+        || (ctx->current_move_index == MOVE_CURSE && HasType(ctx, attacker, TYPE_GHOST))
+        || (ability == ABILITY_UNSEEN_FIST // || ability == ABILITY_PIERCING_DRILL (?)
+            && IsContactBeingMade(ability, HeldItemHoldEffectGet(ctx, attacker), HeldItemHoldEffectGet(ctx, defender), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag))) {
         return TRUE;
     }
     return FALSE;
