@@ -1,7 +1,6 @@
 // Test: Champions - Separate failure messages 1
 #include "../../battle_tests.h"
 BEGIN_TEST
-
 {
     .battleType = BATTLE_TYPE_DOUBLE,
     .weather = WEATHER_NONE,
