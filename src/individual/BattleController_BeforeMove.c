@@ -940,7 +940,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_MOVE_FAILURES_3_LOWER_STATS\n");
 #endif
 
-            LoopCheckFunctionForSpreadMove_StatFailureSuccessCheck_StatChanges(bsys, ctx, BattleController_CheckMoveFailures3_StatsChanges);
+            LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_CheckMoveFailures3_StatsChanges);
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
@@ -1001,7 +1001,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STAT_BASED_FAILURES\n");
 #endif
 
-            LoopCheckFunctionForSpreadMove_StatFailureSuccessCheck_StatChanges(bsys, ctx, BattleController_CheckAbilityFailures4_StatBasedFailures);
+            LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_CheckAbilityFailures4_StatBasedFailures);
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
@@ -1625,7 +1625,7 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
                 break;
             }
         }
-        if (battlerIdTarget != ctx->defence_client 
+        if (battlerIdTarget != ctx->defence_client
             && ctx->current_move_index != MOVE_SNIPE_SHOT
             && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_PROPELLER_TAIL)
             && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_STALWART)) {
@@ -3149,6 +3149,10 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
 
     if (subscriptToRun != 0) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, subscriptToRun);
+        ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return subscriptToRun;
     }
     return FALSE;
