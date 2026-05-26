@@ -22,10 +22,10 @@ const struct TestBattleScenario BattleTests[] = {
         .playerParty = {
             {
                 .species = SPECIES_ARAQUANID,
-                .level = 50,
+                .level = 55,
                 .form = 0,
                 .ability = ABILITY_WATER_BUBBLE,
-                .item = ITEM_NONE,
+                .item = ITEM_CHOICE_SCARF,
                 .moves = { MOVE_WATER_PULSE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
@@ -96,7 +96,8 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Araquanid used Water Pulse!" },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 46, 46, 48, 48, 48, 49, 49, 51, 51, 51, 52, 52, 52, 54, 54, 55 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 55, 55, 57, 57, 58, 58, 60, 60, 60, 61, 61, 63, 63, 64, 64, 66 } },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "burn" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY
