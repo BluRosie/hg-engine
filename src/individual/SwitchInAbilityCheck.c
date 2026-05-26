@@ -623,7 +623,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 src[num] = dest[num];
                             }
 
-                            sp->battlemon[sp->attack_client].ability_activated_flag = 0;
+                            sp->battlemon[sp->attack_client].ability = sp->battlemon[sp->defence_client].ability; //was moved inside the struct
                             sp->battlemon[sp->attack_client].ability_activated_flag = 0;
                             sp->battlemon[sp->attack_client].moveeffect.truantFlag = sp->total_turn & 1;
                             sp->battlemon[sp->attack_client].moveeffect.slowStartTurns = sp->total_turn + 1;
