@@ -112,4 +112,4 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "burn" },
     }
 }
-BEGIN_TEST
+END_TEST
