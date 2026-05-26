@@ -1,6 +1,6 @@
 // Test: Spicy Spray - trigger on any damage type
 #include "../../battle_tests.h"
-BEGIN_TEST 
+BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
@@ -23,7 +23,8 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE } },
+        { .species = SPECIES_NONE }
+    },
     .enemyParty = { {
                         .species = SPECIES_SCOVILLAIN,
                         .level = 50,
