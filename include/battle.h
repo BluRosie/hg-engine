@@ -4247,4 +4247,9 @@ BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx);
 
 int LONG_CALL ov12_0223ABB8(struct BattleSystem *bsys, int battlerId, int side);
 
+
+
+
+void LONG_CALL HandleTransform(struct BattleStruct *sp);
+
 #endif // BATTLE_H

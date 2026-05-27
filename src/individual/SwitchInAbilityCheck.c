@@ -599,48 +599,13 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                          && (sp->battlemon[client_no].hp)
                          && IsValidImposterTarget(bw, sp, client_no)
                          && ((!(BattleTypeGet(bw) & BATTLE_TYPE_TRAINER)) ? (sp->battlemon[client_no].species == SPECIES_DITTO || sp->battlemon[client_no].species == SPECIES_MEW) : TRUE)) {
-                            u32 num;
                             scriptnum = SUB_SEQ_HANDLE_IMPOSTER;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
 
                             sp->attack_client = client_no;            // attack transforms into defence
                             sp->current_move_index = MOVE_TRANSFORM;  // force move anim to play
 
-                            // fuck it get rid of transform script command:
-                            sp->battlemon[sp->attack_client].condition2 |= STATUS2_TRANSFORMED;
-                            sp->battlemon[sp->attack_client].moveeffect.disabledMove = 0;
-                            sp->battlemon[sp->attack_client].moveeffect.disabledTurns = 0;
-                            sp->battlemon[sp->attack_client].moveeffect.transformPid = sp->battlemon[sp->defence_client].personal_rnd;
-                            sp->battlemon[sp->attack_client].moveeffect.transformGender = sp->battlemon[sp->defence_client].sex;
-                            sp->battlemon[sp->attack_client].moveeffect.mimickedMoveIndex = 0;
-                            sp->battlemon[sp->attack_client].moveeffect.lastResortCount = 0;
-
-                            u8 *src, *dest;
-                            src = (u8 *)&sp->battlemon[sp->attack_client];
-                            dest = (u8 *)&sp->battlemon[sp->defence_client];
-
-                            for (num = 0; num <= (int)0x26/*offsetof(struct BattlePokemon, ability)*/; num++) {
-                                src[num] = dest[num];
-                            }
-
-                            sp->battlemon[sp->attack_client].ability_activated_flag = 0;
-                            sp->battlemon[sp->attack_client].ability_activated_flag = 0;
-                            sp->battlemon[sp->attack_client].moveeffect.truantFlag = sp->total_turn & 1;
-                            sp->battlemon[sp->attack_client].moveeffect.slowStartTurns = sp->total_turn + 1;
-                            sp->battlemon[sp->attack_client].slow_start_flag = 0;
-                            sp->battlemon[sp->attack_client].slow_start_end_flag = 0;
-                            ClearBattleMonFlags(sp, sp->attack_client);  // clear extra flags here too
-                            sp->battlemon[client_no].imposter_flag = 1;
-                            sp->moveConditionsFlags[sp->attack_client].laserFocusTimer = sp->moveConditionsFlags[sp->defence_client].laserFocusTimer;
-
-                            for (num = 0; num < 4; num++) {
-                                sp->battlemon[sp->attack_client].move[num] = sp->battlemon[sp->defence_client].move[num];
-                                if (sp->moveTbl[sp->battlemon[sp->attack_client].move[num]].pp < 5) {
-                                    sp->battlemon[sp->attack_client].pp[num] = sp->moveTbl[sp->battlemon[sp->attack_client].move[num]].pp;
-                                } else {
-                                    sp->battlemon[sp->attack_client].pp[num] = 5;
-                                }
-                            }
+                            HandleTransform(sp);
                             break;
                         }
                     }

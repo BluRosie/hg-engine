@@ -927,11 +927,10 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     // Todo Z-Move + Unseen Fist?
     // Step 10.1 Unseen Fist / Piercing Drill
     // 0.25x damage into protect
-    if ((FALSE //(attackerAbility == ABILITY_PIERCING_DRILL
+    if (((attackerAbility == ABILITY_PIERCING_DRILL)
 #if UNSEEN_FIST_GENERATION >= GEN_CHAMPIONS
             || (attackerAbility == ABILITY_UNSEEN_FIST))
 #endif
-            //)
         && sp->oneTurnFlag[defender].protectFlag) {
         damage = QMul_RoundDown(damage, UQ412__0_25);
 #ifdef DEBUG_DAMAGE_ROLLS

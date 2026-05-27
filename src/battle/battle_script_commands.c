@@ -146,6 +146,7 @@ BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx)
 BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TryConversion2(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_Transform(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintGlobalMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -5400,6 +5401,16 @@ BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ct
     int *data = BattleScriptGetVarPointer(bsys, ctx, varNo);
 
     *data = DivideRoundUp(*data, denom);
+
+    return FALSE;
+}
+
+
+BOOL BtlCmd_Transform(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    HandleTransform(ctx);
 
     return FALSE;
 }
