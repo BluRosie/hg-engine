@@ -71,7 +71,7 @@ POKEGRA_DEPENDENCIES += {0}-00.NCGR {0}-01.NCGR {0}-02.NCGR {0}-03.NCGR {0}-04.N
 """
 btx_gen_format = """	$(BTX) $< $@
 """
-icon_format = """\t$(GFX) $< $@ -clobbersize -version101
+icon_format = """\t$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
 ICONGFX_OBJS += {0}.NCGR
 
@@ -125,7 +125,7 @@ POKEGRA_NARC := $(BUILD_NARC)/pokegra.narc
 POKEGRA_TARGET := $(FILESYS)/a/0/0/4
 PBR_POKEGRA_TARGET := $(FILESYS)/pbr/pokegra.narc
 
-POKEGRA_GFX_FLAGS_SPRITE := -scanfronttoback -handleempty
+POKEGRA_GFX_FLAGS_SPRITE := -scanfronttoback -handleempty -bitdepth 4
 POKEGRA_GFX_FLAGS_PAL := -bitdepth 8 -nopad -comp 10
 
 
