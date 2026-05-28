@@ -130,6 +130,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_INNARDS_OUT)) {
         if ((sp->defence_client == sp->fainting_client)
+            && IsAttackerOnField(ctx)
             && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
             && (sp->battlemon[sp->attack_client].hp)) {
             sp->hp_calc_work = sp->damage;
@@ -364,6 +365,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_SPICY_SPRAY)) {
         if ((sp->battlemon[sp->attack_client].hp)
+            && IsAttackerOnField(ctx)
             && (sp->battlemon[sp->attack_client].condition == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
             sp->addeffect_type = ADD_STATUS_ABILITY;

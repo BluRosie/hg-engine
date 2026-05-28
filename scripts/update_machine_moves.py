@@ -151,7 +151,7 @@ def item_generation(item_id, C):
         return 7
     if item_id <= C["ITEM_LEGEND_PLATE"]: 
         return 8
-    if item_id <= C["ITEM_BAXCALIBRITE"]:  
+    if item_id <= C["ITEM_CANARI_BREAD"]:  
         return 9
     return CUSTOM
 
@@ -167,9 +167,9 @@ def item_msg_offset(item_id, C):
         return item_id - (C["ITEM_EON_FLUTE"] + 1)
     if item_id <= C["ITEM_LEGEND_PLATE"]:
         return item_id - (C["ITEM_UNKNOWN_1073"] + 1)
-    if item_id <= C["ITEM_BAXCALIBRITE"]:
+    if item_id <= C["ITEM_CANARI_BREAD"]:
         return item_id - (C["ITEM_LEGEND_PLATE"] + 1)
-    return item_id - (C["ITEM_BAXCALIBRITE"] + 1)
+    return item_id - (C["ITEM_CANARI_BREAD"] + 1)
 
 
 def build_item_to_index_fn(C):
