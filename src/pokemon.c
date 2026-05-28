@@ -25,6 +25,9 @@ extern u32 word_to_store_form_at;
 // [preevo] = {species, form}, [postevo] = {species, form},
 u16 ALIGN4 gEvolutionSceneOverride[2][2];
 
+char __attribute__((section (".init"))) sHeaderString[] = "hg-engine rocks!";
+//#include "../data/IconPaletteTable.c"
+
 /**
  *  @brief set up the indices for the new form system pictures.  if necessary, loop through the form table, searching for the new form index to load sprites from
  *         this function does not account for existing forms already covered by otherpoke.narc
@@ -414,8 +417,9 @@ u32 LONG_CALL PokeIconPalNumGet(u32 mons, u32 form, u32 isegg)
  */
 u32 LONG_CALL GetMonIconPalette(u32 mons, u32 form, u32 isegg)
 {
-    u32 r0 = PokeIconPalNumGet(mons, form, isegg);
-    return gIconPalTable[r0];
+    u32 ret = PokeIconPalNumGet(mons, form, isegg);
+    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_ICON_PALETTES, ret, sizeof(u8));
+    return ret;
 }
 
 /**
@@ -426,9 +430,9 @@ u32 LONG_CALL GetMonIconPalette(u32 mons, u32 form, u32 isegg)
  */
 u16 LONG_CALL GetPokemonOwNum(u16 species)
 {
-    u16 ret;
-    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_BASE_OW_PER_MON, sizeof(u16)*species, sizeof(u16));
-    return ret;
+    // new handling just nabs species.  this doesn't generalize 1:1 with a141 access,
+    // but i don't think it needs to for the parts that don't generalize.
+    return species;
 }
 
 /**
@@ -1595,39 +1599,38 @@ u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp)
  */
 u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
 {
-    u32 adjustment = 0, ret = 0;
-    u8 maxForm = 0;
-    if (species > SPECIES_FINNEON) // split between 0x1AC and 0x1E4
-    {
-        adjustment = 0x1E4;
-    }
-    else
-    {
-        adjustment = 0x1AC;
+    u32 ret = 1050, formFemaleIndex = 0;
+
+    formFemaleIndex = OverworldModelLookupHasFemaleForm(species);
+
+    if (species == SPECIES_PIKACHU && isFemale && form == 0) {
+        // pikachu is sooo special because it has female and forms.  the forms are handled by the default handling below
+        ret += SPECIES_PIKACHU_OVERWORLD_FEMALE;
+    } else if (formFemaleIndex) {
+        // if female matters, then we are set to ignore form handling and find the female overworld tag
+        if (isFemale && form == 0 && formFemaleIndex & OW_FEMALE_MASK) {
+            ret += (formFemaleIndex & (~OW_FEMALE_MASK)); // should be set to directly return female overworld returned from OverworldModelLookupHasFemaleForm
+        } else if (form != 0) {
+            ret += (formFemaleIndex + form - 1);
+        } else {
+            ret += species;
+        }
+    } else {
+        ret += GetSpeciesBasedOnForm(species, form);
     }
 
-    ret = GetPokemonOwNum(species) + adjustment;
+    return ret;
+}
 
-    ArchiveDataLoadOfs(&maxForm, ARC_CODE_ADDONS, CODE_ADDON_NUM_OF_OW_FORMS_PER_MON, sizeof(u8)*species, sizeof(u8));
-
-    if (species == SPECIES_PIKACHU) // pikachu forms take gender adjustment into account and are looser with restrictions
-    {
-        if (isFemale || form) // both female pikachu and those with forms will need this adjustment
-            ret++;
-        if (form < maxForm) // invalid pikachu forms will show as female, but that's okay
-            ret += form;
-    }
-    else if (species == SPECIES_SLOWBRO && form)
-    {
-        u32 newform = form - 1;
-        if (newform <= maxForm)
-            ret += newform;
-    }
-    else if (form <= maxForm)
-        ret += form;
-    else if (isFemale && gDimorphismTable[species-1])
-        ret += isFemale;
-
+/**
+ *  @brief lookup whether or not the species has female overworld form that isn't defined as a completely separate form
+ *
+ *  @param species species index
+ *  @return FALSE if no form or female handling for overworlds; the base index otherwise.  e.g. SPECIES_PICHU would return
+ */
+u32 LONG_CALL OverworldModelLookupHasFemaleForm(u32 species) {
+    u32 ret = 0;
+    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_OVERWORLD_FORM_FEMALE, sizeof(u16)*(species), sizeof(u16));
     return ret;
 }
 

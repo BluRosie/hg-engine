@@ -49,7 +49,8 @@ MOVE_NARC_FORMAT = [
 [1, "priority"],
 [1, "properties"],
 [1, "appeal"],
-[1, "contest_type"]]
+[1, "contest_type"],
+[2, "contest_padding"]]
 
 # if this is dumping from a vanilla rom, the data structure is much different
 # new format for vanilla learnset len 4 = [bytes, bits for low field, low field, high field]
@@ -421,6 +422,7 @@ def parse_inc_file(file_path: str) -> Dict[str, Dict[int, str]]:
                 continue
 
         if not progress and variables:
+            print(variables)
             raise ValueError("Unable to resolve all variable dependencies")
 
     return dict(result)
@@ -451,6 +453,9 @@ class DictWrapper:
             print(f"{key} not found in dict, returning {key} as value")
             return key
 
+    def get(self, key, default=None):
+        return self.dict.get(key, default)
+
 MONS = parse_inc_file("asm/include/species.inc")
 ITEMS = parse_inc_file("asm/include/items.inc")
 MOVES = parse_inc_file("asm/include/moves.inc")
@@ -458,3 +463,19 @@ MOVE_EFFECTS = parse_inc_file("asm/include/move_effects.inc")
 ABILITIES = parse_inc_file("asm/include/abilities.inc")
 CONSTANTS = parse_inc_file("armips/include/constants.s")
 MOVE_MACROS = DictWrapper(parse_inc_file("armips/include/movemacros.s"))
+
+
+def lookup_const(group, value):
+    return CONSTANTS[group].get(value, str(value))
+
+
+def lookup_species(value):
+    return MONS["SPECIES"].get(value, str(value))
+
+
+def lookup_move(value):
+    return MOVES["MOVE"].get(value, str(value))
+
+
+def lookup_item(value):
+    return ITEMS["ITEM"].get(value, str(value))

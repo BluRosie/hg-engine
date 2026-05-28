@@ -35,16 +35,42 @@ Options::Options(int argc, char **argv) {
 }
 
 void Options::ReadObjectFile(vector<unsigned char> &rodata, vector<uint32_t> &sizes) {
-    ELF_ASSERT(objfile.HasSection(".rodata"));
-    rodata.resize(objfile.GetSectionHeader(".rodata").sh_size);
-    objfile.ReadSectionData(objfile.GetSectionHeader(".rodata"), rodata.data());
+    if (objfile.HasSymbol("__data")) {
+        rodata.resize(objfile.GetSymbol("__data").st_size);
+        objfile.ReadSymbolData(objfile.GetSymbol("__data"), rodata.data());
+    } else {
+        ELF_ASSERT(objfile.HasSection(".rodata"));
+        rodata.resize(objfile.GetSectionHeader(".rodata").sh_size);
+        objfile.ReadSectionData(objfile.GetSectionHeader(".rodata"), rodata.data());
+    }
+
+    if (objfile.HasSymbol("__nullval")) {
+        ELF_ASSERT(objfile.GetSymbol("__nullval").st_size == sizeof(unsigned char));
+        objfile.ReadSymbolData(objfile.GetSymbol("__nullval"), &nullval);
+        has_nullval = true;
+    }
     // Determine what O file we're dealing with
     if (objfile.HasSymbol("__size")) {
         uint32_t size = objfile.GetSymbol("__size").st_size;
         if (size == sizeof(uint32_t)) {
             objfile.ReadSymbolData(objfile.GetSymbol("__size"), &size);
-            sizes.resize((rodata.size() + size - 1) / size);
-            fill(sizes.begin(), sizes.end(), size);
+            ELF_ASSERT(size != 0);
+            ELF_ASSERT(rodata.size() % size == 0);
+            sizes.resize(rodata.size() / size);
+            if (has_nullval) {
+                for (size_t i = 0; i < sizes.size(); i++) {
+                    bool is_null = true;
+                    for (uint32_t j = 0; j < size; j++) {
+                        if (rodata[i * size + j] != nullval) {
+                            is_null = false;
+                            break;
+                        }
+                    }
+                    sizes[i] = is_null ? 0 : size;
+                }
+            } else {
+                fill(sizes.begin(), sizes.end(), size);
+            }
         } else {
             sizes.resize(objfile.GetSymbol("__size").st_size / sizeof(uint32_t));
             objfile.ReadSymbolData(objfile.GetSymbol("__size"), sizes.data());
@@ -69,13 +95,17 @@ void Options::ReadObjectFile(vector<unsigned char> &rodata, vector<uint32_t> &si
 }
 
 void Options::OverwritePadding(vector<unsigned char> &rodata, vector<uint32_t> &sizes) const {
-    uint32_t end = 0;
-    for (auto & size : sizes) {
-        end += size;
-        uint32_t pad_end = (end + 3) & ~3;
-        memset(&rodata[end], padval, pad_end - end);
-        end = pad_end;
+    vector<unsigned char> packed;
+    packed.reserve(rodata.size());
+    uint32_t src = 0;
+    for (auto &size : sizes) {
+        ELF_ASSERT(src + size <= rodata.size());
+        packed.insert(packed.end(), rodata.begin() + src, rodata.begin() + src + size);
+        uint32_t pad_end = (packed.size() + 3) & ~3;
+        packed.resize(pad_end, static_cast<unsigned char>(padval));
+        src += size == 0 && has_nullval ? 1 : size;
     }
+    rodata.swap(packed);
 }
 
 void Options::WriteNarc(vector<unsigned char> &rodata, vector<uint32_t> &sizes) {
