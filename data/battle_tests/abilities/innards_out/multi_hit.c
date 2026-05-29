@@ -13,7 +13,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_NONE,
-            .moves = { MOVE_WING_ATTACK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_DUAL_WINGBEAT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = 125,
             .status = 0,
             .condition2 = 0,
