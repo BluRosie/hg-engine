@@ -136,7 +136,6 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             sp->battlerIdTemp = sp->attack_client;
             seq_no[0] = SUB_SEQ_HANDLE_INNARDS_OUT_MESSAGE;
             ret = TRUE;
-            debug_printf("damage %d, phys %d, spec %d\n", sp->store_damage[sp->defence_client], sp->oneSelfFlag[sp->defence_client].physical_damage, sp->oneSelfFlag[sp->defence_client].special_damage);
         }
     }
     // handle rattled
