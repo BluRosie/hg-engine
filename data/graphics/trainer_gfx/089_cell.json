@@ -3,7 +3,7 @@
 	"dontPadKbec":	false,
 	"extended":	true,
 	"vramTransferEnabled":	true,
-	"ucatEnabled":	true,
+	"ucatEnabled":	false,
 	"cellCount":	4,
 	"mappingType":	1,
 	"cells":	[{
@@ -438,6 +438,5 @@
 		}, {
 			"offset":	9600,
 			"size":	0
-		}],
-	"cellAttributes":	[0, 0, 0, 0]
+		}]
 }
