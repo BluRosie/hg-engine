@@ -1,4 +1,4 @@
-// Test: Bug fix - No softlock for stat max 2
+// Test: Justified - trigger on Dark type attacking moves
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_KINGAMBIT,
+            .species = SPECIES_TAUROS,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_DEFIANT,
+            .ability = ABILITY_ANGER_POINT,
             .item = ITEM_NONE,
-            .moves = { MOVE_SWORDS_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_BITE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -26,10 +26,10 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_MEGANIUM,
+                        .species = SPECIES_GALLADE,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_OVERGROW,
+                        .ability = ABILITY_JUSTIFIED,
                         .item = ITEM_NONE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
@@ -43,17 +43,17 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .playerScript = { {
-                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_NONE, 0 },
+                          { ACTION_NONE, 0 },
+                          { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                       },
         {
-        { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -63,17 +63,17 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_NONE, 0 },
+                         { ACTION_NONE, 0 },
+                         { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                      },
         {
-        { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -83,7 +83,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "won't go any higher!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gallade's Justified" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gallade's Attack rose!" },
     }
 }
 END_TEST

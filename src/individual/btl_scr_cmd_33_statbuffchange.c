@@ -45,16 +45,9 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
     // debug_printf("\naddeffect_param: %d\n", sp->addeffect_param);
 
-    // 12 steps up
-    if (sp->addeffect_param == ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_MAX) {
-        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_MAX;
-        statchange = 12;
-        sp->temp_work = STATUS_EFF_UP;
-        // debug_printf("12 steps up\n");
-    }
     // 6 steps up
-    else if (sp->addeffect_param == ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_6) {
-        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_MAX;
+    if (sp->addeffect_param == ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_6) {
+        stattochange = STAT_SPEED - STAT_ATTACK;
         statchange = 6;
         sp->temp_work = STATUS_EFF_UP;
         // debug_printf("6 steps up\n");
@@ -78,24 +71,28 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_2;
         statchange = -2;
         sp->temp_work = STATUS_EFF_DOWN;
+        // debug_printf("2 steps down\n");
     }
     // 2 steps up
     else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2) {
         stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2;
         statchange = 2;
         sp->temp_work = STATUS_EFF_UP;
+        // debug_printf("2 steps up\n");
     }
     // 1 step down
     else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN) {
         stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN;
         statchange = -1;
         sp->temp_work = STATUS_EFF_DOWN;
+        // debug_printf("1 step down\n");
     }
     // 1 step up
     else {
         stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
         statchange = 1;
         sp->temp_work = STATUS_EFF_UP;
+        // debug_printf("1 step up\n");
     }
 
     if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_SIMPLE)) {
@@ -159,19 +156,18 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             if (sp->addeffect_type == ADD_EFFECT_ABILITY) {
                 switch (statchange) {
                 case 1:
-                    sp->mp.id = BATTLE_MSG_ABILITY_RAISED_STAT;
+                    sp->mp.id = BATTLE_MSG_STAT_RAISED;
                     break;
                 case 2:
-                    sp->mp.id = BATTLE_MSG_ABILITY_RAISED_STAT_SHARPLY;
+                    sp->mp.id = BATTLE_MSG_STAT_RAISED_SHARPLY;
                     break;
                 default:
-                    sp->mp.id = BATTLE_MSG_ABILITY_RAISED_STAT_DRASTICALLY;
+                    sp->mp.id = BATTLE_MSG_STAT_RAISED_DRASTICALLY;
                     break;
                 }
-                sp->mp.tag = TAG_NICKNAME_ABILITY_STAT;
+                sp->mp.tag = TAG_NICKNAME_STAT;
                 sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-                sp->mp.param[1] = sp->battlemon[sp->state_client].ability;
-                sp->mp.param[2] = STAT_ATTACK + stattochange;
+                sp->mp.param[1] = STAT_ATTACK + stattochange;
             } else if (sp->addeffect_type == ADD_EFFECT_HELD_ITEM) {
                 switch (statchange) {
                 case 1:
@@ -370,6 +366,8 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             battlemon->states[STAT_ATTACK + stattochange] = 0;
         }
     }
+
+    // debug_printf("Final: %d\n", battlemon->states[STAT_ATTACK + stattochange]);
 
     return 0;
 }

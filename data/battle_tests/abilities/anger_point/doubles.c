@@ -108,8 +108,10 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefairy used Dazzling Gleam!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "A critical hit on the opposing Tauros!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "A critical hit on the opposing Primeape!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Tauros's Anger Point raised its Attack drastically!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Primeape's Anger Point raised its Attack drastically!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Tauros's Anger Point" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Tauros maxed its Attack!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Primeape's Anger Point" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Primeape maxed its Attack!" },
     }
 }
 END_TEST

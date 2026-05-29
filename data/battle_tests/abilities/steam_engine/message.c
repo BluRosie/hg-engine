@@ -101,9 +101,9 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Steam Engine raised its Speed drastically!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Steam Engine raised its Speed sharply!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Steam Engine raised its Speed!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Speed rose drastically!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Speed rose sharply!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coalossal's Speed rose!" },
         }
     },
 #ifndef GET_TEST_CASE_ONLY

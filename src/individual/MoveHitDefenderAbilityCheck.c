@@ -152,7 +152,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->state_client = sp->defence_client;
                 sp->battlerIdTemp = sp->defence_client;
-                seq_no[0] = SUB_SEQ_BOOST_STATS;
+                seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
                 ret = TRUE;
             }
         }
@@ -169,7 +169,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->state_client = sp->defence_client;
                 sp->battlerIdTemp = sp->defence_client;
-                seq_no[0] = SUB_SEQ_BOOST_STATS;
+                seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
                 ret = TRUE;
             }
         }
@@ -204,7 +204,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             sp->addeffect_type = ADD_EFFECT_ABILITY;
             sp->state_client = sp->defence_client;
             sp->battlerIdTemp = sp->defence_client;
-            seq_no[0] = SUB_SEQ_BOOST_STATS;
+            seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
             ret = TRUE;
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_GOOEY)
@@ -216,7 +216,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
             sp->state_client = sp->attack_client;
             sp->battlerIdTemp = sp->defence_client;
-            seq_no[0] = SUB_SEQ_BOOST_STATS;
+            seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
             ret = TRUE;
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_MUMMY) || MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_LINGERING_AROMA)) {
@@ -245,7 +245,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
                     sp->state_client = sp->defence_client;
                     sp->battlerIdTemp = sp->defence_client;
-                    seq_no[0] = SUB_SEQ_BOOST_STATS;
+                    seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
                     ret = TRUE;
                 }
             }
@@ -263,7 +263,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->state_client = sp->defence_client;
                 sp->battlerIdTemp = sp->defence_client;
-                seq_no[0] = SUB_SEQ_BOOST_STATS;
+                seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
                 ret = TRUE;
             }
         }
@@ -271,11 +271,10 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
         if (((sp->moveStatusFlagForSpreadMoves[sp->defence_client] & WAZA_STATUS_FLAG_CRITICAL) != 0)
             && (sp->battlemon[sp->defence_client].hp)
             && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)) {
-            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_MAX;
             sp->addeffect_type = ADD_EFFECT_ABILITY;
             sp->state_client = sp->defence_client;
             sp->battlerIdTemp = sp->defence_client;
-            seq_no[0] = SUB_SEQ_BOOST_STATS;
+            seq_no[0] = SUB_SEQ_HANDLE_ANGER_POINT;
             ret = TRUE;
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_WEAK_ARMOR)) {
@@ -324,7 +323,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
                     sp->state_client = sp->defence_client;
                     sp->battlerIdTemp = sp->defence_client;
-                    seq_no[0] = SUB_SEQ_BOOST_STATS;
+                    seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
                     ret = TRUE;
                 }
             }
