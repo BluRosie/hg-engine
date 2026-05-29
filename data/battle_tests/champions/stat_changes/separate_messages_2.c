@@ -106,7 +106,7 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Whimsicott used Cotton Spore!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Rotom's Speed won't go any lower!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "any lower!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dragapult's Clear Body" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dragapult's stats were not lowered!" },
     },

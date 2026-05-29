@@ -112,7 +112,7 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities1(struct BattleSystem
 BOOL BattleController_CheckMoveFailures2(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckMoveFailures2_VenomDrench(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED);
 BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
-BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
+// BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckMoveFailures3_PerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BattleController_CheckWhirlwindFailures(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 BOOL BattleController_CheckUproarStoppingSleepMoves(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
@@ -935,6 +935,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             }
             FALLTHROUGH;
         }
+/*
         case BEFORE_MOVE_STATE_MOVE_FAILURES_3_LOWER_STATS: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_MOVE_FAILURES_3_LOWER_STATS\n");
@@ -944,6 +945,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
+*/
         case BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_2: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("In BEFORE_MOVE_STATE_TYPE_BASED_MOVE_CONDITION_IMMUNITIES_2\n");
@@ -3025,8 +3027,147 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     int subscriptToRun = 0;
 
     switch (moveEffect) {
+    case MOVE_EFFECT_ATK_UP:
+    case MOVE_EFFECT_ATK_UP_2:
+    case MOVE_EFFECT_ATK_UP_3:
+    // case MOVE_EFFECT_HOWL: needs a dedicated case checking both it & partner, temp handled in effect
+    // case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION: //handled below
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_DEF_UP:
+    case MOVE_EFFECT_DEF_UP_2:
+    case MOVE_EFFECT_DEF_UP_3:
+    case MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER:
+    case MOVE_EFFECT_STUFF_CHEEKS:
+        if (ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_SPEED_UP:
+    case MOVE_EFFECT_SPEED_UP_2:
+    case MOVE_EFFECT_SPEED_UP_3:
+        if (ctx->battlemon[defender].states[STAT_SPEED] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_SP_ATK_UP:
+    case MOVE_EFFECT_SP_ATK_UP_2:
+    case MOVE_EFFECT_SP_ATK_UP_3:
+    // case MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION: // handled below
+        if (ctx->battlemon[defender].states[STAT_SPATK] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_SP_DEF_UP:
+    case MOVE_EFFECT_SP_DEF_UP_2:
+    case MOVE_EFFECT_SP_DEF_UP_3:
+    // case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER: // charge would work even if stats are maxed
+        if (ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_ACC_UP:
+    case MOVE_EFFECT_ACC_UP_2:
+        if (ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_EVA_UP:
+    case MOVE_EFFECT_EVA_UP_2:
+    case MOVE_EFFECT_EVA_UP_2_MINIMIZE:
+        if (ctx->battlemon[defender].states[STAT_EVASION] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_ATK_DEF_UP:
+    case MOVE_EFFECT_COACHING:
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_DECORATE:
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_STOCKPILE:
+    case MOVE_EFFECT_DEF_SP_DEF_UP:
+        if (ctx->battlemon[defender].states[STAT_DEFENSE] == 12 && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_SP_ATK_SP_DEF_UP:
+        if (ctx->battlemon[defender].states[STAT_SPATK] == 12 && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_ATK_SPEED_UP:
+    case MOVE_EFFECT_SPEED_UP_2_ATK_UP:
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_SPEED] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_RANDOM_STAT_UP_2:
+    // TODO: Clangorous Soul / No Retreat with all stats maxed out
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
+        && ctx->battlemon[defender].states[STAT_DEFENSE] == 12
+        && ctx->battlemon[defender].states[STAT_SPEED] == 12
+        && ctx->battlemon[defender].states[STAT_SPATK] == 12
+        && ctx->battlemon[defender].states[STAT_SPDEF] == 12
+        && ctx->battlemon[defender].states[STAT_ACCURACY] == 12
+        && ctx->battlemon[defender].states[STAT_EVASION] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_ATK_ACC_UP:
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP:
+        if (ctx->battlemon[defender].states[STAT_SPEED] == 12
+        && ctx->battlemon[defender].states[STAT_SPATK] == 12
+        && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_ATK_DEF_ACC_UP:
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
+        && ctx->battlemon[defender].states[STAT_DEFENSE] == 12
+        && ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN:
+    case MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2:
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
+        && ctx->battlemon[defender].states[STAT_SPEED] == 12
+        && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_ATK_SP_ATK_UP:
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
+        && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
+    case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2:
+        if (ctx->battlemon[defender].states[STAT_SPATK] == 12
+        && ctx->battlemon[defender].states[STAT_SPDEF] == 12
+        && ctx->battlemon[defender].states[STAT_SPEED] == 12) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+        }
+        break;
     case MOVE_EFFECT_ATK_DOWN:
     case MOVE_EFFECT_ATK_DOWN_2:
+    case MOVE_EFFECT_ATK_DOWN_3:
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 0) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            break;
+        }
         if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_HYPER_CUTTER)) {
             subscriptToRun = SUB_SEQ_ATTACK_NOT_LOWERED;
             break;
@@ -3042,6 +3183,11 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
         break;
     case MOVE_EFFECT_DEF_DOWN:
     case MOVE_EFFECT_DEF_DOWN_2:
+    case MOVE_EFFECT_DEF_DOWN_3:
+        if (ctx->battlemon[defender].states[STAT_DEFENSE] == 0) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            break;
+        }
         if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_BIG_PECKS)) {
             subscriptToRun = SUB_SEQ_DEFENSE_NOT_LOWERED;
             break;
@@ -3058,7 +3204,10 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     case MOVE_EFFECT_ATK_DEF_DOWN:  // Tickle
         // If the move is Tickle, first attack will drop, then Big Pecks will prevent the Defense drop.
         // If the move is Tickle, first Hyper Cutter will block the Attack drop, then Defense will drop.
-
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 0
+        && ctx->battlemon[defender].states[STAT_DEFENSE] == 0) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+        }
         if (hasFlowerVeil) {
             subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
             break;
@@ -3070,6 +3219,11 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
         break;
     case MOVE_EFFECT_SPEED_DOWN:
     case MOVE_EFFECT_SPEED_DOWN_2:
+    case MOVE_EFFECT_SPEED_DOWN_3:
+        if (ctx->battlemon[defender].states[STAT_SPEED] == 0) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            break;
+        }
         if (hasFlowerVeil) {
             subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
             break;
@@ -3082,6 +3236,10 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     case MOVE_EFFECT_SP_ATK_DOWN:
     case MOVE_EFFECT_SP_ATK_DOWN_2:
     case MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER:
+    case MOVE_EFFECT_SP_ATK_DOWN_3:
+        if (ctx->battlemon[defender].states[STAT_SPATK] == 0) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+        }
         if (hasFlowerVeil) {
             subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
             break;
@@ -3093,6 +3251,10 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
         break;
     case MOVE_EFFECT_SP_DEF_DOWN:
     case MOVE_EFFECT_SP_DEF_DOWN_2:
+    case MOVE_EFFECT_SP_DEF_DOWN_3:
+        if (ctx->battlemon[defender].states[STAT_SPDEF] == 0) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+        }
         if (hasFlowerVeil) {
             subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
             break;
@@ -3104,6 +3266,9 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
         break;
     case MOVE_EFFECT_ACC_DOWN:
     case MOVE_EFFECT_ACC_DOWN_2:
+        if (ctx->battlemon[defender].states[STAT_ACCURACY] == 0) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+        }
         if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_KEEN_EYE)) {
             subscriptToRun = SUB_SEQ_ACCURACY_NOT_LOWERED;
             break;
@@ -3119,6 +3284,9 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
         break;
     case MOVE_EFFECT_EVA_DOWN:
     case MOVE_EFFECT_EVA_DOWN_2:
+        if (ctx->battlemon[defender].states[STAT_EVASION] == 0) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+        }
         if (hasFlowerVeil) {
             subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
             break;
@@ -3128,7 +3296,19 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             break;
         }
         break;
+    case MOVE_EFFECT_CURSE:
+        if (!HasType(ctx, ctx->attack_client, TYPE_GHOST)
+        && ctx->battlemon[defender].states[STAT_ATTACK] == 12
+        && ctx->battlemon[defender].states[STAT_DEFENSE] == 12
+        && ctx->battlemon[defender].states[STAT_SPEED] == 0) {
+            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER; // TODO: Champions modernisation since this is much more obvious
+        }
+        break;
     case MOVE_EFFECT_PARTING_SHOT:
+        if (ctx->battlemon[defender].states[STAT_ATTACK] == 0
+            && ctx->battlemon[defender].states[STAT_SPATK] == 0) {
+                subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+        }
         if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_HYPER_CUTTER) && ctx->battlemon[defender].states[STAT_SPATK] == 0) {
             subscriptToRun = SUB_SEQ_ATTACK_NOT_LOWERED;
             break;
@@ -4291,6 +4471,7 @@ BOOL BattleController_CheckMoveFailures3_PerishSong(struct BattleSystem *bsys, s
     return FALSE;
 }
 
+/*
 // TODO: implement new mechanics
 // Only return true if no stats are changed
 int BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
@@ -4514,6 +4695,7 @@ int BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys U
 
     return result;
 }
+*/
 
 /**
  *  @brief checks if the given move should be weakened or not (only prints message)
