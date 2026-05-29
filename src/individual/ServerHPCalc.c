@@ -113,6 +113,9 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                 }
             }
 
+            if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0) {
+                sp->damage = (sp->battlemon[sp->defence_client].hp) * -1;
+            }
 
 #ifdef DEBUG_BATTLE_SCENARIOS
             // debug_printf("In ServerHPCalc\n");
