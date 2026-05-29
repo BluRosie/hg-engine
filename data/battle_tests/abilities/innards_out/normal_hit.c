@@ -38,7 +38,7 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_SNONE,
+            .species = SPECIES_SNOM,
             .level = 50,
             .form = 0,
             .ability = ABILITY_ICE_SCALES,
