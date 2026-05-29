@@ -1,6 +1,5 @@
 {
 	"labelEnabled":	true,
-	"uaatEnabled":	true,
 	"sequenceCount":	2,
 	"frameCount":	10,
 	"sequences":	[{
@@ -74,10 +73,6 @@
 			"index":	7
 		}],
 	"resultCount":	8,
-	"labels":	["CellAnime0", "CellAnime1"],
-	"labelCount":	2,
-	"uaatData":	{
-		"sequenceAttributes":	[0, 0],
-		"frameAttributes":	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-	}
+	"labels":	["\u0001", "ï¾H"],
+	"labelCount":	2
 }

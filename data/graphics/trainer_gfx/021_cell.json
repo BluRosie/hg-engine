@@ -1,9 +1,7 @@
 {
 	"labelEnabled":	true,
-	"dontPadKbec":	false,
 	"extended":	true,
 	"vramTransferEnabled":	true,
-	"ucatEnabled":	true,
 	"cellCount":	1,
 	"mappingType":	1,
 	"cells":	[{
@@ -21,7 +19,7 @@
 			"oamCount":	6,
 			"OAM":	[{
 					"Attr0":	{
-						"YCoordinate":	-40,
+						"YCoordinate":	216,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -30,7 +28,7 @@
 						"Shape":	0
 					},
 					"Attr1":	{
-						"XCoordinate":	-40,
+						"XCoordinate":	472,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -41,7 +39,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	-40,
+						"YCoordinate":	216,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -61,7 +59,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	-8,
+						"YCoordinate":	248,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -90,7 +88,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	-40,
+						"XCoordinate":	472,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -110,7 +108,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	-8,
+						"XCoordinate":	504,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -147,6 +145,5 @@
 	"transferData":	[{
 			"offset":	0,
 			"size":	2880
-		}],
-	"cellAttributes":	[0]
+		}]
 }
