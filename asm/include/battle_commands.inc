@@ -332,11 +332,12 @@
     .long \val
     .endm
 
-    .macro ChangeStatStage arg_0, arg_1, arg_2
+    .macro ChangeStatStage arg_0, arg_1, arg_2, arg_3
     .long 51
-    .long (((\arg_0 - .) / 4) - 3)
-    .long (((\arg_1 - .) / 4) - 2)
-    .long (((\arg_2 - .) / 4) - 1)
+    .long (((\arg_0 - .) / 4) - 4)
+    .long (((\arg_1 - .) / 4) - 3)
+    .long (((\arg_2 - .) / 4) - 2)
+    .long (((\arg_3 - .) / 4) - 1)
     .endm
 
     .macro UpdateMonData op, battler, param, val
