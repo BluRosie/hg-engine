@@ -73,6 +73,10 @@ def get_test_names() -> tuple[list[str], list[str]]:
                         )
                         if test_case_match_group:
                             test_case_names.append(test_case_match_group.group(1))
+                        else:
+                            raise Exception(
+                                "Test case does not contain test description!"
+                            )
                     except:
                         print(f"Error parsing file {test_file_path}!")
                         raise
@@ -88,11 +92,12 @@ def get_test_names() -> tuple[list[str], list[str]]:
                                 r"// Test: (.+)", test_file.readline().strip()
                             )
                             if test_case_match_group:
-                                skipped_test_case_names.append(test_case_match_group.group(1))
+                                skipped_test_case_names.append(
+                                    test_case_match_group.group(1)
+                                )
                         except:
                             print(f"Error parsing file {test_file_path}!")
                             raise
-
 
     return (test_case_names, skipped_test_case_names)
 
@@ -100,8 +105,10 @@ def get_test_names() -> tuple[list[str], list[str]]:
 def read_communication_hole_value():
     return emu_memory.signed[g_EmulatorCommunicationSendHoleAddress]
 
+
 def write_communication_hole_value(value: int):
     emu_memory.write_long(g_EmulatorCommunicationSendHoleAddress, value)
+
 
 def has_finished_testing() -> bool:
     return current_test_case >= TOTAL_NUMBER_OF_TESTS
@@ -149,9 +156,9 @@ def callback_function_when_game_put_thing_into_communication_hole(
 
     global ci
     if ci:
-        print('##[endgroup]')
+        print("##[endgroup]")
         if not has_finished_testing():
-            print(f'##[group]{test_case_names[current_test_case]}')
+            print(f"##[group]{test_case_names[current_test_case]}")
 
 
 def read_total_tests_from_header() -> int:
@@ -215,10 +222,8 @@ def main():
     TEST_END_INDEX = TOTAL_NUMBER_OF_TESTS
     TOTAL_NUMBER_OF_TESTS = TEST_END_INDEX - TEST_START_INDEX
 
-    global test_case_names
+    global test_case_names, skipped_test_case_names
     test_case_names = test_case_names[TEST_START_INDEX:TEST_END_INDEX]
-
-
 
     memory.register_write(
         g_EmulatorCommunicationSendHoleAddress,
@@ -228,6 +233,9 @@ def main():
     global ci
     if args.continuous_integration:
         ci = True
+
+    print(f"Number of tests: {len(test_case_names)}")
+    print(f"Number of skipped tests: {len(skipped_test_case_names)}")
 
     emu.open("test.nds")
     emu.backup.import_file("test.sav")
@@ -239,7 +247,7 @@ def main():
         window = emu.create_sdl_window()
 
     if ci:
-        print(f'##[group]{test_case_names[0]}')
+        print(f"##[group]{test_case_names[0]}")
 
     for i in range(120):
         emu.cycle(False)

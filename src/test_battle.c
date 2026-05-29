@@ -207,7 +207,7 @@ static void OverridePartySlot(struct BATTLE_PARAM *bp, int partyIndex, int slot,
  */
 void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
 {
-    int testIndex = GetCurrentTestIndex();
+    u32 testIndex = GetCurrentTestIndex();
     SetTestComplete(FALSE);
     SetHasMoreTests((testIndex + 1) < gTestEndIndex);
 
