@@ -63,6 +63,11 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
         }
         else
         {
+            // limit damage value to current hp
+            if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0) {
+                sp->damage = (sp->battlemon[sp->defence_client].hp) * -1;
+            }
+
             if (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_LEAVE_WITH_1_HP)
             {
                 if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0)
@@ -111,10 +116,6 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                         sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
                     }
                 }
-            }
-
-            if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0) {
-                sp->damage = (sp->battlemon[sp->defence_client].hp) * -1;
             }
 
 #ifdef DEBUG_BATTLE_SCENARIOS

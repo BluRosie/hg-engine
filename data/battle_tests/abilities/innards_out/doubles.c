@@ -14,7 +14,7 @@ BEGIN_TEST
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_IRON_BALL,
             .moves = { MOVE_BULLDOZE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
+            .hp = 59,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
