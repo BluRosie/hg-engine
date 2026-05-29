@@ -2181,13 +2181,19 @@ u32 CheckCanUseBallOnDoublesFromBag(struct BattleStruct *sp)
  */
 u32 LONG_CALL GetLevelCap(void)
 {
+#ifdef DEBUG_BATTLE_SCENARIOS
+    return 0;
+#else
 #ifdef IMPLEMENT_LEVEL_CAP
     u32 levelCap = GetScriptVar(LEVEL_CAP_VARIABLE);
-    if (levelCap > 100 || levelCap == 0) levelCap = 100;
+    if (levelCap > 100 || levelCap == 0) {
+        levelCap = 100;
+    }
     return levelCap;
 #else
     return 100;
 #endif // IMPLEMENT_LEVEL_CAP
+#endif // DEBUG_BATTLE_SCENARIOS
 }
 
 /**

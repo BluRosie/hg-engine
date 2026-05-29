@@ -222,7 +222,7 @@ def main():
     TEST_END_INDEX = TOTAL_NUMBER_OF_TESTS
     TOTAL_NUMBER_OF_TESTS = TEST_END_INDEX - TEST_START_INDEX
 
-    global test_case_names
+    global test_case_names, skipped_test_case_names
     test_case_names = test_case_names[TEST_START_INDEX:TEST_END_INDEX]
 
     memory.register_write(
@@ -233,6 +233,9 @@ def main():
     global ci
     if args.continuous_integration:
         ci = True
+
+    print(f"Number of tests: {len(test_case_names)}")
+    print(f"Number of skipped tests: {len(skipped_test_case_names)}")
 
     emu.open("test.nds")
     emu.backup.import_file("test.sav")
