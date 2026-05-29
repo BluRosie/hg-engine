@@ -748,7 +748,7 @@ GetFlavorPreferenceFromPID = 0x020718E8 | 1;
 ov12_02261258 = 0x02261258 | 1;
 //ov12_02252D14 = 0x02252D14 | 1;
 
-BattleMessage_BufferNickname = 0x0223CDD0 | 1;
+//BattleMessage_BufferNickname = 0x0223CDD0 | 1;
 BattleMessage_BufferMove = 0x0223CDF4 | 1;
 BattleMessage_BufferItem = 0x0223CE00 | 1;
 BattleMessage_BufferNumber = 0x0223CE0C | 1;
@@ -867,3 +867,4 @@ StringExpandPlaceholders = 0x0200CBBC | 1;
 
 ov12_02256694 = 0x02256694 | 1;
 sStarterChoiceCries = 0x021E7398;
+BufferBoxMonNickname = 0x0200BF8C | 1;

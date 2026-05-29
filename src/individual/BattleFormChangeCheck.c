@@ -261,28 +261,21 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             break;
         }
 
-        // fuck illusion
-        if (GetBattlerAbility(sp, sp->battlerIdTemp) == ABILITY_ILLUSION
-         && gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, sp->battlerIdTemp))
-         && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)] == sp->battlerIdTemp
-         && gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)] == sp->sel_mons_no[sp->battlerIdTemp]
-         && (sp->oneSelfFlag[sp->battlerIdTemp].physical_damage || sp->oneSelfFlag[sp->battlerIdTemp].special_damage))
-        {
-            SetMonData(Party_GetMonByIndex(BattleWorkPokePartyGet(bw, sp->battlerIdTemp), gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)]), MON_DATA_NICKNAME, gIllusionStruct.illusionNameBuf[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)]);
-
-            gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, sp->battlerIdTemp));
-            gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)] = CLIENT_MAX;
-            gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)] = 6;
-            for (int k = 0; k < 11; k++)
-            {
-                sp->battlemon[sp->battlerIdTemp].nickname[k] = gIllusionStruct.illusionNameBuf[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)][k];
-                gIllusionStruct.illusionNameBuf[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)][k] = 0;
-            }
-            BattleFormChange(sp->battlerIdTemp, sp->battlemon[sp->battlerIdTemp].form_no, bw, sp, 0);
-            *seq_no = SUB_SEQ_HANDLE_ILLUSION_FADED;
-            ret = TRUE;
-            break;
-        }
+        //// fuck illusion
+        //if (GetBattlerAbility(sp, sp->battlerIdTemp) == ABILITY_ILLUSION
+        // && gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, sp->battlerIdTemp))
+        // && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)] == sp->battlerIdTemp
+        // && gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)] == sp->sel_mons_no[sp->battlerIdTemp]
+        // && (sp->oneSelfFlag[sp->battlerIdTemp].physical_damage || sp->oneSelfFlag[sp->battlerIdTemp].special_damage))
+        //{
+        //    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, sp->battlerIdTemp));
+        //    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)] = CLIENT_MAX;
+        //    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, sp->battlerIdTemp)] = 6;
+        //    BattleFormChange(sp->battlerIdTemp, sp->battlemon[sp->battlerIdTemp].form_no, bw, sp, 0);
+        //    *seq_no = SUB_SEQ_HANDLE_ILLUSION_FADED;
+        //    ret = TRUE;
+        //    break;
+        //}
 
         // handle meloetta - change to/from pirouette form when using relic song
         if ((sp->battlemon[sp->battlerIdTemp].species == SPECIES_MELOETTA)

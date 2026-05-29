@@ -371,6 +371,20 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             seq_no[0] = SUB_SEQ_APPLY_BURN;
             ret = TRUE;
         }
+
+    } else if (gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, sp->defence_client))
+            && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, sp->defence_client)] == sp->defence_client
+            && gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, sp->defence_client)] == sp->sel_mons_no[sp->defence_client]
+            && ((sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
+                || GetBattlerAbility(sp, sp->defence_client) != ABILITY_ILLUSION)) { // illusion has already activated, but it can be taken away without needing to have the ability
+            // handle illusion here so it takes priority over fainting.  notably
+            gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, sp->defence_client));
+            gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, sp->defence_client)] = CLIENT_MAX;
+            gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, sp->defence_client)] = 6;
+            BattleFormChange(sp->defence_client, sp->battlemon[sp->defence_client].form_no, bw, sp, 0);
+            sp->battlerIdTemp = sp->defence_client;
+            seq_no[0] = SUB_SEQ_HANDLE_ILLUSION_FADED;
+            ret = TRUE;
     }
 
     return ret;

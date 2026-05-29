@@ -1846,8 +1846,7 @@ struct __attribute__((packed)) POKEMON_APPEAR_PARAM {
     u32 wep_personal_rnd[CLIENT_MAX];
 };
 
-struct __attribute__((packed)) ILLUSION_STRUCT {
-    u16 illusionNameBuf[4][12]; // at least get this hword aligned
+struct ILLUSION_STRUCT {
     u8 illusionPos[4];
     u8 illusionClient[4];
     u8 isSideInIllusion;
