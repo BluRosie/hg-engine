@@ -67,7 +67,6 @@ def main() -> None:
         files = list(filter(lambda x: keywords_in_file(str(x), filter_keywords), files))
 
     skippedFiles = list(filter(lambda x: keywords_in_file(str(x), ['// SKIP']), files))
-    print(skippedFiles)
 
     for file_path in list(files):
         with open(file_path, "r") as file:

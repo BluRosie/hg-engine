@@ -45,9 +45,16 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
     // debug_printf("\naddeffect_param: %d\n", sp->addeffect_param);
 
+    // 12 steps up
+    if (sp->addeffect_param == ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_MAX) {
+        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_MAX;
+        statchange = 12;
+        sp->temp_work = STATUS_EFF_UP;
+        // debug_printf("12 steps up\n");
+    }
     // 6 steps up
-    if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6) {
-        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6;
+    else if (sp->addeffect_param == ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_6) {
+        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_MAX;
         statchange = 6;
         sp->temp_work = STATUS_EFF_UP;
         // debug_printf("6 steps up\n");

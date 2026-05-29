@@ -26,7 +26,7 @@ const struct TestBattleScenario BattleTests[] = {
                 .form = 0,
                 .ability = ABILITY_ANGER_POINT,
                 .item = ITEM_NONE,
-                .moves = { MOVE_LUCKY_CHANT, MOVE_STORM_THROW, MOVE_SLEEP_TALK, MOVE_NONE },
+                .moves = { MOVE_LUCKY_CHANT, MOVE_STORM_THROW, MOVE_GROWL, MOVE_SLEEP_TALK },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -62,7 +62,7 @@ const struct TestBattleScenario BattleTests[] = {
               { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
               { ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST },
               { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
-              { ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST },
+              { ACTION_MOVE_SLOT_4, BATTLER_ENEMY_FIRST },
               { ACTION_NONE, 0 },
               { ACTION_NONE, 0 },
               { ACTION_NONE, 0 },
@@ -102,10 +102,11 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Tauros's Attack fell!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "A critical hit!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Tauros's Anger Point raised its Attack drastically!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Tauros used Swords Dance!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "any higher!" },
         }
     },
 #ifndef GET_TEST_CASE_ONLY

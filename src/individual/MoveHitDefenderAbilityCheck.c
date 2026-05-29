@@ -271,7 +271,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
         if (((sp->moveStatusFlagForSpreadMoves[sp->defence_client] & WAZA_STATUS_FLAG_CRITICAL) != 0)
             && (sp->battlemon[sp->defence_client].hp)
             && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)) {
-            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6;
+            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_MAX;
             sp->addeffect_type = ADD_EFFECT_ABILITY;
             sp->state_client = sp->defence_client;
             sp->battlerIdTemp = sp->defence_client;
