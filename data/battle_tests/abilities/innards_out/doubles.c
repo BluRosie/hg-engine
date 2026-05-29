@@ -118,9 +118,9 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Victreebel's Innards Out!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Victreebel's Innards Out" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan was hurt!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pyukumuku's Innards Out!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pyukumuku's Innards Out" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan was hurt" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Victreebel fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyukumuku fainted!" },
