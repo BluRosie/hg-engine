@@ -12,7 +12,7 @@ BEGIN_TEST
             .level = 50,
             .form = 0,
             .ability = ABILITY_NO_GUARD,
-            .item = ITEM_NONE,
+            .item = ITEM_IRON_BALL,
             .moves = { MOVE_BULLDOZE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -95,7 +95,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -108,10 +108,10 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan used Bulldoze!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan is hurt by Innards Out!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan is hurt by Innards Out!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Victreebel fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyukumuku fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan is hurt by Innards Out!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan is hurt by Innards Out!" },
     }
 }
 END_TEST
