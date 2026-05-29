@@ -132,7 +132,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
         if ((sp->defence_client == sp->fainting_client)
             && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
             && (sp->battlemon[sp->attack_client].hp)) {
-            sp->hp_calc_work = sp->damage;
+            sp->hp_calc_work = ctx->store_damage[ctx->defence_client];
             sp->battlerIdTemp = sp->attack_client;
             seq_no[0] = SUB_SEQ_HANDLE_INNARDS_OUT_MESSAGE;
             ret = TRUE;

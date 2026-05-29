@@ -142,6 +142,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         if (IsAttackerOnField(ctx)) {
             ctx->store_damage[ctx->attack_client] += ctx->hit_damage;
         }
+        for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
+            if (ctx->attack_client != battler)
+            {
+                ctx->store_damage[battler] += ctx->damageForSpreadMoves[battler];
+            }
+        }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE:
