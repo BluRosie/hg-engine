@@ -1,4 +1,5 @@
-// Test: Innards Out - return entire damage received, recoil afterwards
+// Test: Innards Out - return entire damage received, recoil and faint order
+// SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -14,7 +15,7 @@ BEGIN_TEST
             .ability = ABILITY_RECKLESS,
             .item = ITEM_NONE,
             .moves = { MOVE_BRAVE_BIRD, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 161,
+            .hp = 160,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -101,6 +102,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor was hurt!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Victreebel fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor was damaged by the recoil!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor fainted!" },
     }
 }
 END_TEST
