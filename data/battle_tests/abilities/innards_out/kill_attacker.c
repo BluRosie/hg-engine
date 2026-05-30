@@ -116,12 +116,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor used Brave Bird!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Staraptor used Brave Bird!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Victreebel's Innards Out" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor was hurt!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Staraptor was hurt!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Staraptor fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Victreebel fainted!" },
     }
 }

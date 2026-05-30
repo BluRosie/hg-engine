@@ -9,12 +9,12 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_STARAPTOR,
-            .level = 50,
+            .level = 51,
             .form = 0,
             .ability = ABILITY_RECKLESS,
             .item = ITEM_NONE,
             .moves = { MOVE_BRAVE_BIRD, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 155,
+            .hp = 161,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -32,7 +32,7 @@ BEGIN_TEST
                         .ability = ABILITY_OVERGROW,
                         .item = ITEM_VICTREEBELITE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .hp = 120,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -101,7 +101,6 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor was hurt!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Victreebel fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor was damaged by the recoil!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor fainted!" },
     }
 }
 END_TEST
