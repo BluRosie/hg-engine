@@ -63,11 +63,20 @@ def main() -> None:
     battle_tests_root_folder = pathlib.Path(data_folder, "battle_tests")
     files = list(battle_tests_root_folder.rglob("*c"))
 
+    if os.path.exists("test_filter.txt"):
+        try:
+            with open("test_filter.txt", "r") as file:
+                for line in file:
+                    if len(line):
+                        filter_keywords.append(line)
+        except (IOError, UnicodeDecodeError):
+            print("Could not read file: 'test_filter.txt'")
+            raise
+
     if len(filter_keywords) > 0:
         files = list(filter(lambda x: keywords_in_file(str(x), filter_keywords), files))
 
-    skippedFiles = list(filter(lambda x: keywords_in_file(str(x), ['// SKIP']), files))
-    print(skippedFiles)
+    skippedFiles = list(filter(lambda x: keywords_in_file(str(x), ["// SKIP"]), files))
 
     for file_path in list(files):
         with open(file_path, "r") as file:
@@ -79,7 +88,9 @@ def main() -> None:
             file.write(content)
 
     test_files = [
-        f'#include "../../data/{os.path.relpath(file, data_folder)}"' if file not in skippedFiles else f'// #include "../../data/{os.path.relpath(file, data_folder)}"'
+        f'#include "../../data/{os.path.relpath(file, data_folder)}"'
+        if file not in skippedFiles
+        else f'// #include "../../data/{os.path.relpath(file, data_folder)}"'
         for file in sorted(files)
     ]
 

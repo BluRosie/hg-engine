@@ -1,0 +1,17 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    AbilityPopup BATTLER_CATEGORY_DEFENDER
+    PlayBattleAnimation BATTLER_CATEGORY_DEFENDER, BATTLE_ANIMATION_STAT_BOOST
+    Wait
+    UpdateMonData OPCODE_SET, BATTLER_CATEGORY_DEFENDER, BMON_DATA_STAT_CHANGE_ATK, 12
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MESSAGE, 1
+    // {0} maxed its {2}!
+    PrintMessage 1093, TAG_NICKNAME_ABILITY_STAT, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_MSG_TEMP
+    Wait
+    WaitButtonABTime 30
+
+_049:
+    End

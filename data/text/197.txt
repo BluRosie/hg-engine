@@ -1091,9 +1091,9 @@ The opposing {STRVAR_1 1, 0, 0}\nbreaks the mold!
 {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
-{STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with {STRVAR_1 5, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with {STRVAR_1 5, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with {STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0}!
+The wild {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0}!
+The opposing {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0}!
 {STRVAR_1 1, 0, 0} lost some HP\nbecause of its {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} lost some HP\nbecause of its {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} lost some HP\nbecause of its {STRVAR_1 5, 1, 0}!

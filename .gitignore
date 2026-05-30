@@ -111,3 +111,4 @@ test_logs.txt
 .scratch/
 dumped_armips/
 dumped_c/
+test_filter.txt

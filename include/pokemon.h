@@ -628,6 +628,8 @@ struct IconFormChangeData {
 
 struct SAVE_MISC_DATA;
 
+typedef struct MessageFormat MessageFormat;
+
 // defines from pokeheartgold + new ones
 typedef enum EvoMethod {
     EVO_NONE = 0,
@@ -654,9 +656,9 @@ typedef enum EvoMethod {
     EVO_OTHER_PARTY_MON,
     EVO_LEVEL_MALE,
     EVO_LEVEL_FEMALE,
-    EVO_CORONET,
-    EVO_ETERNA,
-    EVO_ROUTE217,
+    EVO_MAGNETIC_FIELD,
+    EVO_MOSSY_ROCK,
+    EVO_ICY_ROCK,
     EVO_LEVEL_DAY,
     EVO_LEVEL_NIGHT,
     EVO_LEVEL_DUSK,
@@ -1850,5 +1852,7 @@ s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor);
 BOOL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defaultSlot);
 
 BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID);
+
+void LONG_CALL BufferBoxMonNickname(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
 
 #endif

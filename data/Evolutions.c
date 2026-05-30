@@ -1246,7 +1246,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_MAGNETON] = {
         .entries = {
-            { EVO_CORONET, 0, SPECIES_MAGNEZONE },
+            { EVO_MAGNETIC_FIELD, 0, SPECIES_MAGNEZONE },
             { EVO_STONE, ITEM_THUNDER_STONE, SPECIES_MAGNEZONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -4501,7 +4501,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_NOSEPASS] = {
         .entries = {
-            { EVO_CORONET, 0, SPECIES_PROBOPASS },
+            { EVO_MAGNETIC_FIELD, 0, SPECIES_PROBOPASS },
             { EVO_STONE, ITEM_THUNDER_STONE, SPECIES_PROBOPASS },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -11821,7 +11821,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_CHARJABUG] = {
         .entries = {
-            { EVO_CORONET, 0, SPECIES_VIKAVOLT },
+            { EVO_MAGNETIC_FIELD, 0, SPECIES_VIKAVOLT },
             { EVO_STONE, ITEM_THUNDER_STONE, SPECIES_VIKAVOLT },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },

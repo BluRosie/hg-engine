@@ -64,6 +64,9 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
         switch (sp->sba_seq_no) {
             case SBA_RESET_DEFIANT: {
                 // debug_printf("In SBA_RESET_DEFIANT\n");
+#ifdef DEBUG_BATTLE_SCENARIOS
+                debug_printf("--- Turn %d ---\n", sp->total_turn);
+#endif
 
                 CalcPriorityAndQuickClawCustapBerry(bw, sp);
 
