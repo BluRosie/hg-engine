@@ -121,13 +121,12 @@ const struct TestBattleScenario BattleTests[] = {
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Delphox foresaw an attack!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir used Psychic!" },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 114, 114, 116, 116, 120, 120, 120, 122, 122, 126, 126, 128, 128, 132, 132, 134 } },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Toxapex fainted!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir used Sleep Talk!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "The opposing Archaludon took the Future Sight attack!" },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };

@@ -121,7 +121,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Victreebel's Innards Out" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan was hurt!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pyukumuku's Innards Out" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan was hurt" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan was hurt!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Victreebel fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyukumuku fainted!" },
     }
