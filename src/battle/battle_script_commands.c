@@ -127,7 +127,7 @@ BOOL btl_scr_cmd_11D_BatchUpdateHealthBarValue(void *bsys, struct BattleStruct *
 BOOL btl_scr_cmd_11E_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_11F_BatchEffectivenessMessage(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_121_DoubleWeight_Totem(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_121_MakeTotem(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -456,7 +456,7 @@ const u8 *BattleScrCmdNames[] = {
     "BatchFollowupMessage",
     "BatchEffectivenessMessage",
     "DivideVarByValueRoundUp",
-    "DoubleWeightTotem",
+    "MakeTotem",
     // "YourCustomCommand",
 };
 
@@ -532,7 +532,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x11E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11E_BatchFollowupMessage,
     [0x11F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11F_BatchEffectivenessMessage,
     [0x120 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_120_DivideVarByValueRoundUp,
-    [0x121 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_121_DoubleWeight_Totem,
+    [0x121 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_121_MakeTotem,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -5347,36 +5347,88 @@ BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ct
     return FALSE;
 }
 
-u16 TotemSpecies[] = 
+
+u16 TotemSpecies[][STAT_MAX] = // Species, stat stage increases
 {
-    SPECIES_RATICATE_ALOLAN_LARGE,
-    SPECIES_MAROWAK_ALOLAN_LARGE,
-    SPECIES_GUMSHOOS_LARGE,
-    SPECIES_VIKAVOLT_LARGE,
-    SPECIES_RIBOMBEE_LARGE,
-    SPECIES_ARAQUANID_LARGE,
-    SPECIES_LURANTIS_LARGE,
-    SPECIES_SALAZZLE_LARGE,
-    SPECIES_TOGEDEMARU_LARGE,
-    SPECIES_MIMIKYU_LARGE,
-    SPECIES_MIMIKYU_BUSTED_LARGE,
-    SPECIES_KOMMO_O_LARGE,
-    // Add custom Totem species to this list to make sure they use the appropriate weight in battle.
-    // Don't bother making a custom species unless you plan for them to be caught.
+    { SPECIES_RATICATE_ALOLAN_LARGE, 0, 1, 0, 0, 0, 0, 0 }, // +1 Defense
+    { SPECIES_MAROWAK_ALOLAN_LARGE,  0, 0, 2, 0, 0, 0, 0 }, // +2 Speed
+    { SPECIES_GUMSHOOS_LARGE,        0, 1, 0, 0, 0, 0, 0 }, // +1 Defense
+    { SPECIES_VIKAVOLT_LARGE,        1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
+    { SPECIES_RIBOMBEE_LARGE,        2, 2, 2, 2, 2, 0, 0 }, // +2 Omni-boost
+    { SPECIES_ARAQUANID_LARGE,       0, 0, 1, 0, 0, 0, 0 }, // +1 Speed
+    { SPECIES_LURANTIS_LARGE,        0, 0, 2, 0, 0, 0, 0 }, // +2 Speed
+    { SPECIES_SALAZZLE_LARGE,        0, 0, 0, 0, 1, 0, 0 }, // +1 Special Defense
+    { SPECIES_TOGEDEMARU_LARGE,      0, 2, 0, 0, 0, 0, 0 }, // +2 Defense
+    { SPECIES_MIMIKYU_LARGE,         1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
+    { SPECIES_MIMIKYU_BUSTED_LARGE,  0, 0, 0, 0, 0, 0, 0 }, 
+    { SPECIES_KOMMO_O_LARGE,         1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
+    { SPECIES_GYARADOS,              0, 0, 1, 0, 1, 0, 0 },
+    // Add your Totem species here.
+    // Don't bother making a custom form unless you plan for it to be caught.
 };
 
-BOOL btl_scr_cmd_121_DoubleWeight_Totem(void *bsys UNUSED, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_121_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
-
     s32 battlerID = read_battle_script_param(ctx);
-    for (int i = 0; i < NELEMS(TotemSpecies); i++)
+
+    // Grab totem ID and handle weight increase.
+    u32 totemID;
+    for (totemID = 0; totemID < MAX_TOTEM_FORMS; totemID++)
     {
-        if (ctx->battlemon[battlerID].species == TotemSpecies[i])
+        if (ctx->battlemon[battlerID].species == TotemSpecies[totemID][0])
         {
-            return FALSE;
+            break;
         }
     }
-    ctx->battlemon[battlerID].weight *= 2;
+    if (totemID == MAX_TOTEM_FORMS)
+    {
+        ctx->battlemon[battlerID].weight *= 2;
+
+        while (totemID < NELEMS(TotemSpecies))
+        {
+            if (ctx->battlemon[battlerID].species == TotemSpecies[totemID][0])
+            {
+                break;
+            }
+            totemID++;
+        }
+    }
+    
+    if (totemID == NELEMS(TotemSpecies))
+    {
+        return FALSE; // This should never be reached if you're doing this right, but prevents out-of-bounds errors.
+    }
+
+    // Handle stat boosts.
+    u8 totalStatBoosts = 0;
+    u8 stat;
+    for (stat = STAT_ATTACK; stat < STAT_MAX; stat++)
+    {
+        if (TotemSpecies[totemID][stat] > 0)
+        {
+            if (!totalStatBoosts)
+            {
+                // PlayBattleAnimation BATTLER_CATEGORY_ENEMY, BATTLE_ANIMATION_STAT_BOOST
+            }
+            ctx->battlemon[battlerID].states[stat] += TotemSpecies[totemID][stat];
+            totalStatBoosts++;
+        }
+    }
+
+    if (totalStatBoosts == 1)
+    {
+        ctx->mp.id = BATTLE_MSG_TOTEM_AURA_SINGLE_STAT; // {0}’s aura flared to life! Its {1} rose!
+        ctx->mp.tag = TAG_NICKNAME_STAT;
+        ctx->mp.param[0] = CreateNicknameTag(ctx, battlerID);
+        ctx->mp.param[1] = stat;
+    }
+    else if (totalStatBoosts > 1)
+    {
+        ctx->mp.id = BATTLE_MSG_TOTEM_AURA_MULTI_STAT; // {0}’s aura flared to life! Its stats rose!
+        ctx->mp.tag = TAG_NICKNAME;
+        ctx->mp.param[0] = CreateNicknameTag(ctx, battlerID);
+    }
+    
     return FALSE;
 }

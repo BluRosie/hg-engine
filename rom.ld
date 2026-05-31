@@ -734,6 +734,7 @@ GetFlavorPreferenceFromPID = 0x020718E8 | 1;
 ov12_02261258 = 0x02261258 | 1;
 //ov12_02252D14 = 0x02252D14 | 1;
 
+BattleMessage_BufferNickname = 0x0223CDD0 | 1;
 BattleMessage_BufferMove = 0x0223CDF4 | 1;
 BattleMessage_BufferItem = 0x0223CE00 | 1;
 BattleMessage_BufferNumber = 0x0223CE0C | 1;
@@ -857,4 +858,3 @@ ov12_02256694 = 0x02256694 | 1;
 ov07_02232F60 = 0x02232F60 | 1;
 ov07_02233ECC = 0x02233ECC | 1;
 
-BattleMessage_BufferNickname = 0x0223CDD0 | 1;
