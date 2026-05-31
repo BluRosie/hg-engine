@@ -4,5 +4,5 @@
 
 _Start:
     // {0} got trapped by a snap trap!
-    BufferMessage 1726, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
+    BufferMessage 1733, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     GoToEffectScript 
