@@ -52,26 +52,11 @@ _TotemEncounter:
     PrintGlobalMessage 1723, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
     Wait
     WaitButtonABTime 30
-    DoubleWeightTotem BATTLER_ENEMY
-    // To enable Totem stat boosts for a particular species, use the following code as a template:
-    // CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ENEMY, BMON_DATA_SPECIES, SPECIES_GYARADOS, _TotemStatBoost_Gyarados
-    GoTo _SendOutPokemonMessage
-
-/*_TotemStatBoost_Gyarados:
+    MakeTotem BATTLER_ENEMY
     PlayBattleAnimation BATTLER_CATEGORY_ENEMY, BATTLE_ANIMATION_STAT_BOOST
-    Wait 
-    UpdateMonData OPCODE_ADD, BATTLER_CATEGORY_ENEMY, BMON_DATA_STAT_CHANGE_SPDEF, 1
-    UpdateMonData OPCODE_ADD, BATTLER_CATEGORY_ENEMY, BMON_DATA_STAT_CHANGE_SPEED, 1
-    GoTo _TotemMultiStatMessage*/
-
-_TotemSingleStatMessage:
-    // {0}’s aura flared to life! Its {1} rose!
-    PrintGlobalMessage 1724, TAG_NICKNAME_STAT, BATTLER_CATEGORY_ENEMY, BATTLER_CATEGORY_MSG_TEMP
+    Wait
+    PrintBufferedMessage
     GoTo _SendOutPokemonMessage
-
-_TotemMultiStatMessage:
-    // {0}’s aura flared to life! Its stats rose!
-    PrintGlobalMessage 1725, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
 
 _SendOutPokemonMessage:
     Wait 

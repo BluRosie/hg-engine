@@ -1723,5 +1723,9 @@ The opposing {STRVAR_1 1, 0, 0}\nheld up its Red Card against\f{STRVAR_1 1, 1, 0
 The opposing {STRVAR_1 1, 0, 0}\nheld up its Red Card against\fthe opposing {STRVAR_1 1, 1, 0}!
 You are challenged by Totem\n{STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0}’s aura flared to life!\nIts {STRVAR_1 13, 1, 0} rose!
+{STRVAR_1 1, 0, 0}’s aura flared to life!\nIts {STRVAR_1 13, 1, 0} rose!
+The opposing {STRVAR_1 1, 0, 0}’s aura flared\nto life!\fIts {STRVAR_1 13, 1, 0} rose!
 {STRVAR_1 1, 0, 0}’s aura flared to life!\nIts stats rose!
+{STRVAR_1 1, 0, 0}’s aura flared to life!\nIts stats rose!
+The opposing {STRVAR_1 1, 0, 0}’s aura flared\nto life!\fIts stats rose!
 Can’t flee this fight!

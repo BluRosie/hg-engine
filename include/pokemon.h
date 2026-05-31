@@ -1457,6 +1457,8 @@ u32 LONG_CALL TryAppendMonMove(struct PartyPokemon *mon, u16 move);
 
 #define gIconPalTable ((u8 *)(0x023D8000 + START_ADDRESS))
 
+void LONG_CALL BufferBoxMonNickname(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
+
 // defined in src/pokemon.c
 
 /**
