@@ -8,12 +8,6 @@
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 
-struct BattleSetup LONG_CALL *BattleSetup_New(u32 heapID, u32 battleFlags);
-void LONG_CALL BattleSetup_InitFromFieldSystem(BattleSetup *setup, FieldSystem *fieldSystem);
-void LONG_CALL ov02_02247F30(FieldSystem *fieldSystem, u16 mon, u8 level, BOOL shiny, BattleSetup *setup);
-int LONG_CALL BattleSetup_GetWildTransitionEffect(struct BattleSetup *setup);
-int LONG_CALL BattleSetup_GetWildBattleMusic(struct BattleSetup *setup);
-
 void SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL shiny) {
     FieldSystem *fieldSystem = taskManager->fieldSystem;
     struct BattleSetup *setup = BattleSetup_New(HEAPID_WORLD, BATTLE_TYPE_TOTEM);
@@ -21,9 +15,6 @@ void SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u
     ov02_02247F30(fieldSystem, species, level, shiny, setup);
 
     struct PartyPokemon *totem = Party_GetMonByIndex(setup->party[BATTLER_ENEMY], 0);
-    // Perform generic Totem adjustments.
-    // Height & weight cannot be increased until battle start as they are per-species.
-    // In theory we would need to hook BattleMon creation to apply those changes on battle start.
 
     // Manually adjust specific elements according to Totem Species.
     switch (species)

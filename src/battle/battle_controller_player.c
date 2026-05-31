@@ -50,7 +50,7 @@ void overrideRunButton(struct BattleSystem *bsys, struct BattleStruct *ctx)
             {
                 if (fight_type & BATTLE_TYPE_TOTEM)
                 {
-                    msg.id = 1726; // Can't flee this fight!
+                    msg.id = BATTLE_MSG_CANT_FLEE_THIS_FIGHT; // Can't flee this fight!
                     msg.tag = TAG_NONE;
                     ov12_022639B8(bsys, battlerId, msg);
                     ctx->com_seq_no[battlerId] = SSI_STATE_15;
