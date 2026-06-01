@@ -240,6 +240,8 @@ HeldItemHealStatusCheck = 0x02254E7C | 1;
 Battle_GetClientPartySize = 0x0223a834 | 1;
 Battle_GetClientPartyMon = 0x0223a880 | 1;
 
+ov12_0223ABB8 = 0x0223ABB8 | 1;
+
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;
 /*read_battle_script_param = 0x022454E8 | 1;*/
@@ -267,6 +269,7 @@ ClientCommandReset = 0x02259928 | 1;
 BattleWorkPokePartyGet = 0x0223A7F4 | 1;
 PokeParty_GetPokeCount = 0x02074640 | 1;
 Party_GetMonByIndex = 0x02074644 | 1;
+GetBattlerVar = 0x0224EDE0 | 1;
 SideClientNoGet = 0x0224768C | 1;
 BattleWorkClientNoGet = 0x0223AAD8 | 1;
 BattleWorkPartnerClientNoGet = 0x0223AB6C | 1;
@@ -684,7 +687,6 @@ CanUseItemOnPokemon = 0x0208FD9C | 1;
 
 BagApp_GetSaveRoamers = 0x021F992C | 1;
 
-ov12_022506D4 = 0x022506D4 | 1;
 ov12_02250A18 = 0x02250A18 | 1;
 
 /* Stuff for Battle End Item */

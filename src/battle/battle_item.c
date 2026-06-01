@@ -340,6 +340,10 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
     int itemHeldEffect;
     int boost;
 
+    if (battlerId == BATTLER_NONE) {
+        return FALSE;
+    }
+
     itemHeldEffect = HeldItemHoldEffectGet(ctx, battlerId);
     boost = HeldItemAtkGet(ctx, battlerId, ATK_CHECK_NORMAL);
     BOOL hpLowerThan50 = (ctx->battlemon[battlerId].hp <= (s32)(ctx->battlemon[battlerId].maxhp) / 2);

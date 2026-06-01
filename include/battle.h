@@ -1281,7 +1281,9 @@ typedef union ConditionType
 
 typedef struct FutureCondition {
     ConditionType conditionType;
-    u8 affectedClient;
+    u8 defenderSlot;
+    u8 futureSightSTAB : 1;
+    u8 padding : 7;
 } FutureCondition;
 
 typedef struct OnceOnlyAbilityFlags {
@@ -1325,7 +1327,7 @@ typedef struct MovePerformanceContext {
     u8 currentMoveCalcDone : 1;
     u8 padding : 1;
     int hitFoes[2];
-    int hitSubstitute[3];  
+    int hitSubstitute[3];
 } MovePerformanceContext;
 
 
@@ -1561,10 +1563,13 @@ struct BattleStruct {
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
                u8 gemBoostingMove: 1;
-               u8 gemBoostingMovePadding : 7;
+               u8 futureSightHitTurn: 1;
+               u8 futureSightNoAttacker : 1;
+               u8 futureSightSTAB : 1;
+               u8 gemBoostingMovePadding : 4;
 
                int currentMoveSwitchStatus;
-               
+
                MoveConditionsFlags moveConditionsFlags[CLIENT_MAX];
                u8 paradoxBoostedStat[CLIENT_MAX];
                BOOL boosterEnergyActivated[CLIENT_MAX];
@@ -2003,7 +2008,7 @@ enum
     MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE,
     MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE,
     MOVE_PERFORMANCE_STEP_6_NOT_SE_TYPE_EFFECTIVENESS_MESSAGE,
-    
+
     MOVE_PERFORMANCE_STEP_7_CRITICAL_HIT_ALLY,
     MOVE_PERFORMANCE_STEP_7_CRITICAL_HIT_FOES,
     MOVE_PERFORMANCE_HIT_SUBSTITUTE,
@@ -2011,11 +2016,12 @@ enum
     MOVE_PERFORMANCE_STEP_8_STURDY_FOCUS_SASH_ALLY,
     MOVE_PERFORMANCE_STEP_9_SECONDARY_EFFECTS_ALLY,
     MOVE_PERFORMANCE_STEP_10_ADDITIONAL_EFFECTS_ALLY,
-    
+
     MOVE_PERFORMANCE_STEP_8_STURDY_FOCUS_SASH_FOES,
     MOVE_PERFORMANCE_STEP_9_SECONDARY_EFFECTS_FOES,
     MOVE_PERFORMANCE_STEP_10_ADDITIONAL_EFFECTS_FOES,
-    MOVE_PERFORMANCE_STEP_11_0_FAINTING,
+    MOVE_PERFORMANCE_STEP_11_0_FINAL_GAMBIT,
+    MOVE_PERFORMANCE_STEP_11_1_FAINTING,
     MOVE_PERFORMANCE_STEP_12_0_RESET_UNNERVE_NEUTRALIZING_GAS_IF_FAINTED,
     MOVE_PERFORMANCE_STEP_13_0_MULTIHIT_MOVE_ATTACKER_ITEMS_4,
     MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4,
@@ -2237,6 +2243,10 @@ struct PACKED sDamageCalc
     u16 item_held_effect;
     u8  item_power;
 
+    u8 type1;
+    u8 type2;
+    u8 type3;
+
     u32 condition;
     u32 condition2;
 
@@ -2322,7 +2332,7 @@ extern u16 StrongJawMovesTable[10];
 
 extern u16 MegaLauncherMovesTable[7];
 
-extern u16 SharpnessMovesTable[24];
+extern u16 SharpnessMovesTable[27];
 
 extern u16 sLowKickWeightToPower[6][2];
 
@@ -2891,6 +2901,7 @@ BOOL LONG_CALL ShouldDelayTurnEffectivenessChecking(struct BattleStruct *sp, u32
  */
 BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
 
+u32 LONG_CALL GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker);
 
 BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no);
 
@@ -3287,6 +3298,8 @@ enum
     BTL_PARAM_BATTLER_ACROSS             = 0x2000,
 };
 
+int LONG_CALL GetBattlerVar(struct BattleStruct *ctx, int battlerId, u32 varId, void *data);
+
 /**
  *  @brief resolve read battle script parameter into a specific battler type.  determined by BTL_PARAM_* consts right above func definition
  *
@@ -3428,6 +3441,13 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, in
  *  @return TRUE to signal that the battle subscript was loaded and to run it; FALSE otherwise
  */
 u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
+
+
+/**
+ *  @brief chooses actual target from fight input and checks redirect
+ * https://github.com/pret/pokeheartgold/blob/3de81013775926f80a5abcc5e4f45f793f0c0af1/src/battle/overlay_12_0224E4FC.c#L1356
+ */
+int LONG_CALL ov12_022506D4(struct BattleSystem *bw, struct BattleStruct *sp, int battlerIdAttacker, u16 moveNo, int a4, int range);
 
 /**
  *  @brief check if client_no's ability should activate, specifically at the end of the turn.  loads subseq and returns TRUE if it should
@@ -3884,7 +3904,7 @@ int LONG_CALL GetHeldItemFlingEffect(struct BattleStruct *ctx, int battlerId);
 int LONG_CALL GetHeldItemFlingPower(struct BattleStruct *ctx, int battlerId);
 int LONG_CALL GetHeldItemModifier(struct BattleStruct *ctx, int battlerId, int flag);
 int LONG_CALL GetNaturalGiftPower(struct BattleStruct *ctx, int battlerId);
-int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId); 
+int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId);
 
 BOOL LONG_CALL BattleContext_CheckMoveImprisoned(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int moveNo);
 
@@ -3900,8 +3920,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
-// BattleSystem_Defender
-int LONG_CALL ov12_022506D4(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 move, int a4, int a5);
 
 void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
 void LONG_CALL BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg);
@@ -4365,8 +4383,16 @@ u32 LONG_CALL sub_0200E3D8(void);
 void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSystem, MsgData *data, BattleMessage *msg);
 
 BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
-
 BOOL LONG_CALL GetTypeEffectivenessData(struct BattleSystem *bsys, int index, u8 *typeMove, u8 *typeMon, u8 *eff);
+BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx);
+
+
+int LONG_CALL ov12_0223ABB8(struct BattleSystem *bsys, int battlerId, int side);
+
+
+
+
+void LONG_CALL HandleTransform(struct BattleStruct *sp);
 
 struct BattleSetup LONG_CALL *BattleSetup_New(u32 heapID, u32 battleFlags);
 void LONG_CALL BattleSetup_InitFromFieldSystem(BattleSetup *setup, FieldSystem *fieldSystem);

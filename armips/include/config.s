@@ -1,6 +1,8 @@
 // all of the current configurations for this project.  each is explained in a comment.
 
-GEN_LATEST equ 9
+GEN_CHAMPIONS equ 99
+
+GEN_LATEST equ defined(DEBUG_BATTLE_SCENARIOS) ? GEN_CHAMPIONS : 9
 
 // START_ADDRESS defines the file address within the synthetic overlay where you would like to place all of the code that this project uses.  this is largely the repointed tables that the code uses.
 // if START_ADDRESS is 0x10000, then the tables will be inserted at address 0x10000 of the synthetic overlay
@@ -15,15 +17,16 @@ DISALLOW_DEXIT_GEN equ 0
 // If you do not want this change, then set it to 0.
 FAIRY_TYPE_IMPLEMENTED equ 1
 
-// TYPE_EFFECTIVENESS_GEN defines the type chart interactions you would like to use.
-// Defining this as "5" or lower will revert Steel to resisting Ghost- and Dark-type moves.
-// Type chart changes prior to Gen 4 (e.g. Gen 1) are not included.
-TYPE_EFFECTIVENESS_GEN equ GEN_LATEST
-
 // SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
 // 9 or above: Snow
 // Otherwise: Hail
 SNOW_WARNING_GENERATION equ GEN_LATEST
+
+// SLEEP_TURNS_GENERATION controls the number of turns a Pokémon can be asleep.
+// 4 : 2-5 turns (Prevents movement for 1-4 turns.)
+// 5 or above : 2-4 turns
+// Champions: 2-3 turns
+SLEEP_TURNS_GENERATION equ GEN_LATEST
 
 // ALLOW_SAVE_CHANGES tells the assembler that it can build the code that pertains to expanding the save data for extra fields for our usage.
 // this is required for dex expansion and will break PKHeX compatibility!  comment this line out to prevent save changes from being made.

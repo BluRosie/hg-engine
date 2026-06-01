@@ -25586,25 +25586,1295 @@ ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/briars_book.png
 ITEMGFX_OBJS += $(ITEMGFX_DIR)/2559-00.NCGR
 ITEMGFX_PALS += $(ITEMGFX_DIR)/2559-01.NCLR
 
-$(ITEMGFX_DIR)/2560-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/dummy.png
+$(ITEMGFX_DIR)/2560-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/seed_of_mastery_plza.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
-$(ITEMGFX_DIR)/2560-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/dummy.png
+$(ITEMGFX_DIR)/2560-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/seed_of_mastery_plza.png
 	$(GFX) $< $@ -ir -bitdepth 4
 
-ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/return.png
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/seed_of_mastery_plza.png
 ITEMGFX_OBJS += $(ITEMGFX_DIR)/2560-00.NCGR
 ITEMGFX_PALS += $(ITEMGFX_DIR)/2560-01.NCLR
 
-$(ITEMGFX_DIR)/2561-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/return.png
+$(ITEMGFX_DIR)/2561-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/clefablite.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
-$(ITEMGFX_DIR)/2561-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/return.png
+$(ITEMGFX_DIR)/2561-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/clefablite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/clefablite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2561-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2561-01.NCLR
+
+$(ITEMGFX_DIR)/2562-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/victreebelite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2562-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/victreebelite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/victreebelite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2562-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2562-01.NCLR
+
+$(ITEMGFX_DIR)/2563-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/starminite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2563-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/starminite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/starminite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2563-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2563-01.NCLR
+
+$(ITEMGFX_DIR)/2564-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/dragoninite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2564-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/dragoninite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/dragoninite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2564-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2564-01.NCLR
+
+$(ITEMGFX_DIR)/2565-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/meganiumite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2565-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/meganiumite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/meganiumite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2565-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2565-01.NCLR
+
+$(ITEMGFX_DIR)/2566-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/feraligite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2566-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/feraligite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/feraligite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2566-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2566-01.NCLR
+
+$(ITEMGFX_DIR)/2567-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/skarmorite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2567-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/skarmorite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/skarmorite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2567-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2567-01.NCLR
+
+$(ITEMGFX_DIR)/2568-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/froslassite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2568-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/froslassite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/froslassite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2568-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2568-01.NCLR
+
+$(ITEMGFX_DIR)/2569-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/heatranite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2569-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/heatranite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/heatranite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2569-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2569-01.NCLR
+
+$(ITEMGFX_DIR)/2570-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/darkranite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2570-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/darkranite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/darkranite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2570-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2570-01.NCLR
+
+$(ITEMGFX_DIR)/2571-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/emboarite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2571-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/emboarite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/emboarite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2571-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2571-01.NCLR
+
+$(ITEMGFX_DIR)/2572-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/excadrite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2572-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/excadrite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/excadrite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2572-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2572-01.NCLR
+
+$(ITEMGFX_DIR)/2573-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/scolipite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2573-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/scolipite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/scolipite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2573-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2573-01.NCLR
+
+$(ITEMGFX_DIR)/2574-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/scraftinite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2574-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/scraftinite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/scraftinite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2574-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2574-01.NCLR
+
+$(ITEMGFX_DIR)/2575-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/eelektrossite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2575-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/eelektrossite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/eelektrossite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2575-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2575-01.NCLR
+
+$(ITEMGFX_DIR)/2576-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/chandelurite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2576-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/chandelurite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/chandelurite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2576-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2576-01.NCLR
+
+$(ITEMGFX_DIR)/2577-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/chesnaughtite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2577-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/chesnaughtite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/chesnaughtite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2577-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2577-01.NCLR
+
+$(ITEMGFX_DIR)/2578-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/delphoxite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2578-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/delphoxite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/delphoxite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2578-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2578-01.NCLR
+
+$(ITEMGFX_DIR)/2579-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/greninjite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2579-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/greninjite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/greninjite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2579-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2579-01.NCLR
+
+$(ITEMGFX_DIR)/2580-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/pyroarite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2580-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/pyroarite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/pyroarite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2580-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2580-01.NCLR
+
+$(ITEMGFX_DIR)/2581-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/floettite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2581-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/floettite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/floettite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2581-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2581-01.NCLR
+
+$(ITEMGFX_DIR)/2582-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/malamarite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2582-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/malamarite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/malamarite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2582-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2582-01.NCLR
+
+$(ITEMGFX_DIR)/2583-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/barbaracite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2583-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/barbaracite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/barbaracite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2583-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2583-01.NCLR
+
+$(ITEMGFX_DIR)/2584-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/dragalgite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2584-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/dragalgite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/dragalgite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2584-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2584-01.NCLR
+
+$(ITEMGFX_DIR)/2585-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hawluchanite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2585-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hawluchanite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hawluchanite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2585-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2585-01.NCLR
+
+$(ITEMGFX_DIR)/2586-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/zygardite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2586-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/zygardite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/zygardite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2586-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2586-01.NCLR
+
+$(ITEMGFX_DIR)/2587-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/drampanite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2587-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/drampanite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/drampanite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2587-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2587-01.NCLR
+
+$(ITEMGFX_DIR)/2588-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/zeraorite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2588-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/zeraorite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/zeraorite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2588-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2588-01.NCLR
+
+$(ITEMGFX_DIR)/2589-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/falinksite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2589-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/falinksite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/falinksite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2589-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2589-01.NCLR
+
+$(ITEMGFX_DIR)/2590-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/key_to_room_202.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2590-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/key_to_room_202.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/key_to_room_202.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2590-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2590-01.NCLR
+
+$(ITEMGFX_DIR)/2591-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/super_lumiose_galette.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2591-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/super_lumiose_galette.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/super_lumiose_galette.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2591-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2591-01.NCLR
+
+$(ITEMGFX_DIR)/2592-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/lab_key_card_a.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2592-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/lab_key_card_a.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/lab_key_card_a.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2592-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2592-01.NCLR
+
+$(ITEMGFX_DIR)/2593-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/lab_key_card_b.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2593-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/lab_key_card_b.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/lab_key_card_b.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2593-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2593-01.NCLR
+
+$(ITEMGFX_DIR)/2594-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/lab_key_card_c.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2594-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/lab_key_card_c.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/lab_key_card_c.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2594-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2594-01.NCLR
+
+$(ITEMGFX_DIR)/2595-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2593.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2595-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2593.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/unknown_2593.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2595-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2595-01.NCLR
+
+$(ITEMGFX_DIR)/2596-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2594.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2596-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2594.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/unknown_2594.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2596-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2596-01.NCLR
+
+$(ITEMGFX_DIR)/2597-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/pebble.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2597-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/pebble.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/pebble.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2597-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2597-01.NCLR
+
+$(ITEMGFX_DIR)/2598-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/cherished_ring.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2598-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/cherished_ring.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/cherished_ring.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2598-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2598-01.NCLR
+
+$(ITEMGFX_DIR)/2599-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/autographed_plush.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2599-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/autographed_plush.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/autographed_plush.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2599-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2599-01.NCLR
+
+$(ITEMGFX_DIR)/2600-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/tasty_trash.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2600-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/tasty_trash.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/tasty_trash.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2600-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2600-01.NCLR
+
+$(ITEMGFX_DIR)/2601-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/revitalizing_twig.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2601-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/revitalizing_twig.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/revitalizing_twig.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2601-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2601-01.NCLR
+
+$(ITEMGFX_DIR)/2602-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/lidas_things.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2602-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/lidas_things.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/lidas_things.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2602-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2602-01.NCLR
+
+$(ITEMGFX_DIR)/2603-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/lumiosan_butter.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2603-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/lumiosan_butter.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/lumiosan_butter.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2603-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2603-01.NCLR
+
+$(ITEMGFX_DIR)/2604-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/nice_butter.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2604-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/nice_butter.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/nice_butter.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2604-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2604-01.NCLR
+
+$(ITEMGFX_DIR)/2605-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/great_butter.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2605-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/great_butter.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/great_butter.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2605-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2605-01.NCLR
+
+$(ITEMGFX_DIR)/2606-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/amazing_butter.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2606-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/amazing_butter.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/amazing_butter.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2606-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2606-01.NCLR
+
+$(ITEMGFX_DIR)/2607-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/supreme_butter.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2607-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/supreme_butter.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/supreme_butter.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2607-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2607-01.NCLR
+
+$(ITEMGFX_DIR)/2608-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyperspace_butter.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2608-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyperspace_butter.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyperspace_butter.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2608-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2608-01.NCLR
+
+$(ITEMGFX_DIR)/2609-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hoennian_salt.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2609-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hoennian_salt.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hoennian_salt.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2609-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2609-01.NCLR
+
+$(ITEMGFX_DIR)/2610-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/epice_noire.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2610-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/epice_noire.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/epice_noire.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2610-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2610-01.NCLR
+
+$(ITEMGFX_DIR)/2611-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/arboliva_oil.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2611-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/arboliva_oil.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/arboliva_oil.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2611-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2611-01.NCLR
+
+$(ITEMGFX_DIR)/2612-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/popping_candy.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2612-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/popping_candy.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/popping_candy.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2612-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2612-01.NCLR
+
+$(ITEMGFX_DIR)/2613-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/important_letter.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2613-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/important_letter.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/important_letter.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2613-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2613-01.NCLR
+
+$(ITEMGFX_DIR)/2614-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/cherished_ring_2.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2614-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/cherished_ring_2.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/cherished_ring_2.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2614-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2614-01.NCLR
+
+$(ITEMGFX_DIR)/2615-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/dirty_scarf.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2615-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/dirty_scarf.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/dirty_scarf.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2615-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2615-01.NCLR
+
+$(ITEMGFX_DIR)/2616-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2613.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2616-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2613.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/unknown_2613.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2616-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2616-01.NCLR
+
+$(ITEMGFX_DIR)/2617-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2614.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2617-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2614.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/unknown_2614.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2617-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2617-01.NCLR
+
+$(ITEMGFX_DIR)/2618-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2615.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2618-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2615.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/unknown_2615.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2618-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2618-01.NCLR
+
+$(ITEMGFX_DIR)/2619-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2616.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2619-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/unknown_2616.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/unknown_2616.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2619-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2619-01.NCLR
+
+$(ITEMGFX_DIR)/2620-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/maga_shard.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2620-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/maga_shard.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/maga_shard.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2620-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2620-01.NCLR
+
+$(ITEMGFX_DIR)/2621-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/colorful_screw.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2621-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/colorful_screw.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/colorful_screw.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2621-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2621-01.NCLR
+
+$(ITEMGFX_DIR)/2622-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/red_canari_plush.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2622-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/red_canari_plush.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/red_canari_plush.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2622-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2622-01.NCLR
+
+$(ITEMGFX_DIR)/2623-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/red_canari_plush_1.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2623-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/red_canari_plush_1.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/red_canari_plush_1.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2623-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2623-01.NCLR
+
+$(ITEMGFX_DIR)/2624-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/red_canari_plush_2.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2624-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/red_canari_plush_2.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/red_canari_plush_2.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2624-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2624-01.NCLR
+
+$(ITEMGFX_DIR)/2625-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/gold_canari_plush.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2625-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/gold_canari_plush.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/gold_canari_plush.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2625-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2625-01.NCLR
+
+$(ITEMGFX_DIR)/2626-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/gold_canari_plush_1.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2626-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/gold_canari_plush_1.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/gold_canari_plush_1.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2626-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2626-01.NCLR
+
+$(ITEMGFX_DIR)/2627-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/gold_canari_plush_2.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2627-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/gold_canari_plush_2.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/gold_canari_plush_2.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2627-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2627-01.NCLR
+
+$(ITEMGFX_DIR)/2628-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/pink_canari_plush.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2628-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/pink_canari_plush.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/pink_canari_plush.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2628-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2628-01.NCLR
+
+$(ITEMGFX_DIR)/2629-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/pink_canari_plush_1.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2629-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/pink_canari_plush_1.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/pink_canari_plush_1.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2629-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2629-01.NCLR
+
+$(ITEMGFX_DIR)/2630-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/pink_canari_plush_2.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2630-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/pink_canari_plush_2.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/pink_canari_plush_2.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2630-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2630-01.NCLR
+
+$(ITEMGFX_DIR)/2631-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/green_canari_plush.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2631-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/green_canari_plush.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/green_canari_plush.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2631-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2631-01.NCLR
+
+$(ITEMGFX_DIR)/2632-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/green_canari_plush_1.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2632-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/green_canari_plush_1.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/green_canari_plush_1.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2632-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2632-01.NCLR
+
+$(ITEMGFX_DIR)/2633-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/green_canari_plush_2.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2633-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/green_canari_plush_2.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/green_canari_plush_2.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2633-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2633-01.NCLR
+
+$(ITEMGFX_DIR)/2634-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/blue_canari_plush.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2634-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/blue_canari_plush.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/blue_canari_plush.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2634-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2634-01.NCLR
+
+$(ITEMGFX_DIR)/2635-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/blue_canari_plush_1.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2635-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/blue_canari_plush_1.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/blue_canari_plush_1.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2635-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2635-01.NCLR
+
+$(ITEMGFX_DIR)/2636-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/blue_canari_plush_2.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2636-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/blue_canari_plush_2.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/blue_canari_plush_2.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2636-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2636-01.NCLR
+
+$(ITEMGFX_DIR)/2637-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/raichunite_x.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2637-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/raichunite_x.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/raichunite_x.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2637-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2637-01.NCLR
+
+$(ITEMGFX_DIR)/2638-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/raichunite_y.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2638-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/raichunite_y.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/raichunite_y.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2638-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2638-01.NCLR
+
+$(ITEMGFX_DIR)/2639-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/chimechite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2639-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/chimechite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/chimechite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2639-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2639-01.NCLR
+
+$(ITEMGFX_DIR)/2640-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/absolite_z.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2640-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/absolite_z.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/absolite_z.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2640-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2640-01.NCLR
+
+$(ITEMGFX_DIR)/2641-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/staraptite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2641-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/staraptite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/staraptite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2641-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2641-01.NCLR
+
+$(ITEMGFX_DIR)/2642-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/garchompite_z.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2642-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/garchompite_z.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/garchompite_z.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2642-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2642-01.NCLR
+
+$(ITEMGFX_DIR)/2643-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/lucarionite_z.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2643-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/lucarionite_z.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/lucarionite_z.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2643-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2643-01.NCLR
+
+$(ITEMGFX_DIR)/2644-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/golurkite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2644-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/golurkite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/golurkite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2644-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2644-01.NCLR
+
+$(ITEMGFX_DIR)/2645-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/meowsticite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2645-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/meowsticite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/meowsticite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2645-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2645-01.NCLR
+
+$(ITEMGFX_DIR)/2646-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/crabominite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2646-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/crabominite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/crabominite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2646-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2646-01.NCLR
+
+$(ITEMGFX_DIR)/2647-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/golisopite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2647-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/golisopite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/golisopite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2647-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2647-01.NCLR
+
+$(ITEMGFX_DIR)/2648-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/magearnite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2648-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/magearnite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/magearnite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2648-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2648-01.NCLR
+
+$(ITEMGFX_DIR)/2649-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/scovillainite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2649-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/scovillainite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/scovillainite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2649-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2649-01.NCLR
+
+$(ITEMGFX_DIR)/2650-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/baxcalibrite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2650-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/baxcalibrite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/baxcalibrite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2650-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2650-01.NCLR
+
+$(ITEMGFX_DIR)/2651-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/tatsugirinite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2651-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/tatsugirinite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/tatsugirinite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2651-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2651-01.NCLR
+
+$(ITEMGFX_DIR)/2652-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/glimmoranite.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2652-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/glimmoranite.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/glimmoranite.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2652-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2652-01.NCLR
+
+$(ITEMGFX_DIR)/2653-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_cheri_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2653-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_cheri_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_cheri_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2653-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2653-01.NCLR
+
+$(ITEMGFX_DIR)/2654-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_chesto_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2654-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_chesto_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_chesto_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2654-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2654-01.NCLR
+
+$(ITEMGFX_DIR)/2655-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_pecha_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2655-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_pecha_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_pecha_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2655-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2655-01.NCLR
+
+$(ITEMGFX_DIR)/2656-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_rawst_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2656-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_rawst_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_rawst_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2656-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2656-01.NCLR
+
+$(ITEMGFX_DIR)/2657-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_aspear_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2657-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_aspear_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_aspear_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2657-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2657-01.NCLR
+
+$(ITEMGFX_DIR)/2658-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_oran_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2658-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_oran_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_oran_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2658-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2658-01.NCLR
+
+$(ITEMGFX_DIR)/2659-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_persim_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2659-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_persim_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_persim_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2659-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2659-01.NCLR
+
+$(ITEMGFX_DIR)/2660-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_lum_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2660-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_lum_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_lum_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2660-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2660-01.NCLR
+
+$(ITEMGFX_DIR)/2661-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_sitrus_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2661-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_sitrus_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_sitrus_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2661-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2661-01.NCLR
+
+$(ITEMGFX_DIR)/2662-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_pomeg_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2662-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_pomeg_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_pomeg_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2662-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2662-01.NCLR
+
+$(ITEMGFX_DIR)/2663-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_kelpsy_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2663-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_kelpsy_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_kelpsy_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2663-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2663-01.NCLR
+
+$(ITEMGFX_DIR)/2664-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_qualot_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2664-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_qualot_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_qualot_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2664-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2664-01.NCLR
+
+$(ITEMGFX_DIR)/2665-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_hondew_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2665-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_hondew_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_hondew_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2665-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2665-01.NCLR
+
+$(ITEMGFX_DIR)/2666-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_grepa_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2666-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_grepa_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_grepa_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2666-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2666-01.NCLR
+
+$(ITEMGFX_DIR)/2667-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_tamato_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2667-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_tamato_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_tamato_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2667-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2667-01.NCLR
+
+$(ITEMGFX_DIR)/2668-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_occa_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2668-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_occa_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_occa_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2668-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2668-01.NCLR
+
+$(ITEMGFX_DIR)/2669-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_passho_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2669-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_passho_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_passho_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2669-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2669-01.NCLR
+
+$(ITEMGFX_DIR)/2670-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_wacan_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2670-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_wacan_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_wacan_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2670-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2670-01.NCLR
+
+$(ITEMGFX_DIR)/2671-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_rindo_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2671-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_rindo_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_rindo_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2671-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2671-01.NCLR
+
+$(ITEMGFX_DIR)/2672-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_yache_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2672-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_yache_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_yache_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2672-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2672-01.NCLR
+
+$(ITEMGFX_DIR)/2673-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_chople_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2673-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_chople_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_chople_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2673-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2673-01.NCLR
+
+$(ITEMGFX_DIR)/2674-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_kebia_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2674-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_kebia_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_kebia_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2674-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2674-01.NCLR
+
+$(ITEMGFX_DIR)/2675-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_shuca_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2675-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_shuca_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_shuca_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2675-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2675-01.NCLR
+
+$(ITEMGFX_DIR)/2676-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_coba_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2676-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_coba_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_coba_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2676-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2676-01.NCLR
+
+$(ITEMGFX_DIR)/2677-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_payapa_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2677-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_payapa_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_payapa_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2677-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2677-01.NCLR
+
+$(ITEMGFX_DIR)/2678-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_tanga_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2678-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_tanga_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_tanga_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2678-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2678-01.NCLR
+
+$(ITEMGFX_DIR)/2679-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_charti_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2679-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_charti_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_charti_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2679-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2679-01.NCLR
+
+$(ITEMGFX_DIR)/2680-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_kasib_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2680-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_kasib_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_kasib_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2680-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2680-01.NCLR
+
+$(ITEMGFX_DIR)/2681-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_haban_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2681-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_haban_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_haban_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2681-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2681-01.NCLR
+
+$(ITEMGFX_DIR)/2682-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_colbur_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2682-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_colbur_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_colbur_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2682-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2682-01.NCLR
+
+$(ITEMGFX_DIR)/2683-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_babiri_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2683-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_babiri_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_babiri_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2683-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2683-01.NCLR
+
+$(ITEMGFX_DIR)/2684-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_chilan_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2684-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_chilan_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_chilan_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2684-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2684-01.NCLR
+
+$(ITEMGFX_DIR)/2685-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_roseli_berry.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2685-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/hyper_roseli_berry.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/hyper_roseli_berry.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2685-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2685-01.NCLR
+
+$(ITEMGFX_DIR)/2686-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/canari_bread.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2686-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/canari_bread.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/canari_bread.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2686-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2686-01.NCLR
+
+$(ITEMGFX_DIR)/2687-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/dummy.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2687-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/dummy.png
 	$(GFX) $< $@ -ir -bitdepth 4
 
 ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/dummy.png
-ITEMGFX_OBJS += $(ITEMGFX_DIR)/2561-00.NCGR
-ITEMGFX_PALS += $(ITEMGFX_DIR)/2561-01.NCLR
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2687-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2687-01.NCLR
+
+$(ITEMGFX_DIR)/2688-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/return.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2688-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/return.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/return.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2688-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2688-01.NCLR
 
 
 

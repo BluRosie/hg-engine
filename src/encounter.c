@@ -14,9 +14,9 @@ void SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u
     BattleSetup_InitFromFieldSystem(setup, fieldSystem);
     ov02_02247F30(fieldSystem, species, level, shiny, setup);
 
-    struct PartyPokemon *totem = Party_GetMonByIndex(setup->party[BATTLER_ENEMY], 0);
+    // Uncomment this line if you want to manually adjust specific elements according to Totem Species.
+    // struct PartyPokemon *totem = Party_GetMonByIndex(setup->party[BATTLER_ENEMY], 0);
 
-    // Manually adjust specific elements according to Totem Species.
     switch (species)
     {
         // You can use the case below as a template:

@@ -91,6 +91,8 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 ServerFlinchCheck 080167B8 3
 #0224C218
 0012 ServerWazaKoyuuCheck 08014944 2
+#choose target from input
+0012 ov12_022506D4 022506D4
 
 #battle script command hooks
 #0223E568
@@ -118,6 +120,7 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 btl_scr_cmd_0E_waitmessage 0223DCAC 3
 0012 Link_QueueIsEmpty 0224ED48 1
 0012 btl_scr_cmd_87_tryknockoff 02242EB4 3
+0012 BtlCmd_CompareMonDataToValue 0223E474 3
 0012 BtlCmd_GoToMoveScript 0223E594 3
 0012 BtlCmd_WeatherHPRecovery 02242380 3
 0012 BtlCmd_CalcWeatherBallParams 022432AC 3
@@ -140,7 +143,8 @@ arm9 set_starter_hidden_ability_hook 02096158 5
 0012 BtlCmd_CopyStatStages 02242510 3
 0012 BtlCmd_TryFaintMon 0223E22C 3
 0012 BtlCmd_TryRestoreStatusOnSwitch 022450B0 3
-0012 BtlCmd_TryConversion2 02240C98 3 
+0012 BtlCmd_TryConversion2 02240C98 3
+0012 BtlCmd_Transform 02241708 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3

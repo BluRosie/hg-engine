@@ -362,6 +362,16 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 ret = TRUE;
             }
         }
+    } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_SPICY_SPRAY)) {
+        if ((sp->battlemon[sp->attack_client].hp)
+            && (sp->battlemon[sp->attack_client].condition == 0)
+            && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
+            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->state_client = sp->attack_client;
+            sp->battlerIdTemp = sp->defence_client;
+            seq_no[0] = SUB_SEQ_APPLY_BURN;
+            ret = TRUE;
+        }
     }
 
     return ret;

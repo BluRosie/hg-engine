@@ -46,7 +46,8 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     int movetype;
 
     // trigger meloetta's relic song form transformation if possible
-    if ((sp->battlemon[attacker].species == SPECIES_MELOETTA)
+    if (IsAttackerOnField(sp)
+     && (sp->battlemon[attacker].species == SPECIES_MELOETTA)
      && (sp->battlemon[attacker].hp)
      && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
      && (sp->battlemon[attacker].form_no < 2))
@@ -69,7 +70,9 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     // 02252F24
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE)
     {
-        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0) && (sp->moveTbl[sp->current_move_index].power))
+        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+        //    && (sp->moveTbl[sp->current_move_index].power) //as of Gen5
+            )
         {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
             scriptnum = SUB_SEQ_ABILITY_HP_RESTORE;
@@ -456,7 +459,7 @@ void LONG_CALL UpdateTerrainOverlay(struct BattleStruct *ctx, u8 client, enum Te
  *  @param seq_no the subscript number to load and run
  *  @return TRUE if a script should be run and is in *seq_no; FALSE otherwise
  */
-BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
+BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
 
@@ -660,7 +663,7 @@ u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int at
  */
 u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, u32 ability)
 {
-    return MoldBreakerAbilityCheckInternal(attacker, defender, GetBattlerAbility(sp, attacker), GetBattlerAbility(sp, defender), sp->current_move_index, sp->moveTbl[sp->current_move_index].split, ability);
+    return MoldBreakerAbilityCheckInternal(attacker, defender, IsAttackerOnField(sp) ? GetBattlerAbility(sp, attacker) : ABILITY_NONE, GetBattlerAbility(sp, defender), sp->current_move_index, sp->moveTbl[sp->current_move_index].split, ability);
 }
 
 /**
@@ -936,6 +939,7 @@ void ServerWazaOutAfterMessage(void *bsys, struct BattleStruct *ctx)
 {
     SetupCurrentMoveContext(bsys, ctx);
     ctx->server_seq_no = CONTROLLER_COMMAND_31;
+    ctx->next_server_seq_no = CONTROLLER_COMMAND_31;
     ctx->swoam_seq_no = 0;
     return;
     /*

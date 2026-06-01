@@ -2561,16 +2561,143 @@
 #define ITEM_SCARLET_BOOK_SVID            2555
 #define ITEM_VIOLET_BOOK_SVID             2556
 #define ITEM_BRIARS_BOOK                  2557
+#define ITEM_SEED_OF_MASTERY_PLZA         2558
+#define ITEM_CLEFABLITE                   2559
+#define ITEM_VICTREEBELITE                2560
+#define ITEM_STARMINITE                   2561
+#define ITEM_DRAGONINITE                  2562
+#define ITEM_MEGANIUMITE                  2563
+#define ITEM_FERALIGITE                   2564
+#define ITEM_SKARMORITE                   2565
+#define ITEM_FROSLASSITE                  2566
+#define ITEM_HEATRANITE                   2567
+#define ITEM_DARKRANITE                   2568
+#define ITEM_EMBOARITE                    2569
+#define ITEM_EXCADRITE                    2570
+#define ITEM_SCOLIPITE                    2571
+#define ITEM_SCRAFTINITE                  2572
+#define ITEM_EELEKTROSSITE                2573
+#define ITEM_CHANDELURITE                 2574
+#define ITEM_CHESNAUGHTITE                2575
+#define ITEM_DELPHOXITE                   2576
+#define ITEM_GRENINJITE                   2577
+#define ITEM_PYROARITE                    2578
+#define ITEM_FLOETTITE                    2579
+#define ITEM_MALAMARITE                   2580
+#define ITEM_BARBARACITE                  2581
+#define ITEM_DRAGALGITE                   2582
+#define ITEM_HAWLUCHANITE                 2583
+#define ITEM_ZYGARDITE                    2584
+#define ITEM_DRAMPANITE                   2585
+#define ITEM_ZERAORITE                    2586
+#define ITEM_FALINKSITE                   2587
+#define ITEM_KEY_TO_ROOM_202              2588
+#define ITEM_SUPER_LUMIOSE_GALETTE        2589
+#define ITEM_LAB_KEY_CARD_A               2590
+#define ITEM_LAB_KEY_CARD_B               2591
+#define ITEM_LAB_KEY_CARD_C               2592
+#define ITEM_UNKNOWN_2593                 2593
+#define ITEM_UNKNOWN_2594                 2594
+#define ITEM_PEBBLE                       2595
+#define ITEM_CHERISHED_RING               2596
+#define ITEM_AUTOGRAPHED_PLUSH            2597
+#define ITEM_TASTY_TRASH                  2598
+#define ITEM_REVITALIZING_TWIG            2599
+#define ITEM_LIDAS_THINGS                 2600
+#define ITEM_LUMIOSIAN_BUTTER             2601
+#define ITEM_NICE_BUTTER                  2602
+#define ITEM_GREAT_BUTTER                 2603
+#define ITEM_AMAZING_BUTTER               2604
+#define ITEM_SUPREME_BUTTER               2605
+#define ITEM_HYPERSPACE_BUTTER            2606
+#define ITEM_HOENNIAN_SALT                2607
+#define ITEM_EPICE_NOIRE                  2608
+#define ITEM_ARBOLIVA_OIL                 2609
+#define ITEM_POPPING_CANDY                2610
+#define ITEM_IMPORTANT_LETTER             2611
+#define ITEM_CHERISHED_RING_2             2612
+#define ITEM_DIRTY_SCARF                  2613
+#define ITEM_UNKNOWN_2613                 2614
+#define ITEM_UNKNOWN_2614                 2615
+#define ITEM_UNKNOWN_2615                 2616
+#define ITEM_UNKNOWN_2616                 2617
+#define ITEM_MEGA_SHARD                   2618
+#define ITEM_COLORFUL_SCREW               2619
+#define ITEM_RED_CANARI_PLUSH             2620
+#define ITEM_RED_CANARI_PLUSH_1           2621
+#define ITEM_RED_CANARI_PLUSH_2           2622
+#define ITEM_GOLD_CANARI_PLUSH            2623
+#define ITEM_GOLD_CANARI_PLUSH_1          2624
+#define ITEM_GOLD_CANARI_PLUSH_2          2625
+#define ITEM_PINK_CANARI_PLUSH            2626
+#define ITEM_PINK_CANARI_PLUSH_1          2627
+#define ITEM_PINK_CANARI_PLUSH_2          2628
+#define ITEM_GREEN_CANARI_PLUSH           2629
+#define ITEM_GREEN_CANARI_PLUSH_1         2630
+#define ITEM_GREEN_CANARI_PLUSH_2         2631
+#define ITEM_BLUE_CANARI_PLUSH            2632
+#define ITEM_BLUE_CANARI_PLUSH_1          2633
+#define ITEM_BLUE_CANARI_PLUSH_2          2634
+#define ITEM_RAICHUNITE_X                 2635
+#define ITEM_RAICHUNITE_Y                 2636
+#define ITEM_CHIMECHITE                   2637
+#define ITEM_ABSOLITE_Z                   2638
+#define ITEM_STARAPTITE                   2639
+#define ITEM_GARCHOMPITE_Z                2640
+#define ITEM_LUCARIONITE_Z                2641
+#define ITEM_GOLURKITE                    2642
+#define ITEM_MEOWSTICITE                  2643
+#define ITEM_CRABOMINITE                  2644
+#define ITEM_GOLISOPITE                   2645
+#define ITEM_MAGEARNITE                   2646
+#define ITEM_SCOVILLAINITE                2647
+#define ITEM_BAXCALIBRITE                 2648
+#define ITEM_TATSUGIRINITE                2649
+#define ITEM_GLIMMORANITE                 2650
+#define ITEM_HYPER_CHERI_BERRY            2651
+#define ITEM_HYPER_CHESTO_BERRY           2652
+#define ITEM_HYPER_PECHA_BERRY            2653
+#define ITEM_HYPER_RAWST_BERRY            2654
+#define ITEM_HYPER_ASPEAR_BERRY           2655
+#define ITEM_HYPER_ORAN_BERRY             2656
+#define ITEM_HYPER_PERSIM_BERRY           2657
+#define ITEM_HYPER_LUM_BERRY              2658
+#define ITEM_HYPER_SITRUS_BERRY           2659
+#define ITEM_HYPER_POMEG_BERRY            2660
+#define ITEM_HYPER_KELPSY_BERRY           2661
+#define ITEM_HYPER_QUALOT_BERRY           2662
+#define ITEM_HYPER_HONDEW_BERRY           2663
+#define ITEM_HYPER_GREPA_BERRY            2664
+#define ITEM_HYPER_TAMATO_BERRY           2665
+#define ITEM_HYPER_OCCA_BERRY             2666
+#define ITEM_HYPER_PASSHO_BERRY           2667
+#define ITEM_HYPER_WACAN_BERRY            2668
+#define ITEM_HYPER_RINDO_BERRY            2669
+#define ITEM_HYPER_YACHE_BERRY            2670
+#define ITEM_HYPER_CHOPLE_BERRY           2671
+#define ITEM_HYPER_KEBIA_BERRY            2672
+#define ITEM_HYPER_SHUCA_BERRY            2673
+#define ITEM_HYPER_COBA_BERRY             2674
+#define ITEM_HYPER_PAYAPA_BERRY           2675
+#define ITEM_HYPER_TANGA_BERRY            2676
+#define ITEM_HYPER_CHARTI_BERRY           2677
+#define ITEM_HYPER_KASIB_BERRY            2678
+#define ITEM_HYPER_HABAN_BERRY            2679
+#define ITEM_HYPER_COLBUR_BERRY           2680
+#define ITEM_HYPER_BABIRI_BERRY           2681
+#define ITEM_HYPER_CHILAN_BERRY           2682
+#define ITEM_HYPER_ROSELI_BERRY           2683
+#define ITEM_CANARI_BREAD                 2684
 
-#define MAX_BASE_ITEM_NUM ITEM_BRIARS_BOOK
+#define MAX_BASE_ITEM_NUM ITEM_CANARI_BREAD
 
 // define your custom move effects below like this
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
 
-#define MAX_TOTAL_ITEM_NUM ITEM_BRIARS_BOOK
+#define MAX_TOTAL_ITEM_NUM ITEM_CANARI_BREAD
 
 
-#define NUM_MEGA_STONES 48 // includes the pixie plate
+#define NUM_MEGA_STONES (48) // includes the pixie plate, doesn't include plza megas due to overflowing bag
 #define NUM_HMS         (ITEM_HM08 - ITEM_HM01 + 1) // intentionally do not include HM07_ORAS (Dive)
 
 // ITEM_BLANK_PLATE and ITEM_LEGEND_PLATE are not included in this list as they have only ever been key items and this list is currently just used for held item interactions.
@@ -2581,7 +2708,12 @@
 
 #define IS_ITEM_MAIL(item) ((item >= ITEM_GRASS_MAIL && item <= ITEM_BRICK_MAIL))
 
-#define IS_ITEM_MEGA_STONE(item) (item >= ITEM_GENGARITE && item <= ITEM_LATIOSITE) || (item >= ITEM_SWAMPERTITE && item <= ITEM_DIANCITE) || (item >= ITEM_CAMERUPTITE && item <= ITEM_BEEDRILLITE)
+#define IS_ITEM_MEGA_STONE(item) \
+    (item >= ITEM_GENGARITE && item <= ITEM_LATIOSITE) || \
+     (item >= ITEM_SWAMPERTITE && item <= ITEM_DIANCITE) || \
+     (item >= ITEM_CAMERUPTITE && item <= ITEM_BEEDRILLITE) || \
+     (item >= ITEM_CLEFABLITE && item <= ITEM_FALINKSITE) || \
+     (item >= ITEM_RAICHUNITE_X && item <= ITEM_GLIMMORANITE)
 
 #define IS_ITEM_Z_CRYSTAL(item) ((item >= ITEM_NORMALIUM_Z_HELD && item <= ITEM_PIKANIUM_Z_HELD) || (item >= ITEM_DECIDIUM_Z_HELD && item <= ITEM_MEWNIUM_Z_HELD) || (item == ITEM_PIKASHUNIUM_Z_HELD) || (item >= ITEM_MIMIKIUM_Z_ITEM && item <= ITEM_ULTRANECROZIUM_Z_ITEM))
 
@@ -2627,7 +2759,7 @@ enum ItemGeneration {
     (id) <= ITEM_EON_FLUTE    ? GEN6 : \
     (id) <= ITEM_UNKNOWN_1073 ? GEN7 : \
     (id) <= ITEM_LEGEND_PLATE ? GEN8 : \
-    (id) <= ITEM_BRIARS_BOOK  ? GEN9 : \
+    (id) <= ITEM_BAXCALIBRITE  ? GEN9 : \
                                 CUSTOM )
 
 #define ITEM_MSG_OFFSET(id) ( \
@@ -2636,8 +2768,8 @@ enum ItemGeneration {
     (id) <= ITEM_EON_FLUTE    ? ((id) - (ITEM_REVEAL_GLASS + 1)) : \
     (id) <= ITEM_UNKNOWN_1073 ? ((id) - (ITEM_EON_FLUTE    + 1)) : \
     (id) <= ITEM_LEGEND_PLATE ? ((id) - (ITEM_UNKNOWN_1073 + 1)) : \
-    (id) <= ITEM_BRIARS_BOOK  ? ((id) - (ITEM_LEGEND_PLATE + 1)) : \
-                                ((id) - (ITEM_BRIARS_BOOK  + 1)) )
+    (id) <= ITEM_BAXCALIBRITE ? ((id) - (ITEM_LEGEND_PLATE + 1)) : \
+                                ((id) - (ITEM_BAXCALIBRITE  + 1)) )
 
 #define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
 #define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c

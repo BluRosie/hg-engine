@@ -727,3 +727,130 @@ a {COLOR 255}Meteorite{COLOR 0}
 a {COLOR 255}Scarlet Book{COLOR 0}
 a {COLOR 255}Violet Book{COLOR 0}
 a {COLOR 255}Briar’s Book{COLOR 0}
+a {COLOR 255}Seed of Mastery{COLOR 0}
+a {COLOR 255}Clefablite{COLOR 0}
+a {COLOR 255}Victreebelite{COLOR 0}
+a {COLOR 255}Starminite{COLOR 0}
+a {COLOR 255}Dragoninite{COLOR 0}
+a {COLOR 255}Meganiumite{COLOR 0}
+a {COLOR 255}Feraligite{COLOR 0}
+a {COLOR 255}Skarmorite{COLOR 0}
+a {COLOR 255}Froslassite{COLOR 0}
+a {COLOR 255}Heatranite{COLOR 0}
+a {COLOR 255}Darkranite{COLOR 0}
+a {COLOR 255}Emboarite{COLOR 0}
+a {COLOR 255}Excadrite{COLOR 0}
+a {COLOR 255}Scolipite{COLOR 0}
+a {COLOR 255}Scraftinite{COLOR 0}
+an {COLOR 255}Eelektrossite{COLOR 0}
+a {COLOR 255}Chandelurite{COLOR 0}
+a {COLOR 255}Chesnaughtite{COLOR 0}
+a {COLOR 255}Delphoxite{COLOR 0}
+a {COLOR 255}Greninjite{COLOR 0}
+a {COLOR 255}Pyroarite{COLOR 0}
+a {COLOR 255}Floettite{COLOR 0}
+a {COLOR 255}Malamarite{COLOR 0}
+a {COLOR 255}Barbaracite{COLOR 0}
+a {COLOR 255}Dragalgite{COLOR 0}
+a {COLOR 255}Hawluchanite{COLOR 0}
+a {COLOR 255}Zygardite{COLOR 0}
+a {COLOR 255}Drampanite{COLOR 0}
+a {COLOR 255}Zeraorite{COLOR 0}
+a {COLOR 255}Falinksite{COLOR 0}
+a {COLOR 255}Key to Room 202{COLOR 0}
+a {COLOR 255}Super Lumiose Galette{COLOR 0}
+a {COLOR 255}Lab Key Card A{COLOR 0}
+a {COLOR 255}Lab Key Card B{COLOR 0}
+a {COLOR 255}Lab Key Card C{COLOR 0}
+???
+???
+a {COLOR 255}Pebble{COLOR 0}
+a {COLOR 255}Cherished Ring{COLOR 0}
+an {COLOR 255}Autographed Plush{COLOR 0}
+a {COLOR 255}Tasty Trash{COLOR 0}
+a {COLOR 255}Revitalizing Twig{COLOR 0}
+a {COLOR 255}Lida’s Things{COLOR 0}
+a {COLOR 255}Lumiosian Butter{COLOR 0}
+a {COLOR 255}Nice Butter{COLOR 0}
+a {COLOR 255}Great Butter{COLOR 0}
+an {COLOR 255}Amazing Butter{COLOR 0}
+a {COLOR 255}Supreme Butter{COLOR 0}
+a {COLOR 255}Hyperspace Butter{COLOR 0}
+a {COLOR 255}Hoennian Salt{COLOR 0}
+a {COLOR 255}Épice Noire{COLOR 0}
+an {COLOR 255}Arboliva Oil{COLOR 0}
+a {COLOR 255}Popping Candy{COLOR 0}
+a {COLOR 255}Important Letter{COLOR 0}
+a {COLOR 255}Cherished Ring{COLOR 0}
+a {COLOR 255}Dirty Scarf{COLOR 0}
+???
+???
+???
+???
+a {COLOR 255}Mega Shard{COLOR 0}
+a {COLOR 255}Colorful Screw{COLOR 0}
+a {COLOR 255}Red Canari Plush{COLOR 0}
+a {COLOR 255}Red Canari Plush{COLOR 0}
+a {COLOR 255}Red Canari Plush{COLOR 0}
+a {COLOR 255}Gold Canari Plush{COLOR 0}
+a {COLOR 255}Gold Canari Plush{COLOR 0}
+a {COLOR 255}Gold Canari Plush{COLOR 0}
+a {COLOR 255}Pink Canari Plush{COLOR 0}
+a {COLOR 255}Pink Canari Plush{COLOR 0}
+a {COLOR 255}Pink Canari Plush{COLOR 0}
+a {COLOR 255}Green Canari Plush{COLOR 0}
+a {COLOR 255}Green Canari Plush{COLOR 0}
+a {COLOR 255}Green Canari Plush{COLOR 0}
+a {COLOR 255}Blue Canari Plush{COLOR 0}
+a {COLOR 255}Blue Canari Plush{COLOR 0}
+a {COLOR 255}Blue Canari Plush{COLOR 0}
+a {COLOR 255}Raichunite X{COLOR 0}
+a {COLOR 255}Raichunite Y{COLOR 0}
+a {COLOR 255}Chimechite{COLOR 0}
+a {COLOR 255}Absolite Z{COLOR 0}
+a {COLOR 255}Staraptite{COLOR 0}
+a {COLOR 255}Garchompite Z{COLOR 0}
+a {COLOR 255}Lucarionite Z{COLOR 0}
+a {COLOR 255}Golurkite{COLOR 0}
+a {COLOR 255}Meowsticite{COLOR 0}
+a {COLOR 255}Crabominite{COLOR 0}
+a {COLOR 255}Golisopite{COLOR 0}
+a {COLOR 255}Magearnite{COLOR 0}
+a {COLOR 255}Scovillainite{COLOR 0}
+a {COLOR 255}Baxcalibrite{COLOR 0}
+a {COLOR 255}Tatsugirinite{COLOR 0}
+a {COLOR 255}Glimmoranite{COLOR 0}
+a {COLOR 255}Hyper Cheri Berry{COLOR 0}
+a {COLOR 255}Hyper Chesto Berry{COLOR 0}
+a {COLOR 255}Hyper Pecha Berry{COLOR 0}
+a {COLOR 255}Hyper Rawst Berry{COLOR 0}
+a {COLOR 255}Hyper Aspear Berry{COLOR 0}
+a {COLOR 255}Hyper Oran Berry{COLOR 0}
+a {COLOR 255}Hyper Persim Berry{COLOR 0}
+a {COLOR 255}Hyper Lum Berry{COLOR 0}
+a {COLOR 255}Hyper Sitrus Berry{COLOR 0}
+a {COLOR 255}Hyper Pomeg Berry{COLOR 0}
+a {COLOR 255}Hyper Kelpsy Berry{COLOR 0}
+a {COLOR 255}Hyper Qualot Berry{COLOR 0}
+a {COLOR 255}Hyper Hondew Berry{COLOR 0}
+a {COLOR 255}Hyper Grepa Berry{COLOR 0}
+a {COLOR 255}Hyper Tamato Berry{COLOR 0}
+a {COLOR 255}Hyper Occa Berry{COLOR 0}
+a {COLOR 255}Hyper Passho Berry{COLOR 0}
+a {COLOR 255}Hyper Wacan Berry{COLOR 0}
+a {COLOR 255}Hyper Rindo Berry{COLOR 0}
+a {COLOR 255}Hyper Yache Berry{COLOR 0}
+a {COLOR 255}Hyper Chople Berry{COLOR 0}
+a {COLOR 255}Hyper Kebia Berry{COLOR 0}
+a {COLOR 255}Hyper Shuca Berry{COLOR 0}
+a {COLOR 255}Hyper Coba Berry{COLOR 0}
+a {COLOR 255}Hyper Payapa Berry{COLOR 0}
+a {COLOR 255}Hyper Tanga Berry{COLOR 0}
+a {COLOR 255}Hyper Charti Berry{COLOR 0}
+a {COLOR 255}Hyper Kasib Berry{COLOR 0}
+a {COLOR 255}Hyper Haban Berry{COLOR 0}
+a {COLOR 255}Hyper Colbur Berry{COLOR 0}
+a {COLOR 255}Hyper Babiri Berry{COLOR 0}
+a {COLOR 255}Hyper Chilan Berry{COLOR 0}
+a {COLOR 255}Hyper Roseli Berry{COLOR 0}
+a {COLOR 255}Canari Bread{COLOR 0}

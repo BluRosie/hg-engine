@@ -108,7 +108,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 105, 106, 108, 109, 109, 111, 112, 114, 115, 117, 117, 118, 120, 121, 123, 124 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The snow stopped." },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Your team's Aurora Veil wore off!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Your side's Aurora Veil wore off!" },
         } },
 #ifndef GET_TEST_CASE_ONLY
 };
