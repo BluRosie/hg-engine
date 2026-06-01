@@ -17,6 +17,8 @@
 #define STATE_TEST_INDEX_SHIFT      22
 #define STATE_TEST_INDEX_MASK       0x3FF
 
+#define NUM_FURTHER_TEST_PARAMS 4
+
 // Battle action for scripted tests
 struct PACKED BattleAction {
     u8 action;  // 0-3 = move slot, 4-9 = switch to party slot (action - 4)
@@ -35,6 +37,7 @@ struct PACKED TestBattlePokemon {
     u32 status;          // STATUS_BURN, STATUS_POISON, STATUS_SLEEP, etc.
     u32 condition2;      // STATUS2_RECHARGE, STATUS2_CONFUSION, etc. (can be OR'd)
     u32 moveEffectFlags; // MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE, etc. (can be OR'd)
+    u16 furtherParams[NUM_FURTHER_TEST_PARAMS][2]; // pairs of MON_DATA_* constants and the value to set them to.  u32 is thought to be unnecessary
 };
 
 enum ExpectationType {

@@ -1,4 +1,4 @@
-// Test: Illusion - cannot imitate a fainted mon
+// Test: Illusion - do not imitate an egg mon
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -39,22 +39,10 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_RAICHU,
-            .level = 50,
-            .form = 1,
-            .ability = ABILITY_STATIC,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 0,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
-        {
             .species = SPECIES_RATTATA,
             .level = 50,
-            .form = 0,
-            .ability = ABILITY_GUTS,
+            .form = 1,
+            .ability = ABILITY_THICK_FAT,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = 0,
@@ -63,16 +51,19 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_PIKACHU,
-            .level = 50,
-            .form = 3,
-            .ability = ABILITY_STATIC,
+            .species = SPECIES_MANAPHY,
+            .level = 1,
+            .form = 0,
+            .ability = ABILITY_HYDRATION,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 0,
+            .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
+            .furtherParams = {
+                {MON_DATA_IS_EGG, TRUE},
+            },
         },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
