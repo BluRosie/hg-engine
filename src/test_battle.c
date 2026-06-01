@@ -154,7 +154,7 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
         }
     }
 
-    if (hp == 0) {
+    if (hp == FULL_HP) {
         u16 maxHP = (u16)GetMonData(mon, MON_DATA_MAXHP, NULL);
         SetMonData(mon, MON_DATA_HP, &maxHP);
     } else {
