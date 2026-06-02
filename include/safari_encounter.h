@@ -45,77 +45,77 @@
         NUM_SAFARI_LAND_BONUS_ENCOUNTERS, NUM_SAFARI_SURF_BONUS_ENCOUNTERS, NUM_SAFARI_OLD_ROD_BONUS_ENCOUNTERS, NUM_SAFARI_GOOD_ROD_BONUS_ENCOUNTERS, NUM_SAFARI_SUPER_ROD_BONUS_ENCOUNTERS, 0, 0, 0 \
     }
 
-typedef struct PACKED SafariZoneAreaEncounterSlot {
+typedef struct SafariZoneAreaEncounterSlot {
     u16 species;
     u16 level;
 } SafariZoneAreaEncounterSlot;
 
-typedef struct PACKED SafariZoneObjectRequirement {
+typedef struct SafariZoneObjectRequirement {
     u8 type;
     u8 count;
 } SafariZoneObjectRequirement;
 
-typedef struct PACKED SafariZoneAreaBonusSlotUnlockConditions {
+typedef struct SafariZoneAreaBonusSlotUnlockConditions {
     SafariZoneObjectRequirement objects[2];
 } SafariZoneAreaBonusSlotUnlockConditions;
 
-typedef struct PACKED SafariZoneLandEncounterData {
-    SafariZoneAreaEncounterSlot species_morning[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot species_day[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot species_night[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot bonus_species_morning[NUM_SAFARI_LAND_BONUS_ENCOUNTERS];
-    SafariZoneAreaEncounterSlot bonus_species_day[NUM_SAFARI_LAND_BONUS_ENCOUNTERS];
-    SafariZoneAreaEncounterSlot bonus_species_night[NUM_SAFARI_LAND_BONUS_ENCOUNTERS];
-    SafariZoneAreaBonusSlotUnlockConditions bonus_unlock_conditions[NUM_SAFARI_LAND_BONUS_ENCOUNTERS];
+typedef struct SafariZoneLandEncounterData {
+    SafariZoneAreaEncounterSlot speciesMorning[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot speciesDay[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot speciesNight[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot bonusSpeciesMorning[NUM_SAFARI_LAND_BONUS_ENCOUNTERS];
+    SafariZoneAreaEncounterSlot bonusSpeciesDay[NUM_SAFARI_LAND_BONUS_ENCOUNTERS];
+    SafariZoneAreaEncounterSlot bonusSpeciesNight[NUM_SAFARI_LAND_BONUS_ENCOUNTERS];
+    SafariZoneAreaBonusSlotUnlockConditions bonusUnlockConditions[NUM_SAFARI_LAND_BONUS_ENCOUNTERS];
 } SafariZoneLandEncounterData;
 
-typedef struct PACKED SafariZoneSurfEncounterData {
-    SafariZoneAreaEncounterSlot species_morning[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot species_day[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot species_night[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot bonus_species_morning[NUM_SAFARI_SURF_BONUS_ENCOUNTERS];
-    SafariZoneAreaEncounterSlot bonus_species_day[NUM_SAFARI_SURF_BONUS_ENCOUNTERS];
-    SafariZoneAreaEncounterSlot bonus_species_night[NUM_SAFARI_SURF_BONUS_ENCOUNTERS];
-    SafariZoneAreaBonusSlotUnlockConditions bonus_unlock_conditions[NUM_SAFARI_SURF_BONUS_ENCOUNTERS];
+typedef struct SafariZoneSurfEncounterData {
+    SafariZoneAreaEncounterSlot speciesMorning[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot speciesDay[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot speciesNight[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot bonusSpeciesMorning[NUM_SAFARI_SURF_BONUS_ENCOUNTERS];
+    SafariZoneAreaEncounterSlot bonusSpeciesDay[NUM_SAFARI_SURF_BONUS_ENCOUNTERS];
+    SafariZoneAreaEncounterSlot bonusSpeciesNight[NUM_SAFARI_SURF_BONUS_ENCOUNTERS];
+    SafariZoneAreaBonusSlotUnlockConditions bonusUnlockConditions[NUM_SAFARI_SURF_BONUS_ENCOUNTERS];
 } SafariZoneSurfEncounterData;
 
-typedef struct PACKED SafariZoneOldRodEncounterData {
-    SafariZoneAreaEncounterSlot species_morning[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot species_day[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot species_night[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot bonus_species_morning[NUM_SAFARI_OLD_ROD_BONUS_ENCOUNTERS];
-    SafariZoneAreaEncounterSlot bonus_species_day[NUM_SAFARI_OLD_ROD_BONUS_ENCOUNTERS];
-    SafariZoneAreaEncounterSlot bonus_species_night[NUM_SAFARI_OLD_ROD_BONUS_ENCOUNTERS];
-    SafariZoneAreaBonusSlotUnlockConditions bonus_unlock_conditions[NUM_SAFARI_OLD_ROD_BONUS_ENCOUNTERS];
+typedef struct SafariZoneOldRodEncounterData {
+    SafariZoneAreaEncounterSlot speciesMorning[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot speciesDay[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot speciesNight[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot bonusSpeciesMorning[NUM_SAFARI_OLD_ROD_BONUS_ENCOUNTERS];
+    SafariZoneAreaEncounterSlot bonusSpeciesDay[NUM_SAFARI_OLD_ROD_BONUS_ENCOUNTERS];
+    SafariZoneAreaEncounterSlot bonusSpeciesNight[NUM_SAFARI_OLD_ROD_BONUS_ENCOUNTERS];
+    SafariZoneAreaBonusSlotUnlockConditions bonusUnlockConditions[NUM_SAFARI_OLD_ROD_BONUS_ENCOUNTERS];
 } SafariZoneOldRodEncounterData;
 
-typedef struct PACKED SafariZoneGoodRodEncounterData {
-    SafariZoneAreaEncounterSlot species_morning[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot species_day[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot species_night[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot bonus_species_morning[NUM_SAFARI_GOOD_ROD_BONUS_ENCOUNTERS];
-    SafariZoneAreaEncounterSlot bonus_species_day[NUM_SAFARI_GOOD_ROD_BONUS_ENCOUNTERS];
-    SafariZoneAreaEncounterSlot bonus_species_night[NUM_SAFARI_GOOD_ROD_BONUS_ENCOUNTERS];
-    SafariZoneAreaBonusSlotUnlockConditions bonus_unlock_conditions[NUM_SAFARI_GOOD_ROD_BONUS_ENCOUNTERS];
+typedef struct SafariZoneGoodRodEncounterData {
+    SafariZoneAreaEncounterSlot speciesMorning[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot speciesDay[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot speciesNight[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot bonusSpeciesMorning[NUM_SAFARI_GOOD_ROD_BONUS_ENCOUNTERS];
+    SafariZoneAreaEncounterSlot bonusSpeciesDay[NUM_SAFARI_GOOD_ROD_BONUS_ENCOUNTERS];
+    SafariZoneAreaEncounterSlot bonusSpeciesNight[NUM_SAFARI_GOOD_ROD_BONUS_ENCOUNTERS];
+    SafariZoneAreaBonusSlotUnlockConditions bonusUnlockConditions[NUM_SAFARI_GOOD_ROD_BONUS_ENCOUNTERS];
 } SafariZoneGoodRodEncounterData;
 
-typedef struct PACKED SafariZoneSuperRodEncounterData {
-    SafariZoneAreaEncounterSlot species_morning[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot species_day[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot species_night[NUM_ENCOUNTERS_SAFARI];
-    SafariZoneAreaEncounterSlot bonus_species_morning[NUM_SAFARI_SUPER_ROD_BONUS_ENCOUNTERS];
-    SafariZoneAreaEncounterSlot bonus_species_day[NUM_SAFARI_SUPER_ROD_BONUS_ENCOUNTERS];
-    SafariZoneAreaEncounterSlot bonus_species_night[NUM_SAFARI_SUPER_ROD_BONUS_ENCOUNTERS];
-    SafariZoneAreaBonusSlotUnlockConditions bonus_unlock_conditions[NUM_SAFARI_SUPER_ROD_BONUS_ENCOUNTERS];
+typedef struct SafariZoneSuperRodEncounterData {
+    SafariZoneAreaEncounterSlot speciesMorning[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot speciesDay[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot speciesNight[NUM_ENCOUNTERS_SAFARI];
+    SafariZoneAreaEncounterSlot bonusSpeciesMorning[NUM_SAFARI_SUPER_ROD_BONUS_ENCOUNTERS];
+    SafariZoneAreaEncounterSlot bonusSpeciesDay[NUM_SAFARI_SUPER_ROD_BONUS_ENCOUNTERS];
+    SafariZoneAreaEncounterSlot bonusSpeciesNight[NUM_SAFARI_SUPER_ROD_BONUS_ENCOUNTERS];
+    SafariZoneAreaBonusSlotUnlockConditions bonusUnlockConditions[NUM_SAFARI_SUPER_ROD_BONUS_ENCOUNTERS];
 } SafariZoneSuperRodEncounterData;
 
-typedef struct PACKED SafariZoneAreaEncounterFile {
-    u8 bonus_counts[8];
+typedef struct SafariZoneAreaEncounterFile {
+    u8 bonusCounts[8];
     SafariZoneLandEncounterData land;
     SafariZoneSurfEncounterData surf;
-    SafariZoneOldRodEncounterData old_rod;
-    SafariZoneGoodRodEncounterData good_rod;
-    SafariZoneSuperRodEncounterData super_rod;
+    SafariZoneOldRodEncounterData oldRod;
+    SafariZoneGoodRodEncounterData goodRod;
+    SafariZoneSuperRodEncounterData superRod;
 } SafariZoneAreaEncounterFile;
 
 #endif

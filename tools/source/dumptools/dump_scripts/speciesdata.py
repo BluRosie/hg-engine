@@ -1,5 +1,6 @@
 import io
 
+import dump_scripts.dump_tools as dump_tools
 from dump_scripts.dump_tools import *
 from dump_scripts.moves import decode_msg_bank, escape_c_string
 
@@ -36,7 +37,7 @@ BODY_TYPE_CONSTANTS = {
 
 
 def lookup_ability(value):
-    return ABILITIES["ABILITY"].get(value, str(value))
+    return dump_tools.lookup_ability(value)
 
 
 def lookup_body_type(value):

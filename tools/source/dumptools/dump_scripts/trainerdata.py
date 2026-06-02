@@ -1,10 +1,13 @@
 import json
 import struct
+from pathlib import Path
 
 import ndspy.narc
 
 from dump_scripts.dump_tools import *
 from dump_scripts.moves import decode_msg_bank
+
+REPO_ROOT = Path(__file__).resolve().parents[4]
 
 AI_FLAG_DEFINES = [
     "F_PRIORITIZE_SUPER_EFFECTIVE",
@@ -60,6 +63,40 @@ ABILITY_SLOT_NAMES = {
     2: "TRAINER_POKEMON_ABILITY_HIDDEN",
     32: "TRAINER_POKEMON_ABILITY_2",
 }
+
+TRAINER_EXTRA_FLAG_DEFINES = [
+    "TRAINER_DATA_EXTRA_TYPE_STATUS",
+    "TRAINER_DATA_EXTRA_TYPE_HP",
+    "TRAINER_DATA_EXTRA_TYPE_ATK",
+    "TRAINER_DATA_EXTRA_TYPE_DEF",
+    "TRAINER_DATA_EXTRA_TYPE_SPEED",
+    "TRAINER_DATA_EXTRA_TYPE_SP_ATK",
+    "TRAINER_DATA_EXTRA_TYPE_SP_DEF",
+    "TRAINER_DATA_EXTRA_TYPE_PP_COUNTS",
+    "TRAINER_DATA_EXTRA_TYPE_NICKNAME",
+]
+
+
+def _parse_define_map(header_path, prefix):
+    values = {}
+    with open(REPO_ROOT / header_path, "r", encoding="utf-8") as header_file:
+        for line in header_file:
+            line = line.strip()
+            if not line.startswith(f"#define {prefix}"):
+                continue
+            parts = line.split()
+            if len(parts) < 3:
+                continue
+            name = parts[1]
+            try:
+                value = int(parts[2].strip("()"), 0)
+            except ValueError:
+                continue
+            values[value] = name
+    return values
+
+
+NATURE_NAMES = _parse_define_map("include/constants/pokemon.h", "NATURE_")
 
 
 def c_string(value):
@@ -130,6 +167,22 @@ def ability_slot_expr(value):
     return ABILITY_SLOT_NAMES.get(value, str(value))
 
 
+def ability_expr(value):
+    return lookup_ability(value)
+
+
+def nature_expr(value):
+    return NATURE_NAMES.get(value, str(value))
+
+
+def additional_flags_expr(value):
+    return flags_to_string(value, TRAINER_EXTRA_FLAG_DEFINES) if value != 0 else "0"
+
+
+def nickname_expr(values):
+    return "{ " + ", ".join(str(value) for value in values) + " }"
+
+
 def species_expr(mon, expanded):
     species_id = mon["species_id"]
     form = species_id // (2048 if expanded else 1024)
@@ -157,6 +210,46 @@ def write_party_mon_c(lines, mon, flags, expanded, indent):
             f"{pad}    .moves = {{ {lookup_move(mon['move_1'])}, {lookup_move(mon['move_2'])}, "
             f"{lookup_move(mon['move_3'])}, {lookup_move(mon['move_4'])} }},"
         )
+    if flags & 0x04:
+        lines.append(f"{pad}    .ability = {ability_expr(mon['custom_ability'])},")
+    if flags & 0x08:
+        lines.append(f"{pad}    .ball = {lookup_item(mon['ball'])},")
+    if flags & 0x10:
+        lines.append(
+            f"{pad}    .setIvs = {{ {mon['hp_iv']}, {mon['atk_iv']}, {mon['def_iv']}, "
+            f"{mon['spd_iv']}, {mon['spatk_iv']}, {mon['spdef_iv']} }},"
+        )
+        lines.append(
+            f"{pad}    .setEvs = {{ {mon['hp_ev']}, {mon['atk_ev']}, {mon['def_ev']}, "
+            f"{mon['spd_ev']}, {mon['spatk_ev']}, {mon['spdef_ev']} }},"
+        )
+    if flags & 0x20:
+        lines.append(f"{pad}    .nature = {nature_expr(mon['nature'])},")
+    if flags & 0x40:
+        lines.append(f"{pad}    .shinyLock = {mon['shiny_lock']},")
+    if flags & 0x80:
+        lines.append(f"{pad}    .additionalFlags = {additional_flags_expr(mon['additional_flags'])},")
+        if mon["additional_flags"] & 0x01:
+            lines.append(f"{pad}    .status = {mon['status']},")
+        if mon["additional_flags"] & 0x02:
+            lines.append(f"{pad}    .hp = {mon['hp']},")
+        if mon["additional_flags"] & 0x04:
+            lines.append(f"{pad}    .attack = {mon['atk']},")
+        if mon["additional_flags"] & 0x08:
+            lines.append(f"{pad}    .defense = {mon['def']},")
+        if mon["additional_flags"] & 0x10:
+            lines.append(f"{pad}    .speed = {mon['spd']},")
+        if mon["additional_flags"] & 0x20:
+            lines.append(f"{pad}    .spAttack = {mon['spatk']},")
+        if mon["additional_flags"] & 0x40:
+            lines.append(f"{pad}    .spDefense = {mon['spdef']},")
+        if mon["additional_flags"] & 0x80:
+            lines.append(
+                f"{pad}    .ppCounts = {{ {mon['move_1_pp']}, {mon['move_2_pp']}, "
+                f"{mon['move_3_pp']}, {mon['move_4_pp']} }},"
+            )
+        if mon["additional_flags"] & 0x100:
+            lines.append(f"{pad}    .nickname = {nickname_expr(mon['nickname'])},")
 
     lines.append(f"{pad}    .ballSeal = {mon['ballseal']},")
     lines.append(f"{pad}}},")

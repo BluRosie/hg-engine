@@ -12,37 +12,37 @@
 
 typedef struct PACKED LandEncounterData {
     u8 levels[NUM_ENCOUNTERS_LAND];
-    u16 species_morning[NUM_ENCOUNTERS_LAND];
-    u16 species_day[NUM_ENCOUNTERS_LAND];
-    u16 species_night[NUM_ENCOUNTERS_LAND];
+    u16 speciesMorning[NUM_ENCOUNTERS_LAND];
+    u16 speciesDay[NUM_ENCOUNTERS_LAND];
+    u16 speciesNight[NUM_ENCOUNTERS_LAND];
 } LandEncounterData;
 
 typedef struct PACKED EncounterDataSlot {
-    u8 level_min;
-    u8 level_max;
+    u8 levelMin;
+    u8 levelMax;
     u16 species;
 } EncounterDataSlot;
 
 typedef struct PACKED EncounterData {
-    u8 rate_walk;
-    u8 rate_surf;
-    u8 rate_rock_smash;
-    u8 rate_old_rod;
-    u8 rate_good_rod;
-    u8 rate_super_rod;
+    u8 rateWalk;
+    u8 rateSurf;
+    u8 rateRockSmash;
+    u8 rateOldRod;
+    u8 rateGoodRod;
+    u8 rateSuperRod;
     u8 dummy[2];
-    LandEncounterData land_slots;
-    u16 hoenn_sound_species[NUM_ENCOUNTERS_SOUNDS];
-    u16 sinnoh_sound_species[NUM_ENCOUNTERS_SOUNDS];
-    EncounterDataSlot surf_slots[NUM_ENCOUNTERS_SURF];
-    EncounterDataSlot rock_smash_slots[NUM_ENCOUNTERS_ROCKSMASH];
-    EncounterDataSlot old_rod_slots[NUM_ENCOUNTERS_FISH];
-    EncounterDataSlot good_rod_slots[NUM_ENCOUNTERS_FISH];
-    EncounterDataSlot super_rod_slots[NUM_ENCOUNTERS_FISH];
-    u16 land_swarm;
-    u16 surf_swarm;
-    u16 night_fish;
-    u16 fish_swarm;
+    LandEncounterData landSlots;
+    u16 hoennSoundSpecies[NUM_ENCOUNTERS_SOUNDS];
+    u16 sinnohSoundSpecies[NUM_ENCOUNTERS_SOUNDS];
+    EncounterDataSlot surfSlots[NUM_ENCOUNTERS_SURF];
+    EncounterDataSlot rockSmashSlots[NUM_ENCOUNTERS_ROCKSMASH];
+    EncounterDataSlot oldRodSlots[NUM_ENCOUNTERS_FISH];
+    EncounterDataSlot goodRodSlots[NUM_ENCOUNTERS_FISH];
+    EncounterDataSlot superRodSlots[NUM_ENCOUNTERS_FISH];
+    u16 landSwarm;
+    u16 surfSwarm;
+    u16 nightFish;
+    u16 fishSwarm;
 } EncounterData;
 
 #endif

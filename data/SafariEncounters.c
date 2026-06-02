@@ -7,9 +7,9 @@ u32 __size = sizeof(SafariZoneAreaEncounterFile);
 const SafariZoneAreaEncounterFile __data[] =
 {
     [SAFARI_ZONE_AREA_PLAINS] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_RATTATA, 15 },
                 { SPECIES_ABRA, 15 },
                 { SPECIES_GIRAFARIG, 15 },
@@ -21,7 +21,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GIRAFARIG, 17 },
                 { SPECIES_SMEARGLE, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_RATTATA, 15 },
                 { SPECIES_ABRA, 15 },
                 { SPECIES_GIRAFARIG, 15 },
@@ -33,7 +33,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GIRAFARIG, 17 },
                 { SPECIES_SMEARGLE, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_RATICATE, 15 },
                 { SPECIES_ABRA, 15 },
                 { SPECIES_GIRAFARIG, 15 },
@@ -45,7 +45,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_STANTLER, 17 },
                 { SPECIES_STANTLER, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_GIRAFARIG, 40 },
                 { SPECIES_SHINX, 43 },
                 { SPECIES_MANECTRIC, 45 },
@@ -57,7 +57,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_LOTAD, 42 },
                 { SPECIES_SURSKIT, 46 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_GIRAFARIG, 40 },
                 { SPECIES_SHINX, 43 },
                 { SPECIES_MANECTRIC, 45 },
@@ -69,7 +69,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_LOTAD, 42 },
                 { SPECIES_SURSKIT, 46 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_STANTLER, 40 },
                 { SPECIES_SHINX, 44 },
                 { SPECIES_MANECTRIC, 45 },
@@ -81,7 +81,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_LOTAD, 42 },
                 { SPECIES_SURSKIT, 46 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 15 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
@@ -95,7 +95,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -107,7 +107,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -119,7 +119,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -131,29 +131,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -165,7 +165,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -177,7 +177,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -189,25 +189,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -219,7 +219,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -231,7 +231,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -243,25 +243,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -273,7 +273,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -285,7 +285,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -297,19 +297,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 30 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
@@ -317,9 +317,9 @@ const SafariZoneAreaEncounterFile __data[] =
     },
 
     [SAFARI_ZONE_AREA_MEADOW] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_JIGGLYPUFF, 15 },
                 { SPECIES_HOPPIP, 15 },
                 { SPECIES_HOPPIP, 15 },
@@ -331,7 +331,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_JIGGLYPUFF, 17 },
                 { SPECIES_SKIPLOOM, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_JIGGLYPUFF, 15 },
                 { SPECIES_SUNKERN, 15 },
                 { SPECIES_HOPPIP, 15 },
@@ -343,7 +343,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_HOPPIP, 17 },
                 { SPECIES_SKIPLOOM, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_JIGGLYPUFF, 15 },
                 { SPECIES_MARILL, 15 },
                 { SPECIES_WOOPER, 15 },
@@ -355,7 +355,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_WOOPER, 17 },
                 { SPECIES_CLEFAIRY, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_RATICATE, 40 },
                 { SPECIES_CHANSEY, 42 },
                 { SPECIES_SEEDOT, 45 },
@@ -367,7 +367,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_RIOLU, 45 },
                 { SPECIES_WOOPER, 40 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_RATICATE, 40 },
                 { SPECIES_CHANSEY, 42 },
                 { SPECIES_SEEDOT, 45 },
@@ -379,7 +379,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_RIOLU, 46 },
                 { SPECIES_WOOPER, 40 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_RATICATE, 40 },
                 { SPECIES_CHANSEY, 42 },
                 { SPECIES_SEEDOT, 45 },
@@ -391,7 +391,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_RIOLU, 45 },
                 { SPECIES_WOOPER, 40 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 5 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 12 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 35 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
@@ -405,7 +405,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 16 },
@@ -417,7 +417,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MARILL, 16 },
                 { SPECIES_MARILL, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 16 },
@@ -429,7 +429,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MARILL, 16 },
                 { SPECIES_MARILL, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 16 },
@@ -441,29 +441,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MARILL, 16 },
                 { SPECIES_MARILL, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_SKIPLOOM, 47 },
                 { SPECIES_MASQUERAIN, 42 },
                 { SPECIES_MASQUERAIN, 46 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_SKIPLOOM, 47 },
                 { SPECIES_MASQUERAIN, 42 },
                 { SPECIES_MASQUERAIN, 46 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_SKIPLOOM, 47 },
                 { SPECIES_MASQUERAIN, 42 },
                 { SPECIES_MASQUERAIN, 46 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 14 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -475,7 +475,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWAG, 14 },
                 { SPECIES_POLIWAG, 15 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -487,7 +487,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWAG, 14 },
                 { SPECIES_POLIWAG, 15 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -499,25 +499,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWAG, 14 },
                 { SPECIES_POLIWAG, 15 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_POLIWHIRL, 15 },
                 { SPECIES_POLIWHIRL, 16 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_POLIWHIRL, 15 },
                 { SPECIES_POLIWHIRL, 16 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_POLIWHIRL, 15 },
                 { SPECIES_POLIWHIRL, 16 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 2 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -529,7 +529,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 24 },
                 { SPECIES_POLIWHIRL, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -541,7 +541,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 24 },
                 { SPECIES_POLIWHIRL, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -553,25 +553,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 24 },
                 { SPECIES_POLIWHIRL, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_POLIWHIRL, 27 },
                 { SPECIES_GYARADOS, 28 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_POLIWHIRL, 27 },
                 { SPECIES_GYARADOS, 28 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_POLIWHIRL, 27 },
                 { SPECIES_GYARADOS, 28 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 5 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 7 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 36 },
@@ -583,7 +583,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 37 },
                 { SPECIES_POLIWHIRL, 38 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 36 },
@@ -595,7 +595,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 37 },
                 { SPECIES_POLIWHIRL, 38 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 36 },
@@ -607,19 +607,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 37 },
                 { SPECIES_POLIWHIRL, 38 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_GYARADOS, 42 },
                 { SPECIES_GYARADOS, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_GYARADOS, 42 },
                 { SPECIES_GYARADOS, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_GYARADOS, 42 },
                 { SPECIES_GYARADOS, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 14 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
@@ -627,9 +627,9 @@ const SafariZoneAreaEncounterFile __data[] =
     },
 
     [SAFARI_ZONE_AREA_SAVANNAH] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_NIDORAN_F, 15 },
                 { SPECIES_NIDORAN_M, 15 },
                 { SPECIES_TAUROS, 15 },
@@ -641,7 +641,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TAUROS, 17 },
                 { SPECIES_RHYHORN, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_NIDORAN_F, 15 },
                 { SPECIES_NIDORAN_M, 15 },
                 { SPECIES_TAUROS, 15 },
@@ -653,7 +653,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TAUROS, 17 },
                 { SPECIES_RHYHORN, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_NIDORINA, 15 },
                 { SPECIES_NIDORINO, 15 },
                 { SPECIES_ZUBAT, 15 },
@@ -665,7 +665,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_ZUBAT, 17 },
                 { SPECIES_GOLBAT, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_TAUROS, 41 },
                 { SPECIES_ZIGZAGOON, 38 },
                 { SPECIES_LUXIO, 46 },
@@ -677,7 +677,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TORKOAL, 46 },
                 { SPECIES_AZURILL, 42 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_TAUROS, 41 },
                 { SPECIES_ZIGZAGOON, 38 },
                 { SPECIES_LUXIO, 46 },
@@ -689,7 +689,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TORKOAL, 47 },
                 { SPECIES_AZURILL, 42 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_TAUROS, 41 },
                 { SPECIES_ZIGZAGOON, 38 },
                 { SPECIES_LUXIO, 45 },
@@ -701,7 +701,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TORKOAL, 47 },
                 { SPECIES_AZURILL, 42 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 5 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 24 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
@@ -715,7 +715,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -727,7 +727,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -739,7 +739,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -751,29 +751,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -785,7 +785,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -797,7 +797,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -809,25 +809,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -839,7 +839,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -851,7 +851,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -863,25 +863,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -893,7 +893,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -905,7 +905,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -917,19 +917,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 30 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
@@ -937,9 +937,9 @@ const SafariZoneAreaEncounterFile __data[] =
     },
 
     [SAFARI_ZONE_AREA_PEAK] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_GEODUDE, 15 },
                 { SPECIES_MAGNEMITE, 15 },
                 { SPECIES_GEODUDE, 15 },
@@ -951,7 +951,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GRAVELER, 17 },
                 { SPECIES_MAGMAR, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_GEODUDE, 15 },
                 { SPECIES_MAGNEMITE, 15 },
                 { SPECIES_GEODUDE, 15 },
@@ -963,7 +963,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GRAVELER, 17 },
                 { SPECIES_MAGMAR, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_GEODUDE, 15 },
                 { SPECIES_MAGNEMITE, 15 },
                 { SPECIES_GEODUDE, 15 },
@@ -975,7 +975,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_WOBBUFFET, 17 },
                 { SPECIES_MAGNETON, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_LINOONE, 46 },
                 { SPECIES_ZANGOOSE, 45 },
                 { SPECIES_PARAS, 42 },
@@ -987,7 +987,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SLOWBRO, 45 },
                 { SPECIES_SPHEAL, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_LINOONE, 46 },
                 { SPECIES_ZANGOOSE, 45 },
                 { SPECIES_PARAS, 42 },
@@ -999,7 +999,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SLOWBRO, 45 },
                 { SPECIES_SPHEAL, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_LINOONE, 46 },
                 { SPECIES_ZANGOOSE, 43 },
                 { SPECIES_PARAS, 42 },
@@ -1011,7 +1011,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SLOWBRO, 45 },
                 { SPECIES_SPHEAL, 44 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 5 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 12 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
@@ -1025,7 +1025,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -1037,7 +1037,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -1049,7 +1049,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -1061,29 +1061,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -1095,7 +1095,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -1107,7 +1107,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -1119,25 +1119,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -1149,7 +1149,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -1161,7 +1161,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -1173,25 +1173,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -1203,7 +1203,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -1215,7 +1215,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -1227,19 +1227,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 30 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
@@ -1247,9 +1247,9 @@ const SafariZoneAreaEncounterFile __data[] =
     },
 
     [SAFARI_ZONE_AREA_ROCKY_BEACH] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_DODUO, 15 },
                 { SPECIES_SLOWPOKE, 15 },
                 { SPECIES_KRABBY, 15 },
@@ -1261,7 +1261,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 17 },
                 { SPECIES_SLOWBRO, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_DODUO, 15 },
                 { SPECIES_SLOWPOKE, 15 },
                 { SPECIES_KRABBY, 15 },
@@ -1273,7 +1273,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 17 },
                 { SPECIES_SLOWBRO, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_ZUBAT, 15 },
                 { SPECIES_SLOWPOKE, 15 },
                 { SPECIES_KRABBY, 15 },
@@ -1285,7 +1285,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 17 },
                 { SPECIES_SLOWBRO, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DODRIO, 42 },
                 { SPECIES_ELECTRIKE, 42 },
                 { SPECIES_GIBLE, 44 },
@@ -1297,7 +1297,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_ARON, 45 },
                 { SPECIES_SLOWBRO, 37 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DODRIO, 42 },
                 { SPECIES_ELECTRIKE, 42 },
                 { SPECIES_GIBLE, 44 },
@@ -1309,7 +1309,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_ARON, 45 },
                 { SPECIES_SLOWBRO, 37 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DODRIO, 42 },
                 { SPECIES_ELECTRIKE, 42 },
                 { SPECIES_GIBLE, 44 },
@@ -1321,7 +1321,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_ARON, 44 },
                 { SPECIES_SLOWBRO, 37 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 4 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 49 }, { SAFARI_ZONE_OBJECT_TYPE_PEAK, 49 } } },
@@ -1335,7 +1335,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 16 },
                 { SPECIES_MAGIKARP, 16 },
@@ -1347,7 +1347,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_LAPRAS, 15 },
                 { SPECIES_LAPRAS, 16 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 16 },
                 { SPECIES_MAGIKARP, 16 },
@@ -1359,7 +1359,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_LAPRAS, 15 },
                 { SPECIES_LAPRAS, 16 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 16 },
                 { SPECIES_MAGIKARP, 16 },
@@ -1371,29 +1371,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_LAPRAS, 15 },
                 { SPECIES_LAPRAS, 16 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_LAPRAS, 37 },
                 { SPECIES_LAPRAS, 42 },
                 { SPECIES_LAPRAS, 47 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_LAPRAS, 37 },
                 { SPECIES_LAPRAS, 42 },
                 { SPECIES_LAPRAS, 47 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_LAPRAS, 36 },
                 { SPECIES_LAPRAS, 41 },
                 { SPECIES_LAPRAS, 46 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 14 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 18 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -1405,7 +1405,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 14 },
                 { SPECIES_KRABBY, 15 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -1417,7 +1417,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 14 },
                 { SPECIES_KRABBY, 15 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -1429,25 +1429,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 14 },
                 { SPECIES_KRABBY, 15 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_KRABBY, 17 },
                 { SPECIES_KRABBY, 18 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_KRABBY, 17 },
                 { SPECIES_KRABBY, 18 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_KRABBY, 17 },
                 { SPECIES_KRABBY, 18 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 2 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -1459,7 +1459,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 24 },
                 { SPECIES_KRABBY, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -1471,7 +1471,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 24 },
                 { SPECIES_KRABBY, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -1483,25 +1483,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 24 },
                 { SPECIES_KRABBY, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_KINGLER, 26 },
                 { SPECIES_KINGLER, 27 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_KINGLER, 26 },
                 { SPECIES_KINGLER, 27 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_KINGLER, 26 },
                 { SPECIES_KINGLER, 27 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 5 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 8 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_GOLDEEN, 35 },
                 { SPECIES_GOLDEEN, 36 },
                 { SPECIES_GOLDEEN, 37 },
@@ -1513,7 +1513,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KINGLER, 38 },
                 { SPECIES_KINGLER, 39 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_GOLDEEN, 35 },
                 { SPECIES_GOLDEEN, 36 },
                 { SPECIES_GOLDEEN, 37 },
@@ -1525,7 +1525,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KINGLER, 38 },
                 { SPECIES_KINGLER, 39 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_GOLDEEN, 35 },
                 { SPECIES_GOLDEEN, 36 },
                 { SPECIES_GOLDEEN, 37 },
@@ -1537,19 +1537,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KINGLER, 38 },
                 { SPECIES_KINGLER, 39 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_CORPHISH, 46 },
                 { SPECIES_CORPHISH, 48 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_CORPHISH, 46 },
                 { SPECIES_CORPHISH, 48 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_CORPHISH, 46 },
                 { SPECIES_CORPHISH, 48 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 15 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
@@ -1557,9 +1557,9 @@ const SafariZoneAreaEncounterFile __data[] =
     },
 
     [SAFARI_ZONE_AREA_WETLAND] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_SPEAROW, 15 },
                 { SPECIES_SENTRET, 15 },
                 { SPECIES_FARFETCHD, 15 },
@@ -1571,7 +1571,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_FARFETCHD, 17 },
                 { SPECIES_DITTO, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_SPEAROW, 15 },
                 { SPECIES_SENTRET, 15 },
                 { SPECIES_FARFETCHD, 15 },
@@ -1583,7 +1583,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_FARFETCHD, 17 },
                 { SPECIES_DITTO, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_WOOPER, 15 },
                 { SPECIES_WOOPER, 15 },
                 { SPECIES_PSYDUCK, 15 },
@@ -1595,7 +1595,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDUCK, 17 },
                 { SPECIES_GOLDUCK, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_FURRET, 37 },
                 { SPECIES_SURSKIT, 40 },
                 { SPECIES_LOMBRE, 47 },
@@ -1607,7 +1607,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DITTO, 41 },
                 { SPECIES_BUIZEL, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_FURRET, 37 },
                 { SPECIES_SURSKIT, 40 },
                 { SPECIES_LOMBRE, 47 },
@@ -1619,7 +1619,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DITTO, 41 },
                 { SPECIES_BUIZEL, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_FURRET, 37 },
                 { SPECIES_SURSKIT, 40 },
                 { SPECIES_LOMBRE, 47 },
@@ -1631,7 +1631,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DITTO, 41 },
                 { SPECIES_BUIZEL, 44 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 2 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 6 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 14 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
@@ -1645,7 +1645,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_POLIWAG, 15 },
                 { SPECIES_POLIWAG, 16 },
                 { SPECIES_POLIWAG, 16 },
@@ -1657,7 +1657,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_QUAGSIRE, 16 },
                 { SPECIES_QUAGSIRE, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_POLIWAG, 15 },
                 { SPECIES_POLIWAG, 16 },
                 { SPECIES_POLIWAG, 16 },
@@ -1669,7 +1669,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_QUAGSIRE, 16 },
                 { SPECIES_QUAGSIRE, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_POLIWAG, 15 },
                 { SPECIES_POLIWAG, 16 },
                 { SPECIES_POLIWAG, 16 },
@@ -1681,29 +1681,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_QUAGSIRE, 16 },
                 { SPECIES_QUAGSIRE, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_QUAGSIRE, 37 },
                 { SPECIES_GOLDUCK, 37 },
                 { SPECIES_GOLDUCK, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_QUAGSIRE, 37 },
                 { SPECIES_GOLDUCK, 37 },
                 { SPECIES_GOLDUCK, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_QUAGSIRE, 37 },
                 { SPECIES_GOLDUCK, 37 },
                 { SPECIES_GOLDUCK, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 4 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 6 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -1715,7 +1715,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWAG, 14 },
                 { SPECIES_POLIWAG, 15 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -1727,7 +1727,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWAG, 14 },
                 { SPECIES_POLIWAG, 15 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -1739,25 +1739,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWAG, 14 },
                 { SPECIES_POLIWAG, 15 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_POLIWHIRL, 17 },
                 { SPECIES_POLIWHIRL, 18 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_POLIWHIRL, 17 },
                 { SPECIES_POLIWHIRL, 18 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_POLIWHIRL, 17 },
                 { SPECIES_POLIWHIRL, 18 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 2 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_POLIWAG, 22 },
                 { SPECIES_POLIWAG, 22 },
                 { SPECIES_POLIWAG, 22 },
@@ -1769,7 +1769,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 24 },
                 { SPECIES_POLIWHIRL, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_POLIWAG, 22 },
                 { SPECIES_POLIWAG, 22 },
                 { SPECIES_POLIWAG, 22 },
@@ -1781,7 +1781,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 24 },
                 { SPECIES_POLIWHIRL, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_POLIWAG, 22 },
                 { SPECIES_POLIWAG, 22 },
                 { SPECIES_POLIWAG, 23 },
@@ -1793,25 +1793,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 24 },
                 { SPECIES_POLIWHIRL, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_CORPHISH, 26 },
                 { SPECIES_CORPHISH, 28 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_CORPHISH, 26 },
                 { SPECIES_CORPHISH, 28 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_CORPHISH, 26 },
                 { SPECIES_CORPHISH, 28 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 14 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 36 },
@@ -1823,7 +1823,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 36 },
                 { SPECIES_POLIWHIRL, 37 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 36 },
@@ -1835,7 +1835,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 36 },
                 { SPECIES_POLIWHIRL, 37 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 35 },
                 { SPECIES_POLIWAG, 36 },
@@ -1847,19 +1847,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 36 },
                 { SPECIES_POLIWHIRL, 37 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_GYARADOS, 45 },
                 { SPECIES_GYARADOS, 48 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_GYARADOS, 44 },
                 { SPECIES_GYARADOS, 47 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_GYARADOS, 45 },
                 { SPECIES_GYARADOS, 48 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 6 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 9 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
@@ -1867,9 +1867,9 @@ const SafariZoneAreaEncounterFile __data[] =
     },
 
     [SAFARI_ZONE_AREA_FOREST] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_BELLSPROUT, 15 },
                 { SPECIES_PIDGEY, 15 },
                 { SPECIES_BELLSPROUT, 15 },
@@ -1881,7 +1881,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MR_MIME, 17 },
                 { SPECIES_MISDREAVUS, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_BELLSPROUT, 15 },
                 { SPECIES_PIDGEY, 15 },
                 { SPECIES_BELLSPROUT, 15 },
@@ -1893,7 +1893,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MR_MIME, 17 },
                 { SPECIES_MISDREAVUS, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_BELLSPROUT, 15 },
                 { SPECIES_GASTLY, 15 },
                 { SPECIES_MISDREAVUS, 15 },
@@ -1905,7 +1905,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MISDREAVUS, 17 },
                 { SPECIES_HAUNTER, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_MR_MIME, 45 },
                 { SPECIES_BUDEW, 47 },
                 { SPECIES_MISDREAVUS, 42 },
@@ -1917,7 +1917,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BIDOOF, 40 },
                 { SPECIES_SURSKIT, 42 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_MR_MIME, 45 },
                 { SPECIES_BUDEW, 47 },
                 { SPECIES_MISDREAVUS, 42 },
@@ -1929,7 +1929,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BIDOOF, 40 },
                 { SPECIES_SURSKIT, 42 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_MR_MIME, 45 },
                 { SPECIES_BUDEW, 47 },
                 { SPECIES_MISDREAVUS, 42 },
@@ -1941,7 +1941,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BIDOOF, 40 },
                 { SPECIES_SURSKIT, 42 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 24 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 4 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
@@ -1955,7 +1955,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -1967,7 +1967,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -1979,7 +1979,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -1991,29 +1991,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -2025,7 +2025,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -2037,7 +2037,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -2049,25 +2049,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -2079,7 +2079,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -2091,7 +2091,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -2103,25 +2103,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -2133,7 +2133,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -2145,7 +2145,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -2157,19 +2157,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 30 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
@@ -2177,9 +2177,9 @@ const SafariZoneAreaEncounterFile __data[] =
     },
 
     [SAFARI_ZONE_AREA_SWAMP] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_SENTRET, 15 },
                 { SPECIES_JIGGLYPUFF, 15 },
                 { SPECIES_PARAS, 15 },
@@ -2191,7 +2191,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_PARAS, 17 },
                 { SPECIES_MURKROW, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_SENTRET, 15 },
                 { SPECIES_JIGGLYPUFF, 15 },
                 { SPECIES_PARAS, 15 },
@@ -2203,7 +2203,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_PARAS, 17 },
                 { SPECIES_MURKROW, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_SENTRET, 15 },
                 { SPECIES_DROWZEE, 15 },
                 { SPECIES_MURKROW, 15 },
@@ -2215,7 +2215,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MURKROW, 17 },
                 { SPECIES_HYPNO, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_PARASECT, 41 },
                 { SPECIES_FURRET, 42 },
                 { SPECIES_PACHIRISU, 47 },
@@ -2227,7 +2227,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BAGON, 45 },
                 { SPECIES_FLOATZEL, 44 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_PARASECT, 41 },
                 { SPECIES_FURRET, 42 },
                 { SPECIES_PACHIRISU, 47 },
@@ -2239,7 +2239,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BAGON, 45 },
                 { SPECIES_FLOATZEL, 44 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_PARASECT, 41 },
                 { SPECIES_FURRET, 42 },
                 { SPECIES_PACHIRISU, 47 },
@@ -2251,7 +2251,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BAGON, 44 },
                 { SPECIES_FLOATZEL, 44 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 5 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
@@ -2265,7 +2265,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 16 },
@@ -2277,7 +2277,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 16 },
                 { SPECIES_GOLDEEN, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 16 },
@@ -2289,7 +2289,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 16 },
                 { SPECIES_GOLDEEN, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 16 },
@@ -2301,29 +2301,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 16 },
                 { SPECIES_GOLDEEN, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_SEAKING, 42 },
                 { SPECIES_MURKROW, 47 },
                 { SPECIES_DUSKULL, 48 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_SEAKING, 42 },
                 { SPECIES_MURKROW, 47 },
                 { SPECIES_DUSKULL, 48 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_SEAKING, 42 },
                 { SPECIES_MURKROW, 47 },
                 { SPECIES_DUSKULL, 48 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 4 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 35 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -2335,7 +2335,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 15 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -2347,7 +2347,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 15 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -2359,25 +2359,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MAGIKARP, 15 },
                 { SPECIES_MAGIKARP, 15 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_GOLDEEN, 17 },
                 { SPECIES_SEAKING, 17 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_GOLDEEN, 17 },
                 { SPECIES_SEAKING, 17 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_GOLDEEN, 17 },
                 { SPECIES_SEAKING, 17 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 2 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -2389,7 +2389,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -2401,7 +2401,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -2413,25 +2413,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_SEAKING, 27 },
                 { SPECIES_DRATINI, 29 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_SEAKING, 27 },
                 { SPECIES_DRATINI, 29 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_SEAKING, 27 },
                 { SPECIES_DRATINI, 29 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 6 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_GOLDEEN, 35 },
                 { SPECIES_GOLDEEN, 35 },
                 { SPECIES_GOLDEEN, 36 },
@@ -2443,7 +2443,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 36 },
                 { SPECIES_DRATINI, 37 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_GOLDEEN, 35 },
                 { SPECIES_GOLDEEN, 35 },
                 { SPECIES_GOLDEEN, 36 },
@@ -2455,7 +2455,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 36 },
                 { SPECIES_DRATINI, 37 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_GOLDEEN, 35 },
                 { SPECIES_GOLDEEN, 35 },
                 { SPECIES_GOLDEEN, 36 },
@@ -2467,19 +2467,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 36 },
                 { SPECIES_DRATINI, 37 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRAGONAIR, 42 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRAGONAIR, 42 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRAGONAIR, 42 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 15 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
@@ -2487,9 +2487,9 @@ const SafariZoneAreaEncounterFile __data[] =
     },
 
     [SAFARI_ZONE_AREA_MARSHLAND] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_EKANS, 15 },
                 { SPECIES_KOFFING, 15 },
                 { SPECIES_WEEZING, 15 },
@@ -2501,7 +2501,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_WEEZING, 17 },
                 { SPECIES_GRIMER, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_EKANS, 15 },
                 { SPECIES_KOFFING, 15 },
                 { SPECIES_WEEZING, 15 },
@@ -2513,7 +2513,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_WEEZING, 17 },
                 { SPECIES_GRIMER, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_WOOPER, 15 },
                 { SPECIES_KOFFING, 15 },
                 { SPECIES_ODDISH, 15 },
@@ -2525,7 +2525,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_ODDISH, 17 },
                 { SPECIES_GLOOM, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_GLOOM, 42 },
                 { SPECIES_JUMPLUFF, 38 },
                 { SPECIES_SEVIPER, 48 },
@@ -2537,7 +2537,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BANETTE, 44 },
                 { SPECIES_MUK, 38 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_GLOOM, 42 },
                 { SPECIES_JUMPLUFF, 38 },
                 { SPECIES_SEVIPER, 47 },
@@ -2549,7 +2549,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BANETTE, 44 },
                 { SPECIES_MUK, 38 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_GLOOM, 42 },
                 { SPECIES_JUMPLUFF, 38 },
                 { SPECIES_SEVIPER, 47 },
@@ -2561,7 +2561,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BANETTE, 45 },
                 { SPECIES_MUK, 38 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 2 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 5 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 35 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
@@ -2575,7 +2575,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_POLIWAG, 15 },
                 { SPECIES_POLIWAG, 15 },
                 { SPECIES_POLIWAG, 16 },
@@ -2587,7 +2587,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GRIMER, 16 },
                 { SPECIES_GRIMER, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_POLIWAG, 15 },
                 { SPECIES_POLIWAG, 15 },
                 { SPECIES_POLIWAG, 16 },
@@ -2599,7 +2599,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GRIMER, 16 },
                 { SPECIES_GRIMER, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_POLIWAG, 15 },
                 { SPECIES_POLIWAG, 15 },
                 { SPECIES_POLIWAG, 16 },
@@ -2611,29 +2611,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GRIMER, 16 },
                 { SPECIES_GRIMER, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_JUMPLUFF, 47 },
                 { SPECIES_QUAGSIRE, 43 },
                 { SPECIES_MUK, 48 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_JUMPLUFF, 47 },
                 { SPECIES_QUAGSIRE, 43 },
                 { SPECIES_MUK, 48 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_JUMPLUFF, 47 },
                 { SPECIES_QUAGSIRE, 43 },
                 { SPECIES_MUK, 48 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 13 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 16 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -2645,7 +2645,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWAG, 14 },
                 { SPECIES_POLIWAG, 15 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -2657,7 +2657,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWAG, 14 },
                 { SPECIES_POLIWAG, 15 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 13 },
@@ -2669,25 +2669,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWAG, 14 },
                 { SPECIES_POLIWAG, 15 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_POLIWAG, 16 },
                 { SPECIES_POLIWAG, 18 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_POLIWAG, 16 },
                 { SPECIES_POLIWAG, 18 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_POLIWAG, 16 },
                 { SPECIES_POLIWAG, 18 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 2 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -2699,7 +2699,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 24 },
                 { SPECIES_POLIWHIRL, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -2711,7 +2711,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 24 },
                 { SPECIES_POLIWHIRL, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -2723,25 +2723,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_POLIWHIRL, 24 },
                 { SPECIES_POLIWHIRL, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_GYARADOS, 26 },
                 { SPECIES_GYARADOS, 29 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_GYARADOS, 26 },
                 { SPECIES_GYARADOS, 29 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_GYARADOS, 26 },
                 { SPECIES_GYARADOS, 29 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 4 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_POLIWHIRL, 35 },
                 { SPECIES_POLIWHIRL, 36 },
                 { SPECIES_POLIWHIRL, 35 },
@@ -2753,7 +2753,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GYARADOS, 36 },
                 { SPECIES_GYARADOS, 37 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_POLIWHIRL, 35 },
                 { SPECIES_POLIWHIRL, 36 },
                 { SPECIES_POLIWHIRL, 35 },
@@ -2765,7 +2765,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GYARADOS, 36 },
                 { SPECIES_GYARADOS, 37 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_POLIWHIRL, 35 },
                 { SPECIES_POLIWHIRL, 35 },
                 { SPECIES_POLIWHIRL, 35 },
@@ -2777,19 +2777,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GYARADOS, 36 },
                 { SPECIES_GYARADOS, 37 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_BARBOACH, 42 },
                 { SPECIES_BARBOACH, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_BARBOACH, 42 },
                 { SPECIES_BARBOACH, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_BARBOACH, 42 },
                 { SPECIES_BARBOACH, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 4 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 5 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
@@ -2797,9 +2797,9 @@ const SafariZoneAreaEncounterFile __data[] =
     },
 
     [SAFARI_ZONE_AREA_WASTELAND] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_KANGASKHAN, 15 },
                 { SPECIES_ONIX, 15 },
                 { SPECIES_MAGNEMITE, 15 },
@@ -2811,7 +2811,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MAGNEMITE, 17 },
                 { SPECIES_MACHOP, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_KANGASKHAN, 15 },
                 { SPECIES_ONIX, 15 },
                 { SPECIES_MAGNEMITE, 15 },
@@ -2823,7 +2823,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MAGNEMITE, 17 },
                 { SPECIES_MACHOP, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_FEAROW, 15 },
                 { SPECIES_ONIX, 15 },
                 { SPECIES_MAGNEMITE, 15 },
@@ -2835,7 +2835,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MAGNEMITE, 17 },
                 { SPECIES_ONIX, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_MANECTRIC, 41 },
                 { SPECIES_ILLUMISE, 46 },
                 { SPECIES_BELLSPROUT, 41 },
@@ -2847,7 +2847,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDUCK, 45 },
                 { SPECIES_KINGLER, 48 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_MANECTRIC, 41 },
                 { SPECIES_ILLUMISE, 46 },
                 { SPECIES_BELLSPROUT, 41 },
@@ -2859,7 +2859,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDUCK, 45 },
                 { SPECIES_KINGLER, 48 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_MANECTRIC, 41 },
                 { SPECIES_ILLUMISE, 46 },
                 { SPECIES_BELLSPROUT, 41 },
@@ -2871,7 +2871,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDUCK, 45 },
                 { SPECIES_KINGLER, 48 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
@@ -2885,7 +2885,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -2897,7 +2897,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -2909,7 +2909,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -2921,29 +2921,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -2955,7 +2955,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -2967,7 +2967,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -2979,25 +2979,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -3009,7 +3009,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -3021,7 +3021,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -3033,25 +3033,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -3063,7 +3063,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -3075,7 +3075,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -3087,19 +3087,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 30 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
@@ -3107,9 +3107,9 @@ const SafariZoneAreaEncounterFile __data[] =
     },
 
     [SAFARI_ZONE_AREA_MOUNTAIN] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_RATICATE, 15 },
                 { SPECIES_LICKITUNG, 15 },
                 { SPECIES_RATTATA, 15 },
@@ -3121,7 +3121,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MAGNETON, 17 },
                 { SPECIES_LARVITAR, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_RATICATE, 15 },
                 { SPECIES_LICKITUNG, 15 },
                 { SPECIES_RATTATA, 15 },
@@ -3133,7 +3133,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MAGNETON, 17 },
                 { SPECIES_LARVITAR, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_ZUBAT, 15 },
                 { SPECIES_GOLBAT, 15 },
                 { SPECIES_RATTATA, 15 },
@@ -3145,7 +3145,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_MAGNETON, 17 },
                 { SPECIES_ZUBAT, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_MAGNETON, 42 },
                 { SPECIES_VOLBEAT, 46 },
                 { SPECIES_CHINGLING, 38 },
@@ -3157,7 +3157,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 43 },
                 { SPECIES_SEALEO, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_MAGNETON, 42 },
                 { SPECIES_VOLBEAT, 46 },
                 { SPECIES_CHINGLING, 38 },
@@ -3169,7 +3169,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 43 },
                 { SPECIES_SEALEO, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_MAGNETON, 42 },
                 { SPECIES_VOLBEAT, 46 },
                 { SPECIES_CHINGLING, 38 },
@@ -3181,7 +3181,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_KRABBY, 43 },
                 { SPECIES_SEALEO, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
@@ -3195,7 +3195,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -3207,7 +3207,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -3219,7 +3219,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -3231,29 +3231,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -3265,7 +3265,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -3277,7 +3277,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -3289,25 +3289,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -3319,7 +3319,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -3331,7 +3331,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -3343,25 +3343,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -3373,7 +3373,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -3385,7 +3385,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -3397,19 +3397,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 30 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
@@ -3417,9 +3417,9 @@ const SafariZoneAreaEncounterFile __data[] =
     },
 
     [SAFARI_ZONE_AREA_DESERT] = {
-        .bonus_counts = SAFARI_BONUS_COUNTS,
+        .bonusCounts = SAFARI_BONUS_COUNTS,
         .land = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_SANDSHREW, 15 },
                 { SPECIES_SANDSLASH, 15 },
                 { SPECIES_SANDSHREW, 15 },
@@ -3431,7 +3431,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_CUBONE, 17 },
                 { SPECIES_MAROWAK, 17 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_SANDSHREW, 15 },
                 { SPECIES_SANDSLASH, 15 },
                 { SPECIES_SANDSHREW, 15 },
@@ -3443,7 +3443,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_CUBONE, 17 },
                 { SPECIES_MAROWAK, 17 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_SANDSHREW, 15 },
                 { SPECIES_SANDSLASH, 15 },
                 { SPECIES_FEAROW, 15 },
@@ -3455,7 +3455,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SANDSHREW, 17 },
                 { SPECIES_FEAROW, 17 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_FEAROW, 38 },
                 { SPECIES_SPINDA, 45 },
                 { SPECIES_CARNIVINE, 48 },
@@ -3467,7 +3467,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_LOTAD, 38 },
                 { SPECIES_CACTURNE, 48 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_FEAROW, 38 },
                 { SPECIES_SPINDA, 45 },
                 { SPECIES_CARNIVINE, 48 },
@@ -3479,7 +3479,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_LOTAD, 38 },
                 { SPECIES_CACTURNE, 48 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_FEAROW, 38 },
                 { SPECIES_SPINDA, 45 },
                 { SPECIES_CARNIVINE, 48 },
@@ -3491,7 +3491,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_LOTAD, 38 },
                 { SPECIES_CACTURNE, 48 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 3 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 14 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_PLAINS, 49 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
@@ -3505,7 +3505,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
         },
         .surf = {
-            .species_morning = {
+            .speciesMorning = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -3517,7 +3517,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -3529,7 +3529,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 22 },
                 { SPECIES_WOOPER, 23 },
@@ -3541,29 +3541,29 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_TENTACOOL, 24 },
                 { SPECIES_TENTACOOL, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_QUAGSIRE, 25 },
                 { SPECIES_SURSKIT, 25 },
                 { SPECIES_SURSKIT, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_FOREST, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .old_rod = {
-            .species_morning = {
+        .oldRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -3575,7 +3575,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -3587,7 +3587,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
                 { SPECIES_MAGIKARP, 12 },
@@ -3599,25 +3599,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_GOLDEEN, 12 },
                 { SPECIES_GOLDEEN, 13 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_SEAKING, 20 },
                 { SPECIES_SEAKING, 20 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .good_rod = {
-            .species_morning = {
+        .goodRod = {
+            .speciesMorning = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -3629,7 +3629,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -3641,7 +3641,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 22 },
                 { SPECIES_MAGIKARP, 23 },
@@ -3653,25 +3653,25 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_SEAKING, 24 },
                 { SPECIES_SEAKING, 25 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRATINI, 25 },
                 { SPECIES_DRATINI, 25 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 10 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },
         },
-        .super_rod = {
-            .species_morning = {
+        .superRod = {
+            .speciesMorning = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -3683,7 +3683,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_day = {
+            .speciesDay = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -3695,7 +3695,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .species_night = {
+            .speciesNight = {
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 42 },
                 { SPECIES_GOLDEEN, 43 },
@@ -3707,19 +3707,19 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_DRATINI, 44 },
                 { SPECIES_DRATINI, 45 },
             },
-            .bonus_species_morning = {
+            .bonusSpeciesMorning = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_day = {
+            .bonusSpeciesDay = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_species_night = {
+            .bonusSpeciesNight = {
                 { SPECIES_DRAGONAIR, 45 },
                 { SPECIES_DRAGONAIR, 45 },
             },
-            .bonus_unlock_conditions = {
+            .bonusUnlockConditions = {
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 20 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
                 { .objects = { { SAFARI_ZONE_OBJECT_TYPE_WATER, 30 }, { SAFARI_ZONE_OBJECT_TYPE_NONE, 0 } } },
             },

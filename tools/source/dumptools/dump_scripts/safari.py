@@ -8,9 +8,9 @@ REPO_ROOT = Path(__file__).resolve().parents[4]
 ENCOUNTER_MODE_NAMES = (
     ("land", "land", 10),
     ("surf", "surf", 3),
-    ("old_rod", "old_rod", 2),
-    ("good_rod", "good_rod", 2),
-    ("super_rod", "super_rod", 2),
+    ("old_rod", "oldRod", 2),
+    ("good_rod", "goodRod", 2),
+    ("super_rod", "superRod", 2),
 )
 TIME_OF_DAY_NAMES = (
     "morning",
@@ -122,23 +122,25 @@ def dump_safari_encounters_c(narc, is_expanded):
 
     for area_index, area in enumerate(parsed_areas):
         lines.append(f"    [{SAFARI_AREA_NAMES[area_index]}] = {{")
-        lines.append("        .bonus_counts = SAFARI_BONUS_COUNTS,")
+        lines.append("        .bonusCounts = SAFARI_BONUS_COUNTS,")
 
         for mode_index, (_, field_name, bonus_count) in enumerate(ENCOUNTER_MODE_NAMES):
             encounter_type = area["encounter_types"][mode_index]
             lines.append(f"        .{field_name} = {{")
             for time_name in TIME_OF_DAY_NAMES:
-                lines.append(f"            .species_{time_name} = {{")
+                field_name = time_name[0].upper() + time_name[1:]
+                lines.append(f"            .species{field_name} = {{")
                 for species, level in encounter_type["base_mons"][time_name]:
                     lines.append(f"                {{ {_species_expr(species, is_expanded)}, {level} }},")
                 lines.append("            },")
             for time_name in TIME_OF_DAY_NAMES:
-                lines.append(f"            .bonus_species_{time_name} = {{")
+                field_name = time_name[0].upper() + time_name[1:]
+                lines.append(f"            .bonusSpecies{field_name} = {{")
                 for bonus_index, _ in enumerate(encounter_type["unlock_conditions"]):
                     species, level = encounter_type["bonus_mons"][time_name][bonus_index]
                     lines.append(f"                {{ {_species_expr(species, is_expanded)}, {level} }},")
                 lines.append("            },")
-            lines.append("            .bonus_unlock_conditions = {")
+            lines.append("            .bonusUnlockConditions = {")
             for object1_type, object1_count, object2_type, object2_count in encounter_type["unlock_conditions"]:
                 lines.append(
                     f"                {{ .objects = {{ {{ {_object_type_expr(object1_type)}, {object1_count} }}, {{ {_object_type_expr(object2_type)}, {object2_count} }} }} }},"
